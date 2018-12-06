@@ -1,6 +1,6 @@
 {
   "name": "@smarthtmlelements/smart-elements",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Web Components &amp; Custom Elements for Professional Web Applications",
   "main": "index.js",
   "scripts": {
@@ -11,9 +11,20 @@
     "url": "git+https://github.com/HTMLElements/smart-elements.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "https://htmlelements.com/license/",
   "bugs": {
     "url": "https://github.com/HTMLElements/smart-elements/issues"
   },
-  "homepage": "https://github.com/HTMLElements/smart-elements#readme"
+  "homepage": "https://github.com/HTMLElements/smart-elements#readme",
+   "keywords": [
+	"custom",
+	"element",
+	"carousel custom element",
+	"html carousel",
+	"material web components",
+	"webcomponents",
+	"material webcomponents",
+	"custom elements",
+	"material customelements"
+  ]
 }

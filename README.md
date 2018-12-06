@@ -26,7 +26,7 @@ A suite of polyfills supporting the Web Components specs is included in our exam
 Download and Installation
 -------------------------
 
-[Download Smart HTML Elements](npm i @smarthtmlelements/smart-elements or http://www.htmlelements.com/download/)
+[Download Smart HTML Elements](https://www.htmlelements.com/download/)
 
 *   ### The SDK files are located in the jqwidgets directory
     
