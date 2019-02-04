@@ -1,6 +1,6 @@
 {
   "name": "@smarthtmlelements/smart-elements",
-  "version": "1.0.2",
+  "version": "2.2.0",
   "description": "Web Components &amp; Custom Elements for Professional Web Applications",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,15 @@
    "keywords": [
 	"custom",
 	"element",
+	"bootstrap",
+	"tables",
+	"table",
+	"grid",
+	"grid web component",
+	"datagrid web component",
+	"data grid",
+	"datagrid bootstrap",
+	"bootstrap grid",
 	"carousel custom element",
 	"html carousel",
 	"material web components",

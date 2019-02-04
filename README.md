@@ -10,7 +10,7 @@ Build responsive, mobile-first projects on the Web with the most advanced front-
 What is Smart HTML Elements?
 ----------------------------
 
-Smart HTML Elements is a Framework for building  Custom Elements. Smart is similar to Polymer and LitElement. It supports two-way data-binding, templates, property change notifications, Typescript-like type-checking and validation.
+Smart HTML Elements is a Framework for building  Web Components and Custom Elements. Smart is similar to Polymer and LitElement. It supports two-way data-binding, templates, property change notifications, Typescript-like type-checking and validation.
 Smart does not have third-party dependencies. It is pure Javascript code. More than 30 Web Components are built with Smart including Grid, Tabs, Accordion, Gauge, DateTimePicker and others. Some of the Web Components built with the library are commercial. Others are open-source.
 
 Works across devices and browsers
