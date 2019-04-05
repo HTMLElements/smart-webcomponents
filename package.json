@@ -1,6 +1,6 @@
 {
   "name": "@smarthtmlelements/smart-elements",
-  "version": "2.2.0",
+  "version": "2.4.0",
   "description": "Web Components &amp; Custom Elements for Professional Web Applications",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,14 @@
 	"bootstrap",
 	"tables",
 	"table",
+	"javascript grid",
+	"javascript datagrid",
+	"javascript datatable",
+	"datatable",
+	"bootstrap datagrid",
+	"material datagrid",
+	"bootstrap datatable",
+	"bootstrap table",
 	"grid",
 	"grid web component",
 	"datagrid web component",
