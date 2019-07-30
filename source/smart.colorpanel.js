@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 /* Smart HTML Elements v4.0.0 (2019-Aug) 
+=======
+/* Smart HTML Elements v3.2.0 (2019-June) 
+>>>>>>> origin/master
 Copyright (c) 2011-2019 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
@@ -40,7 +44,11 @@ Smart("smart-color-panel",class extends Smart.BaseElement{static get properties(
                         <div id="spectrumGridSamplesContainer" class ="spectrum-grid-samples-container"></div>
                         <smart-button id="buttonCustom" class ="button-custom-color primary"></smart-button>
                         <div id="userSamplesContainer" class ="user-samples-container"></div>
+<<<<<<< HEAD
                         <smart-tooltip id="tooltip" arrow position="auto"></smart-tooltip>`,e.$.defaultSamplesContainer=a.querySelector(".default-samples-container"),e.$.gridSamplesContainer=a.querySelector(".grid-samples-container"),e.$.materialGridSamplesContainer=a.querySelector(".material-grid-samples-container"),e.$.materialGridSamplesContainer.$=Smart.Utilities.Extend(e.$.materialGridSamplesContainer),e.$.spectrumGridSamplesContainer=a.querySelector(".spectrum-grid-samples-container"),e.$.userSamplesContainer=a.querySelector(".user-samples-container"),e.$.buttonCustom=a.querySelector("smart-button"),e.$.tooltip=a.querySelector("smart-tooltip"),e.$.buttonCustom.disabled=e.disabled,e.$.buttonCustom.animation=e.animation,e.$.buttonCustom.theme=e.theme,e.$.buttonCustom.content=e.localize("customColor"),e.$.tooltip.disabled=e.disabled||"none"===e.tooltipDisplayMode,e.$.tooltip.animation=e.animation,e.$.tooltip.theme=e.theme}}_createColorControls(e){const a=this;if(!e&&0>["radial","palette","hexagonal"].indexOf(a.displayMode))return!1;const l=a.$.colorControlsContainer;if(!l.innerHTML.trim()){l.innerHTML=`
+=======
+                        <smart-tooltip id="tooltip" arrow></smart-tooltip>`,e.$.defaultSamplesContainer=a.querySelector(".default-samples-container"),e.$.gridSamplesContainer=a.querySelector(".grid-samples-container"),e.$.materialGridSamplesContainer=a.querySelector(".material-grid-samples-container"),e.$.materialGridSamplesContainer.$=Smart.Utilities.Extend(e.$.materialGridSamplesContainer),e.$.spectrumGridSamplesContainer=a.querySelector(".spectrum-grid-samples-container"),e.$.userSamplesContainer=a.querySelector(".user-samples-container"),e.$.buttonCustom=a.querySelector("smart-button"),e.$.tooltip=a.querySelector("smart-tooltip"),e.$.buttonCustom.disabled=e.disabled,e.$.buttonCustom.animation=e.animation,e.$.buttonCustom.theme=e.theme,e.$.buttonCustom.content=e.localize("customColor"),e.$.tooltip.disabled=e.disabled||"none"===e.tooltipDisplayMode,e.$.tooltip.animation=e.animation,e.$.tooltip.theme=e.theme}}_createColorControls(e){const a=this;if(!e&&0>["radial","palette","hexagonal"].indexOf(a.displayMode))return!1;const l=a.$.colorControlsContainer;if(!l.innerHTML.trim()){l.innerHTML=`
+>>>>>>> origin/master
                                 <div id="previewContainer" class ="preview-container gradient-background">
                                        <span  class ="preview-container-top"></span>
                                        <span class ="preview-container-bottom"></span>

@@ -17,6 +17,7 @@ Works across devices and browsers
 ---------------------------------
   
 
+
 Web Components
 --------------
 
@@ -46,6 +47,17 @@ Download and Installation
 [Documentation ↗](https://www.htmlelements.com/docs/)
     
     
+
+[<img src="https://raw.githubusercontent.com/htmlelements/smart-elements/master/grid.png" alt="Screenshot of smart-grid, using the Material theme">](https://htmlelements.com/demos/)
+
+
+[<img src="https://raw.githubusercontent.com/htmlelements/smart-elements/master/grid-sheet.png" alt="Screenshot of smart-sheet, using the Material theme">](https://htmlelements.com/demos/)
+
+
+[<img src="https://raw.githubusercontent.com/htmlelements/smart-elements/master/chart.png" alt="Screenshot of smart-chart, using the Material theme">](https://htmlelements.com/demos/)
+
+[<img src="https://raw.githubusercontent.com/htmlelements/smart-elements/master/docking.png" alt="Screenshot of smart-docking, using the Material theme">](https://htmlelements.com/demos/)
+
 
 [<img src="https://raw.githubusercontent.com/htmlelements/smart-elements/master/smart-tabs.png" alt="Screenshot of smart-tabs, using the Material theme">](https://htmlelements.com/demos/tabs/)
 
