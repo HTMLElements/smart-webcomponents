@@ -1,7 +1,9 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxtooltip.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.tooltip.js";
 
-export class jqxTooltip extends JQX.Component {
-		
+export class smartTooltip extends Smart.Component {
+	get name() {
+		return 'smartTooltip';
+	}		
 }

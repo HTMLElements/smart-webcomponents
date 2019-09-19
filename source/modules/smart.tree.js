@@ -1,11 +1,13 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxradiobutton.js";
-import "../jqxcheckbox.js";
-import "../jqxscrollbar.js";
-import "../jqxmenu.js";
-import "../jqxtree.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.radiobutton.js";
+import "../smart.checkbox.js";
+import "../smart.scrollbar.js";
+import "../smart.menu.js";
+import "../smart.tree.js";
 
-export class jqxTree extends JQX.Component {
-		
+export class smartTree extends Smart.Component {
+	get name() {
+		return 'smartTree';
+	}
 }

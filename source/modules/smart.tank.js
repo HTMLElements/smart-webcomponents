@@ -1,10 +1,14 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxtickintervalhandler.js";
-import "../jqxtank.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.math.js";
+import "../smart.numeric.js";
+import "../smart.tickintervalhandler.js";
+import "../smart.tank.js";
 
 
-export class jqxTank extends JQX.Component {
-		
+export class smartTank extends Smart.Component {
+	get name() {
+		return 'smartTank';
+	}		
 }

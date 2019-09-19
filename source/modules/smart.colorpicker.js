@@ -1,14 +1,18 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxcheckbox.js";
-import "../jqxradiobutton.js";
-import "../jqxlistbox.js";
-import "../jqxdropdownlist.js";
-import "../jqxtooltip.js";
-import "../jqxdropdownbutton.js";
-import "../jqxcolorpanel.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.draw.js";
+import "../smart.checkbox.js";
+import "../smart.radiobutton.js";
+import "../smart.listbox.js";
+import "../smart.dropdownlist.js";
+import "../smart.tooltip.js";
+import "../smart.dropdownbutton.js";
+import "../smart.colorpanel.js";
+import "../smart.colorpicker.js";
 
-export class jqxColorPicker extends JQX.Component {
-		
+export class smartColorPicker extends Smart.Component {
+	get name() {
+		return 'smartColorPicker';
+	}		
 }

@@ -1,12 +1,14 @@
-import "../jqxelement.js";
-import "../jqxscrollbar.js";
-import "../jqxbutton.js";
-import "../jqxlistbox.js";
-import "../jqxdropdownlist.js";
-import "../jqxdate.js";
-import "../jqxtooltip.js";
-import "../jqxcalendar.js";
+import "../smart.element.js";
+import "../smart.scrollbar.js";
+import "../smart.button.js";
+import "../smart.listbox.js";
+import "../smart.dropdownlist.js";
+import "../smart.date.js";
+import "../smart.tooltip.js";
+import "../smart.calendar.js";
 
-export class jqxCalendar extends JQX.Component {
-		
+export class smartCalendar extends Smart.Component {
+	get name() {
+		return 'smartCalendar';
+	}		
 }

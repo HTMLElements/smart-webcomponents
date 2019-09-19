@@ -1,8 +1,10 @@
-import "../jqxelement.js";
-import "../jqxscrollbar.js";
-import "../jqxbutton.js";
-import "../jqxbreadcrumb.js";
+import "../smart.element.js";
+import "../smart.scrollbar.js";
+import "../smart.button.js";
+import "../smart.breadcrumb.js";
 
-export class jqxBreadCrumb extends JQX.Component {
-		
+export class smartBreadCrumb extends Smart.Component {
+	get name() {
+		return 'smartBreadCrumb';
+	}				
 }

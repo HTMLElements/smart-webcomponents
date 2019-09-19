@@ -1,6 +1,8 @@
-import "../jqxelement.js";
-import "../jqxcard.js";
+import "../smart.element.js";
+import "../smart.card.js";
 
-export class jqxCard extends JQX.Component {
-		
+export class smartCard extends Smart.Component {
+	get name() {
+		return 'smartCard';
+	}		
 }

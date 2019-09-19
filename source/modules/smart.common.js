@@ -1,33 +1,33 @@
-import "../jqxelement.js"
-import "../jqxformat.js"
-import "../jqxdate.js"
-import "../jqxnumeric.js"
-import "../jqxcomplex.js"
-import "../jqxdraw.js"
-import "../jqxfilter.js"
-import "../jqxexport.js";
-import "../jqxdata.js"
+import "../smart.element.js"
+import "../smart.format.js"
+import "../smart.date.js"
+import "../smart.numeric.js"
+import "../smart.complex.js"
+import "../smart.draw.js"
+import "../smart.filter.js"
+import "../smart.export.js";
+import "../smart.data.js"
 
-export class ConditionalFormatter extends JQX.Utilities.ConditionalFormatter {}
-export class TimeSpan extends JQX.Utilities.TimeSpan{}
-export class DateTime extends JQX.Utilities.DateTime{}
-export class DataAdapter extends JQX.DataAdapter{}
-export class SvgRenderer extends JQX.SvgRenderer{}
-export class HTML5Renderer extends JQX.HTML5Renderer{}
-export class Plot extends JQX.Plot{}
-export class Complex extends JQX.Complex{}
-export class FilterGroup extends JQX.Utilities.FilterGroup{}
-export class StringFilter extends JQX.Utilities.StringFilter{}
-export class BooleanFilter extends JQX.Utilities.BooleanFilter{}
-export class NumericFilter extends JQX.Utilities.NumericFilter{}
-export class DateFilter extends JQX.Utilities.DateFilter{}
-export class CustomFilter extends JQX.Utilities.CustomFilter{}
-export class DataExporter extends JQX.Utilities.DataExporter{}
-export class NumericProcessor extends JQX.Utilities.NumericProcessor{}
-export class IntegerNumericProcessor extends JQX.Utilities.IntegerNumericProcessor{}
-export class DecimalNumericProcessor extends JQX.Utilities.DecimalNumericProcessor{}
-export class ComplexNumericProcessor extends JQX.Utilities.ComplexNumericProcessor{}
-export class NumberRenderer extends JQX.Utilities.NumberRenderer{}
+export class ConditionalFormatter extends Smart.Utilities.ConditionalFormatter {}
+export class TimeSpan extends Smart.Utilities.TimeSpan{}
+export class DateTime extends Smart.Utilities.DateTime{}
+export class DataAdapter extends Smart.DataAdapter{}
+export class SvgRenderer extends Smart.SvgRenderer{}
+export class HTML5Renderer extends Smart.HTML5Renderer{}
+export class Plot extends Smart.Plot{}
+export class Complex extends Smart.Complex{}
+export class FilterGroup extends Smart.Utilities.FilterGroup{}
+export class StringFilter extends Smart.Utilities.StringFilter{}
+export class BooleanFilter extends Smart.Utilities.BooleanFilter{}
+export class NumericFilter extends Smart.Utilities.NumericFilter{}
+export class DateFilter extends Smart.Utilities.DateFilter{}
+export class CustomFilter extends Smart.Utilities.CustomFilter{}
+export class DataExporter extends Smart.Utilities.DataExporter{}
+export class NumericProcessor extends Smart.Utilities.NumericProcessor{}
+export class IntegerNumericProcessor extends Smart.Utilities.IntegerNumericProcessor{}
+export class DecimalNumericProcessor extends Smart.Utilities.DecimalNumericProcessor{}
+export class ComplexNumericProcessor extends Smart.Utilities.ComplexNumericProcessor{}
+export class NumberRenderer extends Smart.Utilities.NumberRenderer{}
 
 
 

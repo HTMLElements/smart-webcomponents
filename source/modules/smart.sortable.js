@@ -1,8 +1,10 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxsortable.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.sortable.js";
 
-export class jqxSortable extends JQX.Component {
-		
+export class smartSortable extends Smart.Component {
+	get name() {
+		return 'smartSortable';
+	}		
 }

@@ -1,10 +1,12 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxlistbox.js";
-import "../jqxdropdownlist.js";
-import "../jqxfileupload.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.listbox.js";
+import "../smart.dropdownlist.js";
+import "../smart.fileupload.js";
 
-export class jqxFileUpload extends JQX.Component {
-		
+export class smartFileUpload extends Smart.Component {
+	get name() {
+		return 'smartFileUpload';
+	}		
 }

@@ -1,9 +1,11 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxlistbox.js";
-import "../jqxdropdownlist.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.listbox.js";
+import "../smart.dropdownlist.js";
 
-export class jqxDropDownList extends JQX.Component {
-		
+export class smartDropDownList extends Smart.Component {
+	get name() {
+		return 'smartDropDownList';
+	}		
 }

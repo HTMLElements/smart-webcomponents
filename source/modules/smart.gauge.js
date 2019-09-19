@@ -1,11 +1,13 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxdraw.js";
-import "../jqxtickintervalhandler.js";
-import "../jqxtank.js";
-import "../jqxgauge.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.draw.js";
+import "../smart.tickintervalhandler.js";
+import "../smart.tank.js";
+import "../smart.gauge.js";
 
-export class jqxGauge extends JQX.Component {
-		
+export class smartGauge extends Smart.Component {
+	get name() {
+		return 'smartGauge';
+	}		
 }

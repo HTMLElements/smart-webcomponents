@@ -1,7 +1,9 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxinput.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.input.js";
 
-export class jqxInput extends JQX.Component {
-		
+export class smartInput extends Smart.Component {
+	get name() {
+		return 'smartInput';
+	}		
 }

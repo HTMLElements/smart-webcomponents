@@ -1,9 +1,9 @@
-import "../jqxelement.js"
+import "../smart.element.js"
 
-export class BaseElement extends JQX.BaseElement {}
-export class Component extends JQX.Component {}
-export class Import extends JQX.Import {}
-export class Observable extends JQX.Observable {}
-export class ObservableArray extends JQX.ObservableArray {}
-export class Utilities extends JQX.Utilities {}
-export class App extends JQX.App {}
+export class BaseElement extends Smart.BaseElement {}
+export class Component extends Smart.Component {}
+export class Import extends Smart.Import {}
+export class Observable extends Smart.Observable {}
+export class ObservableArray extends Smart.ObservableArray {}
+export class Utilities extends Smart.Utilities {}
+export class App extends Smart.App {}

@@ -1,9 +1,13 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxdraw.js";
-import "../jqxtickintervalhandler.js";
-import "../jqxtimepicker.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.draw.js";
+import "../smart.math.js";
+import "../smart.numeric.js";
+import "../smart.tickintervalhandler.js";
+import "../smart.timepicker.js";
 
-export class jqxTimePicker extends JQX.Component {
-		
+export class smartTimePicker extends Smart.Component {
+	get name() {
+		return 'smartTimePicker';
+	}		
 }

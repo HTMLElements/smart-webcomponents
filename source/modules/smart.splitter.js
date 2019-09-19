@@ -1,10 +1,16 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxsplitter.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.splitter.js";
 
-export class jqxSplitter extends JQX.Component {
-		
+export class smartSplitter extends Smart.Component {
+	get name() {
+		return 'smartSplitter';
+	}		
 }
 
-export class jqxSplitterItem extends JQX.Component {}
+export class smartSplitterItem extends Smart.Component {
+	get name() {
+		return 'smartSplitterItem';
+	}	
+}

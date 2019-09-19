@@ -1,36 +1,47 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxcheckbox.js";
-import "../jqxradiobutton.js";
-import "../jqxlistbox.js";
-import "../jqxdropdownlist.js";
-import "../jqxcombobox.js";
-import "../jqxnumeric.js";
-import "../jqxmath.js";
-import "../jqxcomplex.js";
-import "../jqxtextbox.js";
-import "../jqxmaskedtextbox.js";
-import "../jqxpasswordtextbox.js";
-import "../jqxmultilinetextbox.js";
-import "../jqxnumerictextbox.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.checkbox.js";
+import "../smart.radiobutton.js";
+import "../smart.listbox.js";
+import "../smart.dropdownlist.js";
+import "../smart.combobox.js";
+import "../smart.tooltip.js";
+import "../smart.numeric.js";
+import "../smart.math.js";
+import "../smart.complex.js";
+import "../smart.textbox.js";
+import "../smart.maskedtextbox.js";
+import "../smart.passwordtextbox.js";
+import "../smart.multilinetextbox.js";
+import "../smart.numerictextbox.js";
 
-export class jqxTextBox extends JQX.Component {
-		
+export class smartTextBox extends Smart.Component {
+	get name() {
+		return 'smartTextBox';
+	}		
 }
 
-export class jqxMaskedTextBox extends JQX.Component {
-		
+export class smartMaskedTextBox extends Smart.Component {
+	get name() {
+		return 'smartMaskedTextBox';
+	}		
 }
 
-export class jqxPasswordTextBox extends JQX.Component {
-		
+export class smartPasswordTextBox extends Smart.Component {
+	get name() {
+		return 'smartPasswordTextBox';
+	}		
 }
 
-export class jqxNumericTextBox extends JQX.Component {
-		
+export class smartNumericTextBox extends Smart.Component {
+	get name() {
+		return 'smartNumericTextBox';
+	}		
 }
 
-export class jqxMultilineTextBox extends JQX.Component {
-		
+export class smartMultilineTextBox extends Smart.Component {
+	get name() {
+		return 'smartMultilineTextBox';
+	}		
 }

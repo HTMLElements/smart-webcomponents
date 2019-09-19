@@ -1,27 +1,52 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxpowerbutton.js";
-import "../jqxradiobutton.js";
-import "../jqxcheckbox.js";
-import "../jqxdropdownbutton.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.powerbutton.js";
+import "../smart.radiobutton.js";
+import "../smart.checkbox.js";
+import "../smart.dropdownbutton.js";
+import "../smart.switchbutton.js";
 
-export class jqxButton extends JQX.Component {
-		
+export class smartButton extends Smart.Component {
+	get name() {
+		return 'smartButton';
+	}						
 }
 
-export class jqxToggleButton extends JQX.Component {
-		
+export class smartToggleButton extends Smart.Component {
+	get name() {
+		return 'smartToggleButton';
+	}		
 }
 
-export class jqxRepeatButton extends JQX.Component {
-		
+export class smartRepeatButton extends Smart.Component {
+	get name() {
+		return 'smartRepeatButton';
+	}		
 }
 
-export class jqxSwitchButton extends JQX.Component {
-		
+export class smartSwitchButton extends Smart.Component {
+	get name() {
+		return 'smartSwitchButton';
+	}		
 }
 
-export class jqxCheckBox extends JQX.Component {};
-export class jqxPowerButton extends JQX.Component{};
-export class jqxRadioButton extends JQX.Component{};
-export class jqxDropDownButton extends JQX.Component{};
+export class smartCheckBox extends Smart.Component {
+	get name() {
+		return 'smartCheckBox';
+	}	
+};
+export class smartPowerButton extends Smart.Component{
+	get name() {
+		return 'smartPowerButton';
+	}	
+};
+export class smartRadioButton extends Smart.Component{
+	get name() {
+		return 'smartRadioButton';
+	}	
+};
+export class smartDropDownButton extends Smart.Component{
+	get name() {
+		return 'smartDropDownButton';
+	}	
+};

@@ -1,12 +1,16 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxdraw.js";
-import "../jqxprogressbar.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.draw.js";
+import "../smart.progressbar.js";
 
-export class jqxCircularProgressBar extends JQX.Component {
-		
+export class smartCircularProgressBar extends Smart.Component {
+	get name() {
+		return 'smartCircularProgressBar';
+	}		
 }
 
-export class jqxProgressBar extends JQX.Component {
-		
+export class smartProgressBar extends Smart.Component {
+	get name() {
+		return 'smartProgressBar';
+	}		
 }

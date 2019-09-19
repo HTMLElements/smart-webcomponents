@@ -1,14 +1,6 @@
 
-<<<<<<< HEAD
-/* Smart HTML Elements v4.0.0 (2019-Aug) 
+/* Smart HTML Elements v4.5.0 (2019-Sep) 
 Copyright (c) 2011-2019 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart.Utilities.Assign("Grid.Group",class{addGroup(a){const b=this;if(b.dataSource&&b.grouping.enabled){const c=b.dataSource.groupBy.indexOf(a);-1===c&&(b.dataSource.groupBy.push(a),b.refresh(!0),b.refreshFilters())}}removeGroup(a){const b=this;if(b.dataSource&&b.grouping.enabled){const c=b.dataSource.groupBy.indexOf(a);0<=c&&(b.dataSource.groupBy.splice(c,1),b.refresh(!0),b.refreshFilters())}}clearGroups(){const a=this;a.dataSource&&a.grouping.enabled&&(a.dataSource.clearGroup(),a.refresh(!0),a.refreshFilters())}});
-=======
-/* Smart HTML Elements v3.2.0 (2019-June) 
-Copyright (c) 2011-2019 jQWidgets. 
-License: https://htmlelements.com/license/ */
-
-Smart.Utilities.Assign("Grid.Group",class{addGroup(a){const b=this;if(b.dataSource){const c=b.dataSource.groupBy.indexOf(a);-1===c&&(b.dataSource.groupBy.push(a),b.refresh(!0),b.refreshFilters())}}removeGroup(a){const b=this;if(b.dataSource){const c=b.dataSource.groupBy.indexOf(a);0<=c&&(b.dataSource.groupBy.splice(c,1),b.refresh(!0),b.refreshFilters())}}clearGroups(){const a=this;a.dataSource&&(a.dataSource.clearGroup(),a.refresh(!0),a.refreshFilters())}});
->>>>>>> origin/master

@@ -1,8 +1,11 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxtable.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.data.js";
+import "../smart.table.js";
 
-export class jqxTable extends JQX.Component {
-		
+export class smartTable extends Smart.Component {
+	get name() {
+		return 'smartTable';
+	}		
 }

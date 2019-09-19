@@ -1,7 +1,9 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
 
-export class jqxScrollBar extends JQX.Component {
-		
+export class smartScrollBar extends Smart.Component {
+	get name() {
+		return 'smartScrollBar';
+	}		
 }

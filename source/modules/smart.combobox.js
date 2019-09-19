@@ -1,12 +1,14 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxcheckbox.js";
-import "../jqxradiobutton.js";
-import "../jqxlistbox.js";
-import "../jqxdropdownlist.js";
-import "../jqxcombobox.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.checkbox.js";
+import "../smart.radiobutton.js";
+import "../smart.listbox.js";
+import "../smart.dropdownlist.js";
+import "../smart.combobox.js";
 
-export class jqxComboBox extends JQX.Component {
-		
+export class smartComboBox extends Smart.Component {
+	get name() {
+		return 'smartComboBox';
+	}		
 }

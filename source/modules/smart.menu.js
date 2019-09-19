@@ -1,16 +1,22 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxmenu.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.menu.js";
 
-export class jqxMenuItem extends JQX.Component {
-		
+export class smartMenuItem extends Smart.Component {
+	get name() {
+		return 'smartMenuItem';
+	}		
 }
 
-export class jqxMenuItemsGroup extends JQX.Component {
-		
+export class smartMenuItemsGroup extends Smart.Component {
+	get name() {
+		return 'smartMenuItemsGroup';
+	}		
 }
 
-export class jqxMenu extends JQX.Component {
-		
+export class smartMenu extends Smart.Component {
+	get name() {
+		return 'smartMenu';
+	}		
 }

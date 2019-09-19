@@ -1,31 +1,45 @@
-import "../jqxelement.js";
-import "../jqxscrollbar.js";
-import "../jqxfilter.js";
-import "../jqxdata.js";
-import "../jqxexport.js";
-import "../jqxbutton.js";
-import "../jqxlistbox.js";
-import "../jqxdropdownlist.js";
-import "../jqxpager.js";
-import "../jqxmenu.js";
-import "../jqxinput.js";
-import "../jqxdate.js";
-import "../jqxcalendar.js";
-import "../jqxdatetimepicker.js";
-import "../jqxgridpanel.js";
-import "../jqxfilterbuilder.js";
-import "../jqxgrid.column.js";
-import "../jqxgrid.row.js";
-import "../jqxgrid.cell.js";
-import "../jqxgrid.menu.js";
-import "../jqxgrid.filter.js";
-import "../jqxgrid.sort.js";
-import "../jqxgrid.group.js";
-import "../jqxgrid.select.js";
-import "../jqxgrid.edit.js";
-import "../jqxgrid.tree.js";
-import "../jqxgrid.core.js"
+import "../smart.element.js";
+import "../smart.scrollbar.js";
+import "../smart.filter.js";
+import "../smart.data.js";
+import "../smart.export.js";
+import "../smart.button.js";
+import "../smart.listbox.js";
+import "../smart.dropdownlist.js";
+import "../smart.pager.js";
+import "../smart.menu.js";
+import "../smart.input.js";
+import "../smart.date.js";
+import "../smart.numeric.js";
+import "../smart.calendar.js";
+import "../smart.datetimepicker.js";
+import "../smart.gridpanel.js";
+import "../smart.filterbuilder.js";
+import "../smart.filterpanel.js";
+import "../smart.grid.column.js";
+import "../smart.grid.row.js";
+import "../smart.grid.cell.js";
+import "../smart.grid.menu.js";
+import "../smart.grid.pager.js";
+import "../smart.grid.filter.js";
+import "../smart.grid.sort.js";
+import "../smart.grid.group.js";
+import "../smart.grid.select.js";
+import "../smart.grid.edit.js";
+import "../smart.grid.tree.js";
+import "../smart.grid.export.js";
+import "../smart.grid.resize.js";
+import "../smart.grid.chart.js";
 
-export class jqxGrid extends JQX.Component {
+import "../smart.grid.core.js"
+
+export class smartGrid extends Smart.Component {
+    get name() {
+        return 'smartGrid';
+    }	
+}
+
+export class smartDataAdapter extends Smart.DataAdapter {
 	
 }
+

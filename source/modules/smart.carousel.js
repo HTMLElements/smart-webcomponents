@@ -1,8 +1,10 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxcarousel.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.carousel.js";
 
-export class jqxCarousel extends JQX.Component {
-		
+export class smartCarousel extends Smart.Component {
+	get name() {
+		return 'smartCarousel';
+	}		
 }

@@ -1,7 +1,9 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxtoast.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.toast.js";
 
-export class jqxToast extends JQX.Component {
-		
+export class smartToast extends Smart.Component {
+	get name() {
+		return 'smartToast';
+	}		
 }

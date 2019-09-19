@@ -1,15 +1,20 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxdata.js";
-import "../jqxdraw.js";
-import "../jqxchart.core.js";
-import "../jqxchart.rangeselector.js";
-import "../jqxchart.api.js";
-import "../jqxchart.waterfall.js";
-import "../jqxchart.annotations.js";
-import "../jqxexport.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.data.js";
+import "../smart.draw.js";
+import "../smart.chart.core.js";
+import "../smart.chart.rangeselector.js";
+import "../smart.chart.api.js";
+import "../smart.chart.waterfall.js";
+import "../smart.chart.annotations.js";
+import "../smart.export.js";
 
-export class jqxChart extends JQX.Component {
+export class smartChart extends Smart.Component {
+	get name() {
+		return 'smartChart';
+	}
+}
 
+export class smartDataAdapter extends Smart.DataAdapter {
 }

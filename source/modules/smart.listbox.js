@@ -1,13 +1,17 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxscrollbar.js";
-import "../jqxlistbox.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.scrollbar.js";
+import "../smart.listbox.js";
 
-export class jqxListBox extends JQX.Component {
-		
+export class smartListBox extends Smart.Component {
+	get name() {
+		return 'smartListBox';
+	}		
 }
 
-export class jqxListItem extends JQX.Component {
-		
+export class smartListItem extends Smart.Component {
+	get name() {
+		return 'smartListItem';
+	}		
 }
 

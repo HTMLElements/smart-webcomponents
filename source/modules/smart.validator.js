@@ -1,7 +1,9 @@
-import "../jqxelement.js";
-import "../jqxbutton.js";
-import "../jqxvalidator.js";
+import "../smart.element.js";
+import "../smart.button.js";
+import "../smart.validator.js";
 
-export class jqxValidator extends JQX.Utilities.Validator {
-		
+export class smartValidator extends Smart.Utilities.Validator {
+	get name() {
+		return 'smartValidator';
+	}
 }
