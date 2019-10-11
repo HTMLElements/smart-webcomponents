@@ -1,4 +1,4 @@
-/* Smart HTML Elements v4.4.0 (2019-Sep) 
+/* Smart HTML Elements v4.6.0 (2019-Oct) 
 Copyright (c) 2011-2019 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
@@ -36,12 +36,6 @@ Smart('bootstrap-button', class BootstrapButton extends Smart.ContentElement {
 		return '<button inner-h-t-m-l=\'[[innerHTML]]\' id=\'button\' type=\'[[type]]\' name=\'[[name]]\' value=\'[[value]]\' disabled=\'[[disabled]]\' role=\'button\'></button>';
 	}
 
-	ready() {
-		const that = this;
-
-		that.render();
-	}
-
 	render() {
 		const that = this;
 
@@ -62,6 +56,8 @@ Smart('bootstrap-button', class BootstrapButton extends Smart.ContentElement {
 		if (that.sizeMode !== '') {
 			that.$.button.classList.add('btn-' + that.sizeMode);
 		}
+		
+		super.render();
 	}
 
 	propertyChangedHandler(propertyName, oldValue, newValue) {
@@ -858,8 +854,6 @@ Smart('bootstrap-input-group', class BootstrapInputGroup extends Smart.ContentEl
 		const that = this;
 
 		that.noWrap ? that.$.container.classList.add('flex-nowrap') : that.$.container.classList.remove('flex-nowrap');
-
-		that.render();
 	}
 
 	propertyChangedHandler(propertyName, oldValue, newValue) {
@@ -1032,12 +1026,6 @@ Smart('bootstrap-modal', class BootstrapModal extends Smart.ContentElement {
 					<div class="modal-content" inner-h-t-m-l="[[innerHTML]]">
 						<content></content>
 				</div></div>`;
-	}
-
-	ready() {
-		const that = this;
-
-		that.render();
 	}
 
 	propertyChangedHandler(propertyName, oldValue, newValue) {
@@ -1482,36 +1470,6 @@ Smart('bootstrap-tabs', class BootstrapTabs extends Smart.ContentElement {
 		return '<div id="container"><content></content></div>';
 	}
 
-	ready() {
-		const that = this;
-
-		that.render();
-
-		if (!that._list) {
-			return;
-		}
-
-		if (that.alignment && that._list) {
-			that._list.classList.add(that.alignment === 'vertical' ? 'flex-column' : 'justify-content-' + that.alignment);
-		}
-
-		if (that.tabType !== 'nav') {
-			that._list.classList.add('nav-' + that.tabType);
-		}
-
-		if (that.fill) {
-			that._list.classList.add('nav-fill');
-		}
-
-		if (that.justified) {
-			that._list.classList.add('nav-justified');
-		}
-		
-		if (that.styleMode) {
-			that.classList.add(that.styleMode);	
-		}
-	}
-
 	appendChild(node) {
 		const that = this;
 
@@ -1656,6 +1614,32 @@ Smart('bootstrap-tabs', class BootstrapTabs extends Smart.ContentElement {
 
 		that.$.container.insertBefore(list, that.$.container.lastElementChild);
 		that._refreshBarPosition();	
+		
+		if (!that._list) {
+			return;
+		}
+
+		if (that.alignment && that._list) {
+			that._list.classList.add(that.alignment === 'vertical' ? 'flex-column' : 'justify-content-' + that.alignment);
+		}
+
+		if (that.tabType !== 'nav') {
+			that._list.classList.add('nav-' + that.tabType);
+		}
+
+		if (that.fill) {
+			that._list.classList.add('nav-fill');
+		}
+
+		if (that.justified) {
+			that._list.classList.add('nav-justified');
+		}
+		
+		if (that.styleMode) {
+			that.classList.add(that.styleMode);	
+		}
+		
+		super.render();
 	}
 
 	_getSelectorFromElement(element) {
