@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 /* Smart HTML Elements v5.1.0 (2019-Dec) 
+=======
+/* Smart HTML Elements v4.6.0 (2019-Oct) 
+>>>>>>> origin/master
 Copyright (c) 2011-2019 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
