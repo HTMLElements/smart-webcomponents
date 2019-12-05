@@ -1,5 +1,5 @@
 
-/* Smart HTML Elements v4.5.0 (2019-Sep) 
+/* Smart HTML Elements v5.1.0 (2019-Dec) 
 Copyright (c) 2011-2019 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
@@ -12,7 +12,7 @@ Smart("smart-multi-split-button",class extends Smart.DropDownList{static get pro
                           </template>
                         </div>
                         <span id="dropDownButton" class="smart-drop-down-button">
-                            <span id="arrow"></span>
+                            <span class ="smart-drop-down-button-icon" id="arrow"></span>
                         </span>
                         <div id="dropDownContainer" class="smart-drop-down smart-drop-down-container smart-visibility-hidden">
                             <smart-list-box id="listBox" unfocusable
@@ -35,6 +35,7 @@ Smart("smart-multi-split-button",class extends Smart.DropDownList{static get pro
                                     name="[[name]]"
                                     placeholder="[[dropDownPlaceholder]]"
                                     readonly="[[readonly]]"
+                                    right-to-left="[[rightToLeft]]"
                                     selected-indexes="{{selectedIndexes}}"
                                     selection-mode="[[selectionMode]]"
                                     selected-values="{{selectedValues}}"

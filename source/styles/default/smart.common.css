@@ -1,1 +1,224 @@
-smart-accordion,smart-alert-window,smart-array,smart-breadcrumb,smart-button,smart-card-view,smart-check-box,smart-color-panel,smart-color-picker,smart-column-panel,smart-combo-box,smart-date-time-picker,smart-dialog-window,smart-docking-layout,smart-drop-down-button,smart-drop-down-list,smart-filter-panel,smart-gauge,smart-group-panel,smart-led,smart-list-box,smart-list-menu,smart-masked-text-box,smart-menu,smart-multi-column-filter-panel,smart-multi-split-button,smart-multiline-prompt-window,smart-multiline-text-box,smart-numeric-text-box,smart-password-text-box,smart-path,smart-power-button,smart-progress-bar,smart-progress-window,smart-prompt-window,smart-query-builder,smart-radio-button,smart-repeat-button,smart-scroll-bar,smart-slider,smart-sort-panel,smart-splitter,smart-switch-button,smart-tabs,smart-tabs-window,smart-tank,smart-text-box,smart-time-picker,smart-toggle-button,smart-tree,smart-wait-window,smart-window{outline:0;overflow:hidden;box-sizing:border-box;font-family:var(--smart-font-family);font-size:var(--smart-font-size);-webkit-tap-highlight-color:transparent}smart-alert-window[disabled],smart-breadcrumb[disabled],smart-button[disabled],smart-calendar[disabled],smart-card-view[disabled],smart-card[disabled],smart-check-box[disabled],smart-chip[disabled],smart-circular-progress-bar[disabled],smart-color-panel[disabled],smart-color-picker[disabled],smart-column-panel[disabled],smart-combo-box[disabled],smart-date-time-picker[disabled],smart-dialog-window[disabled],smart-docking-layout[disabled],smart-drop-down-button[disabled],smart-drop-down-list[disabled],smart-filter-panel[disabled],smart-gauge[disabled],smart-group-panel[disabled],smart-input[disabled],smart-led[disabled],smart-list-box[disabled],smart-list-item[disabled],smart-list-menu[disabled],smart-menu-item[disabled],smart-menu-items-group[disabled],smart-menu[disabled],smart-multi-column-filter-panel[disabled],smart-multi-split-button[disabled],smart-multiline-prompt-window[disabled],smart-multiline-text-box[disabled],smart-numeric-text-box[disabled],smart-pager .smart-pager-button[disabled],smart-pager[disabled],smart-password-text-box[disabled],smart-path[disabled],smart-power-button[disabled],smart-progress-bar[disabled],smart-progress-window[disabled],smart-prompt-window[disabled],smart-query-builder[disabled],smart-radio-button[disabled],smart-repeat-button[disabled],smart-scroll-bar[disabled],smart-slider[disabled],smart-sort-panel[disabled],smart-splitter[disabled],smart-switch-button[disabled],smart-tab[disabled],smart-tabs[disabled],smart-tank[disabled],smart-text-box[disabled],smart-time-picker[disabled],smart-toggle-button[disabled],smart-tree-item[disabled]>.smart-tree-item-label-container,smart-tree-items-group[disabled]>.smart-tree-item-label-container,smart-tree[disabled],smart-wait-window[disabled],smart-window[disabled]{opacity:.55;cursor:default;pointer-events:none;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}smart-card-view,smart-color-panel,smart-color-picker,smart-combo-box,smart-date-time-picker,smart-drop-down-button,smart-drop-down-list,smart-filter-panel,smart-masked-text-box,smart-menu,smart-multi-split-button,smart-multiline-text-box,smart-numeric-text-box,smart-pager,smart-password-text-box,smart-path,smart-query-builder,smart-slider,smart-switch-button,smart-tabs,smart-tank,smart-text-box{overflow:visible}
+/* all elements */
+smart-accordion,
+smart-button,
+smart-toggle-button,
+smart-repeat-button,
+smart-switch-button,
+smart-slider,
+smart-led,
+smart-tank,
+smart-check-box,
+smart-calendar,
+smart-carousel,
+smart-card,
+smart-radio-button,
+smart-progress-bar,
+smart-scroll-bar,
+smart-gauge,
+smart-grid,
+smart-numeric-text-box,
+smart-list-box,
+smart-combo-box,
+smart-docking-layout,
+smart-drop-down-list,
+smart-drop-down-button,
+smart-multi-split-button,
+smart-power-button,
+smart-text-box,
+smart-multiline-text-box,
+smart-password-text-box,
+smart-masked-text-box,
+smart-tabs,
+smart-date-time-picker,
+smart-array,
+smart-time-picker,
+smart-menu,
+smart-list-menu,
+smart-window,
+smart-alert-window,
+smart-prompt-window,
+smart-multiline-prompt-window,
+smart-progress-window,
+smart-tabs-window,
+smart-dialog-window,
+smart-pager,
+smart-progress-window,
+smart-wait-window,
+smart-splitter,
+smart-tree,
+smart-filter-panel,
+smart-breadcrumb,
+smart-color-panel,
+smart-color-picker,
+smart-sort-panel,
+smart-group-panel,
+smart-column-panel,
+smart-multi-column-filter-panel,
+smart-query-builder,
+smart-card-view,
+smart-tooltip,
+smart-path {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    display: block;
+}
+
+.smart-element {
+    outline: none;
+    box-sizing: border-box;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    /* Apple iOS specific browser CSS variable used for area highlighting on click. Reference link for details:
+        https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5 */
+    -webkit-tap-highlight-color: transparent;
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+}
+
+.smart-root {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+smart-button[disabled],
+smart-calendar[disabled],
+smart-combo-box[disabled],
+smart-chip[disabled],
+smart-toggle-button[disabled],
+smart-repeat-button[disabled],
+smart-switch-button[disabled],
+smart-slider[disabled],
+smart-led[disabled],
+smart-tank[disabled],
+smart-check-box[disabled],
+smart-radio-button[disabled],
+smart-progress-bar[disabled],
+smart-circular-progress-bar[disabled],
+smart-gauge[disabled],
+smart-grid[disabled],
+smart-numeric-text-box[disabled],
+smart-list-item[disabled],
+smart-list-box[disabled],
+smart-drop-down-list[disabled],
+smart-drop-down-button[disabled],
+smart-multi-split-button[disabled],
+smart-scroll-bar[disabled],
+smart-power-button[disabled],
+smart-text-box[disabled],
+smart-multiline-text-box[disabled],
+smart-password-text-box[disabled],
+smart-tab[disabled],
+smart-tabs[disabled],
+smart-time-picker[disabled],
+smart-menu-item[disabled],
+smart-menu-items-group[disabled],
+smart-menu[disabled],
+smart-list-menu[disabled],
+smart-window[disabled],
+smart-dialog-window[disabled],
+smart-progress-window[disabled],
+smart-wait-window[disabled],
+smart-alert-window[disabled],
+smart-prompt-window[disabled],
+smart-card[disabled],
+smart-multiline-prompt-window[disabled],
+smart-splitter[disabled],
+smart-tree-item[disabled] > .smart-tree-item-label-container,
+smart-tree-items-group[disabled] > .smart-tree-item-label-container,
+smart-tree[disabled],
+smart-docking-layout[disabled],
+smart-filter-panel[disabled],
+smart-breadcrumb[disabled],
+smart-pager[disabled],
+smart-pager .smart-pager-button[disabled],
+smart-color-panel[disabled],
+smart-color-picker[disabled],
+smart-input[disabled],
+smart-sort-panel[disabled],
+smart-group-panel[disabled],
+smart-column-panel[disabled],
+smart-multi-column-filter-panel[disabled],
+smart-card-view[disabled],
+smart-query-builder[disabled],
+smart-date-time-picker[disabled],
+smart-path[disabled] {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+smart-accordion,
+smart-calendar,
+smart-card-view,
+smart-button,
+smart-color-panel,
+smart-docking-layout,
+smart-date-time-picker,
+smart-gantt-chart,
+smart-grid,
+smart-menu,
+smart-list-menu,
+smart-list-box,
+smart-scroll-viewer,
+smart-progress-bar,
+smart-pager,
+smart-splitter,
+smart-tank,
+smart-time-picker,
+smart-tree,
+smart-text-box,
+smart-multiline-text-box,
+smart-window {
+    border-color: var(--smart-border);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    border-width: var(--smart-border-width);
+    border-style: solid;
+}
+
+    smart-numeric-text-box.smart-element,
+    smart-masked-text-box.smart-element,
+    smart-multiline-text-box.smart-element,
+    smart-text-box.smart-element,
+    smart-drop-down-button.smart-element,
+    smart-drop-down-list.smart-element,
+    smart-combo-box.smart-element,
+    smart-password-text-box.smart-element,
+    smart-multi-split-button.smart-element,
+    smart-switch-button.smart-element,
+    smart-multiline-text-box.smart-element,
+    smart-date-time-picker.smart-element,
+    smart-pager.smart-element,
+    smart-menu.smart-element,
+    smart-menu.smart-element,
+    smart-numeric-text-box.smart-element,
+    smart-tabs.smart-element,
+    smart-tank.smart-element,
+    smart-slider.smart-element,
+    smart-filter-panel.smart-element,
+    smart-color-panel.smart-element,
+    smart-color-picker.smart-element,
+    smart-query-builder.smart-element,
+    smart-card-view.smart-element,
+    smart-path.smart-element {
+        overflow: visible;
+    }
+
+/*
+    Common code for Box Components with Content and Action buttons.
+*/
+.smart-element input::selection,
+.smart-input::selection {
+    background: var(--smart-editor-selection);
+    color: var(--smart-editor-selection-color);
+}

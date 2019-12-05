@@ -1,0 +1,27 @@
+smart-rating .rating-star::after {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    font-size: 30px;
+    content: var(--smart-icon-star);
+    color: var(--smart-primary);
+}
+
+smart-rating .rating-star.hover::after {
+    color: var(--secondary);
+}
+
+smart-rating .rating-star.active::after {
+    color: var(--smart-secondary);
+}
+
+smart-rating .rating-star.active.hover::after {
+    color: var(--smart-secondary);
+}
+/* --- Right-To-Left  --- */
+
+smart-rating[right-to-left] > .smart-container {
+    direction: rtl;
+}
+
+/* --- */

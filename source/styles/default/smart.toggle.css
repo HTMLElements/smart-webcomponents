@@ -1,0 +1,202 @@
+
+
+/* smart-check-box and smart-radio-button*/
+
+.smart-toggle-box {
+    display: inline-block;
+    outline: none;
+    height: var(--smart-editor-height);
+    cursor: pointer;
+}
+
+    .smart-toggle-box.smart-element {
+        border: none;
+        background: transparent;
+    }
+
+    .smart-toggle-box[check-mode="input"] {
+        cursor: default;
+    }
+ 
+    .smart-toggle-box .smart-container,
+    .smart-toggle-box.smart-container{
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .smart-toggle-box .smart-ripple {
+        background: var(--smart-primary);
+    }
+
+    .smart-toggle-box .smart-overlay {
+        top: 0;
+        height: 100%;
+        background: var(--smart-primary);
+        width: var(--smart-editor-height);
+        position: absolute;
+        left: 2px;
+        border-radius: 100%;
+        padding: 0px;
+        opacity: 0;
+        box-sizing: content-box;
+        transition: opacity 280ms ease-in-out;
+        margin:0px;
+    }
+
+    .smart-toggle-box[active]:focus .smart-overlay,
+    .smart-toggle-box[active][focus] .smart-overlay {
+        opacity: 0.4;
+    }
+
+    .smart-toggle-box:focus .smart-overlay,
+    .smart-toggle-box[focus] .smart-overlay {
+        opacity: 0.3;
+    }
+
+    .smart-toggle-box .smart-label {
+        color: var(--smart-background-color);
+        background: var(--smart-background);
+        font-size: inherit;
+        font-family: inherit;
+        margin: 0 8px 0 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: auto;
+    }
+
+    .smart-toggle-box[check-mode="label"] .smart-label {
+        cursor: pointer;
+    }
+
+	.smart-check-box.smart-toggle-box .smart-input {
+        width: var(--smart-check-box-default-size);
+        min-width: var(--smart-check-box-default-size);
+        height: var(--smart-check-box-default-size);
+        min-height: var(--smart-check-box-default-size);
+        background-color: var(--smart-background);
+        box-sizing: initial;
+        border: var(--smart-border-width) solid var(--smart-border);
+        display: inline-block;
+        color: var(--smart-background-color);
+        border-top-left-radius: var(--smart-border-top-left-radius);
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+        margin: 0 0 0 8px;
+        transition: background linear 0.2s;
+        position: relative;
+    }
+
+    .smart-radio-button.smart-toggle-box .smart-input {
+        width: var(--smart-radio-button-default-size);
+        min-width: var(--smart-radio-button-default-size);
+        height: var(--smart-radio-button-default-size);
+        min-height: var(--smart-radio-button-default-size);
+        background-color: var(--smart-background);
+        box-sizing: initial;
+        border-style: solid;
+        border-width: var(--smart-border-width);
+        border-color: var(--smart-border);
+        display: inline-block;
+        border-radius: 100%;
+        color: var(--smart-background-color);
+        margin: 0 0 0 8px;
+        position: relative;
+    }
+
+
+    .smart-radio-button.smart-toggle-box .smart-input:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 50%;
+        font-style: normal;
+        text-decoration: inherit;
+        font-variant: normal;
+        text-transform: none;
+        color: inherit;
+        border-radius: 50%;
+        line-height: 100%;
+    }
+    
+    .smart-radio-button.smart-toggle-box[checked] .smart-input:after {
+        font-size: 15px;
+        font-weight: 100;
+        background: var(--smart-primary-color);
+    }
+
+    .smart-toggle-box[check-mode="input"] .smart-input {
+        cursor: pointer;
+    }
+
+    .smart-toggle-box[readonly],
+    .smart-toggle-box[readonly] .smart-input,
+    .smart-toggle-box[readonly] .smart-label {
+        cursor: initial;
+    }
+
+    .smart-toggle-box[active] .smart-input,
+    .smart-toggle-box[checked] .smart-input {
+        border-color: var(--smart-ui-state-border-active);
+        background-color: var(--smart-ui-state-active);
+        color: var(--smart-ui-state-color-active);
+    }
+
+    .smart-toggle-box[hover] .smart-input {
+        border-color: var(--smart-ui-state-border-hover);
+        background-color: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
+    }
+    
+    .smart-radio-button.smart-toggle-box[checked][hover]:not([focus]) .smart-input::after {
+        background: var(--smart-ui-state-color-hover);
+    }
+    
+    .smart-toggle-box:focus .smart-input,
+    .smart-toggle-box[focus] .smart-input {
+        outline: none;
+        overflow: visible;
+        border-color: var(--smart-primary);
+        background-color: var(--smart-primary);
+        color: var(--smart-primary-color);
+    }
+
+    .smart-check-box.smart-toggle-box .smart-input:after {
+        font-family: var(--smart-font-family-icon);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: 1px;
+    }
+
+    .smart-check-box.smart-toggle-box[checked] .smart-input:after {
+        font-weight: 100;
+        content: var(--smart-icon-check);
+    }
+
+    .smart-check-box.smart-toggle-box[checked="null"] .smart-input:after {
+        content: '-';
+    }
+
+    /* --- Right-To-Left --- */
+
+    .smart-toggle-box[right-to-left] .smart-container,
+    .smart-toggle-box[right-to-left] .smart-hidden-input {
+        direction: rtl;
+    }
+
+    .smart-toggle-box[right-to-left] .smart-overlay {
+        left: initial;
+        right: 2px;
+    }
+
+    .smart-toggle-box[right-to-left] .smart-input {
+        margin: 0 8px 0 0;
+    }
+
+/* --- */
