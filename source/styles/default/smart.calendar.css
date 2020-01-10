@@ -688,7 +688,8 @@ smart-calendar[view="landscape"] .smart-calendar-container {
 
 .smart-calendar .smart-calendar-date-view-container {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: auto;
     text-align: center;
     flex-direction: row;
     align-items: center;

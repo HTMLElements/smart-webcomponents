@@ -248,3 +248,11 @@ smart-toast-item:hover {
         opacity: 0.5;
     }
 }
+
+/* --- Right To Left --- */
+
+.smart-toast-item[right-to-left] > .smart-container {
+    direction: rtl;
+}
+
+/* --- */

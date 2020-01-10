@@ -25,3 +25,11 @@ smart-masked-text-box {
     overflow: hidden;
     outline: none;
 }
+
+/*---  Right-To-Left --- */
+
+.smart-masked-text-box[right-to-left] .smart-container {
+    direction: rtl;
+}
+
+/* --- */

@@ -19,245 +19,246 @@ smart-multi-column-filter-panel {
     font-size: var(--smart-font-size);
 }
 
-    .smart-sort-panel .smart-sortable-container,
-    .smart-group-panel .smart-sortable-container smart-column-panel smart-sortable {
-        margin-bottom: var(--smart-grid-panel-padding);
-    }
+.smart-sort-panel .smart-sortable-container,
+.smart-group-panel .smart-sortable-container smart-column-panel smart-sortable {
+    margin-bottom: var(--smart-grid-panel-padding);
+}
 
-        .smart-sort-panel .smart-sortable-container:empty:after,
-        .smart-group-panel .smart-sortable-container:empty:after,
-        .smart-multi-column-filter-panel .smart-filter-panel-items-container:empty:after {
-            margin-top: calc(var(--smart-grid-panel-vertical-offset) / 2);
-            margin-bottom: calc(var(--smart-grid-panel-vertical-offset) / 2);
-            opacity: 0.7;
-        }
-
-        .smart-sort-panel .smart-sortable-container:empty:after {
-            content: attr(no-sorting);
-        }
-
-    .smart-group-panel .smart-sortable-container:empty:after {
-        content: attr(no-grouping);
-    }
-
+    .smart-sort-panel .smart-sortable-container:empty:after,
+    .smart-group-panel .smart-sortable-container:empty:after,
     .smart-multi-column-filter-panel .smart-filter-panel-items-container:empty:after {
-        content: attr(no-filters);
-    }
-
-    .smart-sort-panel .smart-grid-panel-container-footer,
-    .smart-group-panel .smart-grid-panel-container-footer,
-    .smart-column-panel .smart-grid-panel-container-footer,
-    .smart-multi-column-filter-panel .smart-grid-panel-container-footer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-        .smart-sort-panel .smart-grid-panel-container-footer > smart-input,
-        .smart-group-panel .smart-grid-panel-container-footer > smart-input {
-            min-width: 215px;
-            width: 40%;
-        }
-
-    .smart-sort-panel .smart-grid-panel-buttons-container,
-    .smart-group-panel .smart-grid-panel-buttons-container,
-    .smart-column-panel .smart-grid-panel-buttons-container,
-    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container {
-        width: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-        .smart-sort-panel .smart-grid-panel-buttons-container span:hover,
-        .smart-group-panel .smart-grid-panel-buttons-container span:hover,
-        .smart-column-panel .smart-grid-panel-buttons-container span:hover,
-        .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:hover,
-        .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:hover,
-        .smart-sort-panel .smart-grid-panel-item-close-button:hover,
-        .smart-group-panel .smart-grid-panel-item-close-button:hover,
-        .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:hover {
-            color: var(--smart-grid-panel-color-hover);
-            cursor: pointer;
-        }
-
-        .smart-sort-panel .smart-grid-panel-buttons-container span:active,
-        .smart-sort-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-group-panel .smart-grid-panel-buttons-container span:active,
-        .smart-group-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-column-panel .smart-grid-panel-buttons-container span:active,
-        .smart-column-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:active,
-        .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:active,
-        .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:focus {
-            color: var(--smart-primary);
-        }
-
-        .smart-sort-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-group-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-column-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:focus,
-        .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:focus {
-            outline: none;
-        }
-
-        .smart-sort-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
-        .smart-group-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
-        .smart-column-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
-        .smart-multi-column-filter-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button {
-            margin-left: 15px;
-            font-weight: bold;
-        }
-
-    .smart-sort-panel .smart-grid-panel-item,
-    .smart-group-panel .smart-grid-panel-item,
-    .smart-column-panel .smart-grid-panel-item,
-    .smart-multi-column-filter-panel .smart-grid-panel-item {
-        display: flex;
-        align-items: center;
         margin-top: calc(var(--smart-grid-panel-vertical-offset) / 2);
         margin-bottom: calc(var(--smart-grid-panel-vertical-offset) / 2);
-        width: calc(100% - var(--smart-sortable-handle-size));
-        height: var(--smart-grid-panel-item-height);
-        min-height: var(--smart-grid-panel-item-height);
-        background-color: var(--smart-background);
-    }
-
-    .smart-multi-column-filter-panel .smart-grid-panel-item {
-        width: 100%;
-    }
-
-    .smart-sort-panel .smart-grid-panel-item.dragged,
-    .smart-group-panel .smart-grid-panel-item.dragged {
         opacity: 0.7;
     }
 
-    .smart-sort-panel .smart-grid-panel-item-close-button,
-    .smart-group-panel .smart-grid-panel-item-close-button,
-    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button {
-        display: flex;
-        justify-content: center;
-        width: 20px;
+    .smart-sort-panel .smart-sortable-container:empty:after {
+        content: attr(no-sorting);
     }
 
-        .smart-sort-panel .smart-grid-panel-item-close-button:active,
-        .smart-sort-panel .smart-grid-panel-item-close-button:focus,
-        .smart-group-panel .smart-grid-panel-item-close-button:active,
-        .smart-group-panel .smart-grid-panel-item-close-button:focus,
-        .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:active,
-        .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
-            color: var(--smart-primary);
-        }
+.smart-group-panel .smart-sortable-container:empty:after {
+    content: attr(no-grouping);
+}
 
-        .smart-sort-panel .smart-grid-panel-item-close-button:focus,
-        .smart-group-panel .smart-grid-panel-item-close-button:focus,
-        .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
-            outline: none;
-        }
+.smart-multi-column-filter-panel .smart-filter-panel-items-container:empty:after {
+    content: attr(no-filters);
+}
 
-        .smart-sort-panel .smart-grid-panel-item-close-button:after,
-        .smart-group-panel .smart-grid-panel-item-close-button:after,
-        .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:after {
-            font-family: "smart-icons";
-        }
+.smart-sort-panel .smart-grid-panel-container-footer,
+.smart-group-panel .smart-grid-panel-container-footer,
+.smart-column-panel .smart-grid-panel-container-footer,
+.smart-multi-column-filter-panel .smart-grid-panel-container-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
-    .smart-sort-panel[close-button-position="right"] .smart-grid-panel-item-close-button,
-    .smart-group-panel[close-button-position="right"] .smart-grid-panel-item-close-button,
-    .smart-multi-column-filter-panel[close-button-position="right"] .smart-grid-panel-item-close-button {
-        order: 1;
+    .smart-sort-panel .smart-grid-panel-container-footer > smart-input,
+    .smart-group-panel .smart-grid-panel-container-footer > smart-input {
+        min-width: 215px;
+        width: 40%;
     }
 
-    .smart-sort-panel[close-button-position="right"] .smart-sortable-container,
-    .smart-group-panel[close-button-position="right"] .smart-sortable-container,
-    .smart-multi-column-filter-panel[close-button-position="right"] .smart-sortable-container {
-        align-items: flex-end;
+.smart-sort-panel .smart-grid-panel-buttons-container,
+.smart-group-panel .smart-grid-panel-buttons-container,
+.smart-column-panel .smart-grid-panel-buttons-container,
+.smart-multi-column-filter-panel .smart-grid-panel-buttons-container {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .smart-sort-panel .smart-grid-panel-buttons-container span:hover,
+    .smart-group-panel .smart-grid-panel-buttons-container span:hover,
+    .smart-column-panel .smart-grid-panel-buttons-container span:hover,
+    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:hover,
+    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:hover,
+    .smart-sort-panel .smart-grid-panel-item-close-button:hover,
+    .smart-group-panel .smart-grid-panel-item-close-button:hover,
+    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:hover {
+        color: var(--smart-grid-panel-color-hover);
+        cursor: pointer;
     }
 
-    .smart-sort-panel .smart-grid-panel-label-by,
-    .smart-group-panel .smart-grid-panel-label-by {
-        padding: 5px;
-        width: 60px;
-        flex-grow: 1;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+    .smart-sort-panel .smart-grid-panel-buttons-container span:active,
+    .smart-sort-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-group-panel .smart-grid-panel-buttons-container span:active,
+    .smart-group-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-column-panel .smart-grid-panel-buttons-container span:active,
+    .smart-column-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:active,
+    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:active,
+    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:focus {
+        color: var(--smart-primary);
     }
 
-    .smart-sort-panel .smart-grid-panel-field-container,
-    .smart-group-panel .smart-grid-panel-field-container {
-        height: 100%;
-        width: 100px;
-        flex-grow: 3;
+    .smart-sort-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-group-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-column-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:focus,
+    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:focus {
+        outline: none;
     }
 
-    .smart-sort-panel .smart-grid-panel-field-selection,
-    .smart-group-panel .smart-grid-panel-field-selection {
-        height: 100%;
-        width: 100%;
+    .smart-sort-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+    .smart-group-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+    .smart-column-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button {
+        margin-left: 15px;
+        font-weight: bold;
     }
 
-    .smart-sort-panel .smart-grid-panel-from,
-    .smart-group-panel .smart-grid-panel-from {
-        display: flex;
-        justify-content: center;
-        padding: 5px;
-        width: 40px;
-        flex-grow: 1;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+.smart-sort-panel .smart-grid-panel-item,
+.smart-group-panel .smart-grid-panel-item,
+.smart-column-panel .smart-grid-panel-item,
+.smart-multi-column-filter-panel .smart-grid-panel-item {
+    display: flex;
+    align-items: center;
+    margin-top: calc(var(--smart-grid-panel-vertical-offset) / 2);
+    margin-bottom: calc(var(--smart-grid-panel-vertical-offset) / 2);
+    width: calc(100% - var(--smart-sortable-handle-size));
+    height: var(--smart-grid-panel-item-height);
+    min-height: var(--smart-grid-panel-item-height);
+    background-color: var(--smart-background);
+}
+
+.smart-multi-column-filter-panel .smart-grid-panel-item {
+    width: 100%;
+}
+
+.smart-sort-panel .smart-grid-panel-item.dragged,
+.smart-group-panel .smart-grid-panel-item.dragged {
+    opacity: 0.7;
+}
+
+.smart-sort-panel .smart-grid-panel-item-close-button,
+.smart-group-panel .smart-grid-panel-item-close-button,
+.smart-multi-column-filter-panel .smart-grid-panel-item-close-button {
+    display: flex;
+    justify-content: center;
+    width: 20px;
+}
+
+    .smart-sort-panel .smart-grid-panel-item-close-button:active,
+    .smart-sort-panel .smart-grid-panel-item-close-button:focus,
+    .smart-group-panel .smart-grid-panel-item-close-button:active,
+    .smart-group-panel .smart-grid-panel-item-close-button:focus,
+    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:active,
+    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
+        color: var(--smart-primary);
+    }
+
+    .smart-sort-panel .smart-grid-panel-item-close-button:focus,
+    .smart-group-panel .smart-grid-panel-item-close-button:focus,
+    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
+        outline: none;
+    }
+
+    .smart-sort-panel .smart-grid-panel-item-close-button:after,
+    .smart-group-panel .smart-grid-panel-item-close-button:after,
+    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:after {
+        content: var(--smart-icon-close);
+        font-family: var(--smart-font-family-icon);
+    }
+
+.smart-sort-panel[close-button-position="right"] .smart-grid-panel-item-close-button,
+.smart-group-panel[close-button-position="right"] .smart-grid-panel-item-close-button,
+.smart-multi-column-filter-panel[close-button-position="right"] .smart-grid-panel-item-close-button {
+    order: 1;
+}
+
+.smart-sort-panel[close-button-position="right"] .smart-sortable-container,
+.smart-group-panel[close-button-position="right"] .smart-sortable-container,
+.smart-multi-column-filter-panel[close-button-position="right"] .smart-sortable-container {
+    align-items: flex-end;
+}
+
+.smart-sort-panel .smart-grid-panel-label-by,
+.smart-group-panel .smart-grid-panel-label-by {
+    padding: 5px;
+    width: 60px;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.smart-sort-panel .smart-grid-panel-field-container,
+.smart-group-panel .smart-grid-panel-field-container {
+    height: 100%;
+    width: 100px;
+    flex-grow: 3;
+}
+
+.smart-sort-panel .smart-grid-panel-field-selection,
+.smart-group-panel .smart-grid-panel-field-selection {
+    height: 100%;
+    width: 100%;
+}
+
+.smart-sort-panel .smart-grid-panel-from,
+.smart-group-panel .smart-grid-panel-from {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 40px;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.smart-sort-panel .smart-grid-panel-direction,
+.smart-group-panel .smart-grid-panel-direction {
+    display: flex;
+    width: 115px;
+    flex-grow: 2;
+    height: 100%;
+    background-color: var(--smart-surface);
+}
+
+    .smart-sort-panel .smart-grid-panel-direction:focus,
+    .smart-group-panel .smart-grid-panel-direction:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px var(--smart-primary);
     }
 
     .smart-sort-panel .smart-grid-panel-direction,
-    .smart-group-panel .smart-grid-panel-direction {
-        display: flex;
-        width: 115px;
-        flex-grow: 2;
-        height: 100%;
-        background-color: var(--smart-surface);
+    .smart-sort-panel .smart-grid-panel-direction > div,
+    .smart-group-panel .smart-grid-panel-direction,
+    .smart-group-panel .smart-grid-panel-direction > div {
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-top-left-radius: var(--smart-border-top-left-radius);
+        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
     }
 
-        .smart-sort-panel .smart-grid-panel-direction:focus,
-        .smart-group-panel .smart-grid-panel-direction:focus {
-            outline: none;
-            box-shadow: 0 0 0 1px var(--smart-primary);
-        }
-
-        .smart-sort-panel .smart-grid-panel-direction,
         .smart-sort-panel .smart-grid-panel-direction > div,
-        .smart-group-panel .smart-grid-panel-direction,
         .smart-group-panel .smart-grid-panel-direction > div {
-            border-top-right-radius: var(--smart-border-top-right-radius);
-            border-top-left-radius: var(--smart-border-top-left-radius);
-            border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-            border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3px;
+            width: calc(50% - 6px);
+            height: calc(100% - 6px);
         }
 
-            .smart-sort-panel .smart-grid-panel-direction > div,
-            .smart-group-panel .smart-grid-panel-direction > div {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 3px;
-                width: calc(50% - 6px);
-                height: calc(100% - 6px);
+            .smart-sort-panel .smart-grid-panel-direction > div.selected,
+            .smart-group-panel .smart-grid-panel-direction > div.selected {
+                background-color: var(--smart-primary);
+                color: var(--smart-primary-color);
             }
 
-                .smart-sort-panel .smart-grid-panel-direction > div.selected,
-                .smart-group-panel .smart-grid-panel-direction > div.selected {
-                    background-color: var(--smart-primary);
-                    color: var(--smart-primary-color);
-                }
+.smart-group-panel .smart-grid-panel-expand-collapse {
+    justify-content: flex-end;
+}
 
-    .smart-group-panel .smart-grid-panel-expand-collapse {
-        justify-content: flex-end;
-    }
-
-    .smart-group-panel .smart-group-panel-expand-button {
-        margin-left: 15px;
-    }
+.smart-group-panel .smart-group-panel-expand-button {
+    margin-left: 15px;
+}
 
 .smart-column-panel {
     --smart-grid-panel-item-height: 20px;
@@ -301,6 +302,7 @@ smart-multi-column-filter-panel {
         }
 
             .smart-column-panel .smart-column-panel-find-container .clear-button:after {
+                content: var(--smart-icon-cancel);
                 font-family: var(--smart-font-family-icon);
                 display: flex;
                 align-items: center;
@@ -362,9 +364,11 @@ smart-multi-column-filter-panel {
         }
 
         .smart-column-panel .toggle-visibility:after {
+            content: var(--smart-icon-visibility);
         }
 
         .smart-column-panel .toggle-visibility.hidden:after {
+            content: var(--smart-icon-visibility-off);
         }
 
 .smart-multi-column-filter-panel > .smart-container {
@@ -401,18 +405,65 @@ smart-multi-column-filter-panel {
 }
 
 /* --- Right-To-Left --- */
-
+.smart-column-panel[right-to-left] .smart-column-panel-find-container,
 .smart-group-panel[right-to-left] .smart-group-panel-expand-button,
 .smart-group-panel[right-to-left] .smart-group-panel-collapse-button,
 .smart-group-panel[right-to-left] .smart-group-panel-cancel-button,
 .smart-group-panel[right-to-left] .smart-group-panel-apply-button,
 .smart-group-panel[right-to-left] .smart-grid-panel-label-by,
 .smart-group-panel[right-to-left] .smart-grid-panel-from,
+.smart-sort-panel[right-to-left] .smart-grid-panel-apply-button,
+.smart-sort-panel[right-to-left] .smart-grid-panel-cancel-button,
 .smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-apply-button,
 .smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-cancel-button,
 .smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-add-filter-button,
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item-close-button + div {
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item-close-button + div,
+.smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-items-container:empty {
     direction: rtl;
+}
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-label-by,
+.smart-group-panel[right-to-left] .smart-grid-panel-label-by,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-grid-panel-item-close-button + div {
+    order: 3;
+}
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-field-container,
+.smart-group-panel[right-to-left] .smart-grid-panel-field-container,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(1) {
+    order: 2;
+}
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-from,
+.smart-group-panel[right-to-left] .smart-grid-panel-from,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(2) {
+    order: 1;
+}
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-buttons-container,
+.smart-group-panel[right-to-left] .smart-grid-panel-buttons-container,
+.smart-column-panel[right-to-left] .smart-grid-panel-buttons-container,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-buttons-container {
+    flex-direction: row-reverse;
+}
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-direction,
+.smart-group-panel[right-to-left] .smart-grid-panel-direction {
+    flex-direction: row-reverse;
+}
+
+.smart-group-panel[right-to-left] .smart-group-panel-expand-button {
+    margin-left: initial;
+    margin-right: 15px;
+}
+
+.smart-column-panel[right-to-left] .smart-grid-panel-item {
+    right: var(--smart-sortable-handle-size);
+    justify-content: space-between;
+}
+
+.smart-column-panel[right-to-left] .toggle-visibility {
+    order: 1;
 }
 
 /* --- */

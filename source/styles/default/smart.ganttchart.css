@@ -3,7 +3,6 @@ smart-gantt-chart {
     width: var(--smart-gantt-chart-default-width);
     height: var(--smart-gantt-chart-default-height);
     contain: content;
-    border:none;
 }
 
     smart-gantt-chart[dragged],
@@ -21,496 +20,505 @@ smart-gantt-chart {
         user-select: none;
     }
 
-    .smart-gantt-chart smart-splitter {
-        /*width: auto;*/
-        width: 100%;
-        height: 100%;
-        --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
-    }
+.smart-gantt-chart smart-splitter {
+    /*width: auto;*/
+    width: 100%;
+    height: 100%;
+    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
+    border: none;
+}
+
+	.smart-gantt-chart .smart-splitter smart-splitter-bar.smart-element {
+	   background: var(--smart-border);
+	}
 
         .smart-gantt-chart smart-splitter smart-splitter-bar {
             transition: height 0.2s ease-in;
         }
 
-    .smart-gantt-chart smart-splitter-item {
-        background-color:var(--smart-background);
+.smart-gantt-chart smart-splitter-item {
+    background-color: var(--smart-background);
+}
+
+.smart-gantt-chart smart-splitter smart-splitter-bar {
+    overflow: visible;
+}
+
+/* In order to pick the splitter bar's pseudo element from both sides to drag it z-index is necessary */
+.smart-gantt-chart smart-splitter smart-splitter-bar,
+.smart-gantt-chart smart-splitter .smart-splitter-bar-feedback {
+    z-index: 1;
+}
+
+.smart-gantt-chart smart-splitter smart-splitter-bar,
+.smart-gantt-chart .smart-splitter-bar-feedback {
+    min-width: 1px;
+    width: 1px;
+    /*background-color: var(--smart-border);*/
+}
+
+.smart-gantt-chart smart-splitter-bar > .smart-container {
+    transform: scaleX(10);
+    transform-origin: left;
+}
+
+.smart-gantt-chart smart-splitter-bar .smart-splitter-resize-button {
+    display: none;
+}
+
+.smart-gantt-chart .smart-timeline {
+    text-align: center;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+}
+
+.smart-gantt-chart .smart-timeline-view-details {
+    display: flex;
+    width: 100%;
+}
+
+    .smart-gantt-chart .smart-timeline-view-details .smart-timeline-view-cell {
+        min-width: initial;
     }
 
-    .smart-gantt-chart smart-splitter smart-splitter-bar {
-        overflow: visible;
-    }
-
-    /* In order to pick the splitter bar's pseudo element from both sides to drag it z-index is necessary */
-    .smart-gantt-chart smart-splitter smart-splitter-bar,
-    .smart-gantt-chart smart-splitter .smart-splitter-bar-feedback {
-        z-index: 1;
-    }
-
-    .smart-gantt-chart smart-splitter smart-splitter-bar,
-    .smart-gantt-chart .smart-splitter-bar-feedback {
-        min-width: 1px;
-        width: 1px;
-        /*background-color: var(--smart-border);*/
-    }
-
-    .smart-gantt-chart smart-splitter-bar > .smart-container {
-        transform: scaleX(10);
-        transform-origin: left;
-    }
-
-    .smart-gantt-chart smart-splitter-bar .smart-splitter-resize-button {
-        display: none;
-    }
-
-    .smart-gantt-chart .smart-timeline {
-        text-align: center;
-        overflow: hidden;
-        height: 100%;
-        display: flex;
-    }
-
-    .smart-gantt-chart .smart-timeline-view-details {
-        display: flex;
-        width: 100%;
-    }
-
-        .smart-gantt-chart .smart-timeline-view-details .smart-timeline-view-cell {
-            min-width: initial;
-        }
-
-    .smart-gantt-chart .smart-timeline-view-cells {
-        width: 100%;
-        /*display: grid;
+.smart-gantt-chart .smart-timeline-view-cells {
+    width: 100%;
+    /*display: grid;
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));*/ /* Lags when DIV's are more than 1000 and 1fr calculates inaccurately*/
-        display: flex;
-    }
+    display: flex;
+}
 
-    .smart-gantt-chart .smart-timeline-task:not(.milestone) {
-        min-width: var(--smart-gantt-chart-timeline-task-min-width);
-    }
+.smart-gantt-chart .smart-timeline-task:not(.milestone) {
+    min-width: var(--smart-gantt-chart-timeline-task-min-width);
+}
 
-    .smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell::after {
-        content: '';
-        width: 100%;
-        background-color: transparent;
-        border-left: var(--smart-border-width) solid var(--smart-border);
-        border-right: var(--smart-border-width) solid transparent;
-        position: absolute;
-        top: calc(100% + var(--smart-border-width));
-        right: 0;
-        height: var(--smart-gantt-chart-timeline-content-height);
-    }
+.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell::after {
+    content: '';
+    width: 100%;
+    background-color: transparent;
+    border-left: var(--smart-border-width) solid var(--smart-border);
+    border-right: var(--smart-border-width) solid transparent;
+    position: absolute;
+    top: calc(100% + var(--smart-border-width));
+    right: 0;
+    height: var(--smart-gantt-chart-timeline-content-height);
+}
 
-    .smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell:last-of-type::after {
-        border-right-color: transparent;
-    }
+.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell:last-of-type::after {
+    border-right-color: transparent;
+}
 
-    .smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[weekend]::after {
-        background: var(--smart-gantt-chart-timeline-weekend-color);
-    }
+.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[weekend]::after {
+    background: var(--smart-gantt-chart-timeline-weekend-color);
+}
 
-    .smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[nonworking]::after {
-        background: var(--smart-gantt-chart-timeline-nonworking-color);
-    }
+.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[nonworking]::after {
+    background: var(--smart-gantt-chart-timeline-nonworking-color);
+}
 
-    .smart-gantt-chart .smart-timeline-view-cells,
-    .smart-gantt-chart .smart-timeline-task-cell,
-    .smart-gantt-chart .smart-timeline-view-details,
-    .smart-gantt-chart .smart-timeline-task {
-        height: var(--smart-gantt-chart-task-default-height);
-    }
+.smart-gantt-chart .smart-timeline-view-cells,
+.smart-gantt-chart .smart-timeline-task-cell,
+.smart-gantt-chart .smart-timeline-view-details,
+.smart-gantt-chart .smart-timeline-task {
+    height: var(--smart-gantt-chart-task-default-height);
+}
 
-    .smart-gantt-chart .smart-timeline-task-cell {
-        position: relative;
-    }
+.smart-gantt-chart .smart-timeline-task-cell {
+    position: relative;
+}
 
-    .smart-gantt-chart .smart-timeline-view-details:empty,
-    .smart-gantt-chart .smart-timeline-task:empty {
-        height: 0;
-    }
+.smart-gantt-chart .smart-timeline-view-details:empty,
+.smart-gantt-chart .smart-timeline-task:empty {
+    height: 0;
+}
 
-    .smart-gantt-chart .smart-timeline-content:empty:after {
-        content: 'No Items';
-        height: var(--smart-gantt-chart-task-default-height);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-        user-select: none;
-    }
+.smart-gantt-chart .smart-timeline-content:empty:after {
+    content: 'No Items';
+    height: var(--smart-gantt-chart-task-default-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+}
 
-    /*.smart-gantt-chart .smart-timeline-view-cell:empty {
+/*.smart-gantt-chart .smart-timeline-view-cell:empty {
        visibility: hidden;
     }*/
 
-    .smart-gantt-chart .smart-timeline-view-cell {
+.smart-gantt-chart .smart-timeline-view-cell {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-top: var(--smart-border-width) solid var(--smart-border);
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    border-left: var(--smart-border-width) solid var(--smart-border);
+    border-right: var(--smart-border-width) solid var(--smart-border);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: var(--smart-gantt-chart-task-bar-fill-padding);
+    height: 100%;
+    border-bottom-color: transparent;
+    height: var(--smart-gantt-chart-task-default-height);
+    min-width: var(--smart-gantt-chart-timeline-cell-min-size);
+    width: var(--smart-gantt-chart-timeline-cell-size);
+}
+
+.smart-gantt-chart .smart-timeline-view-details .smart-timeline-view-cell {
+    border-top: none;
+}
+
+.smart-gantt-chart .smart-timeline-view-cell:first-of-type {
+    border-left: none;
+}
+
+.smart-gantt-chart .smart-timeline-view-cell:last-of-type {
+    border-right: none;
+}
+
+.smart-gantt-chart .smart-timeline-view-cell:not(:first-of-type) {
+    border-left-color: transparent;
+}
+
+.smart-gantt-chart .smart-timeline-view-cells div {
+    border-bottom-color: var(--smart-border);
+}
+
+.smart-gantt-chart .smart-timeline-task-cell {
+    border-width: var(--smart-border-width);
+    border-style: solid;
+    border-top-color: var(--smart-border);
+    border-bottom-color: var(--smart-border);
+    border-left-color: var(--smart-border);
+    border-right-color: var(--smart-border);
+    background: var(--smart-gantt-chart-timeline-task-background-color);
+    border-left: none;
+    border-right: none;
+}
+
+smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell {
+    transition: background ease-in-out 0.28s;
+}
+
+.smart-gantt-chart .smart-timeline-task-cell[focus] {
+    background: var(--smart-ui-state-focus);
+}
+
+.smart-gantt-chart .smart-timeline-task-cell[selected] {
+    background: var(--smart-ui-state-selected);
+}
+
+.smart-gantt-chart .smart-timeline-task-cell:first-of-type {
+    border-left-color: var(--smart-border);
+}
+
+.smart-gantt-chart .smart-timeline-task-cell:last-of-type {
+    border-right-color: var(--smart-border);
+}
+
+.smart-gantt-chart .smart-timeline-task-cell {
+    border-top-color: transparent;
+}
+
+.smart-gantt-chart .smart-timeline-task-cells {
+    position: relative;
+    /*overflow: hidden;*/
+}
+
+.smart-gantt-chart .smart-timeline[task-bar-hovered],
+.smart-gantt-chart .smart-timeline[task-bar-hovered] .smart-timeline-task.project .smart-timeline-task-fill,
+.smart-gantt-chart .smart-timeline[task-bar-hovered] .smart-timeline-task.task .smart-timeline-task-fill {
+    cursor: e-resize;
+}
+
+.smart-gantt-chart .smart-timeline-task {
+    position: absolute;
+}
+
+    .smart-gantt-chart .smart-timeline-task[disable-drag] {
+        cursor: default;
+    }
+
+.smart-gantt-chart .milestone {
+    height: var(--smart-gantt-chart-task-default-height);
+}
+
+
+.smart-gantt-chart .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::after,
+.smart-gantt-chart .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::before,
+.smart-gantt-chart .smart-timeline-task:not([disable-drag]) .smart-timeline-task-fill {
+    cursor: move;
+}
+
+.smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline-task.milestone[connected] .smart-task-container::after,
+.smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline-task.milestone[connected] .smart-task-container::before,
+.smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline:not([task-bar-hovered]) .smart-timeline-task[connected] .smart-timeline-task-fill {
+    cursor: initial;
+}
+
+.smart-gantt-chart .milestone .smart-task-container {
+    padding: 0;
+}
+
+    .smart-gantt-chart .milestone .smart-task-container:before,
+    .smart-gantt-chart .milestone .smart-task-container:after {
+        content: "";
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--smart-surface);
-        color: var(--smart-surface-color);
-        border-top: var(--smart-border-width) solid var(--smart-border);
-        border-bottom: var(--smart-border-width) solid var(--smart-border);
-        border-left: var(--smart-border-width) solid var(--smart-border);
-        border-right: var(--smart-border-width) solid var(--smart-border);
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        padding: var(--smart-gantt-chart-task-bar-fill-padding);
-        height: 100%;
-        border-bottom-color: transparent;
-        height: var(--smart-gantt-chart-task-default-height);
-        min-width: var(--smart-gantt-chart-timeline-cell-min-size);
-        width: var(--smart-gantt-chart-timeline-cell-size);
-    }
-
-    .smart-gantt-chart .smart-timeline-view-details .smart-timeline-view-cell {
-        border-top: none;
-    }
-
-    .smart-gantt-chart .smart-timeline-view-cell:first-of-type {
-        border-left: none;
-    }
-
-    .smart-gantt-chart .smart-timeline-view-cell:last-of-type {
-        border-right: none;
-    }
-
-    .smart-gantt-chart .smart-timeline-view-cell:not(:first-of-type) {
-        border-left-color: transparent;
-    }
-
-    .smart-gantt-chart .smart-timeline-view-cells div {
-        border-bottom-color: var(--smart-border);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cell {
-        border-width: var(--smart-border-width);
-        border-style: solid;
-        border-top-color: var(--smart-border);
-        border-bottom-color: var(--smart-border);
-        border-left-color: var(--smart-border);
-        border-right-color: var(--smart-border);
-        background: var(--smart-gantt-chart-timeline-task-background-color);
-        border-left: none;
-        border-right: none;
-    }
-
-    smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell {
-        transition: background ease-in-out 0.28s;
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cell[focus] {
-        background: var(--smart-ui-state-focus);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cell[selected] {
-        background: var(--smart-ui-state-selected);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cell:first-of-type {
-        border-left-color: var(--smart-border);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cell:last-of-type {
-        border-right-color: var(--smart-border);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cell {
-        border-top-color: transparent;
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cells {
-        position: relative;
-        /*overflow: hidden;*/
-    }
-
-    .smart-gantt-chart .smart-timeline[task-bar-hovered],
-    .smart-gantt-chart .smart-timeline[task-bar-hovered] .smart-timeline-task.project .smart-timeline-task-fill,
-    .smart-gantt-chart .smart-timeline[task-bar-hovered] .smart-timeline-task.task .smart-timeline-task-fill {
-        cursor: e-resize;
-    }
-
-    .smart-gantt-chart .smart-timeline-task {
-        position: absolute;
-    }
-
-        .smart-gantt-chart .smart-timeline-task[disable-drag] {
-            cursor: default;
-        }
-
-    .smart-gantt-chart .milestone {
-        height: var(--smart-gantt-chart-task-default-height);
-    }
-
-
-    .smart-gantt-chart .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::after,
-    .smart-gantt-chart .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::before,
-    .smart-gantt-chart .smart-timeline-task:not([disable-drag]) .smart-timeline-task-fill {
-        cursor: move;
-    }
-
-    .smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline-task.milestone[connected] .smart-task-container::after,
-    .smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline-task.milestone[connected] .smart-task-container::before,
-    .smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline:not([task-bar-hovered]) .smart-timeline-task[connected] .smart-timeline-task-fill {
-        cursor: initial;
-    }
-
-    .smart-gantt-chart .milestone .smart-task-container {
-        padding: 0;
-    }
-
-        .smart-gantt-chart .milestone .smart-task-container:before,
-        .smart-gantt-chart .milestone .smart-task-container:after {
-            content: "";
-            position: absolute;
-            height: 100%;
-            box-sizing: border-box;
-        }
-
-        .smart-gantt-chart .milestone .smart-task-container:before {
-            left: calc(-1 * var(--smart-gantt-chart-task-default-height) /2);
-            border-right: calc(var(--smart-gantt-chart-task-default-height) /2) solid var(--smart-gantt-chart-milestone-color);
-            border-top: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
-            border-bottom: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
-        }
-
-        .smart-gantt-chart .milestone .smart-task-container:after {
-            top: 0;
-            border-left: calc(var(--smart-gantt-chart-task-default-height) /2) solid var(--smart-gantt-chart-milestone-color);
-            border-top: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
-            border-bottom: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
-        }
-
-    .smart-gantt-chart .smart-task-container {
-        position: relative;
-        width: 100%;
         height: 100%;
         box-sizing: border-box;
-        padding-top: var(--smart-gantt-chart-task-bar-fill-padding);
-        padding-bottom: var(--smart-gantt-chart-task-bar-fill-padding);
     }
 
-    .smart-gantt-chart .smart-task-connection-point {
-        position: absolute;
-        border: 1px solid #A9A9A9;
-        border-radius: 50%;
-        width: calc(var(--smart-gantt-chart-task-default-height) / 2);
-        height: calc(var(--smart-gantt-chart-task-default-height) / 2);
-        top: 50%;
-        transform: translateY(-50%) scale(0);
-        background-color: #DEDEDE;
-        cursor: pointer;
+    .smart-gantt-chart .milestone .smart-task-container:before {
+        left: calc(-1 * var(--smart-gantt-chart-task-default-height) /2);
+        border-right: calc(var(--smart-gantt-chart-task-default-height) /2) solid var(--smart-gantt-chart-milestone-color);
+        border-top: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
+        border-bottom: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
     }
 
-    .smart-gantt-chart:not([animation="none"]) .smart-task-connection-point {
-        transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-
-    .smart-gantt-chart .smart-task-connection-point.start {
-        left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
-    }
-
-    .smart-gantt-chart .smart-task-connection-point.end {
-        right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
-    }
-
-    .smart-gantt-chart .milestone .smart-task-connection-point.start {
-        left: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
-    }
-
-    .smart-gantt-chart .milestone .smart-task-connection-point.end {
-        right: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
-    }
-
-    .smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[selected] .smart-task-connection-point,
-    .smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[hover] .smart-task-connection-point {
-        transform: translateY(-50%) scale(1);
-    }
-
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-task-connection-point,
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task[hover] .smart-task-connection-point {
-        transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-fill,
-    .smart-gantt-chart .smart-timeline-task-progress {
-        width: 100%;
-        height: 100%;
-    }
-
-    .smart-gantt-chart .smart-timeline-task-progress {
-        transform-origin: left;
-        position: relative;
-    }
-
-    .smart-gantt-chart .smart-timeline-task-fill {
-        border-radius: var(--smart-gantt-chart-task-fill-border-radius);
-        overflow: hidden;
-    }
-
-    .smart-gantt-chart .project .smart-timeline-task-fill {
-        background: var(--smart-gantt-chart-project-color);
-    }
-
-    .smart-gantt-chart .task .smart-timeline-task-fill {
-        background: var(--smart-gantt-chart-task-color);
-    }
-
-    .smart-gantt-chart .project .smart-timeline-task-progress {
-        background: var(--smart-gantt-chart-project-progress-color);
-    }
-
-    .smart-gantt-chart .task .smart-timeline-task-progress {
-        background: var(--smart-gantt-chart-task-progress-color);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-label {
-        position: absolute;
-        width: 100%;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        font-size: inherit;
-        font-family: inherit;
-        pointer-events: none;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    .smart-gantt-chart .smart-timeline-task.task .smart-timeline-task-label {
-        color: var(--smart-gantt-chart-task-label-color);
-    }
-
-    .smart-gantt-chart .smart-timeline-task.task[selected] .smart-timeline-task-label {
-        color: var(--smart-gantt-chart-task-label-color-selected);
-    }
-
-    .smart-gantt-chart .smart-timeline-task.project .smart-timeline-task-label {
-        color: var(--smart-gantt-chart-project-label-color);
-    }
-
-    .smart-gantt-chart .smart-timeline-task.project[selected] .smart-timeline-task-label {
-        color: var(--smart-gantt-chart-project-label-color-selected);
-    }
-
-    .smart-gantt-chart .smart-timeline-task-progress-thumb {
-        position: absolute;
-        right: 0;
-        cursor: e-resize;
-        transform: scale(0);
-        transform-origin: left bottom;
-    }
-
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task-progress-thumb {
-        transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-timeline-task-progress-thumb {
-        transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-    }
-
-    .smart-gantt-chart .smart-timeline-task[selected] .smart-timeline-task-progress-thumb {
-        transform: scale(1);
-    }
-
-    .smart-gantt-chart .smart-timeline-task:not(.milestone)::after,
-    .smart-gantt-chart .smart-timeline-task:not(.milestone) .smart-task-container::after {
-        content: '';
-        width: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
-        height: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
-        position: absolute;
-        top: calc(50% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
-        left: calc(100% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
-        background-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
-        box-shadow: 0 0 0 1px var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
-        transform: scale(0);
-        pointer-events: none;
-    }
-
-    .smart-gantt-chart .smart-timeline-task:not(.milestone)[disable-resize]::after,
-    .smart-gantt-chart .smart-timeline-task:not(.milestone)[disable-resize] .smart-task-container::after {
-        content: none;
-    }
-
-    .smart-gantt-chart .smart-timeline-task:not(.milestone) .smart-task-container::after {
-        left: calc(-1 * var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
-    }
-
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task::after,
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task .smart-task-container::after {
-        transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-    }
-
-    .smart-gantt-chart .smart-timeline-task[selected]:not([disable-resize])::after,
-    .smart-gantt-chart .smart-timeline-task[selected]:not([disable-resize]) .smart-task-container::after {
-        transform: scale(1);
-    }
-
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected]::after,
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-task-container::after {
-        transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        transform: translateY(-1px);
-    }
-
-    .smart-gantt-chart .smart-timeline-task[selected]:not(.milestone) .smart-timeline-task-fill {
-        /*box-shadow: 0 0 0 1px var(--smart-gantt-chart-selection-color);*/
-        box-shadow: var(--smart-elevation-2);
-    }
-
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-task .smart-timeline-task-fill {
-        transition: box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-    }
-
-    .smart-gantt-chart .smart-timeline-task .smart-timeline-task-progress-thumb:after {
-        content: "";
-        border-right: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
-        border-left: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
-        border-bottom: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid var(--smart-gantt-chart-task-thumb-color);
-        box-shadow: 0 1px 0 0 var(--smart-gantt-chart-task-thumb-color);
-        position: absolute;
-        bottom: calc(-1 * var(--smart-gantt-chart-task-bar-fill-padding) / 2);
-        left: calc(-1 * var(--smart-gantt-chart-timeline-task-progress-thumb-size));
-        z-index: 1;
-        cursor: pointer;
-    }
-
-    .smart-gantt-chart .smart-task-bar-limitter-min,
-    .smart-gantt-chart .smart-task-bar-limitter-max {
-        position: absolute;
+    .smart-gantt-chart .milestone .smart-task-container:after {
         top: 0;
-        height: 100%;
-        width: 1px;
-        border-style: dashed;
-        border-width: 1px;
+        border-left: calc(var(--smart-gantt-chart-task-default-height) /2) solid var(--smart-gantt-chart-milestone-color);
+        border-top: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
+        border-bottom: calc(var(--smart-gantt-chart-task-default-height) /2) solid transparent;
     }
 
-    .smart-gantt-chart .smart-task-bar-limitter-min {
-        border-color: lightgreen;
-    }
+.smart-gantt-chart .smart-task-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: var(--smart-gantt-chart-task-bar-fill-padding);
+    padding-bottom: var(--smart-gantt-chart-task-bar-fill-padding);
+}
 
-    .smart-gantt-chart .smart-task-bar-limitter-max {
-        border-color: red;
-    }
+.smart-gantt-chart .smart-task-connection-point {
+    position: absolute;
+    border: 1px solid #A9A9A9;
+    border-radius: 50%;
+    width: calc(var(--smart-gantt-chart-task-default-height) / 2);
+    height: calc(var(--smart-gantt-chart-task-default-height) / 2);
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    background-color: #DEDEDE;
+    cursor: pointer;
+}
 
-    .smart-gantt-chart .smart-task-bar-limitter-min-date,
-    .smart-gantt-chart .smart-task-bar-limitter-max-date {
-        position: absolute;
-        top: 0;
-        left: var(--smart-border-width);
-        height: calc(100% - 2 * var(--smart-border-width));
-        background-image: linear-gradient(135deg, rgba(255,0,0,0.2) 25%, transparent 25%, transparent 50%, rgba(255,0,0,0.2) 50%, rgba(255,0,0,0.2) 75%, transparent 75%, transparent);
-        background-size: 1rem 1rem;
-        border: 1px solid white;
-    }
+.smart-gantt-chart:not([animation="none"]) .smart-task-connection-point {
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
 
-    .smart-gantt-chart .smart-task-bar-limitter-max-date {
-        left: inherit;
-        right: 0;
-    }
+.smart-gantt-chart .smart-task-connection-point.start {
+    left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+}
 
-    /*.smart-gantt-chart .smart-task-bar-limitter-min-date:after,
+.smart-gantt-chart .smart-task-connection-point.end {
+    right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+}
+
+.smart-gantt-chart .milestone .smart-task-connection-point.start {
+    left: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+}
+
+.smart-gantt-chart .milestone .smart-task-connection-point.end {
+    right: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+}
+
+.smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[selected] .smart-task-connection-point,
+.smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[hover] .smart-task-connection-point {
+    transform: translateY(-50%) scale(1);
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-task-connection-point,
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[hover] .smart-task-connection-point {
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+}
+
+.smart-gantt-chart .smart-timeline-task-fill,
+.smart-gantt-chart .smart-timeline-task-progress {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-gantt-chart .smart-timeline-task-progress {
+    transform-origin: left;
+    position: relative;
+}
+
+.smart-gantt-chart .smart-timeline-task-fill {
+    border-radius: var(--smart-gantt-chart-task-fill-border-radius);
+    overflow: hidden;
+}
+
+.smart-gantt-chart .project .smart-timeline-task-fill {
+    background: var(--smart-gantt-chart-project-color);
+}
+
+.smart-gantt-chart .task .smart-timeline-task-fill {
+    background: var(--smart-gantt-chart-task-color);
+}
+
+.smart-gantt-chart .project .smart-timeline-task-progress {
+    background: var(--smart-gantt-chart-project-progress-color);
+}
+
+.smart-gantt-chart .task .smart-timeline-task-progress {
+    background: var(--smart-gantt-chart-task-progress-color);
+}
+
+.smart-gantt-chart .smart-timeline-task-label {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: inherit;
+    font-family: inherit;
+    pointer-events: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.smart-gantt-chart .smart-timeline-task.task .smart-timeline-task-label {
+    color: var(--smart-gantt-chart-task-label-color);
+}
+
+.smart-gantt-chart .smart-timeline-task.task[selected] .smart-timeline-task-label {
+    color: var(--smart-gantt-chart-task-label-color-selected);
+}
+
+.smart-gantt-chart .smart-timeline-task.project .smart-timeline-task-label {
+    color: var(--smart-gantt-chart-project-label-color);
+}
+
+.smart-gantt-chart .smart-timeline-task.project[selected] .smart-timeline-task-label {
+    color: var(--smart-gantt-chart-project-label-color-selected);
+}
+
+.smart-gantt-chart .smart-timeline-task-progress-thumb {
+    position: absolute;
+    right: 0;
+    cursor: e-resize;
+    transform: scale(0);
+    transform-origin: left bottom;
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task-progress-thumb {
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-timeline-task-progress-thumb {
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+}
+
+.smart-gantt-chart .smart-timeline-task[selected] .smart-timeline-task-progress-thumb {
+    transform: scale(1);
+}
+
+.smart-gantt-chart .smart-timeline-task:not(.milestone)::after,
+.smart-gantt-chart .smart-timeline-task:not(.milestone) .smart-task-container::after {
+    content: '';
+    width: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
+    height: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
+    position: absolute;
+    top: calc(50% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
+    left: calc(100% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
+    background-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
+    box-shadow: 0 0 0 1px var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.smart-gantt-chart .smart-timeline-task:not(.milestone)[disable-resize]::after,
+.smart-gantt-chart .smart-timeline-task:not(.milestone)[disable-resize] .smart-task-container::after {
+    content: none;
+}
+
+.smart-gantt-chart .smart-timeline-task:not(.milestone) .smart-task-container::after {
+    left: calc(-1 * var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task::after,
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task .smart-task-container::after {
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+}
+
+.smart-gantt-chart .smart-timeline-task[selected]:not([disable-resize])::after,
+.smart-gantt-chart .smart-timeline-task[selected]:not([disable-resize]) .smart-task-container::after {
+    transform: scale(1);
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected]::after,
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-task-container::after {
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+}
+
+/*.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected]:not(.milestone)::after,
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected]:not(.milestone) .smart-task-container::after {
+    transform: translateY(-1px);
+}*/
+
+.smart-gantt-chart .smart-timeline-task[selected]:not(.milestone) .smart-timeline-task-fill {
+    /*box-shadow: 0 0 0 1px var(--smart-gantt-chart-selection-color);*/
+    box-shadow: var(--smart-elevation-2);
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task .smart-timeline-task-fill {
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+}
+
+.smart-gantt-chart .smart-timeline-task .smart-timeline-task-progress-thumb:after {
+    content: "";
+    border-right: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
+    border-left: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
+    border-bottom: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid var(--smart-gantt-chart-task-thumb-color);
+    box-shadow: 0 1px 0 0 var(--smart-gantt-chart-task-thumb-color);
+    position: absolute;
+    bottom: calc(-1 * var(--smart-gantt-chart-task-bar-fill-padding) / 2);
+    left: calc(-1 * var(--smart-gantt-chart-timeline-task-progress-thumb-size));
+    z-index: 1;
+    cursor: pointer;
+}
+
+.smart-gantt-chart .smart-task-bar-limitter-min,
+.smart-gantt-chart .smart-task-bar-limitter-max {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.smart-gantt-chart .smart-task-bar-limitter-min {
+    border-color: lightgreen;
+}
+
+.smart-gantt-chart .smart-task-bar-limitter-max {
+    border-color: red;
+}
+
+.smart-gantt-chart .smart-task-bar-limitter-min-date,
+.smart-gantt-chart .smart-task-bar-limitter-max-date {
+    position: absolute;
+    top: 0;
+    left: var(--smart-border-width);
+    height: calc(100% - 2 * var(--smart-border-width));
+    background-image: linear-gradient(135deg, rgba(255,0,0,0.2) 25%, transparent 25%, transparent 50%, rgba(255,0,0,0.2) 50%, rgba(255,0,0,0.2) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+    border: 1px solid white;
+}
+
+.smart-gantt-chart .smart-task-bar-limitter-max-date {
+    left: inherit;
+    right: 0;
+}
+
+/*.smart-gantt-chart .smart-task-bar-limitter-min-date:after,
         .smart-gantt-chart .smart-task-bar-limitter-max-date:after {
             content: '\e833';
             position: absolute;
@@ -523,427 +531,443 @@ smart-gantt-chart {
             transform: translate(-50%, -50%);
         }*/
 
-    .smart-gantt-chart smart-scroll-viewer {
-        width: 100%;
-        height: 100%;
-        border: none;
-        padding: initial;
-    }
+.smart-gantt-chart smart-scroll-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: initial;
+}
 
-    /*.smart-gantt-chart .smart-scroll-viewer-content-container {
+/*.smart-gantt-chart .smart-scroll-viewer-content-container {
         vertical-align: top;
         padding: unset;
     }*/
 
-    .smart-gantt-chart .smart-task-connection-feedback {
+.smart-gantt-chart .smart-task-connection-feedback {
+    position: absolute;
+    top: 50%;
+    transform-origin: left;
+    border: var(--smart-gantt-chart-timeline-task-connection-feedback-width) var(--smart-gantt-chart-timeline-task-connection-feedback-style) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+    z-index: 1;
+    pointer-events: none;
+}
+
+    .smart-gantt-chart .smart-task-connection[arrow-direction]:before,
+    .smart-gantt-chart .smart-task-connection-feedback:before {
+        content: '';
         position: absolute;
+        left: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
+        top: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width));
+        border-top: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
+        border-bottom: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
+        border-left: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+    }
+
+.smart-gantt-chart .smart-task-connection[arrow-direction="left"]:before {
+    left: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width) /2 + 1px);
+    border-right: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+    border-left: none;
+}
+
+.smart-gantt-chart .smart-timeline-task[connection-point="end"] .smart-task-connection-feedback {
+    left: 100%;
+}
+
+.smart-gantt-chart .milestone .smart-task-connection-feedback {
+    left: calc( -1 * var(--smart-gantt-chart-task-default-height) /2);
+}
+
+.smart-gantt-chart .milestone[connection-point="end"] .smart-task-connection-feedback {
+    left: calc(100% + var(--smart-gantt-chart-task-default-height) /2);
+}
+
+.smart-gantt-chart .smart-task-connection {
+    position: absolute;
+    border: var(--smart-gantt-chart-timeline-task-connection-width) var(--smart-gantt-chart-timeline-task-connection-style) var(--smart-gantt-chart-timeline-task-connection-color);
+    top: 50%;
+    cursor: pointer;
+}
+
+    .smart-gantt-chart .smart-task-connection[hover] {
+        border-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
+        box-shadow: 0 0 2.5px 0 var(--smart-gantt-chart-timeline-task-connection-color);
+    }
+
+        .smart-gantt-chart .smart-task-connection[hover]::before {
+            border-left-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
+            border-right-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
+        }
+
+    .smart-gantt-chart .smart-task-connection::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        border: inherit;
+        position: absolute;
+        border-color: transparent;
+        border-width: 5px;
         top: 50%;
-        transform-origin: left;
-        border: var(--smart-gantt-chart-timeline-task-connection-feedback-width) var(--smart-gantt-chart-timeline-task-connection-feedback-style) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
-        z-index: 1;
-        pointer-events: none;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
-        .smart-gantt-chart .smart-task-connection[arrow-direction]:before,
-        .smart-gantt-chart .smart-task-connection-feedback:before {
-            content: '';
-            position: absolute;
-            left: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
-            top: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width));
-            border-top: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
-            border-bottom: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
-            border-left: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
-        }
+.smart-gantt-chart[connecting-task] .smart-task-connection {
+    pointer-events: none;
+}
 
-    .smart-gantt-chart .smart-task-connection[arrow-direction="left"]:before {
-        left: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width) /2 + 1px);
-        border-right: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
-        border-left: none;
+.smart-gantt-chart .smart-timeline-task-cell.smart-visibility-hidden {
+    height: 0;
+    border: 0;
+}
+
+/* ---- Timeline Animation Container ----- */
+
+.smart-gantt-chart .smart-timeline-animation-container {
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
+    overflow: hidden;
+    transform: scale(1);
+}
+
+    .smart-gantt-chart .smart-timeline-animation-container.smart-visibility-hidden {
+        transform: scale(0);
     }
 
-    .smart-gantt-chart .smart-timeline-task[connection-point="end"] .smart-task-connection-feedback {
-        left: 100%;
-    }
+.smart-gantt-chart .smart-timeline-animation-inner-container {
+    width: 100%;
+    position: absolute;
+}
 
-    .smart-gantt-chart .milestone .smart-task-connection-feedback {
-        left: calc( -1 * var(--smart-gantt-chart-task-default-height) /2);
-    }
+.smart-gantt-chart[animation="none"] .smart-timeline-animation-container {
+    display: none;
+}
 
-    .smart-gantt-chart .milestone[connection-point="end"] .smart-task-connection-feedback {
-        left: calc(100% + var(--smart-gantt-chart-task-default-height) /2);
-    }
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task.milestone .smart-task-container {
+    width: 0;
+}
 
-    .smart-gantt-chart .smart-task-connection {
-        position: absolute;
-        border: var(--smart-gantt-chart-timeline-task-connection-width) var(--smart-gantt-chart-timeline-task-connection-style) var(--smart-gantt-chart-timeline-task-connection-color);
-        top: 50%;
-        cursor: pointer;
-    }
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task {
+    position: initial;
+}
 
-        .smart-gantt-chart .smart-task-connection[hover] {
-            border-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
-            box-shadow: 0 0 2.5px 0 var(--smart-gantt-chart-timeline-task-connection-color);
-        }
+.smart-gantt-chart .smart-timeline-animation-inner-container > div {
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: height 0.2s ease-in, transform 0.2s ease-in;
+}
 
-            .smart-gantt-chart .smart-task-connection[hover]::before {
-                border-left-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
-                border-right-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
-            }
-
-        .smart-gantt-chart .smart-task-connection::after {
-            content: '';
-            width: 100%;
-            height: 100%;
-            border: inherit;
-            position: absolute;
-            border-color: transparent;
-            border-width: 5px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-    .smart-gantt-chart[connecting-task] .smart-task-connection {
-        pointer-events: none;
-    }
-
-    .smart-gantt-chart .smart-timeline-task-cell.smart-visibility-hidden {
+    .smart-gantt-chart .smart-timeline-animation-inner-container > div.animate {
+        transform: scaleY(0);
         height: 0;
-        border: 0;
     }
 
-    /* ---- Timeline Animation Container ----- */
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-view-cells .smart-timeline-view-cell::after {
+    transition: height 0.2s ease-in;
+}
 
-    .smart-gantt-chart .smart-timeline-animation-container {
-        width: 100%;
-        position: absolute;
-        pointer-events: none;
-        height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-        overflow: hidden;
-        transform: scale(1);
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task::after,
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[selected]::before,
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    border-top: var(--smart-border-width) solid var(--smart-border);
+    top: initial;
+    left: 0;
+    height: 0;
+    box-shadow: none;
+    transform: translateY(-1px);
+}
+
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task::before {
+    transition: background ease-in-out 0.28s;
+    background: var(--smart-gantt-chart-timeline-task-background-color);
+}
+
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[selected]::before {
+    height: var(--smart-gantt-chart-task-default-height);
+    background: var(--smart-ui-state-selected);
+    box-sizing: border-box;
+}
+
+.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[focus]::before {
+    height: var(--smart-gantt-chart-task-default-height);
+    background: var(--smart-ui-state-focus);
+    box-sizing: border-box;
+}
+
+/*  ---- ----*/
+
+/* Task Tree Section */
+.smart-gantt-chart .smart-task-tree-splitter {
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-tree-splitter-bar-fit-size);
+}
+
+    .smart-gantt-chart .smart-task-tree-splitter smart-splitter-bar {
+        --smart-splitter-bar-background: var(--smart-border);
     }
 
-        .smart-gantt-chart .smart-timeline-animation-container.smart-visibility-hidden {
-            transform: scale(0);
-        }
-
-    .smart-gantt-chart .smart-timeline-animation-inner-container {
-        width: 100%;
-        position: absolute;
+    .smart-gantt-chart .smart-task-tree-splitter smart-tree {
+        --smart-tree-default-width: auto;
+        --smart-tree-default-height: 100%;
+        --smart-tree-item-label-height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-border-width));
+        --smart-tree-item-vertical-offset: 0;
+        --smart-tree-item-horizontal-offset: 0;
+        --smart-item-border-width: 0;
+        --smart-item-border-top-left-radius: 0;
+        --smart-item-border-top-right-radius: 0;
+        --smart-item-border-bottom-left-radius: 0;
+        --smart-item-border-bottom-right-radius: 0;
+        border: none;
     }
 
-    .smart-gantt-chart[animation="none"] .smart-timeline-animation-container {
-        display: none;
-    }
+.smart-gantt-chart smart-tree .smart-tree-item-label-container {
+    height: var(--smart-gantt-chart-task-default-height);
+}
 
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task.milestone .smart-task-container {
-        width: 0;
-    }
+.smart-gantt-chart smart-tree-item:not([selected]),
+.smart-gantt-chart smart-tree[selection-mode="checkBox"] smart-tree-item,
+.smart-gantt-chart smart-tree[selection-mode="radioButton"] smart-tree-item,
+.smart-gantt-chart smart-tree-items-group:not([selected]) > .smart-tree-item-label-container,
+.smart-gantt-chart smart-tree[selection-mode="checkBox"] smart-tree-items-group > .smart-tree-item-label-container,
+.smart-gantt-chart smart-tree[selection-mode="radioButton"] smart-tree-items-group > .smart-tree-item-label-container {
+    border-radius: 0;
+}
 
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task {
-        position: initial;
-    }
+.smart-gantt-chart smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container,
+.smart-gantt-chart .smart-task-tree-splitter .smart-tree-item-label-container,
+.smart-gantt-chart .smart-task-tree-splitter .smart-task-label-container {
+    border-bottom-width: var(--smart-border-width);
+    border-bottom-style: solid;
+    border-top-color: var(--smart-border);
+    border-bottom-color: var(--smart-border);
+}
 
-    .smart-gantt-chart .smart-timeline-animation-inner-container > div {
-        transform: scaleY(1);
-        transform-origin: top;
-        transition: height 0.2s ease-in, transform 0.2s ease-in;
-    }
+.smart-gantt-chart .smart-task-tree-splitter smart-tree:not([selection-display-mode="label"]):not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) smart-tree-item[selected],
+.smart-gantt-chart .smart-task-tree-splitter smart-tree:not([selection-display-mode="label"]):not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) smart-tree-items-group[selected] > .smart-tree-item-label-container {
+    border-top-color: var(--smart-border);
+    border-bottom-color: var(--smart-border);
+}
 
-        .smart-gantt-chart .smart-timeline-animation-inner-container > div.animate {
-            transform: scaleY(0);
-            height: 0;
-        }
-
-    .smart-gantt-chart:not([animation="none"]) .smart-timeline-view-cells .smart-timeline-view-cell::after {
-        transition: height 0.2s ease-in;
-    }
-
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task::after,
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[selected]::before,
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task::before {
-        content: ' ';
-        position: absolute;
-        width: 100%;
-        border-top: var(--smart-border-width) solid var(--smart-border);
-        top: initial;
-        left: 0;
-        height: 0;
-        box-shadow: none;
-        transform: translateY(-1px);
-    }
-
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task::before {
-        transition: background ease-in-out 0.28s;
-        background: var(--smart-gantt-chart-timeline-task-background-color);
-    }
-
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[selected]::before {
-        height: var(--smart-gantt-chart-task-default-height);
-        background: var(--smart-ui-state-selected);
-        box-sizing: border-box;
-    }
-
-    .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[focus]::before {
-        height: var(--smart-gantt-chart-task-default-height);
-        background: var(--smart-ui-state-focus);
-        box-sizing: border-box;
-    }
-
-    /*  ---- ----*/
-
-    /* Task Tree Section */
-    .smart-gantt-chart .smart-task-tree-splitter {
-        --smart-border-top-left-radius: 0;
-        --smart-border-top-right-radius: 0;
-        --smart-border-bottom-left-radius: 0;
-        --smart-border-bottom-right-radius: 0;
-        --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-tree-splitter-bar-fit-size);
-    }
-
-        .smart-gantt-chart .smart-task-tree-splitter smart-splitter-bar {
-            --smart-splitter-bar-background: var(--smart-border);
-        }
-
-        .smart-gantt-chart .smart-task-tree-splitter smart-tree {
-            --smart-tree-default-width: auto;
-            --smart-tree-default-height: 100%;
-            --smart-tree-item-label-height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-border-width));
-            --smart-tree-item-vertical-offset: 0;
-            --smart-tree-item-horizontal-offset: 0;
-            --smart-item-border-width: 0;
-            --smart-item-border-top-left-radius: 0;
-            --smart-item-border-top-right-radius: 0;
-            --smart-item-border-bottom-left-radius: 0;
-            --smart-item-border-bottom-right-radius: 0;
-            border:none;
-        }
-
-    .smart-gantt-chart smart-tree .smart-tree-item-label-container {
-        height: var(--smart-gantt-chart-task-default-height);
-    }
-
-    .smart-gantt-chart smart-tree-item:not([selected]),
-    .smart-gantt-chart smart-tree[selection-mode="checkBox"] smart-tree-item,
-    .smart-gantt-chart smart-tree[selection-mode="radioButton"] smart-tree-item,
-    .smart-gantt-chart smart-tree-items-group:not([selected]) > .smart-tree-item-label-container,
-    .smart-gantt-chart smart-tree[selection-mode="checkBox"] smart-tree-items-group > .smart-tree-item-label-container,
-    .smart-gantt-chart smart-tree[selection-mode="radioButton"] smart-tree-items-group > .smart-tree-item-label-container {
-        border-radius: 0;
-    }
-
-    .smart-gantt-chart smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container,
-    .smart-gantt-chart .smart-task-tree-splitter .smart-tree-item-label-container,
-    .smart-gantt-chart .smart-task-tree-splitter .smart-task-label-container {
-        border-bottom-width: var(--smart-border-width);
-        border-bottom-style: solid;
-        border-top-color: var(--smart-border);
-        border-bottom-color: var(--smart-border);
-    }
-
-    .smart-gantt-chart .smart-task-tree-splitter smart-tree:not([selection-display-mode="label"]):not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) smart-tree-item[selected],
-    .smart-gantt-chart .smart-task-tree-splitter smart-tree:not([selection-display-mode="label"]):not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) smart-tree-items-group[selected] > .smart-tree-item-label-container {
-        border-top-color: var(--smart-border);
-        border-bottom-color: var(--smart-border);
-    }
-
-    .smart-gantt-chart .smart-task-tree-header {
-        height: calc(2 * var(--smart-gantt-chart-task-default-height));
-        padding: var(--smart-gantt-chart-task-bar-fill-padding);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom: var(--smart-border-width) solid var(--smart-border);
-        border-left: none;
-        border-right: none;
-        /*border-radius: 5px;*/
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-        background-color: var(--smart-surface);
-        color: var(--smart-surface-color);
-        box-shadow: var(--smart-gantt-chart-header-box-shadow);
-    }
+.smart-gantt-chart .smart-task-tree-header {
+    height: calc(2 * var(--smart-gantt-chart-task-default-height));
+    padding: var(--smart-gantt-chart-task-bar-fill-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    border-left: none;
+    border-right: none;
+    /*border-radius: 5px;*/
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    box-shadow: var(--smart-gantt-chart-header-box-shadow);
+}
 
     .smart-gantt-chart .smart-task-tree-header:empty {
         padding: 0;
     }
 
-    .smart-gantt-chart .smart-timeline-header {
-        box-shadow: var(--smart-gantt-chart-header-box-shadow);
-    }
+.smart-gantt-chart .smart-timeline-header {
+    box-shadow: var(--smart-gantt-chart-header-box-shadow);
+}
 
-    .smart-gantt-chart .smart-task-tree-content {
-        height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-        overflow: hidden;
-    }
+.smart-gantt-chart .smart-task-tree-content {
+    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
+    overflow: hidden;
+}
 
-    /*.smart-gantt-chart .smart-task-tree-splitter smart-splitter-item .smart-content,*/
-    .smart-gantt-chart .smart-task-tree-splitter smart-splitter-item > .smart-container > .smart-content {
-        padding: 0;
-        overflow: hidden;
-    }
+/*.smart-gantt-chart .smart-task-tree-splitter smart-splitter-item .smart-content,*/
+.smart-gantt-chart .smart-task-tree-splitter smart-splitter-item > .smart-container > .smart-content {
+    padding: 0;
+    overflow: hidden;
+}
 
-    /*.smart-gantt-chart .smart-task-tree-splitter-item {
+/*.smart-gantt-chart .smart-task-tree-splitter-item {
         --smart-splitter-item-size: 20%;
     }*/
 
-    .smart-gantt-chart .smart-task-tree-splitter .smart-task-label-container {
-        height: var(--smart-gantt-chart-task-default-height);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-        cursor: pointer;
+.smart-gantt-chart .smart-task-tree-splitter .smart-task-label-container {
+    height: var(--smart-gantt-chart-task-default-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+    .smart-gantt-chart .smart-task-tree-splitter .smart-task-label-container[selected] {
+        border-color: var(--smart-ui-state-border-selected);
+        background-color: var(--smart-ui-state-selected);
+        color: var(--smart-ui-state-color-selected);
     }
 
-     
-
-    .smart-gantt-chart:not([animation="none"]) smart-tree:not([selection-display-mode="label"]) smart-tree-item,
-    .smart-gantt-chart:not([animation="none"]) smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container,
-    .smart-gantt-chart:not([animation="none"]) .smart-task-tree-splitter .smart-task-label-container {
-        transition: color ease-in-out 0.28s, border-color ease-in-out 0.28s, background ease-in-out 0.28s;
+    .smart-gantt-chart .smart-task-tree-splitter .smart-task-label-container[hover]:not([selected]) {
+        border-color: var(--smart-ui-state-border-hover);
+        background-color: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
     }
 
-    .smart-gantt-chart .smart-task-tree-splitter .smart-task-drop-down {
-        transform: scaleY(1);
-        transform-origin: top;
-        overflow: hidden;
+    .smart-gantt-chart .smart-task-tree-splitter .smart-task-label-container[focus]:not([selected]) {
+        border-color: var(--smart-ui-state-border-focus);
+        background-color: var(--smart-ui-state-focus);
+        color: var(--smart-ui-state-color-focus);
     }
 
-        .smart-gantt-chart .smart-task-tree-splitter .smart-task-drop-down.smart-visibility-hidden {
-            margin-top: 0;
-            height: 0;
-            transform: scaleY(0);
-        }
+.smart-gantt-chart:not([animation="none"]) smart-tree:not([selection-display-mode="label"]) smart-tree-item,
+.smart-gantt-chart:not([animation="none"]) smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container,
+.smart-gantt-chart:not([animation="none"]) .smart-task-tree-splitter .smart-task-label-container {
+    transition: color ease-in-out 0.28s, border-color ease-in-out 0.28s, background ease-in-out 0.28s;
+}
 
-    .smart-gantt-chart:not([animation="none"]) .smart-task-tree-splitter .smart-task-drop-down {
-        transition: height 0.2s ease-in, transform 0.2s ease-in, visibility 0.2s ease-in;
+.smart-gantt-chart .smart-task-tree-splitter .smart-task-drop-down {
+    transform: scaleY(1);
+    transform-origin: top;
+    overflow: hidden;
+}
+
+    .smart-gantt-chart .smart-task-tree-splitter .smart-task-drop-down.smart-visibility-hidden {
+        margin-top: 0;
+        height: 0;
+        transform: scaleY(0);
     }
 
-    /*.smart-gantt-chart .smart-task-tree-splitter smart-splitter-bar {
+.smart-gantt-chart:not([animation="none"]) .smart-task-tree-splitter .smart-task-drop-down {
+    transition: height 0.2s ease-in, transform 0.2s ease-in, visibility 0.2s ease-in;
+}
+
+/*.smart-gantt-chart .smart-task-tree-splitter smart-splitter-bar {
         height: calc(var(--smart-gantt-chart-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height)) !important;
     }*/
 
 
-    /* ScrollBars  */
+/* ScrollBars  */
 
-    .smart-gantt-chart smart-splitter-item.smart-timeline-splitter-item > .smart-container,
-    .smart-gantt-chart smart-splitter-item.smart-timeline-splitter-item > .smart-container > .smart-content {
-        overflow: hidden;
+.smart-gantt-chart smart-splitter-item.smart-timeline-splitter-item > .smart-container,
+.smart-gantt-chart smart-splitter-item.smart-timeline-splitter-item > .smart-container > .smart-content {
+    overflow: hidden;
+}
+
+.smart-gantt-chart > .smart-container,
+.smart-gantt-chart.smart-container {
+    position: relative;
+    touch-action: none;
+}
+
+    .smart-gantt-chart > .smart-container.hscroll > smart-splitter,
+    .smart-gantt-chart.smart-container.hscroll > smart-splitter {
+        height: calc(100% - var(--smart-scroll-bar-size));
     }
 
-    .smart-gantt-chart > .smart-container,
-    .smart-gantt-chart.smart-container {
-        position: relative;
-        touch-action: none;
+    .smart-gantt-chart > .smart-container.vscroll .smart-timeline,
+    .smart-gantt-chart.smart-container.vscroll .smart-timeline {
+        width: calc(100% - var(--smart-scroll-bar-size));
     }
-     
-        .smart-gantt-chart > .smart-container.hscroll > smart-splitter,
-         .smart-gantt-chart.smart-container.hscroll > smart-splitter {
-            height: calc(100% - var(--smart-scroll-bar-size));
-        }
 
-        .smart-gantt-chart > .smart-container.vscroll .smart-timeline,
-         .smart-gantt-chart.smart-container.vscroll .smart-timeline {
-            width: calc(100% - var(--smart-scroll-bar-size));
-        }
+.smart-gantt-chart .smart-timeline-scroll-bar {
+    overflow: visible;
+    position: relative;
+    /*bottom: 0;*/
+    height: calc(var(--smart-scroll-bar-size));
+    width: 100%;
+}
 
-    .smart-gantt-chart .smart-timeline-scroll-bar {
-        overflow: visible;
-        position: relative;
-        /*bottom: 0;*/
-        height: calc(var(--smart-scroll-bar-size));
+    .smart-gantt-chart .smart-timeline-scroll-bar.bottom-corner {
+        width: calc(100% - var(--smart-scroll-bar-size));
+    }
+
+    /* Scroll bar bottom-conrner element */
+    .smart-gantt-chart .smart-timeline-scroll-bar::after {
+        position: absolute;
+        content: '';
         width: 100%;
+        height: var(--smart-scroll-bar-size);
+        background: var(--smart-scroll-bar-background);
+        left: 100%;
+        top: 0;
+        /*left:0;*/
     }
 
-        .smart-gantt-chart .smart-timeline-scroll-bar.bottom-corner {
-            width: calc(100% - var(--smart-scroll-bar-size));
-        }
-
-        /* Scroll bar bottom-conrner element */
-        .smart-gantt-chart .smart-timeline-scroll-bar::after {
-            position: absolute;
-            content: '';
-            width: 100%;
-            height: var(--smart-scroll-bar-size);
-            background: var(--smart-scroll-bar-background);
-            left: 100%;
-            top: 0;
-            /*left:0;*/
-        }
-
-        .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"] {
-            position: absolute;
-            right: 0;
-            /*top: 0;*/
-            /*height: 100%;*/
-            top: calc(2 * var(--smart-gantt-chart-task-default-height));
-            height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-            width: calc(var(--smart-scroll-bar-size));
-        }
-
-            .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"]::before {
-                position: absolute;
-                width: 100%;
-                background: var(--smart-scroll-bar-background);
-                content: '';
-                left: 0;
-                top: calc(-2 * var(--smart-gantt-chart-task-default-height));
-                height: calc(2 * var(--smart-gantt-chart-task-default-height));
-                border: 1px solid var(--smart-border);
-                border-top: none;
-                box-sizing: border-box;
-            }
-
-    .smart-gantt-chart:not([inverted]) .smart-timeline-scroll-bar[orientation="vertical"]::before {
-        border-right: none;
-    }
-
-    .smart-gantt-chart[inverted] .smart-timeline-scroll-bar[orientation="vertical"]::before {
-        border-left: none;
-    }
-
-    .smart-gantt-chart[inverted] .smart-timeline-scroll-bar[orientation="vertical"] {
-        right: initial;
-    }
-
-    .smart-gantt-chart[inverted] > .smart-container.vscroll .smart-timeline,
-    .smart-gantt-chart[inverted].smart-container.vscroll .smart-timeline {
-        margin-left: var(--smart-scroll-bar-size);
-    }
-
-    .smart-gantt-chart[inverted] > .smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]),
-    .smart-gantt-chart[inverted].smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]) {
-        left: calc(var(--smart-scroll-bar-size));
-    }
-
-    .smart-gantt-chart[inverted] .smart-timeline-scroll-bar::after {
-        width: calc(var( --smart-scroll-bar-size));
-        left: calc(-1 * var(--smart-scroll-bar-size));
-    }
-
-    .smart-gantt-chart .smart-timeline-content {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
+    .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"] {
+        position: absolute;
+        right: 0;
+        /*top: 0;*/
+        /*height: 100%;*/
+        top: calc(2 * var(--smart-gantt-chart-task-default-height));
         height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-        transition: max-height 0.2s ease-in, min-height 0.2s ease-in, height 0.2s ease-in;
+        width: calc(var(--smart-scroll-bar-size));
     }
 
-    .smart-gantt-chart .smart-timeline-container {
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+        .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"]::before {
+            position: absolute;
+            width: 100%;
+            background: var(--smart-scroll-bar-background);
+            content: '';
+            left: 0;
+            top: calc(-2 * var(--smart-gantt-chart-task-default-height));
+            height: calc(2 * var(--smart-gantt-chart-task-default-height));
+            border: 1px solid var(--smart-border);
+            border-top: none;
+            box-sizing: border-box;
+        }
+
+.smart-gantt-chart:not([inverted]) .smart-timeline-scroll-bar[orientation="vertical"]::before {
+    border-right: none;
+}
+
+.smart-gantt-chart[inverted] .smart-timeline-scroll-bar[orientation="vertical"]::before {
+    border-left: none;
+}
+
+.smart-gantt-chart[inverted] .smart-timeline-scroll-bar[orientation="vertical"] {
+    right: initial;
+}
+
+.smart-gantt-chart[inverted] > .smart-container.vscroll .smart-timeline,
+.smart-gantt-chart[inverted].smart-container.vscroll .smart-timeline {
+    margin-left: var(--smart-scroll-bar-size);
+}
+
+.smart-gantt-chart[inverted] > .smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]),
+.smart-gantt-chart[inverted].smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]) {
+    left: calc(var(--smart-scroll-bar-size));
+}
+
+.smart-gantt-chart[inverted] .smart-timeline-scroll-bar::after {
+    width: calc(var( --smart-scroll-bar-size));
+    left: calc(-1 * var(--smart-scroll-bar-size));
+}
+
+.smart-gantt-chart .smart-timeline-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
+    transition: max-height 0.2s ease-in, min-height 0.2s ease-in, height 0.2s ease-in;
+}
+
+.smart-gantt-chart .smart-timeline-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
 /* Popup Windows */
 
@@ -969,13 +993,13 @@ smart-gantt-chart {
     --smart-window-default-width: var(--smart-gantt-chart-confirm-popup-window-default-width);
 }
 
-    .smart-connection-popup-window > .smart-container > .smart-content,
-    .smart-confirm-popup-window > .smart-container > .smart-content {
+    .smart-connection-popup-window .smart-content-container > .smart-content,
+    .smart-confirm-popup-window .smart-content-container > .smart-content {
         justify-content: center;
         max-height: calc(var(--smart-gantt-chart-timeline-content-height) - var(--smart-window-header-height));
     }
 
-.smart-gantt-chart-popup-window > .smart-container > .smart-footer smart-button {
+.smart-gantt-chart-popup-window .smart-content-container > .smart-footer smart-button {
     width: 100%;
     height: 100%;
     --smart-button-padding: 0.2rem;
@@ -993,7 +1017,7 @@ smart-gantt-chart {
     grid-area: buttonDelete;
 }
 
-.smart-gantt-chart-popup-window > .smart-container > .smart-footer {
+.smart-gantt-chart-popup-window .smart-content-container > .smart-footer {
     display: grid;
     grid-template-columns: 40% 40%;
     grid-column-gap: 2%;
@@ -1005,26 +1029,26 @@ smart-gantt-chart {
 /* Safari specific. There's an issue with align-items when display: grid */
 @media not all and (min-resolution:.001dpcm) {
     @media {
-        .smart-connection-popup-window > .smart-container > .smart-footer,
-        .smart-confirm-popup-window > .smart-container > .smart-footer,
-        .smart-task-popup-window > .smart-container > .smart-footer {
+        .smart-connection-popup-window .smart-content-container > .smart-footer,
+        .smart-confirm-popup-window .smart-content-container > .smart-footer,
+        .smart-task-popup-window .smart-content-container > .smart-footer {
             align-content: start;
         }
     }
 }
 
-.smart-window.smart-task-popup-window > .smart-container > .smart-footer {
+.smart-window.smart-task-popup-window .smart-content-container > .smart-footer {
     grid-template-columns: 23% 23% 23% 23%;
     grid-column-gap: 2%;
     grid-template-areas: "buttonOk buttonCancel . buttonDelete";
 }
 
-.smart-window.smart-task-popup-window > .smart-container > .smart-content {
+.smart-window.smart-task-popup-window .smart-content-container > .smart-content {
     display: grid;
     grid-row-gap: 10px;
 }
 
-.smart-task-popup-window > .smart-container > .smart-footer .smart-icon {
+.smart-task-popup-window .smart-content-container > .smart-footer .smart-icon {
     position: relative;
     height: 100%;
     font-family: 'smart-icons';
@@ -1033,15 +1057,15 @@ smart-gantt-chart {
 }
 
 .smart-task-popup-window .smart-popup-window-button.ok .smart-icon::after {
-    content: '\e80e';
+    content: var(--smart-icon-check);
 }
 
 .smart-gantt-chart-popup-window .smart-popup-window-button.cancel .smart-icon::after {
-    content: '\e822';
+    content: var(--smart-icon-cancel);
 }
 
 .smart-gantt-chart-popup-window .smart-popup-window-button.delete .smart-icon::after {
-    content: '\e837';
+    content: var(--smart-icon-delete);
 }
 
 .smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor {
@@ -1091,3 +1115,134 @@ smart-gantt-chart {
     min-height: 100%;
     z-index: var(--smart-editor-drop-down-z-index);
 }
+
+/* --- Right To Left --- */
+
+.smart-gantt-chart[right-to-left] .smart-timeline-view-cell,
+.smart-gantt-chart[right-to-left] .smart-timeline-task-label,
+.smart-gantt-chart[right-to-left] .smart-task-tree-header {
+    direction: rtl;
+}
+
+.smart-gantt-chart[right-to-left] .milestone .smart-task-container {
+    direction: initial;
+}
+
+.smart-task-popup-window[right-to-left] > .smart-container > .smart-footer .smart-icon {
+    margin-left: 2.5px;
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-view-cell:last-of-type {
+    border-right: var(--smart-border-width) solid var(--smart-border)
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-view-cell:first-of-type {
+    border-right: none;
+    border-left: var(--smart-border-width) solid transparent;
+}
+
+.smart-gantt-chart[right-to-left] .smart-task-connection-point.end {
+    left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+    right: initial;
+}
+
+.smart-gantt-chart[right-to-left] .smart-task-connection-point.start {
+    right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+    left: initial;
+}
+
+.smart-gantt-chart[right-to-left] .milestone .smart-task-connection-point.end {
+    left: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+    right: initial;
+}
+
+.smart-gantt-chart[right-to-left] .milestone .smart-task-connection-point.start {
+    right: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+    left: initial;
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-task[connection-point="end"] .smart-task-connection-feedback {
+    left: initial;
+    right: 100%;
+}
+
+.smart-gantt-chart[right-to-left] .smart-task-connection-feedback:before {
+    left: initial;
+    right: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
+    border-right: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+    border-left: initial;
+}
+
+.smart-gantt-chart[right-to-left] .smart-task-connection-feedback {
+    transform-origin: right;
+}
+
+.smart-gantt-chart[right-to-left] .milestone[connection-point="end"] .smart-task-connection-feedback {
+    right: calc(100% + var(--smart-gantt-chart-task-default-height) /2);
+}
+
+.smart-gantt-chart[right-to-left] .milestone .smart-task-connection-feedback {
+    right: calc( -1 * var(--smart-gantt-chart-task-default-height) /2);
+    left: initial;
+}
+
+.smart-gantt-chart[right-to-left] .smart-task-bar-limitter-min-date,
+.smart-gantt-chart[right-to-left] .smart-task-bar-limitter-max-date {
+    right: var(--smart-gantt-chart-timeline-column-border-width);
+    left: initial;
+}
+
+.smart-gantt-chart[right-to-left] .smart-task-bar-limitter-max-date {
+    right: inherit;
+    left: 0;
+}
+
+.smart-gantt-chart[right-to-left] > .smart-container.vscroll .smart-timeline {
+    margin-left: var(--smart-scroll-bar-size);
+}
+
+.smart-gantt-chart[right-to-left][inverted] > .smart-container.vscroll .smart-timeline {
+    margin-right: var(--smart-scroll-bar-size);
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-scroll-bar[orientation="vertical"] {
+    right: initial;
+    left: 0;
+}
+
+.smart-gantt-chart[right-to-left][inverted] .smart-timeline-scroll-bar[orientation="vertical"] {
+    right: 0;
+}
+
+.smart-gantt-chart[right-to-left] > .smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]) {
+    left: calc(var(--smart-scroll-bar-size));
+}
+
+.smart-gantt-chart[right-to-left][inverted] > .smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]) {
+    left: initial;
+}
+
+.smart-gantt-chart[right-to-left]:not([inverted]) .smart-timeline-scroll-bar[orientation="vertical"]::before {
+    border-left: none;
+    border-right: 1px solid var(--smart-border);
+}
+
+.smart-gantt-chart[right-to-left][inverted] .smart-timeline-scroll-bar[orientation="vertical"]::before {
+    border-right: none;
+    border-left: 1px solid var(--smart-border);
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-scroll-bar::after {
+    right: 100%;
+    left: initial;
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-scroll-bar[orientation="vertical"]::after {
+    left: calc(-1 * var(--smart-scroll-bar-size));
+}
+
+.smart-gantt-chart[right-to-left][inverted] .smart-timeline-scroll-bar::after {
+    right: calc(-1 * var(--smart-scroll-bar-size));
+}
+
+/* --- */

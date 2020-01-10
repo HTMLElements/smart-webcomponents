@@ -48,7 +48,7 @@
     .smart-drop-down-box .smart-drop-down-button[active] {
         border-color: var(--smart-ui-state-border-active);
         background-color: var(--smart-ui-state-active);
-        color: var(--smart-ui-state-color-activer);
+        color: var(--smart-ui-state-color-active);
     }
 
     .smart-drop-down-box[resizing] {
@@ -228,6 +228,13 @@
         background-color: var(--smart-background);
         color: var(--smart-background-color);
     }
+	
+	  /*Default*/
+    .smart-drop-down-box:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+        border-color: var(--smart-border);
+        background-color: var(--smart-surface);
+        color: var(--smart-surface-color);
+    }
 
     /*Hover*/
     .smart-drop-down-box[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
@@ -243,8 +250,11 @@
     }
 
     /*Focus*/
-    .smart-drop-down-box[focus] .smart-action-button[focus],
-    .smart-drop-down-box[focus] .smart-drop-down-button[focus] {
+    .smart-drop-down-box[focus]:not([opened]) .smart-action-button[focus],
+    .smart-drop-down-box[focus]:not([opened]) .smart-drop-down-button[focus],
+    .smart-drop-down-box[focus]:not([opened]) .smart-action-button,
+    .smart-drop-down-box[focus]:not([opened]) .smart-drop-down-button 
+	{
         outline: initial;
         border-color: var(--smart-outline);
     }
@@ -964,21 +974,27 @@
     height: var(--smart-combo-box-drop-down-height);
 }
 
-    /* Microsoft Edge-specific fix */
-    .smart-path .smart-drop-down.smart-visibility-hidden.not-in-view,
-    .smart-color-picker .smart-drop-down.smart-visibility-hidden.not-in-view,
-    .smart-multi-split-button .smart-drop-down.smart-visibility-hidden.not-in-view,
-    .smart-combo-box .smart-drop-down.smart-visibility-hidden.not-in-view,
-    .smart-drop-down-list .smart-drop-down.smart-visibility-hidden.not-in-view,
-    .smart-text-box .smart-drop-down.smart-visibility-hidden.not-in-view,
-    .smart-drop-down-button .smart-drop-down.smart-visibility-hidden.not-in-view,
-    .smart-drop-down.smart-drop-down-container.smart-drop-down-repositioned.smart-visibility-hidden.not-in-view,
-    .smart-drop-down-container.smart-drop-down-repositioned.smart-visibility-hidden.not-in-view,
-    .smart-drop-down.smart-drop-down-container.smart-visibility-hidden.not-in-view {
-        left: -9999px;
-        top: -9999px;
-        transition: none;
-    }
+.smart-drop-down.smart-date-time-drop-down,
+.smart-drop-down.smart-date-time-drop-down.smart-drop-down-repositioned {
+    width: var(--smart-editor-drop-down-width);
+    height: var(--smart-editor-drop-down-height);
+}
+
+/* Microsoft Edge-specific fix */
+.smart-path .smart-drop-down.smart-visibility-hidden.not-in-view,
+.smart-color-picker .smart-drop-down.smart-visibility-hidden.not-in-view,
+.smart-multi-split-button .smart-drop-down.smart-visibility-hidden.not-in-view,
+.smart-combo-box .smart-drop-down.smart-visibility-hidden.not-in-view,
+.smart-drop-down-list .smart-drop-down.smart-visibility-hidden.not-in-view,
+.smart-text-box .smart-drop-down.smart-visibility-hidden.not-in-view,
+.smart-drop-down-button .smart-drop-down.smart-visibility-hidden.not-in-view,
+.smart-drop-down.smart-drop-down-container.smart-drop-down-repositioned.smart-visibility-hidden.not-in-view,
+.smart-drop-down-container.smart-drop-down-repositioned.smart-visibility-hidden.not-in-view,
+.smart-drop-down.smart-drop-down-container.smart-visibility-hidden.not-in-view {
+    left: -9999px;
+    top: -9999px;
+    transition: none;
+}
 
 .smart-drop-down[overlay-bottom],
 .smart-drop-down-container.smart-drop-down-repositioned[overlay-bottom],

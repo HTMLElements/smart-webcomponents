@@ -1,6 +1,7 @@
 
 /* smart-text-box */
 
+smart-color-input,
 smart-text-box,
 smart-input {
     display: inline-block;
@@ -18,7 +19,16 @@ smart-input {
 
 smart-input {
     border: 1px solid var(--smart-border);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
+
+    smart-input input.smart-input {
+        border: none;
+        text-overflow: ellipsis;
+    }
 
     smart-text-box .smart-container,
     smart-input .smart-container,
@@ -31,6 +41,7 @@ smart-input {
         position: relative;
         overflow: visible;
     }
+
 
     input.smart-input::selection,
     smart-text-box input::selection,
@@ -262,7 +273,6 @@ smart-input[drop-down-button-position="right"] .smart-input,
     outline: none;
 }
 
-
     .smart-input .smart-drop-down-button .arrow:after {
         content: var(--smart-icon-arrow-down);
     }
@@ -270,8 +280,6 @@ smart-input[drop-down-button-position="right"] .smart-input,
     .smart-input .smart-drop-down-button .arrow:after {
         transition: opacity 0.2s, transform 0.2s ease-out;
     }
-
-
 
 .smart-input .smart-drop-down-button[open] .arrow:after {
     transform: rotate(-180deg);

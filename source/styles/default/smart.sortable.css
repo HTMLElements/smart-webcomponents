@@ -124,10 +124,11 @@
         align-items: flex-end;
     }
 
-    /* --- Right To Left ---*/
+/* --- Right To Left ---*/
 
-    smart-sortable[right-to-left] .smart-sortable-items-parent {
-        direction: rtl;
-    }
+.smart-sortable[right-to-left] .smart-sortable-items-parent,
+.smart-sortable[right-to-left] .smart-column-panel-label {
+    direction: rtl;
+}
 
-    /* --- */
+/* --- */

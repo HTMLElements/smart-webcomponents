@@ -894,9 +894,12 @@ smart-tree-items-group.filtered-child > .smart-tree-item-label-container > .smar
 @media (hover: hover) {
     .smart-tree:not([selection-display-mode="label"]) smart-tree-item:not([selected]):hover,
     .smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container:hover,
+    .smart-tree:not([selection-display-mode="label"]) smart-tree-item:not([selected])[hover], /* Used in GanttChart */
+    .smart-tree:not([selection-display-mode="label"]) smart-tree-items-group[hover] > .smart-tree-item-label-container, /* Used in GanttChart */
     .smart-tree:not([selection-display-mode="label"]) smart-tree-items-group:not([selected])[hover] > .smart-tree-item-label-container,
     .smart-tree[selection-display-mode="label"] smart-tree-item:not([selected]):hover > .smart-tree-item-label-container > .smart-tree-item-label-element span,
-    .smart-tree[selection-display-mode="label"] smart-tree-items-group > .smart-tree-item-label-container:hover > .smart-tree-item-label-element span { /* Used in GanttChart */
+    .smart-tree[selection-display-mode="label"] smart-tree-item:not([selected])[hover] > .smart-tree-item-label-container > .smart-tree-item-label-element span, /* Used in GanttChart */
+    .smart-tree[selection-display-mode="label"] smart-tree-items-group[hover] > .smart-tree-item-label-container { /* Used in GanttChart */
         color: var(--smart-ui-state-color-hover);
         background-color: var(--smart-ui-state-hover);
         border-color: var(--smart-ui-state-border-hover);

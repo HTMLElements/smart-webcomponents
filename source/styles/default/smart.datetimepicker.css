@@ -15,6 +15,12 @@ smart-date-time-picker {
         border-color: var(--smart-ui-state-border-hover);
     }
 
+    .smart-date-time-picker[focus],
+	.smart-date-time-picker[focus] .smart-drop-down-button.smart-calendar-button
+	{
+        border-color: var(--smart-outline);
+    }
+	
 .smart-date-time-picker .smart-ripple {
     background: var(--smart-background);
 }
@@ -436,6 +442,10 @@ smart-date-time-picker > .smart-container > .smart-content,
 }
 
 /* --- Right-To-Left --- */
+
+.smart-date-time-picker[right-to-left] > .smart-container {
+    direction: initial;
+}
 
 .smart-date-time-picker[right-to-left] .smart-input.smart-date-time-input,
 .smart-date-time-picker[right-to-left] > .smart-container > .smart-label,

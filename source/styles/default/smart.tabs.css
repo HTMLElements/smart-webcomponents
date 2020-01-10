@@ -11,6 +11,16 @@ smart-tab-item, .smart-tabs {
         border: none;
     }
 
+    .smart-tabs:focus .smart-tabs-content-section,
+    .smart-tabs:focus .smart-tabs-header-section {
+        border-color: var(--smart-outline);
+    }
+
+    .smart-tabs[keyboard-navigate],
+    .smart-tabs:focus .smart-tab-label-container[selected] {
+        color: var(--smart-ui-state-color-focus);
+    }
+
 smart-tab-item {
     position: absolute;
     top: 0;
@@ -90,7 +100,7 @@ smart-tabs {
 .smart-tabs-selection-bar {
     position: absolute;
     bottom: 0;
-    background: var(--smart-primary);
+    background: var(--smart-tab-item-selection-bar, var(--smart-ui-state-color-selected));
     height: 2px;
     z-index: 10;
 }
@@ -318,9 +328,9 @@ smart-tabs {
     color: inherit;
     margin-right: var(--smart-tab-item-offset);
     border-top-left-radius: var(--smart-item-border-top-left-radius);
-    border-top-right-radius: var(--smart-ui-state--border-top-right-radius);
-    border-bottom-left-radius: var(--smart-ui-state--border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-ui-state--border-bottom-right-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
 }
 
 .smart-tabs[tab-position="bottom"] .smart-tab-label-container {
@@ -351,6 +361,8 @@ smart-tabs {
 
 .smart-tabs .smart-tab-label-container[selected] {
     color: var(--smart-ui-state-color-selected);
+    background-color: var(--smart-ui-state-selected);
+    border-color: var(--smart-item-border-selected);
 }
 
     .smart-tabs .smart-tab-label-container[selected][focus] {
@@ -381,9 +393,15 @@ smart-tabs {
 
     .smart-tabs .smart-tab-close-button::after {
         content: var(--smart-icon-close);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        align-items: center;
     }
 
-    .smart-tabs .smart-tab-group-arrow::after {
+    .smart-tabs .smart-tab-group-arrow::after,
+    .smart-tabs .smart-drop-down-button-arrow::after {
         content: var(--smart-icon-arrow-down);
     }
 
@@ -398,9 +416,9 @@ smart-tabs {
     top: 50%;
     transform: translateY(-50%);
     width: var(--smart-editor-addon-width);
-    height: 13px;
+    height: var(--smart-editor-addon-width);
     text-align: center;
-    line-height: 13px;
+    line-height: var(--smart-editor-addon-width);
 }
 
     .smart-tabs .smart-tab-close-button[hover] {
@@ -456,7 +474,7 @@ smart-tabs {
 .smart-tabs:focus .smart-tab-label-container[focus],
 .smart-tabs:focus .smart-tab-group-container[focus],
 .smart-tabs:focus .smart-add-new-tab[focus] {
-    color: var(--smart-ui-state-color-active);
+    color: var(--smart-ui-state-color-selected);
 }
 
 .smart-tabs[horizontal] .smart-add-new-tab > .smart-tab-label-text-wrapper {
@@ -537,7 +555,6 @@ smart-tabs {
 .smart-tabs[tab-position="right"] .smart-tab-group-arrow {
     left: 0;
     right: initial;
-    line-height: 16px;
 }
 
 .smart-tabs[tab-text-orientation="vertical"][horizontal] .smart-tab-strip {
@@ -638,9 +655,9 @@ smart-tabs {
 
 .smart-tabs[tab-layout="dropDown"] .smart-tabs-header-items > .smart-drop-down-button {
     display: block;
-    background-color: var(--smart-ui-state);
-    color: var(--smart-ui-state-color);
-    border-color: var(--smart-item-border);
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-color: var(--smart-border);
 }
 
 .smart-tabs[horizontal] .smart-tabs-header-items > .smart-drop-down-button,
@@ -900,3 +917,50 @@ smart-tabs {
         display: flex;
     }
 }
+
+/* --- Right To Left --- */
+
+.smart-tabs[right-to-left]:not([vertical]) .smart-tab-strip,
+.smart-tabs[right-to-left] smart-tab-item > .smart-container,
+.smart-tabs[right-to-left] .smart-tab-label-container,
+.smart-tabs[right-to-left] .smart-tab-group-container {
+    direction: rtl;
+}
+
+.smart-tabs[right-to-left]:not([tab-text-orientation="vertical"]):not([vertical]) .smart-tab-label-text-container.smart-close-button-enabled,
+.smart-tabs[right-to-left]:not([tab-text-orientation="vertical"]):not([vertical]) .smart-tab-group-container .smart-tab-label-text-container {
+    margin-left: 18px;
+    margin-right: initial;
+}
+
+.smart-tabs[right-to-left][tab-position="right"]:not([tab-text-orientation="vertical"]):not([vertical]) .smart-tab-group-container .smart-tab-label-text-container {
+    margin-right: 18px;
+    margin-left: 0;
+}
+
+.smart-tabs[right-to-left]:not([tab-text-orientation="vertical"]):not([vertical]) .smart-tab-close-button,
+.smart-tabs[right-to-left]:not([tab-text-orientation="vertical"]):not([vertical]) .smart-tab-group-arrow {
+    left: 2px;
+    right: initial;
+}
+
+.smart-tabs[right-to-left][tab-position="right"]:not([tab-text-orientation="vertical"]):not([vertical]) .smart-tab-group-arrow {
+    right: 2px;
+    left: initial;
+}
+
+.smart-tabs[right-to-left][tab-text-orientation="vertical"] .smart-tab-strip {
+    writing-mode: vertical-rl;
+}
+
+.smart-tabs[right-to-left]:not([vertical]) .smart-tab-strip > .smart-tab-label-container:last-child {
+    margin-left: initial;
+    margin-right: var(--smart-tab-item-offset);
+}
+
+.smart-tabs[right-to-left]:not([vertical]) .smart-tab-strip > .smart-tab-label-container:first-child {
+    margin-left: initial;
+    margin-right: initial;
+}
+
+/* --- */

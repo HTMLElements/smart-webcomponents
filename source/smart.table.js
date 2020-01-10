@@ -1,6 +1,6 @@
 
-/* Smart HTML Elements v5.1.0 (2019-Dec) 
-Copyright (c) 2011-2019 jQWidgets. 
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart("smart-table",class extends Smart.ContentElement{static get properties(){return{columns:{value:null,type:"any?",reflectToAttribute:!1},dataSource:{value:null,type:"any?",reflectToAttribute:!1},sortMode:{value:"none",type:"string",allowedValues:["none","one","many"]}}}static get listeners(){return{"tableContainer.down":"downHandler"}}template(){return`<div id="container" class="smart-container" role="presentation">

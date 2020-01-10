@@ -15,19 +15,19 @@
     left: 0;
     top: 0;
     /*top: var(--smart-list-item-vertical-offset);*/
-    color: var(--smart-list-item-color);
-    border-width: var(--smart-list-item-border-width);
+    color: var(--smart-background-color);
+    border-width: var(--smart-border-width);
     border-style: solid;
-    border-color: var(--smart-list-item-border);
-    border-top-left-radius: var(--smart-list-item-border-top-left-radius);
-    border-top-right-radius: var(--smart-list-item-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-list-item-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-list-item-border-bottom-right-radius);
+    border-color: transparent;
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
     smart-path .smart-ripple,
     .smart-path-item .smart-ripple {
-        background: var(--smart-list-item-color-active);
+        background: var(--smart-ui-state-active);
     }
 
     .smart-path-item[disabled] {
@@ -41,22 +41,22 @@
     }
 
     .smart-path-item[hover] {
-        color: var(--smart-list-item-color-hover);
-        border-color: var(--smart-list-item-border-hover);
-        background-color: var(--smart-list-item-background-hover);
+        color: var(--smart-ui-state-color-hover);
+        border-color: var(--smart-ui-state-border-hover);
+        background-color: var(--smart-ui-state-hover);
     }
 
     .smart-path-item[active] {
-        color: var(--smart-list-item-color-active);
-        border-color: var(--smart-list-item-border-active);
-        background-color: var(--smart-list-item-background-active);
-        opacity: var(--smart-list-item-background-opacity-active);
+        color: var(--smart-ui-state-color-active);
+        border-color: var(--smart-ui-state-border-active);
+        background-color: var(--smart-ui-state-active);
+        opacity: 1;
     }
 
     .smart-path-item[focus] {
-        color: var(--smart-list-item-color-focus);
-        border-color: var(--smart-list-item-border-focus);
-        background-color: var(--smart-list-item-background-focus);
+        color: var(--smart-primary-color);
+        border-color: var(--smart-primary);
+        background-color: var(--smart-primary);
     }
 
 /* smart-path */
@@ -64,9 +64,9 @@ smart-path {
     display: block;
     width: var(--smart-path-default-width);
     height: var(--smart-path-default-height);
-    background: var(--smart-path-background);
-    color: var(--smart-path-color);
-    border-color: var(--smart-path-border);
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+    border-color: var(--smart-border);
 }
 
     /*Content*/
@@ -94,7 +94,7 @@ smart-path {
         background-color: inherit;
         margin: 0; /* Safari */
         color: inherit;
-        background: var(--smart-path-input-background);
+        background: var(--smart-background);
         text-align: var(--smart-path-text-align);
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
@@ -103,7 +103,7 @@ smart-path {
     }
 
     smart-path div.smart-input {
-        padding: calc(var(--smart-editor-label-padding) + 2* var(--smart-path-border-width)) calc(var(--smart-editor-label-padding) - var(--smart-path-border-width)) calc(var(--smart-editor-label-padding) + 2* var(--smart-path-border-width)) calc(var(--smart-editor-label-padding) - var(--smart-path-border-width));
+        padding: calc(var(--smart-editor-label-padding) + 2* var(--smart-border-width)) calc(var(--smart-editor-label-padding) - var(--smart-border-width)) calc(var(--smart-editor-label-padding) + 2* var(--smart-border-width)) calc(var(--smart-editor-label-padding) - var(--smart-border-width));
         outline: none;
         background: initial;
         overflow-y: auto;
@@ -124,12 +124,12 @@ smart-path {
     }
 
     smart-path[indicator] .smart-input {
-        background: var(--smart-path-buttons-background);
+        background: var(--smart-surface);
     }
 
     smart-path[indicator] .smart-path-input-container {
-        border-top-right-radius: var(--smart-path-border-top-right-radius);
-        border-bottom-right-radius: var(--smart-path-border-bottom-right-radius);
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
     }
 
     smart-path[indicator] .smart-browse-button {
@@ -154,15 +154,15 @@ smart-path {
     }
 
     smart-path .smart-content .smart-input::selection {
-        background: var(--smart-path-input-selection);
-        color: var(--smart-path-input-selection-color);
+        background: var(--smart-editor-selection);
+        color: var(--smart-editor-selection-color);
     }
 
     /*Hover*/
     smart-path .smart-input[hover],
     smart-path .smart-drop-down-button[hover],
     smart-path .smart-browse-button[hover] {
-        border-color: var(--smart-path-border-hover);
+        border-color: var(--smart-ui-state-border-hover);
     }
 
     /*Focus*/
@@ -170,17 +170,17 @@ smart-path {
     smart-path[focus] .smart-path-input-container,
     smart-path[focus] .smart-drop-down-button {
         outline: initial;
-        border-color: var(--smart-path-border-focus);
-        background-color: var(--smart-path-input-background-focus);
-        color: var(--smart-path-input-color-focus);
+        border-color: var(--smart-primary);
+        background-color: var(--smart-background);
+        color: var(--smart-background-color);
     }
 
     smart-path[focus] .smart-drop-down-button,
     smart-path[focus] .smart-browse-button {
         outline: initial;
-        border-color: var(--smart-path-button-border-focus);
-        background-color: var(--smart-path-button-background-focus);
-        color: var(--smart-path-button-color-focus);
+        border-color: var(--smart-primary);
+        background-color: var(--smart-surface);
+        color: var(--smart-background-color);
     }
 
     smart-path .smart-drop-down.smart-visibility-hidden {
@@ -273,21 +273,20 @@ smart-path {
         font-size: 10px;
         width: var(--smart-editor-addon-width);
         min-width: var(--smart-editor-addon-width);
-        min-height: var(--smart-path-button-min-height);
         height: 100%;
         user-select: none;
         -moz-user-select: none;
         -webkit-user-select: none;
-        color: var(--smart-path-buttons-color);
+        color: var(--smart-surface-color);
         outline: 1px solid transparent;
         cursor: pointer;
         overflow: hidden;
         position: relative;
-        background: var(--smart-path-buttons-background);
-        border-width: var(--smart-path-border-width);
+        background: var(--smart-surface);
+        border-width: var(--smart-border-width);
         border-style: solid;
-        color: var(--smart-path-color);
-        border-color: var(--smart-path-border);
+        color: var(--smart-background-color);
+        border-color: var(--smart-border);
         transition: background-color 100ms linear;
     }
 
@@ -295,15 +294,15 @@ smart-path {
     smart-path .smart-drop-down-button {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border-top-left-radius: var(--smart-path-border-top-left-radius);
-        border-bottom-left-radius: var(--smart-path-border-bottom-left-radius);
+        border-top-left-radius: var(--smart-border-top-left-radius);
+        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
     }
 
     smart-path .smart-browse-button {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        border-top-right-radius: var(--smart-path-border-top-right-radius);
-        border-bottom-right-radius: var(--smart-path-border-bottom-right-radius);
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
     }
 
         smart-path .smart-drop-down-button span,
@@ -342,16 +341,16 @@ smart-path {
     smart-path div.smart-input::after,
     smart-path .smart-input::-webkit-input-placeholder, /* Edge */
     smart-path .smart-input::placeholder {
-        color: var(--smart-path-placeholder-color);
-        font-style: var(--smart-path-placeholder-font-style);
+        color: var(--smart-disabled-color);
+        font-style: italic;
     }
 
     /* button hover */
     smart-path .smart-drop-down-button[hover],
     smart-path .smart-browse-button[hover] {
-        color: var(--smart-path-color-hover);
-        background: var(--smart-path-background-hover);
-        border-color: var(--smart-path-border-hover);
+        color: var(--smart-ui-state-color-hover);
+        background: var(--smart-ui-state-hover);
+        border-color: var(--smart-ui-state-border-hover);
     }
 
     /* button active */
@@ -360,9 +359,9 @@ smart-path {
     smart-path .smart-drop-down-button:active,
     smart-path .smart-browse-button[active],
     smart-path .smart-browse-button:active {
-        color: var(--smart-path-color-active);
-        background: var(--smart-path-background-active);
-        border-color: var(--smart-path-border-active);
+        color: var(--smart-ui-state-color-active);
+        background: var(--smart-ui-state-active);
+        border-color: var(--smart-ui-state-border-active);
     }
 
 
@@ -376,8 +375,8 @@ smart-path {
     smart-path[label].outlined .smart-label {
         top: -11px;
         left: var(--smart-editor-label-padding);
-        background: var(--smart-path-background);
-        color: var(--smart-path-color);
+        background: var(--smart-background);
+        color: var(--smart-background-color);
         z-index: 1;
         height: auto;
         min-height: 20px;
@@ -388,13 +387,13 @@ smart-path {
 
     smart-path[label].outlined[focus] .smart-label {
         transform: scale(0.8);
-        color: var(--smart-path-border-focus);
+        color: var(--smart-primary);
     }
 
     smart-path.outlined[hover] .smart-drop-down-button {
-        color: var(--smart-path-color-hover);
-        border-color: var(--smart-path-border-hover);
-        background-color: var(--smart-path-background-hover);
+        color: var(--smart-ui-state-color-hover);
+        border-color: var(--smart-ui-state-border-hover);
+        background-color: var(--smart-ui-state-hover);
     }
 
 
@@ -419,7 +418,7 @@ smart-path {
             smart-path.underlined .smart-drop-down-button::after,
             smart-path.underlined .smart-browse-button::after,
             smart-path.underlined .smart-path-input-container::after {
-                border-bottom-color: var(--smart-path-border-focus);
+                border-bottom-color: var(--smart-primary);
                 content: '';
                 width: 0;
                 position: absolute;
@@ -470,8 +469,8 @@ smart-path {
     smart-path.underlined .smart-drop-down-button[active],
     smart-path.underlined .smart-browse-button[active],
     smart-path.underlined .smart-input[active] {
-        background-color: var(--smart-path-background-active);
-        color: var(--smart-path-color-active);
+        background-color: var(--smart-ui-state-active);
+        color: var(--smart-ui-state-color-active);
     }
 
     smart-path[label].underlined[value=""] .smart-label {
@@ -487,7 +486,7 @@ smart-path {
     smart-path[label].underlined[focus] .smart-label,
     smart-path[label].underlined[opened] .smart-label {
         transform: scale(0.8);
-        color: var(--smart-path-border-focus);
+        color: var(--smart-primary);
         bottom: 100%;
     }
 
@@ -496,8 +495,8 @@ smart-path {
         overflow: hidden;
         /*width: 100%;*/
         border-style: solid;
-        border-color: var(--smart-path-border);
-        border-width: var(--smart-path-border-width);
+        border-color: var(--smart-border);
+        border-width: var(--smart-border-width);
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border-top-right-radius: 0;
@@ -505,8 +504,8 @@ smart-path {
     }
 
     smart-path[wrap] .smart-path-input-wrapper {
-        padding-top: calc(var(--smart-editor-label-padding) + 2* var(--smart-path-border-width));
-        padding-bottom: calc(var(--smart-editor-label-padding) + 2* var(--smart-path-border-width));
+        padding-top: calc(var(--smart-editor-label-padding) + 2* var(--smart-border-width));
+        padding-bottom: calc(var(--smart-editor-label-padding) + 2* var(--smart-border-width));
         /*width: 100%;
         overflow: auto;*/
     }
@@ -569,23 +568,23 @@ smart-path[right-to-left] > .smart-container,
 }
 
 smart-path[right-to-left] .smart-browse-button {
-    border-top-left-radius: var(--smart-path-border-top-left-radius);
-    border-bottom-left-radius: var(--smart-path-border-bottom-left-radius);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
 smart-path[right-to-left] .smart-drop-down-button {
-    border-top-right-radius: var(--smart-path-border-top-right-radius);
-    border-bottom-right-radius: var(--smart-path-border-bottom-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-left-radius);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
 smart-path[right-to-left][indicator] .smart-path-input-container {
-    border-top-left-radius: var(--smart-path-border-top-left-radius);
+    border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: 0;
-    border-bottom-left-radius: var(--smart-path-border-bottom-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
     border-bottom-right-radius: 0;
 }
 

@@ -114,8 +114,6 @@ smart-chart[theme="dark"] .smart-chart-title-description {
     color: var(--smart-background-color);
 }
 
-
-
 .smart-chart-range-selector > smart-chart {
     width: 100%;
     height: 100%;
@@ -125,3 +123,17 @@ smart-chart[theme="dark"] .smart-chart-title-description {
     box-sizing: content-box;
     pointer-events: none;
 }
+/* --- Right To Left --- */
+
+smart-chart[right-to-left] .smart-chart-axis-text,
+smart-chart[right-to-left] .smart-chart-axis-description,
+smart-chart[right-to-left] .smart-chart-title-text,
+smart-chart[right-to-left] .smart-chart-legend-text,
+smart-chart[right-to-left] .smart-chart-annotation-text,
+smart-chart[right-to-left] .smart-chart-label-text,
+.smart-chart-tooltip[right-to-left] .smart-chart-tooltip-text {
+    direction: rtl;
+    text-anchor: end;
+}
+
+/* --- */

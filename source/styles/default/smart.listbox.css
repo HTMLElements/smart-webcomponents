@@ -10,7 +10,7 @@ smart-list-items-group .smart-list-items-group-label {
     display: flex;
     align-items: center;
     padding: 0 5px;
-    height: calc(36px + var(--smart-list-item-vertical-offset));
+    height: calc(var(--smart-list-item-height) + var(--smart-list-item-vertical-offset));
     position: relative;
     user-select: none;
     touch-action: none;
@@ -52,7 +52,7 @@ smart-list-items-group {
         background: var(--smart-surface);
         border-width: 1px;
         border-style: solid;
-        border-color: var(--smart-border);
+        border-color: var(--smart-surface);
         display: flex;
         align-items: center;
     }
@@ -188,14 +188,13 @@ smart-list-items-group .smart-input {
     height: calc(-4px + var(--smart-check-box-default-size));
     line-height: var(--smart-check-box-default-size);
     box-sizing: initial;
-    position: relative;
+    position: absolute;
+	top: var(--smart-list-item-vertical-offset);
+	margin-top: calc(var(--smart-list-item-height) / 2 - 10px);
     border-style: solid;
     padding: 3px;
     border-width: var(--smart-border-width);
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    border-radius: var(--smart-list-item-check-box-radius);
     font-family: inherit;
     background-repeat: no-repeat;
     border-color: var(--smart-border);
@@ -350,169 +349,173 @@ smart-list-box {
         outline: none;
     }
 
-    .smart-list-box input {
-        border: var(--smart-border-width) solid var(--smart-border);
-        width: 100%;
-        height: 100%;
-        padding: var(--smart-editor-label-padding);
-        outline: initial;
-        padding-right: 25px;
+.smart-list-box input {
+    border: var(--smart-border-width) solid var(--smart-border);
+    width: 100%;
+    height: 100%;
+    padding: var(--smart-editor-label-padding);
+    outline: initial;
+    padding-right: 25px;
+}
+
+.smart-list-box .smart-list-box-filter-input-container {
+    position: relative;
+    width: calc(100% - 10px);
+    height: var(--smart-editor-height);
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+    .smart-list-box .smart-list-box-filter-input-container.vscroll {
+        width: calc(100% - 10px - var(--smart-scroll-bar-size));
     }
 
-    .smart-list-box .smart-list-box-filter-input-container {
-        position: relative;
-        width: calc(100% - 10px);
-        height: var(--smart-editor-height);
-        margin-left: 5px;
-        margin-top: 5px;
-    }
-
-        .smart-list-box .smart-list-box-filter-input-container.vscroll {
-            width: calc(100% - 10px - var(--smart-scroll-bar-size));
-        }
-
-        .smart-list-box .smart-list-box-filter-input-container::after {
-            content: var(--smart-icon-search);
-            font-family: var(--smart-font-family-icon);
-            height: var(--smart-text-box-default-height);
-            position: absolute;
-            top: 0;
-            width: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            left: calc(100% - 25px);
-        }
-
-    .smart-list-box input:focus {
-        border-color: var(--smart-outline);
-    }
-
-    .smart-list-box > .smart-container,
-    .smart-list-box.smart-container {
-        height: 100%;
-        width: 100%;
-        border-style: solid;
-        border-width: 0;
-        border-color: gray;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .smart-list-box smart-scroll-bar {
-        overflow: visible;
+    .smart-list-box .smart-list-box-filter-input-container::after {
+        content: var(--smart-icon-search);
+        font-family: var(--smart-font-family-icon);
+        height: var(--smart-text-box-default-height);
         position: absolute;
-        bottom: 0;
-        height: calc(var(--smart-scroll-bar-size));
-        width: 100%;
+        top: 0;
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: calc(100% - 25px);
     }
 
-        .smart-list-box smart-scroll-bar.bottom-corner {
-            width: calc(100% - var(--smart-scroll-bar-size));
-        }
+.smart-list-box input:focus {
+    border-color: var(--smart-outline);
+}
 
-        .smart-list-box smart-scroll-bar::after {
-            position: absolute;
-            content: '';
-            width: 100%;
-            height: var(--smart-scroll-bar-size);
-            background: var(--smart-scroll-bar-background);
-            left: 100%;
-            top: 0px;
-        }
+.smart-list-box > .smart-container,
+.smart-list-box.smart-container {
+    height: 100%;
+    width: 100%;
+    border-style: solid;
+    border-width: 0;
+    border-color: gray;
+    position: relative;
+    overflow: hidden;
+}
 
-        .smart-list-box smart-scroll-bar[orientation="vertical"],
-        .smart-drop-down smart-list-box smart-scroll-bar[orientation="vertical"] {
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: calc(var(--smart-scroll-bar-size));
-        }
+.smart-list-box smart-scroll-bar {
+    overflow: visible;
+    position: absolute;
+    bottom: 0;
+    height: calc(var(--smart-scroll-bar-size));
+    width: 100%;
+}
 
-            smart-list-box smart-scroll-bar[orientation="vertical"].bottom-corner {
-                height: calc(100% - var(--smart-scroll-bar-size));
-            }
-
-    .smart-list-box .smart-list-items-container {
-        width: 100%;
-        height: calc(100% - 2*var(--smart-list-item-vertical-offset));
-        right: var(--smart-list-item-horizontal-offset);
-        overflow: hidden;
-        position: relative;
-        background-color: transparent;
+    .smart-list-box smart-scroll-bar.bottom-corner {
+        width: calc(100% - var(--smart-scroll-bar-size));
     }
 
-    .smart-list-box .smart-list-items-inner-container {
-        width: calc(100% - 2*var(--smart-list-item-horizontal-offset));
-        margin-left: calc(2 * var(--smart-list-item-horizontal-offset));
-        height: 100%;
-        display: block;
-        position: relative;
-        background-color: transparent;
-    }
-
-    .smart-list-box .smart-list-items-container.hscroll {
-        height: calc(100% - var(--smart-scroll-bar-size) - 2*var(--smart-list-item-vertical-offset));
-    }
-
-    .smart-list-box .smart-list-items-container.filter {
-        height: calc(100% - var(--smart-text-box-default-height) - 10px);
-    }
-
-    .smart-list-box .smart-list-items-container.hscroll.filter {
-        height: calc(100% - var(--smart-text-box-default-height) - var(--smart-scroll-bar-size) - 10px - 2*var(--smart-list-item-vertical-offset));
-    }
-
-    .smart-list-box .smart-placeholder {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        user-select: none;
-        text-align: center;
-    }
-
-    .smart-list-box .smart-list-items-container input {
-        position: absolute;
-        background: initial;
-        background-color: var(--smart-background);
-        background-size: initial;
-        border: 1px solid var(--smart-border);
-        padding: 9px 12px;
-        margin: 0;
-        left: 5px;
-        width: calc(100% - 5px);
-        font-family: inherit;
-        font-size: inherit;
-        border-top-left-radius: var(--smart-item-border-top-left-radius);
-        border-top-right-radius: var(--smart-item-border-top-right-radius);
-        border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
-        border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
-    }
-
-    .smart-list-box[selection-mode="checkBox"]:focus smart-list-item[focus][selected] .smart-input:before,
-    .smart-list-box[selection-mode="radioButton"]:focus smart-list-item[focus][selected] .smart-input:before,
-    .smart-list-box[selection-mode="checkBox"][focus] smart-list-item[focus][selected] .smart-input:before,
-    .smart-list-box[selection-mode="radioButton"][focus] smart-list-item[focus][selected] .smart-input:before {
+    .smart-list-box smart-scroll-bar::after {
         position: absolute;
         content: '';
-        border-radius: 50%;
-        width: calc(var(--smart-check-box-default-size) + 14px);
-        height: calc(var(--smart-check-box-default-size) + 14px);
-        background: var(--smart-primary);
-        opacity: 0.3;
-        z-index: 1;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 100%;
+        height: var(--smart-scroll-bar-size);
+        background: var(--smart-scroll-bar-background);
+        left: 100%;
+        top: 0px;
     }
 
-    .smart-list-box .smart-content-label {
-        padding: var(--smart-list-item-label-padding);
-        border-radius: var(--smart-list-item-label-border-radius);
+    .smart-list-box smart-scroll-bar[orientation="vertical"],
+    .smart-drop-down smart-list-box smart-scroll-bar[orientation="vertical"] {
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: calc(var(--smart-scroll-bar-size));
     }
 
-    /* ---  Right-To-Left ---  */
+smart-list-box smart-scroll-bar[orientation="vertical"].bottom-corner {
+    height: calc(100% - var(--smart-scroll-bar-size));
+}
+
+.smart-list-box .smart-list-items-container {
+    width: 100%;
+    height: calc(100% - 2*var(--smart-list-item-vertical-offset));
+    right: var(--smart-list-item-horizontal-offset);
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+}
+
+.smart-list-box .smart-list-items-inner-container {
+    width: calc(100% - 2*var(--smart-list-item-horizontal-offset));
+    margin-left: calc(2 * var(--smart-list-item-horizontal-offset));
+    height: 100%;
+    display: block;
+    position: relative;
+    background-color: transparent;
+}
+
+.smart-list-box .smart-list-items-container.hscroll {
+    height: calc(100% - var(--smart-scroll-bar-size) - 2*var(--smart-list-item-vertical-offset));
+}
+
+.smart-list-box .smart-list-items-container.filter {
+    height: calc(100% - var(--smart-text-box-default-height) - 10px);
+}
+
+.smart-list-box .smart-list-items-container.hscroll.filter {
+    height: calc(100% - var(--smart-text-box-default-height) - var(--smart-scroll-bar-size) - 10px - 2*var(--smart-list-item-vertical-offset));
+}
+
+.smart-list-box .smart-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    text-align: center;
+}
+
+.smart-list-box .smart-list-items-container input {
+    position: absolute;
+    background: initial;
+    background-color: var(--smart-background);
+    background-size: initial;
+    border: 1px solid var(--smart-border);
+    padding: 9px 12px;
+    margin: 0;
+    left: 5px;
+    width: calc(100% - 5px);
+    font-family: inherit;
+    font-size: inherit;
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+}
+
+.smart-list-box[selection-mode="checkBox"]:focus smart-list-item[focus][selected] .smart-input:before,
+.smart-list-box[selection-mode="radioButton"]:focus smart-list-item[focus][selected] .smart-input:before,
+.smart-list-box[selection-mode="checkBox"][focus] smart-list-item[focus][selected] .smart-input:before,
+.smart-list-box[selection-mode="radioButton"][focus] smart-list-item[focus][selected] .smart-input:before {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    width: calc(var(--smart-check-box-default-size) + 14px);
+    height: calc(var(--smart-check-box-default-size) + 14px);
+    background: var(--smart-primary);
+    opacity: 0.3;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.smart-list-box .smart-content-label {
+    padding: var(--smart-list-item-label-padding);
+    border-radius: var(--smart-list-item-label-border-radius);
+}
+
+/* ---  Right-To-Left ---  */
+.smart-list-box[right-to-left] {
+    direction: initial;
+}
+
     .smart-list-box[right-to-left] smart-scroll-bar,
     .smart-list-box[right-to-left] .smart-list-box-filter-input-container.vscroll {
         left: initial;
@@ -556,7 +559,7 @@ smart-list-box {
     }
 
     .smart-list-box[right-to-left] .smart-list-items-container.vscroll .smart-list-items-inner-container {
-        margin-left: var(--smart-list-item-horizontal-offset);
+        margin-right: var(--smart-list-item-horizontal-offset);
     }
 
 /* --- */

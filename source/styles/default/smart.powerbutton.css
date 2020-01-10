@@ -9,7 +9,7 @@
     height: var(--smart-power-button-default-width);
 }
 
-    .smart-power-button:focus {
+    .smart-power-button[focus] {
         outline: none;
     }
 
@@ -18,7 +18,7 @@
     }
 
     .smart-power-button .smart-input,
-    .smart-power-button:focus .smart-input {
+    .smart-power-button[focus] .smart-input {
         outline: none;
     }
 
@@ -50,24 +50,24 @@
         overflow: hidden;
     }
 
-    .smart-power-button:focus .smart-input {
-        border: var(--smart-border-width) solid var(--smart-button-border);
-        background: var(--smart-button-background);
-        color: var(--smart-button-color);
+    .smart-power-button[focus] .smart-input {
+        border: var(--smart-border-width) solid var(--smart-ui-state-border-focus);
+        background: var(--smart-ui-state-focus);
+        color: var(--smart-ui-state-color-focus);
     }
 
     .smart-power-button:hover .smart-input {
-        border: var(--smart-border-width) solid var(--smart-button-border-hover);
-        background: var(--smart-button-background-hover);
-        color: var(--smart-button-color-hover);
+        border: var(--smart-border-width) solid var(--smart-ui-state-border-hover);
+        background: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
         transition: background-color 100ms linear;
     }
 
     .smart-power-button:active .smart-input,
     smart-power-button.active .smart-input {
-        border: var(--smart-border-width) solid var(--smart-button-border-active);
-        background: var(--smart-button-background-active);
-        color: var(--smart-button-color-active);
+        border: var(--smart-border-width) solid var(--smart-ui-state-border-active);
+        background: var(--smart-ui-state-active);
+        color: var(--smart-ui-state-color-active);
         transition: background-color 100ms linear;
     }
 
@@ -85,7 +85,7 @@ smart-power-button.raised {
 }
 
 .smart-power-button .smart-input:after {
-    content: '\e805';
+    content: var(--smart-icon-power);
     width: 100%;
     height: 100%;
     font-family: "smart-icons";

@@ -21,6 +21,8 @@ smart-card-view {
     grid-template-columns: minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
     grid-gap: 10px;
     grid-template-rows: 100%;
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
 }
 
 .smart-card-view .smart-card-view-header-button {
@@ -40,12 +42,18 @@ smart-card-view {
 }
 
     .smart-card-view .smart-card-view-header-button:hover {
+        color: var(--smart-ui-state-color-hover);
         background-color: var(--smart-ui-state-hover);
+    }
+
+    .smart-card-view .smart-card-view-header-button:active {
+        color: var(--smart-ui-state-color-active);
+        background-color: var(--smart-ui-state-active);
     }
 
     .smart-card-view .smart-card-view-header-button:after {
         position: absolute;
-        font-family: var(--smart-font-family-icons);
+        font-family: var(--smart-font-family-icon);
         left: 5px;
     }
 
@@ -151,13 +159,13 @@ smart-card-view {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        overflow: hidden;
     }
 
     .smart-card-view .smart-card-view-header-drop-down .smart-card-view-customize-top smart-switch-button {
         margin-left: 30px;
         margin-right: 30px;
         position: relative;
+        z-index: 1;
     }
 
         .smart-card-view .smart-card-view-header-drop-down .smart-card-view-customize-top smart-switch-button:before,
@@ -196,7 +204,7 @@ smart-card-view {
 
 .smart-card-view > .smart-container > smart-scroll-viewer,
 .smart-card-view.smart-container > smart-scroll-viewer {
-    background-color: var(--smart-background);
+    background-color: transparent;
 }
 
 smart-card-view[header-position="top"] > .smart-container > smart-scroll-viewer,
@@ -215,8 +223,8 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
 .smart-card-view .smart-card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--smart-card-view-column-min-width), 1fr));
-    grid-column-gap: var(--smart-card-view-gap);
-    grid-row-gap: var(--smart-card-view-gap);
+    grid-column-gap: var(--smart-card-view-column-gap, var(--smart-card-view-gap));
+    grid-row-gap: var(--smart-card-view-row-gap, var(--smart-card-view-gap));
 }
 
 .smart-card-view .smart-scroll-viewer-container.vscroll .smart-card-container {
@@ -254,7 +262,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
 .smart-card-view smart-card {
     display: flex;
     margin: 0;
-    border: var(--smart-border-width) solid var(--smart-border);
+    border: var(--smart-border-width) solid var(--smart-card-border, var(--smart-border));
     width: unset;
     padding: var(--smart-card-view-padding);
     overflow: auto;
@@ -263,6 +271,10 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
     background-color: var(--smart-background);
     color: var(--smart-background-color);
     touch-action: none;
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
 .smart-card-view[loading] smart-card.smart-hidden {
@@ -484,7 +496,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
     z-index: 999;
 }
 
-    .smart-window.smart-card-view-window > .smart-container > .smart-content {
+    .smart-window.smart-card-view-window .smart-content-container > .smart-content {
         display: block;
         padding: 20px;
     }
@@ -576,7 +588,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
     }
 
         .smart-window.smart-card-view-window .smart-card-view-editor.image .thumbnail:hover:after {
-            content: var(--smart-icon-table);
+            content: var(--smart-icon-close);
             position: absolute;
             display: flex;
             justify-content: center;
@@ -587,7 +599,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
             top: 0;
             background-color: var(--smart-ui-state-hover);
             color: var(--smart-ui-state-color-hover);
-            font-family: var(--smart-font-family-icons);
+            font-family: var(--smart-font-family-icon);
             font-size: 50px;
             opacity: 0.4;
         }
@@ -620,6 +632,10 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
         font-size: 20px;
     }
 
+.smart-card-view .smart-add-new-button {
+    display: none;
+}
+
 .smart-card-view[add-new-button] .smart-add-new-button {
     display: block;
     position: absolute;
@@ -649,7 +665,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
     margin-top: 2px;
     width: 100%;
     height: 100%;
-    font-family: 'smart-icons';
+    font-family: var(--smart-font-family-icon);
     font-size: 20px;
 }
 
@@ -685,20 +701,28 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-family: 'smart-icons';
+    font-family: var(--smart-font-family-icon);
     font-size: 10px;
 }
 
 .smart-card-view .smart-card-view-search-prev,
 .smart-card-view .smart-card-view-search-next {
     display: none;
-    background-color: var(--smart-ui-state-active);
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
     height: 100%;
 }
 
     .smart-card-view .smart-card-view-search-next:hover,
     .smart-card-view .smart-card-view-search-prev:hover {
+        color: var(--smart-ui-state-color-hover);
         background-color: var(--smart-ui-state-hover);
+    }
+
+    .smart-card-view .smart-card-view-search-next:active,
+    .smart-card-view .smart-card-view-search-prev:active {
+        color: var(--smart-ui-state-color-active);
+        background-color: var(--smart-ui-state-active);
     }
 
     .smart-card-view .smart-card-view-search-prev:after {
@@ -716,6 +740,12 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
 
     .smart-card-view .smart-card-view-search-close:hover {
         color: var(--smart-ui-state-color-hover);
+        background-color: var(--smart-ui-state-hover);
+    }
+
+    .smart-card-view .smart-card-view-search-close:active {
+        color: var(--smart-ui-state-color-active);
+        background-color: var(--smart-ui-state-active);
     }
 
     .smart-card-view .smart-card-view-search-close:after {
@@ -801,7 +831,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
         width: 10%;
         height: 5000px;
         background-color: var(--smart-primary);
-        opacity: 0.7;
+        text-decoration: underline;
         top: 0;
     }
 
@@ -851,3 +881,66 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
     background-size: 3em 3em;
     opacity: 0.8;
 }
+
+/* --- Right To Left --- */
+
+.smart-card-view[right-to-left] .smart-card-view-label.icon,
+.smart-window.smart-card-view-window[right-to-left] .smart-card-view-label.icon {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+    .smart-card-view[right-to-left] .smart-card-view-label.icon:after,
+    .smart-window.smart-card-view-window[right-to-left] .smart-card-view-label.icon:after {
+        left: initial;
+        right: 0;
+    }
+
+.smart-card-view-drag-feedback[right-to-left],
+.smart-card-view[right-to-left] .smart-card-view-customize-top,
+.smart-card-view[right-to-left] .smart-card-view-header-drop-down.search-panel .smart-card-view-search-box {
+    direction: rtl;
+}
+
+.smart-card-view[right-to-left] .smart-card-view-header {
+    grid-template-areas: "search . sort filter customize";
+    grid-template-columns: 24px 1fr minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content);
+}
+
+.smart-card-view-drag-feedback[right-to-left] :nth-child(2) {
+    margin-right: 10px;
+    margin-left: initial;
+}
+
+.smart-card-view[right-to-left] .smart-card-view-header-button {
+    direction: rtl;
+    padding-left: initial;
+    padding-right: 25px;
+}
+
+    .smart-card-view[right-to-left] .smart-card-view-header-button:after {
+        right: 5px;
+        left: initial;
+    }
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-container-footer,
+.smart-group-panel[right-to-left] .smart-grid-panel-container-footer,
+.smart-column-panel[right-to-left] .smart-grid-panel-container-footer,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-container-footer {
+    flex-direction: row-reverse;
+}
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+.smart-group-panel[right-to-left] .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+.smart-column-panel[right-to-left] .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-buttons-container .smart-grid-panel-apply-button {
+    margin-right: 15px;
+    margin-left: initial;
+}
+
+.smart-card-view[right-to-left] .smart-scroll-viewer-container.vscroll .smart-card-container {
+    padding-left: 3px;
+    padding-right: initial;
+}
+
+/* --- */

@@ -16,9 +16,10 @@ smart-list-menu {
     visibility: hidden;
 }
 
-smart-list-menu.smart-element {
-    visibility: inherit;
-}
+    smart-list-menu.smart-element {
+        visibility: inherit;
+    }
+
     smart-list-menu .smart-ripple {
         background: var(--smart-ui-state-focus);
     }
@@ -34,646 +35,651 @@ smart-list-menu.smart-element {
         background: var(--smart-surface);
     }
 
-    .smart-list-menu .smart-header,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-header {
-        background: var(--smart-primary);
-        color: var(--smart-primary-color);
-        border-color: var(--smart-primary);
-        box-shadow: var(--smart-elevation-4);
-        z-index: 3;
-        padding: 0px 16px;
-    }
+.smart-list-menu .smart-header,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header {
+    background: var(--smart-primary);
+    color: var(--smart-primary-color);
+    border-color: var(--smart-primary);
+    box-shadow: var(--smart-elevation-4);
+    z-index: 3;
+    padding: 0px 16px;
+}
 
-    .smart-list-menu[minimized] .smart-minimized-header {
-        background: var(--smart-surface);
-        justify-content: flex-end;
-    }
+.smart-list-menu[minimized] .smart-minimized-header {
+    background: var(--smart-surface);
+    justify-content: flex-end;
+}
 
-    smart-list-menu > .smart-container,
-    .smart-list-menu.smart-container {
-        position: relative;
-        display: flex;
-    }
+smart-list-menu > .smart-container,
+.smart-list-menu.smart-container {
+    position: relative;
+    display: flex;
+}
 
-    .smart-list-menu smart-menu-item,
-    .smart-list-menu smart-menu-items-group,
-    .smart-list-menu-view.smart-drop-down-repositioned smart-menu-item,
-    .smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group {
-        padding: 10px 0;
-    }
+.smart-list-menu smart-menu-item,
+.smart-list-menu smart-menu-items-group,
+.smart-list-menu-view.smart-drop-down-repositioned smart-menu-item,
+.smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group {
+    padding: 10px 0;
+}
 
-    .smart-list-menu[disabled] smart-menu-item,
-    .smart-list-menu[disabled] smart-menu-items-group,
-    .smart-list-menu[disabled] .smart-hamburger-icon {
-        cursor: default;
-    }
+.smart-list-menu[disabled] smart-menu-item,
+.smart-list-menu[disabled] smart-menu-items-group,
+.smart-list-menu[disabled] .smart-hamburger-icon {
+    cursor: default;
+}
 
-    .smart-list-menu:not([animation='none']) .smart-list-menu-view-minimized,
-    .smart-list-menu-view-minimized:not([animation='none']) {
-        opacity: 1;
-        transform: scaleY(1);
-        margin: 8px 0px;
-        -webkit-transform-origin: top;
-        transform-origin: top;
-        transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
-    }
+.smart-list-menu:not([animation='none']) .smart-list-menu-view-minimized,
+.smart-list-menu-view-minimized:not([animation='none']) {
+    opacity: 1;
+    transform: scaleY(1);
+    margin: 8px 0px;
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+}
 
-    .smart-list-menu[drop-down-position*="top"] .smart-list-menu-view-minimized,
-    .smart-list-menu-view-minimized.smart-menu-drop-down.smart-drop-down-repositioned[drop-down-position*="top"] {
-        margin: -8px 0px;
-    }
+.smart-list-menu[drop-down-position*="top"] .smart-list-menu-view-minimized,
+.smart-list-menu-view-minimized.smart-menu-drop-down.smart-drop-down-repositioned[drop-down-position*="top"] {
+    margin: -8px 0px;
+}
 
-    .smart-list-menu:not([animation='none']) .smart-list-menu-view-minimized.smart-visibility-hidden,
-    .smart-list-menu-view-minimized:not([animation='none']).smart-visibility-hidden {
-        opacity: 0.2;
-        transform: scaleY(0);
-    }
+.smart-list-menu:not([animation='none']) .smart-list-menu-view-minimized.smart-visibility-hidden,
+.smart-list-menu-view-minimized:not([animation='none']).smart-visibility-hidden {
+    opacity: 0.2;
+    transform: scaleY(0);
+}
 
-    .smart-list-menu[drop-down-position|="top"]:not([animation='none']) .smart-list-menu-view-minimized,
-    .smart-list-menu-view-minimized[drop-down-position|="top"]:not([animation='none']) {
-        transform: translateY(-100%) scaleY(1);
-        -webkit-transform-origin: bottom;
-        transform-origin: bottom;
-    }
+.smart-list-menu[drop-down-position|="top"]:not([animation='none']) .smart-list-menu-view-minimized,
+.smart-list-menu-view-minimized[drop-down-position|="top"]:not([animation='none']) {
+    transform: translateY(-100%) scaleY(1);
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+}
 
-        .smart-list-menu[drop-down-position|="top"]:not([animation='none']) .smart-list-menu-view-minimized.smart-visibility-hidden,
-        .smart-list-menu-view-minimized[drop-down-position|="top"]:not([animation='none']).smart-visibility-hidden {
-            transform: translateY(-100%) scaleY(0);
-        }
-
-
-    .smart-list-menu[minimize-icon-template] .smart-hamburger-icon {
-        width: auto;
-        float: left;
-    }
-
-    .smart-list-menu .smart-hamburger-icon,
-    .smart-list-menu[minimize-icon-template="null"] .smart-hamburger-icon {
-        width: 40px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        float: none;
-        cursor: pointer;
-        margin-top: 2px;
-    }
-
-   . smart-list-menu .smart-hamburger-icon-line {
-        margin-bottom: 5px;
-        border-radius: 10px;
-        width: 30px;
-        height: 5px;
-        background-color: var(--smart-surface-color);
-        transform-origin: left;
-    }
-
-    .smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
-        transition: visibility 0.02s ease-in, transform 0.2s ease-in, width 0.2s ease-in;
-    }
-
-    .smart-list-menu .smart-hamburger-icon-line-bottom {
-        margin-bottom: 0;
-    }
-
-    .smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-top {
-        width: 29px;
-        transform: translateX(4px) rotate(45deg);
-    }
-
-    .smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-center {
-        visibility: hidden;
-    }
-
-    .smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-bottom {
-        width: 29px;
-        transform: translateX(4px) rotate(-45deg);
-    }
-
-    .smart-list-menu .smart-hamburger-icon .smart-hamburger-icon-custom-container {
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    .smart-list-menu .smart-list-menu-view-minimized {
-        left: calc(-1 * var(--smart-border-width));
-        top: calc(100% + var(--smart-border-width));
-    }
-
-    smart-list-menu[drop-down-position|="top"] .smart-list-menu-view-minimized {
-        top: calc(-1 * var(--smart-border-width));
-        transform: translateY(-100%);
-        box-shadow: var(--smart-elevation-8);
-    }
-
-    smart-list-menu[drop-down-position$="left"] .smart-list-menu-view-minimized {
-        left: initial;
-        right: calc(-1 * var(--smart-border-width));
-    }
-
-    .smart-list-menu .smart-menu-scroll-button,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button {
-        display: block;
-        width: var(--smart-menu-scroll-button-size);
-        height: 100%;
-        background-color: var(--smart-scroll-bar-background);
-        color: var(--smart-scroll-bar-color);
-        border-radius: 0px;
-        border-left: none;
-        border-right: none;
-    }
-
-        .smart-list-menu .smart-menu-scroll-button:last-of-type,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button:last-of-type {
-            border-bottom: none;
-        }
-
-    .smart-list-menu .smart-menu-scroll-button,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button {
-        width: 100%;
-        height: var(--smart-menu-scroll-button-size);
-    }
-
-        .smart-list-menu .smart-menu-scroll-button > button,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button > button {
-            border: none;
-            min-height: 0;
-        }
-
-    .smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-    .smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container {
-        padding-left: 35px;
-    }
-
-    .smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        content: var(--smart-icon-check);
-        font-family: var(--smart-font-family-icon);
-    }
-
-    .smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
-	   content: var(--smart-icon-radio); 
+    .smart-list-menu[drop-down-position|="top"]:not([animation='none']) .smart-list-menu-view-minimized.smart-visibility-hidden,
+    .smart-list-menu-view-minimized[drop-down-position|="top"]:not([animation='none']).smart-visibility-hidden {
+        transform: translateY(-100%) scaleY(0);
     }
 
 
-    .smart-list-menu[animation='none'] .smart-list-menu-view-minimized.smart-visibility-hidden,
-    .smart-list-menu-view-minimized.smart-drop-down-repositioned[animation='none'].smart-visibility-hidden {
-        transform: scale(0);
+.smart-list-menu[minimize-icon-template] .smart-hamburger-icon {
+    width: auto;
+    float: left;
+}
+
+.smart-list-menu .smart-hamburger-icon,
+.smart-list-menu[minimize-icon-template="null"] .smart-hamburger-icon {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: none;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.smart-list-menu .smart-hamburger-icon-line {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    width: 30px;
+    height: 5px;
+    background-color: var(--smart-surface-color);
+    transform-origin: left;
+}
+
+.smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
+    transition: visibility 0.02s ease-in, transform 0.2s ease-in, width 0.2s ease-in;
+}
+
+.smart-list-menu .smart-hamburger-icon-line-bottom {
+    margin-bottom: 0;
+}
+
+.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-top {
+    width: 29px;
+    transform: translateX(4px) rotate(45deg);
+}
+
+.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-center {
+    visibility: hidden;
+}
+
+.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-bottom {
+    width: 29px;
+    transform: translateX(4px) rotate(-45deg);
+}
+
+.smart-list-menu .smart-hamburger-icon .smart-hamburger-icon-custom-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.smart-list-menu .smart-list-menu-view-minimized {
+    left: calc(-1 * var(--smart-border-width));
+    top: calc(100% + var(--smart-border-width));
+}
+
+smart-list-menu[drop-down-position|="top"] .smart-list-menu-view-minimized {
+    top: calc(-1 * var(--smart-border-width));
+    transform: translateY(-100%);
+    box-shadow: var(--smart-elevation-8);
+}
+
+smart-list-menu[drop-down-position$="left"] .smart-list-menu-view-minimized {
+    left: initial;
+    right: calc(-1 * var(--smart-border-width));
+}
+
+.smart-list-menu .smart-menu-scroll-button,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button {
+    display: block;
+    width: var(--smart-menu-scroll-button-size);
+    height: 100%;
+    background-color: var(--smart-scroll-bar-background);
+    color: var(--smart-scroll-bar-color);
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+}
+
+    .smart-list-menu .smart-menu-scroll-button:last-of-type,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button:last-of-type {
+        border-bottom: none;
     }
 
-    /* Microsoft Edge-specific fix */
-    .smart-list-menu .smart-list-menu-view-minimized.smart-visibility-hidden.not-in-view,
-    .smart-list-menu-view-minimized.smart-drop-down-repositioned.smart-visibility-hidden.not-in-view,
-    smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in-view {
-        left: -9999px;
-        top: -9999px;
-        transition: none;
+.smart-list-menu .smart-menu-scroll-button,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button {
+    width: 100%;
+    height: var(--smart-menu-scroll-button-size);
+}
+
+    .smart-list-menu .smart-menu-scroll-button > button,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button > button {
+        border: none;
+        min-height: 0;
     }
 
-    .smart-list-menu .smart-hidden,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-hidden {
-        display: none !important;
-    }
+.smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container {
+    padding-left: 35px;
+}
 
-    .smart-list-menu-view,
+.smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: var(--smart-icon-check);
+    font-family: var(--smart-font-family-icon);
+}
+
+.smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
+    content: var(--smart-icon-radio);
+}
+
+
+.smart-list-menu[animation='none'] .smart-list-menu-view-minimized.smart-visibility-hidden,
+.smart-list-menu-view-minimized.smart-drop-down-repositioned[animation='none'].smart-visibility-hidden {
+    transform: scale(0);
+}
+
+/* Microsoft Edge-specific fix */
+.smart-list-menu .smart-list-menu-view-minimized.smart-visibility-hidden.not-in-view,
+.smart-list-menu-view-minimized.smart-drop-down-repositioned.smart-visibility-hidden.not-in-view,
+smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in-view {
+    left: -9999px;
+    top: -9999px;
+    transition: none;
+}
+
+.smart-list-menu .smart-hidden,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-hidden {
+    display: none !important;
+}
+
+.smart-list-menu-view,
+.smart-list-menu .smart-menu-main-container,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
     .smart-list-menu .smart-menu-main-container,
     .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
+        touch-action: none;
+    }
+
+    .smart-list-menu .smart-menu-main-container,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
+        position: relative;
+    }
+
+        .smart-list-menu .smart-menu-main-container.header-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown {
+            height: calc(100% - var(--smart-bar-height));
+        }
+
+        .smart-list-menu .smart-menu-main-container.scroll-buttons-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown {
+            height: calc(100% - 2 * var(--smart-menu-scroll-button-size));
+        }
+
+            .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown,
+            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown {
+                height: calc(100% - var(--smart-menu-scroll-button-size));
+            }
+
+        .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown {
+            height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size));
+        }
+
+            .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown,
+            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown {
+                height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size));
+            }
+
+        .smart-list-menu .smart-menu-main-container.filter-input-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.filter-input-shown {
+            height: calc(100% - var(--smart-text-box-default-height));
+        }
+
+        .smart-list-menu .smart-menu-main-container.header-shown.filter-input-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.filter-input-shown {
+            height: calc(100% - var(--smart-bar-height) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+        }
+
+        .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.filter-input-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.filter-input-shown {
+            height: calc(100% - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+        }
+
+        .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown {
+            height: calc(100% - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+        }
+
+        .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown {
+            height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+        }
+
+        .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown {
+            height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+        }
+
+        .smart-list-menu .smart-menu-main-container.bounce-top,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-top {
+            padding-top: 50px;
+        }
+
+        .smart-list-menu .smart-menu-main-container.bounce-bottom,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-bottom {
+            padding-bottom: 50px;
+        }
+
+    .smart-list-menu .smart-header,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
         width: 100%;
-        height: 100%;
+        height: var(--smart-bar-height);
+        border-bottom: var(--smart-border-width) solid var(--smart-primary);
         overflow: hidden;
     }
 
-        .smart-list-menu .smart-menu-main-container,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
-            touch-action: none;
+        .smart-list-menu .smart-header > smart-button,
+        .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button {
+            position: absolute;
+            width: 50px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: inherit;
+            border: inherit;
+            color: inherit;
         }
 
-        .smart-list-menu .smart-menu-main-container,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
-            position: relative;
-        }
-
-            .smart-list-menu .smart-menu-main-container.header-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown {
-                height: calc(100% - var(--smart-bar-height));
+            .smart-list-menu .smart-header > smart-button > .smart-button,
+            .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button > .smart-button {
+                border: none;
             }
 
-            .smart-list-menu .smart-menu-main-container.scroll-buttons-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown {
-                height: calc(100% - 2 * var(--smart-menu-scroll-button-size));
-            }
-
-                .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown,
-                .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown {
-                    height: calc(100% - var(--smart-menu-scroll-button-size));
-                }
-
-            .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown {
-                height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size));
-            }
-
-                .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown,
-                .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown {
-                    height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size));
-                }
-
-            .smart-list-menu .smart-menu-main-container.filter-input-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.filter-input-shown {
-                height: calc(100% - var(--smart-text-box-default-height));
-            }
-
-            .smart-list-menu .smart-menu-main-container.header-shown.filter-input-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.filter-input-shown {
-                height: calc(100% - var(--smart-bar-height) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-            }
-
-            .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.filter-input-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.filter-input-shown {
-                height: calc(100% - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-            }
-
-            .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown {
-                height: calc(100% - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-            }
-
-            .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown {
-                height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-            }
-
-            .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown {
-                height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-            }
-
-            .smart-list-menu .smart-menu-main-container.bounce-top,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-top {
-                padding-top: 50px;
-            }
-
-            .smart-list-menu .smart-menu-main-container.bounce-bottom,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-bottom {
-                padding-bottom: 50px;
-            }
-
-        .smart-list-menu .smart-header,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 100%;
-            height: var(--smart-bar-height);
-            border-bottom: var(--smart-border-width) solid var(--smart-primary);
-            overflow: hidden;
-        }
-
-            .smart-list-menu .smart-header > smart-button,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button {
-                position: absolute;
-                width: 50px;
-                height: 100%;
-                left: 0;
-                top: 0;
-                background: inherit;
-                border: inherit;
+            .smart-list-menu .smart-header > smart-button .smart-arrow:after,
+            .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-arrow:after {
+                font-size: calc(var(--smart-font-size) - 3px);
                 color: inherit;
             }
 
-                .smart-list-menu .smart-header > smart-button > .smart-button,
-                .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button > .smart-button {
-                    border: none;
-                }
-
-                .smart-list-menu .smart-header > smart-button .smart-arrow:after,
-                .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-arrow:after {
-                    font-size: calc(var(--smart-font-size) - 3px);
-                    color: inherit;
-                }
-
-        .smart-list-menu .smart-title,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-title {
-            font-size: calc(var(--smart-font-size) + 2px);
-        }
-
-        .smart-list-menu smart-menu-item.smart-element,
-        .smart-list-menu-view.smart-drop-down-repositioned smart-menu-item.smart-element,
-        .smart-list-menu smart-menu-items-group.smart-element,
-        .smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group.smart-element {
-            display: block;
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-        }
-
-            .smart-list-menu smart-menu-items-group[hover],
-            .smart-list-menu smart-menu-item[hover] {
-                background: var(--smart-ui-state-hover);
-                border-color: var(--smart-ui-state-border-hover);
-                color: var(--smart-ui-state-color-hover);
-            }
-
-        .smart-list-menu .smart-menu-item-label-container,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-item-label-container {
-            display: flex;
-            position: relative;
-            justify-content: space-between;
-            padding: 10px;
-            width: 100%;
-        }
-
-        .smart-list-menu .smart-menu-item-label-element,
-        .smart-list-menu .smart-title,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-item-label-element,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-title {
-            display: flex;
-            align-items: center;
-        }
-
-        .smart-list-menu .smart-menu-item-shortcut,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-item-shortcut {
-            margin-left: 0;
-        }
-
-        .smart-list-menu .smart-menu-items-group-arrow,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-items-group-arrow {
-            display: flex;
-            align-items: center;
-        }
-
-        .smart-list-menu .smart-menu-drop-down,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-drop-down {
-            width: 100%;
-        }
-
-        .smart-list-menu smart-menu-items-group.smart-menu-items-group-opened[separator],
-        .smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group.smart-menu-items-group-opened[separator],
-        .smart-list-menu smart-menu-item[separator]:last-child,
-        .smart-list-menu-view.smart-drop-down-repositioned smart-menu-item[separator]:last-child,
-        .smart-list-menu smart-menu-items-group[separator]:last-child,
-        .smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group[separator]:last-child {
-            border-bottom: none;
-        }
-
-        .smart-list-menu-view.smart-list-menu-view-minimized {
-            position: absolute;
-            width: var(--smart-list-menu-drop-down-width);
-            height: var(--smart-list-menu-drop-down-height);
-            left: calc(-1 * var(--smart-border-width));
-            top: calc(100% + var(--smart-border-width));
-            background-color: white;
-            box-shadow: var(--smart-elevation-8);
-        }
-
-        .smart-list-menu .smart-tree-main-container,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-tree-main-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: var(--smart-tree-item-horizontal-offset);
-            overflow: hidden;
-        }
-
-        .smart-list-menu .smart-list-menu-filter-input-container,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-filter-input-container {
-            position: relative;
-            width: calc(100% - 10px);
-            height: calc(var(--smart-text-box-default-height));
-            margin: 5px;
-            font-size: inherit;
-        }
-
-            .smart-list-menu .smart-list-menu-filter-input-container::after,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-filter-input-container::after {
-                content: var(--smart-icon-filter);
-                font-family: var(--smart-font-family-icon);
-                height: var(--smart-text-box-default-height);
-                position: absolute;
-                top: 0;
-                width: 25px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                left: calc(100% - 25px);
-            }
-
-        .smart-list-menu .smart-filter-input,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input {
-            border: 1px solid var(--smart-border);
-            width: 100%;
-            height: 100%;
-            padding-left: var(--smart-editor-label-padding);
-            padding-right: calc(var(--smart-editor-label-padding) + 25px);
-            font-size: inherit;
-        }
-
-            .smart-list-menu .smart-filter-input::selection,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input::selection {
-                background: var(--smart-editor-selection);
-                color: var(--smart-editor-selection-color);
-            }
-
-            .smart-list-menu .smart-filter-input:focus,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input:focus,
-            smart-tree .smart-filter-input:focus {
-                outline: none;
-            }
-
-        .smart-list-menu .smart-list-menu-group-label,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-group-label {
-            margin-bottom: 1px;
-            padding: 10px;
-            background-color: var(--smart-disabled);
-            color: var(--smart-disabled-color);
-            font-size: calc(var(--smart-font-size) + 1px);
-            font-weight: bold;
-            cursor: default;
-            user-select: none;
-        }
-
-    .smart-list-menu:not([animation='none']) .smart-menu-items-group-opened,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-items-group-opened {
-        overflow: visible;
+    .smart-list-menu .smart-title,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-title {
+        font-size: calc(var(--smart-font-size) + 2px);
     }
 
-    .smart-list-menu:not([animation='none']) .smart-menu-drop-down,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down {
+    .smart-list-menu smart-menu-item.smart-element,
+    .smart-list-menu-view.smart-drop-down-repositioned smart-menu-item.smart-element,
+    .smart-list-menu smart-menu-items-group.smart-element,
+    .smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group.smart-element {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+.smart-list-menu smart-menu-items-group[hover],
+.smart-list-menu smart-menu-item[hover] {
+    background: var(--smart-ui-state-hover);
+    border-color: var(--smart-ui-state-border-hover);
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-list-menu .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-item-label-container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+}
+
+.smart-list-menu .smart-menu-item-label-element,
+.smart-list-menu .smart-title,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-item-label-element,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-title {
+    display: flex;
+    align-items: center;
+}
+
+.smart-list-menu .smart-menu-item-shortcut,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-item-shortcut {
+    margin-left: 0;
+}
+
+.smart-list-menu .smart-menu-items-group-arrow,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-items-group-arrow {
+    display: flex;
+    align-items: center;
+}
+
+.smart-list-menu .smart-menu-drop-down,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-drop-down {
+    width: 100%;
+}
+
+    .smart-list-menu .smart-menu-drop-down[level="2"]:not(.smart-menu-minimized-items-container),
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-drop-down[level="2"]:not(.smart-menu-minimized-items-container) {
+        margin: 0;
+    }
+
+.smart-list-menu smart-menu-items-group.smart-menu-items-group-opened[separator],
+.smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group.smart-menu-items-group-opened[separator],
+.smart-list-menu smart-menu-item[separator]:last-child,
+.smart-list-menu-view.smart-drop-down-repositioned smart-menu-item[separator]:last-child,
+.smart-list-menu smart-menu-items-group[separator]:last-child,
+.smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group[separator]:last-child {
+    border-bottom: none;
+}
+
+.smart-list-menu-view.smart-list-menu-view-minimized {
+    position: absolute;
+    width: var(--smart-list-menu-drop-down-width);
+    height: var(--smart-list-menu-drop-down-height);
+    left: calc(-1 * var(--smart-border-width));
+    top: calc(100% + var(--smart-border-width));
+    background-color: white;
+    box-shadow: var(--smart-elevation-8);
+}
+
+.smart-list-menu .smart-tree-main-container,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-tree-main-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: var(--smart-tree-item-horizontal-offset);
+    overflow: hidden;
+}
+
+.smart-list-menu .smart-list-menu-filter-input-container,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-filter-input-container {
+    position: relative;
+    width: calc(100% - 10px);
+    height: calc(var(--smart-text-box-default-height));
+    margin: 5px;
+    font-size: inherit;
+}
+
+    .smart-list-menu .smart-list-menu-filter-input-container::after,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-filter-input-container::after {
+        content: var(--smart-icon-filter);
+        font-family: var(--smart-font-family-icon);
+        height: var(--smart-text-box-default-height);
         position: absolute;
         top: 0;
-        left: 0;
-        transition: left 0.3s ease-in;
-    }
-
-        .smart-list-menu:not([animation='none']) .smart-menu-drop-down.smart-hidden,
-        .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.smart-hidden {
-            display: block !important;
-            left: 100%;
-        }
-
-        .smart-list-menu:not([animation='none']) .smart-menu-drop-down.no-transition,
-        .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.no-transition {
-            transition: none;
-        }
-
-    .smart-list-menu:not([animation='none']) smart-menu-item,
-    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item {
-        position: relative;
-    }
-
-    .smart-list-menu:not([animation='none']) smart-menu-item,
-    .smart-list-menu:not([animation='none']) smart-menu-items-group,
-    .smart-list-menu:not([animation='none']) .smart-menu-item-label-container,
-    .smart-list-menu:not([animation='none']) .smart-list-menu-group-label,
-    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item,
-    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label {
-        left: 0;
-        transition: left 0.3s ease-in;
-    }
-
-    .smart-list-menu:not([animation='none']) .smart-list-menu-group-label,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label {
-        position: relative;
-    }
-
-        .smart-list-menu:not([animation='none']) smart-menu-item.animate,
-        .smart-list-menu:not([animation='none']) smart-menu-items-group.animate,
-        .smart-list-menu:not([animation='none']) .smart-menu-item-label-container.animate,
-        .smart-list-menu:not([animation='none']) .smart-list-menu-group-label.animate,
-        .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.animate,
-        .smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.animate,
-        .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.animate,
-        .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.animate {
-            left: -100%;
-        }
-
-        .smart-list-menu:not([animation='none']) smart-menu-item.right,
-        .smart-list-menu:not([animation='none']) smart-menu-items-group.right,
-        .smart-list-menu:not([animation='none']) .smart-menu-item-label-container.right,
-        .smart-list-menu:not([animation='none']) .smart-list-menu-group-label.right,
-        .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.right,
-        .smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.right,
-        .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.right,
-        .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.right {
-            left: -100%;
-            transition: none;
-        }
-
-    /* Hamburger icon styles */
-
-    .smart-list-menu[disabled] .smart-hamburger-icon {
-        cursor: default;
-    }
-
-    .smart-list-menu[minimize-icon-template] .smart-hamburger-icon {
-        width: auto;
-        float: left;
-    }
-
-    .smart-list-menu .smart-hamburger-icon,
-    .smart-list-menu[minimize-icon-template="null"] .smart-hamburger-icon {
-        width: 40px;
-        height: 100%;
+        width: 25px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        float: none;
-        cursor: pointer;
+        left: calc(100% - 25px);
     }
 
-    .smart-list-menu .smart-hamburger-icon-line {
-        margin-bottom: 5px;
-        border-radius: 10px;
-        width: 30px;
-        height: 5px;
-        background-color: #757575;
-        transform-origin: left;
+.smart-list-menu .smart-filter-input,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input {
+    border: 1px solid var(--smart-border);
+    width: 100%;
+    height: 100%;
+    padding-left: var(--smart-editor-label-padding);
+    padding-right: calc(var(--smart-editor-label-padding) + 25px);
+    font-size: inherit;
+}
+
+    .smart-list-menu .smart-filter-input::selection,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input::selection {
+        background: var(--smart-editor-selection);
+        color: var(--smart-editor-selection-color);
     }
 
-    smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
-        transition: visibility 0.02s ease-in, transform 0.2s ease-in, width 0.2s ease-in;
+    .smart-list-menu .smart-filter-input:focus,
+    .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input:focus,
+    smart-tree .smart-filter-input:focus {
+        outline: none;
     }
 
-    .smart-list-menu .smart-hamburger-icon-line-bottom {
-        margin-bottom: 0;
+.smart-list-menu .smart-list-menu-group-label,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-group-label {
+    margin-bottom: 1px;
+    padding: 10px;
+    background-color: var(--smart-disabled);
+    color: var(--smart-disabled-color);
+    font-size: calc(var(--smart-font-size) + 1px);
+    font-weight: bold;
+    cursor: default;
+    user-select: none;
+}
+
+.smart-list-menu:not([animation='none']) .smart-menu-items-group-opened,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-menu-items-group-opened {
+    overflow: visible;
+}
+
+.smart-list-menu:not([animation='none']) .smart-menu-drop-down,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.3s ease-in;
+}
+
+    .smart-list-menu:not([animation='none']) .smart-menu-drop-down.smart-hidden,
+    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.smart-hidden {
+        display: block !important;
+        left: 100%;
     }
 
-    .smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-top {
-        width: 29px;
-        transform: translateX(4px) rotate(45deg);
+    .smart-list-menu:not([animation='none']) .smart-menu-drop-down.no-transition,
+    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.no-transition {
+        transition: none;
     }
 
-    .smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-center {
-        visibility: hidden;
+.smart-list-menu:not([animation='none']) smart-menu-item,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-item {
+    position: relative;
+}
+
+.smart-list-menu:not([animation='none']) smart-menu-item,
+.smart-list-menu:not([animation='none']) smart-menu-items-group,
+.smart-list-menu:not([animation='none']) .smart-menu-item-label-container,
+.smart-list-menu:not([animation='none']) .smart-list-menu-group-label,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-item,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label {
+    left: 0;
+    transition: left 0.3s ease-in;
+}
+
+.smart-list-menu:not([animation='none']) .smart-list-menu-group-label,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label {
+    position: relative;
+}
+
+    .smart-list-menu:not([animation='none']) smart-menu-item.animate,
+    .smart-list-menu:not([animation='none']) smart-menu-items-group.animate,
+    .smart-list-menu:not([animation='none']) .smart-menu-item-label-container.animate,
+    .smart-list-menu:not([animation='none']) .smart-list-menu-group-label.animate,
+    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.animate,
+    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.animate,
+    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.animate,
+    .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.animate {
+        left: -100%;
     }
 
-    .smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-bottom {
-        width: 29px;
-        transform: translateX(4px) rotate(-45deg);
+    .smart-list-menu:not([animation='none']) smart-menu-item.right,
+    .smart-list-menu:not([animation='none']) smart-menu-items-group.right,
+    .smart-list-menu:not([animation='none']) .smart-menu-item-label-container.right,
+    .smart-list-menu:not([animation='none']) .smart-list-menu-group-label.right,
+    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.right,
+    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.right,
+    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.right,
+    .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.right {
+        left: -100%;
+        transition: none;
     }
 
-    .smart-list-menu .smart-hamburger-icon .smart-hamburger-icon-custom-container {
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
+/* Hamburger icon styles */
 
-    /* --- Right-To-Left --- */
+.smart-list-menu[disabled] .smart-hamburger-icon {
+    cursor: default;
+}
 
-    .smart-list-menu[right-to-left] .smart-filter-input,
-    .smart-list-menu-view.smart-drop-down-repositioned[right-to-left] .smart-filter-input,
-    .smart-list-menu[right-to-left] .smart-menu-main-container,
-    .smart-list-menu[right-to-left][minimized] .smart-list-menu-view-minimized,
-    .smart-list-menu[right-to-left][mode="tree"] .smart-list-menu-view-minimized,
-    .smart-menu-drop-down.smart-drop-down-repositioned.smart-list-menu-view-minimized[right-to-left],
-    .smart-menu-drop-down.smart-drop-down-repositioned.smart-list-menu-view-minimized[right-to-left],
-    .smart-menu-drop-down.smart-drop-down-repositioned[right-to-left] .smart-menu-item-container {
-        direction: rtl;
-    }
+.smart-list-menu[minimize-icon-template] .smart-hamburger-icon {
+    width: auto;
+    float: left;
+}
 
-    .smart-list-menu[right-to-left] .smart-filter-input,
-    .smart-list-menu-view.smart-drop-down-repositioned[right-to-left] .smart-filter-input {
-        padding-right: var(--smart-editor-label-padding);
-        padding-left: calc(var(--smart-editor-label-padding) + 25px);
-    }
+.smart-list-menu .smart-hamburger-icon,
+.smart-list-menu[minimize-icon-template="null"] .smart-hamburger-icon {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: none;
+    cursor: pointer;
+}
 
-    .smart-list-menu[right-to-left] > .smart-container {
-        flex-direction: row-reverse;
-    }
+.smart-list-menu .smart-hamburger-icon-line {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    width: 30px;
+    height: 5px;
+    background-color: #757575;
+    transform-origin: left;
+}
 
-    .smart-list-menu[right-to-left] .smart-list-menu-view.smart-list-menu-view-minimized {
-        left: initial;
-        right: calc(-1 * var(--smart-border-width));
-    }
+smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
+    transition: visibility 0.02s ease-in, transform 0.2s ease-in, width 0.2s ease-in;
+}
+
+.smart-list-menu .smart-hamburger-icon-line-bottom {
+    margin-bottom: 0;
+}
+
+.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-top {
+    width: 29px;
+    transform: translateX(4px) rotate(45deg);
+}
+
+.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-center {
+    visibility: hidden;
+}
+
+.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-bottom {
+    width: 29px;
+    transform: translateX(4px) rotate(-45deg);
+}
+
+.smart-list-menu .smart-hamburger-icon .smart-hamburger-icon-custom-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Right-To-Left --- */
+
+.smart-list-menu[right-to-left] .smart-filter-input,
+.smart-list-menu-view.smart-drop-down-repositioned[right-to-left] .smart-filter-input,
+.smart-list-menu[right-to-left] .smart-menu-main-container,
+.smart-list-menu[right-to-left][minimized] .smart-list-menu-view-minimized,
+.smart-list-menu[right-to-left][mode="tree"] .smart-list-menu-view-minimized,
+.smart-menu-drop-down.smart-drop-down-repositioned.smart-list-menu-view-minimized[right-to-left],
+.smart-menu-drop-down.smart-drop-down-repositioned.smart-list-menu-view-minimized[right-to-left],
+.smart-menu-drop-down.smart-drop-down-repositioned[right-to-left] .smart-menu-item-container {
+    direction: rtl;
+}
+
+.smart-list-menu[right-to-left] .smart-filter-input,
+.smart-list-menu-view.smart-drop-down-repositioned[right-to-left] .smart-filter-input {
+    padding-right: var(--smart-editor-label-padding);
+    padding-left: calc(var(--smart-editor-label-padding) + 25px);
+}
+
+.smart-list-menu[right-to-left] > .smart-container {
+    flex-direction: row-reverse;
+}
+
+.smart-list-menu[right-to-left] .smart-list-menu-view.smart-list-menu-view-minimized {
+    left: initial;
+    right: calc(-1 * var(--smart-border-width));
+}
 
 .smart-list-menu[right-to-left] .smart-list-menu-filter-input-container::after,
 .smart-list-menu-view.smart-drop-down-repositioned[right-to-left] .smart-list-menu-filter-input-container::after {
@@ -739,28 +745,28 @@ smart-list-menu.smart-element {
     left: 100%;
 }
 
-    .smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-    .smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-    .smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container {
-        padding-left: initial;
-        padding-right: 35px;
-    }
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container {
+    padding-left: initial;
+    padding-right: 35px;
+}
 
-    .smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
-    .smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
-        left: initial;
-        right: 10px;
-    }
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
+    left: initial;
+    right: 10px;
+}
 
 /* --- */

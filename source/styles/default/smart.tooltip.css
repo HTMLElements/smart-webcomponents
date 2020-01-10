@@ -10,6 +10,11 @@ smart-tooltip {
     pointer-events: none;
 }
 
+smart-tooltip.smart-element {
+	background: transparent;
+	overflow: visible;
+}
+
 .smart-tooltip[visible] {
     visibility: visible;
     pointer-events: auto;
@@ -22,12 +27,17 @@ smart-tooltip {
     padding: var(--smart-tooltip-padding);
     background-color: var(--smart-secondary);
     color: var(--smart-secondary-color);
-    border: var(--smart-border-width) solid var(--smart-border);
+    border: var(--smart-border-width) solid var(--smart-secondary);
     width: 100%;
     height: 100%;
-    box-shadow: var(--smart-tooltip-content-shadow);
     opacity: 0.9;
+	box-shadow: var(--smart-elevation-6);
     font-family: var(--smart-font-family);
+	border-top-left-radius: var(--smart-border-top-left-radius);
+	border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+	border-top-right-radius: var(--smart-border-top-right-radius);
+	border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+	
 }
 
 .smart-tooltip[arrow],
@@ -57,7 +67,7 @@ smart-tooltip {
         height: 0;
         border-left: var(--smart-tooltip-arrow-width) solid transparent;
         border-right: var(--smart-tooltip-arrow-width) solid transparent;
-        border-top: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-border);
+        border-top: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-arrow-color);
         position: absolute;
         top: calc(100% - var(--smart-tooltip-arrow-width));
         left: calc(100% / 2 - var(--smart-tooltip-arrow-width));
@@ -67,7 +77,7 @@ smart-tooltip {
     .smart-tooltip[arrow][arrow-direction="top"] .smart-tooltip-content:after {
         border-left: var(--smart-tooltip-arrow-width) solid transparent;
         border-right: var(--smart-tooltip-arrow-width) solid transparent;
-        border-bottom: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-border);
+        border-bottom: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-arrow-color);
         border-top: initial;
         top: 0;
         bottom: calc(100% + var(--smart-tooltip-arrow-width));
@@ -77,7 +87,7 @@ smart-tooltip {
     .smart-tooltip[arrow][arrow-direction="right"] .smart-tooltip-content:after {
         border-bottom: var(--smart-tooltip-arrow-width) solid transparent;
         border-top: var(--smart-tooltip-arrow-width) solid transparent;
-        border-left: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-border);
+        border-left: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-arrow-color);
         border-right: initial;
         left: calc(100% - var(--smart-tooltip-arrow-width));
         top: calc(50% - var(--smart-tooltip-arrow-width));
@@ -87,7 +97,7 @@ smart-tooltip {
     .smart-tooltip[arrow][arrow-direction="left"] .smart-tooltip-content:after {
         border-bottom: var(--smart-tooltip-arrow-width) solid transparent;
         border-top: var(--smart-tooltip-arrow-width) solid transparent;
-        border-right: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-border);
+        border-right: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-arrow-color);
         border-left: initial;
         left: 0;
         top: calc(50% - var(--smart-tooltip-arrow-width));
@@ -105,3 +115,11 @@ smart-tooltip:not([animation='none']) {
     smart-tooltip:not([animation='none'])[visible] {
         opacity: 1;
     }
+
+/* --- Right To Left --- */
+
+.smart-tooltip[right-to-left] .smart-tooltip-content {
+    direction: rtl;
+}
+
+/* --- */

@@ -28,7 +28,7 @@
 /* Glyph icon font */
 @font-face {
     font-family: smart-icons;
-    src: local('../font/smart-icons'), url('../font/smart-icons.woff2') format('woff2'), url('../font/smart-icons.woff') format('woff'), url('../font/smart-icons.ttf') format('truetype'), url('../font/smart-icons.eot') format('embedded-opentype');
+    src: local('../font/smart-icons'), url('../font/smart-icons.woff2') format('woff2'), url('../font/smart-icons.woff') format('woff'), url('../font/smart-icons.ttf') format('truetype'), url('../font/smart-icons.eot') format('embedded-opentype');	
     font-weight: normal;
     font-style: normal;
 }
@@ -66,7 +66,7 @@
 
 .smart-arrow-up:after {
     content: var(--smart-icon-arrow-up);
-	top: -1px;
+    top: -1px;
 }
 
 .smart-arrow-down:after {
@@ -74,7 +74,7 @@
 }
 
 .smart-arrow-left:after {
-     content: var(--smart-icon-arrow-left);
+    content: var(--smart-icon-arrow-left);
 }
 
 .smart-arrow-left-first:after {
@@ -82,44 +82,11 @@
 }
 
 .smart-arrow-right-last:after {
-	content: var(--smart-icon-last-page);
+    content: var(--smart-icon-last-page);
 }
 
 .smart-arrow-right:after {
     content: var(--smart-icon-arrow-right);
-}
-
-.smart-right-to-left {
-    direction: rtl;
-}
-
-.smart-micro {
-    font-size: 9px;
-}
-
-.smart-caps {
-    text-transform: uppercase;
-    letter-spacing: .1em;
-}
-
-.smart-strong {
-    font-weight: 500;
-}
-
-.smart-truncate {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.smart-quiet {
-    opacity: 0.75;
-}
-
-.smart-dragging,
-.smart-dragging * {
-    cursor: move !important;
 }
 
 /* Draw plug-in */
@@ -482,4 +449,39 @@ smart-tree[disabled] .smart-loader::after {
     100% {
         border-top-color: #7A7A7A;
     }
+}
+
+
+
+.smart-right-to-left {
+    direction: rtl;
+}
+
+.smart-micro {
+    font-size: 9px;
+}
+
+.smart-caps {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+.smart-strong {
+    font-weight: 500;
+}
+
+.smart-truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.smart-quiet {
+    opacity: 0.75;
+}
+
+.smart-dragging,
+.smart-dragging * {
+    cursor: move !important;
 }

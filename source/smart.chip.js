@@ -1,6 +1,6 @@
 
-/* Smart HTML Elements v5.1.0 (2019-Dec) 
-Copyright (c) 2011-2019 jQWidgets. 
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart("smart-chip",class extends Smart.ContentElement{static get properties(){return{avatar:{value:null,type:"string?"},closeButton:{value:!1,type:"boolean"},itemTemplate:{value:null,type:"any?",reflectToAttribute:!1},value:{value:"",type:"string"}}}static get listeners(){return{click:"_clickHandler",keydown:"_keyDownHandler"}}static get styleUrls(){return["smart.chip.css"]}template(){return`<div id="container" role="presentation">

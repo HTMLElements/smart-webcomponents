@@ -51,6 +51,7 @@ smart-circular-progress-bar {
         border-radius: 50%;
     }
 
+
 .smart-progress-bar .smart-value {
     outline: none;
     border: 1px solid var(--smart-ui-state-border-active);
@@ -59,6 +60,12 @@ smart-circular-progress-bar {
     background-color: var(--smart-ui-state-active);
     box-sizing: border-box;
     position: absolute;
+}
+
+
+.smart-progress-bar.smart-element:focus > .smart-container,
+.smart-circular-progress-bar.smart-element:focus > .smart-container {
+	border-color: var(--smart-outline);
 }
 
 .smart-progress-bar:not([animation='none']) .smart-value {

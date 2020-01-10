@@ -209,6 +209,11 @@ smart-switch-button {
     background-color: var(--smart-surface);
 }
 
+.smart-switch-button:not([animation="none"]) .smart-container::before,
+:host(smart-switch-button:not([animation="none"])) .smart-container::before {
+    transition: opacity 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
 .smart-switch-button[checked][orientation="vertical"] .smart-container::before,
 .smart-switch-button[checked] .smart-container::before,
 :host(smart-switch-button[checked][orientation="vertical"]) .smart-container::before,
@@ -314,3 +319,26 @@ smart-switch-button {
         transform: scale(1) translate(-50%, -50%);
     }
 }
+
+/* --- Right To Left --- */
+
+.smart-switch-button[checked][right-to-left]:not([orientation="vertical"]) .smart-inner-container,
+.smart-switch-button[right-to-left][inverted]:not([orientation="vertical"]) .smart-inner-container,
+:host(.smart-switch-button[checked][right-to-left]:not([orientation="vertical"])) .smart-inner-container,
+:host(.smart-switch-button[right-to-left][inverted]:not([orientation="vertical"])) .smart-inner-container {
+    left: 0;
+}
+
+.smart-switch-button[right-to-left]:not([orientation="vertical"]) .smart-inner-container,
+.smart-switch-button[checked][right-to-left][inverted]:not([orientation="vertical"]) .smart-inner-container,
+:host(.smart-switch-button[right-to-left]:not([orientation="vertical"])) .smart-inner-container,
+:host(.smart-switch-button[checked][right-to-left][inverted]:not([orientation="vertical"])) .smart-inner-container {
+    left: calc(-1 * (var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size)));
+}
+
+.smart-switch-button[checked="null"][right-to-left]:not([orientation="vertical"]) .smart-inner-container,
+:host(.smart-switch-button[checked="null"][right-to-left]:not([orientation="vertical"])) .smart-inner-container {
+    left: calc(-1 * var(--smart-switch-button-default-width)/ 2 + var(--smart-switch-button-thumb-size)/2);
+}
+
+/* --- */

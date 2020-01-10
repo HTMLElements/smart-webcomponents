@@ -8,8 +8,8 @@
   display: grid;
   width: var(--smart-grid-layout-width);
   grid-gap: var(--smart-grid-layout-row-gap);
-  grid-columns-gap: var(--smart-grid-layout-col-gap);
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: var(--smart-grid-layout-col-gap);
+  grid-template-columns: repeat(12, 1fr);
 }
 .smart-grid-layout.no-gaps,
 .smart-grid-layout.no-gaps .row {

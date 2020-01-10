@@ -5,6 +5,10 @@ smart-slider {
     display: block;
     width: var(--smart-slider-default-width);
     height: var(--smart-slider-default-height);
+    --smart-border-top-left-radius: 100%;
+    --smart-border-top-right-radius: 100%;
+    --smart-border-bottom-left-radius: 100%;
+    --smart-border-bottom-right-radius: 100%;
 }
 
     smart-slider[orientation="vertical"] {
@@ -54,6 +58,8 @@ smart-slider {
     background: var(--smart-primary);
 }
 
+.smart-slider:focus .smart-thumb::before,
+:host(smart-slider:focus) .smart-thumb::before,
 .smart-slider .smart-thumb[hover]::before {
     transform: scale(3);
     animation: slider-thumb-effect 1s infinite;
@@ -222,16 +228,22 @@ smart-slider {
     border: 1px solid var(--smart-primary);
     width: var(--smart-slider-tooltip-width);
     height: var(--smart-slider-tooltip-height);
-    padding: 5px 10px;
+    padding: 4px 12px;
     font-family: var(--smart-font-family);
     font-size: 75%;
     opacity: 0.5;
-    border-radius: var(--smart-border-radius);
+    border-radius: 0px;
     background-color: var(--smart-primary);
     color: var(--smart-primary-color);
     left: calc(-1 * var(--smart-slider-tooltip-width) / 2 + var(--smart-slider-thumb-width) / 2 - 1px);
     top: calc(-1 * var(--smart-slider-tooltip-height) - 22px);
 }
+
+    .smart-slider .smart-tooltip .smart-tooltip-content {
+        background: inherit;
+        color: inherit;
+        border-color: inherit;
+    }
 
 .smart-slider[tooltip-position="far"] .smart-tooltip {
     top: calc(var(--smart-slider-thumb-height) + 1px);
@@ -349,18 +361,18 @@ smart-slider {
     float: left;
     margin-top: calc(var(--smart-slider-track-size) / 2 - var(--smart-slider-spin-button-height) / 2);
     border: var(--smart-border-width) solid var(--smart-border);
-    border-top-left-radius: var(--smart-slider-thumb-border-top-left-radius);
-    border-top-right-radius: var(--smart-slider-thumb-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-slider-thumb-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-slider-thumb-border-bottom-right-radius);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
     width: var(--smart-slider-spin-button-width);
     height: var(--smart-slider-spin-button-height);
-    background-color: var(--smart-background);
-    color: var(--smart-slider-button-color);
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
     cursor: pointer;
     padding: 0px;
     min-height: 0;
-    top: 1px;
+    top: 0px;
     position: relative;
 }
 
@@ -471,6 +483,11 @@ smart-slider {
 .smart-slider[orientation="vertical"][thumb-label-position="far"] .smart-thumb {
     left: 100%;
     top: calc(100% + var(--smart-slider-thumb-height) / 2);
+}
+
+.smart-slider .smart-tooltip .smart-tooltip-content {
+    background-color: inherit;
+    border-color: inherit;
 }
 
 /* --- Right To Left --- */

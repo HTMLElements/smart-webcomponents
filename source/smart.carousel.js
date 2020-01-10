@@ -1,6 +1,6 @@
 
-/* Smart HTML Elements v5.1.0 (2019-Dec) 
-Copyright (c) 2011-2019 jQWidgets. 
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart("smart-carousel",class extends Smart.ContentElement{static get properties(){return{autoPlay:{value:!1,type:"any"},dataSource:{value:[],type:"array",reflectToAttribute:!1},delay:{value:200,type:"number"},displayMode:{allowedValues:["default","multiple","3d"],value:"default",type:"string"},disableItemClick:{value:!1,type:"boolean"},hideArrows:{value:!1,type:"boolean"},hideIndicators:{value:!1,type:"boolean"},indicatorTemplate:{value:null,type:"any"},interval:{value:5e3,type:"number"},itemTemplate:{value:null,type:"any"},keyboard:{value:!1,type:"boolean"},loop:{value:!1,type:"boolean"},messages:{value:{en:{htmlTemplateNotSuported:"{{elementType}}:  Browser doesn't support HTMLTemplate elements."}},type:"object",extend:!0},slideShow:{value:!1,type:"boolean"},swipe:{value:!1,type:"boolean"},wheel:{value:!1,type:"boolean"}}}static get listeners(){return{"arrowLeft.click":"_handleArrowClick","arrowRight.click":"_handleArrowClick","indicatorsContainer.click":"_handleIndicatorsContainerClick",keydown:"_handleKeyDown",swipeleft:"_handleSwipe",swiperight:"_handleSwipe",wheel:"_handleMouseWheel","itemsContainer.click":"_handleItemClick","itemsContainer.transitionend":"_handleTransitionEnd"}}static get requires(){return{"Smart.RepeatButton":"smart.button.js"}}static get styleUrls(){return["smart.button.css","smart.carousel.css"]}get enableShadowDOM(){const a=this,b=Smart.EnableShadowDOM;return a._isInShadowDOM?!a._isInShadowDOM:a.isCompleted?null!==a.shadowRoot:b}template(){return`<div id="container" role="presentation">

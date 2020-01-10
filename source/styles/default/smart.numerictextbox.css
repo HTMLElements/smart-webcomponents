@@ -26,6 +26,7 @@ smart-numeric-text-box .smart-container,
     min-height: 0;
     border-radius: 0px;
     background: var(--smart-surface);
+	color: var(--smart-surface-color);
 }
 
 smart-numeric-text-box .smart-container,
@@ -65,6 +66,7 @@ smart-numeric-text-box .smart-container,
 .smart-numeric-text-box-radix-display,
 .smart-numeric-text-box-drop-down {
     background-color: var(--smart-surface);
+	color: var(--smart-surface-color);
 }
 
     .smart-numeric-text-box[drop-down-enabled] .smart-numeric-text-box-radix-display[hover],
@@ -112,6 +114,7 @@ smart-numeric-text-box .smart-container,
         border-color: var(--smart-outline);
     }
 
+	.smart-numeric-text-box .smart-numeric-text-box-unit-display[hover],
     .smart-numeric-text-box .smart-spin-button[hover] {
         background-color: var(--smart-ui-state-hover);
         color: var(--smart-ui-state-color-hover);
@@ -210,7 +213,6 @@ smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] .smart-spin-b
 .smart-numeric-text-box-radix-display {
     width: var(--smart-numeric-text-box-default-radix-display-width);
     justify-content: center;
-    color: initial;
 }
 
 .smart-numeric-text-box-drop-down {
@@ -227,6 +229,7 @@ smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] .smart-spin-b
     list-style-type: none;
     transform: scaleY(1);
     opacity: 1;
+	background: var(--smart-background);
     color: var(--smart-background-color);
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
@@ -359,11 +362,12 @@ smart-numeric-text-box[hint] .smart-hint {
             border-top-right-radius: 0px;
         }
 
-.smart-numeric-text-box .smart-numeric-text-box-component {
-    color: inherit;
-}
 
 /* --- Right To Left --- */
+
+smart-numeric-text-box[right-to-left] > .smart-container {
+    direction: initial;
+}
 
 .smart-numeric-text-box-drop-down.smart-drop-down-repositioned[right-to-left],
 smart-numeric-text-box[right-to-left] .smart-numeric-text-box-drop-down,

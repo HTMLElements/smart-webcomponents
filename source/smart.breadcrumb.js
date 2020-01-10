@@ -1,6 +1,6 @@
 
-/* Smart HTML Elements v5.1.0 (2019-Dec) 
-Copyright (c) 2011-2019 jQWidgets. 
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart("smart-breadcrumb",class extends Smart.BaseElement{static get properties(){return{addNewItem:{value:!1,type:"boolean"},allowDrag:{value:!1,type:"boolean"},allowDrop:{value:!1,type:"boolean"},closeButtons:{value:!1,type:"boolean"},dataSource:{value:[],type:"array",reflectToAttribute:!1},itemTemplate:{value:null,type:"any"},minimizeWidth:{value:150,type:"number?"}}}static get listeners(){return{move:"_moveHandler",resize:"_resizeHandler","container.click":"_containerClickHandler","container.down":"_containerDownHandler","container.transitionend":"_containerTransitionendHandler","hamburgerIcon.click":"_hamburgerIconClickHandler","document.move":"_documentMoveHandler","document.up":"_documentUpHandler"}}static get styleUrls(){return["smart.breadcrumb.css"]}template(){return`<div id="container" role="presentation">

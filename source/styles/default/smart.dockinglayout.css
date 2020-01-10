@@ -7,8 +7,7 @@ smart-docking-layout {
         overflow: initial;
     }
 
-.smart-docking-layout > .smart-container,
-:host(smart-docking-layout) > .smart-container {
+.smart-docking-layout > .smart-container {
     overflow: hidden;
 }
 
@@ -25,9 +24,9 @@ smart-docking-layout {
 }
 
 .smart-docking-layout[dragged],
-.smart-docking-layout smart-tabs-window.smart-window:not(.smart-docking-layout-auto-hide-window) > .smart-container > .smart-header-section,
-.smart-docking-layout smart-tabs-window.smart-window[pinned]:not(.smart-docking-layout-auto-hide-window) > .smart-container > .smart-header-section,
-.smart-docking-layout .smart-docking-layout-auto-hide-window.smart-window > .smart-container:not([class*="smart-window-resizing"]) > .smart-header-section {
+.smart-docking-layout smart-tabs-window.smart-window:not(.smart-docking-layout-auto-hide-window) .smart-content-container > .smart-header-section,
+.smart-docking-layout smart-tabs-window.smart-window[pinned]:not(.smart-docking-layout-auto-hide-window) .smart-content-container > .smart-header-section,
+.smart-docking-layout .smart-docking-layout-auto-hide-window.smart-window .smart-content-container:not([class*="smart-window-resizing"]) > .smart-header-section {
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -35,7 +34,7 @@ smart-docking-layout {
     user-select: none;
 }
 
-.smart-docking-layout .smart-window > .smart-container > .smart-content {
+.smart-docking-layout .smart-window .smart-content-container > .smart-content {
     align-items: stretch;
 }
 
@@ -45,11 +44,12 @@ smart-docking-layout {
     max-width: 100%;
     top: initial;
     left: initial;
+    z-index: initial;
     transform: initial;
     border-radius: 0;
 }
 
-    .smart-docking-layout smart-tabs-window.smart-window:not([animation='none']) {
+    .smart-docking-layout smart-tabs-window.smart-window:not([animation='none']):not(.smart-docking-layout-auto-hide-window) {
         transition: transform 0.2s ease-out;
     }
 
@@ -67,7 +67,7 @@ smart-docking-layout {
     border: none;
 }
 
-.smart-docking-layout smart-splitter-item smart-tabs-window.smart-window[auto-hide] > .smart-container > .smart-content {
+.smart-docking-layout smart-splitter-item smart-tabs-window.smart-window[auto-hide] .smart-content-container > .smart-content {
     height: 100%;
 }
 
@@ -112,10 +112,6 @@ smart-tabs-window.smart-window[tabs-window-dragged] {
     }
 }
 
-smart-tabs-window.smart-window[tabs-window-dragged] > .smart-container > .smart-header-section,
-.smart-docking-layout .smart-docking-layout-auto-hide-window[opened] > .smart-container > .smart-header-section {
-}
-
 .smart-docking-layout smart-tabs-window.smart-window[ontop]:not([tabs-window-dragged]) {
     z-index: initial;
 }
@@ -148,8 +144,8 @@ smart-tabs-window.smart-window[tabs-window-dragged] > .smart-container > .smart-
     z-index: 10001;
     position: absolute;
     opacity: 0.65;
-    box-shadow: 0 0 1px 1px var(--smart-dokcing-layout-feedback-border-color);
     border-radius: 2px;
+    box-shadow: 0 0 1px 1px var(--smart-background-color);
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
     border-bottom-left-radius: var(--smart-border-bottom-right-radius);
@@ -201,7 +197,7 @@ smart-tabs-window.smart-window[tabs-window-dragged] > .smart-container > .smart-
     }
 
 .smart-docking-layout .smart-window .smart-buttons-container .smart-dock-button:after {
-    content: var(--smart-icon-arrow-up-alt);
+    content: var(--smart-icon-window-pin-alt);
     font-size: 0.8rem;
 }
 
@@ -213,7 +209,7 @@ smart-tabs-window.smart-window[tabs-window-dragged] > .smart-container > .smart-
 
 .smart-docking-layout .smart-window .smart-buttons-container .smart-auto-hide-button:after,
 smart-tabs-window.smart-window .smart-buttons-container .smart-auto-hide-button:after {
-    content: var(--smart-icon-arrow-up-alt);
+    content: var(--smart-icon-window-pin);
     font-size: 0.8rem;
 }
 
@@ -271,7 +267,7 @@ smart-tabs-window.smart-window .smart-buttons-container .smart-auto-hide-button:
         border: none;
     }
 
-        .smart-docking-layout smart-tabs-window.smart-window[auto-hide] .smart-container > .smart-content {
+        .smart-docking-layout smart-tabs-window.smart-window[auto-hide] .smart-content-container > .smart-content {
             padding: 0;
         }
 
@@ -302,11 +298,11 @@ smart-docking-layout:not([animation="none"]) .smart-window .smart-dock-button:af
 }
 
 
-.smart-docking-layout smart-tabs-window.smart-window[auto-hide] > .smart-container > .smart-content {
+.smart-docking-layout smart-tabs-window.smart-window[auto-hide] .smart-content-container > .smart-content {
     overflow: hidden;
 }
 
-smart-tabs-window.smart-window[auto-hide] > .smart-container > .smart-content {
+smart-tabs-window.smart-window[auto-hide] .smart-content-container > .smart-content {
     padding: 5px;
 }
 
@@ -320,7 +316,7 @@ smart-tabs-window.smart-window[auto-hide] > .smart-container > .smart-content {
     height: 100%;
 }
 
-.smart-docking-layout .smart-placeholder .smart-window > .smart-container > .smart-header-section {
+.smart-docking-layout .smart-placeholder .smart-window .smart-content-container > .smart-header-section {
     min-height: 0;
     height: 0;
     padding: 0;
@@ -721,8 +717,7 @@ smart-tabs-window.smart-window[auto-hide] > .smart-container > .smart-content {
 
 .smart-docking-layout-auto-hide-window,
 .smart-docking-layout-auto-hide-window[ontop] {
-    z-index: auto;
-    z-index: initial;
+    z-index: 9999 !important;
 }
 
 .smart-docking-layout .smart-docking-layout-auto-hide-window.smart-window {

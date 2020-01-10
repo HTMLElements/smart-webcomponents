@@ -5,6 +5,11 @@ smart-pager {
     height: var(--smart-pager-default-height);
     justify-content: center;
     padding: var(--smart-pager-padding);
+    --smart-item-border-radius: 100%;
+    --smart-item-border-top-left-radius: 100%;
+    --smart-item-border-top-right-radius: 100%;
+    --smart-item-border-bottom-left-radius: 100%;
+    --smart-item-border-bottom-right-radius: 100%;
 }
 
     smart-pager.smart-element {
@@ -12,6 +17,10 @@ smart-pager {
         border-radius: 0px;
         background: var(--smart-surface);
         color: var(--smart-surface-color);
+    }
+
+    smart-pager:focus {
+        border-color: var(--smart-outline);
     }
 
     smart-pager > .smart-container,
@@ -98,6 +107,10 @@ smart-pager {
     align-items: center;
 }
 
+.smart-pager-page-index-selectors-container:focus .smart-pager-page-index-selector[selected] {
+    text-decoration: underline;
+}
+
 .smart-pager .smart-pager-label {
     display: flex;
     border: none;
@@ -119,10 +132,10 @@ smart-pager {
     font-family: inherit;
     align-items: center;
     justify-content: center;
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
     width: var(--smart-pager-button-width);
     height: var(--smart-pager-button-height);
     position: relative;
@@ -132,7 +145,10 @@ smart-pager {
 
 
 .smart-pager:not([show-navigation-button-labels]) .smart-pager-button {
-    border-radius: 100%;
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
     width: var(--smart-pager-page-index-selector-width);
 }
 
@@ -167,7 +183,10 @@ smart-pager {
     height: var(--smart-pager-page-index-selector-height);
     position: relative;
     margin-left: var(--smart-pager-page-index-selector-horizontal-offset);
-    border-radius: 100%;
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
 }
 
 .smart-pager .smart-previous-ellipsis-button,

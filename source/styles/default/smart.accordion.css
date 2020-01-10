@@ -6,6 +6,10 @@ smart-accordion {
     display: block;
 }
 
+    smart-accordion.smart-element {
+        background: transparent;
+    }
+
     smart-accordion:not(.smart-element) {
         visibility: hidden;
     }
@@ -29,8 +33,7 @@ smart-accordion > .smart-container,
 smart-accordion > .smart-container,
 smart-accordion[expand-mode="multiple"] > .smart-container.smart-toggling,
 .smart-accordion.smart-container,
-.smart-accordion[expand-mode="multiple"].smart-container.smart-toggling 
- {
+.smart-accordion[expand-mode="multiple"].smart-container.smart-toggling {
     padding: 10px;
 }
 
@@ -44,6 +47,24 @@ smart-accordion-item {
     width: 100%;
     box-sizing: border-box;
     border: 0px;
+	border-top-left-radius: var(--smart-item-border-top-left-radius);
+	border-top-right-radius: var(--smart-item-border-top-right-radius);
+	border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+	border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);	
+}
+
+.smart-accordion smart-accordion-item:first-child {
+	border-top-left-radius: var(--smart-first-item-border-top-left-radius, --smart-item-border-top-left-radius);
+	border-top-right-radius: var(--smart-first-item-border-top-right-radius, --smart-item-border-top-right-radius);
+	border-bottom-left-radius: var(--smart-first-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
+	border-bottom-right-radius: var(--smart-first-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);	
+}
+
+.smart-accordion smart-accordion-item:last-child {
+	border-top-left-radius: var(--smart-last-item-border-top-left-radius, --smart-item-border-top-left-radius);
+	border-top-right-radius: var(--smart-last-item-border-top-right-radius, --smart-item-border-top-right-radius);
+	border-bottom-left-radius: var(--smart-last-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
+	border-bottom-right-radius: var(--smart-last-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);
 }
 
 .smart-accordion smart-accordion-item[expanded]:not(:last-child) {
@@ -101,7 +122,7 @@ smart-accordion-item .smart-accordion-item-header {
     font-family: inherit;
     font-size: inherit;
     box-sizing: border-box;
-    padding: 24px;
+    padding: 0px 24px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

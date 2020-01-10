@@ -1,6 +1,6 @@
 
-/* Smart HTML Elements v5.1.0 (2019-Dec) 
-Copyright (c) 2011-2019 jQWidgets. 
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart("smart-tooltip",class extends Smart.ContentElement{static get properties(){return{arrow:{value:!1,type:"boolean"},arrowDirection:{allowedValues:["bottom","top","left","right"],value:"bottom",type:"string"},delay:{value:0,type:"number"},messages:{extend:!0,value:{en:{invalidSelector:"{{elementType}}: \"{{property}}\" must be a String, an HTMLElement or null.",htmlTemplateNotSuported:"{{elementType}}: Browser doesn't support HTMLTemplate elements.",invalidTemplate:"{{elementType}}: \"{{property}}\" property accepts a string that must match the id of an HTMLTemplate element from the DOM.",invalidNode:"{{elementType}}: Invalid parameter \"{{node}}\" when calling {{method}}."}},type:"object"},offset:{value:[],type:"array"},openMode:{allowedValues:["click","focus","hover","manual"],value:"hover",type:"string"},position:{allowedValues:["bottom","top","left","right","absolute","auto"],value:"top",type:"string"},selector:{value:null,type:"any?"},tooltipTemplate:{value:null,type:"any"},value:{value:"",type:"string",reflectToAttribute:!1},visible:{value:!1,type:"boolean"}}}static get styleUrls(){return["smart.tooltip.css"]}template(){return`<div id="container" role="presentation">

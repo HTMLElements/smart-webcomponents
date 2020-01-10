@@ -135,7 +135,3 @@ smart-color-picker {
     background-color: var(--smart-backgroud);
     color: var(--smart-background-color);
 }
-
-.smart-drop-down-container smart-color-panel {
-    color: inherit;
-}

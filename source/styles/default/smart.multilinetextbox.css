@@ -18,6 +18,7 @@ smart-multiline-text-box {
     }
 
 .smart-multiline-text-box.smart-drop-down-box > .smart-container,
+.smart-multiline-text-box.smart-drop-down-box[label][hint] > .smart-container,
 .smart-multiline-text-box.smart-drop-down-box.smart-container {
     overflow: visible;
     display: block;

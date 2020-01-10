@@ -1,5 +1,6 @@
-/* Smart HTML Elements v5.1.0 (2019-Nov) 
-Copyright (c) 2011-2019 jQWidgets. 
+
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart('bootstrap-button', class BootstrapButton extends Smart.ContentElement {

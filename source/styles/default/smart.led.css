@@ -19,7 +19,7 @@ smart-led {
         border-radius: 0px;
     }
 
-    smart-led:focus {
+    smart-led[focus] {
         outline: none;
     }
 
@@ -36,115 +36,111 @@ smart-led {
         cursor: initial;
     }
 
-    .smart-led .smart-input {
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 20px;
-        min-height: 20px;
-        padding: 4%;
-        background-clip: content-box;
-        border-style: solid;
-        box-sizing: border-box;
-        border-width: var(--smart-border-width);
-        border-color: var(--smart-border);
-        font-family: inherit;
-        font-size: inherit;
-        outline: none;
-    }
+.smart-led .smart-input {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    min-height: 20px;
+    padding: 4%;
+    background-clip: content-box;
+    border-style: solid;
+    box-sizing: border-box;
+    border-width: var(--smart-border-width);
+    border-color: var(--smart-border);
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+}
 
-    .smart-led[shape="square"] .smart-input {
-        border-radius: 0px;
-    }
+.smart-led[shape="square"] .smart-input {
+    border-radius: 0px;
+}
 
-    .smart-led:focus .smart-input {
-        border: var(--smart-border-width) solid var(--smart-button-border-focus);
-        background: var(--smart-button-background-focus);
-        color: var(--smart-button-color-focus);
-    }
+.smart-led[focus] .smart-input {
+    border: var(--smart-border-width) solid var(--smart-ui-state-border-focus);
+    background: var(--smart-ui-state-focus);
+    color: var(--smart-ui-state-color-focus);
+}
 
-    .smart-led[disabled]:focus .smart-input {
-        border-color: var(--smart-border-disabled-color);
-    }
+.smart-led:hover .smart-input {
+    border: var(--smart-border-width) solid var(--smart-ui-state-border-hover);
+    background: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+    transition: background-color 100ms linear;
+}
 
-    .smart-led:hover .smart-input {
-        border: var(--smart-border-width) solid var(--smart-button-border-hover);
-        background: var(--smart-button-background-hover);
-        color: var(--smart-button-color-hover);
-        transition: background-color 100ms linear;
-    }
+.smart-led.active .smart-input {
+    border: var(--smart-border-width) solid var(--smart-ui-state-border-active);
+    background: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
+}
 
-    .smart-led.active .smart-input {
-        border: var(--smart-border-width) solid var(--smart-button-border-active);
-        background: var(--smart-button-background-active);
-        color: var(--smart-button-color-active);
-    }
+.smart-led .smart-false-content-container,
+.smart-led .smart-true-content-container,
+.smart-led .smart-indeterminate-content-container {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: transparent;
+}
 
-    .smart-led .smart-false-content-container,
-    .smart-led .smart-true-content-container,
-    .smart-led .smart-indeterminate-content-container {
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        background-color: transparent;
-    }
+.smart-led .smart-true-content-container {
+    background-color: var(--smart-primary);
+}
 
-    .smart-led .smart-true-content-container {
-        background-color: var(--smart-primary);
-    }
+.smart-led .smart-indeterminate-content-container {
+    background-color: lightgray;
+}
 
-    .smart-led .smart-indeterminate-content-container {
-        background-color: lightgray;
-    }
+.smart-led[checked] .smart-false-content-container,
+.smart-led .smart-indeterminate-content-container,
+.smart-led .smart-true-content-container {
+    display: none;
+}
 
-    .smart-led[checked] .smart-false-content-container,
-    .smart-led .smart-indeterminate-content-container,
-    .smart-led .smart-true-content-container {
-        display: none;
-    }
+.smart-led .smart-false-content-container,
+.smart-led[checked] .smart-true-content-container,
+.smart-led[checked="null"] .smart-indeterminate-content-container {
+    display: flex;
+}
 
-    .smart-led .smart-false-content-container,
-    .smart-led[checked] .smart-true-content-container,
-    .smart-led[checked="null"] .smart-indeterminate-content-container {
-        display: flex;
-    }
+.smart-led[checked="null"] .smart-true-content-container {
+    display: none;
+}
 
-    .smart-led[checked="null"] .smart-true-content-container {
-        display: none;
-    }
+.smart-led[shape="square"] .smart-false-content-container,
+.smart-led[shape="square"] .smart-true-content-container,
+.smart-led[shape="square"] .smart-indeterminate-content-container {
+    border-radius: 0px;
+}
 
-    .smart-led[shape="square"] .smart-false-content-container,
-    .smart-led[shape="square"] .smart-true-content-container,
-    .smart-led[shape="square"] .smart-indeterminate-content-container {
-        border-radius: 0px;
-    }
+.smart-led .smart-false-content,
+.smart-led[checked] .smart-true-content,
+.smart-led[checked="null"] .smart-indeterminate-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 100%;
+}
 
-    .smart-led .smart-false-content,
-    .smart-led[checked] .smart-true-content,
-    .smart-led[checked="null"] .smart-indeterminate-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* --- Right-To-Left --- */
-    .smart-led[right-to-left] .smart-false-content-container,
-    .smart-led[right-to-left] .smart-true-content-container,
-    .smart-led[right-to-left] .smart-indeterminate-content-container {
-        direction: rtl;
-    }
+/* --- Right-To-Left --- */
+.smart-led[right-to-left] .smart-false-content-container,
+.smart-led[right-to-left] .smart-true-content-container,
+.smart-led[right-to-left] .smart-indeterminate-content-container {
+    direction: rtl;
+}
 
 /* --- */

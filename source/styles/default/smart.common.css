@@ -13,6 +13,7 @@ smart-carousel,
 smart-card,
 smart-radio-button,
 smart-progress-bar,
+smart-circular-progress-bar,
 smart-scroll-bar,
 smart-gauge,
 smart-grid,
@@ -57,7 +58,9 @@ smart-multi-column-filter-panel,
 smart-query-builder,
 smart-card-view,
 smart-tooltip,
-smart-path {
+smart-layout,
+smart-path,
+smart-kanban {
     padding: 0px;
     margin: 0px;
     overflow: hidden;
@@ -69,6 +72,7 @@ smart-path {
     box-sizing: border-box;
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
+    font-weight: var(--smart-font-weight);
     /* Apple iOS specific browser CSS variable used for area highlighting on click. Reference link for details:
         https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5 */
     -webkit-tap-highlight-color: transparent;
@@ -145,7 +149,9 @@ smart-multi-column-filter-panel[disabled],
 smart-card-view[disabled],
 smart-query-builder[disabled],
 smart-date-time-picker[disabled],
-smart-path[disabled] {
+smart-layout[disabled],
+smart-path[disabled],
+smart-kanban[disabled] {
     opacity: 0.55;
     cursor: default;
     pointer-events: none;
@@ -176,7 +182,9 @@ smart-time-picker,
 smart-tree,
 smart-text-box,
 smart-multiline-text-box,
-smart-window {
+smart-layout,
+smart-window,
+smart-kanban {
     border-color: var(--smart-border);
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
@@ -210,7 +218,8 @@ smart-window {
     smart-color-picker.smart-element,
     smart-query-builder.smart-element,
     smart-card-view.smart-element,
-    smart-path.smart-element {
+    smart-path.smart-element,
+    smart-kanban.smart-element {
         overflow: visible;
     }
 

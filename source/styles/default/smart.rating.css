@@ -5,6 +5,7 @@ smart-rating .rating-star::after {
     font-size: 30px;
     content: var(--smart-icon-star);
     color: var(--smart-primary);
+    font-family: var(--smart-font-family-icon);
 }
 
 smart-rating .rating-star.hover::after {

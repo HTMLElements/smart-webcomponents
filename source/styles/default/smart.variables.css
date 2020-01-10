@@ -36,8 +36,10 @@
     --smart-item-border-bottom-left-radius: var(--smart-border-radius);
     --smart-item-border-bottom-right-radius: var(--smart-border-radius);
     --smart-font-size: 14px; /* Theme font-size */
+    --smart-font-weight: inherit; /* Theme font-weight */
     --smart-font-family: Roboto,"Helvetica Neue",sans-serif; /* Theme font-family */
     --smart-font-family-icon: smart-icons;
+    --smart-font-family-icon-src: local('../font/smart-icons'), url('../font/smart-icons.woff2') format('woff2'), url('../font/smart-icons.woff') format('woff'), url('../font/smart-icons.ttf') format('truetype'), url('../font/smart-icons.eot') format('embedded-opentype');
     --smart-border-width: 1px; /* Theme border-width */
     --smart-border-radius: 4px; /* Theme border-radius */
     --smart-border-top-left-radius: var(--smart-border-radius); /* Theme border-radius */
@@ -176,7 +178,7 @@
     --smart-accordion-default-height: var(--smart-box-height); /* smartAccordion default height */
     --smart-accordion-expanded-content-height: 0px; /* Determines expanded content's height */
     --smart-accordion-expanded-content-local-height: 0px;
-    --smart-accordion-item-header-height: calc(0.75 * var(--smart-bar-height));
+    --smart-accordion-item-header-height: var(--smart-bar-height);
     --smart-accordion-item-expanded-offset: 20px;
     /* Array */
     --smart-array-default-width: var(--smart-box-width); /* smartArray default width */
@@ -199,7 +201,7 @@
     --smart-button-very-small-padding: 1px 5px;
     --smart-button-very-small-font-size: 12px;
     /* Button - Flat */
-    --smart-button-flat-color: var(--smart-button-color);
+    --smart-button-flat-color: var(--smart-background-color);
     /* Button - Outlined */
     --smart-button-outlined-color: var(--smart-background-color);
     --smart-button-outlined-border: var(--smart-border);
@@ -226,7 +228,7 @@
     --smart-card-view-padding: 10px;
     --smart-card-view-header-height: 30px;
     --smart-card-view-customize-panel-width: 200px;
-    --smart-card-view-filter-panel-width: 500px;
+    --smart-card-view-filter-panel-width: 550px;
     --smart-card-view-sort-panel-width: 400px;
     --smart-card-view-search-panel-width: 250px;
     --smart-card-view-cover-height: var(--smart-carousel-default-height);
@@ -465,13 +467,15 @@
     --smart-grid-panel-padding: 10px; /* padding of the smartGroupPanel/smartSortPanel */
     --smart-grid-panel-vertical-offset: 10px; /* Vertical offset between smartGroupPanel/smartSortPanel items */
     --smart-grid-panel-item-height: 30px; /* height of smartGroupPanel/smartSortPanel items */
-    --smart-multi-column-filter-panel-template-columns: 20px 60px 2fr 3fr 3fr; /* smartMultiColumnFilterPanel grid-template-columns */
+    --smart-multi-column-filter-panel-template-columns: 20px 55px 2fr 3fr 3fr; /* smartMultiColumnFilterPanel grid-template-columns */
     /* ListBox */
     --smart-list-box-default-width: var(--smart-editor-width); /* smartListBox default width */
     --smart-list-box-default-height: var(--smart-editor-width); /* smartListBox default height */
     --smart-list-item-group-header-text-transform: uppercase;
     --smart-list-item-horizontal-offset: 3px;
     --smart-list-item-vertical-offset: 3px;
+    --smart-list-item-height: 36px;
+    --smart-list-item-check-box-radius: 2px;
     --smart-list-item-label-padding: 0;
     --smart-list-item-label-border-radius: 0;
     /* Loader */
@@ -556,6 +560,7 @@
     --smart-splitter-bar-fit-size: 100%; /* The size of the splitter according to the orientation of the Splitter. By 'default' a SplitterBar fits the size of the Splitter. */
     --smart-splitter-item-padding: 0;
     --smart-splitter-item-content-padding: 0;
+    --smart-splitter-item-size: auto; /* The default size of the Splitter Items */
     /* Switch Button */
     --smart-switch-button-default-width: calc(var(--smart-editor-height) + 10px);
     --smart-switch-button-default-height: var(--smart-editor-height); /* smartSwitchButton default height */
@@ -632,6 +637,7 @@
     --smart-time-picker-default-height: calc(12 * var(--smart-editor-height)); /* smartTimePicker default height */
     /* Tooltip */
     --smart-tooltip-arrow-width: 6px; /* Default smartTooltip arrow width */
+    --smart-tooltip-arrow-color: var(--smart-secondary);
     --smart-tooltip-arrow-translate: 0;
     --smart-tooltip-padding: 4px 8px;
     /* Toast */

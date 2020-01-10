@@ -1,12 +1,12 @@
 
-/* Smart HTML Elements v5.1.0 (2019-Dec) 
-Copyright (c) 2011-2019 jQWidgets. 
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 (function () {
     'use strict';
 
-    const Version = '5.1.0';
+    const Version = '6.0.0';
     const templates = [];
 
     let namespace = 'Smart';
@@ -3851,74 +3851,7 @@ License: https://htmlelements.com/license/ */
         }
 
         checkLicense() {
-            const that = this;
-
-            if (window[namespace].License === 'Evaluation' && window.location.hostname.indexOf('htmlelements') === -1 && window.location.hostname.indexOf('localhost') === -1 && window.location.protocol.indexOf('file') === -1) {
-                that.logWatermark();
-                that.logLicense();
-                window[namespace].License === ''
-            }
-        }
-
-        logWatermark() {
-            //const that = this;
-            const anchor = document.createElement('a');
-            const delay = 6000;
-
-            anchor.href = 'https://www.htmlelements.com/';
-            anchor.innerHTML = 'https://www.htmlelements.com/';
-            anchor.style.position = 'absolute';
-            anchor.style.right = '5px';
-            anchor.style.bottom = '5px';
-            anchor.style.color = '#fff';
-            anchor.style.padding = '20px';
-            anchor.style.borderRadius = '5px';
-            anchor.style.background = '#20C933';
-            anchor.style.cursor = 'pointer';
-            anchor.style.zIndex = '999999';
-            anchor.style.display = 'block';
-            anchor.style.fontSize = '24px';
-            anchor.style.textDecoration = 'none';
-            anchor.style.fontWeight = 'bold';
-            anchor.style.opacity = 0;
-            anchor.style.transition = 'opacity .35s ease-in-out';
-            anchor.id = 'watermark';
-
-            if (document.getElementById('watermark')) {
-                return;
-            }
-
-            setTimeout(() => {
-                if (document.getElementById('watermark')) {
-                    return;
-                }
-
-                document.body.appendChild(anchor);
-
-                setTimeout(() => {
-                    anchor.style.opacity = 1;
-                });
-
-                setTimeout(() => {
-                    anchor.style.opacity = 0;
-
-                    setTimeout(() => {
-                        anchor.parentNode.removeChild(anchor);
-                    }, 350);
-                }, delay);
-            }, 1000);
-        }
-
-        logLicense() {
-            console.log('****************************************************************************************************************');
-            console.log('****************************************************************************************************************');
-            console.log('****************************************************************************************************************');
-            console.log('*Smart HTML Elements License Key Not Found.');
-            console.log('*This is an evaluation only version, it is not licensed for development projects intended for production.');
-            console.log('*if you want to hide the watermark, please send an email to: info@htmlelements.com for a license.');
-            console.log('****************************************************************************************************************');
-            console.log('****************************************************************************************************************');
-            console.log('****************************************************************************************************************');
+         
         }
 
         get _selector() {

@@ -31,7 +31,7 @@ smart-splitter {
 }
 
 smart-splitter-item > .smart-container {
-    overflow: auto;
+    overflow: hidden;
     position: relative;
     padding: var(--smart-splitter-item-padding);
 }
@@ -288,9 +288,9 @@ smart-splitter-item > .smart-container {
 .smart-splitter .smart-splitter-resize-button > span {
     width: 6px;
     height: 6px;
-    border: 1px solid var(--smart-background-color);
-    background-color: var(--smart-background-color);
-    color: var(--smart-background-color);
+    border: 1px solid var(--smart-surface-color);
+    background-color: var(--smart-surface-color);
+    color: var(--smart-surface-color);
     border-radius: 50%;
     cursor: inherit;
 }
@@ -307,9 +307,9 @@ smart-splitter-item > .smart-container {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    border: 1px solid var(--smart-background-color);
-    background-color: var(--smart-background-color);
-    color: var(--smart-background-color);
+    border: 1px solid var(--smart-surface-color);
+    background-color: var(--smart-surface-color);
+    color: var(--smart-surface-color);
     pointer-events: none;
     font-family: var(--smart-font-family-icon);
 }
@@ -388,14 +388,14 @@ smart-splitter-item > .smart-container {
 .smart-splitter smart-splitter-item.smart-element {
     background-color: inherit;
     color: inherit;
-    border-radius: none;
+    border-radius: initial;
 }
 
 .smart-splitter smart-splitter-bar.smart-element {
-    background: var(--smart-ui-state-border-focus);
+    background: var(--smart-surface);
     border-color: var(--smart-surface-color);
     color: var(--smart-surface-color);
-    border-radius: none;
+    border-radius: initial;
 }
 
 .smart-splitter smart-splitter-item[collapsed] {
@@ -406,7 +406,6 @@ smart-splitter-item > .smart-container {
 .smart-splitter smart-splitter-item > .smart-container > .smart-content {
     width: 100%;
     height: 100%;
-    /*display: initial;*/
     overflow: auto;
     padding: var(--smart-splitter-item-content-padding);
 }
@@ -439,6 +438,19 @@ smart-splitter-item > .smart-container {
     min-width: 0;
     min-height: 0;
 }
+
+/* --- Right To Left --- */
+
+.smart-splitter[right-to-left] .smart-splitter > .smart-container {
+    direction: initial;
+}
+
+.smart-splitter[right-to-left] smart-splitter-item > .smart-container > .smart-content {
+    direction: rtl;
+}
+
+/* --- */
+
 /*Shadow DOM */
 
 :host(smart-splitter[auto-fit-mode="overflow"]) > .smart-container {
@@ -564,5 +576,17 @@ smart-splitter[orientation="horizontal"][dragged] {
     top: 50%;
     left: calc(50% + var(--smart-splitter-bar-size));
 }
+
+/* --- Right To Left --- */
+
+:host(smart-splitter[right-to-left]) .smart-splitter > .smart-container {
+    direction: initial;
+}
+
+:host(smart-splitter[right-to-left]) smart-splitter-item > .smart-container > .smart-content {
+    direction: rtl;
+}
+
+/* --- */
 
 /*End of Shadow DOM*/

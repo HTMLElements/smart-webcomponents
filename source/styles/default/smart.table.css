@@ -359,3 +359,11 @@ smart-table.table-responsive {
     smart-table.table-responsive > smart-table.table-bordered table {
         border: 0;
     }
+
+/* --- Right To Left*/
+
+smart-table[right-to-left] > .smart-container {
+    direction: rtl;
+}
+
+/* --- */

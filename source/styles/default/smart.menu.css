@@ -20,12 +20,47 @@ smart-menu-item.smart-element,
 smart-menu-items-group.smart-element {
     visibility: inherit;
     overflow: visible;
+	background: inherit;
+	color: inherit;
+	border-color:inherit;
 }
 
 smart-menu .smart-ripple,
 .smart-menu-drop-down.smart-drop-down-repositioned .smart-ripple {
     background: var(--smart-primary);
 }
+
+smart-menu[aria-orientation="horizontal"] {
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+	border-color: var(--smart-border);
+}
+
+.smart-menu[aria-orientation="horizontal"] .smart-element[level="1"]:first-child {
+	margin-left: var(--smart-border-radius);
+}
+.smart-menu[aria-orientation="horizontal"] .smart-element[level="1"]:last-child {
+	margin-right: var(--smart-border-radius);
+}
+.smart-menu:not([aria-orientation="horizontal"]) .smart-element[level="1"]:first-child {
+	margin-top: var(--smart-border-radius);
+}
+.smart-menu:not([aria-orientation="horizontal"]) .smart-element[level="1"]:last-child {
+	margin-bottom: var(--smart-border-radius);
+}
+.smart-menu .smart-element[level="2"]:first-child {
+	margin-top: var(--smart-border-radius);
+}
+.smart-menu .smart-element[level="2"]:last-child {
+	margin-bottom: var(--smart-border-radius);
+}
+.smart-menu .smart-element[level="3"]:first-child {
+	margin-top: var(--smart-border-radius);
+}
+.smart-menu .smart-element[level="3"]:last-child {
+	margin-bottom: var(--smart-border-radius);
+}
+
 
 .smart-menu .smart-header {
     background: var(--smart-surface);

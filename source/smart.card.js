@@ -1,6 +1,6 @@
 
-/* Smart HTML Elements v5.1.0 (2019-Dec) 
-Copyright (c) 2011-2019 jQWidgets. 
+/* Smart HTML Elements v6.0.0 (2020-Jan) 
+Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
 Smart("smart-card",class extends Smart.ContentElement{static get properties(){return{dataSource:{value:null,type:"object?",reflectToAttribute:!1},itemTemplate:{value:null,type:"any?",reflectToAttribute:!1},contentHandler:{value:null,type:"function?",reflectToAttribute:!1}}}static get listeners(){return{mouseenter:"_mouseEnterHandler",mouseleave:"_mouseLeaveHandler",swipeleft:"_swipeHandler",swiperight:"_swipeHandler",swipetop:"_swipeHandler",swipebottom:"_swipeHandler"}}static get styleUrls(){return["smart.card.css"]}template(){return`<div id="container" inner-h-t-m-l="[[innerHTML]]" role="presentation">
