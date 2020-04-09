@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2019 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
 <defs>
 <font id="jqx-icons" horiz-adv-x="1000" >
 <font-face font-family="jqx-icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
@@ -67,6 +67,8 @@
 <glyph glyph-name="resize-small" unicode="&#xe81d;" d="M429 308v-250q0-14-11-25t-25-10-25 10l-81 81-185-186q-5-5-13-5t-12 5l-64 64q-6 6-6 13t6 13l185 185-80 80q-11 11-11 25t11 25 25 11h250q14 0 25-11t11-25z m421 375q0-7-6-12l-185-186 80-80q11-11 11-25t-11-25-25-11h-250q-14 0-25 11t-10 25v250q0 14 10 25t25 10 25-10l81-80 185 185q6 5 13 5t13-5l63-64q6-5 6-13z" horiz-adv-x="857.4" />
 
 <glyph glyph-name="right-dir" unicode="&#xe81e;" d="M321 350q0-14-10-25l-250-250q-11-11-25-11t-25 11-11 25v500q0 15 11 25t25 11 25-11l250-250q10-10 10-25z" horiz-adv-x="357.1" />
+
+<glyph glyph-name="user" unicode="&#xe81f;" d="M714 69q0-60-35-104t-84-44h-476q-49 0-84 44t-35 104q0 48 5 90t17 85 33 73 52 50 76 19q73-72 174-72t175 72q42 0 75-19t52-50 33-73 18-85 4-90z m-143 495q0-88-62-151t-152-63-151 63-63 151 63 152 151 63 152-63 62-152z" horiz-adv-x="714.3" />
 
 <glyph glyph-name="lock" unicode="&#xe821;" d="M179 415h285v108q0 59-42 101t-101 41-101-41-41-101v-108z m464-53v-322q0-22-16-37t-38-16h-535q-23 0-38 16t-16 37v322q0 22 16 38t38 15h17v108q0 102 74 176t176 74 177-74 73-176v-108h18q23 0 38-15t16-38z" horiz-adv-x="640.6" />
 

@@ -5,7 +5,6 @@ smart-query-builder {
     width: var(--smart-query-builder-default-width);
     min-width: var(--smart-query-builder-min-width);
     height: var(--smart-query-builder-default-height);
-    touch-action: none;
 }
 
     smart-query-builder.smart-element {
@@ -239,6 +238,10 @@ smart-query-builder[dragging] .smart-filter-group-condition::after,
         margin: 0;
         /*width: 100%;*/
     }
+
+.smart-query-builder .filter-builder-item .smart-value-container {
+    padding-left: var(--smart-editor-label-padding);
+}
 
 .smart-query-builder .filter-builder-item[edited] .smart-value-container {
     display: none;

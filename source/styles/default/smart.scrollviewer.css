@@ -10,7 +10,6 @@ smart-scroll-viewer {
     height: var(--smart-list-box-default-height);
     min-height: var(--smart-scroll-viewer-min-height);
     max-height: var(--smart-scroll-viewer-max-height);
-    touch-action: none;
     padding: 3px;
 }
 

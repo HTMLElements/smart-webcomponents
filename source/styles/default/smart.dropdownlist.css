@@ -29,7 +29,7 @@ smart-drop-down-list {
     outline: none;
 }
 
-.smart-drop-down-list .smart-buttons-container .smart-input .smart-token {
+.smart-drop-down-list .smart-buttons-container .smart-action-button .smart-token {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -41,17 +41,19 @@ smart-drop-down-list {
 }
 
 
-.smart-drop-down-list .smart-drop-down-list-unselect-button,
 .smart-drop-down-list .smart-drop-down-list-unselect-button {
-    visibility: hidden;
+    /*visibility: hidden;*/
     pointer-events: none;
 }
 
-.smart-drop-down-list[selection-display-mode="tokens"] .smart-drop-down-list-unselect-button,
-.smart-drop-down-list[selection-display-mode="tokens"] .smart-drop-down-list-unselect-button {
-    visibility: visible;
-    pointer-events: initial;
-}
+    .smart-drop-down-list .smart-drop-down-list-unselect-button:not(:empty) {
+        margin-right: 2px;
+    }
+
+    .smart-drop-down-list[selection-display-mode="tokens"] .smart-drop-down-list-unselect-button {
+        /*visibility: visible;*/
+        pointer-events: initial;
+    }
 
 smart-drop-down-list.smart-element .smart-drop-down.smart-visibility-hidden {
     transform: scale(0);

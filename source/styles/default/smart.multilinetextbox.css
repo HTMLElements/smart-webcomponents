@@ -168,6 +168,7 @@ smart-multiline-text-box {
     display: none;
     padding: 2px 0px 0px 2px;
     cursor: nw-resize;
+    touch-action: none;
 }
 
 .smart-multiline-text-box[resizable] .smart-resize-element {

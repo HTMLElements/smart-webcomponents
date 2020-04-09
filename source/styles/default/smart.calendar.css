@@ -14,7 +14,6 @@ smart-calendar > .smart-container {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    touch-action: none;
 }
 
 smart-calendar,
@@ -123,15 +122,14 @@ smart-calendar[months="1"] {
 smart-calendar > .smart-container,
 smart-calendar[view="portrait"] > .smart-container,
 .smart-calendar.smart-container,
-.smart-calendar[view="portrait"].smart-container
- {
+.smart-calendar[view="portrait"].smart-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
 smart-calendar[view="landscape"] > .smart-container,
-.smart-calendar[view="landscape"].smart-container  {
+.smart-calendar[view="landscape"].smart-container {
     flex-direction: row;
 }
 
@@ -320,6 +318,12 @@ smart-calendar[view="landscape"] .smart-calendar-container {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    touch-action: none;
+}
+
+.smart-calendar[display-mode-view="list"][display-mode="year"] .smart-calendar-container > .smart-calendar-body,
+.smart-calendar[display-mode-view="list"][display-mode="decade"] .smart-calendar-container > .smart-calendar-body {
+    touch-action: auto;
 }
 
 .smart-calendar[view-sections*="footer"][view-sections*="header"] .smart-calendar-container > .smart-calendar-body {
@@ -508,7 +512,7 @@ smart-calendar[view="landscape"] .smart-calendar-container {
 .smart-calendar .smart-calendar-button[prev-month],
 .smart-calendar .smart-calendar-button[next-month] {
     width: 10%;
-	min-width: 30px;
+    min-width: 30px;
     height: 100%;
     position: relative;
     font-size: initial;

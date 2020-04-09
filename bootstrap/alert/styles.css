@@ -1,0 +1,12 @@
+body {
+	padding: 10px;
+}
+
+.group {
+	display: flex;
+	margin: 10px;
+}
+
+bootstrap-button, bootstrap-check, bootstrap-toggle-button, bootstrap-radio {
+	margin-left: 10px;
+}

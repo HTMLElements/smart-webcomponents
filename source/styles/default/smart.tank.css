@@ -588,7 +588,7 @@ smart-slider .smart-track-ticks-container {
 }
 
 .smart-tank .smart-track,
-smart-slider {
+smart-slider .smart-track-container {
     touch-action: none;
 }
 

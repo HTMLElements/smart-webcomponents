@@ -151,7 +151,8 @@ smart-query-builder[disabled],
 smart-date-time-picker[disabled],
 smart-layout[disabled],
 smart-path[disabled],
-smart-kanban[disabled] {
+smart-kanban[disabled],
+smart-gantt-chart[disabled] {
     opacity: 0.55;
     cursor: default;
     pointer-events: none;

@@ -28,7 +28,7 @@
 /* Glyph icon font */
 @font-face {
     font-family: smart-icons;
-    src: local('../font/smart-icons'), url('../font/smart-icons.woff2') format('woff2'), url('../font/smart-icons.woff') format('woff'), url('../font/smart-icons.ttf') format('truetype'), url('../font/smart-icons.eot') format('embedded-opentype');	
+    src: local('../font/smart-icons'), url('../font/smart-icons.woff2') format('woff2'), url('../font/smart-icons.woff') format('woff'), url('../font/smart-icons.ttf') format('truetype'), url('../font/smart-icons.eot') format('embedded-opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -52,7 +52,7 @@
     font-family: var(--smart-font-family-icon);
     font-style: normal;
     font-weight: normal;
-    font-size: var(--smart-arow-size);
+    font-size: var(--smart-arrow-size);
     color: inherit;
     text-decoration: inherit;
     font-variant: normal;

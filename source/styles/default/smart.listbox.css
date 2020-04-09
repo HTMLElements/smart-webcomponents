@@ -13,7 +13,6 @@ smart-list-items-group .smart-list-items-group-label {
     height: calc(var(--smart-list-item-height) + var(--smart-list-item-vertical-offset));
     position: relative;
     user-select: none;
-    touch-action: none;
 }
 
 smart-list-item,
@@ -44,7 +43,6 @@ smart-list-items-group {
     smart-list-item.smart-header-item,
     smart-list-item[grouped],
     smart-list-items-group .smart-list-items-group-label {
-        touch-action: none;
         color: var(--smart-surface-color);
         text-transform: var(--smart-list-item-group-header-text-transform);
         top: var(--smart-list-item-vertical-offset);
@@ -189,8 +187,8 @@ smart-list-items-group .smart-input {
     line-height: var(--smart-check-box-default-size);
     box-sizing: initial;
     position: absolute;
-	top: var(--smart-list-item-vertical-offset);
-	margin-top: calc(var(--smart-list-item-height) / 2 - 10px);
+    top: var(--smart-list-item-vertical-offset);
+    margin-top: calc(var(--smart-list-item-height) / 2 - 10px);
     border-style: solid;
     padding: 3px;
     border-width: var(--smart-border-width);
@@ -335,7 +333,6 @@ smart-list-box {
     display: block;
     width: var(--smart-list-box-default-width);
     height: var(--smart-list-box-default-height);
-    touch-action: none;
     visibility: hidden;
 }
 

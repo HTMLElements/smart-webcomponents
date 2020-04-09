@@ -1,0 +1,14 @@
+body[theme="purple"] {
+	--smart-primary-rgb: 98, 0, 238;
+    --smart-primary: rgba(var(--smart-primary-rgb), 1);
+    --smart-disabled: #535353; /* The theme primary color in disabled state. */
+    --smart-disabled-color: #fff; /* Text color on top of a theme background in disabled state */
+    --smart-editor-selection: var(--smart-primary);
+    --smart-editor-selection-color: var(--smart-primary-color);
+    --smart-ui-state-active: var(--smart-primary);
+    --smart-ui-state-color-active: var(--smart-primary-color);
+    --smart-ui-state-border-active: var(--smart-primary); 
+    --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-primary);
+    --smart-ui-state-border-selected: rgba(var(--smart-primary-rgb), .1);
+}

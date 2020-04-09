@@ -3,11 +3,7 @@
     display: block;
 }
 
-    .smart-sortable:not([disabled]) {
-        touch-action: none;
-    }
-
-    .smart-sortable:not([items]).smart-containe,
+    .smart-sortable:not([items]).smart-container,
     .smart-sortable:not([items]) > .smart-container,
     .smart-sortable .smart-sortable-items-parent {
         display: flex;
@@ -26,6 +22,10 @@
     .smart-sortable .smart-sortable-item {
         transform: translate(0, 0);
         position: relative;
+    }
+
+    .smart-sortable:not([disabled]) .smart-sortable-item {
+        touch-action: none;
     }
 
     .smart-sortable:not([drag-mode="handle"]):not([disabled]) .smart-sortable-item {
@@ -124,11 +124,11 @@
         align-items: flex-end;
     }
 
-/* --- Right To Left ---*/
+    /* --- Right To Left ---*/
 
-.smart-sortable[right-to-left] .smart-sortable-items-parent,
-.smart-sortable[right-to-left] .smart-column-panel-label {
-    direction: rtl;
-}
+    .smart-sortable[right-to-left] .smart-sortable-items-parent,
+    .smart-sortable[right-to-left] .smart-column-panel-label {
+        direction: rtl;
+    }
 
 /* --- */

@@ -3,7 +3,6 @@ smart-chart {
     display: block;
     width: var(--smart-chart-default-width);
     height: var(--smart-chart-default-height);
-    touch-action: none;
 }
 
     smart-chart .smart-chart-axis-text,
@@ -117,6 +116,7 @@ smart-chart[theme="dark"] .smart-chart-title-description {
 .smart-chart-range-selector > smart-chart {
     width: 100%;
     height: 100%;
+    touch-action: none;
 }
 
 .smart-chart-range-selector .slider {

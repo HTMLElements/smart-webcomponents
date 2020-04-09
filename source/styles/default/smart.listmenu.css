@@ -271,11 +271,6 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
 
     .smart-list-menu .smart-menu-main-container,
     .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
-        touch-action: none;
-    }
-
-    .smart-list-menu .smart-menu-main-container,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
         position: relative;
     }
 

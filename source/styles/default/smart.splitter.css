@@ -80,6 +80,11 @@ smart-splitter-item > .smart-container {
     touch-action: none;
 }
 
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar {
+    min-height: 5px;
+    height: var(--smart-splitter-bar-size);
+}
+
 .smart-splitter .smart-splitter smart-splitter-bar {
     background-color: var(--smart-primary);
     color: var(--smart-primary-color);

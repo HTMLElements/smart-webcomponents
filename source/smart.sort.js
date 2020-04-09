@@ -1,6 +1,6 @@
 
-/* Smart HTML Elements v6.0.0 (2020-Jan) 
+/* Smart HTML Elements v7.4.0 (2020-Apr) 
 Copyright (c) 2011-2020 jQWidgets. 
-License: https://htmlelements.com/license/ */
+License: https://htmlelements.com/license/ */ //
 
-function sortByMultipleColumns(a,c,b,d){if(!a||!Array.isArray(a)||0===a.length||!c||Array.isArray(c)&&0===c.length)return;"string"==typeof c&&(c=[c]);const e=[],f=[];b===void 0&&(b=[]);for(let g=0;g<c.length;g++)e[g]=void 0===b[g]||"asc"===b[g]||"ascending"===b[g]?1:-1,f[g]=getCompareFunction(a[0][c[g]]);return d?void d(a,c,b,f):void a.sort(function(d,a){for(let b=0;b<c.length;b++){const g=f[b](d[c[b]],a[c[b]]);if(0===g){if(c[b+1])continue;else if(d._index!==void 0)return(d._index-a._index)*e[b];return 0}return g*e[b]}})}
+!function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=84)}({84:function(e,t){}});

@@ -10,7 +10,7 @@
     min-width: var(--smart-window-min-width);
     min-height: var(--smart-window-header-height);
     box-shadow: var(--smart-elevation-24);
-    z-index: var(--smart-editor-drop-down-z-index);
+    z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
     display: block;
     overflow: hidden;
 }
@@ -18,7 +18,6 @@
 .smart-window .smart-content-container {
     display: flex;
     flex-direction: column;
-    touch-action: none;
     font-family: inherit;
     font-size: inherit;
     width: 100%;
@@ -31,11 +30,10 @@
     outline: none;
     border-color: var(--smart-primary);
     box-shadow: var(--smart-elevation-24);
-    z-index: var(--smart-editor-drop-down-z-index);
 }
 
 .smart-window[ontop] {
-    z-index: calc(1 + var(--smart-editor-drop-down-z-index));
+    z-index: var(--smart-editor-drop-down-z-index);
 }
 
 .smart-window:not([animation='none']).no-transition,
@@ -50,7 +48,7 @@
 
     .smart-window:not([animation='none']).smart-visibility-hidden,
     .smart-window[maximized]:not([animation='none']).smart-visibility-hidden {
-        transition: visibility 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), height 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), top 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), left 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), min-height 0.25s cubic-bezier(0.4, 0.0, 0.2, 1), min-width 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
+        transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), height 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), top 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), left 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), min-height 0.25s cubic-bezier(0.4, 0.0, 0.2, 1), min-width 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
         transform: scale(0);
     }
 
@@ -147,6 +145,7 @@ smart-window.smart-window[maximized][collapsed][header-position="left"],
     cursor: move;
     overflow: hidden;
     align-items: center;
+    touch-action: none;
 }
 
 .smart-wait-window.smart-window .smart-content-container > .smart-header-section {
@@ -262,6 +261,10 @@ smart-window.smart-window[maximized][collapsed][header-position="left"],
     }
 }
 
+.smart-tabs-window.smart-window[dragged] {
+    pointer-events: none; /* Need a way to detect what's under the header while dragging. That's why pointer-events is used ! */
+}
+
 .smart-tabs-window.smart-window .smart-content-container > .smart-content {
     width: 100%;
     height: calc(100% - var(--smart-window-header-height));
@@ -372,6 +375,7 @@ smart-window.smart-window[maximized][collapsed][header-position="left"],
 
 .smart-tabs-window.smart-window smart-tab-item {
     padding: 5px;
+    user-select: text;
 }
 
 .smart-tabs-window.smart-window smart-tabs[vertical] .smart-tabs-header-items {
@@ -493,7 +497,6 @@ smart-window.smart-window[maximized][collapsed][header-position="left"],
 
 .smart-window[dragged] {
     opacity: 0.5;
-    pointer-events: none; /* Need a way to detect what's under the header while dragging. That's why pointer-events is used ! */
     z-index: calc(1 + var(--smart-editor-drop-down-z-index));
     transition: none;
 }

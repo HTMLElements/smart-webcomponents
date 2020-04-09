@@ -273,6 +273,7 @@ smart-path {
         font-size: 10px;
         width: var(--smart-editor-addon-width);
         min-width: var(--smart-editor-addon-width);
+        min-height: var(--smart-editor-height);
         height: 100%;
         user-select: none;
         -moz-user-select: none;

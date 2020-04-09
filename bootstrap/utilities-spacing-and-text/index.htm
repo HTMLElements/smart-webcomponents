@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Material Bootstrap Utilities Spacing | https://www.htmlelements.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../../styles/demos.css" />
+	<link rel="stylesheet" type="text/css" href="../../styles/common.css" />
+    <script type="text/javascript" src="../../scripts/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../source/styles/smart.bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<script type="text/javascript" src="../source/smart.element.js"></script>
+	<script type="text/javascript" src="../source/smart.bootstrap.js"></script>
+	<script src="index.js"></script>
+
+</head>
+<body class="smart material viewport">
+   	<h2 id="buttons">Material Bootstrap Utilities Spacing</h2><br />
+	<p>CSS for Spacing</p>
+	Bootstrap includes a wide range of shorthand responsive margin and padding utility classes to modify an element’s appearance.
+	<h2>Notation</h2>
+
+<p>Spacing utilities that apply to all breakpoints, from <code class="highlighter-rouge">xs</code> to <code class="highlighter-rouge">xl</code>, have no breakpoint abbreviation in them. This is because those classes are applied from <code class="highlighter-rouge">min-width: 0</code> and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.</p>
+
+<p>The classes are named using the format <code class="highlighter-rouge">{property}{sides}-{size}</code> for <code class="highlighter-rouge">xs</code> and <code class="highlighter-rouge">{property}{sides}-{breakpoint}-{size}</code> for <code class="highlighter-rouge">sm</code>, <code class="highlighter-rouge">md</code>, <code class="highlighter-rouge">lg</code>, and <code class="highlighter-rouge">xl</code>.</p>
+
+<p>Where <em>property</em> is one of:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">m</code> - for classes that set <code class="highlighter-rouge">margin</code></li>
+  <li><code class="highlighter-rouge">p</code> - for classes that set <code class="highlighter-rouge">padding</code></li>
+</ul>
+
+<p>Where <em>sides</em> is one of:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">t</code> - for classes that set <code class="highlighter-rouge">margin-top</code> or <code class="highlighter-rouge">padding-top</code></li>
+  <li><code class="highlighter-rouge">b</code> - for classes that set <code class="highlighter-rouge">margin-bottom</code> or <code class="highlighter-rouge">padding-bottom</code></li>
+  <li><code class="highlighter-rouge">l</code> - for classes that set <code class="highlighter-rouge">margin-left</code> or <code class="highlighter-rouge">padding-left</code></li>
+  <li><code class="highlighter-rouge">r</code> - for classes that set <code class="highlighter-rouge">margin-right</code> or <code class="highlighter-rouge">padding-right</code></li>
+  <li><code class="highlighter-rouge">x</code> - for classes that set both <code class="highlighter-rouge">*-left</code> and <code class="highlighter-rouge">*-right</code></li>
+  <li><code class="highlighter-rouge">y</code> - for classes that set both <code class="highlighter-rouge">*-top</code> and <code class="highlighter-rouge">*-bottom</code></li>
+  <li>blank - for classes that set a <code class="highlighter-rouge">margin</code> or <code class="highlighter-rouge">padding</code> on all 4 sides of the element</li>
+</ul>
+
+<p>Where <em>size</em> is one of:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">0</code> - for classes that eliminate the <code class="highlighter-rouge">margin</code> or <code class="highlighter-rouge">padding</code> by setting it to <code class="highlighter-rouge">0</code></li>
+  <li><code class="highlighter-rouge">1</code> - (by default) for classes that set the <code class="highlighter-rouge">margin</code> or <code class="highlighter-rouge">padding</code> to <code class="highlighter-rouge">.25</code></li>
+  <li><code class="highlighter-rouge">2</code> - (by default) for classes that set the <code class="highlighter-rouge">margin</code> or <code class="highlighter-rouge">padding</code> to <code class="highlighter-rouge">.5</code></li>
+  <li><code class="highlighter-rouge">3</code> - (by default) for classes that set the <code class="highlighter-rouge">margin</code> or <code class="highlighter-rouge">padding</code> to <code class="highlighter-rouge">1</code></li>
+  <li><code class="highlighter-rouge">4</code> - (by default) for classes that set the <code class="highlighter-rouge">margin</code> or <code class="highlighter-rouge">padding</code> to <code class="highlighter-rouge">1.5</code></li>
+  <li><code class="highlighter-rouge">5</code> - (by default) for classes that set the <code class="highlighter-rouge">margin</code> or <code class="highlighter-rouge">padding</code> to <code class="highlighter-rouge">3</code></li>
+  <li><code class="highlighter-rouge">auto</code> - for classes that set the <code class="highlighter-rouge">margin</code> to auto</li>
+</ul>
+<h2>Text Alignment</h2>
+<p class="text-left">.text-left - Left aligned text on all viewport sizes.</p>
+<p class="text-center">.text-center - Center aligned text on all viewport sizes.</p>
+<p class="text-right">.text-right - Right aligned text on all viewport sizes.</p>
+
+<p class="text-sm-left">.text-sm-left - Left aligned text on viewports sized SM (small) or wider.</p>
+<p class="text-md-left">.text-md-left - Left aligned text on viewports sized MD (medium) or wider.</p>
+<p class="text-lg-left">.text-lg-left - Left aligned text on viewports sized LG (large) or wider.</p>
+<p class="text-xl-left">.text-xl-left - Left aligned text on viewports sized XL (extra-large) or wider.</p>
+<div class="badge badge-primary text-wrap" style="width: 6rem;">
+.text-wrap - This text should wrap.
+</div>
+<p class="text-monospace">.text-monospace - This is in monospace</p>
+</body>
+</html>

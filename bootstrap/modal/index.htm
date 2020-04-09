@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Material Bootstrap Modal | https://www.htmlelements.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../../styles/demos.css" />
+	<link rel="stylesheet" type="text/css" href="../../styles/common.css" />
+    <script type="text/javascript" src="../../scripts/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../source/styles/smart.bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<script type="text/javascript" src="../source/smart.element.js"></script>
+	<script type="text/javascript" src="../source/smart.bootstrap.js"></script>
+	<script src="index.js"></script>
+</head>
+<body class="smart viewport">
+   	<h2 id="modal">Material Bootstrap Modal</h2>
+		<h2 id="modal">Modal</h2>
+		<p>Use Smart's Material Bootstrap JavaScript modal to add dialogs to your site for lightboxes, user
+			notifications, or completely custom content.</p>
+
+		<h2>How it works</h2>
+		<p>Before getting started with Smart.Core’s modal component, be sure to read the following as our menu
+			options have recently changed.</p>
+		<ul>
+			<li>
+				Modals are built with HTML, CSS, and JavaScript. They’re positioned over everything else in the
+				document and remove scroll from the
+
+				body so that modal content scrolls instead.
+			</li>
+			<li>
+				Clicking on the modal “backdrop” will automatically close the modal.
+			</li>
+			<li>
+				Material Bootstrap only supports one modal window at a time. Nested modals aren’t supported as we believe
+				them to be poor user experiences.
+			</li>
+			<li>
+				Modals use position: fixed, which can sometimes be a bit particular about its rendering.
+				Whenever possible, place your modal HTML in a top-level position to avoid potential interference
+				from other elements.
+				You’ll likely run into issues when nesting a .modal within another fixed element.
+			</li>
+			<li>
+				Once again, due to position: fixed, there are some caveats with using modals on mobile devices.
+				See our browser support docs for details.
+			</li>
+			<li>
+				Due to how HTML5 defines its semantics, the autofocus HTML attribute has no effect in Material Bootstrap
+				modals. To achieve the same effect, use some custom JavaScript:
+			</li>
+		</ul>
+		<p>
+			Below is a static modal example (meaning its position and display have been overridden). Included
+			are the modal header, modal body (required for padding), and modal footer (optional). We ask that
+			you include modal headers with dismiss actions whenever possible, or provide another explicit
+			dismiss action.
+		</p>
+
+		<div class="group group-modal">
+			<bootstrap-modal>
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<bootstrap-button style-mode="secondary" data-dismiss="modal">Close</bootstrap-button>
+					<bootstrap-button style-mode="primary">Save changes</bootstrap-button>
+				</div>
+			</bootstrap-modal>
+		</div>
+		
+
+		<h2>Live demo</h2>
+
+		<p>
+			Toggle a working modal demo by clicking the button below. It will slide down and fade in from the
+			top of the page.
+		</p>
+
+		<bootstrap-modal id="exampleModalLive" class="fade">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<bootstrap-button  class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</bootstrap-button>
+			</div>
+			<div class="modal-body">
+				<p>Modal body text goes here.</p>
+			</div>
+			<div class="modal-footer">
+				<bootstrap-button  style-mode="secondary" data-dismiss="modal">Close</bootstrap-button>
+				<bootstrap-button  style-mode="primary">Save changes</bootstrap-button>
+			</div>
+		</bootstrap-modal>
+		<div class="group">
+			<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#exampleModalLive">
+				Launch demo modal
+			</bootstrap-button>
+		</div>
+	
+
+		<h2>Scrolling long content</h2>
+
+		<p>
+			When modals become too long for the user’s viewport or device, they scroll independent of the page
+			itself. By default all modals are with auto height.
+		</p>
+
+		<bootstrap-modal id="exampleModalLong" class="fade">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+				<bootstrap-button  class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</bootstrap-button>
+			</div>
+			<div class="modal-body">
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<bootstrap-button  style-mode="secondary" data-dismiss="modal">Close</bootstrap-button>
+				<bootstrap-button  style-mode="primary">Save changes</bootstrap-button>
+			</div>
+		</bootstrap-modal>
+		<div class="group">
+			<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#exampleModalLong">
+				Launch demo modal
+			</bootstrap-button>
+		</div>
+		
+
+		<p>
+			You can also create a scrollable modal that allows scroll the modal body by setting the
+			<b>scrollable</b> property:
+		</p>
+
+		<bootstrap-modal id="exampleModalScrollable" class="fade" scrollable>
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+				<bootstrap-button  class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</bootstrap-button>
+			</div>
+			<div class="modal-body">
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<bootstrap-button  style-mode="secondary" data-dismiss="modal">Close</bootstrap-button>
+				<bootstrap-button  style-mode="primary">Save changes</bootstrap-button>
+			</div>
+		</bootstrap-modal>
+		<div class="group">
+			<bootstrap-button  style-mode="primary" data-toggle="modal"
+				data-target="#exampleModalScrollable">
+				Launch demo modal
+			</bootstrap-button>
+		</div>
+	
+
+		<h2>Vertically centered</h2>
+
+		<p>
+			Add the <b>centered</b> property to vertically center the modal.
+		</p>
+
+		<bootstrap-modal id="exampleModalCenter" class="fade" centered>
+			<div class="modal-header">
+				<h5 class="modal-title">Modal title</h5>
+				<bootstrap-button  class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</bootstrap-button>
+			</div>
+			<div class="modal-body">
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			</div>
+			<div class="modal-footer">
+				<bootstrap-button  style-mode="secondary" data-dismiss="modal">Close</bootstrap-button>
+				<bootstrap-button  style-mode="primary">Save changes</bootstrap-button>
+			</div>
+		</bootstrap-modal>
+		<bootstrap-modal id="exampleModalScrollableCenter" class="fade" centered scrollable>
+			<div class="modal-header">
+				<h5 class="modal-title">Modal title</h5>
+				<bootstrap-button  class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</bootstrap-button>
+			</div>
+			<div class="modal-body">
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+					nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+				</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+					vel augue laoreet rutrum faucibus dolor auctor.</p>
+			</div>
+			<div class="modal-footer">
+				<bootstrap-button  style-mode="secondary" data-dismiss="modal">Close</bootstrap-button>
+				<bootstrap-button  style-mode="primary">Save changes</bootstrap-button>
+			</div>
+		</bootstrap-modal>
+		<div class="group">
+			<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#exampleModalCenter">
+				Vertically centered modal
+			</bootstrap-button>
+			<bootstrap-button  style-mode="primary" data-toggle="modal"
+				data-target="#exampleModalScrollableCenter">
+				Vertically centered scrollable modal
+			</bootstrap-button>
+		</div>
+	
+		<h2>Varying modal content</h2>
+
+		<p>
+			Have a bunch of buttons that all trigger the same modal with slightly different contents?
+			Below is a live demo followed by example HTML and JavaScript. For more information, read the modal
+			events docs for details on relatedTarget.
+		</p>
+	<p>
+					Have a bunch of buttons that all trigger the same modal with slightly different contents?
+					Below is a live demo followed by example HTML and JavaScript. For more information, read the modal
+					events docs for details on relatedTarget.
+				</p>
+
+				<bootstrap-modal id="exampleModal" class="fade">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+						<bootstrap-button  class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</bootstrap-button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="recipient-name" class="col-form-label">Recipient:</label>
+								<input type="text" class="form-component" id="recipient-name">
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Message:</label>
+								<textarea class="form-component" id="message-text"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<bootstrap-button  style-mode="secondary" data-dismiss="modal">Close</bootstrap-button>
+						<bootstrap-button  style-mode="primary">Send message</bootstrap-button>
+					</div>
+				</bootstrap-modal>
+				<div class="group">
+					<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#exampleModal"
+						data-whatever="@mdo">Open modal for @mdo</bootstrap-button>
+					<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#exampleModal"
+						data-whatever="@fat">Open modal for @fat</bootstrap-button>
+					<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#exampleModal"
+						data-whatever="@getbootstrap">Open modal for @getbootstrap</bootstrap-button>
+				</div>
+				
+
+				<p>
+					Changing the content of the input inside the modal is simple as that:
+				</p>
+
+				<figure class="highlight">
+					<pre class="prettyprint">
+window.onload = function () {
+    document.addEventListener('click', function () {
+        const target = event.target,
+            isButton = event.target.closest('bootstrap-button');
+
+        if (isButton && isButton.getAttribute('data-toggle') === 'modal') {
+            const modal = document.querySelector(isButton.getAttribute('data-target')),
+                data = isButton.getAttribute('data-whatever');
+
+            if (data) {
+                const modalInput = modal.querySelector('.modal-body input');
+
+                if (modalInput) {
+                    modalInput.value = data;
+                }
+            }
+
+            if (modal) {
+                modal.toggle();
+            }
+        }
+ });</pre>
+				</figure>
+
+				<h2>Change Animation</h2>
+				<p>
+					Animation is purely made via CSS. The default animation depends on the CSS class <b>fade</b>.
+					Removing that class will disable it.
+				</p>
+
+				<figure class="highlight">
+					<pre class="prettyprint">
+&lt;bootstrap-modal&gt; Empty Modal with no Animation &lt;/bootstrap-modal&gt;
+					</pre>
+				</figure>
+
+			
+				<h2>Optional Sizes</h2>
+				<p>Modals have three optional sizes, available via modifier classes to be placed on a Modal
+					These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.</p>
+
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Size</th>
+							<th>Class</th>
+							<th>Modal max-width</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Small</td>
+							<td><code>.modal-sm</code></td>
+							<td><code>300px</code></td>
+						</tr>
+						<tr>
+							<td>Default</td>
+							<td class="text-muted">None</td>
+							<td><code>500px</code></td>
+						</tr>
+						<tr>
+							<td>Large</td>
+							<td><code>.modal-lg</code></td>
+							<td><code>800px</code></td>
+						</tr>
+						<tr>
+							<td>Extra large</td>
+							<td><code>.modal-xl</code></td>
+							<td><code>1140px</code></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<bootstrap-modal id="sizeModeModal" class="fade" style-mode="primary">
+					<div class="modal-header">
+						<h5 class="modal-title h4" id="myExtraLargeModalLabel">Extra large modal</h5>
+						<bootstrap-button  class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</bootstrap-button>
+					</div>
+					<div class="modal-body">
+							<p>Modals have three optional sizes, available via modifier classes to be placed on a Modal
+					These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.</p>
+
+			
+					</div>
+				</bootstrap-modal>
+				<div class="group">
+					<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#sizeModeModal"
+						data-size="xl">Extra large modal</bootstrap-button>
+					<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#sizeModeModal"
+						data-size="lg">Large modal</bootstrap-button>
+					<bootstrap-button  style-mode="primary" data-toggle="modal" data-target="#sizeModeModal"
+						data-size="sm">Small modal</bootstrap-button>
+				</div>
+				
+
+				<h2>Usage</h2>
+				<p>
+					The modal plugin toggles your hidden content on demand. It also
+					adds .modal-open to the &lt;body&gt; to override default scrolling behavior and generates a
+					.modal-backdrop to provide a click area for dismissing shown modals when clicking outside the modal.
+				</p>
+
+				<h2>Properties</h2>
+				<p>The following properties are available:</p>
+
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th style="width: 100px;">Name</th>
+							<th style="width: 50px;">Type</th>
+							<th style="width: 50px;">Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>backdrop</td>
+							<td>string</code></td>
+							<td>true</td>
+							<td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a
+								backdrop which doesn't close the modal on click or 'none' if you don't want to have a
+								.modal-backdrop element.</td>
+						</tr>
+						<tr>
+							<td>focus</td>
+							<td>boolean</code></td>
+							<td>true</td>
+							<td>Puts the modal in focus if true.</td>
+						</tr>
+						<tr>
+							<td>keyboard</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>Closes the modal when escape key is pressed</td>
+						</tr>
+						<tr>
+							<td>opened</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>Shows the modal when initialized.</td>
+						</tr>
+						<tr>
+							<td>centered</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>Determines if the Modal is center or not.</td>
+						</tr>
+						<tr>
+							<td>scrollable</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>Determines if the Modal's body is scrollable or not.</td>
+						</tr>
+						<tr>
+							<td>sizeMode</td>
+							<td>string</td>
+							<td>''</td>
+							<td>Determines the size of the modal. Possible values are: 'xl', 'lg', 'sm', ''. Empty
+								string is the default size ( medium ).</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p>Proeprties can be set as attributes on the Tag of the HTML element or during the window.onload stage
+					via Javascript.</p>
+
+				<h2>Methods</h2>
+
+				<h3>toggle</h3>
+				<p>Manually toggles the modal. If the modal is opened this method will close it and vice versa.</p>
+				<figure class="highlight">
+					<pre class="prettyprint">document.querySelector('bootstra-modal').toggle()</pre>
+				</figure>
+
+				<h3>show</h3>
+				<p>Manually opens the modal.</p>
+				<figure class="highlight">
+					<pre class="prettyprint">document.querySelector('bootstra-modal').show()</pre>
+				</figure>
+
+				<h3>hide</h3>
+				<p>Manually opens the modal.</p>
+				<figure class="highlight">
+					<pre class="prettyprint">document.querySelector('bootstra-modal').hide()</pre>
+				</figure>
+
+				<h3>handleUpdate</h3>
+				<p>Manually readjust the modal’s position if the height of a modal changes while it is open (i.e. in
+					case a scrollbar appears).</p>
+				<figure class="highlight">
+					<pre class="prettyprint">document.querySelector('bootstra-modal').handleUpdate()</pre>
+				</figure>
+
+				<h3>dispose</h3>
+				<p>Removes the element from the DOM.</p>
+				<figure class="highlight">
+					<pre class="prettyprint">document.querySelector('bootstra-modal').dispose()</pre>
+				</figure>
+
+				<h2>Events</h2>
+
+				<p>Smart's "bootstrap-modal" class exposes a few events for hooking into modal functionality. All modal
+					events
+					are fired at the modal itself (i.e. at the &lt;bootstrap-modal&gt;)</p>
+
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th style="width: 150px;">Event Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>show</td>
+							<td>This event fires immediately when the <code>show</code> instance method is called.</td>
+						</tr>
+						<tr>
+							<td>shown</td>
+							<td>This event is fired when the modal has been made visible to the user (will wait for CSS
+								transitions to complete).</td>
+						</tr>
+						<tr>
+							<td>hide</td>
+							<td>This event is fired immediately when the <code>hide</code> instance method has been
+								called.</td>
+						</tr>
+						<tr>
+							<td>hidden</td>
+							<td>This event is fired when the modal has finished being hidden from the user (will wait
+								for CSS transitions to complete).</td>
+						</tr>
+					</tbody>
+				</table>
+
+</body>
+</html>

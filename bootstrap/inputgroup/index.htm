@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Material Bootstrap Inputs Group | https://www.htmlelements.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../../styles/demos.css" />
+	<link rel="stylesheet" type="text/css" href="../../styles/common.css" />
+    <script type="text/javascript" src="../../scripts/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../source/styles/smart.bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<script type="text/javascript" src="../source/smart.element.js"></script>
+	<script type="text/javascript" src="../source/smart.bootstrap.js"></script>
+	<script src="index.js"></script>
+
+</head>
+<body class="smart viewport">
+   	<h2 id="inputGroups">Material Bootstrap Input Groups</h2><br />
+		<p>Easily extend form controls by adding text, buttons, or button groups on either side of textual
+			inputs, custom selects, and custom file inputs.</p>
+		</br>
+
+		<h2>Basic example</h2>
+		<p>
+			Place one add-on or button on either side of an input. You may also place one on both sides of an
+			input. Remember to place &lt;label&gt;s outside the input group.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<span class="input-group-text" id="basic-addon1">@</span>
+				<input type="text" class="form-component" placeholder="Username" aria-label="Username"
+					aria-describedby="basic-addon1">
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<input type="text" class="form-component" placeholder="Recipient's username"
+					aria-label="Recipient's username" aria-describedby="basic-addon2">
+				<span class="input-group-text" id="basic-addon2">@example.com</span>
+			</bootstrap-input-group>
+			<label for="basic-url">Your vanity URL</label>
+			<bootstrap-input-group class="mb-3">
+				<span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<span class="input-group-text">$</span>
+				<input type="text" class="form-component" aria-label="Amount (to the nearest dollar)">
+				<span class="input-group-text">.00</span>
+			</bootstrap-input-group>
+		
+		</div>
+		<bootstrap-input-group>
+				<span class="input-group-text">With textarea</span>
+				<textarea class="form-component" aria-label="With textarea"></textarea>
+			</bootstrap-input-group>
+
+		<h2>Wrapping</h2>
+		<p>
+			Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field
+			validation within an input group. You may disable this with the <b>noWrap</b> property.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group no-wrap>
+				<span class="input-group-text" id="basic-addon1">@</span>
+				<input type="text" class="form-component" placeholder="Username" aria-label="Username"
+					aria-describedby="basic-addon1">
+			</bootstrap-input-group>
+		</div>
+
+		<h2>Sizing</h2>
+		<p>
+			Add the <b>sizeMode</b> property in order to change the size of the input group.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group size-mode="sm" class="mb-3">
+				<span class="input-group-text">Small</span>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<span class="input-group-text">Default</span>
+			</bootstrap-input-group>
+			<bootstrap-input-group size-mode="lg">
+				<span class="input-group-text">Large</span>
+			</bootstrap-input-group>
+		</div>
+	
+
+		<h2>Checkbox and radios</h2>
+		<p>
+			Place any checkbox or radio option within an input group’s addon instead of text.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<div class="input-group-text">
+					<input type="checkbox" aria-label="Checkbox for following text input">
+				</div>
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<div class="input-group-text">
+					<input type="radio" aria-label="Radio button for following text input">
+				</div>
+			</bootstrap-input-group>
+		</div>
+	
+
+		<h2>Multiple inputs</h2>
+		<p>
+			While multiple &lt;input&gt;s are supported visually, validation styles are only available for input
+			groups with a single &lt;input&gt;.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group>
+				<span class="input-group-text">First and last name</span>
+				<input type="text" aria-label="First name" class="form-component">
+				<input type="text" aria-label="Last name" class="form-component">
+			</bootstrap-input-group>
+		</div>
+	
+
+		<h2>Multiple addons</h2>
+		<p>
+			Multiple add-ons are supported and can be mixed with checkbox and radio input elements.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<span class="input-group-text">$</span>
+				<span class="input-group-text">0.00</span>
+				<input type="text" class="form-component"
+					aria-label="Dollar amount (with dot and two decimal places)">
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<input type="text" class="form-component"
+					aria-label="Dollar amount (with dot and two decimal places)">
+				<span class="input-group-text">$</span>
+				<span class="input-group-text">0.00</span>
+			</bootstrap-input-group>
+		</div>
+	
+
+		<h2>Buttons addons</h2>
+		<p>
+			Input groups with Material Bootstrap Button as addons.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-button style-mode="secondary" outlined>Button</bootstrap-button>
+				<input type="text" class="form-component" aria-label="Example text with button addon">
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<input type="text" class="form-component" placeholder="Recipient's username"
+					aria-label="Recipient's username">
+				<bootstrap-button style-mode="secondary" outlined outlined>Button</bootstrap-button>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-button style-mode="secondary" outlined outlined>Button</bootstrap-button>
+				<bootstrap-button style-mode="secondary" outlined outlined>Button</bootstrap-button>
+				<input type="text" class="form-component">
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<input type="text" class="form-component" placeholder="Recipient's username"
+					aria-label="Recipient's username with two button addons">
+				<bootstrap-button style-mode="secondary" outlined>Button</bootstrap-button>
+				<bootstrap-button style-mode="secondary" outlined>Button</bootstrap-button>
+			</bootstrap-input-group>
+		</div>
+		
+		<h2>Buttons with dropdowns</h2>
+		<p>
+			Input groups with Material Bootstrap Dropdowns that contains Material Bootstrap buttons as addons.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-drop-down outlined label="Dropdown">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</bootstrap-drop-down>
+				<input type="text" class="form-component">
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<input type="text" class="form-component">
+				<bootstrap-drop-down outlined label="Dropdown">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</bootstrap-drop-down>
+			</bootstrap-input-group>
+		</div>
+	
+
+		<h2>Buttons with Split Buttons</h2>
+		<p>
+			Input groups with Material Bootstrap Split Buttons that contains Material Bootstrap buttons as addons.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-split-button outlined label="Dropdown">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</bootstrap-split-button>
+				<input type="text" class="form-component">
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<input type="text" class="form-component">
+				<bootstrap-split-button outlined label="Dropdown">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</bootstrap-split-button>
+			</bootstrap-input-group>
+		</div>
+	
+		<h2>Custom select</h2>
+		<p>
+			Input groups with a select insted of input.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<label class="input-group-text" for="inputGroupSelect01">Options</label>
+				<select class="bs-select form-component" id="inputGroupSelect01">
+					<option selected>Choose...</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<select class=" bs-select form-component" id="inputGroupSelect01">
+					<option selected>Choose...</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+				<label class="input-group-text" for="inputGroupSelect01">Options</label>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<button class=" button button-outline-secondary" type="button">Button</button>
+				<select class="bs-select form-component" aria-label="Example select with button addon">
+					<option selected>Choose...</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<select class="bs-select form-component" aria-label="Example select with button addon">
+					<option selected>Choose...</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+				<bootstrap-button>Button</bootstrap-button>
+			</bootstrap-input-group>
+		</div>
+	
+
+		<h2>Custom file input</h2>
+		<p>
+			Input groups with a file upload.
+		</p>
+
+		<div class="group">
+			<bootstrap-input-group class="mb-3">
+				<span class="input-group-text">Upload</span>
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+				<span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-button>Button</bootstrap-button>
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+				<bootstrap-button>Button</bootstrap-button>
+			</bootstrap-input-group>
+		</div>	
+		
+		<h2>Material Design</h2>
+		<div class="smart material group">
+			<bootstrap-input-group class="mb-3">
+				<span class="input-group-text">Upload</span>
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+				<span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+			</bootstrap-input-group>
+			<bootstrap-input-group class="mb-3">
+				<bootstrap-button style-mode="success">Button</bootstrap-button>
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+			</bootstrap-input-group>
+			<bootstrap-input-group>
+				<bootstrap-file-input class="form-component">Choose file</bootstrap-file-input>
+				<bootstrap-button style-mode="warning">Button</bootstrap-button>
+			</bootstrap-input-group>
+		</div>	
+</body>
+</html>

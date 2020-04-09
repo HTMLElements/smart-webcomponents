@@ -13,14 +13,14 @@ smart-drop-down-button {
         visibility: initial;
     }
 
-    .smart-drop-down-button .smart-ripple {
-        background: var(--smart-primary-color);
-    }
+.smart-drop-down-button .smart-ripple {
+    background: var(--smart-primary-color);
+}
 
-    .smart-drop-down-button .smart-buttons-container > .smart-action-button:empty {
-        padding: 0;
-        width: 0;
-    }
+.smart-drop-down-button .smart-buttons-container > .smart-action-button:empty {
+    padding: 0;
+    width: 0;
+}
 
 .smart-drop-down-container > smart-scroll-viewer {
     --smart-scroll-viewer-min-width: calc(var(--smart-editor-drop-down-min-width) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
@@ -32,7 +32,6 @@ smart-drop-down-button {
     border: none;
     padding: 0;
     overflow: hidden;
-    touch-action: none;
 }
 
 .smart-drop-down-container:not([resize-mode='none']) > smart-scroll-viewer {

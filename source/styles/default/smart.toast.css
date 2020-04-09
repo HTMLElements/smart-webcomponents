@@ -122,8 +122,6 @@ smart-toast-item:hover {
 
 .smart-toast-item .smart-toast-item-close-button {
     font-family: var(--smart-font-family-icon);
-    font-size: 8px;
-    padding: 2px;
     user-select: none;
     position: relative;
     cursor: pointer;
@@ -131,15 +129,14 @@ smart-toast-item:hover {
     margin: 5px;
     opacity: 1;
     display: none;
-    width: 10px;
-    height: 10px;
+    width: var(--smart-font-size);
+    height: var(--smart-font-size);
 }
 
 .smart-toast-item[show-close-button] .smart-toast-item-close-button:after {
     font-family: var(--smart-font-family-icon);
     content: var(--smart-icon-close);
     font-size: inherit;
-    padding: 2px;
     user-select: none;
     cursor: pointer;
     color: inherit;

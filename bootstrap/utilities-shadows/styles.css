@@ -1,0 +1,24 @@
+body {
+	padding: 10px;
+}
+
+.group {
+	margin: 1rem;
+	padding: 1rem;
+}
+h2 {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.highlight {
+	background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.15);
+}
+
+span, a {
+	margin-left: 0.5rem;
+}
+
+p {
+	display: block;
+}

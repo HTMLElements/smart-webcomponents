@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Material Bootstrap Utilities Flex | https://www.htmlelements.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../../styles/demos.css" />
+	<link rel="stylesheet" type="text/css" href="../../styles/common.css" />
+    <script type="text/javascript" src="../../scripts/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../source/styles/smart.bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<script type="text/javascript" src="../source/smart.element.js"></script>
+	<script type="text/javascript" src="../source/smart.bootstrap.js"></script>
+	<script src="index.js"></script>
+
+</head>
+<body class="smart material viewport">
+   	<h2 id="buttons">Material Bootstrap Utilities Flex</h2><br />
+	<p>CSS for Flex</p>
+	<h2>Enable flex behaviors</h2>
+		<div class="group">
+			<div class="d-flex p-2 highlight">I'm a flexbox container!</div>
+			<div class="d-inline-flex p-2 bd-highlight">I'm an inline flexbox container!</div>
+		</div>
+	<h2>Direction</h2>
+	<p>Set the direction of flex items in a flex container with direction utilities. In most cases you can omit the horizontal class here as the browser default is row. However, you may encounter situations where you needed to explicitly set this value (like responsive layouts).
+	</p>
+	<div>Use .flex-row to set a horizontal direction (the browser default), or .flex-row-reverse to start the horizontal direction from the opposite side.</div>
+	<div class="d-flex flex-row highlight mb-3">
+	  <div class="p-2 highlight">Flex item 1</div>
+	  <div class="p-2 highlight">Flex item 2</div>
+	  <div class="p-2 highlight">Flex item 3</div>
+	</div>
+	<div class="d-flex flex-row-reverse highlight">
+	  <div class="p-2 highlight">Flex item 1</div>
+	  <div class="p-2 highlight">Flex item 2</div>
+	  <div class="p-2 highlight">Flex item 3</div>
+	</div>	
+	<div>Use .flex-column to set a vertical direction, or .flex-column-reverse to start the vertical direction from the opposite side.</div>
+	<div class="d-flex flex-column highlight mb-3">
+	  <div class="p-2 highlight">Flex item 1</div>
+	  <div class="p-2 highlight">Flex item 2</div>
+	  <div class="p-2 highlight">Flex item 3</div>
+	</div>
+	<div class="d-flex flex-column-reverse highlight">
+	  <div class="p-2 highlight">Flex item 1</div>
+	  <div class="p-2 highlight">Flex item 2</div>
+	  <div class="p-2 highlight">Flex item 3</div>
+	</div>	
+	<h2>Justify Content</h2>
+	<div>Use justify-content utilities on flexbox containers to change the alignment of flex items on the main axis (the x-axis to start, y-axis if flex-direction: column). Choose from start (browser default), end, center, between, or around.</div>
+<div class="example">
+  <div class="d-flex justify-content-start highlight mb-3">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-end highlight mb-3">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-center highlight mb-3">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-between highlight mb-3">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex justify-content-around highlight">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <h2>Align items</h2>
+  <div>Use align-items utilities on flexbox containers to change the alignment of flex items on the cross axis (the y-axis to start, x-axis if flex-direction: column). Choose from start, end, center, baseline, or stretch (browser default).</div>
+  <div class="d-flex align-items-start highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex align-items-end highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex align-items-center highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex align-items-baseline highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>	
+  <h2>Align self</h2>
+ <div class="example">
+  <div class="d-flex highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="align-self-start p-2 highlight">Aligned flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="align-self-end p-2 highlight">Aligned flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="align-self-center p-2 highlight">Aligned flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex highlight mb-3" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="align-self-baseline p-2 highlight">Aligned flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <div class="d-flex highlight" style="height: 100px">
+    <div class="p-2 highlight">Flex item</div>
+    <div class="align-self-stretch p-2 highlight">Aligned flex item</div>
+    <div class="p-2 highlight">Flex item</div>
+  </div>
+  <h2>Fill</h2>
+  <div class="d-flex highlight">
+	  <div class="p-2 flex-fill highlight">Flex item with a lot of content</div>
+	  <div class="p-2 flex-fill highlight">Flex item</div>
+	  <div class="p-2 flex-fill highlight">Flex item</div>
+  </div>
+  <h2>With align-items</h2>
+  <div class="d-flex align-items-start flex-column highlight mb-3" style="height: 200px;">
+	  <div class="mb-auto p-2 highlight">Flex item</div>
+	  <div class="p-2 highlight">Flex item</div>
+	  <div class="p-2 highlight">Flex item</div>
+	</div>
+
+	<div class="d-flex align-items-end flex-column highlight mb-3" style="height: 200px;">
+	  <div class="p-2 highlight">Flex item</div>
+	  <div class="p-2 highlight">Flex item</div>
+	  <div class="mt-auto p-2 highlight">Flex item</div>
+	</div>
+	<h2>Order</h2>
+	<p>Change the visual order of specific flex items with a handful of order utilities. We only provide options for making an item first or last, as well as a reset to use the DOM order. As order takes any integer value (e.g., 5), add custom CSS for any additional values needed.
+	</p>
+	<div class="d-flex flex-nowrap highlight">
+	  <div class="order-3 p-2 highlight">First flex item</div>
+	  <div class="order-2 p-2 highlight">Second flex item</div>
+	  <div class="order-1 p-2 highlight">Third flex item</div>
+	</div>	
+	<h2>Use align-content utilities on flexbox containers to align flex items together on the cross axis. Choose from start (browser default), end, center, between, around, or stretch. To demonstrate these utilities, we’ve enforced flex-wrap: wrap and increased the number of flex items.</h2>
+    <div class="d-flex align-content-start flex-wrap highlight mb-3" style="height: 200px">
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+  </div>
+   <div class="d-flex align-content-end flex-wrap highlight mb-3" style="height: 200px">
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+		<div class="p-2 highlight">Flex item</div>
+  </div> 
+</div> 
+</div>
+</body>
+</html>

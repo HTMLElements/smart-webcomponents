@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Material Bootstrap Dropdowns | https://www.htmlelements.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../../styles/demos.css" />
+	<link rel="stylesheet" type="text/css" href="../../styles/common.css" />
+    <script type="text/javascript" src="../../scripts/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../source/styles/smart.bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<script type="text/javascript" src="../source/smart.element.js"></script>
+	<script type="text/javascript" src="../source/smart.bootstrap.js"></script>
+	<script src="index.js"></script>
+
+</head>
+<body class="smart viewport">
+   	<h2 id="dropDowns">Material Bootstrap Dropdowns</h2>
+			<p>
+				Dropdowns are toggleable, contextual overlays for displaying lists of links and more.
+				They’re toggled by clicking, not by hovering; this is an intentional design decision.
+				Dropdowns are built using the <b>Smart Framework's DropDownPositioning API</b>, which provides
+				dynamic positioning and viewport detection.
+				No additional references are required since the API is part of the base class
+				<b>smart.element.js</b>.
+			</p>
+
+			<p>
+				Smart.Core’s dropdowns are designed to be generic and applicable to a variety of situations and
+				markup structures.
+				For instance, it is possible to create dropdowns that contain additional inputs and form controls,
+				such as search fields or login forms.
+				However, Material Bootstrap does add built-in support for most standard keyboard menu interactions, such as
+				the ability to move through individual .dropdown-item elements using the cursor keys and close the
+				menu with the ESC key.
+			</p>
+
+			<p>
+				In order for a DropDown item to visually appear as an item it is neccessary to add the class
+				<b>.dropdown-item</b>.
+			</p>
+			<div class="group">
+				<bootstrap-drop-down label="Dropdown button">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</bootstrap-drop-down>
+			</div>
+		
+			<br/>
+			<p>
+				<b>label</b> property is used to set the label of the drop down button.
+			</p>
+			<br/><br/>
+			<h2>Dropdown rendering modes</h2>
+			<div class="group">
+				<div class="btn-group">
+					<bootstrap-drop-down label="Primary" style-mode="primary">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<bootstrap-drop-down label="Secondary" style-mode="secondary">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<bootstrap-drop-down label="Success" style-mode="success">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<bootstrap-drop-down label="Info" style-mode="info">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<bootstrap-drop-down label="Warning" style-mode="warning">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<bootstrap-drop-down label="Danger" style-mode="danger">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+			</div>
+			</div>
+			<p>
+				<b>style-mode</b> attribute determines the style of the DropDown.
+			</p>
+<br/><br/>
+			<h2>Material Bootstrap Split Button</h2>
+			<p>
+				Similarly, create split button dropdowns with virtually the same markup as single button dropdowns
+			</p>
+			<div class="group">
+				<bootstrap-split-button label="Dropdown button">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</bootstrap-split-button>
+			</div>
+<br/><br/>
+			<h2>Split Button rendering modes</h2>
+			<div class="group">
+				<div class="btn-group">
+					<bootstrap-split-button label="Primary" style-mode="primary">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Secondary" style-mode="secondary">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Success" style-mode="success">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Info" style-mode="info">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Warning" style-mode="warning">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Danger" style-mode="danger">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+				</div>
+			</div>
+		
+
+<br/><br/>
+			<h2>Sizing</h2>
+			<p>Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.</p>
+			<div class="group">
+				<div class="btn-toolbar">
+					<bootstrap-drop-down label="Large button" size-mode="lg">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down><br/><br/>
+					<bootstrap-split-button label="Large split button" size-mode="lg" class="ml-2">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button><br/><br/>
+					<bootstrap-drop-down label="Small button" size-mode="sm">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down><br/><br/>
+					<bootstrap-split-button label="Small split button" size-mode="sm" class="ml-2">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+				</div>
+			</div>
+			<br/>
+			<p>
+				Similar to the other buttons the <b>size-mode</b> attribute determines the size of the component.
+			</p>
+<br/>
+			<h2>Directions</h2>
+<br/>
+			<h2>Dropup</h2>
+			<p>Trigger dropdown menus above elements by adding changing the <b>drop-down-position</b> attribute to
+				'top' to the parent element.</p>
+<br/>
+			<div class="group">
+				<div class="btn-toolbar">
+					<bootstrap-drop-down label="Dropup" drop-down-position="top">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<br/><br/>	
+					<bootstrap-split-button label="Split droppup" class="ml-2" drop-down-position="top">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+				</div>
+			</div>
+		<br/>
+
+			<h2>Dropright</h2><br/>
+			<p>Trigger dropdown menus at the right of the elements by adding changing the <b>drop-down-position</b>
+				property to
+				'right' to the parent element.</p>
+<br/>
+			<div class="group">
+				<div class="btn-toolbar">
+					<bootstrap-drop-down label="Dropright" drop-down-position="right">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<br/><br/>
+					<bootstrap-split-button label="Split dropright" class="ml-2" drop-down-position="right">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+				</div>
+			</div>
+		<br/>
+
+			<h2>Dropleft</h2>
+			<p>Trigger dropdown menus at the left of the elements by adding changing the <b>drop-down-position</b>
+				property to
+				'left' to the parent element.</p>
+<br/>
+			<div class="group">
+				<div class="btn-toolbar">
+					<bootstrap-drop-down style="margin-left: 200px;" label="Dropleft" drop-down-position="left">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-drop-down>
+					<br/><br/>
+					<bootstrap-split-button  style="margin-left: 200px;" label="Split dropleft" drop-down-position="left">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+				</div>
+			</div>
+		
+<br/>
+			<h2>Menu items</h2>
+			<p>Optionally you can use &lt;button&gt; elements in your dropdowns instead of just &lt;a&gt;'s.</p>
+
+			<div class="group">
+				<bootstrap-drop-down label="Dropdown">
+					<button class="dropdown-item" type="button">Action</button>
+					<button class="dropdown-item" type="button">Another action</button>
+					<button class="dropdown-item" type="button">Something else here</button>
+				</bootstrap-drop-down>
+			</div>
+		
+<br/>
+			<h2>Custom alignment</h2>
+			<p>If you want to use custom positioning instead of the dynamic, create a callback and pass it to the
+				<b>customDropDownPositionCallback</b> property.</p>
+<br/>
+			<p>To align right the dropdown menu with the given breakpoint or larger, add
+				.dropdown-menu{-sm|-md|-lg|-xl}-right to the drop down.</p>
+			<div class="group">
+				<bootstrap-drop-down label="Left-aligned but right aligned when large screen"
+					custom-drop-down-position-callback="customDropDownPositioning">
+					<button class="dropdown-item" type="button">Action</button>
+					<button class="dropdown-item" type="button">Another action</button>
+					<button class="dropdown-item" type="button">Something else here</button>
+				</bootstrap-drop-down>
+			</div>
+		
+<br/>
+			<p>To align left the dropdown menu with the given breakpoint or larger, add .dropdown-menu-right and
+				.dropdown-menu{-sm|-md|-lg|-xl}-left to the drop down.</p>
+			<div class="group">
+				<bootstrap-drop-down label="Right-aligned but left aligned when large screen"
+					custom-drop-down-position-callback="customDropDownPositioning">
+					<button class="dropdown-item" type="button">Action</button>
+					<button class="dropdown-item" type="button">Another action</button>
+					<button class="dropdown-item" type="button">Something else here</button>
+				</bootstrap-drop-down>
+			</div>	
+<br/>
+<h2>Material Design</h2>
+<br/>
+			<div class="smart material group">
+				<div class="btn-group">
+					<bootstrap-split-button label="Primary" style-mode="primary">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Secondary" style-mode="secondary">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Success" style-mode="success">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Info" style-mode="info">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Warning" style-mode="warning">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+					<bootstrap-split-button label="Danger" style-mode="danger">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</bootstrap-split-button>
+				</div>
+			</div>				
+			<br/>	
+			<br/>	
+			<br/>	
+			<br/>	
+			<br/>
+				<br/>	
+			<br/>	
+			<br/>	
+			<br/>	
+
+</body>
+</html>

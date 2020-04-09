@@ -44,7 +44,7 @@
             color: inherit;
         }
 
-    .smart-drop-down-box:not([drop-down-open-mode="dropDownButton"]) .smart-action-button[active],
+    .smart-drop-down-box[drop-down-open-mode="dropDownButton"] .smart-action-button[active],
     .smart-drop-down-box .smart-drop-down-button[active] {
         border-color: var(--smart-ui-state-border-active);
         background-color: var(--smart-ui-state-active);
@@ -132,13 +132,24 @@
         }
 
     .smart-drop-down-box[drop-down-open-mode="dropDownButton"][drop-down-button-position="left"]:not([hover]) .smart-drop-down-button:focus {
+        border-color: var(--smart-outline);
         box-shadow: var(--smart-border-width) 0 0 0 var(--smart-outline);
+    }
+
+    .smart-drop-down-box[drop-down-open-mode="dropDownButton"][drop-down-button-position="left"]:not([hover]) .smart-action-button:focus {
+        border-color: var(--smart-outline);
+        box-shadow: calc(-1 * var(--smart-border-width)) 0 0 0 var(--smart-outline);
     }
 
     .smart-drop-down-box[drop-down-open-mode="dropDownButton"][drop-down-button-position="right"]:not([hover]) .smart-action-button:focus,
     .smart-drop-down-box[drop-down-open-mode="dropDownButton"]:not([drop-down-button-position]):not([hover]) .smart-action-button:focus {
         box-shadow: var(--smart-border-width) 0 0 0 var(--smart-outline);
+        border-color: var(--smart-outline);
         z-index: 1;
+    }
+
+    .smart-drop-down-box[drop-down-open-mode="dropDownButton"]:not([drop-down-button-position]):not([hover]) .smart-drop-down-button:focus {
+        border-color: var(--smart-outline);
     }
 
     .smart-drop-down-box[drop-down-button-position="top"] .smart-content {
@@ -228,8 +239,8 @@
         background-color: var(--smart-background);
         color: var(--smart-background-color);
     }
-	
-	  /*Default*/
+
+    /*Default*/
     .smart-drop-down-box:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
         border-color: var(--smart-border);
         background-color: var(--smart-surface);
@@ -253,8 +264,7 @@
     .smart-drop-down-box[focus]:not([opened]) .smart-action-button[focus],
     .smart-drop-down-box[focus]:not([opened]) .smart-drop-down-button[focus],
     .smart-drop-down-box[focus]:not([opened]) .smart-action-button,
-    .smart-drop-down-box[focus]:not([opened]) .smart-drop-down-button 
-	{
+    .smart-drop-down-box[focus]:not([opened]) .smart-drop-down-button {
         outline: initial;
         border-color: var(--smart-outline);
     }
@@ -909,7 +919,12 @@
         bottom: calc(100% - var(--smart-border-width));
     }
 
-
+/*Default position*/
+/* NOTES: If not applied the ListBox inside makes the vertical body scrollbar to appear for a second*/
+.smart-drop-down.smart-drop-down-container.smart-drop-down-repositioned.smart-visibility-hidden {
+    top: 0;
+    left: 0;
+}
 
 .smart-drop-down.smart-drop-down-container.smart-drop-down-repositioned,
 .smart-drop-down-container.smart-drop-down-repositioned,

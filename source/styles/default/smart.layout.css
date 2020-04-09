@@ -140,6 +140,7 @@ smart-layout {
     border-bottom-left-radius: var(--smart-layout-buttons-border-radius);
     border-bottom-right-radius: var(--smart-layout-buttons-border-radius);
     z-index: 1;
+    touch-action: none;
 }
 
     .smart-layout .smart-layout-buttons-container div:hover {
@@ -165,7 +166,7 @@ smart-layout {
     content: var(--smart-icon-plus);
 }
 
-.smart-layout .smart-layout-buttons-container div[position="left"], 
+.smart-layout .smart-layout-buttons-container div[position="left"],
 .smart-layout .smart-layout-buttons-container div[position="right"] {
     left: initial;
     top: calc(50% - var(--smart-editor-addon-width)/2);

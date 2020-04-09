@@ -6,7 +6,6 @@
     width: var(--smart-time-picker-default-width);
     height: var(--smart-time-picker-default-height);
     line-height: initial;
-    touch-action: none;
     min-width: 250px;
 }
 
@@ -122,6 +121,7 @@
         background-color: var(--smart-background);
         position: relative;
         box-sizing: content-box;
+        touch-action: none;
     }
 
         .smart-time-picker .smart-svg-picker.animate {

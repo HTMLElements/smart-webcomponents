@@ -1,0 +1,51 @@
+body[theme="dark-orange"] {
+ 	--smart-primary-rgb: 240, 101, 26;
+    --smart-primary: rgba(var(--smart-primary-rgb), 1);
+    --smart-background: #242424; /* The theme background color. The background color appears behind scrollable content.*/
+    --smart-background-color: #fff; /* Text color on top of a background background */
+    --smart-surface: #333; /* The theme surface color. Surface colors affect surfaces of components, such as cards, sheets, and menus. */
+    --smart-surface-color: #fff; /* Text color on top of a surface surface */
+    --smart-disabled: #535353; /* The theme primary color in disabled state. */
+    --smart-disabled-color: #fff; /* Text color on top of a theme background in disabled state */
+    --smart-border: #464646; /* The theme background border color */
+    --smart-editor-selection: var(--smart-primary);
+    --smart-editor-selection-color: var(--smart-primary-color);
+    --smart-ui-state-hover: #444;
+    --smart-ui-state-color-hover: #fff;
+    --smart-ui-state-border-hover: #444;
+    --smart-ui-state-active: var(--smart-primary);
+    --smart-ui-state-color-active: var(--smart-primary-color);
+    --smart-ui-state-border-active: var(--smart-primary);
+    --smart-ui-state-focus: #555;
+    --smart-ui-state-color-focus: #fff;
+    --smart-ui-state-border-focus: #555;
+    --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-primary);
+    --smart-ui-state-border-selected: rgba(var(--smart-primary-rgb), .1);
+    --smart-alternation-index0-color: var(--smart-surface-color); /* Alternation color for index0 */
+    --smart-alternation-index0-border: var(--smart-surface); /* Alternation border color for index0 */
+    --smart-alternation-index0-background: var(--smart-surface); /* Alternation background color for index0 */
+    --smart-alternation-index1-color: #111; /*Alternation color for index1 */
+    --smart-alternation-index1-border: #9BBB59; /* Alternation border color for index1 */
+    --smart-alternation-index1-background: #9BBB59; /* Alternation background color for index1 */
+    --smart-alternation-index2-color: #fff; /*Alternation color for index2 */
+    --smart-alternation-index2-border: #FC3752; /* Alternation border color for index2 */
+    --smart-alternation-index2-background: #FC3752; /* Alternation background color for index2 */
+    --smart-scroll-bar-background: #3E3E42;
+    --smart-scroll-bar-border: #3E3E42;
+    --smart-scroll-bar-thumb-background: #686868;
+    --smart-scroll-bar-thumb-border: #686868;
+    --smart-scroll-bar-thumb-background-hover: #9E9E9E;
+    --smart-scroll-bar-thumb-border-hover: #9E9E9E;
+    --smart-scroll-bar-thumb-background-active: #444;
+    --smart-scroll-bar-thumb-border-active: #444;
+    --smart-scroll-bar-button-background: #3E3E42;
+    --smart-scroll-bar-button-border: #3E3E42;
+    --smart-scroll-bar-button-color: #999999;
+    --smart-scroll-bar-button-background-hover: #3E3E42;
+    --smart-scroll-bar-button-border-hover: #3E3E42;
+    --smart-scroll-bar-button-color-hover: var(--smart-primary);
+    --smart-scroll-bar-button-background-active: #3E3E42;
+    --smart-scroll-bar-button-border-active: #3E3E42;
+    --smart-scroll-bar-button-color-active: var(--smart-primary);
+}

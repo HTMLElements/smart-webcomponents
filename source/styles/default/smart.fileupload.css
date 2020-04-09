@@ -18,41 +18,41 @@ smart-file-upload {
         cursor: default;
     }
 
-        .smart-file-upload[disabled] .smart-file-upload-container {
-            pointer-events: none;
-            user-select: none;
-        }
+.smart-file-upload[disabled] .smart-file-upload-container {
+    pointer-events: none;
+    user-select: none;
+}
 
-    .smart-file-upload .smart-file-upload-header,
-    .smart-file-upload .smart-file-upload-container,
-    .smart-file-upload .smart-file-upload-footer {
-        padding: 5px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+.smart-file-upload .smart-file-upload-header,
+.smart-file-upload .smart-file-upload-container,
+.smart-file-upload .smart-file-upload-footer {
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-    .smart-file-upload[hide-footer] .smart-file-upload-footer {
-        display: none;
-    }
+.smart-file-upload[hide-footer] .smart-file-upload-footer {
+    display: none;
+}
 
-    .smart-file-upload .smart-browse-button {
-        display: block;
-        margin: 4px;
-        width: var(--smart-file-upload-browse-button-width);
-        height: var(--smart-file-upload-browse-button-height);
-    }
+.smart-file-upload .smart-browse-button {
+    display: block;
+    margin: 4px;
+    width: var(--smart-file-upload-browse-button-width);
+    height: var(--smart-file-upload-browse-button-height);
+}
 
-    .smart-file-upload .smart-upload-all-button,
-    .smart-file-upload .smart-cancel-all-button,
-    .smart-file-upload .smart-pause-all-button {
-        width: var(--smart-file-upload-footer-button-width);
-        height: var(--smart-file-upload-footer-button-height);
-        margin: 4px;
-    }
+.smart-file-upload .smart-upload-all-button,
+.smart-file-upload .smart-cancel-all-button,
+.smart-file-upload .smart-pause-all-button {
+    width: var(--smart-file-upload-footer-button-width);
+    height: var(--smart-file-upload-footer-button-height);
+    margin: 4px;
+}
 
-    .smart-file-upload .smart-browse-input {
-        display: none;
-    }
+.smart-file-upload .smart-browse-input {
+    display: none;
+}
 
 .smart-drop-zone {
     width: 100%;
@@ -319,7 +319,7 @@ smart-file-upload {
     content: var(--smart-file-upload-text-content-error);
     width: 100%;
     height: 100%;
-    background-color: var(-smart-error);
+    background-color: var(--smart-error);
     border-radius: var(--smart-error-border-radius);
     opacity: 0;
     display: flex;

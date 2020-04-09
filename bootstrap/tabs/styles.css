@@ -1,0 +1,364 @@
+body {
+	padding: 1rem;
+}
+
+.group {
+	position: relative;
+	padding: 1rem;
+	border: solid #f8f9fa;
+	margin-top: 1rem;
+}
+
+
+chic-drop-down, chic-split-button, chic-input-group {
+	display: block;
+}
+
+chic-input-group .input-group-prepend chic-button .btn, chic-input-group .input-group-append:last-child chic-button:not(:last-child) .btn, chic-input-group .input-group-prepend chic-drop-down .btn, chic-input-group .input-group-append:last-child chic-drop-down:not(:last-child) .btn, chic-input-group .input-group-prepend chic-split-button .btn, chic-input-group .input-group-append:last-child chic-split-button:not(:last-child) .btn {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+chic-input-group .input-group-append chic-button .btn, chic-input-group .input-group-prepend:first-child chic-button:not(:first-child) .btn, chic-input-group .input-group-append chic-drop-down .btn, chic-input-group .input-group-prepend:first-child chic-drop-down:not(:first-child) .btn, chic-input-group .input-group-append chic-split-button .btn, chic-input-group .input-group-prepend:first-child chic-split-button:not(:first-child) .btn {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+chic-input-group chic-button+chic-button {
+	margin-left: -1px;
+}
+
+chic-input-group .custom-file.form-control {
+	border: none;
+}
+
+/* --- --- */
+
+footer {
+	padding: 20px;
+	background: #fafafa;
+	color: #333;
+	position: sticky;
+	bottom: 0px;
+	width: 100%;
+}
+
+footer a {
+	color: #333;
+	text-decoration: none;
+}
+
+.bd-example {
+	position: relative;
+	padding: 1rem;
+}
+
+.bd-example {
+	position: relative;
+	padding: 1rem;
+	margin: 1rem -15px 0;
+	border: solid #f8f9fa;
+}
+
+@media (min-width: 576px) {
+	.bd-example {
+		padding: 1.5rem;
+		margin-right: 0;
+		margin-left: 0;
+		border-width: .2rem;
+	}
+}
+
+.bd-example>.dropdown-menu:first-child {
+	position: static;
+	display: inline-block;
+	float: initial;
+}
+
+.bd-content>table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+}
+
+.bd-content>table>tbody>tr>td, .bd-content>table>tbody>tr>th, .bd-content>table>tfoot>tr>td, .bd-content>table>tfoot>tr>th, .bd-content>table>thead>tr>td, .bd-content>table>thead>tr>th {
+	padding: .75rem;
+	vertical-align: top;
+	border: 1px solid #dee2e6;
+}
+
+.bd-content>table td:first-child>code {
+	white-space: nowrap;
+}
+
+.bd-links {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+	.bd-links {
+		display: block!important;
+	}
+}
+
+@media (min-width: 768px) {
+	.bd-links {
+		max-height: calc(100vh - 9rem);
+		overflow-y: auto;
+	}
+}
+
+table {
+	border-collapse: collapse;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	margin-top: 3rem;
+	pointer-events: none;
+	font-size: 2rem;
+}
+
+h1, h2 {
+	margin-bottom: .5rem;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+.bd-clipboard {
+	display: block;
+	position: relative;
+	float: right;
+}
+
+.btn-clipboard:hover {
+	color: #fff;
+	background-color: #027de7;
+}
+
+.btn-clipboard:focus {
+	outline: none;
+}
+
+.btn-clipboard {
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+	z-index: 10;
+	display: block;
+	padding: .25rem .5rem;
+	font-size: 75%;
+	color: #818a91;
+	background-color: transparent;
+	border: 0;
+	border-radius: .25rem;
+}
+
+.btn-toolbar {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+
+.bd-example>.btn-toolbar+.btn-toolbar {
+	margin-top: .5rem;
+}
+
+.ml-2, .mx-2 {
+	margin-left: .5rem!important;
+}
+
+.highlight {
+	margin-right: -15px;
+	margin-left: -15px;
+	padding: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	background-color: #f8f9fa;
+}
+
+.highlight pre {
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: transparent;
+	border: 0;
+}
+
+pre {
+	display: block;
+	font-size: 87.5%;
+	color: #212529;
+	overflow: auto;
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.highlight pre code {
+	font-size: inherit;
+	color: #212529;
+	word-break: normal;
+}
+
+.bd-clipboard+.highlight {
+	margin-top: 0;
+}
+
+code {
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@media (min-width: 576px) {
+	.bd-content .highlight {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+@media (min-width: 576px) {
+	.highlight {
+		padding: 1.5rem;
+	}
+}
+
+.main-container {
+	display: grid;
+	grid-template-columns: 20% 55% 20%;
+	grid-column-gap: 2.5%;
+}
+
+.highlight pre.prettyprint {
+	border: none;
+}
+
+h2.separator {
+	border-bottom: 1px solid #dee2e6;
+}
+
+.simple-tooltip {
+	position: relative;
+}
+
+.simple-tooltip .tooltip-text {
+	visibility: hidden;
+	white-space: nowrap;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute;
+	z-index: 1;
+	top: calc(-100% - 8px);
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.simple-tooltip .tooltip-text::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.simple-tooltip:hover .tooltip-text {
+	visibility: visible;
+	opacity: 1;
+}
+
+.content-section {
+	border-left: 1px solid #eee;
+	padding-left: 3rem;
+}
+
+.nav-section {
+	position: sticky;
+	top: 4rem;
+	z-index: 1000;
+	height: calc(100vh - 4rem);
+}
+
+nav {
+	display: block;
+	/* border-right: 1px solid #eee; */
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	-webkit-font-smoothing: antialiased;
+	font: inherit;
+}
+
+nav li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+	font-size: 16px;
+}
+
+nav li a {
+	display: block;
+	padding: .25rem 1.5rem;
+	font-size: 90%;
+	color: rgba(0, 0, 0, .65);
+}
+
+/* Example modals */
+
+.modal {
+	z-index: 1072;
+}
+
+.modal .tooltip {
+	z-index: 1073;
+}
+
+.modal-backdrop {
+	z-index: 1071;
+}
+
+.bd-example-modal {
+	background-color: #fafafa;
+}
+
+.bd-example-modal .modal {
+	position: relative;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+	z-index: 1;
+	display: block;
+}
+
+.bd-example-modal .modal-dialog {
+	left: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Example tabbable tabs */
+.bd-example-tabs .nav-tabs {
+  margin-bottom: 1rem;
+}

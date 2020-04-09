@@ -96,7 +96,6 @@ input.smart-input {
     height: auto;
     --smart-input-drop-down-menu-width: auto;
     --smart-input-drop-down-menu-height: 200px;
-    max-height: var( --smart-input-drop-down-menu-height);
     /*min-width: 150px;*/
     min-height: 0;
 }
@@ -112,7 +111,7 @@ input.smart-input {
     .smart-input-drop-down-menu > .smart-container {
         /*min-width: 150px;*/
         width: var(--smart-input-drop-down-menu-width);
-        max-height: var( --smart-input-drop-down-menu-height);
+        max-height: calc(var(--smart-input-drop-down-menu-height) - 6px);
     }
 
     .smart-input-drop-down-menu .smart-scroll-viewer-content-container {
@@ -136,6 +135,10 @@ input.smart-input {
     .smart-input-drop-down-menu li {
         padding-bottom: 1px;
     }
+
+        .smart-input-drop-down-menu li:last-child {
+            padding-bottom: 0;
+        }
 
         .smart-input-drop-down-menu li a {
             display: block;
@@ -313,7 +316,7 @@ smart-input[drop-down-button-position="right"] .smart-input,
     }
 
 .smart-text-box input,
-.smart-text-box .smart-content > div {
+.smart-text-box > .smart-container > .smart-content > div {
     width: 100%;
     height: 100%;
     outline: none;
@@ -334,7 +337,7 @@ smart-input[drop-down-button-position="right"] .smart-input,
     overflow: hidden;
 }
 
-    .smart-text-box .smart-content > div:first-of-type {
+    .smart-text-box > .smart-container > .smart-content > div:first-of-type {
         position: absolute;
         display: flex;
         width: initial;
@@ -354,7 +357,7 @@ smart-input[drop-down-button-position="right"] .smart-input,
         border-color: transparent;
     }
 
-    .smart-text-box .smart-content > div > label {
+    .smart-text-box > .smart-container > .smart-content > div > label {
         color: transparent;
     }
 
@@ -433,8 +436,26 @@ smart-text-box input:focus {
     font-family: inherit;
 }
 
-.smart-text-box .smart-content {
+.smart-text-box > .smart-container > .smart-content {
     height: 100%;
+}
+
+.smart-drop-down smart-list-item[focus] .smart-overlay {
+    background-color: var(--smart-ui-state-focus);
+}
+
+.smart-drop-down smart-list-item[focus] .smart-content {
+    color: var(--smart-ui-state-color-focus);
+    border-color: var(--smart-ui-state-border-focus);
+}
+
+.smart-drop-down smart-list-item[focus][selected] .smart-overlay {
+    background-color: var(--smart-ui-state-selected);
+}
+
+.smart-drop-down smart-list-item[focus][selected] .smart-content {
+    color: var(--smart-ui-state-color-selected);
+    border-color: var(--smart-ui-state-border-selected);
 }
 
 /* renderMode */
@@ -490,18 +511,18 @@ smart-input.underlined,
 
 /* --- Right-to-left --- */
 
-smart-input[right-to-left] > .smart-container {
+.smart-input[right-to-left] > .smart-container {
     direction: initial;
 }
 
-smart-text-box[right-to-left] .smart-label,
-smart-text-box[right-to-left] .smart-hint,
-smart-input[right-to-left] .smart-input,
-smart-text-box[right-to-left] > .smart-container > .smart-content {
+.smart-text-box[right-to-left] .smart-label,
+.smart-text-box[right-to-left] .smart-hint,
+.smart-input[right-to-left] .smart-input,
+.smart-text-box[right-to-left] > .smart-container > .smart-content {
     direction: rtl;
 }
 
-smart-input[readonly][right-to-left] .smart-input {
+.smart-input[readonly][right-to-left] .smart-input {
     padding-left: initial;
     padding-right: var(--smart-editor-label-padding);
 }
@@ -520,7 +541,7 @@ smart-input[readonly][right-to-left] .smart-input {
         right: 0;
     }
 
-smart-input[readonly][right-to-left] .smart-drop-down-button {
+.smart-input[readonly][right-to-left] .smart-drop-down-button {
     border-right: none;
 }
 /* --- */

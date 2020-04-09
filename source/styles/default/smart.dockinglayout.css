@@ -15,6 +15,10 @@ smart-docking-layout {
     overflow: visible;
 }
 
+/* Non-class selectors are Necessary for the Splitter item calculation on initialization */
+smart-docking-layout .smart-items-container,
+smart-docking-layout .smart-horizontal-hidden-items-container,
+smart-docking-layout .smart-vertical-hidden-items-container,
 .smart-docking-layout .smart-items-container,
 .smart-docking-layout .smart-horizontal-hidden-items-container,
 .smart-docking-layout .smart-vertical-hidden-items-container {

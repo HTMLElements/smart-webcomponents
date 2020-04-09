@@ -232,6 +232,10 @@ smart-pager {
     width: var(--smart-pager-page-size-selector-width);
     background: var(--smart-background);
     color: var(--smart-background-color);
+    --smart-item-border-top-left-radius: var(--smart-border-radius);
+    --smart-item-border-top-right-radius: var(--smart-border-radius);
+    --smart-item-border-bottom-left-radius: var(--smart-border-radius);
+    --smart-item-border-bottom-right-radius: var(--smart-border-radius);
 }
 
 .smart-pager .smart-pager-input {

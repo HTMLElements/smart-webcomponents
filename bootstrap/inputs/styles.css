@@ -1,0 +1,17 @@
+/* --- Bootstrap Element styles --- */
+body {
+	padding: 1rem;
+}
+
+.group {
+	position: relative;
+	padding: 1rem;
+	border: solid #f8f9fa;
+	margin-top: 1rem;
+}
+
+
+bootstrap-input,
+bootstrap-textarea {
+	width: 300px;
+}

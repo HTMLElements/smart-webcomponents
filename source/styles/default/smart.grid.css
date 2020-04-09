@@ -1,7 +1,7 @@
 
 /*smart-grid*/
-
-smart-grid {
+smart-grid,
+.smart-grid.smart-container {
     width: var(--smart-grid-default-width);
     height: var(--smart-grid-default-height);
     grid-template-columns: var(--smart-grid-template-columns);
@@ -11,11 +11,13 @@ smart-grid {
     visibility: hidden;
 }
 
-    smart-grid.smart-element {
+    smart-grid.smart-element,
+    .smart-grid.smart-element {
         visibility: inherit;
     }
 
-    smart-grid[grouped] {
+    smart-grid[grouped],
+    .smart-grid[grouped] {
         background-color: var(--smart-surface);
     }
 
@@ -367,14 +369,16 @@ smart-grid-cell[command] .smart-label {
     border: 1px solid var(--smart-ui-state-border-active);
 }
 
-.smart-grid-header,
+.smart-grid > .smart-container .smart-grid-header,
+.smart-grid.smart-container .smart-grid-header,
 .smart-grid-footer {
     background: var(--smart-surface);
     color: var(--smart-surface-color);
     border-color: var(--smart-border);
 }
 
-.smart-grid-header {
+.smart-grid > .smart-container .smart-grid-header,
+.smart-grid.smart-container .smart-grid-header {
     height: var(--smart-grid-header-height);
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -396,7 +400,8 @@ smart-grid-cell[command] .smart-label {
     border-bottom-color: inherit;
 }
 
-.smart-grid-column-header {
+.smart-grid > .smart-container .smart-grid-column-header,
+.smart-grid.smart-container .smart-grid-column-header {
     height: var(--smart-grid-column-header-height);
     min-height: 30px;
     color: var(--smart-surface-color);
@@ -405,41 +410,42 @@ smart-grid-cell[command] .smart-label {
     z-index: 99;
 }
 
-    .smart-grid-column-header.smart-columns-sticky {
-        border-top: 1px solid var(--smart-border);
-        border-bottom: 1px solid var(--smart-border);
-        margin-top: -2px;
+.smart-grid-column-header.smart-columns-sticky {
+    border-top: 1px solid var(--smart-border);
+    border-bottom: 1px solid var(--smart-border);
+    margin-top: -2px;
+}
+
+.smart-grid-column-header .smart-arrow-down.smart-animate {
+    transform: rotate(90deg);
+    transition: transform 0.2s ease-out;
+}
+
+    .smart-grid-column-header .smart-arrow-down.smart-animate:after {
+        content: var(--smart-icon-arrow-down);
     }
 
-    .smart-grid-column-header .smart-arrow-down.smart-animate {
-        transform: rotate(90deg);
-        transition: transform 0.2s ease-out;
+.smart-grid-column-header .top-right-corner {
+    overflow: hidden;
+    right: 0px;
+    top: 0px;
+    width: calc(1px + var(--smart-scroll-bar-size));
+    position: absolute;
+    border-left: 1px solid inherit;
+    z-index: 1;
+}
+
+    .smart-grid-column-header .top-right-corner:first-child {
+        left: -1px;
+        z-index: 2;
     }
-
-        .smart-grid-column-header .smart-arrow-down.smart-animate:after {
-            content: var(--smart-icon-arrow-down);
-        }
-
-    .smart-grid-column-header .top-right-corner {
-        overflow: hidden;
-        right: 0px;
-        top: 0px;
-        width: calc(1px + var(--smart-scroll-bar-size));
-        position: absolute;
-        border-left: 1px solid inherit;
-        z-index: 1;
-    }
-
-        .smart-grid-column-header .top-right-corner:first-child {
-            left: -1px;
-            z-index: 2;
-        }
 
 .smart-grid-filter-footer {
     height: var(--smart-grid-filter-footer-height);
 }
 
-.smart-grid-pager {
+.smart-grid > .smart-container .smart-grid-pager,
+.smart-grid.smart-container .smart-grid-pager {
     height: var(--smart-pager-default-height);
     overflow: hidden;
     z-index: 99;
@@ -451,13 +457,13 @@ smart-grid-cell[command] .smart-label {
     color: var(--smart-surface-color);
 }
 
-    .smart-grid-pager smart-pager {
-        width: calc(100% - 10px);
-        height: calc(100% - 10px);
-        margin-left: 2px;
-        margin-top: 5px;
-        border: none;
-    }
+.smart-grid-pager smart-pager {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    margin-left: 2px;
+    margin-top: 5px;
+    border: none;
+}
 
 .smart-grid-footer {
     height: var(--smart-grid-footer-height);
@@ -1137,7 +1143,7 @@ smart-grid-cell[header]:not(.smart-grid-column-border):not(.smart-grid-column-bo
 
 
 /* Selected*/
-smart-grid-row[selected]:not([selected="indeterminate"])::before {
+smart-grid-row[selected]:not([selected="indeterminate"]):not([selected="none"])::before {
     height: var(--smart-border-width);
     width: 100%;
     background: var(--smart-ui-state-color-selected);
@@ -1147,7 +1153,7 @@ smart-grid-row[selected]:not([selected="indeterminate"])::before {
     opacity: var(--smart-grid-cell-horizontal-border-opacity-selected, 0.3);
 }
 
-smart-grid-row[selected]:not([selected="indeterminate"])::after {
+smart-grid-row[selected]:not([selected="indeterminate"]):not([selected="none"])::after {
     height: var(--smart-border-width);
     width: 100%;
     background: var(--smart-ui-state-color-selected);
@@ -1328,7 +1334,9 @@ smart-grid-cell .rotate {
     transform: rotate(0deg);
 }
 
-.smart-grid-content {
+
+.smart-grid > .smart-container .smart-grid-content,
+.smart-grid.smart-container .smart-grid-content {
     width: 100%;
     height: 100%;
     padding: 0;
@@ -1340,8 +1348,8 @@ smart-grid-cell {
     vertical-align: central;
 }
 
-    smart-grid-cell .smart-label,
-    smart-grid-column .smart-label {
+    smart-grid-cell > .smart-label,
+    smart-grid-column > .smart-label {
         width: 100%;
         height: 100%;
     }
@@ -1450,7 +1458,6 @@ smart-grid-cell {
     height: 100%;
     position: relative;
     overflow: hidden;
-    touch-action: none;
 }
 
     .smart-grid-scroll-view.vscroll {
@@ -1924,11 +1931,16 @@ smart-grid-cell .smart-grid-cell-editor,
     border: none;
     overflow: hidden;
     margin: 0;
-    padding: 3px 4px;
     outline: none;
     background: inherit;
     color: inherit;
+    border-radius: 0px;
+    --smart-border-top-left-radius: 0px;
+    --smart-border-top-right-radius: 0px;
+    --smart-border-bottom-left-radius: 0px;
+    --smart-border-bottom-right-radius: 0px;
 }
+
 
 smart-grid-column .smart-grid-cell-editor.smart-grid-input-cell-editor,
 smart-grid-row smart-grid-cell[header] .smart-grid-cell-editor.smart-grid-input-cell-editor {
