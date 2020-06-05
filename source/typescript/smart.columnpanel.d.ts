@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Column Panel allows toggling the visibility and changing the order of columns.
-*/
-export interface ColumnPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColumnPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -70,23 +64,28 @@ export interface ColumnPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Column Panel allows toggling the visibility and changing the order of columns.
+*/
+export interface ColumnPanel extends BaseElement, ColumnPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the "Apply" button is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, positionChanged)
    *  value - The current configuration of columns (data source).
    *  positionChanged - A boolean detail that shows whether the columns have been reordered.
    */
-  onApply?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Cancel" button is clicked.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
 }
 
 export interface ColumnPanelDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The column's data field.
    * Default value: ""
@@ -114,13 +113,13 @@ export interface ColumnPanelDataSource {
   visible?: boolean;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-column-panel"): ColumnPanel;
-			querySelector(selectors: "smart-column-panel"): ColumnPanel | null;	
-			querySelectorAll(selectors: "smart-column-panel"): NodeListOf<ColumnPanel>;
-			getElementsByTagName(qualifiedName: "smart-column-panel"): HTMLCollectionOf<ColumnPanel>;
-			getElementsByName(elementName: "smart-column-panel"): NodeListOf<ColumnPanel>;	
+        createElement(tagName: "smart-column-panel"): ColumnPanel;
+        querySelector(selectors: "smart-column-panel"): ColumnPanel | null;
+        querySelectorAll(selectors: "smart-column-panel"): NodeListOf<ColumnPanel>;
+        getElementsByTagName(qualifiedName: "smart-column-panel"): HTMLCollectionOf<ColumnPanel>;
+        getElementsByName(elementName: "smart-column-panel"): NodeListOf<ColumnPanel>;
     }
 }
 

@@ -785,11 +785,11 @@ export class ListBoxComponent extends BaseElement implements OnInit, AfterViewIn
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -800,7 +800,7 @@ export class ListBoxComponent extends BaseElement implements OnInit, AfterViewIn
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -847,7 +847,7 @@ export class ListBoxComponent extends BaseElement implements OnInit, AfterViewIn
                 }
                 else {
                     that._onChange((that.selectedValues && that.selectedValues.length > 0) ? that.selectedValues[0] : null);
-                } 
+                }
             }
 		});
 	}
@@ -910,13 +910,13 @@ export class ListBoxComponent extends BaseElement implements OnInit, AfterViewIn
         that.eventHandlers['changeModelHandler'] = (event: Event) =>
         {
             that._initialChange = false;
-            that._onChange(that.nativeElement.selectedValues.length > 0 ? (that.nativeElement.selectedValues.length > 1 ? that.nativeElement.selectedValues : that.nativeElement.selectedValues[0]) : null); 
+            that._onChange(that.nativeElement.selectedValues.length > 0 ? (that.nativeElement.selectedValues.length > 1 ? that.nativeElement.selectedValues : that.nativeElement.selectedValues[0]) : null);
         }
         that.eventHandlers['blurModelHandler'] = (event: Event) => {
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-            if (that.nativeElement.querySelector('input')) {    
+            if (that.nativeElement.querySelector('input')) {
                 that.eventHandlers['keyupModelHandler'] = (event) => {
                     setTimeout(() => { that.eventHandlers['changeModelHandler'](event); }, 50);
                 };

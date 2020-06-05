@@ -81,10 +81,10 @@ export class DateTimePickerComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Determines the delay before the calendar pop-up is automatically closed. Applicable only when autoClose is set to true. */
 	@Input()
-	get autoCloseDelay(): boolean {
+	get autoCloseDelay(): number {
 		return this.nativeElement ? this.nativeElement.autoCloseDelay : undefined;
 	}
-	set autoCloseDelay(value: boolean) {
+	set autoCloseDelay(value: number) {
 		this.nativeElement ? this.nativeElement.autoCloseDelay = value : undefined;
 	}
 
@@ -647,11 +647,11 @@ export class DateTimePickerComponent extends BaseElement implements OnInit, Afte
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -662,7 +662,7 @@ export class DateTimePickerComponent extends BaseElement implements OnInit, Afte
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -734,17 +734,17 @@ export class DateTimePickerComponent extends BaseElement implements OnInit, Afte
 		that.eventHandlers['openingHandler'] = (event: CustomEvent) => { that.onOpening.emit(event); }
 		that.nativeElement.addEventListener('opening', that.eventHandlers['openingHandler']);
 
-		
+
         that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
-            that._onChange(that.nativeElement.value ? that.nativeElement.value.toDate() : null); 
+            that._onChange(that.nativeElement.value ? that.nativeElement.value.toDate() : null);
         };
 
         that.eventHandlers['blurModelHandler'] = (event: Event) => {
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-            if (that.nativeElement.querySelector('input')) {    
+            if (that.nativeElement.querySelector('input')) {
                 that.eventHandlers['keyupModelHandler'] = (event) => {
                     setTimeout(() => { that.eventHandlers['changeModelHandler'](event); }, 50);
                 };

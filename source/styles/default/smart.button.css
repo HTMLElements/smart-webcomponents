@@ -372,6 +372,42 @@ smart-repeat-button[disabled] {
     border-color: var(--smart-disabled);
     background-color: var(--smart-disabled);
     cursor: default;
+    --smart-background: var(--smart-disabled);
+    --smart-border: var(--smart-disabled);
+    --smart-background-color: var(--smart-disabled-color);
+}
+
+button.smart-button[type]:not(.smart-container) {
+    border-color: var(--smart-border);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    border-width: var(--smart-border-width);
+    border-style: solid;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    text-transform: var(--smart-button-text-transform);
+    font-weight: 500;
+    letter-spacing: .08929em;
+    overflow: hidden;
+    font-style: var(--smart-font-style);
+    font-size: var(--smart-font-size);
+    background: var(--smart-background);
+    outline: none;
+}
+
+button.smart-button[type]:hover {
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
+    background-color: var(--smart-ui-state-hover);
+}
+
+button.smart-button[type]:active{
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+    background-color: var(--smart-ui-state-active);
 }
 
 smart-toggle-button .smart-container,

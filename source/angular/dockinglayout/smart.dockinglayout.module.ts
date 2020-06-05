@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { DockingLayoutComponent } from './smart.dockinglayout';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

@@ -202,7 +202,8 @@ smart-list-box .smart-loader.smart-hidden,
 smart-list-menu .smart-loader.smart-hidden,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-loader.smart-hidden,
 smart-tree .smart-loader.smart-hidden,
-smart-card-view .smart-loader.smart-hidden {
+smart-card-view .smart-loader.smart-hidden,
+smart-table .smart-loader.smart-hidden {
     display: none;
 }
 
@@ -211,7 +212,8 @@ smart-list-box .smart-loader,
 smart-list-menu .smart-loader,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-loader,
 smart-tree .smart-loader,
-smart-card-view .smart-loader {
+smart-card-view .smart-loader,
+smart-table .smart-loader {
     margin: inherit;
     display: block;
     position: absolute;
@@ -237,7 +239,8 @@ smart-list-menu[loading-indicator-position="center"] .smart-loader,
 .smart-list-menu-view.smart-drop-down-repositioned[loading-indicator-position="center"] .smart-loader,
 smart-tree .smart-loader,
 smart-tree[loading-indicator-position="center"] .smart-loader,
-smart-card-view .smart-loader {
+smart-card-view .smart-loader,
+smart-table .smart-loader {
     width: calc(var(--smart-loader-size) + 10px);
     height: calc(var(--smart-loader-size) + 10px);
 }
@@ -351,7 +354,9 @@ smart-list-menu .smart-loader::before,
 smart-tree .smart-loader::after,
 smart-tree .smart-loader::before,
 smart-card-view .smart-loader:before,
-smart-card-view .smart-loader:after {
+smart-card-view .smart-loader:after,
+smart-table .smart-loader:before,
+smart-table .smart-loader:after {
     content: "";
     position: absolute;
     margin: -6px;
@@ -360,10 +365,7 @@ smart-card-view .smart-loader:after {
     height: inherit;
     border-radius: inherit;
     opacity: 1;
-    border: inherit;
-    border-color: transparent;
-    border-top-color: transparent;
-    border-width: 6px;
+    border: 6px solid transparent;
     animation-delay: 0.44s;
     animation: smart-loader-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, smart-loader-spin-fade 1.1s linear infinite;
 }

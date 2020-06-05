@@ -87,11 +87,11 @@ export class TabItemComponent extends BaseElement implements OnInit, AfterViewIn
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -101,7 +101,7 @@ export class TabItemComponent extends BaseElement implements OnInit, AfterViewIn
 
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
-	
+
 	ngOnDestroy() {	}
 
 	ngOnChanges(changes: SimpleChanges) {

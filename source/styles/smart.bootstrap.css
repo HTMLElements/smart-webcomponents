@@ -10764,7 +10764,7 @@
 	width: 100%;
 }
 
-bootstrap-radio,
+bootstrap-radio-button,
 bootstrap-check-box,
 bootstrap-switch-button,
 bootstrap-button,
@@ -10773,7 +10773,7 @@ bootstrap-range,
 bootstrap-drop-down,
 bootstrap-split-button,
 bootstrap-file-input,
-bootstrap-progress,
+bootstrap-progress-bar,
 bootstrap-circular,
 bootstrap-textarea,
 bootstrap-tabs,
@@ -10815,7 +10815,7 @@ bootstrap-range.form-component,
 bootstrap-drop-down.form-component,
 bootstrap-split-button.form-component,
 bootstrap-file-input.form-component,
-bootstrap-progress.form-component,
+bootstrap-progress-bar.form-component,
 bootstrap-circular.form-component,
 bootstrap-tabs.form-component,
 bootstrap-input.form-component,
@@ -10830,12 +10830,12 @@ bootstrap-modal.form-component {
 	top: 2px;
 }
 
-bootstrap-progress {
+bootstrap-progress-bar {
 	min-width: 200px;
 }
 
 bootstrap-textarea .smart-container,
-bootstrap-progress .smart-container,
+bootstrap-progress-bar .smart-container,
 bootstrap-circular .smart-container,
 bootstrap-input .smart-container {
 	width: 100%;
@@ -10853,10 +10853,10 @@ bootstrap-input .smart-container {
 .smart bootstrap-input-group > .input-group > *,
 .smart bootstrap-input-group > .input-group > * > *,
 .smart bootstrap-input-group > .input-group > * > * > * {
-	border-top-left-radius: 0px; !important;
-	border-top-right-radius: 0px; !important;
-	border-bottom-left-radius: 0px; !important;
-	border-bottom-right-radius: 0px; !important;
+	border-top-left-radius: 0px !important;
+	border-top-right-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
 }
 
 .smart.material .input-group > div,

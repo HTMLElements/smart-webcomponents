@@ -1,11 +1,37 @@
+:root {
+    --smart-table-default-width: 100%;
+    /* smartTable default width */
+    --smart-table-default-height: auto;
+    /* smartTable default height */
+    --smart-table-max-height: unset;
+    --smart-table-header-footer-height: 56px;
+    --smart-table-column-header-height: var(--smart-table-header-footer-height);
+    --smart-table-row-height: 48px;
+    --smart-table-cell-padding: 12px;
+    --smart-table-indent: 30px;
+    --smart-table-arrow-size: 16px;
+    --smart-table-arrow-margin: 5px;
+}
 
 smart-table {
-    width: 100%;
+    display: block;
+    border: var(--smart-border-width) solid var(--smart-border);
+    border-radius: var(--smart-border-top-left-radius) var(--smart-border-top-right-radius) var(--smart-border-bottom-right-radius) var(--smart-border-bottom-left-radius);
+    width: var(--smart-table-default-width);
     max-width: 100%;
+    height: var(--smart-table-default-height);
+    max-height: var(--smart-table-max-height);
     margin-bottom: 1rem;
     background-color: transparent;
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
+}
+
+smart-table>.smart-container {
+    position: relative;
+    overflow: auto;
+    border-radius: inherit;
+    max-height: calc(var(--smart-table-max-height) - 2 * var(--smart-border-width));
 }
 
 .smart-table-container {
@@ -13,63 +39,129 @@ smart-table {
     height: 100%;
 }
 
+smart-table[paging] .smart-table-container {
+    height: calc(100% - var(--smart-table-header-footer-height));
+}
+
+smart-table[filtering]:not([filter-row]) .smart-table-container {
+    height: calc(100% - var(--smart-table-header-footer-height));
+}
+
+smart-table[paging][filtering]:not([filter-row]) .smart-table-container {
+    height: calc(100% - 2 * var(--smart-table-header-footer-height));
+}
+
+smart-table table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: inherit;
+}
+
+smart-table table:not(.smart-table-container) {
+    display: none;
+}
+
+smart-table thead tr {
+    height: var(--smart-table-column-header-height);
+}
+
+smart-table tbody tr,
+smart-table tfoot tr {
+    height: var(--smart-table-row-height);
+}
+
 smart-table th,
 smart-table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
+    padding-top: var(--smart-table-cell-padding);
+    padding-right: var(--smart-table-cell-padding);
+    padding-bottom: var(--smart-table-cell-padding);
+    padding-left: var(--smart-table-cell-padding);
+    vertical-align: middle;
+    border-top-width: var(--smart-border-width);
+    border-top-style: solid;
+    border-top-color: var(--smart-border);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+smart-table thead th,
+smart-table tfoot td {
+    font-size: calc(var(--smart-font-size) - 2px);
+}
+
+smart-table tr[row-id] td {
+    line-height: calc(var(--smart-table-row-height) - 2 * var(--smart-table-cell-padding) - var(--smart-border-width));
+    white-space: nowrap;
+}
+
+smart-table td.no-edit {
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 smart-table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
+    border-bottom: var(--smart-border-width) solid #dee2e6;
+    text-align: left;
+    font-weight: 500;
 }
 
-    smart-table thead th .sort-by {
-        padding-right: 18px;
-        position: relative;
-        user-select: none;
-    }
-
-        smart-table thead th .sort-by.asc:before,
-        smart-table thead th .sort-by.desc:after {
-            border: 4px solid transparent;
-            content: "";
-            display: block;
-            height: 0;
-            right: 5px;
-            top: 50%;
-            position: absolute;
-            width: 0;
-        }
-
-        smart-table thead th .sort-by.asc:before {
-            border-bottom-color: #666;
-            margin-top: -5px;
-        }
-
-        smart-table thead th .sort-by.desc:after {
-            border-top-color: #666;
-            margin-top: 1px;
-        }
-
-smart-table.table-dark thead th .sort-by.asc:before {
-    border-bottom-color: #fff;
+smart-table thead th:not(.smart-table-select-all) {
+    opacity: 0.9;
 }
 
-smart-table.table-dark thead th .sort-by.desc:after {
-    border-top-color: #fff;
+smart-table[column-reorder] thead th {
+    touch-action: none;
 }
 
-smart-table.thead-dark th .sort-by.asc:before {
-    border-bottom-color: #fff;
+smart-table thead th .sort-by {
+    display: inline-block;
+    position: relative;
+    visibility: hidden;
+    width: 16px;
+    height: 16px;
+    user-select: none;
+    opacity: 0;
+    transition: transform 0.5s ease-out, visibility 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-smart-table.thead-dark thead th .sort-by.desc:after {
-    border-top-color: #fff;
+smart-table thead th .sort-by.asc,
+smart-table thead th .sort-by.desc {
+    visibility: visible;
+    opacity: 1;
 }
 
-smart-table tbody + tbody {
+smart-table thead th .sort-by::before {
+    content: var(--smart-icon-up);
+    width: 100%;
+    height: 100%;
+    font-family: var(--smart-font-family-icon);
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--smart-arrow-size);
+    color: inherit;
+    text-decoration: inherit;
+    font-variant: normal;
+    text-transform: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+smart-table thead th .sort-by.desc {
+    transform: rotateX(180deg);
+}
+
+smart-table thead tr:first-child th {
+    border-top: none;
+}
+
+smart-table.table-dark thead th .sort-by::before,
+smart-table.thead-dark thead th .sort-by::before {
+    color: #fff;
+}
+
+smart-table tbody+tbody {
     border-top: 2px solid #dee2e6;
 }
 
@@ -83,18 +175,18 @@ smart-table smart-table {
 }
 
 smart-table.table-bordered table {
-    border: 1px solid #dee2e6;
+    border: var(--smart-border-width) solid #dee2e6;
 }
 
-    smart-table.table-bordered table th,
-    smart-table.table-bordered table td {
-        border: 1px solid #dee2e6;
-    }
+smart-table.table-bordered table th,
+smart-table.table-bordered table td {
+    border: var(--smart-border-width) solid #dee2e6;
+}
 
-    smart-table.table-bordered table thead th,
-    smart-table.table-bordered table thead td {
-        border-bottom-width: 2px;
-    }
+smart-table.table-bordered table thead th,
+smart-table.table-bordered table thead td {
+    border-bottom-width: 2px;
+}
 
 smart-table.table-striped table tbody tr:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0.05);
@@ -105,8 +197,8 @@ smart-table.table-hover table tbody tr:hover {
 }
 
 .smart-table-primary,
-.smart-table-primary > th,
-.smart-table-primary > td {
+.smart-table-primary>th,
+.smart-table-primary>td {
     background-color: #b8daff;
 }
 
@@ -114,14 +206,14 @@ smart-table.table-hover table .smart-table-primary:hover {
     background-color: #9fcdff;
 }
 
-    smart-table.table-hover table .smart-table-primary:hover > td,
-    smart-table.table-hover table .smart-table-primary:hover > th {
-        background-color: #9fcdff;
-    }
+smart-table.table-hover table .smart-table-primary:hover>td,
+smart-table.table-hover table .smart-table-primary:hover>th {
+    background-color: #9fcdff;
+}
 
 .smart-table-secondary,
-.smart-table-secondary > th,
-.smart-table-secondary > td {
+.smart-table-secondary>th,
+.smart-table-secondary>td {
     background-color: #d6d8db;
 }
 
@@ -129,14 +221,14 @@ smart-table.table-hover table .smart-table-secondary:hover {
     background-color: #c8cbcf;
 }
 
-    smart-table.table-hover table .smart-table-secondary:hover > td,
-    smart-table.table-hover table .smart-table-secondary:hover > th {
-        background-color: #c8cbcf;
-    }
+smart-table.table-hover table .smart-table-secondary:hover>td,
+smart-table.table-hover table .smart-table-secondary:hover>th {
+    background-color: #c8cbcf;
+}
 
 .smart-table-success,
-.smart-table-success > th,
-.smart-table-success > td {
+.smart-table-success>th,
+.smart-table-success>td {
     background-color: #c3e6cb;
 }
 
@@ -144,14 +236,14 @@ smart-table.table-hover table .smart-table-success:hover {
     background-color: #b1dfbb;
 }
 
-    smart-table.table-hover table .smart-table-success:hover > td,
-    smart-table.table-hover table .smart-table-success:hover > th {
-        background-color: #b1dfbb;
-    }
+smart-table.table-hover table .smart-table-success:hover>td,
+smart-table.table-hover table .smart-table-success:hover>th {
+    background-color: #b1dfbb;
+}
 
 .smart-table-info,
-.smart-table-info > th,
-.smart-table-info > td {
+.smart-table-info>th,
+.smart-table-info>td {
     background-color: #bee5eb;
 }
 
@@ -159,14 +251,14 @@ smart-table.table-hover table .smart-table-info:hover {
     background-color: #abdde5;
 }
 
-    smart-table.table-hover table .smart-table-info:hover > td,
-    smart-table.table-hover table .smart-table-info:hover > th {
-        background-color: #abdde5;
-    }
+smart-table.table-hover table .smart-table-info:hover>td,
+smart-table.table-hover table .smart-table-info:hover>th {
+    background-color: #abdde5;
+}
 
 .smart-table-warning,
-.smart-table-warning > th,
-.smart-table-warning > td {
+.smart-table-warning>th,
+.smart-table-warning>td {
     background-color: #ffeeba;
 }
 
@@ -174,14 +266,14 @@ smart-table.table-hover table .smart-table-warning:hover {
     background-color: #ffe8a1;
 }
 
-    smart-table.table-hover table .smart-table-warning:hover > td,
-    smart-table.table-hover table .smart-table-warning:hover > th {
-        background-color: #ffe8a1;
-    }
+smart-table.table-hover table .smart-table-warning:hover>td,
+smart-table.table-hover table .smart-table-warning:hover>th {
+    background-color: #ffe8a1;
+}
 
 .smart-table-danger,
-.smart-table-danger > th,
-.smart-table-danger > td {
+.smart-table-danger>th,
+.smart-table-danger>td {
     background-color: #f5c6cb;
 }
 
@@ -189,14 +281,14 @@ smart-table.table-hover table .smart-table-danger:hover {
     background-color: #f1b0b7;
 }
 
-    smart-table.table-hover table .smart-table-danger:hover > td,
-    smart-table.table-hover table .smart-table-danger:hover > th {
-        background-color: #f1b0b7;
-    }
+smart-table.table-hover table .smart-table-danger:hover>td,
+smart-table.table-hover table .smart-table-danger:hover>th {
+    background-color: #f1b0b7;
+}
 
 smart-table.table-light table,
-smart-table.table-light table > th,
-smart-table.table-light table > td {
+smart-table.table-light table>th,
+smart-table.table-light table>td {
     background-color: #fdfdfe;
 }
 
@@ -204,14 +296,14 @@ smart-table.table-hover table smart-table.table-light table:hover {
     background-color: #ececf6;
 }
 
-    smart-table.table-hover table smart-table.table-light table:hover > td,
-    smart-table.table-hover table smart-table.table-light table:hover > th {
-        background-color: #ececf6;
-    }
+smart-table.table-hover table smart-table.table-light table:hover>td,
+smart-table.table-hover table smart-table.table-light table:hover>th {
+    background-color: #ececf6;
+}
 
 smart-table.table-dark table,
-smart-table.table-dark table > th,
-smart-table.table-dark table > td {
+smart-table.table-dark table>th,
+smart-table.table-dark table>td {
     background-color: #c6c8ca;
 }
 
@@ -219,14 +311,14 @@ smart-table.table-hover table smart-table.table-dark table:hover {
     background-color: #b9bbbe;
 }
 
-    smart-table.table-hover table smart-table.table-dark table:hover > td,
-    smart-table.table-hover table smart-table.table-dark table:hover > th {
-        background-color: #b9bbbe;
-    }
+smart-table.table-hover table smart-table.table-dark table:hover>td,
+smart-table.table-hover table smart-table.table-dark table:hover>th {
+    background-color: #b9bbbe;
+}
 
 .smart-table-active,
-.smart-table-active > th,
-.smart-table-active > td {
+.smart-table-active>th,
+.smart-table-active>td {
     background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -234,10 +326,10 @@ smart-table.table-hover table .smart-table-active:hover {
     background-color: rgba(0, 0, 0, 0.075);
 }
 
-    smart-table.table-hover table .smart-table-active:hover > td,
-    smart-table.table-hover table .smart-table-active:hover > th {
-        background-color: rgba(0, 0, 0, 0.075);
-    }
+smart-table.table-hover table .smart-table-active:hover>td,
+smart-table.table-hover table .smart-table-active:hover>th {
+    background-color: rgba(0, 0, 0, 0.075);
+}
 
 smart-table.thead-dark table th {
     color: #fff;
@@ -274,11 +366,11 @@ smart-table.table-dark table {
     background-color: #212529;
 }
 
-    smart-table.table-dark table th,
-    smart-table.table-dark table td,
-    smart-table.table-dark table thead th {
-        border-color: #32383e;
-    }
+smart-table.table-dark table th,
+smart-table.table-dark table td,
+smart-table.table-dark table thead th {
+    border-color: #32383e;
+}
 
 smart-table.table-dark.table-bordered table {
     border: 0;
@@ -301,9 +393,9 @@ smart-table.table-dark.table-hover table tbody tr:hover {
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
-        smart-table.table-responsive-sm > smart-table.table-bordered table {
-            border: 0;
-        }
+    smart-table.table-responsive-sm>smart-table.table-bordered table {
+        border: 0;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -315,9 +407,9 @@ smart-table.table-dark.table-hover table tbody tr:hover {
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
-        smart-table.table-responsive-md > smart-table.table-bordered table {
-            border: 0;
-        }
+    smart-table.table-responsive-md>smart-table.table-bordered table {
+        border: 0;
+    }
 }
 
 @media (max-width: 991.98px) {
@@ -329,9 +421,9 @@ smart-table.table-dark.table-hover table tbody tr:hover {
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
-        smart-table.table-responsive-lg > smart-table.table-bordered table {
-            border: 0;
-        }
+    smart-table.table-responsive-lg>smart-table.table-bordered table {
+        border: 0;
+    }
 }
 
 @media (max-width: 1199.98px) {
@@ -343,9 +435,9 @@ smart-table.table-dark.table-hover table tbody tr:hover {
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
-        smart-table.table-responsive-xl > smart-table.table-bordered table {
-            border: 0;
-        }
+    smart-table.table-responsive-xl>smart-table.table-bordered table {
+        border: 0;
+    }
 }
 
 smart-table.table-responsive {
@@ -356,14 +448,694 @@ smart-table.table-responsive {
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-    smart-table.table-responsive > smart-table.table-bordered table {
-        border: 0;
-    }
+smart-table.table-responsive>smart-table.table-bordered table {
+    border: 0;
+}
 
 /* --- Right To Left*/
 
-smart-table[right-to-left] > .smart-container {
+smart-table[right-to-left]>.smart-container {
     direction: rtl;
 }
 
+smart-table[right-to-left] thead th {
+    text-align: right;
+}
+
 /* --- */
+
+smart-table smart-pager.smart-element {
+    display: none;
+    height: var(--smart-table-header-footer-height);
+    background-color: var(--smart-background);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    position: sticky;
+    left: 0;
+    bottom: 0;
+}
+
+smart-table smart-pager .smart-container {
+    justify-content: flex-end;
+}
+
+smart-table smart-pager .smart-pager-near-buttons-container,
+smart-table smart-pager .smart-pager-far-buttons-container {
+    font-size: calc(var(--smart-font-size) * 2);
+}
+
+smart-table smart-pager .smart-pager-size-selector-and-label-container {
+    order: 0;
+}
+
+smart-table smart-pager .smart-pager-label {
+    font-size: calc(var(--smart-font-size) - 2px);
+    opacity: 0.7;
+}
+
+smart-table smart-pager .smart-pager-summary-container.smart-pager-label {
+    order: 1;
+    margin: 0 32px 0 24px;
+}
+
+smart-table smart-pager .smart-pager-near-buttons-container.near {
+    order: 2;
+}
+
+smart-table smart-pager .smart-pager-near-buttons-container.far {
+    order: 3;
+}
+
+smart-table .smart-pager .smart-pager-button {
+    overflow: visible;
+}
+
+smart-table smart-pager .smart-pager-button::before {
+    content: attr(tooltip);
+    visibility: hidden;
+    position: absolute;
+    top: -125%;
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    padding: 7px;
+    background-color: var(--smart-secondary);
+    color: var(--smart-secondary-color);
+    font-size: calc(var(--smart-font-size) - 4px);
+    opacity: 0;
+    transform: scale(0);
+    transition: visibility 0.2s ease-out, opacity 0.2s ease-out, transform 0.1s ease-out;
+}
+
+smart-table smart-pager .smart-pager-button:hover::before {
+    visibility: visible;
+    opacity: 0.7;
+    transform: scale(1);
+}
+
+smart-table[paging] smart-pager,
+smart-table[filtering] .smart-table-header {
+    display: block;
+}
+
+smart-table .smart-table-header {
+    height: var(--smart-table-header-footer-height);
+    display: none;
+    position: sticky;
+    left: 0;
+    top: 0;
+    background-color: var(--smart-background);
+    z-index: 1;
+}
+
+smart-table .smart-table-header .smart-input,
+smart-table .smart-table-header .smart-table-filter-template-container {
+    width: 100%;
+    height: 100%;
+}
+
+smart-table .smart-table-filter-row>td.no-filter {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+smart-table .smart-table-filter-row>td>div {
+    display: grid;
+    grid-template-columns: 1fr 30px 30px;
+    column-gap: 2px;
+}
+
+smart-table .smart-table-filter-row .filter-value {
+    min-width: 0;
+    border: var(--smart-border-width) solid var(--smart-border);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    padding: var(--smart-editor-label-padding);
+    background-color: var(--smart-background);
+    color: var(--smart-background-color);
+    font-family: inherit;
+    font-size: inherit;
+}
+
+smart-table .smart-table-filter-row .filter-value:hover {
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+smart-table .smart-table-filter-row .filter-value:focus {
+    outline: none;
+    border-color: var(--smart-outline);
+}
+
+smart-table .smart-table-filter-row .smart-input {
+    --smart-editor-addon-width: 100%;
+    --smart-editor-label-padding: 0;
+    width: unset;
+}
+
+smart-table .smart-table-filter-row .smart-input .smart-drop-down-button {
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+}
+
+smart-table .smart-table-filter-row .smart-input .smart-drop-down-button .arrow:after {
+    content: var(--smart-icon-filter);
+    transform: none;
+}
+
+smart-table .smart-table-filter-row smart-button {
+    --smart-button-padding: 0;
+}
+
+smart-table .smart-table-filter-row smart-button button::after {
+    content: var(--smart-icon-filter);
+    font-family: var(--smart-font-family-icon);
+    width: 100%;
+    height: 100%;
+    text-decoration: line-through;
+}
+
+smart-table[loading] tbody td {
+    opacity: 0;
+}
+
+smart-table th.smart-table-select-all {
+    width: calc(var(--smart-check-box-default-size) * 3);
+}
+
+smart-table th.smart-table-select-all>div,
+smart-table td.smart-table-select-row>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: var(--smart-border-width) solid var(--smart-secondary);
+    width: var(--smart-check-box-default-size);
+    height: var(--smart-check-box-default-size);
+    padding: 2px;
+    color: var(--smart-primary-color);
+    font-family: var(--smart-font-family-icon);
+    cursor: pointer;
+}
+
+smart-table th.smart-table-select-all.selected>div,
+smart-table td.smart-table-select-row.selected>div {
+    border-color: var(--smart-primary);
+    background-color: var(--smart-primary);
+}
+
+smart-table th.smart-table-select-all.selected>div::after,
+smart-table td.smart-table-select-row.selected>div::after {
+    content: var(--smart-icon-check);
+}
+
+smart-table th.smart-table-select-all.indeterminate>div {
+    background-color: var(--smart-primary);
+}
+
+smart-table th.smart-table-select-all.indeterminate>div::after {
+    content: '';
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    background-color: var(--smart-primary-color);
+}
+
+smart-table th.smart-table-select-all>div::before,
+smart-table td.smart-table-select-row>div::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--smart-secondary);
+    opacity: 0.1;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+smart-table th.smart-table-select-all.selected>div::before,
+smart-table td.smart-table-select-row.selected>div::before {
+    background-color: var(--smart-primary);
+}
+
+smart-table th.smart-table-select-all>div:hover::before,
+smart-table td.smart-table-select-row>div:hover::before {
+    transform: scale(2.5);
+}
+
+smart-table th.smart-table-select-all>div:hover:active::before,
+smart-table td.smart-table-select-row>div:hover:active::before {
+    background-color: var(--smart-primary);
+    animation-name: active;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes active {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(2.5);
+    }
+}
+
+smart-table.thead-primary th.smart-table-select-all>div,
+smart-table.thead-primary th.smart-table-select-all.selected>div {
+    border-color: var(--smart-primary-color);
+}
+
+smart-table.thead-primary th.smart-table-select-all.indeterminate>div {
+    background-color: var(--smart-primary-color);
+}
+
+smart-table .disable-select td.smart-table-select-row>div {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+.smart-table-feedback {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--smart-elevation-8);
+    border: var(--smart-border-width) solid var(--smart-border);
+    border-radius: var(--smart-border-radius);
+    padding: 5px;
+    white-space: nowrap;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    background-color: var(--smart-background);
+    color: var(--smart-background-color);
+    z-index: 10000;
+    opacity: 0.85;
+}
+
+smart-table[column-reorder] th[data-field] {
+    cursor: move;
+}
+
+smart-table .dragged,
+smart-table .drop-target {
+    position: relative;
+}
+
+smart-table .dragged::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5000px;
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
+    background-size: 3em 3em;
+    opacity: 0.8;
+}
+
+smart-table .drop-target:after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--smart-primary);
+    top: 0;
+}
+
+smart-table .drop-target.left:after {
+    left: 0;
+}
+
+smart-table .drop-target.right:after {
+    right: 0;
+}
+
+smart-table[freeze-header] thead th,
+smart-table[freeze-footer] tfoot td,
+smart-table .freeze-near,
+smart-table .freeze-far {
+    background-color: var(--smart-background);
+    position: sticky;
+    opacity: 1;
+    z-index: 1;
+}
+
+smart-table[freeze-header] thead th {
+    border-bottom: none;
+    top: 0;
+    box-shadow: 0px 1px 0px 0px var(--smart-border);
+    z-index: 100;
+}
+
+smart-table[freeze-header] thead tr:nth-child(2)>th {
+    top: var(--smart-table-column-header-height);
+}
+
+smart-table[freeze-header] thead tr:nth-child(3)>th {
+    top: calc(2 * var(--smart-table-column-header-height));
+}
+
+smart-table[freeze-header][filtering]:not([filter-row]) thead th {
+    top: var(--smart-table-header-footer-height);
+}
+
+smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(2)>th {
+    top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
+}
+
+smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(3)>th {
+    top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
+}
+
+smart-table[freeze-header] thead th.freeze-near {
+    box-shadow: 1px 1px 0px 0px var(--smart-border);
+}
+
+smart-table[freeze-header] thead th.freeze-far {
+    box-shadow: -1px 1px 0px 0px var(--smart-border);
+}
+
+smart-table[freeze-footer] tfoot td.freeze-near {
+    box-shadow: 1px -1px 0px 0px var(--smart-border);
+}
+
+smart-table[freeze-footer] tfoot td.freeze-far {
+    box-shadow: -1px -1px 0px 0px var(--smart-border);
+}
+
+smart-table[freeze-footer] tfoot td {
+    border-top: none;
+    bottom: 0;
+    box-shadow: 0px -1px 0px 0px var(--smart-border);
+    z-index: 100;
+}
+
+smart-table[freeze-footer] tfoot tr:nth-last-child(2) td {
+    bottom: var(--smart-table-row-height);
+}
+
+smart-table[freeze-footer] tfoot tr:nth-last-child(3) td {
+    bottom: calc(2 * var(--smart-table-row-height));
+}
+
+smart-table[freeze-footer][paging] tfoot td {
+    bottom: var(--smart-table-header-footer-height);
+}
+
+smart-table[freeze-footer][paging] tfoot tr:nth-last-child(2) td {
+    bottom: calc(var(--smart-table-row-height) + var(--smart-table-header-footer-height));
+}
+
+smart-table[freeze-footer][paging] tfoot tr:nth-last-child(3) td {
+    bottom: calc(2 * var(--smart-table-row-height) + var(--smart-table-header-footer-height));
+}
+
+smart-table .freeze-near {
+    left: 0;
+    box-shadow: 1px 0px 0px 0px var(--smart-border);
+}
+
+smart-table .freeze-far {
+    right: 0;
+    box-shadow: -1px 0px 0px 0px var(--smart-border);
+}
+
+smart-table thead th.freeze-near,
+smart-table thead th.freeze-far {
+    opacity: 1;
+}
+
+smart-table[freeze-header] thead th.freeze-near,
+smart-table[freeze-header] thead th.freeze-far,
+smart-table[freeze-footer] tfoot td.freeze-near,
+smart-table[freeze-footer] tfoot td.freeze-far {
+    z-index: 200;
+}
+
+smart-table.table-elevation {
+    border: none;
+    border-radius: unset;
+    box-shadow: var(--smart-elevation-8);
+}
+
+smart-table td.editing {
+    padding: 0;
+}
+
+smart-table td.editing .smart-table-editor {
+    width: 100%;
+    height: 100%;
+}
+
+smart-table td.editing .smart-table-editor.standard {
+    border: var(--smart-border-width) solid var(--smart-border);
+    padding: var(--smart-table-cell-padding);
+    font-family: inherit;
+    font-size: inherit;
+}
+
+smart-table td.editing .smart-table-editor.standard:focus {
+    border: var(--smart-border-width) solid var(--smart-border);
+    outline: none;
+}
+
+@media only screen and (max-width: 1280px) {
+    smart-table .priority-5 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    smart-table .priority-4 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    smart-table .priority-3 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    smart-table .priority-2 {
+        display: none;
+    }
+}
+
+smart-table[row-detail-template] tr[row-id] {
+    cursor: pointer;
+}
+
+smart-table .smart-table-row-detail>td {
+    border: none;
+    padding: 0;
+}
+
+smart-table .smart-table-row-detail .smart-table-detail-container {
+    padding: var(--smart-table-cell-padding);
+}
+
+smart-table .smart-table-row-detail.collapsed {
+    height: 0;
+}
+
+smart-table .smart-table-row-detail.collapsed .smart-table-detail-container {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+smart-table:not([animation="none"]) .smart-table-row-detail {
+    transition: height 0.2s ease-in-out;
+}
+
+smart-table:not([animation="none"]) .smart-table-row-detail .smart-table-detail-container {
+    transition: height 0.2s ease-in-out, padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out;
+}
+
+smart-table td.group-header>div,
+smart-table td.tree-cell>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+smart-table .hierarchy-arrow {
+    margin-right: var(--smart-table-arrow-margin);
+    width: var(--smart-table-arrow-size);
+    cursor: pointer;
+}
+
+smart-table:not([animation="none"]) .hierarchy-arrow {
+    transition: transform 0.2s ease-in-out;
+}
+
+smart-table .outline-level-1 {
+    padding-left: var(--smart-table-indent);
+}
+
+smart-table .outline-level-2 {
+    padding-left: calc(2 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-3 {
+    padding-left: calc(3 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-4 {
+    padding-left: calc(4 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-5 {
+    padding-left: calc(5 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-6 {
+    padding-left: calc(6 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-7 {
+    padding-left: calc(7 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-8 {
+    padding-left: calc(8 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-9 {
+    padding-left: calc(9 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-10 {
+    padding-left: calc(10 * var(--smart-table-indent));
+}
+
+smart-table .outline-level-1.tree-leaf {
+    padding-left: calc(var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-2.tree-leaf {
+    padding-left: calc(2 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-3.tree-leaf {
+    padding-left: calc(3 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-4.tree-leaf {
+    padding-left: calc(4 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-5.tree-leaf {
+    padding-left: calc(5 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-6.tree-leaf {
+    padding-left: calc(6 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-7.tree-leaf {
+    padding-left: calc(7 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-8.tree-leaf {
+    padding-left: calc(8 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-9.tree-leaf {
+    padding-left: calc(9 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .outline-level-10.tree-leaf {
+    padding-left: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+
+smart-table .group-label-value {
+    font-weight: bold;
+}
+
+smart-table tr.expanded .hierarchy-arrow {
+    transform: rotate(180deg);
+}
+
+smart-table tbody tr.last-visible {
+    height: unset;
+}
+
+smart-table[hierarchy] tr[row-id] td {
+    transform: scaleY(1);
+}
+
+smart-table[hierarchy] tr.collapsed[row-id] {
+    height: 0;
+}
+
+smart-table[hierarchy] tr.collapsed[row-id] td {
+    border-top-width: 0;
+    border-top-color: transparent;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 0;
+    transform: scaleY(0);
+}
+
+smart-table[hierarchy] tr[row-id].no-height td {
+    line-height: 0;
+}
+
+smart-table[hierarchy]:not([animation="none"]) tr[row-id] {
+    transition: height 0.2s ease-in-out;
+}
+
+smart-table:not([animation="none"]) tr[row-id] td:not(.editing) {
+    transition: padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out, transform 0.2s ease-in-out, border-top-color 0.2s ease-in-out;
+}
+
+smart-table td.editing.invalid {
+    position: relative;
+    overflow: visible;
+}
+
+smart-table td.editing.invalid::before {
+    content: attr(validation-message);
+    visibility: hidden;
+    position: absolute;
+    top: -100%;
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    padding: 7px;
+    background-color: var(--smart-error);
+    color: var(--smart-secondary-color);
+    font-size: calc(var(--smart-font-size) - 4px);
+    opacity: 0;
+    transform: scale(0);
+    transition: visibility 0.2s ease-in-out, opacity 0.2s ease-out, transform 0.1s ease-out;
+}
+
+smart-table td.editing.invalid:hover::before {
+    visibility: visible;
+    opacity: 0.7;
+    transform: scale(1);
+}
+
+smart-table td.editing.invalid .smart-table-editor {
+    border-color: var(--smart-error);
+}
+
+smart-table .smart-table-container:focus {
+    outline: none;
+}
+
+smart-table .smart-table-container:focus td[focus] {
+    box-shadow: inset 0px 0px 0px 1px var(--smart-ui-state-color-focus);
+}

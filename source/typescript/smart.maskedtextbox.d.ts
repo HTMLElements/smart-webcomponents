@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- MaskedTextBox uses a mask to control the input of the user.
-*/
-export interface MaskedTextBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MaskedTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -189,19 +183,27 @@ export interface MaskedTextBox extends BaseElement {
    * Default value: null
    */
   validation?: any;
-  /** 
+}
+/**
+ MaskedTextBox uses a mask to control the input of the user.
+*/
+export interface MaskedTextBox extends BaseElement, MaskedTextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the Text Box is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, newValue)
    *  oldValue - The previous value before it was changed.
    *  newValue - The new value.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered if the <b>validation</b> property is set. Indicates whether valiation has passed successfully or not.
 	* @param event. The custom event. Custom data event was created with: ev.detail(success)
    *  success - A flag inidicating whether the validation was successfull or not.
    */
-  onValidation?: ((this: any, ev: Event) => any) | null;
+  onValidation?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Focuses the element. 
    */
@@ -212,13 +214,13 @@ export interface MaskedTextBox extends BaseElement {
   blur(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-masked-text-box"): MaskedTextBox;
-			querySelector(selectors: "smart-masked-text-box"): MaskedTextBox | null;	
-			querySelectorAll(selectors: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;
-			getElementsByTagName(qualifiedName: "smart-masked-text-box"): HTMLCollectionOf<MaskedTextBox>;
-			getElementsByName(elementName: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;	
+        createElement(tagName: "smart-masked-text-box"): MaskedTextBox;
+        querySelector(selectors: "smart-masked-text-box"): MaskedTextBox | null;
+        querySelectorAll(selectors: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;
+        getElementsByTagName(qualifiedName: "smart-masked-text-box"): HTMLCollectionOf<MaskedTextBox>;
+        getElementsByName(elementName: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;
     }
 }
 

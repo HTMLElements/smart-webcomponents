@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Defines a list item for ListBox, ComboBox, DropDownList.
-*/
-export interface ListItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemProperties {
   /**
    * 
    * Default value: -1
@@ -63,50 +57,54 @@ export interface ListItem extends BaseElement {
    */
   readonly?: boolean;
 }
+/**
+ Defines a list item for ListBox, ComboBox, DropDownList.
+*/
+export interface ListItem extends BaseElement, ListItemProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-item"): ListItem;
-			querySelector(selectors: "smart-list-item"): ListItem | null;	
-			querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
-			getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
-			getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;	
+        createElement(tagName: "smart-list-item"): ListItem;
+        querySelector(selectors: "smart-list-item"): ListItem | null;
+        querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
+        getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
+        getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;
     }
 }
 
 
 export declare type ListItemDisplayMode = 'plain' | 'checkBox' | 'radioButton';
-/**
- Defines a group of list items.
-*/
-export interface ListItemsGroup extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemsGroupProperties {
   /**
    * 
    * Default value: ""
    */
   label?: string;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-list-items-group"): ListItemsGroup;
-			querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;	
-			querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
-			getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;	
-    }
-}
-
 /**
- TextBox is an input field with auto-suggest options.
+ Defines a group of list items.
 */
-export interface TextBox extends BaseElement {
+export interface ListItemsGroup extends BaseElement, ListItemsGroupProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-list-items-group"): ListItemsGroup;
+        querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;
+        querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
+        getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+    }
+}
+
+export interface TextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -379,7 +377,15 @@ export interface TextBox extends BaseElement {
    * Default value: auto
    */
   verticalScrollBarVisibility?: VerticalScrollBarVisibility;
-  /** 
+}
+/**
+ TextBox is an input field with auto-suggest options.
+*/
+export interface TextBox extends BaseElement, TextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the Text Box is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value, type)
    *  oldValue - The previous value before it was changed.
@@ -401,13 +407,13 @@ export interface TextBox extends BaseElement {
   reset(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-text-box"): TextBox;
-			querySelector(selectors: "smart-text-box"): TextBox | null;	
-			querySelectorAll(selectors: "smart-text-box"): NodeListOf<TextBox>;
-			getElementsByTagName(qualifiedName: "smart-text-box"): HTMLCollectionOf<TextBox>;
-			getElementsByName(elementName: "smart-text-box"): NodeListOf<TextBox>;	
+        createElement(tagName: "smart-text-box"): TextBox;
+        querySelector(selectors: "smart-text-box"): TextBox | null;
+        querySelectorAll(selectors: "smart-text-box"): NodeListOf<TextBox>;
+        getElementsByTagName(qualifiedName: "smart-text-box"): HTMLCollectionOf<TextBox>;
+        getElementsByName(elementName: "smart-text-box"): NodeListOf<TextBox>;
     }
 }
 

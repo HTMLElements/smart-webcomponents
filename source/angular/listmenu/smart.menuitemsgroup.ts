@@ -123,11 +123,11 @@ export class MenuItemsGroupComponent extends BaseElement implements OnInit, Afte
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -137,7 +137,7 @@ export class MenuItemsGroupComponent extends BaseElement implements OnInit, Afte
 
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
-	
+
 	ngOnDestroy() {	}
 
 	ngOnChanges(changes: SimpleChanges) {

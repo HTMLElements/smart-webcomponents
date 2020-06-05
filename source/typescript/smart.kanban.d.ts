@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Kanban represents a kanban board that visually depicts work at various stages of a process using cards to represent tasks and columns to represent each stage of the process.
-*/
-export interface Kanban extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface KanbanProperties {
   /**
    * Toggles the visibility of the column buttons for adding tasks. A particular button can be disabled by setting addNewButton in the column's definition to false.
    * Default value: false
@@ -88,6 +82,11 @@ export interface Kanban extends BaseElement {
    */
   hierarchy?: KanbanHierarchy;
   /**
+   * Sets or gets the locale. Used in conjunction with the property messages.
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * { 'en': { 'addFilter': '+ Add filter', 'and': 'And', 'apply': 'Apply', 'booleanFirst': '☐', 'booleanLast': '☑', 'cancel': 'Cancel', 'CONTAINS': 'contains', 'CONTAINS_CASE_SENSITIVE': 'contains (case sensitive)', 'dateFirst': '1', 'dateLast': '9', 'DOES_NOT_CONTAIN': 'does not contain', 'DOES_NOT_CONTAIN_CASE_SENSITIVE': 'does not contain (case sensitive)', 'EMPTY': 'empty', 'ENDS_WITH': 'ends with', 'ENDS_WITH_CASE_SENSITIVE': 'ends with (case sensitive)', 'EQUAL': 'equal', 'EQUAL_CASE_SENSITIVE': 'equal (case sensitive)', 'filter': 'Filter', 'filteredByMultiple': '"?', 'remove': 'Remove', 'removeSubtask': 'Remove subtask', 'send': 'Send', 'startDate': 'Start date', 'status': 'Status', 'swimlane': 'Swimlane', 'tags': 'Tags', 'text': 'Text', 'userId': 'User ID', 'userIcon': 'User icon' } }
    */
@@ -168,11 +167,19 @@ export interface Kanban extends BaseElement {
    */
   userList?: boolean;
   /**
-   * Toggles the visibility of the task user icon.
-   * Default value: false
+   * Determines the users Kanban tasks can be assigned to and their characteristics and privileges.
+   * Default value: 
    */
   users?: KanbanUser[];
-  /** 
+}
+/**
+ Kanban represents a kanban board that visually depicts work at various stages of a process using cards to represent tasks and columns to represent each stage of the process.
+*/
+export interface Kanban extends BaseElement, KanbanProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a task has been updated.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, task, value)
    *  oldValue - The old data of the task
@@ -180,15 +187,15 @@ export interface Kanban extends BaseElement {
    *  value - The new data of the task
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the edit/prompt dialog is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the edit/prompt dialog is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a task is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
    *  container - the Kanban the dragged task(s) is dropped to
@@ -200,7 +207,7 @@ export interface Kanban extends BaseElement {
    *  target - the element the dragged tasks are dropped to
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the user is dragging a task.
 	* @param event. The custom event. Custom data event was created with: ev.detail(data, item, items, originalEvent)
    *  data - an object with additional drag details
@@ -208,8 +215,8 @@ export interface Kanban extends BaseElement {
    *  items - an array with all dragged tasks
    *  originalEvent - the original, browser, event that initiates the drag operation
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user starts dragging task(s). The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer)
    *  container - the Kanban the dragged task(s) is dragged from
@@ -220,26 +227,26 @@ export interface Kanban extends BaseElement {
    *  previousContainer - the Kanban the dragged item(s) is dragged from
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a filter has been applied.
 	* @param event. The custom event.    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the edit/prompt dialog is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the edit/prompt dialog is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(comment, purpose, task)
    *  comment - The comment that is about to be removed (if applicable).
    *  purpose - The purpose of the dialog to be opened - <em>'edit'</em> or <em>'prompt'</em>.
    *  task - The task that is about to be edited or removed (if applicable).
    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when sorting has been applied.
 	* @param event. The custom event.    */
-  onSort?: ((this: any, ev: Event) => any) | null;
+  onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds filtering
    * @param {string[]} filters. Filter information
@@ -362,9 +369,6 @@ export interface Kanban extends BaseElement {
 }
 
 export interface KanbanColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the column's button for adding tasks is visible. Works in conjunction with the Kanban property of the same name.
    * Default value: true
@@ -408,9 +412,6 @@ export interface KanbanColumn {
 }
 
 export interface KanbanDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The task's unique ID.
    * Default value: 
@@ -479,9 +480,6 @@ export interface KanbanDataSource {
 }
 
 export interface KanbanSwimlane {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The swimlane's color.
    * Default value: "null"
@@ -500,9 +498,6 @@ export interface KanbanSwimlane {
 }
 
 export interface KanbanUser {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets whether the user has a privilege to add or copy tasks.
    * Default value: true
@@ -545,13 +540,13 @@ export interface KanbanUser {
   name?: string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-kanban"): Kanban;
-			querySelector(selectors: "smart-kanban"): Kanban | null;	
-			querySelectorAll(selectors: "smart-kanban"): NodeListOf<Kanban>;
-			getElementsByTagName(qualifiedName: "smart-kanban"): HTMLCollectionOf<Kanban>;
-			getElementsByName(elementName: "smart-kanban"): NodeListOf<Kanban>;	
+        createElement(tagName: "smart-kanban"): Kanban;
+        querySelector(selectors: "smart-kanban"): Kanban | null;
+        querySelectorAll(selectors: "smart-kanban"): NodeListOf<Kanban>;
+        getElementsByTagName(qualifiedName: "smart-kanban"): HTMLCollectionOf<Kanban>;
+        getElementsByName(elementName: "smart-kanban"): NodeListOf<Kanban>;
     }
 }
 

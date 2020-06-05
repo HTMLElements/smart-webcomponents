@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { GaugeComponent } from './smart.gauge';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

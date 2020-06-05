@@ -513,11 +513,11 @@ export class SliderComponent extends BaseElement implements OnInit, AfterViewIni
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -528,7 +528,7 @@ export class SliderComponent extends BaseElement implements OnInit, AfterViewIni
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -586,16 +586,16 @@ export class SliderComponent extends BaseElement implements OnInit, AfterViewIni
 		that.eventHandlers['changeHandler'] = (event: CustomEvent) => { that.onChange.emit(event); }
 		that.nativeElement.addEventListener('change', that.eventHandlers['changeHandler']);
 
-		
+
         that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
-            that._onChange(that.nativeElement.value); 
+            that._onChange(that.nativeElement.value);
         };
         that.eventHandlers['blurModelHandler'] = (event: Event) => {
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-            if (that.nativeElement.querySelector('input')) {    
+            if (that.nativeElement.querySelector('input')) {
                 that.eventHandlers['keyupModelHandler'] = (event) => {
                     setTimeout(() => { that.eventHandlers['changeModelHandler'](event); }, 50);
                 };

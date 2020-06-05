@@ -229,11 +229,11 @@ export class LedComponent extends BaseElement implements OnInit, AfterViewInit, 
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -244,7 +244,7 @@ export class LedComponent extends BaseElement implements OnInit, AfterViewInit, 
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { RatingComponent } from './smart.rating';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

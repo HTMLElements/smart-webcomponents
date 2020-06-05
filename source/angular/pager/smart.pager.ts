@@ -237,6 +237,15 @@ export class PagerComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.unfocusable = value : undefined;
 	}
 
+	/** @description Gets/sets total number of records whose pagination the Pager controls. Useful when the Pager is part of a more complex element or application. */
+	@Input()
+	get totalRecords(): number {
+		return this.nativeElement ? this.nativeElement.totalRecords : undefined;
+	}
+	set totalRecords(value: number) {
+		this.nativeElement ? this.nativeElement.totalRecords = value : undefined;
+	}
+
 	/** @description This event is triggered when user selects a new item.
 	*  @param event. The custom event. 	*/
 	@Output() onChange: EventEmitter<CustomEvent> = new EventEmitter();
@@ -319,11 +328,11 @@ export class PagerComponent extends BaseElement implements OnInit, AfterViewInit
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -334,7 +343,7 @@ export class PagerComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

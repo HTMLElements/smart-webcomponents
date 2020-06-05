@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- DropDownButton displays any type of content like components, text, images, etc in a DropDown.
-*/
-export interface DropDownButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface DropDownButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -167,42 +161,50 @@ export interface DropDownButton extends BaseElement {
    * Default value: auto
    */
   verticalScrollBarVisibility?: VerticalScrollBarVisibility;
-  /** 
+}
+/**
+ DropDownButton displays any type of content like components, text, images, etc in a DropDown.
+*/
+export interface DropDownButton extends BaseElement, DropDownButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the action button. The action button is visible when the <strong>placeholder</strong> is set.
 	* @param event. The custom event.    */
-  onActionButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onActionButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user starts resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user finishes resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a new HTML node to the drop down.
    * @param {Node} node. The node to be appended
@@ -236,13 +238,13 @@ export interface DropDownButton extends BaseElement {
    scrollTo(options?: ScrollToOptions): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-drop-down-button"): DropDownButton;
-			querySelector(selectors: "smart-drop-down-button"): DropDownButton | null;	
-			querySelectorAll(selectors: "smart-drop-down-button"): NodeListOf<DropDownButton>;
-			getElementsByTagName(qualifiedName: "smart-drop-down-button"): HTMLCollectionOf<DropDownButton>;
-			getElementsByName(elementName: "smart-drop-down-button"): NodeListOf<DropDownButton>;	
+        createElement(tagName: "smart-drop-down-button"): DropDownButton;
+        querySelector(selectors: "smart-drop-down-button"): DropDownButton | null;
+        querySelectorAll(selectors: "smart-drop-down-button"): NodeListOf<DropDownButton>;
+        getElementsByTagName(qualifiedName: "smart-drop-down-button"): HTMLCollectionOf<DropDownButton>;
+        getElementsByName(elementName: "smart-drop-down-button"): NodeListOf<DropDownButton>;
     }
 }
 

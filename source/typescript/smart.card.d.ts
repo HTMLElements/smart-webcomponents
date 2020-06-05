@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Card component with header, footer and content sections.
-*/
-export interface Card extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CardProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -73,31 +67,39 @@ export interface Card extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Card component with header, footer and content sections.
+*/
+export interface Card extends BaseElement, CardProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the card is swiped bottom.
 	* @param event. The custom event.    */
-  onSwipebottom?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipebottom?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the card is swiped left.
 	* @param event. The custom event.    */
-  onSwipeleft?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the card is swiped right.
 	* @param event. The custom event.    */
-  onSwiperight?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the card is swiped top.
 	* @param event. The custom event.    */
-  onSwipetop?: ((this: any, ev: Event) => any) | null;
+  onSwipetop?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-card"): Card;
-			querySelector(selectors: "smart-card"): Card | null;	
-			querySelectorAll(selectors: "smart-card"): NodeListOf<Card>;
-			getElementsByTagName(qualifiedName: "smart-card"): HTMLCollectionOf<Card>;
-			getElementsByName(elementName: "smart-card"): NodeListOf<Card>;	
+        createElement(tagName: "smart-card"): Card;
+        querySelector(selectors: "smart-card"): Card | null;
+        querySelectorAll(selectors: "smart-card"): NodeListOf<Card>;
+        getElementsByTagName(qualifiedName: "smart-card"): HTMLCollectionOf<Card>;
+        getElementsByName(elementName: "smart-card"): NodeListOf<Card>;
     }
 }
 

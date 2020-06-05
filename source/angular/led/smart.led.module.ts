@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { LedComponent } from './smart.led';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

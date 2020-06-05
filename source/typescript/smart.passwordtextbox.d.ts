@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- PasswordTextBox lets the user enter a password with the text hidden.
-*/
-export interface PasswordTextBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface PasswordTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -161,7 +155,15 @@ export interface PasswordTextBox extends BaseElement {
    * Default value: ""
    */
   value?: string;
-  /** 
+}
+/**
+ PasswordTextBox lets the user enter a password with the text hidden.
+*/
+export interface PasswordTextBox extends BaseElement, PasswordTextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the element is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value of the element before it was changed.
@@ -178,13 +180,13 @@ export interface PasswordTextBox extends BaseElement {
   reset(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-password-text-box"): PasswordTextBox;
-			querySelector(selectors: "smart-password-text-box"): PasswordTextBox | null;	
-			querySelectorAll(selectors: "smart-password-text-box"): NodeListOf<PasswordTextBox>;
-			getElementsByTagName(qualifiedName: "smart-password-text-box"): HTMLCollectionOf<PasswordTextBox>;
-			getElementsByName(elementName: "smart-password-text-box"): NodeListOf<PasswordTextBox>;	
+        createElement(tagName: "smart-password-text-box"): PasswordTextBox;
+        querySelector(selectors: "smart-password-text-box"): PasswordTextBox | null;
+        querySelectorAll(selectors: "smart-password-text-box"): NodeListOf<PasswordTextBox>;
+        getElementsByTagName(qualifiedName: "smart-password-text-box"): HTMLCollectionOf<PasswordTextBox>;
+        getElementsByName(elementName: "smart-password-text-box"): NodeListOf<PasswordTextBox>;
     }
 }
 

@@ -96,6 +96,10 @@ smart-grid,
     content: var(--smart-icon-search);
 }
 
+.smart-icon-settings.smart-grid-icon:before {
+    content: var(--smart-icon-settings);
+}
+
 .smart-icon-visibility-off.smart-grid-icon:before {
     content: var(--smart-icon-visibility-off);
 }
@@ -189,6 +193,72 @@ smart-grid,
     content: var(--smart-icon-reload);
 }
 
+.smart-icon-contains.smart-grid-icon:before {
+    content: var(--smart-icon-contains);
+}
+
+.smart-icon-starts-with.smart-grid-icon:before {
+    content: var(--smart-icon-starts_with);
+}
+
+.smart-icon-ends-with.smart-grid-icon:before {
+    content: var(--smart-icon-ends_with);
+}
+
+.smart-icon-does-not-contain.smart-grid-icon:before {
+    content: var(--smart-icon-does_not_contain);
+}
+
+.smart-icon-equals.smart-grid-icon:before {
+    content: var(--smart-icon-equals);
+}
+
+.smart-icon-greater-than.smart-grid-icon:before {
+    content: var(--smart-icon-greater-than);
+}
+
+.smart-icon-greater-than-equal.smart-grid-icon:before {
+    content: var(--smart-icon-greater-than-equal);
+}
+
+.smart-icon-less-than.smart-grid-icon:before {
+    content: var(--smart-icon-less-than);
+}
+
+.smart-icon-less-than-equal.smart-grid-icon:before {
+    content: var(--smart-icon-less-than-equal);
+}
+
+.smart-icon-not-equal.smart-grid-icon:before {
+    content: var(--smart-icon-not-equal);
+}
+
+.smart-icon-percentage.smart-grid-icon:before {
+    content: var(--smart-icon-percentage);
+}
+
+.smart-icon-grip-vertical.smart-grid-icon:before {
+    content: var(--smart-icon-grip-vertical);
+}
+
+.smart-icon-between.smart-grid-icon:before {
+    content: var(--smart-icon-between);
+}
+
+.smart-icon-calendar.smart-grid-icon:before {
+    content: var(--smart-icon-calendar);
+}
+
+.smart-icon-attention.smart-grid-icon:before {
+    content: var(--smart-icon-attention);
+}
+.smart-icon-help-circled.smart-grid-icon:before {
+    content: var(--smart-icon-help-circled);
+}
+.smart-icon-attention-circled.smart-grid-icon:before {
+    content: var(--smart-icon-attention-circled);
+}
+
 smart-grid-row, smart-grid-column, smart-grid-cell {
     display: block;
 }
@@ -261,8 +331,9 @@ smart-grid > .smart-container,
         height: var(--smart-scroll-bar-near-size);
         width: var(--smart-scroll-bar-size);
         background: var(--smart-scroll-bar-background);
-        left: 0px;
+        left: -1px;
         top: calc(0px - var(--smart-scroll-bar-near-size));
+        border-left: 1px solid var(--smart-border);
     }
 
 .smart-grid[right-to-left] smart-scroll-bar[orientation="vertical"] {
@@ -339,7 +410,6 @@ smart-grid-cell[command] .smart-label {
     min-width: 25px;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: background ease-in 0.2s;
     border-top-left-radius: var(--smart-item-border-top-left-radius);
     border-top-right-radius: var(--smart-item-border-top-right-radius);
     border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
@@ -355,6 +425,7 @@ smart-grid-cell[command] .smart-label {
     padding: 0px;
     align-items: center;
     justify-content: center;
+    border-radius: 0px;;
 }
 
 .smart-grid .smart-grid-command-item:hover {
@@ -364,7 +435,7 @@ smart-grid-cell[command] .smart-label {
 }
 
 .smart-grid .smart-grid-command-item:active {
-    background: var(--smart-ui-state-background-active);
+    background: var(--smart-ui-state-active);
     color: var(--smart-ui-state-color-active);
     border: 1px solid var(--smart-ui-state-border-active);
 }
@@ -382,8 +453,17 @@ smart-grid-cell[command] .smart-label {
     height: var(--smart-grid-header-height);
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    width: 100%;
 }
 
+.smart-grid .smart-data-view-header-drop-down {
+    transition: transform ease-in-out 0.2s;
+    transform: scaleY(0);
+}
+
+.smart-grid .smart-data-view-header-drop-down.open {
+    transform: scaleY(1);
+}
 .smart-grid-footer {
     height: var(--smart-grid-footer-height);
     border-top-width: 1px;
@@ -392,12 +472,48 @@ smart-grid-cell[command] .smart-label {
 
 .smart-grid-group-header {
     min-height: var(--smart-grid-group-header-height);
+    height: var(--smart-grid-group-header-height);
     overflow: hidden;
     position: relative;
     z-index: 99;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: inherit;
+    border-bottom-color: var(--smart-border);
+    background: var(--smart-surface);
+    display: flex;
+    align-items: center;
+}
+
+.smart-grid-group-header .smart-breadcrumb {
+    background: transparent;
+    border: none;
+    width: 100%;
+    --smart-breadcrumb-item-height: 35px;
+    margin-top: 1px;
+    padding:0px;
+    padding-left:5px;
+}
+
+.smart-grid-group-header .smart-breadcrumb-item-label {
+    display:flex;
+    justify-content: center;
+    align-content:center;
+}
+.smart-grid-group-header .smart-breadcrumb-item-label .smart-grid-icon {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: -10px;
+}
+
+.smart-grid .smart-breadcrumb-items > .target:before,
+.smart-grid .smart-breadcrumb-items > .afterTarget:last-child:after {
+   content: '';
+   display: none;
+}
+
+.smart-grid-group-header .smart-breadcrumb .smart-breadcrumb-item {
+    border-radius: var(--smart-border-radius);
+    margin-top: 0px;
 }
 
 .smart-grid > .smart-container .smart-grid-column-header,
@@ -747,7 +863,7 @@ smart-grid-column .smart-buttons-group {
     right: initial;
     left: 0px;
     flex-direction: row-reverse;
-    transform: translateX(calc(0px - var(--smart-grid-column-buttons-width)));
+    transform: translateX(calc(0.1px - var(--smart-grid-column-buttons-width)));
 }
 
 smart-grid-column .smart-buttons-group.smart-animate {
@@ -1163,6 +1279,10 @@ smart-grid-row[selected]:not([selected="indeterminate"]):not([selected="none"]):
     opacity: var(--smart-grid-cell-horizontal-border-opacity-selected, 0.3);
 }
 
+smart-grid-row[selected="none"] smart-grid-cell {
+    color: var(--smart-disabled);
+}
+
 smart-grid-row[selected] smart-grid-cell[selected]:not([selected="indeterminate"]):not([header]):not(.smart-grid-column-border):not(.smart-grid-column-border-collapse)::before {
     background: var(--smart-ui-state-color-selected);
     opacity: var(--smart-grid-cell-vertical-border-opacity-selected, 0.3);
@@ -1499,6 +1619,18 @@ smart-grid-cell[freeze] {
     color: var(--smart-grid-cell-color-freeze);
 }
 
+smart-grid-cell[highlight] {
+    background: var(--smart-grid-cell-background-filter);
+    color: var(--smart-grid-cell-color-filter);
+}
+
+smart-grid-cell[group] {
+    font-size: 12px;
+}
+smart-grid-cell[group] span[value],
+smart-grid-cell[group] span[summary] {
+    font-weight: 600;
+}
 smart-grid-cell[addNewRow] {
     border-right: 1px solid var(--smart-border);
 }
@@ -1535,10 +1667,72 @@ smart-grid-row[selected="indeterminate"] smart-grid-cell[selected][focus]:not([e
     opacity: 1;
 }
 /*End of Cells Selection*/
-.smart-grid-filter-row-cell {
+smart-grid-cell.smart-grid-filter-row-cell {
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-color: var(--smart-surface);
+    --smart-grid-cell-horizontal-border: transparent;
+}
+
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container {
+    display: flex;
+    margin-left: 1px;
+    width: calc(100% - 1px);
+    height: 100%;
+    border: 1px solid transparent;
+}
+
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container[focus] {
+    border-color: var(--smart-ui-state-border-active);
+    border-style: solid;
+    border-width: 1px;
     background: var(--smart-background);
-    color: var(--smart-background-color);
-    border-color: var(--smart-border);
+}
+
+smart-grid-cell.smart-grid-filter-row-cell[template="checkBox"] .smart-filter-input-value.smart-grid-check-box-cell-editor{
+    width: 15px;
+    height: 15px;
+}
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-value.smart-grid-number-input-cell-editor .nav {
+    border: 1px solid var(--smart-border);
+}
+
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container[focus] .smart-filter-input-value.smart-grid-number-input-cell-editor .nav {
+    background: var(--smart-background);
+}
+
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-value {
+    border-radius: 0px;
+    width: calc(100% - var(--smart-editor-addon-width));
+    border: none;
+    resize: none;
+    border-radius: 0px;
+    background: inherit;
+    color: inherit;
+    outline:none;
+    overflow: hidden;
+}
+
+
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-type {
+    outline:none;
+    background: inherit;
+    color: inherit;
+    border: none;
+    border-radius: 0px;
+    width: var(--smart-editor-addon-width);
+    font-family: var(--smart-font-family-icon);
+    font-style: normal;
+    font-weight: normal;
+    color: inherit;
+    font-size: 14px;
+    text-decoration: inherit;
+    font-variant: normal;
+    text-transform: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .smart-grid-summary-row-cell {
@@ -1829,6 +2023,7 @@ smart-grid-cell[header], smart-grid-cell[header]:last-child {
 
 
 
+.smart-grid[appearance_show-row-header-drag-icon] smart-grid-row smart-grid-cell[header]:not([detail]) > .smart-label,
 .smart-grid[appearance_show-row-header-edit-icon] smart-grid-row[edit] smart-grid-cell[header]:not([detail]) > .smart-label,
 .smart-grid[appearance_show-row-header-edit-icon] smart-grid-row[edit] smart-grid-cell[header]:not([detail]):last-child > .smart-label,
 .smart-grid[appearance_show-row-header-select-icon][selection_enabled][selection_allow-row-header-selection] smart-grid-row smart-grid-cell[header]:not([detail]):hover > .smart-label,
@@ -1857,13 +2052,25 @@ smart-grid-cell[header], smart-grid-cell[header]:last-child {
 
     .smart-grid[appearance_show-row-header-select-icon][selection_enabled][selection_allow-row-header-selection] smart-grid-row smart-grid-cell[header]:not([detail]):hover > .smart-label:before,
     .smart-grid[appearance_show-row-header-focus-icon] smart-grid-row[focus] smart-grid-cell[header]:not([detail]) > .smart-label:before,
-    .smart-grid[appearance_show-row-header-edit-icon] smart-grid-row[edit] smart-grid-cell[header]:not([detail]) > .smart-label:before {
+    .smart-grid[appearance_show-row-header-edit-icon] smart-grid-row[edit] smart-grid-cell[header]:not([detail]) > .smart-label:before,
+    .smart-grid[appearance_show-row-header-drag-icon] smart-grid-row smart-grid-cell[header]:not([detail]) > .smart-label:before {
         content: var(--smart-icon-check-empty);
         background: var(--smart-ui-state-hover);
         color: var(--smart-ui-state-color-hover);
         position: absolute;
         left: 0px;
         width: 100%;
+    }
+
+    .smart-grid[appearance_show-row-header-drag-icon] smart-grid-row smart-grid-cell[header]:not([detail]) > .smart-label:before {
+        content: var(--smart-icon-ellipsis);
+        cursor: move;
+        transform: rotate(90deg);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        opacity: 0.25;
+
     }
 
 .smart-grid[appearance_show-row-header-focus-icon] smart-grid-row[focus] smart-grid-cell[header] > .smart-label:before {
@@ -1878,7 +2085,6 @@ smart-grid-cell[header], smart-grid-cell[header]:last-child {
 .smart-grid[appearance_show-row-header-edit-icon] smart-grid-row[edit] smart-grid-cell[header]:not([detail]) > .smart-label:before {
     content: var(--smart-icon-mode-edit);
 }
-
 
 .smart-grid .smart-grid-resize-line {
     position: absolute;
@@ -2393,6 +2599,11 @@ smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item
         background: transparent;
     }
 
+    .smart-grid-column-menu .smart-filter-container .smart-filter-panel smart-tree,
+    .smart-grid-column-menu .smart-filter-panel smart-filter-builder {
+        height: 250px;
+    }
+
 .smart-grid-dialog-overlay,
 .smart-grid-overlay {
     z-index: 100;
@@ -2527,3 +2738,97 @@ smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item
         padding-right: 20px;
         color: inherit;
     }
+
+    /* Reorder */
+
+    .smart-grid smart-grid-column.target:before,
+    .smart-grid smart-grid-column.afterTarget:last-child:after {
+
+    }
+
+    .smart-grid .smart-grid-drag-line {
+        position: absolute;
+        z-index: 199;
+        opacity:1;
+        width: calc(2 * var(--smart-grid-resize-line-size));
+        background: var(--smart-primary);
+        font-family: var(--smart-font-family-icon);
+        transition: opacity cubic-bezier(0.6, 0.2, 0, 0.8) 0.25s;
+    }
+
+    .smart-grid .smart-grid-drag-line.row {
+        height: calc(2 * var(--smart-grid-resize-line-size));
+    }
+
+    .smart-grid .smart-grid-drag-line:after {
+        content: var(--smart-icon-arrow-up);
+        color: var(--smart-primary);
+        font-size: 16px;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        margin-left: -7px;
+        font-weight: bold;
+        margin-bottom: -11px;
+    }
+
+    .smart-grid .smart-grid-drag-line:before {
+        content: var(--smart-icon-arrow-down);
+        color: var(--smart-primary);
+        font-size: 16px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin-left: -7px;
+        font-weight: bold;
+        margin-top: -7px;
+    }
+
+    .smart-grid .smart-grid-drag-line.row:after {
+        content: var(--smart-icon-arrow-left);
+        right: 0px;
+        left: initial;
+        bottom: 0px;
+        margin-right: -7px;
+        font-weight: bold;
+        margin-bottom: -7px;
+    }
+
+    .smart-grid .smart-grid-drag-line.row:before {
+        content: var(--smart-icon-arrow-right);
+        left: 0px;
+     }
+
+    .smart-grid smart-grid-column.afterTarget:last-child:after {
+        right: 0px;
+    }
+
+    .smart-grid smart-grid-column.dragged,
+    .smart-grid smart-grid-cell.dragged {
+        background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent);
+        background-size: 3em 3em;
+    }
+
+
+    .smart-grid-row-drag-feedback {
+        height: auto !important;
+        flex-direction: column;
+    }
+
+    .smart-grid-row-drag-feedback div {
+        padding-top: 3px;
+    }
+
+.smart-grid-row-drag-feedback>div {
+    display: flex;
+    align-items: flex-start;
+    padding: 3px;
+    white-space: nowrap;
+    font-family: var(--smart-font-family);
+    font-size: 8px;
+    background-color: var(--smart-background);
+    color: var(--smart-background-color);
+    flex-direction: column;
+    max-height: 200px;
+    overflow: hidden;
+}

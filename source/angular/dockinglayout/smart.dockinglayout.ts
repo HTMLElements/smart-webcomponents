@@ -565,14 +565,14 @@ export class DockingLayoutComponent extends BaseElement implements OnInit, After
     }
 
 	/** @description The method returns an array of all autohidden items. 
-	* @param {string} node?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.
+	* @param {string} orientation?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.
 	* @returns {any[]}
   */
-	public async getAutoHideItems(node?): Promise<any> {
+	public async getAutoHideItems(orientation?): Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
-                    const result = this.nativeElement.getAutoHideItems(node);
+                    const result = this.nativeElement.getAutoHideItems(orientation);
                     resolve(result)
                 });
             });
@@ -763,11 +763,11 @@ export class DockingLayoutComponent extends BaseElement implements OnInit, After
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -778,7 +778,7 @@ export class DockingLayoutComponent extends BaseElement implements OnInit, After
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

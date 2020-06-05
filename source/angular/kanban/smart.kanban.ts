@@ -176,6 +176,15 @@ export class KanbanComponent extends BaseElement implements OnInit, AfterViewIni
 		this.nativeElement ? this.nativeElement.hierarchy = value : undefined;
 	}
 
+	/** @description Sets or gets the locale. Used in conjunction with the property messages. */
+	@Input()
+	get locale(): string {
+		return this.nativeElement ? this.nativeElement.locale : undefined;
+	}
+	set locale(value: string) {
+		this.nativeElement ? this.nativeElement.locale = value : undefined;
+	}
+
 	/** @description Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale.  */
 	@Input()
 	get messages(): any {
@@ -320,7 +329,7 @@ export class KanbanComponent extends BaseElement implements OnInit, AfterViewIni
 		this.nativeElement ? this.nativeElement.userList = value : undefined;
 	}
 
-	/** @description Toggles the visibility of the task user icon. */
+	/** @description Determines the users Kanban tasks can be assigned to and their characteristics and privileges. */
 	@Input()
 	get users(): KanbanUser[] {
 		return this.nativeElement ? this.nativeElement.users : undefined;
@@ -765,11 +774,11 @@ export class KanbanComponent extends BaseElement implements OnInit, AfterViewIni
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -780,7 +789,7 @@ export class KanbanComponent extends BaseElement implements OnInit, AfterViewIni
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

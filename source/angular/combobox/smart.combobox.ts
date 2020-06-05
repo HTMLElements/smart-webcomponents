@@ -915,11 +915,11 @@ export class ComboBoxComponent extends BaseElement implements OnInit, AfterViewI
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -930,7 +930,7 @@ export class ComboBoxComponent extends BaseElement implements OnInit, AfterViewI
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -978,7 +978,7 @@ export class ComboBoxComponent extends BaseElement implements OnInit, AfterViewI
                 else {
                     const input = that.nativeElement.querySelector('input');
                     that._onChange((that.selectedValues && that.selectedValues.length > 0) ? that.selectedValues[0] : (input ? input.value : null));
-                } 
+                }
             }
 		});
 	}
@@ -1035,16 +1035,16 @@ export class ComboBoxComponent extends BaseElement implements OnInit, AfterViewI
 		that.nativeElement.addEventListener('scrollTopReached', that.eventHandlers['scrollTopReachedHandler']);
 
 
-        that.eventHandlers['changeModelHandler'] = (event: Event) => 
+        that.eventHandlers['changeModelHandler'] = (event: Event) =>
         {
             that._initialChange = false;
-            that._onChange(that.nativeElement.selectedValues.length > 0 ? (that.nativeElement.selectedValues.length > 1 ? that.nativeElement.selectedValues : that.nativeElement.selectedValues[0]) : that.nativeElement.querySelector('input').value); 
+            that._onChange(that.nativeElement.selectedValues.length > 0 ? (that.nativeElement.selectedValues.length > 1 ? that.nativeElement.selectedValues : that.nativeElement.selectedValues[0]) : that.nativeElement.querySelector('input').value);
         }
         that.eventHandlers['blurModelHandler'] = (event: Event) => {
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-            if (that.nativeElement.querySelector('input')) {    
+            if (that.nativeElement.querySelector('input')) {
                 that.eventHandlers['keyupModelHandler'] = (event) => {
                     setTimeout(() => { that.eventHandlers['changeModelHandler'](event); }, 50);
                 };

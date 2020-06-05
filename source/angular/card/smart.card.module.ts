@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { CardComponent } from './smart.card';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

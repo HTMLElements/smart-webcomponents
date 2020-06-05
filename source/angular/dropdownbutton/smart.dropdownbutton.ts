@@ -433,11 +433,11 @@ export class DropDownButtonComponent extends BaseElement implements OnInit, Afte
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -448,7 +448,7 @@ export class DropDownButtonComponent extends BaseElement implements OnInit, Afte
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

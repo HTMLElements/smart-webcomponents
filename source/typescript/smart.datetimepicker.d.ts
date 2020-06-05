@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Date & time selection component. It allows to select both date and time with the same control.
-*/
-export interface DateTimePicker extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface DateTimePickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -26,7 +20,7 @@ export interface DateTimePicker extends BaseElement {
    * Determines the delay before the calendar pop-up is automatically closed. Applicable only when autoClose is set to true.
    * Default value: 500
    */
-  autoCloseDelay?: boolean;
+  autoCloseDelay?: number;
   /**
    * Determines whether the calendar button is visible or not. The calendar button is used to open the Calendar popup to select a date.
    * Default value: false
@@ -306,29 +300,37 @@ export interface DateTimePicker extends BaseElement {
    * Default value: 1926
    */
   yearCutoff?: number;
-  /** 
+}
+/**
+ Date & time selection component. It allows to select both date and time with the same control.
+*/
+export interface DateTimePicker extends BaseElement, DateTimePickerProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The old value before it was changed presented as a DateTime object.
    *  value - The new value presented as a DateTime object.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the calendar pop-up is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the calendar pop-up is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the calendar pop-up is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the calendar pop-up is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes the calendar pop-up.
    */
@@ -347,13 +349,13 @@ export interface DateTimePicker extends BaseElement {
   select(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-date-time-picker"): DateTimePicker;
-			querySelector(selectors: "smart-date-time-picker"): DateTimePicker | null;	
-			querySelectorAll(selectors: "smart-date-time-picker"): NodeListOf<DateTimePicker>;
-			getElementsByTagName(qualifiedName: "smart-date-time-picker"): HTMLCollectionOf<DateTimePicker>;
-			getElementsByName(elementName: "smart-date-time-picker"): NodeListOf<DateTimePicker>;	
+        createElement(tagName: "smart-date-time-picker"): DateTimePicker;
+        querySelector(selectors: "smart-date-time-picker"): DateTimePicker | null;
+        querySelectorAll(selectors: "smart-date-time-picker"): NodeListOf<DateTimePicker>;
+        getElementsByTagName(qualifiedName: "smart-date-time-picker"): HTMLCollectionOf<DateTimePicker>;
+        getElementsByName(elementName: "smart-date-time-picker"): NodeListOf<DateTimePicker>;
     }
 }
 

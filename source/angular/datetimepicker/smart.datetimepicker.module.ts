@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { DateTimePickerComponent } from './smart.datetimepicker';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

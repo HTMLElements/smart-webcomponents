@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- The toast component is like an alert box that is only shown for a couple of seconds when something happens.
-*/
-export interface Toast extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ToastProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -123,34 +117,42 @@ export interface Toast extends BaseElement {
    * Default value: 
    */
   value?: any;
-  /** 
+}
+/**
+ The toast component is like an alert box that is only shown for a couple of seconds when something happens.
+*/
+export interface Toast extends BaseElement, ToastProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the toast item is clicked.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the toast item is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the toast item is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swipebottom over an toast item.
 	* @param event. The custom event.    */
-  onSwipebottom?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipebottom?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swipeleft over an toast item.
 	* @param event. The custom event.    */
-  onSwipeleft?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swiperight over an toast item.
 	* @param event. The custom event.    */
-  onSwiperight?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swipetop over an toast item.
 	* @param event. The custom event.    */
-  onSwipetop?: ((this: any, ev: Event) => any) | null;
+  onSwipetop?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes all opened toast items.
    */
@@ -171,13 +173,13 @@ export interface Toast extends BaseElement {
   open(): HTMLElement;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-toast"): Toast;
-			querySelector(selectors: "smart-toast"): Toast | null;	
-			querySelectorAll(selectors: "smart-toast"): NodeListOf<Toast>;
-			getElementsByTagName(qualifiedName: "smart-toast"): HTMLCollectionOf<Toast>;
-			getElementsByName(elementName: "smart-toast"): NodeListOf<Toast>;	
+        createElement(tagName: "smart-toast"): Toast;
+        querySelector(selectors: "smart-toast"): Toast | null;
+        querySelectorAll(selectors: "smart-toast"): NodeListOf<Toast>;
+        getElementsByTagName(qualifiedName: "smart-toast"): HTMLCollectionOf<Toast>;
+        getElementsByName(elementName: "smart-toast"): NodeListOf<Toast>;
     }
 }
 

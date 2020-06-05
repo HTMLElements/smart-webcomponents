@@ -184,11 +184,11 @@ export class MultiColumnFilterPanelComponent extends BaseElement implements OnIn
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -199,7 +199,7 @@ export class MultiColumnFilterPanelComponent extends BaseElement implements OnIn
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

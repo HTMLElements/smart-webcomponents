@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Gauge displays an indicator within a range of values.
-*/
-export interface Gauge extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface GaugeProperties {
   /**
    * Determines the type of gauge's indicator.
    * Default value: needle
@@ -256,7 +250,15 @@ export interface Gauge extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ Gauge displays an indicator within a range of values.
+*/
+export interface Gauge extends BaseElement, GaugeProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the element is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value of the element.
@@ -280,13 +282,13 @@ export interface Gauge extends BaseElement {
   val(value?: string | number | Date): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-gauge"): Gauge;
-			querySelector(selectors: "smart-gauge"): Gauge | null;	
-			querySelectorAll(selectors: "smart-gauge"): NodeListOf<Gauge>;
-			getElementsByTagName(qualifiedName: "smart-gauge"): HTMLCollectionOf<Gauge>;
-			getElementsByName(elementName: "smart-gauge"): NodeListOf<Gauge>;	
+        createElement(tagName: "smart-gauge"): Gauge;
+        querySelector(selectors: "smart-gauge"): Gauge | null;
+        querySelectorAll(selectors: "smart-gauge"): NodeListOf<Gauge>;
+        getElementsByTagName(qualifiedName: "smart-gauge"): HTMLCollectionOf<Gauge>;
+        getElementsByName(elementName: "smart-gauge"): NodeListOf<Gauge>;
     }
 }
 

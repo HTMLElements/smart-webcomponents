@@ -345,6 +345,14 @@ export class ListMenuComponent extends BaseElement implements OnInit, AfterViewI
 	*  @param event. The custom event. 	*/
 	@Output() onScrollBottomReached: EventEmitter<CustomEvent> = new EventEmitter();
 
+	/** @description This event is triggered when the user swipes to the left inside the ListMenu.
+	*  @param event. The custom event. 	*/
+	@Output() onSwipeleft: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when the user swipes to the right inside the ListMenu.
+	*  @param event. The custom event. 	*/
+	@Output() onSwiperight: EventEmitter<CustomEvent> = new EventEmitter();
+
 	/** @description Adds an item to the list. 
 	* @param {HTMLElement} Item. A smart-menu-item to add to the List Menu.
 	* @param {HTMLElement | string} Parent?. The smart-menu-items-group (or its id or numeric path) to add the item to.
@@ -485,11 +493,11 @@ export class ListMenuComponent extends BaseElement implements OnInit, AfterViewI
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -500,7 +508,7 @@ export class ListMenuComponent extends BaseElement implements OnInit, AfterViewI
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -530,6 +538,12 @@ export class ListMenuComponent extends BaseElement implements OnInit, AfterViewI
 		that.eventHandlers['scrollBottomReachedHandler'] = (event: CustomEvent) => { that.onScrollBottomReached.emit(event); }
 		that.nativeElement.addEventListener('scrollBottomReached', that.eventHandlers['scrollBottomReachedHandler']);
 
+		that.eventHandlers['swipeleftHandler'] = (event: CustomEvent) => { that.onSwipeleft.emit(event); }
+		that.nativeElement.addEventListener('swipeleft', that.eventHandlers['swipeleftHandler']);
+
+		that.eventHandlers['swiperightHandler'] = (event: CustomEvent) => { that.onSwiperight.emit(event); }
+		that.nativeElement.addEventListener('swiperight', that.eventHandlers['swiperightHandler']);
+
 	}
 
 	/** @description Remove event listeners. */
@@ -549,6 +563,14 @@ export class ListMenuComponent extends BaseElement implements OnInit, AfterViewI
 
 		if (that.eventHandlers['scrollBottomReachedHandler']) {
 			that.nativeElement.removeEventListener('scrollBottomReached', that.eventHandlers['scrollBottomReachedHandler']);
+		}
+
+		if (that.eventHandlers['swipeleftHandler']) {
+			that.nativeElement.removeEventListener('swipeleft', that.eventHandlers['swipeleftHandler']);
+		}
+
+		if (that.eventHandlers['swiperightHandler']) {
+			that.nativeElement.removeEventListener('swiperight', that.eventHandlers['swiperightHandler']);
 		}
 
 	}

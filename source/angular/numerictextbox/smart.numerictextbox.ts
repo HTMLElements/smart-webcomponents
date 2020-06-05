@@ -485,11 +485,11 @@ export class NumericTextBoxComponent extends BaseElement implements OnInit, Afte
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -500,7 +500,7 @@ export class NumericTextBoxComponent extends BaseElement implements OnInit, Afte
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -576,16 +576,16 @@ export class NumericTextBoxComponent extends BaseElement implements OnInit, Afte
 		that.eventHandlers['radixChangeHandler'] = (event: CustomEvent) => { that.onRadixChange.emit(event); }
 		that.nativeElement.addEventListener('radixChange', that.eventHandlers['radixChangeHandler']);
 
-		
+
         that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
-            that._onChange(that.nativeElement.value); 
+            that._onChange(that.nativeElement.value);
         };
         that.eventHandlers['blurModelHandler'] = (event: Event) => {
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-                    if (that.nativeElement.querySelector('input')) {    
+                    if (that.nativeElement.querySelector('input')) {
                         that.eventHandlers['keyupModelHandler'] = (event) => {
                             that.nativeElement._validate(false, that.nativeElement.querySelector('input').value);
                             that.eventHandlers['changeModelHandler'](event);

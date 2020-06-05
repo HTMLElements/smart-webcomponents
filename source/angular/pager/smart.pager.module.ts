@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { PagerComponent } from './smart.pager';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

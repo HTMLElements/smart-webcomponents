@@ -1,15 +1,4 @@
-
-declare global {
-    interface Window {
-        Smart: any;
-		NG: any;
-    }
-}
-
-export interface BaseElement extends HTMLElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ElementProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -106,16 +95,29 @@ export interface BaseElement extends HTMLElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ BaseElement extending the HTMLElement with localization, on-demand rendering, typed properties, two-way bound properties, property change notifications, lifecycle callbacks, automatic events listen and unlisten.
+*/
+
+declare global {
+	interface Window {
+		Smart: any;
+		NG: any;
+	}
+}
+
+export interface BaseElement extends HTMLElement, ElementProperties {
+  /**
    * This event is triggered when the element is resized.
 	* @param event. The custom event.    */
   onResize: ((ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a style which affects the layout of the element is changed is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(styleProperties)
    *  styleProperties - Array with changed style properties.
    */
-  onStyleChanged?: ((this: any, ev: Event) => any) | null;
+  onStyleChanged?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Unwatches the element.
    */
@@ -137,13 +139,13 @@ export interface BaseElement extends HTMLElement {
   whenRendered(renderCallback: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-element"): Element;
-			querySelector(selectors: "smart-element"): Element | null;	
-			querySelectorAll(selectors: "smart-element"): NodeListOf<Element>;
-			getElementsByTagName(qualifiedName: "smart-element"): HTMLCollectionOf<Element>;
-			getElementsByName(elementName: "smart-element"): NodeListOf<Element>;	
+        createElement(tagName: "smart-element"): Element;
+        querySelector(selectors: "smart-element"): Element | null;
+        querySelectorAll(selectors: "smart-element"): NodeListOf<Element>;
+        getElementsByTagName(qualifiedName: "smart-element"): HTMLCollectionOf<Element>;
+        getElementsByName(elementName: "smart-element"): NodeListOf<Element>;
     }
 }
 

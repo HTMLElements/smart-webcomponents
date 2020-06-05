@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- ListMenu allows you to present users a listing of options and sub options.
-*/
-export interface ListMenu extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListMenuProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -173,7 +167,15 @@ export interface ListMenu extends BaseElement {
    * Default value: "value"
    */
   valueMember?: string;
-  /** 
+}
+/**
+ ListMenu allows you to present users a listing of options and sub options.
+*/
+export interface ListMenu extends BaseElement, ListMenuProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a jqx-menu-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that was expanded.
@@ -182,8 +184,8 @@ export interface ListMenu extends BaseElement {
    *  path - The path of the item that was expanded, e.g. '0.1', '1.1.2'.
    *  children - The children of the item that was expanded.
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a menu item check state is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, checked)
    *  item - The menu item which state was changed.
@@ -191,19 +193,27 @@ export interface ListMenu extends BaseElement {
    *  value - The value of the item which state was changed.
    *  checked - The checked state of the toggled item. If false the item is not toggled.
    */
-  onItemCheckChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemCheckChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a list menu item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
    *  item - The menu item that was clicked.
    *  label - The label of the clicked item.
    *  value - The value of the clicked item.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user scrolls to the bottom of the ListMenu.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the left inside the ListMenu.
+	* @param event. The custom event.    */
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the right inside the ListMenu.
+	* @param event. The custom event.    */
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item to the list.
    * @param {HTMLElement} Item. A smart-menu-item to add to the List Menu.
@@ -251,13 +261,13 @@ export interface ListMenu extends BaseElement {
   uncheckItem(item: HTMLElement | string): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-menu"): ListMenu;
-			querySelector(selectors: "smart-list-menu"): ListMenu | null;	
-			querySelectorAll(selectors: "smart-list-menu"): NodeListOf<ListMenu>;
-			getElementsByTagName(qualifiedName: "smart-list-menu"): HTMLCollectionOf<ListMenu>;
-			getElementsByName(elementName: "smart-list-menu"): NodeListOf<ListMenu>;	
+        createElement(tagName: "smart-list-menu"): ListMenu;
+        querySelector(selectors: "smart-list-menu"): ListMenu | null;
+        querySelectorAll(selectors: "smart-list-menu"): NodeListOf<ListMenu>;
+        getElementsByTagName(qualifiedName: "smart-list-menu"): HTMLCollectionOf<ListMenu>;
+        getElementsByName(elementName: "smart-list-menu"): NodeListOf<ListMenu>;
     }
 }
 
@@ -271,13 +281,7 @@ export declare type FilterMode = 'contains' | 'containsIgnoreCase' | 'doesNotCon
 export declare type VerticalAlignment = 'bottom' | 'center' | 'top';
 /**Sets or gets the ListMenu's scroll buttons behavior. */
 export declare type Overflow = 'auto' | 'hidden' | 'scroll';
-/**
- Defines a menu item.
-*/
-export interface MenuItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MenuItemProperties {
   /**
    * 
    * Default value: true
@@ -314,24 +318,26 @@ export interface MenuItem extends BaseElement {
    */
   value?: any;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-menu-item"): MenuItem;
-			querySelector(selectors: "smart-menu-item"): MenuItem | null;	
-			querySelectorAll(selectors: "smart-menu-item"): NodeListOf<MenuItem>;
-			getElementsByTagName(qualifiedName: "smart-menu-item"): HTMLCollectionOf<MenuItem>;
-			getElementsByName(elementName: "smart-menu-item"): NodeListOf<MenuItem>;	
-    }
-}
-
 /**
- Defines a group of menu items.
+ Defines a menu item.
 */
-export interface MenuItemsGroup extends BaseElement {
+export interface MenuItem extends BaseElement, MenuItemProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-menu-item"): MenuItem;
+        querySelector(selectors: "smart-menu-item"): MenuItem | null;
+        querySelectorAll(selectors: "smart-menu-item"): NodeListOf<MenuItem>;
+        getElementsByTagName(qualifiedName: "smart-menu-item"): HTMLCollectionOf<MenuItem>;
+        getElementsByName(elementName: "smart-menu-item"): NodeListOf<MenuItem>;
+    }
+}
+
+export interface MenuItemsGroupProperties {
   /**
    * 
    * Default value: false
@@ -383,14 +389,22 @@ export interface MenuItemsGroup extends BaseElement {
    */
   value?: any;
 }
+/**
+ Defines a group of menu items.
+*/
+export interface MenuItemsGroup extends BaseElement, MenuItemsGroupProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-menu-items-group"): MenuItemsGroup;
-			querySelector(selectors: "smart-menu-items-group"): MenuItemsGroup | null;	
-			querySelectorAll(selectors: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-menu-items-group"): HTMLCollectionOf<MenuItemsGroup>;
-			getElementsByName(elementName: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;	
+        createElement(tagName: "smart-menu-items-group"): MenuItemsGroup;
+        querySelector(selectors: "smart-menu-items-group"): MenuItemsGroup | null;
+        querySelectorAll(selectors: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-menu-items-group"): HTMLCollectionOf<MenuItemsGroup>;
+        getElementsByName(elementName: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
     }
 }
 

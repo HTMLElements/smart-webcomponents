@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { GridComponent } from './smart.grid';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

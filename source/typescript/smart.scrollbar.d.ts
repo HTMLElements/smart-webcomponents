@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Scrollbar is a replacement of the default scroll bar with multiple UI Styling options.
-*/
-export interface ScrollBar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ScrollBarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -103,7 +97,15 @@ export interface ScrollBar extends BaseElement {
    * Default value: 0
    */
   value?: number;
-  /** 
+}
+/**
+ Scrollbar is a replacement of the default scroll bar with multiple UI Styling options.
+*/
+export interface ScrollBar extends BaseElement, ScrollBarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
@@ -113,13 +115,13 @@ export interface ScrollBar extends BaseElement {
   refresh(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-scroll-bar"): ScrollBar;
-			querySelector(selectors: "smart-scroll-bar"): ScrollBar | null;	
-			querySelectorAll(selectors: "smart-scroll-bar"): NodeListOf<ScrollBar>;
-			getElementsByTagName(qualifiedName: "smart-scroll-bar"): HTMLCollectionOf<ScrollBar>;
-			getElementsByName(elementName: "smart-scroll-bar"): NodeListOf<ScrollBar>;	
+        createElement(tagName: "smart-scroll-bar"): ScrollBar;
+        querySelector(selectors: "smart-scroll-bar"): ScrollBar | null;
+        querySelectorAll(selectors: "smart-scroll-bar"): NodeListOf<ScrollBar>;
+        getElementsByTagName(qualifiedName: "smart-scroll-bar"): HTMLCollectionOf<ScrollBar>;
+        getElementsByName(elementName: "smart-scroll-bar"): NodeListOf<ScrollBar>;
     }
 }
 

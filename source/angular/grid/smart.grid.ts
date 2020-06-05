@@ -1,9 +1,9 @@
 import { Grid } from './../index';
-import { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingGroupPanel, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
+import { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
 import { DataAdapter, Chart } from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingGroupPanel, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
+export { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { Grid } from './../index';
 export { DataAdapter, Chart } from './../index';
@@ -176,7 +176,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onCellValue = value : undefined;
 	}
 
-	/** @description Describes the paging settings. */
+	/** @description Callback function() called when the grid has been rendered. */
 	@Input()
 	get onCellUpdate(): {(cell: GridCell, oldValue: any, value: any, confirm: {(commit: boolean): void}): void} {
 		return this.nativeElement ? this.nativeElement.onCellUpdate : undefined;
@@ -185,7 +185,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onCellUpdate = value : undefined;
 	}
 
-	/** @description Describes the pager settings. */
+	/** @description Describes the paging settings. */
 	@Input()
 	get onCellRender(): {(cell: GridCell): void} {
 		return this.nativeElement ? this.nativeElement.onCellRender : undefined;
@@ -194,7 +194,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onCellRender = value : undefined;
 	}
 
-	/** @description Sets the row details. */
+	/** @description Describes the pager settings. */
 	@Input()
 	get onBeforeInit(): {(): void} {
 		return this.nativeElement ? this.nativeElement.onBeforeInit : undefined;
@@ -203,7 +203,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onBeforeInit = value : undefined;
 	}
 
-	/** @description Sets the scroll mode settings. */
+	/** @description Sets the row details. */
 	@Input()
 	get onInit(): {(): void} {
 		return this.nativeElement ? this.nativeElement.onInit : undefined;
@@ -212,7 +212,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onInit = value : undefined;
 	}
 
-	/** @description Describes the column header settings. */
+	/** @description Sets the scroll mode settings. */
 	@Input()
 	get onAfterInit(): {(): void} {
 		return this.nativeElement ? this.nativeElement.onAfterInit : undefined;
@@ -221,7 +221,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onAfterInit = value : undefined;
 	}
 
-	/** @description Describes the settings for the group header. */
+	/** @description Describes the column header settings. */
 	@Input()
 	get onChartInit(): any {
 		return this.nativeElement ? this.nativeElement.onChartInit : undefined;
@@ -230,16 +230,16 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onChartInit = value : undefined;
 	}
 
-	/** @description Describes the header settings of the grid. */
+	/** @description Describes the summary row settings. */
 	@Input()
-	get onRender(): {(): void} {
+	get onRender(): any {
 		return this.nativeElement ? this.nativeElement.onRender : undefined;
 	}
-	set onRender(value: {(): void}) {
+	set onRender(value: any) {
 		this.nativeElement ? this.nativeElement.onRender = value : undefined;
 	}
 
-	/** @description Describes the footer settings of the grid. */
+	/** @description Describes the settings for the group header. */
 	@Input()
 	get onKey(): {(event: KeyboardEvent): void} {
 		return this.nativeElement ? this.nativeElement.onKey : undefined;
@@ -248,7 +248,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onKey = value : undefined;
 	}
 
-	/** @description The rows property is used to describe all rows displayed in the grid. */
+	/** @description Describes the header settings of the grid. */
 	@Input()
 	get onRowInit(): {(index: number, row: GridRow): void} {
 		return this.nativeElement ? this.nativeElement.onRowInit : undefined;
@@ -257,7 +257,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onRowInit = value : undefined;
 	}
 
-	/** @description Describes the selection settings. */
+	/** @description Describes the footer settings of the grid. */
 	@Input()
 	get onRowDetailInit(): {(index: number, row: GridRow, details: HTMLElement): void} {
 		return this.nativeElement ? this.nativeElement.onRowDetailInit : undefined;
@@ -266,7 +266,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onRowDetailInit = value : undefined;
 	}
 
-	/** @description Describes sorting settings. */
+	/** @description The rows property is used to describe all rows displayed in the grid. */
 	@Input()
 	get onRowDetailUpdated(): {(index: number, row: GridRow, details: HTMLElement): void} {
 		return this.nativeElement ? this.nativeElement.onRowDetailUpdated : undefined;
@@ -275,7 +275,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onRowDetailUpdated = value : undefined;
 	}
 
-	/** @description undefined */
+	/** @description Describes the selection settings. */
 	@Input()
 	get onRowInserted(): {(index: number, row: GridRow): void} {
 		return this.nativeElement ? this.nativeElement.onRowInserted : undefined;
@@ -284,7 +284,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.onRowInserted = value : undefined;
 	}
 
-	/** @description undefined */
+	/** @description Describes sorting settings. */
 	@Input()
 	get onRowRemoved(): {(index: number, row: GridRow): void} {
 		return this.nativeElement ? this.nativeElement.onRowRemoved : undefined;
@@ -403,6 +403,15 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	/** @description undefined */
 	@Input()
+	get summaryRow(): GridSummaryRow {
+		return this.nativeElement ? this.nativeElement.summaryRow : undefined;
+	}
+	set summaryRow(value: GridSummaryRow) {
+		this.nativeElement ? this.nativeElement.summaryRow = value : undefined;
+	}
+
+	/** @description undefined */
+	@Input()
 	get groupHeader(): GridGroupHeader {
 		return this.nativeElement ? this.nativeElement.groupHeader : undefined;
 	}
@@ -492,6 +501,60 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 	*   width - The new width of the column.
 	*/
 	@Output() onColumnResize: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered, when the user starts a column drag.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	column, 	index, 	originalEvent)
+	*   column - The column.
+	*   index - The column's index
+	*   originalEvent - The origianl Event object.
+	*/
+	@Output() onColumnDragStart: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered, when the user drags a column.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	column, 	index, 	data, 	originalEvent)
+	*   column - The column.
+	*   index - The column's index
+	*   data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+	*   originalEvent - The origianl Event object.
+	*/
+	@Output() onColumnDragging: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered, when the user drags a column.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	column, 	index, 	newIndex, 	data, 	originalEvent)
+	*   column - The column.
+	*   index - The column's index
+	*   newIndex - The column's new index
+	*   data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+	*   originalEvent - The origianl Event object.
+	*/
+	@Output() onColumnDragEnd: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered, when the user starts a row drag.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	row, 	index, 	originalEvent)
+	*   row - The row.
+	*   index - The row's index
+	*   originalEvent - The origianl Event object.
+	*/
+	@Output() onRowDragStart: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered, when the user drags a row.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	row, 	index, 	data, 	originalEvent)
+	*   row - The row.
+	*   index - The row's index
+	*   data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+	*   originalEvent - The origianl Event object.
+	*/
+	@Output() onRowDragging: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered, when the user drags a row.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	row, 	index, 	newIndex, 	data, 	originalEvent)
+	*   row - The row.
+	*   index - The row's index
+	*   newIndex - The row's new index
+	*   data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+	*   originalEvent - The origianl Event object.
+	*/
+	@Output() onRowDragEnd: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered, when the user expands a row of the grid. The Grid is in TreeGrid/Grouping mode.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	row, 	originalEvent)
@@ -1308,11 +1371,11 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -1323,7 +1386,7 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -1355,6 +1418,24 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 
 		that.eventHandlers['columnResizeHandler'] = (event: CustomEvent) => { that.onColumnResize.emit(event); }
 		that.nativeElement.addEventListener('columnResize', that.eventHandlers['columnResizeHandler']);
+
+		that.eventHandlers['columnDragStartHandler'] = (event: CustomEvent) => { that.onColumnDragStart.emit(event); }
+		that.nativeElement.addEventListener('columnDragStart', that.eventHandlers['columnDragStartHandler']);
+
+		that.eventHandlers['columnDraggingHandler'] = (event: CustomEvent) => { that.onColumnDragging.emit(event); }
+		that.nativeElement.addEventListener('columnDragging', that.eventHandlers['columnDraggingHandler']);
+
+		that.eventHandlers['columnDragEndHandler'] = (event: CustomEvent) => { that.onColumnDragEnd.emit(event); }
+		that.nativeElement.addEventListener('columnDragEnd', that.eventHandlers['columnDragEndHandler']);
+
+		that.eventHandlers['rowDragStartHandler'] = (event: CustomEvent) => { that.onRowDragStart.emit(event); }
+		that.nativeElement.addEventListener('rowDragStart', that.eventHandlers['rowDragStartHandler']);
+
+		that.eventHandlers['rowDraggingHandler'] = (event: CustomEvent) => { that.onRowDragging.emit(event); }
+		that.nativeElement.addEventListener('rowDragging', that.eventHandlers['rowDraggingHandler']);
+
+		that.eventHandlers['rowDragEndHandler'] = (event: CustomEvent) => { that.onRowDragEnd.emit(event); }
+		that.nativeElement.addEventListener('rowDragEnd', that.eventHandlers['rowDragEndHandler']);
 
 		that.eventHandlers['rowExpandHandler'] = (event: CustomEvent) => { that.onRowExpand.emit(event); }
 		that.nativeElement.addEventListener('rowExpand', that.eventHandlers['rowExpandHandler']);
@@ -1427,6 +1508,30 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 
 		if (that.eventHandlers['columnResizeHandler']) {
 			that.nativeElement.removeEventListener('columnResize', that.eventHandlers['columnResizeHandler']);
+		}
+
+		if (that.eventHandlers['columnDragStartHandler']) {
+			that.nativeElement.removeEventListener('columnDragStart', that.eventHandlers['columnDragStartHandler']);
+		}
+
+		if (that.eventHandlers['columnDraggingHandler']) {
+			that.nativeElement.removeEventListener('columnDragging', that.eventHandlers['columnDraggingHandler']);
+		}
+
+		if (that.eventHandlers['columnDragEndHandler']) {
+			that.nativeElement.removeEventListener('columnDragEnd', that.eventHandlers['columnDragEndHandler']);
+		}
+
+		if (that.eventHandlers['rowDragStartHandler']) {
+			that.nativeElement.removeEventListener('rowDragStart', that.eventHandlers['rowDragStartHandler']);
+		}
+
+		if (that.eventHandlers['rowDraggingHandler']) {
+			that.nativeElement.removeEventListener('rowDragging', that.eventHandlers['rowDraggingHandler']);
+		}
+
+		if (that.eventHandlers['rowDragEndHandler']) {
+			that.nativeElement.removeEventListener('rowDragEnd', that.eventHandlers['rowDragEndHandler']);
 		}
 
 		if (that.eventHandlers['rowExpandHandler']) {

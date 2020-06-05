@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { TabsComponent } from './smart.tabs';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { TabItemComponent } from './smart.tabitem';

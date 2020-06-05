@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- The filter panel allows you to customize and display the applied filter expressions.
-*/
-export interface FilterPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface FilterPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -129,18 +123,26 @@ export interface FilterPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ The filter panel allows you to customize and display the applied filter expressions.
+*/
+export interface FilterPanel extends BaseElement, FilterPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the current filtering is discarted.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the current filtering is cleared.
 	* @param event. The custom event.    */
-  onClear?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClear?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when filter panel settings are applied.
 	* @param event. The custom event.    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Discards current filtering.
    */
@@ -170,13 +172,13 @@ export interface FilterPanel extends BaseElement {
   loadState(state: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-filter-panel"): FilterPanel;
-			querySelector(selectors: "smart-filter-panel"): FilterPanel | null;	
-			querySelectorAll(selectors: "smart-filter-panel"): NodeListOf<FilterPanel>;
-			getElementsByTagName(qualifiedName: "smart-filter-panel"): HTMLCollectionOf<FilterPanel>;
-			getElementsByName(elementName: "smart-filter-panel"): NodeListOf<FilterPanel>;	
+        createElement(tagName: "smart-filter-panel"): FilterPanel;
+        querySelector(selectors: "smart-filter-panel"): FilterPanel | null;
+        querySelectorAll(selectors: "smart-filter-panel"): NodeListOf<FilterPanel>;
+        getElementsByTagName(qualifiedName: "smart-filter-panel"): HTMLCollectionOf<FilterPanel>;
+        getElementsByName(elementName: "smart-filter-panel"): NodeListOf<FilterPanel>;
     }
 }
 

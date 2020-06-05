@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Gantt charts are specialized bar charts that help clearly represent how tasks and resources are allocated over time in planning, project management, and scheduling applications.
-*/
-export interface GanttChart extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface GanttChartProperties {
   /**
    * Recalculates the tasks that are connected and re-schedules them according to their connections. If no connections are present, autoScheduling has no effect until a connection is created. Connection types determines the start/end date limits of the tasks.
    * Default value: false
@@ -213,6 +207,16 @@ export interface GanttChart extends BaseElement {
    */
   snapToNearest?: boolean;
   /**
+   * Determines whether the GanttChart can be sorted or not.
+   * Default value: false
+   */
+  sortable?: boolean;
+  /**
+   * Determines whether the GanttChart can be sorted by one or more columns.
+   * Default value: one
+   */
+  sortMode?: GanttChartSortMode;
+  /**
    * A getter that returns a flat structure as an array of all tasks inside the element.
    * Default value: 
    */
@@ -282,28 +286,36 @@ export interface GanttChart extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Gantt charts are specialized bar charts that help clearly represent how tasks and resources are allocated over time in planning, project management, and scheduling applications.
+*/
+export interface GanttChart extends BaseElement, GanttChartProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a Task is selected/unselected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue)
    *  value - The index of the new selected task.
    *  oldValue - The index of the previously selected task.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the progress of a task bar starts to change as a result of user interaction. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, progress)
    *  index - The index of the task which progress is going to be changed.
    *  progress - The progress of the task before it is changed.
    */
-  onProgressChangeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onProgressChangeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the progress of a task is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, progress)
    *  index - The index of the task which progress is has been changed.
    *  progress - The progress of the task after it was changed.
    */
-  onProgressChangeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onProgressChangeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when dragging of a task starts. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that is going to be dragged.
@@ -311,7 +323,7 @@ export interface GanttChart extends BaseElement {
    *  dateEnd - The end date of the task that is going to be dragged.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when dragging of a task finishes.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that is was dragged.
@@ -319,66 +331,82 @@ export interface GanttChart extends BaseElement {
    *  dateEnd - The end date of the task that is was dragged.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when resizing of a task starts. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that is going to be resized.
    *  dateStart - The start date of the task that is going to be resized.
    *  dateEnd - The end date of the task that is going to be resized.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the resizing of a task finishes.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that was resized.
    *  dateStart - The start date of the task that was resized.
    *  dateEnd - The end date of the task that was resized.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user starts connecting one task to another. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(startIndex)
    *  startIndex - The index of the task that a connection is started from.
    */
-  onConnectionStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onConnectionStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user completes a connection between two tasks.
 	* @param event. The custom event. Custom data event was created with: ev.detail(startIndex, endIndex, type)
    *  startIndex - The index of the task that a connection is started from.
    *  endIndex - The index of the task that a connection is started from.
    *  type - The type of connection. Fours types are available: <ul><li><b>0</b> - start-to-start</li><li><b>1</b> - end-to-start</li><li><b>2</b> - end-to-end</li><li><b>3</b> - start-to-end</li></ul>
    */
-  onConnectionEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onConnectionEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Timeline has been scrolled to the bottom.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Timeline has been scrolled to the top.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered just before the window for task editing starts opening. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, type)
    *  target - The instance of the window that is going to open.
    *  type - The type of window that is going to open. There are three types of windows inside GanttChart: <ul><li><b>confirm</b> - a confirm window. This type of window is usually used to confirm the deletion of a task.</li><li><b>task</b> - a window used for task editing.</li><li><b>connection</b> - a window used to delete a connection.</li></ul>
    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window for task editing is opened( visible ).
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered just before the window for task editing starts closing. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, type)
    *  target - The instance of the window that is going to close.
    *  type - The type of window that is going to close. There are three types of windows inside GanttChart: <ul><li><b>confirm</b> - a confirm window. This type of window is usually used to confirm the deletion of a task.</li><li><b>task</b> - a window used for task editing.</li><li><b>connection</b> - a window used to delete a connection.</li></ul>
    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window for task editing is closed( hidden )
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when a Project is collapsed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(index, label, value)
+   *  index - The index of the collapsed project.
+   *  label - The label of the collapsed project.
+   *  value - The value of the collapsed project.
+   */
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Project is expanded.
+	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
+   *  item - The index of the expanded project.
+   *  label - The label of the expanded project.
+   *  value - The value of the expanded project.
+   */
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds a task as the last item of a Project.
    * @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
@@ -541,13 +569,15 @@ export interface GanttChart extends BaseElement {
    * Prepares the GanttChart for printing by opening the browser's Print Preview.
    */
   print(): void;
+  /**
+   * Sorts the GanttChart tasks/resources if <b>sortable</b> is enabled.
+   * @param {any} columns?. An Array of objects which determine which columns to be sorted, the sort order and the type of item to sort: task or resource. If no arguments are provided sorting will be removed. <br /> An object should have the following properties: <ul><li><b>value</b> - a string that represents the value of a <b>taskColumn</b> to sort.</li><li><b>sortOrder</b> - a string that represents the sorting order for the column: 'asc' (asscending sorting) or 'desc' (descending) are possible values. </li><li><b>type</b> - a string that represents the type of item to sort. This property determines which panel will be sorted. Two possible values: 'task', 'resource'.</li></ul>
+   */
+  sort(columns?: any): void;
 }
 
 /**Sets the GanttChart's Data Export options. */
 export interface GanttChartDataExport {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets whether the columns header will be exported.
    * Default value: true
@@ -586,9 +616,6 @@ export interface GanttChartDataExport {
 }
 
 export interface GanttChartDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Tasks connection.
    * Default value: undefined
@@ -697,9 +724,6 @@ export interface GanttChartDataSource {
 }
 
 export interface GanttChartDataSourceConnection {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Task's connection target.
    * Default value: 0
@@ -713,9 +737,6 @@ export interface GanttChartDataSourceConnection {
 }
 
 export interface GanttChartDataSourceResource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The capacity of a resource. By default it is used to determines the working capacity ( in hours ) of the resource.
    * Default value: 8
@@ -764,9 +785,6 @@ export interface GanttChartDataSourceResource {
 }
 
 export interface GanttChartResource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * An array of the tasks that the resources is assigned to.
    * Default value: []
@@ -820,9 +838,6 @@ export interface GanttChartResource {
 }
 
 export interface GanttChartResourceColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Column's label.
    * Default value: 
@@ -851,9 +866,6 @@ export interface GanttChartResourceColumn {
 }
 
 export interface GanttChartTask {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Tasks connection.
    * Default value: undefined
@@ -957,9 +969,6 @@ export interface GanttChartTask {
 }
 
 export interface GanttChartTaskConnection {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Task's connection target.
    * Default value: 0
@@ -973,9 +982,6 @@ export interface GanttChartTaskConnection {
 }
 
 export interface GanttChartTaskResource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Resource capacity.
    * Default value: 0
@@ -1034,9 +1040,6 @@ export interface GanttChartTaskResource {
 }
 
 export interface GanttChartTaskColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Column's label.
    * Default value: 
@@ -1069,13 +1072,13 @@ export interface GanttChartTaskColumn {
   formatFunction?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-gantt-chart"): GanttChart;
-			querySelector(selectors: "smart-gantt-chart"): GanttChart | null;	
-			querySelectorAll(selectors: "smart-gantt-chart"): NodeListOf<GanttChart>;
-			getElementsByTagName(qualifiedName: "smart-gantt-chart"): HTMLCollectionOf<GanttChart>;
-			getElementsByName(elementName: "smart-gantt-chart"): NodeListOf<GanttChart>;	
+        createElement(tagName: "smart-gantt-chart"): GanttChart;
+        querySelector(selectors: "smart-gantt-chart"): GanttChart | null;
+        querySelectorAll(selectors: "smart-gantt-chart"): NodeListOf<GanttChart>;
+        getElementsByTagName(qualifiedName: "smart-gantt-chart"): HTMLCollectionOf<GanttChart>;
+        getElementsByName(elementName: "smart-gantt-chart"): NodeListOf<GanttChart>;
     }
 }
 
@@ -1095,6 +1098,8 @@ export declare type MonthFormat = '2-digit' | 'numeric' | 'long' | 'short' | 'na
 export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | 'custom';
 /**Determines how the resources will be displayed inside the resource Timeline. */
 export declare type GanttChartResourceTimelineView = 'hours' | 'tasks' | 'custom';
+/**Determines whether the GanttChart can be sorted by one or more columns. */
+export declare type GanttChartSortMode = 'one' | 'many';
 /**Project, Task or Milestone type. Possible values are 'project' and 'task' */
 export declare type GanttChartTaskType = 'project' | 'milestone' | 'task';
 /**Determines weather or not vertical scrollbar is shown. */

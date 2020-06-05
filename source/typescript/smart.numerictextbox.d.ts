@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- input field for entering a number. Includes number formatting for Engineers and Scientists.
-*/
-export interface NumericTextBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface NumericTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -230,34 +224,42 @@ export interface NumericTextBox extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ input field for entering a number. Includes number formatting for Engineers and Scientists.
+*/
+export interface NumericTextBox extends BaseElement, NumericTextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed. 
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the value in the input is being changed via keypress or paste. 
 	* @param event. The custom event.    */
-  onChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dropdown is closed. 
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the dropdown is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dropdown is opened. 
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dropdown is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the radix is changed. 
 	* @param event. The custom event.    */
-  onRadixChange?: ((this: any, ev: Event) => any) | null;
+  onRadixChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Focuses the NumericTextBox. 
    */
@@ -271,13 +273,13 @@ export interface NumericTextBox extends BaseElement {
   val(value?: string | number, suppressValidation?: boolean): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-numeric-text-box"): NumericTextBox;
-			querySelector(selectors: "smart-numeric-text-box"): NumericTextBox | null;	
-			querySelectorAll(selectors: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;
-			getElementsByTagName(qualifiedName: "smart-numeric-text-box"): HTMLCollectionOf<NumericTextBox>;
-			getElementsByName(elementName: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;	
+        createElement(tagName: "smart-numeric-text-box"): NumericTextBox;
+        querySelector(selectors: "smart-numeric-text-box"): NumericTextBox | null;
+        querySelectorAll(selectors: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;
+        getElementsByTagName(qualifiedName: "smart-numeric-text-box"): HTMLCollectionOf<NumericTextBox>;
+        getElementsByName(elementName: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;
     }
 }
 

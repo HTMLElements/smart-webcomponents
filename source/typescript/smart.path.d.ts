@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Path component is used to display the path to url.
-*/
-export interface Path extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface PathProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -167,34 +161,46 @@ export interface Path extends BaseElement {
    * Default value: false
    */
   wrap?: boolean;
-  /** 
+}
+/**
+ Path component is used to display the path to url.
+*/
+export interface Path extends BaseElement, PathProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the browse button.
 	* @param event. The custom event.    */
-  onBrowseButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onBrowseButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is closing.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when an item from the popup is clicked.
+	* @param event. The custom event.    */
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opening.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes the dropDown.
    */
@@ -213,13 +219,13 @@ export interface Path extends BaseElement {
   setToNotAPath(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-path"): Path;
-			querySelector(selectors: "smart-path"): Path | null;	
-			querySelectorAll(selectors: "smart-path"): NodeListOf<Path>;
-			getElementsByTagName(qualifiedName: "smart-path"): HTMLCollectionOf<Path>;
-			getElementsByName(elementName: "smart-path"): NodeListOf<Path>;	
+        createElement(tagName: "smart-path"): Path;
+        querySelector(selectors: "smart-path"): Path | null;
+        querySelectorAll(selectors: "smart-path"): NodeListOf<Path>;
+        getElementsByTagName(qualifiedName: "smart-path"): HTMLCollectionOf<Path>;
+        getElementsByName(elementName: "smart-path"): NodeListOf<Path>;
     }
 }
 

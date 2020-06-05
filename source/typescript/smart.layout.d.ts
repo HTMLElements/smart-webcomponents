@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Layout splits your content into resizable sections.
-*/
-export interface Layout extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface LayoutProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -116,45 +110,53 @@ export interface Layout extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Layout splits your content into resizable sections.
+*/
+export interface Layout extends BaseElement, LayoutProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when resizing begins.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when resizing finishes.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a change regarding the Layout's state has occured, such as inserting a new item, removing an item, etc.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, type)
    *  item - The Splitter item that was the target of a change.
    *  type - A description of the operation that has cause the change.
    */
-  onStateChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onStateChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldSelectedIndex, selectedIndex)
    *  oldSelectedIndex - The Splitter item that was previously selected.
    *  selectedIndex - The Splitter item that is currently selected.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a the context menu is about to be closed. The operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a the context menu is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a the context menu is about to be opened. The operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a the context menu is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an option from the context menu has been clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, label, value)
    *  target - The Splitter item that was the target of the context menu opening.
@@ -162,7 +164,7 @@ export interface Layout extends BaseElement {
    *  label - The label of the context menu that was clicked.
    *  value - The value of the context menu that was clicked.
    */
-  onMenuItemClick?: ((this: any, ev: Event) => any) | null;
+  onMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a new node.
    * @param {Node} node. The node to append
@@ -239,13 +241,13 @@ export interface Layout extends BaseElement {
   loadState(state?: any[]): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-layout"): Layout;
-			querySelector(selectors: "smart-layout"): Layout | null;	
-			querySelectorAll(selectors: "smart-layout"): NodeListOf<Layout>;
-			getElementsByTagName(qualifiedName: "smart-layout"): HTMLCollectionOf<Layout>;
-			getElementsByName(elementName: "smart-layout"): NodeListOf<Layout>;	
+        createElement(tagName: "smart-layout"): Layout;
+        querySelector(selectors: "smart-layout"): Layout | null;
+        querySelectorAll(selectors: "smart-layout"): NodeListOf<Layout>;
+        getElementsByTagName(qualifiedName: "smart-layout"): HTMLCollectionOf<Layout>;
+        getElementsByName(elementName: "smart-layout"): NodeListOf<Layout>;
     }
 }
 

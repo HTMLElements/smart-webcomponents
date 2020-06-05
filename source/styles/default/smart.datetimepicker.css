@@ -20,7 +20,7 @@ smart-date-time-picker {
 	{
         border-color: var(--smart-outline);
     }
-	
+
 .smart-date-time-picker .smart-ripple {
     background: var(--smart-background);
 }
@@ -440,6 +440,193 @@ smart-date-time-picker > .smart-container > .smart-content,
     top: -9999px;
     transition: none;
 }
+
+/* underlined*/
+
+.smart-date-time-picker.underlined {
+    border-width:0px;
+    border-bottom-width: 1px;
+    background: var(--smart-background);
+}
+.smart-date-time-picker.underlined .smart-spin-button,
+.smart-date-time-picker.underlined .smart-drop-down-button {
+    background: var(--smart-background);
+    border-width:0px;
+}
+
+.smart-date-time-picker.underlined .smart-spin-button[hover],
+.smart-date-time-picker.underlined .smart-drop-down-button.smart-calendar-button[hover] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-date-time-picker.underlined .smart-spin-button[active],
+.smart-date-time-picker.underlined .smart-drop-down-button.smart-calendar-button[active] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-date-time-picker.underlined .smart-hint{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block !important;
+    box-sizing: border-box;
+    padding: var(--smart-editor-label-padding);
+    color: var(--smart-background-color);
+    pointer-events: none;
+    font-size: 75%;
+    opacity: 0;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s, margin-top 0.2s, opacity 0.1s, top 0.2s;
+    margin-top: calc(0px - var(--smart-font-size))
+}
+
+.smart-date-time-picker.underlined  .smart-hint::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--smart-primary);
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    transition: transform 0.2s;
+}
+
+.smart-date-time-picker.underlined:not([focus]) .smart-hint {
+    margin-top:0px;
+}
+
+.smart-date-time-picker.underlined[focus] .smart-drop-down-button.smart-calendar-button,
+.smart-date-time-picker.underlined[focus] .smart-hint {
+    color: var(--smart-primary);
+    opacity: 1;
+}
+.smart-date-time-picker.underlined[focus] .smart-hint::after {
+    transform: scale(1);
+}
+/*end of underlined */
+
+/* outlined */
+.smart-date-time-picker.outlined {
+    padding-top:6px;
+    height:auto;
+    min-height: 0;
+    border:none;
+    background: var(--smart-background);
+}
+.smart-date-time-picker.outlined .smart-content {
+    padding: 4px 3px 4px;
+    border: 1px solid var(--smart-border);
+    height:auto;
+    border-radius: var(--smart-border-radius);
+    z-index: 5;
+}
+
+.smart-date-time-picker.outlined input {
+    padding: 0;
+    border:none !important;
+    z-index: initial;
+}
+.smart-date-time-picker.outlined .smart-spin-button,
+.smart-date-time-picker.outlined .smart-drop-down-button {
+    background: var(--smart-background);
+    border-width:0px;
+}
+.smart-date-time-picker.outlined .smart-drop-down-button {
+    padding: 8px 0px;
+}
+
+.smart-date-time-picker.outlined[focus] .smart-content {
+    border-color: var(--smart-primary);
+}
+.smart-date-time-picker.outlined[focus] .smart-drop-down-button {
+    color: var(--smart-primary);
+}
+.smart-date-time-picker.outlined .smart-spin-button[hover],
+.smart-date-time-picker.outlined .smart-drop-down-button.smart-calendar-button[hover] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-date-time-picker.outlined .smart-spin-button[active],
+.smart-date-time-picker.outlined .smart-drop-down-button.smart-calendar-button[active] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-date-time-picker.outlined.smart-element-init .smart-hint {
+    visibility: hidden;
+    display: none !important;
+}
+
+.smart-date-time-picker.outlined .smart-hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex !important;
+    border-color: var(--smart-border) !important;
+    width: 100%;
+    max-height: 100%;
+    color: var(--smart-background-color);
+    font-size: 75%;
+    line-height: 15px;
+    cursor: text;
+    margin-top: -6px;
+    transition: color 0.2s, font-size 0.2s, opacity 0.1s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Corners */
+.smart-date-time-picker.outlined .smart-hint::before,
+.smart-date-time-picker.outlined .smart-hint::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    margin-top: 6px;
+    border-top: solid 1px;
+    border-top-color: var(--smart-border) !important;
+    min-width: 10px;
+    height: 8px;
+    pointer-events: none;
+    box-shadow: inset 0 1px transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.smart-date-time-picker.outlined .smart-hint::before{
+    margin-right: 4px;
+    border-left: solid 1px transparent;
+    border-radius: 4px 0;
+}
+
+.smart-date-time-picker.outlined .smart-hint::after {
+    flex-grow: 1;
+    margin-left: 4px;
+    border-right: solid 1px transparent;
+    border-radius: 0 4px;
+}
+
+.smart-date-time-picker.outlined:not([focus]) .smart-hint {
+    font-size: var(--smart-font-size);
+    line-height: 48px;
+    opacity: 0;
+}
+.smart-date-time-picker.outlined[focus] .smart-content
+{
+    border-top-color: transparent !important;
+}
+.smart-date-time-picker.outlined[focus] .smart-hint {
+    color: var(--smart-primary);
+    opacity: 1;
+}
+.smart-date-time-picker.outlined[focus] .smart-hint::before,
+.smart-date-time-picker.outlined[focus] .smart-hint::after {
+    border-top-color: var(--smart-primary) !important;
+}
+/* end of outlined */
 
 /* --- Right-To-Left --- */
 

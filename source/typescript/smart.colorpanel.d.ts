@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- ColorPanel is an advanced color chooser with Pallete, Spectrum Grid, Radial Palette and Excel-like options.
-*/
-export interface ColorPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColorPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -190,36 +184,44 @@ export interface ColorPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ ColorPanel is an advanced color chooser with Pallete, Spectrum Grid, Radial Palette and Excel-like options.
+*/
+export interface ColorPanel extends BaseElement, ColorPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the color is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previously selected color.
    *  value - The new selected color.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the cancel button is clicked. 'Cancel' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onCancelButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCancelButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the custom color selection view is opened/closed. Custom color selection view is available when <strong>enableCustomColors</strong> property is true.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - A boolean that indicates whether the custom color view is shown or not.
    */
-  onCustomColorSelection?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCustomColorSelection?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the ok button is clicked. 'Ok' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onOkButtonClick?: ((this: any, ev: Event) => any) | null;
+  onOkButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-color-panel"): ColorPanel;
-			querySelector(selectors: "smart-color-panel"): ColorPanel | null;	
-			querySelectorAll(selectors: "smart-color-panel"): NodeListOf<ColorPanel>;
-			getElementsByTagName(qualifiedName: "smart-color-panel"): HTMLCollectionOf<ColorPanel>;
-			getElementsByName(elementName: "smart-color-panel"): NodeListOf<ColorPanel>;	
+        createElement(tagName: "smart-color-panel"): ColorPanel;
+        querySelector(selectors: "smart-color-panel"): ColorPanel | null;
+        querySelectorAll(selectors: "smart-color-panel"): NodeListOf<ColorPanel>;
+        getElementsByTagName(qualifiedName: "smart-color-panel"): HTMLCollectionOf<ColorPanel>;
+        getElementsByName(elementName: "smart-color-panel"): NodeListOf<ColorPanel>;
     }
 }
 

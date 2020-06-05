@@ -9,8 +9,8 @@ smart-file-upload {
     box-sizing: border-box;
     border: var(--smart-file-upload-border-width) dashed var(--smart-file-upload-border);
     background-color: var(--smart-file-upload-background);
-    min-width: calc(3*var(--smart-file-upload-footer-button-width) + 20px);
-    min-height: calc(var(--smart-file-upload-browse-button-height) + 2*var(--smart-file-upload-border-width) + 10px + var(--smart-file-upload-footer-button-height) + 2*var(--smart-file-upload-border-width) + var(--smart-file-upload-container-min-height) + 10px + var(--smart-file-upload-total-files-min-height));
+    min-width: 200px;
+    min-height: 100px;
 }
 
     smart-file-upload[disabled] {

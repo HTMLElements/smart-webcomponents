@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { NumericTextBoxComponent } from './smart.numerictextbox';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

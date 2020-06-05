@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Chip is a simple rounded box that displays a single value and optionally an icon.
-*/
-export interface Chip extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ChipProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -83,7 +77,15 @@ export interface Chip extends BaseElement {
    * Default value: ""
    */
   value?: string;
-  /** 
+}
+/**
+ Chip is a simple rounded box that displays a single value and optionally an icon.
+*/
+export interface Chip extends BaseElement, ChipProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the chip is closed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - A string representing the current value of the element.
@@ -95,13 +97,13 @@ export interface Chip extends BaseElement {
   close(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-chip"): Chip;
-			querySelector(selectors: "smart-chip"): Chip | null;	
-			querySelectorAll(selectors: "smart-chip"): NodeListOf<Chip>;
-			getElementsByTagName(qualifiedName: "smart-chip"): HTMLCollectionOf<Chip>;
-			getElementsByName(elementName: "smart-chip"): NodeListOf<Chip>;	
+        createElement(tagName: "smart-chip"): Chip;
+        querySelector(selectors: "smart-chip"): Chip | null;
+        querySelectorAll(selectors: "smart-chip"): NodeListOf<Chip>;
+        getElementsByTagName(qualifiedName: "smart-chip"): HTMLCollectionOf<Chip>;
+        getElementsByName(elementName: "smart-chip"): NodeListOf<Chip>;
     }
 }
 

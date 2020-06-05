@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { ColorInputComponent } from './smart.colorinput';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

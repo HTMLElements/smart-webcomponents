@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Validator plug-in is used to validate form elements.
-*/
-export interface Validator extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ValidatorProperties {
   /**
    * 
    * Default value: null
@@ -17,6 +11,14 @@ export interface Validator extends BaseElement {
    * Default value: ""
    */
   validationSummarySelector?: string;
+}
+/**
+ Validator plug-in is used to validate form elements.
+*/
+export interface Validator extends BaseElement, ValidatorProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
   /**
    * Clears the error messages.
    */
@@ -29,9 +31,6 @@ export interface Validator extends BaseElement {
 }
 
 export interface ValidatorRule {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * A comma-separated list of events to validate the input(s) on.
    * Default value: ""
@@ -84,13 +83,13 @@ export interface ValidatorRule {
   validationCallback?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "jqxValidator"): Validator;
-			querySelector(selectors: "jqxValidator"): Validator | null;	
-			querySelectorAll(selectors: "jqxValidator"): NodeListOf<Validator>;
-			getElementsByTagName(qualifiedName: "jqxValidator"): HTMLCollectionOf<Validator>;
-			getElementsByName(elementName: "jqxValidator"): NodeListOf<Validator>;	
+        createElement(tagName: "jqxValidator"): Validator;
+        querySelector(selectors: "jqxValidator"): Validator | null;
+        querySelectorAll(selectors: "jqxValidator"): NodeListOf<Validator>;
+        getElementsByTagName(qualifiedName: "jqxValidator"): HTMLCollectionOf<Validator>;
+        getElementsByName(elementName: "jqxValidator"): NodeListOf<Validator>;
     }
 }
 

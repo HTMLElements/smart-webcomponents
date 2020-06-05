@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Sliders allow users to make selections from a range of values.
-*/
-export interface Slider extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SliderProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -246,7 +240,15 @@ export interface Slider extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ Sliders allow users to make selections from a range of values.
+*/
+export interface Slider extends BaseElement, SliderProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the slider is changed. 
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
@@ -267,13 +269,13 @@ export interface Slider extends BaseElement {
   val(value?: string | number | number[] | string[]): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-slider"): Slider;
-			querySelector(selectors: "smart-slider"): Slider | null;	
-			querySelectorAll(selectors: "smart-slider"): NodeListOf<Slider>;
-			getElementsByTagName(qualifiedName: "smart-slider"): HTMLCollectionOf<Slider>;
-			getElementsByName(elementName: "smart-slider"): NodeListOf<Slider>;	
+        createElement(tagName: "smart-slider"): Slider;
+        querySelector(selectors: "smart-slider"): Slider | null;
+        querySelectorAll(selectors: "smart-slider"): NodeListOf<Slider>;
+        getElementsByTagName(qualifiedName: "smart-slider"): HTMLCollectionOf<Slider>;
+        getElementsByName(elementName: "smart-slider"): NodeListOf<Slider>;
     }
 }
 

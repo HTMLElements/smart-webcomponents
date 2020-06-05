@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- CardView creates Card-based layout. Supports Filtering, Sorting, Grouping, Editing and UI Virtualization.
-*/
-export interface CardView extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CardViewProperties {
   /**
    * Toggles the button for adding new cards.
    * Default value: false
@@ -67,6 +61,11 @@ export interface CardView extends BaseElement {
    * Default value: none
    */
   headerPosition?: CardViewHeaderPosition;
+  /**
+   * Sets or gets the locale. Used in conjunction with the property messages.
+   * Default value: "en"
+   */
+  locale?: string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -163,39 +162,47 @@ export interface CardView extends BaseElement {
    * Default value: ""
    */
   titleField?: string;
-  /** 
+}
+/**
+ CardView creates Card-based layout. Supports Filtering, Sorting, Grouping, Editing and UI Virtualization.
+*/
+export interface CardView extends BaseElement, CardViewProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a filter has been applied.
 	* @param event. The custom event.    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when sorting has been applied.
 	* @param event. The custom event.    */
-  onSort?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the window is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user starts dragging the card.
 	* @param event. The custom event.    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the user is dragging the card.
 	* @param event. The custom event.    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user dragged the card.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
@@ -274,9 +281,6 @@ export interface CardView extends BaseElement {
 }
 
 export interface CardViewColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the column's data source bound field.
    * Default value: ""
@@ -314,13 +318,13 @@ export interface CardViewColumn {
   formatSettings?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-card-view"): CardView;
-			querySelector(selectors: "smart-card-view"): CardView | null;	
-			querySelectorAll(selectors: "smart-card-view"): NodeListOf<CardView>;
-			getElementsByTagName(qualifiedName: "smart-card-view"): HTMLCollectionOf<CardView>;
-			getElementsByName(elementName: "smart-card-view"): NodeListOf<CardView>;	
+        createElement(tagName: "smart-card-view"): CardView;
+        querySelector(selectors: "smart-card-view"): CardView | null;
+        querySelectorAll(selectors: "smart-card-view"): NodeListOf<CardView>;
+        getElementsByTagName(qualifiedName: "smart-card-view"): HTMLCollectionOf<CardView>;
+        getElementsByName(elementName: "smart-card-view"): NodeListOf<CardView>;
     }
 }
 

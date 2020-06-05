@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { TableComponent } from './smart.table';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

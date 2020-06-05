@@ -16,17 +16,16 @@ smart-gantt-chart>.smart-container:not(.hscroll), .smart-container.smart-gantt-c
 }
 
 /* hide the unnecessary Resize Triggers */
+
 .smart-gantt-chart .smart-tree-splitter .smart-resize-trigger-container {
     margin-bottom: -1px;
 }
 
-
-.smart-container .smart-resource-splitter > .smart-resize-trigger-container {
+.smart-container .smart-resource-splitter>.smart-resize-trigger-container {
     margin-bottom: -2px;
 }
 
-.smart-gantt-chart .smart-tree .smart-resize-trigger-container,
-.smart-gantt-chart .smart-task-splitter > .smart-resize-trigger-container {
+.smart-gantt-chart .smart-tree .smart-resize-trigger-container, .smart-gantt-chart .smart-task-splitter>.smart-resize-trigger-container {
     display: none;
 }
 
@@ -52,16 +51,21 @@ smart-gantt-chart .smart-splitter,
     /*width: auto;*/
     width: 100%;
     height: 100%;
-    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
     border: none;
     border-radius: initial;
+}
+
+/* --smart-gantt-chart-splitter-bar-fit-size in this case shouldn't be changed, because it is used for the collapse/expand animation ! */
+.smart-gantt-chart .smart-task-splitter {
+    --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height));
+    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
 }
 
 .smart-gantt-chart .smart-splitter smart-splitter-bar.smart-element {
     background: var(--smart-border);
 }
 
-.smart-gantt-chart smart-splitter:not([orientation="horizontal"]) smart-splitter-bar {
+.smart-gantt-chart smart-splitter:not([orientation="horizontal"]).transition-scroll-bars smart-splitter-bar {
     transition: height 0.2s ease-in;
 }
 
@@ -247,10 +251,11 @@ smart-gantt-chart .smart-splitter,
     width: var(--smart-gantt-chart-timeline-cell-size);
 }
 
-.smart-gantt-chart .smart-timeline-view-cell>div {
+.smart-gantt-chart .smart-timeline-view-cell>div, .smart-gantt-chart .smart-task-tree-header>div, .smart-gantt-chart .smart-resource-tree-header>div {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    pointer-events: none;
 }
 
 .smart-gantt-chart .smart-resource-timeline-view-cell {
@@ -268,6 +273,7 @@ smart-gantt-chart .smart-splitter,
     overflow: hidden;
     font-size: var(--smart-font-size);
     font-family: var(--smart-font-family-icon);
+    box-sizing: border-box;
 }
 
 .smart-gantt-chart:not([resource-timeline-mode="histogram"]) .smart-resource-timeline-view-cell::after {
@@ -635,7 +641,7 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     pointer-events: none;
 }
 
-.smart-gantt-chart .smart-timeline-task:not(.milestone)[disable-resize]::after, .smart-gantt-chart .smart-timeline-task:not(.milestone)[disable-resize] .smart-task-container::after {
+.smart-gantt-chart .smart-timeline-content .smart-timeline-task:not(.milestone)[disable-resize]::after, .smart-gantt-chart .smart-timeline-content .smart-timeline-task:not(.milestone)[disable-resize] .smart-task-container::after {
     content: none;
 }
 
@@ -913,7 +919,7 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     --smart-border-bottom-right-radius: 0;
 }
 
-.smart-gantt-chart .smart-tree-splitter, .smart-gantt-chart .smart-task-splitter {
+.smart-gantt-chart .smart-tree-splitter {
     /*--smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height));*/
     /* Works */
     --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-tree-splitter-bar-fit-size);
@@ -923,7 +929,7 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     --smart-splitter-bar-background: var(--smart-border);
 }
 
-.smart-gantt-chart .smart-resource-splitter .smart-tree-splitter, .smart-gantt-chart .smart-resource-splitter {
+.smart-gantt-chart .smart-resource-splitter .smart-tree-splitter {
     /*--smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height));*/
     /* Works */
     --smart-splitter-bar-fit-size: var(--smart-gantt-chart-resource-tree-splitter-bar-fit-size);
@@ -981,6 +987,37 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     background-color: var(--smart-surface);
     color: var(--smart-surface-color);
     box-shadow: var(--smart-gantt-chart-header-box-shadow);
+}
+
+.smart-gantt-chart .smart-task-tree-header::after, .smart-gantt-chart .smart-resource-tree-header::after {
+    content: "";
+    position: absolute;
+    right: 2.5%;
+    content: var(--smart-icon-arrow-down);
+    font-family: var(--smart-font-family-icon);
+    font-size: var( --smart-font-size);
+    transform: rotate(0deg) scale(0);
+}
+
+.smart-gantt-chart .smart-splitter-item[sort] .smart-task-tree-content, .smart-gantt-chart .smart-splitter-item[sort] .smart-resource-tree-content {
+    background: var(--smart-grid-cell-background-sort);
+    color: var(--smart-grid-cell-color-sort);
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-task-tree-header::after, .smart-gantt-chart .smart-resource-tree-header::after {
+    transition: transform .2s ease-out, opacity .2s ease-out;
+}
+
+.smart-gantt-chart .smart-splitter-item[sort="asc"] .smart-task-tree-header::after, .smart-gantt-chart .smart-splitter-item[sort="asc"] .smart-resource-tree-header::after {
+    transform: rotate(180deg) scale(1);
+}
+
+.smart-gantt-chart .smart-splitter-item[sort="desc"] .smart-task-tree-header::after, .smart-gantt-chart .smart-splitter-item[sort="desc"] .smart-resource-tree-header::after {
+    transform: rotate(0) scale(1);
+}
+
+.smart-gantt-chart[sortable] .smart-task-tree-header, .smart-gantt-chart[sortable] .smart-resource-tree-header {
+    padding: 0 var(--smart-font-size) 0 var(--smart-font-size);
 }
 
 .smart-gantt-chart .smart-resource-tree-header {

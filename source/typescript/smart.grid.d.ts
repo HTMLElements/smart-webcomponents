@@ -1,14 +1,8 @@
 import  {BaseElement, Animation} from "./smart.element"
 import  {DataAdapter} from "./smart.dataadapter"
-import  {Chart} from "./smart.chart"		
+import  {Chart} from "./smart.chart"
 
-/**
- Data Grid UI Component that covers everything from paging, sorting, grouping, filtering, and editing to row and column virtualization, right-to-left layout, export to Excel and PDF and Accessibility.
-*/
-export interface Grid extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface GridProperties {
   /**
    * An object containing settings related to the grid's appearance.
    * Default value: [object Object]
@@ -123,7 +117,7 @@ export interface Grid extends BaseElement {
    * Callback function() called when the grid has been rendered.
    * Default value: null
    */
-  onRender?: {(): void};
+  onRender?: any;
   /**
    * Callback function(event: KeyboardEvent) called when the grid is on focus and a keyboard key is pressed.
    * Default value: null
@@ -215,6 +209,11 @@ export interface Grid extends BaseElement {
    */
   columnHeader?: GridColumnHeader;
   /**
+   * Describes the summary row settings.
+   * Default value: [object Object]
+   */
+  summaryRow?: GridSummaryRow;
+  /**
    * Describes the settings for the group header.
    * Default value: [object Object]
    */
@@ -244,15 +243,23 @@ export interface Grid extends BaseElement {
    * Default value: [object Object]
    */
   sorting?: GridSorting;
-  /** 
+}
+/**
+ Data Grid UI Component that covers everything from paging, sorting, grouping, filtering, and editing to row and column virtualization, right-to-left layout, export to Excel and PDF and Accessibility.
+*/
+export interface Grid extends BaseElement, GridProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered, when the edit begins.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, column, cell)
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
    */
-  onBeginEdit?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the selection is changed. When you select with a drag, the event is triggered when the drag starts and ends. 
 	* @param event. The custom event. Custom data event was created with: ev.detail(started, finished, originalEvent)
    *  started - The flag is <em>true</em>, when the selection starts. The flag is <em>false</em>, when the selection ends and when the user changes the selection by dragging.
@@ -260,130 +267,184 @@ export interface Grid extends BaseElement {
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered, when the user clicks on the header of a column.
 	* @param event. The custom event. Custom data event was created with: ev.detail(column, originalEvent)
    *  column - The clicked column.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onColumnClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user double clicks on the header of a column.
 	* @param event. The custom event. Custom data event was created with: ev.detail(column, originalEvent)
    *  column - The double-clicked column.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onColumnDoubleClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onColumnDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user resized a column.
 	* @param event. The custom event. Custom data event was created with: ev.detail(column, oldWidth, width)
    *  column - The resized column.
    *  oldWidth - The old width of the column.
    *  width - The new width of the column.
    */
-  onColumnResize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onColumnResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user starts a column drag.
+	* @param event. The custom event. Custom data event was created with: ev.detail(column, index, originalEvent)
+   *  column - The column.
+   *  index - The column's index
+   *  originalEvent - The origianl Event object.
+   */
+  onColumnDragStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a column.
+	* @param event. The custom event. Custom data event was created with: ev.detail(column, index, data, originalEvent)
+   *  column - The column.
+   *  index - The column's index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onColumnDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a column.
+	* @param event. The custom event. Custom data event was created with: ev.detail(column, index, newIndex, data, originalEvent)
+   *  column - The column.
+   *  index - The column's index
+   *  newIndex - The column's new index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onColumnDragEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user starts a row drag.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, index, originalEvent)
+   *  row - The row.
+   *  index - The row's index
+   *  originalEvent - The origianl Event object.
+   */
+  onRowDragStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a row.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, index, data, originalEvent)
+   *  row - The row.
+   *  index - The row's index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onRowDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a row.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, index, newIndex, data, originalEvent)
+   *  row - The row.
+   *  index - The row's index
+   *  newIndex - The row's new index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onRowDragEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user expands a row of the grid. The Grid is in TreeGrid/Grouping mode.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The expanded row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user collapsed a row of the grid. The Grid is in TreeGrid/Grouping mode.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The collapsed row. 
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user clicks on a row of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The clicked row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user double clicks on a row of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The double-clicked row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowDoubleClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user resized a row.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, oldHeight, height)
    *  row - The resized row.
    *  oldHeight - The old height of the row.
    *  height - The new height of the row.
    */
-  onRowResize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user clicks on a cell of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
    *  cell - The clicked cell.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onCellClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCellClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user double clicks on a cell of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
    *  cell - The double-clicked cell. 
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onCellDoubleClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCellDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the edit ends.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, column, cell)
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
    */
-  onEndEdit?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when a filter is added or removed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
    *  columns - Array of columns.
    *  data - Array of {dataField: string, filter: string}. <em>dataField</em> is the column's data field. <em>filter</em> is a filter expression like 'startsWith B'
    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the grid is resized.
 	* @param event. The custom event.    */
   onResize: ((ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the user touches and holds on the row for at least 300ms.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The tapped row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowTap?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowTap?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user touches and holds on the cell for at least 300ms.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
    *  cell - The tapped row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onCellTap?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCellTap?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user changes the pages.
 	* @param event. The custom event.    */
-  onPage?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onPage?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when a sorting column is added or removed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
    *  columns - Array of columns.
    *  data - Array of {dataField: string, sortOrder: string, sortIndex: number}. <em>dataField</em> is the column's data field. <em>sortOrder</em> is 'asc' or 'desc', <em>sortIndex</em> is the index of the column in multi column sorting.
    */
-  onSort?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user reaches the bottom of the grid.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user reaches the top of the grid.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string} position?. 'near' or 'far'
@@ -620,9 +681,6 @@ export interface Grid extends BaseElement {
 
 /**An object containing settings related to the grid's appearance. */
 export interface GridAppearance {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Starting row index of alternating colors.
    * Default value: 0
@@ -764,6 +822,11 @@ export interface GridAppearance {
    */
   showRowHeaderFocusIcon?: boolean;
   /**
+   * Shows drag icon on the row header. 
+   * Default value: false
+   */
+  showRowHeaderDragIcon?: boolean;
+  /**
    * Shows column header lines.
    * Default value: true
    */
@@ -847,9 +910,6 @@ export interface GridAppearance {
 
 /**An object containing settings related to the grid's behavior. */
 export interface GridBehavior {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Auto-Resize on double-click of a column's right border.
    * Default value: true
@@ -860,6 +920,16 @@ export interface GridBehavior {
    * Default value: true
    */
   allowRowAutoSizeOnDoubleClick?: boolean;
+  /**
+   * Determines whether row reorder is enabled.
+   * Default value: false
+   */
+  allowRowReorder?: boolean;
+  /**
+   * Determines whether column reorder is enabled.
+   * Default value: false
+   */
+  allowColumnReorder?: boolean;
   /**
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
@@ -874,9 +944,6 @@ export interface GridBehavior {
 
 /**An object containing settings related to the grid's layout. */
 export interface GridLayout {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables or disables the Cells Value wrapping. When the property is true, cell value can wrap in multiple lines.
    * Default value: false
@@ -916,9 +983,6 @@ export interface GridLayout {
 
 /**The <em>clipboard</em> property is used to enable/disable clipboard operations with Ctrl+C, Ctrl+X and Ctrl+V keyboard navigations.. */
 export interface GridClipboard {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the property is enabled.
    * Default value: true
@@ -937,9 +1001,6 @@ export interface GridClipboard {
 }
 
 export interface GridColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the column's header alignment. Accepts: 'left', 'right', 'center'
    * Default value: left
@@ -964,7 +1025,7 @@ export interface GridColumn {
    * Sets or gets whether the column can be selected.
    * Default value: true
    */
-  allowSelect?: boolean;
+  allowSelect?: boolean | null;
   /**
    * Sets or gets whether the column can be edited.
    * Default value: true
@@ -1124,9 +1185,6 @@ export interface GridColumn {
 
 /**Column Menu is the drop-down menu displayed after clicking the column header's drop-down button, which is displayed when you hover the column header. It allows you to customize column settings. For example: Sort, Filter or Group the Grid by the current column. */
 export interface GridColumnMenu {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Automatically closes the column menu.
    * Default value: true
@@ -1161,9 +1219,6 @@ export interface GridColumnMenu {
 
 /**Sets the data sources to the column menu. */
 export interface GridColumnMenuDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the settings of the column menu customize type
    * Default value: [object Object]
@@ -1243,9 +1298,6 @@ export interface GridColumnMenuDataSource {
 
 /**Describes the settings of the column menu customize type */
 export interface GridCommand {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the commant of the column menu customize type.
    * Default value: customizeTypeCommand
@@ -1274,9 +1326,6 @@ export interface GridCommand {
 }
 
 export interface GridColumnGroup {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the label.
    * Default value: ""
@@ -1306,9 +1355,6 @@ export interface GridColumnGroup {
 
 /**Sets the Grid Charting Data Visualization. */
 export interface GridCharting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether charting is enabled.
    * Default value: false
@@ -1333,9 +1379,6 @@ export interface GridCharting {
 
 /**Sets or gets the charting dialog. */
 export interface Dialog {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the dialog header.
    * Default value: ""
@@ -1375,9 +1418,6 @@ export interface Dialog {
 
 /**Sets the TreeGrid checkboxes. */
 export interface GridCheckBoxes {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the TreeGrid checkboxes.
    * Default value: false
@@ -1392,9 +1432,6 @@ export interface GridCheckBoxes {
 
 /**Sets the Grid Data Export options. */
 export interface GridDataExport {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets whether the columns header will be exported.
    * Default value: true
@@ -1450,13 +1487,15 @@ export interface GridDataExport {
    * Default value: false
    */
   viewEnd?: number | null;
+  /**
+   * An array of row ids that denotes the rows to export.
+   * Default value: null
+   */
+  rowIds?: {(): void};
 }
 
 /**Describes the grid's editing settings. */
 export interface GridEditing {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables row header cells editing.
    * Default value: false
@@ -1526,9 +1565,6 @@ export interface GridEditing {
 
 /**Describes command keys. */
 export interface GridEditingCommandKeys {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the edit command key.
    * Default value: [object Object]
@@ -1548,9 +1584,6 @@ export interface GridEditingCommandKeys {
 
 /**Describes the edit command key. */
 export interface GridCommandKey {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the name of the edit key command.
    * Default value: "commandKeyEditCommand"
@@ -1565,9 +1598,6 @@ export interface GridCommandKey {
 
 /**Describes the grid's command bar settings. The command bar is a toolbar or statusbar with tools for saving and reverting edits. */
 export interface GridEditingCommandBar {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the command bar visible.
    * Default value: false
@@ -1592,9 +1622,6 @@ export interface GridEditingCommandBar {
 
 /**Sets the command bar's data source. */
 export interface GridEditingCommandBarDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the settings of the command bar's button for adding rows.
    * Default value: [object Object]
@@ -1619,9 +1646,6 @@ export interface GridEditingCommandBarDataSource {
 
 /**Describes the grid's command column settings. The command column can be used to edit or delete a row. */
 export interface GridEditingCommandColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the command column visible.
    * Default value: false
@@ -1656,9 +1680,6 @@ export interface GridEditingCommandColumn {
 
 /**Sets the command column's data source. */
 export interface GridEditingCommandColumnDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the settings of the command column's button displayed in the column's header. By default, this Command opens a Menu with Column Chooser.
    * Default value: [object Object]
@@ -1698,9 +1719,6 @@ export interface GridEditingCommandColumnDataSource {
 
 /**Describes the settings of the 'Add New Row' UI element which enables the quick adding of rows to the Grid with a single click. */
 export interface GridEditingAddNewRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the position of the 'Add New Row' UI element.
    * Default value: both
@@ -1720,9 +1738,6 @@ export interface GridEditingAddNewRow {
 
 /**Describes the grid's filtering settings. */
 export interface GridFiltering {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables filtering.
    * Default value: false
@@ -1752,9 +1767,6 @@ export interface GridFiltering {
 
 /**(In Development)Describes the filter row's settings. */
 export interface GridFilteringFilterRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the filter row visible.
    * Default value: false
@@ -1779,9 +1791,6 @@ export interface GridFilteringFilterRow {
 
 /**Describes the settings for the filter menu. */
 export interface GridFilteringFilterMenu {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the filter menu.
    * Default value: true
@@ -1792,6 +1801,11 @@ export interface GridFilteringFilterMenu {
    * Default value: cancel,clear,filter
    */
   buttons?: string[];
+  /**
+   * Sets the filter menu mode.
+   * Default value: default,excel
+   */
+  mode?: string[];
   /**
    * Sets the filter menu datasource.
    * Default value: null
@@ -1811,9 +1825,6 @@ export interface GridFilteringFilterMenu {
 
 /**(In Development)Describes the settings for the filter builder. */
 export interface GridFilteringFilterBuilder {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the filter builder.
    * Default value: false
@@ -1828,9 +1839,6 @@ export interface GridFilteringFilterBuilder {
 
 /**Describes the grid's grouping settings. */
 export interface GridGrouping {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables grouping.
    * Default value: false
@@ -1852,6 +1860,11 @@ export interface GridGrouping {
    */
   expandMode?: GridGroupingExpandMode;
   /**
+   * Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level.
+   * Default value: advanced
+   */
+  renderMode?: GridGroupingRenderMode;
+  /**
    * Sets the group row height.
    * Default value: 50
    */
@@ -1872,11 +1885,6 @@ export interface GridGrouping {
    */
   groupBar?: GridGroupingGroupBar;
   /**
-   * Describes the group panel's settings.
-   * Default value: [object Object]
-   */
-  groupPanel?: GridGroupingGroupPanel;
-  /**
    * Describes the group summary row's settings.
    * Default value: [object Object]
    */
@@ -1885,9 +1893,6 @@ export interface GridGrouping {
 
 /**Describes the group bar's settings. */
 export interface GridGroupingGroupBar {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the group bar visible.
    * Default value: false
@@ -1905,23 +1910,8 @@ export interface GridGroupingGroupBar {
   allowColumnCloseButtons?: boolean;
 }
 
-/**Describes the group panel's settings. */
-export interface GridGroupingGroupPanel {
-
-  /* Get a member by its name */
-  [name: string]: any;
-  /**
-   * Makes the group panel visible.
-   * Default value: false
-   */
-  visible?: boolean;
-}
-
 /**Describes the group summary row's settings. */
 export interface GridGroupingSummaryRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables inline display of the group summary row.
    * Default value: true
@@ -1936,9 +1926,6 @@ export interface GridGroupingSummaryRow {
 
 /**Describes the paging settings. */
 export interface GridPaging {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables pagination.
    * Default value: false
@@ -1963,9 +1950,6 @@ export interface GridPaging {
 
 /**Describes the spinner pagination settings. */
 export interface GridPagingSpinner {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables spinner pagination.
    * Default value: false
@@ -1980,9 +1964,6 @@ export interface GridPagingSpinner {
 
 /**Describes the pager settings. */
 export interface GridPager {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the ellipsis display mode.
    * Default value: both
@@ -2032,9 +2013,6 @@ export interface GridPager {
 
 /**Describes the settings for the 'rows per page' option. */
 export interface GridPagerPageSizeSelector {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the 'rows per page' option.
    * Default value: false
@@ -2054,9 +2032,6 @@ export interface GridPagerPageSizeSelector {
 
 /**Describes the summary settings. */
 export interface GridPagerSummary {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the position of the summary.
    * Default value: far
@@ -2071,9 +2046,6 @@ export interface GridPagerSummary {
 
 /**Describes the navigation buttons settings. */
 export interface GridPagerNavigationButtons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the navigation buttons position.
    * Default value: both
@@ -2098,9 +2070,6 @@ export interface GridPagerNavigationButtons {
 
 /**Describes the settings about buttons 'previous page' and 'next page'. */
 export interface GridPagerNavigationButtonsPrevNextButtons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of 'previous page' and 'next page' buttons.
    * Default value: true
@@ -2110,9 +2079,6 @@ export interface GridPagerNavigationButtonsPrevNextButtons {
 
 /**Describes the settings about buttons 'first page' and 'last page'. */
 export interface GridPagerNavigationButtonsFirstLastButtons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of 'first page' and 'last page' buttons.
    * Default value: true
@@ -2122,9 +2088,6 @@ export interface GridPagerNavigationButtonsFirstLastButtons {
 
 /**Describes the labels settings for navigation buttons. */
 export interface GridPagerNavigationButtonsLabels {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of labels for navigation buttons.
    * Default value: false
@@ -2134,9 +2097,6 @@ export interface GridPagerNavigationButtonsLabels {
 
 /**Describes the settings about navigation input option. */
 export interface GridPagerNavigationInput {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the position of navigation input option.
    * Default value: far
@@ -2151,9 +2111,6 @@ export interface GridPagerNavigationInput {
 
 /**Describes the settings for the numeric page buttons. */
 export interface GridPagerPageIndexSelectors {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of numeric page buttons.
    * Default value: true
@@ -2168,9 +2125,6 @@ export interface GridPagerPageIndexSelectors {
 
 /**Sets the row details. */
 export interface GridRowDetail {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables the row details.
    * Default value: false
@@ -2205,9 +2159,6 @@ export interface GridRowDetail {
 
 /**Describes the column header settings. */
 export interface GridColumnHeader {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the column header visibility.
    * Default value: true
@@ -2215,11 +2166,17 @@ export interface GridColumnHeader {
   visible?: boolean;
 }
 
+/**Describes the summary row settings. */
+export interface GridSummaryRow {
+  /**
+   * Sets the summary row visibility.
+   * Default value: false
+   */
+  visible?: boolean;
+}
+
 /**Describes the settings for the group header. */
 export interface GridGroupHeader {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the group header.
    * Default value: false
@@ -2234,9 +2191,6 @@ export interface GridGroupHeader {
 
 /**Describes the header settings of the grid. */
 export interface GridHeader {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the header visibility.
    * Default value: false
@@ -2251,9 +2205,6 @@ export interface GridHeader {
 
 /**Describes the footer settings of the grid. */
 export interface GridFooter {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the footer visibility.
    * Default value: false
@@ -2267,9 +2218,6 @@ export interface GridFooter {
 }
 
 export interface GridRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the row can be expanded or collapsed.
    * Default value: true
@@ -2284,7 +2232,7 @@ export interface GridRow {
    * Sets or gets the row can be selected.
    * Default value: true
    */
-  allowSelect?: boolean;
+  allowSelect?: boolean | null;
   /**
    * Sets or gets the row can be checked. This property is used when the Grid is in Tree Grid or Grouped mode.
    * Default value: true
@@ -2390,12 +2338,14 @@ export interface GridRow {
    * Default value: -1
    */
   visibleIndex?: number;
+  /**
+   * Methods which gets a cell, which is inside a row. A dataField string is a required argument, when you call this method.
+   * Default value: -1
+   */
+  getCell?: any;
 }
 
 export interface GridCell {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * "Sets or gets the horizontal alignment. Allowed values are: 'left', 'center' or 'right'".
    * Default value: "'left'"
@@ -2515,9 +2465,6 @@ export interface GridCell {
 
 /**Describes the selection settings. */
 export interface GridSelection {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables the selection option.
    * Default value: false
@@ -2591,9 +2538,6 @@ export interface GridSelection {
 }
 
 export interface GridSelectionCheckBoxes {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the checkboxes are automatically displayed only when the mouse is over the Grid. When false, checkboses are always displayed
    * Default value: false
@@ -2623,9 +2567,6 @@ export interface GridSelectionCheckBoxes {
 
 /**Describes sorting settings. */
 export interface GridSorting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables sorting.
    * Default value: false
@@ -2648,13 +2589,13 @@ export interface GridSorting {
   sortToggleThreeStates?: boolean;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-grid"): Grid;
-			querySelector(selectors: "smart-grid"): Grid | null;	
-			querySelectorAll(selectors: "smart-grid"): NodeListOf<Grid>;
-			getElementsByTagName(qualifiedName: "smart-grid"): HTMLCollectionOf<Grid>;
-			getElementsByName(elementName: "smart-grid"): NodeListOf<Grid>;	
+        createElement(tagName: "smart-grid"): Grid;
+        querySelector(selectors: "smart-grid"): Grid | null;
+        querySelectorAll(selectors: "smart-grid"): NodeListOf<Grid>;
+        getElementsByTagName(qualifiedName: "smart-grid"): HTMLCollectionOf<Grid>;
+        getElementsByName(elementName: "smart-grid"): NodeListOf<Grid>;
     }
 }
 
@@ -2682,6 +2623,8 @@ export declare type GridEditingMode = 'cell' | 'row';
 export declare type GridFilteringFilterRowApplyMode = 'auto' | 'click';
 /**Sets the group expand mode. */
 export declare type GridGroupingExpandMode = 'buttonClick' | 'rowClick';
+/**Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. */
+export declare type GridGroupingRenderMode = 'basic' | 'compact' | 'advanced';
 /**Sets the ellipsis display mode. */
 export declare type GridPagerAutoEllipsis = 'none' | 'before' | 'after' | 'both';
 /**Sets the scroll mode settings. */

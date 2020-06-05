@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Progress Bar displayed as a circle.
-*/
-export interface CircularProgressBar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CircularProgressBarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -93,29 +87,31 @@ export interface CircularProgressBar extends BaseElement {
    * Default value: 0
    */
   value?: number;
-  /** 
+}
+/**
+ Progress Bar displayed as a circle.
+*/
+export interface CircularProgressBar extends BaseElement, CircularProgressBarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-circular-progress-bar"): CircularProgressBar;
-			querySelector(selectors: "smart-circular-progress-bar"): CircularProgressBar | null;	
-			querySelectorAll(selectors: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;
-			getElementsByTagName(qualifiedName: "smart-circular-progress-bar"): HTMLCollectionOf<CircularProgressBar>;
-			getElementsByName(elementName: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;	
+        createElement(tagName: "smart-circular-progress-bar"): CircularProgressBar;
+        querySelector(selectors: "smart-circular-progress-bar"): CircularProgressBar | null;
+        querySelectorAll(selectors: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;
+        getElementsByTagName(qualifiedName: "smart-circular-progress-bar"): HTMLCollectionOf<CircularProgressBar>;
+        getElementsByName(elementName: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;
     }
 }
 
-/**
- Progress indicators. It can be used to show a user how far along he/she is in a process.
-*/
-export interface ProgressBar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ProgressBarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -207,19 +203,27 @@ export interface ProgressBar extends BaseElement {
    * Default value: 0
    */
   value?: number;
-  /** 
+}
+/**
+ Progress indicators. It can be used to show a user how far along he/she is in a process.
+*/
+export interface ProgressBar extends BaseElement, ProgressBarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-progress-bar"): ProgressBar;
-			querySelector(selectors: "smart-progress-bar"): ProgressBar | null;	
-			querySelectorAll(selectors: "smart-progress-bar"): NodeListOf<ProgressBar>;
-			getElementsByTagName(qualifiedName: "smart-progress-bar"): HTMLCollectionOf<ProgressBar>;
-			getElementsByName(elementName: "smart-progress-bar"): NodeListOf<ProgressBar>;	
+        createElement(tagName: "smart-progress-bar"): ProgressBar;
+        querySelector(selectors: "smart-progress-bar"): ProgressBar | null;
+        querySelectorAll(selectors: "smart-progress-bar"): NodeListOf<ProgressBar>;
+        getElementsByTagName(qualifiedName: "smart-progress-bar"): HTMLCollectionOf<ProgressBar>;
+        getElementsByName(elementName: "smart-progress-bar"): NodeListOf<ProgressBar>;
     }
 }
 

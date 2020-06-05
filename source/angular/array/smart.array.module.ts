@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { ArrayComponent } from './smart.array';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

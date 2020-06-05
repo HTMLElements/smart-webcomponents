@@ -40,10 +40,12 @@ smart-breadcrumb {
         width: auto;
         height: var(--smart-breadcrumb-item-height);
         padding: 5px;
-        background-color: var(--smart-primary);
-        color: var(--smart-primary-color);
+        background-color: var(--smart-background);
+        color: var(--smart-background-color);
     }
-
+    .smart-breadcrumb-feedback {
+        box-shadow: var(--smart-elevation-12);
+    }
         smart-breadcrumb .smart-breadcrumb-item:not(:last-child):after {
             position: absolute;
             width: var(--smart-breadcrumb-horizontal-offset);
@@ -59,8 +61,8 @@ smart-breadcrumb {
         position: absolute;
         width: 2px;
         height: 100%;
-        background-color: var(--smart-success);
-        left: calc(-1 * var(--smart-breadcrumb-horizontal-offset) / 2 - 2px);
+        background-color: var(--smart-primary);
+        left: calc(-1 * var(--smart-breadcrumb-horizontal-offset) / 2 - 1px);
         content: '';
     }
 
@@ -71,6 +73,11 @@ smart-breadcrumb {
     smart-breadcrumb[allow-drag] .smart-breadcrumb-item {
         cursor: pointer;
         touch-action: none;
+    }
+
+    smart-breadcrumb[allow-drag] .smart-breadcrumb-item.dragged {
+        background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent);
+        background-size: 3em 3em;
     }
 
     smart-breadcrumb .smart-breadcrumb-item-label,
@@ -151,10 +158,23 @@ smart-breadcrumb {
         content: var(--smart-icon-attention-circled);
     }
 
+    .smart-breadcrumb-feedback.data:after {
+        background-color: var(--smart-primary);
+        color: var(--smart-primary-color);
+        content: var(--smart-icon-docs);
+    }
+
     .smart-breadcrumb-feedback * {
         box-sizing: border-box;
     }
 
+    smart-breadcrumb .smart-breadcrumb-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 5px;
+    }
+    
 /* minimized */
 smart-breadcrumb[minimized] {
     padding: 0;

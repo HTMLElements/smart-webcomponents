@@ -396,7 +396,7 @@ smart-color-panel {
     display: none;
     flex-direction: row;
     justify-content: flex-end;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0 0 0;
 }
 
     .smart-color-panel .buttons-container smart-button {
@@ -463,6 +463,7 @@ smart-color-panel {
 .smart-color-panel .default-samples-container div {
     display: grid;
     grid-template-columns: repeat(10, auto);
+    justify-items: center;
 }
 
 .smart-color-panel[enable-custom-colors] .button-custom-color,

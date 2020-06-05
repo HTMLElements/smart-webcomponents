@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Carousel is a slideshow component for cycling through elements—images or slides of text
-*/
-export interface Carousel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CarouselProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -138,20 +132,36 @@ export interface Carousel extends BaseElement {
    * Default value: false
    */
   wheel?: boolean;
-  /** 
+}
+/**
+ Carousel is a slideshow component for cycling through elements—images or slides of text
+*/
+export interface Carousel extends BaseElement, CarouselProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * Triggered when the active ( in view ) slide is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, previousIndex)
    *  index - The index of the new active slide.
    *  previousIndex - The index of the previous slide that was active.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * Triggered when the process of slide changing starts.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, previousIndex)
    *  index - The index of the new active slide.
    *  previousIndex - The index of the previous slide that was active.
    */
-  onChanging?: ((this: any, ev: Event) => any) | null;
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the left inside the Carousel.
+	* @param event. The custom event.    */
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the right inside the Carousel.
+	* @param event. The custom event.    */
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Navigates to the next slide.
    */
@@ -175,13 +185,13 @@ export interface Carousel extends BaseElement {
   slideTo(index: number): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-carousel"): Carousel;
-			querySelector(selectors: "smart-carousel"): Carousel | null;	
-			querySelectorAll(selectors: "smart-carousel"): NodeListOf<Carousel>;
-			getElementsByTagName(qualifiedName: "smart-carousel"): HTMLCollectionOf<Carousel>;
-			getElementsByName(elementName: "smart-carousel"): NodeListOf<Carousel>;	
+        createElement(tagName: "smart-carousel"): Carousel;
+        querySelector(selectors: "smart-carousel"): Carousel | null;
+        querySelectorAll(selectors: "smart-carousel"): NodeListOf<Carousel>;
+        getElementsByTagName(qualifiedName: "smart-carousel"): HTMLCollectionOf<Carousel>;
+        getElementsByName(elementName: "smart-carousel"): NodeListOf<Carousel>;
     }
 }
 

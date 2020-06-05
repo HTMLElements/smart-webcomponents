@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { ColumnPanelComponent } from './smart.columnpanel';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

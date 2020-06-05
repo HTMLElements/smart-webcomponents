@@ -1,11 +1,11 @@
-                        
+
 declare global {
     interface Window {
         Smart: any;
 }
 }
-        
-        
+
+
 import { ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { ElementRenderMode } from './../index';
 
@@ -13,11 +13,11 @@ export class BaseElement {
     constructor(ref: ElementRef) {
         const that = this;
         this.nativeElement = ref.nativeElement as any;
-    
+
         that.nativeElement.onAttached = () => {
             that.onAttach.emit(that.nativeElement);
         }
-     
+
         that.nativeElement.onDetached = () => {
             that.onDetach.emit(that.nativeElement);
         }
@@ -41,7 +41,7 @@ export class BaseElement {
 	public dispatchEvent(event: Event): boolean {
 		return this.nativeElement.dispatchEvent(event);
 	}
-	
+
 	public blur(): void {
 		this.nativeElement.blur();
 	}
@@ -53,7 +53,7 @@ export class BaseElement {
 	public focus(options?: FocusOptions): void {
 		this.nativeElement.focus(options);
 	}
-    
+
 /** @description Sets or gets the language. Used in conjunction with the property messages.  */
 	@Input()
 	get locale(): string {
@@ -97,7 +97,7 @@ export class BaseElement {
 	}
 	set theme(value: string) {
 		this.nativeElement ? this.nativeElement.theme = value : undefined;
-	}	
+	}
 }
 
 export const Smart: any = window.Smart;

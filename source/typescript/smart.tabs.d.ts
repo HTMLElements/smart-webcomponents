@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Defines a tab item.
-*/
-export interface TabItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TabItemProperties {
   /**
    * Tab item close button state
    * Default value: false
@@ -38,24 +32,26 @@ export interface TabItem extends BaseElement {
    */
   labelSize?: number;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-tab-item"): TabItem;
-			querySelector(selectors: "smart-tab-item"): TabItem | null;	
-			querySelectorAll(selectors: "smart-tab-item"): NodeListOf<TabItem>;
-			getElementsByTagName(qualifiedName: "smart-tab-item"): HTMLCollectionOf<TabItem>;
-			getElementsByName(elementName: "smart-tab-item"): NodeListOf<TabItem>;	
-    }
-}
-
 /**
- Defines a group of tab items.
+ Defines a tab item.
 */
-export interface TabItemsGroup extends BaseElement {
+export interface TabItem extends BaseElement, TabItemProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-item"): TabItem;
+        querySelector(selectors: "smart-tab-item"): TabItem | null;
+        querySelectorAll(selectors: "smart-tab-item"): NodeListOf<TabItem>;
+        getElementsByTagName(qualifiedName: "smart-tab-item"): HTMLCollectionOf<TabItem>;
+        getElementsByName(elementName: "smart-tab-item"): NodeListOf<TabItem>;
+    }
+}
+
+export interface TabItemsGroupProperties {
   /**
    * 
    * Default value: ""
@@ -67,24 +63,26 @@ export interface TabItemsGroup extends BaseElement {
    */
   labelSize?: number;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-tab-items-group"): TabItemsGroup;
-			querySelector(selectors: "smart-tab-items-group"): TabItemsGroup | null;	
-			querySelectorAll(selectors: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-tab-items-group"): HTMLCollectionOf<TabItemsGroup>;
-			getElementsByName(elementName: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;	
-    }
-}
-
 /**
- Tabs organize content across different screens, data sets, and other interactions. Tabs can be paired with components like top app bars. Tabs can be displayed horizontally or vertically.
+ Defines a group of tab items.
 */
-export interface Tabs extends BaseElement {
+export interface TabItemsGroup extends BaseElement, TabItemsGroupProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-items-group"): TabItemsGroup;
+        querySelector(selectors: "smart-tab-items-group"): TabItemsGroup | null;
+        querySelectorAll(selectors: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-tab-items-group"): HTMLCollectionOf<TabItemsGroup>;
+        getElementsByName(elementName: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;
+    }
+}
+
+export interface TabsProperties {
   /**
    * Sets or gets whether the "Add new tab" button (+) is displayed.
    * Default value: false
@@ -241,30 +239,38 @@ export interface Tabs extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Tabs organize content across different screens, data sets, and other interactions. Tabs can be paired with components like top app bars. Tabs can be displayed horizontally or vertically.
+*/
+export interface Tabs extends BaseElement, TabsProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the tab selection is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a tab is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a tab is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a drag operation has ended.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a drag operation has started.
 	* @param event. The custom event.    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when tabs have been reordered.
 	* @param event. The custom event.    */
-  onReorder?: ((this: any, ev: Event) => any) | null;
+  onReorder?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Collapses the content section.
    */
@@ -313,13 +319,13 @@ export interface Tabs extends BaseElement {
   update(index: number, label: string, content: string | HTMLElement): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tabs"): Tabs;
-			querySelector(selectors: "smart-tabs"): Tabs | null;	
-			querySelectorAll(selectors: "smart-tabs"): NodeListOf<Tabs>;
-			getElementsByTagName(qualifiedName: "smart-tabs"): HTMLCollectionOf<Tabs>;
-			getElementsByName(elementName: "smart-tabs"): NodeListOf<Tabs>;	
+        createElement(tagName: "smart-tabs"): Tabs;
+        querySelector(selectors: "smart-tabs"): Tabs | null;
+        querySelectorAll(selectors: "smart-tabs"): NodeListOf<Tabs>;
+        getElementsByTagName(qualifiedName: "smart-tabs"): HTMLCollectionOf<Tabs>;
+        getElementsByName(elementName: "smart-tabs"): NodeListOf<Tabs>;
     }
 }
 

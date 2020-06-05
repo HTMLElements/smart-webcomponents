@@ -239,11 +239,11 @@ export class SwitchButtonComponent extends BaseElement implements OnInit, AfterV
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -254,7 +254,7 @@ export class SwitchButtonComponent extends BaseElement implements OnInit, AfterV
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -313,15 +313,15 @@ export class SwitchButtonComponent extends BaseElement implements OnInit, AfterV
 		that.nativeElement.addEventListener('change', that.eventHandlers['changeHandler']);
 
 
-        that.eventHandlers['changeModelHandler'] = (event: Event) => { 
+        that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
-            that._onChange(that.nativeElement.checked); 
+            that._onChange(that.nativeElement.checked);
         }
         that.eventHandlers['blurModelHandler'] = (event: Event) => {
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-            if (that.nativeElement.querySelector('input')) {    
+            if (that.nativeElement.querySelector('input')) {
                 that.eventHandlers['keyupModelHandler'] = (event) => {
                     setTimeout(() => { that.eventHandlers['changeModelHandler'](event); }, 50);
                 };

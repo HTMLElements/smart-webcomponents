@@ -1,7 +1,4 @@
 export interface DataAdapter {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the binding is automatic after creating a data adapter instance.
    * Default value: true
@@ -200,9 +197,6 @@ export interface DataAdapter {
 }
 
 export interface DataAdapterVirtualDataSourceOnExpand {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Result callback function which is executed when the data loading is completed.
    * Default value: null
@@ -229,9 +223,6 @@ export interface DataAdapterVirtualDataSourceOnExpandResultCallbackFunction {
 
 /**Details of the object, which made the request */
 export interface DataAdapterVirtualDataSourceOnExpandDetails {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Data start index.
    * Default value: 0
@@ -266,9 +257,6 @@ export interface DataAdapterVirtualDataSourceOnExpandDetails {
 
 /**Sorting information. */
 export interface DataAdapterVirtualDataSourceOnExpandDetailsSorting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sort order.
    * Default value: asc
@@ -282,9 +270,6 @@ export interface DataAdapterVirtualDataSourceOnExpandDetailsSorting {
 }
 
 export interface DataAdapterVirtualDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Result callback function which is executed when the data loading is completed.
    * Default value: null
@@ -311,9 +296,6 @@ export interface DataAdapterVirtualDataSourceResultCallbackFunction {
 
 /**Details of the object, which made the request */
 export interface DataAdapterVirtualDataSourceDetails {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Data start index.
    * Default value: 0
@@ -328,7 +310,7 @@ export interface DataAdapterVirtualDataSourceDetails {
    * Sorting information.
    * Default value: null
    */
-  sorting?: DataAdapterVirtualDataSourceDetailsSorting;
+  sorting?: any;
   /**
    * Filtering information.
    * Default value: null
@@ -344,23 +326,11 @@ export interface DataAdapterVirtualDataSourceDetails {
    * Default value: undefined
    */
   action?: DataAdapterVirtualDataSourceDetailsAction;
-}
-
-/**Sorting information. */
-export interface DataAdapterVirtualDataSourceDetailsSorting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
-   * Sort order.
-   * Default value: asc
+   * Expanded Row when data is loaded on demand in Tree Hierarchy scenarios.
+   * Default value: undefined
    */
-  sortOrder?: DataAdapterVirtualDataSourceDetailsSortingSortOrder;
-  /**
-   * Sort index.
-   * Default value: -1
-   */
-  sortIndex?: number;
+  row?: any;
 }
 /**Sets or gets whether the data source type. */
 export declare type DataAdapterDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
@@ -370,7 +340,5 @@ export declare type DataAdapterMethod = 'GET' | 'POST';
 export declare type DataAdapterVirtualDataSourceOnExpandDetailsSortingSortOrder = 'asc' | 'desc';
 /**Request action type */
 export declare type DataAdapterVirtualDataSourceOnExpandDetailsAction = 'sort' | 'filter' | 'dataBind' | 'scroll' | 'group' | 'expand' | 'pageIndexChange' | 'pageSizeChange';
-/**Sort order. */
-export declare type DataAdapterVirtualDataSourceDetailsSortingSortOrder = 'asc' | 'desc';
 /**Request action type */
 export declare type DataAdapterVirtualDataSourceDetailsAction = 'sort' | 'filter' | 'dataBind' | 'scroll' | 'group' | 'expand' | 'pageIndexChange' | 'pageSizeChange';

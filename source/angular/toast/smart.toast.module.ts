@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { ToastComponent } from './smart.toast';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

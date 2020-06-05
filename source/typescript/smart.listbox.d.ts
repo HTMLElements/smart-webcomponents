@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- ListBox allows the user to select one or more items from a list.
-*/
-export interface ListBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListBoxProperties {
   /**
    * Enables or disables the ability to drag list items out of the List box. Disabled items cannot be dragged.
    * Default value: false
@@ -273,11 +267,19 @@ export interface ListBox extends BaseElement {
    * Default value: false
    */
   virtualized?: boolean;
-  /** 
+}
+/**
+ ListBox allows the user to select one or more items from a list.
+*/
+export interface ListBox extends BaseElement, ListBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when listbox binding is completed.
 	* @param event. The custom event.    */
-  onBindingComplete?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onBindingComplete?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
    *  addedItems - An array of List items that have been selected.
@@ -289,7 +291,7 @@ export interface ListBox extends BaseElement {
    *  value - The value of the List item that triggered the event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an item is dropped. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, originalEvent, previousContainer, target)
    *  container - The List box that an item was dragged <strong>to.</strong>
@@ -300,15 +302,15 @@ export interface ListBox extends BaseElement {
    *  target - The event target.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a List item is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(data, item, originalEvent)
    *  data - An object that contains data about the dragging operation like start position, start time, etc.
    *  item - The List item that is being dragged. This is the item that has been clicked when initiating the drag operation
    *  originalEvent - The original event that initiates the dragging operation.
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is dragged. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, originalEvent, previousContainer, target)
    *  container - The List box that an item was dragged <strong>to.</strong>
@@ -319,7 +321,7 @@ export interface ListBox extends BaseElement {
    *  target - The event target.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
    *  disabled - Indicates whether the List item that was clicked is disabled or not.
@@ -328,8 +330,8 @@ export interface ListBox extends BaseElement {
    *  selected - Indicates whether the List item that was clicked is selected or not.
    *  value - The value of the List item that was clicked.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item has been edited.
 	* @param event. The custom event. Custom data event was created with: ev.detail(selected, disabled, index, label, value)
    *  selected - Indicates whether the List item is selected or not.
@@ -338,23 +340,23 @@ export interface ListBox extends BaseElement {
    *  label - The label of the edited List item.
    *  value - The value of the List item that was edited.
    */
-  onItemLabelChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemLabelChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the end of the list.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the beginning of the list.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user swipes to the left, inside the listBox.
 	* @param event. The custom event.    */
-  onSwipeleft?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user swipes to the right, inside the listBox.
 	* @param event. The custom event.    */
-  onSwiperight?: ((this: any, ev: Event) => any) | null;
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a ListItem to the end of the list of items inside element.
    * @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
@@ -422,13 +424,13 @@ export interface ListBox extends BaseElement {
   update(index: number, details: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-box"): ListBox;
-			querySelector(selectors: "smart-list-box"): ListBox | null;	
-			querySelectorAll(selectors: "smart-list-box"): NodeListOf<ListBox>;
-			getElementsByTagName(qualifiedName: "smart-list-box"): HTMLCollectionOf<ListBox>;
-			getElementsByName(elementName: "smart-list-box"): NodeListOf<ListBox>;	
+        createElement(tagName: "smart-list-box"): ListBox;
+        querySelector(selectors: "smart-list-box"): ListBox | null;
+        querySelectorAll(selectors: "smart-list-box"): NodeListOf<ListBox>;
+        getElementsByTagName(qualifiedName: "smart-list-box"): HTMLCollectionOf<ListBox>;
+        getElementsByName(elementName: "smart-list-box"): NodeListOf<ListBox>;
     }
 }
 
@@ -450,13 +452,7 @@ export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMa
 export declare type ListBoxSelectionChangeAction = 'press' | 'release';
 /**Determines the visibility of the vertical scroll bar. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
-/**
- Defines a list item for ListBox, ComboBox, DropDownList.
-*/
-export interface ListItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemProperties {
   /**
    * 
    * Default value: -1
@@ -513,40 +509,50 @@ export interface ListItem extends BaseElement {
    */
   readonly?: boolean;
 }
+/**
+ Defines a list item for ListBox, ComboBox, DropDownList.
+*/
+export interface ListItem extends BaseElement, ListItemProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-item"): ListItem;
-			querySelector(selectors: "smart-list-item"): ListItem | null;	
-			querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
-			getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
-			getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;	
+        createElement(tagName: "smart-list-item"): ListItem;
+        querySelector(selectors: "smart-list-item"): ListItem | null;
+        querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
+        getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
+        getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;
     }
 }
 
 
 export declare type ListItemDisplayMode = 'plain' | 'checkBox' | 'radioButton';
-/**
- Defines a group of list items.
-*/
-export interface ListItemsGroup extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemsGroupProperties {
   /**
    * 
    * Default value: ""
    */
   label?: string;
 }
+/**
+ Defines a group of list items.
+*/
+export interface ListItemsGroup extends BaseElement, ListItemsGroupProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-items-group"): ListItemsGroup;
-			querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;	
-			querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
-			getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;	
+        createElement(tagName: "smart-list-items-group"): ListItemsGroup;
+        querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;
+        querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
+        getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
     }
 }
 

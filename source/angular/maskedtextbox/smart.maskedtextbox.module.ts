@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { MaskedTextBoxComponent } from './smart.maskedtextbox';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

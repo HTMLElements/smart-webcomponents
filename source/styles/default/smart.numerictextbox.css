@@ -363,6 +363,195 @@ smart-numeric-text-box[hint] .smart-hint {
         }
 
 
+        /* underlined*/
+
+.smart-numeric-text-box.underlined {
+    border-width:0px;
+    border-bottom-width: 1px;
+    background: var(--smart-background);
+}
+.smart-numeric-text-box.underlined .smart-spin-button,
+.smart-numeric-text-box.underlined .smart-drop-down-button {
+    background: var(--smart-background);
+    border-width:0px;
+    border-bottom-width: 1px;
+    border-radius:0;
+}
+.smart-numeric-text-box.underlined input {
+    border-width:0px;
+    border-bottom-width: 1px;
+}
+
+.smart-numeric-text-box.underlined input:focus {
+    border:none;
+}
+.smart-numeric-text-box.underlined .smart-spin-button[hover],
+.smart-numeric-text-box.underlined .smart-drop-down-button[hover] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-numeric-text-box.underlined .smart-spin-button[active],
+.smart-numeric-text-box.underlined .smart-drop-down-button[active] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-numeric-text-box.underlined .smart-hint{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block !important;
+    box-sizing: border-box;
+    padding: var(--smart-editor-label-padding);
+    color: var(--smart-background-color);
+    pointer-events: none;
+    font-size: 75%;
+    opacity: 0;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s, margin-top 0.2s, opacity 0.1s, top 0.2s;
+    margin-top: calc(0px - var(--smart-font-size))
+}
+
+.smart-numeric-text-box.underlined  .smart-hint::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--smart-primary);
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    transition: transform 0.2s;
+}
+
+.smart-numeric-text-box.underlined:not([focus]) .smart-hint {
+    margin-top:0px;
+}
+
+.smart-numeric-text-box.underlined[focus] .smart-drop-down-button,
+.smart-numeric-text-box.underlined[focus] .smart-hint {
+    color: var(--smart-primary);
+    opacity: 1;
+}
+.smart-numeric-text-box.underlined[focus] .smart-spin-button,
+.smart-numeric-text-box.underlined[focus] .smart-drop-down-button {
+    border-bottom-color: transparent;
+}
+.smart-numeric-text-box.underlined[focus] .smart-hint::after {
+    transform: scale(1);
+}
+/*end of underlined */
+
+/* outlined */
+.smart-numeric-text-box.outlined {
+    height:auto;
+    min-height: 0;
+    border-radius: var(--smart-border-radius);
+    border: 1px solid var(--smart-border);
+    background: var(--smart-background);
+}
+
+.smart-numeric-text-box.outlined input {
+    border: 0;
+    display: block;
+    padding: 14px 0px;
+}
+.smart-numeric-text-box.outlined .smart-spin-button,
+.smart-numeric-text-box.outlined .smart-drop-down-button {
+    background: var(--smart-background);
+    border-width:0px;
+}
+.smart-numeric-text-box.outlined .smart-drop-down-button {
+    padding: 8px 0px;
+}
+
+.smart-numeric-text-box.outlined[focus]  {
+    border-color: var(--smart-primary);
+}
+.smart-numeric-text-box.outlined[focus] .smart-drop-down-button {
+    color: var(--smart-primary);
+}
+.smart-numeric-text-box.outlined .smart-spin-button[hover],
+.smart-numeric-text-box.outlined .smart-drop-down-button[hover] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-numeric-text-box.outlined .smart-spin-button[active],
+.smart-numeric-text-box.outlined .smart-drop-down-button[active] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-numeric-text-box.outlined .smart-hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex !important;
+    border-color: var(--smart-border) !important;
+    width: 100%;
+    max-height: 100%;
+    color: var(--smart-background-color);
+    font-size: 75%;
+    line-height: 15px;
+    cursor: text;
+    padding:0;
+    margin-top: -6px;
+    transition: color 0.2s, font-size 0.2s, opacity 0.1s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Corners */
+.smart-numeric-text-box.outlined .smart-hint::before,
+.smart-numeric-text-box.outlined .smart-hint::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    margin-top: 6px;
+    border-top: solid 1px;
+    border-top-color: var(--smart-border) !important;
+    min-width: 10px;
+    height: 8px;
+    pointer-events: none;
+    box-shadow: inset 0 1px transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.smart-numeric-text-box.outlined .smart-hint::before{
+    margin-right: 4px;
+    border-left: solid 1px transparent;
+    border-radius: var(--smart-border-radius) 0;
+}
+
+.smart-numeric-text-box.outlined .smart-hint::after {
+    flex-grow: 1;
+    margin-left: 4px;
+    border-right: solid 1px transparent;
+    border-radius: 0 var(--smart-border-radius);
+}
+
+.smart-numeric-text-box.outlined:not([focus]) .smart-hint {
+    font-size: var(--smart-font-size);
+    line-height: 48px;
+    opacity: 0;
+}
+.smart-numeric-text-box.outlined[focus]
+{
+    border-top-color: transparent !important;
+}
+.smart-numeric-text-box.outlined[focus] .smart-hint {
+    color: var(--smart-primary);
+    opacity: 1;
+}
+.smart-numeric-text-box.outlined[focus] .smart-hint::before,
+.smart-numeric-text-box.outlined[focus] .smart-hint::after {
+    border-top-color: var(--smart-primary) !important;
+}
+/* end of outlined */
+
 /* --- Right To Left --- */
 
 smart-numeric-text-box[right-to-left] > .smart-container {

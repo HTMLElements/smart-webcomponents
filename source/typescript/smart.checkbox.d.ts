@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Checkbox is a component used for allowing a user to make a multiple choice. Broadly used in the forms and surveys.
-*/
-export interface CheckBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CheckBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -93,7 +87,15 @@ export interface CheckBox extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ Checkbox is a component used for allowing a user to make a multiple choice. Broadly used in the forms and surveys.
+*/
+export interface CheckBox extends BaseElement, CheckBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue, changeType)
    *  value - A boolean value indicating the new state of the button ( checked or not ).
@@ -103,13 +105,13 @@ export interface CheckBox extends BaseElement {
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-check-box"): CheckBox;
-			querySelector(selectors: "smart-check-box"): CheckBox | null;	
-			querySelectorAll(selectors: "smart-check-box"): NodeListOf<CheckBox>;
-			getElementsByTagName(qualifiedName: "smart-check-box"): HTMLCollectionOf<CheckBox>;
-			getElementsByName(elementName: "smart-check-box"): NodeListOf<CheckBox>;	
+        createElement(tagName: "smart-check-box"): CheckBox;
+        querySelector(selectors: "smart-check-box"): CheckBox | null;
+        querySelectorAll(selectors: "smart-check-box"): NodeListOf<CheckBox>;
+        getElementsByTagName(qualifiedName: "smart-check-box"): HTMLCollectionOf<CheckBox>;
+        getElementsByName(elementName: "smart-check-box"): NodeListOf<CheckBox>;
     }
 }
 

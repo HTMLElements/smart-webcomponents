@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { BreadcrumbComponent } from './smart.breadcrumb';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

@@ -173,6 +173,20 @@
     --smart-icon-math: '\f01a'; /* Code of math icon */
     --smart-icon-spin: '\e80b'; /* Code of spin icon */
     --smart-icon-user: '\e81f'; /* Code of user icon */
+    --smart-icon-font: '\f031'; /* Code of user icon */
+    --smart-icon-contains: '\f063'; /* Code of contains icon */
+    --smart-icon-starts_with: '\f064'; /* Code of starts with icon */
+    --smart-icon-ends_with: '\f065'; /* Code of ends with icon */
+    --smart-icon-does_not_contain: '\f066';/* Code of does not contain icon */
+    --smart-icon-equals: '\f52c'; /* Code of equals icon */
+    --smart-icon-greater-than: '\f531'; /* Code of greater than icon */
+    --smart-icon-greater-than-equal: '\f532';  /* Code of greater than or equal icon */
+    --smart-icon-less-than: '\f536'; /* Code of less than icon */
+    --smart-icon-less-than-equal: '\f537'; /* Code of less than or equal icon */
+    --smart-icon-not-equal: '\f53e';  /* Code of not equal icon */
+    --smart-icon-percentage: '\f541'; /* Code of percentage icon */
+    --smart-icon-grip-vertical: '\f58e'; /* Code of grip icon */
+    --smart-icon-between: '\f06a';  /* Code of between icon */
     /* Accordion */
     --smart-accordion-animation-duration: 225ms; /* smartAccordion animation duration */
     --smart-accordion-default-width: var(--smart-box-width); /* smartAccordion default width */

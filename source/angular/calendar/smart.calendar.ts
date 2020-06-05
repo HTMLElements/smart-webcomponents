@@ -600,11 +600,11 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -615,7 +615,7 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -700,7 +700,7 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 		that.eventHandlers['navigationChangeHandler'] = (event: CustomEvent) => { that.onNavigationChange.emit(event); }
 		that.nativeElement.addEventListener('navigationChange', that.eventHandlers['navigationChangeHandler']);
 
-		
+
         that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
             that._onChange(that.nativeElement.selectedDates.length > 0 ? (that.nativeElement.selectedDates.length > 1 ? that.nativeElement.selectedDates : that.nativeElement.selectedDates[0]) : null);
@@ -709,7 +709,7 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-            if (that.nativeElement.querySelector('input')) {    
+            if (that.nativeElement.querySelector('input')) {
                 that.eventHandlers['keyupModelHandler'] = (event) => {
                     setTimeout(() => { that.eventHandlers['changeModelHandler'](event); }, 50);
                 };

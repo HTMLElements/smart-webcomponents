@@ -1048,6 +1048,7 @@ smart-menu > .smart-container,
 
 .minus:after {
     content: var(--smart-icon-minus);
+    font-family: var(--smart-font-family-icon);
 }
 
 .smart-menu a,

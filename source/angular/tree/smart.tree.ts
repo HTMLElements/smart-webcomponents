@@ -492,6 +492,14 @@ export class TreeComponent extends BaseElement implements OnInit, AfterViewInit,
 	*  @param event. The custom event. 	*/
 	@Output() onScrollTopReached: EventEmitter<CustomEvent> = new EventEmitter();
 
+	/** @description This event is triggered when the user swipes to the left inside the Tree.
+	*  @param event. The custom event. 	*/
+	@Output() onSwipeleft: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when the user swipes to the right inside the Tree.
+	*  @param event. The custom event. 	*/
+	@Output() onSwiperight: EventEmitter<CustomEvent> = new EventEmitter();
+
 	/** @description Adds an item after another item as a sibling. 
 	* @param {HTMLElement} item. A smart-tree-item/smart-tree-items-group to add to the Tree
 	* @param {string | HTMLElement} sibling. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to add the item after.
@@ -823,11 +831,11 @@ export class TreeComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -838,7 +846,7 @@ export class TreeComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -886,6 +894,12 @@ export class TreeComponent extends BaseElement implements OnInit, AfterViewInit,
 		that.eventHandlers['scrollTopReachedHandler'] = (event: CustomEvent) => { that.onScrollTopReached.emit(event); }
 		that.nativeElement.addEventListener('scrollTopReached', that.eventHandlers['scrollTopReachedHandler']);
 
+		that.eventHandlers['swipeleftHandler'] = (event: CustomEvent) => { that.onSwipeleft.emit(event); }
+		that.nativeElement.addEventListener('swipeleft', that.eventHandlers['swipeleftHandler']);
+
+		that.eventHandlers['swiperightHandler'] = (event: CustomEvent) => { that.onSwiperight.emit(event); }
+		that.nativeElement.addEventListener('swiperight', that.eventHandlers['swiperightHandler']);
+
 	}
 
 	/** @description Remove event listeners. */
@@ -929,6 +943,14 @@ export class TreeComponent extends BaseElement implements OnInit, AfterViewInit,
 
 		if (that.eventHandlers['scrollTopReachedHandler']) {
 			that.nativeElement.removeEventListener('scrollTopReached', that.eventHandlers['scrollTopReachedHandler']);
+		}
+
+		if (that.eventHandlers['swipeleftHandler']) {
+			that.nativeElement.removeEventListener('swipeleft', that.eventHandlers['swipeleftHandler']);
+		}
+
+		if (that.eventHandlers['swiperightHandler']) {
+			that.nativeElement.removeEventListener('swiperight', that.eventHandlers['swiperightHandler']);
 		}
 
 	}

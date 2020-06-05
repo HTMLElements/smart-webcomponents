@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Sortable allows you to rearrange a group of html elements.
-*/
-export interface Sortable extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SortableProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -76,7 +70,15 @@ export interface Sortable extends BaseElement {
    * Default value: false
    */
   rightToLeft?: boolean;
-  /** 
+}
+/**
+ Sortable allows you to rearrange a group of html elements.
+*/
+export interface Sortable extends BaseElement, SortableProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when sortable items have been reordered.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
@@ -92,13 +94,13 @@ export interface Sortable extends BaseElement {
   updateItems(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-sortable"): Sortable;
-			querySelector(selectors: "smart-sortable"): Sortable | null;	
-			querySelectorAll(selectors: "smart-sortable"): NodeListOf<Sortable>;
-			getElementsByTagName(qualifiedName: "smart-sortable"): HTMLCollectionOf<Sortable>;
-			getElementsByName(elementName: "smart-sortable"): NodeListOf<Sortable>;	
+        createElement(tagName: "smart-sortable"): Sortable;
+        querySelector(selectors: "smart-sortable"): Sortable | null;
+        querySelectorAll(selectors: "smart-sortable"): NodeListOf<Sortable>;
+        getElementsByTagName(qualifiedName: "smart-sortable"): HTMLCollectionOf<Sortable>;
+        getElementsByName(elementName: "smart-sortable"): NodeListOf<Sortable>;
     }
 }
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { FileUploadComponent } from './smart.fileupload';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

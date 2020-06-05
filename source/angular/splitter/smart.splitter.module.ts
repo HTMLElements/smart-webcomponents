@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { SplitterComponent } from './smart.splitter';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { SplitterItemComponent } from './smart.splitteritem';

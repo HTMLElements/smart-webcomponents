@@ -236,11 +236,11 @@ export class TooltipComponent extends BaseElement implements OnInit, AfterViewIn
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -251,7 +251,7 @@ export class TooltipComponent extends BaseElement implements OnInit, AfterViewIn
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

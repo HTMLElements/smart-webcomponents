@@ -164,3 +164,146 @@
     .input-group > .form-control + .form-control {
         margin-left: -1px;
     }
+
+    .smart-form {
+        padding: 20px;
+        background: var(--smart-surface);
+        color: var(--smart-surface-color);
+        border: 1px solid var(--smart-border);
+        border-radius: var(--smart-border-radius);
+        box-sizing: border-box;
+        overflow: hidden;
+        width: 350px;
+    }
+    .smart-form-row {
+         padding: 5px 0px;
+         box-sizing: border-box;
+         --smart-surface: var(--smart-background);
+         --smart-surface-color: var(--smart-background-color);
+    }
+
+    .smart-form-row-flex {
+        display: flex;
+    }
+
+    .smart-form-row .smart-form-label {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-family: var(--smart-font-family);
+        font-size: calc(0.9 * var(--smart-font-size));
+    }
+
+    .smart-form-row .smart-form-label[required]:after,
+    .smart-form-row .smart-form-control + .smart-form-label[required]:before {
+        content: '*';
+        color: #a94442;
+        font-size: 14px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .smart-form-row .smart-form-control + .smart-form-label[required]:after {
+        content: '';
+    }
+
+    .smart-form-row .smart-form-control {
+        align-items: center;
+        display: flex;
+        box-sizing: border-box;
+    }
+
+    .smart-form-row .smart-form-control.center,
+    .smart-form-row .smart-form-label.center {
+        justify-content: center;
+    }
+
+    .smart-form-row .smart-form-control.right,
+    .smart-form-row .smart-form-label.right {
+        justify-content: flex-end;
+        margin-right: 4px;
+    }
+
+    .smart-form-row .smart-form-control.left,
+    .smart-form-row .smart-form-label.left {
+        justify-content: flex-start;
+        margin-left: 4px;
+    }
+
+    .smart-form-row .smart-form-control .smart-form-editor{
+        width:100%;
+    }
+
+    .smart-form-icon::after {
+        content: attr(tooltip);
+        visibility: hidden;
+        white-space:nowrap;
+        margin-top: 25px;
+        position: absolute;
+        border-top-left-radius: var(--smart-border-top-left-radius);
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+        padding: 7px;
+        background-color: var(--smart-secondary);
+        color: var(--smart-secondary-color);
+        font-size: calc(var(--smart-font-size) - 2px);
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity 0.2s ease-out, transform 0.1s ease-out;
+        z-index: 9;
+    }
+
+
+    .smart-form-control.smart-valid .smart-form-editor:focus + .smart-form-icon::before,
+    .smart-form-control.smart-valid .smart-form-editor[focus] + .smart-form-icon::before  {
+        color: var(--smart-success);
+        content: var(--smart-icon-ok-squared);
+    }
+
+    .smart-form-control.smart-invalid .smart-form-editor:focus + .smart-form-icon:before,
+    .smart-form-control.smart-invalid .smart-form-editor[focus] + .smart-form-icon:before {
+        color: var(--smart-error);
+        content: var(--smart-icon-attention);
+    }
+
+    .smart-form-control.smart-valid .smart-form-icon:after {
+        background: var(--smart-success);
+        color: var(--smart-success-color);
+    }
+
+    .smart-form-control.smart-invalid .smart-form-icon:after {
+        background: var(--smart-error);
+        color: var(--smart-error-color);
+    }
+
+    .smart-form-control.smart-valid input::selection,
+    .smart-form-control.smart-invalid input::selection {
+        color: var(--smart-primary-color) !important;
+        background: var(--smart-primary) !important;
+    }
+
+    .smart-form-icon:hover::after {
+        visibility: visible;
+        opacity: 0.9;
+        transform: scale(1);
+    }
+
+    .smart-form [editor="header"] {
+        font-weight: bold;
+        display:flex;
+        justify-content: center;
+        color: var(--smart-surface-color);
+        text-transform: uppercase;
+        font-size: calc(1.75 * var(--smart-font-size));
+    }
+    .smart-form-editor.smart-validation-success:not(smart-check-box) > div.smart-container::after,
+    .smart-form-editor.smart-validation-error:not(smart-check-box) > div.smart-container::after {
+        display:none;
+    }
+
+    .smart-form-editor.smart-invalid + .smart-error-label-like-after-element,
+    .smart-form-editor.smart-valid + .smart-success-label-like-after-element {
+        display:none;
+    }

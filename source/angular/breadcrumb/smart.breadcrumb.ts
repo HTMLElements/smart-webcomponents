@@ -227,11 +227,11 @@ export class BreadcrumbComponent extends BaseElement implements OnInit, AfterVie
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -242,7 +242,7 @@ export class BreadcrumbComponent extends BaseElement implements OnInit, AfterVie
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

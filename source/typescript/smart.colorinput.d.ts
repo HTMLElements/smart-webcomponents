@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- ColorInput is an input field with colors displayed in a DropDown grid like in Excel.
-*/
-export interface ColorInput extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColorInputProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -149,7 +143,15 @@ export interface ColorInput extends BaseElement {
    * Default value: default
    */
   valueFormat?: ColorValueFormat;
-  /** 
+}
+/**
+ ColorInput is an input field with colors displayed in a DropDown grid like in Excel.
+*/
+export interface ColorInput extends BaseElement, ColorInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
    *  label - The label of the new selected color.
@@ -172,13 +174,13 @@ export interface ColorInput extends BaseElement {
   select(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-color-input"): ColorInput;
-			querySelector(selectors: "smart-color-input"): ColorInput | null;	
-			querySelectorAll(selectors: "smart-color-input"): NodeListOf<ColorInput>;
-			getElementsByTagName(qualifiedName: "smart-color-input"): HTMLCollectionOf<ColorInput>;
-			getElementsByName(elementName: "smart-color-input"): NodeListOf<ColorInput>;	
+        createElement(tagName: "smart-color-input"): ColorInput;
+        querySelector(selectors: "smart-color-input"): ColorInput | null;
+        querySelectorAll(selectors: "smart-color-input"): NodeListOf<ColorInput>;
+        getElementsByTagName(qualifiedName: "smart-color-input"): HTMLCollectionOf<ColorInput>;
+        getElementsByName(elementName: "smart-color-input"): NodeListOf<ColorInput>;
     }
 }
 

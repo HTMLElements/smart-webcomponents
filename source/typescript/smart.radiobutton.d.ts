@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- The Radio Button component lets you add a radio button and assign it to a radio group. Users can select only one radio button at a time within a radio group
-*/
-export interface RadioButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface RadioButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -98,19 +92,27 @@ export interface RadioButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ The Radio Button component lets you add a radio button and assign it to a radio group. Users can select only one radio button at a time within a radio group
+*/
+export interface RadioButton extends BaseElement, RadioButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-radio-button"): RadioButton;
-			querySelector(selectors: "smart-radio-button"): RadioButton | null;	
-			querySelectorAll(selectors: "smart-radio-button"): NodeListOf<RadioButton>;
-			getElementsByTagName(qualifiedName: "smart-radio-button"): HTMLCollectionOf<RadioButton>;
-			getElementsByName(elementName: "smart-radio-button"): NodeListOf<RadioButton>;	
+        createElement(tagName: "smart-radio-button"): RadioButton;
+        querySelector(selectors: "smart-radio-button"): RadioButton | null;
+        querySelectorAll(selectors: "smart-radio-button"): NodeListOf<RadioButton>;
+        getElementsByTagName(qualifiedName: "smart-radio-button"): HTMLCollectionOf<RadioButton>;
+        getElementsByName(elementName: "smart-radio-button"): NodeListOf<RadioButton>;
     }
 }
 

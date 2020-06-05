@@ -7,9 +7,10 @@ smart-masked-text-box {
 }
 
     smart-masked-text-box.smart-element {
-        border: none;
-        background: transparent;
+        border: 1px solid var(--smart-border);
+        background: var(--smart-background);
         overflow: visible;
+        border-radius: var(--smart-border-radius);
     }
 
 .smart-masked-text-box > .smart-container {

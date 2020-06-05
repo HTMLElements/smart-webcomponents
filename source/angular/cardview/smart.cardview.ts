@@ -140,6 +140,15 @@ export class CardViewComponent extends BaseElement implements OnInit, AfterViewI
 		this.nativeElement ? this.nativeElement.headerPosition = value : undefined;
 	}
 
+	/** @description Sets or gets the locale. Used in conjunction with the property messages. */
+	@Input()
+	get locale(): string {
+		return this.nativeElement ? this.nativeElement.locale : undefined;
+	}
+	set locale(value: string) {
+		this.nativeElement ? this.nativeElement.locale = value : undefined;
+	}
+
 	/** @description Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale.  */
 	@Input()
 	get messages(): any {
@@ -448,11 +457,11 @@ export class CardViewComponent extends BaseElement implements OnInit, AfterViewI
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -463,7 +472,7 @@ export class CardViewComponent extends BaseElement implements OnInit, AfterViewI
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

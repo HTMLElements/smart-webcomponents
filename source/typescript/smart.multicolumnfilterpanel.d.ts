@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Defines an advanced filter panel used for Grid and CardView filtering.
-*/
-export interface MultiColumnFilterPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MultiColumnFilterPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -112,31 +106,39 @@ export interface MultiColumnFilterPanel extends BaseElement {
    * Default value: 
    */
   value?: any;
-  /** 
+}
+/**
+ Defines an advanced filter panel used for Grid and CardView filtering.
+*/
+export interface MultiColumnFilterPanel extends BaseElement, MultiColumnFilterPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the "Apply" button is clicked.
 	* @param event. The custom event.    */
-  onApply?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Cancel" button is clicked.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the "Collapse all" button is clicked.
 	* @param event. The custom event.    */
-  onCollapseAll?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapseAll?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Expand all" button is clicked.
 	* @param event. The custom event.    */
-  onExpandAll?: ((this: any, ev: Event) => any) | null;
+  onExpandAll?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-multi-column-filter-panel"): MultiColumnFilterPanel;
-			querySelector(selectors: "smart-multi-column-filter-panel"): MultiColumnFilterPanel | null;	
-			querySelectorAll(selectors: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;
-			getElementsByTagName(qualifiedName: "smart-multi-column-filter-panel"): HTMLCollectionOf<MultiColumnFilterPanel>;
-			getElementsByName(elementName: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;	
+        createElement(tagName: "smart-multi-column-filter-panel"): MultiColumnFilterPanel;
+        querySelector(selectors: "smart-multi-column-filter-panel"): MultiColumnFilterPanel | null;
+        querySelectorAll(selectors: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;
+        getElementsByTagName(qualifiedName: "smart-multi-column-filter-panel"): HTMLCollectionOf<MultiColumnFilterPanel>;
+        getElementsByName(elementName: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;
     }
 }
 

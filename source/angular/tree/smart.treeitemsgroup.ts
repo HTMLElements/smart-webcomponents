@@ -93,14 +93,23 @@ export class TreeItemsGroupComponent extends BaseElement implements OnInit, Afte
 		this.nativeElement ? this.nativeElement.value = value : undefined;
 	}
 
+	/** @description Disables user interaction with the item. */
+	@Input()
+	get readonly(): boolean {
+		return this.nativeElement ? this.nativeElement.readonly : undefined;
+	}
+	set readonly(value: boolean) {
+		this.nativeElement ? this.nativeElement.readonly = value : undefined;
+	}
+
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -110,7 +119,7 @@ export class TreeItemsGroupComponent extends BaseElement implements OnInit, Afte
 
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
-	
+
 	ngOnDestroy() {	}
 
 	ngOnChanges(changes: SimpleChanges) {

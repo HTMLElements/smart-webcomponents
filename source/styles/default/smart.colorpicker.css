@@ -5,19 +5,21 @@ smart-color-picker {
     height: var(--smart-color-picker-default-height);
 }
 
-    smart-color-picker.smart-element {
-        overflow: initial;
-        border: none;
-    }
+smart-color-picker.smart-element {
+    overflow: initial;
+    border: none;
+}
 
-    .smart-color-picker smart-color-panel {
-        position: relative;
-        display: flex;
-        width: 100%;
-        height: 100%;
-    }
+.smart-color-picker smart-color-panel {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
 
-.smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container {
+.smart-color-picker .smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container,
+.smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container.smart-drop-down-repositioned,
+ .smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container {
     width: var(--smart-color-picker-drop-down-width);
     max-width: none;
     height: var(--smart-color-picker-drop-down-height);
@@ -29,19 +31,17 @@ smart-color-picker {
 /*
   transfered from drop down button
 */
+
 .smart-color-picker .smart-ripple {
     background: var(--smart-primary-color);
 }
 
-.smart-color-picker smart-color-panel,
-.smart-drop-down-repositioned smart-color-panel {
+.smart-color-picker smart-color-panel, .smart-drop-down-repositioned smart-color-panel {
     width: 100%;
     height: 100%;
     padding: 5px;
     border: none;
 }
-
-
 
 .smart-color-picker .smart-color-box {
     position: relative;
@@ -57,16 +57,16 @@ smart-color-picker {
     background-size: 10px 10px;
 }
 
-    .smart-color-picker .smart-color-box.no-color {
-        background-image: linear-gradient(45deg, transparent 47.5%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 52.5%, transparent 52.5%), linear-gradient(-45deg, transparent 47.5%, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.2) 52.5%, transparent 52.5%);
-        background-position: initial;
-        background-size: initial;
-    }
+.smart-color-picker .smart-color-box.no-color {
+    background-image: linear-gradient(45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%), linear-gradient(-45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%);
+    background-position: initial;
+    background-size: initial;
+}
 
-    .smart-color-picker .smart-color-box > div {
-        width: 100%;
-        height: 100%;
-    }
+.smart-color-picker .smart-color-box>div {
+    width: 100%;
+    height: 100%;
+}
 
 .smart-color-picker .smart-color-input {
     border: 0;
@@ -79,13 +79,11 @@ smart-color-picker {
     color: inherit;
 }
 
-.smart-color-picker[value-display-mode="colorCode"] .smart-color-box,
-.smart-color-picker[value-display-mode="none"] .smart-color-box {
+.smart-color-picker[value-display-mode="colorCode"] .smart-color-box, .smart-color-picker[value-display-mode="none"] .smart-color-box {
     display: none;
 }
 
-.smart-color-picker[value-display-mode="colorBox"] .smart-color-input,
-.smart-color-picker[value-display-mode="none"] .smart-color-input {
+.smart-color-picker[value-display-mode="colorBox"] .smart-color-input, .smart-color-picker[value-display-mode="none"] .smart-color-input {
     display: none;
 }
 
@@ -105,15 +103,11 @@ smart-color-picker {
     border-left-color: var(--smart-border);
 }
 
-.smart-color-picker[value-display-mode="text"] .smart-color-box,
-.smart-color-picker[value-display-mode="colorBox"] .smart-color-input,
-.smart-color-picker[value-display-mode="none"] .smart-color-box,
-.smart-color-picker[value-display-mode="none"] .smart-color-input {
+.smart-color-picker[value-display-mode="text"] .smart-color-box, .smart-color-picker[value-display-mode="colorBox"] .smart-color-input, .smart-color-picker[value-display-mode="none"] .smart-color-box, .smart-color-picker[value-display-mode="none"] .smart-color-input {
     display: none;
 }
 
-.smart-color-picker[value-display-mode="colorBox"] .smart-color-box,
-.smart-color-picker[value-display-mode="text"] .smart-color-input {
+.smart-color-picker[value-display-mode="colorBox"] .smart-color-box, .smart-color-picker[value-display-mode="text"] .smart-color-input {
     display: block;
 }
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { KanbanComponent } from './smart.kanban';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

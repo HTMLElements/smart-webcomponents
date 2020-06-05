@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { CardViewComponent } from './smart.cardview';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

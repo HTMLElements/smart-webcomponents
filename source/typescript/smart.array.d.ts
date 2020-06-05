@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Array is broadly used in Engineering applications and displays a Grid of values.
-*/
-export interface Array extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ArrayProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -154,30 +148,38 @@ export interface Array extends BaseElement {
    * Default value: 
    */
   value?: any;
-  /** 
+}
+/**
+ Array is broadly used in Engineering applications and displays a Grid of values.
+*/
+export interface Array extends BaseElement, ArrayProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a visible row or column has been added or removed.
 	* @param event. The custom event.    */
-  onArraySizeChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onArraySizeChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the value of the Array is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a dimension has been added or removed.
 	* @param event. The custom event.    */
-  onDimensionChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDimensionChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an Array element has been clicked.
 	* @param event. The custom event.    */
-  onElementClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onElementClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Array is scrolled with one of the scrollbars.
 	* @param event. The custom event.    */
   onScroll: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the column width or the row height has been changed.
 	* @param event. The custom event.    */
-  onSizeChange?: ((this: any, ev: Event) => any) | null;
+  onSizeChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds a dimension to the array.<br /> <em>Note:</em> when adding multiple dimensions simultaneously, it is recommended to do so by dynamically setting the <strong>dimensions</strong> property.
    */
@@ -214,11 +216,11 @@ export interface Array extends BaseElement {
   endSelection(Rowboundindex: number, Columnboundindex: number): void;
   /**
    * Returns the HTML element at the specified visible row and column coordinates of the Array.
-   * @param {number} Rowvisibleindex. The visible index of the row (y coordinate) of the element.
-   * @param {number} Columnvisibleindex. The visible index of the column (x coordinate) of the element.
+   * @param {number} RowVisibleIndex. The visible index of the row (y coordinate) of the element.
+   * @param {number} ColumnVisibleIndex. The visible index of the column (x coordinate) of the element.
    * @returns {HTMLElement}
    */
-  getElement(Rowvisibleindex: number, Columnvisibleindex: number): HTMLElement;
+  getElement(RowVisibleIndex: number, ColumnVisibleIndex: number): HTMLElement;
   /**
    * Returns an object with the values of the Array element width and height.
    * @returns {any}
@@ -321,13 +323,13 @@ export interface Array extends BaseElement {
   val(Newvalue?: any, Elementindexes?: number | number[]): any[];
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-array"): Array;
-			querySelector(selectors: "smart-array"): Array | null;	
-			querySelectorAll(selectors: "smart-array"): NodeListOf<Array>;
-			getElementsByTagName(qualifiedName: "smart-array"): HTMLCollectionOf<Array>;
-			getElementsByName(elementName: "smart-array"): NodeListOf<Array>;	
+        createElement(tagName: "smart-array"): Array;
+        querySelector(selectors: "smart-array"): Array | null;
+        querySelectorAll(selectors: "smart-array"): NodeListOf<Array>;
+        getElementsByTagName(qualifiedName: "smart-array"): HTMLCollectionOf<Array>;
+        getElementsByName(elementName: "smart-array"): NodeListOf<Array>;
     }
 }
 

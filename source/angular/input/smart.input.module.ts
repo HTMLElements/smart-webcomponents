@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { InputComponent } from './smart.input';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

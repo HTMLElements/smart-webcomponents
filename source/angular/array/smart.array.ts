@@ -402,15 +402,15 @@ export class ArrayComponent extends BaseElement implements OnInit, AfterViewInit
     }
 
 	/** @description Returns the HTML element at the specified visible row and column coordinates of the Array. 
-	* @param {number} Rowvisibleindex. The visible index of the row (y coordinate) of the element.
-	* @param {number} Columnvisibleindex. The visible index of the column (x coordinate) of the element.
+	* @param {number} RowVisibleIndex. The visible index of the row (y coordinate) of the element.
+	* @param {number} ColumnVisibleIndex. The visible index of the column (x coordinate) of the element.
 	* @returns {HTMLElement}
   */
-	public async getElement(Rowvisibleindex, Columnvisibleindex): Promise<any> {
+	public async getElement(RowVisibleIndex, ColumnVisibleIndex): Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
-                    const result = this.nativeElement.getElement(Rowvisibleindex, Columnvisibleindex);
+                    const result = this.nativeElement.getElement(RowVisibleIndex, ColumnVisibleIndex);
                     resolve(result)
                 });
             });
@@ -731,11 +731,11 @@ export class ArrayComponent extends BaseElement implements OnInit, AfterViewInit
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -746,7 +746,7 @@ export class ArrayComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

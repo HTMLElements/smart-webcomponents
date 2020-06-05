@@ -15,6 +15,7 @@
         height: 100%;
         display: grid;
         grid-column-gap: var(--smart-data-view-padding);
+        grid-template-rows: 100%;
     }
 
     .smart-kanban .smart-kanban-column {
@@ -144,8 +145,6 @@
 
     .smart-kanban .smart-kanban-column .smart-kanban-column-content-tasks {
         position: relative;
-        display: grid;
-        grid-row-gap: var(--smart-data-view-padding);
         border: none;
         width: unset;
         min-width: unset;
@@ -536,6 +535,7 @@
 .smart-kanban .smart-kanban-list.comments {
     width: var(--smart-kanban-comments-list-width);
     height: var(--smart-kanban-comments-list-height);
+    max-height: 100%;
 }
 
     .smart-kanban .smart-kanban-list.comments .smart-kanban-comments {
@@ -860,15 +860,17 @@
 
 .smart-kanban .smart-kanban-tab-strip {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-columns: 1fr;
     background-color: var(--smart-surface);
     overflow: hidden;
 }
 
 .smart-kanban .smart-kanban-tab {
+    grid-row: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 0;
     cursor: pointer;
 }
 

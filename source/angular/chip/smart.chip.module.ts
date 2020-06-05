@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { ChipComponent } from './smart.chip';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

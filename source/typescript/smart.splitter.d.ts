@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Splitter is a layout component that supports all important features such as resizing, collapsing, and nesting panels.
-*/
-export interface Splitter extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SplitterProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -108,22 +102,30 @@ export interface Splitter extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Splitter is a layout component that supports all important features such as resizing, collapsing, and nesting panels.
+*/
+export interface Splitter extends BaseElement, SplitterProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when splitter item is collapsed.
 	* @param event. The custom event.    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when splitter item is expanded.
 	* @param event. The custom event.    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when splitter resizing begins.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when splitter resizing finishes.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a new node.
    * @param {Node} node. The node to append
@@ -207,13 +209,13 @@ export interface Splitter extends BaseElement {
   update(item: any, settings: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-splitter"): Splitter;
-			querySelector(selectors: "smart-splitter"): Splitter | null;	
-			querySelectorAll(selectors: "smart-splitter"): NodeListOf<Splitter>;
-			getElementsByTagName(qualifiedName: "smart-splitter"): HTMLCollectionOf<Splitter>;
-			getElementsByName(elementName: "smart-splitter"): NodeListOf<Splitter>;	
+        createElement(tagName: "smart-splitter"): Splitter;
+        querySelector(selectors: "smart-splitter"): Splitter | null;
+        querySelectorAll(selectors: "smart-splitter"): NodeListOf<Splitter>;
+        getElementsByTagName(qualifiedName: "smart-splitter"): HTMLCollectionOf<Splitter>;
+        getElementsByName(elementName: "smart-splitter"): NodeListOf<Splitter>;
     }
 }
 
@@ -226,10 +228,12 @@ export declare type SplitterAutoFitMode = 'end' | 'proportional' | 'overflow';
 export declare type Orientation = 'horizontal' | 'vertical';
 /**Determines the resize mode of the splitter. Possible values are: </br> - None - resizing is disabled. </br> - Adjacent - only the two adjacent items between the target splitter bar are being affected. This is the default behavior. </br> - End - only the first item( left or top according to the orientation) of the target Splitter bar and the last item are affected. </br> Proportional - all of the items positioned in the direction to which the splitter bar is dragged will be affected. For example, when a splitter bar is dragged to the right all the items positioned on it's the right side will be affected. The items will obtain a proportional size corresponding to their current size. */
 export declare type SplitterResizeMode = 'none' | 'adjacent' | 'end' | 'proportional';
+export interface SplitterBarProperties {
+}
 /**
  SplitterBar splits two Split panels in a Splitter.
 */
-export interface SplitterBar extends BaseElement {
+export interface SplitterBar extends BaseElement, SplitterBarProperties {
 
   /* Get a member by its name */
   [name: string]: any;
@@ -251,23 +255,17 @@ export interface SplitterBar extends BaseElement {
   unlock(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-splitter-bar"): SplitterBar;
-			querySelector(selectors: "smart-splitter-bar"): SplitterBar | null;	
-			querySelectorAll(selectors: "smart-splitter-bar"): NodeListOf<SplitterBar>;
-			getElementsByTagName(qualifiedName: "smart-splitter-bar"): HTMLCollectionOf<SplitterBar>;
-			getElementsByName(elementName: "smart-splitter-bar"): NodeListOf<SplitterBar>;	
+        createElement(tagName: "smart-splitter-bar"): SplitterBar;
+        querySelector(selectors: "smart-splitter-bar"): SplitterBar | null;
+        querySelectorAll(selectors: "smart-splitter-bar"): NodeListOf<SplitterBar>;
+        getElementsByTagName(qualifiedName: "smart-splitter-bar"): HTMLCollectionOf<SplitterBar>;
+        getElementsByName(elementName: "smart-splitter-bar"): NodeListOf<SplitterBar>;
     }
 }
 
-/**
- Splitter Item is a Panel in a Splitter component.
-*/
-export interface SplitterItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SplitterItemProperties {
   /**
    * Enables or disables the element.
    * Default value: false
@@ -308,6 +306,14 @@ export interface SplitterItem extends BaseElement {
    * Default value: ""
    */
   size?: string;
+}
+/**
+ Splitter Item is a Panel in a Splitter component.
+*/
+export interface SplitterItem extends BaseElement, SplitterItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
   /**
    * Collapses the item.
    * @param {string} far. If set to true the item will collapse to it's far side ( to the right for vertical splitter and down for horizontal)
@@ -327,13 +333,13 @@ export interface SplitterItem extends BaseElement {
   unlock(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-splitter-item"): SplitterItem;
-			querySelector(selectors: "smart-splitter-item"): SplitterItem | null;	
-			querySelectorAll(selectors: "smart-splitter-item"): NodeListOf<SplitterItem>;
-			getElementsByTagName(qualifiedName: "smart-splitter-item"): HTMLCollectionOf<SplitterItem>;
-			getElementsByName(elementName: "smart-splitter-item"): NodeListOf<SplitterItem>;	
+        createElement(tagName: "smart-splitter-item"): SplitterItem;
+        querySelector(selectors: "smart-splitter-item"): SplitterItem | null;
+        querySelectorAll(selectors: "smart-splitter-item"): NodeListOf<SplitterItem>;
+        getElementsByTagName(qualifiedName: "smart-splitter-item"): HTMLCollectionOf<SplitterItem>;
+        getElementsByName(elementName: "smart-splitter-item"): NodeListOf<SplitterItem>;
     }
 }
 

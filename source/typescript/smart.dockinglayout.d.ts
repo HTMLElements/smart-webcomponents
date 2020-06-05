@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- DockingLayout enables the creation of complex layouts consisting of panels that can be floated, docked, nested, resized, pinned.
-*/
-export interface DockingLayout extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface DockingLayoutProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -134,30 +128,38 @@ export interface DockingLayout extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ DockingLayout enables the creation of complex layouts consisting of panels that can be floated, docked, nested, resized, pinned.
+*/
+export interface DockingLayout extends BaseElement, DockingLayoutProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the tab selection is changed. <strong>Note:</strong> Change event may be thrown by other JQX Custom Elements nested inside the Tab items.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Tab item or a whole Tabs Window item ( DockingLayout item ) is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Tab item/Tabs Window is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item's position inside the Layout or it's size has been changed. Indicates that a state change has occured.
 	* @param event. The custom event.    */
-  onStateChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onStateChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when item resizing begins.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when item resizing finishes.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Makes a "smart-tabs-window" node, that is a child of the Layout, auto hidden by placing it at the Bottom position inside the element. This means that the item will be positioned near the bottom side of the layout and it's content will be hidden until the user selects one of it's labels.
    * @param {HTMLElement | number | string} node. The "smart-tabs-window" or "smart-tab-item" node to append
@@ -270,10 +272,10 @@ export interface DockingLayout extends BaseElement {
   insertOutsideTargetGroupRight(index: number | HTMLElement | string, tabsWindow: any): void;
   /**
    * The method returns an array of all autohidden items.
-   * @param {string} node?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.
+   * @param {string} orientation?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.
    * @returns {any[]}
    */
-  getAutoHideItems(node?: string): any[];
+  getAutoHideItems(orientation?: string): any[];
   /**
    * The method returns the index of a target item.
    * @param {HTMLElement} node. Returns the index of the target item.
@@ -334,13 +336,13 @@ export interface DockingLayout extends BaseElement {
   update(index: number | HTMLElement | string, settings: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-docking-layout"): DockingLayout;
-			querySelector(selectors: "smart-docking-layout"): DockingLayout | null;	
-			querySelectorAll(selectors: "smart-docking-layout"): NodeListOf<DockingLayout>;
-			getElementsByTagName(qualifiedName: "smart-docking-layout"): HTMLCollectionOf<DockingLayout>;
-			getElementsByName(elementName: "smart-docking-layout"): NodeListOf<DockingLayout>;	
+        createElement(tagName: "smart-docking-layout"): DockingLayout;
+        querySelector(selectors: "smart-docking-layout"): DockingLayout | null;
+        querySelectorAll(selectors: "smart-docking-layout"): NodeListOf<DockingLayout>;
+        getElementsByTagName(qualifiedName: "smart-docking-layout"): HTMLCollectionOf<DockingLayout>;
+        getElementsByName(elementName: "smart-docking-layout"): NodeListOf<DockingLayout>;
     }
 }
 

@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Tooltip is an alternate for the html title. It displays a popup with details on hover.
-*/
-export interface Tooltip extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TooltipProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -105,11 +99,19 @@ export interface Tooltip extends BaseElement {
    * Default value: false
    */
   visible?: boolean;
-  /** 
+}
+/**
+ Tooltip is an alternate for the html title. It displays a popup with details on hover.
+*/
+export interface Tooltip extends BaseElement, TooltipProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the tooltip is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the tooltip is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
@@ -127,13 +129,13 @@ export interface Tooltip extends BaseElement {
   toggle(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tooltip"): Tooltip;
-			querySelector(selectors: "smart-tooltip"): Tooltip | null;	
-			querySelectorAll(selectors: "smart-tooltip"): NodeListOf<Tooltip>;
-			getElementsByTagName(qualifiedName: "smart-tooltip"): HTMLCollectionOf<Tooltip>;
-			getElementsByName(elementName: "smart-tooltip"): NodeListOf<Tooltip>;	
+        createElement(tagName: "smart-tooltip"): Tooltip;
+        querySelector(selectors: "smart-tooltip"): Tooltip | null;
+        querySelectorAll(selectors: "smart-tooltip"): NodeListOf<Tooltip>;
+        getElementsByTagName(qualifiedName: "smart-tooltip"): HTMLCollectionOf<Tooltip>;
+        getElementsByName(elementName: "smart-tooltip"): NodeListOf<Tooltip>;
     }
 }
 

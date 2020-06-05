@@ -239,11 +239,11 @@ export class CustomizationDialogComponent extends BaseElement implements OnInit,
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -254,7 +254,7 @@ export class CustomizationDialogComponent extends BaseElement implements OnInit,
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

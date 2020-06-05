@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { QueryBuilderComponent } from './smart.querybuilder';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

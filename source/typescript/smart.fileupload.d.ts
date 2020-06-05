@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- FileUpload provides an easy and integrated way for users to upload multiple files.
-*/
-export interface FileUpload extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface FileUploadProperties {
   /**
    * Sets or gets the file types that can be submitted to the server via the element. This property corresponds to the 'accept' attribute of the hidden file input which is submitted to the URL specified by the uploadUrl property.
    * Default value: null
@@ -144,7 +138,15 @@ export interface FileUpload extends BaseElement {
    * Default value: null
    */
   validateFile?: any;
-  /** 
+}
+/**
+ FileUpload provides an easy and integrated way for users to upload multiple files.
+*/
+export interface FileUpload extends BaseElement, FileUploadProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a file has been selected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the selected file.
@@ -152,8 +154,8 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the selected file.
    *  index - The index of the selected file.
    */
-  onFileSelected?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFileSelected?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is canceled.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the canceled file.
@@ -161,8 +163,8 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the canceled file.
    *  index - The index of the canceled file.
    */
-  onUploadCanceled?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadCanceled?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is completed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status)
    *  filename - The name of the canceled file.
@@ -171,8 +173,8 @@ export interface FileUpload extends BaseElement {
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
    */
-  onUploadCompleted?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadCompleted?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when during the file upload process something happens and upload fails.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status)
    *  filename - The name of the canceled file.
@@ -181,8 +183,8 @@ export interface FileUpload extends BaseElement {
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
    */
-  onUploadError?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadError?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is paused.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the paused file.
@@ -190,8 +192,8 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the paused file.
    *  index - The index of the paused file.
    */
-  onUploadPaused?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadPaused?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is started.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the file that is being uploaded.
@@ -199,15 +201,15 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the file that is being uploaded.
    *  index - The index of the file that is being uploaded.
    */
-  onUploadStarted?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadStarted?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered if the validation of a user defined 'validateFile' callback fails.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size)
    *  filename - The name of the file which validation has failed.
    *  type - The type of the file which validation has failed.
    *  size - The size of the file which validation has failed.
    */
-  onValidationError?: ((this: any, ev: Event) => any) | null;
+  onValidationError?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Opens a popup to browse for a file.
    */
@@ -241,13 +243,13 @@ export interface FileUpload extends BaseElement {
   uploadFile(id: number): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-file-upload"): FileUpload;
-			querySelector(selectors: "smart-file-upload"): FileUpload | null;	
-			querySelectorAll(selectors: "smart-file-upload"): NodeListOf<FileUpload>;
-			getElementsByTagName(qualifiedName: "smart-file-upload"): HTMLCollectionOf<FileUpload>;
-			getElementsByName(elementName: "smart-file-upload"): NodeListOf<FileUpload>;	
+        createElement(tagName: "smart-file-upload"): FileUpload;
+        querySelector(selectors: "smart-file-upload"): FileUpload | null;
+        querySelectorAll(selectors: "smart-file-upload"): NodeListOf<FileUpload>;
+        getElementsByTagName(qualifiedName: "smart-file-upload"): HTMLCollectionOf<FileUpload>;
+        getElementsByName(elementName: "smart-file-upload"): NodeListOf<FileUpload>;
     }
 }
 

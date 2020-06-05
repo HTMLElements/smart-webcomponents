@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- The DropDownList is a form component that lets you choose a single predefined value from a list. It is a more advanced version of the 'select' tag.
-*/
-export interface DropDownList extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface DropDownListProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -309,11 +303,19 @@ export interface DropDownList extends BaseElement {
    * Default value: false
    */
   virtualized?: boolean;
-  /** 
+}
+/**
+ The DropDownList is a form component that lets you choose a single predefined value from a list. It is a more advanced version of the 'select' tag.
+*/
+export interface DropDownList extends BaseElement, DropDownListProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the action button. The action button is only visible when dropDownOpenMode is set to 'dropDownbutton'.
 	* @param event. The custom event.    */
-  onActionButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onActionButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
    *  addedItems - An array of List items that have been selected.
@@ -325,19 +327,19 @@ export interface DropDownList extends BaseElement {
    *  value - The value of the List item that triggered the event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
    *  disabled - Indicates whether the List item that was clicked is disabled or not.
@@ -346,35 +348,35 @@ export interface DropDownList extends BaseElement {
    *  selected - Indicates whether the List item that was clicked is selected or not.
    *  value - The value of the List item that was clicked.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down list is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down list is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user starts resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the resizing of the drop down is finished.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user scrolls to the end of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user scrolls to the start of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a ListItem to the end of the list of items inside element.
    * @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
@@ -450,13 +452,13 @@ export interface DropDownList extends BaseElement {
   update(position: number, value: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-drop-down-list"): DropDownList;
-			querySelector(selectors: "smart-drop-down-list"): DropDownList | null;	
-			querySelectorAll(selectors: "smart-drop-down-list"): NodeListOf<DropDownList>;
-			getElementsByTagName(qualifiedName: "smart-drop-down-list"): HTMLCollectionOf<DropDownList>;
-			getElementsByName(elementName: "smart-drop-down-list"): NodeListOf<DropDownList>;	
+        createElement(tagName: "smart-drop-down-list"): DropDownList;
+        querySelector(selectors: "smart-drop-down-list"): DropDownList | null;
+        querySelectorAll(selectors: "smart-drop-down-list"): NodeListOf<DropDownList>;
+        getElementsByTagName(qualifiedName: "smart-drop-down-list"): HTMLCollectionOf<DropDownList>;
+        getElementsByName(elementName: "smart-drop-down-list"): NodeListOf<DropDownList>;
     }
 }
 
@@ -484,13 +486,7 @@ export declare type SelectionDisplayMode = 'plain' | 'placeholder' | 'tokens';
 export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
 /**Determines the visibility of the vertical scroll bar. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
-/**
- Defines a list item for ListBox, ComboBox, DropDownList.
-*/
-export interface ListItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemProperties {
   /**
    * 
    * Default value: -1
@@ -547,40 +543,50 @@ export interface ListItem extends BaseElement {
    */
   readonly?: boolean;
 }
+/**
+ Defines a list item for ListBox, ComboBox, DropDownList.
+*/
+export interface ListItem extends BaseElement, ListItemProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-item"): ListItem;
-			querySelector(selectors: "smart-list-item"): ListItem | null;	
-			querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
-			getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
-			getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;	
+        createElement(tagName: "smart-list-item"): ListItem;
+        querySelector(selectors: "smart-list-item"): ListItem | null;
+        querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
+        getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
+        getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;
     }
 }
 
 
 export declare type ListItemDisplayMode = 'plain' | 'checkBox' | 'radioButton';
-/**
- Defines a group of list items.
-*/
-export interface ListItemsGroup extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemsGroupProperties {
   /**
    * 
    * Default value: ""
    */
   label?: string;
 }
+/**
+ Defines a group of list items.
+*/
+export interface ListItemsGroup extends BaseElement, ListItemsGroupProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-items-group"): ListItemsGroup;
-			querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;	
-			querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
-			getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;	
+        createElement(tagName: "smart-list-items-group"): ListItemsGroup;
+        querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;
+        querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
+        getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
     }
 }
 

@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Horizontal, Vertical and Popup Menu. Popup Menus appear when a user taps an interactive UI element such as an icon, button, action, or content, such as selected items or text.
-*/
-export interface Menu extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MenuProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -72,6 +66,11 @@ export interface Menu extends BaseElement {
    * Default value: auto
    */
   dropDownPosition?: MenuDropDownPosition;
+  /**
+   * A getter that returns an array of all Menu items.
+   * Default value: 
+   */
+  items?: any;
   /**
    * Determines the field in the data source that corresponds to an item group's subitems collection.
    * Default value: "items"
@@ -158,17 +157,25 @@ export interface Menu extends BaseElement {
    * Default value: "value"
    */
   valueMember?: string;
-  /** 
+}
+/**
+ Horizontal, Vertical and Popup Menu. Popup Menus appear when a user taps an interactive UI element such as an icon, button, action, or content, such as selected items or text.
+*/
+export interface Menu extends BaseElement, MenuProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the menu is closed. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the menu is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event. Custom data event was created with: ev.detail(trigger)
    *  trigger - Indicates whether the event was called from inside the element or programatically.
    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-menu-items-group is collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that was collapsed.
@@ -177,8 +184,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that was collapsed, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that was collapsed.
    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-menu-items-group is collapsing.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that is going to be collapsed.
@@ -187,8 +194,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that is going to be collapsed, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that is going to be collapsed.
    */
-  onCollapsing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapsing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-menu-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that was expanded.
@@ -197,8 +204,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that was expanded, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that was expanded.
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered before a jqx-menu-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that is going to be expanded.
@@ -207,8 +214,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that is going to be expanded, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that is going to be expanded.
    */
-  onExpanding?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a menu item check state is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, checked)
    *  item - The menu item which state was changed.
@@ -216,23 +223,23 @@ export interface Menu extends BaseElement {
    *  value - The value of the item which state was changed.
    *  checked - The checked state of the toggled item. If false the item is not toggled.
    */
-  onItemCheckChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemCheckChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a menu item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
    *  item - The menu item that is toggled.
    *  label - The label of the toggled item.
    *  value - The value of the toggled item.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the menu is opened. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the menu is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item to the menu.
    * @param {HTMLElement} Item. A smart-menu-item to add to the Menu.
@@ -296,13 +303,13 @@ export interface Menu extends BaseElement {
   uncheckItem(item: HTMLElement | string): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-menu"): Menu;
-			querySelector(selectors: "smart-menu"): Menu | null;	
-			querySelectorAll(selectors: "smart-menu"): NodeListOf<Menu>;
-			getElementsByTagName(qualifiedName: "smart-menu"): HTMLCollectionOf<Menu>;
-			getElementsByName(elementName: "smart-menu"): NodeListOf<Menu>;	
+        createElement(tagName: "smart-menu"): Menu;
+        querySelector(selectors: "smart-menu"): Menu | null;
+        querySelectorAll(selectors: "smart-menu"): NodeListOf<Menu>;
+        getElementsByTagName(qualifiedName: "smart-menu"): HTMLCollectionOf<Menu>;
+        getElementsByName(elementName: "smart-menu"): NodeListOf<Menu>;
     }
 }
 
@@ -318,13 +325,7 @@ export declare type MenuMode = 'horizontal' | 'vertical' | 'dropDown' | 'tree';
 export declare type Overflow = 'auto' | 'hidden' | 'scroll';
 /**Determines the menu's selection mode. */
 export declare type MenuSelectionMode = 'click' | 'mouseenter';
-/**
- Defines a menu item.
-*/
-export interface MenuItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MenuItemProperties {
   /**
    * 
    * Default value: true
@@ -361,24 +362,26 @@ export interface MenuItem extends BaseElement {
    */
   value?: any;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-menu-item"): MenuItem;
-			querySelector(selectors: "smart-menu-item"): MenuItem | null;	
-			querySelectorAll(selectors: "smart-menu-item"): NodeListOf<MenuItem>;
-			getElementsByTagName(qualifiedName: "smart-menu-item"): HTMLCollectionOf<MenuItem>;
-			getElementsByName(elementName: "smart-menu-item"): NodeListOf<MenuItem>;	
-    }
-}
-
 /**
- Defines a group of menu items.
+ Defines a menu item.
 */
-export interface MenuItemsGroup extends BaseElement {
+export interface MenuItem extends BaseElement, MenuItemProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-menu-item"): MenuItem;
+        querySelector(selectors: "smart-menu-item"): MenuItem | null;
+        querySelectorAll(selectors: "smart-menu-item"): NodeListOf<MenuItem>;
+        getElementsByTagName(qualifiedName: "smart-menu-item"): HTMLCollectionOf<MenuItem>;
+        getElementsByName(elementName: "smart-menu-item"): NodeListOf<MenuItem>;
+    }
+}
+
+export interface MenuItemsGroupProperties {
   /**
    * 
    * Default value: false
@@ -430,14 +433,22 @@ export interface MenuItemsGroup extends BaseElement {
    */
   value?: any;
 }
+/**
+ Defines a group of menu items.
+*/
+export interface MenuItemsGroup extends BaseElement, MenuItemsGroupProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-menu-items-group"): MenuItemsGroup;
-			querySelector(selectors: "smart-menu-items-group"): MenuItemsGroup | null;	
-			querySelectorAll(selectors: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-menu-items-group"): HTMLCollectionOf<MenuItemsGroup>;
-			getElementsByName(elementName: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;	
+        createElement(tagName: "smart-menu-items-group"): MenuItemsGroup;
+        querySelector(selectors: "smart-menu-items-group"): MenuItemsGroup | null;
+        querySelectorAll(selectors: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-menu-items-group"): HTMLCollectionOf<MenuItemsGroup>;
+        getElementsByName(elementName: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
     }
 }
 

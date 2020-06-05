@@ -495,6 +495,7 @@ smart-window.smart-window[maximized][collapsed][header-position="left"],
     color: var(--smart-primary-color);
 }
 
+.smart-window[dragged]:not([animation=none]),
 .smart-window[dragged] {
     opacity: 0.5;
     z-index: calc(1 + var(--smart-editor-drop-down-z-index));

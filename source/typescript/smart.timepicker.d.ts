@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Time Picker component allows the user to select time from spinners.
-*/
-export interface TimePicker extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TimePickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -108,7 +102,15 @@ export interface TimePicker extends BaseElement {
    * Default value: portrait
    */
   view?: ViewLayout;
-  /** 
+}
+/**
+ Time Picker component allows the user to select time from spinners.
+*/
+export interface TimePicker extends BaseElement, TimePickerProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The old value before it was changed presented as a Date object.
@@ -127,13 +129,13 @@ export interface TimePicker extends BaseElement {
   setMinutes(minutes: number): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-time-picker"): TimePicker;
-			querySelector(selectors: "smart-time-picker"): TimePicker | null;	
-			querySelectorAll(selectors: "smart-time-picker"): NodeListOf<TimePicker>;
-			getElementsByTagName(qualifiedName: "smart-time-picker"): HTMLCollectionOf<TimePicker>;
-			getElementsByName(elementName: "smart-time-picker"): NodeListOf<TimePicker>;	
+        createElement(tagName: "smart-time-picker"): TimePicker;
+        querySelector(selectors: "smart-time-picker"): TimePicker | null;
+        querySelectorAll(selectors: "smart-time-picker"): NodeListOf<TimePicker>;
+        getElementsByTagName(qualifiedName: "smart-time-picker"): HTMLCollectionOf<TimePicker>;
+        getElementsByName(elementName: "smart-time-picker"): NodeListOf<TimePicker>;
     }
 }
 

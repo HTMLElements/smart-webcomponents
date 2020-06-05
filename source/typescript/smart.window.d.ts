@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Window or Dialog displays the interactive custom confirmations, message boxes, alerts, warnings, errors, and modal dialogs.
-*/
-export interface Window extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface WindowProperties {
   /**
    * Determines if 'Add New' Tab inside the Tabs element is visible. Applicable only to TabsWindow
    * Default value: false
@@ -353,58 +347,66 @@ export interface Window extends BaseElement {
    * Default value: soft
    */
   wrap?: WindowWrap;
-  /** 
+}
+/**
+ Window or Dialog displays the interactive custom confirmations, message boxes, alerts, warnings, errors, and modal dialogs.
+*/
+export interface Window extends BaseElement, WindowProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered just before the window starts opening.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is opened( visible ).
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered just before the window starts closing.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is closed( hidden )
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the window is collapsed.
 	* @param event. The custom event.    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when window's dragging is ended.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when window's dragging is started.
 	* @param event. The custom event.    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the window is expanded.
 	* @param event. The custom event.    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is maximized.
 	* @param event. The custom event.    */
-  onMaximize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onMaximize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is minimized.
 	* @param event. The custom event.    */
-  onMinimize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onMinimize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when window's resizing is ended.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when window's resizing is started.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is restored to it's previous state before maximization.
 	* @param event. The custom event.    */
-  onRestore?: ((this: any, ev: Event) => any) | null;
+  onRestore?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a tabitem to the end of the list of tab items inside element.
    * @param {Node} node. A TabItem element that should be added to the rest of the items as the last item.
@@ -503,19 +505,19 @@ export interface Window extends BaseElement {
 export interface Dialog extends Window {}
 
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-window"): Dialog;
-			querySelector(selectors: "smart-window"): Dialog | null;	
-			querySelectorAll(selectors: "smart-window"): NodeListOf<Dialog>;
-			getElementsByTagName(qualifiedName: "smart-window"): HTMLCollectionOf<Dialog>;
-			getElementsByName(elementName: "smart-window"): NodeListOf<Dialog>;	
+        createElement(tagName: "smart-window"): Dialog;
+        querySelector(selectors: "smart-window"): Dialog | null;
+        querySelectorAll(selectors: "smart-window"): NodeListOf<Dialog>;
+        getElementsByTagName(qualifiedName: "smart-window"): HTMLCollectionOf<Dialog>;
+        getElementsByName(elementName: "smart-window"): NodeListOf<Dialog>;
     }
 }
 
 
-declare global {    
-    interface Document {		
+declare global {
+    interface Document {
 		/**
 		* Returns the first element that is a descendant of node that matches selectors.
 		*/
@@ -539,7 +541,7 @@ declare global {
 		 */
 		getElementsByTagName<K extends keyof HTMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<HTMLElementTagNameMap[K]>;
 		getElementsByTagName<K extends keyof SVGElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<SVGElementTagNameMap[K]>;
-		getElementsByTagName(qualifiedName: string): HTMLCollectionOf<Element>;		
+		getElementsByTagName(qualifiedName: string): HTMLCollectionOf<Element>;
 	}
 }
 		/**Determines whether and how the value should be automatically capitalized as it is entered/edited by the user. <b>Applicable only to MultilinePromptWindow.</b> */

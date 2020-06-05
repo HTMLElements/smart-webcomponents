@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { ButtonComponent } from './smart.button';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { RepeatButtonComponent } from './smart.repeatbutton';

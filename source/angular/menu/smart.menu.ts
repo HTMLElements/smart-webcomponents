@@ -152,6 +152,15 @@ export class MenuComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.dropDownPosition = value : undefined;
 	}
 
+	/** @description A getter that returns an array of all Menu items. */
+	@Input()
+	get items(): any {
+		return this.nativeElement ? this.nativeElement.items : undefined;
+	}
+	set items(value: any) {
+		this.nativeElement ? this.nativeElement.items = value : undefined;
+	}
+
 	/** @description Determines the field in the data source that corresponds to an item group's subitems collection. */
 	@Input()
 	get itemsMember(): string {
@@ -548,11 +557,11 @@ export class MenuComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -563,7 +572,7 @@ export class MenuComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

@@ -1,10 +1,4 @@
-/**
- Accordion organizes content within collapsable items.
-*/
-export interface Accordion extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface AccordionProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -81,23 +75,31 @@ export interface Accordion extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Accordion organizes content within collapsable items.
+*/
+export interface Accordion extends BaseElement, AccordionProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when an item is collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(content, index, label)
    *  content - The content of the item.
    *  index - The index of the item.
    *  label - The label of the item
    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is going to be collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(content, index, label)
    *  content - The content of the item.
    *  index - The index of the item.
    *  label - The label of the item
    */
-  onCollapsing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapsing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a reordering operation is completed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position, target, content, index, label)
    *  position - The current top and left position of the item that was dragged.
@@ -107,7 +109,7 @@ export interface Accordion extends BaseElement {
    *  label - The label of the item.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a reordering operation is started.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position, target, content, index, label)
    *  position - The current top and left position of the item that is about to be dragged.
@@ -117,7 +119,7 @@ export interface Accordion extends BaseElement {
    *  label - The label of the item.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an item is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position, target, content, index, label)
    *  position - The current top and left position of the item.
@@ -126,15 +128,15 @@ export interface Accordion extends BaseElement {
    *  index - The index of the item.
    *  label - The label of the item.
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is going to be expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(content, index, label)
    *  content - The content of the item.
    *  index - The index of the item.
    *  label - The label of the item
    */
-  onExpanding?: ((this: any, ev: Event) => any) | null;
+  onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Collapses an item at a specified index.
    * @param {number} position. The index of the collapsed item.
@@ -164,13 +166,13 @@ export interface Accordion extends BaseElement {
   update(index: number, settings: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-accordion"): Accordion;
-			querySelector(selectors: "smart-accordion"): Accordion | null;	
-			querySelectorAll(selectors: "smart-accordion"): NodeListOf<Accordion>;
-			getElementsByTagName(qualifiedName: "smart-accordion"): HTMLCollectionOf<Accordion>;
-			getElementsByName(elementName: "smart-accordion"): NodeListOf<Accordion>;	
+        createElement(tagName: "smart-accordion"): Accordion;
+        querySelector(selectors: "smart-accordion"): Accordion | null;
+        querySelectorAll(selectors: "smart-accordion"): NodeListOf<Accordion>;
+        getElementsByTagName(qualifiedName: "smart-accordion"): HTMLCollectionOf<Accordion>;
+        getElementsByName(elementName: "smart-accordion"): NodeListOf<Accordion>;
     }
 }
 
@@ -178,13 +180,7 @@ declare global {
 export declare type Animation = 'none' | 'simple' | 'advanced';
 /**Sets or gets the expand mode. Expand mode determines how the items will expand or collapse. */
 export declare type AccordionExpandMode = 'single' | 'singleFitHeight' | 'multiple' | 'toggle' | 'none';
-/**
- Single item in an Accordion view.
-*/
-export interface AccordionItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface AccordionItemProperties {
   /**
    * Sets or gets header's arrow position. If the value is 'none' the arrow is not shown.
    * Default value: left
@@ -210,35 +206,37 @@ export interface AccordionItem extends BaseElement {
    * Default value: ""
    */
   label?: string;
-  /** 
+}
+/**
+ Single item in an Accordion view.
+*/
+export interface AccordionItem extends BaseElement, AccordionItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the item is collapsed.
 	* @param event. The custom event.    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the item is expanded.
 	* @param event. The custom event.    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-accordion-item"): AccordionItem;
-			querySelector(selectors: "smart-accordion-item"): AccordionItem | null;	
-			querySelectorAll(selectors: "smart-accordion-item"): NodeListOf<AccordionItem>;
-			getElementsByTagName(qualifiedName: "smart-accordion-item"): HTMLCollectionOf<AccordionItem>;
-			getElementsByName(elementName: "smart-accordion-item"): NodeListOf<AccordionItem>;	
+        createElement(tagName: "smart-accordion-item"): AccordionItem;
+        querySelector(selectors: "smart-accordion-item"): AccordionItem | null;
+        querySelectorAll(selectors: "smart-accordion-item"): NodeListOf<AccordionItem>;
+        getElementsByTagName(qualifiedName: "smart-accordion-item"): HTMLCollectionOf<AccordionItem>;
+        getElementsByName(elementName: "smart-accordion-item"): NodeListOf<AccordionItem>;
     }
 }
 
 /**Sets or gets header's arrow position. If the value is 'none' the arrow is not shown. */
 export declare type AccordionItemArrow = 'left' | 'right' | 'none';
-/**
- Array is broadly used in Engineering applications and displays a Grid of values.
-*/
-export interface Array extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ArrayProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -386,30 +384,38 @@ export interface Array extends BaseElement {
    * Default value: 
    */
   value?: any;
-  /** 
+}
+/**
+ Array is broadly used in Engineering applications and displays a Grid of values.
+*/
+export interface Array extends BaseElement, ArrayProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a visible row or column has been added or removed.
 	* @param event. The custom event.    */
-  onArraySizeChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onArraySizeChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the value of the Array is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a dimension has been added or removed.
 	* @param event. The custom event.    */
-  onDimensionChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDimensionChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an Array element has been clicked.
 	* @param event. The custom event.    */
-  onElementClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onElementClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Array is scrolled with one of the scrollbars.
 	* @param event. The custom event.    */
   onScroll: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the column width or the row height has been changed.
 	* @param event. The custom event.    */
-  onSizeChange?: ((this: any, ev: Event) => any) | null;
+  onSizeChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds a dimension to the array.<br /> <em>Note:</em> when adding multiple dimensions simultaneously, it is recommended to do so by dynamically setting the <strong>dimensions</strong> property.
    */
@@ -446,11 +452,11 @@ export interface Array extends BaseElement {
   endSelection(Rowboundindex: number, Columnboundindex: number): void;
   /**
    * Returns the HTML element at the specified visible row and column coordinates of the Array.
-   * @param {number} Rowvisibleindex. The visible index of the row (y coordinate) of the element.
-   * @param {number} Columnvisibleindex. The visible index of the column (x coordinate) of the element.
+   * @param {number} RowVisibleIndex. The visible index of the row (y coordinate) of the element.
+   * @param {number} ColumnVisibleIndex. The visible index of the column (x coordinate) of the element.
    * @returns {HTMLElement}
    */
-  getElement(Rowvisibleindex: number, Columnvisibleindex: number): HTMLElement;
+  getElement(RowVisibleIndex: number, ColumnVisibleIndex: number): HTMLElement;
   /**
    * Returns an object with the values of the Array element width and height.
    * @returns {any}
@@ -553,13 +559,13 @@ export interface Array extends BaseElement {
   val(Newvalue?: any, Elementindexes?: number | number[]): any[];
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-array"): Array;
-			querySelector(selectors: "smart-array"): Array | null;	
-			querySelectorAll(selectors: "smart-array"): NodeListOf<Array>;
-			getElementsByTagName(qualifiedName: "smart-array"): HTMLCollectionOf<Array>;
-			getElementsByName(elementName: "smart-array"): NodeListOf<Array>;	
+        createElement(tagName: "smart-array"): Array;
+        querySelector(selectors: "smart-array"): Array | null;
+        querySelectorAll(selectors: "smart-array"): NodeListOf<Array>;
+        getElementsByTagName(qualifiedName: "smart-array"): HTMLCollectionOf<Array>;
+        getElementsByName(elementName: "smart-array"): NodeListOf<Array>;
     }
 }
 
@@ -567,13 +573,7 @@ declare global {
 export declare type ArrayArrayIndexingMode = 'LabVIEW' | 'JavaScript';
 /**Sets or gets the data type and element widgets to be used in the Array. */
 export declare type ArrayType = 'none' | 'boolean' | 'numeric' | 'string' | 'custom';
-/**
- Breadcrumbs allow users to make selections from a range of values.
-*/
-export interface Breadcrumb extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface BreadcrumbProperties {
   /**
    * Enables or disables the "Add new item" (+) button.
    * Default value: false
@@ -645,34 +645,42 @@ export interface Breadcrumb extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Breadcrumbs allow users to make selections from a range of values.
+*/
+export interface Breadcrumb extends BaseElement, BreadcrumbProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a Breadcrumb item is closed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item)
    *  item - The item that has been closed.
    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Breadcrumb item is about to be closed. The closing operation can be canceled by calling <code>event.preventDefault()</code> in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item)
    *  item - The item that is going to be closed.
    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a Breadcrumb item is dropped.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Breadcrumb item is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, originalEvent, target)
    *  item - The item that is being dragged.
    *  originalEvent - The original event that initiates the dragging operation.
    *  target - The original target.
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Add new item" (+) button is clicked.
 	* @param event. The custom event.    */
-  onAddNewItem?: ((this: any, ev: Event) => any) | null;
+  onAddNewItem?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item.
    * @param {any} itemDetails. An Object with the fields "index", "label", and "value".
@@ -693,23 +701,17 @@ export interface Breadcrumb extends BaseElement {
   removeItem(item: HTMLElement): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-breadcrumb"): Breadcrumb;
-			querySelector(selectors: "smart-breadcrumb"): Breadcrumb | null;	
-			querySelectorAll(selectors: "smart-breadcrumb"): NodeListOf<Breadcrumb>;
-			getElementsByTagName(qualifiedName: "smart-breadcrumb"): HTMLCollectionOf<Breadcrumb>;
-			getElementsByName(elementName: "smart-breadcrumb"): NodeListOf<Breadcrumb>;	
+        createElement(tagName: "smart-breadcrumb"): Breadcrumb;
+        querySelector(selectors: "smart-breadcrumb"): Breadcrumb | null;
+        querySelectorAll(selectors: "smart-breadcrumb"): NodeListOf<Breadcrumb>;
+        getElementsByTagName(qualifiedName: "smart-breadcrumb"): HTMLCollectionOf<Breadcrumb>;
+        getElementsByName(elementName: "smart-breadcrumb"): NodeListOf<Breadcrumb>;
     }
 }
 
-/**
- Buttons allow users to take actions, and make choices, with a single tap. Buttons communicate actions that users can take.
-*/
-export interface Button extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -796,31 +798,33 @@ export interface Button extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Buttons allow users to take actions, and make choices, with a single tap. Buttons communicate actions that users can take.
+*/
+export interface Button extends BaseElement, ButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * Click event is triggered regarding to the chosen clickMode.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-button"): Button;
-			querySelector(selectors: "smart-button"): Button | null;	
-			querySelectorAll(selectors: "smart-button"): NodeListOf<Button>;
-			getElementsByTagName(qualifiedName: "smart-button"): HTMLCollectionOf<Button>;
-			getElementsByName(elementName: "smart-button"): NodeListOf<Button>;	
+        createElement(tagName: "smart-button"): Button;
+        querySelector(selectors: "smart-button"): Button | null;
+        querySelectorAll(selectors: "smart-button"): NodeListOf<Button>;
+        getElementsByTagName(qualifiedName: "smart-button"): HTMLCollectionOf<Button>;
+        getElementsByName(elementName: "smart-button"): NodeListOf<Button>;
     }
 }
 
 /**Determines the click mode for the element. */
 export declare type ClickMode = 'hover' | 'press' | 'release' | 'pressAndRelease';
-/**
- Calendar allows user to easily select one or more dates. This control supports multi-calendar view, special dates, holidays, weekends, decade views.
-*/
-export interface Calendar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CalendarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -1082,37 +1086,45 @@ export interface Calendar extends BaseElement {
    * Default value: numeric
    */
   yearFormat?: YearFormat;
-  /** 
+}
+/**
+ Calendar allows user to easily select one or more dates. This control supports multi-calendar view, special dates, holidays, weekends, decade views.
+*/
+export interface Calendar extends BaseElement, CalendarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a new date has been selected/unselected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - An array of all currently selected dates.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the displayMode is about to change. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldDisplayMode, newDisplayMode)
    *  oldDisplayMode - The previous display mode.
    *  newDisplayMode - The new display mode.
    */
-  onDisplayModeChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDisplayModeChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the display mode has changed.
 	* @param event. The custom event.    */
-  onDisplayModeChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDisplayModeChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the view is changing. This navigation can be cancelled by using the preventDefault method.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, type)
    *  value - The view's date.
    *  type - The view type - 'month', 'decade' or 'year'.
    */
-  onNavigationChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onNavigationChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the view is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, type)
    *  value - The view's date.
    *  type - The view type - 'month', 'decade' or 'year'.
    */
-  onNavigationChange?: ((this: any, ev: Event) => any) | null;
+  onNavigationChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Clears the selection. Removes all seleceted dates.
    */
@@ -1135,13 +1147,13 @@ export interface Calendar extends BaseElement {
   today(): Date;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-calendar"): Calendar;
-			querySelector(selectors: "smart-calendar"): Calendar | null;	
-			querySelectorAll(selectors: "smart-calendar"): NodeListOf<Calendar>;
-			getElementsByTagName(qualifiedName: "smart-calendar"): HTMLCollectionOf<Calendar>;
-			getElementsByName(elementName: "smart-calendar"): NodeListOf<Calendar>;	
+        createElement(tagName: "smart-calendar"): Calendar;
+        querySelector(selectors: "smart-calendar"): Calendar | null;
+        querySelectorAll(selectors: "smart-calendar"): NodeListOf<Calendar>;
+        getElementsByTagName(qualifiedName: "smart-calendar"): HTMLCollectionOf<Calendar>;
+        getElementsByName(elementName: "smart-calendar"): NodeListOf<Calendar>;
     }
 }
 
@@ -1165,13 +1177,7 @@ export declare type CalendarSelectionMode = null | 'default' | 'many' | 'one' | 
 export declare type TooltipPosition = 'auto' | 'absolute' | 'bottom' | 'top' | 'left' | 'right';
 /**Determines the year format in the header when DisplayMode is set to Default or when Months property is greater than 1.<br/> */
 export declare type YearFormat = '2-digit' | 'numeric';
-/**
- Card component with header, footer and content sections.
-*/
-export interface Card extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CardProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -1238,41 +1244,43 @@ export interface Card extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
-   * This event is triggered when the card is swiped bottom.
-	* @param event. The custom event.    */
-  onSwipebottom?: ((this: any, ev: Event) => any) | null;
-  /** 
-   * This event is triggered when the card is swiped left.
-	* @param event. The custom event.    */
-  onSwipeleft?: ((this: any, ev: Event) => any) | null;
-  /** 
-   * This event is triggered when the card is swiped right.
-	* @param event. The custom event.    */
-  onSwiperight?: ((this: any, ev: Event) => any) | null;
-  /** 
-   * This event is triggered when the card is swiped top.
-	* @param event. The custom event.    */
-  onSwipetop?: ((this: any, ev: Event) => any) | null;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-card"): Card;
-			querySelector(selectors: "smart-card"): Card | null;	
-			querySelectorAll(selectors: "smart-card"): NodeListOf<Card>;
-			getElementsByTagName(qualifiedName: "smart-card"): HTMLCollectionOf<Card>;
-			getElementsByName(elementName: "smart-card"): NodeListOf<Card>;	
-    }
-}
-
 /**
- CardView creates Card-based layout. Supports Filtering, Sorting, Grouping, Editing and UI Virtualization.
+ Card component with header, footer and content sections.
 */
-export interface CardView extends BaseElement {
+export interface Card extends BaseElement, CardProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+  /**
+   * This event is triggered when the card is swiped bottom.
+	* @param event. The custom event.    */
+  onSwipebottom?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the card is swiped left.
+	* @param event. The custom event.    */
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the card is swiped right.
+	* @param event. The custom event.    */
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the card is swiped top.
+	* @param event. The custom event.    */
+  onSwipetop?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-card"): Card;
+        querySelector(selectors: "smart-card"): Card | null;
+        querySelectorAll(selectors: "smart-card"): NodeListOf<Card>;
+        getElementsByTagName(qualifiedName: "smart-card"): HTMLCollectionOf<Card>;
+        getElementsByName(elementName: "smart-card"): NodeListOf<Card>;
+    }
+}
+
+export interface CardViewProperties {
   /**
    * Toggles the button for adding new cards.
    * Default value: false
@@ -1333,6 +1341,11 @@ export interface CardView extends BaseElement {
    * Default value: none
    */
   headerPosition?: CardViewHeaderPosition;
+  /**
+   * Sets or gets the locale. Used in conjunction with the property messages.
+   * Default value: "en"
+   */
+  locale?: string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -1429,39 +1442,47 @@ export interface CardView extends BaseElement {
    * Default value: ""
    */
   titleField?: string;
-  /** 
+}
+/**
+ CardView creates Card-based layout. Supports Filtering, Sorting, Grouping, Editing and UI Virtualization.
+*/
+export interface CardView extends BaseElement, CardViewProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a filter has been applied.
 	* @param event. The custom event.    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when sorting has been applied.
 	* @param event. The custom event.    */
-  onSort?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the window is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user starts dragging the card.
 	* @param event. The custom event.    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the user is dragging the card.
 	* @param event. The custom event.    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user dragged the card.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
@@ -1540,9 +1561,6 @@ export interface CardView extends BaseElement {
 }
 
 export interface CardViewColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the column's data source bound field.
    * Default value: ""
@@ -1580,13 +1598,13 @@ export interface CardViewColumn {
   formatSettings?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-card-view"): CardView;
-			querySelector(selectors: "smart-card-view"): CardView | null;	
-			querySelectorAll(selectors: "smart-card-view"): NodeListOf<CardView>;
-			getElementsByTagName(qualifiedName: "smart-card-view"): HTMLCollectionOf<CardView>;
-			getElementsByName(elementName: "smart-card-view"): NodeListOf<CardView>;	
+        createElement(tagName: "smart-card-view"): CardView;
+        querySelector(selectors: "smart-card-view"): CardView | null;
+        querySelectorAll(selectors: "smart-card-view"): NodeListOf<CardView>;
+        getElementsByTagName(qualifiedName: "smart-card-view"): HTMLCollectionOf<CardView>;
+        getElementsByName(elementName: "smart-card-view"): NodeListOf<CardView>;
     }
 }
 
@@ -1598,13 +1616,7 @@ export declare type CardViewCoverMode = 'fit' | 'crop';
 export declare type CardViewHeaderPosition = 'none' | 'top' | 'bottom';
 /**Describes the scrolling behavior of the element. */
 export declare type Scrolling = 'physical' | 'virtual' | 'infinite' | 'deferred';
-/**
- Carousel is a slideshow component for cycling through elements—images or slides of text
-*/
-export interface Carousel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CarouselProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -1736,20 +1748,36 @@ export interface Carousel extends BaseElement {
    * Default value: false
    */
   wheel?: boolean;
-  /** 
+}
+/**
+ Carousel is a slideshow component for cycling through elements—images or slides of text
+*/
+export interface Carousel extends BaseElement, CarouselProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * Triggered when the active ( in view ) slide is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, previousIndex)
    *  index - The index of the new active slide.
    *  previousIndex - The index of the previous slide that was active.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * Triggered when the process of slide changing starts.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, previousIndex)
    *  index - The index of the new active slide.
    *  previousIndex - The index of the previous slide that was active.
    */
-  onChanging?: ((this: any, ev: Event) => any) | null;
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the left inside the Carousel.
+	* @param event. The custom event.    */
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the right inside the Carousel.
+	* @param event. The custom event.    */
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Navigates to the next slide.
    */
@@ -1773,25 +1801,19 @@ export interface Carousel extends BaseElement {
   slideTo(index: number): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-carousel"): Carousel;
-			querySelector(selectors: "smart-carousel"): Carousel | null;	
-			querySelectorAll(selectors: "smart-carousel"): NodeListOf<Carousel>;
-			getElementsByTagName(qualifiedName: "smart-carousel"): HTMLCollectionOf<Carousel>;
-			getElementsByName(elementName: "smart-carousel"): NodeListOf<Carousel>;	
+        createElement(tagName: "smart-carousel"): Carousel;
+        querySelector(selectors: "smart-carousel"): Carousel | null;
+        querySelectorAll(selectors: "smart-carousel"): NodeListOf<Carousel>;
+        getElementsByTagName(qualifiedName: "smart-carousel"): HTMLCollectionOf<Carousel>;
+        getElementsByName(elementName: "smart-carousel"): NodeListOf<Carousel>;
     }
 }
 
 /**Determines the display mode. */
 export declare type CarouselDisplayMode = 'default' | 'multiple' | '3d';
-/**
- Chart is a feature-complete interactive graph library that answers the data visualization needs of any modern web app.
-*/
-export interface Chart extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ChartProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'.
    * Default value: advanced
@@ -1964,9 +1986,9 @@ export interface Chart extends BaseElement {
   showToolTipsOnAllSeries?: boolean;
   /**
    * Determines the set of default background, line, text and band colors that will be used in the Chart.
-   * Default value: light
+   * Default value: "light"
    */
-  theme?: ChartTheme;
+  theme?: string;
   /**
    * Sets the padding of the chart's title (caption).
    * Default value: [object Object]
@@ -2007,47 +2029,55 @@ export interface Chart extends BaseElement {
    * Default value: [object Object]
    */
   xAxis?: ChartXAxis;
-  /** 
+}
+/**
+ Chart is a feature-complete interactive graph library that answers the data visualization needs of any modern web app.
+*/
+export interface Chart extends BaseElement, ChartProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * The event is raised when the user clicks on a chart annotation.
 	* @param event. The custom event.    */
-  onAnnotationClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onAnnotationClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the user moves the cursor above a chart annotation.
 	* @param event. The custom event.    */
-  onAnnotationMouseenter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onAnnotationMouseenter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the user moves the cursor out of a chart annotation.
 	* @param event. The custom event.    */
-  onAnnotationMouseleave?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onAnnotationMouseleave?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the user clicks on series element.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * The event is raised when the user moves the cursor out of a series element.
 	* @param event. The custom event.    */
   onMouseout: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * The event is raised when the user moves the cursor above a series element.
 	* @param event. The custom event.    */
   onMouseover: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * The event is raised after the chart's range selector position changes and after the chart ends rendering.
 	* @param event. The custom event.    */
-  onRangeSelectionChanged?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRangeSelectionChanged?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the chart's range selector position changes and before the chart starts rendering.
 	* @param event. The custom event.    */
-  onRangeSelectionChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRangeSelectionChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the chart begins rendering.
 	* @param event. The custom event.    */
-  onRefreshBegin?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRefreshBegin?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the chart finishes rendering.
 	* @param event. The custom event.    */
-  onRefreshEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRefreshEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when a serie is toggled by a user click in the chart's legend or through an API call.
 	* @param event. The custom event.    */
   onToggle: ((this: any, ev: Event) => any) | null;
@@ -2181,9 +2211,6 @@ export interface Chart extends BaseElement {
 
 /**Localization object containing culture-specific properties required for formatting currencies, numbers and dates. */
 export interface ChartLocalization {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * A symbol used to mark the border between the integer and fractional parts of a number.
    * Default value: "."
@@ -2203,9 +2230,6 @@ export interface ChartLocalization {
 
 /**Sets the left, top, right and bottom padding of the Chart. */
 export interface Padding {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Bottom padding of the Chart.
    * Default value: 5
@@ -2230,9 +2254,6 @@ export interface Padding {
 
 /**Sets the legend bar position in the Chart. */
 export interface ChartLegendPosition {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Height of legend in the Chart.
    * Default value: 5
@@ -2256,9 +2277,6 @@ export interface ChartLegendPosition {
 }
 
 export interface ChartSeriesGroup {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * An array of chart annotation objects.
    * Default value: null
@@ -2432,9 +2450,6 @@ export interface ChartSeriesGroup {
 }
 
 export interface ChartAnnotation {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Fill/background color of the annotation.
    * Default value: null
@@ -2504,9 +2519,6 @@ export interface ChartAnnotation {
 
 /**Custom offset of the annotation relative to <strong>xValue</strong> & <strong>yValue</strong>. */
 export interface Offset {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Horizontal offset.
    * Default value: null
@@ -2521,9 +2533,6 @@ export interface Offset {
 
 /**Object describing the text of the annotation. */
 export interface ChartAnnotationText {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Text rotation angle.
    * Default value: null
@@ -2572,9 +2581,6 @@ export interface ChartAnnotationText {
 }
 
 export interface ChartBand {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Color used to fill the area between the minValue and the maxValue.
    * Default value: null
@@ -2614,9 +2620,6 @@ export interface ChartBand {
 
 /**Object describing the format settings of series labels. */
 export interface ChartFormatSettings {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Optional date format string. This property is applicable only when displaying Date objects.
    * Default value: null
@@ -2655,9 +2658,6 @@ export interface ChartFormatSettings {
 }
 
 export interface ChartSeriesGroupSerie {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Offset from the center point in a pie/donut series.
    * Default value: 0
@@ -2972,9 +2972,6 @@ export interface ChartSeriesGroupSerie {
 
 /**Object describing the labels properties of the axis. */
 export interface ChartLabels {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Text rotation angle.
    * Default value: 0
@@ -3084,9 +3081,6 @@ export interface ChartLabels {
 
 /**Object describing the valueAxis for this group. jqxChart allows you to use a common valueAxis and/or multiple value axes per serie group. */
 export interface ChartValueAxis {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Alternating background color between grid lines.
    * Default value: ""
@@ -3236,9 +3230,6 @@ export interface ChartValueAxis {
 
 /**Object describing the grid lines properties of the valueAxis. */
 export interface ChartLines {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Color of the grid lines.
    * Default value: ""
@@ -3283,9 +3274,6 @@ export interface ChartLines {
 
 /**Object describing the line properties of the axis. */
 export interface ChartLine {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Color of axis line.
    * Default value: ""
@@ -3310,9 +3298,6 @@ export interface ChartLine {
 
 /**Object describing the title of the valueAxis. */
 export interface ChartTitle {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * CSS class of the title text.
    * Default value: null
@@ -3342,9 +3327,6 @@ export interface ChartTitle {
 
 /**Object describing the xAxis for this group. */
 export interface ChartXAxis {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Alternating background color between grid lines.
    * Default value: ""
@@ -3519,9 +3501,6 @@ export interface ChartXAxis {
 
 /**Definition of a range selector on the xAxis. The range selector itself is also an instance of ${namespace.toLowerCase()}-chart. */
 export interface ChartRangeSelector {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the range selector chart's background color.
    * Default value: null
@@ -3684,13 +3663,13 @@ export interface ChartRangeSelector {
   visible?: boolean;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-chart"): Chart;
-			querySelector(selectors: "smart-chart"): Chart | null;	
-			querySelectorAll(selectors: "smart-chart"): NodeListOf<Chart>;
-			getElementsByTagName(qualifiedName: "smart-chart"): HTMLCollectionOf<Chart>;
-			getElementsByName(elementName: "smart-chart"): NodeListOf<Chart>;	
+        createElement(tagName: "smart-chart"): Chart;
+        querySelector(selectors: "smart-chart"): Chart | null;
+        querySelectorAll(selectors: "smart-chart"): NodeListOf<Chart>;
+        getElementsByTagName(qualifiedName: "smart-chart"): HTMLCollectionOf<Chart>;
+        getElementsByName(elementName: "smart-chart"): NodeListOf<Chart>;
     }
 }
 
@@ -3762,15 +3741,7 @@ export declare type ChartBaseUnit = 'year' | 'month' | 'day' | 'hour' | 'minute'
 'linear' - linear arrangement by the value of the xAxis data field.
  */
 export declare type ChartXAxisType = 'auto' | 'date' | 'basic' | 'linear';
-/**Determines the set of default background, line, text and band colors that will be used in the Chart. */
-export declare type ChartTheme = 'light' | 'dark';
-/**
- Checkbox is a component used for allowing a user to make a multiple choice. Broadly used in the forms and surveys.
-*/
-export interface CheckBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CheckBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -3857,7 +3828,15 @@ export interface CheckBox extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ Checkbox is a component used for allowing a user to make a multiple choice. Broadly used in the forms and surveys.
+*/
+export interface CheckBox extends BaseElement, CheckBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue, changeType)
    *  value - A boolean value indicating the new state of the button ( checked or not ).
@@ -3867,25 +3846,221 @@ export interface CheckBox extends BaseElement {
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-check-box"): CheckBox;
-			querySelector(selectors: "smart-check-box"): CheckBox | null;	
-			querySelectorAll(selectors: "smart-check-box"): NodeListOf<CheckBox>;
-			getElementsByTagName(qualifiedName: "smart-check-box"): HTMLCollectionOf<CheckBox>;
-			getElementsByName(elementName: "smart-check-box"): NodeListOf<CheckBox>;	
+        createElement(tagName: "smart-check-box"): CheckBox;
+        querySelector(selectors: "smart-check-box"): CheckBox | null;
+        querySelectorAll(selectors: "smart-check-box"): NodeListOf<CheckBox>;
+        getElementsByTagName(qualifiedName: "smart-check-box"): HTMLCollectionOf<CheckBox>;
+        getElementsByName(elementName: "smart-check-box"): NodeListOf<CheckBox>;
     }
 }
 
 /**Determines which part of the element can be used to toggle it. */
 export declare type CheckMode = 'both' | 'input' | 'label';
+export interface CheckInputProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
+   * Default value: 100
+   */
+  autoCompleteDelay?: number;
+  /**
+   * Determines the data source that will be loaded to the Input. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Default value: null
+   */
+  dataSource?: any;
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Determines the position of the drop down button.
+   * Default value: right
+   */
+  dropDownButtonPosition?: DropDownButtonPosition;
+  /**
+   * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownHeight?: string | number;
+  /**
+   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownWidth?: string | number;
+  /**
+   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Default value: "off"
+   */
+  inputPurpose?: string;
+  /**
+   * Determines the maximum number of matched items that should be visible inside the drop down as a result of a new autoComplete query. By default the maximum number of 8 items can be displayed inside the drop down.
+   * Default value: 8
+   */
+  items?: number;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the minimum number of characters inside the input in order to trigger the autocomplete functionality that will open the drop down and show the matched items.
+   * Default value: 1
+   */
+  minLength?: number;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Determines whether the drop down is opened or not.
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Sets or gets the query that is used to filter the items. Query is used by the autoComplete operation. Empty string means that all items from the data source will be displayed and no filter query is applied.
+   * Default value: 
+   */
+  query?: string | number;
+  /**
+   * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
+   * Default value: containsIgnoreCase
+   */
+  queryMode?: CheckInputQueryMode;
+  /**
+   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the delimiter between the selected items in the input.
+   * Default value: ","
+   */
+  separator?: string;
+  /**
+   * Determines whether an additional item is displayed as the first item in the options list, which allows to select/unselect all items.
+   * Default value: false
+   */
+  selectAll?: boolean;
+  /**
+   * Determines whether the items are sorted alphabetically or not
+   * Default value: false
+   */
+  sorted?: boolean;
+  /**
+   * Determines the sorting algorithm - ascending(asc) or descending(desc) if sort is enabled.
+   * Default value: "asc"
+   */
+  sortDirection?: string;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * Determines the input type. Input type determines what input can be entered.
+   * Default value: ""
+   */
+  type?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: ""
+   */
+  value?: string;
+}
 /**
- Chip is a simple rounded box that displays a single value and optionally an icon.
+ CheckInput specifies an input field where the user can enter data. Auto-complete options with checkboxes are displayed for easier input. Checkboxes allow to select/unselect one or multiple items.
 */
-export interface Chip extends BaseElement {
+export interface CheckInput extends BaseElement, CheckInputProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
+   *  label - The label of the new selected item.
+   *  oldLabel - The label of the item that was previously selected before the event was triggered.
+   *  oldValue - The value of the item that was previously selected before the event was triggered.
+   *  value - The value of the new selected item.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Closes the drop down.
+   */
+  close(): void;
+  /**
+   * Ensures that the active ( selected ) item is always visible.
+   */
+  ensureVisible(): void;
+  /**
+   * Opens the drop down.
+   */
+  open(): void;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-check-input"): CheckInput;
+        querySelector(selectors: "smart-check-input"): CheckInput | null;
+        querySelectorAll(selectors: "smart-check-input"): NodeListOf<CheckInput>;
+        getElementsByTagName(qualifiedName: "smart-check-input"): HTMLCollectionOf<CheckInput>;
+        getElementsByName(elementName: "smart-check-input"): NodeListOf<CheckInput>;
+    }
+}
+
+/**Determines the position of the drop down button. */
+export declare type DropDownButtonPosition = 'none' | 'left' | 'right';
+/**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
+export declare type CheckInputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
+export interface ChipProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -3962,7 +4137,15 @@ export interface Chip extends BaseElement {
    * Default value: ""
    */
   value?: string;
-  /** 
+}
+/**
+ Chip is a simple rounded box that displays a single value and optionally an icon.
+*/
+export interface Chip extends BaseElement, ChipProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the chip is closed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - A string representing the current value of the element.
@@ -3974,23 +4157,17 @@ export interface Chip extends BaseElement {
   close(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-chip"): Chip;
-			querySelector(selectors: "smart-chip"): Chip | null;	
-			querySelectorAll(selectors: "smart-chip"): NodeListOf<Chip>;
-			getElementsByTagName(qualifiedName: "smart-chip"): HTMLCollectionOf<Chip>;
-			getElementsByName(elementName: "smart-chip"): NodeListOf<Chip>;	
+        createElement(tagName: "smart-chip"): Chip;
+        querySelector(selectors: "smart-chip"): Chip | null;
+        querySelectorAll(selectors: "smart-chip"): NodeListOf<Chip>;
+        getElementsByTagName(qualifiedName: "smart-chip"): HTMLCollectionOf<Chip>;
+        getElementsByName(elementName: "smart-chip"): NodeListOf<Chip>;
     }
 }
 
-/**
- Progress Bar displayed as a circle.
-*/
-export interface CircularProgressBar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CircularProgressBarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -4077,29 +4254,31 @@ export interface CircularProgressBar extends BaseElement {
    * Default value: 0
    */
   value?: number;
-  /** 
+}
+/**
+ Progress Bar displayed as a circle.
+*/
+export interface CircularProgressBar extends BaseElement, CircularProgressBarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-circular-progress-bar"): CircularProgressBar;
-			querySelector(selectors: "smart-circular-progress-bar"): CircularProgressBar | null;	
-			querySelectorAll(selectors: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;
-			getElementsByTagName(qualifiedName: "smart-circular-progress-bar"): HTMLCollectionOf<CircularProgressBar>;
-			getElementsByName(elementName: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;	
+        createElement(tagName: "smart-circular-progress-bar"): CircularProgressBar;
+        querySelector(selectors: "smart-circular-progress-bar"): CircularProgressBar | null;
+        querySelectorAll(selectors: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;
+        getElementsByTagName(qualifiedName: "smart-circular-progress-bar"): HTMLCollectionOf<CircularProgressBar>;
+        getElementsByName(elementName: "smart-circular-progress-bar"): NodeListOf<CircularProgressBar>;
     }
 }
 
-/**
- ColorInput is an input field with colors displayed in a DropDown grid like in Excel.
-*/
-export interface ColorInput extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColorInputProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -4242,7 +4421,15 @@ export interface ColorInput extends BaseElement {
    * Default value: default
    */
   valueFormat?: ColorValueFormat;
-  /** 
+}
+/**
+ ColorInput is an input field with colors displayed in a DropDown grid like in Excel.
+*/
+export interface ColorInput extends BaseElement, ColorInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
    *  label - The label of the new selected color.
@@ -4265,33 +4452,25 @@ export interface ColorInput extends BaseElement {
   select(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-color-input"): ColorInput;
-			querySelector(selectors: "smart-color-input"): ColorInput | null;	
-			querySelectorAll(selectors: "smart-color-input"): NodeListOf<ColorInput>;
-			getElementsByTagName(qualifiedName: "smart-color-input"): HTMLCollectionOf<ColorInput>;
-			getElementsByName(elementName: "smart-color-input"): NodeListOf<ColorInput>;	
+        createElement(tagName: "smart-color-input"): ColorInput;
+        querySelector(selectors: "smart-color-input"): ColorInput | null;
+        querySelectorAll(selectors: "smart-color-input"): NodeListOf<ColorInput>;
+        getElementsByTagName(qualifiedName: "smart-color-input"): HTMLCollectionOf<ColorInput>;
+        getElementsByName(elementName: "smart-color-input"): NodeListOf<ColorInput>;
     }
 }
 
 /**Determines the colors that will be displayed and their layout. */
 export declare type ColorDisplayMode = 'default' | 'grid';
-/**Determines the position of the drop down button. */
-export declare type DropDownButtonPosition = 'left' | 'right' | 'top' | 'bottom';
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
 export declare type ColorQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
 /**Determines what will be displayed inside the color picker's action section. */
 export declare type ColorValueDisplayMode = 'default' | 'colorBox' | 'colorCode' | 'none';
 /**Determines the format of the color. Whether it's in HEX, RGB or RGBA. By default it shows the color depending on the displayMode. */
 export declare type ColorValueFormat = 'default' | 'rgb' | 'rgba' | 'hex';
-/**
- ColorPanel is an advanced color chooser with Pallete, Spectrum Grid, Radial Palette and Excel-like options.
-*/
-export interface ColorPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColorPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -4475,36 +4654,44 @@ export interface ColorPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ ColorPanel is an advanced color chooser with Pallete, Spectrum Grid, Radial Palette and Excel-like options.
+*/
+export interface ColorPanel extends BaseElement, ColorPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the color is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previously selected color.
    *  value - The new selected color.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the cancel button is clicked. 'Cancel' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onCancelButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCancelButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the custom color selection view is opened/closed. Custom color selection view is available when <strong>enableCustomColors</strong> property is true.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - A boolean that indicates whether the custom color view is shown or not.
    */
-  onCustomColorSelection?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCustomColorSelection?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the ok button is clicked. 'Ok' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onOkButtonClick?: ((this: any, ev: Event) => any) | null;
+  onOkButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-color-panel"): ColorPanel;
-			querySelector(selectors: "smart-color-panel"): ColorPanel | null;	
-			querySelectorAll(selectors: "smart-color-panel"): NodeListOf<ColorPanel>;
-			getElementsByTagName(qualifiedName: "smart-color-panel"): HTMLCollectionOf<ColorPanel>;
-			getElementsByName(elementName: "smart-color-panel"): NodeListOf<ColorPanel>;	
+        createElement(tagName: "smart-color-panel"): ColorPanel;
+        querySelector(selectors: "smart-color-panel"): ColorPanel | null;
+        querySelectorAll(selectors: "smart-color-panel"): NodeListOf<ColorPanel>;
+        getElementsByTagName(qualifiedName: "smart-color-panel"): HTMLCollectionOf<ColorPanel>;
+        getElementsByName(elementName: "smart-color-panel"): NodeListOf<ColorPanel>;
     }
 }
 
@@ -4514,13 +4701,7 @@ export declare type ColorApplyValueMode = 'instantly' | 'useButtons';
 export declare type ColorPalette = 'default' | 'gray' | 'red' | 'green' | 'blue' | 'custom';
 /**Determines how the tooltip displays the value of the color that is being hovered. */
 export declare type ColorTooltipDisplayMode = 'none' | 'rgb' | 'rgba' | 'hex';
-/**
- ColorPicker is an advanced color picking component with Pallete, Spectrum Grid, Radial Palette and Excel-like options. Users can input colors either by a dropdown or input field.
-*/
-export interface ColorPicker extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColorPickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -4779,63 +4960,71 @@ export interface ColorPicker extends BaseElement {
    * Default value: default
    */
   valueDisplayMode?: ColorValueDisplayMode;
-  /** 
+}
+/**
+ ColorPicker is an advanced color picking component with Pallete, Spectrum Grid, Radial Palette and Excel-like options. Users can input colors either by a dropdown or input field.
+*/
+export interface ColorPicker extends BaseElement, ColorPickerProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the action button. 'Ok' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onActionButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onActionButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the cancel button is clicked. 'Cancel' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onCancelButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCancelButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the color value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previously selected color.
    *  value - The new selected color.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the custom color selection view is opened/closed. Custom color selection view is available when <strong>enableCustomColors</strong> property is true.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - A boolean that indicates whether the custom color view is shown or not.
    */
-  onCustomColorSelection?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCustomColorSelection?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the ok button is clicked.
 	* @param event. The custom event.    */
-  onOkButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOkButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user starts resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the resizing of the drop down is finished.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Opens the drop down of the color picker.
    */
@@ -4846,13 +5035,13 @@ export interface ColorPicker extends BaseElement {
   close(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-color-picker"): ColorPicker;
-			querySelector(selectors: "smart-color-picker"): ColorPicker | null;	
-			querySelectorAll(selectors: "smart-color-picker"): NodeListOf<ColorPicker>;
-			getElementsByTagName(qualifiedName: "smart-color-picker"): HTMLCollectionOf<ColorPicker>;
-			getElementsByName(elementName: "smart-color-picker"): NodeListOf<ColorPicker>;	
+        createElement(tagName: "smart-color-picker"): ColorPicker;
+        querySelector(selectors: "smart-color-picker"): ColorPicker | null;
+        querySelectorAll(selectors: "smart-color-picker"): NodeListOf<ColorPicker>;
+        getElementsByTagName(qualifiedName: "smart-color-picker"): HTMLCollectionOf<ColorPicker>;
+        getElementsByName(elementName: "smart-color-picker"): NodeListOf<ColorPicker>;
     }
 }
 
@@ -4862,13 +5051,7 @@ export declare type DropDownOpenMode = 'none' | 'default' | 'dropDownButton' | '
 export declare type DropDownPosition = 'auto' | 'top' | 'bottom' | 'overlay-top' | 'overlay-center' | 'overlay-bottom' | 'center-bottom' | 'center-top';
 /**Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down. */
 export declare type ResizeMode = 'none' | 'horizontal' | 'vertical' | 'both';
-/**
- Column Panel allows toggling the visibility and changing the order of columns.
-*/
-export interface ColumnPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColumnPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -4932,23 +5115,28 @@ export interface ColumnPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Column Panel allows toggling the visibility and changing the order of columns.
+*/
+export interface ColumnPanel extends BaseElement, ColumnPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the "Apply" button is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, positionChanged)
    *  value - The current configuration of columns (data source).
    *  positionChanged - A boolean detail that shows whether the columns have been reordered.
    */
-  onApply?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Cancel" button is clicked.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
 }
 
 export interface ColumnPanelDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The column's data field.
    * Default value: ""
@@ -4976,23 +5164,17 @@ export interface ColumnPanelDataSource {
   visible?: boolean;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-column-panel"): ColumnPanel;
-			querySelector(selectors: "smart-column-panel"): ColumnPanel | null;	
-			querySelectorAll(selectors: "smart-column-panel"): NodeListOf<ColumnPanel>;
-			getElementsByTagName(qualifiedName: "smart-column-panel"): HTMLCollectionOf<ColumnPanel>;
-			getElementsByName(elementName: "smart-column-panel"): NodeListOf<ColumnPanel>;	
+        createElement(tagName: "smart-column-panel"): ColumnPanel;
+        querySelector(selectors: "smart-column-panel"): ColumnPanel | null;
+        querySelectorAll(selectors: "smart-column-panel"): NodeListOf<ColumnPanel>;
+        getElementsByTagName(qualifiedName: "smart-column-panel"): HTMLCollectionOf<ColumnPanel>;
+        getElementsByName(elementName: "smart-column-panel"): NodeListOf<ColumnPanel>;
     }
 }
 
-/**
- ComboBox is the alternate for the HTML select tag with editable option. It supports data binding, auto-complete, filtering, grouping, cascading and more.
-*/
-export interface ComboBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ComboBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -5325,7 +5507,15 @@ export interface ComboBox extends BaseElement {
    * Default value: false
    */
   virtualized?: boolean;
-  /** 
+}
+/**
+ ComboBox is the alternate for the HTML select tag with editable option. It supports data binding, auto-complete, filtering, grouping, cascading and more.
+*/
+export interface ComboBox extends BaseElement, ComboBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
    *  addedItems - An array of List items that have been selected.
@@ -5337,15 +5527,15 @@ export interface ComboBox extends BaseElement {
    *  value - The value of the List item that triggered the event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
    *  disabled - Indicates whether the List item that was clicked is disabled or not.
@@ -5354,35 +5544,35 @@ export interface ComboBox extends BaseElement {
    *  selected - Indicates whether the List item that was clicked is selected or not.
    *  value - The value of the List item that was clicked.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down list is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down list is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user starts resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the resizing of the drop down is finished.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the end of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the start of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a ListItem to the end of the list of items inside element.
    * @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
@@ -5458,13 +5648,13 @@ export interface ComboBox extends BaseElement {
   update(position: number, value: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-combo-box"): ComboBox;
-			querySelector(selectors: "smart-combo-box"): ComboBox | null;	
-			querySelectorAll(selectors: "smart-combo-box"): NodeListOf<ComboBox>;
-			getElementsByTagName(qualifiedName: "smart-combo-box"): HTMLCollectionOf<ComboBox>;
-			getElementsByName(elementName: "smart-combo-box"): NodeListOf<ComboBox>;	
+        createElement(tagName: "smart-combo-box"): ComboBox;
+        querySelector(selectors: "smart-combo-box"): ComboBox | null;
+        querySelectorAll(selectors: "smart-combo-box"): NodeListOf<ComboBox>;
+        getElementsByTagName(qualifiedName: "smart-combo-box"): HTMLCollectionOf<ComboBox>;
+        getElementsByName(elementName: "smart-combo-box"): NodeListOf<ComboBox>;
     }
 }
 
@@ -5486,13 +5676,7 @@ export declare type SelectionDisplayMode = 'plain' | 'placeholder' | 'tokens';
 export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
 /**Determines the visibility of the vertical scroll bar. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
-/**
- Defines a dialog for customization of filtering, sorting.
-*/
-export interface CustomizationDialog extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CustomizationDialogProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -5625,22 +5809,30 @@ export interface CustomizationDialog extends BaseElement {
    * Default value: false
    */
   visibility?: boolean;
-  /** 
+}
+/**
+ Defines a dialog for customization of filtering, sorting.
+*/
+export interface CustomizationDialog extends BaseElement, CustomizationDialogProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the dialog is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dialog is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the data in the value property is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the dialog is closed via clicking the apply button.
 	* @param event. The custom event.    */
-  onApply?: ((this: any, ev: Event) => any) | null;
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Opens the dialog
    */
@@ -5651,20 +5843,17 @@ export interface CustomizationDialog extends BaseElement {
   close(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-customization-dialog"): CustomizationDialog;
-			querySelector(selectors: "smart-customization-dialog"): CustomizationDialog | null;	
-			querySelectorAll(selectors: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;
-			getElementsByTagName(qualifiedName: "smart-customization-dialog"): HTMLCollectionOf<CustomizationDialog>;
-			getElementsByName(elementName: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;	
+        createElement(tagName: "smart-customization-dialog"): CustomizationDialog;
+        querySelector(selectors: "smart-customization-dialog"): CustomizationDialog | null;
+        querySelectorAll(selectors: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;
+        getElementsByTagName(qualifiedName: "smart-customization-dialog"): HTMLCollectionOf<CustomizationDialog>;
+        getElementsByName(elementName: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;
     }
 }
 
 export interface DataAdapter {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the binding is automatic after creating a data adapter instance.
    * Default value: true
@@ -5863,9 +6052,6 @@ export interface DataAdapter {
 }
 
 export interface DataAdapterVirtualDataSourceOnExpand {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Result callback function which is executed when the data loading is completed.
    * Default value: null
@@ -5892,9 +6078,6 @@ export interface DataAdapterVirtualDataSourceOnExpandResultCallbackFunction {
 
 /**Details of the object, which made the request */
 export interface DataAdapterVirtualDataSourceOnExpandDetails {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Data start index.
    * Default value: 0
@@ -5929,9 +6112,6 @@ export interface DataAdapterVirtualDataSourceOnExpandDetails {
 
 /**Sorting information. */
 export interface DataAdapterVirtualDataSourceOnExpandDetailsSorting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sort order.
    * Default value: asc
@@ -5945,9 +6125,6 @@ export interface DataAdapterVirtualDataSourceOnExpandDetailsSorting {
 }
 
 export interface DataAdapterVirtualDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Result callback function which is executed when the data loading is completed.
    * Default value: null
@@ -5974,9 +6151,6 @@ export interface DataAdapterVirtualDataSourceResultCallbackFunction {
 
 /**Details of the object, which made the request */
 export interface DataAdapterVirtualDataSourceDetails {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Data start index.
    * Default value: 0
@@ -5991,7 +6165,7 @@ export interface DataAdapterVirtualDataSourceDetails {
    * Sorting information.
    * Default value: null
    */
-  sorting?: DataAdapterVirtualDataSourceDetailsSorting;
+  sorting?: any;
   /**
    * Filtering information.
    * Default value: null
@@ -6007,23 +6181,11 @@ export interface DataAdapterVirtualDataSourceDetails {
    * Default value: undefined
    */
   action?: DataAdapterVirtualDataSourceDetailsAction;
-}
-
-/**Sorting information. */
-export interface DataAdapterVirtualDataSourceDetailsSorting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
-   * Sort order.
-   * Default value: asc
+   * Expanded Row when data is loaded on demand in Tree Hierarchy scenarios.
+   * Default value: undefined
    */
-  sortOrder?: DataAdapterVirtualDataSourceDetailsSortingSortOrder;
-  /**
-   * Sort index.
-   * Default value: -1
-   */
-  sortIndex?: number;
+  row?: any;
 }
 /**Sets or gets whether the data source type. */
 export declare type DataAdapterDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
@@ -6033,17 +6195,658 @@ export declare type DataAdapterMethod = 'GET' | 'POST';
 export declare type DataAdapterVirtualDataSourceOnExpandDetailsSortingSortOrder = 'asc' | 'desc';
 /**Request action type */
 export declare type DataAdapterVirtualDataSourceOnExpandDetailsAction = 'sort' | 'filter' | 'dataBind' | 'scroll' | 'group' | 'expand' | 'pageIndexChange' | 'pageSizeChange';
-/**Sort order. */
-export declare type DataAdapterVirtualDataSourceDetailsSortingSortOrder = 'asc' | 'desc';
 /**Request action type */
 export declare type DataAdapterVirtualDataSourceDetailsAction = 'sort' | 'filter' | 'dataBind' | 'scroll' | 'group' | 'expand' | 'pageIndexChange' | 'pageSizeChange';
+export interface DateRangeInputProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property.
+   * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
+   */
+  dateFormat?: DateRangeInputDateFormat;
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Determines the position of the drop down button.
+   * Default value: right
+   */
+  dropDownButtonPosition?: DropDownButtonPosition;
+  /**
+   * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownHeight?: string | number;
+  /**
+   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownWidth?: string | number;
+  /**
+   * Determines whether the 'Today/Clear' icons will be visible or not.
+   * Default value: false
+   */
+  icons?: boolean;
+  /**
+   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Default value: "off"
+   */
+  inputPurpose?: string;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Determines the max date for the Calendar displayed inside the popup.
+   * Default value: new Date(2100, 1, 1)
+   */
+  max?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the min date for the Calendar displayed inside the popup.
+   * Default value: new Date(1900, 1, 1)
+   */
+  min?: any;
+  /**
+   * Determines the number of months that will be displayed inside the popup.
+   * Default value: 1
+   */
+  months?: number;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Determines whether the drop down is opened or not.
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the delimiter between the selected dates in the input. This delimiter is ued to distinguish the starting date from the ending date.
+   * Default value: " - "
+   */
+  separator?: string;
+  /**
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property.
+   * Default value: { hour: '2-digit', minute: '2-digit' }
+   */
+  timeFormat?: DateRangeInputTimeFormat;
+  /**
+   * Determines whether time selection is available or not.
+   * Default value: false
+   */
+  timepicker?: boolean;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: ""
+   */
+  value?: string;
+  /**
+   * Determines the value type returned from the `value` property.
+   * Default value: string
+   */
+  valueType?: DateRangeInputValueType;
+}
 /**
- Date & time selection component. It allows to select both date and time with the same control.
+ DateRangeInput specifies an input field where the user can enter a date range ( from date - to date ). It also has a popup with a Calendar that allows to select a date range. Time selection is an additional feature that can be enabled which allows to specify time for the date range.
 */
-export interface DateTimePicker extends BaseElement {
+export interface DateRangeInput extends BaseElement, DateRangeInputProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
+   *  label - The label of the new selected item.
+   *  oldLabel - The label of the item that was previously selected before the event was triggered.
+   *  oldValue - The value of the item that was previously selected before the event was triggered.
+   *  value - The value of the new selected item.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Closes the drop down.
+   */
+  close(): void;
+  /**
+   * Opens the drop down.
+   */
+  open(): void;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+}
+
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
+export interface DateRangeInputDateFormat {
+  /**
+   * 
+   * Default value: undefined
+   */
+  0?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  1?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  2?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  3?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  4?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  5?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  6?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  7?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  8?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  9?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  10?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  11?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  12?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  13?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  14?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  15?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  16?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  17?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  18?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  19?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  20?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  21?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  22?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  23?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  24?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  25?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  26?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  27?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  28?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  29?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  30?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  31?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  32?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  33?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  34?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  35?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  36?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  37?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  38?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  39?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  40?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  41?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  42?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  43?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  44?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  45?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  46?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  47?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  48?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  49?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  50?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  51?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  52?: any;
+}
+
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
+export interface DateRangeInputTimeFormat {
+  /**
+   * 
+   * Default value: undefined
+   */
+  0?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  1?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  2?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  3?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  4?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  5?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  6?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  7?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  8?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  9?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  10?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  11?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  12?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  13?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  14?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  15?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  16?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  17?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  18?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  19?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  20?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  21?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  22?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  23?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  24?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  25?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  26?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  27?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  28?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  29?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  30?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  31?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  32?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  33?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  34?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  35?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  36?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  37?: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-date-range-input"): DateRangeInput;
+        querySelector(selectors: "smart-date-range-input"): DateRangeInput | null;
+        querySelectorAll(selectors: "smart-date-range-input"): NodeListOf<DateRangeInput>;
+        getElementsByTagName(qualifiedName: "smart-date-range-input"): HTMLCollectionOf<DateRangeInput>;
+        getElementsByName(elementName: "smart-date-range-input"): NodeListOf<DateRangeInput>;
+    }
+}
+
+/**Determines the value type returned from the `value` property. */
+export declare type DateRangeInputValueType = 'string' | 'object';
+export interface DateTimePickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -6063,7 +6866,7 @@ export interface DateTimePicker extends BaseElement {
    * Determines the delay before the calendar pop-up is automatically closed. Applicable only when autoClose is set to true.
    * Default value: 500
    */
-  autoCloseDelay?: boolean;
+  autoCloseDelay?: number;
   /**
    * Determines whether the calendar button is visible or not. The calendar button is used to open the Calendar popup to select a date.
    * Default value: false
@@ -6343,29 +7146,37 @@ export interface DateTimePicker extends BaseElement {
    * Default value: 1926
    */
   yearCutoff?: number;
-  /** 
+}
+/**
+ Date & time selection component. It allows to select both date and time with the same control.
+*/
+export interface DateTimePicker extends BaseElement, DateTimePickerProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The old value before it was changed presented as a DateTime object.
    *  value - The new value presented as a DateTime object.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the calendar pop-up is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the calendar pop-up is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the calendar pop-up is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the calendar pop-up is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes the calendar pop-up.
    */
@@ -6384,13 +7195,13 @@ export interface DateTimePicker extends BaseElement {
   select(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-date-time-picker"): DateTimePicker;
-			querySelector(selectors: "smart-date-time-picker"): DateTimePicker | null;	
-			querySelectorAll(selectors: "smart-date-time-picker"): NodeListOf<DateTimePicker>;
-			getElementsByTagName(qualifiedName: "smart-date-time-picker"): HTMLCollectionOf<DateTimePicker>;
-			getElementsByName(elementName: "smart-date-time-picker"): NodeListOf<DateTimePicker>;	
+        createElement(tagName: "smart-date-time-picker"): DateTimePicker;
+        querySelector(selectors: "smart-date-time-picker"): DateTimePicker | null;
+        querySelectorAll(selectors: "smart-date-time-picker"): NodeListOf<DateTimePicker>;
+        getElementsByTagName(qualifiedName: "smart-date-time-picker"): HTMLCollectionOf<DateTimePicker>;
+        getElementsByName(elementName: "smart-date-time-picker"): NodeListOf<DateTimePicker>;
     }
 }
 
@@ -6404,13 +7215,7 @@ export declare type DateTimePickerEditMode = 'default' | 'full' | 'partial';
 export declare type DateTimePickerSpinButtonsPosition = 'left' | 'right';
 /**Determines the validation mechanism for the value by min/max. */
 export declare type Validation = 'strict' | 'interaction';
-/**
- DockingLayout enables the creation of complex layouts consisting of panels that can be floated, docked, nested, resized, pinned.
-*/
-export interface DockingLayout extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface DockingLayoutProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -6538,30 +7343,38 @@ export interface DockingLayout extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ DockingLayout enables the creation of complex layouts consisting of panels that can be floated, docked, nested, resized, pinned.
+*/
+export interface DockingLayout extends BaseElement, DockingLayoutProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the tab selection is changed. <strong>Note:</strong> Change event may be thrown by other JQX Custom Elements nested inside the Tab items.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Tab item or a whole Tabs Window item ( DockingLayout item ) is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Tab item/Tabs Window is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item's position inside the Layout or it's size has been changed. Indicates that a state change has occured.
 	* @param event. The custom event.    */
-  onStateChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onStateChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when item resizing begins.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when item resizing finishes.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Makes a "smart-tabs-window" node, that is a child of the Layout, auto hidden by placing it at the Bottom position inside the element. This means that the item will be positioned near the bottom side of the layout and it's content will be hidden until the user selects one of it's labels.
    * @param {HTMLElement | number | string} node. The "smart-tabs-window" or "smart-tab-item" node to append
@@ -6674,10 +7487,10 @@ export interface DockingLayout extends BaseElement {
   insertOutsideTargetGroupRight(index: number | HTMLElement | string, tabsWindow: any): void;
   /**
    * The method returns an array of all autohidden items.
-   * @param {string} node?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.
+   * @param {string} orientation?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.
    * @returns {any[]}
    */
-  getAutoHideItems(node?: string): any[];
+  getAutoHideItems(orientation?: string): any[];
   /**
    * The method returns the index of a target item.
    * @param {HTMLElement} node. Returns the index of the target item.
@@ -6738,13 +7551,13 @@ export interface DockingLayout extends BaseElement {
   update(index: number | HTMLElement | string, settings: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-docking-layout"): DockingLayout;
-			querySelector(selectors: "smart-docking-layout"): DockingLayout | null;	
-			querySelectorAll(selectors: "smart-docking-layout"): NodeListOf<DockingLayout>;
-			getElementsByTagName(qualifiedName: "smart-docking-layout"): HTMLCollectionOf<DockingLayout>;
-			getElementsByName(elementName: "smart-docking-layout"): NodeListOf<DockingLayout>;	
+        createElement(tagName: "smart-docking-layout"): DockingLayout;
+        querySelector(selectors: "smart-docking-layout"): DockingLayout | null;
+        querySelectorAll(selectors: "smart-docking-layout"): NodeListOf<DockingLayout>;
+        getElementsByTagName(qualifiedName: "smart-docking-layout"): HTMLCollectionOf<DockingLayout>;
+        getElementsByName(elementName: "smart-docking-layout"): NodeListOf<DockingLayout>;
     }
 }
 
@@ -6752,13 +7565,7 @@ declare global {
  advanced - allows dragging of a whole TabsWindow with items or a single tab item. Uses a Visual Studio style feedback that indicates the possible drop locations. The user has to drop the target over one of the icons inside the feedback.
   <br/> The feedback/highlighter is displayed when the dragging of an item begins.  */
 export declare type DockingLayoutSnapMode = 'simple' | 'advanced';
-/**
- DropDownButton displays any type of content like components, text, images, etc in a DropDown.
-*/
-export interface DropDownButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface DropDownButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -6919,42 +7726,50 @@ export interface DropDownButton extends BaseElement {
    * Default value: auto
    */
   verticalScrollBarVisibility?: VerticalScrollBarVisibility;
-  /** 
+}
+/**
+ DropDownButton displays any type of content like components, text, images, etc in a DropDown.
+*/
+export interface DropDownButton extends BaseElement, DropDownButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the action button. The action button is visible when the <strong>placeholder</strong> is set.
 	* @param event. The custom event.    */
-  onActionButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onActionButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user starts resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user finishes resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a new HTML node to the drop down.
    * @param {Node} node. The node to be appended
@@ -6988,23 +7803,17 @@ export interface DropDownButton extends BaseElement {
    scrollTo(options?: ScrollToOptions): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-drop-down-button"): DropDownButton;
-			querySelector(selectors: "smart-drop-down-button"): DropDownButton | null;	
-			querySelectorAll(selectors: "smart-drop-down-button"): NodeListOf<DropDownButton>;
-			getElementsByTagName(qualifiedName: "smart-drop-down-button"): HTMLCollectionOf<DropDownButton>;
-			getElementsByName(elementName: "smart-drop-down-button"): NodeListOf<DropDownButton>;	
+        createElement(tagName: "smart-drop-down-button"): DropDownButton;
+        querySelector(selectors: "smart-drop-down-button"): DropDownButton | null;
+        querySelectorAll(selectors: "smart-drop-down-button"): NodeListOf<DropDownButton>;
+        getElementsByTagName(qualifiedName: "smart-drop-down-button"): HTMLCollectionOf<DropDownButton>;
+        getElementsByName(elementName: "smart-drop-down-button"): NodeListOf<DropDownButton>;
     }
 }
 
-/**
- The DropDownList is a form component that lets you choose a single predefined value from a list. It is a more advanced version of the 'select' tag.
-*/
-export interface DropDownList extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface DropDownListProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -7307,11 +8116,19 @@ export interface DropDownList extends BaseElement {
    * Default value: false
    */
   virtualized?: boolean;
-  /** 
+}
+/**
+ The DropDownList is a form component that lets you choose a single predefined value from a list. It is a more advanced version of the 'select' tag.
+*/
+export interface DropDownList extends BaseElement, DropDownListProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the action button. The action button is only visible when dropDownOpenMode is set to 'dropDownbutton'.
 	* @param event. The custom event.    */
-  onActionButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onActionButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
    *  addedItems - An array of List items that have been selected.
@@ -7323,19 +8140,19 @@ export interface DropDownList extends BaseElement {
    *  value - The value of the List item that triggered the event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down list is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
    *  disabled - Indicates whether the List item that was clicked is disabled or not.
@@ -7344,35 +8161,35 @@ export interface DropDownList extends BaseElement {
    *  selected - Indicates whether the List item that was clicked is selected or not.
    *  value - The value of the List item that was clicked.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down list is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down list is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user starts resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the resizing of the drop down is finished.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user scrolls to the end of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user scrolls to the start of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a ListItem to the end of the list of items inside element.
    * @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
@@ -7448,28 +8265,17 @@ export interface DropDownList extends BaseElement {
   update(position: number, value: any): void;
 }
 
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-drop-down-list"): DropDownList;
-			querySelector(selectors: "smart-drop-down-list"): DropDownList | null;	
-			querySelectorAll(selectors: "smart-drop-down-list"): NodeListOf<DropDownList>;
-			getElementsByTagName(qualifiedName: "smart-drop-down-list"): HTMLCollectionOf<DropDownList>;
-			getElementsByName(elementName: "smart-drop-down-list"): NodeListOf<DropDownList>;	
-    }
-}
-
-
 declare global {
-    interface Window {
-        Smart: any;
-		NG: any;
+    interface Document {
+        createElement(tagName: "smart-drop-down-list"): DropDownList;
+        querySelector(selectors: "smart-drop-down-list"): DropDownList | null;
+        querySelectorAll(selectors: "smart-drop-down-list"): NodeListOf<DropDownList>;
+        getElementsByTagName(qualifiedName: "smart-drop-down-list"): HTMLCollectionOf<DropDownList>;
+        getElementsByName(elementName: "smart-drop-down-list"): NodeListOf<DropDownList>;
     }
 }
 
-export interface BaseElement extends HTMLElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ElementProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -7566,16 +8372,29 @@ export interface BaseElement extends HTMLElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ BaseElement extending the HTMLElement with localization, on-demand rendering, typed properties, two-way bound properties, property change notifications, lifecycle callbacks, automatic events listen and unlisten.
+*/
+
+declare global {
+	interface Window {
+		Smart: any;
+		NG: any;
+	}
+}
+
+export interface BaseElement extends HTMLElement, ElementProperties {
+  /**
    * This event is triggered when the element is resized.
 	* @param event. The custom event.    */
   onResize: ((ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a style which affects the layout of the element is changed is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(styleProperties)
    *  styleProperties - Array with changed style properties.
    */
-  onStyleChanged?: ((this: any, ev: Event) => any) | null;
+  onStyleChanged?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Unwatches the element.
    */
@@ -7597,25 +8416,19 @@ export interface BaseElement extends HTMLElement {
   whenRendered(renderCallback: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-element"): Element;
-			querySelector(selectors: "smart-element"): Element | null;	
-			querySelectorAll(selectors: "smart-element"): NodeListOf<Element>;
-			getElementsByTagName(qualifiedName: "smart-element"): HTMLCollectionOf<Element>;
-			getElementsByName(elementName: "smart-element"): NodeListOf<Element>;	
+        createElement(tagName: "smart-element"): Element;
+        querySelector(selectors: "smart-element"): Element | null;
+        querySelectorAll(selectors: "smart-element"): NodeListOf<Element>;
+        getElementsByTagName(qualifiedName: "smart-element"): HTMLCollectionOf<Element>;
+        getElementsByName(elementName: "smart-element"): NodeListOf<Element>;
     }
 }
 
 /**Determines whether the element is automatically rendered or is rendered after calling the render method. */
 export declare type ElementRenderMode = 'auto' | 'manual';
-/**
- FileUpload provides an easy and integrated way for users to upload multiple files.
-*/
-export interface FileUpload extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface FileUploadProperties {
   /**
    * Sets or gets the file types that can be submitted to the server via the element. This property corresponds to the 'accept' attribute of the hidden file input which is submitted to the URL specified by the uploadUrl property.
    * Default value: null
@@ -7753,7 +8566,15 @@ export interface FileUpload extends BaseElement {
    * Default value: null
    */
   validateFile?: any;
-  /** 
+}
+/**
+ FileUpload provides an easy and integrated way for users to upload multiple files.
+*/
+export interface FileUpload extends BaseElement, FileUploadProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a file has been selected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the selected file.
@@ -7761,8 +8582,8 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the selected file.
    *  index - The index of the selected file.
    */
-  onFileSelected?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFileSelected?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is canceled.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the canceled file.
@@ -7770,8 +8591,8 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the canceled file.
    *  index - The index of the canceled file.
    */
-  onUploadCanceled?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadCanceled?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is completed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status)
    *  filename - The name of the canceled file.
@@ -7780,8 +8601,8 @@ export interface FileUpload extends BaseElement {
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
    */
-  onUploadCompleted?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadCompleted?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when during the file upload process something happens and upload fails.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status)
    *  filename - The name of the canceled file.
@@ -7790,8 +8611,8 @@ export interface FileUpload extends BaseElement {
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
    */
-  onUploadError?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadError?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is paused.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the paused file.
@@ -7799,8 +8620,8 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the paused file.
    *  index - The index of the paused file.
    */
-  onUploadPaused?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadPaused?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a file upload operation is started.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index)
    *  filename - The name of the file that is being uploaded.
@@ -7808,15 +8629,15 @@ export interface FileUpload extends BaseElement {
    *  size - The size of the file that is being uploaded.
    *  index - The index of the file that is being uploaded.
    */
-  onUploadStarted?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onUploadStarted?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered if the validation of a user defined 'validateFile' callback fails.
 	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size)
    *  filename - The name of the file which validation has failed.
    *  type - The type of the file which validation has failed.
    *  size - The size of the file which validation has failed.
    */
-  onValidationError?: ((this: any, ev: Event) => any) | null;
+  onValidationError?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Opens a popup to browse for a file.
    */
@@ -7850,23 +8671,17 @@ export interface FileUpload extends BaseElement {
   uploadFile(id: number): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-file-upload"): FileUpload;
-			querySelector(selectors: "smart-file-upload"): FileUpload | null;	
-			querySelectorAll(selectors: "smart-file-upload"): NodeListOf<FileUpload>;
-			getElementsByTagName(qualifiedName: "smart-file-upload"): HTMLCollectionOf<FileUpload>;
-			getElementsByName(elementName: "smart-file-upload"): NodeListOf<FileUpload>;	
+        createElement(tagName: "smart-file-upload"): FileUpload;
+        querySelector(selectors: "smart-file-upload"): FileUpload | null;
+        querySelectorAll(selectors: "smart-file-upload"): NodeListOf<FileUpload>;
+        getElementsByTagName(qualifiedName: "smart-file-upload"): HTMLCollectionOf<FileUpload>;
+        getElementsByName(elementName: "smart-file-upload"): NodeListOf<FileUpload>;
     }
 }
 
-/**
- FilterBuilder allows you to dynamically build filters.
-*/
-export interface FilterBuilder extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface FilterBuilderProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -8015,46 +8830,54 @@ export interface FilterBuilder extends BaseElement {
    * Default value: "&lt;enter a value&gt;"
    */
   valuePlaceholder?: string;
-  /** 
+}
+/**
+ FilterBuilder allows you to dynamically build filters.
+*/
+export interface FilterBuilder extends BaseElement, FilterBuilderProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the element's value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an editor is closed.
 	* @param event. The custom event.    */
-  onEditorClose?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an editor starts to close.
 	* @param event. The custom event.    */
-  onEditorClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an editor is opened.
 	* @param event. The custom event.    */
-  onEditorOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an editor starts to open.
 	* @param event. The custom event.    */
-  onEditorOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when some of the filterbuilder's building blocks is clicked.
 	* @param event. The custom event.    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the built-in menu is opened. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the built-in menu starts to open. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the built-in menu is closed. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the built-in menu  starts to close. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds new condition in particular group. 
    * @param {string | HTMLElement} parentGroup. A string, representing the id of the item or an HTML Element referencing this condition.
@@ -8099,9 +8922,6 @@ export interface FilterBuilder extends BaseElement {
 
 /**Defines icon's representatino as characters. */
 export interface FilterBuilderIcons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * 
    * Default value: undefined
@@ -9034,23 +9854,17 @@ export interface FilterBuilderIcons {
   185?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-filter-builder"): FilterBuilder;
-			querySelector(selectors: "smart-filter-builder"): FilterBuilder | null;	
-			querySelectorAll(selectors: "smart-filter-builder"): NodeListOf<FilterBuilder>;
-			getElementsByTagName(qualifiedName: "smart-filter-builder"): HTMLCollectionOf<FilterBuilder>;
-			getElementsByName(elementName: "smart-filter-builder"): NodeListOf<FilterBuilder>;	
+        createElement(tagName: "smart-filter-builder"): FilterBuilder;
+        querySelector(selectors: "smart-filter-builder"): FilterBuilder | null;
+        querySelectorAll(selectors: "smart-filter-builder"): NodeListOf<FilterBuilder>;
+        getElementsByTagName(qualifiedName: "smart-filter-builder"): HTMLCollectionOf<FilterBuilder>;
+        getElementsByName(elementName: "smart-filter-builder"): NodeListOf<FilterBuilder>;
     }
 }
 
-/**
- The filter panel allows you to customize and display the applied filter expressions.
-*/
-export interface FilterPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface FilterPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -9173,18 +9987,26 @@ export interface FilterPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ The filter panel allows you to customize and display the applied filter expressions.
+*/
+export interface FilterPanel extends BaseElement, FilterPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the current filtering is discarted.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the current filtering is cleared.
 	* @param event. The custom event.    */
-  onClear?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClear?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when filter panel settings are applied.
 	* @param event. The custom event.    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Discards current filtering.
    */
@@ -9214,13 +10036,13 @@ export interface FilterPanel extends BaseElement {
   loadState(state: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-filter-panel"): FilterPanel;
-			querySelector(selectors: "smart-filter-panel"): FilterPanel | null;	
-			querySelectorAll(selectors: "smart-filter-panel"): NodeListOf<FilterPanel>;
-			getElementsByTagName(qualifiedName: "smart-filter-panel"): HTMLCollectionOf<FilterPanel>;
-			getElementsByName(elementName: "smart-filter-panel"): NodeListOf<FilterPanel>;	
+        createElement(tagName: "smart-filter-panel"): FilterPanel;
+        querySelector(selectors: "smart-filter-panel"): FilterPanel | null;
+        querySelectorAll(selectors: "smart-filter-panel"): NodeListOf<FilterPanel>;
+        getElementsByTagName(qualifiedName: "smart-filter-panel"): HTMLCollectionOf<FilterPanel>;
+        getElementsByName(elementName: "smart-filter-panel"): NodeListOf<FilterPanel>;
     }
 }
 
@@ -9228,13 +10050,7 @@ declare global {
 export declare type FilterPanelFilterType = 'numeric' | 'string' | 'date' | 'boolean';
 /**Desfines filter panel's  mode */
 export declare type FilterPanelMode = 'default' | 'excel';
-/**
- Gantt charts are specialized bar charts that help clearly represent how tasks and resources are allocated over time in planning, project management, and scheduling applications.
-*/
-export interface GanttChart extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface GanttChartProperties {
   /**
    * Recalculates the tasks that are connected and re-schedules them according to their connections. If no connections are present, autoScheduling has no effect until a connection is created. Connection types determines the start/end date limits of the tasks.
    * Default value: false
@@ -9441,6 +10257,16 @@ export interface GanttChart extends BaseElement {
    */
   snapToNearest?: boolean;
   /**
+   * Determines whether the GanttChart can be sorted or not.
+   * Default value: false
+   */
+  sortable?: boolean;
+  /**
+   * Determines whether the GanttChart can be sorted by one or more columns.
+   * Default value: one
+   */
+  sortMode?: GanttChartSortMode;
+  /**
    * A getter that returns a flat structure as an array of all tasks inside the element.
    * Default value: 
    */
@@ -9510,28 +10336,36 @@ export interface GanttChart extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Gantt charts are specialized bar charts that help clearly represent how tasks and resources are allocated over time in planning, project management, and scheduling applications.
+*/
+export interface GanttChart extends BaseElement, GanttChartProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a Task is selected/unselected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue)
    *  value - The index of the new selected task.
    *  oldValue - The index of the previously selected task.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the progress of a task bar starts to change as a result of user interaction. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, progress)
    *  index - The index of the task which progress is going to be changed.
    *  progress - The progress of the task before it is changed.
    */
-  onProgressChangeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onProgressChangeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the progress of a task is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, progress)
    *  index - The index of the task which progress is has been changed.
    *  progress - The progress of the task after it was changed.
    */
-  onProgressChangeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onProgressChangeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when dragging of a task starts. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that is going to be dragged.
@@ -9539,7 +10373,7 @@ export interface GanttChart extends BaseElement {
    *  dateEnd - The end date of the task that is going to be dragged.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when dragging of a task finishes.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that is was dragged.
@@ -9547,66 +10381,82 @@ export interface GanttChart extends BaseElement {
    *  dateEnd - The end date of the task that is was dragged.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when resizing of a task starts. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that is going to be resized.
    *  dateStart - The start date of the task that is going to be resized.
    *  dateEnd - The end date of the task that is going to be resized.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the resizing of a task finishes.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, dateStart, dateEnd)
    *  index - The index of the task that was resized.
    *  dateStart - The start date of the task that was resized.
    *  dateEnd - The end date of the task that was resized.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user starts connecting one task to another. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(startIndex)
    *  startIndex - The index of the task that a connection is started from.
    */
-  onConnectionStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onConnectionStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user completes a connection between two tasks.
 	* @param event. The custom event. Custom data event was created with: ev.detail(startIndex, endIndex, type)
    *  startIndex - The index of the task that a connection is started from.
    *  endIndex - The index of the task that a connection is started from.
    *  type - The type of connection. Fours types are available: <ul><li><b>0</b> - start-to-start</li><li><b>1</b> - end-to-start</li><li><b>2</b> - end-to-end</li><li><b>3</b> - start-to-end</li></ul>
    */
-  onConnectionEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onConnectionEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Timeline has been scrolled to the bottom.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Timeline has been scrolled to the top.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered just before the window for task editing starts opening. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, type)
    *  target - The instance of the window that is going to open.
    *  type - The type of window that is going to open. There are three types of windows inside GanttChart: <ul><li><b>confirm</b> - a confirm window. This type of window is usually used to confirm the deletion of a task.</li><li><b>task</b> - a window used for task editing.</li><li><b>connection</b> - a window used to delete a connection.</li></ul>
    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window for task editing is opened( visible ).
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered just before the window for task editing starts closing. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, type)
    *  target - The instance of the window that is going to close.
    *  type - The type of window that is going to close. There are three types of windows inside GanttChart: <ul><li><b>confirm</b> - a confirm window. This type of window is usually used to confirm the deletion of a task.</li><li><b>task</b> - a window used for task editing.</li><li><b>connection</b> - a window used to delete a connection.</li></ul>
    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window for task editing is closed( hidden )
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when a Project is collapsed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(index, label, value)
+   *  index - The index of the collapsed project.
+   *  label - The label of the collapsed project.
+   *  value - The value of the collapsed project.
+   */
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Project is expanded.
+	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
+   *  item - The index of the expanded project.
+   *  label - The label of the expanded project.
+   *  value - The value of the expanded project.
+   */
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds a task as the last item of a Project.
    * @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
@@ -9769,13 +10619,15 @@ export interface GanttChart extends BaseElement {
    * Prepares the GanttChart for printing by opening the browser's Print Preview.
    */
   print(): void;
+  /**
+   * Sorts the GanttChart tasks/resources if <b>sortable</b> is enabled.
+   * @param {any} columns?. An Array of objects which determine which columns to be sorted, the sort order and the type of item to sort: task or resource. If no arguments are provided sorting will be removed. <br /> An object should have the following properties: <ul><li><b>value</b> - a string that represents the value of a <b>taskColumn</b> to sort.</li><li><b>sortOrder</b> - a string that represents the sorting order for the column: 'asc' (asscending sorting) or 'desc' (descending) are possible values. </li><li><b>type</b> - a string that represents the type of item to sort. This property determines which panel will be sorted. Two possible values: 'task', 'resource'.</li></ul>
+   */
+  sort(columns?: any): void;
 }
 
 /**Sets the GanttChart's Data Export options. */
 export interface GanttChartDataExport {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets whether the columns header will be exported.
    * Default value: true
@@ -9814,9 +10666,6 @@ export interface GanttChartDataExport {
 }
 
 export interface GanttChartDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Tasks connection.
    * Default value: undefined
@@ -9925,9 +10774,6 @@ export interface GanttChartDataSource {
 }
 
 export interface GanttChartDataSourceConnection {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Task's connection target.
    * Default value: 0
@@ -9941,9 +10787,6 @@ export interface GanttChartDataSourceConnection {
 }
 
 export interface GanttChartDataSourceResource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The capacity of a resource. By default it is used to determines the working capacity ( in hours ) of the resource.
    * Default value: 8
@@ -9992,9 +10835,6 @@ export interface GanttChartDataSourceResource {
 }
 
 export interface GanttChartResource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * An array of the tasks that the resources is assigned to.
    * Default value: []
@@ -10048,9 +10888,6 @@ export interface GanttChartResource {
 }
 
 export interface GanttChartResourceColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Column's label.
    * Default value: 
@@ -10079,9 +10916,6 @@ export interface GanttChartResourceColumn {
 }
 
 export interface GanttChartTask {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Tasks connection.
    * Default value: undefined
@@ -10185,9 +11019,6 @@ export interface GanttChartTask {
 }
 
 export interface GanttChartTaskConnection {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Task's connection target.
    * Default value: 0
@@ -10201,9 +11032,6 @@ export interface GanttChartTaskConnection {
 }
 
 export interface GanttChartTaskResource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Resource capacity.
    * Default value: 0
@@ -10262,9 +11090,6 @@ export interface GanttChartTaskResource {
 }
 
 export interface GanttChartTaskColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Column's label.
    * Default value: 
@@ -10297,13 +11122,13 @@ export interface GanttChartTaskColumn {
   formatFunction?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-gantt-chart"): GanttChart;
-			querySelector(selectors: "smart-gantt-chart"): GanttChart | null;	
-			querySelectorAll(selectors: "smart-gantt-chart"): NodeListOf<GanttChart>;
-			getElementsByTagName(qualifiedName: "smart-gantt-chart"): HTMLCollectionOf<GanttChart>;
-			getElementsByName(elementName: "smart-gantt-chart"): NodeListOf<GanttChart>;	
+        createElement(tagName: "smart-gantt-chart"): GanttChart;
+        querySelector(selectors: "smart-gantt-chart"): GanttChart | null;
+        querySelectorAll(selectors: "smart-gantt-chart"): NodeListOf<GanttChart>;
+        getElementsByTagName(qualifiedName: "smart-gantt-chart"): HTMLCollectionOf<GanttChart>;
+        getElementsByName(elementName: "smart-gantt-chart"): NodeListOf<GanttChart>;
     }
 }
 
@@ -10319,6 +11144,8 @@ export declare type HourFormat = 'default' | '2-digit' | 'numeric';
 export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | 'custom';
 /**Determines how the resources will be displayed inside the resource Timeline. */
 export declare type GanttChartResourceTimelineView = 'hours' | 'tasks' | 'custom';
+/**Determines whether the GanttChart can be sorted by one or more columns. */
+export declare type GanttChartSortMode = 'one' | 'many';
 /**Project, Task or Milestone type. Possible values are 'project' and 'task' */
 export declare type GanttChartTaskType = 'project' | 'milestone' | 'task';
 /**Determines the viewing date range of the timeline. Possible values: day - The timeline show the hours of the day.
@@ -10330,13 +11157,7 @@ resource - displays the current tasks by grouping them according to the resource
 export declare type GanttChartView = 'day' | 'week' | 'month' | 'year' | 'resource';
 /**Determines the format of the dates inside the timeline header when they represent weeks.  */
 export declare type WeekFormat = 'long' | 'numeric';
-/**
- Gauge displays an indicator within a range of values.
-*/
-export interface Gauge extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface GaugeProperties {
   /**
    * Determines the type of gauge's indicator.
    * Default value: needle
@@ -10586,7 +11407,15 @@ export interface Gauge extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ Gauge displays an indicator within a range of values.
+*/
+export interface Gauge extends BaseElement, GaugeProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the element is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value of the element.
@@ -10610,13 +11439,13 @@ export interface Gauge extends BaseElement {
   val(value?: string | number | Date): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-gauge"): Gauge;
-			querySelector(selectors: "smart-gauge"): Gauge | null;	
-			querySelectorAll(selectors: "smart-gauge"): NodeListOf<Gauge>;
-			getElementsByTagName(qualifiedName: "smart-gauge"): HTMLCollectionOf<Gauge>;
-			getElementsByName(elementName: "smart-gauge"): NodeListOf<Gauge>;	
+        createElement(tagName: "smart-gauge"): Gauge;
+        querySelector(selectors: "smart-gauge"): Gauge | null;
+        querySelectorAll(selectors: "smart-gauge"): NodeListOf<Gauge>;
+        getElementsByTagName(qualifiedName: "smart-gauge"): HTMLCollectionOf<Gauge>;
+        getElementsByName(elementName: "smart-gauge"): NodeListOf<Gauge>;
     }
 }
 
@@ -10644,13 +11473,7 @@ export declare type TicksPosition = 'scale' | 'track';
 export declare type TicksVisibility = 'major' | 'minor' | 'none';
 /**Sets or gets the word length. Applicable only when scaleType is 'integer'. */
 export declare type WordLength = 'int8' | 'int16' | 'int32' | 'int64' | 'uint8' | 'uint16' | 'uint32' | 'uint64';
-/**
- Data Grid UI Component that covers everything from paging, sorting, grouping, filtering, and editing to row and column virtualization, right-to-left layout, export to Excel and PDF and Accessibility.
-*/
-export interface Grid extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface GridProperties {
   /**
    * An object containing settings related to the grid's appearance.
    * Default value: [object Object]
@@ -10765,7 +11588,7 @@ export interface Grid extends BaseElement {
    * Callback function() called when the grid has been rendered.
    * Default value: null
    */
-  onRender?: {(): void};
+  onRender?: any;
   /**
    * Callback function(event: KeyboardEvent) called when the grid is on focus and a keyboard key is pressed.
    * Default value: null
@@ -10857,6 +11680,11 @@ export interface Grid extends BaseElement {
    */
   columnHeader?: GridColumnHeader;
   /**
+   * Describes the summary row settings.
+   * Default value: [object Object]
+   */
+  summaryRow?: GridSummaryRow;
+  /**
    * Describes the settings for the group header.
    * Default value: [object Object]
    */
@@ -10886,15 +11714,23 @@ export interface Grid extends BaseElement {
    * Default value: [object Object]
    */
   sorting?: GridSorting;
-  /** 
+}
+/**
+ Data Grid UI Component that covers everything from paging, sorting, grouping, filtering, and editing to row and column virtualization, right-to-left layout, export to Excel and PDF and Accessibility.
+*/
+export interface Grid extends BaseElement, GridProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered, when the edit begins.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, column, cell)
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
    */
-  onBeginEdit?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the selection is changed. When you select with a drag, the event is triggered when the drag starts and ends. 
 	* @param event. The custom event. Custom data event was created with: ev.detail(started, finished, originalEvent)
    *  started - The flag is <em>true</em>, when the selection starts. The flag is <em>false</em>, when the selection ends and when the user changes the selection by dragging.
@@ -10902,130 +11738,184 @@ export interface Grid extends BaseElement {
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered, when the user clicks on the header of a column.
 	* @param event. The custom event. Custom data event was created with: ev.detail(column, originalEvent)
    *  column - The clicked column.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onColumnClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user double clicks on the header of a column.
 	* @param event. The custom event. Custom data event was created with: ev.detail(column, originalEvent)
    *  column - The double-clicked column.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onColumnDoubleClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onColumnDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user resized a column.
 	* @param event. The custom event. Custom data event was created with: ev.detail(column, oldWidth, width)
    *  column - The resized column.
    *  oldWidth - The old width of the column.
    *  width - The new width of the column.
    */
-  onColumnResize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onColumnResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user starts a column drag.
+	* @param event. The custom event. Custom data event was created with: ev.detail(column, index, originalEvent)
+   *  column - The column.
+   *  index - The column's index
+   *  originalEvent - The origianl Event object.
+   */
+  onColumnDragStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a column.
+	* @param event. The custom event. Custom data event was created with: ev.detail(column, index, data, originalEvent)
+   *  column - The column.
+   *  index - The column's index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onColumnDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a column.
+	* @param event. The custom event. Custom data event was created with: ev.detail(column, index, newIndex, data, originalEvent)
+   *  column - The column.
+   *  index - The column's index
+   *  newIndex - The column's new index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onColumnDragEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user starts a row drag.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, index, originalEvent)
+   *  row - The row.
+   *  index - The row's index
+   *  originalEvent - The origianl Event object.
+   */
+  onRowDragStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a row.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, index, data, originalEvent)
+   *  row - The row.
+   *  index - The row's index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onRowDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user drags a row.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, index, newIndex, data, originalEvent)
+   *  row - The row.
+   *  index - The row's index
+   *  newIndex - The row's new index
+   *  data - The dragging object. data.feedback and data.feedbackLine are HTML Elements which are displayed while the user drags. The object has error(), success() and data() methods which you can call to set the feedback state.
+   *  originalEvent - The origianl Event object.
+   */
+  onRowDragEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user expands a row of the grid. The Grid is in TreeGrid/Grouping mode.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The expanded row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user collapsed a row of the grid. The Grid is in TreeGrid/Grouping mode.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The collapsed row. 
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user clicks on a row of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The clicked row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user double clicks on a row of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The double-clicked row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowDoubleClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user resized a row.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, oldHeight, height)
    *  row - The resized row.
    *  oldHeight - The old height of the row.
    *  height - The new height of the row.
    */
-  onRowResize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user clicks on a cell of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
    *  cell - The clicked cell.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onCellClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCellClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user double clicks on a cell of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
    *  cell - The double-clicked cell. 
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onCellDoubleClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCellDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the edit ends.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, column, cell)
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
    */
-  onEndEdit?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when a filter is added or removed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
    *  columns - Array of columns.
    *  data - Array of {dataField: string, filter: string}. <em>dataField</em> is the column's data field. <em>filter</em> is a filter expression like 'startsWith B'
    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the grid is resized.
 	* @param event. The custom event.    */
   onResize: ((ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the user touches and holds on the row for at least 300ms.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
    *  row - The tapped row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onRowTap?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRowTap?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user touches and holds on the cell for at least 300ms.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
    *  cell - The tapped row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
    */
-  onCellTap?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCellTap?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user changes the pages.
 	* @param event. The custom event.    */
-  onPage?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onPage?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when a sorting column is added or removed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
    *  columns - Array of columns.
    *  data - Array of {dataField: string, sortOrder: string, sortIndex: number}. <em>dataField</em> is the column's data field. <em>sortOrder</em> is 'asc' or 'desc', <em>sortIndex</em> is the index of the column in multi column sorting.
    */
-  onSort?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user reaches the bottom of the grid.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user reaches the top of the grid.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string} position?. 'near' or 'far'
@@ -11262,9 +12152,6 @@ export interface Grid extends BaseElement {
 
 /**An object containing settings related to the grid's appearance. */
 export interface GridAppearance {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Starting row index of alternating colors.
    * Default value: 0
@@ -11406,6 +12293,11 @@ export interface GridAppearance {
    */
   showRowHeaderFocusIcon?: boolean;
   /**
+   * Shows drag icon on the row header. 
+   * Default value: false
+   */
+  showRowHeaderDragIcon?: boolean;
+  /**
    * Shows column header lines.
    * Default value: true
    */
@@ -11489,9 +12381,6 @@ export interface GridAppearance {
 
 /**An object containing settings related to the grid's behavior. */
 export interface GridBehavior {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Auto-Resize on double-click of a column's right border.
    * Default value: true
@@ -11502,6 +12391,16 @@ export interface GridBehavior {
    * Default value: true
    */
   allowRowAutoSizeOnDoubleClick?: boolean;
+  /**
+   * Determines whether row reorder is enabled.
+   * Default value: false
+   */
+  allowRowReorder?: boolean;
+  /**
+   * Determines whether column reorder is enabled.
+   * Default value: false
+   */
+  allowColumnReorder?: boolean;
   /**
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
@@ -11516,9 +12415,6 @@ export interface GridBehavior {
 
 /**An object containing settings related to the grid's layout. */
 export interface GridLayout {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables or disables the Cells Value wrapping. When the property is true, cell value can wrap in multiple lines.
    * Default value: false
@@ -11558,9 +12454,6 @@ export interface GridLayout {
 
 /**The <em>clipboard</em> property is used to enable/disable clipboard operations with Ctrl+C, Ctrl+X and Ctrl+V keyboard navigations.. */
 export interface GridClipboard {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the property is enabled.
    * Default value: true
@@ -11579,9 +12472,6 @@ export interface GridClipboard {
 }
 
 export interface GridColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the column's header alignment. Accepts: 'left', 'right', 'center'
    * Default value: left
@@ -11606,7 +12496,7 @@ export interface GridColumn {
    * Sets or gets whether the column can be selected.
    * Default value: true
    */
-  allowSelect?: boolean;
+  allowSelect?: boolean | null;
   /**
    * Sets or gets whether the column can be edited.
    * Default value: true
@@ -11766,9 +12656,6 @@ export interface GridColumn {
 
 /**Column Menu is the drop-down menu displayed after clicking the column header's drop-down button, which is displayed when you hover the column header. It allows you to customize column settings. For example: Sort, Filter or Group the Grid by the current column. */
 export interface GridColumnMenu {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Automatically closes the column menu.
    * Default value: true
@@ -11803,9 +12690,6 @@ export interface GridColumnMenu {
 
 /**Sets the data sources to the column menu. */
 export interface GridColumnMenuDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the settings of the column menu customize type
    * Default value: [object Object]
@@ -11885,9 +12769,6 @@ export interface GridColumnMenuDataSource {
 
 /**Describes the settings of the column menu customize type */
 export interface GridCommand {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the commant of the column menu customize type.
    * Default value: customizeTypeCommand
@@ -11916,9 +12797,6 @@ export interface GridCommand {
 }
 
 export interface GridColumnGroup {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the label.
    * Default value: ""
@@ -11948,9 +12826,6 @@ export interface GridColumnGroup {
 
 /**Sets the Grid Charting Data Visualization. */
 export interface GridCharting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether charting is enabled.
    * Default value: false
@@ -11975,9 +12850,6 @@ export interface GridCharting {
 
 /**Sets or gets the charting dialog. */
 export interface Dialog {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the dialog header.
    * Default value: ""
@@ -12017,9 +12889,6 @@ export interface Dialog {
 
 /**Sets the TreeGrid checkboxes. */
 export interface GridCheckBoxes {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the TreeGrid checkboxes.
    * Default value: false
@@ -12034,9 +12903,6 @@ export interface GridCheckBoxes {
 
 /**Sets the Grid Data Export options. */
 export interface GridDataExport {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets whether the columns header will be exported.
    * Default value: true
@@ -12092,13 +12958,15 @@ export interface GridDataExport {
    * Default value: false
    */
   viewEnd?: number | null;
+  /**
+   * An array of row ids that denotes the rows to export.
+   * Default value: null
+   */
+  rowIds?: {(): void};
 }
 
 /**Describes the grid's editing settings. */
 export interface GridEditing {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables row header cells editing.
    * Default value: false
@@ -12168,9 +13036,6 @@ export interface GridEditing {
 
 /**Describes command keys. */
 export interface GridEditingCommandKeys {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the edit command key.
    * Default value: [object Object]
@@ -12190,9 +13055,6 @@ export interface GridEditingCommandKeys {
 
 /**Describes the edit command key. */
 export interface GridCommandKey {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the name of the edit key command.
    * Default value: "commandKeyEditCommand"
@@ -12207,9 +13069,6 @@ export interface GridCommandKey {
 
 /**Describes the grid's command bar settings. The command bar is a toolbar or statusbar with tools for saving and reverting edits. */
 export interface GridEditingCommandBar {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the command bar visible.
    * Default value: false
@@ -12234,9 +13093,6 @@ export interface GridEditingCommandBar {
 
 /**Sets the command bar's data source. */
 export interface GridEditingCommandBarDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the settings of the command bar's button for adding rows.
    * Default value: [object Object]
@@ -12261,9 +13117,6 @@ export interface GridEditingCommandBarDataSource {
 
 /**Describes the grid's command column settings. The command column can be used to edit or delete a row. */
 export interface GridEditingCommandColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the command column visible.
    * Default value: false
@@ -12298,9 +13151,6 @@ export interface GridEditingCommandColumn {
 
 /**Sets the command column's data source. */
 export interface GridEditingCommandColumnDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Describes the settings of the command column's button displayed in the column's header. By default, this Command opens a Menu with Column Chooser.
    * Default value: [object Object]
@@ -12340,9 +13190,6 @@ export interface GridEditingCommandColumnDataSource {
 
 /**Describes the settings of the 'Add New Row' UI element which enables the quick adding of rows to the Grid with a single click. */
 export interface GridEditingAddNewRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the position of the 'Add New Row' UI element.
    * Default value: both
@@ -12362,9 +13209,6 @@ export interface GridEditingAddNewRow {
 
 /**Describes the grid's filtering settings. */
 export interface GridFiltering {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables filtering.
    * Default value: false
@@ -12394,9 +13238,6 @@ export interface GridFiltering {
 
 /**(In Development)Describes the filter row's settings. */
 export interface GridFilteringFilterRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the filter row visible.
    * Default value: false
@@ -12421,9 +13262,6 @@ export interface GridFilteringFilterRow {
 
 /**Describes the settings for the filter menu. */
 export interface GridFilteringFilterMenu {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the filter menu.
    * Default value: true
@@ -12434,6 +13272,11 @@ export interface GridFilteringFilterMenu {
    * Default value: cancel,clear,filter
    */
   buttons?: string[];
+  /**
+   * Sets the filter menu mode.
+   * Default value: default,excel
+   */
+  mode?: string[];
   /**
    * Sets the filter menu datasource.
    * Default value: null
@@ -12453,9 +13296,6 @@ export interface GridFilteringFilterMenu {
 
 /**(In Development)Describes the settings for the filter builder. */
 export interface GridFilteringFilterBuilder {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the filter builder.
    * Default value: false
@@ -12470,9 +13310,6 @@ export interface GridFilteringFilterBuilder {
 
 /**Describes the grid's grouping settings. */
 export interface GridGrouping {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables grouping.
    * Default value: false
@@ -12494,6 +13331,11 @@ export interface GridGrouping {
    */
   expandMode?: GridGroupingExpandMode;
   /**
+   * Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level.
+   * Default value: advanced
+   */
+  renderMode?: GridGroupingRenderMode;
+  /**
    * Sets the group row height.
    * Default value: 50
    */
@@ -12514,11 +13356,6 @@ export interface GridGrouping {
    */
   groupBar?: GridGroupingGroupBar;
   /**
-   * Describes the group panel's settings.
-   * Default value: [object Object]
-   */
-  groupPanel?: GridGroupingGroupPanel;
-  /**
    * Describes the group summary row's settings.
    * Default value: [object Object]
    */
@@ -12527,9 +13364,6 @@ export interface GridGrouping {
 
 /**Describes the group bar's settings. */
 export interface GridGroupingGroupBar {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Makes the group bar visible.
    * Default value: false
@@ -12547,23 +13381,8 @@ export interface GridGroupingGroupBar {
   allowColumnCloseButtons?: boolean;
 }
 
-/**Describes the group panel's settings. */
-export interface GridGroupingGroupPanel {
-
-  /* Get a member by its name */
-  [name: string]: any;
-  /**
-   * Makes the group panel visible.
-   * Default value: false
-   */
-  visible?: boolean;
-}
-
 /**Describes the group summary row's settings. */
 export interface GridGroupingSummaryRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables inline display of the group summary row.
    * Default value: true
@@ -12578,9 +13397,6 @@ export interface GridGroupingSummaryRow {
 
 /**Describes the paging settings. */
 export interface GridPaging {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables pagination.
    * Default value: false
@@ -12605,9 +13421,6 @@ export interface GridPaging {
 
 /**Describes the spinner pagination settings. */
 export interface GridPagingSpinner {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables spinner pagination.
    * Default value: false
@@ -12622,9 +13435,6 @@ export interface GridPagingSpinner {
 
 /**Describes the pager settings. */
 export interface GridPager {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the ellipsis display mode.
    * Default value: both
@@ -12674,9 +13484,6 @@ export interface GridPager {
 
 /**Describes the settings for the 'rows per page' option. */
 export interface GridPagerPageSizeSelector {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the 'rows per page' option.
    * Default value: false
@@ -12696,9 +13503,6 @@ export interface GridPagerPageSizeSelector {
 
 /**Describes the summary settings. */
 export interface GridPagerSummary {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the position of the summary.
    * Default value: far
@@ -12713,9 +13517,6 @@ export interface GridPagerSummary {
 
 /**Describes the navigation buttons settings. */
 export interface GridPagerNavigationButtons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the navigation buttons position.
    * Default value: both
@@ -12740,9 +13541,6 @@ export interface GridPagerNavigationButtons {
 
 /**Describes the settings about buttons 'previous page' and 'next page'. */
 export interface GridPagerNavigationButtonsPrevNextButtons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of 'previous page' and 'next page' buttons.
    * Default value: true
@@ -12752,9 +13550,6 @@ export interface GridPagerNavigationButtonsPrevNextButtons {
 
 /**Describes the settings about buttons 'first page' and 'last page'. */
 export interface GridPagerNavigationButtonsFirstLastButtons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of 'first page' and 'last page' buttons.
    * Default value: true
@@ -12764,9 +13559,6 @@ export interface GridPagerNavigationButtonsFirstLastButtons {
 
 /**Describes the labels settings for navigation buttons. */
 export interface GridPagerNavigationButtonsLabels {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of labels for navigation buttons.
    * Default value: false
@@ -12776,9 +13568,6 @@ export interface GridPagerNavigationButtonsLabels {
 
 /**Describes the settings about navigation input option. */
 export interface GridPagerNavigationInput {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the position of navigation input option.
    * Default value: far
@@ -12793,9 +13582,6 @@ export interface GridPagerNavigationInput {
 
 /**Describes the settings for the numeric page buttons. */
 export interface GridPagerPageIndexSelectors {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of numeric page buttons.
    * Default value: true
@@ -12810,9 +13596,6 @@ export interface GridPagerPageIndexSelectors {
 
 /**Sets the row details. */
 export interface GridRowDetail {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables the row details.
    * Default value: false
@@ -12847,9 +13630,6 @@ export interface GridRowDetail {
 
 /**Describes the column header settings. */
 export interface GridColumnHeader {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the column header visibility.
    * Default value: true
@@ -12857,11 +13637,17 @@ export interface GridColumnHeader {
   visible?: boolean;
 }
 
+/**Describes the summary row settings. */
+export interface GridSummaryRow {
+  /**
+   * Sets the summary row visibility.
+   * Default value: false
+   */
+  visible?: boolean;
+}
+
 /**Describes the settings for the group header. */
 export interface GridGroupHeader {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the visibility of the group header.
    * Default value: false
@@ -12876,9 +13662,6 @@ export interface GridGroupHeader {
 
 /**Describes the header settings of the grid. */
 export interface GridHeader {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the header visibility.
    * Default value: false
@@ -12893,9 +13676,6 @@ export interface GridHeader {
 
 /**Describes the footer settings of the grid. */
 export interface GridFooter {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the footer visibility.
    * Default value: false
@@ -12909,9 +13689,6 @@ export interface GridFooter {
 }
 
 export interface GridRow {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets the row can be expanded or collapsed.
    * Default value: true
@@ -12926,7 +13703,7 @@ export interface GridRow {
    * Sets or gets the row can be selected.
    * Default value: true
    */
-  allowSelect?: boolean;
+  allowSelect?: boolean | null;
   /**
    * Sets or gets the row can be checked. This property is used when the Grid is in Tree Grid or Grouped mode.
    * Default value: true
@@ -13032,12 +13809,14 @@ export interface GridRow {
    * Default value: -1
    */
   visibleIndex?: number;
+  /**
+   * Methods which gets a cell, which is inside a row. A dataField string is a required argument, when you call this method.
+   * Default value: -1
+   */
+  getCell?: any;
 }
 
 export interface GridCell {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * "Sets or gets the horizontal alignment. Allowed values are: 'left', 'center' or 'right'".
    * Default value: "'left'"
@@ -13157,9 +13936,6 @@ export interface GridCell {
 
 /**Describes the selection settings. */
 export interface GridSelection {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables the selection option.
    * Default value: false
@@ -13233,9 +14009,6 @@ export interface GridSelection {
 }
 
 export interface GridSelectionCheckBoxes {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the checkboxes are automatically displayed only when the mouse is over the Grid. When false, checkboses are always displayed
    * Default value: false
@@ -13265,9 +14038,6 @@ export interface GridSelectionCheckBoxes {
 
 /**Describes sorting settings. */
 export interface GridSorting {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Enables sorting.
    * Default value: false
@@ -13290,13 +14060,13 @@ export interface GridSorting {
   sortToggleThreeStates?: boolean;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-grid"): Grid;
-			querySelector(selectors: "smart-grid"): Grid | null;	
-			querySelectorAll(selectors: "smart-grid"): NodeListOf<Grid>;
-			getElementsByTagName(qualifiedName: "smart-grid"): HTMLCollectionOf<Grid>;
-			getElementsByName(elementName: "smart-grid"): NodeListOf<Grid>;	
+        createElement(tagName: "smart-grid"): Grid;
+        querySelector(selectors: "smart-grid"): Grid | null;
+        querySelectorAll(selectors: "smart-grid"): NodeListOf<Grid>;
+        getElementsByTagName(qualifiedName: "smart-grid"): HTMLCollectionOf<Grid>;
+        getElementsByName(elementName: "smart-grid"): NodeListOf<Grid>;
     }
 }
 
@@ -13318,6 +14088,8 @@ export declare type GridEditingMode = 'cell' | 'row';
 export declare type GridFilteringFilterRowApplyMode = 'auto' | 'click';
 /**Sets the group expand mode. */
 export declare type GridGroupingExpandMode = 'buttonClick' | 'rowClick';
+/**Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. */
+export declare type GridGroupingRenderMode = 'basic' | 'compact' | 'advanced';
 /**Sets the ellipsis display mode. */
 export declare type GridPagerAutoEllipsis = 'none' | 'before' | 'after' | 'both';
 /**Sets or gets whether the selection allows you to select 'one', 'many' or a variation of 'many' called 'extended'. 'one' allows you to have only single cell or row selected. 'many'  */
@@ -13328,13 +14100,7 @@ export declare type GridSelectionAction = 'none' | 'click' | 'doubleClick';
 export declare type GridSelectionCheckBoxesSelectAllMode = 'none' | 'page' | 'all';
 /**Sets the count of allowed sorting columns. */
 export declare type GridSortingMode = 'one' | 'many';
-/**
- Defines a group of grouped items in a panel.
-*/
-export interface GroupPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface GroupPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -13420,43 +14186,45 @@ export interface GroupPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Defines a group of grouped items in a panel.
+*/
+export interface GroupPanel extends BaseElement, GroupPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the "Apply" button is clicked.
 	* @param event. The custom event.    */
-  onApply?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Cancel" button is clicked.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the "Collapse all" button is clicked.
 	* @param event. The custom event.    */
-  onCollapseAll?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapseAll?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Expand all" button is clicked.
 	* @param event. The custom event.    */
-  onExpandAll?: ((this: any, ev: Event) => any) | null;
+  onExpandAll?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-group-panel"): GroupPanel;
-			querySelector(selectors: "smart-group-panel"): GroupPanel | null;	
-			querySelectorAll(selectors: "smart-group-panel"): NodeListOf<GroupPanel>;
-			getElementsByTagName(qualifiedName: "smart-group-panel"): HTMLCollectionOf<GroupPanel>;
-			getElementsByName(elementName: "smart-group-panel"): NodeListOf<GroupPanel>;	
+        createElement(tagName: "smart-group-panel"): GroupPanel;
+        querySelector(selectors: "smart-group-panel"): GroupPanel | null;
+        querySelectorAll(selectors: "smart-group-panel"): NodeListOf<GroupPanel>;
+        getElementsByTagName(qualifiedName: "smart-group-panel"): HTMLCollectionOf<GroupPanel>;
+        getElementsByName(elementName: "smart-group-panel"): NodeListOf<GroupPanel>;
     }
 }
 
 /**Sets or gets the the position of the close button of group panel items. */
 export declare type GroupPanelCloseButtonPosition = 'left' | 'right';
-/**
- Input specifies an input field where the user can enter data. Auto-complete options are displayed for easier input.
-*/
-export interface Input extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface InputProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -13599,7 +14367,15 @@ export interface Input extends BaseElement {
    * Default value: ""
    */
   value?: string;
-  /** 
+}
+/**
+ Input specifies an input field where the user can enter data. Auto-complete options are displayed for easier input.
+*/
+export interface Input extends BaseElement, InputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
    *  label - The label of the new selected item.
@@ -13626,25 +14402,19 @@ export interface Input extends BaseElement {
   select(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-input"): Input;
-			querySelector(selectors: "smart-input"): Input | null;	
-			querySelectorAll(selectors: "smart-input"): NodeListOf<Input>;
-			getElementsByTagName(qualifiedName: "smart-input"): HTMLCollectionOf<Input>;
-			getElementsByName(elementName: "smart-input"): NodeListOf<Input>;	
+        createElement(tagName: "smart-input"): Input;
+        querySelector(selectors: "smart-input"): Input | null;
+        querySelectorAll(selectors: "smart-input"): NodeListOf<Input>;
+        getElementsByTagName(qualifiedName: "smart-input"): HTMLCollectionOf<Input>;
+        getElementsByName(elementName: "smart-input"): NodeListOf<Input>;
     }
 }
 
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
 export declare type InputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
-/**
- Kanban represents a kanban board that visually depicts work at various stages of a process using cards to represent tasks and columns to represent each stage of the process.
-*/
-export interface Kanban extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface KanbanProperties {
   /**
    * Toggles the visibility of the column buttons for adding tasks. A particular button can be disabled by setting addNewButton in the column's definition to false.
    * Default value: false
@@ -13726,6 +14496,11 @@ export interface Kanban extends BaseElement {
    */
   hierarchy?: KanbanHierarchy;
   /**
+   * Sets or gets the locale. Used in conjunction with the property messages.
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * { 'en': { 'addFilter': '+ Add filter', 'and': 'And', 'apply': 'Apply', 'booleanFirst': '☐', 'booleanLast': '☑', 'cancel': 'Cancel', 'CONTAINS': 'contains', 'CONTAINS_CASE_SENSITIVE': 'contains (case sensitive)', 'dateFirst': '1', 'dateLast': '9', 'DOES_NOT_CONTAIN': 'does not contain', 'DOES_NOT_CONTAIN_CASE_SENSITIVE': 'does not contain (case sensitive)', 'EMPTY': 'empty', 'ENDS_WITH': 'ends with', 'ENDS_WITH_CASE_SENSITIVE': 'ends with (case sensitive)', 'EQUAL': 'equal', 'EQUAL_CASE_SENSITIVE': 'equal (case sensitive)', 'filter': 'Filter', 'filteredByMultiple': '"?', 'remove': 'Remove', 'removeSubtask': 'Remove subtask', 'send': 'Send', 'startDate': 'Start date', 'status': 'Status', 'swimlane': 'Swimlane', 'tags': 'Tags', 'text': 'Text', 'userId': 'User ID', 'userIcon': 'User icon' } }
    */
@@ -13806,11 +14581,19 @@ export interface Kanban extends BaseElement {
    */
   userList?: boolean;
   /**
-   * Toggles the visibility of the task user icon.
-   * Default value: false
+   * Determines the users Kanban tasks can be assigned to and their characteristics and privileges.
+   * Default value: 
    */
   users?: KanbanUser[];
-  /** 
+}
+/**
+ Kanban represents a kanban board that visually depicts work at various stages of a process using cards to represent tasks and columns to represent each stage of the process.
+*/
+export interface Kanban extends BaseElement, KanbanProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a task has been updated.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, task, value)
    *  oldValue - The old data of the task
@@ -13818,15 +14601,15 @@ export interface Kanban extends BaseElement {
    *  value - The new data of the task
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the edit/prompt dialog is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the edit/prompt dialog is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a task is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
    *  container - the Kanban the dragged task(s) is dropped to
@@ -13838,7 +14621,7 @@ export interface Kanban extends BaseElement {
    *  target - the element the dragged tasks are dropped to
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the user is dragging a task.
 	* @param event. The custom event. Custom data event was created with: ev.detail(data, item, items, originalEvent)
    *  data - an object with additional drag details
@@ -13846,8 +14629,8 @@ export interface Kanban extends BaseElement {
    *  items - an array with all dragged tasks
    *  originalEvent - the original, browser, event that initiates the drag operation
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user starts dragging task(s). The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer)
    *  container - the Kanban the dragged task(s) is dragged from
@@ -13858,26 +14641,26 @@ export interface Kanban extends BaseElement {
    *  previousContainer - the Kanban the dragged item(s) is dragged from
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a filter has been applied.
 	* @param event. The custom event.    */
-  onFilter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the edit/prompt dialog is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the edit/prompt dialog is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(comment, purpose, task)
    *  comment - The comment that is about to be removed (if applicable).
    *  purpose - The purpose of the dialog to be opened - <em>'edit'</em> or <em>'prompt'</em>.
    *  task - The task that is about to be edited or removed (if applicable).
    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when sorting has been applied.
 	* @param event. The custom event.    */
-  onSort?: ((this: any, ev: Event) => any) | null;
+  onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds filtering
    * @param {string[]} filters. Filter information
@@ -14000,9 +14783,6 @@ export interface Kanban extends BaseElement {
 }
 
 export interface KanbanColumn {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets or gets whether the column's button for adding tasks is visible. Works in conjunction with the Kanban property of the same name.
    * Default value: true
@@ -14046,9 +14826,6 @@ export interface KanbanColumn {
 }
 
 export interface KanbanDataSource {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The task's unique ID.
    * Default value: 
@@ -14117,9 +14894,6 @@ export interface KanbanDataSource {
 }
 
 export interface KanbanSwimlane {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * The swimlane's color.
    * Default value: "null"
@@ -14138,9 +14912,6 @@ export interface KanbanSwimlane {
 }
 
 export interface KanbanUser {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets whether the user has a privilege to add or copy tasks.
    * Default value: true
@@ -14183,13 +14954,13 @@ export interface KanbanUser {
   name?: string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-kanban"): Kanban;
-			querySelector(selectors: "smart-kanban"): Kanban | null;	
-			querySelectorAll(selectors: "smart-kanban"): NodeListOf<Kanban>;
-			getElementsByTagName(qualifiedName: "smart-kanban"): HTMLCollectionOf<Kanban>;
-			getElementsByName(elementName: "smart-kanban"): NodeListOf<Kanban>;	
+        createElement(tagName: "smart-kanban"): Kanban;
+        querySelector(selectors: "smart-kanban"): Kanban | null;
+        querySelectorAll(selectors: "smart-kanban"): NodeListOf<Kanban>;
+        getElementsByTagName(qualifiedName: "smart-kanban"): HTMLCollectionOf<Kanban>;
+        getElementsByName(elementName: "smart-kanban"): NodeListOf<Kanban>;
     }
 }
 
@@ -14205,13 +14976,7 @@ export declare type KanbanHierarchy = 'columns' | 'tabs';
 export declare type KanbanSelectionMode = 'zeroOrOne' | 'zeroOrManyExtended';
 /**Sets or gets whether tasks can be shown in all levels of column hierarchy or only on leaf columns. */
 export declare type KanbanTaskPosition = 'all' | 'leaf';
-/**
- Layout splits your content into resizable sections.
-*/
-export interface Layout extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface LayoutProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -14321,45 +15086,53 @@ export interface Layout extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Layout splits your content into resizable sections.
+*/
+export interface Layout extends BaseElement, LayoutProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when resizing begins.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when resizing finishes.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a change regarding the Layout's state has occured, such as inserting a new item, removing an item, etc.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, type)
    *  item - The Splitter item that was the target of a change.
    *  type - A description of the operation that has cause the change.
    */
-  onStateChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onStateChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldSelectedIndex, selectedIndex)
    *  oldSelectedIndex - The Splitter item that was previously selected.
    *  selectedIndex - The Splitter item that is currently selected.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a the context menu is about to be closed. The operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a the context menu is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a the context menu is about to be opened. The operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a the context menu is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an option from the context menu has been clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, label, value)
    *  target - The Splitter item that was the target of the context menu opening.
@@ -14367,7 +15140,7 @@ export interface Layout extends BaseElement {
    *  label - The label of the context menu that was clicked.
    *  value - The value of the context menu that was clicked.
    */
-  onMenuItemClick?: ((this: any, ev: Event) => any) | null;
+  onMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a new node.
    * @param {Node} node. The node to append
@@ -14444,23 +15217,17 @@ export interface Layout extends BaseElement {
   loadState(state?: any[]): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-layout"): Layout;
-			querySelector(selectors: "smart-layout"): Layout | null;	
-			querySelectorAll(selectors: "smart-layout"): NodeListOf<Layout>;
-			getElementsByTagName(qualifiedName: "smart-layout"): HTMLCollectionOf<Layout>;
-			getElementsByName(elementName: "smart-layout"): NodeListOf<Layout>;	
+        createElement(tagName: "smart-layout"): Layout;
+        querySelector(selectors: "smart-layout"): Layout | null;
+        querySelectorAll(selectors: "smart-layout"): NodeListOf<Layout>;
+        getElementsByTagName(qualifiedName: "smart-layout"): HTMLCollectionOf<Layout>;
+        getElementsByName(elementName: "smart-layout"): NodeListOf<Layout>;
     }
 }
 
-/**
- LET Toggle button with Checked boolean value.
-*/
-export interface Led extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface LedProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -14577,7 +15344,15 @@ export interface Led extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ LET Toggle button with Checked boolean value.
+*/
+export interface Led extends BaseElement, LedProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value of the element before it was changed.
@@ -14586,25 +15361,19 @@ export interface Led extends BaseElement {
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-led"): Led;
-			querySelector(selectors: "smart-led"): Led | null;	
-			querySelectorAll(selectors: "smart-led"): NodeListOf<Led>;
-			getElementsByTagName(qualifiedName: "smart-led"): HTMLCollectionOf<Led>;
-			getElementsByName(elementName: "smart-led"): NodeListOf<Led>;	
+        createElement(tagName: "smart-led"): Led;
+        querySelector(selectors: "smart-led"): Led | null;
+        querySelectorAll(selectors: "smart-led"): NodeListOf<Led>;
+        getElementsByTagName(qualifiedName: "smart-led"): HTMLCollectionOf<Led>;
+        getElementsByName(elementName: "smart-led"): NodeListOf<Led>;
     }
 }
 
 /**Sets the shape of LED. */
 export declare type LedShape = 'round' | 'square';
-/**
- ListBox allows the user to select one or more items from a list.
-*/
-export interface ListBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListBoxProperties {
   /**
    * Enables or disables the ability to drag list items out of the List box. Disabled items cannot be dragged.
    * Default value: false
@@ -14871,11 +15640,19 @@ export interface ListBox extends BaseElement {
    * Default value: false
    */
   virtualized?: boolean;
-  /** 
+}
+/**
+ ListBox allows the user to select one or more items from a list.
+*/
+export interface ListBox extends BaseElement, ListBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when listbox binding is completed.
 	* @param event. The custom event.    */
-  onBindingComplete?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onBindingComplete?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
    *  addedItems - An array of List items that have been selected.
@@ -14887,7 +15664,7 @@ export interface ListBox extends BaseElement {
    *  value - The value of the List item that triggered the event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an item is dropped. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, originalEvent, previousContainer, target)
    *  container - The List box that an item was dragged <strong>to.</strong>
@@ -14898,15 +15675,15 @@ export interface ListBox extends BaseElement {
    *  target - The event target.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a List item is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(data, item, originalEvent)
    *  data - An object that contains data about the dragging operation like start position, start time, etc.
    *  item - The List item that is being dragged. This is the item that has been clicked when initiating the drag operation
    *  originalEvent - The original event that initiates the dragging operation.
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is dragged. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, originalEvent, previousContainer, target)
    *  container - The List box that an item was dragged <strong>to.</strong>
@@ -14917,7 +15694,7 @@ export interface ListBox extends BaseElement {
    *  target - The event target.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
    *  disabled - Indicates whether the List item that was clicked is disabled or not.
@@ -14926,8 +15703,8 @@ export interface ListBox extends BaseElement {
    *  selected - Indicates whether the List item that was clicked is selected or not.
    *  value - The value of the List item that was clicked.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item has been edited.
 	* @param event. The custom event. Custom data event was created with: ev.detail(selected, disabled, index, label, value)
    *  selected - Indicates whether the List item is selected or not.
@@ -14936,23 +15713,23 @@ export interface ListBox extends BaseElement {
    *  label - The label of the edited List item.
    *  value - The value of the List item that was edited.
    */
-  onItemLabelChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemLabelChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the end of the list.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the beginning of the list.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user swipes to the left, inside the listBox.
 	* @param event. The custom event.    */
-  onSwipeleft?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user swipes to the right, inside the listBox.
 	* @param event. The custom event.    */
-  onSwiperight?: ((this: any, ev: Event) => any) | null;
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a ListItem to the end of the list of items inside element.
    * @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
@@ -15020,13 +15797,13 @@ export interface ListBox extends BaseElement {
   update(index: number, details: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-box"): ListBox;
-			querySelector(selectors: "smart-list-box"): ListBox | null;	
-			querySelectorAll(selectors: "smart-list-box"): NodeListOf<ListBox>;
-			getElementsByTagName(qualifiedName: "smart-list-box"): HTMLCollectionOf<ListBox>;
-			getElementsByName(elementName: "smart-list-box"): NodeListOf<ListBox>;	
+        createElement(tagName: "smart-list-box"): ListBox;
+        querySelector(selectors: "smart-list-box"): ListBox | null;
+        querySelectorAll(selectors: "smart-list-box"): NodeListOf<ListBox>;
+        getElementsByTagName(qualifiedName: "smart-list-box"): HTMLCollectionOf<ListBox>;
+        getElementsByName(elementName: "smart-list-box"): NodeListOf<ListBox>;
     }
 }
 
@@ -15034,13 +15811,7 @@ declare global {
 export declare type ListBoxDropAction = 'copy' | 'move' | 'none';
 /**Determines when listbox selection is achieved - on 'press' or 'release'. */
 export declare type ListBoxSelectionChangeAction = 'press' | 'release';
-/**
- Defines a list item for ListBox, ComboBox, DropDownList.
-*/
-export interface ListItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemProperties {
   /**
    * 
    * Default value: -1
@@ -15097,50 +15868,54 @@ export interface ListItem extends BaseElement {
    */
   readonly?: boolean;
 }
+/**
+ Defines a list item for ListBox, ComboBox, DropDownList.
+*/
+export interface ListItem extends BaseElement, ListItemProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-item"): ListItem;
-			querySelector(selectors: "smart-list-item"): ListItem | null;	
-			querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
-			getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
-			getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;	
+        createElement(tagName: "smart-list-item"): ListItem;
+        querySelector(selectors: "smart-list-item"): ListItem | null;
+        querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
+        getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
+        getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;
     }
 }
 
 
 export declare type ListItemDisplayMode = 'plain' | 'checkBox' | 'radioButton';
-/**
- Defines a group of list items.
-*/
-export interface ListItemsGroup extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemsGroupProperties {
   /**
    * 
    * Default value: ""
    */
   label?: string;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-list-items-group"): ListItemsGroup;
-			querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;	
-			querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
-			getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;	
-    }
-}
-
 /**
- ListMenu allows you to present users a listing of options and sub options.
+ Defines a group of list items.
 */
-export interface ListMenu extends BaseElement {
+export interface ListItemsGroup extends BaseElement, ListItemsGroupProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-list-items-group"): ListItemsGroup;
+        querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;
+        querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
+        getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+    }
+}
+
+export interface ListMenuProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -15307,7 +16082,15 @@ export interface ListMenu extends BaseElement {
    * Default value: "value"
    */
   valueMember?: string;
-  /** 
+}
+/**
+ ListMenu allows you to present users a listing of options and sub options.
+*/
+export interface ListMenu extends BaseElement, ListMenuProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a jqx-menu-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that was expanded.
@@ -15316,8 +16099,8 @@ export interface ListMenu extends BaseElement {
    *  path - The path of the item that was expanded, e.g. '0.1', '1.1.2'.
    *  children - The children of the item that was expanded.
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a menu item check state is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, checked)
    *  item - The menu item which state was changed.
@@ -15325,19 +16108,27 @@ export interface ListMenu extends BaseElement {
    *  value - The value of the item which state was changed.
    *  checked - The checked state of the toggled item. If false the item is not toggled.
    */
-  onItemCheckChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemCheckChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a list menu item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
    *  item - The menu item that was clicked.
    *  label - The label of the clicked item.
    *  value - The value of the clicked item.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the user scrolls to the bottom of the ListMenu.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the left inside the ListMenu.
+	* @param event. The custom event.    */
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the right inside the ListMenu.
+	* @param event. The custom event.    */
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item to the list.
    * @param {HTMLElement} Item. A smart-menu-item to add to the List Menu.
@@ -15385,13 +16176,13 @@ export interface ListMenu extends BaseElement {
   uncheckItem(item: HTMLElement | string): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-menu"): ListMenu;
-			querySelector(selectors: "smart-list-menu"): ListMenu | null;	
-			querySelectorAll(selectors: "smart-list-menu"): NodeListOf<ListMenu>;
-			getElementsByTagName(qualifiedName: "smart-list-menu"): HTMLCollectionOf<ListMenu>;
-			getElementsByName(elementName: "smart-list-menu"): NodeListOf<ListMenu>;	
+        createElement(tagName: "smart-list-menu"): ListMenu;
+        querySelector(selectors: "smart-list-menu"): ListMenu | null;
+        querySelectorAll(selectors: "smart-list-menu"): NodeListOf<ListMenu>;
+        getElementsByTagName(qualifiedName: "smart-list-menu"): HTMLCollectionOf<ListMenu>;
+        getElementsByName(elementName: "smart-list-menu"): NodeListOf<ListMenu>;
     }
 }
 
@@ -15401,13 +16192,7 @@ export declare type MenuCheckMode = 'checkbox' | 'radioButton';
 export declare type MenuDropDownPosition = 'auto' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'overlay-left' | 'overlay-right';
 /**Sets or gets the ListMenu's scroll buttons behavior. */
 export declare type Overflow = 'auto' | 'hidden' | 'scroll';
-/**
- MaskedTextBox uses a mask to control the input of the user.
-*/
-export interface MaskedTextBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MaskedTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -15590,19 +16375,27 @@ export interface MaskedTextBox extends BaseElement {
    * Default value: null
    */
   validation?: any;
-  /** 
+}
+/**
+ MaskedTextBox uses a mask to control the input of the user.
+*/
+export interface MaskedTextBox extends BaseElement, MaskedTextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the Text Box is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, newValue)
    *  oldValue - The previous value before it was changed.
    *  newValue - The new value.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered if the <b>validation</b> property is set. Indicates whether valiation has passed successfully or not.
 	* @param event. The custom event. Custom data event was created with: ev.detail(success)
    *  success - A flag inidicating whether the validation was successfull or not.
    */
-  onValidation?: ((this: any, ev: Event) => any) | null;
+  onValidation?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Focuses the element. 
    */
@@ -15613,13 +16406,13 @@ export interface MaskedTextBox extends BaseElement {
   blur(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-masked-text-box"): MaskedTextBox;
-			querySelector(selectors: "smart-masked-text-box"): MaskedTextBox | null;	
-			querySelectorAll(selectors: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;
-			getElementsByTagName(qualifiedName: "smart-masked-text-box"): HTMLCollectionOf<MaskedTextBox>;
-			getElementsByName(elementName: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;	
+        createElement(tagName: "smart-masked-text-box"): MaskedTextBox;
+        querySelector(selectors: "smart-masked-text-box"): MaskedTextBox | null;
+        querySelectorAll(selectors: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;
+        getElementsByTagName(qualifiedName: "smart-masked-text-box"): HTMLCollectionOf<MaskedTextBox>;
+        getElementsByName(elementName: "smart-masked-text-box"): NodeListOf<MaskedTextBox>;
     }
 }
 
@@ -15629,13 +16422,7 @@ export declare type MaskedTextBoxCutCopyMaskFormat = 'excludePromptAndLiterals' 
 export declare type EnterKeyBehavior = 'clearOnSubmit' | 'submit';
 /**Determines whether the value of the input should contain or not the prompt/literals of the mask. */
 export declare type MaskedTextBoxTextMaskFormat = 'excludePromptAndLiterals' | 'includePrompt' | 'includeLiterals' | 'includePromptAndLiterals';
-/**
- Horizontal, Vertical and Popup Menu. Popup Menus appear when a user taps an interactive UI element such as an icon, button, action, or content, such as selected items or text.
-*/
-export interface Menu extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MenuProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -15701,6 +16488,11 @@ export interface Menu extends BaseElement {
    * Default value: auto
    */
   dropDownPosition?: MenuDropDownPosition;
+  /**
+   * A getter that returns an array of all Menu items.
+   * Default value: 
+   */
+  items?: any;
   /**
    * Determines the field in the data source that corresponds to an item group's subitems collection.
    * Default value: "items"
@@ -15787,17 +16579,25 @@ export interface Menu extends BaseElement {
    * Default value: "value"
    */
   valueMember?: string;
-  /** 
+}
+/**
+ Horizontal, Vertical and Popup Menu. Popup Menus appear when a user taps an interactive UI element such as an icon, button, action, or content, such as selected items or text.
+*/
+export interface Menu extends BaseElement, MenuProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the menu is closed. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the menu is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event. Custom data event was created with: ev.detail(trigger)
    *  trigger - Indicates whether the event was called from inside the element or programatically.
    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-menu-items-group is collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that was collapsed.
@@ -15806,8 +16606,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that was collapsed, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that was collapsed.
    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-menu-items-group is collapsing.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that is going to be collapsed.
@@ -15816,8 +16616,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that is going to be collapsed, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that is going to be collapsed.
    */
-  onCollapsing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapsing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-menu-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that was expanded.
@@ -15826,8 +16626,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that was expanded, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that was expanded.
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered before a jqx-menu-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, path, children)
    *  item - The menu item that is going to be expanded.
@@ -15836,8 +16636,8 @@ export interface Menu extends BaseElement {
    *  path - The path of the toggled item that is going to be expanded, e.g. '0.1', '1.1.2'.
    *  children - The children items of the toggled item that is going to be expanded.
    */
-  onExpanding?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a menu item check state is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value, checked)
    *  item - The menu item which state was changed.
@@ -15845,23 +16645,23 @@ export interface Menu extends BaseElement {
    *  value - The value of the item which state was changed.
    *  checked - The checked state of the toggled item. If false the item is not toggled.
    */
-  onItemCheckChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemCheckChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a menu item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
    *  item - The menu item that is toggled.
    *  label - The label of the toggled item.
    *  value - The value of the toggled item.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the menu is opened. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the menu is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function. The event is fired only in <em>'dropDown'</em> <strong>mode</strong>.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item to the menu.
    * @param {HTMLElement} Item. A smart-menu-item to add to the Menu.
@@ -15925,13 +16725,13 @@ export interface Menu extends BaseElement {
   uncheckItem(item: HTMLElement | string): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-menu"): Menu;
-			querySelector(selectors: "smart-menu"): Menu | null;	
-			querySelectorAll(selectors: "smart-menu"): NodeListOf<Menu>;
-			getElementsByTagName(qualifiedName: "smart-menu"): HTMLCollectionOf<Menu>;
-			getElementsByName(elementName: "smart-menu"): NodeListOf<Menu>;	
+        createElement(tagName: "smart-menu"): Menu;
+        querySelector(selectors: "smart-menu"): Menu | null;
+        querySelectorAll(selectors: "smart-menu"): NodeListOf<Menu>;
+        getElementsByTagName(qualifiedName: "smart-menu"): HTMLCollectionOf<Menu>;
+        getElementsByName(elementName: "smart-menu"): NodeListOf<Menu>;
     }
 }
 
@@ -15941,13 +16741,7 @@ export declare type MenuCloseAction = 'down' | 'up' | 'none';
 export declare type MenuMode = 'horizontal' | 'vertical' | 'dropDown' | 'tree';
 /**Determines the menu's selection mode. */
 export declare type MenuSelectionMode = 'click' | 'mouseenter';
-/**
- Defines a menu item.
-*/
-export interface MenuItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MenuItemProperties {
   /**
    * 
    * Default value: true
@@ -15984,24 +16778,26 @@ export interface MenuItem extends BaseElement {
    */
   value?: any;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-menu-item"): MenuItem;
-			querySelector(selectors: "smart-menu-item"): MenuItem | null;	
-			querySelectorAll(selectors: "smart-menu-item"): NodeListOf<MenuItem>;
-			getElementsByTagName(qualifiedName: "smart-menu-item"): HTMLCollectionOf<MenuItem>;
-			getElementsByName(elementName: "smart-menu-item"): NodeListOf<MenuItem>;	
-    }
-}
-
 /**
- Defines a group of menu items.
+ Defines a menu item.
 */
-export interface MenuItemsGroup extends BaseElement {
+export interface MenuItem extends BaseElement, MenuItemProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-menu-item"): MenuItem;
+        querySelector(selectors: "smart-menu-item"): MenuItem | null;
+        querySelectorAll(selectors: "smart-menu-item"): NodeListOf<MenuItem>;
+        getElementsByTagName(qualifiedName: "smart-menu-item"): HTMLCollectionOf<MenuItem>;
+        getElementsByName(elementName: "smart-menu-item"): NodeListOf<MenuItem>;
+    }
+}
+
+export interface MenuItemsGroupProperties {
   /**
    * 
    * Default value: false
@@ -16053,24 +16849,26 @@ export interface MenuItemsGroup extends BaseElement {
    */
   value?: any;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-menu-items-group"): MenuItemsGroup;
-			querySelector(selectors: "smart-menu-items-group"): MenuItemsGroup | null;	
-			querySelectorAll(selectors: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-menu-items-group"): HTMLCollectionOf<MenuItemsGroup>;
-			getElementsByName(elementName: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;	
-    }
-}
-
 /**
- Defines an advanced filter panel used for Grid and CardView filtering.
+ Defines a group of menu items.
 */
-export interface MultiColumnFilterPanel extends BaseElement {
+export interface MenuItemsGroup extends BaseElement, MenuItemsGroupProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-menu-items-group"): MenuItemsGroup;
+        querySelector(selectors: "smart-menu-items-group"): MenuItemsGroup | null;
+        querySelectorAll(selectors: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-menu-items-group"): HTMLCollectionOf<MenuItemsGroup>;
+        getElementsByName(elementName: "smart-menu-items-group"): NodeListOf<MenuItemsGroup>;
+    }
+}
+
+export interface MultiColumnFilterPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -16176,31 +16974,39 @@ export interface MultiColumnFilterPanel extends BaseElement {
    * Default value: 
    */
   value?: any;
-  /** 
+}
+/**
+ Defines an advanced filter panel used for Grid and CardView filtering.
+*/
+export interface MultiColumnFilterPanel extends BaseElement, MultiColumnFilterPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the "Apply" button is clicked.
 	* @param event. The custom event.    */
-  onApply?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Cancel" button is clicked.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the "Collapse all" button is clicked.
 	* @param event. The custom event.    */
-  onCollapseAll?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapseAll?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Expand all" button is clicked.
 	* @param event. The custom event.    */
-  onExpandAll?: ((this: any, ev: Event) => any) | null;
+  onExpandAll?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-multi-column-filter-panel"): MultiColumnFilterPanel;
-			querySelector(selectors: "smart-multi-column-filter-panel"): MultiColumnFilterPanel | null;	
-			querySelectorAll(selectors: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;
-			getElementsByTagName(qualifiedName: "smart-multi-column-filter-panel"): HTMLCollectionOf<MultiColumnFilterPanel>;
-			getElementsByName(elementName: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;	
+        createElement(tagName: "smart-multi-column-filter-panel"): MultiColumnFilterPanel;
+        querySelector(selectors: "smart-multi-column-filter-panel"): MultiColumnFilterPanel | null;
+        querySelectorAll(selectors: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;
+        getElementsByTagName(qualifiedName: "smart-multi-column-filter-panel"): HTMLCollectionOf<MultiColumnFilterPanel>;
+        getElementsByName(elementName: "smart-multi-column-filter-panel"): NodeListOf<MultiColumnFilterPanel>;
     }
 }
 
@@ -16208,13 +17014,414 @@ declare global {
 export declare type MultiColumnFilterPanelCloseButtonPosition = 'left' | 'right';
 /**Determines the logical operator between the items. */
 export declare type MultiColumnFilterPanelOperator = 'and' | 'or';
+export interface MultiComboInputProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
+   * Default value: 100
+   */
+  autoCompleteDelay?: number;
+  /**
+   * Determines the data source that will be loaded to the MutliInput. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Default value: null
+   */
+  dataSource?: any;
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Determines the position of the drop down button.
+   * Default value: right
+   */
+  dropDownButtonPosition?: DropDownButtonPosition;
+  /**
+   * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownHeight?: string | number;
+  /**
+   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownWidth?: string | number;
+  /**
+   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Default value: "off"
+   */
+  inputPurpose?: string;
+  /**
+   * Determines the maximum number of matched items that should be visible inside the drop down as a result of a new autoComplete query. By default the maximum number of 8 items can be displayed inside the drop down.
+   * Default value: 8
+   */
+  items?: number;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the minimum number of characters inside the input in order to trigger the autocomplete functionality that will open the drop down and show the matched items.
+   * Default value: 1
+   */
+  minLength?: number;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Determines whether the drop down is opened or not.
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Sets or gets the query that is used to filter the items. Query is used by the autoComplete operation. Empty string means that all items from the data source will be displayed and no filter query is applied.
+   * Default value: 
+   */
+  query?: string | number;
+  /**
+   * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
+   * Default value: containsIgnoreCase
+   */
+  queryMode?: MultiComboInputQueryMode;
+  /**
+   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the delimiter between the tags in the input field.
+   * Default value: ""
+   */
+  separator?: string;
+  /**
+   * Determines whether an additional item is displayed as the first item in the options list, which allows to select/unselect all items.
+   * Default value: false
+   */
+  selectAll?: boolean;
+  /**
+   * Determines whether the items are sorted alphabetically or not
+   * Default value: false
+   */
+  sorted?: boolean;
+  /**
+   * Determines the sorting algorithm - ascending(asc) or descending(desc) if sort is enabled.
+   * Default value: "asc"
+   */
+  sortDirection?: string;
+  /**
+   * Determines whether the input field will contain tags for each selected item from the popup or just one that shows the number of selected items.
+   * Default value: many
+   */
+  inputTagsMode?: MultiComboInputInputTagsMode;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * Determines the input type. Input type determines what input can be entered.
+   * Default value: ""
+   */
+  type?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: ""
+   */
+  value?: string;
+}
 /**
- Defines a multi-line text input control. MultilineTextBox can hold an unlimited number of characters, and the text renders in a fixed-width font
+ MultiComboInput specifies an input field where the user can enter data. Auto-complete options with checkbxoes are displayed for easier input. Allows multiple selection. Selected items are added to the input field as tags.
 */
-export interface MultilineTextBox extends BaseElement {
+export interface MultiComboInput extends BaseElement, MultiComboInputProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
+   *  label - The label of the new selected item.
+   *  oldLabel - The label of the item that was previously selected before the event was triggered.
+   *  oldValue - The value of the item that was previously selected before the event was triggered.
+   *  value - The value of the new selected item.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Closes the drop down.
+   */
+  close(): void;
+  /**
+   * Ensures that the active ( selected ) item is always visible.
+   */
+  ensureVisible(): void;
+  /**
+   * Opens the drop down.
+   */
+  open(): void;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-multi-combo-input"): MultiComboInput;
+        querySelector(selectors: "smart-multi-combo-input"): MultiComboInput | null;
+        querySelectorAll(selectors: "smart-multi-combo-input"): NodeListOf<MultiComboInput>;
+        getElementsByTagName(qualifiedName: "smart-multi-combo-input"): HTMLCollectionOf<MultiComboInput>;
+        getElementsByName(elementName: "smart-multi-combo-input"): NodeListOf<MultiComboInput>;
+    }
+}
+
+/**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
+export declare type MultiComboInputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
+/**Determines whether the input field will contain tags for each selected item from the popup or just one that shows the number of selected items. */
+export declare type MultiComboInputInputTagsMode = 'one' | 'many';
+export interface MultiInputProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
+   * Default value: 100
+   */
+  autoCompleteDelay?: number;
+  /**
+   * Determines the data source that will be loaded to the MutliInput. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Default value: null
+   */
+  dataSource?: any;
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Determines the position of the drop down button.
+   * Default value: right
+   */
+  dropDownButtonPosition?: DropDownButtonPosition;
+  /**
+   * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownHeight?: string | number;
+  /**
+   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownWidth?: string | number;
+  /**
+   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Default value: "off"
+   */
+  inputPurpose?: string;
+  /**
+   * Determines the maximum number of matched items that should be visible inside the drop down as a result of a new autoComplete query. By default the maximum number of 8 items can be displayed inside the drop down.
+   * Default value: 8
+   */
+  items?: number;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the minimum number of characters inside the input in order to trigger the autocomplete functionality that will open the drop down and show the matched items.
+   * Default value: 1
+   */
+  minLength?: number;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Determines whether the drop down is opened or not.
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Sets or gets the query that is used to filter the items. Query is used by the autoComplete operation. Empty string means that all items from the data source will be displayed and no filter query is applied.
+   * Default value: 
+   */
+  query?: string | number;
+  /**
+   * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
+   * Default value: containsIgnoreCase
+   */
+  queryMode?: MultiInputQueryMode;
+  /**
+   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the delimiter between the selected items in the input.
+   * Default value: ","
+   */
+  separator?: string;
+  /**
+   * Determines whether an additional item is displayed as the first item in the options list, which allows to select/unselect all items.
+   * Default value: false
+   */
+  selectAll?: boolean;
+  /**
+   * Determines whether the items are sorted alphabetically or not
+   * Default value: false
+   */
+  sorted?: boolean;
+  /**
+   * Determines the sorting algorithm - ascending(asc) or descending(desc) if sort is enabled.
+   * Default value: "asc"
+   */
+  sortDirection?: string;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * Determines the input type. Input type determines what input can be entered.
+   * Default value: ""
+   */
+  type?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: ""
+   */
+  value?: string;
+}
+/**
+ MultiInput specifies an input field where the user can enter data. Auto-complete options are displayed for easier input. Allows multiple selection. Selected items are added to the input's value.
+*/
+export interface MultiInput extends BaseElement, MultiInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
+   *  label - The label of the new selected item.
+   *  oldLabel - The label of the item that was previously selected before the event was triggered.
+   *  oldValue - The value of the item that was previously selected before the event was triggered.
+   *  value - The value of the new selected item.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Closes the drop down.
+   */
+  close(): void;
+  /**
+   * Ensures that the active ( selected ) item is always visible.
+   */
+  ensureVisible(): void;
+  /**
+   * Opens the drop down.
+   */
+  open(): void;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-multi-input"): MultiInput;
+        querySelector(selectors: "smart-multi-input"): MultiInput | null;
+        querySelectorAll(selectors: "smart-multi-input"): NodeListOf<MultiInput>;
+        getElementsByTagName(qualifiedName: "smart-multi-input"): HTMLCollectionOf<MultiInput>;
+        getElementsByName(elementName: "smart-multi-input"): NodeListOf<MultiInput>;
+    }
+}
+
+/**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
+export declare type MultiInputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
+export interface MultilineTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -16402,7 +17609,15 @@ export interface MultilineTextBox extends BaseElement {
    * Default value: soft
    */
   wrap?: MultilineTextBoxWrap;
-  /** 
+}
+/**
+ Defines a multi-line text input control. MultilineTextBox can hold an unlimited number of characters, and the text renders in a fixed-width font
+*/
+export interface MultilineTextBox extends BaseElement, MultilineTextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the text box is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value, type)
    *  oldValue - The previous value of the element before it was changed.
@@ -16432,13 +17647,13 @@ export interface MultilineTextBox extends BaseElement {
   select(rangeFrom?: any, rangeTo?: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-multiline-text-box"): MultilineTextBox;
-			querySelector(selectors: "smart-multiline-text-box"): MultilineTextBox | null;	
-			querySelectorAll(selectors: "smart-multiline-text-box"): NodeListOf<MultilineTextBox>;
-			getElementsByTagName(qualifiedName: "smart-multiline-text-box"): HTMLCollectionOf<MultilineTextBox>;
-			getElementsByName(elementName: "smart-multiline-text-box"): NodeListOf<MultilineTextBox>;	
+        createElement(tagName: "smart-multiline-text-box"): MultilineTextBox;
+        querySelector(selectors: "smart-multiline-text-box"): MultilineTextBox | null;
+        querySelectorAll(selectors: "smart-multiline-text-box"): NodeListOf<MultilineTextBox>;
+        getElementsByTagName(qualifiedName: "smart-multiline-text-box"): HTMLCollectionOf<MultilineTextBox>;
+        getElementsByName(elementName: "smart-multiline-text-box"): NodeListOf<MultilineTextBox>;
     }
 }
 
@@ -16450,13 +17665,7 @@ export declare type TextBoxDisplayMode = 'default' | 'escaped';
 export declare type MultilineTextBoxEnterKeyBehavior = 'clearOnSubmit' | 'newLine' | 'submit';
 /**Indicates how the control wraps text. */
 export declare type MultilineTextBoxWrap = 'hard' | 'soft' | 'off';
-/**
- Buttons group with DropDown and multiple action buttons.
-*/
-export interface MultiSplitButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface MultiSplitButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -16644,38 +17853,46 @@ export interface MultiSplitButton extends BaseElement {
    * Default value: false
    */
   virtualized?: boolean;
-  /** 
+}
+/**
+ Buttons group with DropDown and multiple action buttons.
+*/
+export interface MultiSplitButton extends BaseElement, MultiSplitButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when button's dropDown selection is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when button's dropDown list is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when button's dropDown list is closing.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks any of the element's buttons or button's dropDown items.
 	* @param event. The custom event.    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when button's dropDown list is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when button's dropDown list is opening.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the end of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the start of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes button's dropDown list.
    */
@@ -16714,25 +17931,19 @@ export interface MultiSplitButton extends BaseElement {
   update(position: number, value: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-multi-split-button"): MultiSplitButton;
-			querySelector(selectors: "smart-multi-split-button"): MultiSplitButton | null;	
-			querySelectorAll(selectors: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;
-			getElementsByTagName(qualifiedName: "smart-multi-split-button"): HTMLCollectionOf<MultiSplitButton>;
-			getElementsByName(elementName: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;	
+        createElement(tagName: "smart-multi-split-button"): MultiSplitButton;
+        querySelector(selectors: "smart-multi-split-button"): MultiSplitButton | null;
+        querySelectorAll(selectors: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;
+        getElementsByTagName(qualifiedName: "smart-multi-split-button"): HTMLCollectionOf<MultiSplitButton>;
+        getElementsByName(elementName: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;
     }
 }
 
 /**Determines how many items can be selected. */
 export declare type MultiSplitButtonSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
-/**
- input field for entering a number. Includes number formatting for Engineers and Scientists.
-*/
-export interface NumericTextBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface NumericTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -16956,34 +18167,42 @@ export interface NumericTextBox extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ input field for entering a number. Includes number formatting for Engineers and Scientists.
+*/
+export interface NumericTextBox extends BaseElement, NumericTextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed. 
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the value in the input is being changed via keypress or paste. 
 	* @param event. The custom event.    */
-  onChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dropdown is closed. 
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the dropdown is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dropdown is opened. 
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dropdown is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the radix is changed. 
 	* @param event. The custom event.    */
-  onRadixChange?: ((this: any, ev: Event) => any) | null;
+  onRadixChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Focuses the NumericTextBox. 
    */
@@ -16997,13 +18216,13 @@ export interface NumericTextBox extends BaseElement {
   val(value?: string | number, suppressValidation?: boolean): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-numeric-text-box"): NumericTextBox;
-			querySelector(selectors: "smart-numeric-text-box"): NumericTextBox | null;	
-			querySelectorAll(selectors: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;
-			getElementsByTagName(qualifiedName: "smart-numeric-text-box"): HTMLCollectionOf<NumericTextBox>;
-			getElementsByName(elementName: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;	
+        createElement(tagName: "smart-numeric-text-box"): NumericTextBox;
+        querySelector(selectors: "smart-numeric-text-box"): NumericTextBox | null;
+        querySelectorAll(selectors: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;
+        getElementsByTagName(qualifiedName: "smart-numeric-text-box"): HTMLCollectionOf<NumericTextBox>;
+        getElementsByName(elementName: "smart-numeric-text-box"): NodeListOf<NumericTextBox>;
     }
 }
 
@@ -17013,13 +18232,7 @@ export declare type NumericTextBoxInputFormat = 'integer' | 'floatingPoint' | 'c
 export declare type NumericTextBoxRadix = '2' | '8' | '10' | '16' | 'binary' | 'octal' | 'decimal' | 'hexadecimal';
 /**Sets or gets the position of the spin buttons of the jqxNumericTextBox.  */
 export declare type NumericTextBoxDisplayPosition = 'left' | 'right';
-/**
- Pagination component that is used to navigate between a set of results.
-*/
-export interface Pager extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface PagerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -17157,14 +18370,27 @@ export interface Pager extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+  /**
+   * Gets/sets total number of records whose pagination the Pager controls. Useful when the Pager is part of a more complex element or application.
+   * Default value: null
+   */
+  totalRecords?: number;
+}
+/**
+ Pagination component that is used to navigate between a set of results.
+*/
+export interface Pager extends BaseElement, PagerProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user selects a new item.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when page size is changed.
 	* @param event. The custom event.    */
-  onPageSizeChanged?: ((this: any, ev: Event) => any) | null;
+  onPageSizeChanged?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Selects first item.
    */
@@ -17188,25 +18414,19 @@ export interface Pager extends BaseElement {
   prev(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-pager"): Pager;
-			querySelector(selectors: "smart-pager"): Pager | null;	
-			querySelectorAll(selectors: "smart-pager"): NodeListOf<Pager>;
-			getElementsByTagName(qualifiedName: "smart-pager"): HTMLCollectionOf<Pager>;
-			getElementsByName(elementName: "smart-pager"): NodeListOf<Pager>;	
+        createElement(tagName: "smart-pager"): Pager;
+        querySelector(selectors: "smart-pager"): Pager | null;
+        querySelectorAll(selectors: "smart-pager"): NodeListOf<Pager>;
+        getElementsByTagName(qualifiedName: "smart-pager"): HTMLCollectionOf<Pager>;
+        getElementsByName(elementName: "smart-pager"): NodeListOf<Pager>;
     }
 }
 
 /**Handles pager's elipsis. Ellipsis buttons are displayed as indicators and additional help to navigate between pages. */
 export declare type PagerAutoEllipsis = 'none' | 'before' | 'after' | 'both';
-/**
- PasswordTextBox lets the user enter a password with the text hidden.
-*/
-export interface PasswordTextBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface PasswordTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -17361,7 +18581,15 @@ export interface PasswordTextBox extends BaseElement {
    * Default value: ""
    */
   value?: string;
-  /** 
+}
+/**
+ PasswordTextBox lets the user enter a password with the text hidden.
+*/
+export interface PasswordTextBox extends BaseElement, PasswordTextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the element is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value of the element before it was changed.
@@ -17378,25 +18606,19 @@ export interface PasswordTextBox extends BaseElement {
   reset(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-password-text-box"): PasswordTextBox;
-			querySelector(selectors: "smart-password-text-box"): PasswordTextBox | null;	
-			querySelectorAll(selectors: "smart-password-text-box"): NodeListOf<PasswordTextBox>;
-			getElementsByTagName(qualifiedName: "smart-password-text-box"): HTMLCollectionOf<PasswordTextBox>;
-			getElementsByName(elementName: "smart-password-text-box"): NodeListOf<PasswordTextBox>;	
+        createElement(tagName: "smart-password-text-box"): PasswordTextBox;
+        querySelector(selectors: "smart-password-text-box"): PasswordTextBox | null;
+        querySelectorAll(selectors: "smart-password-text-box"): NodeListOf<PasswordTextBox>;
+        getElementsByTagName(qualifiedName: "smart-password-text-box"): HTMLCollectionOf<PasswordTextBox>;
+        getElementsByName(elementName: "smart-password-text-box"): NodeListOf<PasswordTextBox>;
     }
 }
 
 /**Determines the position of the tooltip. */
 export declare type PasswordTextBoxTooltipPosition = 'absolute' | 'bottom' | 'top' | 'left' | 'right';
-/**
- Path component is used to display the path to url.
-*/
-export interface Path extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface PathProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -17557,34 +18779,46 @@ export interface Path extends BaseElement {
    * Default value: false
    */
   wrap?: boolean;
-  /** 
+}
+/**
+ Path component is used to display the path to url.
+*/
+export interface Path extends BaseElement, PathProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the browse button.
 	* @param event. The custom event.    */
-  onBrowseButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onBrowseButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is closing.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when an item from the popup is clicked.
+	* @param event. The custom event.    */
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opening.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes the dropDown.
    */
@@ -17603,25 +18837,19 @@ export interface Path extends BaseElement {
   setToNotAPath(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-path"): Path;
-			querySelector(selectors: "smart-path"): Path | null;	
-			querySelectorAll(selectors: "smart-path"): NodeListOf<Path>;
-			getElementsByTagName(qualifiedName: "smart-path"): HTMLCollectionOf<Path>;
-			getElementsByName(elementName: "smart-path"): NodeListOf<Path>;	
+        createElement(tagName: "smart-path"): Path;
+        querySelector(selectors: "smart-path"): Path | null;
+        querySelectorAll(selectors: "smart-path"): NodeListOf<Path>;
+        getElementsByTagName(qualifiedName: "smart-path"): HTMLCollectionOf<Path>;
+        getElementsByName(elementName: "smart-path"): NodeListOf<Path>;
     }
 }
 
 /**Determines the format of the path. Follows specific operation system criteria by changing the drive,folder separators.  */
 export declare type PathFormat = 'windows' | 'unix';
-/**
- PowerButton is On/Off rounded button.
-*/
-export interface PowerButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface PowerButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -17693,29 +18921,31 @@ export interface PowerButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ PowerButton is On/Off rounded button.
+*/
+export interface PowerButton extends BaseElement, PowerButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-power-button"): PowerButton;
-			querySelector(selectors: "smart-power-button"): PowerButton | null;	
-			querySelectorAll(selectors: "smart-power-button"): NodeListOf<PowerButton>;
-			getElementsByTagName(qualifiedName: "smart-power-button"): HTMLCollectionOf<PowerButton>;
-			getElementsByName(elementName: "smart-power-button"): NodeListOf<PowerButton>;	
+        createElement(tagName: "smart-power-button"): PowerButton;
+        querySelector(selectors: "smart-power-button"): PowerButton | null;
+        querySelectorAll(selectors: "smart-power-button"): NodeListOf<PowerButton>;
+        getElementsByTagName(qualifiedName: "smart-power-button"): HTMLCollectionOf<PowerButton>;
+        getElementsByName(elementName: "smart-power-button"): NodeListOf<PowerButton>;
     }
 }
 
-/**
- Progress indicators. It can be used to show a user how far along he/she is in a process.
-*/
-export interface ProgressBar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ProgressBarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -17807,29 +19037,31 @@ export interface ProgressBar extends BaseElement {
    * Default value: 0
    */
   value?: number;
-  /** 
+}
+/**
+ Progress indicators. It can be used to show a user how far along he/she is in a process.
+*/
+export interface ProgressBar extends BaseElement, ProgressBarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-progress-bar"): ProgressBar;
-			querySelector(selectors: "smart-progress-bar"): ProgressBar | null;	
-			querySelectorAll(selectors: "smart-progress-bar"): NodeListOf<ProgressBar>;
-			getElementsByTagName(qualifiedName: "smart-progress-bar"): HTMLCollectionOf<ProgressBar>;
-			getElementsByName(elementName: "smart-progress-bar"): NodeListOf<ProgressBar>;	
+        createElement(tagName: "smart-progress-bar"): ProgressBar;
+        querySelector(selectors: "smart-progress-bar"): ProgressBar | null;
+        querySelectorAll(selectors: "smart-progress-bar"): NodeListOf<ProgressBar>;
+        getElementsByTagName(qualifiedName: "smart-progress-bar"): HTMLCollectionOf<ProgressBar>;
+        getElementsByName(elementName: "smart-progress-bar"): NodeListOf<ProgressBar>;
     }
 }
 
-/**
- QueryBuilder allows you to build dynamically queries for filtering.
-*/
-export interface QueryBuilder extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface QueryBuilderProperties {
   /**
    * Enables the dragging of conditions inside a group or between groups.
    * Default value: false
@@ -17983,7 +19215,15 @@ export interface QueryBuilder extends BaseElement {
    * Default value: "Value"
    */
   valuePlaceholder?: string;
-  /** 
+}
+/**
+ QueryBuilder allows you to build dynamically queries for filtering.
+*/
+export interface QueryBuilder extends BaseElement, QueryBuilderProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the query builder's value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, originalEvent)
    *  item - The item that is being dragged.
@@ -17991,7 +19231,7 @@ export interface QueryBuilder extends BaseElement {
    *  originalEvent - The original event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a dragged condition is dropped. This action can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, target, targetData, targetSide)
    *  item - The item that is being dragged.
@@ -18001,15 +19241,15 @@ export interface QueryBuilder extends BaseElement {
    *  targetSide - The side of the target item where the dragged item will be dropped.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a condition is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, originalEvent)
    *  item - The item that is being dragged.
    *  data - The data of the item that is being dragged.
    *  originalEvent - The original event.
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a dragging operation is started in jqx-query-builder. This action can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, originalEvent)
    *  item - The item is going to be dragged.
@@ -18017,21 +19257,21 @@ export interface QueryBuilder extends BaseElement {
    *  originalEvent - The original event.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when one of the query builder's building blocks ( oeprator, fieldName, value, close button, etc) is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(id, type, data)
    *  id - The internal id of the clicked item, e.g. '0.1', '1.1', etc.
    *  type - The type of the clicked item ( condition or a group ).
    *  data - The data of the item.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a field has been selected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, value)
    *  label - The label of the selected property.
    *  value - The value of the selected property.
    */
-  onPropertySelected?: ((this: any, ev: Event) => any) | null;
+  onPropertySelected?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Converts the current value of the element to DynamicLINQ expression.
    * @returns {string}
@@ -18039,13 +19279,13 @@ export interface QueryBuilder extends BaseElement {
   getLinq(): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-query-builder"): QueryBuilder;
-			querySelector(selectors: "smart-query-builder"): QueryBuilder | null;	
-			querySelectorAll(selectors: "smart-query-builder"): NodeListOf<QueryBuilder>;
-			getElementsByTagName(qualifiedName: "smart-query-builder"): HTMLCollectionOf<QueryBuilder>;
-			getElementsByName(elementName: "smart-query-builder"): NodeListOf<QueryBuilder>;	
+        createElement(tagName: "smart-query-builder"): QueryBuilder;
+        querySelector(selectors: "smart-query-builder"): QueryBuilder | null;
+        querySelectorAll(selectors: "smart-query-builder"): NodeListOf<QueryBuilder>;
+        getElementsByTagName(qualifiedName: "smart-query-builder"): HTMLCollectionOf<QueryBuilder>;
+        getElementsByName(elementName: "smart-query-builder"): NodeListOf<QueryBuilder>;
     }
 }
 
@@ -18053,13 +19293,7 @@ declare global {
 export declare type QueryBuilderApplyMode = 'change' | 'immediately';
 /**Determines whether new fields can be dynamically added by typing in the field (property) box. */
 export declare type QueryBuilderFieldsMode = 'dynamic' | 'static';
-/**
- The Radio Button component lets you add a radio button and assign it to a radio group. Users can select only one radio button at a time within a radio group
-*/
-export interface RadioButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface RadioButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -18151,29 +19385,31 @@ export interface RadioButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ The Radio Button component lets you add a radio button and assign it to a radio group. Users can select only one radio button at a time within a radio group
+*/
+export interface RadioButton extends BaseElement, RadioButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-radio-button"): RadioButton;
-			querySelector(selectors: "smart-radio-button"): RadioButton | null;	
-			querySelectorAll(selectors: "smart-radio-button"): NodeListOf<RadioButton>;
-			getElementsByTagName(qualifiedName: "smart-radio-button"): HTMLCollectionOf<RadioButton>;
-			getElementsByName(elementName: "smart-radio-button"): NodeListOf<RadioButton>;	
+        createElement(tagName: "smart-radio-button"): RadioButton;
+        querySelector(selectors: "smart-radio-button"): RadioButton | null;
+        querySelectorAll(selectors: "smart-radio-button"): NodeListOf<RadioButton>;
+        getElementsByTagName(qualifiedName: "smart-radio-button"): HTMLCollectionOf<RadioButton>;
+        getElementsByName(elementName: "smart-radio-button"): NodeListOf<RadioButton>;
     }
 }
 
-/**
- Rating allows you to input a rating. It is broadly used in applications with reviews.
-*/
-export interface Rating extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface RatingProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -18241,24 +19477,26 @@ export interface Rating extends BaseElement {
    */
   value?: number;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-rating"): Rating;
-			querySelector(selectors: "smart-rating"): Rating | null;	
-			querySelectorAll(selectors: "smart-rating"): NodeListOf<Rating>;
-			getElementsByTagName(qualifiedName: "smart-rating"): HTMLCollectionOf<Rating>;
-			getElementsByName(elementName: "smart-rating"): NodeListOf<Rating>;	
-    }
-}
-
 /**
- RepatButton provides press-and-hold functionality and it is an ideal UI component for allowing end-users to control an increasing or decreasing value.
+ Rating allows you to input a rating. It is broadly used in applications with reviews.
 */
-export interface RepeatButton extends BaseElement {
+export interface Rating extends BaseElement, RatingProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-rating"): Rating;
+        querySelector(selectors: "smart-rating"): Rating | null;
+        querySelectorAll(selectors: "smart-rating"): NodeListOf<Rating>;
+        getElementsByTagName(qualifiedName: "smart-rating"): HTMLCollectionOf<Rating>;
+        getElementsByName(elementName: "smart-rating"): NodeListOf<Rating>;
+    }
+}
+
+export interface RepeatButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -18340,29 +19578,31 @@ export interface RepeatButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ RepatButton provides press-and-hold functionality and it is an ideal UI component for allowing end-users to control an increasing or decreasing value.
+*/
+export interface RepeatButton extends BaseElement, RepeatButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the element is clicked.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-repeat-button"): RepeatButton;
-			querySelector(selectors: "smart-repeat-button"): RepeatButton | null;	
-			querySelectorAll(selectors: "smart-repeat-button"): NodeListOf<RepeatButton>;
-			getElementsByTagName(qualifiedName: "smart-repeat-button"): HTMLCollectionOf<RepeatButton>;
-			getElementsByName(elementName: "smart-repeat-button"): NodeListOf<RepeatButton>;	
+        createElement(tagName: "smart-repeat-button"): RepeatButton;
+        querySelector(selectors: "smart-repeat-button"): RepeatButton | null;
+        querySelectorAll(selectors: "smart-repeat-button"): NodeListOf<RepeatButton>;
+        getElementsByTagName(qualifiedName: "smart-repeat-button"): HTMLCollectionOf<RepeatButton>;
+        getElementsByName(elementName: "smart-repeat-button"): NodeListOf<RepeatButton>;
     }
 }
 
-/**
- Scrollbar is a replacement of the default scroll bar with multiple UI Styling options.
-*/
-export interface ScrollBar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ScrollBarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -18459,7 +19699,15 @@ export interface ScrollBar extends BaseElement {
    * Default value: 0
    */
   value?: number;
-  /** 
+}
+/**
+ Scrollbar is a replacement of the default scroll bar with multiple UI Styling options.
+*/
+export interface ScrollBar extends BaseElement, ScrollBarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
@@ -18469,23 +19717,17 @@ export interface ScrollBar extends BaseElement {
   refresh(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-scroll-bar"): ScrollBar;
-			querySelector(selectors: "smart-scroll-bar"): ScrollBar | null;	
-			querySelectorAll(selectors: "smart-scroll-bar"): NodeListOf<ScrollBar>;
-			getElementsByTagName(qualifiedName: "smart-scroll-bar"): HTMLCollectionOf<ScrollBar>;
-			getElementsByName(elementName: "smart-scroll-bar"): NodeListOf<ScrollBar>;	
+        createElement(tagName: "smart-scroll-bar"): ScrollBar;
+        querySelector(selectors: "smart-scroll-bar"): ScrollBar | null;
+        querySelectorAll(selectors: "smart-scroll-bar"): NodeListOf<ScrollBar>;
+        getElementsByTagName(qualifiedName: "smart-scroll-bar"): HTMLCollectionOf<ScrollBar>;
+        getElementsByName(elementName: "smart-scroll-bar"): NodeListOf<ScrollBar>;
     }
 }
 
-/**
- Sliders allow users to make selections from a range of values.
-*/
-export interface Slider extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SliderProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -18725,7 +19967,15 @@ export interface Slider extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ Sliders allow users to make selections from a range of values.
+*/
+export interface Slider extends BaseElement, SliderProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the slider is changed. 
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
@@ -18746,25 +19996,19 @@ export interface Slider extends BaseElement {
   val(value?: string | number | number[] | string[]): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-slider"): Slider;
-			querySelector(selectors: "smart-slider"): Slider | null;	
-			querySelectorAll(selectors: "smart-slider"): NodeListOf<Slider>;
-			getElementsByTagName(qualifiedName: "smart-slider"): HTMLCollectionOf<Slider>;
-			getElementsByName(elementName: "smart-slider"): NodeListOf<Slider>;	
+        createElement(tagName: "smart-slider"): Slider;
+        querySelector(selectors: "smart-slider"): Slider | null;
+        querySelectorAll(selectors: "smart-slider"): NodeListOf<Slider>;
+        getElementsByTagName(qualifiedName: "smart-slider"): HTMLCollectionOf<Slider>;
+        getElementsByName(elementName: "smart-slider"): NodeListOf<Slider>;
     }
 }
 
 /**Sets the position of the widget's scales.  */
 export declare type ScalePosition = 'near' | 'far' | 'both' | 'none';
-/**
- Sortable allows you to rearrange a group of html elements.
-*/
-export interface Sortable extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SortableProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -18834,7 +20078,15 @@ export interface Sortable extends BaseElement {
    * Default value: false
    */
   rightToLeft?: boolean;
-  /** 
+}
+/**
+ Sortable allows you to rearrange a group of html elements.
+*/
+export interface Sortable extends BaseElement, SortableProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when sortable items have been reordered.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
@@ -18850,13 +20102,13 @@ export interface Sortable extends BaseElement {
   updateItems(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-sortable"): Sortable;
-			querySelector(selectors: "smart-sortable"): Sortable | null;	
-			querySelectorAll(selectors: "smart-sortable"): NodeListOf<Sortable>;
-			getElementsByTagName(qualifiedName: "smart-sortable"): HTMLCollectionOf<Sortable>;
-			getElementsByName(elementName: "smart-sortable"): NodeListOf<Sortable>;	
+        createElement(tagName: "smart-sortable"): Sortable;
+        querySelector(selectors: "smart-sortable"): Sortable | null;
+        querySelectorAll(selectors: "smart-sortable"): NodeListOf<Sortable>;
+        getElementsByTagName(qualifiedName: "smart-sortable"): HTMLCollectionOf<Sortable>;
+        getElementsByName(elementName: "smart-sortable"): NodeListOf<Sortable>;
     }
 }
 
@@ -18866,13 +20118,7 @@ export declare type SortableDragMode = 'item' | 'handle';
 export declare type SortableHandlePosition = 'right' | 'left' | 'top' | 'bottom';
 /**Sets or gets whether a sortable item's drag handle is always visible or is shown when the item is hovered. Applicable only when dragMode is 'handle'. */
 export declare type SortableHandleVisibility = 'hover' | 'visible';
-/**
- SortPanel allows you to add and remove sort columns and update the sort order of the columns.
-*/
-export interface SortPanel extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SortPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -18946,35 +20192,37 @@ export interface SortPanel extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ SortPanel allows you to add and remove sort columns and update the sort order of the columns.
+*/
+export interface SortPanel extends BaseElement, SortPanelProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the "Apply" button is clicked.
 	* @param event. The custom event.    */
-  onApply?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Cancel" button is clicked.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-sort-panel"): SortPanel;
-			querySelector(selectors: "smart-sort-panel"): SortPanel | null;	
-			querySelectorAll(selectors: "smart-sort-panel"): NodeListOf<SortPanel>;
-			getElementsByTagName(qualifiedName: "smart-sort-panel"): HTMLCollectionOf<SortPanel>;
-			getElementsByName(elementName: "smart-sort-panel"): NodeListOf<SortPanel>;	
+        createElement(tagName: "smart-sort-panel"): SortPanel;
+        querySelector(selectors: "smart-sort-panel"): SortPanel | null;
+        querySelectorAll(selectors: "smart-sort-panel"): NodeListOf<SortPanel>;
+        getElementsByTagName(qualifiedName: "smart-sort-panel"): HTMLCollectionOf<SortPanel>;
+        getElementsByName(elementName: "smart-sort-panel"): NodeListOf<SortPanel>;
     }
 }
 
 /**Sets or gets the the position of the close button of sort panel items. */
 export declare type SortPanelCloseButtonPosition = 'left' | 'right';
-/**
- Splitter is a layout component that supports all important features such as resizing, collapsing, and nesting panels.
-*/
-export interface Splitter extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SplitterProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -19076,22 +20324,30 @@ export interface Splitter extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Splitter is a layout component that supports all important features such as resizing, collapsing, and nesting panels.
+*/
+export interface Splitter extends BaseElement, SplitterProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when splitter item is collapsed.
 	* @param event. The custom event.    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when splitter item is expanded.
 	* @param event. The custom event.    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when splitter resizing begins.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when splitter resizing finishes.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a new node.
    * @param {Node} node. The node to append
@@ -19175,13 +20431,13 @@ export interface Splitter extends BaseElement {
   update(item: any, settings: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-splitter"): Splitter;
-			querySelector(selectors: "smart-splitter"): Splitter | null;	
-			querySelectorAll(selectors: "smart-splitter"): NodeListOf<Splitter>;
-			getElementsByTagName(qualifiedName: "smart-splitter"): HTMLCollectionOf<Splitter>;
-			getElementsByName(elementName: "smart-splitter"): NodeListOf<Splitter>;	
+        createElement(tagName: "smart-splitter"): Splitter;
+        querySelector(selectors: "smart-splitter"): Splitter | null;
+        querySelectorAll(selectors: "smart-splitter"): NodeListOf<Splitter>;
+        getElementsByTagName(qualifiedName: "smart-splitter"): HTMLCollectionOf<Splitter>;
+        getElementsByName(elementName: "smart-splitter"): NodeListOf<Splitter>;
     }
 }
 
@@ -19192,10 +20448,12 @@ declare global {
 export declare type SplitterAutoFitMode = 'end' | 'proportional' | 'overflow';
 /**Determines the resize mode of the splitter. Possible values are: </br> - None - resizing is disabled. </br> - Adjacent - only the two adjacent items between the target splitter bar are being affected. This is the default behavior. </br> - End - only the first item( left or top according to the orientation) of the target Splitter bar and the last item are affected. </br> Proportional - all of the items positioned in the direction to which the splitter bar is dragged will be affected. For example, when a splitter bar is dragged to the right all the items positioned on it's the right side will be affected. The items will obtain a proportional size corresponding to their current size. */
 export declare type SplitterResizeMode = 'none' | 'adjacent' | 'end' | 'proportional';
+export interface SplitterBarProperties {
+}
 /**
  SplitterBar splits two Split panels in a Splitter.
 */
-export interface SplitterBar extends BaseElement {
+export interface SplitterBar extends BaseElement, SplitterBarProperties {
 
   /* Get a member by its name */
   [name: string]: any;
@@ -19217,23 +20475,17 @@ export interface SplitterBar extends BaseElement {
   unlock(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-splitter-bar"): SplitterBar;
-			querySelector(selectors: "smart-splitter-bar"): SplitterBar | null;	
-			querySelectorAll(selectors: "smart-splitter-bar"): NodeListOf<SplitterBar>;
-			getElementsByTagName(qualifiedName: "smart-splitter-bar"): HTMLCollectionOf<SplitterBar>;
-			getElementsByName(elementName: "smart-splitter-bar"): NodeListOf<SplitterBar>;	
+        createElement(tagName: "smart-splitter-bar"): SplitterBar;
+        querySelector(selectors: "smart-splitter-bar"): SplitterBar | null;
+        querySelectorAll(selectors: "smart-splitter-bar"): NodeListOf<SplitterBar>;
+        getElementsByTagName(qualifiedName: "smart-splitter-bar"): HTMLCollectionOf<SplitterBar>;
+        getElementsByName(elementName: "smart-splitter-bar"): NodeListOf<SplitterBar>;
     }
 }
 
-/**
- Splitter Item is a Panel in a Splitter component.
-*/
-export interface SplitterItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SplitterItemProperties {
   /**
    * Enables or disables the element.
    * Default value: false
@@ -19274,6 +20526,14 @@ export interface SplitterItem extends BaseElement {
    * Default value: ""
    */
   size?: string;
+}
+/**
+ Splitter Item is a Panel in a Splitter component.
+*/
+export interface SplitterItem extends BaseElement, SplitterItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
   /**
    * Collapses the item.
    * @param {string} far. If set to true the item will collapse to it's far side ( to the right for vertical splitter and down for horizontal)
@@ -19293,23 +20553,17 @@ export interface SplitterItem extends BaseElement {
   unlock(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-splitter-item"): SplitterItem;
-			querySelector(selectors: "smart-splitter-item"): SplitterItem | null;	
-			querySelectorAll(selectors: "smart-splitter-item"): NodeListOf<SplitterItem>;
-			getElementsByTagName(qualifiedName: "smart-splitter-item"): HTMLCollectionOf<SplitterItem>;
-			getElementsByName(elementName: "smart-splitter-item"): NodeListOf<SplitterItem>;	
+        createElement(tagName: "smart-splitter-item"): SplitterItem;
+        querySelector(selectors: "smart-splitter-item"): SplitterItem | null;
+        querySelectorAll(selectors: "smart-splitter-item"): NodeListOf<SplitterItem>;
+        getElementsByTagName(qualifiedName: "smart-splitter-item"): HTMLCollectionOf<SplitterItem>;
+        getElementsByName(elementName: "smart-splitter-item"): NodeListOf<SplitterItem>;
     }
 }
 
-/**
- A Switch represents a button with two states, on and off. Switches are most often used on mobile devices to enable and disable options.
-*/
-export interface SwitchButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SwitchButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -19421,19 +20675,27 @@ export interface SwitchButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ A Switch represents a button with two states, on and off. Switches are most often used on mobile devices to enable and disable options.
+*/
+export interface SwitchButton extends BaseElement, SwitchButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-switch-button"): SwitchButton;
-			querySelector(selectors: "smart-switch-button"): SwitchButton | null;	
-			querySelectorAll(selectors: "smart-switch-button"): NodeListOf<SwitchButton>;
-			getElementsByTagName(qualifiedName: "smart-switch-button"): HTMLCollectionOf<SwitchButton>;
-			getElementsByName(elementName: "smart-switch-button"): NodeListOf<SwitchButton>;	
+        createElement(tagName: "smart-switch-button"): SwitchButton;
+        querySelector(selectors: "smart-switch-button"): SwitchButton | null;
+        querySelectorAll(selectors: "smart-switch-button"): NodeListOf<SwitchButton>;
+        getElementsByTagName(qualifiedName: "smart-switch-button"): HTMLCollectionOf<SwitchButton>;
+        getElementsByName(elementName: "smart-switch-button"): NodeListOf<SwitchButton>;
     }
 }
 
@@ -19443,13 +20705,7 @@ declare global {
 none - the state of the element can only be changed via the API
  */
 export declare type SwitchButtonSwitchMode = 'default' | 'click' | 'drag' | 'none';
-/**
- Defines a tab item.
-*/
-export interface TabItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TabItemProperties {
   /**
    * Tab item close button state
    * Default value: false
@@ -19481,24 +20737,26 @@ export interface TabItem extends BaseElement {
    */
   labelSize?: number;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-tab-item"): TabItem;
-			querySelector(selectors: "smart-tab-item"): TabItem | null;	
-			querySelectorAll(selectors: "smart-tab-item"): NodeListOf<TabItem>;
-			getElementsByTagName(qualifiedName: "smart-tab-item"): HTMLCollectionOf<TabItem>;
-			getElementsByName(elementName: "smart-tab-item"): NodeListOf<TabItem>;	
-    }
-}
-
 /**
- Defines a group of tab items.
+ Defines a tab item.
 */
-export interface TabItemsGroup extends BaseElement {
+export interface TabItem extends BaseElement, TabItemProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-item"): TabItem;
+        querySelector(selectors: "smart-tab-item"): TabItem | null;
+        querySelectorAll(selectors: "smart-tab-item"): NodeListOf<TabItem>;
+        getElementsByTagName(qualifiedName: "smart-tab-item"): HTMLCollectionOf<TabItem>;
+        getElementsByName(elementName: "smart-tab-item"): NodeListOf<TabItem>;
+    }
+}
+
+export interface TabItemsGroupProperties {
   /**
    * 
    * Default value: ""
@@ -19510,24 +20768,26 @@ export interface TabItemsGroup extends BaseElement {
    */
   labelSize?: number;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-tab-items-group"): TabItemsGroup;
-			querySelector(selectors: "smart-tab-items-group"): TabItemsGroup | null;	
-			querySelectorAll(selectors: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-tab-items-group"): HTMLCollectionOf<TabItemsGroup>;
-			getElementsByName(elementName: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;	
-    }
-}
-
 /**
- Table is an alternative of the HTMLTableElement.
+ Defines a group of tab items.
 */
-export interface Table extends BaseElement {
+export interface TabItemsGroup extends BaseElement, TabItemsGroupProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-items-group"): TabItemsGroup;
+        querySelector(selectors: "smart-tab-items-group"): TabItemsGroup | null;
+        querySelectorAll(selectors: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-tab-items-group"): HTMLCollectionOf<TabItemsGroup>;
+        getElementsByName(elementName: "smart-tab-items-group"): NodeListOf<TabItemsGroup>;
+    }
+}
+
+export interface TableProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -19589,6 +20849,14 @@ export interface Table extends BaseElement {
    * Default value: ""
    */
   theme?: string;
+}
+/**
+ Table is an alternative of the HTMLTableElement.
+*/
+export interface Table extends BaseElement, TableProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
   /**
    * Clears the Table sorting.
    */
@@ -19613,25 +20881,19 @@ export interface Table extends BaseElement {
   sortBy(columnDataField: string, sortOrder?: string): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-table"): Table;
-			querySelector(selectors: "smart-table"): Table | null;	
-			querySelectorAll(selectors: "smart-table"): NodeListOf<Table>;
-			getElementsByTagName(qualifiedName: "smart-table"): HTMLCollectionOf<Table>;
-			getElementsByName(elementName: "smart-table"): NodeListOf<Table>;	
+        createElement(tagName: "smart-table"): Table;
+        querySelector(selectors: "smart-table"): Table | null;
+        querySelectorAll(selectors: "smart-table"): NodeListOf<Table>;
+        getElementsByTagName(qualifiedName: "smart-table"): HTMLCollectionOf<Table>;
+        getElementsByName(elementName: "smart-table"): NodeListOf<Table>;
     }
 }
 
 /**Determines the sorting mode of the Table. */
 export declare type TableSortMode = 'none' | 'one' | 'many';
-/**
- Tabs organize content across different screens, data sets, and other interactions. Tabs can be paired with components like top app bars. Tabs can be displayed horizontally or vertically.
-*/
-export interface Tabs extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TabsProperties {
   /**
    * Sets or gets whether the "Add new tab" button (+) is displayed.
    * Default value: false
@@ -19788,30 +21050,38 @@ export interface Tabs extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Tabs organize content across different screens, data sets, and other interactions. Tabs can be paired with components like top app bars. Tabs can be displayed horizontally or vertically.
+*/
+export interface Tabs extends BaseElement, TabsProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the tab selection is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a tab is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a tab is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a drag operation has ended.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a drag operation has started.
 	* @param event. The custom event.    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when tabs have been reordered.
 	* @param event. The custom event.    */
-  onReorder?: ((this: any, ev: Event) => any) | null;
+  onReorder?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Collapses the content section.
    */
@@ -19860,13 +21130,13 @@ export interface Tabs extends BaseElement {
   update(index: number, label: string, content: string | HTMLElement): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tabs"): Tabs;
-			querySelector(selectors: "smart-tabs"): Tabs | null;	
-			querySelectorAll(selectors: "smart-tabs"): NodeListOf<Tabs>;
-			getElementsByTagName(qualifiedName: "smart-tabs"): HTMLCollectionOf<Tabs>;
-			getElementsByName(elementName: "smart-tabs"): NodeListOf<Tabs>;	
+        createElement(tagName: "smart-tabs"): Tabs;
+        querySelector(selectors: "smart-tabs"): Tabs | null;
+        querySelectorAll(selectors: "smart-tabs"): NodeListOf<Tabs>;
+        getElementsByTagName(qualifiedName: "smart-tabs"): HTMLCollectionOf<Tabs>;
+        getElementsByName(elementName: "smart-tabs"): NodeListOf<Tabs>;
     }
 }
 
@@ -19880,13 +21150,7 @@ export declare type TabSelectionMode = 'click' | 'dblclick' | 'mouseenter' | 'no
 export declare type TabsTabLayout = 'scroll' | 'dropDown' | 'wrap' | 'shrink';
 /**Sets or gets where the tab strip is positioned. */
 export declare type TabPosition = 'top' | 'bottom' | 'left' | 'right' | 'hidden';
-/**
- Tank is a UI Component used in Engineering and Scientific applications. It is broadly used to display the fluid levels.
-*/
-export interface Tank extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TankProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -20106,7 +21370,15 @@ export interface Tank extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ Tank is a UI Component used in Engineering and Scientific applications. It is broadly used to display the fluid levels.
+*/
+export interface Tank extends BaseElement, TankProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the tank is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
@@ -20127,23 +21399,17 @@ export interface Tank extends BaseElement {
   val(value?: string | number): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tank"): Tank;
-			querySelector(selectors: "smart-tank"): Tank | null;	
-			querySelectorAll(selectors: "smart-tank"): NodeListOf<Tank>;
-			getElementsByTagName(qualifiedName: "smart-tank"): HTMLCollectionOf<Tank>;
-			getElementsByName(elementName: "smart-tank"): NodeListOf<Tank>;	
+        createElement(tagName: "smart-tank"): Tank;
+        querySelector(selectors: "smart-tank"): Tank | null;
+        querySelectorAll(selectors: "smart-tank"): NodeListOf<Tank>;
+        getElementsByTagName(qualifiedName: "smart-tank"): HTMLCollectionOf<Tank>;
+        getElementsByName(elementName: "smart-tank"): NodeListOf<Tank>;
     }
 }
 
-/**
- TextBox is an input field with auto-suggest options.
-*/
-export interface TextBox extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -20416,7 +21682,15 @@ export interface TextBox extends BaseElement {
    * Default value: auto
    */
   verticalScrollBarVisibility?: VerticalScrollBarVisibility;
-  /** 
+}
+/**
+ TextBox is an input field with auto-suggest options.
+*/
+export interface TextBox extends BaseElement, TextBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the Text Box is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value, type)
    *  oldValue - The previous value before it was changed.
@@ -20438,25 +21712,19 @@ export interface TextBox extends BaseElement {
   reset(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-text-box"): TextBox;
-			querySelector(selectors: "smart-text-box"): TextBox | null;	
-			querySelectorAll(selectors: "smart-text-box"): NodeListOf<TextBox>;
-			getElementsByTagName(qualifiedName: "smart-text-box"): HTMLCollectionOf<TextBox>;
-			getElementsByName(elementName: "smart-text-box"): NodeListOf<TextBox>;	
+        createElement(tagName: "smart-text-box"): TextBox;
+        querySelector(selectors: "smart-text-box"): TextBox | null;
+        querySelectorAll(selectors: "smart-text-box"): NodeListOf<TextBox>;
+        getElementsByTagName(qualifiedName: "smart-text-box"): HTMLCollectionOf<TextBox>;
+        getElementsByName(elementName: "smart-text-box"): NodeListOf<TextBox>;
     }
 }
 
 /**Determines the behavior of the element when Escape key is pressed. */
 export declare type EscKeyMode = 'none' | 'previousValue' | 'clearValue';
-/**
- Time Picker component allows the user to select time from spinners.
-*/
-export interface TimePicker extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TimePickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -20558,7 +21826,15 @@ export interface TimePicker extends BaseElement {
    * Default value: portrait
    */
   view?: ViewLayout;
-  /** 
+}
+/**
+ Time Picker component allows the user to select time from spinners.
+*/
+export interface TimePicker extends BaseElement, TimePickerProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The old value before it was changed presented as a Date object.
@@ -20577,13 +21853,13 @@ export interface TimePicker extends BaseElement {
   setMinutes(minutes: number): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-time-picker"): TimePicker;
-			querySelector(selectors: "smart-time-picker"): TimePicker | null;	
-			querySelectorAll(selectors: "smart-time-picker"): NodeListOf<TimePicker>;
-			getElementsByTagName(qualifiedName: "smart-time-picker"): HTMLCollectionOf<TimePicker>;
-			getElementsByName(elementName: "smart-time-picker"): NodeListOf<TimePicker>;	
+        createElement(tagName: "smart-time-picker"): TimePicker;
+        querySelector(selectors: "smart-time-picker"): TimePicker | null;
+        querySelectorAll(selectors: "smart-time-picker"): NodeListOf<TimePicker>;
+        getElementsByTagName(qualifiedName: "smart-time-picker"): HTMLCollectionOf<TimePicker>;
+        getElementsByName(elementName: "smart-time-picker"): NodeListOf<TimePicker>;
     }
 }
 
@@ -20591,13 +21867,7 @@ declare global {
 export declare type TimePickerFormat = '12-hour' | '24-hour';
 /**Determines the view that is currently being shown. By default the hours view is visible. */
 export declare type TimePickerSelection = 'hour' | 'minute';
-/**
- The toast component is like an alert box that is only shown for a couple of seconds when something happens.
-*/
-export interface Toast extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ToastProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -20714,34 +21984,42 @@ export interface Toast extends BaseElement {
    * Default value: 
    */
   value?: any;
-  /** 
+}
+/**
+ The toast component is like an alert box that is only shown for a couple of seconds when something happens.
+*/
+export interface Toast extends BaseElement, ToastProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the toast item is clicked.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the toast item is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the toast item is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swipebottom over an toast item.
 	* @param event. The custom event.    */
-  onSwipebottom?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipebottom?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swipeleft over an toast item.
 	* @param event. The custom event.    */
-  onSwipeleft?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swiperight over an toast item.
 	* @param event. The custom event.    */
-  onSwiperight?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered on swipetop over an toast item.
 	* @param event. The custom event.    */
-  onSwipetop?: ((this: any, ev: Event) => any) | null;
+  onSwipetop?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes all opened toast items.
    */
@@ -20762,13 +22040,13 @@ export interface Toast extends BaseElement {
   open(): HTMLElement;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-toast"): Toast;
-			querySelector(selectors: "smart-toast"): Toast | null;	
-			querySelectorAll(selectors: "smart-toast"): NodeListOf<Toast>;
-			getElementsByTagName(qualifiedName: "smart-toast"): HTMLCollectionOf<Toast>;
-			getElementsByName(elementName: "smart-toast"): NodeListOf<Toast>;	
+        createElement(tagName: "smart-toast"): Toast;
+        querySelector(selectors: "smart-toast"): Toast | null;
+        querySelectorAll(selectors: "smart-toast"): NodeListOf<Toast>;
+        getElementsByTagName(qualifiedName: "smart-toast"): HTMLCollectionOf<Toast>;
+        getElementsByName(elementName: "smart-toast"): NodeListOf<Toast>;
     }
 }
 
@@ -20776,13 +22054,7 @@ declare global {
 export declare type ToastPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 /**Sets speciffic CSS settings and icon to the toast items. */
 export declare type ToastType = 'info' | 'warning' | 'success' | 'error' | 'mail' | 'time' | null;
-/**
- ToggleButton allows the user to change a setting between two states.
-*/
-export interface ToggleButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ToggleButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -20859,29 +22131,31 @@ export interface ToggleButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ ToggleButton allows the user to change a setting between two states.
+*/
+export interface ToggleButton extends BaseElement, ToggleButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the state of the element is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-toggle-button"): ToggleButton;
-			querySelector(selectors: "smart-toggle-button"): ToggleButton | null;	
-			querySelectorAll(selectors: "smart-toggle-button"): NodeListOf<ToggleButton>;
-			getElementsByTagName(qualifiedName: "smart-toggle-button"): HTMLCollectionOf<ToggleButton>;
-			getElementsByName(elementName: "smart-toggle-button"): NodeListOf<ToggleButton>;	
+        createElement(tagName: "smart-toggle-button"): ToggleButton;
+        querySelector(selectors: "smart-toggle-button"): ToggleButton | null;
+        querySelectorAll(selectors: "smart-toggle-button"): NodeListOf<ToggleButton>;
+        getElementsByTagName(qualifiedName: "smart-toggle-button"): HTMLCollectionOf<ToggleButton>;
+        getElementsByName(elementName: "smart-toggle-button"): NodeListOf<ToggleButton>;
     }
 }
 
-/**
- Tooltip is an alternate for the html title. It displays a popup with details on hover.
-*/
-export interface Tooltip extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TooltipProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -20980,11 +22254,19 @@ export interface Tooltip extends BaseElement {
    * Default value: false
    */
   visible?: boolean;
-  /** 
+}
+/**
+ Tooltip is an alternate for the html title. It displays a popup with details on hover.
+*/
+export interface Tooltip extends BaseElement, TooltipProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the tooltip is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the tooltip is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
@@ -21002,13 +22284,13 @@ export interface Tooltip extends BaseElement {
   toggle(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tooltip"): Tooltip;
-			querySelector(selectors: "smart-tooltip"): Tooltip | null;	
-			querySelectorAll(selectors: "smart-tooltip"): NodeListOf<Tooltip>;
-			getElementsByTagName(qualifiedName: "smart-tooltip"): HTMLCollectionOf<Tooltip>;
-			getElementsByName(elementName: "smart-tooltip"): NodeListOf<Tooltip>;	
+        createElement(tagName: "smart-tooltip"): Tooltip;
+        querySelector(selectors: "smart-tooltip"): Tooltip | null;
+        querySelectorAll(selectors: "smart-tooltip"): NodeListOf<Tooltip>;
+        getElementsByTagName(qualifiedName: "smart-tooltip"): HTMLCollectionOf<Tooltip>;
+        getElementsByName(elementName: "smart-tooltip"): NodeListOf<Tooltip>;
     }
 }
 
@@ -21016,13 +22298,7 @@ declare global {
 export declare type TooltipArrowDirection = 'bottom' | 'top' | 'left' | 'right';
 /**Sets or gets the way of triggering the tooltip. */
 export declare type TooltipOpenMode = 'click' | 'focus' | 'hover' | 'manual';
-/**
- Treeview component is a user interface that is used to represent hierarchical data in a tree structure.
-*/
-export interface Tree extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TreeProperties {
   /**
    * Allows drag operation in current tree. When enabled, items can be dragged and dropped to a tree with enabled allowDrop.
    * Default value: false
@@ -21240,7 +22516,15 @@ export interface Tree extends BaseElement {
    * Default value: "value"
    */
   valueMember?: string;
-  /** 
+}
+/**
+ Treeview component is a user interface that is used to represent hierarchical data in a tree structure.
+*/
+export interface Tree extends BaseElement, TreeProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when selection in jqx-tree is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, oldSelectedIndexes, selectedIndexes)
    *  item - The item the user has interacted with to change the selection (only when applicable).
@@ -21248,7 +22532,7 @@ export interface Tree extends BaseElement {
    *  selectedIndexes - The selected indexes after the selection is changed.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a jqx-tree-items-group is collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the collapsed jqx-tree-items-group
@@ -21257,8 +22541,8 @@ export interface Tree extends BaseElement {
    *  value - the value of the collapsed jqx-tree-items-group
    *  children - the children of the collapsed jqx-tree-items-group
    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-tree-items-group is about to be collapsed. The collapsing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the jqx-tree-items-group to be collapsed
@@ -21267,8 +22551,8 @@ export interface Tree extends BaseElement {
    *  value - the value of the jqx-tree-items-group to be collapsed
    *  children - the children of the jqx-tree-items-group to be collapsed
    */
-  onCollapsing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapsing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-tree-item/jqx-tree-items-group is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
    *  container - the tree the dragged item(s) is dropped to
@@ -21280,7 +22564,7 @@ export interface Tree extends BaseElement {
    *  target - the element the dragged items are dropped to
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a jqx-tree-item/jqx-tree-items-group is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(data, item, items, originalEvent)
    *  data - an object with additional drag details
@@ -21288,8 +22572,8 @@ export interface Tree extends BaseElement {
    *  items - an array with all dragged items
    *  originalEvent - the original, browser, event that initiates the dragging operation
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a dragging operation is started in jqx-tree. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer)
    *  container - the tree the dragged item(s) is dragged from
@@ -21300,7 +22584,7 @@ export interface Tree extends BaseElement {
    *  previousContainer - the tree the dragged item(s) is dragged from
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a jqx-tree-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the expanded jqx-tree-items-group
@@ -21309,8 +22593,8 @@ export interface Tree extends BaseElement {
    *  value - the value of the expanded jqx-tree-items-group
    *  children - the children of the expanded jqx-tree-items-group
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-tree-items-group is about to be expanded. The expanding operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the jqx-tree-items-group to be expanded
@@ -21319,15 +22603,23 @@ export interface Tree extends BaseElement {
    *  value - the value of the jqx-tree-items-group to be expanded
    *  children - the children of the jqx-tree-items-group to be expanded
    */
-  onExpanding?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Tree has been scrolled to the bottom.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Tree has been scrolled to the top.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the left inside the Tree.
+	* @param event. The custom event.    */
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the right inside the Tree.
+	* @param event. The custom event.    */
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item after another item as a sibling.
    * @param {HTMLElement} item. A smart-tree-item/smart-tree-items-group to add to the Tree
@@ -21442,13 +22734,13 @@ export interface Tree extends BaseElement {
   updateItem(item: HTMLElement | string, newItem: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tree"): Tree;
-			querySelector(selectors: "smart-tree"): Tree | null;	
-			querySelectorAll(selectors: "smart-tree"): NodeListOf<Tree>;
-			getElementsByTagName(qualifiedName: "smart-tree"): HTMLCollectionOf<Tree>;
-			getElementsByName(elementName: "smart-tree"): NodeListOf<Tree>;	
+        createElement(tagName: "smart-tree"): Tree;
+        querySelector(selectors: "smart-tree"): Tree | null;
+        querySelectorAll(selectors: "smart-tree"): NodeListOf<Tree>;
+        getElementsByTagName(qualifiedName: "smart-tree"): HTMLCollectionOf<Tree>;
+        getElementsByName(elementName: "smart-tree"): NodeListOf<Tree>;
     }
 }
 
@@ -21462,13 +22754,7 @@ export declare type TreeSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMa
 export declare type TreeSortDirection = 'ascending' | 'descending';
 /**Determines the way to toggle jqx-tree-items-groups. */
 export declare type TreeToggleMode = 'click' | 'dblclick' | 'arrow';
-/**
- Defines a tree items.
-*/
-export interface TreeItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TreeItemProperties {
   /**
    * Enables or disables element.
    * Default value: false
@@ -21504,25 +22790,32 @@ export interface TreeItem extends BaseElement {
    * Default value: null
    */
   value?: any;
+  /**
+   * Disables user interaction with the item.
+   * Default value: false
+   */
+  readonly?: boolean;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-tree-item"): TreeItem;
-			querySelector(selectors: "smart-tree-item"): TreeItem | null;	
-			querySelectorAll(selectors: "smart-tree-item"): NodeListOf<TreeItem>;
-			getElementsByTagName(qualifiedName: "smart-tree-item"): HTMLCollectionOf<TreeItem>;
-			getElementsByName(elementName: "smart-tree-item"): NodeListOf<TreeItem>;	
-    }
-}
-
 /**
- Defines a group of tree items.
+ Defines a tree items.
 */
-export interface TreeItemsGroup extends BaseElement {
+export interface TreeItem extends BaseElement, TreeItemProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tree-item"): TreeItem;
+        querySelector(selectors: "smart-tree-item"): TreeItem | null;
+        querySelectorAll(selectors: "smart-tree-item"): NodeListOf<TreeItem>;
+        getElementsByTagName(qualifiedName: "smart-tree-item"): HTMLCollectionOf<TreeItem>;
+        getElementsByName(elementName: "smart-tree-item"): NodeListOf<TreeItem>;
+    }
+}
+
+export interface TreeItemsGroupProperties {
   /**
    * Enables or disables element.
    * Default value: false
@@ -21558,25 +22851,32 @@ export interface TreeItemsGroup extends BaseElement {
    * Default value: null
    */
   value?: any;
+  /**
+   * Disables user interaction with the item.
+   * Default value: false
+   */
+  readonly?: boolean;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-tree-items-group"): TreeItemsGroup;
-			querySelector(selectors: "smart-tree-items-group"): TreeItemsGroup | null;	
-			querySelectorAll(selectors: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-tree-items-group"): HTMLCollectionOf<TreeItemsGroup>;
-			getElementsByName(elementName: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;	
-    }
-}
-
 /**
- Validator plug-in is used to validate form elements.
+ Defines a group of tree items.
 */
-export interface Validator extends BaseElement {
+export interface TreeItemsGroup extends BaseElement, TreeItemsGroupProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tree-items-group"): TreeItemsGroup;
+        querySelector(selectors: "smart-tree-items-group"): TreeItemsGroup | null;
+        querySelectorAll(selectors: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-tree-items-group"): HTMLCollectionOf<TreeItemsGroup>;
+        getElementsByName(elementName: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;
+    }
+}
+
+export interface ValidatorProperties {
   /**
    * 
    * Default value: null
@@ -21587,6 +22887,14 @@ export interface Validator extends BaseElement {
    * Default value: ""
    */
   validationSummarySelector?: string;
+}
+/**
+ Validator plug-in is used to validate form elements.
+*/
+export interface Validator extends BaseElement, ValidatorProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
   /**
    * Clears the error messages.
    */
@@ -21599,9 +22907,6 @@ export interface Validator extends BaseElement {
 }
 
 export interface ValidatorRule {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * A comma-separated list of events to validate the input(s) on.
    * Default value: ""
@@ -21654,25 +22959,19 @@ export interface ValidatorRule {
   validationCallback?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "jqxValidator"): Validator;
-			querySelector(selectors: "jqxValidator"): Validator | null;	
-			querySelectorAll(selectors: "jqxValidator"): NodeListOf<Validator>;
-			getElementsByTagName(qualifiedName: "jqxValidator"): HTMLCollectionOf<Validator>;
-			getElementsByName(elementName: "jqxValidator"): NodeListOf<Validator>;	
+        createElement(tagName: "jqxValidator"): Validator;
+        querySelector(selectors: "jqxValidator"): Validator | null;
+        querySelectorAll(selectors: "jqxValidator"): NodeListOf<Validator>;
+        getElementsByTagName(qualifiedName: "jqxValidator"): HTMLCollectionOf<Validator>;
+        getElementsByName(elementName: "jqxValidator"): NodeListOf<Validator>;
     }
 }
 
 /**The type of validation the rule makes. */
 export declare type ValidatorRuleType = 'compare' | 'custom' | 'email' | 'notNumber' | 'numeric' | 'pattern' | 'phone' | 'range' | 'required' | 'startWithLetter' | 'stringLength' | 'zipCode';
-/**
- Window or Dialog displays the interactive custom confirmations, message boxes, alerts, warnings, errors, and modal dialogs.
-*/
-export interface Window extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface WindowProperties {
   /**
    * Determines if 'Add New' Tab inside the Tabs element is visible. Applicable only to TabsWindow
    * Default value: false
@@ -22019,58 +23318,66 @@ export interface Window extends BaseElement {
    * Default value: soft
    */
   wrap?: WindowWrap;
-  /** 
+}
+/**
+ Window or Dialog displays the interactive custom confirmations, message boxes, alerts, warnings, errors, and modal dialogs.
+*/
+export interface Window extends BaseElement, WindowProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered just before the window starts opening.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is opened( visible ).
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered just before the window starts closing.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is closed( hidden )
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the window is collapsed.
 	* @param event. The custom event.    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when window's dragging is ended.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when window's dragging is started.
 	* @param event. The custom event.    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the window is expanded.
 	* @param event. The custom event.    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is maximized.
 	* @param event. The custom event.    */
-  onMaximize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onMaximize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is minimized.
 	* @param event. The custom event.    */
-  onMinimize?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onMinimize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when window's resizing is ended.
 	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when window's resizing is started.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the window is restored to it's previous state before maximization.
 	* @param event. The custom event.    */
-  onRestore?: ((this: any, ev: Event) => any) | null;
+  onRestore?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Appends a tabitem to the end of the list of tab items inside element.
    * @param {Node} node. A TabItem element that should be added to the rest of the items as the last item.
@@ -22169,19 +23476,19 @@ export interface Window extends BaseElement {
 export interface Dialog extends Window {}
 
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-window"): Dialog;
-			querySelector(selectors: "smart-window"): Dialog | null;	
-			querySelectorAll(selectors: "smart-window"): NodeListOf<Dialog>;
-			getElementsByTagName(qualifiedName: "smart-window"): HTMLCollectionOf<Dialog>;
-			getElementsByName(elementName: "smart-window"): NodeListOf<Dialog>;	
+        createElement(tagName: "smart-window"): Dialog;
+        querySelector(selectors: "smart-window"): Dialog | null;
+        querySelectorAll(selectors: "smart-window"): NodeListOf<Dialog>;
+        getElementsByTagName(qualifiedName: "smart-window"): HTMLCollectionOf<Dialog>;
+        getElementsByName(elementName: "smart-window"): NodeListOf<Dialog>;
     }
 }
 
 
-declare global {    
-    interface Document {		
+declare global {
+    interface Document {
 		/**
 		* Returns the first element that is a descendant of node that matches selectors.
 		*/
@@ -22205,7 +23512,7 @@ declare global {
 		 */
 		getElementsByTagName<K extends keyof HTMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<HTMLElementTagNameMap[K]>;
 		getElementsByTagName<K extends keyof SVGElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<SVGElementTagNameMap[K]>;
-		getElementsByTagName(qualifiedName: string): HTMLCollectionOf<Element>;		
+		getElementsByTagName(qualifiedName: string): HTMLCollectionOf<Element>;
 	}
 }
 		/**Determines whether and how the value should be automatically capitalized as it is entered/edited by the user. <b>Applicable only to MultilinePromptWindow.</b> */
@@ -22230,3 +23537,1135 @@ export declare type WindowResizeMode = 'none' | 'horizontal' | 'vertical' | 'bot
 export declare type WindowTabCloseButtonMode = 'default' | 'selected';
 /**Indicates how the input wraps text. <b>Applicable only to MultilinePromptWindow.</b> */
 export declare type WindowWrap = 'hard' | 'soft' | 'off';
+declare global {
+    interface Window {
+        Smart: any;
+    }
+}
+
+export interface BootstrapButtonProperties {
+  /**
+   * Enables or disables the button. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets the inner HTML of the element.
+   * Default value: """"
+   */
+  innerHTML: string;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Outlines the button. 
+   * Default value: false
+   */
+  outlined?: boolean;
+  /**
+   * Sets or gets the style mode of the button.
+   * Default value: primary
+   */
+  styleMode?: BootstrapButtonStyleMode;
+  /**
+   * Sets or gets the size mode of the element.
+   * Default value: ""
+   */
+  sizeMode?: string;
+  /**
+   * Sets or gets the type of the button.
+   * Default value: "Reset"
+   */
+  type?: string;
+  /**
+   * Sets or gets the button's value. 
+   * Default value: ""
+   */
+  value?: string;
+}
+/**
+ Defines a Button component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapButton extends BaseElement, BootstrapButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Click event.
+	* @param event. The custom event.    */
+  onClick: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-button"): BootstrapButton;
+        querySelector(selectors: "bootstrap-button"): BootstrapButton | null;
+        querySelectorAll(selectors: "bootstrap-button"): NodeListOf<BootstrapButton>;
+        getElementsByTagName(qualifiedName: "bootstrap-button"): HTMLCollectionOf<BootstrapButton>;
+        getElementsByName(elementName: "bootstrap-button"): NodeListOf<BootstrapButton>;
+    }
+}
+
+/**Sets or gets the style mode of the button. */
+export declare type BootstrapButtonStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapCheckBoxProperties {
+  /**
+   * Gets or sets the checked state of the element. 
+   * Default value: false
+   */
+  checked?: boolean;
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Gets or sets whether the element is in indeterminate state. 
+   * Default value: false
+   */
+  indeterminate?: boolean;
+  /**
+   * Sets the inner HTML of the element.
+   * Default value: """"
+   */
+  innerHTML: string;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Gets or sets whether the element is required. 
+   * Default value: false
+   */
+  required?: boolean;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapCheckBoxStyleMode;
+}
+/**
+ Defines a CheckBox component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapCheckBox extends BaseElement, BootstrapCheckBoxProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the checkbox is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Toggles the checkbox
+   */
+  toggle(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-check-box"): BootstrapCheckBox;
+        querySelector(selectors: "bootstrap-check-box"): BootstrapCheckBox | null;
+        querySelectorAll(selectors: "bootstrap-check-box"): NodeListOf<BootstrapCheckBox>;
+        getElementsByTagName(qualifiedName: "bootstrap-check-box"): HTMLCollectionOf<BootstrapCheckBox>;
+        getElementsByName(elementName: "bootstrap-check-box"): NodeListOf<BootstrapCheckBox>;
+    }
+}
+
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapCheckBoxStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapCircularProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets the name of the element. 
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets or gets the min value
+   * Default value: 0
+   */
+  min?: number;
+  /**
+   * Sets or gets the max value
+   * Default value: 10
+   */
+  max?: number;
+  /**
+   * Sets whether stripes are displayed in the progress. 
+   * Default value: false
+   */
+  striped?: boolean;
+  /**
+   * Sets or gets the style mode of the button.
+   * Default value: primary
+   */
+  styleMode?: BootstrapCircularStyleMode;
+  /**
+   * Sets or gets the value
+   * Default value: 5
+   */
+  value?: number;
+}
+/**
+ Defines a Circular Progress component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapCircular extends BaseElement, BootstrapCircularProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-circular"): BootstrapCircular;
+        querySelector(selectors: "bootstrap-circular"): BootstrapCircular | null;
+        querySelectorAll(selectors: "bootstrap-circular"): NodeListOf<BootstrapCircular>;
+        getElementsByTagName(qualifiedName: "bootstrap-circular"): HTMLCollectionOf<BootstrapCircular>;
+        getElementsByName(elementName: "bootstrap-circular"): NodeListOf<BootstrapCircular>;
+    }
+}
+
+/**Sets or gets the style mode of the button. */
+export declare type BootstrapCircularStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapDropDownProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the drop down position of the element. 
+   * Default value: false
+   */
+  dropDownPosition?: BootstrapDropDownDropDownPosition;
+  /**
+   * Sets or gets the Label of the element.
+   * Default value: """"
+   */
+  label?: string;
+  /**
+   * Sets or gets the Label type of the element.
+   * Default value: ""
+   */
+  labelType?: BootstrapDropDownLabelType;
+  /**
+   * Sets or gets the Href of the element.
+   * Default value: "#"
+   */
+  href?: string;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Gets or sets whether the dropdown is opened. 
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Gets or sets whether the dropdown is outlined. 
+   * Default value: false
+   */
+  outlined?: boolean;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapDropDownStyleMode;
+  /**
+   * Sets or gets the size mode of the element.
+   * Default value: ""
+   */
+  sizeMode?: string;
+}
+/**
+ Defines a DropDown component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapDropDown extends BaseElement, BootstrapDropDownProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Show event is triggered when the dropdown is going to show.
+	* @param event. The custom event.    */
+  onShow?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Shown event is triggered when the dropdown is shown.
+	* @param event. The custom event.    */
+  onShown?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Hide event is triggered when the dropdown is going to be hidden.
+	* @param event. The custom event.    */
+  onHide?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Hidden event is triggered when the dropdown is hidden
+	* @param event. The custom event.    */
+  onHidden?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Toggles the dropdown visibility
+   */
+  toggle(): void;
+  /**
+   * Shows the dropdown
+   */
+  show(): void;
+  /**
+   * Hides the dropdown
+   */
+  hide(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-drop-down"): BootstrapDropDown;
+        querySelector(selectors: "bootstrap-drop-down"): BootstrapDropDown | null;
+        querySelectorAll(selectors: "bootstrap-drop-down"): NodeListOf<BootstrapDropDown>;
+        getElementsByTagName(qualifiedName: "bootstrap-drop-down"): HTMLCollectionOf<BootstrapDropDown>;
+        getElementsByName(elementName: "bootstrap-drop-down"): NodeListOf<BootstrapDropDown>;
+    }
+}
+
+/**Sets or gets the drop down position of the element.  */
+export declare type BootstrapDropDownDropDownPosition = 'auto' | 'top' | 'bottom' | 'left' | 'right' | 'custom';
+/**Sets or gets the Label type of the element. */
+export declare type BootstrapDropDownLabelType = 'a' | 'button';
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapDropDownStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapFileInputProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Gets or sets the placeholder of the element. 
+   * Default value: "false"
+   */
+  placeholder?: string;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapFileInputStyleMode;
+  /**
+   * Gets or sets the value of the element. 
+   * Default value: "false"
+   */
+  value?: string;
+}
+/**
+ Defines a Fileinput component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapFileInput extends BaseElement, BootstrapFileInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-file-input"): BootstrapFileInput;
+        querySelector(selectors: "bootstrap-file-input"): BootstrapFileInput | null;
+        querySelectorAll(selectors: "bootstrap-file-input"): NodeListOf<BootstrapFileInput>;
+        getElementsByTagName(qualifiedName: "bootstrap-file-input"): HTMLCollectionOf<BootstrapFileInput>;
+        getElementsByName(elementName: "bootstrap-file-input"): NodeListOf<BootstrapFileInput>;
+    }
+}
+
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapFileInputStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapInputProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Gets or sets whether the element is filled. 
+   * Default value: false
+   */
+  filled?: boolean;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Gets or sets whether the element is outlined. 
+   * Default value: false
+   */
+  outlined?: boolean;
+  /**
+   * Gets or sets the placeholder of the element. 
+   * Default value: "false"
+   */
+  placeholder?: string;
+  /**
+   * Gets or sets whether the element is required. 
+   * Default value: false
+   */
+  required?: boolean;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapInputStyleMode;
+  /**
+   * Gets or sets the value of the element. 
+   * Default value: "false"
+   */
+  value?: string;
+}
+/**
+ Defines an Input component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapInput extends BaseElement, BootstrapInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-input"): BootstrapInput;
+        querySelector(selectors: "bootstrap-input"): BootstrapInput | null;
+        querySelectorAll(selectors: "bootstrap-input"): NodeListOf<BootstrapInput>;
+        getElementsByTagName(qualifiedName: "bootstrap-input"): HTMLCollectionOf<BootstrapInput>;
+        getElementsByName(elementName: "bootstrap-input"): NodeListOf<BootstrapInput>;
+    }
+}
+
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapInputStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapInputGroupProperties {
+  /**
+   * Sets the content before the input.
+   * Default value: """"
+   */
+  contentBefore?: string;
+  /**
+   * Sets the content after the input.
+   * Default value: """"
+   */
+  contentAfter?: string;
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Enables or disables the wrapping. 
+   * Default value: false
+   */
+  noWrap?: boolean;
+  /**
+   * Sets or gets the style mode of the input group.
+   * Default value: primary
+   */
+  styleMode?: BootstrapInputGroupStyleMode;
+  /**
+   * Sets or gets the size mode of the element.
+   * Default value: ""
+   */
+  sizeMode?: string;
+  /**
+   * Sets or gets the type of the input.
+   * Default value: "text"
+   */
+  type?: string;
+  /**
+   * Sets the placeholder of the input.
+   * Default value: """"
+   */
+  placeholder?: string;
+  /**
+   * Sets or gets the button's value. 
+   * Default value: ""
+   */
+  value?: string;
+}
+/**
+ Defines an InputGroup component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapInputGroup extends BaseElement, BootstrapInputGroupProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Click event.
+	* @param event. The custom event.    */
+  onClick: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-input-group"): BootstrapInputGroup;
+        querySelector(selectors: "bootstrap-input-group"): BootstrapInputGroup | null;
+        querySelectorAll(selectors: "bootstrap-input-group"): NodeListOf<BootstrapInputGroup>;
+        getElementsByTagName(qualifiedName: "bootstrap-input-group"): HTMLCollectionOf<BootstrapInputGroup>;
+        getElementsByName(elementName: "bootstrap-input-group"): NodeListOf<BootstrapInputGroup>;
+    }
+}
+
+/**Sets or gets the style mode of the input group. */
+export declare type BootstrapInputGroupStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapModalProperties {
+  /**
+   * Clicking on the modal “backdrop” will automatically close the modal. 
+   * Default value: default
+   */
+  backdrop?: BootstrapModalBackdrop;
+  /**
+   * Sets or gets whether the modal is centered. 
+   * Default value: false
+   */
+  centered?: boolean;
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Gets or sets whether the modal is opened. 
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Gets or sets whether the modal is scrollable. 
+   * Default value: false
+   */
+  scrollable?: boolean;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapModalStyleMode;
+  /**
+   * Sets or gets the size mode of the element.
+   * Default value: ""
+   */
+  sizeMode?: string;
+}
+/**
+ Modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content
+*/
+export interface BootstrapModal extends BaseElement, BootstrapModalProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Show event is triggered when the modal is going to show.
+	* @param event. The custom event.    */
+  onShow?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Hide event is triggered when the modal is going to be hidden.
+	* @param event. The custom event.    */
+  onHide?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Toggles the modal visibility
+   */
+  toggle(): void;
+  /**
+   * Shows the modal
+   */
+  show(): void;
+  /**
+   * Hides the modal
+   */
+  hide(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-modal"): BootstrapModal;
+        querySelector(selectors: "bootstrap-modal"): BootstrapModal | null;
+        querySelectorAll(selectors: "bootstrap-modal"): NodeListOf<BootstrapModal>;
+        getElementsByTagName(qualifiedName: "bootstrap-modal"): HTMLCollectionOf<BootstrapModal>;
+        getElementsByName(elementName: "bootstrap-modal"): NodeListOf<BootstrapModal>;
+    }
+}
+
+/**Clicking on the modal “backdrop” will automatically close the modal.  */
+export declare type BootstrapModalBackdrop = 'static' | 'default' | 'none';
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapModalStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapProgressBarProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets the name of the element. 
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets or gets the min value
+   * Default value: 0
+   */
+  min?: number;
+  /**
+   * Sets or gets the max value
+   * Default value: 10
+   */
+  max?: number;
+  /**
+   * Sets whether stripes are displayed in the progress. 
+   * Default value: false
+   */
+  striped?: boolean;
+  /**
+   * Sets or gets the style mode of the button.
+   * Default value: primary
+   */
+  styleMode?: BootstrapProgressBarStyleMode;
+  /**
+   * Sets or gets the value
+   * Default value: 5
+   */
+  value?: number;
+}
+/**
+ Defines a Progress component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapProgressBar extends BaseElement, BootstrapProgressBarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-progress-bar"): BootstrapProgressBar;
+        querySelector(selectors: "bootstrap-progress-bar"): BootstrapProgressBar | null;
+        querySelectorAll(selectors: "bootstrap-progress-bar"): NodeListOf<BootstrapProgressBar>;
+        getElementsByTagName(qualifiedName: "bootstrap-progress-bar"): HTMLCollectionOf<BootstrapProgressBar>;
+        getElementsByName(elementName: "bootstrap-progress-bar"): NodeListOf<BootstrapProgressBar>;
+    }
+}
+
+/**Sets or gets the style mode of the button. */
+export declare type BootstrapProgressBarStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapRadioButtonProperties {
+  /**
+   * Gets or sets the checked state of the element. 
+   * Default value: false
+   */
+  checked?: boolean;
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Gets or sets whether the element is in indeterminate state. 
+   * Default value: false
+   */
+  indeterminate?: boolean;
+  /**
+   * Sets the inner HTML of the element.
+   * Default value: """"
+   */
+  innerHTML: string;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapRadioButtonStyleMode;
+}
+/**
+ Defines a Radio Button component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapRadioButton extends BaseElement, BootstrapRadioButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Toggles the element
+   */
+  toggle(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-radio-button"): BootstrapRadioButton;
+        querySelector(selectors: "bootstrap-radio-button"): BootstrapRadioButton | null;
+        querySelectorAll(selectors: "bootstrap-radio-button"): NodeListOf<BootstrapRadioButton>;
+        getElementsByTagName(qualifiedName: "bootstrap-radio-button"): HTMLCollectionOf<BootstrapRadioButton>;
+        getElementsByName(elementName: "bootstrap-radio-button"): NodeListOf<BootstrapRadioButton>;
+    }
+}
+
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapRadioButtonStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapRangeProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets the name of the element. 
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets or gets the min value
+   * Default value: 0
+   */
+  min?: number;
+  /**
+   * Sets or gets the max value
+   * Default value: 100
+   */
+  max?: number;
+  /**
+   * Sets or gets the value
+   * Default value: 100
+   */
+  value?: number;
+}
+/**
+ Defines a Range component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapRange extends BaseElement, BootstrapRangeProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-range"): BootstrapRange;
+        querySelector(selectors: "bootstrap-range"): BootstrapRange | null;
+        querySelectorAll(selectors: "bootstrap-range"): NodeListOf<BootstrapRange>;
+        getElementsByTagName(qualifiedName: "bootstrap-range"): HTMLCollectionOf<BootstrapRange>;
+        getElementsByName(elementName: "bootstrap-range"): NodeListOf<BootstrapRange>;
+    }
+}
+
+export interface BootstrapSplitButtonProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the drop down position of the element. 
+   * Default value: false
+   */
+  dropDownPosition?: BootstrapSplitButtonDropDownPosition;
+  /**
+   * Sets or gets the Label of the element.
+   * Default value: """"
+   */
+  label?: string;
+  /**
+   * Sets or gets the Label type of the element.
+   * Default value: ""
+   */
+  labelType?: BootstrapSplitButtonLabelType;
+  /**
+   * Sets or gets the Href of the element.
+   * Default value: "#"
+   */
+  href?: string;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Gets or sets whether the dropdown is opened. 
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Gets or sets whether the dropdown is outlined. 
+   * Default value: false
+   */
+  outlined?: boolean;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapSplitButtonStyleMode;
+  /**
+   * Sets or gets the size mode of the element.
+   * Default value: ""
+   */
+  sizeMode?: string;
+}
+/**
+ Defines a Split Button with DropDown component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapSplitButton extends BaseElement, BootstrapSplitButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Show event is triggered when the dropdown is going to show.
+	* @param event. The custom event.    */
+  onShow?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Shown event is triggered when the dropdown is shown.
+	* @param event. The custom event.    */
+  onShown?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Hide event is triggered when the dropdown is going to be hidden.
+	* @param event. The custom event.    */
+  onHide?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Hidden event is triggered when the dropdown is hidden
+	* @param event. The custom event.    */
+  onHidden?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Toggles the dropdown visibility
+   */
+  toggle(): void;
+  /**
+   * Shows the dropdown
+   */
+  show(): void;
+  /**
+   * Hides the dropdown
+   */
+  hide(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-split-button"): BootstrapSplitButton;
+        querySelector(selectors: "bootstrap-split-button"): BootstrapSplitButton | null;
+        querySelectorAll(selectors: "bootstrap-split-button"): NodeListOf<BootstrapSplitButton>;
+        getElementsByTagName(qualifiedName: "bootstrap-split-button"): HTMLCollectionOf<BootstrapSplitButton>;
+        getElementsByName(elementName: "bootstrap-split-button"): NodeListOf<BootstrapSplitButton>;
+    }
+}
+
+/**Sets or gets the drop down position of the element.  */
+export declare type BootstrapSplitButtonDropDownPosition = 'auto' | 'top' | 'bottom' | 'left' | 'right' | 'custom';
+/**Sets or gets the Label type of the element. */
+export declare type BootstrapSplitButtonLabelType = 'a' | 'button';
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapSplitButtonStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapSwitchButtonProperties {
+  /**
+   * Gets or sets the checked state of the element. 
+   * Default value: false
+   */
+  checked?: boolean;
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Gets or sets whether the element is in indeterminate state. 
+   * Default value: false
+   */
+  indeterminate?: boolean;
+  /**
+   * Sets the inner HTML of the element.
+   * Default value: """"
+   */
+  innerHTML: string;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Gets or sets whether the element is required. 
+   * Default value: false
+   */
+  required?: boolean;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapSwitchButtonStyleMode;
+}
+/**
+ Defines a Switch Button component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapSwitchButton extends BaseElement, BootstrapSwitchButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Toggles the element
+   */
+  toggle(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-switch-button"): BootstrapSwitchButton;
+        querySelector(selectors: "bootstrap-switch-button"): BootstrapSwitchButton | null;
+        querySelectorAll(selectors: "bootstrap-switch-button"): NodeListOf<BootstrapSwitchButton>;
+        getElementsByTagName(qualifiedName: "bootstrap-switch-button"): HTMLCollectionOf<BootstrapSwitchButton>;
+        getElementsByName(elementName: "bootstrap-switch-button"): NodeListOf<BootstrapSwitchButton>;
+    }
+}
+
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapSwitchButtonStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapTabsProperties {
+  /**
+   * Sets the tabs alignment
+   * Default value: 
+   */
+  alignment?: BootstrapTabsAlignment;
+  /**
+   * Enables or disables the tabs. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets the tabs fill
+   * Default value: false
+   */
+  fill?: boolean;
+  /**
+   * Sets the tabs justified
+   * Default value: false
+   */
+  justified?: boolean;
+  /**
+   * Sets or gets the tab type.
+   * Default value: ul
+   */
+  listType?: BootstrapTabsListType;
+  /**
+   * Sets or gets the style mode of the tabs.
+   * Default value: primary
+   */
+  styleMode?: BootstrapTabsStyleMode;
+  /**
+   * Sets or gets the size mode of the element.
+   * Default value: ""
+   */
+  sizeMode?: string;
+  /**
+   * Sets or gets the tab type .
+   * Default value: tabs
+   */
+  tabType?: BootstrapTabsTabType;
+}
+/**
+ Defines a Tabs component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapTabs extends BaseElement, BootstrapTabsProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Show event.
+	* @param event. The custom event.    */
+  onShow?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Shows an item
+   * @param {HTMLElement} item. The tab item to be shown.
+   */
+  show(item: HTMLElement): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-tabs"): BootstrapTabs;
+        querySelector(selectors: "bootstrap-tabs"): BootstrapTabs | null;
+        querySelectorAll(selectors: "bootstrap-tabs"): NodeListOf<BootstrapTabs>;
+        getElementsByTagName(qualifiedName: "bootstrap-tabs"): HTMLCollectionOf<BootstrapTabs>;
+        getElementsByName(elementName: "bootstrap-tabs"): NodeListOf<BootstrapTabs>;
+    }
+}
+
+/**Sets the tabs alignment */
+export declare type BootstrapTabsAlignment = null | 'center' | 'end' | 'vertical';
+/**Sets or gets the tab type. */
+export declare type BootstrapTabsListType = 'ul' | 'ol' | 'nav';
+/**Sets or gets the style mode of the tabs. */
+export declare type BootstrapTabsStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+/**Sets or gets the tab type . */
+export declare type BootstrapTabsTabType = 'tabs' | 'nav' | 'pills';
+export interface BootstrapTextareaProperties {
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Gets or sets whether the element is filled. 
+   * Default value: false
+   */
+  filled?: boolean;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Gets or sets whether the element is outlined. 
+   * Default value: false
+   */
+  outlined?: boolean;
+  /**
+   * Gets or sets the placeholder of the element. 
+   * Default value: "false"
+   */
+  placeholder?: string;
+  /**
+   * Gets or sets whether the element is required. 
+   * Default value: false
+   */
+  required?: boolean;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapTextareaStyleMode;
+  /**
+   * Gets or sets the value of the element. 
+   * Default value: "false"
+   */
+  value?: string;
+}
+/**
+ Defines a Textarea component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapTextarea extends BaseElement, BootstrapTextareaProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-textarea"): BootstrapTextarea;
+        querySelector(selectors: "bootstrap-textarea"): BootstrapTextarea | null;
+        querySelectorAll(selectors: "bootstrap-textarea"): NodeListOf<BootstrapTextarea>;
+        getElementsByTagName(qualifiedName: "bootstrap-textarea"): HTMLCollectionOf<BootstrapTextarea>;
+        getElementsByName(elementName: "bootstrap-textarea"): NodeListOf<BootstrapTextarea>;
+    }
+}
+
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapTextareaStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';
+export interface BootstrapToggleButtonProperties {
+  /**
+   * Gets or sets the checked state of the element. 
+   * Default value: false
+   */
+  checked?: boolean;
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Gets or sets whether the element is in indeterminate state. 
+   * Default value: false
+   */
+  indeterminate?: boolean;
+  /**
+   * Sets the inner HTML of the element.
+   * Default value: """"
+   */
+  innerHTML: string;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * Sets or gets the style mode of the element.
+   * Default value: primary
+   */
+  styleMode?: BootstrapToggleButtonStyleMode;
+}
+/**
+ Defines a Toggle Button component, which includes Material and Bootstrap styles
+*/
+export interface BootstrapToggleButton extends BaseElement, BootstrapToggleButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the value of the element is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Toggles the element
+   */
+  toggle(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "bootstrap-toggle-button"): BootstrapToggleButton;
+        querySelector(selectors: "bootstrap-toggle-button"): BootstrapToggleButton | null;
+        querySelectorAll(selectors: "bootstrap-toggle-button"): NodeListOf<BootstrapToggleButton>;
+        getElementsByTagName(qualifiedName: "bootstrap-toggle-button"): HTMLCollectionOf<BootstrapToggleButton>;
+        getElementsByName(elementName: "bootstrap-toggle-button"): NodeListOf<BootstrapToggleButton>;
+    }
+}
+
+/**Sets or gets the style mode of the element. */
+export declare type BootstrapToggleButtonStyleMode = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | null | 'default';

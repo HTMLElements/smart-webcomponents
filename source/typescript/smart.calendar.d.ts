@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Calendar allows user to easily select one or more dates. This control supports multi-calendar view, special dates, holidays, weekends, decade views.
-*/
-export interface Calendar extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CalendarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -268,37 +262,45 @@ export interface Calendar extends BaseElement {
    * Default value: numeric
    */
   yearFormat?: YearFormat;
-  /** 
+}
+/**
+ Calendar allows user to easily select one or more dates. This control supports multi-calendar view, special dates, holidays, weekends, decade views.
+*/
+export interface Calendar extends BaseElement, CalendarProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a new date has been selected/unselected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - An array of all currently selected dates.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the displayMode is about to change. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldDisplayMode, newDisplayMode)
    *  oldDisplayMode - The previous display mode.
    *  newDisplayMode - The new display mode.
    */
-  onDisplayModeChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDisplayModeChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the display mode has changed.
 	* @param event. The custom event.    */
-  onDisplayModeChange?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDisplayModeChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the view is changing. This navigation can be cancelled by using the preventDefault method.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, type)
    *  value - The view's date.
    *  type - The view type - 'month', 'decade' or 'year'.
    */
-  onNavigationChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onNavigationChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the view is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, type)
    *  value - The view's date.
    *  type - The view type - 'month', 'decade' or 'year'.
    */
-  onNavigationChange?: ((this: any, ev: Event) => any) | null;
+  onNavigationChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Clears the selection. Removes all seleceted dates.
    */
@@ -321,13 +323,13 @@ export interface Calendar extends BaseElement {
   today(): Date;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-calendar"): Calendar;
-			querySelector(selectors: "smart-calendar"): Calendar | null;	
-			querySelectorAll(selectors: "smart-calendar"): NodeListOf<Calendar>;
-			getElementsByTagName(qualifiedName: "smart-calendar"): HTMLCollectionOf<Calendar>;
-			getElementsByName(elementName: "smart-calendar"): NodeListOf<Calendar>;	
+        createElement(tagName: "smart-calendar"): Calendar;
+        querySelector(selectors: "smart-calendar"): Calendar | null;
+        querySelectorAll(selectors: "smart-calendar"): NodeListOf<Calendar>;
+        getElementsByTagName(qualifiedName: "smart-calendar"): HTMLCollectionOf<Calendar>;
+        getElementsByName(elementName: "smart-calendar"): NodeListOf<Calendar>;
     }
 }
 

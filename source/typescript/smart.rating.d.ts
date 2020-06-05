@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Rating allows you to input a rating. It is broadly used in applications with reviews.
-*/
-export interface Rating extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface RatingProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -74,14 +68,22 @@ export interface Rating extends BaseElement {
    */
   value?: number;
 }
+/**
+ Rating allows you to input a rating. It is broadly used in applications with reviews.
+*/
+export interface Rating extends BaseElement, RatingProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-rating"): Rating;
-			querySelector(selectors: "smart-rating"): Rating | null;	
-			querySelectorAll(selectors: "smart-rating"): NodeListOf<Rating>;
-			getElementsByTagName(qualifiedName: "smart-rating"): HTMLCollectionOf<Rating>;
-			getElementsByName(elementName: "smart-rating"): NodeListOf<Rating>;	
+        createElement(tagName: "smart-rating"): Rating;
+        querySelector(selectors: "smart-rating"): Rating | null;
+        querySelectorAll(selectors: "smart-rating"): NodeListOf<Rating>;
+        getElementsByTagName(qualifiedName: "smart-rating"): HTMLCollectionOf<Rating>;
+        getElementsByName(elementName: "smart-rating"): NodeListOf<Rating>;
     }
 }
 

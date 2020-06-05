@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- QueryBuilder allows you to build dynamically queries for filtering.
-*/
-export interface QueryBuilder extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface QueryBuilderProperties {
   /**
    * Enables the dragging of conditions inside a group or between groups.
    * Default value: false
@@ -160,7 +154,15 @@ export interface QueryBuilder extends BaseElement {
    * Default value: "Value"
    */
   valuePlaceholder?: string;
-  /** 
+}
+/**
+ QueryBuilder allows you to build dynamically queries for filtering.
+*/
+export interface QueryBuilder extends BaseElement, QueryBuilderProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the query builder's value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, originalEvent)
    *  item - The item that is being dragged.
@@ -168,7 +170,7 @@ export interface QueryBuilder extends BaseElement {
    *  originalEvent - The original event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a dragged condition is dropped. This action can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, target, targetData, targetSide)
    *  item - The item that is being dragged.
@@ -178,15 +180,15 @@ export interface QueryBuilder extends BaseElement {
    *  targetSide - The side of the target item where the dragged item will be dropped.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a condition is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, originalEvent)
    *  item - The item that is being dragged.
    *  data - The data of the item that is being dragged.
    *  originalEvent - The original event.
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a dragging operation is started in jqx-query-builder. This action can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, data, originalEvent)
    *  item - The item is going to be dragged.
@@ -194,21 +196,21 @@ export interface QueryBuilder extends BaseElement {
    *  originalEvent - The original event.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when one of the query builder's building blocks ( oeprator, fieldName, value, close button, etc) is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(id, type, data)
    *  id - The internal id of the clicked item, e.g. '0.1', '1.1', etc.
    *  type - The type of the clicked item ( condition or a group ).
    *  data - The data of the item.
    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a field has been selected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, value)
    *  label - The label of the selected property.
    *  value - The value of the selected property.
    */
-  onPropertySelected?: ((this: any, ev: Event) => any) | null;
+  onPropertySelected?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Converts the current value of the element to DynamicLINQ expression.
    * @returns {string}
@@ -216,13 +218,13 @@ export interface QueryBuilder extends BaseElement {
   getLinq(): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-query-builder"): QueryBuilder;
-			querySelector(selectors: "smart-query-builder"): QueryBuilder | null;	
-			querySelectorAll(selectors: "smart-query-builder"): NodeListOf<QueryBuilder>;
-			getElementsByTagName(qualifiedName: "smart-query-builder"): HTMLCollectionOf<QueryBuilder>;
-			getElementsByName(elementName: "smart-query-builder"): NodeListOf<QueryBuilder>;	
+        createElement(tagName: "smart-query-builder"): QueryBuilder;
+        querySelector(selectors: "smart-query-builder"): QueryBuilder | null;
+        querySelectorAll(selectors: "smart-query-builder"): NodeListOf<QueryBuilder>;
+        getElementsByTagName(qualifiedName: "smart-query-builder"): HTMLCollectionOf<QueryBuilder>;
+        getElementsByName(elementName: "smart-query-builder"): NodeListOf<QueryBuilder>;
     }
 }
 

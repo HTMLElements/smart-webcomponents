@@ -1,7 +1,7 @@
 /* Error styles */
-.smart-validation-error,
-.smart-validation-error input,
-.smart-validation-error span {
+.smart-validation-error:not(.underlined):not(.outlined),
+.smart-validation-error:not(.underlined):not(.outlined) input,
+.smart-validation-error:not(.underlined):not(.outlined) span {
     border-color: var(--smart-error) !important;
     outline: none;
 }
@@ -21,8 +21,8 @@ input[type='radio'].smart-validation-error { /* input radio */
     font-weight: bold;
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: flex;
     text-align: center;
@@ -80,10 +80,20 @@ input.smart-validation-success {
     border-width: 1px;
 }
 
+.smart-validation-summary {
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    color: var(--smart-error);
+}
+.smart-validation-summary span {
+    display: block;
+    margin-top: 5px;
+}
+
 /* Success styles */
-.smart-validation-success,
-.smart-validation-success input,
-.smart-validation-success span {
+.smart-validation-success:not(.underlined):not(.outlined),
+.smart-validation-success:not(.underlined):not(.outlined) input,
+.smart-validation-success:not(.underlined):not(.outlined) span {
     border-color: var(--smart-success) !important;
     outline: none;
 }
@@ -102,6 +112,14 @@ input.smart-validation-success {
         transform: translate(-50%, -50%);
     }
 
+
+
+ .smart-element.smart-validation-success:not(.outlined):not(.underlined) .smart-hint::after {
+    background-color: var(--smart-success);
+ }
+ .smart-element.smart-validation-error:not(.outlined):not(.underlined) .smart-hint::after {
+    background-color: var(--smart-error);
+ }
 .smart-success-label-like-after-element {
     position: relative;
 }

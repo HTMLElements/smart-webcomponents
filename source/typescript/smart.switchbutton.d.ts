@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- A Switch represents a button with two states, on and off. Switches are most often used on mobile devices to enable and disable options.
-*/
-export interface SwitchButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface SwitchButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -118,19 +112,27 @@ export interface SwitchButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ A Switch represents a button with two states, on and off. Switches are most often used on mobile devices to enable and disable options.
+*/
+export interface SwitchButton extends BaseElement, SwitchButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-switch-button"): SwitchButton;
-			querySelector(selectors: "smart-switch-button"): SwitchButton | null;	
-			querySelectorAll(selectors: "smart-switch-button"): NodeListOf<SwitchButton>;
-			getElementsByTagName(qualifiedName: "smart-switch-button"): HTMLCollectionOf<SwitchButton>;
-			getElementsByName(elementName: "smart-switch-button"): NodeListOf<SwitchButton>;	
+        createElement(tagName: "smart-switch-button"): SwitchButton;
+        querySelector(selectors: "smart-switch-button"): SwitchButton | null;
+        querySelectorAll(selectors: "smart-switch-button"): NodeListOf<SwitchButton>;
+        getElementsByTagName(qualifiedName: "smart-switch-button"): HTMLCollectionOf<SwitchButton>;
+        getElementsByName(elementName: "smart-switch-button"): NodeListOf<SwitchButton>;
     }
 }
 

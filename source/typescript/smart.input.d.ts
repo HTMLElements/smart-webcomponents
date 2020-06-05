@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Input specifies an input field where the user can enter data. Auto-complete options are displayed for easier input.
-*/
-export interface Input extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface InputProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -149,7 +143,15 @@ export interface Input extends BaseElement {
    * Default value: ""
    */
   value?: string;
-  /** 
+}
+/**
+ Input specifies an input field where the user can enter data. Auto-complete options are displayed for easier input.
+*/
+export interface Input extends BaseElement, InputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the selection is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
    *  label - The label of the new selected item.
@@ -176,13 +178,13 @@ export interface Input extends BaseElement {
   select(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-input"): Input;
-			querySelector(selectors: "smart-input"): Input | null;	
-			querySelectorAll(selectors: "smart-input"): NodeListOf<Input>;
-			getElementsByTagName(qualifiedName: "smart-input"): HTMLCollectionOf<Input>;
-			getElementsByName(elementName: "smart-input"): NodeListOf<Input>;	
+        createElement(tagName: "smart-input"): Input;
+        querySelector(selectors: "smart-input"): Input | null;
+        querySelectorAll(selectors: "smart-input"): NodeListOf<Input>;
+        getElementsByTagName(qualifiedName: "smart-input"): HTMLCollectionOf<Input>;
+        getElementsByName(elementName: "smart-input"): NodeListOf<Input>;
     }
 }
 

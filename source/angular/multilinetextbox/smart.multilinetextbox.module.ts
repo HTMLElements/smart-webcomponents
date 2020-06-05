@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { MultilineTextBoxComponent } from './smart.multilinetextbox';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { ListItemComponent } from './smart.listitem';

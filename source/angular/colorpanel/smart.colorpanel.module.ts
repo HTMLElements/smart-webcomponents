@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { ColorPanelComponent } from './smart.colorpanel';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

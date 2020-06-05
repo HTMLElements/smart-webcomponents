@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Defines a dialog for customization of filtering, sorting.
-*/
-export interface CustomizationDialog extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface CustomizationDialogProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -139,22 +133,30 @@ export interface CustomizationDialog extends BaseElement {
    * Default value: false
    */
   visibility?: boolean;
-  /** 
+}
+/**
+ Defines a dialog for customization of filtering, sorting.
+*/
+export interface CustomizationDialog extends BaseElement, CustomizationDialogProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the dialog is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the dialog is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the data in the value property is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the dialog is closed via clicking the apply button.
 	* @param event. The custom event.    */
-  onApply?: ((this: any, ev: Event) => any) | null;
+  onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Opens the dialog
    */
@@ -165,13 +167,13 @@ export interface CustomizationDialog extends BaseElement {
   close(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-customization-dialog"): CustomizationDialog;
-			querySelector(selectors: "smart-customization-dialog"): CustomizationDialog | null;	
-			querySelectorAll(selectors: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;
-			getElementsByTagName(qualifiedName: "smart-customization-dialog"): HTMLCollectionOf<CustomizationDialog>;
-			getElementsByName(elementName: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;	
+        createElement(tagName: "smart-customization-dialog"): CustomizationDialog;
+        querySelector(selectors: "smart-customization-dialog"): CustomizationDialog | null;
+        querySelectorAll(selectors: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;
+        getElementsByTagName(qualifiedName: "smart-customization-dialog"): HTMLCollectionOf<CustomizationDialog>;
+        getElementsByName(elementName: "smart-customization-dialog"): NodeListOf<CustomizationDialog>;
     }
 }
 

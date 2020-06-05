@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- ColorPicker is an advanced color picking component with Pallete, Spectrum Grid, Radial Palette and Excel-like options. Users can input colors either by a dropdown or input field.
-*/
-export interface ColorPicker extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ColorPickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -265,63 +259,71 @@ export interface ColorPicker extends BaseElement {
    * Default value: default
    */
   valueDisplayMode?: ColorValueDisplayMode;
-  /** 
+}
+/**
+ ColorPicker is an advanced color picking component with Pallete, Spectrum Grid, Radial Palette and Excel-like options. Users can input colors either by a dropdown or input field.
+*/
+export interface ColorPicker extends BaseElement, ColorPickerProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when user clicks on the action button. 'Ok' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onActionButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onActionButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the cancel button is clicked. 'Cancel' button is visible only when <strong>applyValueMode</strong> is set to <strong>useButtons</strong>.
 	* @param event. The custom event.    */
-  onCancelButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCancelButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the color value is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previously selected color.
    *  value - The new selected color.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the drop down is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the custom color selection view is opened/closed. Custom color selection view is available when <strong>enableCustomColors</strong> property is true.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value)
    *  value - A boolean that indicates whether the custom color view is shown or not.
    */
-  onCustomColorSelection?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCustomColorSelection?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks on the drop down button.
 	* @param event. The custom event.    */
-  onDropDownButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the ok button is clicked.
 	* @param event. The custom event.    */
-  onOkButtonClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOkButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the drop down is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user starts resizing the drop down.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeStart?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the resizing of the drop down is finished.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | null;
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Opens the drop down of the color picker.
    */
@@ -332,13 +334,13 @@ export interface ColorPicker extends BaseElement {
   close(): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-color-picker"): ColorPicker;
-			querySelector(selectors: "smart-color-picker"): ColorPicker | null;	
-			querySelectorAll(selectors: "smart-color-picker"): NodeListOf<ColorPicker>;
-			getElementsByTagName(qualifiedName: "smart-color-picker"): HTMLCollectionOf<ColorPicker>;
-			getElementsByName(elementName: "smart-color-picker"): NodeListOf<ColorPicker>;	
+        createElement(tagName: "smart-color-picker"): ColorPicker;
+        querySelector(selectors: "smart-color-picker"): ColorPicker | null;
+        querySelectorAll(selectors: "smart-color-picker"): NodeListOf<ColorPicker>;
+        getElementsByTagName(qualifiedName: "smart-color-picker"): HTMLCollectionOf<ColorPicker>;
+        getElementsByName(elementName: "smart-color-picker"): NodeListOf<ColorPicker>;
     }
 }
 

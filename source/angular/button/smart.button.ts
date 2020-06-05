@@ -179,11 +179,11 @@ export class ButtonComponent extends BaseElement implements OnInit, AfterViewIni
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -194,7 +194,7 @@ export class ButtonComponent extends BaseElement implements OnInit, AfterViewIni
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

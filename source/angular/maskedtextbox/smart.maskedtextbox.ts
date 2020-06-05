@@ -402,11 +402,11 @@ export class MaskedTextBoxComponent extends BaseElement implements OnInit, After
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -417,7 +417,7 @@ export class MaskedTextBoxComponent extends BaseElement implements OnInit, After
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -478,16 +478,16 @@ export class MaskedTextBoxComponent extends BaseElement implements OnInit, After
 		that.eventHandlers['validationHandler'] = (event: CustomEvent) => { that.onValidation.emit(event); }
 		that.nativeElement.addEventListener('validation', that.eventHandlers['validationHandler']);
 
-		
+
         that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
-            that._onChange(that.nativeElement.value); 
+            that._onChange(that.nativeElement.value);
         };
         that.eventHandlers['blurModelHandler'] = (event: Event) => {
             that._onTouched();
         };
         that.nativeElement.whenRendered(() => {
-            if (that.nativeElement.querySelector('input')) {    
+            if (that.nativeElement.querySelector('input')) {
                 that.eventHandlers['keyupModelHandler'] = (event) => {
                     setTimeout(() => { that.eventHandlers['changeModelHandler'](event); }, 50);
                 };

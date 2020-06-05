@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Defines a list item for ListBox, ComboBox, DropDownList.
-*/
-export interface ListItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemProperties {
   /**
    * 
    * Default value: -1
@@ -63,50 +57,54 @@ export interface ListItem extends BaseElement {
    */
   readonly?: boolean;
 }
+/**
+ Defines a list item for ListBox, ComboBox, DropDownList.
+*/
+export interface ListItem extends BaseElement, ListItemProperties {
 
-declare global {    
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
     interface Document {
-			createElement(tagName: "smart-list-item"): ListItem;
-			querySelector(selectors: "smart-list-item"): ListItem | null;	
-			querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
-			getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
-			getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;	
+        createElement(tagName: "smart-list-item"): ListItem;
+        querySelector(selectors: "smart-list-item"): ListItem | null;
+        querySelectorAll(selectors: "smart-list-item"): NodeListOf<ListItem>;
+        getElementsByTagName(qualifiedName: "smart-list-item"): HTMLCollectionOf<ListItem>;
+        getElementsByName(elementName: "smart-list-item"): NodeListOf<ListItem>;
     }
 }
 
 
 export declare type ListItemDisplayMode = 'plain' | 'checkBox' | 'radioButton';
-/**
- Defines a group of list items.
-*/
-export interface ListItemsGroup extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ListItemsGroupProperties {
   /**
    * 
    * Default value: ""
    */
   label?: string;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-list-items-group"): ListItemsGroup;
-			querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;	
-			querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
-			getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;	
-    }
-}
-
 /**
- Buttons group with DropDown and multiple action buttons.
+ Defines a group of list items.
 */
-export interface MultiSplitButton extends BaseElement {
+export interface ListItemsGroup extends BaseElement, ListItemsGroupProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-list-items-group"): ListItemsGroup;
+        querySelector(selectors: "smart-list-items-group"): ListItemsGroup | null;
+        querySelectorAll(selectors: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-list-items-group"): HTMLCollectionOf<ListItemsGroup>;
+        getElementsByName(elementName: "smart-list-items-group"): NodeListOf<ListItemsGroup>;
+    }
+}
+
+export interface MultiSplitButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -294,38 +292,46 @@ export interface MultiSplitButton extends BaseElement {
    * Default value: false
    */
   virtualized?: boolean;
-  /** 
+}
+/**
+ Buttons group with DropDown and multiple action buttons.
+*/
+export interface MultiSplitButton extends BaseElement, MultiSplitButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when button's dropDown selection is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when button's dropDown list is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when button's dropDown list is closing.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user clicks any of the element's buttons or button's dropDown items.
 	* @param event. The custom event.    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when button's dropDown list is opened.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when button's dropDown list is opening.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the end of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when user scrolls to the start of the dropDown list.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes button's dropDown list.
    */
@@ -364,13 +370,13 @@ export interface MultiSplitButton extends BaseElement {
   update(position: number, value: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-multi-split-button"): MultiSplitButton;
-			querySelector(selectors: "smart-multi-split-button"): MultiSplitButton | null;	
-			querySelectorAll(selectors: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;
-			getElementsByTagName(qualifiedName: "smart-multi-split-button"): HTMLCollectionOf<MultiSplitButton>;
-			getElementsByName(elementName: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;	
+        createElement(tagName: "smart-multi-split-button"): MultiSplitButton;
+        querySelector(selectors: "smart-multi-split-button"): MultiSplitButton | null;
+        querySelectorAll(selectors: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;
+        getElementsByTagName(qualifiedName: "smart-multi-split-button"): HTMLCollectionOf<MultiSplitButton>;
+        getElementsByName(elementName: "smart-multi-split-button"): NodeListOf<MultiSplitButton>;
     }
 }
 

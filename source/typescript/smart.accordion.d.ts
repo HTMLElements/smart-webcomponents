@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Accordion organizes content within collapsable items.
-*/
-export interface Accordion extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface AccordionProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -83,23 +77,31 @@ export interface Accordion extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Accordion organizes content within collapsable items.
+*/
+export interface Accordion extends BaseElement, AccordionProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when an item is collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(content, index, label)
    *  content - The content of the item.
    *  index - The index of the item.
    *  label - The label of the item
    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is going to be collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(content, index, label)
    *  content - The content of the item.
    *  index - The index of the item.
    *  label - The label of the item
    */
-  onCollapsing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapsing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a reordering operation is completed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position, target, content, index, label)
    *  position - The current top and left position of the item that was dragged.
@@ -109,7 +111,7 @@ export interface Accordion extends BaseElement {
    *  label - The label of the item.
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a reordering operation is started.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position, target, content, index, label)
    *  position - The current top and left position of the item that is about to be dragged.
@@ -119,7 +121,7 @@ export interface Accordion extends BaseElement {
    *  label - The label of the item.
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an item is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position, target, content, index, label)
    *  position - The current top and left position of the item.
@@ -128,15 +130,15 @@ export interface Accordion extends BaseElement {
    *  index - The index of the item.
    *  label - The label of the item.
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an item is going to be expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(content, index, label)
    *  content - The content of the item.
    *  index - The index of the item.
    *  label - The label of the item
    */
-  onExpanding?: ((this: any, ev: Event) => any) | null;
+  onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Collapses an item at a specified index.
    * @param {number} position. The index of the collapsed item.
@@ -166,25 +168,19 @@ export interface Accordion extends BaseElement {
   update(index: number, settings: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-accordion"): Accordion;
-			querySelector(selectors: "smart-accordion"): Accordion | null;	
-			querySelectorAll(selectors: "smart-accordion"): NodeListOf<Accordion>;
-			getElementsByTagName(qualifiedName: "smart-accordion"): HTMLCollectionOf<Accordion>;
-			getElementsByName(elementName: "smart-accordion"): NodeListOf<Accordion>;	
+        createElement(tagName: "smart-accordion"): Accordion;
+        querySelector(selectors: "smart-accordion"): Accordion | null;
+        querySelectorAll(selectors: "smart-accordion"): NodeListOf<Accordion>;
+        getElementsByTagName(qualifiedName: "smart-accordion"): HTMLCollectionOf<Accordion>;
+        getElementsByName(elementName: "smart-accordion"): NodeListOf<Accordion>;
     }
 }
 
 /**Sets or gets the expand mode. Expand mode determines how the items will expand or collapse. */
 export declare type AccordionExpandMode = 'single' | 'singleFitHeight' | 'multiple' | 'toggle' | 'none';
-/**
- Single item in an Accordion view.
-*/
-export interface AccordionItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface AccordionItemProperties {
   /**
    * Sets or gets header's arrow position. If the value is 'none' the arrow is not shown.
    * Default value: left
@@ -210,23 +206,31 @@ export interface AccordionItem extends BaseElement {
    * Default value: ""
    */
   label?: string;
-  /** 
+}
+/**
+ Single item in an Accordion view.
+*/
+export interface AccordionItem extends BaseElement, AccordionItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the item is collapsed.
 	* @param event. The custom event.    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the item is expanded.
 	* @param event. The custom event.    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-accordion-item"): AccordionItem;
-			querySelector(selectors: "smart-accordion-item"): AccordionItem | null;	
-			querySelectorAll(selectors: "smart-accordion-item"): NodeListOf<AccordionItem>;
-			getElementsByTagName(qualifiedName: "smart-accordion-item"): HTMLCollectionOf<AccordionItem>;
-			getElementsByName(elementName: "smart-accordion-item"): NodeListOf<AccordionItem>;	
+        createElement(tagName: "smart-accordion-item"): AccordionItem;
+        querySelector(selectors: "smart-accordion-item"): AccordionItem | null;
+        querySelectorAll(selectors: "smart-accordion-item"): NodeListOf<AccordionItem>;
+        getElementsByTagName(qualifiedName: "smart-accordion-item"): HTMLCollectionOf<AccordionItem>;
+        getElementsByName(elementName: "smart-accordion-item"): NodeListOf<AccordionItem>;
     }
 }
 

@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Buttons allow users to take actions, and make choices, with a single tap. Buttons communicate actions that users can take.
-*/
-export interface Button extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -93,31 +87,33 @@ export interface Button extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Buttons allow users to take actions, and make choices, with a single tap. Buttons communicate actions that users can take.
+*/
+export interface Button extends BaseElement, ButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * Click event is triggered regarding to the chosen clickMode.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-button"): Button;
-			querySelector(selectors: "smart-button"): Button | null;	
-			querySelectorAll(selectors: "smart-button"): NodeListOf<Button>;
-			getElementsByTagName(qualifiedName: "smart-button"): HTMLCollectionOf<Button>;
-			getElementsByName(elementName: "smart-button"): NodeListOf<Button>;	
+        createElement(tagName: "smart-button"): Button;
+        querySelector(selectors: "smart-button"): Button | null;
+        querySelectorAll(selectors: "smart-button"): NodeListOf<Button>;
+        getElementsByTagName(qualifiedName: "smart-button"): HTMLCollectionOf<Button>;
+        getElementsByName(elementName: "smart-button"): NodeListOf<Button>;
     }
 }
 
 /**Determines the click mode for the element. */
 export declare type ClickMode = 'hover' | 'press' | 'release' | 'pressAndRelease';
-/**
- PowerButton is On/Off rounded button.
-*/
-export interface PowerButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface PowerButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -189,29 +185,31 @@ export interface PowerButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ PowerButton is On/Off rounded button.
+*/
+export interface PowerButton extends BaseElement, PowerButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-power-button"): PowerButton;
-			querySelector(selectors: "smart-power-button"): PowerButton | null;	
-			querySelectorAll(selectors: "smart-power-button"): NodeListOf<PowerButton>;
-			getElementsByTagName(qualifiedName: "smart-power-button"): HTMLCollectionOf<PowerButton>;
-			getElementsByName(elementName: "smart-power-button"): NodeListOf<PowerButton>;	
+        createElement(tagName: "smart-power-button"): PowerButton;
+        querySelector(selectors: "smart-power-button"): PowerButton | null;
+        querySelectorAll(selectors: "smart-power-button"): NodeListOf<PowerButton>;
+        getElementsByTagName(qualifiedName: "smart-power-button"): HTMLCollectionOf<PowerButton>;
+        getElementsByName(elementName: "smart-power-button"): NodeListOf<PowerButton>;
     }
 }
 
-/**
- RepatButton provides press-and-hold functionality and it is an ideal UI component for allowing end-users to control an increasing or decreasing value.
-*/
-export interface RepeatButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface RepeatButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -293,29 +291,31 @@ export interface RepeatButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ RepatButton provides press-and-hold functionality and it is an ideal UI component for allowing end-users to control an increasing or decreasing value.
+*/
+export interface RepeatButton extends BaseElement, RepeatButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the element is clicked.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-repeat-button"): RepeatButton;
-			querySelector(selectors: "smart-repeat-button"): RepeatButton | null;	
-			querySelectorAll(selectors: "smart-repeat-button"): NodeListOf<RepeatButton>;
-			getElementsByTagName(qualifiedName: "smart-repeat-button"): HTMLCollectionOf<RepeatButton>;
-			getElementsByName(elementName: "smart-repeat-button"): NodeListOf<RepeatButton>;	
+        createElement(tagName: "smart-repeat-button"): RepeatButton;
+        querySelector(selectors: "smart-repeat-button"): RepeatButton | null;
+        querySelectorAll(selectors: "smart-repeat-button"): NodeListOf<RepeatButton>;
+        getElementsByTagName(qualifiedName: "smart-repeat-button"): HTMLCollectionOf<RepeatButton>;
+        getElementsByName(elementName: "smart-repeat-button"): NodeListOf<RepeatButton>;
     }
 }
 
-/**
- ToggleButton allows the user to change a setting between two states.
-*/
-export interface ToggleButton extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ToggleButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -392,19 +392,27 @@ export interface ToggleButton extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ ToggleButton allows the user to change a setting between two states.
+*/
+export interface ToggleButton extends BaseElement, ToggleButtonProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the state of the element is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-toggle-button"): ToggleButton;
-			querySelector(selectors: "smart-toggle-button"): ToggleButton | null;	
-			querySelectorAll(selectors: "smart-toggle-button"): NodeListOf<ToggleButton>;
-			getElementsByTagName(qualifiedName: "smart-toggle-button"): HTMLCollectionOf<ToggleButton>;
-			getElementsByName(elementName: "smart-toggle-button"): NodeListOf<ToggleButton>;	
+        createElement(tagName: "smart-toggle-button"): ToggleButton;
+        querySelector(selectors: "smart-toggle-button"): ToggleButton | null;
+        querySelectorAll(selectors: "smart-toggle-button"): NodeListOf<ToggleButton>;
+        getElementsByTagName(qualifiedName: "smart-toggle-button"): HTMLCollectionOf<ToggleButton>;
+        getElementsByName(elementName: "smart-toggle-button"): NodeListOf<ToggleButton>;
     }
 }
 

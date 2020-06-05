@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Chart is a feature-complete interactive graph library that answers the data visualization needs of any modern web app.
-*/
-export interface Chart extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface ChartProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'.
    * Default value: advanced
@@ -179,9 +173,9 @@ export interface Chart extends BaseElement {
   showToolTipsOnAllSeries?: boolean;
   /**
    * Determines the set of default background, line, text and band colors that will be used in the Chart.
-   * Default value: light
+   * Default value: "light"
    */
-  theme?: ChartTheme;
+  theme?: string;
   /**
    * Sets the padding of the chart's title (caption).
    * Default value: [object Object]
@@ -222,47 +216,55 @@ export interface Chart extends BaseElement {
    * Default value: [object Object]
    */
   xAxis?: ChartXAxis;
-  /** 
+}
+/**
+ Chart is a feature-complete interactive graph library that answers the data visualization needs of any modern web app.
+*/
+export interface Chart extends BaseElement, ChartProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * The event is raised when the user clicks on a chart annotation.
 	* @param event. The custom event.    */
-  onAnnotationClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onAnnotationClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the user moves the cursor above a chart annotation.
 	* @param event. The custom event.    */
-  onAnnotationMouseenter?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onAnnotationMouseenter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the user moves the cursor out of a chart annotation.
 	* @param event. The custom event.    */
-  onAnnotationMouseleave?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onAnnotationMouseleave?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the user clicks on series element.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * The event is raised when the user moves the cursor out of a series element.
 	* @param event. The custom event.    */
   onMouseout: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * The event is raised when the user moves the cursor above a series element.
 	* @param event. The custom event.    */
   onMouseover: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * The event is raised after the chart's range selector position changes and after the chart ends rendering.
 	* @param event. The custom event.    */
-  onRangeSelectionChanged?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRangeSelectionChanged?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the chart's range selector position changes and before the chart starts rendering.
 	* @param event. The custom event.    */
-  onRangeSelectionChanging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRangeSelectionChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the chart begins rendering.
 	* @param event. The custom event.    */
-  onRefreshBegin?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRefreshBegin?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when the chart finishes rendering.
 	* @param event. The custom event.    */
-  onRefreshEnd?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onRefreshEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * The event is raised when a serie is toggled by a user click in the chart's legend or through an API call.
 	* @param event. The custom event.    */
   onToggle: ((this: any, ev: Event) => any) | null;
@@ -396,9 +398,6 @@ export interface Chart extends BaseElement {
 
 /**Localization object containing culture-specific properties required for formatting currencies, numbers and dates. */
 export interface ChartLocalization {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * A symbol used to mark the border between the integer and fractional parts of a number.
    * Default value: "."
@@ -418,9 +417,6 @@ export interface ChartLocalization {
 
 /**Sets the left, top, right and bottom padding of the Chart. */
 export interface Padding {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Bottom padding of the Chart.
    * Default value: 5
@@ -445,9 +441,6 @@ export interface Padding {
 
 /**Sets the legend bar position in the Chart. */
 export interface ChartLegendPosition {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Height of legend in the Chart.
    * Default value: 5
@@ -471,9 +464,6 @@ export interface ChartLegendPosition {
 }
 
 export interface ChartSeriesGroup {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * An array of chart annotation objects.
    * Default value: null
@@ -647,9 +637,6 @@ export interface ChartSeriesGroup {
 }
 
 export interface ChartAnnotation {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Fill/background color of the annotation.
    * Default value: null
@@ -719,9 +706,6 @@ export interface ChartAnnotation {
 
 /**Custom offset of the annotation relative to <strong>xValue</strong> & <strong>yValue</strong>. */
 export interface Offset {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Horizontal offset.
    * Default value: null
@@ -736,9 +720,6 @@ export interface Offset {
 
 /**Object describing the text of the annotation. */
 export interface ChartAnnotationText {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Text rotation angle.
    * Default value: null
@@ -787,9 +768,6 @@ export interface ChartAnnotationText {
 }
 
 export interface ChartBand {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Color used to fill the area between the minValue and the maxValue.
    * Default value: null
@@ -829,9 +807,6 @@ export interface ChartBand {
 
 /**Object describing the format settings of series labels. */
 export interface ChartFormatSettings {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Optional date format string. This property is applicable only when displaying Date objects.
    * Default value: null
@@ -870,9 +845,6 @@ export interface ChartFormatSettings {
 }
 
 export interface ChartSeriesGroupSerie {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Offset from the center point in a pie/donut series.
    * Default value: 0
@@ -1187,9 +1159,6 @@ export interface ChartSeriesGroupSerie {
 
 /**Object describing the labels properties of the axis. */
 export interface ChartLabels {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Text rotation angle.
    * Default value: 0
@@ -1299,9 +1268,6 @@ export interface ChartLabels {
 
 /**Object describing the valueAxis for this group. jqxChart allows you to use a common valueAxis and/or multiple value axes per serie group. */
 export interface ChartValueAxis {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Alternating background color between grid lines.
    * Default value: ""
@@ -1451,9 +1417,6 @@ export interface ChartValueAxis {
 
 /**Object describing the grid lines properties of the valueAxis. */
 export interface ChartLines {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Color of the grid lines.
    * Default value: ""
@@ -1498,9 +1461,6 @@ export interface ChartLines {
 
 /**Object describing the line properties of the axis. */
 export interface ChartLine {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Color of axis line.
    * Default value: ""
@@ -1525,9 +1485,6 @@ export interface ChartLine {
 
 /**Object describing the title of the valueAxis. */
 export interface ChartTitle {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * CSS class of the title text.
    * Default value: null
@@ -1557,9 +1514,6 @@ export interface ChartTitle {
 
 /**Object describing the xAxis for this group. */
 export interface ChartXAxis {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Alternating background color between grid lines.
    * Default value: ""
@@ -1734,9 +1688,6 @@ export interface ChartXAxis {
 
 /**Definition of a range selector on the xAxis. The range selector itself is also an instance of ${namespace.toLowerCase()}-chart. */
 export interface ChartRangeSelector {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * Sets the range selector chart's background color.
    * Default value: null
@@ -1899,13 +1850,13 @@ export interface ChartRangeSelector {
   visible?: boolean;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-chart"): Chart;
-			querySelector(selectors: "smart-chart"): Chart | null;	
-			querySelectorAll(selectors: "smart-chart"): NodeListOf<Chart>;
-			getElementsByTagName(qualifiedName: "smart-chart"): HTMLCollectionOf<Chart>;
-			getElementsByName(elementName: "smart-chart"): NodeListOf<Chart>;	
+        createElement(tagName: "smart-chart"): Chart;
+        querySelector(selectors: "smart-chart"): Chart | null;
+        querySelectorAll(selectors: "smart-chart"): NodeListOf<Chart>;
+        getElementsByTagName(qualifiedName: "smart-chart"): HTMLCollectionOf<Chart>;
+        getElementsByName(elementName: "smart-chart"): NodeListOf<Chart>;
     }
 }
 
@@ -1979,5 +1930,3 @@ export declare type ChartBaseUnit = 'year' | 'month' | 'day' | 'hour' | 'minute'
 'linear' - linear arrangement by the value of the xAxis data field.
  */
 export declare type ChartXAxisType = 'auto' | 'date' | 'basic' | 'linear';
-/**Determines the set of default background, line, text and band colors that will be used in the Chart. */
-export declare type ChartTheme = 'light' | 'dark';

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { MultiColumnFilterPanelComponent } from './smart.multicolumnfilterpanel';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

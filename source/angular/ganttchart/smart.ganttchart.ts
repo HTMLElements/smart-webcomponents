@@ -1,8 +1,8 @@
 import { GanttChart } from './../index';
-import { GanttChartDataExportItemType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartTaskType, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn, ElementRenderMode} from './../index';
+import { GanttChartDataExportItemType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, GanttChartTaskType, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { GanttChartDataExportItemType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartTaskType, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn, ElementRenderMode} from './../index';
+export { GanttChartDataExportItemType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, GanttChartTaskType, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { GanttChart } from './../index';
 
@@ -399,6 +399,24 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 		this.nativeElement ? this.nativeElement.snapToNearest = value : undefined;
 	}
 
+	/** @description Determines whether the GanttChart can be sorted or not. */
+	@Input()
+	get sortable(): boolean {
+		return this.nativeElement ? this.nativeElement.sortable : undefined;
+	}
+	set sortable(value: boolean) {
+		this.nativeElement ? this.nativeElement.sortable = value : undefined;
+	}
+
+	/** @description Determines whether the GanttChart can be sorted by one or more columns. */
+	@Input()
+	get sortMode(): GanttChartSortMode {
+		return this.nativeElement ? this.nativeElement.sortMode : undefined;
+	}
+	set sortMode(value: GanttChartSortMode) {
+		this.nativeElement ? this.nativeElement.sortMode = value : undefined;
+	}
+
 	/** @description A getter that returns a flat structure as an array of all tasks inside the element. */
 	@Input()
 	get tasks(): GanttChartTask[] {
@@ -621,6 +639,22 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 	/** @description This event is triggered when the window for task editing is closed( hidden )
 	*  @param event. The custom event. 	*/
 	@Output() onClose: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when a Project is collapsed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	index, 	label, 	value)
+	*   index - The index of the collapsed project.
+	*   label - The label of the collapsed project.
+	*   value - The value of the collapsed project.
+	*/
+	@Output() onCollapse: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when a Project is expanded.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	value)
+	*   item - The index of the expanded project.
+	*   label - The label of the expanded project.
+	*   value - The value of the expanded project.
+	*/
+	@Output() onExpand: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description Adds a task as the last item of a Project. 
 	* @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
@@ -1106,14 +1140,29 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
         }
     }
 
+	/** @description Sorts the GanttChart tasks/resources if sortable is enabled. 
+	* @param {any} columns?. An Array of objects which determine which columns to be sorted, the sort order and the type of item to sort: task or resource. If no arguments are provided sorting will be removed. <br /> An object should have the following properties: <ul><li><b>value</b> - a string that represents the value of a <b>taskColumn</b> to sort.</li><li><b>sortOrder</b> - a string that represents the sorting order for the column: 'asc' (asscending sorting) or 'desc' (descending) are possible values. </li><li><b>type</b> - a string that represents the type of item to sort. This property determines which panel will be sorted. Two possible values: 'task', 'resource'.</li></ul>
+	*/
+    public sort(columns?: any): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.sort(columns);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.sort(columns);
+            });
+        }
+    }
+
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -1124,7 +1173,7 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -1186,6 +1235,12 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 
 		that.eventHandlers['closeHandler'] = (event: CustomEvent) => { that.onClose.emit(event); }
 		that.nativeElement.addEventListener('close', that.eventHandlers['closeHandler']);
+
+		that.eventHandlers['collapseHandler'] = (event: CustomEvent) => { that.onCollapse.emit(event); }
+		that.nativeElement.addEventListener('collapse', that.eventHandlers['collapseHandler']);
+
+		that.eventHandlers['expandHandler'] = (event: CustomEvent) => { that.onExpand.emit(event); }
+		that.nativeElement.addEventListener('expand', that.eventHandlers['expandHandler']);
 
 	}
 
@@ -1250,6 +1305,14 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 
 		if (that.eventHandlers['closeHandler']) {
 			that.nativeElement.removeEventListener('close', that.eventHandlers['closeHandler']);
+		}
+
+		if (that.eventHandlers['collapseHandler']) {
+			that.nativeElement.removeEventListener('collapse', that.eventHandlers['collapseHandler']);
+		}
+
+		if (that.eventHandlers['expandHandler']) {
+			that.nativeElement.removeEventListener('expand', that.eventHandlers['expandHandler']);
 		}
 
 	}

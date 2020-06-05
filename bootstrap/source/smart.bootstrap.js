@@ -1,6 +1,6 @@
 
 
-Smart('bootstrap-button', class BootstrapButton extends Smart.ContentElement {
+Smart('bootstrap-button', class Button extends Smart.ContentElement {
 	// Button's properties.
 	static get properties() {
 		return {
@@ -69,7 +69,7 @@ Smart('bootstrap-button', class BootstrapButton extends Smart.ContentElement {
 	}
 });
 
-Smart('bootstrap-check-box', class BootstrapCheckBox extends Smart.ContentElement {
+Smart('bootstrap-check-box', class CheckBox extends Smart.ContentElement {
 	// Button's properties.
 	static get properties() {
 		return {
@@ -186,7 +186,7 @@ Smart('bootstrap-check-box', class BootstrapCheckBox extends Smart.ContentElemen
 		}
 		else {
 			if (that instanceof Smart.Bootstrap.RadioButton) {
-				const buttons = document.querySelectorAll('bootstrap-radio');
+				const buttons = document.querySelectorAll('bootstrap-radio-button');
 
 				for (let i = 0; i < buttons.length; i++) {
 					if (buttons[i].group === that.group) {
@@ -221,7 +221,7 @@ Smart('bootstrap-check-box', class BootstrapCheckBox extends Smart.ContentElemen
 	}
 });
 
-Smart('bootstrap-switch-button', class BootstrapSwitchButton extends Smart.Bootstrap.CheckBox {
+Smart('bootstrap-switch-button', class SwitchButton extends Smart.Bootstrap.CheckBox {
 	// Button's properties.
 	static get properties() {
 		return {
@@ -233,7 +233,7 @@ Smart('bootstrap-switch-button', class BootstrapSwitchButton extends Smart.Boots
 	}
 });
 
-Smart('bootstrap-toggle-button', class BootstrapToggleButton extends Smart.Bootstrap.CheckBox {
+Smart('bootstrap-toggle-button', class ToggleButton extends Smart.Bootstrap.CheckBox {
 	// Button's properties.
 	static get properties() {
 		return {
@@ -295,7 +295,7 @@ template() {
 	}
 });
 
-Smart('bootstrap-radio-button', class BootstrapRadioButton extends Smart.Bootstrap.CheckBox {
+Smart('bootstrap-radio-button', class RadioButton extends Smart.Bootstrap.CheckBox {
 	// Button's properties.
 	static get properties() {
 		return {
@@ -315,7 +315,7 @@ Smart('bootstrap-radio-button', class BootstrapRadioButton extends Smart.Bootstr
 	}
 });
 
-Smart('bootstrap-drop-down', class BootstrapDropDown extends Smart.ContentElement {
+Smart('bootstrap-drop-down', class DropDown extends Smart.ContentElement {
 
 	// DropDown's properties.
 	static get properties() {
@@ -755,7 +755,7 @@ Smart('bootstrap-drop-down', class BootstrapDropDown extends Smart.ContentElemen
 	}
 });
 
-Smart('bootstrap-split-button', class BootstrapSplitButton extends Smart.Bootstrap.DropDown {
+Smart('bootstrap-split-button', class SplitButton extends Smart.Bootstrap.DropDown {
 
 	/** CheckBox's template. */
 	template() {
@@ -803,7 +803,7 @@ Smart('bootstrap-split-button', class BootstrapSplitButton extends Smart.Bootstr
 	}
 });
 
-Smart('bootstrap-input-group', class BootstrapInputGroup extends Smart.ContentElement {
+Smart('bootstrap-input-group', class InputGroup extends Smart.ContentElement {
 	// Element's properties.
 	static get properties() {
 		return {
@@ -839,6 +839,11 @@ Smart('bootstrap-input-group', class BootstrapInputGroup extends Smart.ContentEl
 				value: '',
 				allowedValue: ['lg', 'sm', ''],
 				type: 'string'
+			},
+			'value': {
+				value: '',
+				allowedValue: [],
+				type: 'string'
 			}
 		};
 	}
@@ -856,8 +861,6 @@ Smart('bootstrap-input-group', class BootstrapInputGroup extends Smart.ContentEl
 		const that = this;
 
 		that.noWrap ? that.$.container.classList.add('flex-nowrap') : that.$.container.classList.remove('flex-nowrap');
-
-		that.render();
 	}
 
 	propertyChangedHandler(propertyName, oldValue, newValue) {
@@ -865,6 +868,17 @@ Smart('bootstrap-input-group', class BootstrapInputGroup extends Smart.ContentEl
 
 		if (propertyName === 'noWrap') {
 			newValue ? that.$.container.classList.add('flex-nowrap') : that.$.container.classList.remove('flex-nowrap');
+		}
+		else if (propertyName === 'value') {
+			if (that.input) {
+				that.input.value = newValue;
+			}
+			
+			const inputs = that.$.inputContainer.querySelectorAll('.form-component');
+
+			for (let i = 0; i < inputs.length; i++) {
+				inputs[i][propertyName] = newValue;
+			}
 		}
 		else if (propertyName === 'placeholder' || propertyName === 'name' || propertyName === 'type') {
 			const inputs = that.$.inputContainer.querySelectorAll('.form-component');
@@ -904,8 +918,15 @@ Smart('bootstrap-input-group', class BootstrapInputGroup extends Smart.ContentEl
 			input.type = that.type;
 			input.placeholder = that.placeholder;
 			input.name = that.name;
+			input.value = that.value;
 			input.classList.add('form-component');
-
+			input.onchange = function() {
+				that.value = input.value;
+			}
+			input.onkeyup = function() {
+				that.value = input.value;
+			}
+			that.input = input;
 			container.appendChild(input);
 			formControl = input;
 		}
@@ -977,7 +998,7 @@ Smart('bootstrap-input-group', class BootstrapInputGroup extends Smart.ContentEl
 	}
 });
 
-Smart('bootstrap-modal', class BootstrapModal extends Smart.ContentElement {
+Smart('bootstrap-modal', class Modal extends Smart.ContentElement {
 	// Element's properties.
 	static get properties() {
 		return {
@@ -1034,8 +1055,6 @@ Smart('bootstrap-modal', class BootstrapModal extends Smart.ContentElement {
 
 	ready() {
 		const that = this;
-
-		that.render();
 	}
 
 	propertyChangedHandler(propertyName, oldValue, newValue) {
@@ -1069,6 +1088,7 @@ Smart('bootstrap-modal', class BootstrapModal extends Smart.ContentElement {
 		}
 
 		that.setAttribute('tabindex', that.tabindex);
+		super.render();
 	}
 
 	handleUpdate() {
@@ -1398,6 +1418,11 @@ Smart('bootstrap-modal', class BootstrapModal extends Smart.ContentElement {
 				callback();
 				return
 			}
+			
+			if (that._backdrop.offsetHeight === 0) {
+				callback();
+			}
+			
 
 			that._backdrop.addEventListener('transitionend', callback, { once: true });
 		}
@@ -1427,7 +1452,7 @@ Smart('bootstrap-modal', class BootstrapModal extends Smart.ContentElement {
 	}
 });
 
-Smart('bootstrap-tabs', class BootstrapTabs extends Smart.ContentElement {
+Smart('bootstrap-tabs', class Tabs extends Smart.ContentElement {
 	// Element's properties.
 	static get properties() {
 		return {
@@ -1483,31 +1508,7 @@ Smart('bootstrap-tabs', class BootstrapTabs extends Smart.ContentElement {
 	ready() {
 		const that = this;
 
-		that.render();
-
-		if (!that._list) {
-			return;
-		}
-
-		if (that.alignment && that._list) {
-			that._list.classList.add(that.alignment === 'vertical' ? 'flex-column' : 'justify-content-' + that.alignment);
-		}
-
-		if (that.tabType !== 'nav') {
-			that._list.classList.add('nav-' + that.tabType);
-		}
-
-		if (that.fill) {
-			that._list.classList.add('nav-fill');
-		}
-
-		if (that.justified) {
-			that._list.classList.add('nav-justified');
-		}
-		
-		if (that.styleMode) {
-			that.classList.add(that.styleMode);	
-		}
+	
 	}
 
 	appendChild(node) {
@@ -1654,6 +1655,30 @@ Smart('bootstrap-tabs', class BootstrapTabs extends Smart.ContentElement {
 
 		that.$.container.insertBefore(list, that.$.container.lastElementChild);
 		that._refreshBarPosition();	
+		
+		if (!that._list) {
+			return;
+		}
+
+		if (that.alignment && that._list) {
+			that._list.classList.add(that.alignment === 'vertical' ? 'flex-column' : 'justify-content-' + that.alignment);
+		}
+
+		if (that.tabType !== 'nav') {
+			that._list.classList.add('nav-' + that.tabType);
+		}
+
+		if (that.fill) {
+			that._list.classList.add('nav-fill');
+		}
+
+		if (that.justified) {
+			that._list.classList.add('nav-justified');
+		}
+		
+		if (that.styleMode) {
+			that.classList.add(that.styleMode);	
+		}
 	}
 
 	_getSelectorFromElement(element) {
@@ -1824,10 +1849,13 @@ Smart('bootstrap-tabs', class BootstrapTabs extends Smart.ContentElement {
 		if (['tab', 'pill', 'list'].indexOf(target.getAttribute('data-toggle')) > -1) {
 			that.show(target);
 		}
+		
+		event.stopPropagation();
+		event.preventDefault();
 	}
 });
 
-Smart('bootstrap-range', class BootstrapRange extends Smart.BaseElement {
+Smart('bootstrap-range', class Range extends Smart.BaseElement {
 	// Button's properties.
 	static get properties() {
 		return {
@@ -1887,7 +1915,7 @@ Smart('bootstrap-range', class BootstrapRange extends Smart.BaseElement {
 	}
 });
 
-Smart('bootstrap-progress', class BootstrapProgress extends Smart.ContentElement {
+Smart('bootstrap-progress-bar', class ProgressBar extends Smart.ContentElement {
 	// Button's properties.
 	static get properties() {
 		return {
@@ -1972,7 +2000,7 @@ Smart('bootstrap-progress', class BootstrapProgress extends Smart.ContentElement
 	}
 });
 
-Smart('bootstrap-circular', class BootstrapCircular extends Smart.Bootstrap.Progress {
+Smart('bootstrap-circular', class Circular extends Smart.Bootstrap.ProgressBar {
 	static get properties() {
 			return {
 				'type': {
@@ -1983,7 +2011,7 @@ Smart('bootstrap-circular', class BootstrapCircular extends Smart.Bootstrap.Prog
 	}
 });
 
-Smart('bootstrap-input', class BootstrapTextBox extends Smart.ContentElement {
+Smart('bootstrap-input', class TextBox extends Smart.ContentElement {
 	static get properties() {
 		return {
 			'name': {
@@ -2063,7 +2091,7 @@ Smart('bootstrap-input', class BootstrapTextBox extends Smart.ContentElement {
 	}
 });
 
-Smart('bootstrap-textarea', class BootstrapTextArea extends Smart.Bootstrap.Input {
+Smart('bootstrap-textarea', class TextArea extends Smart.Bootstrap.Input {
 	template() {
 		return `<div><label input id="label">
             <textarea name=[[name]] type="text" class="form-component" id="input" placeholder="[[placeholder]]"
@@ -2073,7 +2101,7 @@ Smart('bootstrap-textarea', class BootstrapTextArea extends Smart.Bootstrap.Inpu
 	}
 });
 
-Smart('bootstrap-file-input', class BootstrapFileInput extends Smart.ContentElement {
+Smart('bootstrap-file-input', class FileInput extends Smart.ContentElement {
 	static get properties() {
 		return {
 			'name': {
@@ -2087,19 +2115,28 @@ Smart('bootstrap-file-input', class BootstrapFileInput extends Smart.ContentElem
 			'styleMode': {
 				value: '',
 				type: 'string'	
-			}			
+			},	
+			'value': {
+				value: '',
+				type: 'string'	
+			}					
 		};
 	}
 
 	template() {
 		return `<div><div class="file">
-					<input placeholder=[[placeholder]] name=[[name]] type="file" class="file-input" />
+					<input  id="input" placeholder=[[placeholder]] name=[[name]] type="file" class="file-input" />
 					<label class="file-label" for="inputGroupFile01"><content></content></label>
 				</div></div>`;
 	}
 
 	refresh() {
 		const that = this;	
+		
+		that.$.input.value = that.value;
+		that.$.input.onchange = function() {
+			that.value = that.$.input.value;
+		}
 	}
 	
 	ready() {

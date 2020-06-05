@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Table is an alternative of the HTMLTableElement.
-*/
-export interface Table extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TableProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -68,6 +62,14 @@ export interface Table extends BaseElement {
    * Default value: ""
    */
   theme?: string;
+}
+/**
+ Table is an alternative of the HTMLTableElement.
+*/
+export interface Table extends BaseElement, TableProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
   /**
    * Clears the Table sorting.
    */
@@ -92,13 +94,13 @@ export interface Table extends BaseElement {
   sortBy(columnDataField: string, sortOrder?: string): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-table"): Table;
-			querySelector(selectors: "smart-table"): Table | null;	
-			querySelectorAll(selectors: "smart-table"): NodeListOf<Table>;
-			getElementsByTagName(qualifiedName: "smart-table"): HTMLCollectionOf<Table>;
-			getElementsByName(elementName: "smart-table"): NodeListOf<Table>;	
+        createElement(tagName: "smart-table"): Table;
+        querySelector(selectors: "smart-table"): Table | null;
+        querySelectorAll(selectors: "smart-table"): NodeListOf<Table>;
+        getElementsByTagName(qualifiedName: "smart-table"): HTMLCollectionOf<Table>;
+        getElementsByName(elementName: "smart-table"): NodeListOf<Table>;
     }
 }
 

@@ -86,11 +86,11 @@ export class AccordionItemComponent extends BaseElement implements OnInit, After
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -101,7 +101,7 @@ export class AccordionItemComponent extends BaseElement implements OnInit, After
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}

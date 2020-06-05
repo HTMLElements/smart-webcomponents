@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- FilterBuilder allows you to dynamically build filters.
-*/
-export interface FilterBuilder extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface FilterBuilderProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -155,46 +149,54 @@ export interface FilterBuilder extends BaseElement {
    * Default value: "&lt;enter a value&gt;"
    */
   valuePlaceholder?: string;
-  /** 
+}
+/**
+ FilterBuilder allows you to dynamically build filters.
+*/
+export interface FilterBuilder extends BaseElement, FilterBuilderProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the element's value is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when an editor is closed.
 	* @param event. The custom event.    */
-  onEditorClose?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an editor starts to close.
 	* @param event. The custom event.    */
-  onEditorClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an editor is opened.
 	* @param event. The custom event.    */
-  onEditorOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when an editor starts to open.
 	* @param event. The custom event.    */
-  onEditorOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onEditorOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when some of the filterbuilder's building blocks is clicked.
 	* @param event. The custom event.    */
-  onItemClick?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the built-in menu is opened. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
-  onOpen?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the built-in menu starts to open. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
-  onOpening?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the built-in menu is closed. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when the built-in menu  starts to close. If the <strong>disableContextMenu</strong> property is set to true this event is not fired.
 	* @param event. The custom event.    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds new condition in particular group. 
    * @param {string | HTMLElement} parentGroup. A string, representing the id of the item or an HTML Element referencing this condition.
@@ -239,9 +241,6 @@ export interface FilterBuilder extends BaseElement {
 
 /**Defines icon's representatino as characters. */
 export interface FilterBuilderIcons {
-
-  /* Get a member by its name */
-  [name: string]: any;
   /**
    * 
    * Default value: undefined
@@ -1174,13 +1173,13 @@ export interface FilterBuilderIcons {
   185?: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-filter-builder"): FilterBuilder;
-			querySelector(selectors: "smart-filter-builder"): FilterBuilder | null;	
-			querySelectorAll(selectors: "smart-filter-builder"): NodeListOf<FilterBuilder>;
-			getElementsByTagName(qualifiedName: "smart-filter-builder"): HTMLCollectionOf<FilterBuilder>;
-			getElementsByName(elementName: "smart-filter-builder"): NodeListOf<FilterBuilder>;	
+        createElement(tagName: "smart-filter-builder"): FilterBuilder;
+        querySelector(selectors: "smart-filter-builder"): FilterBuilder | null;
+        querySelectorAll(selectors: "smart-filter-builder"): NodeListOf<FilterBuilder>;
+        getElementsByTagName(qualifiedName: "smart-filter-builder"): HTMLCollectionOf<FilterBuilder>;
+        getElementsByName(elementName: "smart-filter-builder"): NodeListOf<FilterBuilder>;
     }
 }
 

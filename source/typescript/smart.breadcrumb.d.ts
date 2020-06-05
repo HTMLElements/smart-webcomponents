@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Breadcrumbs allow users to make selections from a range of values.
-*/
-export interface Breadcrumb extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface BreadcrumbProperties {
   /**
    * Enables or disables the "Add new item" (+) button.
    * Default value: false
@@ -78,34 +72,42 @@ export interface Breadcrumb extends BaseElement {
    * Default value: false
    */
   unfocusable?: boolean;
-  /** 
+}
+/**
+ Breadcrumbs allow users to make selections from a range of values.
+*/
+export interface Breadcrumb extends BaseElement, BreadcrumbProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when a Breadcrumb item is closed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item)
    *  item - The item that has been closed.
    */
   onClose: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Breadcrumb item is about to be closed. The closing operation can be canceled by calling <code>event.preventDefault()</code> in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item)
    *  item - The item that is going to be closed.
    */
-  onClosing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a Breadcrumb item is dropped.
 	* @param event. The custom event.    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a Breadcrumb item is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, originalEvent, target)
    *  item - The item that is being dragged.
    *  originalEvent - The original event that initiates the dragging operation.
    *  target - The original target.
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the "Add new item" (+) button is clicked.
 	* @param event. The custom event.    */
-  onAddNewItem?: ((this: any, ev: Event) => any) | null;
+  onAddNewItem?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item.
    * @param {any} itemDetails. An Object with the fields "index", "label", and "value".
@@ -126,13 +128,13 @@ export interface Breadcrumb extends BaseElement {
   removeItem(item: HTMLElement): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-breadcrumb"): Breadcrumb;
-			querySelector(selectors: "smart-breadcrumb"): Breadcrumb | null;	
-			querySelectorAll(selectors: "smart-breadcrumb"): NodeListOf<Breadcrumb>;
-			getElementsByTagName(qualifiedName: "smart-breadcrumb"): HTMLCollectionOf<Breadcrumb>;
-			getElementsByName(elementName: "smart-breadcrumb"): NodeListOf<Breadcrumb>;	
+        createElement(tagName: "smart-breadcrumb"): Breadcrumb;
+        querySelector(selectors: "smart-breadcrumb"): Breadcrumb | null;
+        querySelectorAll(selectors: "smart-breadcrumb"): NodeListOf<Breadcrumb>;
+        getElementsByTagName(qualifiedName: "smart-breadcrumb"): HTMLCollectionOf<Breadcrumb>;
+        getElementsByName(elementName: "smart-breadcrumb"): NodeListOf<Breadcrumb>;
     }
 }
 

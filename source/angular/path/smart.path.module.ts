@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { PathComponent } from './smart.path';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

@@ -320,6 +320,10 @@ export class PathComponent extends BaseElement implements OnInit, AfterViewInit,
 	*  @param event. The custom event. 	*/
 	@Output() onDropDownButtonClick: EventEmitter<CustomEvent> = new EventEmitter();
 
+	/** @description This event is triggered when an item from the popup is clicked.
+	*  @param event. The custom event. 	*/
+	@Output() onItemClick: EventEmitter<CustomEvent> = new EventEmitter();
+
 	/** @description This event is triggered when the drop down is opened.
 	*  @param event. The custom event. 	*/
 	@Output() onOpen: EventEmitter<CustomEvent> = new EventEmitter();
@@ -387,11 +391,11 @@ export class PathComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
-	}    
-	
+	}
+
 	ngOnInit() {
 	}
-	
+
     ngAfterViewInit() {
       const that = this;
 
@@ -402,7 +406,7 @@ export class PathComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}
-	
+
 	ngOnDestroy() {
 		this.unlisten();
 	}
@@ -435,6 +439,9 @@ export class PathComponent extends BaseElement implements OnInit, AfterViewInit,
 		that.eventHandlers['dropDownButtonClickHandler'] = (event: CustomEvent) => { that.onDropDownButtonClick.emit(event); }
 		that.nativeElement.addEventListener('dropDownButtonClick', that.eventHandlers['dropDownButtonClickHandler']);
 
+		that.eventHandlers['itemClickHandler'] = (event: CustomEvent) => { that.onItemClick.emit(event); }
+		that.nativeElement.addEventListener('itemClick', that.eventHandlers['itemClickHandler']);
+
 		that.eventHandlers['openHandler'] = (event: CustomEvent) => { that.onOpen.emit(event); }
 		that.nativeElement.addEventListener('open', that.eventHandlers['openHandler']);
 
@@ -464,6 +471,10 @@ export class PathComponent extends BaseElement implements OnInit, AfterViewInit,
 
 		if (that.eventHandlers['dropDownButtonClickHandler']) {
 			that.nativeElement.removeEventListener('dropDownButtonClick', that.eventHandlers['dropDownButtonClickHandler']);
+		}
+
+		if (that.eventHandlers['itemClickHandler']) {
+			that.nativeElement.removeEventListener('itemClick', that.eventHandlers['itemClickHandler']);
 		}
 
 		if (that.eventHandlers['openHandler']) {

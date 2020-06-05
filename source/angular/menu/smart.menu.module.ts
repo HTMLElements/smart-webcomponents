@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { MenuComponent } from './smart.menu';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { MenuItemComponent } from './smart.menuitem';

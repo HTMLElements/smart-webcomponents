@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Treeview component is a user interface that is used to represent hierarchical data in a tree structure.
-*/
-export interface Tree extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TreeProperties {
   /**
    * Allows drag operation in current tree. When enabled, items can be dragged and dropped to a tree with enabled allowDrop.
    * Default value: false
@@ -224,7 +218,15 @@ export interface Tree extends BaseElement {
    * Default value: "value"
    */
   valueMember?: string;
-  /** 
+}
+/**
+ Treeview component is a user interface that is used to represent hierarchical data in a tree structure.
+*/
+export interface Tree extends BaseElement, TreeProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when selection in jqx-tree is changed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, oldSelectedIndexes, selectedIndexes)
    *  item - The item the user has interacted with to change the selection (only when applicable).
@@ -232,7 +234,7 @@ export interface Tree extends BaseElement {
    *  selectedIndexes - The selected indexes after the selection is changed.
    */
   onChange: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a jqx-tree-items-group is collapsed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the collapsed jqx-tree-items-group
@@ -241,8 +243,8 @@ export interface Tree extends BaseElement {
    *  value - the value of the collapsed jqx-tree-items-group
    *  children - the children of the collapsed jqx-tree-items-group
    */
-  onCollapse?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-tree-items-group is about to be collapsed. The collapsing operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the jqx-tree-items-group to be collapsed
@@ -251,8 +253,8 @@ export interface Tree extends BaseElement {
    *  value - the value of the jqx-tree-items-group to be collapsed
    *  children - the children of the jqx-tree-items-group to be collapsed
    */
-  onCollapsing?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onCollapsing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-tree-item/jqx-tree-items-group is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
    *  container - the tree the dragged item(s) is dropped to
@@ -264,7 +266,7 @@ export interface Tree extends BaseElement {
    *  target - the element the dragged items are dropped to
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a jqx-tree-item/jqx-tree-items-group is being dragged.
 	* @param event. The custom event. Custom data event was created with: ev.detail(data, item, items, originalEvent)
    *  data - an object with additional drag details
@@ -272,8 +274,8 @@ export interface Tree extends BaseElement {
    *  items - an array with all dragged items
    *  originalEvent - the original, browser, event that initiates the dragging operation
    */
-  onDragging?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onDragging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a dragging operation is started in jqx-tree. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer)
    *  container - the tree the dragged item(s) is dragged from
@@ -284,7 +286,7 @@ export interface Tree extends BaseElement {
    *  previousContainer - the tree the dragged item(s) is dragged from
    */
   onDragStart: ((this: any, ev: Event) => any) | null;
-  /** 
+  /**
    * This event is triggered when a jqx-tree-items-group is expanded.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the expanded jqx-tree-items-group
@@ -293,8 +295,8 @@ export interface Tree extends BaseElement {
    *  value - the value of the expanded jqx-tree-items-group
    *  children - the children of the expanded jqx-tree-items-group
    */
-  onExpand?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a jqx-tree-items-group is about to be expanded. The expanding operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, path, value, children)
    *  item - the jqx-tree-items-group to be expanded
@@ -303,15 +305,23 @@ export interface Tree extends BaseElement {
    *  value - the value of the jqx-tree-items-group to be expanded
    *  children - the children of the jqx-tree-items-group to be expanded
    */
-  onExpanding?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Tree has been scrolled to the bottom.
 	* @param event. The custom event.    */
-  onScrollBottomReached?: ((this: any, ev: Event) => any) | null;
-  /** 
+  onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Tree has been scrolled to the top.
 	* @param event. The custom event.    */
-  onScrollTopReached?: ((this: any, ev: Event) => any) | null;
+  onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the left inside the Tree.
+	* @param event. The custom event.    */
+  onSwipeleft?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the user swipes to the right inside the Tree.
+	* @param event. The custom event.    */
+  onSwiperight?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds an item after another item as a sibling.
    * @param {HTMLElement} item. A smart-tree-item/smart-tree-items-group to add to the Tree
@@ -426,13 +436,13 @@ export interface Tree extends BaseElement {
   updateItem(item: HTMLElement | string, newItem: any): void;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tree"): Tree;
-			querySelector(selectors: "smart-tree"): Tree | null;	
-			querySelectorAll(selectors: "smart-tree"): NodeListOf<Tree>;
-			getElementsByTagName(qualifiedName: "smart-tree"): HTMLCollectionOf<Tree>;
-			getElementsByName(elementName: "smart-tree"): NodeListOf<Tree>;	
+        createElement(tagName: "smart-tree"): Tree;
+        querySelector(selectors: "smart-tree"): Tree | null;
+        querySelectorAll(selectors: "smart-tree"): NodeListOf<Tree>;
+        getElementsByTagName(qualifiedName: "smart-tree"): HTMLCollectionOf<Tree>;
+        getElementsByName(elementName: "smart-tree"): NodeListOf<Tree>;
     }
 }
 
@@ -454,13 +464,7 @@ export declare type TreeSortDirection = 'ascending' | 'descending';
 export declare type Position = 'near' | 'far';
 /**Determines the way to toggle jqx-tree-items-groups. */
 export declare type TreeToggleMode = 'click' | 'dblclick' | 'arrow';
-/**
- Defines a tree items.
-*/
-export interface TreeItem extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TreeItemProperties {
   /**
    * Enables or disables element.
    * Default value: false
@@ -496,25 +500,32 @@ export interface TreeItem extends BaseElement {
    * Default value: null
    */
   value?: any;
+  /**
+   * Disables user interaction with the item.
+   * Default value: false
+   */
+  readonly?: boolean;
 }
-
-declare global {    
-    interface Document {
-			createElement(tagName: "smart-tree-item"): TreeItem;
-			querySelector(selectors: "smart-tree-item"): TreeItem | null;	
-			querySelectorAll(selectors: "smart-tree-item"): NodeListOf<TreeItem>;
-			getElementsByTagName(qualifiedName: "smart-tree-item"): HTMLCollectionOf<TreeItem>;
-			getElementsByName(elementName: "smart-tree-item"): NodeListOf<TreeItem>;	
-    }
-}
-
 /**
- Defines a group of tree items.
+ Defines a tree items.
 */
-export interface TreeItemsGroup extends BaseElement {
+export interface TreeItem extends BaseElement, TreeItemProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tree-item"): TreeItem;
+        querySelector(selectors: "smart-tree-item"): TreeItem | null;
+        querySelectorAll(selectors: "smart-tree-item"): NodeListOf<TreeItem>;
+        getElementsByTagName(qualifiedName: "smart-tree-item"): HTMLCollectionOf<TreeItem>;
+        getElementsByName(elementName: "smart-tree-item"): NodeListOf<TreeItem>;
+    }
+}
+
+export interface TreeItemsGroupProperties {
   /**
    * Enables or disables element.
    * Default value: false
@@ -550,15 +561,28 @@ export interface TreeItemsGroup extends BaseElement {
    * Default value: null
    */
   value?: any;
+  /**
+   * Disables user interaction with the item.
+   * Default value: false
+   */
+  readonly?: boolean;
+}
+/**
+ Defines a group of tree items.
+*/
+export interface TreeItemsGroup extends BaseElement, TreeItemsGroupProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tree-items-group"): TreeItemsGroup;
-			querySelector(selectors: "smart-tree-items-group"): TreeItemsGroup | null;	
-			querySelectorAll(selectors: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;
-			getElementsByTagName(qualifiedName: "smart-tree-items-group"): HTMLCollectionOf<TreeItemsGroup>;
-			getElementsByName(elementName: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;	
+        createElement(tagName: "smart-tree-items-group"): TreeItemsGroup;
+        querySelector(selectors: "smart-tree-items-group"): TreeItemsGroup | null;
+        querySelectorAll(selectors: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;
+        getElementsByTagName(qualifiedName: "smart-tree-items-group"): HTMLCollectionOf<TreeItemsGroup>;
+        getElementsByName(elementName: "smart-tree-items-group"): NodeListOf<TreeItemsGroup>;
     }
 }
 

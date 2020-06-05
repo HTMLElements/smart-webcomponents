@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- LET Toggle button with Checked boolean value.
-*/
-export interface Led extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface LedProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -123,7 +117,15 @@ export interface Led extends BaseElement {
    * Default value: """"
    */
   value?: string;
-  /** 
+}
+/**
+ LET Toggle button with Checked boolean value.
+*/
+export interface Led extends BaseElement, LedProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the widget is checked/unchecked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value of the element before it was changed.
@@ -132,13 +134,13 @@ export interface Led extends BaseElement {
   onChange: ((this: any, ev: Event) => any) | null;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-led"): Led;
-			querySelector(selectors: "smart-led"): Led | null;	
-			querySelectorAll(selectors: "smart-led"): NodeListOf<Led>;
-			getElementsByTagName(qualifiedName: "smart-led"): HTMLCollectionOf<Led>;
-			getElementsByName(elementName: "smart-led"): NodeListOf<Led>;	
+        createElement(tagName: "smart-led"): Led;
+        querySelector(selectors: "smart-led"): Led | null;
+        querySelectorAll(selectors: "smart-led"): NodeListOf<Led>;
+        getElementsByTagName(qualifiedName: "smart-led"): HTMLCollectionOf<Led>;
+        getElementsByName(elementName: "smart-led"): NodeListOf<Led>;
     }
 }
 

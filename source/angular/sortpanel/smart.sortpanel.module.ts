@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-	
+
 import { SortPanelComponent } from './smart.sortpanel';
 import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 

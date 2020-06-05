@@ -1,5 +1,5 @@
-# smart-elements
-Web Components &amp; Custom Elements for Professional Web Applications
+# Smart UI
+Web Components, Anguiar UI Components and React UI Components  for Professional Web Applications
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core)
 
@@ -7,23 +7,20 @@ Web Components &amp; Custom Elements for Professional Web Applications
 Build responsive, mobile-first projects on the Web with the most advanced front-end component library
 -----------------------------------------------------------------------------------------------------
 
-What is Smart HTML Elements?
+What is Smart UI?
 ----------------------------
 
-Smart HTML Elements is a Framework for building  Web Components and Custom Elements. Smart is similar to Polymer and LitElement. It supports two-way data-binding, templates, property change notifications, Typescript-like type-checking and validation.
-Smart does not have third-party dependencies. It is pure Javascript code. More than 30 Web Components are built with Smart including Grid, Tabs, Accordion, Gauge, DateTimePicker and others. Some of the Web Components built with the library are commercial. Others are open-source.
+Smart UI is a Framework for building  Web Components and Custom Elements. Smart is similar to Stencil and LitElement. It supports two-way data-binding, templates, property change notifications, Typescript-like type-checking and validation.
+Smart does not have third-party dependencies. It is pure Javascript code. 
+60+ UI Components are built with Smart including Grid, Chart, Kanban, Gantt, Table, Tabs, Accordion, Gauge, DateTimePicker and others. Some of the UI Components built with the library are commercial. Others are open-source.
+Smart UI components are available in Javascript, Angular and React. Typescript definitions are included.
 
 Works across devices and browsers
 ---------------------------------
-  
 
+Supported Browsers: Chrome, Firefox, Safari, Edge, Opera  
 
-Web Components
---------------
-
-A suite of polyfills supporting the Web Components specs is included in our examples. These polyfills ensure that Custom Elements are supported in all browsers.  
-
-Custom Elements
+UI Components
 ---
 
 | Component | Status | Issues
@@ -47,6 +44,7 @@ Custom Elements
 | [`<smart-gauge>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+gauge)
 | [`<smart-grid>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+grid)
 | [`<smart-input>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+input)
+| [`<smart-kanban>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+kanban)
 | [`<smart-list-box>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+list+box)
 | [`<smart-list-menu>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+list+menu)
 | [`<smart-masked-text-box>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+masked+text+box)
@@ -82,18 +80,6 @@ Download and Installation
 
 [Download Smart HTML Elements](https://www.htmlelements.com/download/)
 
-*   ### The SDK files are located in the jqwidgets directory
-    
-    In general you need to use files from this directory only.  
-    
-    #### Files list & description:
-    
-    ##### Files required in all projects using the SDK
-    
-    *   smart.element.js: Core Smart HTML Elements framework
-    *   smart.elements.js: All Smart HTML Elements
-    *   smart.default.css: Stylesheet for all Web Components.
-    
     
 [Live Demo ↗](https://htmlelements.com/demos//)
 |

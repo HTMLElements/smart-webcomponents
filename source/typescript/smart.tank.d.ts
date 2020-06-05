@@ -1,12 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-/**
- Tank is a UI Component used in Engineering and Scientific applications. It is broadly used to display the fluid levels.
-*/
-export interface Tank extends BaseElement {
-
-  /* Get a member by its name */
-  [name: string]: any;
+export interface TankProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
@@ -226,7 +220,15 @@ export interface Tank extends BaseElement {
    * Default value: int32
    */
   wordLength?: WordLength;
-  /** 
+}
+/**
+ Tank is a UI Component used in Engineering and Scientific applications. It is broadly used to display the fluid levels.
+*/
+export interface Tank extends BaseElement, TankProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
    * This event is triggered when the value of the tank is changed.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
@@ -247,13 +249,13 @@ export interface Tank extends BaseElement {
   val(value?: string | number): string;
 }
 
-declare global {    
+declare global {
     interface Document {
-			createElement(tagName: "smart-tank"): Tank;
-			querySelector(selectors: "smart-tank"): Tank | null;	
-			querySelectorAll(selectors: "smart-tank"): NodeListOf<Tank>;
-			getElementsByTagName(qualifiedName: "smart-tank"): HTMLCollectionOf<Tank>;
-			getElementsByName(elementName: "smart-tank"): NodeListOf<Tank>;	
+        createElement(tagName: "smart-tank"): Tank;
+        querySelector(selectors: "smart-tank"): Tank | null;
+        querySelectorAll(selectors: "smart-tank"): NodeListOf<Tank>;
+        getElementsByTagName(qualifiedName: "smart-tank"): HTMLCollectionOf<Tank>;
+        getElementsByName(elementName: "smart-tank"): NodeListOf<Tank>;
     }
 }
 
