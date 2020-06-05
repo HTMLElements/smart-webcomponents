@@ -11,14 +11,14 @@ What is Smart UI?
 ----------------------------
 
 Smart UI is a Framework for building  Web Components and Custom Elements. Smart is similar to Stencil and LitElement. It supports two-way data-binding, templates, property change notifications, Typescript-like type-checking and validation.
-Smart does not have third-party dependencies. It is pure Javascript code. 
+Smart does not have third-party dependencies. It is pure Javascript code.
 60+ UI Components are built with Smart including Grid, Chart, Kanban, Gantt, Table, Tabs, Accordion, Gauge, DateTimePicker and others. Some of the UI Components built with the library are commercial. Others are open-source.
 Smart UI components are available in Javascript, Angular and React. Typescript definitions are included.
 
 Works across devices and browsers
 ---------------------------------
 
-Supported Browsers: Chrome, Firefox, Safari, Edge, Opera  
+Supported Browsers: Chrome, Firefox, Safari, Edge, Opera
 
 UI Components
 ---
@@ -78,14 +78,14 @@ UI Components
 Download and Installation
 -------------------------
 
-[Download Smart HTML Elements](https://www.htmlelements.com/download/)
+[Download Smart UI](https://www.htmlelements.com/download/)
 
-    
+
 [Live Demo ↗](https://htmlelements.com/demos//)
 |
 [Documentation ↗](https://www.htmlelements.com/docs/)
-    
-    
+
+
 
 [<img src="https://raw.githubusercontent.com/htmlelements/smart-elements/master/grid.png" alt="Screenshot of smart-grid, using the Material theme">](https://htmlelements.com/demos/)
 
@@ -103,4 +103,4 @@ Download and Installation
 [<img src="https://raw.githubusercontent.com/htmlelements/smart-elements/master/smart-calendar.png" alt="Screenshot of smart-calendar, using the Material theme">](https://htmlelements.com/demos/calendar/)
 
 
-   
+
