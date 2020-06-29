@@ -134,10 +134,10 @@ export interface DateRangeInputProperties {
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets the value of the element.
-   * Default value: ""
+   * Sets or gets the value of the element. The type of the value depends on the valueType property.
+   * Default value: 
    */
-  value?: string;
+  value?: any;
   /**
    * Determines the value type returned from the `value` property.
    * Default value: string

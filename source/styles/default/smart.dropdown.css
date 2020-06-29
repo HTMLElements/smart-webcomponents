@@ -497,6 +497,13 @@
 .smart-drop-down-box.underlined .smart-drop-down-button {
     border-bottom: 1px solid var(--smart-border) !important;
 }
+
+.smart-invalid.smart-drop-down-box:not([drop-down-open-mode="dropDownButton"]) .smart-action-button,
+.smart-invalid.smart-drop-down-box.underlined  .smart-drop-down-button {
+    border-bottom-color: rgba(var(--smart-error-rgb), 0.5) !important;
+}
+
+
 .smart-drop-down-box.underlined[focus] .smart-action-button,
 .smart-drop-down-box.underlined .smart-action-button input,
 .smart-drop-down-box.underlined[focus] input {
@@ -583,6 +590,9 @@
     background: var(--smart-background);
     border-radius: var(--smart-border-radius);
     z-index: 5;
+}
+.smart-invalid.smart-drop-down-box.outlined > .smart-container > .smart-content {
+    border-color: rgba(var(--smart-error-rgb), 0.5);
 }
 
 .smart-drop-down-box.outlined .smart-action-button input {

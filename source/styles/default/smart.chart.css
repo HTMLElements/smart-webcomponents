@@ -11,14 +11,14 @@ smart-chart {
     smart-chart .smart-chart-annotation-text,
     .smart-chart-tooltip-text {
         box-sizing: content-box;
-        ui-state: var(--smart-background-color);
+        fill: var(--smart-background-color);
         color: var(--smart-background-color);
         font-family: var(--smart-font-family);
         font-size: calc(var(--smart-font-size) - 1px);
     }
 
     smart-chart .smart-chart-axis-description {
-        ui-state: var(--smart-background-color);
+        fill: var(--smart-background-color);
         color: var(--smart-background-color);
         font-family: var(--smart-font-family);
         font-size: calc(var(--smart-font-size) - 1px);
@@ -26,7 +26,7 @@ smart-chart {
 
     smart-chart .smart-chart-title-text,
     smart-chart .smart-chart-title-description {
-        ui-state: var(--smart-background-color);
+        fill: var(--smart-background-color);
         color: var(--smart-background-color);
         font-family: var(--smart-font-family);
     }
@@ -95,13 +95,13 @@ smart-chart[theme="dark"] .smart-chart-label-text,
 smart-chart[theme="dark"] .smart-chart-legend-text,
 smart-chart[theme="dark"] .smart-chart-annotation-text,
 [theme="dark"] .smart-chart-tooltip .smart-chart-tooltip-text {
-    ui-state: var(--smart-background-color);
+    fill: var(--smart-background-color);
     color: var(--smart-background-color);
 }
 
 [theme="dark"] smart-chart .smart-chart-axis-description,
 smart-chart[theme="dark"] .smart-chart-axis-description {
-    ui-state: var(--smart-background-color);
+    fill: var(--smart-background-color);
     color: var(--smart-background-color);
 }
 
@@ -109,7 +109,7 @@ smart-chart[theme="dark"] .smart-chart-axis-description {
 [theme="dark"] smart-chart .smart-chart-title-description,
 smart-chart[theme="dark"] .smart-chart-title-text,
 smart-chart[theme="dark"] .smart-chart-title-description {
-    ui-state: var(--smart-background-color);
+    fill: var(--smart-background-color);
     color: var(--smart-background-color);
 }
 

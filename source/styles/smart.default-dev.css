@@ -9,7 +9,6 @@
 @import url("./default/smart.card.css");
 @import url("./default/smart.cardview.css");
 @import url("./default/smart.carousel.css");
-@import url("./default/smart.chart.css" );
 @import url("./default/smart.chart.css");
 @import url("./default/smart.chip.css");
 @import url("./default/smart.combobox.css");
@@ -39,6 +38,7 @@
 @import url("./default/smart.numerictextbox.css");
 @import url("./default/smart.pager.css");
 @import url("./default/smart.passwordtextbox.css");
+@import url("./default/smart.pivottable.css");
 @import url("./default/smart.powerbutton.css");
 @import url("./default/smart.progressbar.css");
 @import url("./default/smart.querybuilder.css");

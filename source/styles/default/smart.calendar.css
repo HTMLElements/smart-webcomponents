@@ -454,15 +454,15 @@ smart-calendar[view="landscape"] .smart-calendar-container {
 }
 
 .smart-calendar .smart-calendar-week div[hover]:not([restricted]) {
-    background-color: var(--smart-background-hover);
-    color: var(--smart-background-color-hover);
-    border-color: var(--smart-border-hover);
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
 }
 
 .smart-calendar .smart-calendar-week div[important] {
-    background-color: var(--smart-background-active);
-    color: var(--smart-background-color-active);
-    border-color: var(--smart-border-active);
+    background: var(--smart-calendar-important-date-background);
+    color: var(--smart-calendar-important-date-color);
+    border-color: var(--smart-calendar-important-date-border-color);
 }
 
 /*End of Calendar Cells */
@@ -523,6 +523,13 @@ smart-calendar[view="landscape"] .smart-calendar-container {
     background: transparent;
     border: none;
     color: inherit;
+}
+
+.smart-calendar .smart-calendar-button[prev-month][active] button,
+.smart-calendar .smart-calendar-button[next-month][active] button  {
+    border: 1px solid var(--smart-ui-state-hover);
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-primary);
 }
 
     .smart-calendar .smart-calendar-button[prev-month] .smart-arrow-left {
@@ -641,6 +648,10 @@ smart-calendar[view="landscape"] .smart-calendar-container {
 
 .smart-calendar[hide-day-names] .smart-calendar-week-titles {
     display: none;
+}
+
+.smart-calendar smart-tooltip {
+    top: 0;
 }
 
 .smart-calendar smart-tooltip .smart-tooltip-content {

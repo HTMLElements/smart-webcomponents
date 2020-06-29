@@ -7,7 +7,8 @@
     --smart-primary-color: #ffffff; /* Text color on top of a primary background */
     --smart-secondary: #2D2D30; /* The theme secondary color */
     --smart-secondary-color: #ffffff; /* Text color on top of a secondary background */
-    --smart-error: #B00020; /* The theme error color */
+    --smart-error-rgb: 176, 0, 32; /* The theme error color */
+    --smart-error: rgb(var(--smart-error-rgb)); /* The theme error color */
     --smart-error-color: #ffffff; /* Text color on top of a error background */
     --smart-success: #8BC34A; /* The theme success color */
     --smart-success-color: #ffffff; /* Text color on top of a success background */
@@ -177,16 +178,16 @@
     --smart-icon-contains: '\f063'; /* Code of contains icon */
     --smart-icon-starts_with: '\f064'; /* Code of starts with icon */
     --smart-icon-ends_with: '\f065'; /* Code of ends with icon */
-    --smart-icon-does_not_contain: '\f066';/* Code of does not contain icon */
+    --smart-icon-does_not_contain: '\f066'; /* Code of does not contain icon */
     --smart-icon-equals: '\f52c'; /* Code of equals icon */
     --smart-icon-greater-than: '\f531'; /* Code of greater than icon */
-    --smart-icon-greater-than-equal: '\f532';  /* Code of greater than or equal icon */
+    --smart-icon-greater-than-equal: '\f532'; /* Code of greater than or equal icon */
     --smart-icon-less-than: '\f536'; /* Code of less than icon */
     --smart-icon-less-than-equal: '\f537'; /* Code of less than or equal icon */
-    --smart-icon-not-equal: '\f53e';  /* Code of not equal icon */
+    --smart-icon-not-equal: '\f53e'; /* Code of not equal icon */
     --smart-icon-percentage: '\f541'; /* Code of percentage icon */
     --smart-icon-grip-vertical: '\f58e'; /* Code of grip icon */
-    --smart-icon-between: '\f06a';  /* Code of between icon */
+    --smart-icon-between: '\f06a'; /* Code of between icon */
     /* Accordion */
     --smart-accordion-animation-duration: 225ms; /* smartAccordion animation duration */
     --smart-accordion-default-width: var(--smart-box-width); /* smartAccordion default width */
@@ -237,6 +238,9 @@
     --smart-calendar-cell-border-bottom-left-radius: 15px; /* Defines cell's bottom-left border radius. */
     --smart-calendar-cell-border-bottom-right-radius: 15px; /* Defines cell's bottom-right border radius. */
     --smart-calendar-title-padding: 10px; /* Defines title's padding */
+    --smart-calendar-important-date-background: var(--smart-ui-state-hover); /* Defines title's padding */
+    --smart-calendar-important-date-color: var(--smart-ui-state-color-hover); /* Defines title's padding */
+    --smart-calendar-important-date-border-color: var(--smart-ui-state-border-hover); /* Defines title's padding */
     /* CardView */
     --smart-card-view-default-width: 1200px; /* Default width of CardView. */
     --smart-card-view-default-height: 800px; /* Default height of CardView. */
@@ -429,6 +433,8 @@
     --smart-gantt-chart-confirm-popup-window-default-width: var(--smart-gantt-chart-connection-popup-default-width); /* Determines the width of the confirm popup window of the element. */
     --smart-gantt-chart-popup-window-header-height: 35px; /* Determines the height of the header of the popup windows inside the element. */
     --smart-gantt-chart-popup-window-footer-height: 50px; /* Determines the height of the footer of the popup windows insinde the element. */
+    --smart-gantt-chart-header-placeholder: ' - '; /* Placeholder for thea Header sections when there're no items */
+    --smart-gantt-chart-progress-label-padding: 0 10px 0 10px; /* Task progress label padding */
     /* Gauge */
     --smart-gauge-default-width: var(--smart-box-width); /* smartGauge default width */
     --smart-gauge-default-height: var(--smart-box-height); /* smartgauge default height */
@@ -640,6 +646,16 @@
     --smart-scroll-bar-button-background-active: #787878; /* The background color of the ScrollBar's buttons in active state. */
     --smart-scroll-bar-button-border-active: #F1F1F1; /* The border color of the ScrollBar's buttons in active state. */
     --smart-scroll-bar-button-color-active: #fff; /* The color of the ScrollBar's buttons in active state. */
+    /* Table */
+    --smart-table-default-width: 100%; /* smartTable default width */
+    --smart-table-default-height: auto; /* smartTable default height */
+    --smart-table-header-footer-height: 56px; /* smartTable height of header and footer */
+    --smart-table-column-header-height: var(--smart-table-header-footer-height); /* smartTable height of column header */
+    --smart-table-row-height: 48px; /* smartTable height of rows */
+    --smart-table-cell-padding: 12px; /* smartTable cell padding */
+    --smart-table-indent: 30px; /* smartTable hierarchical cell indent */
+    --smart-table-arrow-size: 16px; /* smartTable arrow size */
+    --smart-table-arrow-margin: 5px; /* smartTable arrow margin */
     /* Tank */
     --smart-tank-default-width: var(--smart-editor-width); /* smartTank default width */
     --smart-tank-default-height: calc(10 * var(--smart-editor-height)); /* smartTank default height*/

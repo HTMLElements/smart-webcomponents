@@ -135,7 +135,7 @@ export interface DateTimePickerProperties {
    * Sets dates, displayed as important in the calendar pop-up.
    * Default value: 
    */
-  importantDates?: string[];
+  importantDates?: string[] | Date[];
   /**
    * Sets a template for the important dates of the calendar pop-up. Accepts the id of or a reference to an HTMLTemplateElement.
    * Default value: null

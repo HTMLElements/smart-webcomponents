@@ -90,7 +90,7 @@ export interface CalendarProperties {
    * Sets the dates that will be displayed as important.
    * Default value: 
    */
-  importantDates?: string[];
+  importantDates?: string[] | Date[];
   /**
    * Sets a template for the important dates. Accepts the id of an HTMLTemplate element inside the DOM of or a reference to it.
    * Default value: null
@@ -176,7 +176,7 @@ export interface CalendarProperties {
    * Sets the dates that will be selected. Selected dates are styled differently than the rest. The dates can be Date objects or strings in a valid date format.
    * Default value: 
    */
-  selectedDates?: string[];
+  selectedDates?: string[] | Date[];
   /**
    * Determines the date selection mode.
    * Default value: default
@@ -302,6 +302,20 @@ export interface Calendar extends BaseElement, CalendarProperties {
    */
   onNavigationChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the tooltip for the important date is opened.
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, value)
+   *  target - The event target - tooltip.
+   *  value - The important date of the hovered cell.
+   */
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the tooltip for the important date is closed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, value)
+   *  target - The event target - tooltip.
+   *  value - The important date of the hovered cell.
+   */
+  onClose: ((this: any, ev: Event) => any) | null;
+  /**
    * Clears the selection. Removes all seleceted dates.
    */
   clearSelection(): void;
@@ -348,7 +362,7 @@ export declare type ViewLayout = 'landscape' | 'portrait';
 /** Determines the position of the navigation buttons located inside the header.  */
 export declare type LayoutPosition = 'near' | 'far' | 'both';
 /**Determines the date selection mode. */
-export declare type CalendarSelectionMode = null | 'default' | 'many' | 'one' | 'oneOrMany' | 'range' | 'week' | 'zeroOrMany' | 'zeroOrOne';
+export declare type CalendarSelectionMode = 'none' | 'default' | 'many' | 'one' | 'oneOrMany' | 'range' | 'week' | 'zeroOrMany' | 'zeroOrOne';
 /**Sets the position of the tooltip. */
 export declare type TooltipPosition = 'auto' | 'absolute' | 'bottom' | 'top' | 'left' | 'right';
 /**Determines the year format in the header when DisplayMode is set to Default or when Months property is greater than 1.<br/> */

@@ -87,6 +87,11 @@ export interface GanttChartProperties {
    */
   headerTemplate?: any;
   /**
+   * By default the Timeline has a two level header - timeline details and timeline header. This property hides the header details container( the top container ).
+   * Default value: false
+   */
+  hideTimelineHeaderDetails?: boolean;
+  /**
    * Hides the Resource panel regardless of the resources availability By default the Resource panel is visible if resources are added to the GanttChart. This property allows to hide the Resource panel permanently.
    * Default value: false
    */
@@ -147,6 +152,11 @@ export interface GanttChartProperties {
    */
   popupWindowCustomizationFunction?: any;
   /**
+   * A format function for the Timeline task progress label. The expected result from the function is a string. The label is hidden by default can be shown with the showProgressLabel property.
+   * Default value: null
+   */
+  progressLabelFormatFunction?: any;
+  /**
    * A getter that returns a flat structure as an array of all resources inside the element.
    * Default value: 
    */
@@ -202,6 +212,11 @@ export interface GanttChartProperties {
    */
   selectedIndexes?: number[];
   /**
+   * Shows the progress label inside the progress bars of the Timeline tasks.
+   * Default value: false
+   */
+  showProgressLabel?: boolean;
+  /**
    * If set the dateStart/dateEnd of the tasks will be coerced to the nearest timeline cell date ( according to the view ). Affects the dragging operation as well.
    * Default value: false
    */
@@ -252,7 +267,7 @@ export interface GanttChartProperties {
    */
   treeSize?: any;
   /**
-   * A format function for the Header of the Timeline.
+   * A format function for the Header of the Timeline. The function provides the following arguments: date - a Date object that represets the date for the current cell.type - a string that represents the type of date that the cell is showing, e.g. 'month', 'week', 'day', etc.isHeaderDetails - a boolean that indicates whether the current cell is part of the Header Details Container or not.value - a string that represents the default value for the cell provided by the element.
    * Default value: null
    */
   timelineHeaderFormatFunction?: any;
@@ -295,12 +310,49 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
+   * This event is triggered when a batch update was started after executing the <b>beginUpdate</b> method.
+	* @param event. The custom event.    */
+  onBeginUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a batch update was ended from after executing the <b>endUpdate</b> method.
+	* @param event. The custom event.    */
+  onEndUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a Task is selected/unselected.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue)
    *  value - The index of the new selected task.
    *  oldValue - The index of the previously selected task.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when a task, resource or connection is clicked inside the Timeline or the Tree columns.
+	* @param event. The custom event. Custom data event was created with: ev.detail(item, type, originalEvent)
+   *  item - The item that was clicked. It cam be a task, resource or connection.
+   *  type - The type of item. Possible values are: 'task', 'resource', 'connection'.
+   *  originalEvent - The original DOM event.
+   */
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Task/Resource/Connection is inserted.
+	* @param event. The custom event. Custom data event was created with: ev.detail(type, item)
+   *  type - The type of item that has been modified.
+   *  item - An object that represents the actual item with it's attributes.
+   */
+  onItemInsert?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Task/Resource/Connection is removed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(type, item)
+   *  type - The type of item that has been modified.
+   *  item - An object that represents the actual item with it's attributes.
+   */
+  onItemRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Task/Resource/Connection is updated.
+	* @param event. The custom event. Custom data event was created with: ev.detail(type, item)
+   *  type - The type of item that has been modified.
+   *  item - An object that represents the actual item with it's attributes.
+   */
+  onItemUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the progress of a task bar starts to change as a result of user interaction. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(index, progress)
@@ -487,23 +539,41 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    */
   getState(): any[];
   /**
+   * Returns the Tree path of a task/resource.
+   * @param {GanttChartTask | GanttChartResource | number} item. A GattChartTask/GanttChartResource item object or index.
+   * @returns {string}
+   */
+  getItemPath(item: GanttChartTask | GanttChartResource | number): string;
+  /**
    * Returns the index of a task.
-   * @param {HTMLElement} task. A GattChartTask object.
+   * @param {GanttChartTask} task. A GattChartTask object.
    * @returns {number}
    */
-  getTaskIndex(task: HTMLElement): number;
+  getTaskIndex(task: GanttChartTask): number;
   /**
    * Returns the tree path of a task.
-   * @param {GanttChartTask} task. Returns the Tree path of the task as a string.
+   * @param {GanttChartTask} task. A GanttChartTask object.
    * @returns {string}
    */
   getTaskPath(task: GanttChartTask): string;
+  /**
+   * Returns teh Project of a task if any.
+   * @param {GanttChartTask} task. A GantChartTask object.
+   * @returns {GanttChartTask | undefined}
+   */
+  getTaskProject(task: GanttChartTask): GanttChartTask | undefined;
   /**
    * Returns the index of a resource.
    * @param {any} resource. A GanttChartResource object.
    * @returns {number}
    */
   getResourceIndex(resource: any): number;
+  /**
+   * Returns the tasks that are assigned to the resource.
+   * @param {any} resource. A GanttChartResource object.
+   * @returns {any}
+   */
+  getResourceTasks(resource: any): any;
   /**
    * Unselects all currently selected items inside the GanttChart including Tasks and Resources. It also clears the assignment highlgihters.
    */
@@ -530,15 +600,15 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
   insertTask(index: string | number, taskObject: any): void;
   /**
    * Updates a task inside the timeline.
-   * @param {string | number} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
+   * @param {any} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
    * @param {any} taskObject. An object describing a Gantt Chart task. The properties of this object will be applied to the desired task.
    */
-  updateTask(index: string | number, taskObject: any): void;
+  updateTask(index: any, taskObject: any): void;
   /**
    * Removes a task from the timeline.
-   * @param {string | number} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
+   * @param {any} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
    */
-  removeTask(index: string | number): void;
+  removeTask(index: any): void;
   /**
    * Inserts a new resource.
    * @param {string | number} resourceId. A string that represents the id of a resource or it's hierarchical position, e.g. '0' ( following SmartTree syntax), or a number that represents the index of a resource.
@@ -599,6 +669,11 @@ export interface GanttChartDataExport {
    */
   itemType?: GanttChartDataExportItemType;
   /**
+   * Determines whether hidden items will be exported as well. By default only the visible are exported.
+   * Default value: false
+   */
+  includeHidden?: boolean;
+  /**
    * Sets the page orientation, when exporting to PDF.
    * Default value: "portrait"
    */
@@ -657,6 +732,11 @@ export interface GanttChartDataSource {
    */
   dragProject?: boolean;
   /**
+   * The duration of the Project, Task or Milestone in miliseconds. The duration unit can be changed via the durationUnit property.
+   * Default value: 0
+   */
+  duration?: number | undefined;
+  /**
    * Project, Task or Milestone expanded state in the view.
    * Default value: false
    */
@@ -677,6 +757,11 @@ export interface GanttChartDataSource {
    */
   formatFunction?: any;
   /**
+   * Project, Task or Milestone max start date.
+   * Default value: 
+   */
+  maxDateStart?: string | Date;
+  /**
    * Project, Task or Milestone min start date.
    * Default value: 
    */
@@ -686,6 +771,21 @@ export interface GanttChartDataSource {
    * Default value: 
    */
   maxDateEnd?: string | Date;
+  /**
+   * Project, Task or Milestone min end date.
+   * Default value: 
+   */
+  minDateEnd?: string | Date;
+  /**
+   * The minimum duration of the Project, Task or Milestone in miliseconds. The units can be changed via the durationUnit property.
+   * Default value: 0
+   */
+  minDuration?: number | undefined;
+  /**
+   * The maximum duration of the Project, Task or Milestone in miliseconds. The unit can be changed via the durationUnit property.
+   * Default value: 0
+   */
+  maxDuration?: number | undefined;
   /**
    * Project, Task or Milestone progress.
    * Default value: 0
@@ -724,6 +824,11 @@ export interface GanttChartDataSource {
 }
 
 export interface GanttChartDataSourceConnection {
+  /**
+   * Task's connection lag. Used by the Auto Scheduling (autoSchedue proeprty) feature to determine the connection lag, which is the time before/after the target begins/ends (depending on the connection type). The lag can be a negative number in which case it acts as lead time. In other words, the lab property is used to make a task start late(positive lag) or early(negative lag) then planned when autoSchedule is enabled.
+   * Default value: 0
+   */
+  lag?: number | undefined;
   /**
    * Task's connection target.
    * Default value: 0
@@ -768,6 +873,11 @@ export interface GanttChartDataSourceResource {
    */
   progress?: number;
   /**
+   * Resource type.
+   * Default value: 
+   */
+  type?: any;
+  /**
    * Resource value.
    * Default value: 
    */
@@ -786,11 +896,6 @@ export interface GanttChartDataSourceResource {
 
 export interface GanttChartResource {
   /**
-   * An array of the tasks that the resources is assigned to.
-   * Default value: []
-   */
-  assignedTo?: GanttChartTask[];
-  /**
    * Resource class. Used to style the resource Timeline.
    * Default value: ""
    */
@@ -800,6 +905,11 @@ export interface GanttChartResource {
    * Default value: 8
    */
   capacity?: number;
+  /**
+   * Resource visibility.
+   * Default value: false
+   */
+  hidden?: boolean | undefined;
   /**
    * Resource id. The unique id of the resource.
    * Default value: ""
@@ -825,6 +935,11 @@ export interface GanttChartResource {
    * Default value: 0
    */
   progress?: number;
+  /**
+   * Resource type.
+   * Default value: 
+   */
+  type?: any;
   /**
    * Resource value.
    * Default value: 
@@ -907,10 +1022,20 @@ export interface GanttChartTask {
    */
   dragProject?: boolean;
   /**
+   * The duration of the tasks in miliseconds. The duration unit can be changed via the durationUnit property.
+   * Default value: 0
+   */
+  duration?: number | undefined;
+  /**
    * Project, Task or Milestone expanded state in the view.
    * Default value: false
    */
   expanded?: boolean;
+  /**
+   * Task visibility.
+   * Default value: false
+   */
+  hidden?: boolean | undefined;
   /**
    * Project, Task or Milestone id.
    * Default value: 
@@ -927,6 +1052,11 @@ export interface GanttChartTask {
    */
   formatFunction?: any;
   /**
+   * Project, Task or Milestone max start date.
+   * Default value: 
+   */
+  maxDateStart?: string | Date;
+  /**
    * Project, Task or Milestone min start date.
    * Default value: 
    */
@@ -936,6 +1066,21 @@ export interface GanttChartTask {
    * Default value: 
    */
   maxDateEnd?: string | Date;
+  /**
+   * Project, Task or Milestone min end date.
+   * Default value: 
+   */
+  minDateEnd?: string | Date;
+  /**
+   * The minimum duration of the Project, Task or Milestone in miliseconds. The units can be changed via the durationUnit property.
+   * Default value: 0
+   */
+  minDuration?: number | undefined;
+  /**
+   * The maximum duration of the Project, Task or Milestone in miliseconds. The unit can be changed via the durationUnit property.
+   * Default value: 0
+   */
+  maxDuration?: number | undefined;
   /**
    * Project, Task or Milestone progress.
    * Default value: 0
@@ -952,7 +1097,7 @@ export interface GanttChartTask {
    */
   synchronized?: boolean;
   /**
-   * Project's tasks.
+   * Project's tasks. Only projects can have tasks.
    * Default value: 
    */
   tasks?: GanttChartTask[];
@@ -969,6 +1114,11 @@ export interface GanttChartTask {
 }
 
 export interface GanttChartTaskConnection {
+  /**
+   * Task's connection lag. Used by the Auto Scheduling (autoSchedue proeprty) feature to determine the connection lag, which is the time before/after the target begins/ends (depending on the connection type). The lag can be a negative number in which case it acts as lead time. In other words, the lab property is used to make a task start late(positive lag) or early(negative lag) then planned when autoSchedule is enabled.
+   * Default value: 0
+   */
+  lag?: number | undefined;
   /**
    * Task's connection target.
    * Default value: 0
@@ -992,6 +1142,11 @@ export interface GanttChartTaskResource {
    * Default value: null
    */
   formatFunction?: any;
+  /**
+   * Resource visibility.
+   * Default value: false
+   */
+  hidden?: boolean | undefined;
   /**
    * Resource id.
    * Default value: ""
@@ -1028,11 +1183,6 @@ export interface GanttChartTaskResource {
    */
   value?: any;
   /**
-   * Resource visibility.
-   * Default value: false
-   */
-  hidden?: boolean | undefined;
-  /**
    * Resource workload.
    * Default value: 0
    */
@@ -1041,10 +1191,25 @@ export interface GanttChartTaskResource {
 
 export interface GanttChartTaskColumn {
   /**
+   * Determines whether the task propery determined by column can be edited from the Window editor or not. By default editing is enabled.
+   * Default value: false
+   */
+  disableEdit?: boolean;
+  /**
+   * Determines whether the Splitter Bar after the column is hidden or not. Splitter bars allow to resize the columns.
+   * Default value: false
+   */
+  hideResizeBar?: boolean;
+  /**
    * Column's label.
    * Default value: 
    */
   label?: string | null;
+  /**
+   * Determines whether the column can be resized or not. Locked columns cannot be resized and their size remains fixed.
+   * Default value: false
+   */
+  locked?: boolean;
   /**
    * Column's value.
    * Default value: 
@@ -1070,6 +1235,21 @@ export interface GanttChartTaskColumn {
    * Default value: null
    */
   formatFunction?: any;
+  /**
+   * A function that allows to set a custom editor for the column's value in the Editor Window. The function must return an HTMLElement. The function has two arguments: name - the name of the task property that is going to be edited.value - the value of the task property that is going to be edited. It's also important to define a getCustomEditorValue to return the value from the custom editor.
+   * Default value: null
+   */
+  customEditor?: any;
+  /**
+   * A function that is used in conjunction with customEditor allows to return the value of the custom editor. Since the editor is unknown by the element, this function allows to return the expected result from the editor. It has one argument - an HTMLElement that contains the custom editor that was previously defined by the customEditor function.
+   * Default value: null
+   */
+  getCustomEditorValue?: any;
+  /**
+   * A function that is used in conjunction with customEditor allows to set the value of the custom editor. Since the editor is unknown by the element, this function allows to set the expected value to the editor. It has three arguments - editor - an HTMLElement that contains the custom editor that was previously defined by the customEditor function.columnValue - the value property of the column.value - the value of the task property that the column displays(the editor value).
+   * Default value: null
+   */
+  setCustomEditorValue?: any;
 }
 
 declare global {

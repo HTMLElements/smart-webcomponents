@@ -30,21 +30,6 @@ input[type='radio'].smart-validation-error { /* input radio */
     align-items: center;
 }
 
-.smart-validation-error input::selection,
-.smart-validation-error input.smart-input::selection {
-    background: var(--smart-error);
-    color: var(--smart-error-color);
-    border-color: var(--smart-error);
-}
-
-.smart-validation-success input::selection,
-.smart-validation-success input.smart-input::selection {
-    background: var(--smart-success);
-    color: var(--smart-success-color);
-    border-color: var(--smart-success);
-}
-
-
 .smart-success-label-like-after-element::after,
 .smart-error-label-like-after-element::after {
     display: flex;
@@ -74,8 +59,7 @@ input[type='radio'].smart-validation-error { /* input radio */
     transform: translate(-50%, -50%);
 }
 
-input.smart-validation-error,
-input.smart-validation-success {
+input.smart-validation-error {
     border-style: solid;
     border-width: 1px;
 }
@@ -91,13 +75,6 @@ input.smart-validation-success {
 }
 
 /* Success styles */
-.smart-validation-success:not(.underlined):not(.outlined),
-.smart-validation-success:not(.underlined):not(.outlined) input,
-.smart-validation-success:not(.underlined):not(.outlined) span {
-    border-color: var(--smart-success) !important;
-    outline: none;
-}
-
     .smart-success-label-like-after-element::after,
     .smart-validation-success:not(smart-check-box) > div.smart-container::after {
         background-color: var(--smart-success);

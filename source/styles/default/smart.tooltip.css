@@ -69,7 +69,7 @@ smart-tooltip.smart-element {
         border-right: var(--smart-tooltip-arrow-width) solid transparent;
         border-top: var(--smart-tooltip-arrow-width) solid var(--smart-tooltip-arrow-color);
         position: absolute;
-        bottom: calc(-1 *var(--smart-tooltip-arrow-width));
+        bottom: 0;
         left: calc(100% / 2 - var(--smart-tooltip-arrow-width));
         transform: translateX(var(--smart-tooltip-arrow-translate));
     }

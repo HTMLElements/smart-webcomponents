@@ -517,13 +517,14 @@ smart-date-time-picker > .smart-container > .smart-content,
     height:auto;
     min-height: 0;
     border:none;
-    background: var(--smart-background);
+    background: inherit;
 }
 .smart-date-time-picker.outlined .smart-content {
     padding: 4px 3px 4px;
     border: 1px solid var(--smart-border);
     height:auto;
     border-radius: var(--smart-border-radius);
+    background: var(--smart-background);
     z-index: 5;
 }
 
@@ -573,6 +574,8 @@ smart-date-time-picker > .smart-container > .smart-content,
     width: 100%;
     max-height: 100%;
     color: var(--smart-background-color);
+    z-index:5;
+    pointer-events: none;
     font-size: 75%;
     line-height: 15px;
     cursor: text;

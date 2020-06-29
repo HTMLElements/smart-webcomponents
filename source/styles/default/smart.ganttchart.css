@@ -56,6 +56,7 @@ smart-gantt-chart .smart-splitter,
 }
 
 /* --smart-gantt-chart-splitter-bar-fit-size in this case shouldn't be changed, because it is used for the collapse/expand animation ! */
+
 .smart-gantt-chart .smart-task-splitter {
     --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height));
     --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
@@ -151,6 +152,22 @@ smart-gantt-chart .smart-splitter,
     display: flex;
 }
 
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-view-details {
+    display: none;
+}
+
+.smart-gantt-chart[hide-timeline-header-details] .smart-task-splitter-item:not([show-header]) .smart-timeline-view-cell {
+    border-top: none;
+}
+
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-view-cells, .smart-gantt-chart[hide-timeline-header-details] .smart-task-tree-header {
+    height: var(--smart-gantt-chart-task-default-height);
+}
+
+.smart-gantt-chart[hide-timeline-header-details] .smart-task-splitter {
+    --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
+}
+
 .smart-gantt-chart .smart-timeline-view-details {
     display: flex;
     width: 100%;
@@ -212,8 +229,26 @@ smart-gantt-chart .smart-splitter,
     position: relative;
 }
 
-.smart-gantt-chart .smart-timeline-view-details:empty, .smart-gantt-chart .smart-timeline-task:empty {
+.smart-gantt-chart .smart-timeline-task:empty {
     height: 0;
+}
+
+.smart-gantt-chart .smart-timeline-view-details:empty, .smart-gantt-chart .smart-timeline-view-cells:empty {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    box-shadow: var(--smart-gantt-chart-header-box-shadow);
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smart-gantt-chart .smart-timeline-view-details:empty::after, .smart-gantt-chart .smart-timeline-view-cells:empty::after {
+    content: var(--smart-gantt-chart-header-placeholder);
 }
 
 .smart-gantt-chart .smart-timeline-content:empty:after {
@@ -457,10 +492,6 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     position: absolute;
 }
 
-.smart-gantt-chart .smart-timeline-task[disable-drag] {
-    cursor: default;
-}
-
 .smart-gantt-chart .milestone {
     height: var(--smart-gantt-chart-task-default-height);
 }
@@ -556,6 +587,29 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     position: relative;
 }
 
+.smart-gantt-chart[show-progress-label] .smart-timeline-task-progress::after {
+    display: flex;
+    height: 100%;
+    content: attr(value);
+    align-items: center;
+    padding: var(--smart-gantt-chart-progress-label-padding);
+    color: var(--smart-gantt-chart-task-label-color);
+    font-weight: var(--smart-font-weight);
+    font-size: var(--smart-font-size);
+}
+
+.smart-gantt-chart[show-progress-label] [selected] .smart-timeline-task-progress::after {
+    color: var(--smart-gantt-chart-task-label-color-selected);
+}
+
+.smart-gantt-chart[show-progress-label] .project .smart-timeline-task-progress::after {
+    color: var(--smart-gantt-chart-project-label-color);
+}
+
+.smart-gantt-chart[show-progress-label] .project[selected] .smart-timeline-task-progress::after {
+    color: var(--smart-gantt-chart-project-label-color-selected);
+}
+
 .smart-gantt-chart .smart-timeline-task-fill {
     border-radius: var(--smart-gantt-chart-task-fill-border-radius);
     overflow: hidden;
@@ -606,6 +660,10 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
 
 .smart-gantt-chart .smart-timeline-task.project[selected] .smart-timeline-task-label {
     color: var(--smart-gantt-chart-project-label-color-selected);
+}
+
+.smart-gantt-chart:not([animation="none"]) .smart-timeline-task.task .smart-timeline-task-label, .smart-gantt-chart:not([animation="none"]) .smart-timeline-task.project .smart-timeline-task-label, .smart-gantt-chart:not([animation="none"])[show-progress-label] .smart-timeline-task-progress::after {
+    transition: color 0.2s ease-in-out;
 }
 
 .smart-gantt-chart .smart-timeline-task-progress-thumb {
@@ -661,13 +719,7 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
 }
 
-/*.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected]:not(.milestone)::after,
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected]:not(.milestone) .smart-task-container::after {
-    transform: translateY(-1px);
-}*/
-
 .smart-gantt-chart .smart-timeline-task[selected]:not(.milestone) .smart-timeline-task-fill {
-    /*box-shadow: 0 0 0 1px var(--smart-gantt-chart-selection-color);*/
     box-shadow: var(--smart-elevation-2);
 }
 
@@ -804,7 +856,7 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     border: inherit;
     position: absolute;
     border-color: transparent;
-    border-width: 5px;
+    border-width: 10px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -828,6 +880,10 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
     overflow: hidden;
     transform: scale(1);
+}
+
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-animation-container {
+    height: calc(100% - var(--smart-gantt-chart-task-default-height));
 }
 
 .smart-gantt-chart .smart-timeline-animation-container.smart-visibility-hidden {
@@ -920,8 +976,6 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
 }
 
 .smart-gantt-chart .smart-tree-splitter {
-    /*--smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height));*/
-    /* Works */
     --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-tree-splitter-bar-fit-size);
 }
 
@@ -930,9 +984,11 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
 }
 
 .smart-gantt-chart .smart-resource-splitter .smart-tree-splitter {
-    /*--smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height));*/
-    /* Works */
     --smart-splitter-bar-fit-size: var(--smart-gantt-chart-resource-tree-splitter-bar-fit-size);
+}
+
+.smart-gantt-chart .smart-resource-splitter {
+    --smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
 }
 
 .smart-gantt-chart .smart-tree {
@@ -979,7 +1035,6 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     border-bottom: var(--smart-border-width) solid var(--smart-border);
     border-left: none;
     border-right: none;
-    /*border-radius: 5px;*/
     -webkit-user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
@@ -1038,6 +1093,10 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     overflow: hidden;
 }
 
+.smart-gantt-chart[hide-timeline-header-details] .smart-task-tree-content {
+    height: calc(100% - var(--smart-gantt-chart-task-default-height));
+}
+
 .smart-gantt-chart .smart-resource-tree-content {
     height: calc(100% - var(--smart-gantt-chart-task-default-height));
 }
@@ -1053,7 +1112,7 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
         --smart-splitter-item-size: 20%;
     }*/
 
-.smart-gantt-chart .smart-task-label-container, .smart-gantt-chart .smart-resource-label-container, .smart-gantt-chart .smart-task-connection-point, .smart-gantt-chart .smart-task-connection, .smart-gantt-chart:not([disable-task-progress-change]) .smart-timeline-task .smart-timeline-task-progress-thumb:after {
+.smart-gantt-chart .smart-task-label-container, .smart-gantt-chart .smart-resource-label-container, .smart-gantt-chart .smart-task-connection-point, .smart-gantt-chart .smart-task-connection, .smart-gantt-chart .smart-timeline-task[disable-drag], .smart-gantt-chart:not([disable-task-progress-change]) .smart-timeline-task .smart-timeline-task-progress-thumb:after {
     cursor: pointer;
 }
 
@@ -1121,10 +1180,6 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     transition: height 0.2s ease-in, transform 0.2s ease-in, visibility 0.2s ease-in;
 }
 
-/*.smart-gantt-chart .smart-tree-splitter smart-splitter-bar {
-        height: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height)) !important;
-    }*/
-
 .smart-gantt-chart .smart-tree-splitter smart-tree-item[assigned], .smart-gantt-chart .smart-tree-splitter smart-tree-items-group[assigned]>.smart-tree-item-label-container {
     /*border-color: rgba(var(--smart-primary-rgb), .05);*/
     background-color: rgba(var(--smart-primary-rgb), .05);
@@ -1182,16 +1237,20 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
 .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"] {
     position: absolute;
     right: 0;
-    /*top: 0;*/
-    /*height: 100%;*/
     top: calc(2 * var(--smart-gantt-chart-task-default-height));
     height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
     width: calc(var(--smart-scroll-bar-size));
 }
 
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-scroll-bar[orientation="vertical"] {
+    top: var(--smart-gantt-chart-task-default-height);
+    height: calc(100% - var(--smart-gantt-chart-task-default-height));
+}
+
 .smart-gantt-chart .smart-timeline-scroll-bar.smart-resource-scroll-bar {
     height: calc(100% - var(--smart-gantt-chart-task-default-height));
     top: var(--smart-gantt-chart-task-default-height);
+    z-index: 1;
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"]::before {
@@ -1205,6 +1264,11 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     border: 1px solid var(--smart-border);
     border-top: none;
     box-sizing: border-box;
+}
+
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-scroll-bar[orientation="vertical"]::before {
+    top: calc(-1 * var(--smart-gantt-chart-task-default-height));
+    height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar.smart-resource-scroll-bar[orientation="vertical"]::before {
@@ -1248,6 +1312,16 @@ smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell, smart-gantt
     width: 100%;
     height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
     transition: max-height 0.2s ease-in, min-height 0.2s ease-in, height 0.2s ease-in;
+}
+
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-content {
+    height: calc(100% - var(--smart-gantt-chart-task-default-height));
+}
+
+/* The Timeline needs some height when all tasks are hidden */
+
+.smart-gantt-chart .smart-timeline-cells-container:empty {
+    min-height: 1px;
 }
 
 .smart-gantt-chart .smart-resource-splitter .smart-timeline-content {

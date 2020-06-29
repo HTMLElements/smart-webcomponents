@@ -117,7 +117,6 @@ smart-splitter-item>.smart-container {
     background-color: var(--smart-ui-state-hover);
     border-color: var(--smart-ui-state-border-hover);
     color: var(--smart-ui-state-color-hover);
-    background-clip: content-box;
 }
 
 .smart-splitter:not([dragged])>.smart-container>smart-splitter-bar:not([focus]) .smart-splitter-near-collapse-button, .smart-splitter:not([dragged])>.smart-container>smart-splitter-bar:not([focus]) .smart-splitter-far-collapse-button {
@@ -171,7 +170,6 @@ smart-splitter-item>.smart-container {
     position: absolute;
     background-color: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
-    background-clip: content-box;
     opacity: 0.5;
 }
 

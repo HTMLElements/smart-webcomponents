@@ -1,9 +1,6 @@
-
 /* smart-button, smart-repeat-button, smart-toggle-button, smart-link-button */
 
-smart-button,
-smart-toggle-button,
-smart-repeat-button {
+smart-button, smart-toggle-button, smart-repeat-button {
     --smart-button-flat-color: var(--smart-background-color);
     text-align: center;
     vertical-align: middle;
@@ -21,166 +18,147 @@ smart-repeat-button {
     border-style: solid;
 }
 
-    smart-button.smart-element,
-    smart-toggle-button.smart-element,
-    smart-repeat-button.smart-element {
-        display: inline-flex;
-    }
+smart-button.smart-element, smart-toggle-button.smart-element, smart-repeat-button.smart-element {
+    display: inline-flex;
+}
 
-    smart-button.primary,
-    smart-toggle-button.primary,
-    smart-repeat-button.primary {
-        --smart-button-opacity-hover: 0.75;
-        --smart-button-opacity-focus: 0.7;
-        --smart-button-opacity-active: 0.65;
-        --smart-background: var(--smart-primary);
-        --smart-border: var(--smart-primary);
-        --smart-background-color: var(--smart-primary-color);
-        --smart-ui-state-hover: var(--smart-primary);
-        --smart-ui-state-hover: var(--smart-primary);
-        --smart-ui-state-color-hover: var(--smart-primary-color);
-        --smart-ui-state-active: var(--smart-primary);
-        --smart-ui-state-active: var(--smart-primary);
-        --smart-ui-state-color-active: var(--smart-primary-color);
-        --smart-ui-state-focus: var(--smart-primary);
-        --smart-ui-state-focus: var(--smart-primary);
-        --smart-ui-state-color-focus: var(--smart-primary-color);
-        --smart-button-flat-color: var(--smart-primary);
-        --smart-button-outlined-color: var(--smart-primary);
-        --smart-button-outlined-border: var(--smart-primary);
-    }
+smart-button.primary, smart-toggle-button.primary, smart-repeat-button.primary {
+    --smart-button-opacity-hover: 0.75;
+    --smart-button-opacity-focus: 0.7;
+    --smart-button-opacity-active: 0.65;
+    --smart-background: var(--smart-primary);
+    --smart-border: var(--smart-primary);
+    --smart-background-color: var(--smart-primary-color);
+    --smart-ui-state-hover: var(--smart-primary);
+    --smart-ui-state-hover: var(--smart-primary);
+    --smart-ui-state-color-hover: var(--smart-primary-color);
+    --smart-ui-state-active: var(--smart-primary);
+    --smart-ui-state-active: var(--smart-primary);
+    --smart-ui-state-color-active: var(--smart-primary-color);
+    --smart-ui-state-focus: var(--smart-primary);
+    --smart-ui-state-focus: var(--smart-primary);
+    --smart-ui-state-color-focus: var(--smart-primary-color);
+    --smart-button-flat-color: var(--smart-primary);
+    --smart-button-outlined-color: var(--smart-primary);
+    --smart-button-outlined-border: var(--smart-primary);
+}
 
-    smart-button.secondary,
-    smart-toggle-button.secondary,
-    smart-repeat-button.secondary {
-        --smart-button-opacity-hover: 0.75;
-        --smart-button-opacity-focus: 0.7;
-        --smart-button-opacity-active: 0.65;
-        --smart-background: var(--smart-secondary);
-        --smart-border: var(--smart-secondary);
-        --smart-background-color: var(--smart-secondary-color);
-        --smart-ui-state-hover: var(--smart-secondary);
-        --smart-ui-state-hover: var(--smart-secondary);
-        --smart-ui-state-color-hover: var(--smart-secondary-color);
-        --smart-ui-state-active: var(--smart-secondary);
-        --smart-ui-state-active: var(--smart-secondary);
-        --smart-ui-state-color-active: var(--smart-secondary-color);
-        --smart-ui-state-focus: var(--smart-secondary);
-        --smart-ui-state-focus: var(--smart-secondary);
-        --smart-ui-state-color-focus: var(--smart-secondary-color);
-        --smart-button-flat-color: var(--smart-secondary);
-        --smart-button-outlined-color: var(--smart-secondary);
-        --smart-button-outlined-border: var(--smart-secondary);
-    }
+smart-button.secondary, smart-toggle-button.secondary, smart-repeat-button.secondary {
+    --smart-button-opacity-hover: 0.75;
+    --smart-button-opacity-focus: 0.7;
+    --smart-button-opacity-active: 0.65;
+    --smart-background: var(--smart-secondary);
+    --smart-border: var(--smart-secondary);
+    --smart-background-color: var(--smart-secondary-color);
+    --smart-ui-state-hover: var(--smart-secondary);
+    --smart-ui-state-hover: var(--smart-secondary);
+    --smart-ui-state-color-hover: var(--smart-secondary-color);
+    --smart-ui-state-active: var(--smart-secondary);
+    --smart-ui-state-active: var(--smart-secondary);
+    --smart-ui-state-color-active: var(--smart-secondary-color);
+    --smart-ui-state-focus: var(--smart-secondary);
+    --smart-ui-state-focus: var(--smart-secondary);
+    --smart-ui-state-color-focus: var(--smart-secondary-color);
+    --smart-button-flat-color: var(--smart-secondary);
+    --smart-button-outlined-color: var(--smart-secondary);
+    --smart-button-outlined-border: var(--smart-secondary);
+}
 
-    smart-button.error,
-    smart-toggle-button.error,
-    smart-repeat-button.error {
-        --smart-button-opacity-hover: 0.75;
-        --smart-button-opacity-focus: 0.7;
-        --smart-button-opacity-active: 0.65;
-        --smart-background: var(--smart-error);
-        --smart-border: var(--smart-error);
-        --smart-background-color: var(--smart-error-color);
-        --smart-ui-state-hover: var(--smart-error);
-        --smart-ui-state-hover: var(--smart-error);
-        --smart-ui-state-color-hover: var(--smart-error-color);
-        --smart-ui-state-active: var(--smart-error);
-        --smart-ui-state-active: var(--smart-error);
-        --smart-ui-state-color-active: var(--smart-error-color);
-        --smart-ui-state-focus: var(--smart-error);
-        --smart-ui-state-focus: var(--smart-error);
-        --smart-ui-state-color-focus: var(--smart-error-color);
-        --smart-button-flat-color: var(--smart-error);
-        --smart-button-outlined-color: var(--smart-error);
-        --smart-button-outlined-border: var(--smart-error);
-    }
+smart-button.error, smart-toggle-button.error, smart-repeat-button.error {
+    --smart-button-opacity-hover: 0.75;
+    --smart-button-opacity-focus: 0.7;
+    --smart-button-opacity-active: 0.65;
+    --smart-background: var(--smart-error);
+    --smart-border: var(--smart-error);
+    --smart-background-color: var(--smart-error-color);
+    --smart-ui-state-hover: var(--smart-error);
+    --smart-ui-state-hover: var(--smart-error);
+    --smart-ui-state-color-hover: var(--smart-error-color);
+    --smart-ui-state-active: var(--smart-error);
+    --smart-ui-state-active: var(--smart-error);
+    --smart-ui-state-color-active: var(--smart-error-color);
+    --smart-ui-state-focus: var(--smart-error);
+    --smart-ui-state-focus: var(--smart-error);
+    --smart-ui-state-color-focus: var(--smart-error-color);
+    --smart-button-flat-color: var(--smart-error);
+    --smart-button-outlined-color: var(--smart-error);
+    --smart-button-outlined-border: var(--smart-error);
+}
 
-    smart-button.success,
-    smart-toggle-button.success,
-    smart-repeat-button.success {
-        --smart-button-opacity-hover: 0.75;
-        --smart-button-opacity-focus: 0.7;
-        --smart-button-opacity-active: 0.65;
-        --smart-background: var(--smart-success);
-        --smart-border: var(--smart-success);
-        --smart-background-color: var(--smart-success-color);
-        --smart-ui-state-hover: var(--smart-success);
-        --smart-ui-state-border-hover: var(--smart-success);
-        --smart-ui-state-color-hover: var(--smart-success-color);
-        --smart-ui-state-active: var(--smart-success);
-        --smart-ui-state-active: var(--smart-success);
-        --smart-ui-state-color-active: var(--smart-success-color);
-        --smart-ui-state-focus: var(--smart-success);
-        --smart-ui-state-border-focus: var(--smart-success);
-        --smart-ui-state-color-focus: var(--smart-success-color);
-        --smart-button-flat-color: var(--smart-success);
-        --smart-button-outlined-color: var(--smart-success);
-        --smart-button-outlined-border: var(--smart-success);
-    }
+smart-button.success, smart-toggle-button.success, smart-repeat-button.success {
+    --smart-button-opacity-hover: 0.75;
+    --smart-button-opacity-focus: 0.7;
+    --smart-button-opacity-active: 0.65;
+    --smart-background: var(--smart-success);
+    --smart-border: var(--smart-success);
+    --smart-background-color: var(--smart-success-color);
+    --smart-ui-state-hover: var(--smart-success);
+    --smart-ui-state-border-hover: var(--smart-success);
+    --smart-ui-state-color-hover: var(--smart-success-color);
+    --smart-ui-state-active: var(--smart-success);
+    --smart-ui-state-active: var(--smart-success);
+    --smart-ui-state-color-active: var(--smart-success-color);
+    --smart-ui-state-focus: var(--smart-success);
+    --smart-ui-state-border-focus: var(--smart-success);
+    --smart-ui-state-color-focus: var(--smart-success-color);
+    --smart-button-flat-color: var(--smart-success);
+    --smart-button-outlined-color: var(--smart-success);
+    --smart-button-outlined-border: var(--smart-success);
+}
 
-    button.smart-button .smart-ripple {
-        background-color: var(--smart-background-color);
-        opacity: 0.5;
-    }
+button.smart-button .smart-ripple {
+    background-color: var(--smart-background-color);
+    opacity: 0.5;
+}
 
-    button.smart-button {
-        position: relative;
-        padding: var(--smart-button-padding);
-        text-align: inherit;
-        vertical-align: inherit;
-        cursor: inherit;
-        text-transform: inherit;
-        font-weight: inherit;
-        letter-spacing: inherit;
-        background: inherit;
-        color: inherit;
-        border-radius: 0px;
-        border: none;
-        -webkit-font-smoothing: antialiased;
-        opacity: var(--smart-button-opacity);
-        white-space: nowrap;
-        line-height: 1.2;
-    }
+button.smart-button {
+    position: relative;
+    padding: var(--smart-button-padding);
+    text-align: inherit;
+    vertical-align: inherit;
+    cursor: inherit;
+    text-transform: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    background: inherit;
+    color: inherit;
+    border-radius: 0px;
+    border: none;
+    -webkit-font-smoothing: antialiased;
+    opacity: var(--smart-button-opacity);
+    white-space: nowrap;
+    line-height: 1.2;
+    border-radius: inherit;
+}
 
 .smart-scroll-button .smart-button {
     padding: 0px;
 }
 
-smart-button.large button,
-smart-toggle-button.large button,
-smart-repeat-button.large button,
-button.smart-button.large
- {
+smart-button.large button, smart-toggle-button.large button, smart-repeat-button.large button, button.smart-button.large {
     padding: var(--smart-button-large-padding);
     font-size: var(--smart-button-large-font-size);
     line-height: 1.3333333;
     min-height: initial;
 }
 
-smart-button.small button,
-smart-toggle-button.small button,
-smart-repeat-button.small button,
-button.smart-button.small {
+smart-button.small button, smart-toggle-button.small button, smart-repeat-button.small button, button.smart-button.small {
     padding: var(--smart-button-small-padding);
     font-size: var(--smart-button-small-font-size);
     min-height: initial;
     line-height: 1.5;
 }
 
-smart-button.very-small button,
-smart-toggle-button.very-small button,
-smart-repeat-button.very-small button,
-button.smart-button.very-small {
+smart-button.very-small button, smart-toggle-button.very-small button, smart-repeat-button.very-small button, button.smart-button.very-small {
     padding: var(--smart-button-very-small-padding);
     font-size: var(--smart-button-very-small-font-size);
     line-height: 1.5;
     min-height: initial;
 }
+
 /*hover State*/
-smart-button[hover],
-smart-toggle-button[hover],
-smart-repeat-button[hover] {
+
+smart-button[hover], smart-toggle-button[hover], smart-repeat-button[hover] {
     color: var(--smart-ui-state-color-hover);
     border-color: var(--smart-ui-state-hover);
     background-color: var(--smart-ui-state-hover);
@@ -188,9 +166,7 @@ smart-repeat-button[hover] {
     opacity: var(--smart-button-opacity-hover);
 }
 
-smart-button[active],
-smart-toggle-button[active],
-smart-repeat-button[active] {
+smart-button[active], smart-toggle-button[active], smart-repeat-button[active] {
     color: var(--smart-ui-state-color-active);
     border-color: var(--smart-ui-state-active);
     background-color: var(--smart-ui-state-active);
@@ -198,146 +174,117 @@ smart-repeat-button[active] {
     opacity: var(--smart-button-opacity-active);
 }
 
-smart-toggle-button[checked],
-[smart-toggle-button][checked] {
+smart-toggle-button[checked], [smart-toggle-button][checked] {
     color: var(--smart-ui-state-color-selected);
     border-color: var(--smart-ui-state-selected);
     background-color: var(--smart-ui-state-selected);
 }
 
-smart-button[focus],
-smart-toggle-button[focus],
-smart-repeat-button[focus] {
+smart-button[focus], smart-toggle-button[focus], smart-repeat-button[focus] {
     color: var(--smart-ui-state-color-focus);
     border-color: var(--smart-ui-state-focus);
     background-color: var(--smart-ui-state-focus);
     opacity: var(--smart-button-opacity-focus);
 }
 
-smart-button.flat .smart-ripple,
-smart-toggle-button.flat .smart-ripple,
-smart-repeat-button.flat .smart-ripple,
-:host(.smart-button.flat) .smart-ripple {
+smart-button.flat .smart-ripple, smart-toggle-button.flat .smart-ripple, smart-repeat-button.flat .smart-ripple, :host(.smart-button.flat) .smart-ripple {
     background-color: var(--smart-button-flat-color);
 }
 
-smart-button.flat,
-smart-toggle-button.flat,
-smart-repeat-button.flat {
+smart-button.flat, smart-toggle-button.flat, smart-repeat-button.flat {
     color: var(--smart-button-flat-color);
     background: transparent;
     border-color: transparent;
 }
 
-    smart-button.flat[hover],
-    smart-toggle-button.flat[hover],
-    smart-repeat-button.flat[hover] {
-        color: var(--smart-button-flat-color);
-        background: transparent;
-        border-color: transparent;
-    }
+smart-button.flat[hover], smart-toggle-button.flat[hover], smart-repeat-button.flat[hover] {
+    color: var(--smart-button-flat-color);
+    background: transparent;
+    border-color: transparent;
+}
 
-    smart-button.flat[active],
-    smart-toggle-button.flat[active],
-    smart-repeat-button.flat[active] {
-        color: var(--smart-button-flat-color);
-        background: transparent;
-        border-color: transparent;
-    }
+smart-button.flat[active], smart-toggle-button.flat[active], smart-repeat-button.flat[active] {
+    color: var(--smart-button-flat-color);
+    background: transparent;
+    border-color: transparent;
+}
 
-    smart-button.flat[focus],
-    smart-toggle-button.flat[focus],
-    smart-repeat-button.flat[focus] {
-        border-color: var(--smart-ui-state-focus);
-    }
+smart-button.flat[focus], smart-toggle-button.flat[focus], smart-repeat-button.flat[focus] {
+    border-color: var(--smart-ui-state-focus);
+}
 
-    /*Outlined Button - Checked State*/
-    smart-toggle-button.flat[checked] {
-        text-decoration: underline;
-        background: var(--smart-ui-state-active);
-    }
+/*Outlined Button - Checked State*/
 
-smart-button.outlined .smart-ripple,
-smart-toggle-button.outlined .smart-ripple,
-smart-repeat-button.outlined .smart-ripple,
-:host(.smart-button.outlined) .smart-ripple {
+smart-toggle-button.flat[checked] {
+    text-decoration: underline;
+    background: var(--smart-ui-state-active);
+}
+
+smart-button.outlined .smart-ripple, smart-toggle-button.outlined .smart-ripple, smart-repeat-button.outlined .smart-ripple, :host(.smart-button.outlined) .smart-ripple {
     background-color: var(--smart-button-outlined-color);
 }
 
-smart-button.outlined,
-smart-toggle-button.outlined,
-smart-repeat-button.outlined {
+smart-button.outlined, smart-toggle-button.outlined, smart-repeat-button.outlined {
     color: var(--smart-button-outlined-color);
     border-color: var(--smart-button-outlined-border);
     background: transparent;
     border-width: calc(2 * var(--smart-border-width));
 }
 
-    /*Outlined Button - Hover State*/
-    smart-button.outlined[hover],
-    smart-toggle-button.outlined[hover],
-    smart-repeat-button.outlined[hover] {
-        color: var(--smart-button-outlined-color);
-        border-color: var(--smart-button-outlined-border);
-        background: transparent;
-    }
+/*Outlined Button - Hover State*/
 
-    /*Outlined Button - Active State*/
-    smart-button.outlined[active],
-    smart-toggle-button.outlined[active],
-    smart-repeat-button.outlined[active] {
-        color: var(--smart-button-outlined-color);
-        border-color: var(--smart-button-outlined-border);
-        background: transparent;
-    }
+smart-button.outlined[hover], smart-toggle-button.outlined[hover], smart-repeat-button.outlined[hover] {
+    color: var(--smart-button-outlined-color);
+    border-color: var(--smart-button-outlined-border);
+    background: transparent;
+}
 
-    /*Outlined Button - focus State*/
-    smart-button.outlined[focus],
-    smart-toggle-button.outlined[focus],
-    smart-repeat-button.outlined[focus] {
-        color: var(--smart-button-outlined-color);
-        border-color: var(--smart-ui-state-focus);
-        background: transparent;
-    }
+/*Outlined Button - Active State*/
 
-    /*Outlined Button - Checked State*/
-    smart-toggle-button.outlined[checked] {
-        color: var(--smart-ui-state-color-active);
-        border-color: var(--smart-ui-state-active);
-        background: var(--smart-ui-state-active);
-    }
+smart-button.outlined[active], smart-toggle-button.outlined[active], smart-repeat-button.outlined[active] {
+    color: var(--smart-button-outlined-color);
+    border-color: var(--smart-button-outlined-border);
+    background: transparent;
+}
+
+/*Outlined Button - focus State*/
+
+smart-button.outlined[focus], smart-toggle-button.outlined[focus], smart-repeat-button.outlined[focus] {
+    color: var(--smart-button-outlined-color);
+    border-color: var(--smart-ui-state-focus);
+    background: transparent;
+}
+
+/*Outlined Button - Checked State*/
+
+smart-toggle-button.outlined[checked] {
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-active);
+    background: var(--smart-ui-state-active);
+}
 
 /*Raised Button*/
-smart-button.raised,
-smart-toggle-button.raised,
-smart-repeat-button.raised {
+
+smart-button.raised, smart-toggle-button.raised, smart-repeat-button.raised {
     box-shadow: var(--smart-elevation-2);
     transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
 }
 
-    smart-button.raised[hover],
-    smart-toggle-button.raised[hover],
-    smart-repeat-button.raised[hover] {
-        box-shadow: var(--smart-elevation-4);
-    }
+smart-button.raised[hover], smart-toggle-button.raised[hover], smart-repeat-button.raised[hover] {
+    box-shadow: var(--smart-elevation-4);
+}
 
-    smart-button.raised button[active],
-    smart-toggle-button.raised[active],
-    smart-toggle-button.raised[checked],
-    smart-repeat-button.raised[active] {
-        box-shadow: var(--smart-elevation-8);
-    }
+smart-button.raised button[active], smart-toggle-button.raised[active], smart-toggle-button.raised[checked], smart-repeat-button.raised[active] {
+    box-shadow: var(--smart-elevation-8);
+}
 
-    smart-button.raised[focus],
-    smart-toggle-button.raised[focus]:not([checked]),
-    smart-repeat-button.raised[focus] {
-        box-shadow: var(--smart-elevation-6);
-    }
+smart-button.raised[focus], smart-toggle-button.raised[focus]:not([checked]), smart-repeat-button.raised[focus] {
+    box-shadow: var(--smart-elevation-6);
+}
 
 /*Floating Button*/
-smart-button.floating,
-smart-toggle-button.floating,
-smart-repeat-button.floating {
+
+smart-button.floating, smart-toggle-button.floating, smart-repeat-button.floating {
     border-radius: 50%;
     width: 48px;
     height: 48px;
@@ -345,29 +292,21 @@ smart-repeat-button.floating {
     transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
 }
 
-    smart-button.floating[hover],
-    smart-toggle-button.floating[hover],
-    smart-repeat-button.floating[hover] {
-        box-shadow: var(--smart-elevation-6);
-    }
+smart-button.floating[hover], smart-toggle-button.floating[hover], smart-repeat-button.floating[hover] {
+    box-shadow: var(--smart-elevation-6);
+}
 
-    smart-button.floating[active],
-    smart-toggle-button.floating[active],
-    smart-toggle-button.floating[checked],
-    smart-repeat-button.floating[active] {
-        box-shadow: var(--smart-elevation-12);
-    }
+smart-button.floating[active], smart-toggle-button.floating[active], smart-toggle-button.floating[checked], smart-repeat-button.floating[active] {
+    box-shadow: var(--smart-elevation-12);
+}
 
-    smart-button.floating[focus],
-    smart-toggle-button.floating[focus]:not([checked]),
-    smart-repeat-button.floating[focus] {
-        box-shadow: var(--smart-elevation-6);
-    }
+smart-button.floating[focus], smart-toggle-button.floating[focus]:not([checked]), smart-repeat-button.floating[focus] {
+    box-shadow: var(--smart-elevation-6);
+}
 
 /*Button, Toggle Button, Repeat Button Disabled State*/
-smart-button[disabled],
-smart-toggle-button[disabled],
-smart-repeat-button[disabled] {
+
+smart-button[disabled], smart-toggle-button[disabled], smart-repeat-button[disabled] {
     color: var(--smart-disabled-color);
     border-color: var(--smart-disabled);
     background-color: var(--smart-disabled);
@@ -404,29 +343,24 @@ button.smart-button[type]:hover {
     background-color: var(--smart-ui-state-hover);
 }
 
-button.smart-button[type]:active{
+button.smart-button[type]:active {
     color: var(--smart-ui-state-color-active);
     border-color: var(--smart-ui-state-border-active);
     background-color: var(--smart-ui-state-active);
 }
 
-smart-toggle-button .smart-container,
-[smart-toggle-button] .smart-container {
+smart-toggle-button .smart-container, [smart-toggle-button] .smart-container {
     font-weight: inherit;
     font-style: inherit;
 }
 
-smart-button button::-moz-focus-inner,
-smart-toggle-button button::-moz-focus-inner,
-smart-repeat-button button::-moz-focus-inner {
+smart-button button::-moz-focus-inner, smart-toggle-button button::-moz-focus-inner, smart-repeat-button button::-moz-focus-inner {
     border: 0;
 }
 
 /* --- Right To Left --- */
 
-smart-button[right-to-left],
-smart-toggle-button[right-to-left],
-smart-repeat-button[right-to-left] {
+smart-button[right-to-left], smart-toggle-button[right-to-left], smart-repeat-button[right-to-left] {
     direction: rtl;
 }
 

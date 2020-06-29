@@ -1,12 +1,12 @@
 
-/* Smart UI v7.6.0 (2020-June) 
+/* Smart UI v7.7.0 (2020-July) 
 Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
-    'use strict';
 
-    const Version = '7.2.0';
+
+    const Version = '7.7.0';
     const templates = [];
 
     let namespace = 'Smart';
@@ -100,7 +100,7 @@ License: https://htmlelements.com/license/ */ //
     /** This is a class with utility methods for determing the type of a value. */
     class Types {
         /**
-         * Determines whether a value is Boolean. 
+         * Determines whether a value is Boolean.
          * @param {Object}.
          * @return {Boolean}.
          */
@@ -109,7 +109,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Determines whether a value is Function. 
+         * Determines whether a value is Function.
          * @param {Object}.
          * @return {Boolean}.
          */
@@ -118,7 +118,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Determines whether a value is Array. 
+         * Determines whether a value is Array.
          * @param {Object}.
          * @return {Boolean}.
          */
@@ -127,7 +127,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Determines whether a value is Object. 
+         * Determines whether a value is Object.
          * @param {Object}.
          * @return {Boolean}.
          */
@@ -138,7 +138,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Determines whether a value is Date. 
+         * Determines whether a value is Date.
          * @param {Object}.
          * @return {Boolean}.
          */
@@ -147,7 +147,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Determines whether a value is String. 
+         * Determines whether a value is String.
          * @param {Object}.
          * @return {Boolean}.
          */
@@ -156,7 +156,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Determines whether a value is Number. 
+         * Determines whether a value is Number.
          * @param {Object}.
          * @return {Boolean}.
          */
@@ -1875,7 +1875,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Gets whether an element has a CSS Class. 
+         * Gets whether an element has a CSS Class.
          * @param {String}.
          */
         hasClass(className) {
@@ -1894,7 +1894,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Adds a CSS Class to an element. 
+         * Adds a CSS Class to an element.
          * @param {String}.
          */
         addClass(className) {
@@ -1916,7 +1916,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Removes a CSS Class from an element. 
+         * Removes a CSS Class from an element.
          * @param {String}.
          */
         removeClass(className) {
@@ -1975,7 +1975,7 @@ License: https://htmlelements.com/license/ */ //
             return false;
         }
 
-        /** 
+        /**
          * Applies the event handlers.
          * @param {Event} - event object.
          */
@@ -2051,7 +2051,7 @@ License: https://htmlelements.com/license/ */ //
             return event.result;
         }
 
-        /** 
+        /**
          * Fires a new event.
          * @param {String} - event type.
          * @param {Object} - event details.
@@ -2064,7 +2064,7 @@ License: https://htmlelements.com/license/ */ //
                 options = {
                     bubbles: true,
                     cancelable: true,
-                    composed: that.isInShadowDOM
+                    composed: that.element.getRootNode().host !== null
                 }
             }
             options.detail = detail || {
@@ -2109,7 +2109,7 @@ License: https://htmlelements.com/license/ */ //
 
             return that.supportsPassive;
         }
-        /** 
+        /**
             * Dispatches an event.
             * @param {CustomEvent} - event.
             */
@@ -2134,7 +2134,7 @@ License: https://htmlelements.com/license/ */ //
             that.element.context = context;
         }
 
-        /** 
+        /**
          * Adds an event listener.
          * @param {String} - event types.
          * @param {Function} - the event handler.
@@ -2183,7 +2183,7 @@ License: https://htmlelements.com/license/ */ //
             that.events[eventType].push(handleObject);
         }
 
-        /** 
+        /**
          * Removes an event listener.
          * @param {String} - event types.
          */
@@ -2223,11 +2223,11 @@ License: https://htmlelements.com/license/ */ //
             }
         }
 
-        /** 
+        /**
        * Gets the element's attribute value by using the property's value.
        * @param {String} - attribute's name.
        * @param {String} - property's type.
-       * @return {Object} The converted from String attribute value. 
+       * @return {Object} The converted from String attribute value.
        */
         getAttributeValue(attributeName, type) {
             const that = this;
@@ -2243,7 +2243,7 @@ License: https://htmlelements.com/license/ */ //
             return typedValue;
         }
 
-        /** 
+        /**
          * Sets the element's attribute using the property's value.
          * @param {String} - attribute's name.
          * @param {Object} - property's value.
@@ -2305,7 +2305,7 @@ License: https://htmlelements.com/license/ */ //
             }
         }
 
-        /** 
+        /**
          * Converts a javascript value to string.
          * @param {Object} the value to be converted.
          * @return {String} The converted to String value. If the type is unknown, returns undefined.
@@ -2352,7 +2352,7 @@ License: https://htmlelements.com/license/ */ //
             return undefined;
         }
 
-        /** 
+        /**
          * Converts a string to a Javascript value.
          * @param {String}
          * @param {String}
@@ -3415,8 +3415,8 @@ License: https://htmlelements.com/license/ */ //
             };
         }
 
-        /** 
-         * Adds messages. 
+        /**
+         * Adds messages.
          * @param {String} - the string value's key.
          * @param {Object} - the messages object.
          */
@@ -3557,6 +3557,26 @@ License: https://htmlelements.com/license/ */ //
                     matched.push(current);
                 }
                 current = current.parentNode;
+            }
+
+            const rootNode = that.getRootNode();
+
+            if (rootNode.host) {
+                const getNodeParents = (node) => {
+                    let matched = [node],
+                    current = node.parentNode;
+
+                    while (current && current.nodeType !== 9) {
+                        if (current instanceof HTMLElement === true) {
+                            matched.push(current);
+                        }
+                        current = current.parentNode;
+                    }
+
+                    return matched;
+                }
+
+                matched = matched.concat(getNodeParents(rootNode.host));
             }
 
             if (window[namespace].EnableShadowDOM && that.isInShadowDOM && that.shadowParent) {
@@ -3826,7 +3846,6 @@ License: https://htmlelements.com/license/ */ //
 
         checkLicense() {
             const that = this;
-            return;
             if (window[namespace].License === 'Evaluation' && window.location.hostname.indexOf('htmlelements') === -1) {
                 that.logWatermark();
                 that.logLicense();
@@ -3847,7 +3866,7 @@ License: https://htmlelements.com/license/ */ //
             anchor.style.color = '#fff';
             anchor.style.padding = '20px';
             anchor.style.borderRadius = '5px';
-            anchor.style.background = '#20C933';
+            anchor.style.background = '#0C3D78';
             anchor.style.cursor = 'pointer';
             anchor.style.zIndex = '999999';
             anchor.style.display = 'block';
@@ -3889,7 +3908,7 @@ License: https://htmlelements.com/license/ */ //
             console.log('****************************************************************************************************************');
             console.log('*Smart HTML Elements License Key Not Found.');
             console.log('*This is an evaluation only version, it is not licensed for development projects intended for production.');
-            console.log('*if you want to hide the watermark, please send an email to: info@htmlelements.com for a license.');
+            console.log('*if you want to hide the watermark, please send an email to: sales@htmlelements.com for a license.');
             console.log('****************************************************************************************************************');
             console.log('****************************************************************************************************************');
             console.log('****************************************************************************************************************');
@@ -3905,6 +3924,8 @@ License: https://htmlelements.com/license/ */ //
             if (that.classList.length > 0) {
                 return '.' + that.classList[0];
             }
+
+            return '';
         }
 
         applyDataContext(dataContextObject) {
@@ -4428,6 +4449,9 @@ License: https://htmlelements.com/license/ */ //
                         if (!that.ownerElement || parents[parents.length - 1].nodeName === 'HTML') {
                             init();
                         }
+                        else if (that.getRootNode().host) {
+                            init();
+                        }
                         else if (that.ownerElement && that.ownerElement.parents[that.ownerElement.parents.length - 1].nodeName === 'HTML') {
                             updateBindings();
                             init();
@@ -4458,7 +4482,7 @@ License: https://htmlelements.com/license/ */ //
             // All of the registered elements inside the element's local DOM are ready, and have had their ready methods called.
             let templateNodes = [].slice.call(that.querySelectorAll('[smart-id]')).concat(children);
 
-            if (that.enableShadowDOM && that.isInShadowDOM !== true) {
+            if (window[namespace].EnableShadowDOM && that.isInShadowDOM !== true) {
                 templateNodes = [].slice.call(that.shadowRoot.querySelectorAll('[smart-id]')).concat(children);
             }
 
@@ -5505,7 +5529,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         /**
-         * Defines Element's methods. 
+         * Defines Element's methods.
          * {Array} - methods.
          * {Object} - method owner's prototype.
          */
@@ -5867,7 +5891,7 @@ License: https://htmlelements.com/license/ */ //
 
                     if (that.context !== that && !that.wait) {
                         /* Setting context to that prevents calling propertyChangedHandler, if the custom element's developer
-                         * sets another element property within the propertyChangedHandler. 
+                         * sets another element property within the propertyChangedHandler.
                         */
                         const context = that.context;
 
@@ -6019,26 +6043,17 @@ License: https://htmlelements.com/license/ */ //
         get isInShadowDOM() {
             const that = this;
 
-            if (that.shadowParent) {
-                return true;
+            return that.getRootNode() !== document;
+        }
+
+        getShadowRootOrBody() {
+            const that = this;
+
+            if (that.isInShadowDOM) {
+                return that.getRootNode().host.shadowRoot;
             }
 
-            let isInShadowDOM = false;
-
-            if (that.enableShadowDOM !== undefined) {
-                isInShadowDOM = ((node) => {
-                    for (; node; node = node.parentNode) {
-                        if (node.host || node.enableShadowDOM || node.shadowRoot) {
-                            that.shadowParent = node.host ? node.host : node;
-                            return true;
-                        }
-                    }
-
-                    return false;
-                })(that.parentNode);
-            }
-
-            return isInShadowDOM;
+            return document.body;
         }
 
         get enableShadowDOM() {
@@ -6396,7 +6411,7 @@ License: https://htmlelements.com/license/ */ //
             //const isReady = that.isReady;
 
             // Uncomment when scopedStyle is implemented in all elements.
-            if (that.enableShadowDOM && !that.shadowRoot && that.isInShadowDOM !== true) {
+            if (window[namespace].EnableShadowDOM && !that.shadowRoot && that.isInShadowDOM !== true) {
                 that.attachShadow({
                     mode: 'open'
                 });
@@ -6415,7 +6430,7 @@ License: https://htmlelements.com/license/ */ //
                 if (that.shadowRoot) {
                     that._setupShadowRoot();
                 }
-                else if (that.shadowParent && that.enableShadowDOM) {
+                else if (that.shadowParent && window[namespace].EnableShadowDOM) {
                     that.setup();
                 }
                 else {
@@ -6447,6 +6462,15 @@ License: https://htmlelements.com/license/ */ //
 
                     updateVisibility();
                     that.connect();
+                }
+                else if (that.getRootNode().host) {
+                    if (that.checkIsInDomTimer) {
+                        clearInterval(that.checkIsInDomTimer);
+                    }
+
+                    updateVisibility();
+                    that.connect();
+
                 }
                 else {
                     if (that.checkIsInDomTimer) {
@@ -6520,7 +6544,7 @@ License: https://htmlelements.com/license/ */ //
         _resetShadowParent() {
             const that = this;
 
-            if (!that.enableShadowDOM || that.shadowParent === null) {
+            if (!window[namespace].EnableShadowDOM || that.shadowParent === null) {
                 return;
             }
 
@@ -6558,7 +6582,7 @@ License: https://htmlelements.com/license/ */ //
      */
     class ElementRegistry {
         /**
-         * Called by each custom element to register it. 
+         * Called by each custom element to register it.
            @param {String} - tag name.
            @param {Object} - element's object like Button, NumericTextBox, etc.
          */
@@ -7313,7 +7337,6 @@ License: https://htmlelements.com/license/ */ //
 
     function Init(selector, element) {
         const properties = element.properties;
-
         element._properties = [];
 
         const defineProperties = function (properties, propertyPath) {
@@ -7388,6 +7411,13 @@ License: https://htmlelements.com/license/ */ //
         if (instance && instance.isReady) {
             for (let property in properties) {
                 instance[property] = properties[property];
+            }
+        }
+        else if (instance) {
+            instance.props = {};
+
+            for (let property in properties) {
+                instance.props[property] = properties[property];
             }
         }
     }
@@ -7615,7 +7645,7 @@ License: https://htmlelements.com/license/ */ //
         Observable: Observable,
         Component: Component,
         Theme: userDefinedSettings.Theme || '',
-        EnableShadowDOM: false,
+        EnableShadowDOM: userDefinedSettings.ShadowDom || false,
         //   EnableShadowDOM: /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor),
         BaseUrl: './',
         StyleBaseUrl: '/styles/default/',
@@ -7626,8 +7656,6 @@ License: https://htmlelements.com/license/ */ //
     });
 
     let theme = window[namespace].Theme;
-
-
 
     if (window[namespace].RenderMode !== 'manual') {
         document.addEventListener('readystatechange', connectElements);
@@ -7951,6 +7979,23 @@ License: https://htmlelements.com/license/ */ //
                 return;
             }
 
+            if (event.shiftKey && that.computedHorizontalScrollBarVisibility) {
+                const scrollLeft = that.scrollLeft;
+
+                if (scrollLeft === 0 && event.deltaX < 0 ||
+                    scrollLeft === that.scrollHeight && event.deltaX > 0) {
+                    return;
+                }
+                event.stopPropagation();
+                event.preventDefault();
+
+                if (that.scrollWidth > 0) {
+                    that.scrollTo(undefined, that.scrollLeft + that._getScrollCoefficient(event, that.offsetWidth));
+                }
+
+                return;
+            }
+
             if (that.computedVerticalScrollBarVisibility) {
                 const scrollTop = that.scrollTop;
 
@@ -7964,20 +8009,6 @@ License: https://htmlelements.com/license/ */ //
 
                 if (that.scrollHeight > 0) {
                     that.scrollTo(that.scrollTop + that._getScrollCoefficient(event, that.offsetHeight));
-                }
-            }
-            else if (that.computedHorizontalScrollBarVisibility) {
-                const scrollLeft = that.scrollLeft;
-
-                if (scrollLeft === 0 && event.deltaX < 0 ||
-                    scrollLeft === that.scrollHeight && event.deltaX > 0) {
-                    return;
-                }
-                event.stopPropagation();
-                event.preventDefault();
-
-                if (that.scrollWidth > 0) {
-                    that.scrollTo(undefined, that.scrollLeft + that._getScrollCoefficient(event, that.offsetWidth));
                 }
             }
         }
@@ -8204,7 +8235,7 @@ License: https://htmlelements.com/license/ */ //
             that.scrollWidth = getScrollWidth();
             that.scrollHeight = getScrollHeight();
 
-            //double check in case vScroll has become hidden and hScroll visibility should be checked 
+            //double check in case vScroll has become hidden and hScroll visibility should be checked
             if (!that.scrollHeight || initialHeight !== that.scrollHeight) {
                 that.scrollWidth = getScrollWidth();
             }
@@ -8577,7 +8608,12 @@ License: https://htmlelements.com/license/ */ //
                 that._dropDownParent = null;
             }
             else if (dropDownAppendTo === 'body' || dropDownAppendTo === document.body) {
-                that._dropDownParent = document.body;
+                if (that.getRootNode().host) {
+                    that._dropDownParent = that.getRootNode().host.shadowRoot;
+                }
+                else {
+                   that._dropDownParent = document.body;
+                }
             }
             else if (dropDownAppendTo instanceof HTMLElement) {
                 that._dropDownParent = dropDownAppendTo;
@@ -8604,7 +8640,7 @@ License: https://htmlelements.com/license/ */ //
                 return;
             }
 
-            while (container && window.getComputedStyle(container).position === 'static' && container !== document.body) {
+            while (container && container instanceof HTMLElement && window.getComputedStyle(container).position === 'static' && container !== that.getShadowRootOrBody()) {
                 container = container.parentElement;
             }
 

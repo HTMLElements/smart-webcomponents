@@ -9,6 +9,7 @@ smart-check-box {
     font-family: var(--smart-check-box-font-family);
     font-size: var(--smart-check-box-font-size);
     cursor: pointer;
+    line-height:1;
 }
 
     smart-check-box[check-mode="input"],

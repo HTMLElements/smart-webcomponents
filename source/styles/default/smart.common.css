@@ -142,6 +142,7 @@ smart-pager .smart-pager-button[disabled],
 smart-color-panel[disabled],
 smart-color-picker[disabled],
 smart-input[disabled],
+smart-text-area[disabled],
 smart-sort-panel[disabled],
 smart-group-panel[disabled],
 smart-column-panel[disabled],
@@ -152,7 +153,8 @@ smart-date-time-picker[disabled],
 smart-layout[disabled],
 smart-path[disabled],
 smart-kanban[disabled],
-smart-gantt-chart[disabled] {
+smart-gantt-chart[disabled],
+smart-table[disabled] {
     opacity: 0.55;
     cursor: default;
     pointer-events: none;
