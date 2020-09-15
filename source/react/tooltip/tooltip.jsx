@@ -228,6 +228,14 @@ export class Tooltip extends React.Component {
 	set onOpen(value) {
 		this._onOpen = value;
 	}
+	/**  This event is triggered before the tooltip is opened. The event can be prevented via event.preventDefault().
+	*  @param event. The custom event. 	*/
+	_onOpening = null;	get onOpening() {
+		return this._onOpening;
+	}
+	set onOpening(value) {
+		this._onOpening = value;
+	}
 	/**  This event is triggered when the tooltip is closed.
 	*  @param event. The custom event. 	*/
 	_onClose = null;	get onClose() {
@@ -236,10 +244,18 @@ export class Tooltip extends React.Component {
 	set onClose(value) {
 		this._onClose = value;
 	}
+	/**  This event is triggered before the tooltip is closed. The event can be prevented via event.preventDefault().
+	*  @param event. The custom event. 	*/
+	_onClosing = null;	get onClosing() {
+		return this._onClosing;
+	}
+	set onClosing(value) {
+		this._onClosing = value;
+	}
 
 	// Gets the events of the React component.
 	get events() {
-		return ["onOpen","onClose"];
+		return ["onOpen","onOpening","onClose","onClosing"];
 	}
 	/** Closes smart-tooltip.  
 	*/
@@ -279,6 +295,20 @@ export class Tooltip extends React.Component {
         {
             this.nativeElement.whenRendered(() => {
                 this.nativeElement.toggle();
+            });
+        }
+    }
+
+	/** Clears the content of the Tooltip.  
+	*/
+    clear(){
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.clear();
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.clear();
             });
         }
     }

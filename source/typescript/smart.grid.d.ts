@@ -39,6 +39,11 @@ export interface GridProperties {
    */
   columnGroups?: GridColumnGroup[];
   /**
+   * Sets or gets details about conditional formatting to be applied to the Grid's cells.
+   * Default value: null
+   */
+  conditionalFormatting?: GridConditionalFormatting[];
+  /**
    * Sets the Grid Charting Data Visualization.
    * Default value: [object Object]
    */
@@ -1097,7 +1102,7 @@ export interface GridColumn {
    */
   element?: HTMLElement;
   /**
-   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'textArea' or a custom object with 'template' property which defines the editor type, 'onInit' and 'onRender' callback functions.
+   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'timeInput', 'dateInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'onInit' and 'onRender' callback functions.
    * Default value: null
    */
   editor?: any;
@@ -1167,10 +1172,15 @@ export interface GridColumn {
    */
   width?: any;
   /**
-   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells.
+   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in values are: 'checkBox', 'url', 'email', 
    * Default value: 
    */
   template?: any;
+  /**
+   * Sets or gets the column's validation rules. Accepts: Object with 'type' string property. It can be 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The object needs to have additional 'value' property for all validation rule types except 'email', 'required', 'requiredTrue' and 'null'. Optional property is 'message', which allows you to define user string displayed on validation error.
+   * Default value: 
+   */
+  validationRules?: any[];
   /**
    * Sets or gets the column's header vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
@@ -1351,6 +1361,49 @@ export interface GridColumnGroup {
    * Default value: center
    */
   verticalAlign?: VerticalAlignment;
+}
+
+export interface GridConditionalFormatting {
+  /**
+   * The data field of a numeric column to format. Set 'all' to format all numeric columns.
+   * Default value: "all"
+   */
+  column?: string;
+  /**
+   * The formatting condition.
+   * Default value: lessThan
+   */
+  condition?: GridConditionalFormattingCondition;
+  /**
+   * The value to compare by. When condition is 'between', this is the start (from) value.
+   * Default value: 0
+   */
+  firstValue?: number;
+  /**
+   * The fontFamily to apply to formatted cells.
+   * Default value: The default fontFamily as set in CSS
+   */
+  fontFamily?: GridConditionalFormattingFontFamily;
+  /**
+   * The fontSize to apply to formatted cells.
+   * Default value: The default fontSize as set in CSS
+   */
+  fontSize?: GridConditionalFormattingFontSize;
+  /**
+   * The background color to apply to formatted cells.
+   * Default value: "The default backgroundColor as set in CSS"
+   */
+  highlight?: string;
+  /**
+   * When condition is 'between', this is the end (to) value. Otherwise, this value is not used.
+   * Default value: 1
+   */
+  secondValue?: number;
+  /**
+   * The text color to apply to formatted cells.
+   * Default value: "The default color as set in CSS"
+   */
+  text?: string;
 }
 
 /**Sets the Grid Charting Data Visualization. */
@@ -2201,6 +2254,11 @@ export interface GridHeader {
    * Default value: 
    */
   template?: string | HTMLTemplateElement;
+  /**
+   * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
+   * Default value: [ 'columns', 'filter', 'group', 'sort', 'format', 'search' ]
+   */
+  buttons?: any[];
 }
 
 /**Describes the footer settings of the grid. */
@@ -2611,6 +2669,12 @@ export declare type VerticalAlignment = 'top' | 'center' | 'bottom';
 export declare type Position = 'near' | 'far';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
+/**The formatting condition. */
+export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
+/**The fontFamily to apply to formatted cells. */
+export declare type GridConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
+/**The fontSize to apply to formatted cells. */
+export declare type GridConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Determines the way editing is initiated. */
 export declare type GridEditingAction = 'none' | 'click' | 'dblClick';
 /**Sets the navigation buttons position. */

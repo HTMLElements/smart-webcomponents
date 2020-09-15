@@ -778,6 +778,7 @@ smart-tree-items-group.filtered-child > .smart-tree-item-label-container > .smar
     font-size: var(--smart-font-size);
     white-space: nowrap;
     cursor: move;
+    z-index: 10000;
 }
 
     .smart-tree-item-feedback.multiple {

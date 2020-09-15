@@ -1,42 +1,40 @@
 smart-sort-panel,
 smart-group-panel,
 smart-column-panel,
-smart-multi-column-filter-panel {
+smart-multi-column-filter-panel,
+smart-formatting-panel {
     display: block;
     min-width: 375px;
     width: var(--smart-grid-panel-default-width);
     height: var(--smart-grid-panel-default-height);
-    border: var(--smart-border-width) solid var(--smart-border);
     padding: var(--smart-grid-panel-padding);
     overflow: auto;
     background: var(--smart-background);
     color: var(--smart-background-color);
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-bottom-left-radius: var(--border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
 }
+
 smart-group-panel {
-    width: calc(0.75 * var(--smart-grid-panel-default-width));
+    width: var(--smart-grid-panel-default-width);
 }
+
 .smart-sort-panel .smart-sortable-container,
 .smart-group-panel .smart-sortable-container smart-column-panel smart-sortable {
     margin-bottom: var(--smart-grid-panel-padding);
 }
 
-    .smart-sort-panel .smart-sortable-container:empty:after,
-    .smart-group-panel .smart-sortable-container:empty:after,
-    .smart-multi-column-filter-panel .smart-filter-panel-items-container:empty:after {
-        margin-top: calc(var(--smart-grid-panel-vertical-offset) / 2);
-        margin-bottom: calc(var(--smart-grid-panel-vertical-offset) / 2);
-        opacity: 0.7;
-    }
+.smart-sort-panel .smart-sortable-container:empty:after,
+.smart-group-panel .smart-sortable-container:empty:after,
+.smart-multi-column-filter-panel .smart-filter-panel-items-container:empty:after {
+    margin-top: calc(var(--smart-grid-panel-vertical-offset) / 2);
+    margin-bottom: calc(var(--smart-grid-panel-vertical-offset) / 2);
+    opacity: 0.7;
+}
 
-    .smart-sort-panel .smart-sortable-container:empty:after {
-        content: attr(no-sorting);
-    }
+.smart-sort-panel .smart-sortable-container:empty:after {
+    content: attr(no-sorting);
+}
 
 .smart-group-panel .smart-sortable-container:empty:after {
     content: attr(no-grouping);
@@ -49,22 +47,31 @@ smart-group-panel {
 .smart-sort-panel .smart-grid-panel-container-footer,
 .smart-group-panel .smart-grid-panel-container-footer,
 .smart-column-panel .smart-grid-panel-container-footer,
-.smart-multi-column-filter-panel .smart-grid-panel-container-footer {
+.smart-multi-column-filter-panel .smart-grid-panel-container-footer,
+.smart-format-panel.smart-grid-panel-container-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-    .smart-sort-panel .smart-grid-panel-container-footer > smart-input,
-    .smart-group-panel .smart-grid-panel-container-footer > smart-input {
-        min-width: 215px;
-        width: 40%;
-    }
+.smart-format-panel.smart-grid-panel-container-footer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.smart-sort-panel .smart-grid-panel-container-footer>smart-input,
+.smart-group-panel .smart-grid-panel-container-footer>smart-input {
+    min-width: 215px;
+    width: 40%;
+}
 
 .smart-sort-panel .smart-grid-panel-buttons-container,
 .smart-group-panel .smart-grid-panel-buttons-container,
 .smart-column-panel .smart-grid-panel-buttons-container,
-.smart-multi-column-filter-panel .smart-grid-panel-buttons-container {
+.smart-multi-column-filter-panel .smart-grid-panel-buttons-container,
+.smart-format-panel .smart-grid-panel-buttons-container {
     width: auto;
     display: flex;
     flex-direction: row;
@@ -72,46 +79,52 @@ smart-group-panel {
     justify-content: space-between;
 }
 
-    .smart-sort-panel .smart-grid-panel-buttons-container span:hover,
-    .smart-group-panel .smart-grid-panel-buttons-container span:hover,
-    .smart-column-panel .smart-grid-panel-buttons-container span:hover,
-    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:hover,
-    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:hover,
-    .smart-sort-panel .smart-grid-panel-item-close-button:hover,
-    .smart-group-panel .smart-grid-panel-item-close-button:hover,
-    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:hover {
-        color: var(--smart-grid-panel-color-hover);
-        cursor: pointer;
-    }
+.smart-sort-panel .smart-grid-panel-buttons-container span,
+.smart-group-panel .smart-grid-panel-buttons-container span,
+.smart-column-panel .smart-grid-panel-buttons-container span,
+.smart-multi-column-filter-panel .smart-grid-panel-buttons-container span,
+.smart-multi-column-filter-panel .smart-filter-panel-add-filter-button,
+.smart-sort-panel .smart-grid-panel-item-close-button,
+.smart-group-panel .smart-grid-panel-item-close-button,
+.smart-format-panel .smart-grid-panel-buttons-container span,
+.smart-multi-column-filter-panel .smart-grid-panel-item-close-button {
+    display:flex;
+    align-items: center;
+    padding: 5px;
+}
 
-    .smart-sort-panel .smart-grid-panel-buttons-container span:active,
-    .smart-sort-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-group-panel .smart-grid-panel-buttons-container span:active,
-    .smart-group-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-column-panel .smart-grid-panel-buttons-container span:active,
-    .smart-column-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:active,
-    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:active,
-    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:focus {
-        color: var(--smart-primary);
-    }
 
-    .smart-sort-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-group-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-column-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:focus,
-    .smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:focus {
-        outline: none;
-    }
+.smart-sort-panel .smart-grid-panel-buttons-container span:hover,
+.smart-group-panel .smart-grid-panel-buttons-container span:hover,
+.smart-column-panel .smart-grid-panel-buttons-container span:hover,
+.smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:hover,
+.smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:hover,
+.smart-sort-panel .smart-grid-panel-item-close-button:hover,
+.smart-group-panel .smart-grid-panel-item-close-button:hover,
+.smart-format-panel .smart-grid-panel-buttons-container span:hover,
+.smart-multi-column-filter-panel .smart-grid-panel-item-close-button:hover {
+    color: var(--smart-ui-state-color-selected);
+    background: var(--smart-ui-state-selected);
+    border-color: var(--smart-ui-state-selected);
+    cursor: pointer;
+}
 
-    .smart-sort-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
-    .smart-group-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
-    .smart-column-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
-    .smart-multi-column-filter-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button {
-        margin-left: 15px;
-        font-weight: bold;
-    }
+
+.smart-sort-panel .smart-grid-panel-buttons-container span:focus,
+.smart-group-panel .smart-grid-panel-buttons-container span:focus,
+.smart-column-panel .smart-grid-panel-buttons-container span:focus,
+.smart-multi-column-filter-panel .smart-grid-panel-buttons-container span:focus,
+.smart-multi-column-filter-panel .smart-filter-panel-add-filter-button:focus {
+    outline: none;
+}
+
+.smart-format-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+.smart-sort-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+.smart-group-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+.smart-column-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button,
+.smart-multi-column-filter-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button {
+    margin-left: 5px;
+}
 
 .smart-sort-panel .smart-grid-panel-item,
 .smart-group-panel .smart-grid-panel-item,
@@ -144,27 +157,27 @@ smart-group-panel {
     width: 20px;
 }
 
-    .smart-sort-panel .smart-grid-panel-item-close-button:active,
-    .smart-sort-panel .smart-grid-panel-item-close-button:focus,
-    .smart-group-panel .smart-grid-panel-item-close-button:active,
-    .smart-group-panel .smart-grid-panel-item-close-button:focus,
-    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:active,
-    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
-        color: var(--smart-primary);
-    }
+.smart-sort-panel .smart-grid-panel-item-close-button:active,
+.smart-sort-panel .smart-grid-panel-item-close-button:focus,
+.smart-group-panel .smart-grid-panel-item-close-button:active,
+.smart-group-panel .smart-grid-panel-item-close-button:focus,
+.smart-multi-column-filter-panel .smart-grid-panel-item-close-button:active,
+.smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
+    color: var(--smart-primary);
+}
 
-    .smart-sort-panel .smart-grid-panel-item-close-button:focus,
-    .smart-group-panel .smart-grid-panel-item-close-button:focus,
-    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
-        outline: none;
-    }
+.smart-sort-panel .smart-grid-panel-item-close-button:focus,
+.smart-group-panel .smart-grid-panel-item-close-button:focus,
+.smart-multi-column-filter-panel .smart-grid-panel-item-close-button:focus {
+    outline: none;
+}
 
-    .smart-sort-panel .smart-grid-panel-item-close-button:after,
-    .smart-group-panel .smart-grid-panel-item-close-button:after,
-    .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:after {
-        content: var(--smart-icon-close);
-        font-family: var(--smart-font-family-icon);
-    }
+.smart-sort-panel .smart-grid-panel-item-close-button:after,
+.smart-group-panel .smart-grid-panel-item-close-button:after,
+.smart-multi-column-filter-panel .smart-grid-panel-item-close-button:after {
+    content: var(--smart-icon-close);
+    font-family: var(--smart-font-family-icon);
+}
 
 .smart-sort-panel[close-button-position="right"] .smart-grid-panel-item-close-button,
 .smart-group-panel[close-button-position="right"] .smart-grid-panel-item-close-button,
@@ -227,46 +240,52 @@ smart-group-panel {
     display: none;
 }
 
-    .smart-sort-panel .smart-grid-panel-direction:focus,
-    .smart-group-panel .smart-grid-panel-direction:focus {
-        outline: none;
-        box-shadow: 0 0 0 1px var(--smart-primary);
-    }
+.smart-sort-panel .smart-grid-panel-direction:focus,
+.smart-group-panel .smart-grid-panel-direction:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--smart-primary);
+}
 
-    .smart-sort-panel .smart-grid-panel-direction,
-    .smart-sort-panel .smart-grid-panel-direction > div,
-    .smart-group-panel .smart-grid-panel-direction,
-    .smart-group-panel .smart-grid-panel-direction > div {
-        border-top-right-radius: var(--smart-border-top-right-radius);
-        border-top-left-radius: var(--smart-border-top-left-radius);
-        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-    }
+.smart-sort-panel .smart-grid-panel-direction,
+.smart-sort-panel .smart-grid-panel-direction>div,
+.smart-group-panel .smart-grid-panel-direction,
+.smart-group-panel .smart-grid-panel-direction>div {
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+}
 
-        .smart-sort-panel .smart-grid-panel-direction > div,
-        .smart-group-panel .smart-grid-panel-direction > div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 3px;
-            width: calc(50% - 6px);
-            height: calc(100% - 6px);
-        }
+.smart-sort-panel .smart-grid-panel-direction>div,
+.smart-group-panel .smart-grid-panel-direction>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+    width: calc(50% - 6px);
+    height: calc(100% - 6px);
+}
 
-            .smart-sort-panel .smart-grid-panel-direction > div.selected,
-            .smart-group-panel .smart-grid-panel-direction > div.selected {
-                background-color: var(--smart-primary);
-                color: var(--smart-primary-color);
-            }
+.smart-sort-panel .smart-grid-panel-direction>div.selected,
+.smart-group-panel .smart-grid-panel-direction>div.selected {
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
 
 .smart-group-panel .smart-grid-panel-expand-collapse {
     justify-content: flex-end;
     margin-top: 10px;
-    margin-bottom: 10px;;
+    margin-bottom: 10px;
+    ;
 }
 
 .smart-group-panel .smart-group-panel-expand-button {
     margin-left: 15px;
+}
+
+.smart-group-panel .smart-group-panel-expand-button[active],
+.smart-group-panel .smart-group-panel-collapse-button[active] {
+    color: var(--smart-primary);
 }
 
 .smart-column-panel {
@@ -274,114 +293,115 @@ smart-group-panel {
     min-width: 100px;
 }
 
-    .smart-column-panel > .smart-container,
-    .smart-column-panel.smart-container {
-        display: flex;
-        flex-direction: column;
-    }
+.smart-column-panel>.smart-container,
+.smart-column-panel.smart-container {
+    display: flex;
+    flex-direction: column;
+}
 
-    .smart-column-panel .smart-column-panel-find-container {
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid var(--smart-border);
-        height: var(--smart-editor-height);
-        position: relative;
-    }
+.smart-column-panel .smart-column-panel-find-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--smart-border);
+    height: var(--smart-editor-height);
+    position: relative;
+}
 
-        .smart-column-panel .smart-column-panel-find-container.no-results:after {
-            content: attr(no-results);
-            position: absolute;
-            top: calc(100% + 10px);
-        }
+.smart-column-panel .smart-column-panel-find-container.no-results:after {
+    content: attr(no-results);
+    position: absolute;
+    top: calc(100% + 10px);
+}
 
-        .smart-column-panel .smart-column-panel-find-container input {
-            outline: none;
-            border: none;
-            width: calc(100% - 16px);
-            height: 100%;
-            font-family: var(--smart-font-family);
-            font-size: var(--smart-font-size);
-            background: var(--smart-grid-panel-background);
-            color: var(--smart-grid-panel-color);
-        }
+.smart-column-panel .smart-column-panel-find-container input {
+    outline: none;
+    border: none;
+    width: calc(100% - 16px);
+    height: 100%;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    background: var(--smart-grid-panel-background);
+    color: var(--smart-grid-panel-color);
+}
 
-        .smart-column-panel .smart-column-panel-find-container .clear-button {
-            width: 16px;
-            cursor: pointer;
-        }
+.smart-column-panel .smart-column-panel-find-container .clear-button {
+    width: 16px;
+    cursor: pointer;
+}
 
-            .smart-column-panel .smart-column-panel-find-container .clear-button:after {
-                content: var(--smart-icon-cancel);
-                font-family: var(--smart-font-family-icon);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+.smart-column-panel .smart-column-panel-find-container .clear-button:after {
+    content: var(--smart-icon-cancel);
+    font-family: var(--smart-font-family-icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .smart-column-panel smart-sortable {
-        flex: 5;
-        min-height: 50px;
-        overflow: auto;
-    }
+.smart-column-panel smart-sortable {
+    flex: 5;
+    min-height: 50px;
+    overflow: auto;
+}
 
-    .smart-column-panel .smart-column-panel-label {
-        margin-left: 5px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+.smart-column-panel .smart-column-panel-label {
+    margin-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
-        .smart-column-panel .smart-column-panel-label.icon {
-            position: relative;
-            padding-left: var(--smart-column-icon-size);
-        }
+.smart-column-panel .smart-column-panel-label.icon {
+    position: relative;
+    padding-left: var(--smart-column-icon-size);
+}
 
-            .smart-column-panel .smart-column-panel-label.icon:after {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: var(--smart-column-icon-size);
-                height: 100%;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
+.smart-column-panel .smart-column-panel-label.icon:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--smart-column-icon-size);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-    .smart-column-panel .smart-grid-panel-buttons-container {
-        width: 100%;
-        justify-content: flex-end;
-    }
+.smart-column-panel .smart-grid-panel-buttons-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 3px;
+}
 
-    .smart-column-panel .toggle-visibility {
-        width: 16px;
-        height: 16px;
-        font-family: var(--smart-font-family-icon);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.smart-column-panel .toggle-visibility {
+    width: 16px;
+    height: 16px;
+    font-family: var(--smart-font-family-icon);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .smart-column-panel .toggle-visibility.disable-toggle {
-            pointer-events: none;
-            opacity: 0.5;
-        }
+.smart-column-panel .toggle-visibility.disable-toggle {
+    pointer-events: none;
+    opacity: 0.5;
+}
 
-        .smart-column-panel .clear-button:focus,
-        .smart-column-panel .toggle-visibility:focus {
-            outline: none;
-            color: var(--smart-primary);
-        }
+.smart-column-panel .clear-button:focus,
+.smart-column-panel .toggle-visibility:focus {
+    outline: none;
+    color: var(--smart-primary);
+}
 
-        .smart-column-panel .toggle-visibility:after {
-            content: var(--smart-icon-visibility);
-        }
+.smart-column-panel .toggle-visibility:after {
+    content: var(--smart-icon-visibility);
+}
 
-        .smart-column-panel .toggle-visibility.hidden:after {
-            content: var(--smart-icon-visibility-off);
-        }
+.smart-column-panel .toggle-visibility.hidden:after {
+    content: var(--smart-icon-visibility-off);
+}
 
-.smart-multi-column-filter-panel > .smart-container {
+.smart-multi-column-filter-panel>.smart-container {
     display: grid;
     grid-auto-rows: 1fr max-content;
     grid-row-gap: var(--smart-grid-panel-padding);
@@ -389,6 +409,7 @@ smart-group-panel {
 
 .smart-multi-column-filter-panel .smart-filter-panel-items-container {
     overflow: auto;
+    padding-top: 10px;
 }
 
 .smart-multi-column-filter-panel .smart-grid-panel-item {
@@ -398,20 +419,40 @@ smart-group-panel {
     grid-gap: var(--smart-grid-panel-padding);
 }
 
-    .smart-multi-column-filter-panel .smart-grid-panel-item > * {
-        width: 100%;
-    }
+.smart-multi-column-filter-panel .smart-grid-panel-item>* {
+    width: 100%;
+}
 
 .smart-multi-column-filter-panel[close-button-position="right"] {
     --smart-multi-column-filter-panel-template-columns: 60px 2fr 3fr 3fr 15px;
 }
 
 @media (pointer:coarse) {
+
     .smart-sort-panel .smart-grid-panel-item-close-button:after,
     .smart-group-panel .smart-grid-panel-item-close-button:after,
     .smart-multi-column-filter-panel .smart-grid-panel-item-close-button:after {
         font-size: 16px;
     }
+}
+
+.smart-grid-panel-cancel-button,
+.smart-grid-panel-apply-button {
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border: 1px solid var(--smart-border);
+    border-radius: var(--smart-border-radius);
+    padding: 5px 8px;
+    min-width: 80px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+
+.smart-grid-panel-apply-button {
+    background: var(--smart-primary);
+    color: var(--smart-primary-color);
+    border: 1px solid var(--smart-primary);
 }
 
 /* --- Right-To-Left --- */
@@ -427,26 +468,26 @@ smart-group-panel {
 .smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-apply-button,
 .smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-cancel-button,
 .smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-add-filter-button,
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item-close-button + div,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item-close-button+div,
 .smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-items-container:empty {
     direction: rtl;
 }
 
 .smart-sort-panel[right-to-left] .smart-grid-panel-label-by,
 .smart-group-panel[right-to-left] .smart-grid-panel-label-by,
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-grid-panel-item-close-button + div {
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item>.smart-grid-panel-item-close-button+div {
     order: 3;
 }
 
 .smart-sort-panel[right-to-left] .smart-grid-panel-field-container,
 .smart-group-panel[right-to-left] .smart-grid-panel-field-container,
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(1) {
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item>.smart-input:nth-of-type(1) {
     order: 2;
 }
 
 .smart-sort-panel[right-to-left] .smart-grid-panel-from,
 .smart-group-panel[right-to-left] .smart-grid-panel-from,
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(2) {
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item>.smart-input:nth-of-type(2) {
     order: 1;
 }
 
@@ -464,7 +505,7 @@ smart-group-panel {
 
 .smart-group-panel[right-to-left] .smart-group-panel-expand-button {
     margin-left: initial;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .smart-column-panel[right-to-left] .smart-grid-panel-item {
@@ -493,21 +534,19 @@ smart-group-panel {
     padding: 3px;
     position: relative;
     display: grid;
-    grid-template-areas: "customize filter sort . search";
-    grid-template-columns: minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
+    grid-template-areas: "customize filter sort format . search";
+    grid-template-columns: minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
     grid-gap: 10px;
     grid-template-rows: 100%;
     background: var(--smart-surface);
     color: var(--smart-surface-color);
 }
 
-.smart-grid-toolbar > .smart-container {
-}
-
-.smart-grid-toolbar .smart-data-view-header{
+.smart-grid-toolbar .smart-data-view-header {
     height: 100%;
     display: flex;
 }
+
 .smart-data-view-header-button {
     display: flex;
     align-items: center;
@@ -524,33 +563,40 @@ smart-group-panel {
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
+.smart-card-view .smart-data-view-header-button,
+.smart-kanban .smart-data-view-header-button {
+    margin-top: 0;
+    height: 100%;
+}
+
 .smart-grid-toolbar .smart-data-view-header-button {
     margin-right: 5px;
 }
-    .smart-data-view-header-button:hover {
-        color: var(--smart-ui-state-color-hover);
-        background-color: var(--smart-ui-state-hover);
-    }
 
-    .smart-data-view-header-button:active {
-        color: var(--smart-ui-state-color-active);
-        background-color: var(--smart-ui-state-active);
-    }
+.smart-data-view-header-button:hover {
+    color: var(--smart-ui-state-color-hover);
+    background-color: var(--smart-ui-state-hover);
+}
 
-    .smart-data-view-header-button.smart-data-view-search-button:active {
-        color: var(--smart-ui-state-active);
-     }
+.smart-data-view-header-button:active {
+    color: var(--smart-ui-state-color-active);
+    background-color: var(--smart-ui-state-active);
+}
 
-    .smart-data-view-header-button:after {
-        position: absolute;
-        font-family: var(--smart-font-family-icon);
-        left: 5px;
-    }
+.smart-data-view-header-button.smart-data-view-search-button:active {
+    color: var(--smart-ui-state-active);
+}
 
-    .smart-data-view-header-button:focus,
-    .smart-data-view-search-box div:focus {
-        outline: 1px solid var(--smart-primary);
-    }
+.smart-data-view-header-button:after {
+    position: absolute;
+    font-family: var(--smart-font-family-icon);
+    left: 5px;
+}
+
+.smart-data-view-header-button:focus,
+.smart-data-view-search-box div:focus {
+    outline: 1px solid var(--smart-primary);
+}
 
 .smart-data-view-customize-button:after {
     content: var(--smart-icon-settings);
@@ -572,20 +618,29 @@ smart-group-panel {
     content: var(--smart-icon-search);
 }
 
+.smart-data-view-format-button:after {
+    content: var(--smart-icon-table);
+}
+
 .smart-data-view-filter-button.filtered,
 .smart-data-view-sort-button.sorted {
     background-color: var(--smart-success);
-    color:var(--smart-success-color);
+    color: var(--smart-success-color);
 }
 
+.smart-data-view-format-button.formatted,
 .smart-data-view-sort-button.sorted {
     background-color: var(--smart-primary);
-    color:var(--smart-primary-color);
+    color: var(--smart-primary-color);
 }
 
 .smart-data-view-group-button.grouped {
     background-color: var(--smart-secondary);
-    color:var(--smart-secondary-color);
+    color: var(--smart-secondary-color);
+}
+
+.smart-data-view-format-button {
+    grid-area: format;
 }
 
 .smart-data-view-customize-button {
@@ -610,13 +665,13 @@ smart-group-panel {
     padding: 0;
 }
 
-.smart-grid-toolbar .smart-data-view-search-button{
+.smart-grid-toolbar .smart-data-view-search-button {
     position: absolute;
     right: 30px;
     top: 0px;
 }
 
-.smart-data-view-header-button > div {
+.smart-data-view-header-button>div {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -653,6 +708,11 @@ smart-group-panel {
 
 .smart-data-view-header-drop-down.filter-panel {
     width: var(--smart-data-view-filter-panel-width);
+}
+
+.smart-data-view-header-drop-down.format-panel {
+    max-height: 300px;
+    overflow: auto;
 }
 
 .smart-data-view-header-drop-down.sort-panel {
@@ -715,62 +775,62 @@ smart-group-panel {
     height: 100%;
 }
 
-    .smart-data-view-search-next:hover,
-    .smart-data-view-search-prev:hover {
-        color: var(--smart-ui-state-color-hover);
-        background-color: var(--smart-ui-state-hover);
-    }
+.smart-data-view-search-next:hover,
+.smart-data-view-search-prev:hover {
+    color: var(--smart-ui-state-color-hover);
+    background-color: var(--smart-ui-state-hover);
+}
 
-    .smart-data-view-search-next:active,
-    .smart-data-view-search-prev:active {
-        color: var(--smart-ui-state-color-active);
-        background-color: var(--smart-ui-state-active);
-    }
+.smart-data-view-search-next:active,
+.smart-data-view-search-prev:active {
+    color: var(--smart-ui-state-color-active);
+    background-color: var(--smart-ui-state-active);
+}
 
-    .smart-data-view-search-prev:after {
-        content: var(--smart-icon-arrow-up);
-    }
+.smart-data-view-search-prev:after {
+    content: var(--smart-icon-arrow-up);
+}
 
-    .smart-data-view-search-next:after {
-        content: var(--smart-icon-arrow-down);
-    }
+.smart-data-view-search-next:after {
+    content: var(--smart-icon-arrow-down);
+}
 
 .smart-data-view-search-close {
     display: flex;
     color: var(--smart-background-color);
 }
 
-    .smart-data-view-search-close:hover {
-        color: var(--smart-ui-state-color-hover);
-        background-color: var(--smart-ui-state-hover);
-    }
+.smart-data-view-search-close:hover {
+    color: var(--smart-ui-state-color-hover);
+    background-color: var(--smart-ui-state-hover);
+}
 
-    .smart-data-view-search-close:active {
-        color: var(--smart-ui-state-color-active);
-        background-color: var(--smart-ui-state-active);
-    }
+.smart-data-view-search-close:active {
+    color: var(--smart-ui-state-color-active);
+    background-color: var(--smart-ui-state-active);
+}
 
-    .smart-data-view-search-close:after {
-        content: var(--smart-icon-close);
-    }
+.smart-data-view-search-close:after {
+    content: var(--smart-icon-close);
+}
 
 .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.matches {
     grid-template-columns: 1fr max-content 16px 16px 16px;
 }
 
-    .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.matches .smart-data-view-search-next,
-    .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.matches .smart-data-view-search-prev {
-        display: flex;
-    }
+.smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.matches .smart-data-view-search-next,
+.smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.matches .smart-data-view-search-prev {
+    display: flex;
+}
 
 .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.no-matches {
     grid-template-columns: 1fr max-content 16px;
 }
 
-    .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.matches .smart-data-view-search-label,
-    .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.no-matches .smart-data-view-search-label {
-        display: block;
-    }
+.smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.matches .smart-data-view-search-label,
+.smart-data-view-header-drop-down.search-panel .smart-data-view-search-box.no-matches .smart-data-view-search-label {
+    display: block;
+}
 
 .smart-data-view-found {
     outline: 4px solid var(--smart-outline);
@@ -804,3 +864,345 @@ smart-group-panel {
 }
 
 /* --- */
+
+
+
+/* smart-formatting-panel */
+.smart-formatting-panel {
+    width: var(--smart-formatting-panel-default-width);
+    min-height: 150px;
+    padding: 0;
+    overflow: visible;
+}
+
+.smart-formatting-panel>.smart-container {
+    position: relative;
+    min-height: inherit;
+}
+
+.smart-formatting-panel .smart-formatting-panel-items-container {
+    width: 100%;
+    height: 100%;
+    padding: 0 calc(2 * var(--smart-grid-panel-padding));
+    overflow: auto;
+}
+
+.smart-formatting-panel-item {
+    display: grid;
+    grid-template-columns: auto 3fr 2fr var(--smart-formatting-panel-row-height) 1fr 0.5fr 1fr 1fr;
+    grid-template-rows: var(--smart-formatting-panel-row-height) var(--smart-formatting-panel-row-height);
+    grid-template-areas:
+        "value-label columns-input condition-input condition-input first-value first-value first-value close-button"
+        "format-label font-family-input font-size-input popup-button preview preview preview close-button";
+    gap: var(--smart-grid-panel-padding);
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    width: 100%;
+    padding: calc(2 * var(--smart-grid-panel-padding)) 0;
+}
+
+.smart-formatting-panel-item:last-child {
+    border-bottom: none;
+}
+
+.smart-formatting-panel-item.between {
+    grid-template-areas:
+        "value-label columns-input condition-input condition-input first-value ampersand second-value close-button"
+        "format-label font-family-input font-size-input popup-button preview preview preview close-button";
+}
+
+.smart-formatting-panel-item.between>.ampersand,
+.smart-formatting-panel-item.between>.second-value {
+    display: block;
+}
+
+.smart-formatting-panel-item>* {
+    min-width: 0;
+    max-width: none;
+    min-height: 0;
+    max-height: none;
+    width: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+.smart-formatting-panel-item>.value-label {
+    grid-area: value-label;
+    justify-self: end;
+}
+
+.smart-formatting-panel-item>.columns-input {
+    grid-area: columns-input;
+}
+
+.smart-formatting-panel-item>.condition-input {
+    grid-area: condition-input;
+}
+
+.smart-formatting-panel-item>.first-value {
+    grid-area: first-value;
+}
+
+.smart-formatting-panel-item>.ampersand {
+    grid-area: ampersand;
+    display: none;
+}
+
+.smart-formatting-panel-item>.second-value {
+    grid-area: second-value;
+    display: none;
+}
+
+.smart-formatting-panel-item>.close-button {
+    grid-area: close-button;
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.smart-formatting-panel-item>.close-button::after,
+.smart-formatting-panel-popup .colors-container>div.selected::after {
+    content: var(--smart-icon-close);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family: 'smart-icons';
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.smart-formatting-panel .smart-formatting-panel-item>.format-label {
+    grid-area: format-label;
+    justify-self: end;
+}
+
+.smart-formatting-panel .smart-formatting-panel-item>.font-family-input {
+    grid-area: font-family-input;
+}
+
+.smart-formatting-panel .smart-formatting-panel-item>.font-size-input {
+    grid-area: font-size-input;
+}
+
+.smart-formatting-panel .smart-formatting-panel-item>.popup-button,
+.smart-formatting-panel .smart-formatting-panel-item>.preview {
+    display: flex;
+    align-items: center;
+    border: var(--smart-border-width) solid var(--smart-border);
+    width: 100%;
+    height: 100%;
+}
+
+.smart-formatting-panel .smart-formatting-panel-item>.popup-button {
+    grid-area: popup-button;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.smart-formatting-panel .smart-formatting-panel-item>.preview {
+    grid-area: preview;
+    padding: 0 var(--smart-grid-panel-padding);
+}
+
+.smart-formatting-panel .smart-add-new-button {
+    display: block;
+    position: absolute;
+    bottom: calc(var(--smart-grid-panel-padding) - 5px);
+    right: calc(var(--smart-grid-panel-padding) - 5px);
+    width: var(--smart-formatting-panel-add-new-button-size);
+    height: var(--smart-formatting-panel-add-new-button-size);
+    border-radius: 50%;
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.smart-formatting-panel.scroll .smart-add-new-button {
+    right: calc(12px + var(--smart-grid-panel-padding));
+    border-radius: 50%;
+}
+
+.smart-formatting-panel .smart-add-new-button:hover,
+.smart-formatting-panel .smart-add-new-button:focus {
+    opacity: 1;
+    transform: scale(1.2, 1.2);
+}
+
+.smart-formatting-panel .smart-add-new-button:focus {
+    outline: none;
+}
+
+.smart-formatting-panel:not([animation="none"]) .smart-add-new-button {
+    transition: transform cubic-bezier(0.81, 0.27, 0, 0.93) 0.5s, opacity 0.2s ease-in;
+}
+
+.smart-formatting-panel .smart-add-new-button:after {
+    content: '+';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 35px;
+}
+
+.smart-formatting-panel-popup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: var(--smart-formatting-panel-row-height) var(--smart-formatting-panel-row-height) auto var(--smart-formatting-panel-row-height);
+    grid-template-areas:
+        "header header"
+        "code input"
+        "colors colors"
+        "apply cancel";
+    gap: var(--smart-grid-panel-padding);
+    position: absolute;
+    border: var(--smart-border-width) solid var(--smart-border);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    width: var(--smart-formatting-panel-popup-width);
+    padding: var(--smart-grid-panel-padding);
+    background-color: var(--smart-background);
+    box-shadow: var(--smart-elevation-8);
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: top;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+}
+
+.smart-formatting-panel-popup:not([animation="none"]) {
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.smart-formatting-panel-popup.smart-visibility-hidden {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.smart-formatting-panel-popup .header {
+    grid-area: header;
+    display: flex;
+    border: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-formatting-panel-popup .header>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--smart-background-color);
+}
+
+.smart-formatting-panel-popup .header>.selected {
+    background-color: var(--smart-ui-state-selected);
+    color: var(--smart-ui-state-color-selected);
+}
+
+.smart-formatting-panel-popup .header>div:first-child {
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-formatting-panel-popup>.color-code,
+.smart-formatting-panel-popup input {
+    border: var(--smart-border-width) solid var(--smart-border);
+    width: 100%;
+    height: 100%;
+}
+
+.smart-formatting-panel-popup>.color-code {
+    grid-area: code;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: var(--smart-grid-panel-padding);
+    color: var(--smart-background-color);
+}
+
+.smart-formatting-panel-popup input {
+    grid-area: input;
+    background-color: var(--smart-background);
+    cursor: pointer;
+}
+
+.smart-formatting-panel-popup input:focus {
+    outline: none;
+    border-color: var(--smart-ui-state-border-focus);
+}
+
+.smart-formatting-panel-popup .colors-container {
+    grid-area: colors;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: var(--smart-formatting-panel-color-box-height);
+    gap: 3px;
+    width: 100%;
+}
+
+.smart-formatting-panel-popup .colors-container>div {
+    border: var(--smart-border-width) solid var(--smart-border);
+    cursor: pointer;
+}
+
+.smart-formatting-panel-popup .colors-container>div.selected {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smart-formatting-panel-popup .colors-container>div.selected::after {
+    border-radius: 50%;
+    content: var(--smart-icon-check);
+    background-color: var(--smart-background-color);
+    color: var(--smart-background);
+    width: var(--smart-formatting-panel-color-box-height);
+    opacity: 1;
+}
+
+.smart-formatting-panel-popup>smart-button {
+    --smart-button-padding: 0;
+}
+
+.smart-formatting-panel-popup>.apply {
+    grid-area: apply;
+}
+
+.smart-formatting-panel-popup>.cancel {
+    grid-area: cancel;
+}
+
+.smart-formatting-panel .close-button:focus,
+.smart-formatting-panel .popup-button:focus,
+.smart-formatting-panel-popup .header>div:focus,
+.smart-formatting-panel-popup input:focus,
+.smart-formatting-panel-popup .colors-container:focus {
+    outline: var(--smart-border-width) solid var(--smart-ui-state-border-active);
+}
+
+.smart-formatting-panel[right-to-left] {
+    direction: rtl;
+}
+
+.smart-formatting-panel[right-to-left] .smart-add-new-button {
+    left: calc(var(--smart-grid-panel-padding) - 5px);
+    right: unset;
+}
+
+.smart-formatting-panel[right-to-left].scroll .smart-add-new-button {
+    left: calc(12px + var(--smart-grid-panel-padding));
+}

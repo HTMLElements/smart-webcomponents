@@ -5,6 +5,7 @@
 @import url("./default/smart.badge.css");
 @import url("./default/smart.breadcrumb.css");
 @import url("./default/smart.button.css");
+@import url("./default/smart.buttongroup.css");
 @import url("./default/smart.calendar.css");
 @import url("./default/smart.card.css");
 @import url("./default/smart.cardview.css");
@@ -43,6 +44,7 @@
 @import url("./default/smart.progressbar.css");
 @import url("./default/smart.querybuilder.css");
 @import url("./default/smart.rating.css");
+@import url("./default/smart.scheduler.css");
 @import url("./default/smart.scrollbar.css");
 @import url("./default/smart.scrollviewer.css");
 @import url("./default/smart.slider.css");

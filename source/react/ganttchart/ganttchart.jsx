@@ -215,6 +215,18 @@ export class GanttChart extends React.Component {
 		}
 	}
 
+	/** By default the Timeline has a two level header - timeline details and timeline header. This property hides the header details container( the top container ).
+	*	Property type: boolean
+	*/
+	get hideTimelineHeaderDetails() {
+		return this.nativeElement ? this.nativeElement.hideTimelineHeaderDetails : undefined;
+	}
+	set hideTimelineHeaderDetails(value) {
+		if (this.nativeElement) {
+			this.nativeElement.hideTimelineHeaderDetails = value;
+		}
+	}
+
 	/** Hides the Resource panel regardless of the resources availability By default the Resource panel is visible if resources are added to the GanttChart. This property allows to hide the Resource panel permanently.
 	*	Property type: boolean
 	*/
@@ -359,6 +371,18 @@ export class GanttChart extends React.Component {
 		}
 	}
 
+	/** A format function for the Timeline task progress label. The expected result from the function is a string. The label is hidden by default can be shown with the showProgressLabel property.
+	*	Property type: any
+	*/
+	get progressLabelFormatFunction() {
+		return this.nativeElement ? this.nativeElement.progressLabelFormatFunction : undefined;
+	}
+	set progressLabelFormatFunction(value) {
+		if (this.nativeElement) {
+			this.nativeElement.progressLabelFormatFunction = value;
+		}
+	}
+
 	/** A getter that returns a flat structure as an array of all resources inside the element.
 	*	Property type: GanttChartResource[]
 	*/
@@ -491,6 +515,18 @@ export class GanttChart extends React.Component {
 		}
 	}
 
+	/** Shows the progress label inside the progress bars of the Timeline tasks.
+	*	Property type: boolean
+	*/
+	get showProgressLabel() {
+		return this.nativeElement ? this.nativeElement.showProgressLabel : undefined;
+	}
+	set showProgressLabel(value) {
+		if (this.nativeElement) {
+			this.nativeElement.showProgressLabel = value;
+		}
+	}
+
 	/** If set the dateStart/dateEnd of the tasks will be coerced to the nearest timeline cell date ( according to the view ). Affects the dragging operation as well.
 	*	Property type: boolean
 	*/
@@ -611,7 +647,7 @@ export class GanttChart extends React.Component {
 		}
 	}
 
-	/** A format function for the Header of the Timeline.
+	/** A format function for the Header of the Timeline. The function provides the following arguments: date - a Date object that represets the date for the current cell.type - a string that represents the type of date that the cell is showing, e.g. 'month', 'week', 'day', etc.isHeaderDetails - a boolean that indicates whether the current cell is part of the Header Details Container or not.value - a string that represents the default value for the cell provided by the element.
 	*	Property type: any
 	*/
 	get timelineHeaderFormatFunction() {
@@ -698,7 +734,23 @@ export class GanttChart extends React.Component {
 
 	// Gets the properties of the React component.
 	get properties() {
-		return ["autoSchedule","autoScheduleStrictMode","autoScrollStep","dataExport","dataSource","dayFormat","dateEnd","dateStart","disabled","disableAutoScroll","disableTaskDrag","disableTaskProgressChange","disableTaskResize","disableSelection","disableWindowEditor","durationUnit","headerTemplate","hideResourcePanel","horizontalScrollBarVisibility","hourFormat","inverted","locale","max","min","messages","monthFormat","nonworkingDays","nonworkingHours","popupWindowCustomizationFunction","resources","resourceColumns","resourcePanelHeaderTemplate","resourcePanelMin","resourcePanelSize","resourcePanelRefreshRate","resourceTimelineFormatFunction","resourceTimelineMode","resourceTimelineView","rightToLeft","selectedIndexes","snapToNearest","sortable","sortMode","tasks","taskColumns","taskPanelMin","taskPanelSize","timelineMin","treeMin","treeSize","timelineHeaderFormatFunction","verticalScrollBarVisibility","view","yearFormat","weekFormat","theme","unfocusable"];
+		return ["autoSchedule","autoScheduleStrictMode","autoScrollStep","dataExport","dataSource","dayFormat","dateEnd","dateStart","disabled","disableAutoScroll","disableTaskDrag","disableTaskProgressChange","disableTaskResize","disableSelection","disableWindowEditor","durationUnit","headerTemplate","hideTimelineHeaderDetails","hideResourcePanel","horizontalScrollBarVisibility","hourFormat","inverted","locale","max","min","messages","monthFormat","nonworkingDays","nonworkingHours","popupWindowCustomizationFunction","progressLabelFormatFunction","resources","resourceColumns","resourcePanelHeaderTemplate","resourcePanelMin","resourcePanelSize","resourcePanelRefreshRate","resourceTimelineFormatFunction","resourceTimelineMode","resourceTimelineView","rightToLeft","selectedIndexes","showProgressLabel","snapToNearest","sortable","sortMode","tasks","taskColumns","taskPanelMin","taskPanelSize","timelineMin","treeMin","treeSize","timelineHeaderFormatFunction","verticalScrollBarVisibility","view","yearFormat","weekFormat","theme","unfocusable"];
+	}
+	/**  This event is triggered when a batch update was started after executing the beginUpdate method.
+	*  @param event. The custom event. 	*/
+	_onBeginUpdate = null;	get onBeginUpdate() {
+		return this._onBeginUpdate;
+	}
+	set onBeginUpdate(value) {
+		this._onBeginUpdate = value;
+	}
+	/**  This event is triggered when a batch update was ended from after executing the endUpdate method.
+	*  @param event. The custom event. 	*/
+	_onEndUpdate = null;	get onEndUpdate() {
+		return this._onEndUpdate;
+	}
+	set onEndUpdate(value) {
+		this._onEndUpdate = value;
 	}
 	/**  This event is triggered when a Task is selected/unselected.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	value, 	oldValue)
@@ -710,6 +762,51 @@ export class GanttChart extends React.Component {
 	}
 	set onChange(value) {
 		this._onChange = value;
+	}
+	/**  This event is triggered when a task, resource or connection is clicked inside the Timeline or the Tree columns.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	type, 	originalEvent)
+	*   item - The item that was clicked. It cam be a task, resource or connection.
+	*   type - The type of item. Possible values are: 'task', 'resource', 'connection'.
+	*   originalEvent - The original DOM event.
+	*/
+	_onItemClick = null;	get onItemClick() {
+		return this._onItemClick;
+	}
+	set onItemClick(value) {
+		this._onItemClick = value;
+	}
+	/**  This event is triggered when a Task/Resource/Connection is inserted.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	type, 	item)
+	*   type - The type of item that has been modified.
+	*   item - An object that represents the actual item with it's attributes.
+	*/
+	_onItemInsert = null;	get onItemInsert() {
+		return this._onItemInsert;
+	}
+	set onItemInsert(value) {
+		this._onItemInsert = value;
+	}
+	/**  This event is triggered when a Task/Resource/Connection is removed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	type, 	item)
+	*   type - The type of item that has been modified.
+	*   item - An object that represents the actual item with it's attributes.
+	*/
+	_onItemRemove = null;	get onItemRemove() {
+		return this._onItemRemove;
+	}
+	set onItemRemove(value) {
+		this._onItemRemove = value;
+	}
+	/**  This event is triggered when a Task/Resource/Connection is updated.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	type, 	item)
+	*   type - The type of item that has been modified.
+	*   item - An object that represents the actual item with it's attributes.
+	*/
+	_onItemUpdate = null;	get onItemUpdate() {
+		return this._onItemUpdate;
+	}
+	set onItemUpdate(value) {
+		this._onItemUpdate = value;
 	}
 	/**  This event is triggered when the progress of a task bar starts to change as a result of user interaction. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	index, 	progress)
@@ -884,7 +981,7 @@ export class GanttChart extends React.Component {
 
 	// Gets the events of the React component.
 	get events() {
-		return ["onChange","onProgressChangeStart","onProgressChangeEnd","onDragStart","onDragEnd","onResizeStart","onResizeEnd","onConnectionStart","onConnectionEnd","onScrollBottomReached","onScrollTopReached","onOpening","onOpen","onClosing","onClose","onCollapse","onExpand"];
+		return ["onBeginUpdate","onEndUpdate","onChange","onItemClick","onItemInsert","onItemRemove","onItemUpdate","onProgressChangeStart","onProgressChangeEnd","onDragStart","onDragEnd","onResizeStart","onResizeEnd","onConnectionStart","onConnectionEnd","onScrollBottomReached","onScrollTopReached","onOpening","onOpen","onClosing","onClose","onCollapse","onExpand"];
 	}
 	/** Adds a task as the last item of a Project. 
 	* @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
@@ -1121,8 +1218,26 @@ export class GanttChart extends React.Component {
         return result;
     }
 
+	/** Returns the Tree path of a task/resource. 
+	* @param {GanttChartTask | GanttChartResource | number} item. A GattChartTask/GanttChartResource item object or index.
+	* @returns {string}
+  */
+	async getItemPath(item) {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.getItemPath(item);
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
 	/** Returns the index of a task. 
-	* @param {HTMLElement} task. A GattChartTask object.
+	* @param {GanttChartTask} task. A GattChartTask object.
 	* @returns {number}
   */
 	async getTaskIndex(task) {
@@ -1140,7 +1255,7 @@ export class GanttChart extends React.Component {
     }
 
 	/** Returns the tree path of a task. 
-	* @param {GanttChartTask} task. Returns the Tree path of the task as a string.
+	* @param {GanttChartTask} task. A GanttChartTask object.
 	* @returns {string}
   */
 	async getTaskPath(task) {
@@ -1148,6 +1263,24 @@ export class GanttChart extends React.Component {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
                     const result = this.nativeElement.getTaskPath(task);
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Returns teh Project of a task if any. 
+	* @param {GanttChartTask} task. A GantChartTask object.
+	* @returns {GanttChartTask | undefined}
+  */
+	async getTaskProject(task) {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.getTaskProject(task);
                     resolve(result)
                 });
             });
@@ -1166,6 +1299,24 @@ export class GanttChart extends React.Component {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
                     const result = this.nativeElement.getResourceIndex(resource);
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Returns the tasks that are assigned to the resource. 
+	* @param {any} resource. A GanttChartResource object.
+	* @returns {any}
+  */
+	async getResourceTasks(resource) {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.getResourceTasks(resource);
                     resolve(result)
                 });
             });
@@ -1250,7 +1401,7 @@ export class GanttChart extends React.Component {
     }
 
 	/** Updates a task inside the timeline. 
-	* @param {string | number} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
+	* @param {any} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	* @param {any} taskObject. An object describing a Gantt Chart task. The properties of this object will be applied to the desired task.
 	*/
     updateTask(index, taskObject){
@@ -1266,7 +1417,7 @@ export class GanttChart extends React.Component {
     }
 
 	/** Removes a task from the timeline. 
-	* @param {string | number} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
+	* @param {any} index. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	*/
     removeTask(index){
         if (this.nativeElement.isRendered) {

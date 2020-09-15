@@ -362,7 +362,7 @@ export declare type ViewLayout = 'landscape' | 'portrait';
 /** Determines the position of the navigation buttons located inside the header.  */
 export declare type LayoutPosition = 'near' | 'far' | 'both';
 /**Determines the date selection mode. */
-export declare type CalendarSelectionMode = 'none' | 'default' | 'many' | 'one' | 'oneOrMany' | 'range' | 'week' | 'zeroOrMany' | 'zeroOrOne';
+export declare type CalendarSelectionMode = 'none' | 'default' | 'many' | 'one' | 'oneExtended' | 'oneOrMany' | 'range' | 'week' | 'zeroOrMany' | 'zeroOrOne';
 /**Sets the position of the tooltip. */
 export declare type TooltipPosition = 'auto' | 'absolute' | 'bottom' | 'top' | 'left' | 'right';
 /**Determines the year format in the header when DisplayMode is set to Default or when Months property is greater than 1.<br/> */

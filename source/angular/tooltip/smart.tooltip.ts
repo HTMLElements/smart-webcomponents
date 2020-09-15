@@ -187,9 +187,17 @@ export class TooltipComponent extends BaseElement implements OnInit, AfterViewIn
 	*  @param event. The custom event. 	*/
 	@Output() onOpen: EventEmitter<CustomEvent> = new EventEmitter();
 
+	/** @description This event is triggered before the tooltip is opened. The event can be prevented via event.preventDefault().
+	*  @param event. The custom event. 	*/
+	@Output() onOpening: EventEmitter<CustomEvent> = new EventEmitter();
+
 	/** @description This event is triggered when the tooltip is closed.
 	*  @param event. The custom event. 	*/
 	@Output() onClose: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered before the tooltip is closed. The event can be prevented via event.preventDefault().
+	*  @param event. The custom event. 	*/
+	@Output() onClosing: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description Closes smart-tooltip.  
 	*/
@@ -233,6 +241,20 @@ export class TooltipComponent extends BaseElement implements OnInit, AfterViewIn
         }
     }
 
+	/** @description Clears the content of the Tooltip.  
+	*/
+    public clear(): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.clear();
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.clear();
+            });
+        }
+    }
+
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
@@ -272,8 +294,14 @@ export class TooltipComponent extends BaseElement implements OnInit, AfterViewIn
 		that.eventHandlers['openHandler'] = (event: CustomEvent) => { that.onOpen.emit(event); }
 		that.nativeElement.addEventListener('open', that.eventHandlers['openHandler']);
 
+		that.eventHandlers['openingHandler'] = (event: CustomEvent) => { that.onOpening.emit(event); }
+		that.nativeElement.addEventListener('opening', that.eventHandlers['openingHandler']);
+
 		that.eventHandlers['closeHandler'] = (event: CustomEvent) => { that.onClose.emit(event); }
 		that.nativeElement.addEventListener('close', that.eventHandlers['closeHandler']);
+
+		that.eventHandlers['closingHandler'] = (event: CustomEvent) => { that.onClosing.emit(event); }
+		that.nativeElement.addEventListener('closing', that.eventHandlers['closingHandler']);
 
 	}
 
@@ -284,8 +312,16 @@ export class TooltipComponent extends BaseElement implements OnInit, AfterViewIn
 			that.nativeElement.removeEventListener('open', that.eventHandlers['openHandler']);
 		}
 
+		if (that.eventHandlers['openingHandler']) {
+			that.nativeElement.removeEventListener('opening', that.eventHandlers['openingHandler']);
+		}
+
 		if (that.eventHandlers['closeHandler']) {
 			that.nativeElement.removeEventListener('close', that.eventHandlers['closeHandler']);
+		}
+
+		if (that.eventHandlers['closingHandler']) {
+			that.nativeElement.removeEventListener('closing', that.eventHandlers['closingHandler']);
 		}
 
 	}

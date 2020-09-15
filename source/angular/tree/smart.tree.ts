@@ -1,8 +1,8 @@
 import { Tree } from './../index';
-import { Animation, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSortDirection, Position, TreeToggleMode, ElementRenderMode} from './../index';
+import { Animation, TreeExpandMode, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSelectionTarget, TreeSortDirection, Position, TreeToggleMode, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter, QueryList, ContentChildren } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSortDirection, Position, TreeToggleMode, ElementRenderMode} from './../index';
+export { Animation, TreeExpandMode, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSelectionTarget, TreeSortDirection, Position, TreeToggleMode, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { Tree } from './../index';
 
@@ -161,6 +161,15 @@ export class TreeComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.editable = value : undefined;
 	}
 
+	/** @description Determines the expand behavior of TreeItemsGroups in the Tree. */
+	@Input()
+	get expandMode(): TreeExpandMode {
+		return this.nativeElement ? this.nativeElement.expandMode : undefined;
+	}
+	set expandMode(value: TreeExpandMode) {
+		this.nativeElement ? this.nativeElement.expandMode = value : undefined;
+	}
+
 	/** @description Enables or disables filtering. Shows or hides filter input. */
 	@Input()
 	get filterable(): boolean {
@@ -312,6 +321,15 @@ export class TreeComponent extends BaseElement implements OnInit, AfterViewInit,
 	}
 	set selectionMode(value: TreeSelectionMode) {
 		this.nativeElement ? this.nativeElement.selectionMode = value : undefined;
+	}
+
+	/** @description Determines whether smart-tree-items-groups can be selected. */
+	@Input()
+	get selectionTarget(): TreeSelectionTarget {
+		return this.nativeElement ? this.nativeElement.selectionTarget : undefined;
+	}
+	set selectionTarget(value: TreeSelectionTarget) {
+		this.nativeElement ? this.nativeElement.selectionTarget = value : undefined;
 	}
 
 	/** @description Shows or hides lines, displaying the relation between elements in group. */

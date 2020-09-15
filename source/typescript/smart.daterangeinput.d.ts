@@ -7,7 +7,7 @@ export interface DateRangeInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property.
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property.
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
   dateFormat?: DateRangeInputDateFormat;
@@ -174,7 +174,7 @@ export interface DateRangeInput extends BaseElement, DateRangeInputProperties {
   select(): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. */
 export interface DateRangeInputDateFormat {
   /**
    * 

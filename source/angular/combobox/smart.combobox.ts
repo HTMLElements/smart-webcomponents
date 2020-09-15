@@ -691,6 +691,10 @@ export class ComboBoxComponent extends BaseElement implements OnInit, AfterViewI
 	*  @param event. The custom event. 	*/
 	@Output() onScrollTopReached: EventEmitter<CustomEvent> = new EventEmitter();
 
+	/** @description This event is triggered when a token item(pill) has been clicked. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
+	*  @param event. The custom event. 	*/
+	@Output() onTokenClick: EventEmitter<CustomEvent> = new EventEmitter();
+
 	/** @description Appends a ListItem to the end of the list of items inside element. 
 	* @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
 	* @returns {Node}
@@ -1034,6 +1038,9 @@ export class ComboBoxComponent extends BaseElement implements OnInit, AfterViewI
 		that.eventHandlers['scrollTopReachedHandler'] = (event: CustomEvent) => { that.onScrollTopReached.emit(event); }
 		that.nativeElement.addEventListener('scrollTopReached', that.eventHandlers['scrollTopReachedHandler']);
 
+		that.eventHandlers['tokenClickHandler'] = (event: CustomEvent) => { that.onTokenClick.emit(event); }
+		that.nativeElement.addEventListener('tokenClick', that.eventHandlers['tokenClickHandler']);
+
 
         that.eventHandlers['changeModelHandler'] = (event: Event) =>
         {
@@ -1097,6 +1104,10 @@ export class ComboBoxComponent extends BaseElement implements OnInit, AfterViewI
 
 		if (that.eventHandlers['scrollTopReachedHandler']) {
 			that.nativeElement.removeEventListener('scrollTopReached', that.eventHandlers['scrollTopReachedHandler']);
+		}
+
+		if (that.eventHandlers['tokenClickHandler']) {
+			that.nativeElement.removeEventListener('tokenClick', that.eventHandlers['tokenClickHandler']);
 		}
 
 		if (that.eventHandlers['changeModelHandler']) {

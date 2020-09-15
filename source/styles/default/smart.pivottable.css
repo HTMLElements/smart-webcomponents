@@ -1,1270 +1,22 @@
-smart-pivot-table {
-    display: block;
-    border-radius: var(--smart-border-top-left-radius) var(--smart-border-top-right-radius) var(--smart-border-bottom-right-radius) var(--smart-border-bottom-left-radius);
-    width: var(--smart-table-default-width);
-    max-width: 100%;
-    height: var(--smart-table-default-height);
-    margin-bottom: 1rem;
-    background-color: transparent;
-    font-family: var(--smart-font-family);
-    font-size: var(--smart-font-size);
-}
-
-smart-pivot-table>.smart-container {
-    border: var(--smart-border-width) solid var(--smart-border);
-    position: relative;
+.smart-pivot-table .smart-pivot-table-main-container {
+    width: 100%;
+    height: 100%;
     overflow: auto;
-    border-radius: inherit;
-    max-height: inherit;
 }
 
-.smart-table-container {
-    width: 100%;
-    height: 100%;
-}
-
-smart-pivot-table[paging] .smart-table-container {
-    height: calc(100% - var(--smart-table-header-footer-height));
-}
-
-smart-pivot-table[filtering]:not([filter-row]) .smart-table-container {
-    height: calc(100% - var(--smart-table-header-footer-height));
-}
-
-smart-pivot-table[paging][filtering]:not([filter-row]) .smart-table-container {
-    height: calc(100% - 2 * var(--smart-table-header-footer-height));
-}
-
-smart-pivot-table table {
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-radius: inherit;
-}
-
-smart-pivot-table table:not(.smart-table-container) {
+.smart-pivot-table:not([designer]) .smart-pivot-table-designer-container {
     display: none;
 }
 
-smart-pivot-table thead tr {
-    height: var(--smart-table-column-header-height);
-}
-
-smart-pivot-table tbody tr,
-smart-pivot-table tfoot tr {
-    height: var(--smart-table-row-height);
-}
-
-smart-pivot-table th,
-smart-pivot-table td {
-    padding-top: var(--smart-table-cell-padding);
-    padding-right: var(--smart-table-cell-padding);
-    padding-bottom: var(--smart-table-cell-padding);
-    padding-left: var(--smart-table-cell-padding);
-    vertical-align: middle;
-    border-top-width: var(--smart-border-width);
-    border-top-style: solid;
-    border-top-color: var(--smart-border);
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-smart-pivot-table thead th,
-smart-pivot-table tfoot td {
-    font-size: calc(var(--smart-font-size) - 2px);
-}
-
-smart-pivot-table tr[row-id] td {
-    line-height: calc(var(--smart-table-row-height) - 2 * var(--smart-table-cell-padding) - var(--smart-border-width));
-    white-space: nowrap;
-}
-
-smart-pivot-table td.no-edit {
-    background-color: rgba(0, 0, 0, 0.02);
-}
-
-smart-pivot-table thead th {
-    border-bottom: var(--smart-border-width) solid #dee2e6;
-    text-align: left;
-    font-weight: 500;
-}
-
-smart-pivot-table thead th:not(.smart-table-select-all) {
-    opacity: 0.9;
-}
-
-smart-pivot-table[column-reorder] thead th {
-    touch-action: none;
-}
-
-smart-pivot-table thead th .sort-by {
-    display: inline-block;
-    position: relative;
-    visibility: hidden;
-    width: 16px;
-    height: 16px;
-    user-select: none;
-    opacity: 0;
-}
-
-smart-pivot-table:not([animation="none"]) thead th .sort-by {
-    transition: transform 0.5s ease-out, visibility 0.5s ease-out, opacity 0.5s ease-out;
-}
-
-smart-pivot-table thead th .sort-by.asc,
-smart-pivot-table thead th .sort-by.desc {
-    visibility: visible;
-    opacity: 1;
-}
-
-smart-pivot-table thead th .sort-by::before {
-    content: var(--smart-icon-up);
-    width: 100%;
-    height: 100%;
-    font-family: var(--smart-font-family-icon);
-    font-style: normal;
-    font-weight: normal;
-    font-size: var(--smart-arrow-size);
-    color: inherit;
-    text-decoration: inherit;
-    font-variant: normal;
-    text-transform: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-smart-pivot-table thead th .sort-by.desc {
-    transform: rotateX(180deg);
-}
-
-smart-pivot-table thead tr:first-child th {
-    border-top: none;
-}
-
-smart-pivot-table.table-dark thead th .sort-by::before,
-smart-pivot-table.thead-dark thead th .sort-by::before {
-    color: #fff;
-}
-
-smart-pivot-table tbody+tbody {
-    border-top: 2px solid #dee2e6;
-}
-
-smart-pivot-table smart-pivot-table {
-    background-color: #fff;
-}
-
-.smart-table-sm th,
-.smart-table-sm td {
-    padding: 0.3rem;
-}
-
-smart-pivot-table.table-bordered table {
-    border: var(--smart-border-width) solid #dee2e6;
-}
-
-smart-pivot-table.table-bordered table th,
-smart-pivot-table.table-bordered table td {
-    border: var(--smart-border-width) solid #dee2e6;
-}
-
-smart-pivot-table.table-bordered table thead th,
-smart-pivot-table.table-bordered table thead td {
-    border-bottom-width: 2px;
-}
-
-smart-pivot-table.table-striped table tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-smart-pivot-table.table-hover table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.075);
-}
-
-.smart-table-primary,
-.smart-table-primary>th,
-.smart-table-primary>td {
-    background-color: #b8daff;
-}
-
-smart-pivot-table.table-hover table .smart-table-primary:hover {
-    background-color: #9fcdff;
-}
-
-smart-pivot-table.table-hover table .smart-table-primary:hover>td,
-smart-pivot-table.table-hover table .smart-table-primary:hover>th {
-    background-color: #9fcdff;
-}
-
-.smart-table-secondary,
-.smart-table-secondary>th,
-.smart-table-secondary>td {
-    background-color: #d6d8db;
-}
-
-smart-pivot-table.table-hover table .smart-table-secondary:hover {
-    background-color: #c8cbcf;
-}
-
-smart-pivot-table.table-hover table .smart-table-secondary:hover>td,
-smart-pivot-table.table-hover table .smart-table-secondary:hover>th {
-    background-color: #c8cbcf;
-}
-
-.smart-table-success,
-.smart-table-success>th,
-.smart-table-success>td {
-    background-color: #c3e6cb;
-}
-
-smart-pivot-table.table-hover table .smart-table-success:hover {
-    background-color: #b1dfbb;
-}
-
-smart-pivot-table.table-hover table .smart-table-success:hover>td,
-smart-pivot-table.table-hover table .smart-table-success:hover>th {
-    background-color: #b1dfbb;
-}
-
-.smart-table-info,
-.smart-table-info>th,
-.smart-table-info>td {
-    background-color: #bee5eb;
-}
-
-smart-pivot-table.table-hover table .smart-table-info:hover {
-    background-color: #abdde5;
-}
-
-smart-pivot-table.table-hover table .smart-table-info:hover>td,
-smart-pivot-table.table-hover table .smart-table-info:hover>th {
-    background-color: #abdde5;
-}
-
-.smart-table-warning,
-.smart-table-warning>th,
-.smart-table-warning>td {
-    background-color: #ffeeba;
-}
-
-smart-pivot-table.table-hover table .smart-table-warning:hover {
-    background-color: #ffe8a1;
-}
-
-smart-pivot-table.table-hover table .smart-table-warning:hover>td,
-smart-pivot-table.table-hover table .smart-table-warning:hover>th {
-    background-color: #ffe8a1;
-}
-
-.smart-table-danger,
-.smart-table-danger>th,
-.smart-table-danger>td {
-    background-color: #f5c6cb;
-}
-
-smart-pivot-table.table-hover table .smart-table-danger:hover {
-    background-color: #f1b0b7;
-}
-
-smart-pivot-table.table-hover table .smart-table-danger:hover>td,
-smart-pivot-table.table-hover table .smart-table-danger:hover>th {
-    background-color: #f1b0b7;
-}
-
-smart-pivot-table.table-light table,
-smart-pivot-table.table-light table>th,
-smart-pivot-table.table-light table>td {
-    background-color: #fdfdfe;
-}
-
-smart-pivot-table.table-hover table smart-pivot-table.table-light table:hover {
-    background-color: #ececf6;
-}
-
-smart-pivot-table.table-hover table smart-pivot-table.table-light table:hover>td,
-smart-pivot-table.table-hover table smart-pivot-table.table-light table:hover>th {
-    background-color: #ececf6;
-}
-
-smart-pivot-table.table-dark table,
-smart-pivot-table.table-dark table>th,
-smart-pivot-table.table-dark table>td {
-    background-color: #c6c8ca;
-}
-
-smart-pivot-table.table-hover table smart-pivot-table.table-dark table:hover {
-    background-color: #b9bbbe;
-}
-
-smart-pivot-table.table-hover table smart-pivot-table.table-dark table:hover>td,
-smart-pivot-table.table-hover table smart-pivot-table.table-dark table:hover>th {
-    background-color: #b9bbbe;
-}
-
-.smart-table-active,
-.smart-table-active>th,
-.smart-table-active>td {
-    background-color: rgba(0, 0, 0, 0.075);
-}
-
-smart-pivot-table.table-hover table .smart-table-active:hover {
-    background-color: rgba(0, 0, 0, 0.075);
-}
-
-smart-pivot-table.table-hover table .smart-table-active:hover>td,
-smart-pivot-table.table-hover table .smart-table-active:hover>th {
-    background-color: rgba(0, 0, 0, 0.075);
-}
-
-smart-pivot-table.thead-dark table th {
-    color: #fff;
-    background-color: #212529;
-    border-color: #32383e;
-}
-
-smart-pivot-table.thead-primary table th {
-    color: var(--smart-primary-color);
-    background-color: var(--smart-primary);
-    border-color: var(--smart-primary);
-}
-
-smart-pivot-table.thead-secondary table th {
-    color: var(--smart-secondary-color);
-    background-color: var(--smart-secondary);
-    border-color: var(--smart-secondary);
-}
-
-smart-pivot-table.thead-surface table th {
-    color: var(--smart-surface-color);
-    background-color: var(--smart-surface);
-    border-color: var(--smart-surface);
-}
-
-smart-pivot-table.thead-light table th {
-    color: #495057;
-    background-color: #e9ecef;
-    border-color: #dee2e6;
-}
-
-smart-pivot-table.table-dark table {
-    color: #fff;
-    background-color: #212529;
-}
-
-smart-pivot-table.table-dark table th,
-smart-pivot-table.table-dark table td,
-smart-pivot-table.table-dark table thead th {
-    border-color: #32383e;
-}
-
-smart-pivot-table.table-dark.table-bordered table {
-    border: 0;
-}
-
-smart-pivot-table.table-dark.table-striped table tbody tr:nth-of-type(odd) {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-smart-pivot-table.table-dark.table-hover table tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.075);
-}
-
-@media (max-width: 575.98px) {
-    smart-pivot-table.table-responsive-sm {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
-
-    smart-pivot-table.table-responsive-sm>smart-pivot-table.table-bordered table {
-        border: 0;
-    }
-}
-
-@media (max-width: 767.98px) {
-    smart-pivot-table.table-responsive-md {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
-
-    smart-pivot-table.table-responsive-md>smart-pivot-table.table-bordered table {
-        border: 0;
-    }
-}
-
-@media (max-width: 991.98px) {
-    smart-pivot-table.table-responsive-lg {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
-
-    smart-pivot-table.table-responsive-lg>smart-pivot-table.table-bordered table {
-        border: 0;
-    }
-}
-
-@media (max-width: 1199.98px) {
-    smart-pivot-table.table-responsive-xl {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
-
-    smart-pivot-table.table-responsive-xl>smart-pivot-table.table-bordered table {
-        border: 0;
-    }
-}
-
-smart-pivot-table.table-responsive {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-smart-pivot-table.table-responsive>smart-pivot-table.table-bordered table {
-    border: 0;
-}
-
-smart-pivot-table smart-pager.smart-element {
-    display: none;
-    height: var(--smart-table-header-footer-height);
-    background-color: var(--smart-background);
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    position: sticky;
-    left: 0;
-    bottom: 0;
-}
-
-smart-pivot-table smart-pager .smart-container {
-    justify-content: flex-end;
-}
-
-smart-pivot-table smart-pager .smart-pager-near-buttons-container,
-smart-pivot-table smart-pager .smart-pager-far-buttons-container {
-    font-size: calc(var(--smart-font-size) * 2);
-}
-
-smart-pivot-table smart-pager .smart-pager-size-selector-and-label-container {
-    order: 0;
-}
-
-smart-pivot-table smart-pager .smart-pager-label {
-    font-size: calc(var(--smart-font-size) - 2px);
-    opacity: 0.7;
-}
-
-smart-pivot-table smart-pager .smart-pager-summary-container.smart-pager-label {
-    order: 1;
-    margin: 0 32px 0 24px;
-}
-
-smart-pivot-table smart-pager .smart-pager-near-buttons-container.near {
-    order: 2;
-}
-
-smart-pivot-table smart-pager .smart-pager-near-buttons-container.far {
-    order: 3;
-}
-
-smart-pivot-table .smart-pager .smart-pager-button {
-    overflow: visible;
-}
-
-smart-pivot-table smart-pager .smart-pager-button::before {
-    content: attr(tooltip);
-    visibility: hidden;
-    position: absolute;
-    top: -125%;
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-    padding: 7px;
-    background-color: var(--smart-secondary);
-    color: var(--smart-secondary-color);
-    font-size: calc(var(--smart-font-size) - 4px);
-    opacity: 0;
-    transform: scale(0);
-}
-
-smart-pivot-table:not([animation="none"]) smart-pager .smart-pager-button::before {
-    transition: visibility 0.2s ease-out, opacity 0.2s ease-out, transform 0.1s ease-out;
-}
-
-smart-pivot-table smart-pager .smart-pager-button:hover::before {
-    visibility: visible;
-    opacity: 0.7;
-    transform: scale(1);
-}
-
-smart-pivot-table[paging] smart-pager,
-smart-pivot-table[filtering] .smart-table-header {
-    display: block;
-}
-
-smart-pivot-table .smart-table-header {
-    height: var(--smart-table-header-footer-height);
-    display: none;
-    position: sticky;
-    left: 0;
-    top: 0;
-    background-color: var(--smart-background);
-    z-index: 1;
-}
-
-smart-pivot-table .smart-table-header .smart-input,
-smart-pivot-table .smart-table-header .smart-table-filter-template-container {
-    width: 100%;
-    height: 100%;
-}
-
-smart-pivot-table .smart-table-filter-row>td.no-filter {
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-smart-pivot-table .smart-table-filter-row>td>div {
+.smart-pivot-table[designer]>.smart-container {
     display: grid;
-    grid-template-columns: 1fr 30px 30px;
-    column-gap: 2px;
+    grid-template-columns: 1fr var(--smart-pivot-panel-width);
+    grid-template-rows: 100%;
 }
 
-smart-pivot-table .smart-table-filter-row .filter-value {
-    min-width: 0;
-    border: var(--smart-border-width) solid var(--smart-border);
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-    padding: var(--smart-editor-label-padding);
-    background-color: var(--smart-background);
-    color: var(--smart-background-color);
-    font-family: inherit;
-    font-size: inherit;
-}
-
-smart-pivot-table .smart-table-filter-row .filter-value:hover {
-    border-color: var(--smart-ui-state-border-hover);
-}
-
-smart-pivot-table .smart-table-filter-row .filter-value:focus {
-    outline: none;
-    border-color: var(--smart-outline);
-}
-
-smart-pivot-table .smart-table-filter-row .smart-input {
-    --smart-editor-addon-width: 100%;
-    --smart-editor-label-padding: 0;
-    width: unset;
-}
-
-smart-pivot-table .smart-table-filter-row .smart-input .smart-drop-down-button {
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-}
-
-smart-pivot-table .smart-table-filter-row .smart-input .smart-drop-down-button .arrow:after {
-    content: var(--smart-icon-filter);
-    transform: none;
-}
-
-smart-pivot-table .smart-table-filter-row smart-button {
-    --smart-button-padding: 0;
-}
-
-smart-pivot-table .smart-table-filter-row smart-button button::after {
-    content: var(--smart-icon-filter);
-    font-family: var(--smart-font-family-icon);
-    width: 100%;
+.smart-pivot-table[designer] .smart-pivot-table-designer-container {
+    display: block;
     height: 100%;
-    text-decoration: line-through;
-}
-
-smart-pivot-table[loading] tbody td {
-    opacity: 0;
-}
-
-smart-pivot-table th.smart-table-select-all {
-    width: calc(var(--smart-check-box-default-size) * 3);
-}
-
-smart-pivot-table th.smart-table-select-all>div,
-smart-pivot-table td.smart-table-select-row>div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: var(--smart-border-width) solid var(--smart-secondary);
-    width: var(--smart-check-box-default-size);
-    height: var(--smart-check-box-default-size);
-    padding: 2px;
-    color: var(--smart-primary-color);
-    font-family: var(--smart-font-family-icon);
-    cursor: pointer;
-}
-
-smart-pivot-table th.smart-table-select-all.selected>div,
-smart-pivot-table td.smart-table-select-row.selected>div {
-    border-color: var(--smart-primary);
-    background-color: var(--smart-primary);
-}
-
-smart-pivot-table th.smart-table-select-all.selected>div::after,
-smart-pivot-table td.smart-table-select-row.selected>div::after {
-    content: var(--smart-icon-check);
-}
-
-smart-pivot-table th.smart-table-select-all.indeterminate>div {
-    background-color: var(--smart-primary);
-}
-
-smart-pivot-table th.smart-table-select-all.indeterminate>div::after {
-    content: '';
-    position: absolute;
-    width: 65%;
-    height: 65%;
-    background-color: var(--smart-primary-color);
-}
-
-smart-pivot-table th.smart-table-select-all>div::before,
-smart-pivot-table td.smart-table-select-row>div::before {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--smart-secondary);
-    opacity: 0.1;
-    transform: scale(0);
-    transform-origin: center;
-}
-
-smart-pivot-table th.smart-table-select-all.selected>div::before,
-smart-pivot-table td.smart-table-select-row.selected>div::before {
-    background-color: var(--smart-primary);
-}
-
-smart-pivot-table th.smart-table-select-all>div:hover::before,
-smart-pivot-table td.smart-table-select-row>div:hover::before {
-    transform: scale(2.5);
-}
-
-smart-pivot-table th.smart-table-select-all>div:hover:active::before,
-smart-pivot-table td.smart-table-select-row>div:hover:active::before {
-    background-color: var(--smart-primary);
-    animation-name: active;
-    animation-duration: 0.2s;
-    animation-timing-function: ease-out;
-    animation-iteration-count: 1;
-}
-
-@keyframes active {
-    from {
-        transform: scale(0);
-    }
-
-    to {
-        transform: scale(2.5);
-    }
-}
-
-smart-pivot-table.thead-primary th.smart-table-select-all>div,
-smart-pivot-table.thead-primary th.smart-table-select-all.selected>div {
-    border-color: var(--smart-primary-color);
-}
-
-smart-pivot-table.thead-primary th.smart-table-select-all.indeterminate>div {
-    background-color: var(--smart-primary-color);
-}
-
-smart-pivot-table .disable-select td.smart-table-select-row>div {
-    pointer-events: none;
-    opacity: 0.2;
-}
-
-.smart-table-feedback {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    box-shadow: var(--smart-elevation-8);
-    border: var(--smart-border-width) solid var(--smart-border);
-    border-radius: var(--smart-border-radius);
-    padding: 5px;
-    white-space: nowrap;
-    font-family: var(--smart-font-family);
-    font-size: var(--smart-font-size);
-    background-color: var(--smart-background);
-    color: var(--smart-background-color);
-    z-index: 10000;
-    opacity: 0.85;
-}
-
-smart-pivot-table[column-reorder] th[data-field] {
-    cursor: move;
-}
-
-smart-pivot-table .dragged,
-smart-pivot-table .drop-target {
-    position: relative;
-}
-
-smart-pivot-table .dragged::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5000px;
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
-    background-size: 3em 3em;
-    opacity: 0.8;
-}
-
-smart-pivot-table .drop-target:after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: var(--smart-primary);
-    top: 0;
-}
-
-smart-pivot-table .drop-target.left:after {
-    left: 0;
-}
-
-smart-pivot-table .drop-target.right:after {
-    right: 0;
-}
-
-smart-pivot-table[freeze-header] thead th,
-smart-pivot-table[freeze-footer] tfoot td,
-smart-pivot-table .freeze-near,
-smart-pivot-table .freeze-far {
-    background-color: var(--smart-background);
-    position: sticky;
-    opacity: 1;
-    z-index: 1;
-}
-
-smart-pivot-table[freeze-header] thead th {
-    border-bottom: none;
-    top: 0;
-    box-shadow: 0px 1px 0px 0px var(--smart-border);
-    z-index: 100;
-}
-
-smart-pivot-table[freeze-header] thead tr:nth-child(2)>th {
-    top: var(--smart-table-column-header-height);
-}
-
-smart-pivot-table[freeze-header] thead tr:nth-child(3)>th {
-    top: calc(2 * var(--smart-table-column-header-height));
-}
-
-smart-pivot-table[freeze-header][filtering]:not([filter-row]) thead th {
-    top: var(--smart-table-header-footer-height);
-}
-
-smart-pivot-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(2)>th {
-    top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
-}
-
-smart-pivot-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(3)>th {
-    top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
-}
-
-smart-pivot-table[freeze-header] thead th.freeze-near,
-smart-pivot-table[freeze-header][right-to-left] thead th.freeze-far {
-    box-shadow: 1px 1px 0px 0px var(--smart-border);
-}
-
-smart-pivot-table[freeze-header] thead th.freeze-far,
-smart-pivot-table[freeze-header][right-to-left] thead th.freeze-near {
-    box-shadow: -1px 1px 0px 0px var(--smart-border);
-}
-
-smart-pivot-table[freeze-footer] tfoot td.freeze-near,
-smart-pivot-table[freeze-footer][right-to-left] tfoot td.freeze-far {
-    box-shadow: 1px -1px 0px 0px var(--smart-border);
-}
-
-smart-pivot-table[freeze-footer] tfoot td.freeze-far,
-smart-pivot-table[freeze-footer][right-to-left] tfoot td.freeze-near {
-    box-shadow: -1px -1px 0px 0px var(--smart-border);
-}
-
-smart-pivot-table[freeze-footer] tfoot td {
-    border-top: none;
-    bottom: 0;
-    box-shadow: 0px -1px 0px 0px var(--smart-border);
-    z-index: 100;
-}
-
-smart-pivot-table[freeze-footer] tfoot tr:nth-last-child(2) td {
-    bottom: var(--smart-table-row-height);
-}
-
-smart-pivot-table[freeze-footer] tfoot tr:nth-last-child(3) td {
-    bottom: calc(2 * var(--smart-table-row-height));
-}
-
-smart-pivot-table[freeze-footer][paging] tfoot td {
-    bottom: var(--smart-table-header-footer-height);
-}
-
-smart-pivot-table[freeze-footer][paging] tfoot tr:nth-last-child(2) td {
-    bottom: calc(var(--smart-table-row-height) + var(--smart-table-header-footer-height));
-}
-
-smart-pivot-table[freeze-footer][paging] tfoot tr:nth-last-child(3) td {
-    bottom: calc(2 * var(--smart-table-row-height) + var(--smart-table-header-footer-height));
-}
-
-smart-pivot-table .freeze-near,
-smart-pivot-table[right-to-left] .freeze-far {
-    left: 0;
-    box-shadow: 1px 0px 0px 0px var(--smart-border);
-}
-
-smart-pivot-table .freeze-far,
-smart-pivot-table[right-to-left] .freeze-near {
-    right: 0;
-    box-shadow: -1px 0px 0px 0px var(--smart-border);
-}
-
-smart-pivot-table[right-to-left] .freeze-near {
-    left: unset;
-}
-
-smart-pivot-table[right-to-left] .freeze-far {
-    right: unset;
-}
-
-smart-pivot-table thead th.freeze-near,
-smart-pivot-table thead th.freeze-far {
-    opacity: 1;
-}
-
-smart-pivot-table[freeze-header] thead th.freeze-near,
-smart-pivot-table[freeze-header] thead th.freeze-far,
-smart-pivot-table[freeze-footer] tfoot td.freeze-near,
-smart-pivot-table[freeze-footer] tfoot td.freeze-far {
-    z-index: 200;
-}
-
-smart-pivot-table.table-elevation {
-    border: none;
-    border-radius: unset;
-    box-shadow: var(--smart-elevation-8);
-}
-
-smart-pivot-table td.editing {
-    padding: 0;
-}
-
-smart-pivot-table td.editing .smart-table-editor {
-    width: 100%;
-    height: 100%;
-}
-
-smart-pivot-table td.editing .smart-table-editor.standard {
-    border: var(--smart-border-width) solid var(--smart-border);
-    padding: var(--smart-table-cell-padding);
-    font-family: inherit;
-    font-size: inherit;
-}
-
-smart-pivot-table td.editing .smart-table-editor.standard:focus {
-    border: var(--smart-border-width) solid var(--smart-border);
-    outline: none;
-}
-
-@media only screen and (max-width: 1280px) {
-    smart-pivot-table .priority-5 {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    smart-pivot-table .priority-4 {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    smart-pivot-table .priority-3 {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 640px) {
-    smart-pivot-table .priority-2 {
-        display: none;
-    }
-}
-
-smart-pivot-table[row-detail-template] tr[row-id] {
-    cursor: pointer;
-}
-
-smart-pivot-table .smart-table-row-detail>td {
-    border: none;
-    padding: 0;
-}
-
-smart-pivot-table .smart-table-row-detail .smart-table-detail-container {
-    padding: var(--smart-table-cell-padding);
-}
-
-smart-pivot-table .smart-table-row-detail.collapsed {
-    height: 0;
-}
-
-smart-pivot-table .smart-table-row-detail.collapsed .smart-table-detail-container {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-smart-pivot-table:not([animation="none"]) .smart-table-row-detail {
-    transition: height 0.2s ease-in-out;
-}
-
-smart-pivot-table:not([animation="none"]) .smart-table-row-detail .smart-table-detail-container {
-    transition: height 0.2s ease-in-out, padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out;
-}
-
-smart-pivot-table td.group-header>div,
-smart-pivot-table td.tree-cell>div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-smart-pivot-table .hierarchy-arrow {
-    margin-right: var(--smart-table-arrow-margin);
-    width: var(--smart-table-arrow-size);
-    cursor: pointer;
-}
-
-smart-pivot-table:not([animation="none"]) .hierarchy-arrow {
-    transition: transform 0.2s ease-in-out;
-}
-
-smart-pivot-table .outline-level-1 {
-    padding-left: var(--smart-table-indent);
-}
-
-smart-pivot-table .outline-level-2 {
-    padding-left: calc(2 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-3 {
-    padding-left: calc(3 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-4 {
-    padding-left: calc(4 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-5 {
-    padding-left: calc(5 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-6 {
-    padding-left: calc(6 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-7 {
-    padding-left: calc(7 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-8 {
-    padding-left: calc(8 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-9 {
-    padding-left: calc(9 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-10 {
-    padding-left: calc(10 * var(--smart-table-indent));
-}
-
-smart-pivot-table .outline-level-1.tree-leaf {
-    padding-left: calc(var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-2.tree-leaf {
-    padding-left: calc(2 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-3.tree-leaf {
-    padding-left: calc(3 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-4.tree-leaf {
-    padding-left: calc(4 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-5.tree-leaf {
-    padding-left: calc(5 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-6.tree-leaf {
-    padding-left: calc(6 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-7.tree-leaf {
-    padding-left: calc(7 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-8.tree-leaf {
-    padding-left: calc(8 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-9.tree-leaf {
-    padding-left: calc(9 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .outline-level-10.tree-leaf {
-    padding-left: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table .group-label-value {
-    font-weight: bold;
-}
-
-smart-pivot-table tr.expanded .hierarchy-arrow {
-    transform: rotate(180deg);
-}
-
-smart-pivot-table tbody tr.last-visible {
-    height: unset;
-}
-
-smart-pivot-table[hierarchy] tr[row-id] td {
-    transform: scaleY(1);
-}
-
-smart-pivot-table[hierarchy] tr.collapsed[row-id] {
-    height: 0;
-}
-
-smart-pivot-table[hierarchy] tr.collapsed[row-id] td {
-    border-top-width: 0;
-    border-top-color: transparent;
-    padding-top: 0;
-    padding-bottom: 0;
-    line-height: 0;
-    transform: scaleY(0);
-}
-
-smart-pivot-table[hierarchy] tr[row-id].no-height td {
-    line-height: 0;
-}
-
-smart-pivot-table[hierarchy]:not([animation="none"]) tr[row-id] {
-    transition: height 0.2s ease-in-out;
-}
-
-smart-pivot-table:not([animation="none"]) tr[row-id] td:not(.editing) {
-    transition: padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out, transform 0.2s ease-in-out, border-top-color 0.2s ease-in-out;
-}
-
-smart-pivot-table td.editing.invalid {
-    position: relative;
-    overflow: visible;
-}
-
-smart-pivot-table td.editing.invalid::before {
-    content: attr(validation-message);
-    visibility: hidden;
-    position: absolute;
-    top: -100%;
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-    padding: 7px;
-    background-color: var(--smart-error);
-    color: var(--smart-secondary-color);
-    font-size: calc(var(--smart-font-size) - 4px);
-    opacity: 0;
-    transform: scale(0);
-}
-
-smart-pivot-table:not([animation="none"]) td.editing.invalid::before {
-    transition: visibility 0.2s ease-in-out, opacity 0.2s ease-out, transform 0.1s ease-out;
-}
-
-smart-pivot-table td.editing.invalid:hover::before {
-    visibility: visible;
-    opacity: 0.7;
-    transform: scale(1);
-}
-
-smart-pivot-table td.editing.invalid .smart-table-editor {
-    border-color: var(--smart-error);
-}
-
-smart-pivot-table .smart-table-container:focus {
-    outline: none;
-}
-
-smart-pivot-table .smart-table-container:focus td[focus] {
-    box-shadow: inset 0px 0px 0px 1px var(--smart-ui-state-color-focus);
-}
-
-/* --- Right To Left*/
-
-smart-pivot-table[right-to-left]>.smart-container {
-    direction: rtl;
-}
-
-smart-pivot-table[right-to-left] thead th {
-    text-align: right;
-}
-
-smart-pivot-table[right-to-left] smart-pager .smart-container {
-    justify-content: flex-start;
-}
-
-smart-pivot-table[right-to-left] smart-pager .smart-pager-far-buttons-container {
-    order: 0;
-}
-
-smart-pivot-table[right-to-left] smart-pager .smart-pager-near-buttons-container {
-    order: 1;
-}
-
-smart-pivot-table[right-to-left] smart-pager .smart-pager-summary-container.smart-pager-label {
-    order: 2;
-}
-
-smart-pivot-table[right-to-left] smart-pager .smart-pager-size-selector-and-label-container {
-    order: 3;
-    flex-direction: row;
-}
-
-smart-pivot-table[right-to-left] .tree-cell,
-smart-pivot-table[right-to-left] .tree-leaf,
-smart-pivot-table[right-to-left] .group-header {
-    padding-left: var(--smart-table-cell-padding);
-}
-
-smart-pivot-table[right-to-left] .hierarchy-arrow {
-    margin-left: var(--smart-table-arrow-margin);
-    margin-right: unset;
-}
-
-smart-pivot-table[right-to-left] .outline-level-1 {
-    padding-right: var(--smart-table-indent);
-}
-
-smart-pivot-table[right-to-left] .outline-level-2 {
-    padding-right: calc(2 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-3 {
-    padding-right: calc(3 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-4 {
-    padding-right: calc(4 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-5 {
-    padding-right: calc(5 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-6 {
-    padding-right: calc(6 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-7 {
-    padding-right: calc(7 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-8 {
-    padding-right: calc(8 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-9 {
-    padding-right: calc(9 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-10 {
-    padding-right: calc(10 * var(--smart-table-indent));
-}
-
-smart-pivot-table[right-to-left] .outline-level-1.tree-leaf {
-    padding-right: calc(var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-2.tree-leaf {
-    padding-right: calc(2 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-3.tree-leaf {
-    padding-right: calc(3 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-4.tree-leaf {
-    padding-right: calc(4 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-5.tree-leaf {
-    padding-right: calc(5 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-6.tree-leaf {
-    padding-right: calc(6 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-7.tree-leaf {
-    padding-right: calc(7 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-8.tree-leaf {
-    padding-right: calc(8 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-9.tree-leaf {
-    padding-right: calc(9 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-smart-pivot-table[right-to-left] .outline-level-10.tree-leaf {
-    padding-right: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-
-/* --- */
-
-
-
-/* Specific CSS */
-:root {
-    --smart-pivot-table-cell-width: 200px;
-    --smart-pivot-table-secondary-group-width: calc(1.25 * var(--smart-pivot-table-cell-width));
 }
 
 .smart-pivot-table thead th {
@@ -1276,17 +28,32 @@ smart-pivot-table[right-to-left] .outline-level-10.tree-leaf {
 }
 
 .smart-pivot-table .smart-pivot-table-grouping-header,
-.smart-pivot-table .smart-pivot-table-selection-header {
+.smart-pivot-table .smart-pivot-table-selection-header,
+.smart-pivot-table .smart-pivot-table-total-header {
     border-top: none;
 }
 
+.smart-pivot-table tr:last-child:not(:first-child) .smart-pivot-table-grouping-header,
+.smart-pivot-table tr:last-child:not(:first-child) .smart-pivot-table-total-header {
+    border-top: var(--smart-border-width) solid var(--smart-border);
+}
+
 .smart-pivot-table tr:not(:last-child) .smart-pivot-table-grouping-header,
-.smart-pivot-table tr:not(:last-child) .smart-pivot-table-selection-header {
+.smart-pivot-table tr:not(:last-child) .smart-pivot-table-selection-header,
+.smart-pivot-table tr:not(:last-child) .smart-pivot-table-total-header {
     border-bottom: none;
 }
 
 .smart-pivot-table .smart-pivot-table-grouping-header {
     width: var(--smart-pivot-table-secondary-group-width);
+}
+
+.smart-pivot-table[group-layout="classic"] .smart-pivot-table-grouping-header {
+    width: calc(0.75 * var(--smart-pivot-table-cell-width));
+}
+
+.smart-pivot-table .smart-pivot-table-total-header {
+    width: var(--smart-pivot-table-cell-width);
 }
 
 .smart-pivot-table tr td {
@@ -1321,4 +88,748 @@ smart-pivot-table[right-to-left] .outline-level-10.tree-leaf {
 
 .smart-pivot-table:not([animation="none"]) tr td {
     transition: padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out, transform 0.2s ease-in-out, border-top-color 0.2s ease-in-out;
+}
+
+.smart-pivot-table th.align-left>.wrapper {
+    justify-content: flex-start;
+}
+
+.smart-pivot-table th.align-center>.wrapper {
+    justify-content: center;
+}
+
+.smart-pivot-table th.align-right>.wrapper {
+    justify-content: flex-end;
+}
+
+.smart-pivot-table td.align-left {
+    text-align: left;
+}
+
+.smart-pivot-table td.align-center {
+    text-align: center;
+}
+
+.smart-pivot-table td.align-right {
+    text-align: right;
+}
+
+.smart-pivot-table[designer-position="near"]>.smart-container {
+    grid-template-columns: var(--smart-pivot-panel-width) 1fr;
+}
+
+.smart-pivot-table[designer-position="near"] .smart-pivot-table-main-container {
+    order: 1;
+}
+
+.smart-pivot-table .smart-pivot-table-toolbar {
+    display: none;
+    border: none;
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    height: var(--smart-table-row-height);
+}
+
+.smart-pivot-table[toolbar]>.smart-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.smart-pivot-table[toolbar] .smart-pivot-table-main-container {
+    height: calc(100% - var(--smart-table-row-height));
+    grid-area: main;
+}
+
+.smart-pivot-table[toolbar] .smart-pivot-table-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr var(--smart-table-row-height) var(--smart-table-row-height);
+    grid-area: toolbar;
+    gap: var(--smart-pivot-panel-padding);
+}
+
+.smart-pivot-table[toolbar] .smart-pivot-table-designer-container {
+    grid-area: designer;
+    min-height: 0;
+    max-height: unset;
+}
+
+.smart-pivot-table[toolbar][designer]>.smart-container {
+    display: grid;
+    grid-template-columns: 1fr var(--smart-pivot-panel-width);
+    grid-template-rows: var(--smart-table-row-height) 1fr;
+    grid-template-areas:
+        "toolbar toolbar"
+        "main designer";
+}
+
+.smart-pivot-table[toolbar][designer][designer-position="near"]>.smart-container {
+    grid-template-columns: var(--smart-pivot-panel-width) 1fr;
+    grid-template-areas:
+        "toolbar toolbar"
+        "designer main";
+}
+
+.smart-pivot-table[toolbar][designer] .smart-pivot-table-toolbar {
+    grid-template-columns: 1fr 1fr var(--smart-table-row-height);
+}
+
+.smart-pivot-table[toolbar][designer] .smart-table-toolbar-button.fields {
+    display: none;
+}
+
+.smart-pivot-table[toolbar][designer] .smart-pivot-table-main-container {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-pivot-table smart-breadcrumb {
+    position: relative;
+    border: none;
+    width: unset;
+    height: 100%;
+    padding-left: calc(3 * var(--smart-breadcrumb-padding));
+}
+
+.smart-pivot-table smart-breadcrumb::before {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(3 * var(--smart-breadcrumb-padding));
+    height: 100%;
+    font-family: var(--smart-font-family-icon);
+}
+
+.smart-pivot-table .smart-pivot-table-row-group-breadcrumb::before {
+    content: var(--smart-icon-align-left);
+    transform: scale(-1);
+}
+
+.smart-pivot-table .smart-pivot-table-pivot-breadcrumb::before {
+    content: var(--smart-icon-refresh);
+}
+
+.smart-pivot-table smart-breadcrumb>.smart-container {
+    position: relative;
+}
+
+.smart-pivot-table smart-breadcrumb>.smart-container.drop-target::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-3 * var(--smart-breadcrumb-padding));
+    box-sizing: border-box;
+    border: 2px dashed var(--smart-primary);
+    width: calc(100% + 4 * var(--smart-breadcrumb-padding));
+    height: calc(100% + var(--smart-breadcrumb-padding));
+}
+
+.smart-pivot-table smart-breadcrumb .smart-template-container,
+.smart-pivot-table smart-breadcrumb .smart-breadcrumb-items {
+    height: 100%;
+}
+
+.smart-pivot-table smart-breadcrumb .smart-breadcrumb-item {
+    height: calc(100% - var(--smart-breadcrumb-padding));
+}
+
+.smart-pivot-table smart-breadcrumb .smart-breadcrumb-placeholder {
+    position: absolute;
+    top: var(--smart-breadcrumb-padding);
+    left: 0;
+    font-style: italic;
+}
+
+.smart-pivot-table .smart-pivot-table-pivot-breadcrumb {
+    border-left: var(--smart-border-width) solid var(--smart-border);
+    border-radius: 0;
+}
+
+.smart-breadcrumb-feedback.cancel:after {
+    content: var(--smart-icon-block);
+    background-color: var(--smart-error);
+    color: var(--smart-error-color);
+}
+
+.smart-breadcrumb-feedback.delete:after {
+    content: var(--smart-icon-delete);
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+.smart-breadcrumb-feedback.pivot:after {
+    content: var(--smart-icon-refresh);
+}
+
+.smart-breadcrumb-feedback.row-group:after {
+    content: var(--smart-icon-align-left);
+    transform: scale(-1);
+}
+
+.smart-breadcrumb-feedback.summary:after {
+    content: var(--smart-icon-math);
+}
+
+.smart-table[column-reorder] th[data-field].smart-pivot-table-total-header,
+.smart-table[column-reorder][column-totals] th[data-field] {
+    cursor: unset;
+}
+
+.smart-pivot-table .empty {
+    border-top: none;
+}
+
+.smart-pivot-table .total-arrow {
+    display: inline-flex;
+    margin-left: var(--smart-table-arrow-margin);
+    width: var(--smart-table-arrow-size);
+    height: var(--smart-table-arrow-size);
+    cursor: pointer;
+}
+
+.smart-pivot-table .total-arrow:focus {
+    outline: none;
+    border: 1px solid var(--smart-ui-state-color-focus);
+    border-radius: 50%;
+    color: var(--smart-ui-state-color-focus);
+}
+
+.smart-table[freeze-header] thead tr:nth-child(4)>th {
+    top: calc(3 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header] thead tr:nth-child(5)>th {
+    top: calc(4 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header] thead tr:nth-child(6)>th {
+    top: calc(5 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header] thead tr:nth-child(7)>th {
+    top: calc(6 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header] thead tr:nth-child(8)>th {
+    top: calc(7 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header] thead tr:nth-child(9)>th {
+    top: calc(8 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header] thead tr:nth-child(10)>th {
+    top: calc(9 * var(--smart-table-column-header-height));
+}
+
+.smart-pivot-table tfoot td {
+    font-weight: bold;
+}
+
+.smart-table-window.drill-down {
+    --smart-window-default-width: 750px;
+}
+
+.smart-table-window.drill-down,
+.smart-table-window.fields {
+    --smart-window-footer-padding: 0;
+    --smart-window-footer-height: 0px;
+}
+
+.smart-table-window.drill-down .smart-content-container>.smart-content>div {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 100%;
+    gap: var(--smart-pivot-panel-padding);
+    width: 100%;
+    height: 100%;
+}
+
+.smart-table-window.drill-down .drill-down-details {
+    display: flex;
+}
+
+.smart-table-window.drill-down .smart-content strong {
+    margin-right: var(--smart-pivot-panel-padding);
+    margin-left: calc(var(--smart-pivot-panel-padding) / 3);
+}
+
+.smart-table-window.drill-down smart-table {
+    min-height: 0;
+}
+
+.smart-window.smart-table-window.drill-down .smart-content-container>.smart-footer,
+.smart-window.smart-table-window.fields .smart-content-container>.smart-footer {
+    display: none;
+}
+
+.smart-table-window.fields {
+    --smart-window-default-width: 600px;
+    --smart-window-default-height: 800px;
+}
+
+.smart-table-window.fields smart-pivot-panel {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-table-window.fields smart-pivot-panel>.smart-container {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: unset;
+}
+
+.smart-table-window.fields smart-pivot-panel>.smart-container>div:first-child {
+    order: 1;
+}
+
+.smart-table-window.fields smart-pivot-panel>.smart-container>div:nth-child(2) {
+    order: 0;
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-columns-view {
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-tabs {
+    border-left: none;
+    writing-mode: unset;
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-tab-item {
+    height: auto;
+    border-bottom-width: calc(2 * var(--smart-border-width));
+    border-left-width: var(--smart-border-width);
+    border-left-color: transparent;
+}
+
+.smart-table-window.fields:not([animation="none"]) smart-pivot-panel .smart-pivot-panel-tab-item {
+    transition: border-bottom-color 0.3s ease-out;
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-tab-item:first-child {
+    margin-top: 0;
+    margin-right: var(--smart-pivot-panel-padding);
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-tab-item.selected {
+    border-bottom-color: var(--smart-primary);
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-tab-item:focus {
+    border-color: var(--smart-ui-state-color-focus);
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-tab-item.selected:focus {
+    border-color: var(--smart-ui-state-color-focus) var(--smart-ui-state-color-focus) var(--smart-primary) var(--smart-ui-state-color-focus);
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-pivot-panel-tab-item .icon {
+    margin-bottom: 0;
+    margin-right: 3px;
+}
+
+.smart-table-window.fields smart-pivot-panel .smart-filter-panel .smart-filter-panel-button-container>smart-button {
+    width: 40%;
+}
+
+.smart-pivot-table[group-layout="classic"] tbody td:not(.expanded)+td[data-field^="group"]:not(.main),
+.smart-pivot-table[group-layout="classic"] tbody td.expanded:not(.main)+td[data-field^="group"]:not(.main) {
+    font-size: 0;
+}
+
+.smart-pivot-table[group-layout="classic"] .hierarchy-arrow::after {
+    content: var(--smart-icon-plus);
+}
+
+.smart-pivot-table[group-layout="classic"] td.expanded .hierarchy-arrow::after {
+    content: var(--smart-icon-minus);
+}
+
+.smart-pivot-table[right-to-left] .total-arrow {
+    transform: rotate(180deg);
+}
+
+.smart-pivot-table[right-to-left] th.expanded .total-arrow {
+    transform: none;
+}
+
+.smart-table-window.drill-down[right-to-left] .smart-content strong {
+    margin-right: calc(var(--smart-pivot-panel-padding) / 3);
+    margin-left: var(--smart-pivot-panel-padding);
+}
+
+.smart-pivot-table[right-to-left] smart-breadcrumb {
+    padding-left: var(--smart-breadcrumb-padding);
+    padding-right: calc(3 * var(--smart-breadcrumb-padding));
+}
+
+.smart-pivot-table[right-to-left] smart-breadcrumb::before {
+    left: unset;
+    right: 0;
+}
+
+.smart-pivot-table[right-to-left] .smart-pivot-table-pivot-breadcrumb {
+    border-left: none;
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-pivot-table[right-to-left] thead th:not(:last-child) {
+    border-left: var(--smart-border-width) solid var(--smart-border);
+    border-right: none;
+}
+
+.smart-pivot-table[selection][right-to-left] thead th:first-child {
+    border-left: none;
+}
+
+.smart-table-window.fields[right-to-left] smart-pivot-panel .smart-pivot-panel-tabs,
+.smart-table-window.fields[right-to-left] smart-pivot-panel .smart-pivot-panel-tab-item {
+    flex-direction: row-reverse;
+}
+
+.smart-table-window.fields[right-to-left] smart-pivot-panel .smart-pivot-panel-tab-item {
+    display: flex;
+}
+
+.smart-table-window.fields[right-to-left] smart-pivot-panel .smart-pivot-panel-tab-item:first-child {
+    margin-left: var(--smart-pivot-panel-padding);
+    margin-right: 0;
+}
+
+.smart-table-window.fields[right-to-left] smart-pivot-panel .smart-pivot-panel-tab-item .icon {
+    margin-left: 3px;
+    margin-right: 0;
+}
+
+
+
+/* PivotPanel */
+.smart-pivot-panel {
+    border: var(--smart-border-width) solid var(--smart-border);
+    width: var(--smart-pivot-panel-width);
+    height: var(--smart-pivot-panel-default-height);
+}
+
+.smart-pivot-table .smart-pivot-panel {
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    width: 100%;
+    height: 100%;
+}
+
+.smart-pivot-table[designer-position="near"]:not([right-to-left]) .smart-pivot-panel,
+.smart-pivot-table[right-to-left]:not([designer-position="near"]) .smart-pivot-panel {
+    border-left: none;
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-pivot-panel>.smart-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    min-width: 0;
+    min-height: 0;
+}
+
+.smart-pivot-panel>.smart-container>div:first-child {
+    min-height: 0;
+}
+
+.smart-pivot-panel .smart-pivot-panel-tabs {
+    display: flex;
+    border-left: var(--smart-border-width) solid var(--smart-border);
+    writing-mode: vertical-lr;
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-left-width: calc(2 * var(--smart-border-width));
+    height: var(--smart-pivot-panel-tab-item-height);
+    padding: var(--smart-pivot-panel-padding);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item:first-child {
+    margin-top: var(--smart-pivot-panel-padding);
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item:hover {
+    color: var(--smart-primary);
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item.selected {
+    border-left-color: var(--smart-primary);
+}
+
+.smart-pivot-panel:not([animation="none"]) .smart-pivot-panel-tab-item {
+    transition: border-left-color 0.3s ease-out;
+}
+
+.smart-pivot-panel[inverted]:not([animation="none"]) .smart-pivot-panel-tab-item {
+    transition: border-right-color 0.3s ease-out;
+}
+
+.smart-pivot-panel .icon::before,
+.smart-tree-item-feedback.forbidden::before,
+.smart-pivot-panel smart-accordion-item.filtered .smart-label::before,
+.smart-pivot-panel smart-tree-item .settings-icon::before {
+    width: 100%;
+    height: 100%;
+    font-family: var(--smart-font-family-icon);
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--smart-arrow-size);
+    color: inherit;
+    text-decoration: inherit;
+    font-variant: normal;
+    text-transform: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item .icon {
+    margin-bottom: 3px;
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item:first-child .icon::before {
+    content: var(--smart-icon-table);
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item:nth-child(2) .icon::before {
+    content: var(--smart-icon-filter);
+}
+
+.smart-pivot-panel[inverted] .smart-pivot-panel-tab-item span:nth-child(2) {
+    transform: rotate(180deg);
+}
+
+.smart-pivot-panel .smart-pivot-panel-columns-view {
+    display: grid;
+    grid-template-rows: 3fr 1fr 1fr 1fr;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+}
+
+.smart-pivot-panel .smart-pivot-panel-active-columns {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-width: 0;
+    min-height: 0;
+}
+
+.smart-pivot-panel .smart-pivot-panel-label {
+    display: flex;
+    padding: var(--smart-pivot-panel-padding);
+    background: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+.smart-pivot-panel .smart-pivot-panel-label .icon,
+.smart-pivot-panel smart-tree-item .settings-icon {
+    margin-right: calc(var(--smart-pivot-panel-padding) / 2);
+}
+
+.smart-pivot-panel .smart-pivot-panel-row-groups-label .icon::before {
+    content: var(--smart-icon-align-left);
+    transform: scale(-1);
+}
+
+.smart-pivot-panel .smart-pivot-panel-summaries-label .icon::before {
+    content: var(--smart-icon-math);
+}
+
+.smart-pivot-panel .smart-pivot-panel-pivots-label .icon::before {
+    content: var(--smart-icon-refresh);
+}
+
+.smart-pivot-panel .smart-pivot-panel-columns-container {
+    min-height: 0;
+    overflow: auto;
+}
+
+.smart-pivot-panel>.smart-container .check-box {
+    position: relative;
+    left: unset;
+    transform: none;
+}
+
+.smart-pivot-panel .smart-pivot-panel-active-columns {
+    border-top: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-pivot-panel .smart-pivot-panel-columns-view smart-tree {
+    border-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.smart-tree-item-feedback.forbidden {
+    border-color: var(--smart-error);
+    color: var(--smart-error);
+}
+
+.smart-tree-item-feedback.forbidden::before {
+    content: var(--smart-icon-block);
+    margin-right: calc(var(--smart-pivot-panel-padding) / 2);
+}
+
+.smart-pivot-panel .smart-pivot-panel-filters-view {
+    height: 100%;
+}
+
+.smart-pivot-panel smart-accordion,
+.smart-pivot-panel smart-filter-panel {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-pivot-panel .smart-accordion smart-accordion-item .smart-accordion-item-content,
+.smart-pivot-panel smart-accordion-item .smart-content-container {
+    padding: 0;
+}
+
+.smart-pivot-panel smart-filter-panel>.smart-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: var(--smart-pivot-panel-padding);
+}
+
+.smart-pivot-panel smart-filter-panel>.smart-container>div:nth-child(2) {
+    min-height: 0;
+}
+
+.smart-pivot-panel smart-filter-panel>.smart-container smart-tree {
+    height: 100%;
+}
+
+.smart-pivot-panel smart-accordion-item.filtered .smart-label {
+    position: relative;
+    color: var(--smart-primary);
+}
+
+.smart-pivot-panel smart-accordion-item.filtered .smart-label::before {
+    content: var(--smart-icon-filter);
+    position: absolute;
+    right: calc(100% + var(--smart-pivot-panel-padding) / 2);
+    width: 16px;
+}
+
+.smart-pivot-panel[inverted]>.smart-container {
+    grid-template-columns: auto 1fr;
+}
+
+.smart-pivot-panel[inverted]>.smart-container>div:first-child {
+    order: 1;
+}
+
+.smart-pivot-panel[inverted] .smart-pivot-panel-tabs {
+    border-left: none;
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-pivot-panel[inverted] .smart-pivot-panel-tab-item {
+    border-left: 1px solid transparent;
+    border-right-width: calc(2 * var(--smart-border-width));
+}
+
+.smart-pivot-panel[inverted] .smart-pivot-panel-tab-item.selected {
+    border-right-color: var(--smart-primary);
+}
+
+.smart-pivot-panel .smart-pivot-panel-active-columns smart-tree-item .smart-tree-item-label-element>span {
+    display: flex;
+}
+
+.smart-pivot-panel smart-tree-item .settings-icon::before {
+    content: var(--smart-icon-settings);
+}
+
+.smart-window.smart-pivot-window .smart-content-container>.smart-content {
+    display: grid;
+    grid-template-columns: minmax(175px, auto) 1fr;
+    grid-auto-rows: max-content;
+    gap: var(--smart-pivot-panel-padding);
+    min-width: 0;
+}
+
+.smart-window.smart-pivot-window .smart-content-container>.smart-footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.smart-window.smart-pivot-window .smart-content-container>.smart-footer smart-button {
+    --smart-button-padding: 0;
+    width: 40%;
+    height: 100%;
+}
+
+.smart-window.smart-pivot-window {
+    --smart-window-default-height: 190px;
+}
+
+.smart-window.smart-pivot-window .smart-content .category.label {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.smart-window.smart-pivot-window.summary {
+    --smart-window-default-height: 500px;
+}
+
+.smart-window.smart-pivot-window:not(.summary) .summary {
+    display: none;
+}
+
+.smart-window.smart-pivot-window smart-input {
+    width: 100%;
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item:focus {
+    border-color: var(--smart-ui-state-color-focus);
+    outline: none;
+}
+
+.smart-pivot-panel .smart-pivot-panel-tab-item.selected:focus {
+    border-color: var(--smart-ui-state-color-focus) var(--smart-ui-state-color-focus) var(--smart-ui-state-color-focus) var(--smart-primary);
+}
+
+.smart-pivot-panel[inverted] .smart-pivot-panel-tab-item.selected:focus {
+    border-color: var(--smart-ui-state-color-focus) var(--smart-primary) var(--smart-ui-state-color-focus) var(--smart-ui-state-color-focus);
+}
+
+.smart-pivot-panel smart-tree.smart-element {
+    visibility: inherit;
+}
+
+.smart-pivot-panel smart-tree:focus {
+    border-color: var(--smart-ui-state-color-focus);
+}
+
+.smart-pivot-panel[right-to-left] {
+    direction: ltr;
+}
+
+.smart-pivot-panel[right-to-left]>.smart-container>div:first-child,
+.smart-pivot-panel[right-to-left] .smart-pivot-panel-tab-item>span:nth-child(2) {
+    direction: rtl;
+}
+
+.smart-pivot-panel[right-to-left] .smart-pivot-panel-label .icon,
+.smart-pivot-panel[right-to-left] smart-tree-item .settings-icon {
+    margin-left: calc(var(--smart-pivot-panel-padding) / 2);
+    margin-right: 0;
 }

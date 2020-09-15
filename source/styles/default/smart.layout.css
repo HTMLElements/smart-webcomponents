@@ -1,7 +1,6 @@
 smart-layout {
     display: block;
     --smart-layout-buttons-border-radius: 50%;
-    --smart-splitter-bar-size: 2px;
     --smart-layout-context-menu-default-width: var(--smart-menu-vertical-default-width);
     --smart-layout-context-menu-default-height: auto;
     overflow: initial;
@@ -15,57 +14,6 @@ smart-layout {
 
 /* Splitter settings */
 
-.smart-layout .smart-splitter {
-    height: 100%;
-    width: 100%;
-    border: initial;
-}
-
-.smart-layout smart-splitter-bar {
-    z-index: 1;
-    overflow: visible;
-}
-
-    .smart-layout smart-splitter-bar > .smart-container {
-        transform: scaleX(3);
-        transform-origin: left;
-    }
-
-.smart-layout .smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar > .smart-container {
-    transform: scaleY(3);
-    transform-origin: top;
-}
-
-.smart-layout .smart-splitter .smart-splitter-resize-button {
-    display: none;
-}
-
-.smart-layout .smart-splitter smart-splitter-bar,
-.smart-layout .smart-splitter .smart-splitter-bar-feedback {
-    min-width: 1px;
-}
-
-.smart-layout .smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar,
-.smart-layout .smart-splitter[orientation="horizontal"] > .smart-container > .smart-splitter-bar-feedback {
-    min-height: 1px;
-}
-
-.smart-layout .smart-splitter-item[selected]::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 2.5px 0 inset var(--smart-primary);
-    top: 0;
-    left: 0;
-    pointer-events: none;
-}
-
-.smart-layout smart-splitter-item.smart-element {
-    /*border: var(--smart-item-border-width) solid var(--smart-border);*/
-    border-radius: var(--smart-border-radius);
-    position: relative;
-}
 
 /* Menu Settings */
 
@@ -122,12 +70,35 @@ smart-layout {
         }
 
 /* Layout Buttons */
+.smart-layout .smart-layout-buttons-container {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    z-index: 9999;
+}
+
+.smart-layout .smart-layout-drop-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    pointer-events: none;
+    left: 0px;
+    top: 0px;
+    opacity:0;
+    background: rgba(var(--smart-primary-rgb), 0.2);
+    transition: opacity 0.2s ease-in-out;
+}
+
 .smart-layout .smart-layout-buttons-container div {
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--smart-border);
+    color: var(--smart-primary-color);
+    background: var(--smart-primary);
     font-family: var(--smart-font-family-icon);
     font-size: var(--smart-font-size);
     padding: 5px;
@@ -166,9 +137,18 @@ smart-layout {
     content: var(--smart-icon-plus);
 }
 
+.smart-layout .smart-layout-buttons-container div[position="rotate"]::after {
+    content: var(--smart-icon-reload);
+}
+
+
 .smart-layout .smart-layout-buttons-container div[position="left"],
 .smart-layout .smart-layout-buttons-container div[position="right"] {
     left: initial;
+    top: calc(50% - var(--smart-editor-addon-width)/2);
+}
+
+.smart-layout .smart-layout-buttons-container div[position="center"] {
     top: calc(50% - var(--smart-editor-addon-width)/2);
 }
 
@@ -202,6 +182,334 @@ smart-layout {
 
 .smart-layout:not([animation="none"]) .smart-layout-buttons-container div[position="bottom"] {
     animation: bottomTop 0.2s ease-in;
+}
+
+.smart-layout smart-layout-group,
+.smart-layout smart-tab-layout-group {
+    display: grid;
+    overflow: hidden;
+}
+
+.smart-layout smart-tab-layout-group {
+    grid-template-rows: 35px 1fr;
+    border-right: 1px solid var(--smart-border);
+    border-bottom: 1px solid var(--smart-border);
+}
+.smart-layout smart-tab-layout-group[position="bottom"] {
+    grid-template-rows: 1fr 35px;
+}
+.smart-layout smart-tab-layout-group[position="left"] {
+    grid-template-columns: 35px 1fr;
+    grid-template-rows: initial;
+}
+.smart-layout smart-tab-layout-group[position="right"] {
+    grid-template-columns: 1fr 35px;
+    grid-template-rows: initial;
+}
+.smart-layout smart-tab-layout-item {
+    overflow: hidden;
+}
+.smart-layout smart-tab-layout-group .smart-layout-tab-strip {
+    background: var(--smart-surface);
+    display: flex;
+    overflow: hidden;
+    border-bottom: 2px solid var(--smart-primary);
+}
+
+.smart-layout smart-tab-layout-group[position="bottom"] > .smart-layout-tab-strip {
+	border: none;
+    border-top: 2px solid var(--smart-primary);
+}
+
+.smart-layout smart-tab-layout-group[position="left"] > .smart-layout-tab-strip {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    justify-content: flex-end;
+    align-items: center;
+	border: none;
+	border-left: 2px solid var(--smart-primary);
+}
+.smart-layout smart-tab-layout-group[position="right"] > .smart-layout-tab-strip {
+    writing-mode: vertical-rl;
+    align-items: center;
+	border: none;
+	border-left: 2px solid var(--smart-primary);
+}
+
+.smart-layout-tab {
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 12px 24px;
+    font-family: var(--smart-font-family);
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.smart-layout-tab:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 120%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    content: "";
+    transition: all .2s ease;
+    transform: perspective(5px) rotateX(2deg);
+    transform-origin: bottom;
+}
+
+smart-tab-layout-group[position="right"] .smart-layout-tab,
+smart-tab-layout-group[position="left"] .smart-layout-tab {
+	padding: 24px 12px;
+}
+smart-tab-layout-group[position="top"] .smart-layout-tab,
+smart-tab-layout-group[position="bottom"] .smart-layout-tab { 
+	padding: 12px 24px;
+}
+
+smart-tab-layout-group[position="right"] .smart-layout-tab:after,
+smart-tab-layout-group[position="left"] .smart-layout-tab:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+	border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    content: "";
+    transition: all .2s ease;
+    transform: perspective(5px) rotateY(2deg);
+    transform-origin: left;
+    left: 0;
+	right: -1px;
+}
+
+
+smart-tab-layout-group[position="right"] .smart-layout-tab label,
+smart-tab-layout-group[position="right"] .smart-layout-tab.selected .smart-close-button {
+	margin-right: 5px;
+}
+
+smart-tab-layout-group[position="left"] .smart-layout-tab label,
+smart-tab-layout-group[position="left"] .smart-layout-tab.selected .smart-close-button {
+	transform: rotateY(0deg);
+	margin-left: -5px;
+}
+
+smart-tab-layout-group[position="bottom"] .smart-layout-tab label,
+smart-tab-layout-group[position="bottom"] .smart-layout-tab.selected .smart-close-button {
+	margin-top: -5px;
+}
+
+smart-tab-layout-group[position="left"] .smart-layout-tab:after {
+	right: 0px;
+	border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+smart-tab-layout-group[position="bottom"] .smart-layout-tab:after {
+    transform-origin: top;
+    transform: perspective(5px) rotateX(-2deg);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 0px;
+    top: 0;
+}
+
+.smart-layout-tab:hover {
+    color: var(--smart-primary);
+}
+
+
+.smart-layout-tab.selected {
+    color: var(--smart-primary-color);
+}
+.smart-layout-tab.selected:after {
+    background: var(--smart-primary);
+}
+
+.smart-layout-feedback {
+    box-shadow: var(--smart-elevation-24);
+    background: var(--smart-background);
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+    transform-origin: top left;
+    transform: scale(1);
+    transition: transform 0.25s ease-in-out;
+}
+.smart-layout-overlay {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.01;
+    background:black;
+}
+.smart-layout-feedback.dragging {
+    transform: scale(0.5);
+}
+.smart-layout-tab label {
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+	z-index:9;
+	margin-top: 2px;
+	color: inherit;
+}
+.smart-layout-tab.selected .smart-close-button {
+	z-index: 10;
+	color: inherit;
+}
+
+.smart-layout-tab.selected .smart-close-button:after {	
+    content: var(--smart-icon-close);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    font-family: var(--smart-font-family-icon);
+    margin-left: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.smart-layout smart-tab-layout-group[position="left"] .smart-layout-tab-strip .smart-layout-tab .smart-close-button:after,
+.smart-layout smart-tab-layout-group[position="right"] .smart-layout-tab-strip .smart-layout-tab .smart-close-button:after  {
+    margin-left: initial;
+    margin-top: 5px;
+}
+
+
+
+.smart-layout smart-layout-group[orientation="vertical"] {
+    height: 100%;
+}
+
+.smart-layout smart-layout-group[orientation="horizontal"] {
+    width: 100%;
+}
+
+.smart-layout smart-tab-layout-item > smart-layout-group {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-layout smart-layout-group[data-id="root"] {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+}
+
+.smart-layout .smart-layout-item {
+    height: auto;
+    overflow: hidden;
+    background: var(--smart-background);
+    border-right: 1px solid var(--smart-border);
+    border-bottom: 1px solid var(--smart-border);
+}
+.smart-layout .smart-layout-item[hover] {
+    overflow:hidden;
+}
+
+.smart-layout [data-id] {
+    position: relative;
+}
+
+.smart-layout.outline .smart-layout-splitter {
+    opacity: 1;
+}
+
+.smart-layout .smart-layout-splitter {
+    z-index: 999;
+    position: absolute;
+    background: var(--smart-border);
+    border: 1px solid var(--smart-border);
+    top:0px;
+    left:0px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+
+.smart-layout .smart-layout-splitter:not([root-splitter]) {
+    transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.smart-layout .smart-layout-splitter.active {
+    background: var(--smart-primary);
+    border-color: var(--smart-primary);
+}
+.smart-layout .smart-layout-splitter.error {
+    background: var(--smart-error);
+    border-color: var(--smart-error);
+}
+
+.smart-layout .smart-layout-splitter.horizontal {
+    height: 1px;
+    width: 100%;
+    bottom: 0px;
+    top: initial;
+    cursor:s-resize;
+}
+
+.smart-layout .smart-layout-splitter.horizontal.last {
+    top: 0px;
+    bottom: initial;
+	display: none;
+}
+
+.smart-layout .smart-layout-splitter.vertical {
+    width: 1px;
+    height: 100%;
+    right: 0px;
+    left: initial;
+    cursor: e-resize;
+}
+
+.smart-layout .smart-layout-splitter.vertical.last {
+    left: 0px;
+    right: initial;
+	display: none;
+}
+
+.smart-layout .smart-layout-splitter[drag].horizontal,
+.smart-layout .smart-layout-item[hover] > .smart-layout-splitter.horizontal,
+.smart-layout .smart-layout-group[hover] > .smart-layout-splitter.horizontal {
+    height: 4px;
+    opacity: 1;
+    z-index: 99;
+}
+
+.smart-layout .smart-layout-splitter.vertical[drag],
+.smart-layout .smart-layout-item[hover] > .smart-layout-splitter.vertical,
+.smart-layout .smart-layout-group[hover] > .smart-layout-splitter.vertical  {
+    width: 4px;
+    opacity: 1;
+    z-index: 99;
 }
 
 @keyframes topBottom {

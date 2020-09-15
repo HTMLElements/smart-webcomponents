@@ -2,10 +2,7 @@
     display: block;
     border-radius: var(--smart-border-top-left-radius) var(--smart-border-top-right-radius) var(--smart-border-bottom-right-radius) var(--smart-border-bottom-left-radius);
     width: var(--smart-table-default-width);
-    max-width: 100%;
     height: var(--smart-table-default-height);
-    margin-bottom: 1rem;
-    background-color: transparent;
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
 }
@@ -27,11 +24,13 @@
     height: calc(100% - var(--smart-table-header-footer-height));
 }
 
-.smart-table[filtering]:not([filter-row]) .smart-table-container {
+.smart-table[filtering]:not([filter-row]) .smart-table-container,
+.smart-table[conditional-formatting-button] .smart-table-container {
     height: calc(100% - var(--smart-table-header-footer-height));
 }
 
-.smart-table[paging][filtering]:not([filter-row]) .smart-table-container {
+.smart-table[paging][filtering]:not([filter-row]) .smart-table-container,
+.smart-table[paging][conditional-formatting-button] .smart-table-container {
     height: calc(100% - 2 * var(--smart-table-header-footer-height));
 }
 
@@ -41,7 +40,7 @@
     border-radius: inherit;
 }
 
-.smart-table table:not(.smart-table-container) {
+smart-table table:not(.smart-table-container) {
     display: none;
 }
 
@@ -73,9 +72,13 @@
     font-size: calc(var(--smart-font-size) - 2px);
 }
 
+.smart-table th,
+.smart-table tr[row-id] td {
+    white-space: nowrap;
+}
+
 .smart-table tr[row-id] td {
     line-height: calc(var(--smart-table-row-height) - 2 * var(--smart-table-cell-padding) - var(--smart-border-width));
-    white-space: nowrap;
 }
 
 .smart-table td.no-edit {
@@ -83,7 +86,7 @@
 }
 
 .smart-table thead th {
-    border-bottom: var(--smart-border-width) solid #dee2e6;
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
     text-align: left;
     font-weight: 500;
 }
@@ -96,8 +99,18 @@
     touch-action: none;
 }
 
+.smart-table th>.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.smart-table th>.wrapper>.label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .smart-table thead th .sort-by {
-    display: inline-block;
+    display: none;
     position: relative;
     visibility: hidden;
     width: 16px;
@@ -112,6 +125,7 @@
 
 .smart-table thead th .sort-by.asc,
 .smart-table thead th .sort-by.desc {
+    display: inline-block;
     visibility: visible;
     opacity: 1;
 }
@@ -149,7 +163,7 @@
 }
 
 .smart-table tbody+tbody {
-    border-top: 2px solid #dee2e6;
+    border-top: 2px solid var(--smart-border);
 }
 
 .smart-table .smart-table {
@@ -162,12 +176,12 @@
 }
 
 .smart-table.table-bordered table {
-    border: var(--smart-border-width) solid #dee2e6;
+    border: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-table.table-bordered table th,
 .smart-table.table-bordered table td {
-    border: var(--smart-border-width) solid #dee2e6;
+    border: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-table.table-bordered table thead th,
@@ -490,7 +504,8 @@
     overflow: visible;
 }
 
-.smart-table smart-pager .smart-pager-button::before {
+.smart-table smart-pager .smart-pager-button::before,
+.smart-table .smart-table-toolbar-button::before {
     content: attr(tooltip);
     visibility: hidden;
     position: absolute;
@@ -507,19 +522,49 @@
     transform: scale(0);
 }
 
-.smart-table:not([animation="none"]) smart-pager .smart-pager-button::before {
+.smart-table:not([animation="none"]) smart-pager .smart-pager-button::before,
+.smart-table:not([animation="none"]) .smart-table-toolbar-button::before {
     transition: visibility 0.2s ease-out, opacity 0.2s ease-out, transform 0.1s ease-out;
 }
 
-.smart-table smart-pager .smart-pager-button:hover::before {
+.smart-table smart-pager .smart-pager-button:hover::before,
+.smart-table .smart-table-toolbar-button:hover::before {
     visibility: visible;
     opacity: 0.7;
     transform: scale(1);
 }
 
-.smart-table[paging] smart-pager,
-.smart-table[filtering] .smart-table-header {
+.smart-table .smart-table-toolbar-button::before {
+    box-sizing: border-box;
+    top: 125%;
+    left: calc(-1 * var(--smart-table-row-height) / 2);
+    width: calc(2 * var(--smart-table-row-height));
+    white-space: normal;
+    word-wrap: break-word;
+    text-transform: none;
+    z-index: 1000;
+}
+
+.smart-table[paging] smart-pager {
     display: block;
+}
+
+.smart-table[filtering] .smart-table-header,
+.smart-table[conditional-formatting-button] .smart-table-header {
+    display: grid;
+}
+
+.smart-table[filtering] .smart-table-header {
+    grid-template-columns: 1fr;
+}
+
+.smart-table[conditional-formatting-button]:not([filtering]) .smart-table-header {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: ". button";
+}
+
+.smart-table[filtering][conditional-formatting-button] .smart-table-header {
+    grid-template-columns: 1fr auto;
 }
 
 .smart-table .smart-table-header {
@@ -534,8 +579,68 @@
 
 .smart-table .smart-table-header .smart-input,
 .smart-table .smart-table-header .smart-table-filter-template-container {
+    display: none;
     width: 100%;
     height: 100%;
+}
+
+.smart-table[filtering] .smart-table-header .smart-input,
+.smart-table[filtering] .smart-table-header .smart-table-filter-template-container {
+    display: block;
+}
+
+.smart-table .smart-table-header .smart-table-toolbar-button.conditional-formatting {
+    display: none;
+    border: var(--smart-border-width) solid var(--smart-border);
+    border-top: none;
+    border-right: none;
+    width: var(--smart-table-header-footer-height);
+    height: 100%;
+}
+
+.smart-table[conditional-formatting-button] .smart-table-header .smart-table-toolbar-button.conditional-formatting {
+    display: flex;
+}
+
+.smart-table[conditional-formatting-button]:not([filtering]) .smart-table-header .smart-table-toolbar-button.conditional-formatting {
+    grid-area: button;
+}
+
+.smart-table .smart-table-header .smart-table-toolbar-button.conditional-formatting::before {
+    left: unset;
+    right: 0;
+}
+
+.smart-table[right-to-left] .smart-table-header {
+    left: unset;
+    right: 0;
+}
+
+.smart-table[right-to-left][filtering] .smart-table-header {
+    grid-template-columns: 1fr;
+}
+
+.smart-table[right-to-left][conditional-formatting-button]:not([filtering]) .smart-table-header {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: ". button";
+}
+
+.smart-table[right-to-left][filtering][conditional-formatting-button] .smart-table-header {
+    grid-template-columns: 1fr auto;
+}
+
+.smart-table[right-to-left] .smart-table-header .smart-table-toolbar-button.conditional-formatting,
+.smart-pivot-table[right-to-left] .smart-table-toolbar-button.fields,
+.smart-pivot-table[toolbar][designer][right-to-left] .smart-table-toolbar-button.conditional-formatting {
+    border-left: none;
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-table[right-to-left] .smart-table-header .smart-table-toolbar-button.conditional-formatting::before,
+.smart-pivot-table[right-to-left] .smart-table-toolbar-button.fields::before,
+.smart-pivot-table[toolbar][designer][right-to-left] .smart-table-toolbar-button.conditional-formatting::before {
+    left: 0;
+    right: unset;
 }
 
 .smart-table .smart-table-filter-row>td.no-filter {
@@ -726,7 +831,7 @@
 }
 
 .smart-table .dragged,
-.smart-table .drop-target {
+.smart-table .drop-column {
     position: relative;
 }
 
@@ -736,13 +841,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 5000px;
+    height: 100%;
     background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
     background-size: 3em 3em;
     opacity: 0.8;
 }
 
-.smart-table .drop-target:after {
+.smart-table .drop-column:after {
     content: '';
     position: absolute;
     width: 2px;
@@ -751,22 +856,36 @@
     top: 0;
 }
 
-.smart-table .drop-target.left:after {
+.smart-table .drop-column.left:after {
     left: 0;
 }
 
-.smart-table .drop-target.right:after {
+.smart-table .drop-column.right:after {
     right: 0;
+}
+
+.smart-table thead th,
+.smart-table tfoot td,
+.smart-table .smart-table-select-all.freeze-near {
+    --smart-surface: var(--smart-background);
+    --smart-surface-color: var(--smart-background-color);
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
 }
 
 .smart-table[freeze-header] thead th,
 .smart-table[freeze-footer] tfoot td,
 .smart-table .freeze-near,
 .smart-table .freeze-far {
-    background-color: var(--smart-background);
     position: sticky;
     opacity: 1;
     z-index: 1;
+}
+
+.smart-table .freeze-near,
+.smart-table .freeze-far {
+    background-color: var(--smart-background);
+    color: var(--smart-background-color);
 }
 
 .smart-table[freeze-header] thead th {
@@ -784,15 +903,18 @@
     top: calc(2 * var(--smart-table-column-header-height));
 }
 
-.smart-table[freeze-header][filtering]:not([filter-row]) thead th {
+.smart-table[freeze-header][filtering]:not([filter-row]) thead th,
+.smart-table[freeze-header][conditional-formatting-button] thead th {
     top: var(--smart-table-header-footer-height);
 }
 
-.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(2)>th {
+.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(2)>th,
+.smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(2)>th {
     top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
 }
 
-.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(3)>th {
+.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(3)>th,
+.smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(3)>th {
     top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
 }
 
@@ -895,6 +1017,7 @@
     padding: var(--smart-table-cell-padding);
     font-family: inherit;
     font-size: inherit;
+    box-shadow: none;
 }
 
 .smart-table td.editing .smart-table-editor.standard:focus {
@@ -964,13 +1087,20 @@
     align-items: center;
 }
 
+.smart-table td.tree-cell>div>div:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
 .smart-table .hierarchy-arrow {
     margin-right: var(--smart-table-arrow-margin);
     width: var(--smart-table-arrow-size);
     cursor: pointer;
 }
 
-.smart-table:not([animation="none"]) .hierarchy-arrow {
+.smart-table:not([animation="none"]) .hierarchy-arrow,
+.smart-pivot-table:not([animation="none"]) .total-arrow {
     transition: transform 0.2s ease-in-out;
 }
 
@@ -1058,12 +1188,18 @@
     font-weight: bold;
 }
 
-.smart-table tr.expanded .hierarchy-arrow {
+smart-table tr.expanded .hierarchy-arrow,
+.smart-pivot-table th.expanded .total-arrow,
+.smart-pivot-table:not([group-layout="classic"]) tr.expanded .hierarchy-arrow {
     transform: rotate(180deg);
 }
 
 .smart-table tbody tr.last-visible {
     height: unset;
+}
+
+.smart-table tbody tr.last-visible.sized {
+    box-shadow: inset 0px var(--smart-border-width) 0px 0px var(--smart-border);
 }
 
 .smart-table[hierarchy] tr[row-id] td {
@@ -1135,9 +1271,153 @@
     outline: none;
 }
 
-.smart-table .smart-table-container:focus td[focus] {
-    box-shadow: inset 0px 0px 0px 1px var(--smart-ui-state-color-focus);
+.smart-table .smart-table-container:focus td[focus]:not(.freeze-near):not(.freeze-far) {
+    position: relative;
 }
+
+.smart-table .smart-table-container:focus td[focus]::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    width: calc(100% - 1px);
+    height: 100%;
+    top: 0;
+    left: 1px;
+    pointer-events: none;
+    border: 1px solid var(--smart-ui-state-color-focus);
+}
+
+.smart-table[freeze-footer] .smart-table-container:focus td[focus]::after {
+    height: calc(100% - 1px);
+}
+
+.smart-table[right-to-left] .smart-table-container:focus td[focus]::after {
+    left: unset;
+    right: 1px;
+}
+
+.smart-table[modal],
+.smart-pivot-panel>.smart-container[modal] {
+    position: relative;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.smart-table[modal]::after,
+.smart-pivot-panel>.smart-container[modal]::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: default;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 100;
+}
+
+.smart-table .smart-table-toolbar-button {
+    min-height: 0;
+}
+
+.smart-table .smart-table-toolbar-button {
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+    --smart-button-padding: 0;
+    position: relative;
+    border-top: none;
+    border-bottom: none;
+    overflow: visible;
+}
+
+.smart-table .smart-table-toolbar-button>button {
+    overflow: hidden;
+}
+
+.smart-table .smart-table-toolbar-button.fields,
+.smart-table[toolbar][designer] .smart-table-toolbar-button.conditional-formatting {
+    border-right: none;
+}
+
+.smart-table .smart-table-toolbar-button.fields::before,
+.smart-table[toolbar][designer] .smart-table-toolbar-button.conditional-formatting::before {
+    left: unset;
+    right: 0;
+    width: calc(2 * var(--smart-table-row-height));
+}
+
+.smart-table .smart-table-toolbar-button::after,
+.smart-table .smart-table-toolbar-button.conditional-formatting>button::after,
+.smart-table .smart-table-toolbar-button.fields>button::after {
+    content: var(--smart-icon-table);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family: 'smart-icons';
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.smart-table .smart-table-toolbar-button.conditional-formatting>button::after,
+.smart-table .smart-table-toolbar-button.fields>button::after {
+    content: var(--smart-icon-less-than-equal);
+    font-size: 16px;
+    top: 8px;
+    left: 8px;
+    opacity: 1;
+}
+
+.smart-table .smart-table-toolbar-button.fields>button::after {
+    content: var(--smart-icon-settings);
+}
+
+.smart-table-window.conditional-formatting {
+    --smart-window-default-width: 650px;
+}
+
+.smart-window.smart-table-window.conditional-formatting,
+.smart-table-window.conditional-formatting>.smart-container,
+.smart-table-window.conditional-formatting .smart-content-container>.smart-content {
+    overflow: visible;
+}
+
+.smart-table-window.conditional-formatting smart-formatting-panel {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.smart-window.smart-table-window .smart-content-container>.smart-footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.smart-window.smart-table-window .smart-content-container>.smart-footer smart-button {
+    --smart-button-padding: 0;
+    width: 40%;
+    height: 100%;
+}
+
+.smart-table[auto-size] table {
+    table-layout: auto;
+}
+
+
 
 /* --- Right To Left*/
 
@@ -1262,3 +1542,39 @@
 }
 
 /* --- */
+
+/* Firefox bug fixes */
+@-moz-document url-prefix() {
+    .smart-table thead th:not(.smart-table-select-all) {
+        opacity: 1;
+    }
+
+    .smart-table .freeze-near,
+    .smart-table .freeze-far,
+    .smart-table[right-to-left] .freeze-near,
+    .smart-table[right-to-left] .freeze-far,
+    .smart-pivot-table[freeze-header] thead th {
+        box-shadow: 0px 0px 0px 1px var(--smart-border);
+    }
+
+    .smart-pivot-table thead th:not(:last-child),
+    .smart-pivot-table thead th:last-child,
+    .smart-pivot-table[right-to-left] thead th:not(:last-child),
+    .smart-pivot-table[right-to-left] thead th:last-child {
+        border: none;
+        box-shadow: 0px 0px 0px 1px var(--smart-border);
+    }
+
+    .smart-pivot-table tbody tr[row-id]:first-child td {
+        border-top: none;
+    }
+
+    .smart-table .smart-table-container:focus td[focus]::after {
+        height: calc(100% - 1px);
+        top: 1px;
+    }
+
+    .smart-table[freeze-footer] .smart-table-container:focus td[focus]::after {
+        height: calc(100% - 2px);
+    }
+}

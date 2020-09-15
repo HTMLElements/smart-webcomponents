@@ -1,0 +1,80 @@
+.smart-button-group {
+    display: inline-block;
+    width: var(--smart-button-group-default-width);
+    height: var(--smart-button-group-default-height);
+    cursor: pointer;
+    text-transform: var(--smart-button-text-transform);
+    font-weight: 500;
+    letter-spacing: .08929em;
+    overflow: hidden;
+}
+
+.smart-button-group .smart-button-group-items {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.smart-button-group .smart-button-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--smart-button-padding);
+    cursor: inherit;
+    font-weight: inherit;
+    -webkit-font-smoothing: antialiased;
+    opacity: var(--smart-button-opacity);
+    white-space: nowrap;
+    line-height: 1.2;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+.smart-button-group .smart-button-group-item>div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.smart-button-group .smart-button-group-item:hover {
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
+    background-color: var(--smart-ui-state-hover);
+    opacity: var(--smart-button-opacity-hover);
+}
+
+.smart-button-group .smart-button-group-item[active] {
+    color: var(--smart-ui-state-color-selected);
+    border-color: var(--smart-ui-state-border-selected);
+    background-color: var(--smart-ui-state-selected);
+}
+
+.smart-button-group:focus .smart-button-group-item[focus]:not(:active) {
+    color: var(--smart-ui-state-color-focus);
+    border-color: var(--smart-ui-state-border-focus);
+    background-color: var(--smart-ui-state-focus);
+    opacity: var(--smart-button-opacity-focus);
+}
+
+.smart-button-group .smart-button-group-item:active {
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+    background-color: var(--smart-ui-state-active);
+    opacity: var(--smart-button-opacity-active);
+}
+
+.smart-button-group:not([animation="none"]) .smart-button-group-item {
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+}
+
+/* RTL */
+
+.smart-button-group[right-to-left] .smart-button-group-items {
+    direction: rtl;
+}

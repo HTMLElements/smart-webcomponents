@@ -60,7 +60,10 @@ smart-card-view,
 smart-tooltip,
 smart-layout,
 smart-path,
-smart-kanban {
+smart-kanban,
+smart-gantt-chart,
+smart-sheduler,
+smart-pivot-panel {
     padding: 0px;
     margin: 0px;
     overflow: hidden;
@@ -154,7 +157,11 @@ smart-layout[disabled],
 smart-path[disabled],
 smart-kanban[disabled],
 smart-gantt-chart[disabled],
-smart-table[disabled] {
+smart-scheduler[disabled],
+smart-button-group[disabled],
+smart-table[disabled],
+smart-pivot-table[disabled],
+smart-formatting-panel[disabled] {
     opacity: 0.55;
     cursor: default;
     pointer-events: none;
@@ -172,6 +179,7 @@ smart-color-panel,
 smart-docking-layout,
 smart-date-time-picker,
 smart-gantt-chart,
+smart-scheduler,
 smart-grid,
 smart-menu,
 smart-list-menu,
@@ -186,8 +194,14 @@ smart-tree,
 smart-text-box,
 smart-multiline-text-box,
 smart-layout,
-smart-window,
-smart-kanban {
+.smart-window,
+smart-kanban,
+smart-sort-panel,
+smart-button-group,
+smart-group-panel,
+smart-column-panel,
+smart-multi-column-filter-panel,
+smart-formatting-panel {
     border-color: var(--smart-border);
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);

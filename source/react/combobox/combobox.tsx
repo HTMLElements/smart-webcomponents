@@ -29,6 +29,7 @@ export interface ComboBoxProps extends ComboBoxProperties {
 	onResizeEnd?: ((event?: Event) => void) | undefined;
 	onScrollBottomReached?: ((event?: Event) => void) | undefined;
 	onScrollTopReached?: ((event?: Event) => void) | undefined;
+	onTokenClick?: ((event?: Event) => void) | undefined;
 
 }
 /**
@@ -868,6 +869,9 @@ export class ComboBox extends React.Component<React.HTMLProps<Element> & ComboBo
 	/**  This event is triggered when user scrolls to the start of the dropDown list.
 	*  @param event. The custom event. 	*/
 	onScrollTopReached?: ((event?: Event) => void) | undefined
+	/**  This event is triggered when a token item(pill) has been clicked. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
+	*  @param event. The custom event. 	*/
+	onTokenClick?: ((event?: Event) => void) | undefined
 	/**  This event occurs, when the React component is created.
 	*  @param event. The custom event. 	*/
 	onCreate?: ((event?: Event) => void) | undefined
@@ -877,7 +881,7 @@ export class ComboBox extends React.Component<React.HTMLProps<Element> & ComboBo
 
 	// Gets the events of the React component.
 	get events(): string[] {
-		return ["onChange","onClose","onClosing","onItemClick","onOpen","onOpening","onResizeStart","onResizeEnd","onScrollBottomReached","onScrollTopReached","onCreate","onReady"];
+		return ["onChange","onClose","onClosing","onItemClick","onOpen","onOpening","onResizeStart","onResizeEnd","onScrollBottomReached","onScrollTopReached","onTokenClick","onCreate","onReady"];
 	}
 	/** Appends a ListItem to the end of the list of items inside element. 
 	* @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.

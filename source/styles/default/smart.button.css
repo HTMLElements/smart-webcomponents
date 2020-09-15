@@ -30,13 +30,13 @@ smart-button.primary, smart-toggle-button.primary, smart-repeat-button.primary {
     --smart-border: var(--smart-primary);
     --smart-background-color: var(--smart-primary-color);
     --smart-ui-state-hover: var(--smart-primary);
-    --smart-ui-state-hover: var(--smart-primary);
+    --smart-ui-state-border-hover: var(--smart-primary);
     --smart-ui-state-color-hover: var(--smart-primary-color);
     --smart-ui-state-active: var(--smart-primary);
-    --smart-ui-state-active: var(--smart-primary);
+    --smart-ui-state-border-active: var(--smart-primary);
     --smart-ui-state-color-active: var(--smart-primary-color);
     --smart-ui-state-focus: var(--smart-primary);
-    --smart-ui-state-focus: var(--smart-primary);
+    --smart-ui-state-border-focus: var(--smart-primary);
     --smart-ui-state-color-focus: var(--smart-primary-color);
     --smart-button-flat-color: var(--smart-primary);
     --smart-button-outlined-color: var(--smart-primary);
@@ -51,13 +51,13 @@ smart-button.secondary, smart-toggle-button.secondary, smart-repeat-button.secon
     --smart-border: var(--smart-secondary);
     --smart-background-color: var(--smart-secondary-color);
     --smart-ui-state-hover: var(--smart-secondary);
-    --smart-ui-state-hover: var(--smart-secondary);
+    --smart-ui-state-border-hover: var(--smart-secondary);
     --smart-ui-state-color-hover: var(--smart-secondary-color);
     --smart-ui-state-active: var(--smart-secondary);
-    --smart-ui-state-active: var(--smart-secondary);
+    --smart-ui-state-border-active: var(--smart-secondary);
     --smart-ui-state-color-active: var(--smart-secondary-color);
     --smart-ui-state-focus: var(--smart-secondary);
-    --smart-ui-state-focus: var(--smart-secondary);
+    --smart-ui-state-border-focus: var(--smart-secondary);
     --smart-ui-state-color-focus: var(--smart-secondary-color);
     --smart-button-flat-color: var(--smart-secondary);
     --smart-button-outlined-color: var(--smart-secondary);
@@ -72,13 +72,13 @@ smart-button.error, smart-toggle-button.error, smart-repeat-button.error {
     --smart-border: var(--smart-error);
     --smart-background-color: var(--smart-error-color);
     --smart-ui-state-hover: var(--smart-error);
-    --smart-ui-state-hover: var(--smart-error);
+    --smart-ui-state-border-hover: var(--smart-error);
     --smart-ui-state-color-hover: var(--smart-error-color);
     --smart-ui-state-active: var(--smart-error);
-    --smart-ui-state-active: var(--smart-error);
+    --smart-ui-state-border-active: var(--smart-error);
     --smart-ui-state-color-active: var(--smart-error-color);
     --smart-ui-state-focus: var(--smart-error);
-    --smart-ui-state-focus: var(--smart-error);
+    --smart-ui-state-border-focus: var(--smart-error);
     --smart-ui-state-color-focus: var(--smart-error-color);
     --smart-button-flat-color: var(--smart-error);
     --smart-button-outlined-color: var(--smart-error);
@@ -96,7 +96,7 @@ smart-button.success, smart-toggle-button.success, smart-repeat-button.success {
     --smart-ui-state-border-hover: var(--smart-success);
     --smart-ui-state-color-hover: var(--smart-success-color);
     --smart-ui-state-active: var(--smart-success);
-    --smart-ui-state-active: var(--smart-success);
+    --smart-ui-state-border-active: var(--smart-success);
     --smart-ui-state-color-active: var(--smart-success-color);
     --smart-ui-state-focus: var(--smart-success);
     --smart-ui-state-border-focus: var(--smart-success);
@@ -106,9 +106,8 @@ smart-button.success, smart-toggle-button.success, smart-repeat-button.success {
     --smart-button-outlined-border: var(--smart-success);
 }
 
-button.smart-button .smart-ripple {
-    background-color: var(--smart-background-color);
-    opacity: 0.5;
+.smart-button .smart-ripple {
+    background: var(--smart-background-color);
 }
 
 button.smart-button {
@@ -129,6 +128,10 @@ button.smart-button {
     white-space: nowrap;
     line-height: 1.2;
     border-radius: inherit;
+}
+
+smart-button.outlined button.smart-button {
+    border-radius: initial;
 }
 
 .smart-scroll-button .smart-button {
@@ -160,31 +163,31 @@ smart-button.very-small button, smart-toggle-button.very-small button, smart-rep
 
 smart-button[hover], smart-toggle-button[hover], smart-repeat-button[hover] {
     color: var(--smart-ui-state-color-hover);
-    border-color: var(--smart-ui-state-hover);
+    border-color: var(--smart-ui-state-border-hover);
     background-color: var(--smart-ui-state-hover);
     transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
     opacity: var(--smart-button-opacity-hover);
 }
 
-smart-button[active], smart-toggle-button[active], smart-repeat-button[active] {
-    color: var(--smart-ui-state-color-active);
-    border-color: var(--smart-ui-state-active);
-    background-color: var(--smart-ui-state-active);
-    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
-    opacity: var(--smart-button-opacity-active);
-}
-
 smart-toggle-button[checked], [smart-toggle-button][checked] {
     color: var(--smart-ui-state-color-selected);
-    border-color: var(--smart-ui-state-selected);
+    border-color: var(--smart-ui-state-border-selected);
     background-color: var(--smart-ui-state-selected);
 }
 
 smart-button[focus], smart-toggle-button[focus], smart-repeat-button[focus] {
     color: var(--smart-ui-state-color-focus);
-    border-color: var(--smart-ui-state-focus);
+    border-color: var(--smart-ui-state-border-focus);
     background-color: var(--smart-ui-state-focus);
     opacity: var(--smart-button-opacity-focus);
+}
+
+smart-button[active], smart-toggle-button[active], smart-repeat-button[active] {
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+    background-color: var(--smart-ui-state-active);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+    opacity: var(--smart-button-opacity-active);
 }
 
 smart-button.flat .smart-ripple, smart-toggle-button.flat .smart-ripple, smart-repeat-button.flat .smart-ripple, :host(.smart-button.flat) .smart-ripple {
@@ -343,7 +346,7 @@ button.smart-button[type]:hover {
     background-color: var(--smart-ui-state-hover);
 }
 
-button.smart-button[type]:active {
+button.smart-button[type]:not([disabled]):active {
     color: var(--smart-ui-state-color-active);
     border-color: var(--smart-ui-state-border-active);
     background-color: var(--smart-ui-state-active);

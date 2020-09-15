@@ -72,6 +72,11 @@ export interface TreeProperties {
    */
   editable?: boolean;
   /**
+   * Determines the expand behavior of TreeItemsGroups in the Tree.
+   * Default value: multiple
+   */
+  expandMode?: TreeExpandMode;
+  /**
    * Enables or disables filtering. Shows or hides filter input.
    * Default value: false
    */
@@ -168,6 +173,11 @@ export interface TreeProperties {
    * Default value: one
    */
   selectionMode?: TreeSelectionMode;
+  /**
+   * Determines whether smart-tree-items-groups can be selected.
+   * Default value: all
+   */
+  selectionTarget?: TreeSelectionTarget;
   /**
    * Shows or hides lines, displaying the relation between elements in group.
    * Default value: false
@@ -446,6 +456,8 @@ declare global {
     }
 }
 
+/**Determines the expand behavior of TreeItemsGroups in the Tree. */
+export declare type TreeExpandMode = 'multiple' | 'single';
 /**Sets filter mode. */
 export declare type FilterMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
 /**Sets the position of the loading indicator. */
@@ -458,6 +470,8 @@ export declare type TreeScrollMode = 'scrollbar' | 'scrollButtons';
 export declare type TreeSelectionDisplayMode = 'row' | 'label';
 /**Determines selection mode. */
 export declare type TreeSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+/**Determines whether jqx-tree-items-groups can be selected. */
+export declare type TreeSelectionTarget = 'all' | 'leaf';
 /**Determines sort direction - ascending or descending. */
 export declare type TreeSortDirection = 'ascending' | 'descending';
 /**Determines togle element (arrow) position. */

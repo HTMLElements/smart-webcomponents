@@ -1027,8 +1027,8 @@ export class Window extends React.Component<React.HTMLProps<Element> & WindowPro
     }
 
 	/** Inserts the specified "smart-tab-item" node before the reference "smart-tab-item" node. Applicable only to TabsWindow. 
-	* @param {Node} newNode. The "smart-tab-item" node to insert.
-	* @param {Node | null} referenceNode?. The "smart-tab-item" node before which newNode is inserted.
+	* @param {Node} newNode. The "jqx-tab-item" node to insert.
+	* @param {Node | null} referenceNode?. The "jqx-tab-item" node before which newNode is inserted.
 	* @returns {Node}
   */
 	public async insertBefore(newNode:Node, referenceNode?:Node | null) : Promise<any> {
@@ -1061,7 +1061,7 @@ export class Window extends React.Component<React.HTMLProps<Element> & WindowPro
     }
 
 	/** Removes a child "smart-tab-item" node. Applicable only to TabsWindow. 
-	* @param {Node} node. The "smart-tab-item" node to remove.
+	* @param {Node} node. The "jqx-tab-item" node to remove.
 	* @returns {Node}
   */
 	public async removeChild(node:Node) : Promise<any> {

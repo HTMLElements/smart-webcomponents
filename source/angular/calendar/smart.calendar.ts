@@ -207,10 +207,10 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 	/** @description Sets the dates that will be displayed as important. */
 	@Input()
-	get importantDates(): string[] {
+	get importantDates(): string[] | Date[] {
 		return this.nativeElement ? this.nativeElement.importantDates : undefined;
 	}
-	set importantDates(value: string[]) {
+	set importantDates(value: string[] | Date[]) {
 		this.nativeElement ? this.nativeElement.importantDates = value : undefined;
 	}
 
@@ -342,10 +342,10 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 	/** @description Sets the dates that will be selected. Selected dates are styled differently than the rest. The dates can be Date objects or strings in a valid date format. */
 	@Input()
-	get selectedDates(): string[] {
+	get selectedDates(): string[] | Date[] {
 		return this.nativeElement ? this.nativeElement.selectedDates : undefined;
 	}
-	set selectedDates(value: string[]) {
+	set selectedDates(value: string[] | Date[]) {
 		this.nativeElement ? this.nativeElement.selectedDates = value : undefined;
 	}
 
@@ -533,6 +533,20 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 	*/
 	@Output() onNavigationChange: EventEmitter<CustomEvent> = new EventEmitter();
 
+	/** @description This event is triggered when the tooltip for the important date is opened.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	target, 	value)
+	*   target - The event target - tooltip.
+	*   value - The important date of the hovered cell.
+	*/
+	@Output() onOpen: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when the tooltip for the important date is closed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	target, 	value)
+	*   target - The event target - tooltip.
+	*   value - The important date of the hovered cell.
+	*/
+	@Output() onClose: EventEmitter<CustomEvent> = new EventEmitter();
+
 	/** @description Clears the selection. Removes all seleceted dates. 
 	*/
     public clearSelection(): void {
@@ -700,6 +714,12 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 		that.eventHandlers['navigationChangeHandler'] = (event: CustomEvent) => { that.onNavigationChange.emit(event); }
 		that.nativeElement.addEventListener('navigationChange', that.eventHandlers['navigationChangeHandler']);
 
+		that.eventHandlers['openHandler'] = (event: CustomEvent) => { that.onOpen.emit(event); }
+		that.nativeElement.addEventListener('open', that.eventHandlers['openHandler']);
+
+		that.eventHandlers['closeHandler'] = (event: CustomEvent) => { that.onClose.emit(event); }
+		that.nativeElement.addEventListener('close', that.eventHandlers['closeHandler']);
+
 
         that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
@@ -742,6 +762,14 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 		if (that.eventHandlers['navigationChangeHandler']) {
 			that.nativeElement.removeEventListener('navigationChange', that.eventHandlers['navigationChangeHandler']);
+		}
+
+		if (that.eventHandlers['openHandler']) {
+			that.nativeElement.removeEventListener('open', that.eventHandlers['openHandler']);
+		}
+
+		if (that.eventHandlers['closeHandler']) {
+			that.nativeElement.removeEventListener('close', that.eventHandlers['closeHandler']);
 		}
 
 		if (that.eventHandlers['changeModelHandler']) {

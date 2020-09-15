@@ -89,7 +89,7 @@ smart-list-item .smart-content {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    padding: 9px 12px;
+    padding: var(--smart-list-item-padding);
     width: 100%;
     height: calc(100% - var(--smart-list-item-vertical-offset));
     left: 0px;
@@ -431,8 +431,8 @@ smart-list-box smart-scroll-bar[orientation="vertical"].bottom-corner {
 
 .smart-list-box .smart-list-items-container {
     width: 100%;
-    height: calc(100% - 2*var(--smart-list-item-vertical-offset));
-    right: var(--smart-list-item-horizontal-offset);
+    height: calc(100% - var(--smart-list-item-vertical-offset));
+    /* right: var(--smart-list-item-horizontal-offset); */
     overflow: hidden;
     position: relative;
     background-color: transparent;
@@ -440,15 +440,22 @@ smart-list-box smart-scroll-bar[orientation="vertical"].bottom-corner {
 
 .smart-list-box .smart-list-items-inner-container {
     width: calc(100% - 2*var(--smart-list-item-horizontal-offset));
-    margin-left: calc(2 * var(--smart-list-item-horizontal-offset));
     height: 100%;
     display: block;
     position: relative;
     background-color: transparent;
 }
 
+.smart-list-box:not([right-to-left]) .smart-list-items-inner-container {
+    margin-left: var(--smart-list-item-horizontal-offset);
+}
+
+.smart-list-box[right-to-left] .smart-list-items-inner-container {
+    margin-right: var(--smart-list-item-horizontal-offset);
+}
+
 .smart-list-box .smart-list-items-container.hscroll {
-    height: calc(100% - var(--smart-scroll-bar-size) - 2*var(--smart-list-item-vertical-offset));
+    height: calc(100% - var(--smart-scroll-bar-size) - var(--smart-list-item-vertical-offset));
 }
 
 .smart-list-box .smart-list-items-container.filter {
@@ -456,7 +463,7 @@ smart-list-box smart-scroll-bar[orientation="vertical"].bottom-corner {
 }
 
 .smart-list-box .smart-list-items-container.hscroll.filter {
-    height: calc(100% - var(--smart-text-box-default-height) - var(--smart-scroll-bar-size) - 10px - 2*var(--smart-list-item-vertical-offset));
+    height: calc(100% - var(--smart-text-box-default-height) - var(--smart-scroll-bar-size) - 10px - var(--smart-list-item-vertical-offset));
 }
 
 .smart-list-box .smart-placeholder {

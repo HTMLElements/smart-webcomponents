@@ -373,7 +373,7 @@
     outline: 1px solid transparent;
     overflow: hidden;
     position: relative;
-    background: inherit;
+    background-color: var(--smart-surface);
     border-width: var(--smart-border-width);
     border-style: solid;
     border-color: var(--smart-border);
@@ -410,6 +410,7 @@
 
 .smart-drop-down-box .smart-drop-down-button .smart-drop-down-button-icon::after {
     content: var(--smart-icon-arrow-down);
+    font-size: var(--smart-arrow-size);
 }
 
 .smart-drop-down-box:not([animation='none']) .smart-drop-down-button .smart-drop-down-button-icon:after {
@@ -821,10 +822,6 @@
     }
 }
 
-.smart-drop-down.smart-drop-down-container smart-list-box {
-    top: 2px;
-}
-
 .smart-drop-down:not([resize-mode='none']) smart-list-box {
     position: relative;
     width: 100%;
@@ -1023,8 +1020,6 @@
 .smart-drop-down.smart-drop-down-container.smart-drop-down-repositioned, .smart-drop-down-container.smart-drop-down-repositioned, .smart-drop-down.smart-drop-down-container, .smart-drop-down.smart-date-time-drop-down.smart-drop-down-repositioned, .smart-path .smart-drop-down, .smart-color-picker .smart-drop-down, .smart-multi-split-button .smart-drop-down, .smart-combo-box .smart-drop-down, .smart-drop-down-list .smart-drop-down, .smart-text-box .smart-drop-down, .smart-drop-down-button .smart-drop-down, .smart-date-time-picker .smart-drop-down {
     background-color: var(--smart-background);
     box-sizing: border-box;
-    padding-top: 3px;
-    padding-bottom: 3px;
     outline: none;
     border-width: var(--smart-border-width);
     border-style: solid;
@@ -1039,13 +1034,16 @@
     min-width: var(--smart-editor-drop-down-min-width);
     font-size: var(--smart-font-size);
     font-family: var(--smart-font-family);
-    margin: calc(var(--smart-editor-drop-down-vertical-offset) + 3px) 0px;
-    padding-left: 0px;
-    padding-right: 0px !important;
+    margin: calc(var(--smart-editor-drop-down-vertical-offset) + var(--smart-editor-drop-down-padding-size)) 0px;
+    padding: var(--smart-editor-drop-down-padding-size) 0 var(--smart-editor-drop-down-padding-size) 0 !important;
+}
+
+.smart-drop-down.smart-date-time-drop-down.smart-drop-down-repositioned {
+    padding: initial !important;
 }
 
 .smart-drop-down.smart-date-time-drop-down[drop-down-display-mode="calendar"] {
-    height: calc(var(--smart-editor-drop-down-height) - var(--smart-calendar-title-height));
+    height: calc(var(--smart-editor-drop-down-height) - var(--smart-calendar-title-height)) !important;
 }
 
 .smart-drop-down.smart-drop-down-color-picker.smart-drop-down-repositioned, .smart-color-picker .smart-drop-down.smart-drop-down-color-picker {
@@ -1173,8 +1171,12 @@
     flex-direction: column-reverse;
 }
 
-.smart-drop-down-container[top].smart-drop-down-container.smart-drop-down-repositioned, .smart-drop-down-container[top].smart-drop-down-container.smart-drop-down-repositioned.smart-visibility-hidden {
+.smart-drop-down-container[top].smart-drop-down-container.smart-drop-down-repositioned {
     bottom: initial;
+}
+
+.smart-drop-down-container[top].smart-drop-down-container.smart-drop-down-repositioned.smart-visibility-hidden {
+    bottom: calc(100% - var(--smart-border-width));
 }
 
 .smart-drop-down-container.smart-drop-down-repositioned[overlay-bottom]:not([animation='none']), .smart-drop-down-container.smart-drop-down-repositioned[overlay-center]:not([animation='none']), .smart-drop-down-container.smart-drop-down-repositioned[overlay-top]:not([animation='none']), .smart-path:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-path:not([animation='none']) .smart-drop-down[overlay-top], .smart-color-picker:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-color-picker:not([animation='none']) .smart-drop-down[overlay-top], .smart-multi-split-button:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-multi-split-button:not([animation='none']) .smart-drop-down[overlay-top], .smart-drop-down-list:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-drop-down-list:not([animation='none']) .smart-drop-down[overlay-top], .smart-combo-box:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-combo-box:not([animation='none']) .smart-drop-down[overlay-top], .smart-text-box:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-text-box:not([animation='none']) .smart-drop-down[overlay-top], .smart-drop-down-button:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-drop-down-button:not([animation='none']) .smart-drop-down[overlay-top], .smart-date-time-picker:not([animation='none']) .smart-drop-down[overlay-bottom], .smart-date-time-picker:not([animation='none']) .smart-drop-down[overlay-top] {

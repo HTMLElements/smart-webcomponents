@@ -392,7 +392,7 @@ export class ListMenu extends React.Component {
 	get properties() {
 		return ["animation","autoFocusOnMouseenter","checkable","checkboxes","checkMode","dataSource","disabled","displayLoadingIndicator","displayMember","dropDownAppendTo","dropDownOverlay","dropDownPosition","enableMouseWheelAction","filterable","filterInputPlaceholder","filterMode","grouped","itemsMember","loadingIndicatorPlaceholder","loadingIndicatorPosition","locale","localizeFormatFunction","messages","minimizeIconTemplate","minimizeWidth","overflow","readonly","rightToLeft","theme","unfocusable","valueMember"];
 	}
-	/**  This event is triggered when a smart-menu-items-group is expanded.
+	/**  This event is triggered when a jqx-menu-items-group is expanded.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	value, 	path, 	children)
 	*   item - The menu item that was expanded.
 	*   label - The label of the item that was expanded.
@@ -461,8 +461,8 @@ export class ListMenu extends React.Component {
 		return ["onExpand","onItemCheckChange","onItemClick","onScrollBottomReached","onSwipeleft","onSwiperight"];
 	}
 	/** Adds an item to the list. 
-	* @param {HTMLElement} Item. A smart-menu-item to add to the List Menu.
-	* @param {HTMLElement | string} Parent?. The smart-menu-items-group (or its id or numeric path) to add the item to.
+	* @param {HTMLElement} Item. A jqx-menu-item to add to the List Menu.
+	* @param {HTMLElement | string} Parent?. The jqx-menu-items-group (or its id or numeric path) to add the item to.
 	*/
     addItem(Item, Parent){
         if (this.nativeElement.isRendered) {
@@ -492,7 +492,7 @@ export class ListMenu extends React.Component {
     }
 
 	/** Navigates to a particular page (smart-menu-items-group). 
-	* @param {string} id. The id or numeric path of a page (smart-menu-items-group).
+	* @param {string} id. The id or numeric path of a page (jqx-menu-items-group).
 	*/
     changePage(id){
         if (this.nativeElement.isRendered) {
@@ -507,7 +507,7 @@ export class ListMenu extends React.Component {
     }
 
 	/** Checks an item. 
-	* @param {HTMLElement | string} item. smart-menu-item/smart-menu-items-group (or its id or numeric path).
+	* @param {HTMLElement | string} item. jqx-menu-item/jqx-menu-items-group (or its id or numeric path).
 	*/
     checkItem(item){
         if (this.nativeElement.isRendered) {
@@ -568,7 +568,7 @@ export class ListMenu extends React.Component {
     }
 
 	/** Removes an item. 
-	* @param {HTMLElement | string} item. The smart-menu-item/smart-menu-items-group (or its id or numeric path) to remove.
+	* @param {HTMLElement | string} item. The jqx-menu-item/jqx-menu-items-group (or its id or numeric path) to remove.
 	*/
     removeItem(item){
         if (this.nativeElement.isRendered) {
@@ -583,7 +583,7 @@ export class ListMenu extends React.Component {
     }
 
 	/** Unchecks an item. 
-	* @param {HTMLElement | string} item. smart-menu-item/smart-menu-items-group (or its id or numeric path).
+	* @param {HTMLElement | string} item. jqx-menu-item/jqx-menu-items-group (or its id or numeric path).
 	*/
     uncheckItem(item){
         if (this.nativeElement.isRendered) {

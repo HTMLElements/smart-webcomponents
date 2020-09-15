@@ -1,0 +1,886 @@
+body[theme="nimble"] {
+    --smart-border: #161617;
+    --smart-primary-rgb: 3, 181, 133;
+    --smart-primary: #03B585;
+    --smart-primary-color: #161617;
+    --smart-background: #ffffff;
+    --smart-surface: #ffffff;
+    --smart-outline: #161617;
+    --smart-background-color: #161617;
+    --smart-ui-state-border-active: var(--smart-border);
+    --smart-ui-state-border-focus: var(--smart-border);
+    --smart-ui-state-border-hover: var(--smart-primary);
+    --smart-ui-state-hover: var(--smart-background);
+    --smart-ui-state-focus: var(--smart-background);
+    --smart-ui-state-active: var(--smart-background);
+    --smart-ui-state-color-active: var(--smart-background-color);
+    --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1);
+    --smart-ui-state-border-selected: var(--smart-primary);
+    /* --smart-ui-state-color-hover: var(--smart-primary); */
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+    /* New Variable */
+    --smart-editor-label-indent-size: 20px;
+    --smart-font-bold: 600;
+    --smart-editor-text-align: start;
+    /* Creates a specific indend/padding-left for the inputs */
+    --smart-arrow-size: 20px;
+    /* Numeric Text Box */
+    --smart-numeric-text-box-text-align: var(--smart-editor-text-align);
+    --smart-editor-label-padding: 5px var(--smart-editor-label-indent-size) 5px var(--smart-editor-label-indent-size);
+    /* Scroll Bar */
+    --smart-scroll-bar-background: #AEB0B3;
+    --smart-scroll-bar-thumb-size: 50%;
+    --smart-scroll-bar-thumb-border: var(--smart-scroll-bar-background);
+    --smart-scroll-bar-track-background: var(--smart-background);
+    --smart-scroll-bar-thumb-background: var(--smart-background);
+    --smart-scroll-bar-thumb-border-active: var(--smart-border);
+    --smart-scroll-bar-thumb-background-active: var(--smart-background);
+    --smart-scroll-bar-thumb-border-hover: var(--smart-ui-state-border-hover);
+    --smart-scroll-bar-thumb-background-hover: var(--smart-background);
+    --smart-scroll-bar-thumb-border-bottom-right-radius: 10px;
+    --smart-scroll-bar-thumb-border-bottom-left-radius: 10px;
+    --smart-scroll-bar-thumb-border-top-left-radius: 10px;
+    --smart-scroll-bar-thumb-border-top-right-radius: 10px;
+    --smart-scroll-button-size: 2px;
+    /* Slider */
+    --smart-slider-spin-button-height: 15px;
+    --smart-slider-spin-button-width: 15px;
+    --smart-slider-thumb-width: 7px;
+    --smart-slider-thumb-height: var(--smart-slider-thumb-width);
+    --smart-slider-value-offset: 20px;
+    /* MultilineTextBox */
+    --smart-multiline-text-box-default-height: 70px;
+    /* ListBox, DropDownList, ComboBox */
+    --smart-editor-drop-down-padding-size: 0;
+    --smart-item-border-top-left-radius: 0;
+    --smart-item-border-bottom-left-radius: 0;
+    --smart-item-border-top-left-radius: 0;
+    --smart-item-border-bottom-right-radius: 0;
+    --smart-item-border-top-right-radius: 0;
+    --smart-list-box-default-width: 125px;
+    --smart-list-box-default-height: 104px;
+    --smart-list-item-height: 22px;
+    --smart-list-item-padding: 9px 12px 9px var(--smart-editor-label-indent-size);
+    /* ComboBox */
+    --smart-combo-box-default-width: 125px;
+    /* Window */
+    --smart-window-header-height: 26px;
+    --smart-window-header-padding: 10px;
+    --smart-window-footer-padding: var(--smart-window-header-padding);
+    --smart-window-header-button-size: 8px;
+    --smart-window-default-width: 600px;
+    --smart-window-default-height: 300px;
+    /* New */
+    --smart-window-footer-background: #F1F1F2;
+    --smart-window-header-background: var(--smart-surface);
+    --smart-window-footer-button-width: 80px;
+    --smart-window-content-padding: 20px;
+    /* Grid */
+    --smart-grid-row-height: 24px;
+    --smart-grid-column-header-height: 24px;
+    --smart-grid-default-width: 600px;
+    --smart-grid-default-height: 300px;
+    --smart-grid-column-horizontal-border: 0;
+    --smart-grid-column-vertical-border: var(--smart-grid-column-horizontal-border);
+    --smart-grid-cell-horizontal-border: var(--smart-grid-column-horizontal-border);
+    --smart-grid-cell-vertical-border: var(--smart-grid-cell-horizontal-border);
+    --smart-grid-column-header-height: 24px;
+    --smart-grid-cell-vertical-border-opacity-selected: 0;
+    --smart-grid-cell-horizontal-border-opacity-selected: 0;
+    /* Table */
+    --smart-table-column-header-height: 24px;
+    --smart-table-row-height: var(--smart-table-column-header-height);
+}
+
+/* Transitions */
+
+.smart-button:not([animation="none"]), .smart-button:not([animation="none"])[hover], .smart-numeric-text-box:not([animation="none"]) input.smart-input, .smart-check-box.smart-toggle-box:not([animation="none"]) .smart-input, .smart-radio-button.smart-toggle-box:not([animation="none"]) .smart-input, .smart-numeric-text-box:not([animation="none"]) input.smart-input, .smart-scroll-bar:not([animation="none"]) .smart-thumb, .smart-slider:not([animation="none"]) .smart-thumb, .smart-text-box:not([animation="none"]) .smart-input, .smart-multiline-text-box:not([animation="none"]), .smart-date-time-picker:not([animation="none"]) .smart-input.smart-date-time-input, .smart-date-time-picker:not([animation="none"]) .smart-drop-down-button.smart-calendar-button, .smart-path:not([animation="none"]) .smart-path-input-container, .smart-path:not([animation="none"]) .smart-drop-down-button, .smart-path:not([animation="none"]) .smart-browse-button, .smart-drop-down-box:not([animation="none"]) .smart-buttons-container, .smart-drop-down-box:not([animation="none"]) .smart-drop-down-button, .smart-date-time-picker:not([animation="none"]) .smart-spin-button {
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.smart-slider:not([animation="none"]) .smart-thumb.enable-animation {
+    transition: margin-left .4s cubic-bezier(.25, .8, .25, 1), border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.smart-slider:not([animation='none'])[orientation="vertical"] .smart-thumb.enable-animation {
+    transition: margin-top .4s cubic-bezier(.25, .8, .25, 1), border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.smart-slider:not([animation='none']) .smart-value.enable-animation {
+    transition: width .4s cubic-bezier(.25, .8, .25, 1), border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.smart-slider:not([animation='none'])[orientation="vertical"] .smart-value.enable-animation {
+    transition: height .4s cubic-bezier(.25, .8, .25, 1), margin-top .4s cubic-bezier(.25, .8, .25, 1), border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.smart-slider:not([animation="none"]) .smart-value {
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* CheckBox, RadioButton */
+
+.smart-check-box.smart-toggle-box .smart-input:after, .smart-check-box.smart-toggle-box[checked] .smart-input:after, .smart-check-box.smart-toggle-box[checked="null"] .smart-input:after {
+    font-weight: var(--smart-font-bold);
+}
+
+.smart-check-box.smart-toggle-box .smart-input, .smart-toggle-box:focus .smart-input, .smart-toggle-box[focus] .smart-input {
+    background-color: var(--smart-background);
+}
+
+.smart-check-box.smart-toggle-box[focus] .smart-input, .smart-radio-button.smart-toggle-box[focus] .smart-input {
+    box-shadow: 0 0 0 1px var(--smart-border);
+}
+
+.smart-check-box.smart-toggle-box[hover]:not([focus]) .smart-input, .smart-radio-button.smart-toggle-box[hover]:not([focus]) .smart-input {
+    box-shadow: 0 0 0 1px var(--smart-ui-state-border-hover);
+}
+
+.smart-toggle-box:focus .smart-input, .smart-toggle-box[focus] .smart-input {
+    border-color: var(--smart-ui-state-border-focus);
+}
+
+/* Button */
+
+.smart-button:not(button)[focus] {
+    box-shadow: 0 0 0 1px var(--smart-border);
+}
+
+.smart-button[hover]:not(button):not([focus]) {
+    box-shadow: 0 0 0 var(--smart-border-width) var(--smart-ui-state-border-hover);
+}
+
+button.smart-button .smart-ripple {
+    --smart-background-color: var(--smart-primary);
+}
+
+/* NumericTextBox */
+
+.smart-numeric-text-box[focus] input.smart-input, .smart-numeric-text-box[hover] input.smart-input:hover {
+    box-shadow: 0 var(--smart-border-width) 0 0 var(--smart-border);
+}
+
+.smart-numeric-text-box[hover]:not([focus]) input.smart-input:hover {
+    border-color: var(--smart-ui-state-border-hover);
+    box-shadow: 0 var(--smart-border-width) 0 0 var(--smart-ui-state-border-hover);
+}
+
+.smart-numeric-text-box input.smart-input, .smart-numeric-text-box .smart-input-addon, .smart-numeric-text-box .smart-spin-button {
+    border-top: initial;
+    border-left: initial;
+    border-right: initial;
+}
+
+.smart-numeric-text-box .smart-spin-button {
+    border-bottom: initial;
+    --smart-ui-state-color-hover: var(--smart-primary);
+}
+
+.smart-numeric-text-box input.smart-input {
+    caret-color: var(--smart-primary);
+}
+
+.smart-numeric-text-box input.smart-input::selection {
+    background-color: rgba(var(--smart-primary-rgb), 0.1);
+    color: var(--smart-primary-color);
+}
+
+.smart-numeric-text-box[label] .smart-label, .smart-numeric-text-box[hint] .smart-hint {
+    padding: initial;
+}
+
+.smart-numeric-text-box-pressed-component .smart-arrow::after, .smart-numeric-text-box .smart-spin-button[hover] .smart-arrow::after {
+    font-weight: var(--smart-font-bold);
+}
+
+/* ScrollBar */
+
+.smart-scroll-bar .smart-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smart-scroll-bar .smart-track::before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    background: var(--smart-scroll-bar-background);
+}
+
+.smart-scroll-bar:not([orientation="vertical"]) .smart-track::before {
+    width: 100%;
+    height: calc( 2 * var(--smart-border-width));
+}
+
+.smart-scroll-bar[orientation="vertical"] .smart-track::before {
+    height: 100%;
+    width: calc( 2 * var(--smart-border-width));
+}
+
+.smart-scroll-bar .smart-thumb:hover {
+    box-shadow: 0 0 0 var(--smart-border-width) var(--smart-ui-state-border-hover);
+}
+
+.smart-scroll-bar .smart-thumb:active {
+    box-shadow: 0 0 0 var(--smart-border-width) var(--smart-ui-state-border-focus);
+}
+
+/* Creates a padding around the track and at the same time hides the buttons */
+
+.smart-scroll-bar[show-buttons] .smart-scroll-button, .smart-scroll-bar[disabled] .smart-thumb {
+    visibility: hidden;
+}
+
+/* Slider */
+
+.smart-slider {
+    --smart-ui-state-active: var(--smart-primary);
+    --smart-ui-state-color-hover: var(--smart-primary);
+}
+
+.smart-slider .smart-track {
+    border: none;
+}
+
+.smart-slider[show-buttons] .smart-track {
+    grid-area: track;
+    align-self: center;
+    justify-self: center;
+}
+
+.smart-slider[show-buttons]:not([orientation="vertical"]) .smart-track {
+    width: calc(100% - var(--smart-slider-thumb-width));
+    height: var(--smart-slider-track-size);
+}
+
+.smart-slider[show-buttons][orientation="vertical"] .smart-track {
+    height: calc(100% - var(--smart-slider-thumb-width));
+    width: var(--smart-slider-track-size);
+}
+
+.smart-slider .smart-track, .smart-slider:not([dragged]) .smart-value {
+    background-color: var(--smart-border);
+}
+
+.smart-slider .smart-thumb::before {
+    content: none;
+}
+
+.smart-slider .smart-thumb, .smart-slider[value="0"] .smart-thumb {
+    background-color: var(--smart-background);
+}
+
+.smart-slider[value="0"][dragged] .smart-thumb, .smart-slider[value="0"] .smart-thumb:hover {
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-slider:not([dragged]) .smart-thumb:not(:hover) {
+    border-color: var(--smart-border);
+}
+
+.smart-slider[dragged] .smart-thumb, .smart-slider .smart-thumb:hover {
+    box-shadow: 0 0 0 var(--smart-border-width) var(--smart-ui-state-border-hover);
+}
+
+.smart-slider .smart-value {
+    height: var(--smart-slider-track-size);
+    top: initial;
+    transform: scaleY(2);
+}
+
+.smart-slider[orientation="vertical"] .smart-value {
+    width: var(--smart-slider-track-size);
+    left: initial;
+    transform: scaleX(2);
+}
+
+.smart-slider[show-buttons] .smart-track-container {
+    display: grid;
+    align-items: center;
+    margin: initial;
+}
+
+.smart-slider[show-buttons][orientation="vertical"] .smart-track-container {
+    align-items: center;
+}
+
+.smart-slider[show-buttons]:not([orientation="vertical"]) .smart-track-container {
+    grid-template-areas: 'track rButton ' 'track lButton';
+    grid-template-columns: 1fr var(--smart-slider-spin-button-width);
+    grid-template-rows: repeat(2, var(--smart-slider-spin-button-height));
+    height: 100%;
+}
+
+.smart-slider[show-buttons][inverted]:not([orientation="vertical"]) .smart-track-container {
+    grid-template-areas: 'lButton track' 'rButton track';
+    grid-template-columns: var(--smart-slider-spin-button-width) 1fr;
+}
+
+.smart-slider[show-buttons][orientation="vertical"] .smart-track-container {
+    grid-template-areas: 'track track' 'lButton rButton';
+    grid-template-rows: 1fr var(--smart-slider-spin-button-height);
+    grid-template-columns: repeat(2, var(--smart-slider-spin-button-height));
+    width: 100%;
+    margin: initial;
+}
+
+.smart-slider[show-buttons][orientation="vertical"][inverted] .smart-track-container {
+    grid-template-areas: 'lButton rButton' 'track track';
+    grid-template-rows: var(--smart-slider-spin-button-height) 1fr;
+}
+
+.smart-slider[show-buttons] .smart-spin-button {
+    --smart-ui-state-active: var(--smart-background);
+    grid-area: rButton;
+    margin: initial;
+    border: initial;
+}
+
+.smart-slider[show-buttons] .smart-spin-button:first-of-type {
+    grid-area: lButton;
+}
+
+.smart-slider[show-buttons]:not([orientation="vertical"]) .smart-spin-button .smart-arrow {
+    left: initial;
+    top: initial;
+}
+
+.smart-slider[show-buttons]:not([orientation="vertical"]) .smart-spin-button .smart-arrow {
+    transform: rotate(-90deg);
+}
+
+.smart-slider[show-buttons][inverted]:not([orientation="vertical"]) .smart-spin-button .smart-arrow {
+    transform: rotate(90deg);
+}
+
+.smart-slider[show-buttons] .smart-spin-button[active] .smart-arrow::after {
+    font-weight: var(--smart-font-bold);
+}
+
+.smart-slider[show-buttons] .smart-spin-button[hover] {
+    border: none;
+}
+
+.smart-slider {
+    position: relative;
+}
+
+.smart-slider:not([scale-position="none"])::before, .smart-slider:not([scale-position="none"])::after {
+    display: none;
+}
+
+.smart-slider::before, .smart-slider::after {
+    position: absolute;
+    display: flex;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.smart-slider::before {
+    content: attr(value);
+}
+
+.smart-slider[show-unit][inverted]::before {
+    content: attr(unit);
+}
+
+.smart-slider[inverted]::after {
+    content: attr(value);
+}
+
+.smart-slider[show-unit]::after {
+    content: attr(unit);
+    justify-content: flex-end;
+    z-index: -1;
+}
+
+.smart-slider:not([orientation="vertical"])::before, .smart-slider:not([orientation="vertical"])::after {
+    top: calc( -1 * var(--smart-slider-thumb-width) / 4);
+    left: var(--smart-slider-value-offset);
+    height: calc(50% - var(--smart-slider-thumb-width) / 2);
+    width: calc(100% - var(--smart-slider-spin-button-width) - var(--smart-slider-thumb-width) - var(--smart-slider-value-offset));
+    margin: 0 calc(var(--smart-slider-thumb-width) / 2) 0 calc(var(--smart-slider-thumb-width) / 2);
+    align-items: center;
+}
+
+.smart-slider:not([orientation="vertical"])::before {
+    width: calc(100% - var(--smart-slider-spin-button-width) - var(--smart-slider-thumb-width) - 2 * var(--smart-slider-value-offset));
+    justify-content: var(--smart-editor-text-align);
+}
+
+.smart-slider[inverted]:not([orientation="vertical"])::before, .smart-slider[inverted]:not([orientation="vertical"])::after {
+    right: var(--smart-slider-value-offset);
+    margin: 0 calc(var(--smart-slider-thumb-width) / 2) 0 calc(var(--smart-slider-thumb-width) / 2);
+    align-items: center;
+}
+
+.smart-slider:not([value]):not([inverted])::before {
+    content: '0';
+}
+
+.smart-slider[inverted]:not([value])::after {
+    content: '0';
+}
+
+.smart-slider[orientation="vertical"]::after, .smart-slider[orientation="vertical"]::before {
+    top: 0;
+    left: calc( -1 * var(--smart-slider-thumb-width) / 4);
+    width: calc(50% - var(--smart-slider-thumb-width) / 2);
+    height: calc(100% - var(--smart-slider-spin-button-width) - var(--smart-slider-thumb-width) - var(--smart-slider-value-offset));
+    margin: calc(var(--smart-slider-thumb-width) / 2) 0 calc(var(--smart-slider-thumb-width) / 2) 0;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+.smart-slider[scale-position="none"]:not([show-buttons])[orientation="vertical"]::after, .smart-slider[scale-position="none"]:not([show-buttons])[orientation="vertical"]::before {
+    height: calc(100% - var(--smart-slider-thumb-width) - var(--smart-slider-value-offset));
+}
+
+.smart-slider[orientation="vertical"][inverted]::after, .smart-slider[orientation="vertical"][inverted]::before {
+    bottom: 0;
+    top: initial;
+}
+
+.smart-slider[orientation="vertical"]::before {
+    align-items: flex-end;
+}
+
+.smart-slider .smart-track-container {
+    display: flex;
+}
+
+.smart-slider[scale-position="none"]:not([show-buttons]):not([orientation="vertical"]) .smart-track-container {
+    height: 100%;
+    align-items: center;
+}
+
+.smart-slider[scale-position="none"]:not([show-buttons])[orientation="vertical"] .smart-track-container {
+    width: 100%;
+    justify-content: center;
+}
+
+.smart-slider[show-buttons]:not([orientation="vertical"]) .smart-scale {
+    margin-left: calc(var(--smart-slider-thumb-width) / 2 + var(--smart-border-width))
+}
+
+.smart-slider[show-buttons][orientation="vertical"] .smart-scale {
+    margin-top: calc(var(--smart-slider-thumb-height) / 2 + var(--smart-border-width));
+    height: calc(100% - var(--smart-slider-spin-button-height) - var(--smart-slider-thumb-height))
+}
+
+.smart-slider[show-buttons]:not([orientation="vertical"]) .smart-scale-near {
+    transform: translateY(calc(var(--smart-slider-spin-button-height) / 2));
+}
+
+.smart-slider[show-buttons]:not([orientation="vertical"]) .smart-scale-far {
+    transform: translateY(calc(-1 * var(--smart-slider-spin-button-height)));
+}
+
+.smart-slider[show-buttons][orientation="vertical"] .smart-scale-near {
+    transform: translateX(calc(var(--smart-slider-spin-button-width) / 2));
+}
+
+.smart-slider[show-buttons][orientation="vertical"] .smart-scale-far {
+    transform: translateX(calc(-1 * var(--smart-slider-spin-button-width) / 2));
+}
+
+.smart-slider .smart-arrow::after {
+    align-content: center;
+}
+
+.smart-slider[show-buttons][inverted]:not([orientation="vertical"]) .smart-scale {
+    margin-left: calc(var(--smart-slider-spin-button-width) + var(--smart-slider-thumb-width) / 2);
+}
+
+.smart-slider[show-buttons][inverted][orientation="vertical"] .smart-scale {
+    margin-top: calc(var(--smart-slider-spin-button-height) + var(--smart-slider-thumb-height) / 2);
+}
+
+.smart-slider[hint]:not([orientation="vertical"]) .smart-hint {
+    bottom: calc(100% + var(--smart-editor-label-indent-size) / 2);
+}
+
+/* TextBox, MultilineTextBox */
+
+.smart-text-box .smart-input, .smart-multiline-text-box {
+    border-top: initial;
+    border-left: initial;
+    border-right: initial;
+}
+
+.smart-text-box[readonly] .smart-input, .smart-multiline-text-box[readonly] {
+    border: initial;
+}
+
+.smart-multiline-text-box[readonly] .smart-container .smart-scroll-bar, .smart-multiline-text-box[readonly] .smart-container .smart-scroll-bar[orientation="vertical"] {
+    display: none;
+}
+
+.smart-text-box[focus]:not([readonly]) .smart-input, .smart-multiline-text-box[focus]:not([readonly]), .smart-combo-box[focus]:not([readonly]) .smart-action-button {
+    border-color: var(--smart-ui-state-border-focus);
+    box-shadow: 0 var(--smart-border-width) 0 0 var(--smart-border);
+}
+
+.smart-text-box[hover]:not([focus]):not([readonly]) .smart-input, .smart-multiline-text-box[hover]:not([focus]):not([readonly]), .smart-text-box[hover]:not([readonly]) .smart-input:active {
+    border-color: var(--smart-ui-state-border-hover);
+    box-shadow: 0 var(--smart-border-width) 0 0 var(--smart-ui-state-border-hover);
+}
+
+.smart-text-box .smart-input::selection, .smart-multiline-text-box .smart-input::selection {
+    background-color: rgba(var(--smart-primary-rgb), 0.1);
+    color: var(--smart-primary-color);
+}
+
+.smart-text-box .smart-input, .smart-multiline-text-box .smart-input {
+    caret-color: var(--smart-primary);
+    text-align: var(--smart-editor-text-align);
+}
+
+.smart-text-box[label] .smart-label, .smart-multiline-text-box[label] .smart-label {
+    padding: initial;
+}
+
+.smart-text-box.error, .smart-drop-down-box.error, .smart-list-item.error {
+    --smart-primary: var(--smart-error);
+    --smart-border: var(--smart-primary);
+    --smart-primary-rgb: var(--smart-error-rgb);
+    --smart-ui-state-border-active: var(--smart-border);
+    --smart-ui-state-border-focus: var(--smart-border);
+    --smart-ui-state-border-hover: var(--smart-primary);
+    --smart-editor-label-padding: 5px;
+    --smart-surface: rgba(var(--smart-primary-rgb), 0.10);
+}
+
+.smart-text-box.error>.smart-container::before, .smart-text-box.error.smart-container::before, .smart-drop-down-box.error[right-to-left] .smart-buttons-container::after, .smart-drop-down-box.error:not([right-to-left]) .smart-buttons-container::before, .smart-list-item.error .smart-list-item-container::before {
+    content: '!';
+    width: var(--smart-editor-label-indent-size);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--smart-error);
+    color: white;
+}
+
+.smart-list-item.error .smart-list-item-container {
+    flex-direction: initial;
+    justify-content: initial;
+    padding: initial;
+    align-items: center;
+    background: var(--smart-surface);
+}
+
+.smart-list-item.error .smart-list-item-container::before {
+    margin-right: 5px;
+}
+
+.smart-element[right-to-left] .smart-list-item.error .smart-list-item-container::before, .smart-list-item.error[right-to-left] .smart-list-item-container::before {
+    margin-left: 5px;
+    margin-right: initial;
+}
+
+/* DateTimePicker, Path */
+
+.smart-date-time-picker {
+    --smart-ui-state-color-hover: var(--smart-primary);
+}
+
+.smart-date-time-picker, .smart-date-time-picker .smart-spin-button, .smart-date-time-picker .smart-drop-down-button.smart-calendar-button, .smart-date-time-picker[readonly] .smart-input.smart-date-time-input, .smart-path[readonly] .smart-path-input-container {
+    border: none;
+}
+
+.smart-date-time-picker[readonly] .smart-drop-down-button.smart-calendar-button, .smart-date-time-picker[readonly] .smart-spin-button, .smart-path[readonly] .smart-drop-down-button, .smart-path[readonly] .smart-browse-button {
+    display: none;
+}
+
+.smart-date-time-picker .smart-input.smart-date-time-input, .smart-path .smart-path-input-container, .smart-drop-down-box[drop-down-open-mode="dropDownButton"] .smart-buttons-container {
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    caret-color: var(--smart-primary);
+    text-align: var(--smart-editor-text-align);
+}
+
+.smart-date-time-picker .smart-input.smart-date-time-input::selection, .smart-path .smart-input.smart-path-input::selection, .smart-drop-down-box .smart-input::selection {
+    background-color: rgba(var(--smart-primary-rgb), 0.1);
+    color: var(--smart-primary-color);
+}
+
+.smart-date-time-picker[focus] .smart-input.smart-date-time-input, .smart-path[focus] .smart-path-input-container, .smart-drop-down-box[drop-down-open-mode="dropDownButton"][focus]:not([opened]) .smart-buttons-container, .smart-drop-down-box[drop-down-open-mode="dropDownButton"]:not(.smart-drop-down-list)[action-button-focus]:not([opened]) .smart-buttons-container, .smart-drop-down-box[drop-down-open-mode="dropDownButton"]:not(.smart-drop-down-list)[drop-down-button-focus]:not([opened]) .smart-buttons-container {
+    border-color: var(--smart-ui-state-border-focus);
+    box-shadow: 0 var(--smart-border-width) 0 0 var(--smart-border);
+}
+
+.smart-date-time-picker[hover]:not([focus]):not([readonly]) .smart-input.smart-date-time-input:hover, .smart-date-time-picker[hover]:not([readonly]) .smart-input.smart-date-time-input:active, .smart-path:not([focus]):not([readonly]) .smart-path-input-container:hover, .smart-path:hover:not([readonly]) .smart-path-input-container:active, .smart-drop-down-box[drop-down-open-mode="dropDownButton"]:not(.smart-drop-down-list):not([focus]):not([readonly])[hover]:not([drop-down-button-hover]) .smart-buttons-container {
+    border-color: var(--smart-ui-state-border-hover);
+    box-shadow: 0 var(--smart-border-width) 0 0 var(--smart-ui-state-border-hover);
+}
+
+.smart-date-time-picker .smart-drop-down-button.smart-calendar-button, .smart-path .smart-drop-down-button, .smart-path .smart-browse-button {
+    border: var(--smart-border-width) solid transparent;
+}
+
+.smart-date-time-picker[hover] .smart-drop-down-button.smart-calendar-button:hover, .smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active], .smart-path .smart-drop-down-button:hover, .smart-path .smart-drop-down-button:active, .smart-path[opened] .smart-drop-down-button, .smart-path .smart-browse-button:hover, .smart-path .smart-browse-button:active {
+    border-color: var(--smart-ui-state-border-hover);
+    box-shadow: 0 0 0 var(--smart-border-width) var(--smart-ui-state-border-hover);
+}
+
+.smart-date-time-picker[hover] .smart-drop-down-button.smart-calendar-button:active {
+    color: var(--smart-primary-color);
+}
+
+.smart-date-time-picker .smart-spin-button[hover] .smart-arrow::after, .smart-date-time-picker .smart-spin-button[active] .smart-arrow::after {
+    font-weight: var(--smart-font-bold);
+}
+
+.smart-date-time-picker[label]>.smart-container>.smart-label, .smart-path[label] .smart-label {
+    padding: initial;
+}
+
+.smart-date-time-picker .smart-drop-down-button.smart-calendar-button:not(:hover):not([active]), .smart-path:not([opened]) .smart-drop-down-button:not(:hover), .smart-path .smart-browse-button:not(:hover) {
+    border-color: transparent;
+}
+
+/* Path */
+
+.smart-path {
+    /* Set a custom icon for the drop down button */
+    /* --smart-ui-state-color-hover: var(--smart-primary); */
+}
+
+.smart-drop-down .smart-path-item:not([hover]) {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.smart-drop-down .smart-path-item[active], .smart-drop-down .smart-path-item[focus] {
+    color: var(--smart-ui-state-color-selected);
+    background-color: var(--smart-ui-state-selected)
+}
+
+.smart-drop-down:not([right-to-left]) .smart-path-item[focus]:not([hover]) {
+    box-shadow: var(--smart-border-width) 0 0 0 inset var(--smart-primary);
+    border-right-color: transparent;
+}
+
+.smart-drop-down[right-to-left] .smart-path-item[focus]:not([hover]) {
+    box-shadow: calc(-1 * var(--smart-border-width)) 0 0 0 inset var(--smart-primary);
+    border-left-color: transparent;
+}
+
+.smart-path .smart-buttons-container {
+    grid-template-columns: minmax(0, 1fr) repeat(2, var(--smart-editor-addon-width));
+}
+
+.smart-path .smart-path-input-container {
+    border-top: initial;
+    border-left: initial;
+    border-right: initial;
+}
+
+.smart-path .smart-drop-down-button {
+    order: 1;
+}
+
+.smart-path .smart-browse-button {
+    order: 2
+}
+
+input.smart-input, .smart-path .smart-path-multiline-container {
+    padding: var(--smart-editor-label-padding);
+}
+
+/* ListBox */
+
+.smart-list-box .smart-list-item[hover] .smart-content, .smart-drop-down .smart-path-item[hover] {
+    border-color: var(--smart-ui-state-border-hover);
+    box-shadow: 0 0 0 var(--smart-border-width) inset var(--smart-ui-state-border-hover);
+}
+
+.smart-list-box .smart-list-item[selected]:not([hover]) .smart-content {
+    border-top: initial;
+    border-bottom: initial;
+}
+
+.smart-list-box:not([right-to-left]) .smart-list-item[selected]:not([hover]) .smart-content {
+    box-shadow: var(--smart-border-width) 0 0 0 inset var(--smart-primary);
+    border-right: initial;
+}
+
+.smart-list-box[right-to-left] {
+    --smart-list-item-padding: 9px var(--smart-editor-label-indent-size) 9px 12px;
+}
+
+.smart-list-box[right-to-left] .smart-list-item[selected]:not([hover]) .smart-content {
+    box-shadow: calc(-1 * var(--smart-border-width)) 0 0 0 inset var(--smart-primary);
+    border-left: initial;
+}
+
+/* ComboBox */
+
+.smart-combo-box {
+    --smart-editor-drop-down-max-height: 104px;
+}
+
+.smart-drop-down-box .smart-action-button, .smart-drop-down-box[drop-down-button-position] .smart-action-button, .smart-drop-down-box .smart-drop-down-button, .smart-drop-down-box[drop-down-button-position] .smart-drop-down-button, .smart-drop-down-box[drop-down-open-mode="dropDownButton"] .smart-drop-down-button {
+    border: none;
+}
+
+.smart-drop-down-box:not([drop-down-open-mode="dropDownButton"]) .smart-buttons-container, .smart-drop-down-list .smart-buttons-container {
+    border: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-drop-down-box .smart-action-button[hover] {
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-drop-down-box .smart-drop-down-button[hover] {
+    border-color: var(--smart-border);
+}
+
+.smart-drop-down-box[hover] .smart-drop-down-button:not([hover]), .smart-drop-down-box[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    color: var(--smart-surface-color);
+}
+
+.smart-drop-down-box:not([drop-down-open-mode="dropDownButton"])[focus]:not([opened]) .smart-buttons-container, .smart-drop-down-list[focus]:not([opened]) .smart-buttons-container, .smart-drop-down-list[action-button-focus]:not([opened]) .smart-buttons-container, .smart-drop-down-list[drop-down-button-focus]:not([opened]) .smart-buttons-container {
+    border-color: var(--smart-ui-state-border-focus);
+    box-shadow: 0 0 0 var(--smart-border-width) var(--smart-border);
+}
+
+.smart-drop-down-box:not([drop-down-open-mode="dropDownButton"]):not([focus]):not([readonly])[hover] .smart-buttons-container, .smart-drop-down-list[hover]:not([opened]):not([readonly]) .smart-buttons-container {
+    border-color: var(--smart-ui-state-border-hover);
+    box-shadow: 0 0 0 var(--smart-border-width) var(--smart-ui-state-border-hover);
+}
+
+.smart-drop-down-box:not([drop-down-open-mode="dropDownButton"])[hover]:not([focus]) .smart-drop-down-button {
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-drop-down.smart-drop-down-container[drop-down-open-mode]:not([drop-down-open-mode="dropDownButton"])[top] {
+    border-bottom: none;
+}
+
+.smart-drop-down.smart-drop-down-container[drop-down-open-mode]:not([drop-down-open-mode="dropDownButton"])[bottom] {
+    border-top: none;
+}
+
+/* DropDownList */
+
+.smart-drop-down-box .smart-drop-down.smart-drop-down-container, .smart-drop-down.smart-drop-down-repositioned {
+    box-shadow: var(--smart-elevation-0);
+}
+
+.smart-drop-down-box[readonly]:not([focus]) .smart-buttons-container {
+    border: initial;
+}
+
+.smart-drop-down-box[readonly] .smart-drop-down-button {
+    display: none;
+}
+
+.smart-drop-down-box[readonly] .smart-action-button {
+    width: 100%;
+}
+
+.smart-drop-down-list {
+    --smart-editor-label-padding: var(--smart-editor-label-indent-size);
+}
+
+.smart-drop-down-box[drop-down-open-mode="dropDownButton"][drop-down-button-position="right"]:not([hover]) .smart-action-button:focus, .smart-drop-down-box[drop-down-open-mode="dropDownButton"]:not([drop-down-button-position]):not([hover]) .smart-action-button:focus {
+    box-shadow: none;
+}
+
+/* Window */
+
+.smart-window:not(.smart-container) {
+    box-shadow: 0px 0px 13px #00000029;
+}
+
+.smart-window .smart-content-container>.smart-footer .smart-button {
+    --smart-button-padding: 0;
+}
+
+.smart-window .smart-content-container>.smart-footer {
+    justify-content: flex-end;
+}
+
+.smart-window .smart-content-container>.smart-content {
+    align-items: flex-start;
+}
+
+/* Grid */
+
+.smart-grid {
+    --smart-surface: #F1F1F2;
+}
+
+.smart-grid .smart-scroll-bar, .smart-grid .smart-scroll-bar[orientation="vertical"] {
+    border: none;
+}
+
+.smart-grid>.smart-container .smart-grid-column-header, .smart-grid.smart-container .smart-grid-column-header {
+    min-height: var(--smart-grid-column-header-height);
+}
+
+.smart-grid[right-to-left] smart-scroll-bar[orientation="vertical"] {
+    border-right: initial;
+}
+
+/* Table */
+
+.smart-table thead th, .smart-table .smart-table-select-all.freeze-near {
+    --smart-surface: #F1F1F2;
+}
+
+.smart-table .freeze-near {
+    box-shadow: none;
+}
+
+.smart-table th, .smart-table td, .smart-table tbody tr.last-visible.sized {
+    --smart-border: transparent;
+}
+
+.smart-table thead th {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.smart-table th.smart-table-select-all.selected>div, .smart-table td.smart-table-select-row.selected>div {
+    border-color: var(--smart-ui-state-border-active);
+    background-color: var(--smart-background);
+}
+
+.smart-table th.smart-table-select-all.selected>div::after, .smart-table td.smart-table-select-row.selected>div::after {
+    font-weight: var(--smart-font-bold);
+}
+
+/* Chrome default browser styles */
+
+.smart-element ::-webkit-scrollbar {
+    width: calc(var(--smart-scroll-bar-size) /2);
+}
+
+.smart-element ::-webkit-scrollbar-track {
+    background-color: transparent;
+    background-clip: padding-box;
+}
+
+.smart-element ::-webkit-scrollbar-track-piece, .smart-table th.smart-table-select-all.indeterminate>div {
+    background-color: var(--smart-scroll-bar-background);
+    box-shadow: 0 0 0 3.5px inset var(--smart-background);
+}
+
+.smart-element ::-webkit-scrollbar-thumb {
+    border: var(--smart-border-width) solid var(--smart-scroll-bar-thumb-border);
+    background-color: var(--smart-scroll-bar-thumb-background);
+    border-top-left-radius: var(--smart-scroll-bar-thumb-border-top-left-radius);
+    border-top-right-radius: var(--smart-scroll-bar-thumb-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-scroll-bar-thumb-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-scroll-bar-thumb-border-bottom-right-radius);
+}
+
+.smart-element ::-webkit-scrollbar-corner {
+    background-color: var(--smart-scroll-bar-background);
+}

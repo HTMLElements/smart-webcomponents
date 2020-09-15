@@ -1,12 +1,12 @@
 
-/* Smart UI v7.7.0 (2020-July) 
+/* Smart UI v8.0.0 (2020-Sep) 
 Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
 
 
-    const Version = '7.7.0';
+    const Version = '7.7.1';
     const templates = [];
 
     let namespace = 'Smart';
@@ -2174,6 +2174,9 @@ License: https://htmlelements.com/license/ */ //
 
                 if (eventType === 'wheel') {
                     that.element.addEventListener('wheel', that.handlers[eventType], that.isPassiveSupported ? { passive: false } : false);
+                }
+                else if (eventType === 'touchmove' || eventType === 'touchstart' || eventType === 'touchend') {
+                    that.element.addEventListener(eventType, that.handlers[eventType], that.isPassiveSupported ? { passive: false } : false);
                 }
                 else {
                     that.element.addEventListener(eventType, that.handlers[eventType], false);

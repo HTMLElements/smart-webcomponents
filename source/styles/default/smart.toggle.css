@@ -171,7 +171,8 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        margin-top: 1px;
+        height: 100%;
+        align-items: center;
     }
 
     .smart-check-box.smart-toggle-box[checked] .smart-input:after {
@@ -181,6 +182,7 @@
 
     .smart-check-box.smart-toggle-box[checked="null"] .smart-input:after {
         content: '-';
+        margin-top: -1px;
     }
 
     /* --- Right-To-Left --- */

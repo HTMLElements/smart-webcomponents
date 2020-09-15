@@ -112,9 +112,17 @@ export interface Tooltip extends BaseElement, TooltipProperties {
 	* @param event. The custom event.    */
   onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered before the tooltip is opened. The event can be prevented via event.preventDefault().
+	* @param event. The custom event.    */
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the tooltip is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered before the tooltip is closed. The event can be prevented via event.preventDefault().
+	* @param event. The custom event.    */
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes smart-tooltip. 
    */
@@ -127,6 +135,10 @@ export interface Tooltip extends BaseElement, TooltipProperties {
    * Toggles smart-tooltip. 
    */
   toggle(): void;
+  /**
+   * Clears the content of the Tooltip. 
+   */
+  clear(): void;
 }
 
 declare global {

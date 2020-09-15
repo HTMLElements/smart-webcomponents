@@ -3,10 +3,10 @@ smart-filter-panel {
     height: var(--smart-filter-panel-default-height);
 }
 
-    smart-filter-panel.smart-element {
-        padding: var(--smart-filter-panel-padding);
-        border: none;
-    }
+smart-filter-panel.smart-element {
+    padding: var(--smart-filter-panel-padding);
+    border: none;
+}
 
 .smart-filter-panel .smart-filter-panel-label,
 .smart-filter-panel .smart-filter-panel-list,
@@ -33,13 +33,13 @@ smart-filter-panel {
     justify-content: space-around;
 }
 
-    .smart-filter-panel .smart-filter-panel-button-container > smart-button {
-        width: 80px;
-    }
+.smart-filter-panel .smart-filter-panel-button-container>smart-button {
+    width: 80px;
+}
 
-        .smart-filter-panel .smart-filter-panel-button-container > smart-button button {
-            padding: 8px;
-        }
+.smart-filter-panel .smart-filter-panel-button-container>smart-button button {
+    padding: 8px;
+}
 
 .smart-filter-panel .smart-filter-panel-input {
     height: var(--smart-editor-height);
@@ -57,14 +57,19 @@ smart-filter-panel {
     height: var(--smart-filter-panel-main-element-height);
 }
 
-    .smart-filter-panel smart-tree.standard-excel .smart-tree-items-group-arrow,
-    .smart-filter-panel smart-tree.date-excel smart-tree-items-group[level="1"] > .smart-tree-item-label-container > .smart-tree-items-group-arrow {
-        visibility: hidden;
-    }
+.smart-filter-panel smart-tree.standard-excel .smart-tree-items-group-arrow,
+.smart-filter-panel smart-tree.date-excel smart-tree-items-group[level="1"]>.smart-tree-item-label-container>.smart-tree-items-group-arrow {
+    visibility: hidden;
+}
 
-    .smart-filter-panel smart-tree.standard-excel smart-tree-item:not([level="1"]) > .smart-tree-item-label-container {
-        margin-left: -30px;
-    }
+.smart-filter-panel smart-tree.standard-excel smart-tree-item:not([level="1"])>.smart-tree-item-label-container {
+    margin-left: -30px;
+}
+
+.smart-filter-panel[right-to-left] smart-tree.standard-excel smart-tree-item:not([level="1"])>.smart-tree-item-label-container {
+    margin-right: -30px;
+    margin-left: unset;
+}
 
 .smart-filter-panel smart-filter-builder {
     --smart-filter-builder-item-width: 150px;
@@ -86,18 +91,18 @@ smart-filter-panel {
     --smart-filter-builder-item-width: 34px;
 }
 
-    .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-filter-value,
-    .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container {
-        min-width: initial;
-    }
+.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-filter-value,
+.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container {
+    min-width: initial;
+}
 
-    .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-value-container {
-        width: 100px;
-    }
+.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-value-container {
+    width: 100px;
+}
 
-    .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container[open] .smart-check-box-editor {
-        width: 100%;
-    }
+.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container[open] .smart-check-box-editor {
+    width: 100%;
+}
 
 .smart-filter-panel smart-filter-builder .smart-filter-field-name {
     display: none;
@@ -107,7 +112,7 @@ smart-filter-panel {
     padding: 0;
 }
 
-.smart-filter-panel smart-filter-builder .smart-content-container > .smart-filter-group > .smart-filter-group-operator {
+.smart-filter-panel smart-filter-builder .smart-content-container>.smart-filter-group>.smart-filter-group-operator {
     margin-left: 15px;
 }
 
@@ -118,4 +123,8 @@ smart-filter-panel {
 .smart-filter-panel smart-menu-item[value="notand"],
 .smart-filter-panel smart-menu-item[value="notor"] {
     display: none;
+}
+
+.smart-filter-panel[right-to-left] {
+    direction: rtl;
 }

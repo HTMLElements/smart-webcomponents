@@ -693,12 +693,16 @@ header.smart-grid-pager {
     }
 
 .smart-grid-placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     user-select: none;
     text-align: center;
+    display: flex;
+    height: 100%;
+    min-height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.smart-grid-content.auto-height .smart-grid-placeholder {
+    height: initial;
 }
 
 .smart-grid-row-container,
@@ -777,6 +781,12 @@ smart-grid-column {
             height: 100%;
             left: 4px;
             position: relative;
+        }
+
+        smart-grid-column .smart-icon.show.smart-add-new-column {
+            left: 0px;
+            width: 100%;
+            justify-content: center;
         }
 
         smart-grid-column .smart-icon .smart-grid-icon {
@@ -1212,6 +1222,13 @@ smart-grid-column:not(.smart-grid-column-border):not(.smart-grid-column-border-c
     top: 0px;
     left: 0px;
 }
+smart-grid-cell.smart-add-new-column {
+    background: var(--smart-surface);
+}
+smart-grid-cell.smart-add-new-column:before,
+smart-grid-cell.smart-add-new-column:after {
+    display: none;
+}
 
 .smart-grid[right-to-left] smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-collapse)::before,
 .smart-grid[right-to-left] smart-grid-column:not(.smart-grid-column-border):not(.smart-grid-column-border-collapse)::before,
@@ -1384,7 +1401,7 @@ smart-grid-cell[has-toggle-button] button[toggle-button] {
     font-size: 16px;
 }
 
-.smart-grid[tree] smart-grid-cell[has-toggle-button] button[toggle-button] {
+.smart-grid[tree] smart-grid-cell[has-toggle-button]:not([detail]) button[toggle-button] {
     padding-right: 7px;
 }
 
@@ -1394,6 +1411,11 @@ smart-grid-cell button[toggle-button]:after {
 
 smart-grid-cell[has-toggle-button] button[toggle-button]::after {
     content: var(--smart-icon-arrow-down);
+}
+smart-grid-cell[has-toggle-button] button[toggle-button].row-detail::after {
+    content: var(--smart-icon-resize-full);
+    font-size: 13px;
+    color: var(--smart-primary);
 }
 
 smart-grid-cell[detail][has-toggle-button] .smart-label {
@@ -1624,6 +1646,7 @@ smart-grid-cell[highlight] {
     color: var(--smart-grid-cell-color-filter);
 }
 
+
 smart-grid-cell[group] {
     font-size: 12px;
 }
@@ -1745,7 +1768,7 @@ smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-type {
     background: var(--smart-surface);
 }
 
-.smart-grid[grouped] smart-grid-row[group][selected] > .smart-grid-cell-container > smart-grid-cell {
+.smart-grid[grouped] smart-grid-row[group][selected] > .smart-grid-cell-container > smart-grid-cell div[content] {
     color: var(--smart-ui-state-color-selected);
     background: var(--smart-ui-state-selected);
 }
@@ -2194,6 +2217,7 @@ smart-grid-row smart-grid-cell[header] .smart-grid-cell-editor.smart-grid-input-
 
     .smart-grid-cell-editor.smart-grid-number-input-cell-editor .smart-input {
         text-align: right;
+        height: 100%;
     }
 
         .smart-grid-cell-editor.smart-grid-number-input-cell-editor .smart-input[type=number]::-webkit-inner-spin-button,
@@ -2255,15 +2279,23 @@ smart-grid-row smart-grid-cell[header] .smart-grid-cell-editor.smart-grid-input-
 
             .smart-grid-cell-editor.smart-grid-text-area-cell-editor .nav:active,
             .smart-grid-cell-editor.smart-grid-number-input-cell-editor .nav .up:active,
-            .smart-grid-cell-editor.smart-grid-number-input-cell-editor .nav .down:active {
+            .smart-grid-cell-editor.smart-grid-number-input-cell-editor .nav .down:active,
+            .smart-grid-cell-editor.smart-grid-number-input-cell-editor .nav .up[active],
+            .smart-grid-cell-editor.smart-grid-number-input-cell-editor .nav .down[active]
+            {
                 background: var(--smart-ui-state-active);
                 color: var(--smart-ui-state-color-active);
             }
 
+smart-grid-row[alternation-index="0"] smart-grid-cell[editor]:not([selected]):not([header]) > .smart-label,
+smart-grid-row[alternation-index="1"] smart-grid-cell[editor]:not([selected]):not([header]) > .smart-label,
+smart-grid-row[alternation-index="3"] smart-grid-cell[editor]:not([selected]):not([header]) > .smart-label,
+smart-grid-row[alternation-index="4"] smart-grid-cell[editor]:not([selected]):not([header]) > .smart-label,
 smart-grid-cell[editor] > .smart-label {
     padding: 0;
     margin: 0;
     border: 1px solid var(--smart-primary);
+    background: var(--smart-background);
     box-sizing: border-box;
     outline: none;
     width: calc(100% - 1px);
@@ -2297,6 +2329,23 @@ smart-grid-cell[editor="dateTimePicker"] {
     --smart-border-top-right-radius: 0px;
     --smart-border-bottom-left-radius: 0px;
     --smart-border-bottom-right-radius: 0px;
+}
+
+.smart-grid-dialog-editor.add-column {
+    display: flex;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.smart-grid-dialog-add-column .smart-grid-dialog-boolean-field  {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 50%;
+    float: left;
+}
+.smart-grid-dialog-add-column .smart-grid-dialog-boolean-field .smart-grid-dialog-editor{
+    margin-bottom: initial;
+    margin-right: 10px;
 }
 
 .smart-grid-dialog-editor[template="checkBox"],
@@ -2460,6 +2509,39 @@ smart-grid-column[checkbox][selected="indeterminate"] .smart-input::after {
     box-sizing: border-box;
     top: 0px;
     border-radius: 0px;
+}
+
+
+smart-grid-cell[error] {
+    overflow: visible;
+    z-index: 9999;
+}
+
+smart-grid-cell[error]:not([row-editor]) > .smart-label {
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--smart-error) !important;
+    box-sizing: border-box;
+    outline: none;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    position: relative;
+    left: 1px;
+    user-select: none;
+}
+smart-grid-row[edit][error] smart-grid-cell[editor]{
+    border-color: var(--smart-error);
+}
+
+.smart-grid-validation-error {
+    position: absolute;
+    background: var(--smart-error);
+    color: var(--smart-error-color);
+    border-radius: var(--smart-border-radius);
+    padding: 7px;
+    width:auto;
+    height: auto;
+    z-index: 99;
 }
 
 .smart-selection-overlay {
@@ -2831,4 +2913,19 @@ smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item
     flex-direction: column;
     max-height: 200px;
     overflow: hidden;
+}
+
+.smart-grid-cell-content-popup {
+    background: var(--smart-primary) !important;
+    color: var(--smart-primary-color) !important;
+    border: 1px solid var(--smart-primary) !important;
+    z-index: 9 !important;
+}
+
+.smart-grid-cell-content-popup-content {
+    padding-left: 6px;
+    padding-right: 2px;
+    padding-top:6px;
+    padding-bottom: 6px;
+    box-shadow: none !important;
 }

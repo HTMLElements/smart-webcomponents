@@ -1,12 +1,12 @@
 import React from "react";
 import { TreeProperties } from "./../../index";
-import { Animation, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSortDirection, Position, TreeToggleMode} from './../../index';
+import { Animation, TreeExpandMode, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSelectionTarget, TreeSortDirection, Position, TreeToggleMode} from './../../index';
 import { TreeItemProperties } from './../../index';
 import { TreeItem } from './treeitem';
 import { TreeItemsGroupProperties } from './../../index';
 import { TreeItemsGroup } from './treeitemsgroup';
 export { TreeProperties } from "./../../index";
-export { Animation, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSortDirection, Position, TreeToggleMode} from './../../index';
+export { Animation, TreeExpandMode, FilterMode, VerticalAlignment, Overflow, TreeScrollMode, TreeSelectionDisplayMode, TreeSelectionMode, TreeSelectionTarget, TreeSortDirection, Position, TreeToggleMode} from './../../index';
 export { TreeItem } from './treeitem';
 export { TreeItemProperties } from "./../../index";
 export { TreeItemsGroup } from './treeitemsgroup';
@@ -217,6 +217,18 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 		}
 	}
 
+	/** Determines the expand behavior of TreeItemsGroups in the Tree.
+	*	Property type: TreeExpandMode
+	*/
+	get expandMode(): TreeExpandMode  {
+		return this.nativeElement ? this.nativeElement.expandMode : undefined;
+	}
+	set expandMode(value: TreeExpandMode) {
+		if (this.nativeElement) {
+			this.nativeElement.expandMode = value;
+		}
+	}
+
 	/** Enables or disables filtering. Shows or hides filter input.
 	*	Property type: boolean
 	*/
@@ -421,6 +433,18 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 		}
 	}
 
+	/** Determines whether smart-tree-items-groups can be selected.
+	*	Property type: TreeSelectionTarget
+	*/
+	get selectionTarget(): TreeSelectionTarget  {
+		return this.nativeElement ? this.nativeElement.selectionTarget : undefined;
+	}
+	set selectionTarget(value: TreeSelectionTarget) {
+		if (this.nativeElement) {
+			this.nativeElement.selectionTarget = value;
+		}
+	}
+
 	/** Shows or hides lines, displaying the relation between elements in group.
 	*	Property type: boolean
 	*/
@@ -544,16 +568,16 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["allowDrag","allowDrop","animation","autoHideToggleElement","autoLoadState","autoSaveState","autoSort","dataSource","disabled","displayLoadingIndicator","displayMember","dragFeedbackFormatFunction","dragOffset","editable","filterable","filterInputPlaceholder","filterMode","hasThreeStates","itemsMember","loadingIndicatorPlaceholder","loadingIndicatorPosition","locale","localizeFormatFunction","messages","overflow","readonly","rightToLeft","scrollMode","selectedIndexes","selectionDisplayMode","selectionMode","showLines","showRootLines","sort","sortDirection","sorted","theme","toggleElementPosition","toggleMode","unfocusable","valueMember"];
+		return ["allowDrag","allowDrop","animation","autoHideToggleElement","autoLoadState","autoSaveState","autoSort","dataSource","disabled","displayLoadingIndicator","displayMember","dragFeedbackFormatFunction","dragOffset","editable","expandMode","filterable","filterInputPlaceholder","filterMode","hasThreeStates","itemsMember","loadingIndicatorPlaceholder","loadingIndicatorPosition","locale","localizeFormatFunction","messages","overflow","readonly","rightToLeft","scrollMode","selectedIndexes","selectionDisplayMode","selectionMode","selectionTarget","showLines","showRootLines","sort","sortDirection","sorted","theme","toggleElementPosition","toggleMode","unfocusable","valueMember"];
 	}
-	/**  This event is triggered when selection in smart-tree is changed.
+	/**  This event is triggered when selection in jqx-tree is changed.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	oldSelectedIndexes, 	selectedIndexes)
 	*   item - The item the user has interacted with to change the selection (only when applicable).
 	*   oldSelectedIndexes - The selected indexes before the selection is changed.
 	*   selectedIndexes - The selected indexes after the selection is changed.
 	*/
 	onChange?: ((event?: Event) => void) | undefined
-	/**  This event is triggered when a smart-tree-items-group is collapsed.
+	/**  This event is triggered when a jqx-tree-items-group is collapsed.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	path, 	value, 	children)
 	*   item - the collapsed jqx-tree-items-group
 	*   label - the label of the collapsed jqx-tree-items-group
@@ -562,7 +586,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 	*   children - the children of the collapsed jqx-tree-items-group
 	*/
 	onCollapse?: ((event?: Event) => void) | undefined
-	/**  This event is triggered when a smart-tree-items-group is about to be collapsed. The collapsing operation can be canceled by calling event.preventDefault() in the event handler function.
+	/**  This event is triggered when a jqx-tree-items-group is about to be collapsed. The collapsing operation can be canceled by calling event.preventDefault() in the event handler function.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	path, 	value, 	children)
 	*   item - the jqx-tree-items-group to be collapsed
 	*   label - the label of the jqx-tree-items-group to be collapsed
@@ -571,7 +595,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 	*   children - the children of the jqx-tree-items-group to be collapsed
 	*/
 	onCollapsing?: ((event?: Event) => void) | undefined
-	/**  This event is triggered when a smart-tree-item/smart-tree-items-group is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
+	/**  This event is triggered when a jqx-tree-item/jqx-tree-items-group is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	container, 	data, 	item, 	items, 	originalEvent, 	previousContainer, 	target)
 	*   container - the tree the dragged item(s) is dropped to
 	*   data - an object with additional drag details
@@ -582,7 +606,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 	*   target - the element the dragged items are dropped to
 	*/
 	onDragEnd?: ((event?: Event) => void) | undefined
-	/**  This event is triggered when a smart-tree-item/smart-tree-items-group is being dragged.
+	/**  This event is triggered when a jqx-tree-item/jqx-tree-items-group is being dragged.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	data, 	item, 	items, 	originalEvent)
 	*   data - an object with additional drag details
 	*   item - the item that is dragged; if multiple items are dragged, this is the item that has been clicked when initiating the drag operation
@@ -590,7 +614,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 	*   originalEvent - the original, browser, event that initiates the dragging operation
 	*/
 	onDragging?: ((event?: Event) => void) | undefined
-	/**  This event is triggered when a dragging operation is started in smart-tree. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
+	/**  This event is triggered when a dragging operation is started in jqx-tree. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	container, 	data, 	item, 	items, 	originalEvent, 	previousContainer)
 	*   container - the tree the dragged item(s) is dragged from
 	*   data - an object with additional drag details
@@ -600,7 +624,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 	*   previousContainer - the tree the dragged item(s) is dragged from
 	*/
 	onDragStart?: ((event?: Event) => void) | undefined
-	/**  This event is triggered when a smart-tree-items-group is expanded.
+	/**  This event is triggered when a jqx-tree-items-group is expanded.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	path, 	value, 	children)
 	*   item - the expanded jqx-tree-items-group
 	*   label - the label of the expanded jqx-tree-items-group
@@ -609,7 +633,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 	*   children - the children of the expanded jqx-tree-items-group
 	*/
 	onExpand?: ((event?: Event) => void) | undefined
-	/**  This event is triggered when a smart-tree-items-group is about to be expanded. The expanding operation can be canceled by calling event.preventDefault() in the event handler function.
+	/**  This event is triggered when a jqx-tree-items-group is about to be expanded. The expanding operation can be canceled by calling event.preventDefault() in the event handler function.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	path, 	value, 	children)
 	*   item - the jqx-tree-items-group to be expanded
 	*   label - the label of the jqx-tree-items-group to be expanded
@@ -642,8 +666,8 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 		return ["onChange","onCollapse","onCollapsing","onDragEnd","onDragging","onDragStart","onExpand","onExpanding","onScrollBottomReached","onScrollTopReached","onSwipeleft","onSwiperight","onCreate","onReady"];
 	}
 	/** Adds an item after another item as a sibling. 
-	* @param {HTMLElement} item. A smart-tree-item/smart-tree-items-group to add to the Tree
-	* @param {string | HTMLElement} sibling. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to add the item after.
+	* @param {HTMLElement} item. A jqx-tree-item/jqx-tree-items-group to add to the Tree
+	* @param {string | HTMLElement} sibling. The jqx-tree-item/jqx-tree-items-group (or its id or numeric path) to add the item after.
 	*/
     public addAfter(item: HTMLElement, sibling: string | HTMLElement): void {
         if (this.nativeElement.isRendered) {
@@ -658,8 +682,8 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Adds an item before another item as a sibling. 
-	* @param {HTMLElement} item. A smart-tree-item/smart-tree-items-group to add to the Tree
-	* @param {string | HTMLElement} sibling. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to add the item before.
+	* @param {HTMLElement} item. A jqx-tree-item/jqx-tree-items-group to add to the Tree
+	* @param {string | HTMLElement} sibling. The jqx-tree-item/jqx-tree-items-group (or its id or numeric path) to add the item before.
 	*/
     public addBefore(item: HTMLElement, sibling: string | HTMLElement): void {
         if (this.nativeElement.isRendered) {
@@ -674,8 +698,8 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Adds an item as the last child of a parent item. 
-	* @param {HTMLElement} item. A smart-tree-item/smart-tree-items-group to add to the Tree
-	* @param {string | HTMLElement} parent?. The smart-tree-items-group (or its id or numeric path) to add the item to.
+	* @param {HTMLElement} item. A jqx-tree-item/jqx-tree-items-group to add to the Tree
+	* @param {string | HTMLElement} parent?. The jqx-tree-items-group (or its id or numeric path) to add the item to.
 	*/
     public addTo(item: HTMLElement, parent?: string | HTMLElement): void {
         if (this.nativeElement.isRendered) {
@@ -719,7 +743,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Collapses a smart-tree-items-group. 
-	* @param {HTMLElement | string} item. smart-tree-items-group (or its id or numeric path).
+	* @param {HTMLElement | string} item. jqx-tree-items-group (or its id or numeric path).
 	* @param {boolean} animation?. If set to false, disables collapse animation even if animation is enabled for the element.
 	*/
     public collapseItem(item: HTMLElement | string, animation?: boolean): void {
@@ -765,7 +789,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Expands single smart-tree-items-group. 
-	* @param {HTMLElement | string} item. smart-tree-items-group (or its id or numeric path).
+	* @param {HTMLElement | string} item. jqx-tree-items-group (or its id or numeric path).
 	* @param {boolean} animation?. If set to false, disables expand animation even if animation is enabled for the element.
 	*/
     public expandItem(item: HTMLElement | string, animation?: boolean): void {
@@ -831,7 +855,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Inserts an item at the given position. 
-	* @param {any} item. A smart-tree-item/smart-tree-items-group (or an Object to create an item from) to add to the Tree. If an Object is passed, the available fields are <strong>tagName</strong> (<em>'smart-tree-item'</em> - default - or <em>'smart-tree-items-group'</em>), <strong>disabled</strong>, <strong>expanded</strong> (only if <strong>tagName</strong> is <em>'smart-tree-items-group'</em>), <strong>(items)</strong> (only if <strong>tagName</strong> is <em>'smart-tree-items-group'</em>), <strong>(label)</strong>, <strong>separator</strong>, <strong>shortcut</strong> (only if <strong>tagName</strong> is <em>'smart-tree-item'</em>), and <strong>(value)</strong>. (items), (label), and (value) have to correspond to the values of <strong>itemsMember</strong>, <strong>displayMember</strong>, and <strong>valueMember</strong> respectively.
+	* @param {any} item. A jqx-tree-item/jqx-tree-items-group (or an Object to create an item from) to add to the Tree. If an Object is passed, the available fields are <strong>tagName</strong> (<em>'jqx-tree-item'</em> - default - or <em>'jqx-tree-items-group'</em>), <strong>disabled</strong>, <strong>expanded</strong> (only if <strong>tagName</strong> is <em>'jqx-tree-items-group'</em>), <strong>(items)</strong> (only if <strong>tagName</strong> is <em>'jqx-tree-items-group'</em>), <strong>(label)</strong>, <strong>separator</strong>, <strong>shortcut</strong> (only if <strong>tagName</strong> is <em>'jqx-tree-item'</em>), and <strong>(value)</strong>. (items), (label), and (value) have to correspond to the values of <strong>itemsMember</strong>, <strong>displayMember</strong>, and <strong>valueMember</strong> respectively.
 	* @param {string} path?. The path to insert the item at.
 	*/
     public insert(item: any, path?: string): void {
@@ -862,7 +886,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Moves an item down relative to its siblings. 
-	* @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
+	* @param {HTMLElement | string} item. The jqx-tree-item/jqx-tree-items-group (or its id or numeric path) to remove.
 	*/
     public moveDown(item: HTMLElement | string): void {
         if (this.nativeElement.isRendered) {
@@ -877,7 +901,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Moves an item up relative to its siblings. 
-	* @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
+	* @param {HTMLElement | string} item. The jqx-tree-item/jqx-tree-items-group (or its id or numeric path) to remove.
 	*/
     public moveUp(item: HTMLElement | string): void {
         if (this.nativeElement.isRendered) {
@@ -892,7 +916,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Removes an item. 
-	* @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
+	* @param {HTMLElement | string} item. The jqx-tree-item/jqx-tree-items-group (or its id or numeric path) to remove.
 	*/
     public removeItem(item: HTMLElement | string): void {
         if (this.nativeElement.isRendered) {
@@ -924,7 +948,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Selects an item. 
-	* @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
+	* @param {HTMLElement | string} item. The jqx-tree-item/jqx-tree-items-group (or its id or numeric path) to remove.
 	*/
     public select(item: HTMLElement | string): void {
         if (this.nativeElement.isRendered) {
@@ -939,7 +963,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Unselects an item. 
-	* @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
+	* @param {HTMLElement | string} item. The jqx-tree-item/jqx-tree-items-group (or its id or numeric path) to remove.
 	*/
     public unselect(item: HTMLElement | string): void {
         if (this.nativeElement.isRendered) {
@@ -954,7 +978,7 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
     }
 
 	/** Updates an item. 
-	* @param {HTMLElement | string} item. smart-tree-item/smart-tree-items-group (or its id or numeric path).
+	* @param {HTMLElement | string} item. jqx-tree-item/jqx-tree-items-group (or its id or numeric path).
 	* @param {any} newItem. An object with updated properties.
 	*/
     public updateItem(item: HTMLElement | string, newItem: any): void {

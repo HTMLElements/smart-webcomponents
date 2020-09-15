@@ -20,13 +20,13 @@
     --smart-disabled-color: #555; /* Text color on top of a theme background in disabled state */
     --smart-ui-state-hover: #ebebeb; /* Hover state background. */
     --smart-ui-state-color-hover: #333; /* Text color, when UI Element's state is 'hover'. */
-    --smart-ui-state-border-hover: #ebebeb; /* Border color, when UI Element's state is 'hover'. */
+    --smart-ui-state-border-hover: var(--smart-ui-state-hover); /* Border color, when UI Element's state is 'hover'. */
     --smart-ui-state-active: var(--smart-primary); /* Active state background. */
     --smart-ui-state-color-active: var(--smart-primary-color); /* Text color, when UI Element's state is 'active'. */
     --smart-ui-state-border-active: var(--smart-primary); /* Border color, when UI Element's state is 'active'. */
     --smart-ui-state-focus: #e2e0e0; /* Focus state background. */
     --smart-ui-state-color-focus: #333; /* Text color, when UI Element's state is 'focus'. */
-    --smart-ui-state-border-focus: #e2e0e0; /* Border color, when UI Element's state is 'focus'. */
+    --smart-ui-state-border-focus: var(--smart-ui-state-focus); /* Border color, when UI Element's state is 'focus'. */
     --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1); /* Selected state background. */
     --smart-ui-state-color-selected: var(--smart-primary); /* Text color, when UI Element's state is 'selected'. */
     --smart-ui-state-border-selected: rgba(var(--smart-primary-rgb), .1); /* Border color, when UI Element's state is 'selected'. */
@@ -48,6 +48,7 @@
     --smart-border-bottom-left-radius: var(--smart-border-radius); /* Theme border-radius */
     --smart-border-bottom-right-radius: var(--smart-border-radius); /* Theme border-radius */
     --smart-border: #E0E0E0; /* The theme background border color */
+    --smart-border-rgb: 4, 224, 224; /* The theme background border color */
     --smart-outline: #b2b2b2; /* The theme active element outline color */
     --smart-editor-selection: var(--smart-primary); /* Background color of the selected text. */
     --smart-editor-selection-color: var(--smart-primary-color); /* Color of the selected text. */
@@ -221,6 +222,9 @@
     /* Button - Outlined */
     --smart-button-outlined-color: var(--smart-background-color); /* The color of the outlined button. */
     --smart-button-outlined-border: var(--smart-border); /* The border of the outlined button. */
+    /* Button Group */
+    --smart-button-group-default-width: auto;
+    --smart-button-group-default-height: var(--smart-editor-height);
     /* Calendar */
     --smart-calendar-header-height: calc(0.75 * var(--smart-bar-height)); /* Default height for smartCalendar's header section */
     --smart-calendar-footer-height: calc(0.75 * var(--smart-bar-height)); /* Default height for smartCalendar's footer section */
@@ -241,6 +245,7 @@
     --smart-calendar-important-date-background: var(--smart-ui-state-hover); /* Defines title's padding */
     --smart-calendar-important-date-color: var(--smart-ui-state-color-hover); /* Defines title's padding */
     --smart-calendar-important-date-border-color: var(--smart-ui-state-border-hover); /* Defines title's padding */
+    --smart-calendar-navigation-button-size: 30px; /* Sets the size for the navigation buttons */
     /* CardView */
     --smart-card-view-default-width: 1200px; /* Default width of CardView. */
     --smart-card-view-default-height: 800px; /* Default height of CardView. */
@@ -310,7 +315,7 @@
     --smart-data-view-padding: 10px; /* Padding of the CardView and Kanban */
     --smart-data-view-customize-panel-width: 200px; /* Width of the CardView and Kanban customize panel (drop down). */
     --smart-data-view-filter-panel-width: 550px; /* Width of the CardView and Kanban filter panel (drop down). */
-    --smart-data-view-sort-panel-width: 400px; /* Width of the CardView and Kanban sort panel (drop down). */
+    --smart-data-view-sort-panel-width: 450px; /* Width of the CardView and Kanban sort panel (drop down). */
     --smart-data-view-search-panel-width: 250px; /* Width of the CardView and Kanban search panel (drop down). */
     /* Date Format Panel */
     --smart-date-format-panel-main-container-width: 960px; /* Main container */
@@ -340,6 +345,8 @@
     --smart-date-time-picker-default-height: var(--smart-editor-height); /* smartDateTimePicker default height */
     --smart-date-time-picker-header-opacity: 0.8; /* Opacity of header elements */
     --smart-date-time-picker-header-opacity-active: 1; /* Opacity of header elements when selected */
+    --smart-date-time-picker-drop-down-width: var(--smart-editor-drop-down-height); /* smartDropDownList drop down width */
+    --smart-date-time-picker-drop-down-height: auto; /* smartDropDownList drop down height */
     /*DockingLayout*/
     --smart-docking-layout-default-width: 1000px; /* smartDropDownList, smartComboBox default width */
     --smart-docking-layout-default-height: 800px; /* smartDropDownList, smartComboBox default height */
@@ -435,6 +442,7 @@
     --smart-gantt-chart-popup-window-footer-height: 50px; /* Determines the height of the footer of the popup windows insinde the element. */
     --smart-gantt-chart-header-placeholder: ' - '; /* Placeholder for thea Header sections when there're no items */
     --smart-gantt-chart-progress-label-padding: 0 10px 0 10px; /* Task progress label padding */
+    --smart-gantt-chart-header-box-shadow: initial; /* Sets a box shadow to the Task Timeline header */
     /* Gauge */
     --smart-gauge-default-width: var(--smart-box-width); /* smartGauge default width */
     --smart-gauge-default-height: var(--smart-box-height); /* smartgauge default height */
@@ -484,13 +492,18 @@
     --smart-grid-layout-row-gap: 10px;
     --smart-grid-layout-width: 100%;
     --smart-grid-layout-rows: none;
-    /* Group Panel, Sort Panel, Column Panel, Multi Column Filter Panel */
+    /* Group Panel, Sort Panel, Column Panel, Multi Column Filter Panel, Formatting Panel */
     --smart-grid-panel-default-width: 450px; /* Default width of the smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel */
     --smart-grid-panel-default-height: auto; /* Default height of the smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel */
     --smart-grid-panel-padding: 10px; /* padding of the smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel */
     --smart-grid-panel-vertical-offset: 10px; /* Vertical offset between smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel items */
     --smart-grid-panel-item-height: 30px; /* height of smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel items */
     --smart-multi-column-filter-panel-template-columns: 15px 60px 2fr 3fr 3fr; /* smartMultiColumnFilterPanel grid-template-columns */
+    --smart-formatting-panel-default-width: 600px; /* Default width of the smartFormattingPanel */
+    --smart-formatting-panel-row-height: 30px; /* Height of rows in smartFormattingPanel */
+    --smart-formatting-panel-add-new-button-size: 40px; /* Size of "Add new" (+) button in smartFormattingPanel */
+    --smart-formatting-panel-popup-width: 300px; /* Width of smartFormattingPanel's pop-up */
+    --smart-formatting-panel-color-box-height: 20px; /* Height of color boxes in smartFormattingPanel's pop-up */
     /* Kanban */
     --smart-kanban-default-width: 1200px; /* Default width of Kanban */
     --smart-kanban-default-height: 500px; /* Default height of Kanban */
@@ -517,6 +530,7 @@
     --smart-list-item-check-box-radius: 2px; /* smartListBox checkbox radius */
     --smart-list-item-label-padding: 0; /* smartListBox item label padding */
     --smart-list-item-label-border-radius: 0; /* smartListBox item label border radius */
+    --smart-list-item-padding: 9px 12px; /* smartListBox item padding */
     /* Loader */
     --smart-loader-size: var(--smart-editor-height); /* smartListBox loader size(width=height) */
     /* LED */
@@ -626,17 +640,20 @@
     --smart-scroll-bar-default-width: var(--smart-editor-width); /* ScrollBar's default width. */
     --smart-scroll-bar-default-height: var(--smart-scroll-bar-size); /* ScrollBar's default height. */
     --smart-scroll-bar-background: #F1F1F1; /* Default ScrollBar's background color. */
+    --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
     --smart-scroll-bar-border: #F1F1F1; /* The border color of the ScrollBar */
     --smart-scroll-bar-thumb-border-top-right-radius: 0px; /* Default ScrollBar's top-right border radius. */
     --smart-scroll-bar-thumb-border-top-left-radius: 0px; /* Default ScrollBar's top-left border radius. */
     --smart-scroll-bar-thumb-border-bottom-left-radius: 0px; /* Default ScrollBar's bottom-left border radius. */
     --smart-scroll-bar-thumb-border-bottom-right-radius: 0px; /* Default ScrollBar's bottom-right border radius. */
     --smart-scroll-bar-thumb-background: #C1C1C1; /* The color of the ScrollBar's thumb. */
-    --smart-scroll-bar-thumb-border: #C1C1C1; /* The color of the ScrollBar's thumb border. */
+    --smart-scroll-bar-thumb-border: transparent; /* The color of the ScrollBar's thumb border. */
+    --smart-scroll-bar-thumb-size: 100%; /* The size of the ScrollBar's thumb. */
+    --smart-scroll-bar-thumb-padding: 1px; /* The padding of the ScrollBar's thumb. */
     --smart-scroll-bar-thumb-background-hover: #A8A8A8; /* The background color of the ScrollBar's thumb in hover state. */
-    --smart-scroll-bar-thumb-border-hover: #A8A8A8; /* The border color of the ScrollBar's thumb in hover state. */
+    --smart-scroll-bar-thumb-border-hover: transparent; /* The border color of the ScrollBar's thumb in hover state. */
     --smart-scroll-bar-thumb-background-active: #787878; /* The background color of the ScrollBar's thumb in active state. */
-    --smart-scroll-bar-thumb-border-active: #787878; /* The border color of the ScrollBar's thumb in active state. */
+    --smart-scroll-bar-thumb-border-active: transparent; /* The border color of the ScrollBar's thumb in active state. */
     --smart-scroll-bar-button-background: #F1F1F1; /* The background color of ScrollBar's navigation buttons. */
     --smart-scroll-bar-button-border: #F1F1F1; /* The border color of ScrollBar's navigation buttons. */
     --smart-scroll-bar-button-color: #505050; /* The color of ScrollBar's navigation buttons. */
@@ -646,7 +663,7 @@
     --smart-scroll-bar-button-background-active: #787878; /* The background color of the ScrollBar's buttons in active state. */
     --smart-scroll-bar-button-border-active: #F1F1F1; /* The border color of the ScrollBar's buttons in active state. */
     --smart-scroll-bar-button-color-active: #fff; /* The color of the ScrollBar's buttons in active state. */
-    /* Table */
+    /* Table and PivotTable */
     --smart-table-default-width: 100%; /* smartTable default width */
     --smart-table-default-height: auto; /* smartTable default height */
     --smart-table-header-footer-height: 56px; /* smartTable height of header and footer */
@@ -656,6 +673,12 @@
     --smart-table-indent: 30px; /* smartTable hierarchical cell indent */
     --smart-table-arrow-size: 16px; /* smartTable arrow size */
     --smart-table-arrow-margin: 5px; /* smartTable arrow margin */
+    --smart-pivot-table-cell-width: 200px; /* smartPivotTable cell width */
+    --smart-pivot-table-secondary-group-width: calc(1.25 * var(--smart-pivot-table-cell-width)); /* smartPivotTable row group width */
+    --smart-pivot-panel-width: 300px; /* smartPivotTable designer (smartPivotPanel) width */
+    --smart-pivot-panel-default-height: 800px; /* Standalone smartPivotPanel default height */
+    --smart-pivot-panel-tab-item-height: 150px; /* smartPivotTable designer (smartPivotPanel) tab item height */
+    --smart-pivot-panel-padding: 10px; /* smartPivotTable designer (smartPivotPanel) padding */
     /* Tank */
     --smart-tank-default-width: var(--smart-editor-width); /* smartTank default width */
     --smart-tank-default-height: calc(10 * var(--smart-editor-height)); /* smartTank default height*/
@@ -762,13 +785,51 @@
     --smart-scroll-viewer-max-width: none;
     --smart-scroll-viewer-min-height: none;
     --smart-scroll-viewer-max-height: none;
+    /*Scheduler*/
+    --smart-scheduler-default-height: auto; /* Sets the default height of the smartScheduler */
+    --smart-scheduler-default-width: auto; /* Sets the default width of the smartScheduler */
+    --smart-scheduler-item-size: auto; /* Sets the default size of the view selection items insinde the Timeline Header */
+    --smart-scheduler-timeline-cell-width: auto; /* Sets the default width of the cells inside the Timeline  */
+    --smart-scheduler-timeline-cell-height: 50px; /* Sets the default height of the cells inside the Timeline  */
+    --smart-scheduler-timeline-cell-min-width: 70px; /* Sets the default min-width of the cells inside the Timeline */
+    --smart-scheduler-timeline-cell-min-height: 35px; /* Sets the min-height of the cells inside the Timeline */
+    --smart-scheduler-header-height: 50px; /* Sets the height of the header */
+    --smart-scheduler-header-date-button-size: 180px; /* Sets the size of the Header Date Selection Button*/
+    --smart-scheduler-header-navigation-button-size: 30px; /* Sets the size of the header buttons */
+    --smart-scheduler-footer-height: var(--smart-scheduler-header-height); /* The height of the footer */
+    --smart-scheduler-header-box-shadow: initial; /* Sets a Box shadow to the Timeline header */
+    --smart-scheduler-header-padding: 10px; /* Sets a the padding for the header/footer */
+    --smart-scheduler-timeline-header-cell-padding: 5px; /* Sets a the padding for the header/footer cells */
+    --smart-scheduler-header-menu-button-size: var(--smart-scheduler-header-navigation-button-size); /* Sets the size for the Header menu button */
+    --smart-scheduler-timeline-weekend-color: var(--smart-background); /* Sets the background color for the weekend cells */
+    --smart-scheduler-timeline-nonworking-color: var(--smart-gantt-chart-timeline-nonworking-color); /* Sets the background color for nonworking days/hours cells */
+    --smart-scheduler-timeline-all-day-label-font-weight: 600; /* Sets a the font-weight of the All day label */
+    --smart-scheduler-no-agenda-placeholder: 'No events to display'; /* Sets the placeholder for Agenda view when no events are available */
+    --smart-scheduler-timeline-header-horizontal-cells-size: 40px; /* Sets a the horizontal header cells size */
+    --smart-scheduler-timeline-header-horizontal-details-size: var(--smart-scheduler-timeline-header-horizontal-cells-size); /* Sets the size of the Horizontal Details Header */
+    --smart-scheduler-timeline-header-horizontal-group-size: var(--smart-scheduler-timeline-header-horizontal-cells-size); /* Sets the size of the Horizontal Group Header */
+    --smart-scheduler-timeline-header-vertical-cells-size: 100px; /* Sets the vertical header cell size */
+    --smart-scheduler-timeline-header-vertical-details-size: var(--smart-scheduler-timeline-header-vertical-cells-size); /* Sets the size of the Vertical Details Header */
+    --smart-scheduler-timeline-header-vertical-group-size: var(--smart-scheduler-timeline-header-vertical-cells-size); /* Sets the size of the Vertical Group Header  */
+    --smart-scheduler-timeline-header-all-day-cells-size: 75px; /* Sets the All Day View height */
+    --smart-scheduler-timeline-group-separator-background: var(--smart-outline); /* Sets the color for the group separator */
+    --smart-scheduler-timeline-group-separator-size: var(--smart-border-width); /* Sets the group cell separator size */
+    --smart-scheduler-timeline-group-white-space: nowrap; /* Sets the white-space property for the Header Group cells */
+    --smart-scheduler-timeline-group-header-offset: calc(-50% - var(--smart-scheduler-timeline-header-cell-padding)); /* Sets the label offset for the header cells when groupByDate is enabled */
     /*Window*/
     --smart-window-default-height: var(--smart-box-height); /* smartWindow default height */
     --smart-window-default-width: var(--smart-box-width); /* smartWindow default width */
     --smart-window-header-height: var(--smart-bar-height); /* smartWindow header height */
     --smart-window-footer-height: var(--smart-bar-height); /* smartWindow footer height */
     --smart-window-min-width: 250px; /* smartWindow header width */
-    --smart-window-header-footer-padding: 10px; /* smartWindow header and footer padding */
+    --smart-window-header-padding: 10px; /* smartWindow header and footer padding */
+    --smart-window-footer-padding: 6.5px; /* smartWindow header and footer padding */
+    --smart-window-header-button-size: 24px; /* Sets the size of the header buttons */
+    --smart-window-header-icon-size: var(--smart-font-size); /* Sets the size of the header button icons */
+    --smart-window-header-background: var(--smart-surface); /* Sets the background of the header section */
+    --smart-window-footer-background: var(--smart-surface); /* Sets the size of the background of the footer section */
+    --smart-window-footer-button-width: 100px; /* Sets the width of the footer buttons */
+    --smart-window-content-padding: 10px; /* Sets the content section padding */
     /*Elevations*/
     --smart-elevation-24: 0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12),0 11px 15px 0 rgba(0,0,0,.2);
     --smart-elevation-16: 0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12),0 8px 10px 0 rgba(0,0,0,.2);
@@ -804,7 +865,7 @@
     --smart-editor-selection-color: var(--smart-primary-color);
     --smart-ui-state-hover: #444;
     --smart-ui-state-color-hover: #fff;
-    --smart-ui-state-border-hover: #444;
+    --smart-ui-state-border-hover: var(--smart-ui-state-hover);
     --smart-ui-state-active: var(--smart-primary);
     --smart-ui-state-color-active: var(--smart-primary-color);
     --smart-ui-state-border-active: var(--smart-primary);
@@ -824,6 +885,7 @@
     --smart-alternation-index2-border: #FC3752; /* Alternation border color for index2 */
     --smart-alternation-index2-background: #FC3752; /* Alternation background color for index2 */
     --smart-scroll-bar-background: #3E3E42;
+    --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
     --smart-scroll-bar-border: #3E3E42;
     --smart-scroll-bar-thumb-background: #686868;
     --smart-scroll-bar-thumb-border: #686868;

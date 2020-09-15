@@ -347,12 +347,12 @@ export class DateTimePicker extends React.Component<React.HTMLProps<Element> & D
 	}
 
 	/** Sets dates, displayed as important in the calendar pop-up.
-	*	Property type: string[]
+	*	Property type: string[] | Date[]
 	*/
-	get importantDates(): string[]  {
+	get importantDates(): string[] | Date[]  {
 		return this.nativeElement ? this.nativeElement.importantDates : undefined;
 	}
-	set importantDates(value: string[]) {
+	set importantDates(value: string[] | Date[]) {
 		if (this.nativeElement) {
 			this.nativeElement.importantDates = value;
 		}

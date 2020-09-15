@@ -61,7 +61,7 @@ export class DateRangeInputComponent extends BaseElement implements OnInit, Afte
 		this.nativeElement ? this.nativeElement.animation = value : undefined;
 	}
 
-	/** @description Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
+	/** @description Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. */
 	@Input()
 	get dateFormat(): DateRangeInputDateFormat {
 		return this.nativeElement ? this.nativeElement.dateFormat : undefined;
@@ -268,12 +268,12 @@ export class DateRangeInputComponent extends BaseElement implements OnInit, Afte
 		this.nativeElement ? this.nativeElement.unfocusable = value : undefined;
 	}
 
-	/** @description Sets or gets the value of the element. */
+	/** @description Sets or gets the value of the element. The type of the value depends on the valueType property. */
 	@Input()
-	get value(): string {
+	get value(): any {
 		return this.nativeElement ? this.nativeElement.value : undefined;
 	}
-	set value(value: string) {
+	set value(value: any) {
 		this.nativeElement ? this.nativeElement.value = value : undefined;
 	}
 

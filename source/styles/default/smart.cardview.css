@@ -508,7 +508,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
     transition: transform cubic-bezier(0.81, 0.27, 0, 0.93) 0.5s;
 }
 
-    .smart-card-view[add-new-button]:not([animation="none"]) .smart-add-new-button:hover {
+    .smart-card-view[add-new-button] .smart-add-new-button:hover {
         transform: scale(1.2, 1.2);
     }
 

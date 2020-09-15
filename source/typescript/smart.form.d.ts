@@ -99,9 +99,9 @@ export interface Form extends BaseElement, FormProperties {
 export interface Control {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  append?: string;
+  appendHTML?: any;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
    * Default value: 
@@ -179,9 +179,9 @@ export interface Control {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  prepend?: string;
+  prependHTML?: any;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false
@@ -245,9 +245,9 @@ export declare type FormLabelPosition = 'left' | 'top';
 export interface FormControlProperties {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  append?: string;
+  appendHTML?: any;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
    * Default value: 
@@ -325,9 +325,9 @@ export interface FormControlProperties {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  prepend?: string;
+  prependHTML?: any;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false
@@ -475,9 +475,9 @@ export interface FormGroup extends BaseElement, FormGroupProperties {
 export interface Control {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  append?: string;
+  appendHTML?: any;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
    * Default value: 
@@ -555,9 +555,9 @@ export interface Control {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  prepend?: string;
+  prependHTML?: any;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false

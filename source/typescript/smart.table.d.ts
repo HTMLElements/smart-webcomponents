@@ -7,20 +7,55 @@ export interface TableProperties {
    */
   animation?: Animation;
   /**
-   * Describes the columns properties.
-   * Default value: null
+   * Enables or disables auto load state from the browser's localStorage. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the stateSettings property.
+   * Default value: false
    */
-  columns?: TableColumn[];
+  autoLoadState?: boolean;
+  /**
+   * Enables or disables auto save state to the browser's localStorage. Information about columns, expanded rows, selected rows, applied fitering, grouping, and   sorted columns is saved, based on the value of the stateSettings property.
+   * Default value: false
+   */
+  autoSaveState?: boolean;
+  /**
+   * Sets or gets the min width of columns when columnSizeMode is 'auto'.
+   * Default value: 50px
+   */
+  columnMinWidth?: string | number;
   /**
    * Sets or gets whether the reordering of columns is enabled.
    * Default value: false
    */
   columnReorder?: boolean;
   /**
+   * Describes the columns properties.
+   * Default value: null
+   */
+  columns?: TableColumn[];
+  /**
+   * Sets or gets details about conditional formatting to be applied to the Table's cells.
+   * Default value: null
+   */
+  conditionalFormatting?: TableConditionalFormatting[];
+  /**
+   * Sets or gets the column sizing behavior.
+   * Default value: default
+   */
+  columnSizeMode?: TableColumnSizeMode;
+  /**
+   * Sets or gets whether the "Conditional Formatting" button appears in the Table's header (toolbar). Clicking this button opens a dialog with formatting options.
+   * Default value: false
+   */
+  conditionalFormattingButton?: boolean;
+  /**
    * Determines the data source of the table component.
    * Default value: 
    */
   dataSource?: any;
+  /**
+   * A callback function that can be used to transform the initial dataSource records. If implemented, it is called once for each record (which is passed as an argument).
+   * Default value: null
+   */
+  dataTransform?: any;
   /**
    * Disables the interaction with the element.
    * Default value: false
@@ -90,7 +125,16 @@ export interface TableProperties {
    * Sets or gets an object specifying strings used in the element that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
    *   "en": {
+   *     "add": "Add condition",
+   *     "all": "All columns",
+   *     "apply": "Apply",
+   *     "between": "Between",
+   *     "cancel": "Cancel",
    *     "clearFilter": "Clear filter",
+   *     "close": "Close",
+   *     "column": "Column:",
+   *     "condition": "Condition:",
+   *     "conditionalFormatting": "Conditional Formatting",
    *     "CONTAINS": "contains",
    *     "CONTAINS_CASE_SENSITIVE": "contains (case sensitive)",
    *     "DOES_NOT_CONTAIN": "does not contain",
@@ -100,25 +144,39 @@ export interface TableProperties {
    *     "ENDS_WITH_CASE_SENSITIVE": "ends with (case sensitive)",
    *     "EQUAL": "equal",
    *     "EQUAL_CASE_SENSITIVE": "equal (case sensitive)",
-   *     "filterPlaceholder": "Filter",
    *     "filterCondition": "Filter condition",
+   *     "filterPlaceholder": "Filter",
    *     "firstButton": "First",
+   *     "fontFamily": "Font family:",
+   *     "fontSize": "Font size:",
+   *     "format": "Format:",
+   *     "formatColumn": "Format Column",
    *     "GREATER_THAN": "greater than",
    *     "GREATER_THAN_OR_EQUAL": "greater than or equal",
+   *     "greaterThan": "Greater Than",
+   *     "highlight": "Highlight",
    *     "invalidValue": "Invalid value",
    *     "itemsPerPage": "Items per page:",
    *     "lastButton": "Last",
    *     "LESS_THAN": "less than",
    *     "LESS_THAN_OR_EQUAL": "less than or equal",
+   *     "lessThan": "Less Than",
    *     "nextButton": "Next",
    *     "NOT_EMPTY": "not empty",
    *     "NOT_EQUAL": "not equal",
    *     "NOT_NULL": "not null",
+   *     "notEqual": "Not Equal To",
    *     "NULL": "null",
+   *     "ok": "OK",
    *     "previousButton": "Previous",
+   *     "remove": "Remove condition",
+   *     "secondValue": "Second value:",
    *     "STARTS_WITH": "starts with",
    *     "STARTS_WITH_CASE_SENSITIVE": "starts with (case sensitive)",
-   *     "summaryPrefix": "of"
+   *     "summaryPrefix": "of",
+   *     "text": "Text",
+   *     "value": "Value:",
+   *     "with": "with"
    *   }
    * }
    */
@@ -169,15 +227,35 @@ export interface TableProperties {
    */
   selection?: boolean;
   /**
+   * Sets or gets the selection mode. Only applicable when selection is enabled.
+   * Default value: many
+   */
+  selectionMode?: TableSelectionMode;
+  /**
+   * A callback function executed when a column is sorted that can be used to override the default sorting behavior. The function is passed four parameters: dataSource - the Table's data sourcesortColumns - an array of the data fields of columns to be sorted bydirections - an array of sort directions to be sorted by (corresponding to sortColumns)defaultCompareFunctions - an array of default compare functions to be sorted by (corresponding to sortColumns), useful if the sorting of some columns does not have to be overridden
+   * Default value: null
+   */
+  sort?: any;
+  /**
    * Determines the sorting mode of the Table.
    * Default value: none
    */
   sortMode?: TableSortMode;
   /**
+   * Sets or gets what settings of the Table's state can be saved (by autoSaveState or saveState) or loaded (by autoLoadState or loadState).
+   * Default value: columns,expanded,filtered,grouped,selected,sorted
+   */
+  stateSettings?: string[];
+  /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
    */
   theme?: string;
+  /**
+   * Sets or gets whether when hovering a cell with truncated content, a tooltip with the full content will be shown.
+   * Default value: false
+   */
+  tooltip?: boolean;
 }
 /**
  Table is an alternative of the HTMLTableElement.
@@ -207,6 +285,10 @@ export interface Table extends BaseElement, TableProperties {
    *  row - The new data of the cell's row.
    */
   onCellEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a column header cell has been clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
@@ -287,7 +369,7 @@ export interface Table extends BaseElement, TableProperties {
    */
   collapseGroup(index: string): void;
   /**
-   * Collapses a group.
+   * Collapses a row (in tree mode).
    * @param {string | number} rowId. The id of the row to collapse.
    */
   collapseRow(rowId: string | number): void;
@@ -324,12 +406,22 @@ export interface Table extends BaseElement, TableProperties {
    */
   getSelection(): (string | number)[];
   /**
+   * Returns the Table's state, containing information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns. It can then be stored or passed to the method <strong>loadState</strong>.
+   * @returns {any}
+   */
+  getState(): any;
+  /**
    * Returns the value of a cell.
    * @param {string | number} row. The id of the cell's row.
    * @param {string} dataField. The dataField of the cell's column.
    * @returns {any}
    */
   getValue(row: string | number, dataField: string): any;
+  /**
+   * Loads the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the <strong>stateSettings</strong> property.
+   * @param {any} state?. An object returned by one of the methods <strong>getState</strong> or <strong>saveState</strong>. If a state is not passed, the method tries to load the state from the browser's localStorage.
+   */
+  loadState(state?: any): void;
   /**
    * Navigates to a page.
    * @param {number} pageIndex. The zero-based page index to navigate to.
@@ -350,6 +442,11 @@ export interface Table extends BaseElement, TableProperties {
    */
   removeGroup(dataField: string): void;
   /**
+   * Saves the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is saved, based on the value of the <strong>stateSettings</strong> property.
+   * @returns {any}
+   */
+  saveState(): any;
+  /**
    * Selects a row.
    * @param {string | number} rowId. The id of the row to select.
    */
@@ -364,7 +461,7 @@ export interface Table extends BaseElement, TableProperties {
   /**
    * Sorts the Table by a column.
    * @param {string} columnDataField. Column field name.
-   * @param {string} sortOrder?. Sort order. Possible values: 'asc' (ascending) and 'desc' (descending).
+   * @param {string} sortOrder?. Sort order. Possible values: 'asc' (ascending), 'desc' (descending), and null (removes sorting by column). If not provided, toggles the sorting.
    */
   sortBy(columnDataField: string, sortOrder?: string): void;
   /**
@@ -396,7 +493,7 @@ export interface TableColumn {
    */
   allowSort?: boolean;
   /**
-   * Sets or gets the column's data source bound field.
+   * Sets or gets the column's data source-bound field.
    * Default value: ""
    */
   dataField?: string;
@@ -431,15 +528,63 @@ export interface TableColumn {
    */
   responsivePriority?: TableColumnResponsivePriority;
   /**
+   * A callback function that can be used to transform all the data of the column's original data field into a new data field to be used in column cells and all column operations. Can be useful for localizing data.
+   * Default value: null
+   */
+  transform?: any;
+  /**
    * A callback function that can be used to validate cell values after editing. If it returns true, the cell is valid. If it returns false or an object with a message field, the cell is not valid and the message (or a default one) is displayed in a tooltip.
    * Default value: null
    */
   validation?: any;
   /**
-   * Sets the width of the column. The width can be entered as a number, or string with px or %.
+   * Sets the width of the column. The width can be entered as a number or string with px.
    * Default value: null
    */
   width?: string | number;
+}
+
+export interface TableConditionalFormatting {
+  /**
+   * The data field of a numeric column to format. Set 'all' to format all numeric columns.
+   * Default value: "all"
+   */
+  column?: string;
+  /**
+   * The formatting condition.
+   * Default value: lessThan
+   */
+  condition?: TableConditionalFormattingCondition;
+  /**
+   * The value to compare by. When condition is 'between', this is the start (from) value.
+   * Default value: 0
+   */
+  firstValue?: number;
+  /**
+   * The fontFamily to apply to formatted cells.
+   * Default value: The default fontFamily as set in CSS
+   */
+  fontFamily?: TableConditionalFormattingFontFamily;
+  /**
+   * The fontSize to apply to formatted cells.
+   * Default value: The default fontSize as set in CSS
+   */
+  fontSize?: TableConditionalFormattingFontSize;
+  /**
+   * The background color to apply to formatted cells.
+   * Default value: "The default backgroundColor as set in CSS"
+   */
+  highlight?: string;
+  /**
+   * When condition is 'between', this is the end (to) value. Otherwise, this value is not used.
+   * Default value: 1
+   */
+  secondValue?: number;
+  /**
+   * The text color to apply to formatted cells.
+   * Default value: "The default color as set in CSS"
+   */
+  text?: string;
 }
 
 declare global {
@@ -458,9 +603,19 @@ export declare type TableColumnDataType = 'boolean' | 'date' | 'number' | 'strin
 export declare type TableColumnFreeze = 'true' | 'near' | 'far';
 /**Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden. */
 export declare type TableColumnResponsivePriority = '1' | '2' | '3' | '4' | '5';
+/**The formatting condition. */
+export declare type TableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
+/**The fontFamily to apply to formatted cells. */
+export declare type TableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
+/**The fontSize to apply to formatted cells. */
+export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
+/**Sets or gets the column sizing behavior. */
+export declare type TableColumnSizeMode = 'auto' | 'default';
 /**Sets or gets the edit mode. */
 export declare type TableEditMode = 'cell' | 'row';
 /**Sets or gets the page size (when paging is enabled). */
 export declare type TablePageSize = '10' | '25' | '50';
+/**Sets or gets the selection mode. Only applicable when selection is enabled. */
+export declare type TableSelectionMode = 'many' | 'extended';
 /**Determines the sorting mode of the Table. */
 export declare type TableSortMode = 'none' | 'one' | 'many';

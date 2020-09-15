@@ -1,6 +1,16 @@
 /* smart-text-box */
 
-smart-color-input, smart-text-box, smart-text-area, smart-input, smart-multi-input, smart-check-input, smart-multi-combo-input, smart-date-range-input {
+smart-color-input,
+smart-text-box,
+smart-text-area,
+smart-input,
+smart-multi-input,
+smart-check-input,
+smart-multi-combo-input,
+smart-date-range-input,
+smart-number-input,
+smart-date-input,
+smart-time-input {
     display: inline-block;
     border: none;
     width: var(--smart-text-box-default-width);
@@ -8,6 +18,21 @@ smart-color-input, smart-text-box, smart-text-area, smart-input, smart-multi-inp
     overflow: visible;
     background: var(--smart-background);
     --smart-outline: var(--smart-primary);
+}
+
+smart-date-range-input,
+smart-time-input,
+smart-date-input {
+	overflow: hidden;
+}
+
+smart-date-range-input.underlined,
+smart-date-range-input.outlined,
+smart-date-input.underlined,
+smart-date-input.outlined,
+smart-time-input.underlined,
+smart-time-input.outlined {
+    overflow: visible;
 }
 
 smart-text-area {
@@ -18,11 +43,11 @@ smart-text-area {
     resize: none;
 }
 
-smart-text-box.smart-element, smart-input.smart-element, smart-multi-input.smart-element, smart-check-input.smart-element, smart-multi-combo-input.smart-element, smart-date-range-input.smart-element {
+smart-text-box.smart-element, smart-input.smart-element, smart-number-input.smart-element, smart-multi-input.smart-element, smart-check-input.smart-element, smart-multi-combo-input.smart-element, smart-date-range-input.smart-element, smart-time-input.smart-element, smart-date-input.smart-element {
     background: var(--smart-background);
 }
 
-smart-input, smart-text-area, smart-multi-input, smart-check-input, smart-multi-combo-input, smart-date-range-input {
+smart-input, smart-text-area, smart-number-input, smart-multi-input, smart-check-input, smart-multi-combo-input, smart-date-range-input, smart-date-input, smart-time-input {
     border: 1px solid var(--smart-border);
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
@@ -30,7 +55,7 @@ smart-input, smart-text-area, smart-multi-input, smart-check-input, smart-multi-
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-smart-input input.smart-input, smart-multi-input input.smart-input, smart-check-input input.smart-input, smart-multi-combo-input input.smart-input, smart-date-range-input input.smart-input, smart-text-area textarea.smart-input {
+smart-input input.smart-input, smart-multi-input input.smart-input, smart-check-input input.smart-input, smart-multi-combo-input input.smart-input, smart-date-range-input input.smart-input, smart-number-input input.smart-input, smart-text-area textarea.smart-input {
     border: none;
     text-overflow: ellipsis;
 }
@@ -203,11 +228,28 @@ input.smart-input,
     width: 100%;
 }
 
-smart-input>.smart-container, .smart-input.smart-container, smart-multi-input>.smart-container, smart-multi-combo-input>.smart-container, smart-check-input>.smart-container, .smart-input.smart-container, smart-date-range-input>.smart-container {
+smart-input>.smart-container, .smart-input.smart-container, smart-multi-input>.smart-container, smart-multi-combo-input>.smart-container, smart-check-input>.smart-container, .smart-input.smart-container,
+smart-date-range-input>.smart-container,
+smart-date-input>.smart-container,
+smart-time-input>.smart-container,
+smart-number-input>.smart-container {
     display: flex;
 }
 
-.smart-input[drop-down-button-position="left"] .smart-input, smart-multi-input[drop-down-button-position="left"] .smart-input, smart-multi-input[drop-down-button-position="right"] .smart-input, smart-date-range-input[drop-down-button-position="left"] .smart-input, smart-date-range-input[drop-down-button-position="right"] .smart-input, smart-check-input[drop-down-button-position="left"] .smart-input, smart-check-input[drop-down-button-position="right"] .smart-input, smart-input[drop-down-button-position="right"] .smart-input, .smart-input[drop-down-button-position="left"] .smart-input, .smart-input[drop-down-button-position="right"] .smart-input {
+.smart-input[drop-down-button-position="left"] .smart-input,
+ smart-multi-input[drop-down-button-position="left"] .smart-input,
+ smart-multi-input[drop-down-button-position="right"] .smart-input,
+ smart-date-range-input[drop-down-button-position="left"] .smart-input,
+ smart-date-range-input[drop-down-button-position="right"] .smart-input,
+ smart-time-input[drop-down-button-position="left"] .smart-input,
+ smart-time-input[drop-down-button-position="right"] .smart-input,
+ smart-date-input[drop-down-button-position="left"] .smart-input,
+ smart-date-input[drop-down-button-position="right"] .smart-input,
+ smart-check-input[drop-down-button-position="left"] .smart-input,
+smart-check-input[drop-down-button-position="right"] .smart-input,
+smart-input[drop-down-button-position="right"] .smart-input,
+.smart-input[drop-down-button-position="left"] .smart-input,
+.smart-input[drop-down-button-position="right"] .smart-input {
     width: calc(100% - var(--smart-editor-addon-width));
 }
 
@@ -295,6 +337,19 @@ smart-input>.smart-container, .smart-input.smart-container, smart-multi-input>.s
 
 .smart-input .smart-drop-down-button[open] .arrow:after {
     transform: rotate(-180deg);
+}
+.smart-input.smart-date-range-input .smart-drop-down-button .arrow:after,
+.smart-input.smart-date-range-input .smart-drop-down-button[open] .arrow:after,
+.smart-input.smart-date-input .smart-drop-down-button .arrow:after,
+.smart-input.smart-date-input .smart-drop-down-button[open] .arrow:after  {
+	content: var(--smart-icon-calendar);
+    transform: rotate(0deg);
+}
+
+.smart-input.smart-time-input .smart-drop-down-button .arrow:after,
+.smart-input.smart-time-input .smart-drop-down-button[open] .arrow:after{
+	content: var(--smart-icon-clock);
+    transform: rotate(0deg);
 }
 
 .smart-input[readonly]:hover .smart-input, .smart-input[readonly]:hover .smart-drop-down-button, .smart-input .smart-drop-down-button:hover {
@@ -468,6 +523,11 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     border-bottom-left-radius: 0;
 }
 
+.smart-date-range-input.smart-input.underlined[opened][drop-down-button-position="right"]:not([readonly]) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .smart-input.underlined[opened][drop-down-button-position="left"]:not([readonly]), .smart-input.underlined[opened][drop-down-button-position="left"]:not([readonly]) input {
     border-bottom-right-radius: 0;
 }
@@ -633,7 +693,11 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     z-index: 6;
     cursor: pointer;
 }
-
+.smart-number-input.outlined[drop-down-button-position="right"] .smart-drop-down-button,
+.smart-number-input.outlined[drop-down-button-position="left"] .smart-drop-down-button {
+    padding:0;
+    margin-top:-1px;
+}
 .smart-input.outlined .smart-input, .smart-input.outlined.smart-multi-combo-input .smart-action-button {
     padding: 12px 13px 12px;
     z-index: 5;
@@ -881,7 +945,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     direction: rtl;
 }
 
-.smart-date-range-input-drop-down-menu .minute-selection {
+.smart-timepicker .minute-selection {
     border-left: initial;
     border-right: var(--smart-border-width) solid var(--smart-border);
 }
@@ -1260,6 +1324,30 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     width: var(--smart-input-drop-down-menu-width);
 }
 
+
+.smart-date-range-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu {
+    height: auto;
+}
+.smart-date-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu {
+    height: 250px;
+}
+
+.smart-time-box {
+    display: block;
+    height: auto;
+    width: 300px;
+    overflow: hidden;
+}
+
+.smart-time-box .smart-timepicker{
+    display: grid;
+    grid-template-columns: 60% 35%;
+    grid-column-gap: 5%;
+    background: var(--smart-background);
+    padding: 10px;
+    border-color: var(--smart-border);
+ }
+
 .smart-date-range-input-drop-down-menu .smart-timepicker {
     position: absolute;
     top: 0;
@@ -1291,7 +1379,8 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     transform: scale(0);
 }
 
-.smart-date-range-input-drop-down-menu .hour-selection, .smart-date-range-input-drop-down-menu .minute-selection {
+.smart-timepicker .hour-selection,
+.smart-timepicker .minute-selection {
     display: grid;
     grid-template-columns: repeat(5, 20%);
     grid-template-rows: repeat(6, auto);
@@ -1302,12 +1391,21 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     cursor: default;
 }
 
-.smart-date-range-input-drop-down-menu .hour-selection .smart-calendar-cell, .smart-date-range-input-drop-down-menu .minute-selection .smart-calendar-cell {
+.smart-timepicker .hour-selection .smart-calendar-cell,
+.smart-timepicker .minute-selection .smart-calendar-cell {
     margin: initial;
     line-height: var(--smart-calendar-cell-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    border-radius:100%;
 }
 
-.smart-date-range-input-drop-down-menu .hour-selection .header, .smart-date-range-input-drop-down-menu .minute-selection .header {
+.smart-timepicker .hour-selection .header,
+.smart-timepicker .minute-selection .header {
     content: attr(header-label);
     width: 100%;
     display: flex;
@@ -1320,7 +1418,7 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     line-height: calc(var(--smart-calendar-cell-size) - 2px);
 }
 
-.smart-date-range-input-drop-down-menu .hour-selection::after, .smart-date-range-input-drop-down-menu .hour-selection::before {
+.smart-timepicker .hour-selection::after, .smart-timepicker .hour-selection::before {
     content: attr(am-label);
     width: 100%;
     display: flex;
@@ -1331,16 +1429,85 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     line-height: calc(var(--smart-calendar-cell-size) - 2px);
 }
 
-.smart-date-range-input-drop-down-menu .hour-selection::after {
+.smart-timepicker .hour-selection::after {
     content: attr(pm-label);
     grid-row: 4/9;
 }
 
-.smart-date-range-input-drop-down-menu .minute-selection .header {
+.smart-timepicker .minute-selection .header {
     grid-column: span 2;
 }
 
-.smart-date-range-input-drop-down-menu .minute-selection {
+.smart-timepicker .minute-selection {
     grid-template-columns: repeat(2, 50%);
     border-left: var(--smart-border-width) solid var(--smart-border);
+}
+/*number input*/
+
+.smart-number-input .nav {
+    display: flex;
+    width: var(--smart-editor-addon-width);
+    height: 100%;
+    flex-direction: column;
+    color: var(--smart-surface-color);
+    border-left: 1px solid var(--smart-border);
+    background: var(--smart-surface);
+}
+
+.smart-number-input .nav,
+.smart-number-input .nav:hover,
+.smart-number-input .nav:active {
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+}
+
+.smart-number-input.underlined .nav,
+.smart-number-input.outlined .nav {
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+}
+
+.smart-number-input .nav .up {
+    border-bottom: 1px solid var(--smart-border);
+}
+
+.smart-number-input.outlined .nav .up,
+.smart-number-input.underlined .nav .up {
+    border-bottom: none;
+}
+.smart-number-input .nav .up,
+.smart-number-input .nav .down {
+    display: flex;
+    height: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: var(--smart-font-family-icon);
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+
+.smart-number-input .nav .up::after {
+    content: var(--smart-icon-arrow-up);
+}
+
+.smart-number-input .nav .down::after {
+    content: var(--smart-icon-arrow-down);
+}
+
+.smart-number-input .nav .up:hover,
+.smart-number-input .nav .down:hover
+{
+    background: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-number-input .nav .up:active,
+.smart-number-input .nav .down:active,
+.smart-number-input .nav .up[active],
+.smart-number-input .nav .down[active]
+{
+    background: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
 }

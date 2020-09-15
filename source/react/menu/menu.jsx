@@ -386,7 +386,7 @@ export class Menu extends React.Component {
 	set onClosing(value) {
 		this._onClosing = value;
 	}
-	/**  This event is triggered when a smart-menu-items-group is collapsed.
+	/**  This event is triggered when a jqx-menu-items-group is collapsed.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	value, 	path, 	children)
 	*   item - The menu item that was collapsed.
 	*   label - The label of the toggled item that was collapsed.
@@ -400,7 +400,7 @@ export class Menu extends React.Component {
 	set onCollapse(value) {
 		this._onCollapse = value;
 	}
-	/**  This event is triggered when a smart-menu-items-group is collapsing.
+	/**  This event is triggered when a jqx-menu-items-group is collapsing.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	value, 	path, 	children)
 	*   item - The menu item that is going to be collapsed.
 	*   label - The label of the toggled item that is going to be collapsed.
@@ -414,7 +414,7 @@ export class Menu extends React.Component {
 	set onCollapsing(value) {
 		this._onCollapsing = value;
 	}
-	/**  This event is triggered when a smart-menu-items-group is expanded.
+	/**  This event is triggered when a jqx-menu-items-group is expanded.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	value, 	path, 	children)
 	*   item - The menu item that was expanded.
 	*   label - The label of the toggled item that was expanded.
@@ -428,7 +428,7 @@ export class Menu extends React.Component {
 	set onExpand(value) {
 		this._onExpand = value;
 	}
-	/**  This event is triggered before a smart-menu-items-group is expanded.
+	/**  This event is triggered before a jqx-menu-items-group is expanded.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	value, 	path, 	children)
 	*   item - The menu item that is going to be expanded.
 	*   label - The label of the toggled item that is going to be expanded.
@@ -489,8 +489,8 @@ export class Menu extends React.Component {
 		return ["onClose","onClosing","onCollapse","onCollapsing","onExpand","onExpanding","onItemCheckChange","onItemClick","onOpen","onOpening"];
 	}
 	/** Adds an item to the menu. 
-	* @param {HTMLElement} Item. A smart-menu-item to add to the Menu.
-	* @param {HTMLElement | string} Parent?. The smart-menu-items-group or its id or numeric path to add the item to.
+	* @param {HTMLElement} Item. A jqx-menu-item to add to the Menu.
+	* @param {HTMLElement | string} Parent?. The jqx-menu-items-group or its id or numeric path to add the item to.
 	*/
     addItem(Item, Parent){
         if (this.nativeElement.isRendered) {
@@ -505,7 +505,7 @@ export class Menu extends React.Component {
     }
 
 	/** Checks an item. 
-	* @param {HTMLElement | string} item. smart-menu-item/smart-menu-items-group or its id or numeric path.
+	* @param {HTMLElement | string} item. jqx-menu-item/jqx-menu-items-group or its id or numeric path.
 	*/
     checkItem(item){
         if (this.nativeElement.isRendered) {
@@ -548,7 +548,7 @@ export class Menu extends React.Component {
     }
 
 	/** Collapses an item. 
-	* @param {HTMLElement | string} item?. smart-menu-item/smart-menu-items-group or its id or numeric path. If no item is passed, all open items are collapsed.
+	* @param {HTMLElement | string} item?. jqx-menu-item/jqx-menu-items-group or its id or numeric path. If no item is passed, all open items are collapsed.
 	* @param {boolean} animation?. If set to false, disables collapse animation even if animation is enabled for the element.
 	*/
     collapseItem(item, animation){
@@ -564,7 +564,7 @@ export class Menu extends React.Component {
     }
 
 	/** Expands an item. 
-	* @param {HTMLElement | string} item. smart-menu-item/smart-menu-items-group or its id or numeric path.
+	* @param {HTMLElement | string} item. jqx-menu-item/jqx-menu-items-group or its id or numeric path.
 	* @param {boolean} animation?. If set to false, disables expand animation even if animation is enabled for the element.
 	*/
     expandItem(item, animation){
@@ -642,7 +642,7 @@ export class Menu extends React.Component {
     }
 
 	/** Removes an item from the menu. 
-	* @param {HTMLElement | string} item. The smart-menu-item/smart-menu-items-group or its id or numeric path to remove.
+	* @param {HTMLElement | string} item. The jqx-menu-item/jqx-menu-items-group or its id or numeric path to remove.
 	*/
     removeItem(item){
         if (this.nativeElement.isRendered) {
@@ -657,7 +657,7 @@ export class Menu extends React.Component {
     }
 
 	/** Unchecks an item. 
-	* @param {HTMLElement | string} item. smart-menu-item/smart-menu-items-group (or its id or numeric path)
+	* @param {HTMLElement | string} item. jqx-menu-item/jqx-menu-items-group (or its id or numeric path)
 	*/
     uncheckItem(item){
         if (this.nativeElement.isRendered) {

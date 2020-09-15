@@ -45,6 +45,7 @@ smart-breadcrumb {
     }
     .smart-breadcrumb-feedback {
         box-shadow: var(--smart-elevation-12);
+        white-space: nowrap;
     }
         smart-breadcrumb .smart-breadcrumb-item:not(:last-child):after {
             position: absolute;
@@ -333,6 +334,11 @@ smart-breadcrumb[right-to-left] .smart-breadcrumb-items > .afterTarget:first-chi
     top: 0;
     left: calc(100% + var(--smart-breadcrumb-horizontal-offset) / 2);
     background-color: var(--smart-success);
+}
+
+smart-breadcrumb[right-to-left] .smart-breadcrumb-item>.smart-close-button {
+    margin-left: 5px;
+    margin-right: 10px;
 }
 
 /* --- */

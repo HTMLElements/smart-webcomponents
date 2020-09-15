@@ -288,10 +288,10 @@ export class DateTimePickerComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Sets dates, displayed as important in the calendar pop-up. */
 	@Input()
-	get importantDates(): string[] {
+	get importantDates(): string[] | Date[] {
 		return this.nativeElement ? this.nativeElement.importantDates : undefined;
 	}
-	set importantDates(value: string[]) {
+	set importantDates(value: string[] | Date[]) {
 		this.nativeElement ? this.nativeElement.importantDates = value : undefined;
 	}
 

@@ -824,6 +824,117 @@ declare global {
 
 /**Determines the click mode for the element. */
 export declare type ClickMode = 'hover' | 'press' | 'release' | 'pressAndRelease';
+export interface ButtonGroupProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Determines the buttons configuration. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Default value: []
+   */
+  dataSource?: any;
+  /**
+   * Determines the selection mode for the element.
+   * Default value: one
+   */
+  selectionMode?: ClickMode;
+  /**
+   * Enables or disables the element. 
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Default value: """"
+   */
+  name?: string;
+  /**
+   * If the custom element is readonly, it cannot be interacted with.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the theme. Theme defines the look of the element
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * Sets or gets the button group's selected values. Represents an array of strings.
+   * Default value: 
+   */
+  selectedValues?: string[];
+  /**
+   * Sets or gets the button group's selected indexes. Represents an array of numbers
+   * Default value: 
+   */
+  selectedIndexes?: number[];
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ ButtonGroup creates a set of buttons that can work as normal buttons, radio buttons or checkboxes.
+*/
+export interface ButtonGroup extends BaseElement, ButtonGroupProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * Change event is triggered when the selectedValues/selectedIndexes are changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Selects/Unselects an item inside the element.
+   * @param {number | string} value. The index or the value of the item to be selected/unselected.
+   */
+  select(value: number | string): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-button-group"): ButtonGroup;
+        querySelector(selectors: "smart-button-group"): ButtonGroup | null;
+        querySelectorAll(selectors: "smart-button-group"): NodeListOf<ButtonGroup>;
+        getElementsByTagName(qualifiedName: "smart-button-group"): HTMLCollectionOf<ButtonGroup>;
+        getElementsByName(elementName: "smart-button-group"): NodeListOf<ButtonGroup>;
+    }
+}
+
 export interface CalendarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -1186,7 +1297,7 @@ export declare type ViewLayout = 'landscape' | 'portrait';
 /** Determines the position of the navigation buttons located inside the header.  */
 export declare type LayoutPosition = 'near' | 'far' | 'both';
 /**Determines the date selection mode. */
-export declare type CalendarSelectionMode = 'none' | 'default' | 'many' | 'one' | 'oneOrMany' | 'range' | 'week' | 'zeroOrMany' | 'zeroOrOne';
+export declare type CalendarSelectionMode = 'none' | 'default' | 'many' | 'one' | 'oneExtended' | 'oneOrMany' | 'range' | 'week' | 'zeroOrMany' | 'zeroOrOne';
 /**Sets the position of the tooltip. */
 export declare type TooltipPosition = 'auto' | 'absolute' | 'bottom' | 'top' | 'left' | 'right';
 /**Determines the year format in the header when DisplayMode is set to Default or when Months property is greater than 1.<br/> */
@@ -5588,6 +5699,10 @@ export interface ComboBox extends BaseElement, ComboBoxProperties {
 	* @param event. The custom event.    */
   onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when a token item(pill) has been clicked. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
+	* @param event. The custom event.    */
+  onTokenClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Appends a ListItem to the end of the list of items inside element.
    * @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
    * @returns {Node}
@@ -6211,6 +6326,444 @@ export declare type DataAdapterVirtualDataSourceOnExpandDetailsSortingSortOrder 
 export declare type DataAdapterVirtualDataSourceOnExpandDetailsAction = 'sort' | 'filter' | 'dataBind' | 'scroll' | 'group' | 'expand' | 'pageIndexChange' | 'pageSizeChange';
 /**Request action type */
 export declare type DataAdapterVirtualDataSourceDetailsAction = 'sort' | 'filter' | 'dataBind' | 'scroll' | 'group' | 'expand' | 'pageIndexChange' | 'pageSizeChange';
+export interface DateInputProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
+   * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
+   */
+  dateTimeFormat?: DateInputDateTimeFormat;
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Determines the position of the drop down button.
+   * Default value: right
+   */
+  dropDownButtonPosition?: DropDownButtonPosition;
+  /**
+   * Sets the height of the drop down. By default it's set to 'auto'.
+   * Default value: auto
+   */
+  dropDownHeight?: string | number;
+  /**
+   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownWidth?: string | number;
+  /**
+   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Default value: "off"
+   */
+  inputPurpose?: string;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Determines the max date for the Calendar displayed inside the popup.
+   * Default value: new Date(2100, 1, 1)
+   */
+  max?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the min date for the Calendar displayed inside the popup.
+   * Default value: new Date(1900, 1, 1)
+   */
+  min?: any;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Determines whether the drop down is opened or not.
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: 
+   */
+  value?: any;
+}
+/**
+ DateInput specifies an input field where the user can enter a date. It also has a popup with a Calendar that allows to pick a date.
+*/
+export interface DateInput extends BaseElement, DateInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
+   *  label - The label of the new selected item.
+   *  oldLabel - The label of the item that was previously selected before the event was triggered.
+   *  oldValue - The value of the item that was previously selected before the event was triggered.
+   *  value - The value of the new selected item.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Closes the drop down.
+   */
+  close(): void;
+  /**
+   * Opens the drop down.
+   */
+  open(): void;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+  /**
+   * Returns the value in the desired format.
+   * @param {string | Date} value. The value to be formatted by the method. 
+   * @param {any} format?. The object that contains the formatting properties. The argument should contain Intl.DateTimeFormat valid properties.
+   */
+  getFormattedValue(value: string | Date, format?: any): void;
+  /**
+   * Returns the date of the input.
+   */
+  getValue(): void;
+  /**
+   * Sets the date of the input.
+   * @param {string | Date} value. The value to be set. 
+   */
+  setValue(value: string | Date): void;
+}
+
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
+export interface DateInputDateTimeFormat {
+  /**
+   * 
+   * Default value: undefined
+   */
+  0?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  1?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  2?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  3?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  4?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  5?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  6?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  7?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  8?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  9?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  10?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  11?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  12?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  13?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  14?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  15?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  16?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  17?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  18?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  19?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  20?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  21?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  22?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  23?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  24?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  25?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  26?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  27?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  28?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  29?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  30?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  31?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  32?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  33?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  34?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  35?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  36?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  37?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  38?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  39?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  40?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  41?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  42?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  43?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  44?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  45?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  46?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  47?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  48?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  49?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  50?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  51?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  52?: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-date-input"): DateInput;
+        querySelector(selectors: "smart-date-input"): DateInput | null;
+        querySelectorAll(selectors: "smart-date-input"): NodeListOf<DateInput>;
+        getElementsByTagName(qualifiedName: "smart-date-input"): HTMLCollectionOf<DateInput>;
+        getElementsByName(elementName: "smart-date-input"): NodeListOf<DateInput>;
+    }
+}
+
 export interface DateRangeInputProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -6218,7 +6771,7 @@ export interface DateRangeInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property.
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property.
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
   dateFormat?: DateRangeInputDateFormat;
@@ -6385,7 +6938,7 @@ export interface DateRangeInput extends BaseElement, DateRangeInputProperties {
   select(): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. */
 export interface DateRangeInputDateFormat {
   /**
    * 
@@ -10163,9 +10716,9 @@ export interface Form extends BaseElement, FormProperties {
 export interface Control {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  append?: string;
+  appendHTML?: any;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
    * Default value: 
@@ -10243,9 +10796,9 @@ export interface Control {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  prepend?: string;
+  prependHTML?: any;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false
@@ -10309,9 +10862,9 @@ export declare type FormLabelPosition = 'left' | 'top';
 export interface FormControlProperties {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  append?: string;
+  appendHTML?: any;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
    * Default value: 
@@ -10389,9 +10942,9 @@ export interface FormControlProperties {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  prepend?: string;
+  prependHTML?: any;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false
@@ -10539,9 +11092,9 @@ export interface FormGroup extends BaseElement, FormGroupProperties {
 export interface Control {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  append?: string;
+  appendHTML?: any;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
    * Default value: 
@@ -10619,9 +11172,9 @@ export interface Control {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: ""
+   * Default value: 
    */
-  prepend?: string;
+  prependHTML?: any;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false
@@ -12316,6 +12869,11 @@ export interface GridProperties {
    */
   columnGroups?: GridColumnGroup[];
   /**
+   * Sets or gets details about conditional formatting to be applied to the Grid's cells.
+   * Default value: null
+   */
+  conditionalFormatting?: GridConditionalFormatting[];
+  /**
    * Sets the Grid Charting Data Visualization.
    * Default value: [object Object]
    */
@@ -13374,7 +13932,7 @@ export interface GridColumn {
    */
   element?: HTMLElement;
   /**
-   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'textArea' or a custom object with 'template' property which defines the editor type, 'onInit' and 'onRender' callback functions.
+   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'timeInput', 'dateInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'onInit' and 'onRender' callback functions.
    * Default value: null
    */
   editor?: any;
@@ -13444,10 +14002,15 @@ export interface GridColumn {
    */
   width?: any;
   /**
-   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells.
+   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in values are: 'checkBox', 'url', 'email', 
    * Default value: 
    */
   template?: any;
+  /**
+   * Sets or gets the column's validation rules. Accepts: Object with 'type' string property. It can be 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The object needs to have additional 'value' property for all validation rule types except 'email', 'required', 'requiredTrue' and 'null'. Optional property is 'message', which allows you to define user string displayed on validation error.
+   * Default value: 
+   */
+  validationRules?: any[];
   /**
    * Sets or gets the column's header vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
@@ -13628,6 +14191,49 @@ export interface GridColumnGroup {
    * Default value: center
    */
   verticalAlign?: VerticalAlignment;
+}
+
+export interface GridConditionalFormatting {
+  /**
+   * The data field of a numeric column to format. Set 'all' to format all numeric columns.
+   * Default value: "all"
+   */
+  column?: string;
+  /**
+   * The formatting condition.
+   * Default value: lessThan
+   */
+  condition?: GridConditionalFormattingCondition;
+  /**
+   * The value to compare by. When condition is 'between', this is the start (from) value.
+   * Default value: 0
+   */
+  firstValue?: number;
+  /**
+   * The fontFamily to apply to formatted cells.
+   * Default value: The default fontFamily as set in CSS
+   */
+  fontFamily?: GridConditionalFormattingFontFamily;
+  /**
+   * The fontSize to apply to formatted cells.
+   * Default value: The default fontSize as set in CSS
+   */
+  fontSize?: GridConditionalFormattingFontSize;
+  /**
+   * The background color to apply to formatted cells.
+   * Default value: "The default backgroundColor as set in CSS"
+   */
+  highlight?: string;
+  /**
+   * When condition is 'between', this is the end (to) value. Otherwise, this value is not used.
+   * Default value: 1
+   */
+  secondValue?: number;
+  /**
+   * The text color to apply to formatted cells.
+   * Default value: "The default color as set in CSS"
+   */
+  text?: string;
 }
 
 /**Sets the Grid Charting Data Visualization. */
@@ -14478,6 +15084,11 @@ export interface GridHeader {
    * Default value: 
    */
   template?: string | HTMLTemplateElement;
+  /**
+   * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
+   * Default value: [ 'columns', 'filter', 'group', 'sort', 'format', 'search' ]
+   */
+  buttons?: any[];
 }
 
 /**Describes the footer settings of the grid. */
@@ -14884,6 +15495,12 @@ export declare type GridClipboardAutoFillMode = 'none' | 'copy' | 'fillSeries';
 export declare type Position = 'near' | 'far';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
+/**The formatting condition. */
+export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
+/**The fontFamily to apply to formatted cells. */
+export declare type GridConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
+/**The fontSize to apply to formatted cells. */
+export declare type GridConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Determines the way editing is initiated. */
 export declare type GridEditingAction = 'none' | 'click' | 'dblClick';
 /**Sets what is to be displayed in command column buttons. */
@@ -18749,6 +19366,152 @@ declare global {
 
 /**Determines how many items can be selected. */
 export declare type MultiSplitButtonSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+export interface NumberInputProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Default value: "off"
+   */
+  inputPurpose?: string;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Determines the max number that can be displayed inside the input.
+   * Default value: 9999999999
+   */
+  max?: number;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the min number that can be displayed inside the input.
+   * Default value: -9999999999
+   */
+  min?: number;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets or gets the value format of the element.
+   * Default value: [object Object]
+   */
+  numberFormat?: any;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Determines whether ot not the user can enter text inside the input.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Sets or gets the incremental/decremental step for the value of the element.
+   * Default value: 1
+   */
+  step?: number;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: 0
+   */
+  value?: any;
+}
+/**
+ NumberInput specifies an input field where the user can enter a numbers.
+*/
+export interface NumberInput extends BaseElement, NumberInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
+   *  label - The label of the new selected item.
+   *  oldLabel - The label of the item that was previously selected before the event was triggered.
+   *  oldValue - The value of the item that was previously selected before the event was triggered.
+   *  value - The value of the new selected item.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Returns the value in the desired format.
+   * @param {string | number} value. The value to be formatted by the method. 
+   * @param {any} format?. The object that contains the formatting properties. The argument should contain Intl.NumberFormat valid properties. For example, { style: 'currency', currency: 'EUR' }
+   */
+  getFormattedValue(value: string | number, format?: any): void;
+  /**
+   * Returns the number of the input.
+   */
+  getValue(): void;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+  /**
+   * Sets the value of the input.
+   * @param {string | number} value. The value to be set. 
+   */
+  setValue(value: string | number): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-number-input"): NumberInput;
+        querySelector(selectors: "smart-number-input"): NumberInput | null;
+        querySelectorAll(selectors: "smart-number-input"): NodeListOf<NumberInput>;
+        getElementsByTagName(qualifiedName: "smart-number-input"): HTMLCollectionOf<NumberInput>;
+        getElementsByName(elementName: "smart-number-input"): NodeListOf<NumberInput>;
+    }
+}
+
 export interface NumericTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -19655,6 +20418,422 @@ declare global {
 
 /**Determines the format of the path. Follows specific operation system criteria by changing the drive,folder separators.  */
 export declare type PathFormat = 'windows' | 'unix';
+export interface PivotTableProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Sets or gets whether the reordering of columns is enabled.
+   * Default value: false
+   */
+  columnReorder?: boolean;
+  /**
+   * Describes the columns of the PivotTable's original tabular data. Based on these settings and the data source, the actual columns of the PivotTable are dynamically generated.
+   * Default value: null
+   */
+  columns?: PivotTableColumn[];
+  /**
+   * Sets or gets whether to show total columns for each pivot data point. When enabled, all summary columns must have the same summary function set by which total columns are calculated.
+   * Default value: false
+   */
+  columnTotals?: boolean;
+  /**
+   * Sets or gets the position of total columns (shown when columnTotals is enabled).
+   * Default value: near
+   */
+  columnTotalsPosition?: PivotTableColumnTotalsPosition;
+  /**
+   * Sets or gets details about conditional formatting to be applied to the PivotTable's cells.
+   * Default value: null
+   */
+  conditionalFormatting?: PivotTableConditionalFormatting[];
+  /**
+   * Determines the original tabular data source of the PivotTable.
+   * Default value: 
+   */
+  dataSource?: any;
+  /**
+   * Sets or gets whether to display the PivotTable's designer alongside the table itself. The designer allows for configuring column settings and applying filtering.
+   * Default value: false
+   */
+  designer?: boolean;
+  /**
+   * Sets or gets the position of the PivotTable's designer (shown when designer is enabled).
+   * Default value: far
+   */
+  designerPosition?: PivotTableDesignerPosition;
+  /**
+   * Disables the interaction with the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * If enabled, shows the original tabular data that has been aggregated in a PivotTable summary cell when the cell is double-clicked or F2 is pressed.
+   * Default value: false
+   */
+  drillDown?: boolean;
+  /**
+   * Sets or gets whether the PivotTable's column header is sticky/frozen.
+   * Default value: false
+   */
+  freezeHeader?: boolean;
+  /**
+   * A callback function that returns the default summary function of a summary column when it is dynamically assigned as such (e.g. by drag-drop in the designer).
+   * Default value: null
+   */
+  getDefaultSummaryFunction?: { (column: PivotTableColumn): string };
+  /**
+   * Sets or gets whether to show a Grand total row aggregating the data of all rows.
+   * Default value: false
+   */
+  grandTotal?: boolean;
+  /**
+   * Sets or gets the way row nesting (based on rowGroup columns) is displayed.
+   * Default value: default
+   */
+  groupLayout?: PivotTableGroupLayout;
+  /**
+   * Sets or gets whether navigation with the keyboard is enabled in the PivotTable.
+   * Default value: false
+   */
+  keyboardNavigation?: boolean;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Sets or gets an object specifying strings used in the element that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {"en":{"add":"Add condition","all":"All columns","apply":"Apply","between":"Between","calculation":"Calculation","cancel":"Cancel","center":"center","clear":"Clear","clearFilter":"Clear filter","close":"Close","column":"Column:","columns":"Columns","columnSettings":"Column settings","condition":"Condition:","conditionalFormatting":"Conditional Formatting","CONTAINS_CASE_SENSITIVE":"contains (case sensitive)","CONTAINS":"contains","decimalPlaces":"Decimal places","decimalSeparator":"Decimal separator","details":"Details","DOES_NOT_CONTAIN_CASE_SENSITIVE":"does not contain (case sensitive)","DOES_NOT_CONTAIN":"does not contain","dragHerePivots":"Drag here to set pivots","dragHereRowGroups":"Drag here to set row groups","dragHereSummaries":"Drag here to set summaries","EMPTY":"empty","ENDS_WITH_CASE_SENSITIVE":"ends with (case sensitive)","ENDS_WITH":"ends with","EQUAL_CASE_SENSITIVE":"equal (case sensitive)","equal":"Equal To","EQUAL":"equal","fields":"Fields","filter":"Filter","filterCondition":"Filter condition","filterPlaceholder":"Filter","filters":"Filters","firstButton":"First","fontFamily":"Font family:","fontSize":"Font size:","format":"Format:","formatColumn":"Format Column","grandTotal":"Grand Total","GREATER_THAN_OR_EQUAL":"greater than or equal","GREATER_THAN":"greater than","greaterThan":"Greater Than","groupHeader":"Group","highlight":"Highlight","invalidValue":"Invalid value","itemsPerPage":"Items per page:","lastButton":"Last","left":"left","LESS_THAN_OR_EQUAL":"less than or equal","LESS_THAN":"less than","lessThan":"Less Than","moveTo":"Move to","negativesInBrackets":"Negatives in brackets","nextButton":"Next","NOT_EMPTY":"not empty","NOT_EQUAL":"not equal","NOT_NULL":"not null","notApplicable":"N/A","notEqual":"Not Equal To","NULL":"null","numberAlignment":"Number alignment","numberFormat":"Number format","numberPrefix":"Number prefix","ok":"OK","pivots":"Pivots","previousButton":"Previous","remove":"Remove condition","right":"right","row":"Row","rowGroups":"Row Groups","sameSummaryFunctionRequired":"jqxPivotTable: When "columnTotals" is enabled, all summary columns must have the same "summary" function set (e.g. '
+   */
+  messages?: any;
+  /**
+   * A callback function executed each time a PivotTable cell is rendered.
+   * Default value: null
+   */
+  onCellRender?: any;
+  /**
+   * A callback function executed each time a PivotTable column header cell is rendered.
+   * Default value: null
+   */
+  onColumnRender?: any;
+  /**
+   * A callback function executed when the PivotTable is being initialized.
+   * Default value: null
+   */
+  onInit?: { (): void };
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Sets or gets whether to show row total columns for each summary column.
+   * Default value: false
+   */
+  rowTotals?: boolean;
+  /**
+   * Sets or gets the position of row total columns (shown when rowTotals is enabled).
+   * Default value: near
+   */
+  rowTotalsPosition?: PivotTableRowTotalsPosition;
+  /**
+   * Sets or gets whether row selection (via checkboxes) is enabled.
+   * Default value: false
+   */
+  selection?: boolean;
+  /**
+   * Sets or gets the selection mode. Only applicable when selection is enabled.
+   * Default value: many
+   */
+  selectionMode?: PivotTableSelectionMode;
+  /**
+   * Determines the sorting mode of the PivotTable.
+   * Default value: none
+   */
+  sortMode?: PivotTableSortMode;
+  /**
+   * Determines the theme. Theme defines the look of the element
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * Sets or gets whether the PivotTable's toolbar is shown. It contains two breadcrumb components that allow the modification of the row group and pivot columns, as well as the "Conditional Formatting" and "Fields" buttons that open a dialog with additional settings.
+   * Default value: false
+   */
+  toolbar?: boolean;
+  /**
+   * Sets or gets whether when hovering a cell with truncated content, a tooltip with the full content will be shown.
+   * Default value: false
+   */
+  tooltip?: boolean;
+}
+/**
+ PivotTable is a table of statistics that summarizes the data of a more extensive table.
+*/
+export interface PivotTable extends BaseElement, PivotTableProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when a cell has been clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row)
+   *  dataField - The data field of the cell's dynamic column.
+   *  row - The data of the cell's row.
+   */
+  onCellClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when a summary column header cell has been clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(columnDefinition, dataField)
+   *  columnDefinition - An object detailing the clicked dynamic column.
+   *  dataField - The data field of the cell's original column.
+   */
+  onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a filtering-related action is made.
+	* @param event. The custom event. Custom data event was created with: ev.detail(action, filters)
+   *  action - The filtering action. Possible actions: 'add', 'remove'.
+   *  filters - The added filters. Only when action is 'add'.
+   */
+  onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column header cell has been clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(columns)
+   *  columns - An array with information about the dynamic columns the PivotTable has been sorted by.
+   */
+  onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Adds a filter to a specific column.
+   * @param {string} dataField. The column's data field.
+   * @param {any} filter. FilterGroup object.
+   */
+  addFilter(dataField: string, filter: any): void;
+  /**
+   * Clears applied filters.
+   */
+  clearFilters(): void;
+  /**
+   * Clears selection.
+   */
+  clearSelection(): void;
+  /**
+   * Clears the PivotTable sorting.
+   */
+  clearSort(): void;
+  /**
+   * Collapses all rows (when multiple row groups are applied).
+   */
+  collapseAllRows(): void;
+  /**
+   * Collapses a row (when multiple row groups are applied).
+   * @param {string | number} rowId. The id of the row to collapse. Can be retrieved from the <strong>rows</strong> collection.
+   */
+  collapseRow(rowId: string | number): void;
+  /**
+   * Expands all rows (when multiple row groups are applied).
+   */
+  expandAllRows(): void;
+  /**
+   * Expands a row (when multiple row groups are applied).
+   * @param {string | number} rowId. The id of the row to expand. Can be retrieved from the <strong>rows</strong> collection.
+   */
+  expandRow(rowId: string | number): void;
+  /**
+   * Exports the PivotTable's data.
+   * @param {string} dataFormat. The file format to export to. Supported formats: 'csv', 'html', 'json', 'pdf', 'tsv', 'xlsx', 'xml'.
+   * @param {string} fileName?. The name of the file to export to
+   * @param {Function} callback?. A callback function to pass the exported data to (if fileName is not provided)
+   * @returns {any}
+   */
+  exportData(dataFormat: string, fileName?: string, callback?: Function): any;
+  /**
+   * Returns the current dynamic pivot columns.
+   * @returns {any}
+   */
+  getDynamicColumns(): any;
+  /**
+   * Returns an array of selected row ids.
+   * @returns {(string | number)[]}
+   */
+  getSelection(): (string | number)[];
+  /**
+   * Refreshes the PivotTable.
+   */
+  refresh(): void;
+  /**
+   * Removes filters applied to a specific column.
+   * @param {string} dataField. The column's data field.
+   */
+  removeFilter(dataField: string): void;
+  /**
+   * Selects a row.
+   * @param {string | number} rowId. The id of the row to select. Can be retrieved from the <strong>rows</strong> collection.
+   */
+  select(rowId: string | number): void;
+  /**
+   * Sorts by a summary or group column.
+   * @param {any} columnDefinition. The dynamic column's definition. Can be retrieved from the method <strong>getDynamicColumns</strong>.
+   * @param {string} sortOrder?. Sort order. Possible values: 'asc' (ascending), 'desc' (descending), and null (removes sorting by column). If not provided, toggles the sorting.
+   */
+  sortBy(columnDefinition: any, sortOrder?: string): void;
+  /**
+   * Unselects a row.
+   * @param {string | number} rowId. The id of the row to unselect. Can be retrieved from the <strong>rows</strong> collection.
+   */
+  unselect(rowId: string | number): void;
+}
+
+export interface PivotTableColumn {
+  /**
+   * Sets or gets the header cell alignment for pivot and summary columns and cell alignment for row group columns.
+   * Default value: string
+   */
+  align?: PivotTableColumnAlign;
+  /**
+   * Sets or gets whether the column can be filtered.
+   * Default value: true
+   */
+  allowFilter?: boolean;
+  /**
+   * Sets or gets whether the column can be a pivot column.
+   * Default value: false
+   */
+  allowPivot?: boolean;
+  /**
+   * Sets or gets whether the column can be a row group column.
+   * Default value: false
+   */
+  allowRowGroup?: boolean;
+  /**
+   * Sets or gets whether summary columns based on the column can be sorted.
+   * Default value: true
+   */
+  allowSort?: boolean;
+  /**
+   * Sets or gets the column's data source-bound field.
+   * Default value: ""
+   */
+  dataField?: string;
+  /**
+   * Sets or gets the data type of the column's cells.
+   * Default value: string
+   */
+  dataType?: PivotTableColumnDataType;
+  /**
+   * A callback function that can be used to modify the contents of a cell and the cell itself.
+   * Default value: null
+   */
+  formatFunction?: any;
+  /**
+   * Sets or gets the column's displayed text (for example in summary column headers).
+   * Default value: ""
+   */
+  label?: string;
+  /**
+   * Sets or gets whether the column is a pivot column. Data from pivot columns is represented as column hierarchy in the PivotTable.
+   * Default value: false
+   */
+  pivot?: boolean;
+  /**
+   * Sets or gets whether the column is a row group column. Data from row group columns is represented as rows in the PivotTable. If multiple row groups are set, row hierarchy is displayed based on the order of the row group columns in the columns array.
+   * Default value: false
+   */
+  rowGroup?: boolean;
+  /**
+   * Sets or gets the summary function to aggregate the column's data by and produce dynamic summary columns for each unique pivot data point. There must always be at least one summary column for the PivotTable to make sense. When columnTotals is enabled, all summary columns must have the same summary function set.
+   * Default value: null
+   */
+  summary?: PivotTableColumnSummary;
+  /**
+   * Sets or gets an object with settings for cells in summary columns.
+   * Default value: [object Object]
+   */
+  summarySettings?: { align: string, prefix: string, decimalPlaces: number, thousandsSeparator: string, decimalSeparator: string, negativesInBrackets: boolean };
+}
+
+export interface PivotTableConditionalFormatting {
+  /**
+   * The data field of a numeric column to format. Set 'all' to format all numeric columns.
+   * Default value: "all"
+   */
+  column?: string;
+  /**
+   * The formatting condition.
+   * Default value: lessThan
+   */
+  condition?: PivotTableConditionalFormattingCondition;
+  /**
+   * The value to compare by. When condition is 'between', this is the start (from) value.
+   * Default value: 0
+   */
+  firstValue?: number;
+  /**
+   * The fontFamily to apply to formatted cells.
+   * Default value: The default fontFamily as set in CSS
+   */
+  fontFamily?: PivotTableConditionalFormattingFontFamily;
+  /**
+   * The fontSize to apply to formatted cells.
+   * Default value: The default fontSize as set in CSS
+   */
+  fontSize?: PivotTableConditionalFormattingFontSize;
+  /**
+   * The background color to apply to formatted cells.
+   * Default value: "The default backgroundColor as set in CSS"
+   */
+  highlight?: string;
+  /**
+   * When condition is 'between', this is the end (to) value. Otherwise, this value is not used.
+   * Default value: 1
+   */
+  secondValue?: number;
+  /**
+   * The text color to apply to formatted cells.
+   * Default value: "The default color as set in CSS"
+   */
+  text?: string;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-pivot-table"): PivotTable;
+        querySelector(selectors: "smart-pivot-table"): PivotTable | null;
+        querySelectorAll(selectors: "smart-pivot-table"): NodeListOf<PivotTable>;
+        getElementsByTagName(qualifiedName: "smart-pivot-table"): HTMLCollectionOf<PivotTable>;
+        getElementsByName(elementName: "smart-pivot-table"): NodeListOf<PivotTable>;
+    }
+}
+
+/**Sets or gets the header cell alignment for pivot and summary columns and cell alignment for row group columns. */
+export declare type PivotTableColumnAlign = 'center' | 'left' | 'right';
+/**Sets or gets the data type of the column's cells. */
+export declare type PivotTableColumnDataType = 'boolean' | 'date' | 'number' | 'string';
+/**Sets or gets the summary function to aggregate the column's data by and produce dynamic summary columns for each unique pivot data point. There must always be at least one summary column for the PivotTable to make sense. When columnTotals is enabled, all summary columns must have the same summary function set. */
+export declare type PivotTableColumnSummary = 'avg' | 'count' | 'max' | 'median' | 'min' | 'product' | 'stdev' | 'stdevp' | 'sum' | 'var' | 'varp';
+/**Sets or gets the position of total columns (shown when columnTotals is enabled). */
+export declare type PivotTableColumnTotalsPosition = 'near' | 'far';
+/**The formatting condition. */
+export declare type PivotTableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
+/**The fontFamily to apply to formatted cells. */
+export declare type PivotTableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
+/**The fontSize to apply to formatted cells. */
+export declare type PivotTableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
+/**Sets or gets the position of the PivotTable's designer (shown when designer is enabled). */
+export declare type PivotTableDesignerPosition = 'near' | 'far';
+/**Sets or gets the way row nesting (based on rowGroup columns) is displayed. */
+export declare type PivotTableGroupLayout = 'classic' | 'default';
+/**Sets or gets the position of row total columns (shown when rowTotals is enabled). */
+export declare type PivotTableRowTotalsPosition = 'near' | 'far';
+/**Sets or gets the selection mode. Only applicable when selection is enabled. */
+export declare type PivotTableSelectionMode = 'many' | 'extended';
+/**Determines the sorting mode of the PivotTable. */
+export declare type PivotTableSortMode = 'none' | 'one' | 'many';
 export interface PowerButtonProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -21600,20 +22779,55 @@ export interface TableProperties {
    */
   animation?: Animation;
   /**
-   * Describes the columns properties.
-   * Default value: null
+   * Enables or disables auto load state from the browser's localStorage. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the stateSettings property.
+   * Default value: false
    */
-  columns?: TableColumn[];
+  autoLoadState?: boolean;
+  /**
+   * Enables or disables auto save state to the browser's localStorage. Information about columns, expanded rows, selected rows, applied fitering, grouping, and   sorted columns is saved, based on the value of the stateSettings property.
+   * Default value: false
+   */
+  autoSaveState?: boolean;
+  /**
+   * Sets or gets the min width of columns when columnSizeMode is 'auto'.
+   * Default value: 50px
+   */
+  columnMinWidth?: string | number;
   /**
    * Sets or gets whether the reordering of columns is enabled.
    * Default value: false
    */
   columnReorder?: boolean;
   /**
+   * Describes the columns properties.
+   * Default value: null
+   */
+  columns?: TableColumn[];
+  /**
+   * Sets or gets details about conditional formatting to be applied to the Table's cells.
+   * Default value: null
+   */
+  conditionalFormatting?: TableConditionalFormatting[];
+  /**
+   * Sets or gets the column sizing behavior.
+   * Default value: default
+   */
+  columnSizeMode?: TableColumnSizeMode;
+  /**
+   * Sets or gets whether the "Conditional Formatting" button appears in the Table's header (toolbar). Clicking this button opens a dialog with formatting options.
+   * Default value: false
+   */
+  conditionalFormattingButton?: boolean;
+  /**
    * Determines the data source of the table component.
    * Default value: 
    */
   dataSource?: any;
+  /**
+   * A callback function that can be used to transform the initial dataSource records. If implemented, it is called once for each record (which is passed as an argument).
+   * Default value: null
+   */
+  dataTransform?: any;
   /**
    * Disables the interaction with the element.
    * Default value: false
@@ -21683,7 +22897,16 @@ export interface TableProperties {
    * Sets or gets an object specifying strings used in the element that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
    *   "en": {
+   *     "add": "Add condition",
+   *     "all": "All columns",
+   *     "apply": "Apply",
+   *     "between": "Between",
+   *     "cancel": "Cancel",
    *     "clearFilter": "Clear filter",
+   *     "close": "Close",
+   *     "column": "Column:",
+   *     "condition": "Condition:",
+   *     "conditionalFormatting": "Conditional Formatting",
    *     "CONTAINS": "contains",
    *     "CONTAINS_CASE_SENSITIVE": "contains (case sensitive)",
    *     "DOES_NOT_CONTAIN": "does not contain",
@@ -21693,25 +22916,39 @@ export interface TableProperties {
    *     "ENDS_WITH_CASE_SENSITIVE": "ends with (case sensitive)",
    *     "EQUAL": "equal",
    *     "EQUAL_CASE_SENSITIVE": "equal (case sensitive)",
-   *     "filterPlaceholder": "Filter",
    *     "filterCondition": "Filter condition",
+   *     "filterPlaceholder": "Filter",
    *     "firstButton": "First",
+   *     "fontFamily": "Font family:",
+   *     "fontSize": "Font size:",
+   *     "format": "Format:",
+   *     "formatColumn": "Format Column",
    *     "GREATER_THAN": "greater than",
    *     "GREATER_THAN_OR_EQUAL": "greater than or equal",
+   *     "greaterThan": "Greater Than",
+   *     "highlight": "Highlight",
    *     "invalidValue": "Invalid value",
    *     "itemsPerPage": "Items per page:",
    *     "lastButton": "Last",
    *     "LESS_THAN": "less than",
    *     "LESS_THAN_OR_EQUAL": "less than or equal",
+   *     "lessThan": "Less Than",
    *     "nextButton": "Next",
    *     "NOT_EMPTY": "not empty",
    *     "NOT_EQUAL": "not equal",
    *     "NOT_NULL": "not null",
+   *     "notEqual": "Not Equal To",
    *     "NULL": "null",
+   *     "ok": "OK",
    *     "previousButton": "Previous",
+   *     "remove": "Remove condition",
+   *     "secondValue": "Second value:",
    *     "STARTS_WITH": "starts with",
    *     "STARTS_WITH_CASE_SENSITIVE": "starts with (case sensitive)",
-   *     "summaryPrefix": "of"
+   *     "summaryPrefix": "of",
+   *     "text": "Text",
+   *     "value": "Value:",
+   *     "with": "with"
    *   }
    * }
    */
@@ -21762,15 +22999,35 @@ export interface TableProperties {
    */
   selection?: boolean;
   /**
+   * Sets or gets the selection mode. Only applicable when selection is enabled.
+   * Default value: many
+   */
+  selectionMode?: TableSelectionMode;
+  /**
+   * A callback function executed when a column is sorted that can be used to override the default sorting behavior. The function is passed four parameters: dataSource - the Table's data sourcesortColumns - an array of the data fields of columns to be sorted bydirections - an array of sort directions to be sorted by (corresponding to sortColumns)defaultCompareFunctions - an array of default compare functions to be sorted by (corresponding to sortColumns), useful if the sorting of some columns does not have to be overridden
+   * Default value: null
+   */
+  sort?: any;
+  /**
    * Determines the sorting mode of the Table.
    * Default value: none
    */
   sortMode?: TableSortMode;
   /**
+   * Sets or gets what settings of the Table's state can be saved (by autoSaveState or saveState) or loaded (by autoLoadState or loadState).
+   * Default value: columns,expanded,filtered,grouped,selected,sorted
+   */
+  stateSettings?: string[];
+  /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
    */
   theme?: string;
+  /**
+   * Sets or gets whether when hovering a cell with truncated content, a tooltip with the full content will be shown.
+   * Default value: false
+   */
+  tooltip?: boolean;
 }
 /**
  Table is an alternative of the HTMLTableElement.
@@ -21800,6 +23057,10 @@ export interface Table extends BaseElement, TableProperties {
    *  row - The new data of the cell's row.
    */
   onCellEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a column header cell has been clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
@@ -21880,7 +23141,7 @@ export interface Table extends BaseElement, TableProperties {
    */
   collapseGroup(index: string): void;
   /**
-   * Collapses a group.
+   * Collapses a row (in tree mode).
    * @param {string | number} rowId. The id of the row to collapse.
    */
   collapseRow(rowId: string | number): void;
@@ -21917,12 +23178,22 @@ export interface Table extends BaseElement, TableProperties {
    */
   getSelection(): (string | number)[];
   /**
+   * Returns the Table's state, containing information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns. It can then be stored or passed to the method <strong>loadState</strong>.
+   * @returns {any}
+   */
+  getState(): any;
+  /**
    * Returns the value of a cell.
    * @param {string | number} row. The id of the cell's row.
    * @param {string} dataField. The dataField of the cell's column.
    * @returns {any}
    */
   getValue(row: string | number, dataField: string): any;
+  /**
+   * Loads the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the <strong>stateSettings</strong> property.
+   * @param {any} state?. An object returned by one of the methods <strong>getState</strong> or <strong>saveState</strong>. If a state is not passed, the method tries to load the state from the browser's localStorage.
+   */
+  loadState(state?: any): void;
   /**
    * Navigates to a page.
    * @param {number} pageIndex. The zero-based page index to navigate to.
@@ -21943,6 +23214,11 @@ export interface Table extends BaseElement, TableProperties {
    */
   removeGroup(dataField: string): void;
   /**
+   * Saves the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is saved, based on the value of the <strong>stateSettings</strong> property.
+   * @returns {any}
+   */
+  saveState(): any;
+  /**
    * Selects a row.
    * @param {string | number} rowId. The id of the row to select.
    */
@@ -21957,7 +23233,7 @@ export interface Table extends BaseElement, TableProperties {
   /**
    * Sorts the Table by a column.
    * @param {string} columnDataField. Column field name.
-   * @param {string} sortOrder?. Sort order. Possible values: 'asc' (ascending) and 'desc' (descending).
+   * @param {string} sortOrder?. Sort order. Possible values: 'asc' (ascending), 'desc' (descending), and null (removes sorting by column). If not provided, toggles the sorting.
    */
   sortBy(columnDataField: string, sortOrder?: string): void;
   /**
@@ -21989,7 +23265,7 @@ export interface TableColumn {
    */
   allowSort?: boolean;
   /**
-   * Sets or gets the column's data source bound field.
+   * Sets or gets the column's data source-bound field.
    * Default value: ""
    */
   dataField?: string;
@@ -22024,15 +23300,63 @@ export interface TableColumn {
    */
   responsivePriority?: TableColumnResponsivePriority;
   /**
+   * A callback function that can be used to transform all the data of the column's original data field into a new data field to be used in column cells and all column operations. Can be useful for localizing data.
+   * Default value: null
+   */
+  transform?: any;
+  /**
    * A callback function that can be used to validate cell values after editing. If it returns true, the cell is valid. If it returns false or an object with a message field, the cell is not valid and the message (or a default one) is displayed in a tooltip.
    * Default value: null
    */
   validation?: any;
   /**
-   * Sets the width of the column. The width can be entered as a number, or string with px or %.
+   * Sets the width of the column. The width can be entered as a number or string with px.
    * Default value: null
    */
   width?: string | number;
+}
+
+export interface TableConditionalFormatting {
+  /**
+   * The data field of a numeric column to format. Set 'all' to format all numeric columns.
+   * Default value: "all"
+   */
+  column?: string;
+  /**
+   * The formatting condition.
+   * Default value: lessThan
+   */
+  condition?: TableConditionalFormattingCondition;
+  /**
+   * The value to compare by. When condition is 'between', this is the start (from) value.
+   * Default value: 0
+   */
+  firstValue?: number;
+  /**
+   * The fontFamily to apply to formatted cells.
+   * Default value: The default fontFamily as set in CSS
+   */
+  fontFamily?: TableConditionalFormattingFontFamily;
+  /**
+   * The fontSize to apply to formatted cells.
+   * Default value: The default fontSize as set in CSS
+   */
+  fontSize?: TableConditionalFormattingFontSize;
+  /**
+   * The background color to apply to formatted cells.
+   * Default value: "The default backgroundColor as set in CSS"
+   */
+  highlight?: string;
+  /**
+   * When condition is 'between', this is the end (to) value. Otherwise, this value is not used.
+   * Default value: 1
+   */
+  secondValue?: number;
+  /**
+   * The text color to apply to formatted cells.
+   * Default value: "The default color as set in CSS"
+   */
+  text?: string;
 }
 
 declare global {
@@ -22051,10 +23375,20 @@ export declare type TableColumnDataType = 'boolean' | 'date' | 'number' | 'strin
 export declare type TableColumnFreeze = 'true' | 'near' | 'far';
 /**Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden. */
 export declare type TableColumnResponsivePriority = '1' | '2' | '3' | '4' | '5';
+/**The formatting condition. */
+export declare type TableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
+/**The fontFamily to apply to formatted cells. */
+export declare type TableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
+/**The fontSize to apply to formatted cells. */
+export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
+/**Sets or gets the column sizing behavior. */
+export declare type TableColumnSizeMode = 'auto' | 'default';
 /**Sets or gets the edit mode. */
 export declare type TableEditMode = 'cell' | 'row';
 /**Sets or gets the page size (when paging is enabled). */
 export declare type TablePageSize = '10' | '25' | '50';
+/**Sets or gets the selection mode. Only applicable when selection is enabled. */
+export declare type TableSelectionMode = 'many' | 'extended';
 /**Determines the sorting mode of the Table. */
 export declare type TableSortMode = 'none' | 'one' | 'many';
 export interface TabsProperties {
@@ -23078,6 +24412,357 @@ declare global {
 
 /**Determines the behavior of the element when Escape key is pressed. */
 export declare type EscKeyMode = 'none' | 'previousValue' | 'clearValue';
+export interface TimeInputProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
+   * Default value: { hour: 'numeric', minute: 'numeric' }
+   */
+  dateTimeFormat?: TimeInputDateTimeFormat;
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Determines the position of the drop down button.
+   * Default value: right
+   */
+  dropDownButtonPosition?: DropDownButtonPosition;
+  /**
+   * Sets the height of the drop down. By default it's set to 'auto'.
+   * Default value: auto
+   */
+  dropDownHeight?: string | number;
+  /**
+   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Default value: 
+   */
+  dropDownWidth?: string | number;
+  /**
+   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Default value: "off"
+   */
+  inputPurpose?: string;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Determines whether the drop down is opened or not.
+   * Default value: false
+   */
+  opened?: boolean;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Default value: false
+   */
+  readonly?: boolean;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: 
+   */
+  value?: any;
+}
+/**
+ TimeInput specifies an input field where the user can enter a time. It also has a popup with a Calendar that allows to pick a time.
+*/
+export interface TimeInput extends BaseElement, TimeInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
+   *  label - The label of the new selected item.
+   *  oldLabel - The label of the item that was previously selected before the event was triggered.
+   *  oldValue - The value of the item that was previously selected before the event was triggered.
+   *  value - The value of the new selected item.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Closes the drop down.
+   */
+  close(): void;
+  /**
+   * Opens the drop down.
+   */
+  open(): void;
+  /**
+   * Returns the value in the desired format.
+   */
+  getFormattedValue(): void;
+  /**
+   * Returns the value of the input.
+   */
+  getValue(): void;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+  /**
+   * Sets the value of the input. Expects an array of 2 numbers for hours and minutes.
+   * @param {any[]} value. The value to be set. 
+   */
+  setValue(value: any[]): void;
+}
+
+/**Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
+export interface TimeInputDateTimeFormat {
+  /**
+   * 
+   * Default value: undefined
+   */
+  0?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  1?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  2?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  3?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  4?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  5?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  6?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  7?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  8?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  9?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  10?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  11?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  12?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  13?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  14?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  15?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  16?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  17?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  18?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  19?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  20?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  21?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  22?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  23?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  24?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  25?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  26?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  27?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  28?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  29?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  30?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  31?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  32?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  33?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  34?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  35?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  36?: any;
+  /**
+   * 
+   * Default value: undefined
+   */
+  37?: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-time-input"): TimeInput;
+        querySelector(selectors: "smart-time-input"): TimeInput | null;
+        querySelectorAll(selectors: "smart-time-input"): NodeListOf<TimeInput>;
+        getElementsByTagName(qualifiedName: "smart-time-input"): HTMLCollectionOf<TimeInput>;
+        getElementsByName(elementName: "smart-time-input"): NodeListOf<TimeInput>;
+    }
+}
+
 export interface TimePickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -23621,9 +25306,17 @@ export interface Tooltip extends BaseElement, TooltipProperties {
 	* @param event. The custom event.    */
   onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered before the tooltip is opened. The event can be prevented via event.preventDefault().
+	* @param event. The custom event.    */
+  onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the tooltip is closed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered before the tooltip is closed. The event can be prevented via event.preventDefault().
+	* @param event. The custom event.    */
+  onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes smart-tooltip. 
    */
@@ -23636,6 +25329,10 @@ export interface Tooltip extends BaseElement, TooltipProperties {
    * Toggles smart-tooltip. 
    */
   toggle(): void;
+  /**
+   * Clears the content of the Tooltip. 
+   */
+  clear(): void;
 }
 
 declare global {
@@ -23723,6 +25420,11 @@ export interface TreeProperties {
    * Default value: false
    */
   editable?: boolean;
+  /**
+   * Determines the expand behavior of TreeItemsGroups in the Tree.
+   * Default value: multiple
+   */
+  expandMode?: TreeExpandMode;
   /**
    * Enables or disables filtering. Shows or hides filter input.
    * Default value: false
@@ -23820,6 +25522,11 @@ export interface TreeProperties {
    * Default value: one
    */
   selectionMode?: TreeSelectionMode;
+  /**
+   * Determines whether smart-tree-items-groups can be selected.
+   * Default value: all
+   */
+  selectionTarget?: TreeSelectionTarget;
   /**
    * Shows or hides lines, displaying the relation between elements in group.
    * Default value: false
@@ -24098,12 +25805,16 @@ declare global {
     }
 }
 
+/**Determines the expand behavior of TreeItemsGroups in the Tree. */
+export declare type TreeExpandMode = 'multiple' | 'single';
 /**Determines whether to use scrollbar or scrollButtons when content overflows an element's box. */
 export declare type TreeScrollMode = 'scrollbar' | 'scrollButtons';
 /**Determines the way selected items are highlighted. */
 export declare type TreeSelectionDisplayMode = 'row' | 'label';
 /**Determines selection mode. */
 export declare type TreeSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+/**Determines whether jqx-tree-items-groups can be selected. */
+export declare type TreeSelectionTarget = 'all' | 'leaf';
 /**Determines sort direction - ascending or descending. */
 export declare type TreeSortDirection = 'ascending' | 'descending';
 /**Determines the way to toggle jqx-tree-items-groups. */

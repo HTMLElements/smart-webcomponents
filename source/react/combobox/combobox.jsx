@@ -886,10 +886,18 @@ export class ComboBox extends React.Component {
 	set onScrollTopReached(value) {
 		this._onScrollTopReached = value;
 	}
+	/**  This event is triggered when a token item(pill) has been clicked. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
+	*  @param event. The custom event. 	*/
+	_onTokenClick = null;	get onTokenClick() {
+		return this._onTokenClick;
+	}
+	set onTokenClick(value) {
+		this._onTokenClick = value;
+	}
 
 	// Gets the events of the React component.
 	get events() {
-		return ["onChange","onClose","onClosing","onItemClick","onOpen","onOpening","onResizeStart","onResizeEnd","onScrollBottomReached","onScrollTopReached"];
+		return ["onChange","onClose","onClosing","onItemClick","onOpen","onOpening","onResizeStart","onResizeEnd","onScrollBottomReached","onScrollTopReached","onTokenClick"];
 	}
 	/** Appends a ListItem to the end of the list of items inside element. 
 	* @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.

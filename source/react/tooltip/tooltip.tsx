@@ -12,7 +12,9 @@ export interface TooltipProps extends TooltipProperties {
     style?: React.CSSProperties;
 
 	onOpen?: ((event?: Event) => void) | undefined;
+	onOpening?: ((event?: Event) => void) | undefined;
 	onClose?: ((event?: Event) => void) | undefined;
+	onClosing?: ((event?: Event) => void) | undefined;
 
 }
 /**
@@ -243,9 +245,15 @@ export class Tooltip extends React.Component<React.HTMLProps<Element> & TooltipP
 	/**  This event is triggered when the tooltip is opened.
 	*  @param event. The custom event. 	*/
 	onOpen?: ((event?: Event) => void) | undefined
+	/**  This event is triggered before the tooltip is opened. The event can be prevented via event.preventDefault().
+	*  @param event. The custom event. 	*/
+	onOpening?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when the tooltip is closed.
 	*  @param event. The custom event. 	*/
 	onClose?: ((event?: Event) => void) | undefined
+	/**  This event is triggered before the tooltip is closed. The event can be prevented via event.preventDefault().
+	*  @param event. The custom event. 	*/
+	onClosing?: ((event?: Event) => void) | undefined
 	/**  This event occurs, when the React component is created.
 	*  @param event. The custom event. 	*/
 	onCreate?: ((event?: Event) => void) | undefined
@@ -255,7 +263,7 @@ export class Tooltip extends React.Component<React.HTMLProps<Element> & TooltipP
 
 	// Gets the events of the React component.
 	get events(): string[] {
-		return ["onOpen","onClose","onCreate","onReady"];
+		return ["onOpen","onOpening","onClose","onClosing","onCreate","onReady"];
 	}
 	/** Closes smart-tooltip.  
 	*/
@@ -295,6 +303,20 @@ export class Tooltip extends React.Component<React.HTMLProps<Element> & TooltipP
         {
             this.nativeElement.whenRendered(() => {
                 this.nativeElement.toggle();
+            });
+        }
+    }
+
+	/** Clears the content of the Tooltip.  
+	*/
+    public clear(): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.clear();
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.clear();
             });
         }
     }
