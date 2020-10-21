@@ -1,0 +1,141 @@
+﻿[{
+    "id": "1",
+    "discovery": "Electrochemical series and battery",
+    "scientist": "Alessandro Volta",
+    "year": "1800"
+}, {
+    "id": "2",
+    "discovery": "Teleological evolution",
+    "scientist": "Jean-Baptiste Lamarck",
+    "year": "1802"
+}, {
+    "id": "3",
+    "discovery": "Atomic Theory",
+    "scientist": "John Dalton",
+    "year": "1805"
+}, {
+    "id": "4",
+    "discovery": "Carnot cycle",
+    "scientist": "Carnot",
+    "year": "1824"
+}, {
+    "id": "5",
+    "discovery": "Ohm's law",
+    "scientist": "Georg Ohm",
+    "year": "1827"
+}, {
+    "id": "6",
+    "discovery": "Avogadro's law",
+    "scientist": "Amedeo Avogadro",
+    "year": "1827"
+}, {
+    "id": "7",
+    "discovery": "Non-Euclidean geometry",
+    "scientist": "Nikolai Lobachevsky",
+    "year": "1830"
+}, {
+    "id": "8",
+    "discovery": "Electromagnetic induction",
+    "scientist": "Michael Faraday",
+    "year": "1831"
+}, {
+    "id": "9",
+    "discovery": "First enzyme, diastase",
+    "scientist": "Anselme Payen",
+    "year": "1833"
+}, {
+    "id": "10",
+    "discovery": "Measure of stellar parallax",
+    "scientist": "Friedrich Bessel",
+    "year": "1838"
+}, {
+    "id": "11",
+    "discovery": "Doppler effect",
+    "scientist": "Christian Doppler",
+    "year": "1842"
+}, {
+    "id": "12",
+    "discovery": "First law of thermodynamics",
+    "scientist": "James Prescott Joule",
+    "year": "1843"
+}, {
+    "id": "13",
+    "discovery": "Anesthesia",
+    "scientist": "William Morton",
+    "year": "1846"
+}, {
+    "id": "14",
+    "discovery": "Planet Neptune",
+    "scientist": "Johann Gottfried Galle and Heinrich Louis d'Arrest",
+    "year": "1846"
+}, {
+    "id": "15",
+    "discovery": "Absolute zero",
+    "scientist": "Lord Kelvin",
+    "year": "1848"
+}, {
+    "id": "16",
+    "discovery": "Theory of evolution",
+    "scientist": "Charles Darwin and Alfred Wallace",
+    "year": "1859"
+}, {
+    "id": "17",
+    "discovery": "Germ theory",
+    "scientist": "Louis Pasteur",
+    "year": "1861"
+}, {
+    "id": "18",
+    "discovery": "Mendel's laws of inheritance",
+    "scientist": "Gregor Mendel",
+    "year": "1865"
+}, {
+    "id": "19",
+    "discovery": "Entropy",
+    "scientist": "Rudolf Clausius",
+    "year": "1865"
+}, {
+    "id": "20",
+    "discovery": "Periodic table",
+    "scientist": "Dmitri Mendeleev",
+    "year": "1869"
+}, {
+    "id": "21",
+    "discovery": "Diffuse sky radiation",
+    "scientist": "Lord Rayleigh",
+    "year": "1871"
+}, {
+    "id": "22",
+    "discovery": "Theory of electromagnetism",
+    "scientist": "James Clerk Maxwell",
+    "year": "1873"
+}, {
+    "id": "23",
+    "discovery": "Crookes tube",
+    "scientist": "William Crookes",
+    "year": "1875"
+}, {
+    "id": "24",
+    "discovery": "Phase rule",
+    "scientist": "Josiah Willard Gibbs",
+    "year": "1876"
+}, {
+    "id": "25",
+    "discovery": "X-rays",
+    "scientist": "Wilhelm Conrad Röntgen",
+    "year": "1895"
+}, {
+    "id": "26",
+    "discovery": "Radioactivity",
+    "scientist": "Henri Becquerel",
+    "year": "1896"
+}, {
+    "id": "27",
+    "discovery": "Electron",
+    "scientist": "J.J. Thomson",
+    "year": "1897"
+}, {
+    "id": "28",
+    "discovery": "Planck's law of black body radiation",
+    "scientist": "Max Planck",
+    "year": "1900"
+}]
