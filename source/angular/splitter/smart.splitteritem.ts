@@ -172,8 +172,6 @@ export class SplitterItemComponent extends BaseElement implements OnInit, AfterV
 
       that.onCreate.emit(that.nativeElement);
 
-		Smart.Render();
-
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
 

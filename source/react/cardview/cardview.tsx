@@ -22,12 +22,14 @@ export interface CardViewProps extends CardViewProperties {
 	onDragStart?: ((event?: Event) => void) | undefined;
 	onDragging?: ((event?: Event) => void) | undefined;
 	onDragEnd?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  CardView creates Card-based layout. Supports Filtering, Sorting, Grouping, Editing and UI Virtualization.
 */
-export class CardView extends React.Component<React.HTMLProps<Element> & CardViewProps, any> {   
+export class CardView extends React.Component<React.HTMLAttributes<Element> & CardViewProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -628,7 +630,9 @@ export class CardView extends React.Component<React.HTMLProps<Element> & CardVie
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

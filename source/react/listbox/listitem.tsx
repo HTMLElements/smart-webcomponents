@@ -11,12 +11,14 @@ export interface ListItemProps extends ListItemProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a list item for ListBox, ComboBox, DropDownList.
 */
-export class ListItem extends React.Component<React.HTMLProps<Element> & ListItemProps, any> {   
+export class ListItem extends React.Component<React.HTMLAttributes<Element> & ListItemProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -282,7 +284,9 @@ export class ListItem extends React.Component<React.HTMLProps<Element> & ListIte
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

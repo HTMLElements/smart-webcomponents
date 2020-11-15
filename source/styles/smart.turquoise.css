@@ -1,4 +1,4 @@
-body[theme="turquoise"] {
+body[theme="turquoise"], .smart-ui-component[theme="turquoise"] {
 	--smart-primary-rgb: 0, 206, 209;
     --smart-primary: rgba(var(--smart-primary-rgb), 1);
     --smart-disabled: #535353; /* The theme primary color in disabled state. */
@@ -7,7 +7,7 @@ body[theme="turquoise"] {
     --smart-editor-selection-color: var(--smart-primary-color);
     --smart-ui-state-active: var(--smart-primary);
     --smart-ui-state-color-active: var(--smart-primary-color);
-    --smart-ui-state-border-active: var(--smart-primary); 
+    --smart-ui-state-border-active: var(--smart-primary);
     --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1);
     --smart-ui-state-color-selected: var(--smart-primary);
     --smart-ui-state-border-selected: rgba(var(--smart-primary-rgb), .1);

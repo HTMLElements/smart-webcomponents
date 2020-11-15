@@ -133,6 +133,7 @@ smart-slider.smart-element {
 .smart-slider[orientation="vertical"] .smart-track {
     float: none;
     width: var(--smart-slider-track-size);
+    height: 100%;
 }
 
 .smart-slider[show-buttons] .smart-track {

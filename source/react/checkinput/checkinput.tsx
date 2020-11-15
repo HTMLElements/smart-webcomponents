@@ -12,12 +12,14 @@ export interface CheckInputProps extends CheckInputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  CheckInput specifies an input field where the user can enter data. Auto-complete options with checkboxes are displayed for easier input. Checkboxes allow to select/unselect one or multiple items.
 */
-export class CheckInput extends React.Component<React.HTMLProps<Element> & CheckInputProps, any> {   
+export class CheckInput extends React.Component<React.HTMLAttributes<Element> & CheckInputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -551,7 +553,9 @@ export class CheckInput extends React.Component<React.HTMLProps<Element> & Check
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

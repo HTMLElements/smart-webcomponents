@@ -12,12 +12,14 @@ export interface TimePickerProps extends TimePickerProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Time Picker component allows the user to select time from spinners.
 */
-export class TimePicker extends React.Component<React.HTMLProps<Element> & TimePickerProps, any> {   
+export class TimePicker extends React.Component<React.HTMLAttributes<Element> & TimePickerProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -403,7 +405,9 @@ export class TimePicker extends React.Component<React.HTMLProps<Element> & TimeP
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

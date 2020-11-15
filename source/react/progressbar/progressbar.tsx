@@ -16,12 +16,14 @@ export interface ProgressBarProps extends ProgressBarProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Progress indicators. It can be used to show a user how far along he/she is in a process.
 */
-export class ProgressBar extends React.Component<React.HTMLProps<Element> & ProgressBarProps, any> {   
+export class ProgressBar extends React.Component<React.HTMLAttributes<Element> & ProgressBarProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -350,7 +352,9 @@ export class ProgressBar extends React.Component<React.HTMLProps<Element> & Prog
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

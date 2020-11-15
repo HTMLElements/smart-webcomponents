@@ -60,7 +60,7 @@ export class ColorInput extends React.Component {
 	}
 
 	/** Determines the colors that will be displayed and their layout.
-	*	Property type: ColorDisplayMode
+	*	Property type: ColorInputDisplayMode
 	*/
 	get displayMode() {
 		return this.nativeElement ? this.nativeElement.displayMode : undefined;
@@ -493,7 +493,9 @@ export class ColorInput extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

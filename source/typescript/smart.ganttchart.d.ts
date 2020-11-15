@@ -158,7 +158,7 @@ export interface GanttChartProperties {
   progressLabelFormatFunction?: any;
   /**
    * A getter that returns a flat structure as an array of all resources inside the element.
-   * Default value: 
+   * Default value: null
    */
   resources?: GanttChartResource[];
   /**
@@ -793,7 +793,7 @@ export interface GanttChartDataSource {
   progress?: number;
   /**
    * Project, Task or Milestone resources
-   * Default value: false
+   * Default value: null
    */
   resources?: GanttChartDataSourceResource[];
   /**
@@ -808,7 +808,7 @@ export interface GanttChartDataSource {
   tasks?: GanttChartTask[];
   /**
    * Project, Task or Milestone type. Possible values are 'project' and 'task'
-   * Default value: 
+   * Default value: task
    */
   type?: GanttChartTaskType;
   /**
@@ -1088,7 +1088,7 @@ export interface GanttChartTask {
   progress?: number;
   /**
    * Project, Task or Milestone resources.
-   * Default value: false
+   * Default value: 
    */
   resources?: GanttChartTaskResource[];
   /**
@@ -1102,8 +1102,8 @@ export interface GanttChartTask {
    */
   tasks?: GanttChartTask[];
   /**
-   * Project, Task or Milestone type. Possible values are 'project' and 'task'
-   * Default value: 
+   * Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task'
+   * Default value: task
    */
   type?: GanttChartTaskType;
   /**
@@ -1264,6 +1264,8 @@ declare global {
 
 /**Determines the type of items that is going to be exported.  */
 export declare type GanttChartDataExportItemType = 'task' | 'resource';
+/**Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task' */
+export declare type GanttChartTaskType = 'project' | 'milestone' | 'task';
 /**Determines the format of the dates in the timeline header when they represent days. */
 export declare type GanttDayFormat = '2-digit' | 'numeric' | 'long' | 'short' | 'narrow';
 /**Determines in what unit is task duration property measured. */
@@ -1280,8 +1282,6 @@ export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | '
 export declare type GanttChartResourceTimelineView = 'hours' | 'tasks' | 'custom';
 /**Determines whether the GanttChart can be sorted by one or more columns. */
 export declare type GanttChartSortMode = 'one' | 'many';
-/**Project, Task or Milestone type. Possible values are 'project' and 'task' */
-export declare type GanttChartTaskType = 'project' | 'milestone' | 'task';
 /**Determines weather or not vertical scrollbar is shown. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 /**Determines the viewing date range of the timeline. Possible values: day - The timeline show the hours of the day.

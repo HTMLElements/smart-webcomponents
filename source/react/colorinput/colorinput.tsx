@@ -1,8 +1,8 @@
 import React from "react";
 import { ColorInputProperties } from "./../../index";
-import { Animation, ColorDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat} from './../../index';
+import { Animation, ColorInputDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat} from './../../index';
 export { ColorInputProperties } from "./../../index";
-export { Animation, ColorDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat} from './../../index';
+export { Animation, ColorInputDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -12,12 +12,14 @@ export interface ColorInputProps extends ColorInputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  ColorInput is an input field with colors displayed in a DropDown grid like in Excel.
 */
-export class ColorInput extends React.Component<React.HTMLProps<Element> & ColorInputProps, any> {   
+export class ColorInput extends React.Component<React.HTMLAttributes<Element> & ColorInputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -79,12 +81,12 @@ export class ColorInput extends React.Component<React.HTMLProps<Element> & Color
 	}
 
 	/** Determines the colors that will be displayed and their layout.
-	*	Property type: ColorDisplayMode
+	*	Property type: ColorInputDisplayMode
 	*/
-	get displayMode(): ColorDisplayMode  {
+	get displayMode(): ColorInputDisplayMode  {
 		return this.nativeElement ? this.nativeElement.displayMode : undefined;
 	}
-	set displayMode(value: ColorDisplayMode) {
+	set displayMode(value: ColorInputDisplayMode) {
 		if (this.nativeElement) {
 			this.nativeElement.displayMode = value;
 		}
@@ -513,7 +515,9 @@ export class ColorInput extends React.Component<React.HTMLProps<Element> & Color
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -12,12 +12,14 @@ export interface SliderProps extends SliderProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Sliders allow users to make selections from a range of values.
 */
-export class Slider extends React.Component<React.HTMLProps<Element> & SliderProps, any> {   
+export class Slider extends React.Component<React.HTMLAttributes<Element> & SliderProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -743,7 +745,9 @@ export class Slider extends React.Component<React.HTMLProps<Element> & SliderPro
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -12,12 +12,14 @@ export interface CheckBoxProps extends CheckBoxProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Checkbox is a component used for allowing a user to make a multiple choice. Broadly used in the forms and surveys.
 */
-export class CheckBox extends React.Component<React.HTMLProps<Element> & CheckBoxProps, any> {   
+export class CheckBox extends React.Component<React.HTMLAttributes<Element> & CheckBoxProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -338,7 +340,9 @@ export class CheckBox extends React.Component<React.HTMLProps<Element> & CheckBo
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

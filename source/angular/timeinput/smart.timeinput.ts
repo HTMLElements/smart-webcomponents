@@ -1,8 +1,8 @@
 import { TimeInput } from './../index';
-import { Animation, DropDownButtonPosition, TimeInputDateTimeFormat, ElementRenderMode} from './../index';
+import { Animation, DropDownButtonPosition, TimeFormat, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, DropDownButtonPosition, TimeInputDateTimeFormat, ElementRenderMode} from './../index';
+export { Animation, DropDownButtonPosition, TimeFormat, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { TimeInput } from './../index';
 
@@ -41,10 +41,10 @@ export class TimeInputComponent extends BaseElement implements OnInit, AfterView
 
 	/** @description Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
 	@Input()
-	get dateTimeFormat(): TimeInputDateTimeFormat {
+	get dateTimeFormat(): TimeFormat {
 		return this.nativeElement ? this.nativeElement.dateTimeFormat : undefined;
 	}
-	set dateTimeFormat(value: TimeInputDateTimeFormat) {
+	set dateTimeFormat(value: TimeFormat) {
 		this.nativeElement ? this.nativeElement.dateTimeFormat = value : undefined;
 	}
 

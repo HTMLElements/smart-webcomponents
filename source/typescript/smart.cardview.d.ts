@@ -293,7 +293,7 @@ export interface CardViewColumn {
   icon?: any;
   /**
    * Sets or gets the column's image visibility.
-   * Default value: 
+   * Default value: false
    */
   image?: boolean;
   /**

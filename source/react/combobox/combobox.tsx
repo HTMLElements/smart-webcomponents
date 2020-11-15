@@ -30,12 +30,14 @@ export interface ComboBoxProps extends ComboBoxProperties {
 	onScrollBottomReached?: ((event?: Event) => void) | undefined;
 	onScrollTopReached?: ((event?: Event) => void) | undefined;
 	onTokenClick?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  ComboBox is the alternate for the HTML select tag with editable option. It supports data binding, auto-complete, filtering, grouping, cascading and more.
 */
-export class ComboBox extends React.Component<React.HTMLProps<Element> & ComboBoxProps, any> {   
+export class ComboBox extends React.Component<React.HTMLAttributes<Element> & ComboBoxProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -1209,7 +1211,9 @@ export class ComboBox extends React.Component<React.HTMLProps<Element> & ComboBo
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

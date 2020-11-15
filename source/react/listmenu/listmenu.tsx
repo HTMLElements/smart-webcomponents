@@ -25,12 +25,14 @@ export interface ListMenuProps extends ListMenuProperties {
 	onScrollBottomReached?: ((event?: Event) => void) | undefined;
 	onSwipeleft?: ((event?: Event) => void) | undefined;
 	onSwiperight?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  ListMenu allows you to present users a listing of options and sub options.
 */
-export class ListMenu extends React.Component<React.HTMLProps<Element> & ListMenuProps, any> {   
+export class ListMenu extends React.Component<React.HTMLAttributes<Element> & ListMenuProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -706,7 +708,9 @@ export class ListMenu extends React.Component<React.HTMLProps<Element> & ListMen
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -22,12 +22,14 @@ export interface ChartProps extends ChartProperties {
 	onRefreshBegin?: ((event?: Event) => void) | undefined;
 	onRefreshEnd?: ((event?: Event) => void) | undefined;
 	onToggle?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Chart is a feature-complete interactive graph library that answers the data visualization needs of any modern web app.
 */
-export class Chart extends React.Component<React.HTMLProps<Element> & ChartProps, any> {   
+export class Chart extends React.Component<React.HTMLAttributes<Element> & ChartProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -197,12 +199,12 @@ export class Chart extends React.Component<React.HTMLProps<Element> & ChartProps
 	}
 
 	/** Sets the chart's data source.
-	*	Property type: any
+	*	Property type: any[]
 	*/
-	get dataSource(): any  {
+	get dataSource(): any[]  {
 		return this.nativeElement ? this.nativeElement.dataSource : undefined;
 	}
-	set dataSource(value: any) {
+	set dataSource(value: any[]) {
 		if (this.nativeElement) {
 			this.nativeElement.dataSource = value;
 		}
@@ -1064,7 +1066,9 @@ export class Chart extends React.Component<React.HTMLProps<Element> & ChartProps
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

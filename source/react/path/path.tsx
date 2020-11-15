@@ -19,12 +19,14 @@ export interface PathProps extends PathProperties {
 	onItemClick?: ((event?: Event) => void) | undefined;
 	onOpen?: ((event?: Event) => void) | undefined;
 	onOpening?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Path component is used to display the path to url.
 */
-export class Path extends React.Component<React.HTMLProps<Element> & PathProps, any> {   
+export class Path extends React.Component<React.HTMLAttributes<Element> & PathProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -598,7 +600,9 @@ export class Path extends React.Component<React.HTMLProps<Element> & PathProps, 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

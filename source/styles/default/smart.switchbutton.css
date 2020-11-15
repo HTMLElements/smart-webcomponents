@@ -4,6 +4,11 @@ smart-switch-button {
     height: var(--smart-switch-button-default-height);
 }
 
+smart-switch-button[orientation="vertical"] {
+    height: var(--smart-switch-button-default-width);
+    width: var(--smart-switch-button-default-height);
+}
+
     smart-switch-button.smart-element {
         display: inline-block;
         border: none;
@@ -27,7 +32,7 @@ smart-switch-button {
 }
 
 .smart-switch-button .smart-inner-container {
-    width: calc(2 * var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    width: calc(200% - var(--smart-switch-button-thumb-size));
     height: 100%;
     position: absolute;
     color: inherit;
@@ -64,13 +69,13 @@ smart-switch-button {
 
 .smart-switch-button[checked] .smart-thumb,
 .smart-switch-button:focus .smart-thumb {
-    background-color: var(--smart-ui-state-active);
-    border-color: var(--smart-ui-state-border-active);
+    background-color: var(--smart-primary);
+    border-color: var(--smart-primary);
 }
 
 .smart-switch-button .smart-true-content-container,
 .smart-switch-button .smart-false-content-container {
-    width: calc(var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    width: calc(100% - var(--smart-switch-button-thumb-size));
     height: 100%;
     display: flex;
     justify-content: center;
@@ -84,13 +89,13 @@ smart-switch-button {
 
 .smart-switch-button[orientation="vertical"] .smart-true-content-container,
 .smart-switch-button[orientation="vertical"] .smart-false-content-container {
-    height: calc(var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    height: calc(100% - var(--smart-switch-button-thumb-size));
     width: 100%;
     padding: 0px 2px 0px 2px;
 }
 
 .smart-switch-button[orientation="vertical"] .smart-inner-container {
-    height: calc(2 * var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    height: calc(200% - var(--smart-switch-button-thumb-size));
     width: 100%;
     flex-direction: column;
 }
@@ -116,7 +121,7 @@ smart-switch-button {
 
 .smart-switch-button[inverted] .smart-inner-container,
 .smart-switch-button[checked] .smart-inner-container {
-    left: calc(-1 * (var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size)));
+    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
 }
 
 .smart-switch-button[orientation="vertical"] .smart-inner-container,
@@ -126,17 +131,17 @@ smart-switch-button {
 
 .smart-switch-button[orientation="vertical"][checked] .smart-inner-container,
 .smart-switch-button[orientation="vertical"][inverted] .smart-inner-container {
-    top: calc(-1 * (var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size)));
+    top: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
 }
 
 .smart-switch-button[checked="null"] .smart-inner-container,
 .smart-switch-button[checked="null"][inverted] .smart-inner-container {
-    left: calc(-1 * var(--smart-switch-button-default-width)/ 2 + var(--smart-switch-button-thumb-size)/2);
+    left: calc(-1 * 100%/ 2 + var(--smart-switch-button-thumb-size)/2);
 }
 
 .smart-switch-button[orientation="vertical"][checked="null"] .smart-inner-container,
 .smart-switch-button[orientation="vertical"][checked="null"][inverted] .smart-inner-container {
-    top: calc(-1 * var(--smart-switch-button-default-width)/ 2 + var(--smart-switch-button-thumb-size)/2);
+    top: calc(-1 * 100%/ 2 + var(--smart-switch-button-thumb-size)/2);
 }
 
 /* those classes are set in demos for the content inside the true/false content-container */
@@ -166,11 +171,11 @@ smart-switch-button {
 }
 
 .smart-switch-button .smart-inner-container {
-    width: calc(2 * var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    width: calc(200% - var(--smart-switch-button-thumb-size));
 }
 
 .smart-switch-button[orientation="vertical"] .smart-inner-container {
-    height: calc(2 * var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    height: calc(200% - var(--smart-switch-button-thumb-size));
 }
 
 .smart-switch-button[orientation="vertical"] .smart-thumb {
@@ -179,22 +184,22 @@ smart-switch-button {
 
 .smart-switch-button .smart-true-content-container,
 .smart-switch-button .smart-false-content-container {
-    width: calc(var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    width: calc((100% - var(--smart-switch-button-thumb-size))/2);
 }
 
 .smart-switch-button[orientation="vertical"] .smart-true-content-container,
 .smart-switch-button[orientation="vertical"] .smart-false-content-container {
-    height: calc(var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size));
+    height: calc((100% - var(--smart-switch-button-thumb-size))/2);
 }
 
 .smart-switch-button[checked="null"] .smart-inner-container,
 .smart-switch-button[checked="null"] .smart-inner-container {
-    left: calc(-1 * var(--smart-switch-button-default-width) / 2 + var(--smart-switch-button-thumb-size)/2);
+    left: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size)/2);
 }
 
 .smart-switch-button[checked][orientation="vertical"] .smart-thumb,
 .smart-switch-button[checked] .smart-thumb {
-    background-color: var(--smart-ui-state-active);
+    background-color: var(--smart-primary);
 }
 
 .smart-switch-button .smart-container::before,
@@ -218,14 +223,14 @@ smart-switch-button {
 .smart-switch-button[checked] .smart-container::before,
 :host(smart-switch-button[checked][orientation="vertical"]) .smart-container::before,
 :host(smart-switch-button[checked]) .smart-container::before {
-    background-color: var(--smart-ui-state-active);
+    background-color: var(--smart-primary);
     opacity: 0.4;
 }
 
 /* Material Button Circle Effect */
 
 .smart-switch-button .smart-thumb::before {
-    background-color: var(--smart-ui-state-active);
+    background-color: var(--smart-primary);
     position: absolute;
     width: 200%;
     height: 200%;
@@ -250,7 +255,7 @@ smart-switch-button {
 .smart-switch-button[checked] .smart-thumb:active::before,
 .smart-switch-button[checked]:focus .smart-thumb::before {
     transform: scale(1) translate(-50%, -50%);
-    background-color: var(--smart-ui-state-active);
+    background-color: var(--smart-primary);
 }
 
 .smart-switch-button[checked][orientation="vertical"]:not([animation="none"]) .smart-thumb:active::before,
@@ -270,11 +275,6 @@ smart-switch-button {
 .smart-switch-button:focus .smart-thumb::before,
 :host(smart-switch-button:focus) .smart-thumb::before {
     transform: scale(1) translate(-50%, -50%);
-}
-
-.smart-switch-button[orientation="vertical"] {
-    height: var(--smart-switch-button-default-width);
-    width: var(--smart-switch-button-default-height);
 }
 
     .smart-switch-button[orientation="vertical"] .smart-thumb {
@@ -333,12 +333,12 @@ smart-switch-button {
 .smart-switch-button[checked][right-to-left][inverted]:not([orientation="vertical"]) .smart-inner-container,
 :host(.smart-switch-button[right-to-left]:not([orientation="vertical"])) .smart-inner-container,
 :host(.smart-switch-button[checked][right-to-left][inverted]:not([orientation="vertical"])) .smart-inner-container {
-    left: calc(-1 * (var(--smart-switch-button-default-width) - var(--smart-switch-button-thumb-size)));
+    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
 }
 
 .smart-switch-button[checked="null"][right-to-left]:not([orientation="vertical"]) .smart-inner-container,
 :host(.smart-switch-button[checked="null"][right-to-left]:not([orientation="vertical"])) .smart-inner-container {
-    left: calc(-1 * var(--smart-switch-button-default-width)/ 2 + var(--smart-switch-button-thumb-size)/2);
+    left: calc(-1 * 100%/ 2 + var(--smart-switch-button-thumb-size)/2);
 }
 
 /* --- */

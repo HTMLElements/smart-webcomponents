@@ -36,7 +36,7 @@ export class ButtonGroup extends React.Component {
 	}
 
 	/** Determines the selection mode for the element.
-	*	Property type: ClickMode
+	*	Property type: ButtonGroupSelectionMode
 	*/
 	get selectionMode() {
 		return this.nativeElement ? this.nativeElement.selectionMode : undefined;
@@ -317,7 +317,9 @@ export class ButtonGroup extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -19,12 +19,14 @@ export interface FormProps extends FormProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Reactive Form Component with Advanced Validation
 */
-export class Form extends React.Component<React.HTMLProps<Element> & FormProps, any> {   
+export class Form extends React.Component<React.HTMLAttributes<Element> & FormProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -385,7 +387,9 @@ export class Form extends React.Component<React.HTMLProps<Element> & FormProps, 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

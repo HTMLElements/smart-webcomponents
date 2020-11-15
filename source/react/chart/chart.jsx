@@ -168,7 +168,7 @@ export class Chart extends React.Component {
 	}
 
 	/** Sets the chart's data source.
-	*	Property type: any
+	*	Property type: any[]
 	*/
 	get dataSource() {
 		return this.nativeElement ? this.nativeElement.dataSource : undefined;
@@ -1084,7 +1084,9 @@ export class Chart extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

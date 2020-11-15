@@ -271,7 +271,7 @@ smart-tab-layout-group[position="left"] .smart-layout-tab {
 	padding: 24px 12px;
 }
 smart-tab-layout-group[position="top"] .smart-layout-tab,
-smart-tab-layout-group[position="bottom"] .smart-layout-tab { 
+smart-tab-layout-group[position="bottom"] .smart-layout-tab {
 	padding: 12px 24px;
 }
 
@@ -382,7 +382,7 @@ smart-tab-layout-group[position="bottom"] .smart-layout-tab:after {
 	color: inherit;
 }
 
-.smart-layout-tab.selected .smart-close-button:after {	
+.smart-layout-tab.selected .smart-close-button:after {
     content: var(--smart-icon-close);
     width: 16px;
     height: 16px;
@@ -499,7 +499,6 @@ smart-tab-layout-group[position="bottom"] .smart-layout-tab:after {
 .smart-layout .smart-layout-splitter[drag].horizontal,
 .smart-layout .smart-layout-item[hover] > .smart-layout-splitter.horizontal,
 .smart-layout .smart-layout-group[hover] > .smart-layout-splitter.horizontal {
-    height: 4px;
     opacity: 1;
     z-index: 99;
 }
@@ -507,11 +506,13 @@ smart-tab-layout-group[position="bottom"] .smart-layout-tab:after {
 .smart-layout .smart-layout-splitter.vertical[drag],
 .smart-layout .smart-layout-item[hover] > .smart-layout-splitter.vertical,
 .smart-layout .smart-layout-group[hover] > .smart-layout-splitter.vertical  {
-    width: 4px;
     opacity: 1;
     z-index: 99;
 }
-
+.smart-layout .smart-layout-splitter:hover {
+    border-color: var(--smart-primary);
+    border-style:dashed;
+}
 @keyframes topBottom {
     0% {
         top: calc(-1 * var(--smart-editor-addon-width));

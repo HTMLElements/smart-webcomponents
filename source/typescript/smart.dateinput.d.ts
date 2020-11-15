@@ -7,10 +7,10 @@ export interface DateInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
-  dateTimeFormat?: DateInputDateTimeFormat;
+  dateTimeFormat?: DateTimeFormat;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -159,273 +159,23 @@ export interface DateInput extends BaseElement, DateInputProperties {
   setValue(value: string | Date): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
-export interface DateInputDateTimeFormat {
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
+export interface DateTimeFormat {
   /**
-   * 
-   * Default value: undefined
+   * Day format.
+   * Default value: "numeric"
    */
-  0?: any;
+  day?: string;
   /**
-   * 
-   * Default value: undefined
+   * Month format.
+   * Default value: "numeric"
    */
-  1?: any;
+  month?: string;
   /**
-   * 
-   * Default value: undefined
+   * Year format.
+   * Default value: "numeric"
    */
-  2?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  3?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  4?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  5?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  6?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  7?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  8?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  9?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  10?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  11?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  12?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  13?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  14?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  15?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  16?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  17?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  18?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  19?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  20?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  21?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  22?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  23?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  24?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  25?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  26?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  27?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  28?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  29?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  30?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  31?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  32?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  33?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  34?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  35?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  36?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  37?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  38?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  39?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  40?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  41?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  42?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  43?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  44?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  45?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  46?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  47?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  48?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  49?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  50?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  51?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  52?: any;
+  year?: string;
 }
 
 declare global {

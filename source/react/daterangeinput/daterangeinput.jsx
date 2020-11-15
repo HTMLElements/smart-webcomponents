@@ -24,7 +24,7 @@ export class DateRangeInput extends React.Component {
 	}
 
 	/** Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property.
-	*	Property type: DateRangeInputDateFormat
+	*	Property type: DateRangeFormat
 	*/
 	get dateFormat() {
 		return this.nativeElement ? this.nativeElement.dateFormat : undefined;
@@ -252,7 +252,7 @@ export class DateRangeInput extends React.Component {
 	}
 
 	/** Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property.
-	*	Property type: DateRangeInputTimeFormat
+	*	Property type: TimeRangeFormat
 	*/
 	get timeFormat() {
 		return this.nativeElement ? this.nativeElement.timeFormat : undefined;
@@ -493,7 +493,9 @@ export class DateRangeInput extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

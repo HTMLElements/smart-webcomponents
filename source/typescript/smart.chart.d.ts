@@ -70,7 +70,7 @@ export interface ChartProperties {
    * Sets the chart's data source.
    * Default value: 
    */
-  dataSource?: any;
+  dataSource?: any[];
   /**
    * Sets the description text of the chart.
    * Default value: "Description"
@@ -606,7 +606,7 @@ export interface ChartSeriesGroup {
   startAngle?: number;
   /**
    * Sets the chart type. jqxChart supports several common chart types. You can easily plot series of different types on a common chart. A type must be specified for each series group. Currently, jqxChart supports the following series types:'column' - simple column series'stackedcolumn' - stacked column series'stackedcolumn100' - percentage stacked columns'rangecolumn' - floating column between two values'waterfall' - waterfall series'stackedwaterfall' - stacked waterfall series'line' - simple straight lines connecting the value points'stackedline' - stacked lines'stackedline100' - percentage stacked lines'spline' - smooth lines connecting the value points'stackedspline' - smooth stacked lines'stackedspline100' - percentage stacked smooth lines'stepline' - step line'stackedstepline' - stacked step line'stackedstepline100' - percentage stacked step line'area' - area connecting the value points with straight lines'stackedarea' - stacked area with straight lines between the points'stackedarea100' - percentage stacked area with straight lines between the points'rangearea' - floating area between pairs of value points'splinearea' - smooth area connecting the value points'stackedsplinearea' - stacked smooth area connecting the value points'stackedsplinearea100' - percentage stacked smooth area'splinerangearea' - smooth floating area between pairs of value points'steprangearea' - step area between pairs of value points'stackedsplineara' - smooth stacked area'steparea' - step area connecting the value points'stackedsteparea' - step stacked area'stackedsteparea100' - percentage stacked step area'pie' - circular chart divided into sectors, illustrating proportion'donut' - chart divided into circular sectors with different inner and outer radius'scatter' - data is displayed as a collection of points'stackedscatter' - data is displayed as a collection of points and the values are stacked'stackedscatter100' - data is displayed as a collection of points and the values are percentage stacked'bubble' - data is displayed as a collection of bubbles'stackedbubble' - data is displayed as a collection of bubbles and the values are stacked'stackedbubble100' - data is displayed as a collection of bubbles and the values are percentage stacked'candlestick' - display candlestick series using open, high, low, close data points'ohlc' - display OHLC series using open, high, low, close data points
-   * Default value: null
+   * Default value: column
    */
   type?: ChartType;
   /**
@@ -857,7 +857,7 @@ export interface ChartSeriesGroupSerie {
   colorFunction?: any;
   /**
    * Color palette to use when rendering the serie.
-   * Default value: null
+   * Default value: scheme01
    */
   colorScheme?: ChartColorScheme;
   /**
@@ -997,7 +997,7 @@ export interface ChartSeriesGroupSerie {
   fillColorSymbolSelected?: string | null;
   /**
    * Determines whether to display the serie in grey scale.
-   * Default value: null
+   * Default value: false
    */
   greyScale?: boolean | null;
   /**
@@ -1543,7 +1543,7 @@ export interface ChartXAxis {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit;
+  baseUnit?: ChartBaseUnit | null;
   /**
    * boolean determining whether to draw the axis or the user will use APIs to draw it.
    * Default value: false
@@ -1702,7 +1702,7 @@ export interface ChartRangeSelector {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit;
+  baseUnit?: ChartBaseUnit | null;
   /**
    * Sets the range selector chart's border color.
    * Default value: null
@@ -1720,7 +1720,7 @@ export interface ChartRangeSelector {
   caption?: string;
   /**
    * Sets the range selector chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'.
-   * Default value: null
+   * Default value: scheme01
    */
   colorScheme?: ChartColorScheme;
   /**
@@ -1745,7 +1745,7 @@ export interface ChartRangeSelector {
   description?: string;
   /**
    * Determines whether to display the range selector chart using greyscale colors.
-   * Default value: null
+   * Default value: false
    */
   greyScale?: boolean | null;
   /**
@@ -1785,7 +1785,7 @@ export interface ChartRangeSelector {
   padding?: Padding;
   /**
    * Sets the range selector chart position.
-   * Default value: null
+   * Default value: left
    */
   position?: AxisPosition;
   /**
@@ -1795,7 +1795,7 @@ export interface ChartRangeSelector {
   renderTo?: HTMLElement | null;
   /**
    * Sets or gets a value indicating whether the range selector chart's layout is mirrored.
-   * Default value: null
+   * Default value: false
    */
   rightToLeft?: boolean | null;
   /**
@@ -1815,7 +1815,7 @@ export interface ChartRangeSelector {
   serieType?: ChartType;
   /**
    * Determines whether to display the range selector chart's border line.
-   * Default value: null
+   * Default value: false
    */
   showBorderLine?: boolean | null;
   /**
@@ -1923,7 +1923,7 @@ export declare type ChartType = 'column' | 'stackedcolumn' | 'stackedcolumn100' 
 /**Sets the range selector chart position. */
 export declare type AxisPosition = 'bottom' | 'top' | 'left' | 'right';
 /**The base unit when used with 'date' axis. */
-export declare type ChartBaseUnit = 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'millisecond';
+export declare type ChartBaseUnit = null | 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'millisecond';
 /**The type of the axis. 'auto' - automatically detects and switches to 'basic', 'linear' or 'date'.
 'date' - when displaying dates.
 'basic' - displays all data points sequentially.

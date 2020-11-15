@@ -11,12 +11,14 @@ export interface FormGroupProps extends FormGroupProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Form Group
 */
-export class FormGroup extends React.Component<React.HTMLProps<Element> & FormGroupProps, any> {   
+export class FormGroup extends React.Component<React.HTMLAttributes<Element> & FormGroupProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -322,7 +324,9 @@ export class FormGroup extends React.Component<React.HTMLProps<Element> & FormGr
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

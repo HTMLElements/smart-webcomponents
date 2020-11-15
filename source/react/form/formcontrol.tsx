@@ -1,8 +1,8 @@
 import React from "react";
 import { FormControlProperties } from "./../../index";
-import { FormControlControlType, FormControlLabelPosition, FormControlViewMode} from './../../index';
+import { FormControlAction, FormControlAlign, FormControlControlType, FormControlLabelPosition, FormControlViewMode} from './../../index';
 export { FormControlProperties } from "./../../index";
-export { FormControlControlType, FormControlLabelPosition, FormControlViewMode} from './../../index';
+export { FormControlAction, FormControlAlign, FormControlControlType, FormControlLabelPosition, FormControlViewMode} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -11,12 +11,14 @@ export interface FormControlProps extends FormControlProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Form Control
 */
-export class FormControl extends React.Component<React.HTMLProps<Element> & FormControlProps, any> {   
+export class FormControl extends React.Component<React.HTMLAttributes<Element> & FormControlProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -29,6 +31,30 @@ export class FormControl extends React.Component<React.HTMLProps<Element> & Form
 
 		return this._id;
 	}
+	/** Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit'
+	*	Property type: FormControlAction
+	*/
+	get action(): FormControlAction  {
+		return this.nativeElement ? this.nativeElement.action : undefined;
+	}
+	set action(value: FormControlAction) {
+		if (this.nativeElement) {
+			this.nativeElement.action = value;
+		}
+	}
+
+	/** Sets or Gets the alignment of the FormControl
+	*	Property type: FormControlAlign
+	*/
+	get align(): FormControlAlign  {
+		return this.nativeElement ? this.nativeElement.align : undefined;
+	}
+	set align(value: FormControlAlign) {
+		if (this.nativeElement) {
+			this.nativeElement.align = value;
+		}
+	}
+
 	/** HTML Content displayed after the Form Control
 	*	Property type: any
 	*/
@@ -90,12 +116,12 @@ export class FormControl extends React.Component<React.HTMLProps<Element> & Form
 	}
 
 	/** Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
-	*	Property type: boolean
+	*	Property type: string
 	*/
-	get dataField(): boolean  {
+	get dataField(): string  {
 		return this.nativeElement ? this.nativeElement.dataField : undefined;
 	}
-	set dataField(value: boolean) {
+	set dataField(value: string) {
 		if (this.nativeElement) {
 			this.nativeElement.dataField = value;
 		}
@@ -186,12 +212,12 @@ export class FormControl extends React.Component<React.HTMLProps<Element> & Form
 	}
 
 	/** FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set.
-	*	Property type: string
+	*	Property type: FormControlAlign
 	*/
-	get labelAlign(): string  {
+	get labelAlign(): FormControlAlign  {
 		return this.nativeElement ? this.nativeElement.labelAlign : undefined;
 	}
-	set labelAlign(value: string) {
+	set labelAlign(value: FormControlAlign) {
 		if (this.nativeElement) {
 			this.nativeElement.labelAlign = value;
 		}
@@ -221,6 +247,18 @@ export class FormControl extends React.Component<React.HTMLProps<Element> & Form
 		}
 	}
 
+	/** Gets or Sets the FormControl placeholder.
+	*	Property type: string
+	*/
+	get placeholder(): string  {
+		return this.nativeElement ? this.nativeElement.placeholder : undefined;
+	}
+	set placeholder(value: string) {
+		if (this.nativeElement) {
+			this.nativeElement.placeholder = value;
+		}
+	}
+
 	/** HTML Content displayed before the Form Control
 	*	Property type: any
 	*/
@@ -242,6 +280,18 @@ export class FormControl extends React.Component<React.HTMLProps<Element> & Form
 	set readonly(value: boolean) {
 		if (this.nativeElement) {
 			this.nativeElement.readonly = value;
+		}
+	}
+
+	/** Gets or Sets whether this field is required.
+	*	Property type: boolean
+	*/
+	get required(): boolean  {
+		return this.nativeElement ? this.nativeElement.required : undefined;
+	}
+	set required(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.required = value;
 		}
 	}
 
@@ -332,7 +382,7 @@ export class FormControl extends React.Component<React.HTMLProps<Element> & Form
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["appendHTML","controlOptions","controlType","columns","columnSpan","dataField","disabled","dirty","info","invalid","label","labelPosition","labelOffset","labelAlign","nextButtonLabel","backButtonLabel","prependHTML","readonly","untouched","showColonAfterLabel","showButtons","value","valid","validationRules","viewMode"];
+		return ["action","align","appendHTML","controlOptions","controlType","columns","columnSpan","dataField","disabled","dirty","info","invalid","label","labelPosition","labelOffset","labelAlign","nextButtonLabel","backButtonLabel","placeholder","prependHTML","readonly","required","untouched","showColonAfterLabel","showButtons","value","valid","validationRules","viewMode"];
 	}
 	/**  This event occurs, when the React component is created.
 	*  @param event. The custom event. 	*/
@@ -450,7 +500,9 @@ export class FormControl extends React.Component<React.HTMLProps<Element> & Form
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

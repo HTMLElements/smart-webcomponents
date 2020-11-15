@@ -11,12 +11,14 @@ export interface MenuItemProps extends MenuItemProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a menu item.
 */
-export class MenuItem extends React.Component<React.HTMLProps<Element> & MenuItemProps, any> {   
+export class MenuItem extends React.Component<React.HTMLAttributes<Element> & MenuItemProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -234,7 +236,9 @@ export class MenuItem extends React.Component<React.HTMLProps<Element> & MenuIte
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

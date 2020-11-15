@@ -12,12 +12,14 @@ export interface TextAreaProps extends TextAreaProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  TextArea specifies a textarea field where the user can enter data. Auto-complete options are displayed for easier input.
 */
-export class TextArea extends React.Component<React.HTMLProps<Element> & TextAreaProps, any> {   
+export class TextArea extends React.Component<React.HTMLAttributes<Element> & TextAreaProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -527,7 +529,9 @@ export class TextArea extends React.Component<React.HTMLProps<Element> & TextAre
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

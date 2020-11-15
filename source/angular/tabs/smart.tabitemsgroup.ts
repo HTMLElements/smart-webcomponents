@@ -61,8 +61,6 @@ export class TabItemsGroupComponent extends BaseElement implements OnInit, After
 
       that.onCreate.emit(that.nativeElement);
 
-		Smart.Render();
-
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
 

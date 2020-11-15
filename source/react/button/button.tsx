@@ -24,12 +24,14 @@ export interface ButtonProps extends ButtonProperties {
     style?: React.CSSProperties;
 
 	onClick?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Buttons allow users to take actions, and make choices, with a single tap. Buttons communicate actions that users can take.
 */
-export class Button extends React.Component<React.HTMLProps<Element> & ButtonProps, any> {   
+export class Button extends React.Component<React.HTMLAttributes<Element> & ButtonProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -334,7 +336,9 @@ export class Button extends React.Component<React.HTMLProps<Element> & ButtonPro
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

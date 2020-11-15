@@ -1,9 +1,9 @@
 import React from "react";
 import { GridProperties } from "./../../index";
-import { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridConditionalFormattingFontFamily, GridConditionalFormattingFontSize, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
+import { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
 import { DataAdapter, Chart } from './../../index';
 export { GridProperties } from "./../../index";
-export { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridConditionalFormattingFontFamily, GridConditionalFormattingFontSize, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
+export { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
 export { DataAdapter, Chart } from './../../index';
 
 interface IWindow { Smart: any; }
@@ -40,12 +40,14 @@ export interface GridProps extends GridProperties {
 	onSort?: ((event?: Event) => void) | undefined;
 	onScrollBottomReached?: ((event?: Event) => void) | undefined;
 	onScrollTopReached?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Data Grid UI Component that covers everything from paging, sorting, grouping, filtering, and editing to row and column virtualization, right-to-left layout, export to Excel and PDF and Accessibility.
 */
-export class Grid extends React.Component<React.HTMLProps<Element> & GridProps, any> {   
+export class Grid extends React.Component<React.HTMLAttributes<Element> & GridProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -829,6 +831,21 @@ export class Grid extends React.Component<React.HTMLProps<Element> & GridProps, 
 	get events(): string[] {
 		return ["onBeginEdit","onChange","onColumnClick","onColumnDoubleClick","onColumnResize","onColumnDragStart","onColumnDragging","onColumnDragEnd","onRowDragStart","onRowDragging","onRowDragEnd","onRowExpand","onRowCollapse","onRowClick","onRowDoubleClick","onRowResize","onCellClick","onCellDoubleClick","onEndEdit","onFilter","onResize","onRowTap","onCellTap","onPage","onSort","onScrollBottomReached","onScrollTopReached","onCreate","onReady"];
 	}
+	/** Adds a row. When batch editing is enabled, the row is not saved until the batch edit is saved. 
+	* @param {any} data. row data matching the data source
+	*/
+    public addRow(data: any): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.addRow(data);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.addRow(data);
+            });
+        }
+    }
+
 	/** Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved. 
 	* @param {string} position?. 'near' or 'far'
 	* @returns {boolean}
@@ -1229,6 +1246,23 @@ export class Grid extends React.Component<React.HTMLProps<Element> & GridProps, 
         return result;
     }
 
+	/** Gets the selected row ids. 
+	* @returns {any[]}
+  */
+	public async getSelectedRows() : Promise<any> {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.getSelectedRows();
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
 	/** Gets an array of columns with applied filters. 
 	* @returns {any}
   */
@@ -1431,6 +1465,22 @@ export class Grid extends React.Component<React.HTMLProps<Element> & GridProps, 
     }
 
 	/** Saves the batch edit changes. This method confirms the editing changes made by the end-user. 
+	* @param {string | number} rowId. row bound id
+	* @param {any} data. row data matching the data source
+	*/
+    public updateRow(rowId: string | number, data: any): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.updateRow(rowId, data);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.updateRow(rowId, data);
+            });
+        }
+    }
+
+	/** Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved. 
 	* @param {string | number} rowId. row bound id
 	* @param {string} dataField?. column bound data field
 	*/
@@ -1644,7 +1694,9 @@ export class Grid extends React.Component<React.HTMLProps<Element> & GridProps, 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

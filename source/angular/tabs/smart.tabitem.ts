@@ -97,8 +97,6 @@ export class TabItemComponent extends BaseElement implements OnInit, AfterViewIn
 
       that.onCreate.emit(that.nativeElement);
 
-		Smart.Render();
-
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
 

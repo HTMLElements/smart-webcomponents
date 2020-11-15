@@ -15,12 +15,14 @@ export interface CardProps extends CardProperties {
 	onSwipeleft?: ((event?: Event) => void) | undefined;
 	onSwiperight?: ((event?: Event) => void) | undefined;
 	onSwipetop?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Card component with header, footer and content sections.
 */
-export class Card extends React.Component<React.HTMLProps<Element> & CardProps, any> {   
+export class Card extends React.Component<React.HTMLAttributes<Element> & CardProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -298,7 +300,9 @@ export class Card extends React.Component<React.HTMLProps<Element> & CardProps, 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

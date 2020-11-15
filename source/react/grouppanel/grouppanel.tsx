@@ -15,12 +15,14 @@ export interface GroupPanelProps extends GroupPanelProperties {
 	onCancel?: ((event?: Event) => void) | undefined;
 	onCollapseAll?: ((event?: Event) => void) | undefined;
 	onExpandAll?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a group of grouped items in a panel.
 */
-export class GroupPanel extends React.Component<React.HTMLProps<Element> & GroupPanelProps, any> {   
+export class GroupPanel extends React.Component<React.HTMLAttributes<Element> & GroupPanelProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -298,7 +300,9 @@ export class GroupPanel extends React.Component<React.HTMLProps<Element> & Group
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

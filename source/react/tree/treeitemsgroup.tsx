@@ -11,12 +11,14 @@ export interface TreeItemsGroupProps extends TreeItemsGroupProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a group of tree items.
 */
-export class TreeItemsGroup extends React.Component<React.HTMLProps<Element> & TreeItemsGroupProps, any> {   
+export class TreeItemsGroup extends React.Component<React.HTMLAttributes<Element> & TreeItemsGroupProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -246,7 +248,9 @@ export class TreeItemsGroup extends React.Component<React.HTMLProps<Element> & T
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

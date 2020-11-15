@@ -1,8 +1,8 @@
 import { Table } from './../index';
-import { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TablePageSize, TableSelectionMode, TableSortMode, TableColumn, TableConditionalFormatting, ElementRenderMode} from './../index';
+import { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TablePageSize, TableSelectionMode, TableSortMode, TableColumn, TableConditionalFormatting, ElementRenderMode} from './../index';
+export { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { Table } from './../index';
 
@@ -57,7 +57,16 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.autoSaveState = value : undefined;
 	}
 
-	/** @description Sets or gets the min width of columns when columnSizeMode is 'auto'. */
+	/** @description Sets or gets a list of column groups that constitute the column header hierarchy. Note: when column header hierarchy is created, column resizing and auto-sizing is not supported. */
+	@Input()
+	get columnGroups(): TableColumnGroup[] {
+		return this.nativeElement ? this.nativeElement.columnGroups : undefined;
+	}
+	set columnGroups(value: TableColumnGroup[]) {
+		this.nativeElement ? this.nativeElement.columnGroups = value : undefined;
+	}
+
+	/** @description Sets or gets the min width of columns when columnSizeMode is 'auto' or when resizing columns. This property has no effect on columns with programmatically set width. */
 	@Input()
 	get columnMinWidth(): string | number {
 		return this.nativeElement ? this.nativeElement.columnMinWidth : undefined;
@@ -73,6 +82,24 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	}
 	set columnReorder(value: boolean) {
 		this.nativeElement ? this.nativeElement.columnReorder = value : undefined;
+	}
+
+	/** @description Sets or gets whether the resizing of columns is enabled. Note: column sizes continue to adhere to the behavior of the standard HTML table element's table-layout: fixed, upon which smart-table is based. */
+	@Input()
+	get columnResize(): boolean {
+		return this.nativeElement ? this.nativeElement.columnResize : undefined;
+	}
+	set columnResize(value: boolean) {
+		this.nativeElement ? this.nativeElement.columnResize = value : undefined;
+	}
+
+	/** @description Sets or gets whether when resizing a column, a feedback showing the new column width in px will be displayed. */
+	@Input()
+	get columnResizeFeedback(): boolean {
+		return this.nativeElement ? this.nativeElement.columnResizeFeedback : undefined;
+	}
+	set columnResizeFeedback(value: boolean) {
+		this.nativeElement ? this.nativeElement.columnResizeFeedback = value : undefined;
 	}
 
 	/** @description Describes the columns properties. */
@@ -109,6 +136,15 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	}
 	set conditionalFormattingButton(value: boolean) {
 		this.nativeElement ? this.nativeElement.conditionalFormattingButton = value : undefined;
+	}
+
+	/** @description When binding the dataSource property directly to an array (as opposed to an instance of JQX.DataAdapter), sets or gets the name of the data field in the source array to bind row ids to. */
+	@Input()
+	get dataRowId(): string {
+		return this.nativeElement ? this.nativeElement.dataRowId : undefined;
+	}
+	set dataRowId(value: string) {
+		this.nativeElement ? this.nativeElement.dataRowId = value : undefined;
 	}
 
 	/** @description Determines the data source of the table component. */
@@ -192,6 +228,15 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.footerRow = value : undefined;
 	}
 
+	/** @description Sets or gets whether Excel-like formulas can be passed as cell values. Formulas are always preceded by the = sign and are re-evaluated when cell values are changed. This feature depends on the third-party free plug-in formula-parser (the file formula-parser.min.js has to be referenced). */
+	@Input()
+	get formulas(): boolean {
+		return this.nativeElement ? this.nativeElement.formulas : undefined;
+	}
+	set formulas(value: boolean) {
+		this.nativeElement ? this.nativeElement.formulas = value : undefined;
+	}
+
 	/** @description Sets or gets whether the Table's footer is sticky/frozen. */
 	@Input()
 	get freezeFooter(): boolean {
@@ -235,6 +280,15 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	}
 	set keyboardNavigation(value: boolean) {
 		this.nativeElement ? this.nativeElement.keyboardNavigation = value : undefined;
+	}
+
+	/** @description Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'. */
+	@Input()
+	get loadColumnStateBehavior(): TableLoadColumnStateBehavior {
+		return this.nativeElement ? this.nativeElement.loadColumnStateBehavior : undefined;
+	}
+	set loadColumnStateBehavior(value: TableLoadColumnStateBehavior) {
+		this.nativeElement ? this.nativeElement.loadColumnStateBehavior = value : undefined;
 	}
 
 	/** @description Sets or gets the language. Used in conjunction with the property messages.  */
@@ -327,6 +381,15 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.rowDetailTemplate = value : undefined;
 	}
 
+	/** @description Sets or gets an array of the Table's selected row's ids. */
+	@Input()
+	get selected(): any[] {
+		return this.nativeElement ? this.nativeElement.selected : undefined;
+	}
+	set selected(value: any[]) {
+		this.nativeElement ? this.nativeElement.selected = value : undefined;
+	}
+
 	/** @description Sets or gets whether row selection (via checkboxes) is enabled. */
 	@Input()
 	get selection(): boolean {
@@ -390,6 +453,15 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.tooltip = value : undefined;
 	}
 
+	/** @description Enables or disables HTML virtualization. This functionality allows for only visible rows to be rendered, resulting in an increased Table performance. */
+	@Input()
+	get virtualization(): boolean {
+		return this.nativeElement ? this.nativeElement.virtualization : undefined;
+	}
+	set virtualization(value: boolean) {
+		this.nativeElement ? this.nativeElement.virtualization = value : undefined;
+	}
+
 	/** @description This event is triggered when a cell edit operation has been initiated.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
 	*   dataField - The data field of the cell's column.
@@ -412,7 +484,9 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	@Output() onCellEndEdit: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered when the selection is changed.
-	*  @param event. The custom event. 	*/
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	type)
+	*   type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
+	*/
 	@Output() onChange: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered when a column header cell has been clicked.
@@ -420,6 +494,14 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	*   dataField - The data field of the cell's column.
 	*/
 	@Output() onColumnClick: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when a column has been resized via dragging or double-click.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	headerCellElement, 	width)
+	*   dataField - The data field of the column.
+	*   headerCellElement - The column's header cell HTML element.
+	*   width - The new width of the column.
+	*/
+	@Output() onColumnResize: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered when a filtering-related action is made.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	action, 	filters)
@@ -441,6 +523,18 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	*   action - The paging action. Possible actions: 'pageIndexChange', 'pageSizeChange'.
 	*/
 	@Output() onPage: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when a row edit operation has been initiated (only when editMode is 'row').
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	row)
+	*   row - The data of the row.
+	*/
+	@Output() onRowBeginEdit: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when a row has been edited (only when editMode is 'row').
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	row)
+	*   row - The new data of the row.
+	*/
+	@Output() onRowEndEdit: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered when a column header cell has been clicked.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	columns)
@@ -832,10 +926,10 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
         return result;
     }
 
-	/** @description Selects a row. 
-	* @param {string | number} rowId. The id of the row to select.
+	/** @description Selects one or more rows. 
+	* @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select.
 	*/
-    public select(rowId: string | number): void {
+    public select(rowId: string | number | (string | number)[]): void {
         if (this.nativeElement.isRendered) {
             this.nativeElement.select(rowId);
         }
@@ -880,10 +974,10 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
         }
     }
 
-	/** @description Unselects a row. 
-	* @param {string | number} rowId. The id of the row to unselect.
+	/** @description Unselects one or more rows. 
+	* @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to unselect.
 	*/
-    public unselect(rowId: string | number): void {
+    public unselect(rowId: string | number | (string | number)[]): void {
         if (this.nativeElement.isRendered) {
             this.nativeElement.unselect(rowId);
         }
@@ -946,6 +1040,9 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 		that.eventHandlers['columnClickHandler'] = (event: CustomEvent) => { that.onColumnClick.emit(event); }
 		that.nativeElement.addEventListener('columnClick', that.eventHandlers['columnClickHandler']);
 
+		that.eventHandlers['columnResizeHandler'] = (event: CustomEvent) => { that.onColumnResize.emit(event); }
+		that.nativeElement.addEventListener('columnResize', that.eventHandlers['columnResizeHandler']);
+
 		that.eventHandlers['filterHandler'] = (event: CustomEvent) => { that.onFilter.emit(event); }
 		that.nativeElement.addEventListener('filter', that.eventHandlers['filterHandler']);
 
@@ -954,6 +1051,12 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 
 		that.eventHandlers['pageHandler'] = (event: CustomEvent) => { that.onPage.emit(event); }
 		that.nativeElement.addEventListener('page', that.eventHandlers['pageHandler']);
+
+		that.eventHandlers['rowBeginEditHandler'] = (event: CustomEvent) => { that.onRowBeginEdit.emit(event); }
+		that.nativeElement.addEventListener('rowBeginEdit', that.eventHandlers['rowBeginEditHandler']);
+
+		that.eventHandlers['rowEndEditHandler'] = (event: CustomEvent) => { that.onRowEndEdit.emit(event); }
+		that.nativeElement.addEventListener('rowEndEdit', that.eventHandlers['rowEndEditHandler']);
 
 		that.eventHandlers['sortHandler'] = (event: CustomEvent) => { that.onSort.emit(event); }
 		that.nativeElement.addEventListener('sort', that.eventHandlers['sortHandler']);
@@ -983,6 +1086,10 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 			that.nativeElement.removeEventListener('columnClick', that.eventHandlers['columnClickHandler']);
 		}
 
+		if (that.eventHandlers['columnResizeHandler']) {
+			that.nativeElement.removeEventListener('columnResize', that.eventHandlers['columnResizeHandler']);
+		}
+
 		if (that.eventHandlers['filterHandler']) {
 			that.nativeElement.onfilterHandler = null;
 		}
@@ -993,6 +1100,14 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 
 		if (that.eventHandlers['pageHandler']) {
 			that.nativeElement.removeEventListener('page', that.eventHandlers['pageHandler']);
+		}
+
+		if (that.eventHandlers['rowBeginEditHandler']) {
+			that.nativeElement.removeEventListener('rowBeginEdit', that.eventHandlers['rowBeginEditHandler']);
+		}
+
+		if (that.eventHandlers['rowEndEditHandler']) {
+			that.nativeElement.removeEventListener('rowEndEdit', that.eventHandlers['rowEndEditHandler']);
 		}
 
 		if (that.eventHandlers['sortHandler']) {

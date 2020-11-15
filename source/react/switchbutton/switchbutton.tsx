@@ -12,12 +12,14 @@ export interface SwitchButtonProps extends SwitchButtonProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  A Switch represents a button with two states, on and off. Switches are most often used on mobile devices to enable and disable options.
 */
-export class SwitchButton extends React.Component<React.HTMLProps<Element> & SwitchButtonProps, any> {   
+export class SwitchButton extends React.Component<React.HTMLAttributes<Element> & SwitchButtonProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -394,7 +396,9 @@ export class SwitchButton extends React.Component<React.HTMLProps<Element> & Swi
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

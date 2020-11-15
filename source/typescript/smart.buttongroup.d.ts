@@ -15,7 +15,7 @@ export interface ButtonGroupProperties {
    * Determines the selection mode for the element.
    * Default value: one
    */
-  selectionMode?: ClickMode;
+  selectionMode?: ButtonGroupSelectionMode;
   /**
    * Enables or disables the element. 
    * Default value: false
@@ -112,4 +112,4 @@ declare global {
 }
 
 /**Determines the selection mode for the element. */
-export declare type ClickMode = 'none' | 'one' | 'zeroOrOne' | 'zeroOrMany';
+export declare type ButtonGroupSelectionMode = 'none' | 'one' | 'zeroOrOne' | 'zeroOrMany';

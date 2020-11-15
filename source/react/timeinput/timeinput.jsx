@@ -24,7 +24,7 @@ export class TimeInput extends React.Component {
 	}
 
 	/** Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
-	*	Property type: TimeInputDateTimeFormat
+	*	Property type: TimeFormat
 	*/
 	get dateTimeFormat() {
 		return this.nativeElement ? this.nativeElement.dateTimeFormat : undefined;
@@ -440,7 +440,9 @@ export class TimeInput extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

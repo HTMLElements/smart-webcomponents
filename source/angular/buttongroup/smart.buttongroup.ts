@@ -1,8 +1,8 @@
 import { ButtonGroup } from './../index';
-import { Animation, ClickMode, ElementRenderMode} from './../index';
+import { Animation, ButtonGroupSelectionMode, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, ClickMode, ElementRenderMode} from './../index';
+export { Animation, ButtonGroupSelectionMode, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { ButtonGroup } from './../index';
 
@@ -50,10 +50,10 @@ export class ButtonGroupComponent extends BaseElement implements OnInit, AfterVi
 
 	/** @description Determines the selection mode for the element. */
 	@Input()
-	get selectionMode(): ClickMode {
+	get selectionMode(): ButtonGroupSelectionMode {
 		return this.nativeElement ? this.nativeElement.selectionMode : undefined;
 	}
-	set selectionMode(value: ClickMode) {
+	set selectionMode(value: ButtonGroupSelectionMode) {
 		this.nativeElement ? this.nativeElement.selectionMode = value : undefined;
 	}
 

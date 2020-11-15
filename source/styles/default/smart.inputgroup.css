@@ -111,14 +111,6 @@
         outline: 0;
     }
 
-.input-group smart-button[focus] {
-    color: var(--smart-color);
-    background-color: var(--smart-background);
-    border-color: var(--smart-primary);
-    outline: 0;
-    opacity: 1;
-}
-
 .input-group > .custom-file,
 .input-group > .custom-select,
 .input-group > .form-control {
@@ -517,9 +509,10 @@
     .smart-numeric-text-box.smart-form-editor.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after,
     .smart-numeric-text-box.smart-form-editor.smart-validation-error:not(smart-check-box) > div.smart-container::after {
         right: 20px;
-
     }
 
+    .smart-number-input.smart-form-editor.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after,
+    .smart-number-input.smart-form-editor.smart-validation-error:not(smart-check-box) > div.smart-container::after,
     .smart-combo-box.smart-form-editor.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after,
     .smart-combo-box.smart-form-editor.smart-validation-error:not(smart-check-box) > div.smart-container::after,
     .smart-date-time-picker.smart-form-editor.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after,
@@ -541,3 +534,7 @@
     input.smart-form-editor.smart-valid + .smart-success-label-like-after-element{
         right: 35px;
     }
+
+.input-group smart-input .smart-drop-down-button {
+    border-left: none;
+}

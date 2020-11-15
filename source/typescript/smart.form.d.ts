@@ -109,7 +109,7 @@ export interface Control {
   controlOptions?: any;
   /**
    * The type of the control.
-   * Default value: 
+   * Default value: input
    */
   controlType?: ControlControlType;
   /**
@@ -124,9 +124,9 @@ export interface Control {
   columnSpan?: number;
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
-   * Default value: false
+   * Default value: ""
    */
-  dataField?: boolean;
+  dataField?: string;
   /**
    * Sets the Form control disabled mode.
    * Default value: false
@@ -154,7 +154,7 @@ export interface Control {
   label?: string;
   /**
    * Gets or Sets the Form control's label position.
-   * Default value: 
+   * Default value: left
    */
   labelPosition?: ControlLabelPosition;
   /**
@@ -214,7 +214,7 @@ export interface Control {
   valid?: boolean;
   /**
    * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: 
+   * Default value: []
    */
   validationRules?: any[];
   /**
@@ -244,6 +244,16 @@ export declare type ControlViewMode = null | 'accordion' | 'tabs' | 'breadcrumb'
 export declare type FormLabelPosition = 'left' | 'top';
 export interface FormControlProperties {
   /**
+   * Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit'
+   * Default value: 
+   */
+  action?: FormControlAction;
+  /**
+   * Sets or Gets the alignment of the FormControl
+   * Default value: left
+   */
+  align?: FormControlAlign;
+  /**
    * HTML Content displayed after the Form Control
    * Default value: 
    */
@@ -255,7 +265,7 @@ export interface FormControlProperties {
   controlOptions?: any;
   /**
    * The type of the control.
-   * Default value: 
+   * Default value: input
    */
   controlType?: FormControlControlType;
   /**
@@ -270,9 +280,9 @@ export interface FormControlProperties {
   columnSpan?: number;
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
-   * Default value: false
+   * Default value: ""
    */
-  dataField?: boolean;
+  dataField?: string;
   /**
    * Sets the Form control disabled mode.
    * Default value: false
@@ -300,7 +310,7 @@ export interface FormControlProperties {
   label?: string;
   /**
    * Gets or Sets the Form control's label position.
-   * Default value: 
+   * Default value: left
    */
   labelPosition?: FormControlLabelPosition;
   /**
@@ -310,9 +320,9 @@ export interface FormControlProperties {
   labelOffset?: number;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set.
-   * Default value: "left"
+   * Default value: left
    */
-  labelAlign?: string;
+  labelAlign?: FormControlAlign;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the next button label.
    * Default value: "Next"
@@ -324,6 +334,11 @@ export interface FormControlProperties {
    */
   backButtonLabel?: string;
   /**
+   * Gets or Sets the FormControl placeholder.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
    * HTML Content displayed before the Form Control
    * Default value: 
    */
@@ -333,6 +348,11 @@ export interface FormControlProperties {
    * Default value: false
    */
   readonly?: boolean;
+  /**
+   * Gets or Sets whether this field is required.
+   * Default value: false
+   */
+  required?: boolean;
   /**
    * Gets whether the Form control is not touched by the user. This flag is changed usually on blur, after the user interacted with the Form control
    * Default value: false
@@ -360,7 +380,7 @@ export interface FormControlProperties {
   valid?: boolean;
   /**
    * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: 
+   * Default value: []
    */
   validationRules?: any[];
   /**
@@ -388,6 +408,10 @@ declare global {
     }
 }
 
+/**Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit' */
+export declare type FormControlAction = 'reset' | 'submit';
+/**FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set. */
+export declare type FormControlAlign = 'left' | 'center' | 'right';
 /**The type of the control. */
 export declare type FormControlControlType = 'button' | 'boolean' | 'comboBox' | 'checkInput' | 'datetime' | 'dropDownList' | 'group' | 'input' | 'label' | 'multiInput' | 'multiComboInput' | 'mask' | 'number' | 'password' | 'radioButton' | 'submit' | 'textarea' | 'template';
 /**Gets or Sets the Form control's label position. */
@@ -485,7 +509,7 @@ export interface Control {
   controlOptions?: any;
   /**
    * The type of the control.
-   * Default value: 
+   * Default value: input
    */
   controlType?: ControlControlType;
   /**
@@ -500,9 +524,9 @@ export interface Control {
   columnSpan?: number;
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
-   * Default value: false
+   * Default value: ""
    */
-  dataField?: boolean;
+  dataField?: string;
   /**
    * Sets the Form control disabled mode.
    * Default value: false
@@ -530,7 +554,7 @@ export interface Control {
   label?: string;
   /**
    * Gets or Sets the Form control's label position.
-   * Default value: 
+   * Default value: left
    */
   labelPosition?: ControlLabelPosition;
   /**
@@ -590,7 +614,7 @@ export interface Control {
   valid?: boolean;
   /**
    * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: 
+   * Default value: []
    */
   validationRules?: any[];
   /**

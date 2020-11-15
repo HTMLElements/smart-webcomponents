@@ -25,12 +25,14 @@ export interface TabsProps extends TabsProperties {
 	onDragEnd?: ((event?: Event) => void) | undefined;
 	onDragStart?: ((event?: Event) => void) | undefined;
 	onReorder?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Tabs organize content across different screens, data sets, and other interactions. Tabs can be paired with components like top app bars. Tabs can be displayed horizontally or vertically.
 */
-export class Tabs extends React.Component<React.HTMLProps<Element> & TabsProps, any> {   
+export class Tabs extends React.Component<React.HTMLAttributes<Element> & TabsProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -656,7 +658,9 @@ export class Tabs extends React.Component<React.HTMLProps<Element> & TabsProps, 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

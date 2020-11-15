@@ -41,7 +41,7 @@ smart-grid,
 }
 
     .smart-grid-icon.show {
-        display: flex;
+        display: flex !important;
     }
 
 .smart-icon-plus.smart-grid-icon:before {
@@ -728,6 +728,9 @@ smart-grid-row {
     cursor: default;
 }
 
+smart-grid-row[edit] {
+    z-index: 7;
+}
     smart-grid-row .smart-grid-command-bar {
         z-index: 6;
         height: calc(100% - 1px);
@@ -776,7 +779,7 @@ smart-grid-column {
     }
 
         smart-grid-column .smart-icon.show {
-            display: flex;
+            display: flex !important;
             width: var(--smart-grid-column-buttons-width);
             height: 100%;
             left: 4px;
@@ -1657,6 +1660,9 @@ smart-grid-cell[group] span[summary] {
 smart-grid-cell[addNewRow] {
     border-right: 1px solid var(--smart-border);
 }
+.smart-grid-content.auto-height smart-grid-cell[addNewRow] {
+    border-right: none;
+}
 
     smart-grid-cell[addNewRow]:after {
         visibility: hidden;
@@ -1998,31 +2004,31 @@ smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-type {
     margin-right: initial;
 }
 
-smart-grid-row[alternation-index="0"] smart-grid-cell:not([selected]):not([header]) .smart-label {
+smart-grid-row[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
     background-color: var(--smart-background);
     color: var(--smart-background-color);
     border-color: var(--smart-border);
 }
 
-smart-grid-row[alternation-index="1"] smart-grid-cell:not([selected]):not([header]) .smart-label {
+smart-grid-row[alternation-index="1"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
     background-color: var(--smart-alternation-index0-background);
     color: var(--smart-alternation-index0-color);
     border-color: var(--smart-alternation-index0-border);
 }
 
-smart-grid-row[alternation-index="2"] smart-grid-cell:not([selected]):not([header]) .smart-label {
+smart-grid-row[alternation-index="2"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
     background-color: var(--smart-alternation-index1-background);
     color: var(--smart-alternation-index1-color);
     border-color: var(--smart-alternation-index1-border);
 }
 
-smart-grid-row[alternation-index="3"] smart-grid-cell:not([selected]):not([header]) .smart-label {
+smart-grid-row[alternation-index="3"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
     background-color: var(--smart-alternation-index2-background);
     color: var(--smart-alternation-index2-color);
     border-color: var(--smart-alternation-index2-border);
 }
 
-smart-grid-row[alternation-index="4"] smart-grid-cell:not([selected]):not([header]) .smart-label {
+smart-grid-row[alternation-index="4"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
     background-color: var(--smart-alternation-index3-background);
     color: var(--smart-alternation-index3-color);
     border-color: var(--smart-alternation-index3-border);
@@ -2306,17 +2312,22 @@ smart-grid-cell[editor] > .smart-label {
 }
 
 smart-grid-cell[editor][row-editor] .smart-label {
-    border: 0px solid var(--smart-primary);
+    border: 0px solid var(--smart-primary) !important;
 }
 
 smart-grid-cell[editor][row-editor] {
     border: 0px solid var(--smart-primary);
     border-top: 1px solid var(--smart-primary);
     border-bottom: 1px solid var(--smart-primary);
+    border-left: 1px solid var(--smart-primary);
+}
+
+smart-grid-cell[editor][row-editor] ~ smart-grid-cell[editor][row-editor] {
+    border-left: 0px solid var(--smart-primary);
 }
 
     smart-grid-cell[editor][row-editor]:first-child {
-        border-left: 1px solid var(--smart-primary);
+        border-left: 2px solid var(--smart-primary) !important;
     }
 
     smart-grid-cell[editor][row-editor]:last-child {
@@ -2612,7 +2623,7 @@ smart-grid-cell[radioButton][selected] .smart-input::after {
     background: var(--smart-surface);
     width: var(--smart-grid-column-menu-width);
     height: var(--smart-grid-column-menu-height);
-    z-index: 999;
+    z-index: 9999;
     box-shadow: var(--smart-elevation-8);
     min-height: 60px;
     overflow: hidden;

@@ -17,12 +17,14 @@ export interface ArrayProps extends ArrayProperties {
 	onElementClick?: ((event?: Event) => void) | undefined;
 	onScroll?: ((event?: Event) => void) | undefined;
 	onSizeChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Array is broadly used in Engineering applications and displays a Grid of values.
 */
-export class Array extends React.Component<React.HTMLProps<Element> & ArrayProps, any> {   
+export class Array extends React.Component<React.HTMLAttributes<Element> & ArrayProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -929,7 +931,9 @@ export class Array extends React.Component<React.HTMLProps<Element> & ArrayProps
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

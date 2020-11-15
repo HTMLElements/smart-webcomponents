@@ -12,12 +12,14 @@ export interface CircularProgressBarProps extends CircularProgressBarProperties 
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Progress Bar displayed as a circle.
 */
-export class CircularProgressBar extends React.Component<React.HTMLProps<Element> & CircularProgressBarProps, any> {   
+export class CircularProgressBar extends React.Component<React.HTMLAttributes<Element> & CircularProgressBarProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -334,7 +336,9 @@ export class CircularProgressBar extends React.Component<React.HTMLProps<Element
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -106,6 +106,7 @@ smart-circular-progress-bar {
 
 .smart-progress-bar .smart-label {
     width: auto;
+    color: var(--smart-outline);
 }
 
 .smart-progress-bar[orientation="vertical"] .smart-label {

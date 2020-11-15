@@ -22,30 +22,10 @@ export interface LayoutProperties {
    */
   dataSource?: any;
   /**
-   * Optional. A label for all Splitter items inside the Layout. Usefull when exporting the dataSource and reusing it in other elements, for example, tree, etc.
-   * Default value: "Template"
-   */
-  itemLabel?: string;
-  /**
-   * Optional. A label for all Splitters inside the Layout. Usefull when exporting the dataSource and reusing it in other elements, for example, tree, etc.
-   * Default value: "Layout"
-   */
-  itemGroupLabel?: string;
-  /**
-   * A getter that returns an array of all Splitter items inside the Layout.
-   * Default value: 
-   */
-  items?: any;
-  /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
    */
   locale?: string;
-  /**
-   * Callback, related to localization module. 
-   * Default value: null
-   */
-  localizeFormatFunction?: any;
   /**
    * Sets an object with string values, related to the different states of passwords strength.
    * Default value:    * {
@@ -76,27 +56,17 @@ export interface LayoutProperties {
    */
   readonly?: boolean;
   /**
-   * Determines the resize step during reisizing
-   * Default value: 5
-   */
-  resizeStep?: number;
-  /**
-   * When enabled the resizing operation happens live. By default this feature is not enabled and the user sees a hightlighted bar while dragging instead of the actual splitter bar.
+   * Determines whether splitting is live or not.
    * Default value: false
    */
-  liveResize?: boolean;
-  /**
-   * Determines the placeholder text of the empty items.
-   * Default value: "Empty"
-   */
-  placeholder?: string;
+  allowLiveSplit?: boolean;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * Determines the selected item. When an item is selected the buttons for creating nested items are displayed inside it.
+   * Determines the selected item.
    * Default value: null
    */
   selectedIndex?: any;
@@ -119,13 +89,9 @@ export interface Layout extends BaseElement, LayoutProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when resizing begins.
+   * This event is triggered after resizing is completed.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
-  /**
-   * This event is triggered when resizing finishes.
-	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  onResize: ((ev: Event) => any) | null;
   /**
    * This event is triggered when a change regarding the Layout's state has occured, such as inserting a new item, removing an item, etc.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, type)
@@ -166,79 +132,26 @@ export interface Layout extends BaseElement, LayoutProperties {
    */
   onMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Appends a new node.
-   * @param {Node} node. The node to append
-   * @returns {Node}
+   * Returns a Layout item according to the index that is passed.
+   * @param {number | string} index. The index of an item.
    */
-  appendChild<T extends Node>(node: Node): T;
+  getItem(index: number | string): void;
   /**
-   * Inserts the specified "smart-splitter-item" node before the reference "smart-splitter-item" node.
-   * @param {Node} newNode. The  "smart-splitter-item" node to insert.
-   * @param {Node | null} referenceNode?. The "smart-splitter-item" node before which newNode is inserted.
-   * @returns {Node}
+   * Refreshes the Layout
    */
-  insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null): T;
+  refresh(): void;
   /**
-   * Removes a child "smart-splitter-item" node from the Layout.
-   * @param {Node} node. The "smart-splitter-item" node to remove.
-   * @returns {Node}
+   * Inserts a new item inside the Layout.
+   * @param {any} type. The index of an item to be removed or an instance of Smart.SplitterItem.
+   * @param {string | undefined} position?. A string that represents the position where the new item will be created.
    */
-  removeChild<T extends Node>(node: Node): T;
+  createLayoutItem(type: any, position?: string | undefined): void;
   /**
-   * Returns a Splitter Item according to the index that is passed as an argument.
-   * @param {any} index. The index of an item.
+   * Moves all children from one item to another.
+   * @param {any} oldItem. The source item that will have it's content removed.
+   * @param {any} newItem. The host item that will have it's content replaced.
    */
-  getItem(index: any): void;
-  /**
-   * Returns the index of a Splitter Item that is passed as an argument.
-   * @param {any} item. The index of the Splitter item that is passed as an argument.
-   */
-  getItemIndex(item: any): void;
-  /**
-   * Insert a new Splitter item at a given position.
-   * @param {any} item. A Splitter Item or an object defining a Splitter item to be inserted.
-   * @param {number | string} index. The index at which a new item will be inserted.
-   * @param {string} position?. The postition at which the new item will be inseted - top, bottom, left, right.
-   */
-  insert(item: any, index: number | string, position?: string): void;
-  /**
-   * Removes a Splitter item from the Layout.
-   * @param {any} index. The index of an item to be removed or an instance of Smart.SplitterItem.
-   */
-  removeItem(index: any): void;
-  /**
-   * Removes all items from the Layout
-   */
-  removeAll(): void;
-  /**
-   * Selects a Splitter item from the Layout.
-   * @param {any} index. The index of an item to be removed or an instance of Smart.SplitterItem.
-   */
-  select(index: any): void;
-  /**
-   * Unselects the selected item inside the element.
-   */
-  unselect(): void;
-  /**
-   * Updates a Splitter item that is inside the Layout.
-   * @param {any} index. The index of an item to be removed or an instance of Smart.SplitterItem.
-   * @param {any} settings. An object containing properties with new values for the Splitter item that should be updated.
-   */
-  updateItem(index: any, settings: any): void;
-  /**
-   * Clears the localStorage of any previous cached states of the element according to it's id.
-   */
-  clearState(): void;
-  /**
-   * Saves the current state of the element to LocalStorage. Requires an id to be set to the element.
-   * @returns {any}
-   */
-  saveState(): any;
-  /**
-   * Loads a previously saved state of the element. If no state is provided as an argument the method will do a localStorage lookup according to the id of the element.
-   * @param {any[]} state?. An array of objects that represents a cached state of the element. The result of calling the 'saveState' method.
-   */
-  loadState(state?: any[]): void;
+  moveChildren(oldItem: any, newItem: any): void;
 }
 
 declare global {
@@ -253,3 +166,235 @@ declare global {
 
 /**Sets or gets Layout's main orientation. The orientation is applied to all Splitters inside the Layout unless they have their orientation explicitly set in the <b>dataSource</b>. */
 export declare type Orientation = 'horizontal' | 'vertical';
+export interface LayoutGroupProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "Group"
+   */
+  label?: string;
+  /**
+   * Determines the group orientation.
+   * Default value: vertical
+   */
+  orientation?: LayoutGroupOrientation;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ LayoutGroup represents a group of layout items inside the Layout.
+*/
+export interface LayoutGroup extends BaseElement, LayoutGroupProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-layout-group"): LayoutGroup;
+        querySelector(selectors: "smart-layout-group"): LayoutGroup | null;
+        querySelectorAll(selectors: "smart-layout-group"): NodeListOf<LayoutGroup>;
+        getElementsByTagName(qualifiedName: "smart-layout-group"): HTMLCollectionOf<LayoutGroup>;
+        getElementsByName(elementName: "smart-layout-group"): NodeListOf<LayoutGroup>;
+    }
+}
+
+/**Determines the group orientation. */
+export declare type LayoutGroupOrientation = 'horizontal' | 'vertical';
+export interface LayoutItemProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "Item"
+   */
+  label?: string;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ Layout item represents a single content section inside the Layout.
+*/
+export interface LayoutItem extends BaseElement, LayoutItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-layout-item"): LayoutItem;
+        querySelector(selectors: "smart-layout-item"): LayoutItem | null;
+        querySelectorAll(selectors: "smart-layout-item"): NodeListOf<LayoutItem>;
+        getElementsByTagName(qualifiedName: "smart-layout-item"): HTMLCollectionOf<LayoutItem>;
+        getElementsByName(elementName: "smart-layout-item"): NodeListOf<LayoutItem>;
+    }
+}
+
+export interface TabLayoutGroupProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "TabGroup"
+   */
+  label?: string;
+  /**
+   * Determines the group orientation.
+   * Default value: vertical
+   */
+  orientation?: TabLayoutGroupOrientation;
+  /**
+   * Determines the position of the tab items group.
+   * Default value: top
+   */
+  position?: TabLayoutGroupPosition;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ TabLayoutGroup represents a group of TabLayoutItems each with it's own Tab label.
+*/
+export interface TabLayoutGroup extends BaseElement, TabLayoutGroupProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-layout-group"): TabLayoutGroup;
+        querySelector(selectors: "smart-tab-layout-group"): TabLayoutGroup | null;
+        querySelectorAll(selectors: "smart-tab-layout-group"): NodeListOf<TabLayoutGroup>;
+        getElementsByTagName(qualifiedName: "smart-tab-layout-group"): HTMLCollectionOf<TabLayoutGroup>;
+        getElementsByName(elementName: "smart-tab-layout-group"): NodeListOf<TabLayoutGroup>;
+    }
+}
+
+/**Determines the group orientation. */
+export declare type TabLayoutGroupOrientation = 'horizontal' | 'vertical';
+/**Determines the position of the tab items group. */
+export declare type TabLayoutGroupPosition = 'top' | 'bottom' | 'left' | 'right';
+export interface TabLayoutItemProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "TabItem"
+   */
+  label?: string;
+  /**
+   * Determines the group orientation.
+   * Default value: vertical
+   */
+  orientation?: TabLayoutItemOrientation;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ TabLayoutItem represents a Layout Item that has a Tab label and is applicable to a TabLayoutGroup.
+*/
+export interface TabLayoutItem extends BaseElement, TabLayoutItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-layout-item"): TabLayoutItem;
+        querySelector(selectors: "smart-tab-layout-item"): TabLayoutItem | null;
+        querySelectorAll(selectors: "smart-tab-layout-item"): NodeListOf<TabLayoutItem>;
+        getElementsByTagName(qualifiedName: "smart-tab-layout-item"): HTMLCollectionOf<TabLayoutItem>;
+        getElementsByName(elementName: "smart-tab-layout-item"): NodeListOf<TabLayoutItem>;
+    }
+}
+
+/**Determines the group orientation. */
+export declare type TabLayoutItemOrientation = 'horizontal' | 'vertical';

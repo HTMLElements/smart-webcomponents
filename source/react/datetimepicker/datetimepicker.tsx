@@ -16,12 +16,14 @@ export interface DateTimePickerProps extends DateTimePickerProperties {
 	onClosing?: ((event?: Event) => void) | undefined;
 	onOpen?: ((event?: Event) => void) | undefined;
 	onOpening?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Date & time selection component. It allows to select both date and time with the same control.
 */
-export class DateTimePicker extends React.Component<React.HTMLProps<Element> & DateTimePickerProps, any> {   
+export class DateTimePicker extends React.Component<React.HTMLAttributes<Element> & DateTimePickerProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -913,7 +915,9 @@ export class DateTimePicker extends React.Component<React.HTMLProps<Element> & D
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

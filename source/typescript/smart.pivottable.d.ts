@@ -274,7 +274,7 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
 export interface PivotTableColumn {
   /**
    * Sets or gets the header cell alignment for pivot and summary columns and cell alignment for row group columns.
-   * Default value: string
+   * Default value: left
    */
   align?: PivotTableColumnAlign;
   /**
@@ -329,7 +329,7 @@ export interface PivotTableColumn {
   rowGroup?: boolean;
   /**
    * Sets or gets the summary function to aggregate the column's data by and produce dynamic summary columns for each unique pivot data point. There must always be at least one summary column for the PivotTable to make sense. When columnTotals is enabled, all summary columns must have the same summary function set.
-   * Default value: null
+   * Default value: sum
    */
   summary?: PivotTableColumnSummary;
   /**
@@ -361,8 +361,8 @@ export interface PivotTableConditionalFormatting {
    */
   fontFamily?: PivotTableConditionalFormattingFontFamily;
   /**
-   * The fontSize to apply to formatted cells.
-   * Default value: The default fontSize as set in CSS
+   * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
+   * Default value: 14px
    */
   fontSize?: PivotTableConditionalFormattingFontSize;
   /**
@@ -404,7 +404,7 @@ export declare type PivotTableColumnTotalsPosition = 'near' | 'far';
 export declare type PivotTableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**The fontFamily to apply to formatted cells. */
 export declare type PivotTableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
-/**The fontSize to apply to formatted cells. */
+/**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type PivotTableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the position of the PivotTable's designer (shown when designer is enabled). */
 export declare type PivotTableDesignerPosition = 'near' | 'far';

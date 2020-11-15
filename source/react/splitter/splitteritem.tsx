@@ -11,12 +11,14 @@ export interface SplitterItemProps extends SplitterItemProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Splitter Item is a Panel in a Splitter component.
 */
-export class SplitterItem extends React.Component<React.HTMLProps<Element> & SplitterItemProps, any> {   
+export class SplitterItem extends React.Component<React.HTMLAttributes<Element> & SplitterItemProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -291,7 +293,9 @@ export class SplitterItem extends React.Component<React.HTMLProps<Element> & Spl
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

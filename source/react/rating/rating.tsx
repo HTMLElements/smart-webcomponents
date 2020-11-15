@@ -11,12 +11,14 @@ export interface RatingProps extends RatingProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Rating allows you to input a rating. It is broadly used in applications with reviews.
 */
-export class Rating extends React.Component<React.HTMLProps<Element> & RatingProps, any> {   
+export class Rating extends React.Component<React.HTMLAttributes<Element> & RatingProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -282,7 +284,9 @@ export class Rating extends React.Component<React.HTMLProps<Element> & RatingPro
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

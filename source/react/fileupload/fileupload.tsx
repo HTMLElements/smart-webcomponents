@@ -18,12 +18,14 @@ export interface FileUploadProps extends FileUploadProperties {
 	onUploadPaused?: ((event?: Event) => void) | undefined;
 	onUploadStarted?: ((event?: Event) => void) | undefined;
 	onValidationError?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  FileUpload provides an easy and integrated way for users to upload multiple files.
 */
-export class FileUpload extends React.Component<React.HTMLProps<Element> & FileUploadProps, any> {   
+export class FileUpload extends React.Component<React.HTMLAttributes<Element> & FileUploadProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -591,7 +593,9 @@ export class FileUpload extends React.Component<React.HTMLProps<Element> & FileU
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -27,7 +27,7 @@
     -webkit-font-smoothing: antialiased;
     opacity: var(--smart-button-opacity);
     white-space: nowrap;
-    line-height: 1.2;
+    line-height: 1rem;
     border-radius: inherit;
     width: 100%;
     height: 100%;

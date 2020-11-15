@@ -133,8 +133,6 @@ export class MenuItemsGroupComponent extends BaseElement implements OnInit, Afte
 
       that.onCreate.emit(that.nativeElement);
 
-		Smart.Render();
-
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
 

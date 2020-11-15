@@ -23,8 +23,8 @@ export class DateInput extends React.Component {
 		}
 	}
 
-	/** Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
-	*	Property type: DateInputDateTimeFormat
+	/** Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
+	*	Property type: DateTimeFormat
 	*/
 	get dateTimeFormat() {
 		return this.nativeElement ? this.nativeElement.dateTimeFormat : undefined;
@@ -466,7 +466,9 @@ export class DateInput extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

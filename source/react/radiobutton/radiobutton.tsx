@@ -12,12 +12,14 @@ export interface RadioButtonProps extends RadioButtonProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  The Radio Button component lets you add a radio button and assign it to a radio group. Users can select only one radio button at a time within a radio group
 */
-export class RadioButton extends React.Component<React.HTMLProps<Element> & RadioButtonProps, any> {   
+export class RadioButton extends React.Component<React.HTMLAttributes<Element> & RadioButtonProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -346,7 +348,9 @@ export class RadioButton extends React.Component<React.HTMLProps<Element> & Radi
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

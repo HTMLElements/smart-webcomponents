@@ -13,12 +13,14 @@ export interface ElementProps extends ElementProperties {
 
 	onResize?: ((event?: Event) => void) | undefined;
 	onStyleChanged?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  BaseElement extending the HTMLElement with localization, on-demand rendering, typed properties, two-way bound properties, property change notifications, lifecycle callbacks, automatic events listen and unlisten.
 */
-export class Element extends React.Component<React.HTMLProps<Element> & ElementProps, any> {   
+export class Element extends React.Component<React.HTMLAttributes<Element> & ElementProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -385,7 +387,9 @@ export class Element extends React.Component<React.HTMLProps<Element> & ElementP
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

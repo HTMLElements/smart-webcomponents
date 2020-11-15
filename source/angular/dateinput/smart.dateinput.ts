@@ -1,8 +1,8 @@
 import { DateInput } from './../index';
-import { Animation, DropDownButtonPosition, DateInputDateTimeFormat, ElementRenderMode} from './../index';
+import { Animation, DropDownButtonPosition, DateTimeFormat, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, DropDownButtonPosition, DateInputDateTimeFormat, ElementRenderMode} from './../index';
+export { Animation, DropDownButtonPosition, DateTimeFormat, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { DateInput } from './../index';
 
@@ -39,12 +39,12 @@ export class DateInputComponent extends BaseElement implements OnInit, AfterView
 		this.nativeElement ? this.nativeElement.animation = value : undefined;
 	}
 
-	/** @description Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
+	/** @description Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
 	@Input()
-	get dateTimeFormat(): DateInputDateTimeFormat {
+	get dateTimeFormat(): DateTimeFormat {
 		return this.nativeElement ? this.nativeElement.dateTimeFormat : undefined;
 	}
-	set dateTimeFormat(value: DateInputDateTimeFormat) {
+	set dateTimeFormat(value: DateTimeFormat) {
 		this.nativeElement ? this.nativeElement.dateTimeFormat = value : undefined;
 	}
 

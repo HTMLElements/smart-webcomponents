@@ -119,7 +119,7 @@ export interface MultilineTextBoxProperties {
    * Determines whether the value of the control can be automatically completed by the browser.
    * Default value: off
    */
-  autoComplete?: AutoComplete;
+  autoComplete?: MultiLineTextBoxAutoComplete;
   /**
    * Determines whether element will auto expand when the input overflows vertically.
    * Default value: false
@@ -343,7 +343,7 @@ declare global {
 /**Determines whether and how the value should be automatically capitalized as it is entered/edited by the user. */
 export declare type MultilineTextBoxAutoCapitalize = 'none' | 'characters' | 'words';
 /**Determines whether the value of the control can be automatically completed by the browser. */
-export declare type AutoComplete = 'on' | 'off';
+export declare type MultiLineTextBoxAutoComplete = 'on' | 'off';
 /**Specifies how the characters are displayed inside the input. */
 export declare type TextBoxDisplayMode = 'default' | 'escaped';
 /**Determines the behavior on "Enter" key. */

@@ -12,12 +12,14 @@ export interface NumberInputProps extends NumberInputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  NumberInput specifies an input field where the user can enter a numbers.
 */
-export class NumberInput extends React.Component<React.HTMLProps<Element> & NumberInputProps, any> {   
+export class NumberInput extends React.Component<React.HTMLAttributes<Element> & NumberInputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -422,7 +424,9 @@ export class NumberInput extends React.Component<React.HTMLProps<Element> & Numb
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

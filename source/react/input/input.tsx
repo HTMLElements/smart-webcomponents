@@ -12,12 +12,14 @@ export interface InputProps extends InputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Input specifies an input field where the user can enter data. Auto-complete options are displayed for easier input.
 */
-export class Input extends React.Component<React.HTMLProps<Element> & InputProps, any> {   
+export class Input extends React.Component<React.HTMLAttributes<Element> & InputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -527,7 +529,9 @@ export class Input extends React.Component<React.HTMLProps<Element> & InputProps
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

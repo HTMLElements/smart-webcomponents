@@ -12,12 +12,14 @@ export interface MultiComboInputProps extends MultiComboInputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  MultiComboInput specifies an input field where the user can enter data. Auto-complete options with checkbxoes are displayed for easier input. Allows multiple selection. Selected items are added to the input field as tags.
 */
-export class MultiComboInput extends React.Component<React.HTMLProps<Element> & MultiComboInputProps, any> {   
+export class MultiComboInput extends React.Component<React.HTMLAttributes<Element> & MultiComboInputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -563,7 +565,9 @@ export class MultiComboInput extends React.Component<React.HTMLProps<Element> & 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

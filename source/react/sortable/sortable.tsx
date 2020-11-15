@@ -12,12 +12,14 @@ export interface SortableProps extends SortableProperties {
     style?: React.CSSProperties;
 
 	onDragEnd?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Sortable allows you to rearrange a group of html elements.
 */
-export class Sortable extends React.Component<React.HTMLProps<Element> & SortableProps, any> {   
+export class Sortable extends React.Component<React.HTMLAttributes<Element> & SortableProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -316,7 +318,9 @@ export class Sortable extends React.Component<React.HTMLProps<Element> & Sortabl
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

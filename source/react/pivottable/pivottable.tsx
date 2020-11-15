@@ -16,12 +16,14 @@ export interface PivotTableProps extends PivotTableProperties {
 	onColumnClick?: ((event?: Event) => void) | undefined;
 	onFilter?: ((event?: Event) => void) | undefined;
 	onSort?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  PivotTable is a table of statistics that summarizes the data of a more extensive table.
 */
-export class PivotTable extends React.Component<React.HTMLProps<Element> & PivotTableProps, any> {   
+export class PivotTable extends React.Component<React.HTMLAttributes<Element> & PivotTableProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -786,7 +788,9 @@ export class PivotTable extends React.Component<React.HTMLProps<Element> & Pivot
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

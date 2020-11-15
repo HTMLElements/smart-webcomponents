@@ -1,8 +1,8 @@
 import React from "react";
 import { ButtonGroupProperties } from "./../../index";
-import { Animation, ClickMode} from './../../index';
+import { Animation, ButtonGroupSelectionMode} from './../../index';
 export { ButtonGroupProperties } from "./../../index";
-export { Animation, ClickMode} from './../../index';
+export { Animation, ButtonGroupSelectionMode} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -12,12 +12,14 @@ export interface ButtonGroupProps extends ButtonGroupProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  ButtonGroup creates a set of buttons that can work as normal buttons, radio buttons or checkboxes.
 */
-export class ButtonGroup extends React.Component<React.HTMLProps<Element> & ButtonGroupProps, any> {   
+export class ButtonGroup extends React.Component<React.HTMLAttributes<Element> & ButtonGroupProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -55,12 +57,12 @@ export class ButtonGroup extends React.Component<React.HTMLProps<Element> & Butt
 	}
 
 	/** Determines the selection mode for the element.
-	*	Property type: ClickMode
+	*	Property type: ButtonGroupSelectionMode
 	*/
-	get selectionMode(): ClickMode  {
+	get selectionMode(): ButtonGroupSelectionMode  {
 		return this.nativeElement ? this.nativeElement.selectionMode : undefined;
 	}
-	set selectionMode(value: ClickMode) {
+	set selectionMode(value: ButtonGroupSelectionMode) {
 		if (this.nativeElement) {
 			this.nativeElement.selectionMode = value;
 		}
@@ -337,7 +339,9 @@ export class ButtonGroup extends React.Component<React.HTMLProps<Element> & Butt
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

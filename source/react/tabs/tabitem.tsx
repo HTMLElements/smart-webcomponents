@@ -11,12 +11,14 @@ export interface TabItemProps extends TabItemProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a tab item.
 */
-export class TabItem extends React.Component<React.HTMLProps<Element> & TabItemProps, any> {   
+export class TabItem extends React.Component<React.HTMLAttributes<Element> & TabItemProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -210,7 +212,9 @@ export class TabItem extends React.Component<React.HTMLProps<Element> & TabItemP
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

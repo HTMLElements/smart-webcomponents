@@ -1,8 +1,8 @@
 import { MultilineTextBox } from './../index';
-import { Animation, MultilineTextBoxAutoCapitalize, AutoComplete, TextBoxDisplayMode, MultilineTextBoxEnterKeyBehavior, HorizontalScrollBarVisibility, VerticalScrollBarVisibility, MultilineTextBoxWrap, ElementRenderMode} from './../index';
+import { Animation, MultilineTextBoxAutoCapitalize, MultiLineTextBoxAutoComplete, TextBoxDisplayMode, MultilineTextBoxEnterKeyBehavior, HorizontalScrollBarVisibility, VerticalScrollBarVisibility, MultilineTextBoxWrap, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, forwardRef, ChangeDetectionStrategy, Output, EventEmitter, QueryList, ContentChildren } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, MultilineTextBoxAutoCapitalize, AutoComplete, TextBoxDisplayMode, MultilineTextBoxEnterKeyBehavior, HorizontalScrollBarVisibility, VerticalScrollBarVisibility, MultilineTextBoxWrap, ElementRenderMode} from './../index';
+export { Animation, MultilineTextBoxAutoCapitalize, MultiLineTextBoxAutoComplete, TextBoxDisplayMode, MultilineTextBoxEnterKeyBehavior, HorizontalScrollBarVisibility, VerticalScrollBarVisibility, MultilineTextBoxWrap, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { MultilineTextBox } from './../index';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -77,10 +77,10 @@ export class MultilineTextBoxComponent extends BaseElement implements OnInit, Af
 
 	/** @description Determines whether the value of the control can be automatically completed by the browser. */
 	@Input()
-	get autoComplete(): AutoComplete {
+	get autoComplete(): MultiLineTextBoxAutoComplete {
 		return this.nativeElement ? this.nativeElement.autoComplete : undefined;
 	}
-	set autoComplete(value: AutoComplete) {
+	set autoComplete(value: MultiLineTextBoxAutoComplete) {
 		this.nativeElement ? this.nativeElement.autoComplete = value : undefined;
 	}
 

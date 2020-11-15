@@ -142,8 +142,6 @@ export class ListItemComponent extends BaseElement implements OnInit, AfterViewI
 
       that.onCreate.emit(that.nativeElement);
 
-		Smart.Render();
-
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 	}
 

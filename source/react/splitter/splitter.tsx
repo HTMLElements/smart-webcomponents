@@ -23,12 +23,14 @@ export interface SplitterProps extends SplitterProperties {
 	onExpand?: ((event?: Event) => void) | undefined;
 	onResizeStart?: ((event?: Event) => void) | undefined;
 	onResizeEnd?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Splitter is a layout component that supports all important features such as resizing, collapsing, and nesting panels.
 */
-export class Splitter extends React.Component<React.HTMLProps<Element> & SplitterProps, any> {   
+export class Splitter extends React.Component<React.HTMLAttributes<Element> & SplitterProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -615,7 +617,9 @@ export class Splitter extends React.Component<React.HTMLProps<Element> & Splitte
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

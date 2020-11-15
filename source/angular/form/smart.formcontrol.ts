@@ -1,8 +1,8 @@
 import { FormControl } from './../index';
-import { FormControlControlType, FormControlLabelPosition, FormControlViewMode, ElementRenderMode} from './../index';
+import { FormControlAction, FormControlAlign, FormControlControlType, FormControlLabelPosition, FormControlViewMode, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { FormControlControlType, FormControlLabelPosition, FormControlViewMode, ElementRenderMode} from './../index';
+export { FormControlAction, FormControlAlign, FormControlControlType, FormControlLabelPosition, FormControlViewMode, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { FormControl } from './../index';
 
@@ -30,6 +30,24 @@ export class FormControlComponent extends BaseElement implements OnInit, AfterVi
 		}
 		return this.nativeElement;
 	}
+	/** @description Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit' */
+	@Input()
+	get action(): FormControlAction {
+		return this.nativeElement ? this.nativeElement.action : undefined;
+	}
+	set action(value: FormControlAction) {
+		this.nativeElement ? this.nativeElement.action = value : undefined;
+	}
+
+	/** @description Sets or Gets the alignment of the FormControl */
+	@Input()
+	get align(): FormControlAlign {
+		return this.nativeElement ? this.nativeElement.align : undefined;
+	}
+	set align(value: FormControlAlign) {
+		this.nativeElement ? this.nativeElement.align = value : undefined;
+	}
+
 	/** @description HTML Content displayed after the Form Control */
 	@Input()
 	get appendHTML(): any {
@@ -77,10 +95,10 @@ export class FormControlComponent extends BaseElement implements OnInit, AfterVi
 
 	/** @description Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value. */
 	@Input()
-	get dataField(): boolean {
+	get dataField(): string {
 		return this.nativeElement ? this.nativeElement.dataField : undefined;
 	}
-	set dataField(value: boolean) {
+	set dataField(value: string) {
 		this.nativeElement ? this.nativeElement.dataField = value : undefined;
 	}
 
@@ -149,10 +167,10 @@ export class FormControlComponent extends BaseElement implements OnInit, AfterVi
 
 	/** @description FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set. */
 	@Input()
-	get labelAlign(): string {
+	get labelAlign(): FormControlAlign {
 		return this.nativeElement ? this.nativeElement.labelAlign : undefined;
 	}
-	set labelAlign(value: string) {
+	set labelAlign(value: FormControlAlign) {
 		this.nativeElement ? this.nativeElement.labelAlign = value : undefined;
 	}
 
@@ -174,6 +192,15 @@ export class FormControlComponent extends BaseElement implements OnInit, AfterVi
 		this.nativeElement ? this.nativeElement.backButtonLabel = value : undefined;
 	}
 
+	/** @description Gets or Sets the FormControl placeholder. */
+	@Input()
+	get placeholder(): string {
+		return this.nativeElement ? this.nativeElement.placeholder : undefined;
+	}
+	set placeholder(value: string) {
+		this.nativeElement ? this.nativeElement.placeholder = value : undefined;
+	}
+
 	/** @description HTML Content displayed before the Form Control */
 	@Input()
 	get prependHTML(): any {
@@ -190,6 +217,15 @@ export class FormControlComponent extends BaseElement implements OnInit, AfterVi
 	}
 	set readonly(value: boolean) {
 		this.nativeElement ? this.nativeElement.readonly = value : undefined;
+	}
+
+	/** @description Gets or Sets whether this field is required. */
+	@Input()
+	get required(): boolean {
+		return this.nativeElement ? this.nativeElement.required : undefined;
+	}
+	set required(value: boolean) {
+		this.nativeElement ? this.nativeElement.required = value : undefined;
 	}
 
 	/** @description Gets whether the Form control is not touched by the user. This flag is changed usually on blur, after the user interacted with the Form control */
@@ -267,8 +303,6 @@ export class FormControlComponent extends BaseElement implements OnInit, AfterVi
       const that = this;
 
       that.onCreate.emit(that.nativeElement);
-
-		Smart.Render();
 
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();

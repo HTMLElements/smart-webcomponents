@@ -17,12 +17,14 @@ export interface DockingLayoutProps extends DockingLayoutProperties {
 	onStateChange?: ((event?: Event) => void) | undefined;
 	onResizeStart?: ((event?: Event) => void) | undefined;
 	onResizeEnd?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  DockingLayout enables the creation of complex layouts consisting of panels that can be floated, docked, nested, resized, pinned.
 */
-export class DockingLayout extends React.Component<React.HTMLProps<Element> & DockingLayoutProps, any> {   
+export class DockingLayout extends React.Component<React.HTMLAttributes<Element> & DockingLayoutProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -946,7 +948,9 @@ export class DockingLayout extends React.Component<React.HTMLProps<Element> & Do
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

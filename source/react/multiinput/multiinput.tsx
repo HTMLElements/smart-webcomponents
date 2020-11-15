@@ -12,12 +12,14 @@ export interface MultiInputProps extends MultiInputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  MultiInput specifies an input field where the user can enter data. Auto-complete options are displayed for easier input. Allows multiple selection. Selected items are added to the input's value.
 */
-export class MultiInput extends React.Component<React.HTMLProps<Element> & MultiInputProps, any> {   
+export class MultiInput extends React.Component<React.HTMLAttributes<Element> & MultiInputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -551,7 +553,9 @@ export class MultiInput extends React.Component<React.HTMLProps<Element> & Multi
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

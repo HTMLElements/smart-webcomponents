@@ -18,12 +18,14 @@ export interface ToastProps extends ToastProperties {
 	onSwipeleft?: ((event?: Event) => void) | undefined;
 	onSwiperight?: ((event?: Event) => void) | undefined;
 	onSwipetop?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  The toast component is like an alert box that is only shown for a couple of seconds when something happens.
 */
-export class Toast extends React.Component<React.HTMLProps<Element> & ToastProps, any> {   
+export class Toast extends React.Component<React.HTMLAttributes<Element> & ToastProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -490,7 +492,9 @@ export class Toast extends React.Component<React.HTMLProps<Element> & ToastProps
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

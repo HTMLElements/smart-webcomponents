@@ -15,12 +15,14 @@ export interface MultiColumnFilterPanelProps extends MultiColumnFilterPanelPrope
 	onCancel?: ((event?: Event) => void) | undefined;
 	onCollapseAll?: ((event?: Event) => void) | undefined;
 	onExpandAll?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines an advanced filter panel used for Grid and CardView filtering.
 */
-export class MultiColumnFilterPanel extends React.Component<React.HTMLProps<Element> & MultiColumnFilterPanelProps, any> {   
+export class MultiColumnFilterPanel extends React.Component<React.HTMLAttributes<Element> & MultiColumnFilterPanelProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -346,7 +348,9 @@ export class MultiColumnFilterPanel extends React.Component<React.HTMLProps<Elem
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

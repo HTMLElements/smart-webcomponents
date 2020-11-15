@@ -15,12 +15,14 @@ export interface TooltipProps extends TooltipProperties {
 	onOpening?: ((event?: Event) => void) | undefined;
 	onClose?: ((event?: Event) => void) | undefined;
 	onClosing?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Tooltip is an alternate for the html title. It displays a popup with details on hover.
 */
-export class Tooltip extends React.Component<React.HTMLProps<Element> & TooltipProps, any> {   
+export class Tooltip extends React.Component<React.HTMLAttributes<Element> & TooltipProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -426,7 +428,9 @@ export class Tooltip extends React.Component<React.HTMLProps<Element> & TooltipP
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

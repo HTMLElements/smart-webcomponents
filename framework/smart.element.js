@@ -1,12 +1,12 @@
 
-/* Smart UI v8.0.0 (2020-Sep) 
+/* Smart UI v8.1.1 (2020-Nov) 
 Copyright (c) 2011-2020 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
 
 
-    const Version = '7.7.1';
+    const Version = '8.0.1';
     const templates = [];
 
     let namespace = 'Smart';
@@ -943,9 +943,29 @@ License: https://htmlelements.com/license/ */ //
         listen(eventType) {
             const that = this;
 
-            if (eventType === 'resize') {
-                if (!that.target.resizeTrigger && that.target !== document && that.target !== window && that.target.hasResizeObserver !== false) {
+            if (eventType === 'resize' && that.target !== document && that.target !== window && that.target.hasResizeObserver !== false) {
+                if (Smart.Utilities.Core.Browser.Firefox) {
+                    if (!that.target.resizeObserver) {
+                        let firstCallPassed = false;
+                        const resizeObserver = new ResizeObserver(() => {
+                            if (!firstCallPassed) {
+                                firstCallPassed = true;
+                                return;
+                            }
 
+                            const resizeEvent = new CustomEvent('resize', {
+                                bubbles: false,
+                                cancelable: true
+                            });
+
+                            that.resize(resizeEvent);
+                        });
+
+                        resizeObserver.observe(that.target);
+                        that.target.resizeObserver = resizeObserver;
+                    }
+                }
+                else if (!that.target.resizeTrigger) {
                     const container = document.createElement('div');
                     container.className = 'smart-resize-trigger-container';
                     container.innerHTML =
@@ -1104,18 +1124,26 @@ License: https://htmlelements.com/license/ */ //
                 delete that.target._handleDocumentUpId;
             }
 
-            if (eventType === 'resize' && that.target.resizeTrigger) {
-                const container = that.target.resizeTrigger;
-                const expand = container.childNodes[0];
-                const shrink = container.childNodes[1];
+            if (eventType === 'resize') {
+                if (Smart.Utilities.Core.Browser.Firefox) {
+                    if (that.target.resizeObserver) {
+                        that.target.resizeObserver.unobserve(that.target);
+                        delete that.target.resizeObserver;
+                    }
+                }
+                else if (that.target.resizeTrigger) {
+                    const container = that.target.resizeTrigger;
+                    const expand = container.childNodes[0];
+                    const shrink = container.childNodes[1];
 
-                expand.removeEventListener('scroll', that.target.resizeHandler);
-                shrink.removeEventListener('scroll', that.target.resizeHandler);
+                    expand.removeEventListener('scroll', that.target.resizeHandler);
+                    shrink.removeEventListener('scroll', that.target.resizeHandler);
 
-                that.target.resizeHandler = null;
-                container.parentNode.removeChild(container);
+                    that.target.resizeHandler = null;
+                    container.parentNode.removeChild(container);
 
-                delete that.target.resizeTrigger;
+                    delete that.target.resizeTrigger;
+                }
             }
         }
 
@@ -3567,7 +3595,7 @@ License: https://htmlelements.com/license/ */ //
             if (rootNode.host) {
                 const getNodeParents = (node) => {
                     let matched = [node],
-                    current = node.parentNode;
+                        current = node.parentNode;
 
                     while (current && current.nodeType !== 9) {
                         if (current instanceof HTMLElement === true) {
@@ -4564,6 +4592,10 @@ License: https://htmlelements.com/license/ */ //
 
             if (!property) {
                 that.attributeChanged(name, oldValue, newValue);
+            }
+
+            if (that.onAttributeChanged) {
+                that.onAttributeChanged(name, oldValue, newValue);
             }
 
             if (!property || (property && property.isUpdating)) {
@@ -6045,8 +6077,9 @@ License: https://htmlelements.com/license/ */ //
 
         get isInShadowDOM() {
             const that = this;
+            const rootNode = that.getRootNode();
 
-            return that.getRootNode() !== document;
+            return rootNode !== document && rootNode !== that;
         }
 
         getShadowRootOrBody() {
@@ -6453,6 +6486,25 @@ License: https://htmlelements.com/license/ */ //
 
             const updateVisibility = function () {
                 that.classList.remove('smart-element-init');
+            }
+
+            if (document.readyState === 'complete') {
+                if (window[namespace].isAngular === undefined) {
+                    window[namespace].isAngular = document.body.querySelector('[ng-version]') !== null;
+                }
+
+                if (window[namespace].isAngular) {
+                    for (let i = 0; i < that.parents.length; i++) {
+                        if (that.parents[i].nodeName.toLowerCase().startsWith(namespace.toLowerCase() + '-')) {
+                            break;
+                        }
+
+                        if (that.parents[i].hasAttribute('ng-version')) {
+                            window[namespace].RenderMode = 'manual';
+                            break;
+                        }
+                    }
+                }
             }
 
             if (document.readyState === 'complete' && window[namespace].RenderMode !== 'manual' /*&& !ElementRegistry.isRegistering */) {
@@ -6992,6 +7044,7 @@ License: https://htmlelements.com/license/ */ //
             const itemProxy = new Proxy(item, {
                 deleteProperty: function (target, property) {
                     delete target[property];
+                    return true;
                 },
                 set: function (target, property, value/*, receiver*/) {
                     const oldValue = target[property];
@@ -7655,6 +7708,7 @@ License: https://htmlelements.com/license/ */ //
         Version: Version,
         RenderMode: userDefinedSettings.RenderMode || 'auto',
         Render: render,
+        Data: data,
         License: 'Evaluation'
     });
 
@@ -7843,8 +7897,8 @@ License: https://htmlelements.com/license/ */ //
                                 <content></content>
                             </div>
                         </div>
-                        <smart-scroll-bar id="verticalScrollBar" animation="[[animation]]" disabled="[[disabled]]" right-to-left="[[rightToLeft]]" orientation="vertical"></smart-scroll-bar>
-                        <smart-scroll-bar id="horizontalScrollBar" animation="[[animation]]" disabled="[[disabled]]" right-to-left="[[rightToLeft]]"></smart-scroll-bar>
+                        <smart-scroll-bar id="verticalScrollBar" theme="[[theme]]"  animation="[[animation]]" disabled="[[disabled]]" right-to-left="[[rightToLeft]]" orientation="vertical"></smart-scroll-bar>
+                        <smart-scroll-bar id="horizontalScrollBar" theme="[[theme]]" disabled="[[disabled]]" right-to-left="[[rightToLeft]]"></smart-scroll-bar>
                     </div>`;
         }
 
@@ -8615,7 +8669,7 @@ License: https://htmlelements.com/license/ */ //
                     that._dropDownParent = that.getRootNode().host.shadowRoot;
                 }
                 else {
-                   that._dropDownParent = document.body;
+                    that._dropDownParent = document.body;
                 }
             }
             else if (dropDownAppendTo instanceof HTMLElement) {

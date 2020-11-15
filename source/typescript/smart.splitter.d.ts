@@ -226,7 +226,7 @@ declare global {
 export declare type SplitterAutoFitMode = 'end' | 'proportional' | 'overflow';
 /**Sets or gets splitter's orientation. */
 export declare type Orientation = 'horizontal' | 'vertical';
-/**Determines the resize mode of the splitter. Possible values are: </br> - None - resizing is disabled. </br> - Adjacent - only the two adjacent items between the target splitter bar are being affected. This is the default behavior. </br> - End - only the first item( left or top according to the orientation) of the target Splitter bar and the last item are affected. </br> Proportional - all of the items positioned in the direction to which the splitter bar is dragged will be affected. For example, when a splitter bar is dragged to the right all the items positioned on it's the right side will be affected. The items will obtain a proportional size corresponding to their current size. */
+/**Determines the resize mode of the splitter. Possible values are: <br/> - None - resizing is disabled. <br/> - Adjacent - only the two adjacent items between the target splitter bar are being affected. This is the default behavior. <br/> - End - only the first item( left or top according to the orientation) of the target Splitter bar and the last item are affected. <br/> Proportional - all of the items positioned in the direction to which the splitter bar is dragged will be affected. For example, when a splitter bar is dragged to the right all the items positioned on it's the right side will be affected. The items will obtain a proportional size corresponding to their current size. */
 export declare type SplitterResizeMode = 'none' | 'adjacent' | 'end' | 'proportional';
 export interface SplitterBarProperties {
 }

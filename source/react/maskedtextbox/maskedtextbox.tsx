@@ -13,12 +13,14 @@ export interface MaskedTextBoxProps extends MaskedTextBoxProperties {
 
 	onChange?: ((event?: Event) => void) | undefined;
 	onValidation?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  MaskedTextBox uses a mask to control the input of the user.
 */
-export class MaskedTextBox extends React.Component<React.HTMLProps<Element> & MaskedTextBoxProps, any> {   
+export class MaskedTextBox extends React.Component<React.HTMLAttributes<Element> & MaskedTextBoxProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -599,7 +601,9 @@ export class MaskedTextBox extends React.Component<React.HTMLProps<Element> & Ma
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

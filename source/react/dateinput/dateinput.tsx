@@ -1,8 +1,8 @@
 import React from "react";
 import { DateInputProperties } from "./../../index";
-import { Animation, DropDownButtonPosition, DateInputDateTimeFormat} from './../../index';
+import { Animation, DropDownButtonPosition, DateTimeFormat} from './../../index';
 export { DateInputProperties } from "./../../index";
-export { Animation, DropDownButtonPosition, DateInputDateTimeFormat} from './../../index';
+export { Animation, DropDownButtonPosition, DateTimeFormat} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -12,12 +12,14 @@ export interface DateInputProps extends DateInputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  DateInput specifies an input field where the user can enter a date. It also has a popup with a Calendar that allows to pick a date.
 */
-export class DateInput extends React.Component<React.HTMLProps<Element> & DateInputProps, any> {   
+export class DateInput extends React.Component<React.HTMLAttributes<Element> & DateInputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -42,13 +44,13 @@ export class DateInput extends React.Component<React.HTMLProps<Element> & DateIn
 		}
 	}
 
-	/** Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
-	*	Property type: DateInputDateTimeFormat
+	/** Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
+	*	Property type: DateTimeFormat
 	*/
-	get dateTimeFormat(): DateInputDateTimeFormat  {
+	get dateTimeFormat(): DateTimeFormat  {
 		return this.nativeElement ? this.nativeElement.dateTimeFormat : undefined;
 	}
-	set dateTimeFormat(value: DateInputDateTimeFormat) {
+	set dateTimeFormat(value: DateTimeFormat) {
 		if (this.nativeElement) {
 			this.nativeElement.dateTimeFormat = value;
 		}
@@ -486,7 +488,9 @@ export class DateInput extends React.Component<React.HTMLProps<Element> & DateIn
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

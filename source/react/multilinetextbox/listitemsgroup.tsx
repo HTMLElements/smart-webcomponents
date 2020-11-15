@@ -11,12 +11,14 @@ export interface ListItemsGroupProps extends ListItemsGroupProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a group of list items.
 */
-export class ListItemsGroup extends React.Component<React.HTMLProps<Element> & ListItemsGroupProps, any> {   
+export class ListItemsGroup extends React.Component<React.HTMLAttributes<Element> & ListItemsGroupProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -162,7 +164,9 @@ export class ListItemsGroup extends React.Component<React.HTMLProps<Element> & L
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

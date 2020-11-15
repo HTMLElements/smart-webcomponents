@@ -12,12 +12,14 @@ export interface PowerButtonProps extends PowerButtonProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  PowerButton is On/Off rounded button.
 */
-export class PowerButton extends React.Component<React.HTMLProps<Element> & PowerButtonProps, any> {   
+export class PowerButton extends React.Component<React.HTMLAttributes<Element> & PowerButtonProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -298,7 +300,9 @@ export class PowerButton extends React.Component<React.HTMLProps<Element> & Powe
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

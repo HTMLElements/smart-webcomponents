@@ -839,7 +839,7 @@ export interface ButtonGroupProperties {
    * Determines the selection mode for the element.
    * Default value: one
    */
-  selectionMode?: ClickMode;
+  selectionMode?: ButtonGroupSelectionMode;
   /**
    * Enables or disables the element. 
    * Default value: false
@@ -935,6 +935,8 @@ declare global {
     }
 }
 
+/**Determines the selection mode for the element. */
+export declare type ButtonGroupSelectionMode = 'none' | 'one' | 'zeroOrOne' | 'zeroOrMany';
 export interface CalendarProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -1698,7 +1700,7 @@ export interface CardViewColumn {
   icon?: any;
   /**
    * Sets or gets the column's image visibility.
-   * Default value: 
+   * Default value: false
    */
   image?: boolean;
   /**
@@ -2008,7 +2010,7 @@ export interface ChartProperties {
    * Sets the chart's data source.
    * Default value: 
    */
-  dataSource?: any;
+  dataSource?: any[];
   /**
    * Sets the description text of the chart.
    * Default value: "Description"
@@ -2544,7 +2546,7 @@ export interface ChartSeriesGroup {
   startAngle?: number;
   /**
    * Sets the chart type. jqxChart supports several common chart types. You can easily plot series of different types on a common chart. A type must be specified for each series group. Currently, jqxChart supports the following series types:'column' - simple column series'stackedcolumn' - stacked column series'stackedcolumn100' - percentage stacked columns'rangecolumn' - floating column between two values'waterfall' - waterfall series'stackedwaterfall' - stacked waterfall series'line' - simple straight lines connecting the value points'stackedline' - stacked lines'stackedline100' - percentage stacked lines'spline' - smooth lines connecting the value points'stackedspline' - smooth stacked lines'stackedspline100' - percentage stacked smooth lines'stepline' - step line'stackedstepline' - stacked step line'stackedstepline100' - percentage stacked step line'area' - area connecting the value points with straight lines'stackedarea' - stacked area with straight lines between the points'stackedarea100' - percentage stacked area with straight lines between the points'rangearea' - floating area between pairs of value points'splinearea' - smooth area connecting the value points'stackedsplinearea' - stacked smooth area connecting the value points'stackedsplinearea100' - percentage stacked smooth area'splinerangearea' - smooth floating area between pairs of value points'steprangearea' - step area between pairs of value points'stackedsplineara' - smooth stacked area'steparea' - step area connecting the value points'stackedsteparea' - step stacked area'stackedsteparea100' - percentage stacked step area'pie' - circular chart divided into sectors, illustrating proportion'donut' - chart divided into circular sectors with different inner and outer radius'scatter' - data is displayed as a collection of points'stackedscatter' - data is displayed as a collection of points and the values are stacked'stackedscatter100' - data is displayed as a collection of points and the values are percentage stacked'bubble' - data is displayed as a collection of bubbles'stackedbubble' - data is displayed as a collection of bubbles and the values are stacked'stackedbubble100' - data is displayed as a collection of bubbles and the values are percentage stacked'candlestick' - display candlestick series using open, high, low, close data points'ohlc' - display OHLC series using open, high, low, close data points
-   * Default value: null
+   * Default value: column
    */
   type?: ChartType;
   /**
@@ -2795,7 +2797,7 @@ export interface ChartSeriesGroupSerie {
   colorFunction?: any;
   /**
    * Color palette to use when rendering the serie.
-   * Default value: null
+   * Default value: scheme01
    */
   colorScheme?: ChartColorScheme;
   /**
@@ -2935,7 +2937,7 @@ export interface ChartSeriesGroupSerie {
   fillColorSymbolSelected?: string | null;
   /**
    * Determines whether to display the serie in grey scale.
-   * Default value: null
+   * Default value: false
    */
   greyScale?: boolean | null;
   /**
@@ -3481,7 +3483,7 @@ export interface ChartXAxis {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit;
+  baseUnit?: ChartBaseUnit | null;
   /**
    * boolean determining whether to draw the axis or the user will use APIs to draw it.
    * Default value: false
@@ -3640,7 +3642,7 @@ export interface ChartRangeSelector {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit;
+  baseUnit?: ChartBaseUnit | null;
   /**
    * Sets the range selector chart's border color.
    * Default value: null
@@ -3658,7 +3660,7 @@ export interface ChartRangeSelector {
   caption?: string;
   /**
    * Sets the range selector chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'.
-   * Default value: null
+   * Default value: scheme01
    */
   colorScheme?: ChartColorScheme;
   /**
@@ -3683,7 +3685,7 @@ export interface ChartRangeSelector {
   description?: string;
   /**
    * Determines whether to display the range selector chart using greyscale colors.
-   * Default value: null
+   * Default value: false
    */
   greyScale?: boolean | null;
   /**
@@ -3723,7 +3725,7 @@ export interface ChartRangeSelector {
   padding?: Padding;
   /**
    * Sets the range selector chart position.
-   * Default value: null
+   * Default value: left
    */
   position?: AxisPosition;
   /**
@@ -3733,7 +3735,7 @@ export interface ChartRangeSelector {
   renderTo?: HTMLElement | null;
   /**
    * Sets or gets a value indicating whether the range selector chart's layout is mirrored.
-   * Default value: null
+   * Default value: false
    */
   rightToLeft?: boolean | null;
   /**
@@ -3753,7 +3755,7 @@ export interface ChartRangeSelector {
   serieType?: ChartType;
   /**
    * Determines whether to display the range selector chart's border line.
-   * Default value: null
+   * Default value: false
    */
   showBorderLine?: boolean | null;
   /**
@@ -3859,7 +3861,7 @@ export declare type ChartType = 'column' | 'stackedcolumn' | 'stackedcolumn100' 
 /**Sets the range selector chart position. */
 export declare type AxisPosition = 'bottom' | 'top' | 'left' | 'right';
 /**The base unit when used with 'date' axis. */
-export declare type ChartBaseUnit = 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'millisecond';
+export declare type ChartBaseUnit = null | 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'millisecond';
 /**The type of the axis. 'auto' - automatically detects and switches to 'basic', 'linear' or 'date'.
 'date' - when displaying dates.
 'basic' - displays all data points sequentially.
@@ -4182,7 +4184,7 @@ declare global {
 }
 
 /**Determines the position of the drop down button. */
-export declare type DropDownButtonPosition = 'none' | 'left' | 'right';
+export declare type DropDownButtonPosition = 'none' | 'left' | 'right' | 'top' | 'bottom';
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
 export declare type CheckInputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
 export interface ChipProperties {
@@ -4428,7 +4430,7 @@ export interface ColorInputProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorDisplayMode;
+  displayMode?: ColorInputDisplayMode;
   /**
    * Determines the position of the drop down button.
    * Default value: none
@@ -4588,7 +4590,7 @@ declare global {
 }
 
 /**Determines the colors that will be displayed and their layout. */
-export declare type ColorDisplayMode = 'default' | 'grid';
+export declare type ColorInputDisplayMode = 'default' | 'grid';
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
 export declare type ColorQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
 /**Determines what will be displayed inside the color picker's action section. */
@@ -4822,6 +4824,8 @@ declare global {
 
 /**Specifies how the value is applied. */
 export declare type ColorApplyValueMode = 'instantly' | 'useButtons';
+/**Determines the colors that will be displayed and their layout. */
+export declare type ColorDisplayMode = 'default' | 'grid' | 'palette' | 'radial' | 'hexagonal' | 'spectrumGrid' | 'materialGrid';
 /**Determines what colors will be displayed in 'spectrumGrid', 'grid' and 'hexagonal' displayModes. */
 export declare type ColorPalette = 'default' | 'gray' | 'red' | 'green' | 'blue' | 'custom';
 /**Determines how the tooltip displays the value of the color that is being hovered. */
@@ -6333,10 +6337,10 @@ export interface DateInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
-  dateTimeFormat?: DateInputDateTimeFormat;
+  dateTimeFormat?: DateTimeFormat;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -6485,273 +6489,23 @@ export interface DateInput extends BaseElement, DateInputProperties {
   setValue(value: string | Date): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
-export interface DateInputDateTimeFormat {
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
+export interface DateTimeFormat {
   /**
-   * 
-   * Default value: undefined
+   * Day format.
+   * Default value: "numeric"
    */
-  0?: any;
+  day?: string;
   /**
-   * 
-   * Default value: undefined
+   * Month format.
+   * Default value: "numeric"
    */
-  1?: any;
+  month?: string;
   /**
-   * 
-   * Default value: undefined
+   * Year format.
+   * Default value: "numeric"
    */
-  2?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  3?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  4?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  5?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  6?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  7?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  8?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  9?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  10?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  11?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  12?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  13?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  14?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  15?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  16?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  17?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  18?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  19?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  20?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  21?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  22?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  23?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  24?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  25?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  26?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  27?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  28?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  29?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  30?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  31?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  32?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  33?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  34?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  35?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  36?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  37?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  38?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  39?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  40?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  41?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  42?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  43?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  44?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  45?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  46?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  47?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  48?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  49?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  50?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  51?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  52?: any;
+  year?: string;
 }
 
 declare global {
@@ -6774,7 +6528,7 @@ export interface DateRangeInputProperties {
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property.
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
-  dateFormat?: DateRangeInputDateFormat;
+  dateFormat?: DateRangeFormat;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -6881,7 +6635,7 @@ export interface DateRangeInputProperties {
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property.
    * Default value: { hour: '2-digit', minute: '2-digit' }
    */
-  timeFormat?: DateRangeInputTimeFormat;
+  timeFormat?: TimeRangeFormat;
   /**
    * Determines whether time selection is available or not.
    * Default value: false
@@ -6939,466 +6693,36 @@ export interface DateRangeInput extends BaseElement, DateRangeInputProperties {
 }
 
 /**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. */
-export interface DateRangeInputDateFormat {
+export interface DateRangeFormat {
   /**
-   * 
-   * Default value: undefined
+   * Day format.
+   * Default value: "numeric"
    */
-  0?: any;
+  day?: string;
   /**
-   * 
-   * Default value: undefined
+   * Month format.
+   * Default value: "numeric"
    */
-  1?: any;
+  month?: string;
   /**
-   * 
-   * Default value: undefined
+   * Year format.
+   * Default value: "numeric"
    */
-  2?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  3?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  4?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  5?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  6?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  7?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  8?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  9?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  10?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  11?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  12?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  13?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  14?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  15?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  16?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  17?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  18?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  19?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  20?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  21?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  22?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  23?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  24?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  25?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  26?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  27?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  28?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  29?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  30?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  31?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  32?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  33?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  34?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  35?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  36?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  37?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  38?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  39?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  40?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  41?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  42?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  43?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  44?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  45?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  46?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  47?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  48?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  49?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  50?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  51?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  52?: any;
+  year?: string;
 }
 
 /**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
-export interface DateRangeInputTimeFormat {
+export interface TimeRangeFormat {
   /**
-   * 
-   * Default value: undefined
+   * Hour format.
+   * Default value: "2-digit"
    */
-  0?: any;
+  hour?: string;
   /**
-   * 
-   * Default value: undefined
+   * Minute format.
+   * Default value: "2-digit"
    */
-  1?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  2?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  3?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  4?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  5?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  6?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  7?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  8?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  9?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  10?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  11?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  12?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  13?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  14?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  15?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  16?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  17?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  18?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  19?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  20?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  21?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  22?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  23?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  24?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  25?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  26?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  27?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  28?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  29?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  30?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  31?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  32?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  33?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  34?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  35?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  36?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  37?: any;
+  minute?: string;
 }
 
 declare global {
@@ -10726,7 +10050,7 @@ export interface Control {
   controlOptions?: any;
   /**
    * The type of the control.
-   * Default value: 
+   * Default value: input
    */
   controlType?: ControlControlType;
   /**
@@ -10741,9 +10065,9 @@ export interface Control {
   columnSpan?: number;
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
-   * Default value: false
+   * Default value: ""
    */
-  dataField?: boolean;
+  dataField?: string;
   /**
    * Sets the Form control disabled mode.
    * Default value: false
@@ -10771,7 +10095,7 @@ export interface Control {
   label?: string;
   /**
    * Gets or Sets the Form control's label position.
-   * Default value: 
+   * Default value: left
    */
   labelPosition?: ControlLabelPosition;
   /**
@@ -10831,7 +10155,7 @@ export interface Control {
   valid?: boolean;
   /**
    * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: 
+   * Default value: []
    */
   validationRules?: any[];
   /**
@@ -10861,6 +10185,16 @@ export declare type ControlViewMode = null | 'accordion' | 'tabs' | 'breadcrumb'
 export declare type FormLabelPosition = 'left' | 'top';
 export interface FormControlProperties {
   /**
+   * Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit'
+   * Default value: 
+   */
+  action?: FormControlAction;
+  /**
+   * Sets or Gets the alignment of the FormControl
+   * Default value: left
+   */
+  align?: FormControlAlign;
+  /**
    * HTML Content displayed after the Form Control
    * Default value: 
    */
@@ -10872,7 +10206,7 @@ export interface FormControlProperties {
   controlOptions?: any;
   /**
    * The type of the control.
-   * Default value: 
+   * Default value: input
    */
   controlType?: FormControlControlType;
   /**
@@ -10887,9 +10221,9 @@ export interface FormControlProperties {
   columnSpan?: number;
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
-   * Default value: false
+   * Default value: ""
    */
-  dataField?: boolean;
+  dataField?: string;
   /**
    * Sets the Form control disabled mode.
    * Default value: false
@@ -10917,7 +10251,7 @@ export interface FormControlProperties {
   label?: string;
   /**
    * Gets or Sets the Form control's label position.
-   * Default value: 
+   * Default value: left
    */
   labelPosition?: FormControlLabelPosition;
   /**
@@ -10927,9 +10261,9 @@ export interface FormControlProperties {
   labelOffset?: number;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set.
-   * Default value: "left"
+   * Default value: left
    */
-  labelAlign?: string;
+  labelAlign?: FormControlAlign;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the next button label.
    * Default value: "Next"
@@ -10941,6 +10275,11 @@ export interface FormControlProperties {
    */
   backButtonLabel?: string;
   /**
+   * Gets or Sets the FormControl placeholder.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
    * HTML Content displayed before the Form Control
    * Default value: 
    */
@@ -10950,6 +10289,11 @@ export interface FormControlProperties {
    * Default value: false
    */
   readonly?: boolean;
+  /**
+   * Gets or Sets whether this field is required.
+   * Default value: false
+   */
+  required?: boolean;
   /**
    * Gets whether the Form control is not touched by the user. This flag is changed usually on blur, after the user interacted with the Form control
    * Default value: false
@@ -10977,7 +10321,7 @@ export interface FormControlProperties {
   valid?: boolean;
   /**
    * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: 
+   * Default value: []
    */
   validationRules?: any[];
   /**
@@ -11005,6 +10349,10 @@ declare global {
     }
 }
 
+/**Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit' */
+export declare type FormControlAction = 'reset' | 'submit';
+/**FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set. */
+export declare type FormControlAlign = 'left' | 'center' | 'right';
 /**The type of the control. */
 export declare type FormControlControlType = 'button' | 'boolean' | 'comboBox' | 'checkInput' | 'datetime' | 'dropDownList' | 'group' | 'input' | 'label' | 'multiInput' | 'multiComboInput' | 'mask' | 'number' | 'password' | 'radioButton' | 'submit' | 'textarea' | 'template';
 /**Gets or Sets the Form control's label position. */
@@ -11102,7 +10450,7 @@ export interface Control {
   controlOptions?: any;
   /**
    * The type of the control.
-   * Default value: 
+   * Default value: input
    */
   controlType?: ControlControlType;
   /**
@@ -11117,9 +10465,9 @@ export interface Control {
   columnSpan?: number;
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
-   * Default value: false
+   * Default value: ""
    */
-  dataField?: boolean;
+  dataField?: string;
   /**
    * Sets the Form control disabled mode.
    * Default value: false
@@ -11147,7 +10495,7 @@ export interface Control {
   label?: string;
   /**
    * Gets or Sets the Form control's label position.
-   * Default value: 
+   * Default value: left
    */
   labelPosition?: ControlLabelPosition;
   /**
@@ -11207,7 +10555,7 @@ export interface Control {
   valid?: boolean;
   /**
    * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: 
+   * Default value: []
    */
   validationRules?: any[];
   /**
@@ -11387,7 +10735,7 @@ export interface GanttChartProperties {
   progressLabelFormatFunction?: any;
   /**
    * A getter that returns a flat structure as an array of all resources inside the element.
-   * Default value: 
+   * Default value: null
    */
   resources?: GanttChartResource[];
   /**
@@ -12022,7 +11370,7 @@ export interface GanttChartDataSource {
   progress?: number;
   /**
    * Project, Task or Milestone resources
-   * Default value: false
+   * Default value: null
    */
   resources?: GanttChartDataSourceResource[];
   /**
@@ -12037,7 +11385,7 @@ export interface GanttChartDataSource {
   tasks?: GanttChartTask[];
   /**
    * Project, Task or Milestone type. Possible values are 'project' and 'task'
-   * Default value: 
+   * Default value: task
    */
   type?: GanttChartTaskType;
   /**
@@ -12317,7 +11665,7 @@ export interface GanttChartTask {
   progress?: number;
   /**
    * Project, Task or Milestone resources.
-   * Default value: false
+   * Default value: 
    */
   resources?: GanttChartTaskResource[];
   /**
@@ -12331,8 +11679,8 @@ export interface GanttChartTask {
    */
   tasks?: GanttChartTask[];
   /**
-   * Project, Task or Milestone type. Possible values are 'project' and 'task'
-   * Default value: 
+   * Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task'
+   * Default value: task
    */
   type?: GanttChartTaskType;
   /**
@@ -12493,6 +11841,8 @@ declare global {
 
 /**Determines the type of items that is going to be exported.  */
 export declare type GanttChartDataExportItemType = 'task' | 'resource';
+/**Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task' */
+export declare type GanttChartTaskType = 'project' | 'milestone' | 'task';
 /**Determines the format of the dates in the timeline header when they represent days. */
 export declare type GanttDayFormat = '2-digit' | 'numeric' | 'long' | 'short' | 'narrow';
 /**Determines in what unit is task duration property measured. */
@@ -12505,8 +11855,6 @@ export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | '
 export declare type GanttChartResourceTimelineView = 'hours' | 'tasks' | 'custom';
 /**Determines whether the GanttChart can be sorted by one or more columns. */
 export declare type GanttChartSortMode = 'one' | 'many';
-/**Project, Task or Milestone type. Possible values are 'project' and 'task' */
-export declare type GanttChartTaskType = 'project' | 'milestone' | 'task';
 /**Determines the viewing date range of the timeline. Possible values: day - The timeline show the hours of the day.
 week - the timeline shows the days of the week.
 month - the timeline shows the days of the month.
@@ -13281,6 +12629,11 @@ export interface Grid extends BaseElement, GridProperties {
 	* @param event. The custom event.    */
   onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * Adds a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
+   * @param {any} data. row data matching the data source
+   */
+  addRow(data: any): void;
+  /**
    * Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string} position?. 'near' or 'far'
    * @returns {boolean}
@@ -13409,6 +12762,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getSelection(): any;
   /**
+   * Gets the selected row ids.
+   * @returns {any[]}
+   */
+  getSelectedRows(): any[];
+  /**
    * Gets an array of columns with applied filters.
    * @returns {any}
    */
@@ -13473,6 +12831,12 @@ export interface Grid extends BaseElement, GridProperties {
    * Saves the batch edit changes. This method confirms the editing changes made by the end-user.
    */
   saveBatchEdit(): void;
+  /**
+   * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
+   * @param {string | number} rowId. row bound id
+   * @param {any} data. row data matching the data source
+   */
+  updateRow(rowId: string | number, data: any): void;
   /**
    * Selects a row, cell or column.
    * @param {string | number} rowId. row bound id
@@ -13830,7 +13194,7 @@ export interface GridClipboard {
   autoFillMode?: GridClipboardAutoFillMode;
   /**
    * Sets or gets a callback on paste.
-   * Default value: none
+   * Default value: null
    */
   onPasteValue?: any;
 }
@@ -14139,10 +13503,10 @@ export interface GridColumnMenuDataSource {
 /**Describes the settings of the column menu customize type */
 export interface GridCommand {
   /**
-   * Sets the commant of the column menu customize type.
-   * Default value: customizeTypeCommand
+   * Sets the command of the column menu customize type.
+   * Default value: "customizeTypeCommand"
    */
-  command?: any;
+  command?: string;
   /**
    * Enables the column menu customize type.
    * Default value: true
@@ -14211,14 +13575,14 @@ export interface GridConditionalFormatting {
   firstValue?: number;
   /**
    * The fontFamily to apply to formatted cells.
-   * Default value: The default fontFamily as set in CSS
+   * Default value: ""
    */
-  fontFamily?: GridConditionalFormattingFontFamily;
+  fontFamily?: string;
   /**
    * The fontSize to apply to formatted cells.
-   * Default value: The default fontSize as set in CSS
+   * Default value: "The default fontSize as set in CSS"
    */
-  fontSize?: GridConditionalFormattingFontSize;
+  fontSize?: string;
   /**
    * The background color to apply to formatted cells.
    * Default value: "The default backgroundColor as set in CSS"
@@ -14362,12 +13726,12 @@ export interface GridDataExport {
   view?: boolean;
   /**
    * Determines the start row index that will be exported or printed. 'view' should be set to true
-   * Default value: false
+   * Default value: null
    */
   viewStart?: number | null;
   /**
    * Determines the end row index that will be exported or printed. 'view' should be set to true
-   * Default value: false
+   * Default value: null
    */
   viewEnd?: number | null;
   /**
@@ -15086,7 +14450,7 @@ export interface GridHeader {
   template?: string | HTMLTemplateElement;
   /**
    * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
-   * Default value: [ 'columns', 'filter', 'group', 'sort', 'format', 'search' ]
+   * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
    */
   buttons?: any[];
 }
@@ -15497,10 +14861,6 @@ export declare type Position = 'near' | 'far';
 export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
-/**The fontFamily to apply to formatted cells. */
-export declare type GridConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
-/**The fontSize to apply to formatted cells. */
-export declare type GridConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Determines the way editing is initiated. */
 export declare type GridEditingAction = 'none' | 'click' | 'dblClick';
 /**Sets what is to be displayed in command column buttons. */
@@ -16421,30 +15781,10 @@ export interface LayoutProperties {
    */
   dataSource?: any;
   /**
-   * Optional. A label for all Splitter items inside the Layout. Usefull when exporting the dataSource and reusing it in other elements, for example, tree, etc.
-   * Default value: "Template"
-   */
-  itemLabel?: string;
-  /**
-   * Optional. A label for all Splitters inside the Layout. Usefull when exporting the dataSource and reusing it in other elements, for example, tree, etc.
-   * Default value: "Layout"
-   */
-  itemGroupLabel?: string;
-  /**
-   * A getter that returns an array of all Splitter items inside the Layout.
-   * Default value: 
-   */
-  items?: any;
-  /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
    */
   locale?: string;
-  /**
-   * Callback, related to localization module. 
-   * Default value: null
-   */
-  localizeFormatFunction?: any;
   /**
    * Sets an object with string values, related to the different states of passwords strength.
    * Default value:    * {
@@ -16475,27 +15815,17 @@ export interface LayoutProperties {
    */
   readonly?: boolean;
   /**
-   * Determines the resize step during reisizing
-   * Default value: 5
-   */
-  resizeStep?: number;
-  /**
-   * When enabled the resizing operation happens live. By default this feature is not enabled and the user sees a hightlighted bar while dragging instead of the actual splitter bar.
+   * Determines whether splitting is live or not.
    * Default value: false
    */
-  liveResize?: boolean;
-  /**
-   * Determines the placeholder text of the empty items.
-   * Default value: "Empty"
-   */
-  placeholder?: string;
+  allowLiveSplit?: boolean;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * Determines the selected item. When an item is selected the buttons for creating nested items are displayed inside it.
+   * Determines the selected item.
    * Default value: null
    */
   selectedIndex?: any;
@@ -16518,13 +15848,9 @@ export interface Layout extends BaseElement, LayoutProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when resizing begins.
+   * This event is triggered after resizing is completed.
 	* @param event. The custom event.    */
-  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
-  /**
-   * This event is triggered when resizing finishes.
-	* @param event. The custom event.    */
-  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  onResize: ((ev: Event) => any) | null;
   /**
    * This event is triggered when a change regarding the Layout's state has occured, such as inserting a new item, removing an item, etc.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, type)
@@ -16565,79 +15891,26 @@ export interface Layout extends BaseElement, LayoutProperties {
    */
   onMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Appends a new node.
-   * @param {Node} node. The node to append
-   * @returns {Node}
+   * Returns a Layout item according to the index that is passed.
+   * @param {number | string} index. The index of an item.
    */
-  appendChild<T extends Node>(node: Node): T;
+  getItem(index: number | string): void;
   /**
-   * Inserts the specified "smart-splitter-item" node before the reference "smart-splitter-item" node.
-   * @param {Node} newNode. The  "smart-splitter-item" node to insert.
-   * @param {Node | null} referenceNode?. The "smart-splitter-item" node before which newNode is inserted.
-   * @returns {Node}
+   * Refreshes the Layout
    */
-  insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null): T;
+  refresh(): void;
   /**
-   * Removes a child "smart-splitter-item" node from the Layout.
-   * @param {Node} node. The "smart-splitter-item" node to remove.
-   * @returns {Node}
+   * Inserts a new item inside the Layout.
+   * @param {any} type. The index of an item to be removed or an instance of Smart.SplitterItem.
+   * @param {string | undefined} position?. A string that represents the position where the new item will be created.
    */
-  removeChild<T extends Node>(node: Node): T;
+  createLayoutItem(type: any, position?: string | undefined): void;
   /**
-   * Returns a Splitter Item according to the index that is passed as an argument.
-   * @param {any} index. The index of an item.
+   * Moves all children from one item to another.
+   * @param {any} oldItem. The source item that will have it's content removed.
+   * @param {any} newItem. The host item that will have it's content replaced.
    */
-  getItem(index: any): void;
-  /**
-   * Returns the index of a Splitter Item that is passed as an argument.
-   * @param {any} item. The index of the Splitter item that is passed as an argument.
-   */
-  getItemIndex(item: any): void;
-  /**
-   * Insert a new Splitter item at a given position.
-   * @param {any} item. A Splitter Item or an object defining a Splitter item to be inserted.
-   * @param {number | string} index. The index at which a new item will be inserted.
-   * @param {string} position?. The postition at which the new item will be inseted - top, bottom, left, right.
-   */
-  insert(item: any, index: number | string, position?: string): void;
-  /**
-   * Removes a Splitter item from the Layout.
-   * @param {any} index. The index of an item to be removed or an instance of Smart.SplitterItem.
-   */
-  removeItem(index: any): void;
-  /**
-   * Removes all items from the Layout
-   */
-  removeAll(): void;
-  /**
-   * Selects a Splitter item from the Layout.
-   * @param {any} index. The index of an item to be removed or an instance of Smart.SplitterItem.
-   */
-  select(index: any): void;
-  /**
-   * Unselects the selected item inside the element.
-   */
-  unselect(): void;
-  /**
-   * Updates a Splitter item that is inside the Layout.
-   * @param {any} index. The index of an item to be removed or an instance of Smart.SplitterItem.
-   * @param {any} settings. An object containing properties with new values for the Splitter item that should be updated.
-   */
-  updateItem(index: any, settings: any): void;
-  /**
-   * Clears the localStorage of any previous cached states of the element according to it's id.
-   */
-  clearState(): void;
-  /**
-   * Saves the current state of the element to LocalStorage. Requires an id to be set to the element.
-   * @returns {any}
-   */
-  saveState(): any;
-  /**
-   * Loads a previously saved state of the element. If no state is provided as an argument the method will do a localStorage lookup according to the id of the element.
-   * @param {any[]} state?. An array of objects that represents a cached state of the element. The result of calling the 'saveState' method.
-   */
-  loadState(state?: any[]): void;
+  moveChildren(oldItem: any, newItem: any): void;
 }
 
 declare global {
@@ -16647,6 +15920,115 @@ declare global {
         querySelectorAll(selectors: "smart-layout"): NodeListOf<Layout>;
         getElementsByTagName(qualifiedName: "smart-layout"): HTMLCollectionOf<Layout>;
         getElementsByName(elementName: "smart-layout"): NodeListOf<Layout>;
+    }
+}
+
+export interface LayoutGroupProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "Group"
+   */
+  label?: string;
+  /**
+   * Determines the group orientation.
+   * Default value: vertical
+   */
+  orientation?: LayoutGroupOrientation;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ LayoutGroup represents a group of layout items inside the Layout.
+*/
+export interface LayoutGroup extends BaseElement, LayoutGroupProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-layout-group"): LayoutGroup;
+        querySelector(selectors: "smart-layout-group"): LayoutGroup | null;
+        querySelectorAll(selectors: "smart-layout-group"): NodeListOf<LayoutGroup>;
+        getElementsByTagName(qualifiedName: "smart-layout-group"): HTMLCollectionOf<LayoutGroup>;
+        getElementsByName(elementName: "smart-layout-group"): NodeListOf<LayoutGroup>;
+    }
+}
+
+/**Determines the group orientation. */
+export declare type LayoutGroupOrientation = 'horizontal' | 'vertical';
+export interface LayoutItemProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "Item"
+   */
+  label?: string;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ Layout item represents a single content section inside the Layout.
+*/
+export interface LayoutItem extends BaseElement, LayoutItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-layout-item"): LayoutItem;
+        querySelector(selectors: "smart-layout-item"): LayoutItem | null;
+        querySelectorAll(selectors: "smart-layout-item"): NodeListOf<LayoutItem>;
+        getElementsByTagName(qualifiedName: "smart-layout-item"): HTMLCollectionOf<LayoutItem>;
+        getElementsByName(elementName: "smart-layout-item"): NodeListOf<LayoutItem>;
     }
 }
 
@@ -18859,7 +18241,7 @@ export interface MultilineTextBoxProperties {
    * Determines whether the value of the control can be automatically completed by the browser.
    * Default value: off
    */
-  autoComplete?: AutoComplete;
+  autoComplete?: MultiLineTextBoxAutoComplete;
   /**
    * Determines whether element will auto expand when the input overflows vertically.
    * Default value: false
@@ -19082,6 +18464,8 @@ declare global {
 
 /**Determines whether and how the value should be automatically capitalized as it is entered/edited by the user. */
 export declare type MultilineTextBoxAutoCapitalize = 'none' | 'characters' | 'words';
+/**Determines whether the value of the control can be automatically completed by the browser. */
+export declare type MultiLineTextBoxAutoComplete = 'on' | 'off';
 /**Specifies how the characters are displayed inside the input. */
 export declare type TextBoxDisplayMode = 'default' | 'escaped';
 /**Determines the behavior on "Enter" key. */
@@ -20692,7 +20076,7 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
 export interface PivotTableColumn {
   /**
    * Sets or gets the header cell alignment for pivot and summary columns and cell alignment for row group columns.
-   * Default value: string
+   * Default value: left
    */
   align?: PivotTableColumnAlign;
   /**
@@ -20747,7 +20131,7 @@ export interface PivotTableColumn {
   rowGroup?: boolean;
   /**
    * Sets or gets the summary function to aggregate the column's data by and produce dynamic summary columns for each unique pivot data point. There must always be at least one summary column for the PivotTable to make sense. When columnTotals is enabled, all summary columns must have the same summary function set.
-   * Default value: null
+   * Default value: sum
    */
   summary?: PivotTableColumnSummary;
   /**
@@ -20779,8 +20163,8 @@ export interface PivotTableConditionalFormatting {
    */
   fontFamily?: PivotTableConditionalFormattingFontFamily;
   /**
-   * The fontSize to apply to formatted cells.
-   * Default value: The default fontSize as set in CSS
+   * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
+   * Default value: 14px
    */
   fontSize?: PivotTableConditionalFormattingFontSize;
   /**
@@ -20822,7 +20206,7 @@ export declare type PivotTableColumnTotalsPosition = 'near' | 'far';
 export declare type PivotTableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**The fontFamily to apply to formatted cells. */
 export declare type PivotTableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
-/**The fontSize to apply to formatted cells. */
+/**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type PivotTableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the position of the PivotTable's designer (shown when designer is enabled). */
 export declare type PivotTableDesignerPosition = 'near' | 'far';
@@ -21063,7 +20447,7 @@ export interface QueryBuilderProperties {
    */
   applyMode?: QueryBuilderApplyMode;
   /**
-   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closedhideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value.expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element.
+   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closedhideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type Array[string]expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField). 
    * Default value: 
    */
   customOperations?: any;
@@ -22431,7 +21815,7 @@ declare global {
  overflow - the items inside the Splitter will not fit it's size. Instead they overflow by taking the exact amount of space they need and a scrollbar is displayed in order to view the content.
  */
 export declare type SplitterAutoFitMode = 'end' | 'proportional' | 'overflow';
-/**Determines the resize mode of the splitter. Possible values are: </br> - None - resizing is disabled. </br> - Adjacent - only the two adjacent items between the target splitter bar are being affected. This is the default behavior. </br> - End - only the first item( left or top according to the orientation) of the target Splitter bar and the last item are affected. </br> Proportional - all of the items positioned in the direction to which the splitter bar is dragged will be affected. For example, when a splitter bar is dragged to the right all the items positioned on it's the right side will be affected. The items will obtain a proportional size corresponding to their current size. */
+/**Determines the resize mode of the splitter. Possible values are: <br/> - None - resizing is disabled. <br/> - Adjacent - only the two adjacent items between the target splitter bar are being affected. This is the default behavior. <br/> - End - only the first item( left or top according to the orientation) of the target Splitter bar and the last item are affected. <br/> Proportional - all of the items positioned in the direction to which the splitter bar is dragged will be affected. For example, when a splitter bar is dragged to the right all the items positioned on it's the right side will be affected. The items will obtain a proportional size corresponding to their current size. */
 export declare type SplitterResizeMode = 'none' | 'adjacent' | 'end' | 'proportional';
 export interface SplitterBarProperties {
 }
@@ -22772,6 +22156,129 @@ declare global {
     }
 }
 
+export interface TabLayoutGroupProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "TabGroup"
+   */
+  label?: string;
+  /**
+   * Determines the group orientation.
+   * Default value: vertical
+   */
+  orientation?: TabLayoutGroupOrientation;
+  /**
+   * Determines the position of the tab items group.
+   * Default value: top
+   */
+  position?: TabLayoutGroupPosition;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ TabLayoutGroup represents a group of TabLayoutItems each with it's own Tab label.
+*/
+export interface TabLayoutGroup extends BaseElement, TabLayoutGroupProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-layout-group"): TabLayoutGroup;
+        querySelector(selectors: "smart-tab-layout-group"): TabLayoutGroup | null;
+        querySelectorAll(selectors: "smart-tab-layout-group"): NodeListOf<TabLayoutGroup>;
+        getElementsByTagName(qualifiedName: "smart-tab-layout-group"): HTMLCollectionOf<TabLayoutGroup>;
+        getElementsByName(elementName: "smart-tab-layout-group"): NodeListOf<TabLayoutGroup>;
+    }
+}
+
+/**Determines the group orientation. */
+export declare type TabLayoutGroupOrientation = 'horizontal' | 'vertical';
+/**Determines the position of the tab items group. */
+export declare type TabLayoutGroupPosition = 'top' | 'bottom' | 'left' | 'right';
+export interface TabLayoutItemProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the modifiers of the Layout item.
+   * Default value: resize,drag,close
+   */
+  modifiers?: any;
+  /**
+   * Determines the min size of the item.
+   * Default value: 50
+   */
+  min?: number;
+  /**
+   * Determines the label of the item.
+   * Default value: "TabItem"
+   */
+  label?: string;
+  /**
+   * Determines the group orientation.
+   * Default value: vertical
+   */
+  orientation?: TabLayoutItemOrientation;
+  /**
+   * Determines the size of the item.
+   * Default value: null
+   */
+  size?: any;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+}
+/**
+ TabLayoutItem represents a Layout Item that has a Tab label and is applicable to a TabLayoutGroup.
+*/
+export interface TabLayoutItem extends BaseElement, TabLayoutItemProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-tab-layout-item"): TabLayoutItem;
+        querySelector(selectors: "smart-tab-layout-item"): TabLayoutItem | null;
+        querySelectorAll(selectors: "smart-tab-layout-item"): NodeListOf<TabLayoutItem>;
+        getElementsByTagName(qualifiedName: "smart-tab-layout-item"): HTMLCollectionOf<TabLayoutItem>;
+        getElementsByName(elementName: "smart-tab-layout-item"): NodeListOf<TabLayoutItem>;
+    }
+}
+
+/**Determines the group orientation. */
+export declare type TabLayoutItemOrientation = 'horizontal' | 'vertical';
 export interface TableProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -22789,7 +22296,12 @@ export interface TableProperties {
    */
   autoSaveState?: boolean;
   /**
-   * Sets or gets the min width of columns when columnSizeMode is 'auto'.
+   * Sets or gets a list of column groups that constitute the column header hierarchy. Note: when column header hierarchy is created, column resizing and auto-sizing is not supported.
+   * Default value: null
+   */
+  columnGroups?: TableColumnGroup[];
+  /**
+   * Sets or gets the min width of columns when columnSizeMode is 'auto' or when resizing columns. This property has no effect on columns with programmatically set width.
    * Default value: 50px
    */
   columnMinWidth?: string | number;
@@ -22798,6 +22310,16 @@ export interface TableProperties {
    * Default value: false
    */
   columnReorder?: boolean;
+  /**
+   * Sets or gets whether the resizing of columns is enabled. Note: column sizes continue to adhere to the behavior of the standard HTML table element's table-layout: fixed, upon which smart-table is based.
+   * Default value: false
+   */
+  columnResize?: boolean;
+  /**
+   * Sets or gets whether when resizing a column, a feedback showing the new column width in px will be displayed.
+   * Default value: false
+   */
+  columnResizeFeedback?: boolean;
   /**
    * Describes the columns properties.
    * Default value: null
@@ -22818,6 +22340,11 @@ export interface TableProperties {
    * Default value: false
    */
   conditionalFormattingButton?: boolean;
+  /**
+   * When binding the dataSource property directly to an array (as opposed to an instance of JQX.DataAdapter), sets or gets the name of the data field in the source array to bind row ids to.
+   * Default value: "null"
+   */
+  dataRowId?: string;
   /**
    * Determines the data source of the table component.
    * Default value: 
@@ -22864,6 +22391,11 @@ export interface TableProperties {
    */
   footerRow?: string;
   /**
+   * Sets or gets whether Excel-like formulas can be passed as cell values. Formulas are always preceded by the = sign and are re-evaluated when cell values are changed. This feature depends on the third-party free plug-in formula-parser (the file formula-parser.min.js has to be referenced).
+   * Default value: false
+   */
+  formulas?: boolean;
+  /**
    * Sets or gets whether the Table's footer is sticky/frozen.
    * Default value: false
    */
@@ -22888,6 +22420,11 @@ export interface TableProperties {
    * Default value: false
    */
   keyboardNavigation?: boolean;
+  /**
+   * Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'.
+   * Default value: implementationOnly
+   */
+  loadColumnStateBehavior?: TableLoadColumnStateBehavior;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -22994,6 +22531,11 @@ export interface TableProperties {
    */
   rowDetailTemplate?: string;
   /**
+   * Sets or gets an array of the Table's selected row's ids.
+   * Default value: 
+   */
+  selected?: any[];
+  /**
    * Sets or gets whether row selection (via checkboxes) is enabled.
    * Default value: false
    */
@@ -23028,6 +22570,11 @@ export interface TableProperties {
    * Default value: false
    */
   tooltip?: boolean;
+  /**
+   * Enables or disables HTML virtualization. This functionality allows for only visible rows to be rendered, resulting in an increased Table performance.
+   * Default value: false
+   */
+  virtualization?: boolean;
 }
 /**
  Table is an alternative of the HTMLTableElement.
@@ -23059,7 +22606,9 @@ export interface Table extends BaseElement, TableProperties {
   onCellEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the selection is changed.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(type)
+   *  type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a column header cell has been clicked.
@@ -23067,6 +22616,14 @@ export interface Table extends BaseElement, TableProperties {
    *  dataField - The data field of the cell's column.
    */
   onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column has been resized via dragging or double-click.
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, headerCellElement, width)
+   *  dataField - The data field of the column.
+   *  headerCellElement - The column's header cell HTML element.
+   *  width - The new width of the column.
+   */
+  onColumnResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a filtering-related action is made.
 	* @param event. The custom event. Custom data event was created with: ev.detail(action, filters)
@@ -23088,6 +22645,18 @@ export interface Table extends BaseElement, TableProperties {
    *  action - The paging action. Possible actions: 'pageIndexChange', 'pageSizeChange'.
    */
   onPage?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a row edit operation has been initiated (only when <strong>editMode</strong> is <em>'row'</em>).
+	* @param event. The custom event. Custom data event was created with: ev.detail(row)
+   *  row - The data of the row.
+   */
+  onRowBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a row has been edited (only when <strong>editMode</strong> is <em>'row'</em>).
+	* @param event. The custom event. Custom data event was created with: ev.detail(row)
+   *  row - The new data of the row.
+   */
+  onRowEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a column header cell has been clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(columns)
@@ -23219,10 +22788,10 @@ export interface Table extends BaseElement, TableProperties {
    */
   saveState(): any;
   /**
-   * Selects a row.
-   * @param {string | number} rowId. The id of the row to select.
+   * Selects one or more rows.
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select.
    */
-  select(rowId: string | number): void;
+  select(rowId: string | number | (string | number)[]): void;
   /**
    * Sets the value of a cell.
    * @param {string | number} row. The id of the cell's row.
@@ -23237,10 +22806,28 @@ export interface Table extends BaseElement, TableProperties {
    */
   sortBy(columnDataField: string, sortOrder?: string): void;
   /**
-   * Unselects a row.
-   * @param {string | number} rowId. The id of the row to unselect.
+   * Unselects one or more rows.
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to unselect.
    */
-  unselect(rowId: string | number): void;
+  unselect(rowId: string | number | (string | number)[]): void;
+}
+
+export interface TableColumnGroup {
+  /**
+   * Sets or gets the column group's label that appears in the column header hierarchy.
+   * Default value: ""
+   */
+  label?: string;
+  /**
+   * Sets or gets the column group's unique name that is referenced in the columnGroup field of columns (TableColumn).
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets or gets the name of the column group's parent group (also defined in columnGroups).
+   * Default value: "null"
+   */
+  parentGroup?: string;
 }
 
 export interface TableColumn {
@@ -23264,6 +22851,11 @@ export interface TableColumn {
    * Default value: true
    */
   allowSort?: boolean;
+  /**
+   * Sets or gets the column's column group. Has to correspond to the name field of a column group (TableColumnGroup).
+   * Default value: "null"
+   */
+  columnGroup?: string;
   /**
    * Sets or gets the column's data source-bound field.
    * Default value: ""
@@ -23296,7 +22888,7 @@ export interface TableColumn {
   label?: string;
   /**
    * Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden.
-   * Default value: 
+   * Default value: 1
    */
   responsivePriority?: TableColumnResponsivePriority;
   /**
@@ -23338,8 +22930,8 @@ export interface TableConditionalFormatting {
    */
   fontFamily?: TableConditionalFormattingFontFamily;
   /**
-   * The fontSize to apply to formatted cells.
-   * Default value: The default fontSize as set in CSS
+   * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
+   * Default value: 14px
    */
   fontSize?: TableConditionalFormattingFontSize;
   /**
@@ -23379,12 +22971,14 @@ export declare type TableColumnResponsivePriority = '1' | '2' | '3' | '4' | '5';
 export declare type TableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**The fontFamily to apply to formatted cells. */
 export declare type TableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
-/**The fontSize to apply to formatted cells. */
+/**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the column sizing behavior. */
 export declare type TableColumnSizeMode = 'auto' | 'default';
 /**Sets or gets the edit mode. */
 export declare type TableEditMode = 'cell' | 'row';
+/**Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'. */
+export declare type TableLoadColumnStateBehavior = 'implementationOnly' | 'intersection' | 'stateOnly';
 /**Sets or gets the page size (when paging is enabled). */
 export declare type TablePageSize = '10' | '25' | '50';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */
@@ -24422,7 +24016,7 @@ export interface TimeInputProperties {
    * Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
    * Default value: { hour: 'numeric', minute: 'numeric' }
    */
-  dateTimeFormat?: TimeInputDateTimeFormat;
+  dateTimeFormat?: TimeFormat;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -24560,197 +24154,17 @@ export interface TimeInput extends BaseElement, TimeInputProperties {
 }
 
 /**Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
-export interface TimeInputDateTimeFormat {
+export interface TimeFormat {
   /**
-   * 
-   * Default value: undefined
+   * Hour format.
+   * Default value: "2-digit"
    */
-  0?: any;
+  hour?: string;
   /**
-   * 
-   * Default value: undefined
+   * Minute format.
+   * Default value: "2-digit"
    */
-  1?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  2?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  3?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  4?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  5?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  6?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  7?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  8?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  9?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  10?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  11?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  12?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  13?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  14?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  15?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  16?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  17?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  18?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  19?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  20?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  21?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  22?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  23?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  24?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  25?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  26?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  27?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  28?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  29?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  30?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  31?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  32?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  33?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  34?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  35?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  36?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  37?: any;
+  minute?: string;
 }
 
 declare global {
@@ -26014,7 +25428,7 @@ export interface ValidatorRule {
   pattern?: RegExp;
   /**
    * The type of validation the rule makes.
-   * Default value: 
+   * Default value: required
    */
   type?: ValidatorRuleType;
   /**

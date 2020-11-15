@@ -12,12 +12,14 @@ export interface GaugeProps extends GaugeProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Gauge displays an indicator within a range of values.
 */
-export class Gauge extends React.Component<React.HTMLProps<Element> & GaugeProps, any> {   
+export class Gauge extends React.Component<React.HTMLAttributes<Element> & GaugeProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -770,7 +772,9 @@ export class Gauge extends React.Component<React.HTMLProps<Element> & GaugeProps
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

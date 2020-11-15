@@ -145,6 +145,7 @@ smart-pager .smart-pager-button[disabled],
 smart-color-panel[disabled],
 smart-color-picker[disabled],
 smart-input[disabled],
+smart-password-input[disabled],
 smart-text-area[disabled],
 smart-sort-panel[disabled],
 smart-group-panel[disabled],
@@ -247,4 +248,42 @@ smart-formatting-panel {
 .smart-input::selection {
     background: var(--smart-editor-selection);
     color: var(--smart-editor-selection-color);
+}
+
+/* Style for standard HTML scrollbars when dark theme is applied (limited browser support) */
+@media (hover: hover) {
+
+    body[theme="dark"],
+    .smart-element[theme="dark"] {
+        scrollbar-color: var(--smart-scroll-bar-thumb-background) var(--smart-scroll-bar-track-background);
+    }
+
+    body[theme="dark"]::-webkit-scrollbar,
+    body[theme="dark"] ::-webkit-scrollbar {
+        background-color: var(--smart-background);
+    }
+
+    body[theme="dark"]::-webkit-scrollbar-track,
+    body[theme="dark"] ::-webkit-scrollbar-track,
+    body[theme="dark"]::-webkit-scrollbar-track-piece,
+    body[theme="dark"] ::-webkit-scrollbar-track-piece {
+        background-color: var(--smart-scroll-bar-track-background);
+    }
+
+    body[theme="dark"]::-webkit-scrollbar-thumb,
+    body[theme="dark"] ::-webkit-scrollbar-thumb {
+        border: 1px solid var(--smart-scroll-bar-thumb-border);
+        background-color: var(--smart-scroll-bar-thumb-background);
+    }
+
+    body[theme="dark"]::-webkit-scrollbar-thumb:hover,
+    body[theme="dark"] ::-webkit-scrollbar-thumb:hover {
+        border-color: var(--smart-scroll-bar-thumb-border-hover);
+        background-color: var(--smart-scroll-bar-thumb-background-hover);
+    }
+
+    body[theme="dark"]::-webkit-scrollbar-button,
+    body[theme="dark"] ::-webkit-scrollbar-button {
+        background-color: var(--smart-scroll-bar-button-background);
+    }
 }

@@ -199,6 +199,6 @@ declare global {
 }
 
 /**Determines the position of the drop down button. */
-export declare type DropDownButtonPosition = 'none' | 'left' | 'right';
+export declare type DropDownButtonPosition = 'none' | 'left' | 'right' | 'top' | 'bottom';
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
 export declare type CheckInputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';

@@ -149,10 +149,10 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 
 	/** @description Sets the chart's data source. */
 	@Input()
-	get dataSource(): any {
+	get dataSource(): any[] {
 		return this.nativeElement ? this.nativeElement.dataSource : undefined;
 	}
-	set dataSource(value: any) {
+	set dataSource(value: any[]) {
 		this.nativeElement ? this.nativeElement.dataSource = value : undefined;
 	}
 

@@ -11,12 +11,14 @@ export interface MenuItemsGroupProps extends MenuItemsGroupProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a group of menu items.
 */
-export class MenuItemsGroup extends React.Component<React.HTMLProps<Element> & MenuItemsGroupProps, any> {   
+export class MenuItemsGroup extends React.Component<React.HTMLAttributes<Element> & MenuItemsGroupProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -270,7 +272,9 @@ export class MenuItemsGroup extends React.Component<React.HTMLProps<Element> & M
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

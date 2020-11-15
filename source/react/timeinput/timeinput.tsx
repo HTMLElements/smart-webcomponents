@@ -1,8 +1,8 @@
 import React from "react";
 import { TimeInputProperties } from "./../../index";
-import { Animation, DropDownButtonPosition, TimeInputDateTimeFormat} from './../../index';
+import { Animation, DropDownButtonPosition, TimeFormat} from './../../index';
 export { TimeInputProperties } from "./../../index";
-export { Animation, DropDownButtonPosition, TimeInputDateTimeFormat} from './../../index';
+export { Animation, DropDownButtonPosition, TimeFormat} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -12,12 +12,14 @@ export interface TimeInputProps extends TimeInputProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  TimeInput specifies an input field where the user can enter a time. It also has a popup with a Calendar that allows to pick a time.
 */
-export class TimeInput extends React.Component<React.HTMLProps<Element> & TimeInputProps, any> {   
+export class TimeInput extends React.Component<React.HTMLAttributes<Element> & TimeInputProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -43,12 +45,12 @@ export class TimeInput extends React.Component<React.HTMLProps<Element> & TimeIn
 	}
 
 	/** Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
-	*	Property type: TimeInputDateTimeFormat
+	*	Property type: TimeFormat
 	*/
-	get dateTimeFormat(): TimeInputDateTimeFormat  {
+	get dateTimeFormat(): TimeFormat  {
 		return this.nativeElement ? this.nativeElement.dateTimeFormat : undefined;
 	}
-	set dateTimeFormat(value: TimeInputDateTimeFormat) {
+	set dateTimeFormat(value: TimeFormat) {
 		if (this.nativeElement) {
 			this.nativeElement.dateTimeFormat = value;
 		}
@@ -460,7 +462,9 @@ export class TimeInput extends React.Component<React.HTMLProps<Element> & TimeIn
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

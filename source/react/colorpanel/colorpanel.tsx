@@ -15,12 +15,14 @@ export interface ColorPanelProps extends ColorPanelProperties {
 	onCancelButtonClick?: ((event?: Event) => void) | undefined;
 	onCustomColorSelection?: ((event?: Event) => void) | undefined;
 	onOkButtonClick?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  ColorPanel is an advanced color chooser with Pallete, Spectrum Grid, Radial Palette and Excel-like options.
 */
-export class ColorPanel extends React.Component<React.HTMLProps<Element> & ColorPanelProps, any> {   
+export class ColorPanel extends React.Component<React.HTMLAttributes<Element> & ColorPanelProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -555,7 +557,9 @@ export class ColorPanel extends React.Component<React.HTMLProps<Element> & Color
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

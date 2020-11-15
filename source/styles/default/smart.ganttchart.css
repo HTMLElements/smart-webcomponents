@@ -62,8 +62,8 @@ smart-gantt-chart .smart-splitter,
     --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
 }
 
-.smart-gantt-chart .smart-splitter smart-splitter-bar.smart-element {
-    background: var(--smart-border);
+.smart-gantt-chart .smart-splitter:not([dragged]) smart-splitter-bar.smart-element {
+    background-color: var(--smart-border);
 }
 
 .smart-gantt-chart smart-splitter:not([orientation="horizontal"]).transition-scroll-bars smart-splitter-bar {

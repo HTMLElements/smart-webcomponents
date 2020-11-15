@@ -13,12 +13,14 @@ export interface AccordionItemProps extends AccordionItemProperties {
 
 	onCollapse?: ((event?: Event) => void) | undefined;
 	onExpand?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Single item in an Accordion view.
 */
-export class AccordionItem extends React.Component<React.HTMLProps<Element> & AccordionItemProps, any> {   
+export class AccordionItem extends React.Component<React.HTMLAttributes<Element> & AccordionItemProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -206,7 +208,9 @@ export class AccordionItem extends React.Component<React.HTMLProps<Element> & Ac
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

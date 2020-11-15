@@ -40,7 +40,7 @@ export class MultilineTextBox extends React.Component {
 	}
 
 	/** Determines whether the value of the control can be automatically completed by the browser.
-	*	Property type: AutoComplete
+	*	Property type: MultiLineTextBoxAutoComplete
 	*/
 	get autoComplete() {
 		return this.nativeElement ? this.nativeElement.autoComplete : undefined;
@@ -624,7 +624,9 @@ export class MultilineTextBox extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

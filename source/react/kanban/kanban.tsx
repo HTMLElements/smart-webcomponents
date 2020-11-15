@@ -23,12 +23,14 @@ export interface KanbanProps extends KanbanProperties {
 	onOpen?: ((event?: Event) => void) | undefined;
 	onOpening?: ((event?: Event) => void) | undefined;
 	onSort?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Kanban represents a kanban board that visually depicts work at various stages of a process using cards to represent tasks and columns to represent each stage of the process.
 */
-export class Kanban extends React.Component<React.HTMLProps<Element> & KanbanProps, any> {   
+export class Kanban extends React.Component<React.HTMLAttributes<Element> & KanbanProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -993,7 +995,9 @@ export class Kanban extends React.Component<React.HTMLProps<Element> & KanbanPro
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -25,7 +25,7 @@ export interface ColorInputProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorDisplayMode;
+  displayMode?: ColorInputDisplayMode;
   /**
    * Determines the position of the drop down button.
    * Default value: none
@@ -185,7 +185,7 @@ declare global {
 }
 
 /**Determines the colors that will be displayed and their layout. */
-export declare type ColorDisplayMode = 'default' | 'grid';
+export declare type ColorInputDisplayMode = 'default' | 'grid';
 /**Determines the position of the drop down button. */
 export declare type DropDownButtonPosition = 'left' | 'right' | 'top' | 'bottom';
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */

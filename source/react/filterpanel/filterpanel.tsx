@@ -14,12 +14,14 @@ export interface FilterPanelProps extends FilterPanelProperties {
 	onCancel?: ((event?: Event) => void) | undefined;
 	onClear?: ((event?: Event) => void) | undefined;
 	onFilter?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  The filter panel allows you to customize and display the applied filter expressions.
 */
-export class FilterPanel extends React.Component<React.HTMLProps<Element> & FilterPanelProps, any> {   
+export class FilterPanel extends React.Component<React.HTMLAttributes<Element> & FilterPanelProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -431,7 +433,9 @@ export class FilterPanel extends React.Component<React.HTMLProps<Element> & Filt
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

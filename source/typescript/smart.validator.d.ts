@@ -73,7 +73,7 @@ export interface ValidatorRule {
   pattern?: RegExp;
   /**
    * The type of validation the rule makes.
-   * Default value: 
+   * Default value: required
    */
   type?: ValidatorRuleType;
   /**

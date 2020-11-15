@@ -29,12 +29,14 @@ export interface MenuProps extends MenuProperties {
 	onItemClick?: ((event?: Event) => void) | undefined;
 	onOpen?: ((event?: Event) => void) | undefined;
 	onOpening?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Horizontal, Vertical and Popup Menu. Popup Menus appear when a user taps an interactive UI element such as an icon, button, action, or content, such as selected items or text.
 */
-export class Menu extends React.Component<React.HTMLProps<Element> & MenuProps, any> {   
+export class Menu extends React.Component<React.HTMLAttributes<Element> & MenuProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -764,7 +766,9 @@ export class Menu extends React.Component<React.HTMLProps<Element> & MenuProps, 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

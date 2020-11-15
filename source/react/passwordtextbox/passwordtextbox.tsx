@@ -12,12 +12,14 @@ export interface PasswordTextBoxProps extends PasswordTextBoxProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  PasswordTextBox lets the user enter a password with the text hidden.
 */
-export class PasswordTextBox extends React.Component<React.HTMLProps<Element> & PasswordTextBoxProps, any> {   
+export class PasswordTextBox extends React.Component<React.HTMLAttributes<Element> & PasswordTextBoxProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -509,7 +511,9 @@ export class PasswordTextBox extends React.Component<React.HTMLProps<Element> & 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

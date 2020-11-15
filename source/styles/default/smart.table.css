@@ -15,22 +15,25 @@
     max-height: inherit;
 }
 
-.smart-table-container {
+.smart-table-container,
+.smart-table .smart-table-virtualization-container {
     width: 100%;
     height: 100%;
 }
 
-.smart-table[paging] .smart-table-container {
-    height: calc(100% - var(--smart-table-header-footer-height));
-}
-
+.smart-table[paging] .smart-table-container,
 .smart-table[filtering]:not([filter-row]) .smart-table-container,
-.smart-table[conditional-formatting-button] .smart-table-container {
+.smart-table[conditional-formatting-button] .smart-table-container,
+.smart-table[paging] .smart-table-virtualization-container,
+.smart-table[filtering]:not([filter-row]) .smart-table-virtualization-container,
+.smart-table[conditional-formatting-button] .smart-table-virtualization-container {
     height: calc(100% - var(--smart-table-header-footer-height));
 }
 
 .smart-table[paging][filtering]:not([filter-row]) .smart-table-container,
-.smart-table[paging][conditional-formatting-button] .smart-table-container {
+.smart-table[paging][conditional-formatting-button] .smart-table-container,
+.smart-table[paging][filtering]:not([filter-row]) .smart-table-virtualization-container,
+.smart-table[paging][conditional-formatting-button] .smart-table-virtualization-container {
     height: calc(100% - 2 * var(--smart-table-header-footer-height));
 }
 
@@ -95,7 +98,8 @@ smart-table table:not(.smart-table-container) {
     opacity: 0.9;
 }
 
-.smart-table[column-reorder] thead th {
+.smart-table[column-reorder] thead th,
+.smart-table[column-resize] thead th {
     touch-action: none;
 }
 
@@ -455,6 +459,7 @@ smart-table table:not(.smart-table-container) {
 
 .smart-table smart-pager.smart-element {
     display: none;
+    min-width: 0;
     height: var(--smart-table-header-footer-height);
     background-color: var(--smart-background);
     border-left: none;
@@ -469,7 +474,7 @@ smart-table table:not(.smart-table-container) {
     pointer-events: none;
 }
 
-.smart-table smart-pager .smart-container {
+.smart-table smart-pager>.smart-container {
     justify-content: flex-end;
 }
 
@@ -547,6 +552,7 @@ smart-table table:not(.smart-table-container) {
 
 .smart-table[paging] smart-pager {
     display: block;
+    z-index: 1;
 }
 
 .smart-table[filtering] .smart-table-header,
@@ -574,7 +580,7 @@ smart-table table:not(.smart-table-container) {
     left: 0;
     top: 0;
     background-color: var(--smart-background);
-    z-index: 1;
+    z-index: 2;
 }
 
 .smart-table .smart-table-header .smart-input,
@@ -649,9 +655,12 @@ smart-table table:not(.smart-table-container) {
 }
 
 .smart-table .smart-table-filter-row>td>div {
+    --smart-filter-row-content-height: calc(var(--smart-table-row-height) - 2 * var(--smart-table-cell-padding) - var(--smart-border-width));
     display: grid;
-    grid-template-columns: 1fr 30px 30px;
+    grid-template-columns: 1fr var(--smart-filter-row-content-height) var(--smart-filter-row-content-height);
+    grid-template-rows: 100%;
     column-gap: 2px;
+    height: var(--smart-filter-row-content-height);
 }
 
 .smart-table .smart-table-filter-row .filter-value {
@@ -668,6 +677,13 @@ smart-table table:not(.smart-table-container) {
     font-size: inherit;
 }
 
+.smart-table .smart-table-filter-row .filter-value::-webkit-outer-spin-button,
+.smart-table .smart-table-filter-row .filter-value::-webkit-inner-spin-button,
+.smart-table .smart-table-filter-row .filter-value[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
 .smart-table .smart-table-filter-row .filter-value:hover {
     border-color: var(--smart-ui-state-border-hover);
 }
@@ -681,6 +697,7 @@ smart-table table:not(.smart-table-container) {
     --smart-editor-addon-width: 100%;
     --smart-editor-label-padding: 0;
     width: unset;
+    height: 100%;
 }
 
 .smart-table .smart-table-filter-row .smart-input .smart-drop-down-button {
@@ -741,11 +758,13 @@ smart-table table:not(.smart-table-container) {
     content: var(--smart-icon-check);
 }
 
-.smart-table th.smart-table-select-all.indeterminate>div {
+.smart-table th.smart-table-select-all.indeterminate>div,
+.smart-table td.indeterminate>div {
     background-color: var(--smart-primary);
 }
 
-.smart-table th.smart-table-select-all.indeterminate>div::after {
+.smart-table th.smart-table-select-all.indeterminate>div::after,
+.smart-table td.indeterminate>div::after {
     content: '';
     position: absolute;
     width: 65%;
@@ -835,7 +854,7 @@ smart-table table:not(.smart-table-container) {
     position: relative;
 }
 
-.smart-table .dragged::after {
+.smart-table:not([column-resize]) .dragged::after {
     content: '';
     position: absolute;
     top: 0;
@@ -903,6 +922,14 @@ smart-table table:not(.smart-table-container) {
     top: calc(2 * var(--smart-table-column-header-height));
 }
 
+.smart-table[freeze-header] thead tr:nth-child(4)>th {
+    top: calc(3 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header] thead tr:nth-child(5)>th {
+    top: calc(4 * var(--smart-table-column-header-height));
+}
+
 .smart-table[freeze-header][filtering]:not([filter-row]) thead th,
 .smart-table[freeze-header][conditional-formatting-button] thead th {
     top: var(--smart-table-header-footer-height);
@@ -916,6 +943,16 @@ smart-table table:not(.smart-table-container) {
 .smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(3)>th,
 .smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(3)>th {
     top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(4)>th,
+.smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(4)>th {
+    top: calc(var(--smart-table-header-footer-height) + 3 * var(--smart-table-column-header-height));
+}
+
+.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(5)>th,
+.smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(5)>th {
+    top: calc(var(--smart-table-header-footer-height) + 4 * var(--smart-table-column-header-height));
 }
 
 .smart-table[freeze-header] thead th.freeze-near,
@@ -1003,6 +1040,10 @@ smart-table table:not(.smart-table-container) {
     box-shadow: var(--smart-elevation-8);
 }
 
+.smart-table.no-border>.smart-container {
+    border: none;
+}
+
 .smart-table td.editing {
     padding: 0;
 }
@@ -1053,13 +1094,19 @@ smart-table table:not(.smart-table-container) {
     cursor: pointer;
 }
 
+.smart-table .smart-table-row-detail {
+    height: var(--smart-table-row-detail-height);
+}
+
 .smart-table .smart-table-row-detail>td {
     border: none;
     padding: 0;
 }
 
 .smart-table .smart-table-row-detail .smart-table-detail-container {
-    padding: var(--smart-table-cell-padding);
+    height: calc(var(--smart-table-row-detail-height) - 2 * var(--smart-table-cell-padding));
+    padding: 0 var(--smart-table-cell-padding);
+    overflow: hidden;
 }
 
 .smart-table .smart-table-row-detail.collapsed {
@@ -1072,11 +1119,11 @@ smart-table table:not(.smart-table-container) {
     padding-bottom: 0;
 }
 
-.smart-table:not([animation="none"]) .smart-table-row-detail {
+.smart-table:not([animation="none"]):not([ignore-detail-animation]) .smart-table-row-detail {
     transition: height 0.2s ease-in-out;
 }
 
-.smart-table:not([animation="none"]) .smart-table-row-detail .smart-table-detail-container {
+.smart-table:not([animation="none"]):not([ignore-detail-animation]) .smart-table-row-detail .smart-table-detail-container {
     transition: height 0.2s ease-in-out, padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out;
 }
 
@@ -1184,8 +1231,16 @@ smart-table table:not(.smart-table-container) {
     padding-left: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
 }
 
+.smart-table .group-label-name {
+    display: var(--smart-table-group-name-display);
+}
+
 .smart-table .group-label-value {
     font-weight: bold;
+}
+
+.smart-table .group-label-count {
+    display: var(--smart-table-group-count-display);
 }
 
 smart-table tr.expanded .hierarchy-arrow,
@@ -1417,6 +1472,156 @@ smart-table tr.expanded .hierarchy-arrow,
     table-layout: auto;
 }
 
+.smart-table[column-resize]:not([freeze-header]) th[data-field]:not(.freeze-near):not(.freeze-far) {
+    position: relative;
+}
+
+.smart-table[column-resize] th[data-field]::before,
+.smart-table[column-resize] th[data-field]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+}
+
+.smart-table[column-resize] th[data-field]::before {
+    left: 0;
+}
+
+.smart-table[column-resize] th[data-field]::after {
+    right: 0;
+    width: 4px;
+}
+
+.smart-table[column-resize]:not([selection]) th[data-field]:first-child::before,
+.smart-table[column-resize][selection] th[data-field]:nth-child(2)::before,
+.smart-table[column-resize]:not([selection])[right-to-left] th[data-field]:first-child::after,
+.smart-table[column-resize][selection][right-to-left] th[data-field]:nth-child(2)::after,
+.smart-table[column-resize]:not([right-to-left]) th[locked]::after,
+.smart-table[column-resize]:not([right-to-left]) th[locked]+th[data-field]::before,
+.smart-table[column-resize][right-to-left] th[locked]::before,
+.smart-table[column-resize][right-to-left] th[locked]+th[data-field]::after,
+.smart-table[column-resize][resize-max-reached] th[data-field]::before,
+.smart-table[column-resize][resize-max-reached] th[data-field]::after {
+    content: none;
+}
+
+.smart-table[column-resize]:not([selection])[right-to-left] th[data-field]:not([locked]):first-child::before,
+.smart-table[column-resize][selection][right-to-left] th[data-field]:not([locked]):nth-child(2)::before {
+    content: '';
+}
+
+.smart-table-resize-feedback {
+    box-sizing: border-box;
+    position: absolute;
+    border-left: 1px dashed var(--smart-primary);
+    padding: 5px;
+    font-family: var(--smart-font-family);
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.smart-table-resize-feedback.static {
+    border-left-style: solid;
+}
+
+.smart-table-resize-feedback.min,
+.smart-table-resize-feedback.max {
+    border-left-color: var(--smart-error);
+}
+
+@media (hover: hover) {
+    .smart-table[column-resize]:not(.resizing) th[data-field]:hover::before {
+        border-left: 1px solid rgba(var(--smart-primary-rgb), 0.3);
+    }
+
+    .smart-table[column-resize]:not(.resizing) th[data-field]:hover::after {
+        border-right: 1px solid rgba(var(--smart-primary-rgb), 0.3);
+    }
+}
+
+@media (hover: none) {
+    .smart-table[column-resize]:not(.resizing) th[data-field]::before {
+        border-left: 1px solid rgba(var(--smart-primary-rgb), 0.3);
+    }
+
+    .smart-table[column-resize]:not(.resizing) th[data-field]::after {
+        border-right: 1px solid rgba(var(--smart-primary-rgb), 0.3);
+    }
+}
+
+.smart-table[column-groups]:not([right-to-left]) th:not(:last-child) {
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-table[column-groups][right-to-left] th:not(:last-child) {
+    border-left: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-table[column-groups][selection] th.smart-table-select-all,
+.smart-table[column-groups][selection] th.empty {
+    border-top: none;
+}
+
+.smart-table th.column-header,
+.smart-table[right-to-left] th.column-header {
+    text-align: center;
+}
+
+.smart-table th.column-header {
+    border-bottom: none;
+}
+
+.smart-table th.column-header:empty {
+    border-top: none;
+}
+
+/* HTML Virtualization */
+
+.smart-table .smart-table-virtualization-container {
+    border: none;
+    padding: 0;
+}
+
+.smart-table .smart-table-virtualization-container .smart-scroll-viewer-content-container {
+    padding: 0;
+}
+
+.smart-table[virtualization][paging] .smart-table-container,
+.smart-table[virtualization][filtering]:not([filter-row]) .smart-table-container,
+.smart-table[virtualization][conditional-formatting-button] .smart-table-container,
+.smart-table[virtualization][paging][filtering]:not([filter-row]) .smart-table-container,
+.smart-table[virtualization][paging][conditional-formatting-button] .smart-table-container {
+    height: 100%;
+}
+
+.smart-table[virtualization][freeze-header][filtering]:not([filter-row]) thead th,
+.smart-table[virtualization][freeze-header][conditional-formatting-button] thead th {
+    top: 0;
+}
+
+.smart-table[virtualization] tr.last-row td {
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-table[virtualization] tr[unused] {
+    visibility: hidden;
+}
+
+.smart-table[virtualization] tr[unused] td {
+    border-top: none;
+}
+
+.smart-table[virtualization] tr.smart-table-filter-row td {
+    position: sticky;
+    top: var(--smart-table-column-header-height);
+    background-color: var(--smart-background);
+    box-shadow: 0px 1px 0px 0px var(--smart-border);
+}
+
 
 
 /* --- Right To Left*/
@@ -1553,8 +1758,15 @@ smart-table tr.expanded .hierarchy-arrow,
     .smart-table .freeze-far,
     .smart-table[right-to-left] .freeze-near,
     .smart-table[right-to-left] .freeze-far,
+    .smart-table[column-groups][freeze-header] thead th,
     .smart-pivot-table[freeze-header] thead th {
         box-shadow: 0px 0px 0px 1px var(--smart-border);
+    }
+
+    .smart-table[freeze-header] thead th.empty,
+    .smart-table[freeze-header] thead th:empty,
+    .smart-pivot-table[freeze-header] .smart-pivot-table-grouping-header:empty {
+        box-shadow: -1px 0px 0px 0px var(--smart-border);
     }
 
     .smart-pivot-table thead th:not(:last-child),

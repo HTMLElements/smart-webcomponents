@@ -30,12 +30,14 @@ export interface ListBoxProps extends ListBoxProperties {
 	onScrollTopReached?: ((event?: Event) => void) | undefined;
 	onSwipeleft?: ((event?: Event) => void) | undefined;
 	onSwiperight?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  ListBox allows the user to select one or more items from a list.
 */
-export class ListBox extends React.Component<React.HTMLProps<Element> & ListBoxProps, any> {   
+export class ListBox extends React.Component<React.HTMLAttributes<Element> & ListBoxProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -1033,7 +1035,9 @@ export class ListBox extends React.Component<React.HTMLProps<Element> & ListBoxP
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

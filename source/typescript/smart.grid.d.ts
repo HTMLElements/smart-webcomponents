@@ -451,6 +451,11 @@ export interface Grid extends BaseElement, GridProperties {
 	* @param event. The custom event.    */
   onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * Adds a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
+   * @param {any} data. row data matching the data source
+   */
+  addRow(data: any): void;
+  /**
    * Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string} position?. 'near' or 'far'
    * @returns {boolean}
@@ -579,6 +584,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getSelection(): any;
   /**
+   * Gets the selected row ids.
+   * @returns {any[]}
+   */
+  getSelectedRows(): any[];
+  /**
    * Gets an array of columns with applied filters.
    * @returns {any}
    */
@@ -643,6 +653,12 @@ export interface Grid extends BaseElement, GridProperties {
    * Saves the batch edit changes. This method confirms the editing changes made by the end-user.
    */
   saveBatchEdit(): void;
+  /**
+   * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
+   * @param {string | number} rowId. row bound id
+   * @param {any} data. row data matching the data source
+   */
+  updateRow(rowId: string | number, data: any): void;
   /**
    * Selects a row, cell or column.
    * @param {string | number} rowId. row bound id
@@ -1000,7 +1016,7 @@ export interface GridClipboard {
   autoFillMode?: GridClipboardAutoFillMode;
   /**
    * Sets or gets a callback on paste.
-   * Default value: none
+   * Default value: null
    */
   onPasteValue?: any;
 }
@@ -1309,10 +1325,10 @@ export interface GridColumnMenuDataSource {
 /**Describes the settings of the column menu customize type */
 export interface GridCommand {
   /**
-   * Sets the commant of the column menu customize type.
-   * Default value: customizeTypeCommand
+   * Sets the command of the column menu customize type.
+   * Default value: "customizeTypeCommand"
    */
-  command?: any;
+  command?: string;
   /**
    * Enables the column menu customize type.
    * Default value: true
@@ -1381,14 +1397,14 @@ export interface GridConditionalFormatting {
   firstValue?: number;
   /**
    * The fontFamily to apply to formatted cells.
-   * Default value: The default fontFamily as set in CSS
+   * Default value: ""
    */
-  fontFamily?: GridConditionalFormattingFontFamily;
+  fontFamily?: string;
   /**
    * The fontSize to apply to formatted cells.
-   * Default value: The default fontSize as set in CSS
+   * Default value: "The default fontSize as set in CSS"
    */
-  fontSize?: GridConditionalFormattingFontSize;
+  fontSize?: string;
   /**
    * The background color to apply to formatted cells.
    * Default value: "The default backgroundColor as set in CSS"
@@ -1532,12 +1548,12 @@ export interface GridDataExport {
   view?: boolean;
   /**
    * Determines the start row index that will be exported or printed. 'view' should be set to true
-   * Default value: false
+   * Default value: null
    */
   viewStart?: number | null;
   /**
    * Determines the end row index that will be exported or printed. 'view' should be set to true
-   * Default value: false
+   * Default value: null
    */
   viewEnd?: number | null;
   /**
@@ -2256,7 +2272,7 @@ export interface GridHeader {
   template?: string | HTMLTemplateElement;
   /**
    * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
-   * Default value: [ 'columns', 'filter', 'group', 'sort', 'format', 'search' ]
+   * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
    */
   buttons?: any[];
 }
@@ -2671,10 +2687,6 @@ export declare type Position = 'near' | 'far';
 export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
-/**The fontFamily to apply to formatted cells. */
-export declare type GridConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
-/**The fontSize to apply to formatted cells. */
-export declare type GridConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Determines the way editing is initiated. */
 export declare type GridEditingAction = 'none' | 'click' | 'dblClick';
 /**Sets the navigation buttons position. */

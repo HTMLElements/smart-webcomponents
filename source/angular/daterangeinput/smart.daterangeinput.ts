@@ -1,8 +1,8 @@
 import { DateRangeInput } from './../index';
-import { Animation, DropDownButtonPosition, DateRangeInputValueType, DateRangeInputDateFormat, DateRangeInputTimeFormat, ElementRenderMode} from './../index';
+import { Animation, DropDownButtonPosition, DateRangeInputValueType, DateRangeFormat, TimeRangeFormat, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, forwardRef, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, DropDownButtonPosition, DateRangeInputValueType, DateRangeInputDateFormat, DateRangeInputTimeFormat, ElementRenderMode} from './../index';
+export { Animation, DropDownButtonPosition, DateRangeInputValueType, DateRangeFormat, TimeRangeFormat, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { DateRangeInput } from './../index';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -63,10 +63,10 @@ export class DateRangeInputComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. */
 	@Input()
-	get dateFormat(): DateRangeInputDateFormat {
+	get dateFormat(): DateRangeFormat {
 		return this.nativeElement ? this.nativeElement.dateFormat : undefined;
 	}
-	set dateFormat(value: DateRangeInputDateFormat) {
+	set dateFormat(value: DateRangeFormat) {
 		this.nativeElement ? this.nativeElement.dateFormat = value : undefined;
 	}
 
@@ -234,10 +234,10 @@ export class DateRangeInputComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
 	@Input()
-	get timeFormat(): DateRangeInputTimeFormat {
+	get timeFormat(): TimeRangeFormat {
 		return this.nativeElement ? this.nativeElement.timeFormat : undefined;
 	}
-	set timeFormat(value: DateRangeInputTimeFormat) {
+	set timeFormat(value: TimeRangeFormat) {
 		this.nativeElement ? this.nativeElement.timeFormat = value : undefined;
 	}
 

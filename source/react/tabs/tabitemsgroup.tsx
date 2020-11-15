@@ -11,12 +11,14 @@ export interface TabItemsGroupProps extends TabItemsGroupProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Defines a group of tab items.
 */
-export class TabItemsGroup extends React.Component<React.HTMLProps<Element> & TabItemsGroupProps, any> {   
+export class TabItemsGroup extends React.Component<React.HTMLAttributes<Element> & TabItemsGroupProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -174,7 +176,9 @@ export class TabItemsGroup extends React.Component<React.HTMLProps<Element> & Ta
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

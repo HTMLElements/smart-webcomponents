@@ -17,7 +17,12 @@ export interface TableProperties {
    */
   autoSaveState?: boolean;
   /**
-   * Sets or gets the min width of columns when columnSizeMode is 'auto'.
+   * Sets or gets a list of column groups that constitute the column header hierarchy. Note: when column header hierarchy is created, column resizing and auto-sizing is not supported.
+   * Default value: null
+   */
+  columnGroups?: TableColumnGroup[];
+  /**
+   * Sets or gets the min width of columns when columnSizeMode is 'auto' or when resizing columns. This property has no effect on columns with programmatically set width.
    * Default value: 50px
    */
   columnMinWidth?: string | number;
@@ -26,6 +31,16 @@ export interface TableProperties {
    * Default value: false
    */
   columnReorder?: boolean;
+  /**
+   * Sets or gets whether the resizing of columns is enabled. Note: column sizes continue to adhere to the behavior of the standard HTML table element's table-layout: fixed, upon which smart-table is based.
+   * Default value: false
+   */
+  columnResize?: boolean;
+  /**
+   * Sets or gets whether when resizing a column, a feedback showing the new column width in px will be displayed.
+   * Default value: false
+   */
+  columnResizeFeedback?: boolean;
   /**
    * Describes the columns properties.
    * Default value: null
@@ -46,6 +61,11 @@ export interface TableProperties {
    * Default value: false
    */
   conditionalFormattingButton?: boolean;
+  /**
+   * When binding the dataSource property directly to an array (as opposed to an instance of JQX.DataAdapter), sets or gets the name of the data field in the source array to bind row ids to.
+   * Default value: "null"
+   */
+  dataRowId?: string;
   /**
    * Determines the data source of the table component.
    * Default value: 
@@ -92,6 +112,11 @@ export interface TableProperties {
    */
   footerRow?: string;
   /**
+   * Sets or gets whether Excel-like formulas can be passed as cell values. Formulas are always preceded by the = sign and are re-evaluated when cell values are changed. This feature depends on the third-party free plug-in formula-parser (the file formula-parser.min.js has to be referenced).
+   * Default value: false
+   */
+  formulas?: boolean;
+  /**
    * Sets or gets whether the Table's footer is sticky/frozen.
    * Default value: false
    */
@@ -116,6 +141,11 @@ export interface TableProperties {
    * Default value: false
    */
   keyboardNavigation?: boolean;
+  /**
+   * Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'.
+   * Default value: implementationOnly
+   */
+  loadColumnStateBehavior?: TableLoadColumnStateBehavior;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -222,6 +252,11 @@ export interface TableProperties {
    */
   rowDetailTemplate?: string;
   /**
+   * Sets or gets an array of the Table's selected row's ids.
+   * Default value: 
+   */
+  selected?: any[];
+  /**
    * Sets or gets whether row selection (via checkboxes) is enabled.
    * Default value: false
    */
@@ -256,6 +291,11 @@ export interface TableProperties {
    * Default value: false
    */
   tooltip?: boolean;
+  /**
+   * Enables or disables HTML virtualization. This functionality allows for only visible rows to be rendered, resulting in an increased Table performance.
+   * Default value: false
+   */
+  virtualization?: boolean;
 }
 /**
  Table is an alternative of the HTMLTableElement.
@@ -287,7 +327,9 @@ export interface Table extends BaseElement, TableProperties {
   onCellEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the selection is changed.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(type)
+   *  type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a column header cell has been clicked.
@@ -295,6 +337,14 @@ export interface Table extends BaseElement, TableProperties {
    *  dataField - The data field of the cell's column.
    */
   onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column has been resized via dragging or double-click.
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, headerCellElement, width)
+   *  dataField - The data field of the column.
+   *  headerCellElement - The column's header cell HTML element.
+   *  width - The new width of the column.
+   */
+  onColumnResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a filtering-related action is made.
 	* @param event. The custom event. Custom data event was created with: ev.detail(action, filters)
@@ -316,6 +366,18 @@ export interface Table extends BaseElement, TableProperties {
    *  action - The paging action. Possible actions: 'pageIndexChange', 'pageSizeChange'.
    */
   onPage?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a row edit operation has been initiated (only when <strong>editMode</strong> is <em>'row'</em>).
+	* @param event. The custom event. Custom data event was created with: ev.detail(row)
+   *  row - The data of the row.
+   */
+  onRowBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a row has been edited (only when <strong>editMode</strong> is <em>'row'</em>).
+	* @param event. The custom event. Custom data event was created with: ev.detail(row)
+   *  row - The new data of the row.
+   */
+  onRowEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a column header cell has been clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(columns)
@@ -447,10 +509,10 @@ export interface Table extends BaseElement, TableProperties {
    */
   saveState(): any;
   /**
-   * Selects a row.
-   * @param {string | number} rowId. The id of the row to select.
+   * Selects one or more rows.
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select.
    */
-  select(rowId: string | number): void;
+  select(rowId: string | number | (string | number)[]): void;
   /**
    * Sets the value of a cell.
    * @param {string | number} row. The id of the cell's row.
@@ -465,10 +527,28 @@ export interface Table extends BaseElement, TableProperties {
    */
   sortBy(columnDataField: string, sortOrder?: string): void;
   /**
-   * Unselects a row.
-   * @param {string | number} rowId. The id of the row to unselect.
+   * Unselects one or more rows.
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to unselect.
    */
-  unselect(rowId: string | number): void;
+  unselect(rowId: string | number | (string | number)[]): void;
+}
+
+export interface TableColumnGroup {
+  /**
+   * Sets or gets the column group's label that appears in the column header hierarchy.
+   * Default value: ""
+   */
+  label?: string;
+  /**
+   * Sets or gets the column group's unique name that is referenced in the columnGroup field of columns (TableColumn).
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets or gets the name of the column group's parent group (also defined in columnGroups).
+   * Default value: "null"
+   */
+  parentGroup?: string;
 }
 
 export interface TableColumn {
@@ -492,6 +572,11 @@ export interface TableColumn {
    * Default value: true
    */
   allowSort?: boolean;
+  /**
+   * Sets or gets the column's column group. Has to correspond to the name field of a column group (TableColumnGroup).
+   * Default value: "null"
+   */
+  columnGroup?: string;
   /**
    * Sets or gets the column's data source-bound field.
    * Default value: ""
@@ -524,7 +609,7 @@ export interface TableColumn {
   label?: string;
   /**
    * Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden.
-   * Default value: 
+   * Default value: 1
    */
   responsivePriority?: TableColumnResponsivePriority;
   /**
@@ -566,8 +651,8 @@ export interface TableConditionalFormatting {
    */
   fontFamily?: TableConditionalFormattingFontFamily;
   /**
-   * The fontSize to apply to formatted cells.
-   * Default value: The default fontSize as set in CSS
+   * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
+   * Default value: 14px
    */
   fontSize?: TableConditionalFormattingFontSize;
   /**
@@ -607,12 +692,14 @@ export declare type TableColumnResponsivePriority = '1' | '2' | '3' | '4' | '5';
 export declare type TableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**The fontFamily to apply to formatted cells. */
 export declare type TableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
-/**The fontSize to apply to formatted cells. */
+/**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the column sizing behavior. */
 export declare type TableColumnSizeMode = 'auto' | 'default';
 /**Sets or gets the edit mode. */
 export declare type TableEditMode = 'cell' | 'row';
+/**Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'. */
+export declare type TableLoadColumnStateBehavior = 'implementationOnly' | 'intersection' | 'stateOnly';
 /**Sets or gets the page size (when paging is enabled). */
 export declare type TablePageSize = '10' | '25' | '50';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */

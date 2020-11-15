@@ -1,8 +1,8 @@
 import { ColorInput } from './../index';
-import { Animation, ColorDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat, ElementRenderMode} from './../index';
+import { Animation, ColorInputDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, forwardRef, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, ColorDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat, ElementRenderMode} from './../index';
+export { Animation, ColorInputDisplayMode, DropDownButtonPosition, ColorQueryMode, ColorValueDisplayMode, ColorValueFormat, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { ColorInput } from './../index';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -90,10 +90,10 @@ export class ColorInputComponent extends BaseElement implements OnInit, AfterVie
 
 	/** @description Determines the colors that will be displayed and their layout. */
 	@Input()
-	get displayMode(): ColorDisplayMode {
+	get displayMode(): ColorInputDisplayMode {
 		return this.nativeElement ? this.nativeElement.displayMode : undefined;
 	}
-	set displayMode(value: ColorDisplayMode) {
+	set displayMode(value: ColorInputDisplayMode) {
 		this.nativeElement ? this.nativeElement.displayMode = value : undefined;
 	}
 

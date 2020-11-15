@@ -24,12 +24,14 @@ export interface WindowProps extends WindowProperties {
 	onResizeEnd?: ((event?: Event) => void) | undefined;
 	onResizeStart?: ((event?: Event) => void) | undefined;
 	onRestore?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Window or Dialog displays the interactive custom confirmations, message boxes, alerts, warnings, errors, and modal dialogs.
 */
-export class Window extends React.Component<React.HTMLProps<Element> & WindowProps, any> {   
+export class Window extends React.Component<React.HTMLAttributes<Element> & WindowProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -1299,7 +1301,9 @@ export class Window extends React.Component<React.HTMLProps<Element> & WindowPro
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

@@ -4,6 +4,7 @@ smart-color-input,
 smart-text-box,
 smart-text-area,
 smart-input,
+smart-password-input,
 smart-multi-input,
 smart-check-input,
 smart-multi-combo-input,
@@ -40,14 +41,15 @@ smart-text-area {
 }
 
 .smart-text-area textarea {
+    margin: 0;
     resize: none;
 }
 
-smart-text-box.smart-element, smart-input.smart-element, smart-number-input.smart-element, smart-multi-input.smart-element, smart-check-input.smart-element, smart-multi-combo-input.smart-element, smart-date-range-input.smart-element, smart-time-input.smart-element, smart-date-input.smart-element {
+smart-text-box.smart-element, smart-input.smart-element, smart-password-input.smart-element, smart-number-input.smart-element, smart-multi-input.smart-element, smart-check-input.smart-element, smart-multi-combo-input.smart-element, smart-date-range-input.smart-element, smart-time-input.smart-element, smart-date-input.smart-element {
     background: var(--smart-background);
 }
 
-smart-input, smart-text-area, smart-number-input, smart-multi-input, smart-check-input, smart-multi-combo-input, smart-date-range-input, smart-date-input, smart-time-input {
+smart-input, smart-text-area, smart-password-input, smart-number-input, smart-multi-input, smart-check-input, smart-multi-combo-input, smart-date-range-input, smart-date-input, smart-time-input {
     border: 1px solid var(--smart-border);
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
@@ -55,12 +57,12 @@ smart-input, smart-text-area, smart-number-input, smart-multi-input, smart-check
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-smart-input input.smart-input, smart-multi-input input.smart-input, smart-check-input input.smart-input, smart-multi-combo-input input.smart-input, smart-date-range-input input.smart-input, smart-number-input input.smart-input, smart-text-area textarea.smart-input {
+smart-input input.smart-input, smart-password-input input.smart-input, smart-multi-input input.smart-input, smart-check-input input.smart-input, smart-multi-combo-input input.smart-input, smart-date-range-input input.smart-input, smart-number-input input.smart-input, smart-text-area textarea.smart-input {
     border: none;
     text-overflow: ellipsis;
 }
 
-.smart-text-box .smart-container, .smart-text-area .smart-container, .smart-input .smart-container, .smart-date-range-input .smart-container, .smart-multi-input .smart-container, .smart-multi-combo-input .smart-container, .smart-check-input .smart-container, .smart-text-box.smart-container, .smart-input.smart-container {
+.smart-text-box .smart-container,  .smart-password-input .smart-container, .smart-text-area .smart-container, .smart-input .smart-container, .smart-date-range-input .smart-container, .smart-multi-input .smart-container, .smart-multi-combo-input .smart-container, .smart-check-input .smart-container, .smart-text-box.smart-container, .smart-input.smart-container {
     width: 100%;
     height: 100%;
     color: inherit;
@@ -232,6 +234,7 @@ smart-input>.smart-container, .smart-input.smart-container, smart-multi-input>.s
 smart-date-range-input>.smart-container,
 smart-date-input>.smart-container,
 smart-time-input>.smart-container,
+smart-password-input>.smart-container,
 smart-number-input>.smart-container {
     display: flex;
 }
@@ -247,6 +250,9 @@ smart-number-input>.smart-container {
  smart-date-input[drop-down-button-position="right"] .smart-input,
  smart-check-input[drop-down-button-position="left"] .smart-input,
 smart-check-input[drop-down-button-position="right"] .smart-input,
+smart-time-input[drop-down-button-position="right"] .smart-input,
+smart-date-input[drop-down-button-position="right"] .smart-input,
+smart-number-input[drop-down-button-position="right"] .smart-input,
 smart-input[drop-down-button-position="right"] .smart-input,
 .smart-input[drop-down-button-position="left"] .smart-input,
 .smart-input[drop-down-button-position="right"] .smart-input {
@@ -504,7 +510,7 @@ smart-input:focus, smart-multi-input:focus, smart-check-input:focus, smart-date-
 
 /* renderMode */
 
-smart-text-box.outlined, smart-text-box.underlined, smart-input.outlined, smart-input.underlined, smart-date-range-input.outlined, smart-date-range-input.underlined, smart-multi-input.outlined, smart-multi-input.underlined, smart-multi-combo-input.outlined, smart-multi-combo-input.underlined, smart-check-input.outlined, smart-check-input.underlined, .smart-input.underlined:not([opened]) .smart-drop-down-button,
+smart-text-box.outlined, smart-text-box.underlined, smart-input.outlined, smart-input.underlined, smart-password-input.outlined, smart-password-input.underlined, smart-date-range-input.outlined, smart-date-range-input.underlined, smart-multi-input.outlined, smart-multi-input.underlined, smart-multi-combo-input.outlined, smart-multi-combo-input.underlined, smart-check-input.outlined, smart-check-input.underlined, .smart-input.underlined:not([opened]) .smart-drop-down-button,
 smart-masked-text-box.outlined, smart-password-text-box.outlined {
     background-color: transparent;
 }
@@ -656,7 +662,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
     line-height: 1.5;
-    height: auto;
+    height: 50px;
     margin: 0px;
     border: none;
     border-radius: 0px;
@@ -674,9 +680,11 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 
 .smart-input.outlined[drop-down-button-position="right"] .smart-drop-down-button {
     padding: 10px 0px;
+    padding-bottom: 9px;
     border-left: none;
     border-bottom: 1px solid var(--smart-border);
     border-right: 1px solid var(--smart-border);
+    border-top: 1px solid var(--smart-border);
     background: inherit;
     color: inherit;
     z-index: 6;
@@ -696,7 +704,6 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 .smart-number-input.outlined[drop-down-button-position="right"] .smart-drop-down-button,
 .smart-number-input.outlined[drop-down-button-position="left"] .smart-drop-down-button {
     padding:0;
-    margin-top:-1px;
 }
 .smart-input.outlined .smart-input, .smart-input.outlined.smart-multi-combo-input .smart-action-button {
     padding: 12px 13px 12px;
@@ -1070,7 +1077,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 /* Multi Combo Input */
 
 .smart-multi-combo-input {
-    height: auto;
+    height: auto !important;
 }
 
 smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi-combo-input .smart-action-button, .smart-multi-combo-input .smart-drop-down-button, .smart-multi-combo-input .smart-drop-down-button .arrow {

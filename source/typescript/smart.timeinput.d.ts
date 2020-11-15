@@ -10,7 +10,7 @@ export interface TimeInputProperties {
    * Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
    * Default value: { hour: 'numeric', minute: 'numeric' }
    */
-  dateTimeFormat?: TimeInputDateTimeFormat;
+  dateTimeFormat?: TimeFormat;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -148,197 +148,17 @@ export interface TimeInput extends BaseElement, TimeInputProperties {
 }
 
 /**Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. */
-export interface TimeInputDateTimeFormat {
+export interface TimeFormat {
   /**
-   * 
-   * Default value: undefined
+   * Hour format.
+   * Default value: "2-digit"
    */
-  0?: any;
+  hour?: string;
   /**
-   * 
-   * Default value: undefined
+   * Minute format.
+   * Default value: "2-digit"
    */
-  1?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  2?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  3?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  4?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  5?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  6?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  7?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  8?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  9?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  10?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  11?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  12?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  13?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  14?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  15?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  16?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  17?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  18?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  19?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  20?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  21?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  22?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  23?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  24?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  25?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  26?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  27?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  28?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  29?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  30?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  31?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  32?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  33?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  34?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  35?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  36?: any;
-  /**
-   * 
-   * Default value: undefined
-   */
-  37?: any;
+  minute?: string;
 }
 
 declare global {

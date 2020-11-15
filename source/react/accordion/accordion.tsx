@@ -21,12 +21,14 @@ export interface AccordionProps extends AccordionProperties {
 	onDragStart?: ((event?: Event) => void) | undefined;
 	onExpand?: ((event?: Event) => void) | undefined;
 	onExpanding?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Accordion organizes content within collapsable items.
 */
-export class Accordion extends React.Component<React.HTMLProps<Element> & AccordionProps, any> {   
+export class Accordion extends React.Component<React.HTMLAttributes<Element> & AccordionProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -429,7 +431,9 @@ export class Accordion extends React.Component<React.HTMLProps<Element> & Accord
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

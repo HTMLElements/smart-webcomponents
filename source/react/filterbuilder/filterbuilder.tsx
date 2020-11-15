@@ -21,12 +21,14 @@ export interface FilterBuilderProps extends FilterBuilderProperties {
 	onOpening?: ((event?: Event) => void) | undefined;
 	onClose?: ((event?: Event) => void) | undefined;
 	onClosing?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  FilterBuilder allows you to dynamically build filters.
 */
-export class FilterBuilder extends React.Component<React.HTMLProps<Element> & FilterBuilderProps, any> {   
+export class FilterBuilder extends React.Component<React.HTMLAttributes<Element> & FilterBuilderProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -578,7 +580,9 @@ export class FilterBuilder extends React.Component<React.HTMLProps<Element> & Fi
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

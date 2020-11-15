@@ -11,12 +11,14 @@ export interface SplitterBarProps extends SplitterBarProperties {
     className?: string;
     style?: React.CSSProperties;
 
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  SplitterBar splits two Split panels in a Splitter.
 */
-export class SplitterBar extends React.Component<React.HTMLProps<Element> & SplitterBarProps, any> {   
+export class SplitterBar extends React.Component<React.HTMLAttributes<Element> & SplitterBarProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -206,7 +208,9 @@ export class SplitterBar extends React.Component<React.HTMLProps<Element> & Spli
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

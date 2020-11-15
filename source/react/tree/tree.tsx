@@ -31,12 +31,14 @@ export interface TreeProps extends TreeProperties {
 	onScrollTopReached?: ((event?: Event) => void) | undefined;
 	onSwipeleft?: ((event?: Event) => void) | undefined;
 	onSwiperight?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  Treeview component is a user interface that is used to represent hierarchical data in a tree structure.
 */
-export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, any> {   
+export class Tree extends React.Component<React.HTMLAttributes<Element> & TreeProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -1098,7 +1100,9 @@ export class Tree extends React.Component<React.HTMLProps<Element> & TreeProps, 
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

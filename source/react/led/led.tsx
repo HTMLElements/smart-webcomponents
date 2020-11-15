@@ -12,12 +12,14 @@ export interface LedProps extends LedProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  LET Toggle button with Checked boolean value.
 */
-export class Led extends React.Component<React.HTMLProps<Element> & LedProps, any> {   
+export class Led extends React.Component<React.HTMLAttributes<Element> & LedProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -409,7 +411,9 @@ export class Led extends React.Component<React.HTMLProps<Element> & LedProps, an
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

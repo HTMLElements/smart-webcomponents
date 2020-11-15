@@ -591,6 +591,7 @@ smart-tree-items-group .smart-tree-items-group-arrow {
     height: 13px;
     font-family: var(--smart-font-family-icon);
     transform: rotate(0deg);
+    line-height: 1;
 }
 
 .smart-tree[right-to-left] smart-tree-items-group .smart-tree-items-group-arrow {

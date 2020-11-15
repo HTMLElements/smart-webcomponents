@@ -20,12 +20,14 @@ export interface TextBoxProps extends TextBoxProperties {
     style?: React.CSSProperties;
 
 	onChange?: ((event?: Event) => void) | undefined;
+	onCreate?: ((event?: Event) => void) | undefined;
+	onReady?: ((event?: Event) => void) | undefined;
 
 }
 /**
  TextBox is an input field with auto-suggest options.
 */
-export class TextBox extends React.Component<React.HTMLProps<Element> & TextBoxProps, any> {   
+export class TextBox extends React.Component<React.HTMLAttributes<Element> & TextBoxProps, any> {   
 	private _id: string;
 	private nativeElement: any;
 	private componentRef: any;
@@ -832,7 +834,9 @@ export class TextBox extends React.Component<React.HTMLProps<Element> & TextBoxP
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 

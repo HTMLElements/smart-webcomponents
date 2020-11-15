@@ -188,8 +188,6 @@ export class FormGroupComponent extends BaseElement implements OnInit, AfterView
 
       that.onCreate.emit(that.nativeElement);
 
-		Smart.Render();
-
 		this.nativeElement.whenRendered(() => { that.onReady.emit(that.nativeElement); });
 		this.listen();
 	}

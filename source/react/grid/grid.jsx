@@ -911,6 +911,21 @@ export class Grid extends React.Component {
 	get events() {
 		return ["onBeginEdit","onChange","onColumnClick","onColumnDoubleClick","onColumnResize","onColumnDragStart","onColumnDragging","onColumnDragEnd","onRowDragStart","onRowDragging","onRowDragEnd","onRowExpand","onRowCollapse","onRowClick","onRowDoubleClick","onRowResize","onCellClick","onCellDoubleClick","onEndEdit","onFilter","onResize","onRowTap","onCellTap","onPage","onSort","onScrollBottomReached","onScrollTopReached"];
 	}
+	/** Adds a row. When batch editing is enabled, the row is not saved until the batch edit is saved. 
+	* @param {any} data. row data matching the data source
+	*/
+    addRow(data){
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.addRow(data);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.addRow(data);
+            });
+        }
+    }
+
 	/** Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved. 
 	* @param {string} position?. 'near' or 'far'
 	* @returns {boolean}
@@ -1311,6 +1326,23 @@ export class Grid extends React.Component {
         return result;
     }
 
+	/** Gets the selected row ids. 
+	* @returns {any[]}
+  */
+	async getSelectedRows() {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.getSelectedRows();
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
 	/** Gets an array of columns with applied filters. 
 	* @returns {any}
   */
@@ -1513,6 +1545,22 @@ export class Grid extends React.Component {
     }
 
 	/** Saves the batch edit changes. This method confirms the editing changes made by the end-user. 
+	* @param {string | number} rowId. row bound id
+	* @param {any} data. row data matching the data source
+	*/
+    updateRow(rowId, data){
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.updateRow(rowId, data);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.updateRow(rowId, data);
+            });
+        }
+    }
+
+	/** Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved. 
 	* @param {string | number} rowId. row bound id
 	* @param {string} dataField?. column bound data field
 	*/
@@ -1726,7 +1774,9 @@ export class Grid extends React.Component {
 		if (!that.nativeElement) {
 			return;
 		}
-
+		
+		that.nativeElement.whenRenderedCallbacks = [];
+		
 		for(let i = 0; i < that.events.length; i++){
 			const eventName = that.events[i];
 
