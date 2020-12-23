@@ -731,6 +731,9 @@ smart-grid-row {
 smart-grid-row[edit] {
     z-index: 7;
 }
+smart-grid-row[edit][error] {
+    z-index: 101;
+}
     smart-grid-row .smart-grid-command-bar {
         z-index: 6;
         height: calc(100% - 1px);
@@ -2327,7 +2330,7 @@ smart-grid-cell[editor][row-editor] ~ smart-grid-cell[editor][row-editor] {
 }
 
     smart-grid-cell[editor][row-editor]:first-child {
-        border-left: 2px solid var(--smart-primary) !important;
+        border-left: 1px solid var(--smart-primary) !important;
     }
 
     smart-grid-cell[editor][row-editor]:last-child {

@@ -206,7 +206,7 @@ export class Chip extends React.Component<React.HTMLAttributes<Element> & ChipPr
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onClose","onCreate","onReady"];
 	}
 	/** Closes the chip and removes it from the DOM. 
@@ -288,6 +288,7 @@ export class Chip extends React.Component<React.HTMLAttributes<Element> & ChipPr
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -331,8 +332,8 @@ export class Chip extends React.Component<React.HTMLAttributes<Element> & ChipPr
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

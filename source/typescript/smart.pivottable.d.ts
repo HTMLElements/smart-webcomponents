@@ -37,6 +37,11 @@ export interface PivotTableProperties {
    */
   dataSource?: any;
   /**
+   * Sets or gets whether the original tabular data sourse of the PivotTable will be pre-sorted based on columns with the rowGroup property (and their order).
+   * Default value: false
+   */
+  defaultSortByRowGroups?: boolean;
+  /**
    * Sets or gets whether to display the PivotTable's designer alongside the table itself. The designer allows for configuring column settings and applying filtering.
    * Default value: false
    */
@@ -77,6 +82,16 @@ export interface PivotTableProperties {
    */
   groupLayout?: PivotTableGroupLayout;
   /**
+   * Sets or gets whether to hide the tooltip that displays details when multiple summary cells with non-null values are selected.
+   * Default value: false
+   */
+  hideCellSelectionTooltip?: boolean;
+  /**
+   * Sets or gets whether to hide rows that contain only 0 or null values. Applicable only when there are rowGroup columns.
+   * Default value: false
+   */
+  hideEmptyRows?: boolean;
+  /**
    * Sets or gets whether navigation with the keyboard is enabled in the PivotTable.
    * Default value: false
    */
@@ -88,9 +103,14 @@ export interface PivotTableProperties {
   locale?: string;
   /**
    * Sets or gets an object specifying strings used in the element that can be localized. Used in conjunction with the property locale. 
-   * Default value:    * {"en":{"add":"Add condition","all":"All columns","apply":"Apply","between":"Between","calculation":"Calculation","cancel":"Cancel","center":"center","clear":"Clear","clearFilter":"Clear filter","close":"Close","column":"Column:","columns":"Columns","columnSettings":"Column settings","condition":"Condition:","conditionalFormatting":"Conditional Formatting","CONTAINS_CASE_SENSITIVE":"contains (case sensitive)","CONTAINS":"contains","decimalPlaces":"Decimal places","decimalSeparator":"Decimal separator","details":"Details","DOES_NOT_CONTAIN_CASE_SENSITIVE":"does not contain (case sensitive)","DOES_NOT_CONTAIN":"does not contain","dragHerePivots":"Drag here to set pivots","dragHereRowGroups":"Drag here to set row groups","dragHereSummaries":"Drag here to set summaries","EMPTY":"empty","ENDS_WITH_CASE_SENSITIVE":"ends with (case sensitive)","ENDS_WITH":"ends with","EQUAL_CASE_SENSITIVE":"equal (case sensitive)","equal":"Equal To","EQUAL":"equal","fields":"Fields","filter":"Filter","filterCondition":"Filter condition","filterPlaceholder":"Filter","filters":"Filters","firstButton":"First","fontFamily":"Font family:","fontSize":"Font size:","format":"Format:","formatColumn":"Format Column","grandTotal":"Grand Total","GREATER_THAN_OR_EQUAL":"greater than or equal","GREATER_THAN":"greater than","greaterThan":"Greater Than","groupHeader":"Group","highlight":"Highlight","invalidValue":"Invalid value","itemsPerPage":"Items per page:","lastButton":"Last","left":"left","LESS_THAN_OR_EQUAL":"less than or equal","LESS_THAN":"less than","lessThan":"Less Than","moveTo":"Move to","negativesInBrackets":"Negatives in brackets","nextButton":"Next","NOT_EMPTY":"not empty","NOT_EQUAL":"not equal","NOT_NULL":"not null","notApplicable":"N/A","notEqual":"Not Equal To","NULL":"null","numberAlignment":"Number alignment","numberFormat":"Number format","numberPrefix":"Number prefix","ok":"OK","pivots":"Pivots","previousButton":"Previous","remove":"Remove condition","right":"right","row":"Row","rowGroups":"Row Groups","sameSummaryFunctionRequired":"jqxPivotTable: When "columnTotals" is enabled, all summary columns must have the same "summary" function set (e.g. '
+   * Default value:    * {"en":{"add":"Add condition","all":"All columns","apply":"Apply","average":"Average","between":"Between","calculation":"Calculation","cancel":"Cancel","center":"center","clear":"Clear","clearFilter":"Clear filter","close":"Close","column":"Column:","columns":"Columns","columnSettings":"Column settings","condition":"Condition:","conditionalFormatting":"Conditional Formatting","CONTAINS_CASE_SENSITIVE":"contains (case sensitive)","CONTAINS":"contains","count":"Count","decimalPlaces":"Decimal places","decimalSeparator":"Decimal separator","details":"Details","DOES_NOT_CONTAIN_CASE_SENSITIVE":"does not contain (case sensitive)","DOES_NOT_CONTAIN":"does not contain","dragHerePivots":"Drag here to set pivots","dragHereRowGroups":"Drag here to set row groups","dragHereSummaries":"Drag here to set summaries","EMPTY":"empty","ENDS_WITH_CASE_SENSITIVE":"ends with (case sensitive)","ENDS_WITH":"ends with","EQUAL_CASE_SENSITIVE":"equal (case sensitive)","equal":"Equal To","EQUAL":"equal","fields":"Fields","filter":"Filter","filterCondition":"Filter condition","filterPlaceholder":"Filter","filters":"Filters","firstButton":"First","fontFamily":"Font family:","fontSize":"Font size:","format":"Format:","formatColumn":"Format Column","grandTotal":"Grand Total","GREATER_THAN_OR_EQUAL":"greater than or equal","GREATER_THAN":"greater than","greaterThan":"Greater Than","groupHeader":"Group","highlight":"Highlight","invalidValue":"Invalid value","itemsPerPage":"Items per page:","lastButton":"Last","left":"left","LESS_THAN_OR_EQUAL":"less than or equal","LESS_THAN":"less than","lessThan":"Less Than","moveTo":"Move to","negativesInBrackets":"Negatives in brackets","nextButton":"Next","NOT_EMPTY":"not empty","NOT_EQUAL":"not equal","NOT_NULL":"not null","notApplicable":"N/A","notEqual":"Not Equal To","NULL":"null","numberAlignment":"Number alignment","numberFormat":"Number format","numberPrefix":"Number prefix","ok":"OK","pivots":"Pivots","previousButton":"Previous","remove":"Remove condition","right":"right","row":"Row","rowGroups":"Row Groups","sameSummaryFunctionRequired":"jqxPivotTable: When "columnTotals" is enabled, all summary columns must have the same "summary" function set (e.g. '
    */
   messages?: any;
+  /**
+   * Sets or gets what value is shown in cells that do not have aggregated data to display. By default (null), such cells are empty.
+   * Default value: null
+   */
+  nullDefaultValue?: number;
   /**
    * A callback function executed each time a PivotTable cell is rendered.
    * Default value: null
@@ -111,6 +131,11 @@ export interface PivotTableProperties {
    * Default value: false
    */
   rightToLeft?: boolean;
+  /**
+   * Sets or gets whether sorting by row (when a row group cell is clicked) is enabled. When columnTotals is also enabled, sorting is applied per "column group"; otherwise - for all columns.
+   * Default value: false
+   */
+  rowSort?: boolean;
   /**
    * Sets or gets whether to show row total columns for each summary column.
    * Default value: false
@@ -168,7 +193,9 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
   onCellClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the selection is changed.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(type)
+   *  type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a summary column header cell has been clicked.
@@ -177,6 +204,30 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
    *  dataField - The data field of the cell's original column.
    */
   onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a row has been collapsed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(record)
+   *  record - The (aggregated) data of the collapsed row.
+   */
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a total column has been collapsed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(columnDefinition)
+   *  columnDefinition - The definition of the collapsed total column.
+   */
+  onCollapseTotalColumn?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a row has been expanded.
+	* @param event. The custom event. Custom data event was created with: ev.detail(record)
+   *  record - The (aggregated) data of the expanded row.
+   */
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a total column has been expanded.
+	* @param event. The custom event. Custom data event was created with: ev.detail(columnDefinition)
+   *  columnDefinition - The definition of the expanded total column.
+   */
+  onExpandTotalColumn?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a filtering-related action is made.
 	* @param event. The custom event. Custom data event was created with: ev.detail(action, filters)
@@ -240,10 +291,10 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
    */
   getDynamicColumns(): any;
   /**
-   * Returns an array of selected row ids.
-   * @returns {(string | number)[]}
+   * Returns an array of selected row ids (when <strong>selectionMode</strong> is <em>'many'</em> or <em>'extended'</em>) or an array of selected cell details (when <strong>selectionMode</strong> is <em>'cell'</em>).
+   * @returns {(string | number)[] | { dataField: string, rowId: string | number }[]}
    */
-  getSelection(): (string | number)[];
+  getSelection(): (string | number)[] | { dataField: string, rowId: string | number }[];
   /**
    * Refreshes the PivotTable.
    */
@@ -254,10 +305,11 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
    */
   removeFilter(dataField: string): void;
   /**
-   * Selects a row.
-   * @param {string | number} rowId. The id of the row to select. Can be retrieved from the <strong>rows</strong> collection.
+   * Selects one or more rows (when <strong>selectionMode</strong> is <em>'many'</em> or <em>'extended'</em>) or a single cell (when <strong>selectionMode</strong> is <em>'cell'</em> and the second argument is passed).
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select (or of the cell's parent row when <strong>selectionMode</strong> is <em>'cell'</em>). Can be retrieved from the <strong>rows</strong> collection.
+   * @param {string} dataField?. The dataField of the dynamic column (can be retrieved by calling <strong>getDynamicColumns</strong>) of the cell to select (only applicable when <strong>selectionMode</strong> is <em>'cell'</em>).
    */
-  select(rowId: string | number): void;
+  select(rowId: string | number | (string | number)[], dataField?: string): void;
   /**
    * Sorts by a summary or group column.
    * @param {any} columnDefinition. The dynamic column's definition. Can be retrieved from the method <strong>getDynamicColumns</strong>.
@@ -265,10 +317,11 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
    */
   sortBy(columnDefinition: any, sortOrder?: string): void;
   /**
-   * Unselects a row.
-   * @param {string | number} rowId. The id of the row to unselect. Can be retrieved from the <strong>rows</strong> collection.
+   * Unselects one or more rows (when <strong>selectionMode</strong> is <em>'many'</em> or <em>'extended'</em>) or a single cell (when <strong>selectionMode</strong> is <em>'cell'</em> and the second argument is passed).
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select (or of the cell's parent row when <strong>selectionMode</strong> is <em>'cell'</em>). Can be retrieved from the <strong>rows</strong> collection.
+   * @param {string} dataField?. The dataField of the dynamic column (can be retrieved by calling <strong>getDynamicColumns</strong>) of the cell to select (only applicable when <strong>selectionMode</strong> is <em>'cell'</em>).
    */
-  unselect(rowId: string | number): void;
+  unselect(rowId: string | number | (string | number)[], dataField?: string): void;
 }
 
 export interface PivotTableColumn {
@@ -333,7 +386,7 @@ export interface PivotTableColumn {
    */
   summary?: PivotTableColumnSummary;
   /**
-   * Sets or gets an object with settings for cells in summary columns.
+   * Sets or gets an object with settings for cells in summary columns. These settings are not applied if column formatFunction is also implemented.
    * Default value: [object Object]
    */
   summarySettings?: { align: string, prefix: string, decimalPlaces: number, thousandsSeparator: string, decimalSeparator: string, negativesInBrackets: boolean };
@@ -413,6 +466,6 @@ export declare type PivotTableGroupLayout = 'classic' | 'default';
 /**Sets or gets the position of row total columns (shown when rowTotals is enabled). */
 export declare type PivotTableRowTotalsPosition = 'near' | 'far';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */
-export declare type PivotTableSelectionMode = 'many' | 'extended';
+export declare type PivotTableSelectionMode = 'many' | 'extended' | 'cell';
 /**Determines the sorting mode of the PivotTable. */
 export declare type PivotTableSortMode = 'none' | 'one' | 'many';

@@ -1,8 +1,8 @@
 import React from "react";
 import { GanttChartProperties } from "./../../index";
-import { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn} from './../../index';
+import { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskColumn} from './../../index';
 export { GanttChartProperties } from "./../../index";
-export { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn} from './../../index';
+export { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskColumn} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -914,14 +914,14 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onBeginUpdate","onEndUpdate","onChange","onItemClick","onItemInsert","onItemRemove","onItemUpdate","onProgressChangeStart","onProgressChangeEnd","onDragStart","onDragEnd","onResizeStart","onResizeEnd","onConnectionStart","onConnectionEnd","onScrollBottomReached","onScrollTopReached","onOpening","onOpen","onClosing","onClose","onCollapse","onExpand","onCreate","onReady"];
 	}
 	/** Adds a task as the last item of a Project. 
-	* @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
+	* @param {any} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	* @param {string | number} projectIndex. A number that represents the index of a project or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	*/
-    public addTaskTo(taskIndex: string | number, projectIndex: string | number): void {
+    public addTaskTo(taskIndex: any, projectIndex: string | number): void {
         if (this.nativeElement.isRendered) {
             this.nativeElement.addTaskTo(taskIndex, projectIndex);
         }
@@ -1153,10 +1153,10 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
     }
 
 	/** Returns the Tree path of a task/resource. 
-	* @param {GanttChartTask | GanttChartResource | number} item. A GattChartTask/GanttChartResource item object or index.
+	* @param {any} item. A GattChartTask/GanttChartResource item object or index.
 	* @returns {string}
   */
-	public async getItemPath(item:GanttChartTask | GanttChartResource | number) : Promise<any> {
+	public async getItemPath(item:any) : Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
@@ -1171,10 +1171,10 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
     }
 
 	/** Returns the index of a task. 
-	* @param {GanttChartTask} task. A GattChartTask object.
+	* @param {any} task. A GattChartTask object.
 	* @returns {number}
   */
-	public async getTaskIndex(task:GanttChartTask) : Promise<any> {
+	public async getTaskIndex(task:any) : Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
@@ -1189,10 +1189,10 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
     }
 
 	/** Returns the tree path of a task. 
-	* @param {GanttChartTask} task. A GanttChartTask object.
+	* @param {any} task. A GanttChartTask object.
 	* @returns {string}
   */
-	public async getTaskPath(task:GanttChartTask) : Promise<any> {
+	public async getTaskPath(task:any) : Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
@@ -1207,10 +1207,10 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
     }
 
 	/** Returns teh Project of a task if any. 
-	* @param {GanttChartTask} task. A GantChartTask object.
-	* @returns {GanttChartTask | undefined}
+	* @param {any} task. A GantChartTask object.
+	* @returns {any}
   */
-	public async getTaskProject(task:GanttChartTask) : Promise<any> {
+	public async getTaskProject(task:any) : Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
@@ -1535,6 +1535,7 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1578,8 +1579,8 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

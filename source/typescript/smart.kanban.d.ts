@@ -7,6 +7,11 @@ export interface KanbanProperties {
    */
   addNewButton?: boolean;
   /**
+   * Sets or gets whether a column with a button for adding new status columns to the Kanban will be displayed.
+   * Default value: false
+   */
+  addNewColumn?: boolean;
+  /**
    * Allows the dragging of tasks.
    * Default value: true
    */
@@ -51,6 +56,11 @@ export interface KanbanProperties {
    * Default value: null
    */
   dataSource?: KanbanDataSource[];
+  /**
+   * Determines the the relation (mapping) between the Kanban's default fields (keywords) and the data fields from the data source. Not necessary if both match. Only some of the default mapping can be overwritten.
+   * Default value: { checklist: 'checklist', color: 'color', comments: 'comments', dueDate: 'dueDate', id: 'id', priority: 'priority', progress: 'progress', startDate: 'startDate', status: 'status', swimlane: 'swimlane', tags: 'tags', text: 'text', userId: 'userId' }
+   */
+  dataSourceMap?: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; };
   /**
    * Determines the offset of the drag feedback element from the mouse cursor when dragging tasks. The first member of the array is the horizontal offset and the second one - the vertical offset. If set to 'auto', the offset is based on the mouse position when the dragging started.
    * Default value: auto

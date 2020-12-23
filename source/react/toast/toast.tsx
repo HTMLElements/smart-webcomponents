@@ -324,7 +324,7 @@ export class Toast extends React.Component<React.HTMLAttributes<Element> & Toast
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onClick","onClose","onOpen","onSwipebottom","onSwipeleft","onSwiperight","onSwipetop","onCreate","onReady"];
 	}
 	/** Closes all opened toast items. 
@@ -371,13 +371,15 @@ export class Toast extends React.Component<React.HTMLAttributes<Element> & Toast
     }
 
 	/** Opens a new toast item and returns the opened smart-toast-item instance.  
+	* @param {HTMLElement | string} value?. The value for the toast item. If not set, the value property will be used.
+	* @param {string} iconType?. The icon name for the toast item. If not set, the type property determines the icon type that will be used.
 	* @returns {HTMLElement}
   */
-	public async open() : Promise<any> {
+	public async open(value?:HTMLElement | string, iconType?:string) : Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
-                    const result = this.nativeElement.open();
+                    const result = this.nativeElement.open(value, iconType);
                     resolve(result)
                 });
             });
@@ -452,6 +454,7 @@ export class Toast extends React.Component<React.HTMLAttributes<Element> & Toast
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -495,8 +498,8 @@ export class Toast extends React.Component<React.HTMLAttributes<Element> & Toast
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

@@ -192,7 +192,7 @@ export class Card extends React.Component<React.HTMLAttributes<Element> & CardPr
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onSwipebottom","onSwipeleft","onSwiperight","onSwipetop","onCreate","onReady"];
 	}
 
@@ -260,6 +260,7 @@ export class Card extends React.Component<React.HTMLAttributes<Element> & CardPr
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -303,8 +304,8 @@ export class Card extends React.Component<React.HTMLAttributes<Element> & CardPr
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

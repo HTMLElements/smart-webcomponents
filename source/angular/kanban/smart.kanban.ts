@@ -41,6 +41,15 @@ export class KanbanComponent extends BaseElement implements OnInit, AfterViewIni
 		this.nativeElement ? this.nativeElement.addNewButton = value : undefined;
 	}
 
+	/** @description Sets or gets whether a column with a button for adding new status columns to the Kanban will be displayed. */
+	@Input()
+	get addNewColumn(): boolean {
+		return this.nativeElement ? this.nativeElement.addNewColumn : undefined;
+	}
+	set addNewColumn(value: boolean) {
+		this.nativeElement ? this.nativeElement.addNewColumn = value : undefined;
+	}
+
 	/** @description Allows the dragging of tasks. */
 	@Input()
 	get allowDrag(): boolean {
@@ -120,6 +129,15 @@ export class KanbanComponent extends BaseElement implements OnInit, AfterViewIni
 	}
 	set dataSource(value: KanbanDataSource[]) {
 		this.nativeElement ? this.nativeElement.dataSource = value : undefined;
+	}
+
+	/** @description Determines the the relation (mapping) between the Kanban's default fields (keywords) and the data fields from the data source. Not necessary if both match. Only some of the default mapping can be overwritten. */
+	@Input()
+	get dataSourceMap(): { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; } {
+		return this.nativeElement ? this.nativeElement.dataSourceMap : undefined;
+	}
+	set dataSourceMap(value: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; }) {
+		this.nativeElement ? this.nativeElement.dataSourceMap = value : undefined;
 	}
 
 	/** @description Determines the offset of the drag feedback element from the mouse cursor when dragging tasks. The first member of the array is the horizontal offset and the second one - the vertical offset. If set to 'auto', the offset is based on the mouse position when the dragging started. */

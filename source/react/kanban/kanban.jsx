@@ -23,6 +23,18 @@ export class Kanban extends React.Component {
 		}
 	}
 
+	/** Sets or gets whether a column with a button for adding new status columns to the Kanban will be displayed.
+	*	Property type: boolean
+	*/
+	get addNewColumn() {
+		return this.nativeElement ? this.nativeElement.addNewColumn : undefined;
+	}
+	set addNewColumn(value) {
+		if (this.nativeElement) {
+			this.nativeElement.addNewColumn = value;
+		}
+	}
+
 	/** Allows the dragging of tasks.
 	*	Property type: boolean
 	*/
@@ -128,6 +140,18 @@ export class Kanban extends React.Component {
 	set dataSource(value) {
 		if (this.nativeElement) {
 			this.nativeElement.dataSource = value;
+		}
+	}
+
+	/** Determines the the relation (mapping) between the Kanban's default fields (keywords) and the data fields from the data source. Not necessary if both match. Only some of the default mapping can be overwritten.
+	*	Property type: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; }
+	*/
+	get dataSourceMap() {
+		return this.nativeElement ? this.nativeElement.dataSourceMap : undefined;
+	}
+	set dataSourceMap(value) {
+		if (this.nativeElement) {
+			this.nativeElement.dataSourceMap = value;
 		}
 	}
 
@@ -422,7 +446,7 @@ export class Kanban extends React.Component {
 
 	// Gets the properties of the React component.
 	get properties() {
-		return ["addNewButton","allowDrag","allowDrop","animation","autoLoadState","autoSaveState","collapsible","columns","currentUser","dataSource","dragOffset","editable","formatStringDate","formatStringTime","headerPosition","hierarchy","locale","messages","selectionMode","swimlanes","swimlanesFrom","swimlanesTo","tags","taskActions","taskComments","taskDue","taskPosition","taskPriority","taskProgress","taskTags","taskUserIcon","textTemplate","userList","users"];
+		return ["addNewButton","addNewColumn","allowDrag","allowDrop","animation","autoLoadState","autoSaveState","collapsible","columns","currentUser","dataSource","dataSourceMap","dragOffset","editable","formatStringDate","formatStringTime","headerPosition","hierarchy","locale","messages","selectionMode","swimlanes","swimlanesFrom","swimlanesTo","tags","taskActions","taskComments","taskDue","taskPosition","taskPriority","taskProgress","taskTags","taskUserIcon","textTemplate","userList","users"];
 	}
 	/**  This event is triggered when a task has been updated.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	oldValue, 	task, 	value)
@@ -534,7 +558,7 @@ export class Kanban extends React.Component {
 	}
 
 	// Gets the events of the React component.
-	get events() {
+	get eventListeners() {
 		return ["onChange","onClose","onClosing","onDragEnd","onDragging","onDragStart","onFilter","onOpen","onOpening","onSort"];
 	}
 	/** Adds filtering 
@@ -967,6 +991,7 @@ export class Kanban extends React.Component {
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1010,8 +1035,8 @@ export class Kanban extends React.Component {
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

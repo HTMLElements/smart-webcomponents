@@ -124,7 +124,7 @@ smart-table table:not(.smart-table-container) {
 }
 
 .smart-table:not([animation="none"]) thead th .sort-by {
-    transition: transform 0.5s ease-out, visibility 0.5s ease-out, opacity 0.5s ease-out;
+    transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
 }
 
 .smart-table thead th .sort-by.asc,
@@ -153,8 +153,37 @@ smart-table table:not(.smart-table-container) {
     position: relative;
 }
 
-.smart-table thead th .sort-by.desc {
+.smart-table:not([animation="none"]) thead th .sort-by::before {
+    transition: transform 0.5s ease-out;
+}
+
+.smart-table thead th .sort-by.desc::before {
     transform: rotateX(180deg);
+}
+
+.smart-table thead th .sort-by::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    padding: 3px;
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    font-size: 8px;
+}
+
+.smart-table[sort-mode="many"] thead th .sort-by::after {
+    content: attr(order);
+}
+
+.smart-table[right-to-left] thead th .sort-by::after {
+    left: unset;
+    right: 100%;
 }
 
 .smart-table thead tr:first-child th {
@@ -564,7 +593,8 @@ smart-table table:not(.smart-table-container) {
     grid-template-columns: 1fr;
 }
 
-.smart-table[conditional-formatting-button]:not([filtering]) .smart-table-header {
+.smart-table[conditional-formatting-button]:not([filtering]) .smart-table-header,
+.smart-table[conditional-formatting-button][filtering][filter-row] .smart-table-header {
     grid-template-columns: 1fr auto;
     grid-template-areas: ". button";
 }
@@ -595,6 +625,11 @@ smart-table table:not(.smart-table-container) {
     display: block;
 }
 
+.smart-table[filtering][filter-row][conditional-formatting-button] .smart-table-header .smart-input,
+.smart-table[filtering][filter-row][conditional-formatting-button] .smart-table-header .smart-table-filter-template-container {
+    display: none;
+}
+
 .smart-table .smart-table-header .smart-table-toolbar-button.conditional-formatting {
     display: none;
     border: var(--smart-border-width) solid var(--smart-border);
@@ -608,7 +643,8 @@ smart-table table:not(.smart-table-container) {
     display: flex;
 }
 
-.smart-table[conditional-formatting-button]:not([filtering]) .smart-table-header .smart-table-toolbar-button.conditional-formatting {
+.smart-table[conditional-formatting-button]:not([filtering]) .smart-table-header .smart-table-toolbar-button.conditional-formatting,
+.smart-table[conditional-formatting-button][filtering][filter-row] .smart-table-header .smart-table-toolbar-button.conditional-formatting {
     grid-area: button;
 }
 
@@ -1135,6 +1171,7 @@ smart-table table:not(.smart-table-container) {
 }
 
 .smart-table td.tree-cell>div>div:nth-child(2) {
+    width: calc(100% - var(--smart-table-arrow-margin) - var(--smart-table-arrow-size));
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.2;

@@ -392,7 +392,7 @@ export class Array extends React.Component<React.HTMLAttributes<Element> & Array
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onArraySizeChange","onChange","onDimensionChange","onElementClick","onScroll","onSizeChange","onCreate","onReady"];
 	}
 	/** Adds a dimension to the array. Note: when adding multiple dimensions simultaneously, it is recommended to do so by dynamically setting the dimensions property. 
@@ -891,6 +891,7 @@ export class Array extends React.Component<React.HTMLAttributes<Element> & Array
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -934,8 +935,8 @@ export class Array extends React.Component<React.HTMLAttributes<Element> & Array
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

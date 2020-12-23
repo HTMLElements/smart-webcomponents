@@ -242,7 +242,7 @@ export class Accordion extends React.Component {
 	}
 
 	// Gets the events of the React component.
-	get events() {
+	get eventListeners() {
 		return ["onCollapse","onCollapsing","onDragEnd","onDragStart","onExpand","onExpanding"];
 	}
 	/** Collapses an item at a specified index. 
@@ -387,6 +387,7 @@ export class Accordion extends React.Component {
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -430,8 +431,8 @@ export class Accordion extends React.Component {
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

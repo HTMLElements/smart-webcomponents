@@ -306,23 +306,28 @@ export interface Table extends BaseElement, TableProperties {
   [name: string]: any;
   /**
    * This event is triggered when a cell edit operation has been initiated.
-	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row)
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row, value)
    *  dataField - The data field of the cell's column.
    *  row - The data of the cell's row.
+   *  value - The data value of the cell.
    */
   onCellBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a cell has been clicked.
-	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, value, originalEvent)
+   *  id - The cell's row id.
    *  dataField - The data field of the cell's column.
    *  row - The data of the cell's row.
+   *  value - The data value of the cell.
+   *  originalEvent - The 'click' event object.
    */
   onCellClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a cell has been edited.
-	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row)
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row, value)
    *  dataField - The data field of the cell's column.
    *  row - The new data of the cell's row.
+   *  value - The data value of the cell.
    */
   onCellEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -331,6 +336,18 @@ export interface Table extends BaseElement, TableProperties {
    *  type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when a row has been collapsed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(record)
+   *  record - The data of the collapsed row.
+   */
+  onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a row has been expanded.
+	* @param event. The custom event. Custom data event was created with: ev.detail(record)
+   *  record - The (aggregated) data of the expanded row.
+   */
+  onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a column header cell has been clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
@@ -612,6 +629,16 @@ export interface TableColumn {
    * Default value: 1
    */
   responsivePriority?: TableColumnResponsivePriority;
+  /**
+   * A string to be parsed into HTML and be used as custom cell content. Applicable only when virtualization is enabled.
+   * Default value: "null"
+   */
+  templateElement?: string;
+  /**
+   * A callback function that can be used to apply settings to a template element (specified by the column templateElement property). Applicable only when virtualization is enabled.
+   * Default value: null
+   */
+  templateElementSettings?: any;
   /**
    * A callback function that can be used to transform all the data of the column's original data field into a new data field to be used in column cells and all column operations. Can be useful for localizing data.
    * Default value: null

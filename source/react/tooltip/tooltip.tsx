@@ -264,7 +264,7 @@ export class Tooltip extends React.Component<React.HTMLAttributes<Element> & Too
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onOpen","onOpening","onClose","onClosing","onCreate","onReady"];
 	}
 	/** Closes smart-tooltip.  
@@ -388,6 +388,7 @@ export class Tooltip extends React.Component<React.HTMLAttributes<Element> & Too
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -431,8 +432,8 @@ export class Tooltip extends React.Component<React.HTMLAttributes<Element> & Too
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

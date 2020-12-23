@@ -242,6 +242,15 @@ export class MenuComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.overflow = value : undefined;
 	}
 
+	/** @description If set to true, prevents the closing of the Menu or its dropdowns when Menu items are checked/unchecked. */
+	@Input()
+	get preventCloseOnCheck(): boolean {
+		return this.nativeElement ? this.nativeElement.preventCloseOnCheck : undefined;
+	}
+	set preventCloseOnCheck(value: boolean) {
+		this.nativeElement ? this.nativeElement.preventCloseOnCheck = value : undefined;
+	}
+
 	/** @description If the element is readonly, users cannot interact with it. */
 	@Input()
 	get readonly(): boolean {

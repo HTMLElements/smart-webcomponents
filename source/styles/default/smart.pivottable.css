@@ -23,7 +23,7 @@
     font-weight: bold;
 }
 
-.smart-pivot-table thead th:not(:last-child) {
+.smart-pivot-table thead th:not(:last-child):not(.last-visible) {
     border-right: var(--smart-border-width) solid var(--smart-border);
 }
 
@@ -478,7 +478,7 @@
     border-right: none;
 }
 
-.smart-pivot-table[selection][right-to-left] thead th:first-child {
+.smart-pivot-table[selection]:not([selection-mode="cell"])[right-to-left] thead th:first-child {
     border-left: none;
 }
 
@@ -499,6 +499,82 @@
 .smart-table-window.fields[right-to-left] smart-pivot-panel .smart-pivot-panel-tab-item .icon {
     margin-left: 3px;
     margin-right: 0;
+}
+
+.smart-pivot-table td.sort-by {
+    position: relative;
+}
+
+.smart-pivot-table td.sort-by::before {
+    content: var(--smart-icon-up);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: var(--smart-table-cell-padding);
+    height: 100%;
+    font-family: var(--smart-font-family-icon);
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.smart-pivot-table td.sort-by.asc::before,
+.smart-pivot-table td.sort-by.desc::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.smart-pivot-table:not([right-to-left]) td.sort-by.desc::before,
+.smart-pivot-table[right-to-left] td.sort-by.asc::before {
+    transform: rotate(270deg);
+}
+
+.smart-pivot-table[selection][selection-mode="cell"] tbody td {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.smart-pivot-table[selection][selection-mode="cell"] tbody td.selected {
+    background-color: rgba(var(--smart-primary-rgb), 0.8);
+    color: var(--smart-primary-color);
+}
+
+.smart-pivot-table .smart-pivot-table-main-container.prevent-scroll {
+    overflow: hidden;
+}
+
+.smart-pivot-table [selection-detail] {
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+}
+
+.smart-pivot-table td[selection-detail]::before {
+    content: attr(selection-detail);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 3px;
+    background-color: var(--smart-secondary);
+    color: var(--smart-secondary-color);
+    font-size: var(--smart-font-size);
+    font-variant: small-caps;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.smart-pivot-table td[selection-detail][detail-position-x="right"]::before {
+    left: unset;
+    right: 0;
+}
+
+.smart-pivot-table td[selection-detail][detail-position-y="top"]::before {
+    top: 0;
+    transform: translateY(-100%);
 }
 
 

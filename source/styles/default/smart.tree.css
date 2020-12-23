@@ -10,7 +10,7 @@ smart-tree {
 }
 
     smart-tree.smart-element {
-        visibility: initial;
+        visibility: inherit;
     }
 
     smart-tree[overflow="hidden"],

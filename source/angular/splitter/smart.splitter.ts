@@ -380,6 +380,20 @@ export class SplitterComponent extends BaseElement implements OnInit, AfterViewI
         return result;
     }
 
+	/** @description Refreshes the Splitter 
+	*/
+    public refresh(): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.refresh();
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.refresh();
+            });
+        }
+    }
+
 	/** @description Unhides a Splitter Bar 
 	* @param {number} splitterBar. An instance of a splitter bar.
 	*/

@@ -15,6 +15,8 @@ export interface TableProps extends TableProperties {
 	onCellClick?: ((event?: Event) => void) | undefined;
 	onCellEndEdit?: ((event?: Event) => void) | undefined;
 	onChange?: ((event?: Event) => void) | undefined;
+	onCollapse?: ((event?: Event) => void) | undefined;
+	onExpand?: ((event?: Event) => void) | undefined;
 	onColumnClick?: ((event?: Event) => void) | undefined;
 	onColumnResize?: ((event?: Event) => void) | undefined;
 	onFilter?: ((event?: Event) => void) | undefined;
@@ -625,21 +627,26 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 		return ["animation","autoLoadState","autoSaveState","columnGroups","columnMinWidth","columnReorder","columnResize","columnResizeFeedback","columns","conditionalFormatting","columnSizeMode","conditionalFormattingButton","dataRowId","dataSource","dataTransform","disabled","editing","editMode","filtering","filterRow","filterTemplate","footerRow","formulas","freezeFooter","freezeHeader","grouping","headerRow","keyboardNavigation","loadColumnStateBehavior","locale","messages","onCellRender","onColumnRender","onInit","pageSize","pageIndex","paging","rightToLeft","rowDetailTemplate","selected","selection","selectionMode","sort","sortMode","stateSettings","theme","tooltip","virtualization"];
 	}
 	/**  This event is triggered when a cell edit operation has been initiated.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)
 	*   dataField - The data field of the cell's column.
 	*   row - The data of the cell's row.
+	*   value - The data value of the cell.
 	*/
 	onCellBeginEdit?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when a cell has been clicked.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	id, 	dataField, 	row, 	value, 	originalEvent)
+	*   id - The cell's row id.
 	*   dataField - The data field of the cell's column.
 	*   row - The data of the cell's row.
+	*   value - The data value of the cell.
+	*   originalEvent - The 'click' event object.
 	*/
 	onCellClick?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when a cell has been edited.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)
 	*   dataField - The data field of the cell's column.
 	*   row - The new data of the cell's row.
+	*   value - The data value of the cell.
 	*/
 	onCellEndEdit?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when the selection is changed.
@@ -647,6 +654,16 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 	*   type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
 	*/
 	onChange?: ((event?: Event) => void) | undefined
+	/**  This event is triggered when a row has been collapsed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The data of the collapsed row.
+	*/
+	onCollapse?: ((event?: Event) => void) | undefined
+	/**  This event is triggered when a row has been expanded.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The (aggregated) data of the expanded row.
+	*/
+	onExpand?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when a column header cell has been clicked.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField)
 	*   dataField - The data field of the cell's column.
@@ -700,8 +717,8 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
-		return ["onCellBeginEdit","onCellClick","onCellEndEdit","onChange","onColumnClick","onColumnResize","onFilter","onGroup","onPage","onRowBeginEdit","onRowEndEdit","onSort","onCreate","onReady"];
+	get eventListeners(): string[] {
+		return ["onCellBeginEdit","onCellClick","onCellEndEdit","onChange","onCollapse","onExpand","onColumnClick","onColumnResize","onFilter","onGroup","onPage","onRowBeginEdit","onRowEndEdit","onSort","onCreate","onReady"];
 	}
 	/** Adds a filter to a specific column. 
 	* @param {string} dataField. The column's data field.
@@ -1215,6 +1232,7 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1258,8 +1276,8 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

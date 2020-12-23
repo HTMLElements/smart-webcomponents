@@ -980,11 +980,11 @@ export class GanttChart extends React.Component {
 	}
 
 	// Gets the events of the React component.
-	get events() {
+	get eventListeners() {
 		return ["onBeginUpdate","onEndUpdate","onChange","onItemClick","onItemInsert","onItemRemove","onItemUpdate","onProgressChangeStart","onProgressChangeEnd","onDragStart","onDragEnd","onResizeStart","onResizeEnd","onConnectionStart","onConnectionEnd","onScrollBottomReached","onScrollTopReached","onOpening","onOpen","onClosing","onClose","onCollapse","onExpand"];
 	}
 	/** Adds a task as the last item of a Project. 
-	* @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
+	* @param {any} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	* @param {string | number} projectIndex. A number that represents the index of a project or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	*/
     addTaskTo(taskIndex, projectIndex){
@@ -1219,7 +1219,7 @@ export class GanttChart extends React.Component {
     }
 
 	/** Returns the Tree path of a task/resource. 
-	* @param {GanttChartTask | GanttChartResource | number} item. A GattChartTask/GanttChartResource item object or index.
+	* @param {any} item. A GattChartTask/GanttChartResource item object or index.
 	* @returns {string}
   */
 	async getItemPath(item) {
@@ -1237,7 +1237,7 @@ export class GanttChart extends React.Component {
     }
 
 	/** Returns the index of a task. 
-	* @param {GanttChartTask} task. A GattChartTask object.
+	* @param {any} task. A GattChartTask object.
 	* @returns {number}
   */
 	async getTaskIndex(task) {
@@ -1255,7 +1255,7 @@ export class GanttChart extends React.Component {
     }
 
 	/** Returns the tree path of a task. 
-	* @param {GanttChartTask} task. A GanttChartTask object.
+	* @param {any} task. A GanttChartTask object.
 	* @returns {string}
   */
 	async getTaskPath(task) {
@@ -1273,8 +1273,8 @@ export class GanttChart extends React.Component {
     }
 
 	/** Returns teh Project of a task if any. 
-	* @param {GanttChartTask} task. A GantChartTask object.
-	* @returns {GanttChartTask | undefined}
+	* @param {any} task. A GantChartTask object.
+	* @returns {any}
   */
 	async getTaskProject(task) {
 		const getResultOnRender = () => {
@@ -1601,6 +1601,7 @@ export class GanttChart extends React.Component {
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1644,8 +1645,8 @@ export class GanttChart extends React.Component {
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

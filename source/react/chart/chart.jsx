@@ -622,7 +622,7 @@ export class Chart extends React.Component {
 	}
 
 	// Gets the events of the React component.
-	get events() {
+	get eventListeners() {
 		return ["onAnnotationClick","onAnnotationMouseenter","onAnnotationMouseleave","onClick","onMouseout","onMouseover","onRangeSelectionChanged","onRangeSelectionChanging","onRefreshBegin","onRefreshEnd","onToggle"];
 	}
 	/** Adds a new color sheme. If a scheme with the same name already exists, the method will update its colors. 
@@ -1044,6 +1044,7 @@ export class Chart extends React.Component {
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1087,8 +1088,8 @@ export class Chart extends React.Component {
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

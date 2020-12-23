@@ -463,23 +463,28 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	}
 
 	/** @description This event is triggered when a cell edit operation has been initiated.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)
 	*   dataField - The data field of the cell's column.
 	*   row - The data of the cell's row.
+	*   value - The data value of the cell.
 	*/
 	@Output() onCellBeginEdit: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered when a cell has been clicked.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	id, 	dataField, 	row, 	value, 	originalEvent)
+	*   id - The cell's row id.
 	*   dataField - The data field of the cell's column.
 	*   row - The data of the cell's row.
+	*   value - The data value of the cell.
+	*   originalEvent - The 'click' event object.
 	*/
 	@Output() onCellClick: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered when a cell has been edited.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)
 	*   dataField - The data field of the cell's column.
 	*   row - The new data of the cell's row.
+	*   value - The data value of the cell.
 	*/
 	@Output() onCellEndEdit: EventEmitter<CustomEvent> = new EventEmitter();
 
@@ -488,6 +493,18 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	*   type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
 	*/
 	@Output() onChange: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when a row has been collapsed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The data of the collapsed row.
+	*/
+	@Output() onCollapse: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when a row has been expanded.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The (aggregated) data of the expanded row.
+	*/
+	@Output() onExpand: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description This event is triggered when a column header cell has been clicked.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField)
@@ -1037,6 +1054,12 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 		that.eventHandlers['changeHandler'] = (event: CustomEvent) => { that.onChange.emit(event); }
 		that.nativeElement.addEventListener('change', that.eventHandlers['changeHandler']);
 
+		that.eventHandlers['collapseHandler'] = (event: CustomEvent) => { that.onCollapse.emit(event); }
+		that.nativeElement.addEventListener('collapse', that.eventHandlers['collapseHandler']);
+
+		that.eventHandlers['expandHandler'] = (event: CustomEvent) => { that.onExpand.emit(event); }
+		that.nativeElement.addEventListener('expand', that.eventHandlers['expandHandler']);
+
 		that.eventHandlers['columnClickHandler'] = (event: CustomEvent) => { that.onColumnClick.emit(event); }
 		that.nativeElement.addEventListener('columnClick', that.eventHandlers['columnClickHandler']);
 
@@ -1080,6 +1103,14 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 
 		if (that.eventHandlers['changeHandler']) {
 			that.nativeElement.removeEventListener('change', that.eventHandlers['changeHandler']);
+		}
+
+		if (that.eventHandlers['collapseHandler']) {
+			that.nativeElement.removeEventListener('collapse', that.eventHandlers['collapseHandler']);
+		}
+
+		if (that.eventHandlers['expandHandler']) {
+			that.nativeElement.removeEventListener('expand', that.eventHandlers['expandHandler']);
 		}
 
 		if (that.eventHandlers['columnClickHandler']) {

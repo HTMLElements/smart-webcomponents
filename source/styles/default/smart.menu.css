@@ -12,7 +12,7 @@ smart-menu-items-group {
 }
 
 smart-menu.smart-element {
-    visibility: initial;
+    visibility: inherit;
     overflow: visible;
 }
 

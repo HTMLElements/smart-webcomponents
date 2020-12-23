@@ -520,6 +520,7 @@
     --smart-kanban-new-comment-height-expanded: 175px; /* Expanded height of new comment section */
     --smart-kanban-send-button-height: 30px; /* Height of Send button in new comment section */
     --smart-kanban-color-band-width: 3px; /* Kanban color band width (i.e. left border of tasks) */
+    --smart-kanban-add-new-column-width: 1fr; /* Kanban "+ New status" column width */
     /* ListBox */
     --smart-list-box-default-width: var(--smart-editor-width); /* smartListBox default width */
     --smart-list-box-default-height: var(--smart-editor-width); /* smartListBox default height */
@@ -797,17 +798,17 @@
     --smart-scheduler-timeline-cell-min-width: 70px; /* Sets the default min-width of the cells inside the Timeline */
     --smart-scheduler-timeline-cell-min-height: 35px; /* Sets the min-height of the cells inside the Timeline */
     --smart-scheduler-header-height: 50px; /* Sets the height of the header */
-    --smart-scheduler-header-date-button-size: 180px; /* Sets the size of the Header Date Selection Button*/
+    --smart-scheduler-header-today-button-size: 70px; /* Scheduler header Today Button width */
+    --smart-scheduler-header-date-button-max-size: auto; /* Sets the size of the Header Date Selection Button*/
     --smart-scheduler-header-navigation-button-size: 30px; /* Sets the size of the header buttons */
     --smart-scheduler-footer-height: var(--smart-scheduler-header-height); /* The height of the footer */
     --smart-scheduler-header-box-shadow: initial; /* Sets a Box shadow to the Timeline header */
     --smart-scheduler-header-padding: 10px; /* Sets a the padding for the header/footer */
     --smart-scheduler-timeline-header-cell-padding: 5px; /* Sets a the padding for the header/footer cells */
-    --smart-scheduler-header-menu-button-size: var(--smart-scheduler-header-navigation-button-size); /* Sets the size for the Header menu button */
+    --smart-scheduler-header-menu-button-size: auto; /* Sets the size for the Header menu button */
     --smart-scheduler-timeline-weekend-color: var(--smart-background); /* Sets the background color for the weekend cells */
     --smart-scheduler-timeline-nonworking-color: var(--smart-gantt-chart-timeline-nonworking-color); /* Sets the background color for nonworking days/hours cells */
     --smart-scheduler-timeline-all-day-label-font-weight: 600; /* Sets a the font-weight of the All day label */
-    --smart-scheduler-no-agenda-placeholder: 'No events to display'; /* Sets the placeholder for Agenda view when no events are available */
     --smart-scheduler-timeline-header-horizontal-cells-size: 40px; /* Sets a the horizontal header cells size */
     --smart-scheduler-timeline-header-horizontal-label-padding: initial; /* Sets a the horizontal header cells label padding */
     --smart-scheduler-timeline-header-horizontal-details-size: var(--smart-scheduler-timeline-header-horizontal-cells-size); /* Sets the size of the Horizontal Details Header */
@@ -826,68 +827,71 @@
     --smart-scheduler-current-time-indicator-header-size: 2px; /* Current Time Indicator size(width/height) inside the Headers */
     --smart-scheduler-current-time-indicator-arrow-size: 7px; /* Current Time Indicator arrow size */
     --smart-scheduler-shader-background: rgba(var(--smart-border-rgb), .5); /* Shade Until Current Time background */
-    --smart-scheduler-view-line-size: var(--smart-border-width);
-    --smart-scheduler-view-horizontal-line-color: var(--smart-border);
-    --smart-scheduler-view-vertical-line-color: var(--smart-border);
-    --smart-scheduler-day-week-view-vertical-line-size: var(--smart-scheduler-view-line-size);
-    --smart-scheduler-day-week-view-vertical-line-color: var(--smart-border);
-    --smart-scheduler-day-week-view-hour-size: var(--smart-scheduler-view-line-size);
-    --smart-scheduler-day-week-view-hour-color: var(--smart-border);
+    --smart-scheduler-view-line-size: var(--smart-border-width); /* Timeline lines size */
+    --smart-scheduler-view-horizontal-line-color: var(--smart-border); /* Horizontal timeline line color */
+    --smart-scheduler-view-vertical-line-color: var(--smart-border); /* Vertical timeline line color */
+    --smart-scheduler-day-week-view-vertical-line-size: var(--smart-scheduler-view-line-size); /* Vertical line size in 'day' and 'week' views */
+    --smart-scheduler-day-week-view-vertical-line-color: var(--smart-border); /* Vertical timeline color in 'day' and 'week' views */
+    --smart-scheduler-day-week-view-hour-size: var(--smart-scheduler-view-line-size); /* Horizontal line size for 'day', 'week'. Only the hour lines (excluding minutes) */
+    --smart-scheduler-day-week-view-hour-color: var(--smart-border); /* Horizontal line color for 'day', 'week' views. Only the hour lines ( excluding the minutes) */
     --smart-scheduler-time-ruler-tick-size: 10px; /* Time ruler tick size. Applicable only to day/week views */
-    /* --smart-scheduler-event-background: rgba(3, 155, 229, 1); */
-    --smart-scheduler-event-background-rgb: 52, 121, 186;
-    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
-    --smart-scheduler-event-color: var(--smart-primary-color);
-    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
-    --smart-scheduler-event-color-focus: var(--smart-scheduler-event-color);
-    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
-    --smart-scheduler-event-color-hover: var(--smart-scheduler-event-color);
-    --smart-scheduler-event-padding-agenda: 5px;
-    --smart-scheduler-event-padding-basic: 2px;
-    --smart-scheduler-event-padding-timeline: 2px;
-    --smart-scheduler-event-padding-all-day: 2px;
-    --smart-scheduler-event-content-padding: 5px;
-    --smart-scheduler-event-label-weight: 400;
-    --smart-scheduler-event-label-font-size: var(--smart-font-size);
-    --smart-scheduler-event-time-font-size: calc(var(--smart-font-size) - 3px);
-    --smart-scheduler-event-time-font-size-agenda: var(--smart-font-size);
-    --smart-scheduler-event-time-font-weight: 400;
-    --smart-scheduler-event-time-font-weight-agenda: 600;
-    --smart-scheduler-event-time-opacity-agenda: 1;
-    --smart-scheduler-event-time-opacity: 0.7;
-    --smart-scheduler-event-icon-size: 30px; 
-    --smart-scheduler-event-size: 30px;/* Sets the size of the timeline events in all views. Main variable. Used by the Scheduler !*/
+    --smart-scheduler-event-background-rgb: 52, 121, 186; /* Event background RGB */
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1); /* Event background color */
+    --smart-scheduler-event-color: var(--smart-primary-color); /* Event color */
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9); /* Event focus background color */
+    --smart-scheduler-event-color-focus: var(--smart-scheduler-event-color); /* Event focus color */
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8); /* Event hover background color */
+    --smart-scheduler-event-color-hover: var(--smart-scheduler-event-color); /* Event hover color */
+    --smart-scheduler-event-padding-agenda: 5px; /* Event padding in 'agenda' view only */
+    --smart-scheduler-event-padding-basic: 2px; /* Event padding in all basic views */
+    --smart-scheduler-event-padding-timeline: 2px; /* Event padding in all timeline views */
+    --smart-scheduler-event-padding-all-day: 2px; /* Event padding for events inside AllDay container */
+    --smart-scheduler-event-content-padding: 5px; /* Event content padding */
+    --smart-scheduler-event-label-font-size: var(--smart-font-size); /* Event label font size */
+    --smart-scheduler-event-time-font-size: calc(var(--smart-font-size) - 3px); /* Event time label font size */
+    --smart-scheduler-event-time-font-size-agenda: var(--smart-font-size); /* Event time font size for 'agenda' view */
+    --smart-scheduler-event-time-font-weight-agenda: 600; /* Event time label font weight for 'agenda' view */
+    --smart-scheduler-event-time-opacity-agenda: 1; /* Event time label opacity for 'agenda' view */
+    --smart-scheduler-event-time-opacity: 0.7; /* Event time label opacity */
+    --smart-scheduler-event-icon-size: 30px;  /* Event icon (repeating, exception icon) size */
+    --smart-scheduler-event-size: 30px;/* Sets the size of the timeline events in all views. Main variable. Used this variable to change the size of the events. Used by the Scheduler internally !*/
     --smart-scheduler-event-size-basic: var(--smart-scheduler-event-size); /* Sets the size of the events only in Basic views */
     --smart-scheduler-event-size-timeline: 60px; /* Sests the size of the events only in Timeline views. Should only be in pixels. Do not use calc()! */
-    --smart-scheduler-event-collector-size: 24px;
-    --smart-scheduler-event-collector-mobile-size: 28px;
-    --smart-scheduler-event-collector-background: rgba(var(--smart-primary-rgb), 1);
-    --smart-scheduler-event-collector-color: var(--smart-primary-color);
-    --smart-scheduler-event-collector-focus: rgba(var(--smart-primary-rgb), .9);
-    --smart-scheduler-event-collector-color-focus: var(--smart-scheduler-event-collector-color);
-    --smart-scheduler-event-collector-hover: rgba(var(--smart-primary-rgb), .8);
-    --smart-scheduler-event-collector-color-hover: var(--smart-scheduler-event-collector-color);
+    --smart-scheduler-event-collector-size: 24px; /* Event collector size */
+    --smart-scheduler-event-collector-mobile-size: 28px; /* Event collector size on mobile */
+    --smart-scheduler-event-collector-background: rgba(var(--smart-primary-rgb), 1); /* Event collector background color */
+    --smart-scheduler-event-collector-color: var(--smart-primary-color); /* Event collector color */
+    --smart-scheduler-event-collector-focus: rgba(var(--smart-primary-rgb), .9);  /* Event collector background color on focus */
+    --smart-scheduler-event-collector-color-focus: var(--smart-scheduler-event-collector-color); /* Event collector color on focus */
+    --smart-scheduler-event-collector-hover: rgba(var(--smart-primary-rgb), .8); /* Event collector background colot on hover */
+    --smart-scheduler-event-collector-color-hover: var(--smart-scheduler-event-collector-color); /* Event collector color on hover */
     --smart-scheduler-month-view-number-size: 24px; /* The size of the day number in month view */
     --smart-scheduler-status-size: 7px; /* The size of the day number in month view */
+    --smart-scheduler-status-padding: 5px; /* The paddng between the content of the event and the satus strip */
     --smart-scheduler-status-background: transparent; /* The size of the day number in month view */
-    --smart-scheduler-status-free-background: white;
-    --smart-scheduler-status-tentative-background: 0 -244rem / 5rem 5rem linear-gradient(45deg, #fd7e14 25%, rgba(0,0,0,.2) 25%,  rgba(0,0,0,.2) 50%, #fd7e14 50%, #fd7e14 75%,  rgba(0,0,0,.2) 75%,  rgba(0,0,0,.2));
-    --smart-scheduler-status-busy-background: #dc3545;
-    --smart-scheduler-status-out-of-office-background: #00a9e6;
-    --smart-scheduler-cell-feedback-background:  transparent;
-    --smart-scheduler-event-resize-indicator-size: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
-    --smart-scheduler-event-resize-indicator-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
-    --smart-scheduler-event-resize-indicator-border-color: var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
-    /* --smart-scheduler-menu-max-width: 350px; */
-    --smart-scheduler-event-item-size: 50px;
-    --smart-scheduler-event-button-size: 30px;
-    --smart-scheduler-context-menu-max-height: calc(3 * var(--smart-scheduler-event-item-size));
-    --smart-scheduler-context-menu-max-width: 300px;
-    --smart-scheduler-window-header-height:  var(--smart-gantt-chart-popup-window-header-height);
-    --smart-scheduler-window-footer-height:  var(--smart-gantt-chart-popup-window-footer-height);
-    --smart-scheduler-event-label-font-weight: 300;
-    --smart-scheduler-event-time-weight: 300;
-    --smart-scheduler-event-item-label-font-weight: 600;
+    --smart-scheduler-status-free-background: white; /* Event Status 'free' background color */
+    --smart-scheduler-status-tentative-background: 0 -244rem / 5rem 5rem linear-gradient(45deg, #fd7e14 25%, rgba(0,0,0,.2) 25%,  rgba(0,0,0,.2) 50%, #fd7e14 50%, #fd7e14 75%,  rgba(0,0,0,.2) 75%,  rgba(0,0,0,.2)); /* Event status 'tentative' background color */
+    --smart-scheduler-status-busy-background: #dc3545; /* Event status 'busy' background color */
+    --smart-scheduler-status-out-of-office-background: #00a9e6; /* Event status 'out-of-office' background color */
+    --smart-scheduler-cell-feedback-background:  transparent; /* Cell feedback background color on event drop  */
+    --smart-scheduler-event-resize-indicator-size: var(--smart-gantt-chart-timeline-task-resize-indicator-width); /* Event resize indicator size */
+    --smart-scheduler-event-resize-indicator-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color); /* Event resize indicator color */
+    --smart-scheduler-event-resize-indicator-border-color: var(--smart-gantt-chart-timeline-task-resize-indicator-border-color); /* Event resize indicator border color */
+    --smart-scheduler-restricted-background: 0 -245rem / 12px 12px linear-gradient(135deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent); /* Restricted cells background color */
+    --smart-scheduler-event-item-size: 50px; /* Event menu item size(height) */
+    --smart-scheduler-event-button-size: 30px; /* Event menu item button size(delete button) */
+    --smart-scheduler-event-border-radius: initial; /* Event border radius */
+    --smart-scheduler-event-collector-border-radius: 20px; /* Event collector border radius */
+    --smart-scheduler-context-menu-max-height: calc(3 * var(--smart-scheduler-event-item-size)); /* Context menu max-height */
+    --smart-scheduler-context-menu-max-width: 300px; /* Context menu max-width */
+    --smart-scheduler-window-header-height:  var(--smart-gantt-chart-popup-window-header-height); /* Window editor header height */
+    --smart-scheduler-window-footer-height:  var(--smart-gantt-chart-popup-window-footer-height); /* Window editor footer height */
+    --smart-scheduler-event-label-font-weight: 300; /* Event label font weight */
+    --smart-scheduler-event-time-font-weight: 300; /* Event time label font weight */
+    --smart-scheduler-event-item-label-font-weight: 600; /* Event menu item label font-weight */
+    --smart-scheduler-toast-default-width: 400px; /* Toast(notifications) default width */
+    --smart-scheduler-toast-default-height: 50px; /* Toast(notifications) default height */
+    --smart-scheduler-shortcut-size: 28px; /* The width of the shortuct of the view items when placed inside a drop down */
     /*Window*/
     --smart-window-default-height: var(--smart-box-height); /* smartWindow default height */
     --smart-window-default-width: var(--smart-box-width); /* smartWindow default width */
@@ -974,4 +978,28 @@ body[theme="dark"], .smart-ui-component[theme="dark"] {
     --smart-scroll-bar-button-background-active: #3E3E42;
     --smart-scroll-bar-button-border-active: #3E3E42;
     --smart-scroll-bar-button-color-active: var(--smart-primary);
+
+    --smart-gantt-chart-timeline-nonworking-color:  #3E3E42;
+    --smart-scheduler-timeline-weekend-color: var(--smart-background); /* Sets the background color for the weekend cells */
+    --smart-scheduler-timeline-nonworking-color: var(--smart-gantt-chart-timeline-nonworking-color); /* Sets the background color for nonworking days/hours cells */
+    --smart-scheduler-event-background-rgb: 103, 176, 245;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-color: var(--smart-primary-color);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-color-focus: var(--smart-scheduler-event-color);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+    --smart-scheduler-event-color-hover: var(--smart-scheduler-event-color);
+    --smart-scheduler-event-collector-background: rgba(var(--smart-primary-rgb), 1);
+    --smart-scheduler-event-collector-color: var(--smart-primary-color);
+    --smart-scheduler-event-collector-focus: rgba(var(--smart-primary-rgb), .9);
+    --smart-scheduler-event-collector-color-focus: var(--smart-scheduler-event-collector-color);
+    --smart-scheduler-event-collector-hover: rgba(var(--smart-primary-rgb), .8);
+    --smart-scheduler-event-collector-color-hover: var(--smart-scheduler-event-collector-color);
+    --smart-scheduler-status-free-background: white;
+    --smart-scheduler-status-tentative-background: 0 -244rem / 5rem 5rem linear-gradient(45deg, #fd7e14 25%, rgba(0,0,0,.2) 25%,  rgba(0,0,0,.2) 50%, #fd7e14 50%, #fd7e14 75%,  rgba(0,0,0,.2) 75%,  rgba(0,0,0,.2));
+    --smart-scheduler-status-busy-background: #dc3545;
+    --smart-scheduler-status-out-of-office-background: #00a9e6;
+    --smart-scheduler-event-resize-indicator-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
+    --smart-scheduler-event-resize-indicator-border-color: var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
+    --smart-scheduler-restricted-background: 0 -245rem / 12px 12px linear-gradient(135deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent);
 }

@@ -332,7 +332,7 @@ export class DockingLayout extends React.Component<React.HTMLAttributes<Element>
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onChange","onClose","onClosing","onStateChange","onResizeStart","onResizeEnd","onCreate","onReady"];
 	}
 	/** Makes a "smart-tabs-window" node, that is a child of the Layout, auto hidden by placing it at the Bottom position inside the element. This means that the item will be positioned near the bottom side of the layout and it's content will be hidden until the user selects one of it's labels. 
@@ -908,6 +908,7 @@ export class DockingLayout extends React.Component<React.HTMLAttributes<Element>
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -951,8 +952,8 @@ export class DockingLayout extends React.Component<React.HTMLAttributes<Element>
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

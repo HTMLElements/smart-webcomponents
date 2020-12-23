@@ -436,7 +436,7 @@ export class Path extends React.Component<React.HTMLAttributes<Element> & PathPr
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onBrowseButtonClick","onChange","onClose","onClosing","onDropDownButtonClick","onItemClick","onOpen","onOpening","onCreate","onReady"];
 	}
 	/** Closes the dropDown. 
@@ -560,6 +560,7 @@ export class Path extends React.Component<React.HTMLAttributes<Element> & PathPr
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -603,8 +604,8 @@ export class Path extends React.Component<React.HTMLAttributes<Element> & PathPr
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

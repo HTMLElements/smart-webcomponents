@@ -162,6 +162,7 @@ smart-scheduler[disabled],
 smart-button-group[disabled],
 smart-table[disabled],
 smart-pivot-table[disabled],
+smart-notification-panel[disabled],
 smart-formatting-panel[disabled] {
     opacity: 0.55;
     cursor: default;

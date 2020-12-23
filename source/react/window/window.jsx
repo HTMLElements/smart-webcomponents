@@ -926,7 +926,7 @@ export class Window extends React.Component {
 	}
 
 	// Gets the events of the React component.
-	get events() {
+	get eventListeners() {
 		return ["onOpening","onOpen","onClosing","onClose","onCollapse","onDragEnd","onDragStart","onExpand","onMaximize","onMinimize","onResizeEnd","onResizeStart","onRestore"];
 	}
 	/** Appends a tabitem to the end of the list of tab items inside element. 
@@ -1287,6 +1287,7 @@ export class Window extends React.Component {
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1330,8 +1331,8 @@ export class Window extends React.Component {
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

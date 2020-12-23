@@ -158,24 +158,6 @@ export class CardViewComponent extends BaseElement implements OnInit, AfterViewI
 		this.nativeElement ? this.nativeElement.messages = value : undefined;
 	}
 
-	/** @description Callback function, used when record is inserted. */
-	@Input()
-	get onRecordInserted(): any {
-		return this.nativeElement ? this.nativeElement.onRecordInserted : undefined;
-	}
-	set onRecordInserted(value: any) {
-		this.nativeElement ? this.nativeElement.onRecordInserted = value : undefined;
-	}
-
-	/** @description Callback function, used when record is removed. */
-	@Input()
-	get onRecordRemoved(): any {
-		return this.nativeElement ? this.nativeElement.onRecordRemoved : undefined;
-	}
-	set onRecordRemoved(value: any) {
-		this.nativeElement ? this.nativeElement.onRecordRemoved = value : undefined;
-	}
-
 	/** @description Describes the scrolling behavior of the element. */
 	@Input()
 	get scrolling(): Scrolling {

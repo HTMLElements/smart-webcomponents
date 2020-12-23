@@ -900,7 +900,7 @@ export class Window extends React.Component<React.HTMLAttributes<Element> & Wind
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onOpening","onOpen","onClosing","onClose","onCollapse","onDragEnd","onDragStart","onExpand","onMaximize","onMinimize","onResizeEnd","onResizeStart","onRestore","onCreate","onReady"];
 	}
 	/** Appends a tabitem to the end of the list of tab items inside element. 
@@ -1261,6 +1261,7 @@ export class Window extends React.Component<React.HTMLAttributes<Element> & Wind
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1304,8 +1305,8 @@ export class Window extends React.Component<React.HTMLAttributes<Element> & Wind
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

@@ -56,7 +56,7 @@ export class ListItemsGroup extends React.Component<React.HTMLAttributes<Element
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onCreate","onReady"];
 	}
 
@@ -124,6 +124,7 @@ export class ListItemsGroup extends React.Component<React.HTMLAttributes<Element
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -167,8 +168,8 @@ export class ListItemsGroup extends React.Component<React.HTMLAttributes<Element
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

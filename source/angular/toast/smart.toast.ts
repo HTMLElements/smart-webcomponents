@@ -291,13 +291,15 @@ export class ToastComponent extends BaseElement implements OnInit, AfterViewInit
     }
 
 	/** @description Opens a new toast item and returns the opened smart-toast-item instance.  
+	* @param {HTMLElement | string} value?. The value for the toast item. If not set, the value property will be used.
+	* @param {string} iconType?. The icon name for the toast item. If not set, the type property determines the icon type that will be used.
 	* @returns {HTMLElement}
   */
-	public async open(): Promise<any> {
+	public async open(value?, iconType?): Promise<any> {
 		const getResultOnRender = () => {
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
-                    const result = this.nativeElement.open();
+                    const result = this.nativeElement.open(value, iconType);
                     resolve(result)
                 });
             });

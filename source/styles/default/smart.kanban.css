@@ -84,6 +84,10 @@
         padding: 0 10px 10px 0;
     }
 
+    .smart-kanban[right-to-left][add-new-button] .smart-kanban-column[add-new-button] > .smart-kanban-column-header > .smart-kanban-column-header-add::after {
+        padding: 0 0 10px 10px;
+    }
+
     .smart-kanban[add-new-button] .smart-kanban-column[add-new-button] > .smart-kanban-column-header > .smart-kanban-column-header-add:hover {
         cursor: pointer;
         color: var(--smart-primary);
@@ -359,13 +363,13 @@
 }
 
 .smart-kanban-task-comments::after {
-    content: var(--smart-icon-mail) ' ' attr(num);
+    content: var(--smart-icon-mail) ' 'attr(num);
     font-family: var(--smart-font-family-icon);
     white-space: nowrap;
 }
 
 .smart-kanban .smart-kanban-task.dragged {
-    background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
     background-size: 3em 3em;
 }
 
@@ -703,7 +707,8 @@
 
 .smart-window.smart-kanban-window .text-editor,
 .smart-window.smart-kanban-window .new-subtask,
-.smart-kanban .smart-kanban-list.comments .smart-kanban-new-comment textarea {
+.smart-kanban .smart-kanban-list.comments .smart-kanban-new-comment textarea,
+.smart-kanban .smart-kanban-column-header-label.pending input {
     border: var(--smart-border-width) solid var(--smart-border);
     border-top-right-radius: var(--smart-border-top-right-radius);
     border-top-left-radius: var(--smart-border-top-left-radius);
@@ -717,7 +722,8 @@
 
     .smart-window.smart-kanban-window .text-editor:hover,
     .smart-window.smart-kanban-window .new-subtask:hover,
-    .smart-kanban .smart-kanban-list.comments .smart-kanban-new-comment textarea:hover {
+    .smart-kanban .smart-kanban-list.comments .smart-kanban-new-comment textarea:hover,
+    .smart-kanban .smart-kanban-column-header-label.pending input:hover {
         border-color: var(--smart-ui-state-border-hover);
     }
 
@@ -772,17 +778,17 @@
         cursor: pointer;
     }
 
-.smart-window.smart-kanban-window .smart-footer {
+.smart-window.smart-kanban-window .smart-content-container > .smart-footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-    .smart-window.smart-kanban-window .smart-footer smart-button {
-        --smart-button-padding: 0;
-        width: 40%;
-        height: 100%;
-    }
+.smart-window.smart-kanban-window .smart-footer smart-button {
+    --smart-button-padding: 0;
+    width: 40%;
+    height: 100%;
+}
 
 .smart-kanban > .smart-container[modal],
 .smart-kanban.smart-container[modal] {
@@ -926,7 +932,8 @@
 }
 
 
-.smart-kanban .smart-kanban-column-header:focus {
+.smart-kanban .smart-kanban-column-header:focus,
+.smart-kanban .smart-kanban-add-new-column:focus {
     outline: none;
     border-color: var(--smart-ui-state-border-active);
 }
@@ -964,4 +971,51 @@
 
 .smart-kanban .smart-kanban-column-content-tasks:focus .smart-kanban-task[focus] {
     box-shadow: inset 0px 0px 1px 1px var(--smart-primary);
+}
+
+.smart-kanban .smart-kanban-add-new-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--smart-border-width) solid var(--smart-border);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    padding: 0 var(--smart-data-view-padding);
+    min-width: 0;
+    height: var(--smart-kanban-header-size);
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    cursor: pointer;
+}
+
+.smart-kanban .smart-kanban-add-new-column-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: calc(var(--smart-font-size) + 1px);
+    font-weight: bold;
+}
+
+.smart-kanban .smart-kanban-add-new-column:hover {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-kanban .smart-kanban-column > .smart-kanban-column-header > .smart-kanban-column-header-label.pending {
+    position: relative;
+    overflow: visible;
+    visibility: hidden;
+}
+
+.smart-kanban .smart-kanban-column-header-label.pending input {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    outline: none;
+    font-size: calc(var(--smart-font-size) - 1px);
+    visibility: visible;
 }

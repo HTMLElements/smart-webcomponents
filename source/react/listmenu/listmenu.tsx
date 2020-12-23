@@ -463,7 +463,7 @@ export class ListMenu extends React.Component<React.HTMLAttributes<Element> & Li
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onExpand","onItemCheckChange","onItemClick","onScrollBottomReached","onSwipeleft","onSwiperight","onCreate","onReady"];
 	}
 	/** Adds an item to the list. 
@@ -668,6 +668,7 @@ export class ListMenu extends React.Component<React.HTMLAttributes<Element> & Li
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -711,8 +712,8 @@ export class ListMenu extends React.Component<React.HTMLAttributes<Element> & Li
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

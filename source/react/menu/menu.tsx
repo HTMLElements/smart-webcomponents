@@ -325,6 +325,18 @@ export class Menu extends React.Component<React.HTMLAttributes<Element> & MenuPr
 		}
 	}
 
+	/** If set to true, prevents the closing of the Menu or its dropdowns when Menu items are checked/unchecked.
+	*	Property type: boolean
+	*/
+	get preventCloseOnCheck(): boolean  {
+		return this.nativeElement ? this.nativeElement.preventCloseOnCheck : undefined;
+	}
+	set preventCloseOnCheck(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.preventCloseOnCheck = value;
+		}
+	}
+
 	/** If the element is readonly, users cannot interact with it.
 	*	Property type: boolean
 	*/
@@ -400,7 +412,7 @@ export class Menu extends React.Component<React.HTMLAttributes<Element> & MenuPr
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["animation","autoCloseDelay","autoFocusOnMouseenter","checkable","checkboxes","checkMode","closeAction","dataSource","disabled","displayMember","dropDownAppendTo","dropDownOverlay","dropDownPosition","items","itemsMember","locale","localizeFormatFunction","messages","minimizeIconTemplate","minimizeWidth","mode","opened","overflow","readonly","rightToLeft","selectionMode","theme","unfocusable","valueMember"];
+		return ["animation","autoCloseDelay","autoFocusOnMouseenter","checkable","checkboxes","checkMode","closeAction","dataSource","disabled","displayMember","dropDownAppendTo","dropDownOverlay","dropDownPosition","items","itemsMember","locale","localizeFormatFunction","messages","minimizeIconTemplate","minimizeWidth","mode","opened","overflow","preventCloseOnCheck","readonly","rightToLeft","selectionMode","theme","unfocusable","valueMember"];
 	}
 	/**  This event is triggered when the menu is closed. The event is fired only in 'dropDown' mode.
 	*  @param event. The custom event. 	*/
@@ -475,7 +487,7 @@ export class Menu extends React.Component<React.HTMLAttributes<Element> & MenuPr
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onClose","onClosing","onCollapse","onCollapsing","onExpand","onExpanding","onItemCheckChange","onItemClick","onOpen","onOpening","onCreate","onReady"];
 	}
 	/** Adds an item to the menu. 
@@ -726,6 +738,7 @@ export class Menu extends React.Component<React.HTMLAttributes<Element> & MenuPr
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -769,8 +782,8 @@ export class Menu extends React.Component<React.HTMLAttributes<Element> & MenuPr
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

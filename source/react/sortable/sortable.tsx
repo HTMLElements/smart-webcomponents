@@ -180,7 +180,7 @@ export class Sortable extends React.Component<React.HTMLAttributes<Element> & So
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onDragEnd","onCreate","onReady"];
 	}
 	/** Moves a sortable item from one index to another. 
@@ -278,6 +278,7 @@ export class Sortable extends React.Component<React.HTMLAttributes<Element> & So
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -321,8 +322,8 @@ export class Sortable extends React.Component<React.HTMLAttributes<Element> & So
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

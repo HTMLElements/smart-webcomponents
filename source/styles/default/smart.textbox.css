@@ -24,7 +24,7 @@ smart-time-input {
 smart-date-range-input,
 smart-time-input,
 smart-date-input {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 smart-date-range-input.underlined,
@@ -45,11 +45,29 @@ smart-text-area {
     resize: none;
 }
 
-smart-text-box.smart-element, smart-input.smart-element, smart-password-input.smart-element, smart-number-input.smart-element, smart-multi-input.smart-element, smart-check-input.smart-element, smart-multi-combo-input.smart-element, smart-date-range-input.smart-element, smart-time-input.smart-element, smart-date-input.smart-element {
+smart-text-box.smart-element,
+smart-input.smart-element,
+smart-password-input.smart-element,
+smart-number-input.smart-element,
+smart-multi-input.smart-element,
+smart-check-input.smart-element,
+smart-multi-combo-input.smart-element,
+smart-date-range-input.smart-element,
+smart-time-input.smart-element,
+smart-date-input.smart-element {
     background: var(--smart-background);
 }
 
-smart-input, smart-text-area, smart-password-input, smart-number-input, smart-multi-input, smart-check-input, smart-multi-combo-input, smart-date-range-input, smart-date-input, smart-time-input {
+smart-input,
+smart-text-area,
+smart-password-input,
+smart-number-input,
+smart-multi-input,
+smart-check-input,
+smart-multi-combo-input,
+smart-date-range-input,
+smart-date-input,
+smart-time-input {
     border: 1px solid var(--smart-border);
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
@@ -57,12 +75,28 @@ smart-input, smart-text-area, smart-password-input, smart-number-input, smart-mu
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-smart-input input.smart-input, smart-password-input input.smart-input, smart-multi-input input.smart-input, smart-check-input input.smart-input, smart-multi-combo-input input.smart-input, smart-date-range-input input.smart-input, smart-number-input input.smart-input, smart-text-area textarea.smart-input {
+smart-input input.smart-input,
+smart-password-input input.smart-input,
+smart-multi-input input.smart-input,
+smart-check-input input.smart-input,
+smart-multi-combo-input input.smart-input,
+smart-date-range-input input.smart-input,
+smart-number-input input.smart-input,
+smart-text-area textarea.smart-input {
     border: none;
     text-overflow: ellipsis;
 }
 
-.smart-text-box .smart-container,  .smart-password-input .smart-container, .smart-text-area .smart-container, .smart-input .smart-container, .smart-date-range-input .smart-container, .smart-multi-input .smart-container, .smart-multi-combo-input .smart-container, .smart-check-input .smart-container, .smart-text-box.smart-container, .smart-input.smart-container {
+.smart-text-box .smart-container,
+.smart-password-input .smart-container,
+.smart-text-area .smart-container,
+.smart-input .smart-container,
+.smart-date-range-input .smart-container,
+.smart-multi-input .smart-container,
+.smart-multi-combo-input .smart-container,
+.smart-check-input .smart-container,
+.smart-text-box.smart-container,
+.smart-input.smart-container {
     width: 100%;
     height: 100%;
     color: inherit;
@@ -71,7 +105,14 @@ smart-input input.smart-input, smart-password-input input.smart-input, smart-mul
     overflow: visible;
 }
 
-textarea.smart-input::selection, input.smart-input::selection, smart-text-box input::selection, smart-input input::selection, smart-multi-input input::selection, smart-multi-combo-input input::selection, smart-check-input input::selection, smart-date-range-input input::selection {
+textarea.smart-input::selection,
+input.smart-input::selection,
+smart-text-box input::selection,
+smart-input input::selection,
+smart-multi-input input::selection,
+smart-multi-combo-input input::selection,
+smart-check-input input::selection,
+smart-date-range-input input::selection {
     background: var(--smart-editor-selection);
     color: var(--smart-editor-selection-color);
 }
@@ -140,7 +181,12 @@ input.smart-input,
     margin: 0;
 }
 
-.smart-input-drop-down-menu .smart-scroll-viewer-content-container, .smart-input-drop-down-menu .smart-scroll-viewer-container, .smart-input-drop-down-menu>.smart-container, .smart-multi-combo-input-scroll-viewer .smart-scroll-viewer-content-container, .smart-multi-combo-input-scroll-viewer .smart-scroll-viewer-container, .smart-multi-combo-input-scroll-viewer>.smart-container {
+.smart-input-drop-down-menu .smart-scroll-viewer-content-container,
+.smart-input-drop-down-menu .smart-scroll-viewer-container,
+.smart-input-drop-down-menu>.smart-container,
+.smart-multi-combo-input-scroll-viewer .smart-scroll-viewer-content-container,
+.smart-multi-combo-input-scroll-viewer .smart-scroll-viewer-container,
+.smart-multi-combo-input-scroll-viewer>.smart-container {
     /*min-width: 150px;*/
     width: var(--smart-input-drop-down-menu-width);
     max-height: calc(var(--smart-input-drop-down-menu-height) - 6px);
@@ -230,7 +276,12 @@ input.smart-input,
     width: 100%;
 }
 
-smart-input>.smart-container, .smart-input.smart-container, smart-multi-input>.smart-container, smart-multi-combo-input>.smart-container, smart-check-input>.smart-container, .smart-input.smart-container,
+smart-input>.smart-container,
+.smart-input.smart-container,
+smart-multi-input>.smart-container,
+smart-multi-combo-input>.smart-container,
+smart-check-input>.smart-container,
+.smart-input.smart-container,
 smart-date-range-input>.smart-container,
 smart-date-input>.smart-container,
 smart-time-input>.smart-container,
@@ -240,15 +291,15 @@ smart-number-input>.smart-container {
 }
 
 .smart-input[drop-down-button-position="left"] .smart-input,
- smart-multi-input[drop-down-button-position="left"] .smart-input,
- smart-multi-input[drop-down-button-position="right"] .smart-input,
- smart-date-range-input[drop-down-button-position="left"] .smart-input,
- smart-date-range-input[drop-down-button-position="right"] .smart-input,
- smart-time-input[drop-down-button-position="left"] .smart-input,
- smart-time-input[drop-down-button-position="right"] .smart-input,
- smart-date-input[drop-down-button-position="left"] .smart-input,
- smart-date-input[drop-down-button-position="right"] .smart-input,
- smart-check-input[drop-down-button-position="left"] .smart-input,
+smart-multi-input[drop-down-button-position="left"] .smart-input,
+smart-multi-input[drop-down-button-position="right"] .smart-input,
+smart-date-range-input[drop-down-button-position="left"] .smart-input,
+smart-date-range-input[drop-down-button-position="right"] .smart-input,
+smart-time-input[drop-down-button-position="left"] .smart-input,
+smart-time-input[drop-down-button-position="right"] .smart-input,
+smart-date-input[drop-down-button-position="left"] .smart-input,
+smart-date-input[drop-down-button-position="right"] .smart-input,
+smart-check-input[drop-down-button-position="left"] .smart-input,
 smart-check-input[drop-down-button-position="right"] .smart-input,
 smart-time-input[drop-down-button-position="right"] .smart-input,
 smart-date-input[drop-down-button-position="right"] .smart-input,
@@ -285,7 +336,8 @@ smart-input[drop-down-button-position="right"] .smart-input,
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-.smart-input[drop-down-button-position="left"] .smart-drop-down-button, .smart-input[drop-down-button-position="right"] .smart-drop-down-button {
+.smart-input[drop-down-button-position="left"] .smart-drop-down-button,
+.smart-input[drop-down-button-position="right"] .smart-drop-down-button {
     display: flex;
 }
 
@@ -344,39 +396,50 @@ smart-input[drop-down-button-position="right"] .smart-input,
 .smart-input .smart-drop-down-button[open] .arrow:after {
     transform: rotate(-180deg);
 }
+
 .smart-input.smart-date-range-input .smart-drop-down-button .arrow:after,
 .smart-input.smart-date-range-input .smart-drop-down-button[open] .arrow:after,
 .smart-input.smart-date-input .smart-drop-down-button .arrow:after,
-.smart-input.smart-date-input .smart-drop-down-button[open] .arrow:after  {
-	content: var(--smart-icon-calendar);
+.smart-input.smart-date-input .smart-drop-down-button[open] .arrow:after {
+    content: var(--smart-icon-calendar);
     transform: rotate(0deg);
 }
 
 .smart-input.smart-time-input .smart-drop-down-button .arrow:after,
-.smart-input.smart-time-input .smart-drop-down-button[open] .arrow:after{
-	content: var(--smart-icon-clock);
+.smart-input.smart-time-input .smart-drop-down-button[open] .arrow:after {
+    content: var(--smart-icon-clock);
     transform: rotate(0deg);
 }
 
-.smart-input[readonly]:hover .smart-input, .smart-input[readonly]:hover .smart-drop-down-button, .smart-input .smart-drop-down-button:hover {
+.smart-input[readonly]:hover .smart-input,
+.smart-input[readonly]:hover .smart-drop-down-button,
+.smart-input .smart-drop-down-button:hover {
     background: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
 }
 
-.smart-input[readonly][open] .smart-input, .smart-input[readonly][open] .smart-drop-down-button, .smart-input[readonly]:active .smart-input, .smart-input[readonly]:active .smart-drop-down-button, .smart-input .smart-drop-down-button[open], .smart-input .smart-drop-down-button:active {
+.smart-input[readonly][open] .smart-input,
+.smart-input[readonly][open] .smart-drop-down-button,
+.smart-input[readonly]:active .smart-input,
+.smart-input[readonly]:active .smart-drop-down-button,
+.smart-input .smart-drop-down-button[open],
+.smart-input .smart-drop-down-button:active {
     background: var(--smart-ui-state-active);
     color: var(--smart-ui-state-color-active);
 }
 
-.smart-input[readonly][open] .smart-input::-webkit-input-placeholder, .smart-input[readonly]:active .smart-input::-webkit-input-placeholder {
+.smart-input[readonly][open] .smart-input::-webkit-input-placeholder,
+.smart-input[readonly]:active .smart-input::-webkit-input-placeholder {
     color: var(--smart-ui-state-color-active);
 }
 
-.smart-input[readonly][open] .smart-input::-moz-placeholder, .smart-input[readonly]:active .smart-input::-moz-placeholder {
+.smart-input[readonly][open] .smart-input::-moz-placeholder,
+.smart-input[readonly]:active .smart-input::-moz-placeholder {
     color: var(--smart-ui-state-color-active);
 }
 
-.smart-text-box input, .smart-text-box>.smart-container>.smart-content>div {
+.smart-text-box input,
+.smart-text-box>.smart-container>.smart-content>div {
     width: 100%;
     height: 100%;
     outline: none;
@@ -396,10 +459,12 @@ smart-input[drop-down-button-position="right"] .smart-input,
     font-style: inherit;
     overflow: hidden;
 }
+
 .smart-text-box.outlined input {
-    border:none;
+    border: none;
     padding: 7px;
 }
+
 .smart-text-box>.smart-container>.smart-content>div:first-of-type {
     position: absolute;
     display: flex;
@@ -424,32 +489,58 @@ smart-input[drop-down-button-position="right"] .smart-input,
     color: transparent;
 }
 
-.smart-text-box[disabled] input, .smart-text-box[readonly] input {
+.smart-text-box[disabled] input,
+.smart-text-box[readonly] input {
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
 }
 
-input.smart-input:hover, smart-input:hover, smart-multi-input:hover, smart-multi-combo-input:hover, smart-check-input:hover, smart-text-box input:hover, smart-text-box[hover] input, smart-text-box:focus input.hovered, .smart-text-box:focus.hovered input {
+input.smart-input:hover,
+smart-input:hover,
+smart-multi-input:hover,
+smart-multi-combo-input:hover,
+smart-check-input:hover,
+smart-text-box input:hover,
+smart-text-box[hover] input,
+smart-text-box:focus input.hovered,
+.smart-text-box:focus.hovered input {
     border-color: var(--smart-ui-state-border-hover);
 }
 
-input.smart-input:disabled, smart-input[disabled], smart-multi-input[disabled], smart-check-input[disabled], smart-text-box[disabled] {
+input.smart-input:disabled,
+smart-input[disabled],
+smart-multi-input[disabled],
+smart-check-input[disabled],
+smart-text-box[disabled] {
     border-color: var(--smart-disabled);
     outline: none;
 }
 
-smart-input:focus, smart-multi-input:focus, smart-check-input:focus, smart-date-range-input:focus, .smart-input[focus], input.smart-input:focus, smart-multi-input[focus], smart-check-input[focus], smart-multi-combo-input[focus], smart-date-range-input[focus], input.smart-input:focus, smart-text-box input:focus {
+smart-input:focus,
+smart-multi-input:focus,
+smart-check-input:focus,
+smart-date-range-input:focus,
+.smart-input[focus],
+input.smart-input:focus,
+smart-multi-input[focus],
+smart-check-input[focus],
+smart-multi-combo-input[focus],
+smart-date-range-input[focus],
+input.smart-input:focus,
+smart-text-box input:focus {
     border-color: var(--smart-outline);
 }
 
-.smart-text-box .smart-label, .smart-text-box .smart-hint {
+.smart-text-box .smart-label,
+.smart-text-box .smart-hint {
     display: none;
     position: absolute;
 }
 
-.smart-text-box[label] .smart-label, .smart-text-box[hint] .smart-hint {
+.smart-text-box[label] .smart-label,
+.smart-text-box[hint] .smart-hint {
     position: absolute;
     left: 0;
     bottom: 100%;
@@ -510,22 +601,43 @@ smart-input:focus, smart-multi-input:focus, smart-check-input:focus, smart-date-
 
 /* renderMode */
 
-smart-text-box.outlined, smart-text-box.underlined, smart-input.outlined, smart-input.underlined, smart-password-input.outlined, smart-password-input.underlined, smart-date-range-input.outlined, smart-date-range-input.underlined, smart-multi-input.outlined, smart-multi-input.underlined, smart-multi-combo-input.outlined, smart-multi-combo-input.underlined, smart-check-input.outlined, smart-check-input.underlined, .smart-input.underlined:not([opened]) .smart-drop-down-button,
-smart-masked-text-box.outlined, smart-password-text-box.outlined {
+smart-text-box.outlined,
+smart-text-box.underlined,
+smart-input.outlined,
+smart-input.underlined,
+smart-password-input.outlined,
+smart-password-input.underlined,
+smart-date-range-input.outlined,
+smart-date-range-input.underlined,
+smart-multi-input.outlined,
+smart-multi-input.underlined,
+smart-multi-combo-input.outlined,
+smart-multi-combo-input.underlined,
+smart-check-input.outlined,
+smart-check-input.underlined,
+.smart-input.underlined:not([opened]) .smart-drop-down-button,
+smart-masked-text-box.outlined,
+smart-password-text-box.outlined {
     background-color: transparent;
 }
 
-.smart-text-box.underlined input.smart-input, .smart-input.underlined, .smart-input.underlined .smart-drop-down-button {
+.smart-text-box.underlined input.smart-input,
+.smart-input.underlined,
+.smart-input.underlined .smart-drop-down-button {
     border-top: none;
     border-left: none;
     border-right: none;
 }
 
-.smart-text-box.underlined input.smart-input, .smart-input.underlined:not([opened]), .smart-input.underlined:not([readonly]):not([opened]) .smart-drop-down-button {
-    border-radius: initial;
+.smart-text-box.underlined input.smart-input,
+.smart-input.underlined,
+.smart-input.underlined:not([readonly]) .smart-drop-down-button {
+    border-bottom-left-radius: initial;
+    border-bottom-right-radius: initial;
 }
 
-.smart-input.underlined[opened][drop-down-button-position="right"]:not([readonly]), .smart-input.underlined[opened][drop-down-button-position="right"]:not([readonly]) input {
+.smart-input.underlined[opened][drop-down-button-position="right"]:not([readonly]),
+.smart-input.underlined[opened][drop-down-button-position="right"]:not([readonly]) input {
     border-bottom-left-radius: 0;
 }
 
@@ -534,7 +646,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     border-bottom-right-radius: 0;
 }
 
-.smart-input.underlined[opened][drop-down-button-position="left"]:not([readonly]), .smart-input.underlined[opened][drop-down-button-position="left"]:not([readonly]) input {
+.smart-input.underlined[opened][drop-down-button-position="left"]:not([readonly]),
+.smart-input.underlined[opened][drop-down-button-position="left"]:not([readonly]) input {
     border-bottom-right-radius: 0;
 }
 
@@ -544,9 +657,12 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 
 .smart-input.underlined {
     transition: border-bottom 0.2s, background-color 0.2s;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
-.smart-input[readonly].underlined .smart-input, .smart-input[readonly].outlined .smart-input {
+.smart-input[readonly].underlined .smart-input,
+.smart-input[readonly].outlined .smart-input {
     background: var(--smart-background) !important;
     color: var(--smart-background-color) !important;
     opacity: 0.75;
@@ -571,7 +687,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     margin-top: calc(0px - var(--smart-font-size))
 }
 
-.smart-input.underlined[drop-down-button-position="right"] .smart-drop-down-button, .smart-input.underlined[drop-down-button-position="left"] .smart-drop-down-button {
+.smart-input.underlined[drop-down-button-position="right"] .smart-drop-down-button,
+.smart-input.underlined[drop-down-button-position="left"] .smart-drop-down-button {
     background: inherit;
     color: inherit;
 }
@@ -599,6 +716,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 .smart-invalid.smart-input.underlined .smart-hint::after {
     background-color: var(--smart-error);
 }
+
 /* Hover */
 
 .smart-input.underlined[hover] {
@@ -646,7 +764,10 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 
 @media not all and (min-resolution:.001dpcm) {
     @supports (-webkit-appearance: none) {
-        .smart-input .smart-input, .smart-input .smart-hint, .smart-input .smart-hint::after {
+
+        .smart-input .smart-input,
+        .smart-input .smart-hint,
+        .smart-input .smart-hint::after {
             transition-duration: 0.1s;
         }
     }
@@ -701,11 +822,14 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     z-index: 6;
     cursor: pointer;
 }
+
 .smart-number-input.outlined[drop-down-button-position="right"] .smart-drop-down-button,
 .smart-number-input.outlined[drop-down-button-position="left"] .smart-drop-down-button {
-    padding:0;
+    padding: 0;
 }
-.smart-input.outlined .smart-input, .smart-input.outlined.smart-multi-combo-input .smart-action-button {
+
+.smart-input.outlined .smart-input,
+.smart-input.outlined.smart-multi-combo-input .smart-action-button {
     padding: 12px 13px 12px;
     z-index: 5;
     background: var(--smart-background);
@@ -713,7 +837,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     transition: border-color 0.2s;
 }
 
-.smart-input.outlined[hint] .smart-input, .smart-input.outlined.smart-multi-combo-input[hint] .smart-action-button {
+.smart-input.outlined[hint] .smart-input,
+.smart-input.outlined.smart-multi-combo-input[hint] .smart-action-button {
     border-top: 1px solid var(--smart-background);
 }
 
@@ -733,36 +858,48 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     border-top: 1px solid var(--smart-border);
 }
 
-.smart-input.outlined[focus] .smart-input, .smart-input.outlined[focus].smart-multi-combo-input .smart-action-button, .smart-input.outlined[focus] .smart-drop-down-button {
+.smart-input.outlined[focus] .smart-input,
+.smart-input.outlined[focus].smart-multi-combo-input .smart-action-button,
+.smart-input.outlined[focus] .smart-drop-down-button {
     border-color: var(--smart-primary);
 }
 
-.smart-input.outlined[focus].smart-multi-combo-input .smart-action-button, .smart-input.outlined[focus] .smart-drop-down-button {
+.smart-input.outlined[focus].smart-multi-combo-input .smart-action-button,
+.smart-input.outlined[focus] .smart-drop-down-button {
     color: var(--smart-primary);
 }
 
 
-.smart-invalid.smart-input.outlined .smart-input, .smart-invalid .smart-input.outlined.smart-multi-combo-input .smart-action-button, .smart-invalid.smart-input.outlined .smart-drop-down-button {
+.smart-invalid.smart-input.outlined .smart-input,
+.smart-invalid .smart-input.outlined.smart-multi-combo-input .smart-action-button,
+.smart-invalid.smart-input.outlined .smart-drop-down-button {
     border-color: rgba(var(--smart-error-rgb), 0.5);
 }
 
-.smart-invalid.smart-input.outlined[focus] .smart-input, .smart-invalid .smart-input.outlined[focus].smart-multi-combo-input .smart-action-button, .smart-invalid.smart-input.outlined[focus] .smart-drop-down-button {
+.smart-invalid.smart-input.outlined[focus] .smart-input,
+.smart-invalid .smart-input.outlined[focus].smart-multi-combo-input .smart-action-button,
+.smart-invalid.smart-input.outlined[focus] .smart-drop-down-button {
     border-color: var(--smart-error);
 }
 
-.smart-invalid.smart-input.outlined[focus].smart-multi-combo-input .smart-invalid.smart-action-button, .smart-invalid.smart-input.outlined[focus] .smart-drop-down-button {
+.smart-invalid.smart-input.outlined[focus].smart-multi-combo-input .smart-invalid.smart-action-button,
+.smart-invalid.smart-input.outlined[focus] .smart-drop-down-button {
     color: var(--smart-error);
 }
 
-.smart-valid.smart-input.outlined[focus] .smart-input, .smart-valid.smart-input.outlined[focus].smart-multi-combo-input .smart-action-button, .smart-valid.smart-input.outlined[focus] .smart-drop-down-button {
+.smart-valid.smart-input.outlined[focus] .smart-input,
+.smart-valid.smart-input.outlined[focus].smart-multi-combo-input .smart-action-button,
+.smart-valid.smart-input.outlined[focus] .smart-drop-down-button {
     border-color: var(--smart-primary);
 }
 
-.smart-valid.smart-input.outlined[focus].smart-multi-combo-input .smart-valid.smart-action-button, .smart-valid.smart-input.outlined[focus] .smart-drop-down-button {
+.smart-valid.smart-input.outlined[focus].smart-multi-combo-input .smart-valid.smart-action-button,
+.smart-valid.smart-input.outlined[focus] .smart-drop-down-button {
     color: var(--smart-primary);
 }
 
-.smart-input.outlined[focus][hint] .smart-input, .smart-input.outlined[focus].smart-multi-combo-input[hint] .smart-action-button {
+.smart-input.outlined[focus][hint] .smart-input,
+.smart-input.outlined[focus].smart-multi-combo-input[hint] .smart-action-button {
     border-top-color: var(--smart-background);
 }
 
@@ -781,12 +918,13 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     margin-top: -6px;
     z-index: 7;
     white-space: nowrap;
-    transition: color 0.2s,  z-index 0.2s, font-size 0.2s, opacity 0.3s, font-size 0.2s, line-height 0.2s;
+    transition: color 0.2s, z-index 0.2s, font-size 0.2s, opacity 0.3s, font-size 0.2s, line-height 0.2s;
 }
 
 /* Corners */
 
-.smart-input.outlined[hint] .smart-hint::before, .smart-input.outlined[hint] .smart-hint::after {
+.smart-input.outlined[hint] .smart-hint::before,
+.smart-input.outlined[hint] .smart-hint::after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -831,7 +969,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 }
 
 .smart-input.outlined[hover][hint]>input:not(:focus):placeholder-shown,
-.smart-input.outlined[hover][hint]>textarea:not(:focus):placeholder-shown  {
+.smart-input.outlined[hover][hint]>textarea:not(:focus):placeholder-shown {
     border-color: var(--smart-border);
 }
 
@@ -866,6 +1004,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     opacity: 0;
     z-index: 2;
 }
+
 /* Focus */
 
 .smart-input.outlined[focus] {
@@ -880,7 +1019,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     opacity: 1;
 }
 
-.smart-input.outlined[focus][hint] .smart-hint::before, .smart-input.outlined[focus][hint] .smart-hint::after {
+.smart-input.outlined[focus][hint] .smart-hint::before,
+.smart-input.outlined[focus][hint] .smart-hint::after {
     border-top-color: var(--smart-primary) !important;
     box-shadow: none !important;
 }
@@ -908,7 +1048,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
 }
 
 .smart-valid.smart-input.outlined[focus][hint] .smart-hint::before,
- .smart-valid.smart-input.outlined[focus][hint] .smart-hint::after {
+.smart-valid.smart-input.outlined[focus][hint] .smart-hint::after {
     border-top-color: var(--smart-primary) !important;
 }
 
@@ -921,11 +1061,16 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     direction: initial;
 }
 
-.smart-text-box[right-to-left] .smart-label, .smart-text-box[right-to-left] .smart-hint, .smart-input[right-to-left] .smart-input, .smart-text-box[right-to-left]>.smart-container>.smart-content {
+.smart-text-box[right-to-left] .smart-label,
+.smart-text-box[right-to-left] .smart-hint,
+.smart-input[right-to-left] .smart-input,
+.smart-text-box[right-to-left]>.smart-container>.smart-content,
+.smart-number-input[right-to-left]>.smart-container {
     direction: rtl;
 }
 
-.smart-input[readonly][right-to-left] .smart-input {
+.smart-input[readonly][right-to-left] .smart-input,
+.smart-input[readonly][right-to-left]:not(.underlined):not(.outlined) .smart-input {
     padding-left: initial;
     padding-right: var(--smart-editor-label-padding);
 }
@@ -948,6 +1093,7 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     border-right: none;
 }
 
+.smart-time-box[right-to-left] .smart-timepicker,
 .smart-date-range-input-drop-down-menu[right-to-left] .smart-timepicker {
     direction: rtl;
 }
@@ -965,7 +1111,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     border-left: var(--smart-border-width) solid transparent;
 }
 
-.smart-multi-input-drop-down-menu:not(.smart-check-input-drop-down-menu) li.active a, .smart-check-input-drop-down-menu li.active.focused a {
+.smart-multi-input-drop-down-menu:not(.smart-check-input-drop-down-menu) li.active a,
+.smart-check-input-drop-down-menu li.active.focused a {
     border-left: var(--smart-border-width) solid var(--smart-primary);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -978,7 +1125,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     border-right: var(--smart-border-width) solid transparent;
 }
 
-.smart-multi-input-drop-down-menu[right-to-left]:not(.smart-check-input-drop-down-menu) li.active a, .smart-check-input-drop-down-menu[right-to-left] li.active.focused a {
+.smart-multi-input-drop-down-menu[right-to-left]:not(.smart-check-input-drop-down-menu) li.active a,
+.smart-check-input-drop-down-menu[right-to-left] li.active.focused a {
     border-left: var(--smart-border-width) solid transparent;
     border-right: var(--smart-border-width) solid var(--smart-primary);
     border-top-left-radius: var(--smart-border-top-left-radius);
@@ -1020,12 +1168,14 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     background-clip: content-box;
 }
 
-.smart-check-input-drop-down-menu[right-to-left] li::after, .smart-check-input-drop-down-menu[inverted] li::after {
+.smart-check-input-drop-down-menu[right-to-left] li::after,
+.smart-check-input-drop-down-menu[inverted] li::after {
     margin-left: initial;
     margin-right: 10px;
 }
 
-.smart-check-input-drop-down-menu[inverted] li::after, .smart-check-input-drop-down-menu[inverted] li.selected::before {
+.smart-check-input-drop-down-menu[inverted] li::after,
+.smart-check-input-drop-down-menu[inverted] li.selected::before {
     right: 0;
 }
 
@@ -1060,7 +1210,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     transform-origin: top;
 }
 
-.smart-check-input-drop-down-menu[right-to-left] li.active.selected::before, .smart-check-input-drop-down-menu[inverted] li.active.selected::before {
+.smart-check-input-drop-down-menu[right-to-left] li.active.selected::before,
+.smart-check-input-drop-down-menu[inverted] li.active.selected::before {
     margin-left: initial;
     margin-right: 4px;
 }
@@ -1069,7 +1220,8 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     padding-left: calc(var(--smart-tree-indent) + 25px);
 }
 
-.smart-check-input-drop-down-menu[right-to-left] li a, .smart-check-input-drop-down-menu[inverted] li a {
+.smart-check-input-drop-down-menu[right-to-left] li a,
+.smart-check-input-drop-down-menu[inverted] li a {
     padding-left: 10px;
     padding-right: calc(var(--smart-tree-indent) + 25px);
 }
@@ -1080,7 +1232,11 @@ smart-masked-text-box.outlined, smart-password-text-box.outlined {
     height: auto !important;
 }
 
-smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi-combo-input .smart-action-button, .smart-multi-combo-input .smart-drop-down-button, .smart-multi-combo-input .smart-drop-down-button .arrow {
+smart-multi-combo-input>.smart-container,
+.smart-multi-combo-input,
+.smart-multi-combo-input .smart-action-button,
+.smart-multi-combo-input .smart-drop-down-button,
+.smart-multi-combo-input .smart-drop-down-button .arrow {
     min-height: var(--smart-editor-height);
 }
 
@@ -1139,11 +1295,13 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     height: initial;
 }
 
-.smart-multi-combo-input[right-to-left] .smart-action-button, .smart-multi-combo-input-drop-down-menu[right-to-left]>ul {
+.smart-multi-combo-input[right-to-left] .smart-action-button,
+.smart-multi-combo-input-drop-down-menu[right-to-left]>ul {
     direction: rtl;
 }
 
-.smart-multi-combo-input[drop-down-button-position="left"] .smart-action-button, .smart-multi-combo-input[drop-down-button-position="right"] .smart-action-button {
+.smart-multi-combo-input[drop-down-button-position="left"] .smart-action-button,
+.smart-multi-combo-input[drop-down-button-position="right"] .smart-action-button {
     width: calc(100% - var(--smart-editor-addon-width));
 }
 
@@ -1179,7 +1337,8 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     color: var(--smart-ui-state-color-hover);
 }
 
-.smart-multi-combo-input[readonly][open] .smart-action-button, .smart-multi-combo-input[readonly]:active .smart-action-button {
+.smart-multi-combo-input[readonly][open] .smart-action-button,
+.smart-multi-combo-input[readonly]:active .smart-action-button {
     background: var(--smart-ui-state-active);
     color: var(--smart-ui-state-color-active);
 }
@@ -1227,12 +1386,15 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
 
 /* Date Input */
 
-.smart-date-range-input-drop-down-menu .smart-done-button, .smart-date-range-input-drop-down-menu .smart-today-button, .smart-date-range-input-drop-down-menu .smart-clear-button {
+.smart-date-range-input-drop-down-menu .smart-done-button,
+.smart-date-range-input-drop-down-menu .smart-today-button,
+.smart-date-range-input-drop-down-menu .smart-clear-button {
     height: auto;
     --smart-button-padding: 5px;
 }
 
-.smart-date-range-input-drop-down-menu .smart-done-button, .smart-date-range-input-drop-down-menu .smart-today-button {
+.smart-date-range-input-drop-down-menu .smart-done-button,
+.smart-date-range-input-drop-down-menu .smart-today-button {
     margin-right: 5px;
 }
 
@@ -1251,7 +1413,8 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     --smart-calendar-footer-height: 0px;
 }
 
-.smart-date-range-input-drop-down-menu[icons] smart-calendar, .smart-date-range-input-drop-down-menu[timepicker] smart-calendar {
+.smart-date-range-input-drop-down-menu[icons] smart-calendar,
+.smart-date-range-input-drop-down-menu[timepicker] smart-calendar {
     --smart-calendar-footer-height: 30px;
 }
 
@@ -1263,11 +1426,13 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     flex-direction: column;
 }
 
-.smart-date-range-input-drop-down-menu .smart-timepicker-buttons, .smart-date-range-input-drop-down-menu .smart-button-controls {
+.smart-date-range-input-drop-down-menu .smart-timepicker-buttons,
+.smart-date-range-input-drop-down-menu .smart-button-controls {
     display: none;
 }
 
-.smart-date-range-input-drop-down-menu[timepicker] .smart-timepicker-buttons, .smart-date-range-input-drop-down-menu[icons] .smart-button-controls {
+.smart-date-range-input-drop-down-menu[timepicker] .smart-timepicker-buttons,
+.smart-date-range-input-drop-down-menu[icons] .smart-button-controls {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -1335,6 +1500,7 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
 .smart-date-range-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu {
     height: auto;
 }
+
 .smart-date-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu {
     height: 250px;
 }
@@ -1346,14 +1512,14 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     overflow: hidden;
 }
 
-.smart-time-box .smart-timepicker{
+.smart-time-box .smart-timepicker {
     display: grid;
     grid-template-columns: 60% 35%;
     grid-column-gap: 5%;
     background: var(--smart-background);
     padding: 10px;
     border-color: var(--smart-border);
- }
+}
 
 .smart-date-range-input-drop-down-menu .smart-timepicker {
     position: absolute;
@@ -1408,7 +1574,7 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     width: 32px;
     height: 32px;
     box-sizing: border-box;
-    border-radius:100%;
+    border-radius: 100%;
 }
 
 .smart-timepicker .hour-selection .header,
@@ -1425,7 +1591,8 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     line-height: calc(var(--smart-calendar-cell-size) - 2px);
 }
 
-.smart-timepicker .hour-selection::after, .smart-timepicker .hour-selection::before {
+.smart-timepicker .hour-selection::after,
+.smart-timepicker .hour-selection::before {
     content: attr(am-label);
     width: 100%;
     display: flex;
@@ -1449,6 +1616,7 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
     grid-template-columns: repeat(2, 50%);
     border-left: var(--smart-border-width) solid var(--smart-border);
 }
+
 /*number input*/
 
 .smart-number-input .nav {
@@ -1475,13 +1643,14 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
 }
 
 .smart-number-input .nav .up {
-    border-bottom: 1px solid var(--smart-border);
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-number-input.outlined .nav .up,
 .smart-number-input.underlined .nav .up {
     border-bottom: none;
 }
+
 .smart-number-input .nav .up,
 .smart-number-input .nav .down {
     display: flex;
@@ -1504,8 +1673,7 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
 }
 
 .smart-number-input .nav .up:hover,
-.smart-number-input .nav .down:hover
-{
+.smart-number-input .nav .down:hover {
     background: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
 }
@@ -1513,8 +1681,28 @@ smart-multi-combo-input>.smart-container, .smart-multi-combo-input, .smart-multi
 .smart-number-input .nav .up:active,
 .smart-number-input .nav .down:active,
 .smart-number-input .nav .up[active],
-.smart-number-input .nav .down[active]
-{
+.smart-number-input .nav .down[active] {
     background: var(--smart-ui-state-active);
     color: var(--smart-ui-state-color-active);
+}
+
+.smart-number-input[right-to-left] .nav {
+    border-left: initial;
+    border-right: var(--smart-border-width) solid var(--smart-border);
+    border-top-left-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-right-radius);
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
+    order: initial;
+}
+
+.smart-number-input[right-to-left][focus] .nav {
+    border-color: var(--smart-outline);
+}
+
+.smart-number-input[right-to-left] .smart-input {
+    border-top-left-radius: initial;
+    border-bottom-left-radius: initial;
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }

@@ -593,9 +593,10 @@ export class Table extends React.Component {
 		return ["animation","autoLoadState","autoSaveState","columnGroups","columnMinWidth","columnReorder","columnResize","columnResizeFeedback","columns","conditionalFormatting","columnSizeMode","conditionalFormattingButton","dataRowId","dataSource","dataTransform","disabled","editing","editMode","filtering","filterRow","filterTemplate","footerRow","formulas","freezeFooter","freezeHeader","grouping","headerRow","keyboardNavigation","loadColumnStateBehavior","locale","messages","onCellRender","onColumnRender","onInit","pageSize","pageIndex","paging","rightToLeft","rowDetailTemplate","selected","selection","selectionMode","sort","sortMode","stateSettings","theme","tooltip","virtualization"];
 	}
 	/**  This event is triggered when a cell edit operation has been initiated.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)
 	*   dataField - The data field of the cell's column.
 	*   row - The data of the cell's row.
+	*   value - The data value of the cell.
 	*/
 	_onCellBeginEdit = null;	get onCellBeginEdit() {
 		return this._onCellBeginEdit;
@@ -604,9 +605,12 @@ export class Table extends React.Component {
 		this._onCellBeginEdit = value;
 	}
 	/**  This event is triggered when a cell has been clicked.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	id, 	dataField, 	row, 	value, 	originalEvent)
+	*   id - The cell's row id.
 	*   dataField - The data field of the cell's column.
 	*   row - The data of the cell's row.
+	*   value - The data value of the cell.
+	*   originalEvent - The 'click' event object.
 	*/
 	_onCellClick = null;	get onCellClick() {
 		return this._onCellClick;
@@ -615,9 +619,10 @@ export class Table extends React.Component {
 		this._onCellClick = value;
 	}
 	/**  This event is triggered when a cell has been edited.
-	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)
 	*   dataField - The data field of the cell's column.
 	*   row - The new data of the cell's row.
+	*   value - The data value of the cell.
 	*/
 	_onCellEndEdit = null;	get onCellEndEdit() {
 		return this._onCellEndEdit;
@@ -634,6 +639,26 @@ export class Table extends React.Component {
 	}
 	set onChange(value) {
 		this._onChange = value;
+	}
+	/**  This event is triggered when a row has been collapsed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The data of the collapsed row.
+	*/
+	_onCollapse = null;	get onCollapse() {
+		return this._onCollapse;
+	}
+	set onCollapse(value) {
+		this._onCollapse = value;
+	}
+	/**  This event is triggered when a row has been expanded.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The (aggregated) data of the expanded row.
+	*/
+	_onExpand = null;	get onExpand() {
+		return this._onExpand;
+	}
+	set onExpand(value) {
+		this._onExpand = value;
 	}
 	/**  This event is triggered when a column header cell has been clicked.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField)
@@ -722,8 +747,8 @@ export class Table extends React.Component {
 	}
 
 	// Gets the events of the React component.
-	get events() {
-		return ["onCellBeginEdit","onCellClick","onCellEndEdit","onChange","onColumnClick","onColumnResize","onFilter","onGroup","onPage","onRowBeginEdit","onRowEndEdit","onSort"];
+	get eventListeners() {
+		return ["onCellBeginEdit","onCellClick","onCellEndEdit","onChange","onCollapse","onExpand","onColumnClick","onColumnResize","onFilter","onGroup","onPage","onRowBeginEdit","onRowEndEdit","onSort"];
 	}
 	/** Adds a filter to a specific column. 
 	* @param {string} dataField. The column's data field.
@@ -1237,6 +1262,7 @@ export class Table extends React.Component {
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -1280,8 +1306,8 @@ export class Table extends React.Component {
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

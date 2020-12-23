@@ -1,8 +1,8 @@
 import { GanttChart } from './../index';
-import { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn, ElementRenderMode} from './../index';
+import { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskColumn, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceConnection, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskConnection, GanttChartTaskResource, GanttChartTaskColumn, ElementRenderMode} from './../index';
+export { GanttChartDataExportItemType, GanttChartTaskType, GanttDayFormat, Duration, HorizontalScrollBarVisibility, HourFormat, MonthFormat, GanttChartResourceTimelineMode, GanttChartResourceTimelineView, GanttChartSortMode, VerticalScrollBarVisibility, GanttChartView, YearFormat, WeekFormat, GanttChartDataExport, GanttChartDataSource, GanttChartDataSourceResource, GanttChartResource, GanttChartResourceColumn, GanttChartTask, GanttChartTaskColumn, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { GanttChart } from './../index';
 
@@ -721,10 +721,10 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 	@Output() onExpand: EventEmitter<CustomEvent> = new EventEmitter();
 
 	/** @description Adds a task as the last item of a Project. 
-	* @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
+	* @param {any} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	* @param {string | number} projectIndex. A number that represents the index of a project or a string that matches the hierarchical position of the item, e.g. '0' ( following jqxTree syntax).
 	*/
-    public addTaskTo(taskIndex: string | number, projectIndex: string | number): void {
+    public addTaskTo(taskIndex: any, projectIndex: string | number): void {
         if (this.nativeElement.isRendered) {
             this.nativeElement.addTaskTo(taskIndex, projectIndex);
         }
@@ -956,7 +956,7 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
     }
 
 	/** @description Returns the Tree path of a task/resource. 
-	* @param {GanttChartTask | GanttChartResource | number} item. A GattChartTask/GanttChartResource item object or index.
+	* @param {any} item. A GattChartTask/GanttChartResource item object or index.
 	* @returns {string}
   */
 	public async getItemPath(item): Promise<any> {
@@ -974,7 +974,7 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
     }
 
 	/** @description Returns the index of a task. 
-	* @param {GanttChartTask} task. A GattChartTask object.
+	* @param {any} task. A GattChartTask object.
 	* @returns {number}
   */
 	public async getTaskIndex(task): Promise<any> {
@@ -992,7 +992,7 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
     }
 
 	/** @description Returns the tree path of a task. 
-	* @param {GanttChartTask} task. A GanttChartTask object.
+	* @param {any} task. A GanttChartTask object.
 	* @returns {string}
   */
 	public async getTaskPath(task): Promise<any> {
@@ -1010,8 +1010,8 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
     }
 
 	/** @description Returns teh Project of a task if any. 
-	* @param {GanttChartTask} task. A GantChartTask object.
-	* @returns {GanttChartTask | undefined}
+	* @param {any} task. A GantChartTask object.
+	* @returns {any}
   */
 	public async getTaskProject(task): Promise<any> {
 		const getResultOnRender = () => {

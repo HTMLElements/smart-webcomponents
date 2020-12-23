@@ -128,6 +128,11 @@ export interface MenuProperties {
    */
   overflow?: Overflow;
   /**
+   * If set to true, prevents the closing of the Menu or its dropdowns when Menu items are checked/unchecked.
+   * Default value: false
+   */
+  preventCloseOnCheck?: boolean;
+  /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
    */

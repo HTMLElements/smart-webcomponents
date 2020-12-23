@@ -461,10 +461,10 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
   onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds a task as the last item of a Project.
-   * @param {string | number} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
+   * @param {any} taskIndex. A number that represents the index of a task or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
    * @param {string | number} projectIndex. A number that represents the index of a project or a string that matches the hierarchical position of the item, e.g. '0' ( following SmartTree syntax).
    */
-  addTaskTo(taskIndex: string | number, projectIndex: string | number): void;
+  addTaskTo(taskIndex: any, projectIndex: string | number): void;
   /**
    * Starts an update operation. This is appropriate when calling multiple methods or set multiple properties at once.
    */
@@ -540,28 +540,28 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
   getState(): any[];
   /**
    * Returns the Tree path of a task/resource.
-   * @param {GanttChartTask | GanttChartResource | number} item. A GattChartTask/GanttChartResource item object or index.
+   * @param {any} item. A GattChartTask/GanttChartResource item object or index.
    * @returns {string}
    */
-  getItemPath(item: GanttChartTask | GanttChartResource | number): string;
+  getItemPath(item: any): string;
   /**
    * Returns the index of a task.
-   * @param {GanttChartTask} task. A GattChartTask object.
+   * @param {any} task. A GattChartTask object.
    * @returns {number}
    */
-  getTaskIndex(task: GanttChartTask): number;
+  getTaskIndex(task: any): number;
   /**
    * Returns the tree path of a task.
-   * @param {GanttChartTask} task. A GanttChartTask object.
+   * @param {any} task. A GanttChartTask object.
    * @returns {string}
    */
-  getTaskPath(task: GanttChartTask): string;
+  getTaskPath(task: any): string;
   /**
    * Returns teh Project of a task if any.
-   * @param {GanttChartTask} task. A GantChartTask object.
-   * @returns {GanttChartTask | undefined}
+   * @param {any} task. A GantChartTask object.
+   * @returns {any}
    */
-  getTaskProject(task: GanttChartTask): GanttChartTask | undefined;
+  getTaskProject(task: any): any;
   /**
    * Returns the index of a resource.
    * @param {any} resource. A GanttChartResource object.
@@ -695,7 +695,7 @@ export interface GanttChartDataSource {
    * Tasks connection.
    * Default value: undefined
    */
-  connections?: GanttChartDataSourceConnection[];
+  connections?: any;
   /**
    * Project, Task or Milestone CSS class.
    * Default value: ""
@@ -805,7 +805,7 @@ export interface GanttChartDataSource {
    * Project's tasks.
    * Default value: 
    */
-  tasks?: GanttChartTask[];
+  tasks?: any;
   /**
    * Project, Task or Milestone type. Possible values are 'project' and 'task'
    * Default value: task
@@ -821,24 +821,6 @@ export interface GanttChartDataSource {
    * Default value: false
    */
   hidden?: boolean | undefined;
-}
-
-export interface GanttChartDataSourceConnection {
-  /**
-   * Task's connection lag. Used by the Auto Scheduling (autoSchedue proeprty) feature to determine the connection lag, which is the time before/after the target begins/ends (depending on the connection type). The lag can be a negative number in which case it acts as lead time. In other words, the lab property is used to make a task start late(positive lag) or early(negative lag) then planned when autoSchedule is enabled.
-   * Default value: 0
-   */
-  lag?: number | undefined;
-  /**
-   * Task's connection target.
-   * Default value: 0
-   */
-  target?: string | number;
-  /**
-   * Task's connection type.
-   * Default value: 0
-   */
-  type?: number;
 }
 
 export interface GanttChartDataSourceResource {
@@ -985,7 +967,7 @@ export interface GanttChartTask {
    * Tasks connection.
    * Default value: undefined
    */
-  connections?: GanttChartTaskConnection[];
+  connections?: any;
   /**
    * Project, Task or Milestone CSS class.
    * Default value: ""
@@ -1090,7 +1072,7 @@ export interface GanttChartTask {
    * Project, Task or Milestone resources.
    * Default value: 
    */
-  resources?: GanttChartTaskResource[];
+  resources?: any;
   /**
    * Project, Task or Milestone synchronized in the view.
    * Default value: false
@@ -1100,7 +1082,7 @@ export interface GanttChartTask {
    * Project's tasks. Only projects can have tasks.
    * Default value: 
    */
-  tasks?: GanttChartTask[];
+  tasks?: any;
   /**
    * Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task'
    * Default value: task
@@ -1111,82 +1093,6 @@ export interface GanttChartTask {
    * Default value: 
    */
   value?: any;
-}
-
-export interface GanttChartTaskConnection {
-  /**
-   * Task's connection lag. Used by the Auto Scheduling (autoSchedue proeprty) feature to determine the connection lag, which is the time before/after the target begins/ends (depending on the connection type). The lag can be a negative number in which case it acts as lead time. In other words, the lab property is used to make a task start late(positive lag) or early(negative lag) then planned when autoSchedule is enabled.
-   * Default value: 0
-   */
-  lag?: number | undefined;
-  /**
-   * Task's connection target.
-   * Default value: 0
-   */
-  target?: string | number;
-  /**
-   * Task's connection type.
-   * Default value: 0
-   */
-  type?: number;
-}
-
-export interface GanttChartTaskResource {
-  /**
-   * Resource capacity.
-   * Default value: 0
-   */
-  capacity?: number;
-  /**
-   * Resource format function.
-   * Default value: null
-   */
-  formatFunction?: any;
-  /**
-   * Resource visibility.
-   * Default value: false
-   */
-  hidden?: boolean | undefined;
-  /**
-   * Resource id.
-   * Default value: ""
-   */
-  id?: string;
-  /**
-   * Resource label.
-   * Default value: 0
-   */
-  label?: string | null;
-  /**
-   * Resource max capacity.
-   * Default value: 0
-   */
-  maxCapacity?: number;
-  /**
-   * Resource min capacity.
-   * Default value: 0
-   */
-  minCapacity?: number;
-  /**
-   * Resource progress.
-   * Default value: 0
-   */
-  progress?: number;
-  /**
-   * Resource type.
-   * Default value: 
-   */
-  type?: any;
-  /**
-   * Resource value.
-   * Default value: 
-   */
-  value?: any;
-  /**
-   * Resource workload.
-   * Default value: 0
-   */
-  workload?: string | number;
 }
 
 export interface GanttChartTaskColumn {

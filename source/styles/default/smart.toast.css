@@ -10,7 +10,8 @@ smart-toast .smart-toast-container {
 .smart-toast-container-top-left,
 .smart-toast-container-top-right,
 .smart-toast-container-bottom-left,
-.smart-toast-container-bottom-right {
+.smart-toast-container-bottom-right,
+.smart-toast-container-custom {
     width: var(--smart-toast-container-default-width);
     padding: 5px;
     position: absolute;
@@ -150,13 +151,16 @@ smart-toast-item:hover {
     color: inherit;
 }
 
-.smart-toast-item.info .smart-toast-item-close-button,
 .smart-toast-item.warning .smart-toast-item-close-button,
 .smart-toast-item.success .smart-toast-item-close-button,
 .smart-toast-item.error .smart-toast-item-close-button,
 .smart-toast-item.mail .smart-toast-item-close-button,
 .smart-toast-item.time .smart-toast-item-close-button {
     color: var(--smart-primary-color);
+}
+
+.smart-toast-item.info .smart-toast-item-close-button {
+    color: var(--smart-surface-color);
 }
 
 .smart-toast-item[show-close-button] .smart-toast-item-close-button {

@@ -14,6 +14,10 @@ export interface PivotTableProps extends PivotTableProperties {
 	onCellClick?: ((event?: Event) => void) | undefined;
 	onChange?: ((event?: Event) => void) | undefined;
 	onColumnClick?: ((event?: Event) => void) | undefined;
+	onCollapse?: ((event?: Event) => void) | undefined;
+	onCollapseTotalColumn?: ((event?: Event) => void) | undefined;
+	onExpand?: ((event?: Event) => void) | undefined;
+	onExpandTotalColumn?: ((event?: Event) => void) | undefined;
 	onFilter?: ((event?: Event) => void) | undefined;
 	onSort?: ((event?: Event) => void) | undefined;
 	onCreate?: ((event?: Event) => void) | undefined;
@@ -120,6 +124,18 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 		}
 	}
 
+	/** Sets or gets whether the original tabular data sourse of the PivotTable will be pre-sorted based on columns with the rowGroup property (and their order).
+	*	Property type: boolean
+	*/
+	get defaultSortByRowGroups(): boolean  {
+		return this.nativeElement ? this.nativeElement.defaultSortByRowGroups : undefined;
+	}
+	set defaultSortByRowGroups(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.defaultSortByRowGroups = value;
+		}
+	}
+
 	/** Sets or gets whether to display the PivotTable's designer alongside the table itself. The designer allows for configuring column settings and applying filtering.
 	*	Property type: boolean
 	*/
@@ -216,6 +232,30 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 		}
 	}
 
+	/** Sets or gets whether to hide the tooltip that displays details when multiple summary cells with non-null values are selected.
+	*	Property type: boolean
+	*/
+	get hideCellSelectionTooltip(): boolean  {
+		return this.nativeElement ? this.nativeElement.hideCellSelectionTooltip : undefined;
+	}
+	set hideCellSelectionTooltip(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.hideCellSelectionTooltip = value;
+		}
+	}
+
+	/** Sets or gets whether to hide rows that contain only 0 or null values. Applicable only when there are rowGroup columns.
+	*	Property type: boolean
+	*/
+	get hideEmptyRows(): boolean  {
+		return this.nativeElement ? this.nativeElement.hideEmptyRows : undefined;
+	}
+	set hideEmptyRows(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.hideEmptyRows = value;
+		}
+	}
+
 	/** Sets or gets whether navigation with the keyboard is enabled in the PivotTable.
 	*	Property type: boolean
 	*/
@@ -249,6 +289,18 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 	set messages(value: any) {
 		if (this.nativeElement) {
 			this.nativeElement.messages = value;
+		}
+	}
+
+	/** Sets or gets what value is shown in cells that do not have aggregated data to display. By default (null), such cells are empty.
+	*	Property type: number
+	*/
+	get nullDefaultValue(): number  {
+		return this.nativeElement ? this.nativeElement.nullDefaultValue : undefined;
+	}
+	set nullDefaultValue(value: number) {
+		if (this.nativeElement) {
+			this.nativeElement.nullDefaultValue = value;
 		}
 	}
 
@@ -297,6 +349,18 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 	set rightToLeft(value: boolean) {
 		if (this.nativeElement) {
 			this.nativeElement.rightToLeft = value;
+		}
+	}
+
+	/** Sets or gets whether sorting by row (when a row group cell is clicked) is enabled. When columnTotals is also enabled, sorting is applied per "column group"; otherwise - for all columns.
+	*	Property type: boolean
+	*/
+	get rowSort(): boolean  {
+		return this.nativeElement ? this.nativeElement.rowSort : undefined;
+	}
+	set rowSort(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.rowSort = value;
 		}
 	}
 
@@ -399,7 +463,7 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["animation","columnReorder","columns","columnTotals","columnTotalsPosition","conditionalFormatting","dataSource","designer","designerPosition","disabled","drillDown","freezeHeader","getDefaultSummaryFunction","grandTotal","groupLayout","keyboardNavigation","locale","messages","onCellRender","onColumnRender","onInit","rightToLeft","rowTotals","rowTotalsPosition","selection","selectionMode","sortMode","theme","toolbar","tooltip"];
+		return ["animation","columnReorder","columns","columnTotals","columnTotalsPosition","conditionalFormatting","dataSource","defaultSortByRowGroups","designer","designerPosition","disabled","drillDown","freezeHeader","getDefaultSummaryFunction","grandTotal","groupLayout","hideCellSelectionTooltip","hideEmptyRows","keyboardNavigation","locale","messages","nullDefaultValue","onCellRender","onColumnRender","onInit","rightToLeft","rowSort","rowTotals","rowTotalsPosition","selection","selectionMode","sortMode","theme","toolbar","tooltip"];
 	}
 	/**  This event is triggered when a cell has been clicked.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row)
@@ -408,7 +472,9 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 	*/
 	onCellClick?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when the selection is changed.
-	*  @param event. The custom event. 	*/
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	type)
+	*   type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
+	*/
 	onChange?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when a summary column header cell has been clicked.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	columnDefinition, 	dataField)
@@ -416,6 +482,26 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 	*   dataField - The data field of the cell's original column.
 	*/
 	onColumnClick?: ((event?: Event) => void) | undefined
+	/**  This event is triggered when a row has been collapsed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The (aggregated) data of the collapsed row.
+	*/
+	onCollapse?: ((event?: Event) => void) | undefined
+	/**  This event is triggered when a total column has been collapsed.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	columnDefinition)
+	*   columnDefinition - The definition of the collapsed total column.
+	*/
+	onCollapseTotalColumn?: ((event?: Event) => void) | undefined
+	/**  This event is triggered when a row has been expanded.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	record)
+	*   record - The (aggregated) data of the expanded row.
+	*/
+	onExpand?: ((event?: Event) => void) | undefined
+	/**  This event is triggered when a total column has been expanded.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	columnDefinition)
+	*   columnDefinition - The definition of the expanded total column.
+	*/
+	onExpandTotalColumn?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when a filtering-related action is made.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	action, 	filters)
 	*   action - The filtering action. Possible actions: 'add', 'remove'.
@@ -435,8 +521,8 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
-		return ["onCellClick","onChange","onColumnClick","onFilter","onSort","onCreate","onReady"];
+	get eventListeners(): string[] {
+		return ["onCellClick","onChange","onColumnClick","onCollapse","onCollapseTotalColumn","onExpand","onExpandTotalColumn","onFilter","onSort","onCreate","onReady"];
 	}
 	/** Adds a filter to a specific column. 
 	* @param {string} dataField. The column's data field.
@@ -591,8 +677,8 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
         return result;
     }
 
-	/** Returns an array of selected row ids. 
-	* @returns {(string | number)[]}
+	/** Returns an array of selected row ids (when selectionMode is 'many' or 'extended') or an array of selected cell details (when selectionMode is 'cell'). 
+	* @returns {(string | number)[] | { dataField: string, rowId: string | number }[]}
   */
 	public async getSelection() : Promise<any> {
 		const getResultOnRender = () => {
@@ -637,17 +723,18 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
         }
     }
 
-	/** Selects a row. 
-	* @param {string | number} rowId. The id of the row to select. Can be retrieved from the <strong>rows</strong> collection.
+	/** Selects one or more rows (when selectionMode is 'many' or 'extended') or a single cell (when selectionMode is 'cell' and the second argument is passed). 
+	* @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select (or of the cell's parent row when <strong>selectionMode</strong> is <em>'cell'</em>). Can be retrieved from the <strong>rows</strong> collection.
+	* @param {string} dataField?. The dataField of the dynamic column (can be retrieved by calling <strong>getDynamicColumns</strong>) of the cell to select (only applicable when <strong>selectionMode</strong> is <em>'cell'</em>).
 	*/
-    public select(rowId: string | number): void {
+    public select(rowId: string | number | (string | number)[], dataField?: string): void {
         if (this.nativeElement.isRendered) {
-            this.nativeElement.select(rowId);
+            this.nativeElement.select(rowId, dataField);
         }
         else
         {
             this.nativeElement.whenRendered(() => {
-                this.nativeElement.select(rowId);
+                this.nativeElement.select(rowId, dataField);
             });
         }
     }
@@ -668,17 +755,18 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
         }
     }
 
-	/** Unselects a row. 
-	* @param {string | number} rowId. The id of the row to unselect. Can be retrieved from the <strong>rows</strong> collection.
+	/** Unselects one or more rows (when selectionMode is 'many' or 'extended') or a single cell (when selectionMode is 'cell' and the second argument is passed). 
+	* @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select (or of the cell's parent row when <strong>selectionMode</strong> is <em>'cell'</em>). Can be retrieved from the <strong>rows</strong> collection.
+	* @param {string} dataField?. The dataField of the dynamic column (can be retrieved by calling <strong>getDynamicColumns</strong>) of the cell to select (only applicable when <strong>selectionMode</strong> is <em>'cell'</em>).
 	*/
-    public unselect(rowId: string | number): void {
+    public unselect(rowId: string | number | (string | number)[], dataField?: string): void {
         if (this.nativeElement.isRendered) {
-            this.nativeElement.unselect(rowId);
+            this.nativeElement.unselect(rowId, dataField);
         }
         else
         {
             this.nativeElement.whenRendered(() => {
-                this.nativeElement.unselect(rowId);
+                this.nativeElement.unselect(rowId, dataField);
             });
         }
     }
@@ -748,6 +836,7 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -791,8 +880,8 @@ export class PivotTable extends React.Component<React.HTMLAttributes<Element> & 
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

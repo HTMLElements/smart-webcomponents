@@ -13,9 +13,9 @@ smart-scheduler>.smart-container,
     grid-template-columns: 100%;
 }
 
-smart-scheduler[show-footer]>.smart-container,
-.smart-container.smart-scheduler {
-    grid-template-rows: 1fr var(--smart-scheduler-footer-height);
+smart-scheduler>.smart-container[show-footer],
+.smart-container.smart-scheduler[show-footer] {
+    grid-template-rows: var(--smart-scheduler-header-height) minmax(0, 1fr) var(--smart-scheduler-footer-height);
 }
 
 /* Hides the resize trigger */
@@ -24,7 +24,7 @@ smart-scheduler[show-footer]>.smart-container,
     --smart-scheduler-event-size: var(--smart-scheduler-event-size-timeline)
 }
 
-.smart-scheduler:not([view-type^="timeline"]) {
+.smart-scheduler {
     --smart-scheduler-event-size: var(--smart-scheduler-event-size-basic);
 }
 
@@ -57,6 +57,10 @@ smart-scheduler[show-footer]>.smart-container,
     background: var(--smart-surface);
 }
 
+.smart-scheduler .smart-scheduler-footer {
+    height: var(--smart-scheduler-footer-height);
+}
+
 .smart-scheduler .smart-scheduler-header:empty,
 .smart-scheduler .smart-scheduler-footer:empty {
     display: none;
@@ -70,6 +74,7 @@ smart-scheduler[show-footer]>.smart-container,
     grid-template-rows: auto minmax(0, 1fr);
     grid-template-areas: 'hHeader hHeader''vHeader content';
     outline: none;
+    position: relative;
 }
 
 .smart-scheduler[view-type="agenda"] .smart-scheduler-view-header-horizontal {
@@ -227,7 +232,8 @@ smart-scheduler[show-footer]>.smart-container,
 }
 
 .smart-scheduler .smart-scheduler-view-header-vertical .smart-scheduler-cell>div,
-.smart-scheduler .smart-scheduler-groups-container .smart-scheduler-cell>div {
+.smart-scheduler .smart-scheduler-groups-container .smart-scheduler-cell>div,
+.smart-scheduler .smart-scheduler-view-all-day-label>div {
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -465,11 +471,15 @@ smart-scheduler[show-footer]>.smart-container,
     min-width: var(--smart-scheduler-timeline-cell-min-size);
 }
 
+.smart-scheduler .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale)[restricted] {
+    background: var(--smart-scheduler-restricted-background);
+}
+
 .smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cell:first-of-type {
     border-left: none;
 }
 
-.smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cell:last-of-type {
+.smart-scheduler:not([right-to-left]) .smart-scheduler-view-header-horizontal .smart-scheduler-cell:last-of-type {
     border-right: none;
 }
 
@@ -489,12 +499,12 @@ smart-scheduler[show-footer]>.smart-container,
     pointer-events: none;
 }
 
-.smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cells div {
+.smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cells .smart-scheduler-cell > div {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.smart-scheduler[view-type^="timeline"] .smart-scheduler-cells div {
+.smart-scheduler[view-type^="timeline"] .smart-scheduler-cells .smart-scheduler-cell > div {
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -520,7 +530,8 @@ smart-scheduler[show-footer]>.smart-container,
 }
 
 .smart-scheduler[view-type="agenda"] .smart-scheduler-view.no-agenda::after {
-    content: var(--smart-scheduler-no-agenda-placeholder);
+    /* content: var(--smart-scheduler-no-agenda-placeholder); */
+    content: attr(agenda-placeholder);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -614,6 +625,10 @@ smart-scheduler[show-footer]>.smart-container,
     color: var(--smart-ui-state-color-hover);
 }
 
+.smart-scheduler[resized] .smart-scheduler-cell[restricted]:hover {
+    cursor: no-drop;
+}
+
 .smart-scheduler .smart-scheduler-cell.smart-scheduler-feedback::after {
     content: '';
     position: absolute;
@@ -630,6 +645,15 @@ smart-scheduler[show-footer]>.smart-container,
 .smart-scheduler[view-type="month"] .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale) {
     justify-content: flex-end;
     align-items: flex-start;
+}
+
+.smart-scheduler[view-type="month"] .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale)[today]>div:not([class]) {
+    border-radius: 50%;
+    background: var(--smart-primary);
+    color: var(--smart-primary-color);
+    box-shadow: 0 0 0 2px var(--smart-primary);
+    width: calc(var(--smart-scheduler-month-view-number-size)/ 1.5);
+    height: calc(var(--smart-scheduler-month-view-number-size)/ 1.5);
 }
 
 .smart-scheduler .smart-scheduler-cell[other-month] {
@@ -788,6 +812,7 @@ smart-scheduler[show-footer]>.smart-container,
     align-items: center;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
     height: 100%;
     min-width: var(--smart-scheduler-timeline-header-vertical-cells-size);
     font-weight: var(--smart-scheduler-timeline-all-day-label-font-weight);
@@ -869,11 +894,12 @@ smart-scheduler[show-footer]>.smart-container,
     align-items: center;
     height: 100%;
     padding: var(--smart-scheduler-header-padding);
-    background: var(--smart-background);
+    background: var(--smart-surface);
     background-clip: content-box;
     overflow: hidden;
 }
 
+.smart-scheduler .smart-scheduler-nav[today],
 .smart-scheduler .smart-scheduler-nav[prev],
 .smart-scheduler .smart-scheduler-nav[current],
 .smart-scheduler .smart-scheduler-nav[next] {
@@ -887,7 +913,6 @@ smart-scheduler[show-footer]>.smart-container,
     font-family: var(--smart-font-family-icon);
     border: var(--smart-border-width) solid var(--smart-border);
     text-transform: initial;
-    --smart-ui-state-color-active: var(--smart-background-color);
 }
 
 .smart-scheduler .smart-scheduler-view-nav .smart-scheduler-nav[prev],
@@ -898,7 +923,30 @@ smart-scheduler[show-footer]>.smart-container,
     --smart-disabled: transparent;
 }
 
-.smart-scheduler .smart-scheduler-date-nav .smart-scheduler-nav[prev] {
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[prev],
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+    border-radius: 50%;
+}
+
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[prev]:not([active]):not([focus]),
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[next]:not([active]):not([focus]),
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[current]:not([focus]),
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-nav[today]:not([focus]),
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-view-items-button:not([focus]) {
+    background: transparent;
+}
+
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[current],
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[prev],
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+    border: initial;
+}
+
+.smart-scheduler:not([header-navigation-style="raised"]) .smart-scheduler-date-nav .smart-scheduler-nav[current] {
+    margin-left: 10px;
+}
+
+.smart-scheduler[header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[prev] {
     border-top-left-radius: var(--smart-item-border-top-left-radius);
     border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
     border-top-right-radius: initial;
@@ -906,17 +954,61 @@ smart-scheduler[show-footer]>.smart-container,
     border-right: initial;
 }
 
-.smart-scheduler .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+.smart-scheduler[header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
     border-top-left-radius: initial;
     border-bottom-left-radius: initial;
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
+    border-right: initial;
+    border-left: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-scheduler[scroll-buttons-position="far"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
     border-top-right-radius: var(--smart-item-border-top-right-radius);
     border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
-    border-left: initial;
 }
 
 .smart-scheduler .smart-scheduler-date-nav .smart-scheduler-nav[current] {
-    width: var(--smart-scheduler-header-date-button-size);
     --smart-button-padding: 0 10px 0 10px;
+    width: auto;
+    max-width: var(--smart-scheduler-header-date-button-max-size);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+}
+
+.smart-scheduler[header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[current] {
+    border-radius: initial;
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+}
+
+.smart-scheduler[hide-today-button] .smart-scheduler-nav[today] {
+    display: none;
+}
+
+.smart-scheduler .smart-scheduler-nav[today] {
+    width: var(--smart-scheduler-header-today-button-size);
+    --smart-button-padding: 0 10px 0 10px;
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+    margin-right: 10px;
+}
+
+.smart-scheduler[header-navigation-style="raised"] .smart-scheduler-nav[today],
+.smart-scheduler[header-navigation-style="raised"] .smart-scheduler-view-items-button {
+    background: var(--smart-background);
+}
+
+.smart-scheduler .smart-scheduler-nav[today] button {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.smart-scheduler[scroll-buttons-position="both"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[current] {
     border-radius: initial;
 }
 
@@ -932,13 +1024,6 @@ smart-scheduler[show-footer]>.smart-container,
     outline: none;
 }
 
-.smart-scheduler .smart-scheduler-nav[prev][active] button,
-.smart-scheduler .smart-scheduler-nav[current][active] button,
-.smart-scheduler .smart-scheduler-nav[next][active] button {
-    background-color: var(--smart-ui-state-hover);
-    color: var(--smart-primary);
-}
-
 .smart-scheduler .smart-scheduler-nav[prev] .smart-button,
 .smart-scheduler .smart-scheduler-nav[next] .smart-button {
     font-family: var(--smart-font-family-icon);
@@ -948,9 +1033,10 @@ smart-scheduler[show-footer]>.smart-container,
     min-height: initial;
 }
 
+.smart-scheduler .smart-scheduler-view-items-button::after,
+.smart-scheduler .smart-scheduler-nav[current]::after,
 .smart-scheduler .smart-scheduler-nav[prev]::after,
-.smart-scheduler .smart-scheduler-nav[next]::after,
-.smart-scheduler .smart-scheduler-view-items-button::after {
+.smart-scheduler .smart-scheduler-nav[next]::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -965,6 +1051,50 @@ smart-scheduler[show-footer]>.smart-container,
     pointer-events: none;
 }
 
+.smart-scheduler .smart-scheduler-nav[current]::after,
+.smart-scheduler .smart-scheduler-view-items-button::after {
+    width: var(--smart-editor-addon-width);
+    min-width: var(--smart-editor-addon-width);
+    left: initial;
+    right: 0;
+    content: var(--smart-icon-arrow-down);
+    background: transparent;
+    color: inherit;
+}
+
+.smart-scheduler[disable-date-menu] .smart-scheduler-nav[current]::after,
+.smart-scheduler[disable-view-menu] .smart-scheduler-view-items-button::after {
+    content: initial;
+}
+
+.smart-scheduler[disable-date-menu] .smart-scheduler-nav[current][focus],
+.smart-scheduler[disable-date-menu] .smart-scheduler-nav[current][hover],
+.smart-scheduler[disable-view-menu] .smart-scheduler-view-items-button[hover],
+.smart-scheduler[disable-view-menu] .smart-scheduler-view-items-button[focus] {
+    background: transparent;
+    color: var(--smart-background-color);
+}
+
+.smart-scheduler[disable-date-menu] .smart-scheduler-nav[current][hover] button.smart-button,
+.smart-scheduler[disable-view-menu] .smart-scheduler-view-items-button[hover] button.smart-button {
+    background: transparent;
+    color: inherit;
+}
+
+.smart-scheduler[disable-view-menu] .smart-scheduler-view-items-button {
+    border: initial;
+}
+
+.smart-scheduler[disable-date-menu] .smart-scheduler-nav[current] .smart-ripple,
+.smart-scheduler[disable-view-menu] .smart-scheduler-view-items-button .smart-ripple {
+    visibility: hidden;
+}
+
+.smart-scheduler[disable-date-menu] .smart-scheduler-nav[current],
+.smart-scheduler[disable-view-menu] .smart-scheduler-view-items-button {
+    cursor: initial;
+}
+
 .smart-scheduler .smart-scheduler-nav[prev]::after {
     content: var(--smart-icon-arrow-left);
 }
@@ -975,21 +1105,42 @@ smart-scheduler[show-footer]>.smart-container,
 
 /*Date Selector Positioning*/
 
+.smart-scheduler[scroll-buttons-position="both"] .smart-scheduler-date-nav .smart-scheduler-nav[prev] {
+    order: 1;
+}
+
+.smart-scheduler[scroll-buttons-position="both"] .smart-scheduler-date-nav .smart-scheduler-nav[current] {
+    order: 2;
+}
+
+.smart-scheduler[scroll-buttons-position="both"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+    order: 3;
+}
+
+.smart-scheduler[scroll-buttons-position="both"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+}
+
 .smart-scheduler[scroll-buttons-position="far"] .smart-scheduler-date-nav .smart-scheduler-nav[current],
 .smart-scheduler[scroll-buttons-position="near"] .smart-scheduler-date-nav .smart-scheduler-nav[prev] {
     order: 1;
 }
 
-.smart-scheduler[scroll-buttons-position="far"] .smart-scheduler-date-nav .smart-scheduler-nav[prev] {
+.smart-scheduler[scroll-buttons-position="far"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[prev],
+.smart-scheduler[scroll-buttons-position="far"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[next],
+.smart-scheduler[scroll-buttons-position="both"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
     border-top-left-radius: initial;
     border-bottom-left-radius: initial;
     border-left: initial;
     border-right: var(--smart-border-width) solid var(--smart-border);
 }
 
-.smart-scheduler[scroll-buttons-position="far"] .smart-scheduler-date-nav .smart-scheduler-nav[current] {
+.smart-scheduler[scroll-buttons-position="far"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[current] {
     border-top-left-radius: var(--smart-item-border-top-left-radius);
     border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
 }
 
 .smart-scheduler[scroll-buttons-position="near"] .smart-scheduler-date-nav .smart-scheduler-nav[next],
@@ -1002,7 +1153,7 @@ smart-scheduler[show-footer]>.smart-container,
     order: 3;
 }
 
-.smart-scheduler[scroll-buttons-position="near"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+.smart-scheduler[scroll-buttons-position="near"][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
     border-top-right-radius: initial;
     border-bottom-right-radius: initial;
     border-right: initial;
@@ -1016,6 +1167,10 @@ smart-scheduler[show-footer]>.smart-container,
     justify-content: flex-end;
     height: 100%;
     overflow: hidden;
+}
+
+.smart-scheduler .smart-scheduler-view-nav[show-menu] {
+    padding: var(--smart-scheduler-header-padding);
 }
 
 .smart-scheduler .smart-scheduler-view-nav.no-overflowing .smart-scheduler-items-container {
@@ -1035,11 +1190,6 @@ smart-scheduler[show-footer]>.smart-container,
     border-left: var(--smart-border-width) solid var(--smart-border);
     border-right: var(--smart-border-width) solid var(--smart-border);
     border-top: var(--smart-border-width) solid var(--smart-border);
-}
-
-.smart-scheduler .smart-scheduler-items-container:focus .smart-scheduler-item[selected] {
-    /* border-top-color: var(--smart-ui-state-color-selected); */
-    /* box-shadow: 0 var(--smart-border-width) 0 0 inset var(--smart-ui-state-color-selected); */
 }
 
 .smart-scheduler .smart-scheduler-items-container:focus .smart-scheduler-item[selected] {
@@ -1086,7 +1236,8 @@ smart-scheduler[show-footer]>.smart-container,
 .smart-scheduler .smart-scheduler-view-all-day-label,
 .smart-scheduler .smart-scheduler-event,
 .smart-scheduler-tooltip .smart-scheduler-event,
-.smart-scheduler-tooltip .smart-scheduler-context-menu .smart-scheduler-context-menu-item {
+.smart-scheduler-tooltip .smart-scheduler-context-menu .smart-scheduler-context-menu-item,
+.smart-scheduler-window .smart-scheduler-window-editor .smart-input[disabled] {
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
@@ -1110,6 +1261,7 @@ smart-scheduler[show-footer]>.smart-container,
 .smart-scheduler-tooltip .smart-calendar {
     border: initial;
     border-radius: initial;
+    direction: initial;
 }
 
 .smart-scheduler-tooltip .smart-calendar .smart-calendar-header {
@@ -1155,21 +1307,53 @@ smart-scheduler[show-footer]>.smart-container,
 
 .smart-scheduler .smart-scheduler-view-items-button {
     transform: scale(1);
-    height: var(--smart-scheduler-header-menu-button-size);
+    height: 100%;
     width: var(--smart-scheduler-header-menu-button-size);
     border-top-left-radius: var(--smart-item-border-top-left-radius);
     border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
     border-top-right-radius: var(--smart-item-border-top-right-radius);
     border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
-    --smart-button-padding: 0;
-    margin-right: var(--smart-scheduler-header-padding);
+    --smart-button-text-transform: initial;
+    /* margin-right: var(--smart-scheduler-header-padding); */
+    overflow: hidden;
 }
 
-.smart-scheduler .smart-scheduler-view-items-button:not(.smart-visibility-hidden)::after {
+.smart-scheduler[header-navigation-style="raised"] .smart-scheduler-view-items-button {
+    background: var(--smart-background);
+}
+
+.smart-scheduler .smart-scheduler-view-items-button button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: initial;
+}
+
+.smart-scheduler:not([disable-date-menu]):not([right-to-left]) .smart-scheduler-nav[current] button,
+.smart-scheduler:not([disable-view-menu]):not([right-to-left]) .smart-scheduler-view-items-button button {
+    padding-right: var(--smart-editor-addon-width);
+}
+
+.smart-scheduler .smart-scheduler-view-items-button button>span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.smart-scheduler .smart-scheduler-view-items-button:not([active]) button:active {
+    color: inherit;
+    border-color: inherit;
+    background-color: inherit;
+}
+
+.smart-scheduler[header-view-position="near"] .smart-scheduler-view-items-button {
+    margin-left: var(--smart-scheduler-header-padding);
+}
+
+/* .smart-scheduler .smart-scheduler-view-items-button:not(.smart-visibility-hidden)::after {
     transform: rotate(90deg);
     font-size: var(--smart-button-large-font-size);
     content: var(--smart-icon-more-horiz);
-}
+} */
 
 .smart-scheduler:not([animation="none"]) .smart-scheduler-view-items-button {
     transition: transform 0.2s ease-in-out;
@@ -1192,11 +1376,77 @@ smart-scheduler[show-footer]>.smart-container,
     width: 100%;
     cursor: pointer;
     height: auto;
+    position: relative;
+    padding-right: calc(var(--smart-scheduler-shortcut-size) - 4px);
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item[disabled],
+.smart-scheduler-tooltip .smart-scheduler-context-menu-item[disabled] {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item:hover {
+    color: var(--smart-ui-state-color-hover);
+    background-color: var(--smart-ui-state-hover);
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item[checkable]>div {
+    padding-left: var(--smart-scheduler-shortcut-size);
+    padding-right: initial;
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item[separator]::before {
+    content: '';
+    display: flex;
+    width: 100%;
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    margin: 7px 0;
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item[separator] {
+    position: relative;
+    margin-top: 15px;
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item::after {
+    content: attr(shortcut-key);
+    position: absolute;
+    height: 100%;
+    width: var(--smart-scheduler-shortcut-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0.5;
+    margin: 0 6px 0 10px;
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item[checkable]::after {
+    content: '';
+    opacity: initial;
+    left: 0;
+    right: initial;
+    margin: initial;
+}
+
+.smart-scheduler-tooltip .smart-scheduler-item[checkable][checked]::after {
+    content: var(--smart-icon-check);
+    font-family: var(--smart-font-family-icon);
+    font-size: var(--smart-font-size);
 }
 
 .smart-scheduler-tooltip .smart-scheduler-item>div {
     width: 100%;
-    padding: 10px;
+    padding: 10px var(--smart-scheduler-shortcut-size) 10px 12px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1234,6 +1484,12 @@ smart-scheduler[show-footer]>.smart-container,
     --smart-window-footer-padding: 10px;
     --smart-window-content-padding: 20px;
     max-width: 100vw;
+    max-height: 100vh;
+}
+
+.smart-scheduler-window>.smart-container,
+.smart-scheduler-window .smart-content-container {
+    max-height: inherit;
 }
 
 .smart-scheduler-window .smart-content-container>.smart-footer smart-button {
@@ -1255,8 +1511,7 @@ smart-scheduler[show-footer]>.smart-container,
 }
 
 .smart-scheduler-window .smart-content-container>.smart-footer {
-    display: grid;
-    grid-template-columns: 40% 40%;
+    display: flex;
     grid-column-gap: 2%;
     justify-content: center;
     align-items: center;
@@ -1273,13 +1528,6 @@ smart-scheduler[show-footer]>.smart-container,
     }
 }
 
-/* .smart-window.smart-scheduler-window .smart-content-container>.smart-footer {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, auto)) minmax(0, 1fr) minmax(100px, auto);
-    grid-column-gap: 10px;
-    grid-template-areas: "buttonOk buttonCancel . buttonDelete";
-} */
-
 .smart-window.smart-scheduler-window .smart-content-container>.smart-content,
 .smart-window.smart-scheduler-window .smart-scheduler-window-main,
 .smart-window.smart-scheduler-window .smart-scheduler-window-repeat {
@@ -1291,7 +1539,6 @@ smart-scheduler[show-footer]>.smart-container,
 .smart-window.smart-scheduler-window .smart-scheduler-window-repeat,
 .smart-scheduler-window .smart-scheduler-window.confirm .smart-scheduler-confirm-label {
     width: var(--smart-box-width);
-    /* height: calc(var(--smart-box-height) / 1.75); */
 }
 
 .smart-window.smart-scheduler-window .smart-content-container>.smart-content {
@@ -1440,10 +1687,6 @@ smart-scheduler[show-footer]>.smart-container,
     opacity: 0.55;
     cursor: default;
     pointer-events: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .smart-scheduler .smart-scheduler-window-modal {
@@ -1531,8 +1774,8 @@ smart-scheduler[show-footer]>.smart-container,
     transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
 }
 
-.smart-scheduler:not([view-type="agenda"]) .smart-scheduler-event:not([collector])::after,
-.smart-scheduler:not([view-type="agenda"]) .smart-scheduler-event:not([collector])::before {
+.smart-scheduler .smart-scheduler-event:not([collector])::after,
+.smart-scheduler .smart-scheduler-event:not([collector])::before {
     content: '';
     width: var(--smart-scheduler-event-resize-indicator-size);
     height: var(--smart-scheduler-event-resize-indicator-size);
@@ -1544,38 +1787,46 @@ smart-scheduler[show-footer]>.smart-container,
     z-index: 1;
 }
 
+.smart-scheduler[disable-resize] .smart-scheduler-event:not([collector])::after,
+.smart-scheduler[disable-resize] .smart-scheduler-event:not([collector])::before,
+.smart-scheduler[view-type="agenda"] .smart-scheduler-event:not([collector]):not([disable-resize])::after,
+.smart-scheduler[view-type="agenda"] .smart-scheduler-event:not([collector]):not([disable-resize])::before {
+    content: initial;
+}
+
 .smart-scheduler .smart-scheduler-event::after {
-    left: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 2);
+    left: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
     top: calc(100% - var(--smart-scheduler-event-resize-indicator-size));
 }
 
 .smart-scheduler .smart-scheduler-event::before {
-    left: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 2);
+    left: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
     top: 0;
 }
 
 .smart-scheduler[view-type^="timeline"] .smart-scheduler-event::after,
-.smart-scheduler[view-type="month"] .smart-scheduler-event::after {
-    top: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 2);
-    left: calc(100% - var(--smart-scheduler-event-resize-indicator-size) / 2);
+.smart-scheduler[view-type="month"] .smart-scheduler-event::after,
+.smart-scheduler .smart-scheduler-view-all-day .smart-scheduler-event::after {
+    top: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
+    left: calc(100% - var(--smart-scheduler-event-resize-indicator-size));
 }
 
 .smart-scheduler[view-type^="timeline"] .smart-scheduler-event::before,
-.smart-scheduler[view-type="month"] .smart-scheduler-event::before {
-    top: calc(var(--smart-scheduler-event-resize-indicator-size) / 2);
-    left: calc(100% - var(--smart-scheduler-event-resize-indicator-size) / 2);
+.smart-scheduler[view-type="month"] .smart-scheduler-event::before,
+.smart-scheduler .smart-scheduler-view-all-day .smart-scheduler-event::before {
+    top: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
+    left: 0;
 }
 
-.smart-scheduler[view-type^="timeline"] .smart-scheduler-event::before,
-.smart-scheduler[view-type="month"] .smart-scheduler-event::before {
-    left: calc(-1 * var(--smart-scheduler-event-resize-indicator-size) / 2);
-}
-
-.smart-scheduler .smart-scheduler-event:hover::after,
-.smart-scheduler .smart-scheduler-event:focus::after,
-.smart-scheduler .smart-scheduler-event:hover::before,
-.smart-scheduler .smart-scheduler-event:focus::before {
+.smart-scheduler .smart-scheduler-event[hover]::after,
+.smart-scheduler .smart-scheduler-event[focus]:after,
+.smart-scheduler .smart-scheduler-event[hover]::before,
+.smart-scheduler .smart-scheduler-event[focus]:before {
     transform: scale(1);
+}
+
+.smart-scheduler[resized] .smart-scheduler-event {
+    pointer-events: none;
 }
 
 .smart-scheduler .smart-scheduler-event,
@@ -1584,6 +1835,7 @@ smart-scheduler[show-footer]>.smart-container,
     padding: var(--smart-scheduler-event-padding-basic);
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    border-radius: var(--smart-scheduler-event-border-radius);
 }
 
 .smart-scheduler-drag-feedback {
@@ -1612,19 +1864,22 @@ smart-scheduler[show-footer]>.smart-container,
     padding-right: initial;
 }
 
-.smart-scheduler .smart-scheduler-event:not([resized]):focus .smart-scheduler-event-content {
+.smart-scheduler .smart-scheduler-event:not([resized])[focus] .smart-scheduler-event-content {
     background: var(--smart-scheduler-event-focus);
     color: var(--smart-scheduler-event-color-focus);
 }
 
-.smart-scheduler .smart-scheduler-event:not([resized]):hover .smart-scheduler-event-content {
+.smart-scheduler .smart-scheduler-event:not([resized])[hover] .smart-scheduler-event-content {
     background: var(--smart-scheduler-event-hover);
     color: var(--smart-scheduler-event-color-hover);
 }
 
-.smart-scheduler[view-type^="timeline"] .smart-scheduler-event,
-.smart-scheduler[view-type="month"] .smart-scheduler-event {
+.smart-scheduler[view-type^="timeline"] .smart-scheduler-event {
     padding: var(--smart-scheduler-event-padding-timeline);
+    height: var(--smart-scheduler-event-size);
+}
+
+.smart-scheduler[view-type="month"] .smart-scheduler-event {
     height: var(--smart-scheduler-event-size);
 }
 
@@ -1692,7 +1947,6 @@ smart-scheduler[show-footer]>.smart-container,
     max-height: 100%;
     display: grid;
     grid-template-rows: min-content minmax(auto, 1fr);
-    grid-row-gap: 1px;
     justify-content: flex-start;
     justify-items: flex-start;
     align-items: center;
@@ -1706,9 +1960,12 @@ smart-scheduler[show-footer]>.smart-container,
     grid-row-gap: 2px;
 }
 
-.smart-scheduler .smart-scheduler-event[status] .smart-scheduler-event-content,
-.smart-scheduler-drag-feedback[status] .smart-scheduler-event-content {
-    padding-left: calc(var(--smart-scheduler-event-content-padding) + var(--smart-scheduler-status-size));
+.smart-scheduler:not([view-type="agenda"]) .smart-scheduler-event[status] .smart-scheduler-event-content,
+.smart-scheduler-drag-feedback:not([view-type="agenda"])[status] .smart-scheduler-event-content {
+    padding-left: calc(var(--smart-scheduler-status-size) + var(--smart-scheduler-status-padding));
+}
+
+.smart-scheduler:not([view-type="agenda"]) .smart-scheduler-event[status] .smart-scheduler-event-content {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -1755,7 +2012,7 @@ smart-scheduler[show-footer]>.smart-container,
 
 /* Needed for Mobile scrolling */
 .smart-scheduler .smart-scheduler-view[mobile] .smart-scheduler-content:not(.hide-overlay)::after {
-    position: absolute;
+    position: fixed;
     content: '';
     width: 100%;
     height: 100%;
@@ -1778,11 +2035,15 @@ smart-scheduler[show-footer]>.smart-container,
 .smart-scheduler .smart-scheduler-event[collector] {
     width: var(--smart-scheduler-event-collector-size);
     height: var(--smart-scheduler-event-collector-size);
-    border-radius: 20px;
+    border-radius: var(--smart-scheduler-event-collector-border-radius);
 }
 
 .smart-scheduler[view-type="month"] .smart-scheduler-view:not([mobile]) .smart-scheduler-event[collector] {
-    padding-right: calc(var(--smart-scheduler-month-view-number-size) * 2);
+    padding-right: calc(var(--smart-scheduler-month-view-number-size) + 5px);
+}
+
+.smart-scheduler[view-type="month"] .smart-scheduler-view:not([mobile]) .smart-scheduler-event[collector][first-month-day] {
+    padding-right: calc(var(--smart-scheduler-month-view-number-size) + 25px);
 }
 
 .smart-scheduler .smart-scheduler-event[collector] .smart-scheduler-event-content {
@@ -1799,12 +2060,12 @@ smart-scheduler[show-footer]>.smart-container,
     white-space: nowrap;
 }
 
-.smart-scheduler .smart-scheduler-event[collector]:focus .smart-scheduler-event-content {
+.smart-scheduler .smart-scheduler-event[collector][focus] .smart-scheduler-event-content {
     background: var(--smart-scheduler-event-collector-focus);
     color: var(--smart-scheduler-event-collector-color-focus);
 }
 
-.smart-scheduler .smart-scheduler-event[collector]:hover .smart-scheduler-event-content {
+.smart-scheduler .smart-scheduler-event[collector][hover] .smart-scheduler-event-content {
     background: var(--smart-scheduler-event-collector-hover);
     color: var(--smart-scheduler-event-collector-color-hover);
 }
@@ -1830,6 +2091,7 @@ smart-scheduler[show-footer]>.smart-container,
     height: var(--smart-scheduler-event-item-size) !important;
     top: initial !important;
     left: initial !important;
+    right: initial !important;
     grid-template-columns: 20px minmax(0, 1fr) var(--smart-scheduler-event-button-size);
     grid-column-gap: 10px;
     justify-content: center;
@@ -1897,7 +2159,7 @@ smart-scheduler[show-footer]>.smart-container,
     background-color: var(--smart-ui-state-hover);
 }
 
-.smart-scheduler-tooltip .smart-scheduler-event:hover .smart-scheduler-event-button:hover {
+.smart-scheduler-tooltip .smart-scheduler-event[hover] .smart-scheduler-event-button:hover {
     color: var(--smart-ui-state-color-focus);
     background-color: var(--smart-ui-state-focus);
 }
@@ -1937,7 +2199,7 @@ smart-scheduler[show-footer]>.smart-container,
 }
 
 .smart-scheduler[view-type="agenda"] {
-    --smart-scheduler-event-time-weight: 600;
+    --smart-scheduler-event-time-font-weight: 600;
 }
 
 .smart-scheduler .smart-scheduler-event .smart-scheduler-event-label,
@@ -1956,11 +2218,15 @@ smart-scheduler[show-footer]>.smart-container,
 .smart-scheduler .smart-scheduler-event .smart-scheduler-event-time,
 .smart-scheduler-drag-feedback .smart-scheduler-event-time,
 .smart-scheduler-tooltip .smart-scheduler-event-time {
-    font-weight: var(--smart-scheduler-event-time-weight);
+    font-weight: var(--smart-scheduler-event-time-font-weight);
     font-size: var(--smart-scheduler-event-time-font-size);
     opacity: var(--smart-scheduler-event-time-opacity);
     pointer-events: none;
     white-space: pre-wrap;
+}
+
+.smart-scheduler-tooltip .smart-scheduler-event-time {
+    white-space: nowrap;
 }
 
 .smart-scheduler[view-type="agenda"] .smart-scheduler-event .smart-scheduler-event-time,
@@ -1978,6 +2244,11 @@ smart-scheduler[show-footer]>.smart-container,
     overflow: hidden;
     text-overflow: ellipsis;
     align-self: flex-start;
+}
+
+.smart-scheduler .smart-scheduler-event .smart-scheduler-event-content>div:first-of-type,
+.smart-scheduler-drag-feedback .smart-scheduler-event-content>div:first-of-type {
+    align-self: center;
 }
 
 .smart-scheduler .smart-scheduler-event[collector] .smart-scheduler-event-content>div {
@@ -2039,7 +2310,63 @@ smart-scheduler[show-footer]>.smart-container,
     cursor: n-resize;
 }
 
+/* Scheduler Toast */
+.smart-scheduler .smart-toast-container-custom {
+    width: var(--smart-scheduler-toast-default-width);
+    top: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+
+.smart-scheduler .smart-toast-container-custom .smart-toast-item {
+    border-radius: 5px;
+    height: var(--smart-scheduler-toast-default-height);
+}
+
+.smart-scheduler .smart-toast-container-custom .smart-toast-item>.smart-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.smart-scheduler .smart-toast-container-custom .smart-toast-item .smart-toast-item-container {
+    padding: initial;
+    top: initial;
+    width: 100%;
+}
+
 /* --- RightToLeft --- */
+
+.smart-scheduler[right-to-left] .smart-scheduler-header,
+.smart-scheduler[right-to-left] .smart-scheduler-view,
+.smart-scheduler-drag-feedback[right-to-left] {
+    direction: rtl;
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-nav[today] {
+    order: 1;
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-date-nav .smart-scheduler-nav[prev] {
+    order: 2;
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+    order: 3;
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-nav[current] {
+    order: 4;
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-nav[prev]::after {
+    content: var(--smart-icon-arrow-right);
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-nav[next]::after {
+    content: var(--smart-icon-arrow-left);
+}
 
 smart-scheduler[right-to-left]>.smart-container.vscroll .smart-scheduler-view,
 .smart-container.smart-scheduler[right-to-left].vscroll .smart-scheduler-view {
@@ -2053,7 +2380,7 @@ smart-scheduler[right-to-left]>.smart-container.vscroll .smart-scheduler-view,
 
 smart-scheduler[right-to-left]>.smart-container.vscroll .smart-scheduler-view-scroll-bar:not([orientation="vertical"]),
 .smart-scheduler[right-to-left].smart-container.vscroll .smart-scheduler-view-scroll-bar:not([orientation="vertical"]) {
-    left: calc(var(--smart-scroll-bar-size));
+    left: var(--smart-scroll-bar-size);
 }
 
 .smart-scheduler[right-to-left] .smart-scheduler-view-scroll-bar[orientation="vertical"]::before {
@@ -2070,4 +2397,424 @@ smart-scheduler[right-to-left]>.smart-container.vscroll .smart-scheduler-view-sc
     left: calc(-1 * var(--smart-scroll-bar-size));
 }
 
+.smart-scheduler[right-to-left][view-type="day"] .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale):not(:last-of-type),
+.smart-scheduler[right-to-left][view-type="week"] .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale):not(:last-of-type) {
+    border-right: initial;
+    border-left: var(--smart-scheduler-day-week-view-vertical-line-size) solid var(--smart-scheduler-day-week-view-vertical-line-color);
+}
+
+.smart-scheduler[right-to-left]:not([view-type^="timeline"]) .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale):not(:last-of-type) {
+    border-right: initial;
+    border-left: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
+}
+
+.smart-scheduler[right-to-left][view-type]:not([view-type="day"]) .smart-scheduler-view-all-day-label,
+.smart-scheduler[right-to-left][view-type^="timeline"] .smart-scheduler-view[show-vertical-header][show-group-header="horizontal"] .smart-scheduler-view-details-label,
+.smart-scheduler[right-to-left][view-type^="timeline"] .smart-scheduler-time-zone,
+.smart-scheduler[right-to-left][view-type]:not([view-type="day"]):not([view-type="agenda"]) .smart-scheduler-time-zone:last-of-type {
+    border-right: initial;
+    border-left: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
+}
+
+.smart-scheduler[right-to-left]:not([view-type="day"]):not([view-type^="timeline"]) .smart-scheduler-view-label-container:empty,
+.smart-scheduler[right-to-left]:not([view-type="day"]):not([view-type="agenda"]) .smart-scheduler-view-header-vertical .smart-scheduler-cell,
+.smart-scheduler[right-to-left]:not([view-type="day"]) .smart-scheduler-view-header-cell-feedback,
+.smart-scheduler[right-to-left][view-type^="timeline"] .smart-scheduler-view[show-group-header="vertical"] .smart-scheduler-view-label-container {
+    border-right: initial;
+    border-left: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-view-all-day .smart-scheduler-cell[all-day]:not(:last-of-type),
+.smart-scheduler[right-to-left] .smart-scheduler-view-header-horizontal .smart-scheduler-cell:not(:last-of-type),
+.smart-scheduler[right-to-left] .smart-scheduler-view-details .smart-scheduler-cell:not(:last-of-type) {
+    border-right: initial;
+    border-left: var(--smart-scheduler-day-week-view-vertical-line-size) solid var(--smart-scheduler-day-week-view-vertical-line-color);
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-view-all-day .smart-scheduler-cell[all-day]:last-of-type,
+.smart-scheduler[right-to-left] .smart-scheduler-view-header-horizontal .smart-scheduler-cell:last-of-type {
+    border-right: initial;
+}
+
+.smart-scheduler[right-to-left][view-type^="timeline"] .smart-scheduler-cells-container .smart-scheduler-cell-container:not(:last-of-type),
+.smart-scheduler[right-to-left]:not([view-type="day"]) .smart-scheduler-view[show-group-header="vertical"] .smart-scheduler-view-header-groups-container .smart-scheduler-cell-container:not(:last-of-type)>.smart-scheduler-cell {
+    border-right: initial;
+    border-left: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-view[show-group-header="horizontal"] .smart-scheduler-cell[group-separator]:not(:last-of-type),
+.smart-scheduler[right-to-left] .smart-scheduler-view[show-group-header="horizontal"] .smart-scheduler-cell:not(.scale)[group-separator]:not(:last-of-type),
+.smart-scheduler[right-to-left] .smart-scheduler-view[show-group-header="horizontal"] .smart-scheduler-cell-container[group-separator]:not(:last-of-type) {
+    border-right-color: initial;
+    border-right-width: initial;
+    border-left-color: var(--smart-scheduler-timeline-group-separator-background);
+    border-left-width: var(--smart-scheduler-timeline-group-separator-size);
+}
+
+.smart-scheduler[right-to-left][group-by-date] .smart-scheduler-view[show-group-header="horizontal"] .smart-scheduler-view-header-horizontal .smart-scheduler-view-time .smart-scheduler-cell:not([group-separator]) {
+    border-left: initial;
+}
+
+.smart-scheduler[right-to-left][group-by-date] .smart-scheduler-view[show-group-header="horizontal"] .smart-scheduler-cell[show-label="offset"]>div {
+    margin-left: initial;
+    margin-right: var(--smart-scheduler-timeline-group-header-offset);
+}
+
+.smart-scheduler[right-to-left][group-by-date] .smart-scheduler-view[show-group-header="horizontal"] .smart-scheduler-cell[show-label]>div {
+    transform: translateX(calc(50% + var(--smart-scheduler-timeline-header-cell-padding)));
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-nav[current]::after,
+.smart-scheduler[right-to-left] .smart-scheduler-view-items-button::after,
+.smart-scheduler-tooltip[right-to-left] .smart-scheduler-item::after {
+    left: 0;
+    right: initial;
+}
+
+.smart-scheduler-tooltip[right-to-left] .smart-scheduler-item::after {
+    margin: 0 10px 0 6px;
+}
+
+.smart-scheduler[right-to-left]:not([disable-date-menu]) .smart-scheduler-nav[current] button,
+.smart-scheduler[right-to-left]:not([disable-view-menu]) .smart-scheduler-view-items-button button {
+    padding-left: var(--smart-editor-addon-width);
+}
+
+.smart-scheduler-tooltip[right-to-left] .smart-scheduler-item {
+    padding-right: initial;
+    padding-left: calc(var(--smart-scheduler-shortcut-size) - 4px);
+}
+
+.smart-scheduler-tooltip[right-to-left] .smart-scheduler-item>div {
+    padding: 10px 12px 10px var(--smart-scheduler-shortcut-size);
+}
+
+.smart-scheduler[right-to-left][view-type="agenda"] {
+    --smart-scheduler-timeline-header-vertical-label-padding: 0 25% 0 0;
+}
+
+.smart-scheduler[right-to-left][view-type="agenda"] .smart-scheduler-view-header-vertical .smart-scheduler-cell>div {
+    text-align: right;
+}
+
+.smart-scheduler[right-to-left][view-type="month"] .smart-scheduler-view:not([mobile]) .smart-scheduler-event[collector] {
+    padding-right: initial;
+    padding-left: calc(var(--smart-scheduler-month-view-number-size) + 5px);
+}
+
+.smart-scheduler[right-to-left][view-type="month"] .smart-scheduler-view:not([mobile]) .smart-scheduler-event[collector][first-month-day] {
+    padding-left: calc(var(--smart-scheduler-month-view-number-size) + 25px);
+}
+
+.smart-scheduler[right-to-left] .smart-toast-container-custom {
+    right: initial;
+    left: 0;
+}
+
+.smart-scheduler[right-to-left]:not([view-type="agenda"]) .smart-scheduler-event[status] .smart-scheduler-event-content,
+.smart-scheduler-drag-feedback[right-to-left]:not([view-type="agenda"])[status] .smart-scheduler-event-content {
+    padding-left: initial;
+    padding-right: calc(var(--smart-scheduler-status-size) + var(--smart-scheduler-status-padding));
+}
+
+.smart-scheduler[right-to-left]:not([view-type="agenda"]) .smart-scheduler-event[status] .smart-scheduler-event-content {
+    border-top-left-radius: initial;
+    border-bottom-left-radius: initial;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.smart-scheduler[right-to-left]:not([view-type="month"]) .smart-scheduler-view[show-group-header="vertical"] .smart-scheduler-view-all-day-label-container {
+    margin-left: initial;
+    margin-right: var(--smart-scheduler-timeline-header-vertical-group-size);
+}
+
+.smart-scheduler[right-to-left][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[current] {
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
+    border-top-left-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-right-radius);
+}
+
+.smart-scheduler[right-to-left][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[prev] {
+    border-top-left-radius: initial;
+    border-bottom-left-radius: initial;
+    border-left: initial;
+}
+
+.smart-scheduler[right-to-left][header-navigation-style="raised"] .smart-scheduler-date-nav .smart-scheduler-nav[next] {
+    border-top-right-radius: var(--smart-item-border-top-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-left-radius);
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-nav[today] {
+    margin-right: initial;
+    margin-left: 10px;
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-event[repeating] .smart-scheduler-event-content::after,
+.smart-scheduler-drag-feedback[right-to-left][repeating] .smart-scheduler-event-content::after {
+    right: initial;
+    left: 0;
+}
+
+.smart-scheduler[right-to-left][view-type="timelineWeek"] .smart-scheduler-view[show-vertical-header] .smart-scheduler-view-details-label {
+    border-right: initial;
+    border-left: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-items-container .smart-scheduler-item:last-of-type {
+    border-right: var(--smart-border-width) solid var(--smart-border);
+    border-left: none;
+}
+
 /* --- */
+
+/* smart-notificaiton-panel */
+
+.smart-notification-panel {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    contain: content;
+    max-height: 100px;
+}
+
+.smart-notification-panel:focus {
+    border-color: var(--smart-outline);
+}
+
+.smart-notification-panel>.smart-container,
+.smart-notification-panel.smart-container {
+    padding: var(--smart-editor-label-padding);
+    overflow: auto;
+    max-height: inherit;
+}
+
+.smart-notification-panel .smart-notification-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.smart-notification-panel .smart-notification-item {
+    display: inline-grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) var(--smart-editor-height);
+    grid-column-gap: 10px;
+    align-items: center;
+    padding: 0 0 var(--smart-editor-label-padding) 0;
+    justify-items: center;
+}
+
+.smart-notification-panel .smart-notification-placeholder,
+.smart-notification-panel .smart-notification-item {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.smart-notification-panel .smart-notification-container:empty {
+    display: none;
+}
+
+.smart-notification-panel .smart-notification-item .smart-input {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+    position: relative;
+    outline: none;
+    padding: var(--smart-editor-label-padding);
+    height: var(--smart-editor-height);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+}
+
+.smart-notification-panel .smart-notification-item .smart-input[interval]::before,
+.smart-notification-panel .smart-notification-item .smart-input[interval]::after,
+.smart-notification-panel .smart-notification-item .smart-input[type]::after {
+    content: var(--smart-icon-arrow-down);
+    display: flex;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: var(--smart-font-family-icon);
+    justify-content: center;
+    align-items: center;
+    font-size: var(--smart-arrow-size);
+    outline: none;
+    width: var(--smart-editor-addon-width);
+    position: absolute;
+    top: 1px;
+    right: -1px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.smart-notification-panel .smart-notification-item .smart-input[interval]::before {
+    content: var(--smart-icon-arrow-up);
+    top: 0;
+    height: 50%;
+    border-bottom: var(--smart-border-width) solid transparent;
+}
+
+.smart-notification-panel .smart-notification-item .smart-input[interval]::after {
+    content: var(--smart-icon-arrow-down);
+    bottom: 0;
+    top: initial;
+    height: 50%;
+}
+
+.smart-notification-panel .smart-notification-editor {
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+}
+
+.smart-notification-panel .smart-notification-placeholder,
+.smart-notification-panel .smart-notification-item .smart-input {
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    border: var(--smart-border-width) solid transparent;
+}
+
+.smart-notification-panel label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smart-notification-panel .smart-notification-placeholder {
+    border-bottom: var(--smart-border-width) solid var(--smart-primary);
+    color: var(--smart-primary);
+}
+
+.smart-notification-panel .smart-notification-item .smart-input:focus,
+.smart-notification-panel .smart-notification-item .smart-button[delete]:focus {
+    box-shadow: 0 0 0 1px var(--smart-outline);
+}
+
+.smart-notification-panel .smart-notification-placeholder:hover {
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-notification-panel .smart-button[delete] {
+    width: var(--smart-editor-height);
+    height: var(--smart-editor-height);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.25;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    outline: none;
+}
+
+.smart-notification-panel .smart-button[delete]::after {
+    content: var(--smart-icon-close);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    cursor: pointer;
+    font-size: var(--smart-font-size);
+    font-family: var(--smart-font-family-icon);
+}
+
+.smart-notification-panel .smart-button[delete]:hover {
+    opacity: 0.6;
+    color: var(--smart-ui-state-color-hover);
+    background-color: var(--smart-ui-state-hover);
+}
+
+.smart-notification-panel .smart-button[delete]:active {
+    color: var(--smart-ui-state-color-hover);
+    background-color: var(--smart-ui-state-hover);
+    opacity: 1;
+}
+
+.smart-notification-panel .smart-notification-editor {
+    position: absolute;
+}
+
+/* Notification panel RTL */
+.smart-notification-panel[right-to-left] .smart-notification-item .smart-input[interval],
+.smart-notification-panel[right-to-left] .smart-notification-item .smart-input[type] {
+    padding-left: var(--smart-editor-addon-width);
+}
+
+.smart-notification-panel[right-to-left] .smart-notification-item .smart-input[interval] {
+    padding-left: calc(var(--smart-editor-addon-width) + var(--smart-editor-label-padding));
+}
+
+.smart-notification-panel[right-to-left] .smart-notification-item .smart-input[interval]::before,
+.smart-notification-panel[right-to-left] .smart-notification-item .smart-input[interval]::after,
+.smart-notification-panel[right-to-left] .smart-notification-item .smart-input[type]::after {
+    right: initial;
+    left: -1px;
+}
+
+
+/* Loading Placeholder */
+
+.smart-scheduler-loading-container .smart-loader-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+    margin-top: calc(5px + var(--smart-loader-size));
+    margin-left: 5px;
+}
+
+.smart-scheduler-loader {
+    margin: inherit;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+    opacity: 0.85;
+    text-align: left;
+    border: 6px solid rgba(43, 51, 63, 0.1);
+    box-sizing: border-box;
+    background-clip: padding-box;
+    border-radius: 50%;
+    width: calc(var(--smart-loader-size) + 10px);
+    height: calc(var(--smart-loader-size) + 10px);
+}
+
+.smart-scheduler-loader::after,
+.smart-scheduler-loader::before {
+    content: "";
+    position: absolute;
+    margin: -6px;
+    box-sizing: inherit;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    opacity: 1;
+    border: inherit;
+    border-color: transparent;
+    border-top-color: transparent;
+    border-width: 6px;
+    animation-delay: 0.44s;
+}
+
+.smart-scheduler-loader::before,
+.smart-scheduler-loader::after {
+    animation: smart-loader-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, smart-loader-spin-fade 1.1s linear infinite;
+}

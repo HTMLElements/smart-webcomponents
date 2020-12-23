@@ -246,7 +246,7 @@ export class Accordion extends React.Component<React.HTMLAttributes<Element> & A
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onCollapse","onCollapsing","onDragEnd","onDragStart","onExpand","onExpanding","onCreate","onReady"];
 	}
 	/** Collapses an item at a specified index. 
@@ -391,6 +391,7 @@ export class Accordion extends React.Component<React.HTMLAttributes<Element> & A
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -434,8 +435,8 @@ export class Accordion extends React.Component<React.HTMLAttributes<Element> & A
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

@@ -9,10 +9,16 @@ smart-tooltip {
     visibility: hidden;
     pointer-events: none;
 }
-
+smart-tooltip.auto {
+    height: auto;
+}
 smart-tooltip.smart-element {
 	background: transparent;
 	overflow: visible;
+}
+
+smart-tooltip.auto .smart-container {
+    height: auto;
 }
 
 .smart-tooltip[visible] {
@@ -23,7 +29,6 @@ smart-tooltip.smart-element {
 .smart-tooltip .smart-tooltip-content {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
     padding: var(--smart-tooltip-padding);
     background-color: var(--smart-secondary);
     color: var(--smart-secondary-color);
@@ -37,7 +42,10 @@ smart-tooltip.smart-element {
 	border-bottom-left-radius: var(--smart-border-bottom-left-radius);
 	border-top-right-radius: var(--smart-border-top-right-radius);
 	border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-	
+}
+
+.smart-tooltip.auto .smart-tooltip-content {
+    height: auto;
 }
 
 .smart-tooltip[arrow],

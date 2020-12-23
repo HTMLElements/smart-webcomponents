@@ -179,30 +179,6 @@ export class CardView extends React.Component {
 		}
 	}
 
-	/** Callback function, used when record is inserted.
-	*	Property type: any
-	*/
-	get onRecordInserted() {
-		return this.nativeElement ? this.nativeElement.onRecordInserted : undefined;
-	}
-	set onRecordInserted(value) {
-		if (this.nativeElement) {
-			this.nativeElement.onRecordInserted = value;
-		}
-	}
-
-	/** Callback function, used when record is removed.
-	*	Property type: any
-	*/
-	get onRecordRemoved() {
-		return this.nativeElement ? this.nativeElement.onRecordRemoved : undefined;
-	}
-	set onRecordRemoved(value) {
-		if (this.nativeElement) {
-			this.nativeElement.onRecordRemoved = value;
-		}
-	}
-
 	/** Describes the scrolling behavior of the element.
 	*	Property type: Scrolling
 	*/
@@ -230,7 +206,7 @@ export class CardView extends React.Component {
 
 	// Gets the properties of the React component.
 	get properties() {
-		return ["addNewButton","allowDrag","animation","cardHeight","cellOrientation","collapsible","columns","coverField","coverMode","dataSource","editable","headerPosition","locale","messages","onRecordInserted","onRecordRemoved","scrolling","titleField"];
+		return ["addNewButton","allowDrag","animation","cardHeight","cellOrientation","collapsible","columns","coverField","coverMode","dataSource","editable","headerPosition","locale","messages","scrolling","titleField"];
 	}
 	/**  This event is triggered when a filter has been applied.
 	*  @param event. The custom event. 	*/
@@ -306,7 +282,7 @@ export class CardView extends React.Component {
 	}
 
 	// Gets the events of the React component.
-	get events() {
+	get eventListeners() {
 		return ["onFilter","onSort","onOpen","onOpening","onClose","onClosing","onDragStart","onDragging","onDragEnd"];
 	}
 	/** Adds filtering 
@@ -598,6 +574,7 @@ export class CardView extends React.Component {
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -641,8 +618,8 @@ export class CardView extends React.Component {
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

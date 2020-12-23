@@ -83,6 +83,7 @@ export interface QueryBuilderProperties {
    *     "missingReference": ".",
    *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
    *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "add": "Add",
    *     "addCondition": "Add Condition",
    *     "addGroup": "Add Group",
    *     "and": "And",
@@ -104,7 +105,10 @@ export interface QueryBuilderProperties {
    *     "wrongParentGroupIndex": "' method.",
    *     "missingFields": ": Fields are required for proper condition's adding. Set \"fields\" source and then conditions will be added as expected.",
    *     "wrongElementNode": "' method.",
-   *     "invalidDataStructure": ": Used invalid data structure in updateCondition/updateGroup method."
+   *     "invalidDataStructure": ": Used invalid data structure in updateCondition/updateGroup method.",
+   *     "dateTabLabel": "DATE",
+   *     "timeTabLabel": "TIME",
+   *     "queryLabel": "Query"
    *   }
    * }
    */

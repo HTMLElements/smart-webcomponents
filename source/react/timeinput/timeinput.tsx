@@ -269,7 +269,7 @@ export class TimeInput extends React.Component<React.HTMLAttributes<Element> & T
 	onReady?: ((event?: Event) => void) | undefined
 
 	// Gets the events of the React component.
-	get events(): string[] {
+	get eventListeners(): string[] {
 		return ["onChange","onCreate","onReady"];
 	}
 	/** Closes the drop down. 
@@ -422,6 +422,7 @@ export class TimeInput extends React.Component<React.HTMLAttributes<Element> & T
 			}
 		}
 
+		
 		for(let eventName in events) {
 			that[eventName] = events[eventName];
 			that.nativeElement[eventName.toLowerCase()] = events[eventName];
@@ -465,8 +466,8 @@ export class TimeInput extends React.Component<React.HTMLAttributes<Element> & T
 		
 		that.nativeElement.whenRenderedCallbacks = [];
 		
-		for(let i = 0; i < that.events.length; i++){
-			const eventName = that.events[i];
+		for(let i = 0; i < that.eventListeners.length; i++){
+			const eventName = that.eventListeners[i];
 
 			that.nativeElement.removeEventListener(eventName.substring(2).toLowerCase(), that[eventName]);
 		}

@@ -392,7 +392,7 @@ smart-card-view > .smart-container > smart-scroll-viewer .smart-scroll-viewer-co
                 content: var(--smart-icon-visibility-off);
             }
 
-    .smart-window.smart-card-view-window .smart-footer {
+    .smart-window.smart-card-view-window .smart-content-container>.smart-footer {
         display: flex;
         justify-content: space-evenly;
         align-items: center;

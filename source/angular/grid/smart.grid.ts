@@ -1,9 +1,9 @@
 import { Grid } from './../index';
-import { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
+import { GridAppearanceAutoGenerateRowLabelMode, GridAppearanceAutoGenerateColumnLabelMode, GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridDataExportPageOrientation, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridFilteringFilterMenuMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
 import { DataAdapter, Chart } from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
+export { GridAppearanceAutoGenerateRowLabelMode, GridAppearanceAutoGenerateColumnLabelMode, GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridDataExportPageOrientation, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridFilteringFilterMenuMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { Grid } from './../index';
 export { DataAdapter, Chart } from './../index';
@@ -131,12 +131,12 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.dataExport = value : undefined;
 	}
 
-	/** @description Sets the grid's data source. The value of dataSource can be an instance of JQX.DataAdapter. */
+	/** @description Sets the grid's data source. The value of dataSource can be an instance of JQX.DataAdapter or an Array. */
 	@Input()
-	get dataSource(): DataAdapter {
+	get dataSource(): any {
 		return this.nativeElement ? this.nativeElement.dataSource : undefined;
 	}
-	set dataSource(value: DataAdapter) {
+	set dataSource(value: any) {
 		this.nativeElement ? this.nativeElement.dataSource = value : undefined;
 	}
 
@@ -669,15 +669,17 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	/** @description Adds a row. When batch editing is enabled, the row is not saved until the batch edit is saved. 
 	* @param {any} data. row data matching the data source
+	* @param {boolean} insertAtBottom?. Determines whether to add the new row to the bottom or top of the collection. The default value is 'true'
+	* @param {any} callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
 	*/
-    public addRow(data: any): void {
+    public addRow(data: any, insertAtBottom?: boolean, callback?: any): void {
         if (this.nativeElement.isRendered) {
-            this.nativeElement.addRow(data);
+            this.nativeElement.addRow(data, insertAtBottom, callback);
         }
         else
         {
             this.nativeElement.whenRendered(() => {
-                this.nativeElement.addRow(data);
+                this.nativeElement.addRow(data, insertAtBottom, callback);
             });
         }
     }
@@ -927,9 +929,9 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	/** @description Creates a Chart, when charting is enabled. 
 	* @param {string} type. Chart's type
-	* @param {any[]} dataSource?. Chart's data source
+	* @param {any} dataSource?. Chart's data source
 	*/
-    public createChart(type: string, dataSource?: any[]): void {
+    public createChart(type: string, dataSource?: any): void {
         if (this.nativeElement.isRendered) {
             this.nativeElement.createChart(type, dataSource);
         }
@@ -943,15 +945,16 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 
 	/** @description Delete a row. When batch editing is enabled, the row is not saved until the batch edit is saved. 
 	* @param {string | number} rowId. row bound id
+	* @param {any} callback?. Sets a callback function, which is called after the row is deleted. The callback's argument is the deleted row.
 	*/
-    public deleteRow(rowId: string | number): void {
+    public deleteRow(rowId: string | number, callback?: any): void {
         if (this.nativeElement.isRendered) {
-            this.nativeElement.deleteRow(rowId);
+            this.nativeElement.deleteRow(rowId, callback);
         }
         else
         {
             this.nativeElement.whenRendered(() => {
-                this.nativeElement.deleteRow(rowId);
+                this.nativeElement.deleteRow(rowId, callback);
             });
         }
     }
@@ -1303,15 +1306,16 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
 	/** @description Saves the batch edit changes. This method confirms the editing changes made by the end-user. 
 	* @param {string | number} rowId. row bound id
 	* @param {any} data. row data matching the data source
+	* @param {any} callback?. Sets a callback function, which is called after the row is updated. The callback's argument is the updated row.
 	*/
-    public updateRow(rowId: string | number, data: any): void {
+    public updateRow(rowId: string | number, data: any, callback?: any): void {
         if (this.nativeElement.isRendered) {
-            this.nativeElement.updateRow(rowId, data);
+            this.nativeElement.updateRow(rowId, data, callback);
         }
         else
         {
             this.nativeElement.whenRendered(() => {
-                this.nativeElement.updateRow(rowId, data);
+                this.nativeElement.updateRow(rowId, data, callback);
             });
         }
     }
@@ -1351,6 +1355,52 @@ export class GridComponent extends BaseElement implements OnInit, AfterViewInit,
     }
 
 	/** @description Selects a range of rows, cells or columns. The result of the method depends on the selection configuration of the Grid. 
+	* @param {string | number} rowId. row bound id
+	* @param {string | number} endRowId. row bound id
+	*/
+    public selectRowsRange(rowId: string | number, endRowId: string | number): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.selectRowsRange(rowId, endRowId);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.selectRowsRange(rowId, endRowId);
+            });
+        }
+    }
+
+	/** @description Selects a range of rows. 
+	* @param {(string | number)[]} rowId. Array of row ids
+	*/
+    public selectRows(rowId: (string | number)[]): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.selectRows(rowId);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.selectRows(rowId);
+            });
+        }
+    }
+
+	/** @description Selects multiple rows by their ids. 
+	* @param {number[]} rowIndex. Array of row indexes
+	*/
+    public selectRowsByIndex(rowIndex: number[]): void {
+        if (this.nativeElement.isRendered) {
+            this.nativeElement.selectRowsByIndex(rowIndex);
+        }
+        else
+        {
+            this.nativeElement.whenRendered(() => {
+                this.nativeElement.selectRowsByIndex(rowIndex);
+            });
+        }
+    }
+
+	/** @description Selects multiple rows by their index. 
 	* @param {string | number} rowId. row bound id
 	*/
     public showDetail(rowId: string | number): void {

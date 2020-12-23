@@ -143,16 +143,6 @@ export interface CardViewProperties {
    */
   messages?: any;
   /**
-   * Callback function, used when record is inserted.
-   * Default value: null
-   */
-  onRecordInserted?: any;
-  /**
-   * Callback function, used when record is removed.
-   * Default value: null
-   */
-  onRecordRemoved?: any;
-  /**
    * Describes the scrolling behavior of the element.
    * Default value: physical
    */

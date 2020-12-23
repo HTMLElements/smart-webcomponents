@@ -187,6 +187,10 @@ export interface Splitter extends BaseElement, SplitterProperties {
    */
   removeChild<T extends Node>(node: Node): T;
   /**
+   * Refreshes the Splitter
+   */
+  refresh(): void;
+  /**
    * Unhides a Splitter Bar
    * @param {number} splitterBar. An instance of a splitter bar.
    */

@@ -1,6 +1,6 @@
 
-/* Smart UI v8.1.1 (2020-Nov) 
-Copyright (c) 2011-2020 jQWidgets. 
+/* Smart UI v9.0.0 (2020-Dec) 
+Copyright (c) 2011-2021 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
@@ -4179,7 +4179,7 @@ License: https://htmlelements.com/license/ */ //
                         continue;
                     }
 
-                    if (propertyValue.constructor === Smart.DataAdapter || propertyValue.constructor.name === 'smartDataAdapter' || (typeof propertyValue === 'object' && Smart.DataAdapter && propertyValue instanceof Smart.DataAdapter) || propertyValue instanceof Smart.Observable || propertyValue.constructor === Smart.Observable || typeof propertyValue !== 'object' || Utilities.Types.isArray(propertyValue)) {
+                    if (propertyValue.constructor === Smart.DataAdapter || propertyValue.constructor.name === 'smartDataAdapter' || (typeof propertyValue === 'object' && Smart.DataAdapter && propertyValue instanceof Smart.DataAdapter) || propertyValue instanceof Smart.Observable || propertyValue.constructor === Smart.Observable || typeof propertyValue !== 'object' || Utilities.Types.isArray(propertyValue) || propertyValue instanceof Date) {
                         if (that[propertyName] === undefined && ['onReady', 'onAttached', 'onDetached', 'onCreated', 'onCompleted'].indexOf(propertyName) === -1) {
                             const localizedError = that.localize('propertyUnknownName', {
                                 name: propertyName
@@ -4191,7 +4191,7 @@ License: https://htmlelements.com/license/ */ //
                         continue;
                     }
 
-                    if (propertyName === 'messages') {
+                    if (propertyName === 'messages' || propertyName === 'dataSourceMap') {
                         that[propertyName] = propertyValue;
                         continue;
                     }
@@ -4687,6 +4687,10 @@ License: https://htmlelements.com/license/ */ //
             if (Smart(that._selector) && Smart(that._selector).detached) {
                 Smart(that._selector).detached();
             }
+
+            if (data && data[that._selector]) {
+				delete data[that._selector];
+			}
         }
 
         /** Called when a property value is changed. */
@@ -7668,8 +7672,10 @@ License: https://htmlelements.com/license/ */ //
         });
 
         for (let i = 0; i < registeredLoadedCallbacks.length; i++) {
+            window[namespace].RenderMode = '';
             registeredLoadedCallbacks[i].element.isLoading = false;
             registeredLoadedCallbacks[i].callback();
+            window[namespace].RenderMode = '';
         }
 
         registeredLoadedCallbacks = [];
@@ -7768,6 +7774,10 @@ License: https://htmlelements.com/license/ */ //
 
             const that = this;
             that.applyContent();
+        }
+
+        refresh() {
+
         }
 
         clearContent() {
@@ -8240,6 +8250,10 @@ License: https://htmlelements.com/license/ */ //
             const that = this;
 
             function getScrollWidth() {
+                const refreshScrollStyle = that.$.scrollViewerContainer.classList.contains('vscroll');
+
+                that.$.scrollViewerContainer.classList.remove('vscroll');
+
                 const scrollWidth = that.$.scrollViewerContentContainer.offsetWidth - that.$.scrollViewerContainer.offsetWidth;
 
                 if (scrollWidth > 0 && that.horizontalScrollBarVisibility !== 'hidden' || that.horizontalScrollBarVisibility === 'visible') {
@@ -8249,11 +8263,19 @@ License: https://htmlelements.com/license/ */ //
                     that.$.scrollViewerContainer.classList.remove('hscroll');
                 }
 
+                if (refreshScrollStyle) {
+                    that.$.scrollViewerContainer.classList.add('vscroll');
+                }
+
                 return scrollWidth;
             }
 
             function getScrollHeight() {
                 let scrollHeight;
+
+                const refreshScrollStyle = that.$.scrollViewerContainer.classList.contains('hscroll');
+
+                that.$.scrollViewerContainer.classList.remove('hscroll');
 
                 //NOTE: Safari has an issue where it rounds the parent's height to the lowest integer number ignoring the decimal part
                 if (Smart.Utilities.Core.Browser.Safari) {
@@ -8271,11 +8293,16 @@ License: https://htmlelements.com/license/ */ //
                     scrollHeight = that.$.scrollViewerContentContainer.offsetHeight - that.$.scrollViewerContainer.offsetHeight;
                 }
 
+
                 if (scrollHeight > 0 && that.verticalScrollBarVisibility !== 'hidden' || that.verticalScrollBarVisibility === 'visible') {
                     that.$.scrollViewerContainer.classList.add('vscroll');
                 }
                 else {
                     that.$.scrollViewerContainer.classList.remove('vscroll');
+                }
+
+                if (refreshScrollStyle) {
+                    that.$.scrollViewerContainer.classList.add('hscroll');
                 }
 
                 return scrollHeight;
@@ -8308,6 +8335,12 @@ License: https://htmlelements.com/license/ */ //
 
             if (that.computedHorizontalScrollBarVisibility) {
                 that.scrollWidth += that._scrollView.vScrollBar.offsetWidth;
+            }
+
+            if (that.scrollHeight === 0 && that.scrollWidth > 0) {
+                if (that.$.container.offsetHeight - that.$.content.offsetHeight < 5) {
+                    that.$.container.style.paddingBottom = that._scrollView.hScrollBar.offsetHeight + 'px';
+                }
             }
         }
 
