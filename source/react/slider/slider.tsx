@@ -129,12 +129,12 @@ export class Slider extends React.Component<React.HTMLAttributes<Element> & Slid
 	}
 
 	/** Determines what values the thumb snaps to. 
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get interval(): any  {
+	get interval(): string | number  {
 		return this.nativeElement ? this.nativeElement.interval : undefined;
 	}
-	set interval(value: any) {
+	set interval(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.interval = value;
 		}
@@ -213,12 +213,12 @@ export class Slider extends React.Component<React.HTMLAttributes<Element> & Slid
 	}
 
 	/** Sets or gets the maximum value of the widget. 
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get max(): any  {
+	get max(): string | number  {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.max = value;
 		}
@@ -249,12 +249,12 @@ export class Slider extends React.Component<React.HTMLAttributes<Element> & Slid
 	}
 
 	/** Sets or gets the minimum value of the widget. 
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get min(): any  {
+	get min(): string | number  {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.min = value;
 		}

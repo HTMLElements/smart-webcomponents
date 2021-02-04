@@ -59,10 +59,10 @@ export class DropDownButtonComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Sets the parent container of the dropDown (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown. */
 	@Input()
-	get dropDownAppendTo(): any {
+	get dropDownAppendTo(): string {
 		return this.nativeElement ? this.nativeElement.dropDownAppendTo : undefined;
 	}
-	set dropDownAppendTo(value: any) {
+	set dropDownAppendTo(value: string) {
 		this.nativeElement ? this.nativeElement.dropDownAppendTo = value : undefined;
 	}
 

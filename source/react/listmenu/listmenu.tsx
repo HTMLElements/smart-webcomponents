@@ -1,12 +1,12 @@
 import React from "react";
 import { ListMenuProperties } from "./../../index";
-import { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow} from './../../index';
+import { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow, ListMenuScrollMode} from './../../index';
 import { MenuItemProperties } from './../../index';
 import { MenuItem } from './menuitem';
 import { MenuItemsGroupProperties } from './../../index';
 import { MenuItemsGroup } from './menuitemsgroup';
 export { ListMenuProperties } from "./../../index";
-export { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow} from './../../index';
+export { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow, ListMenuScrollMode} from './../../index';
 export { MenuItem } from './menuitem';
 export { MenuItemProperties } from "./../../index";
 export { MenuItemsGroup } from './menuitemsgroup';
@@ -381,6 +381,18 @@ export class ListMenu extends React.Component<React.HTMLAttributes<Element> & Li
 		}
 	}
 
+	/** Determines whether to use scrollbar or scrollButtons when content overflows an element's box.
+	*	Property type: ListMenuScrollMode
+	*/
+	get scrollMode(): ListMenuScrollMode  {
+		return this.nativeElement ? this.nativeElement.scrollMode : undefined;
+	}
+	set scrollMode(value: ListMenuScrollMode) {
+		if (this.nativeElement) {
+			this.nativeElement.scrollMode = value;
+		}
+	}
+
 	/** Determines the theme. Theme defines the look of the element
 	*	Property type: string
 	*/
@@ -420,7 +432,7 @@ export class ListMenu extends React.Component<React.HTMLAttributes<Element> & Li
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["animation","autoFocusOnMouseenter","checkable","checkboxes","checkMode","dataSource","disabled","displayLoadingIndicator","displayMember","dropDownAppendTo","dropDownOverlay","dropDownPosition","enableMouseWheelAction","filterable","filterInputPlaceholder","filterMode","grouped","itemsMember","loadingIndicatorPlaceholder","loadingIndicatorPosition","locale","localizeFormatFunction","messages","minimizeIconTemplate","minimizeWidth","overflow","readonly","rightToLeft","theme","unfocusable","valueMember"];
+		return ["animation","autoFocusOnMouseenter","checkable","checkboxes","checkMode","dataSource","disabled","displayLoadingIndicator","displayMember","dropDownAppendTo","dropDownOverlay","dropDownPosition","enableMouseWheelAction","filterable","filterInputPlaceholder","filterMode","grouped","itemsMember","loadingIndicatorPlaceholder","loadingIndicatorPosition","locale","localizeFormatFunction","messages","minimizeIconTemplate","minimizeWidth","overflow","readonly","rightToLeft","scrollMode","theme","unfocusable","valueMember"];
 	}
 	/**  This event is triggered when a jqx-menu-items-group is expanded.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	item, 	label, 	value, 	path, 	children)

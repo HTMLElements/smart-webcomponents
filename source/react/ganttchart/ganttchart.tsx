@@ -331,24 +331,24 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
 	}
 
 	/** Detetmines the maximum possible date of the Timeline.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
-	get max(): any  {
+	get max(): string | Date  {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: string | Date) {
 		if (this.nativeElement) {
 			this.nativeElement.max = value;
 		}
 	}
 
 	/** Detetmines the minimum possible date of the Timeline.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
-	get min(): any  {
+	get min(): string | Date  {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: string | Date) {
 		if (this.nativeElement) {
 			this.nativeElement.min = value;
 		}
@@ -631,60 +631,60 @@ export class GanttChart extends React.Component<React.HTMLAttributes<Element> & 
 	}
 
 	/** Determines the min size of the Task Panel. Used when Resource Panel is visible.
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get taskPanelMin(): any  {
+	get taskPanelMin(): string | number  {
 		return this.nativeElement ? this.nativeElement.taskPanelMin : undefined;
 	}
-	set taskPanelMin(value: any) {
+	set taskPanelMin(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.taskPanelMin = value;
 		}
 	}
 
 	/** Determines the size of the Task Panel. Used when Resource Panel is visible.
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get taskPanelSize(): any  {
+	get taskPanelSize(): string | number  {
 		return this.nativeElement ? this.nativeElement.taskPanelSize : undefined;
 	}
-	set taskPanelSize(value: any) {
+	set taskPanelSize(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.taskPanelSize = value;
 		}
 	}
 
 	/** Determines the min width of the timeline.
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get timelineMin(): any  {
+	get timelineMin(): string | number  {
 		return this.nativeElement ? this.nativeElement.timelineMin : undefined;
 	}
-	set timelineMin(value: any) {
+	set timelineMin(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.timelineMin = value;
 		}
 	}
 
 	/** Determines the min width of the task tree.
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get treeMin(): any  {
+	get treeMin(): string | number  {
 		return this.nativeElement ? this.nativeElement.treeMin : undefined;
 	}
-	set treeMin(value: any) {
+	set treeMin(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.treeMin = value;
 		}
 	}
 
 	/** Determines the size(width) of the task tree.
-	*	Property type: any
+	*	Property type: string | number
 	*/
-	get treeSize(): any  {
+	get treeSize(): string | number  {
 		return this.nativeElement ? this.nativeElement.treeSize : undefined;
 	}
-	set treeSize(value: any) {
+	set treeSize(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.treeSize = value;
 		}

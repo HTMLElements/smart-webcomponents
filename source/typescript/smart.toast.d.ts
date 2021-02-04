@@ -8,9 +8,9 @@ export interface ToastProperties {
   animation?: Animation;
   /**
    * Specifies the container where new openned toast items will be displayed. The value can be an HTMLElement or element's id. This property is in relation with modal(lower priority than modal) and position(higher priority than position) properties.
-   * Default value: null
+   * Default value: "null"
    */
-  appendTo?: any;
+  appendTo?: string;
   /**
    * Sets or gets whether the toast will automatically close after duration equal to the autoCloseDelay property.
    * Default value: false

@@ -108,7 +108,7 @@ export class Pager extends React.Component {
 	}
 
 	/** Defines the number of page index selectors.
-	*	Property type: any
+	*	Property type: number
 	*/
 	get pageIndexSelectors() {
 		return this.nativeElement ? this.nativeElement.pageIndexSelectors : undefined;

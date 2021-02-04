@@ -19,6 +19,11 @@ export interface GridProperties {
    */
   layout?: GridLayout;
   /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
    * The clipboard property is used to enable/disable clipboard operations with Ctrl+C, Ctrl+X and Ctrl+V keyboard navigations..
    * Default value: [object Object]
    */
@@ -63,6 +68,11 @@ export interface GridProperties {
    * Default value: null
    */
   dataSource?: any;
+  /**
+   * Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: GridDataSourceSettings;
   /**
    * Describes the grid's editing settings.
    * Default value: [object Object]
@@ -233,6 +243,11 @@ export interface GridProperties {
    * Default value: [object Object]
    */
   footer?: GridFooter;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
   /**
    * The rows property is used to describe all rows displayed in the grid.
    * Default value: 
@@ -1174,9 +1189,9 @@ export interface GridColumn {
   group?: string;
   /**
    * Sets or gets the column's icon. Expects CSS class name.
-   * Default value: 
+   * Default value: ""
    */
-  icon?: any;
+  icon?: string;
   /**
    * Sets or gets the text displayed in the column's header.
    * Default value: ""
@@ -1211,22 +1226,27 @@ export interface GridColumn {
    * Sets or gets the width. Accepts: 'number', 'px', 'em', 'auto', 'null' values.
    * Default value: 
    */
-  width?: any;
+  width?: string | number;
   /**
    * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in values are: 'checkBox', 'url', 'email', 
    * Default value: 
    */
   template?: any;
   /**
-   * Sets or gets the column's validation rules. Accepts: Object with 'type' string property. It can be 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The object needs to have additional 'value' property for all validation rule types except 'email', 'required', 'requiredTrue' and 'null'. Optional property is 'message', which allows you to define user string displayed on validation error.
-   * Default value: 
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * Sets or gets the column's header vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
    */
   verticalAlign?: VerticalAlignment;
+  /**
+   * Sets or gets the column summary.
+   * Default value: sum
+   */
+  summary?: GridColumnSummary;
   /**
    * Sets or gets whether the column is visible. Set the property to 'false' to hide the column.
    * Default value: true
@@ -1588,6 +1608,93 @@ export interface GridDataExport {
   rowIds?: {(): void};
 }
 
+/**Sets the grid's data source settings when the <em>dataSource</em> property is set to an Array or URL. */
+export interface GridDataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: GridDataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: GridDataSourceSettingsDataSourceType;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface GridDataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: GridDataSourceSettingsDataFieldDataType;
+}
+
 /**Describes the grid's editing settings. */
 export interface GridEditing {
   /**
@@ -1640,6 +1747,11 @@ export interface GridEditing {
    * Default value: [object Object]
    */
   addNewRow?: GridEditingAddNewRow;
+  /**
+   * Enables users to dynamically add new columns through the User Interface. When the add new column is visible, a '+' is displayed as a last column. Clicking it opens a dialog for adding new columns.
+   * Default value: [object Object]
+   */
+  addNewColumn?: GridEditingAddNewColumn;
   /**
    * Describes dialog's editing settings.
    * Default value: [object Object]
@@ -1814,10 +1926,20 @@ export interface GridEditingCommandColumnDataSource {
 /**Describes the settings of the 'Add New Row' UI element which enables the quick adding of rows to the Grid with a single click. */
 export interface GridEditingAddNewRow {
   /**
+   * Adds new row by clicking the Enter button, when the focused row is the last row.
+   * Default value: false
+   */
+  autoCreate?: boolean;
+  /**
    * Sets the position of the 'Add New Row' UI element.
    * Default value: both
    */
   position?: LayoutPosition;
+  /**
+   * Sets or gets the display mode of the new row action. It could be either 'row' or 'button'.
+   * Default value: row
+   */
+  displayMode?: GridEditingAddNewRowDisplayMode;
   /**
    * Makes the 'Add New Row' UI element visible.
    * Default value: false
@@ -1830,6 +1952,15 @@ export interface GridEditingAddNewRow {
   label?: string;
 }
 
+/**Enables users to dynamically add new columns through the User Interface. When the add new column is visible, a '+' is displayed as a last column. Clicking it opens a dialog for adding new columns. */
+export interface GridEditingAddNewColumn {
+  /**
+   * Makes the 'Add New Row' UI element visible.
+   * Default value: false
+   */
+  visible?: boolean;
+}
+
 /**Describes the grid's filtering settings. */
 export interface GridFiltering {
   /**
@@ -1838,7 +1969,7 @@ export interface GridFiltering {
    */
   enabled?: boolean;
   /**
-   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '>= 3 and <= 8']]
+   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]
    * Default value: 
    */
   filter?: any[];
@@ -2714,10 +2845,16 @@ export declare type VerticalAlignment = 'top' | 'center' | 'bottom';
 export declare type Position = 'near' | 'far';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
+/**Sets or gets the column summary. */
+export declare type GridColumnSummary = 'sum' | 'min' | 'max' | 'avg' | 'count' | 'median' | 'stdev' | 'stdevp' | 'var' | 'varp';
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Sets the page orientation, when exporting to PDF. */
 export declare type GridDataExportPageOrientation = 'landscape' | 'portrait';
+/**Sets the dataField type. */
+export declare type GridDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type GridDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Determines the way editing is initiated. */
 export declare type GridEditingAction = 'none' | 'click' | 'dblClick';
 /**Sets the navigation buttons position. */
@@ -2726,6 +2863,8 @@ export declare type LayoutPosition = 'near' | 'far' | 'both';
 export declare type GridCommandDisplayMode = 'label' | 'icon' | 'labelAndIcon';
 /**Sets the grid's edit mode. */
 export declare type GridEditingMode = 'cell' | 'row';
+/**Sets or gets the display mode of the new row action. It could be either 'row' or 'button'. */
+export declare type GridEditingAddNewRowDisplayMode = 'row' | 'button';
 /**Sets the way filtering through the filter row is applied. */
 export declare type GridFilteringFilterRowApplyMode = 'auto' | 'click';
 /**Sets the filter menu mode. */

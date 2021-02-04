@@ -48,12 +48,12 @@ export class Carousel extends React.Component<React.HTMLAttributes<Element> & Ca
 	}
 
 	/** The items switch automatically if set to true or to a custom number(representing the timeout in milliseconds). This property works if slideShow property is enabled.
-	*	Property type: any
+	*	Property type: boolean
 	*/
-	get autoPlay(): any  {
+	get autoPlay(): boolean  {
 		return this.nativeElement ? this.nativeElement.autoPlay : undefined;
 	}
-	set autoPlay(value: any) {
+	set autoPlay(value: boolean) {
 		if (this.nativeElement) {
 			this.nativeElement.autoPlay = value;
 		}

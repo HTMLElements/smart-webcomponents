@@ -65,7 +65,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the maximum value of the widget. 
    * Default value: null
    */
-  max?: any;
+  max?: number | string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -93,7 +93,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the minimum value of the widget. 
    * Default value: null
    */
-  min?: any;
+  min?: number | string;
   /**
    * The name of the control.
    * Default value: ""
@@ -193,7 +193,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the increase/decrease step. 
    * Default value: 1
    */
-  spinButtonsStep?: any;
+  spinButtonsStep?: number | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""

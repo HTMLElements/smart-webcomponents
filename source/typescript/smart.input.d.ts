@@ -23,7 +23,7 @@ export interface InputProperties {
   disabled?: boolean;
   /**
    * Determines the position of the drop down button.
-   * Default value: right
+   * Default value: none
    */
   dropDownButtonPosition?: DropDownButtonPosition;
   /**

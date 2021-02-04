@@ -239,19 +239,19 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 
 	/** @description Detetmines the maximum possible date of the Timeline. */
 	@Input()
-	get max(): any {
+	get max(): string | Date {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: string | Date) {
 		this.nativeElement ? this.nativeElement.max = value : undefined;
 	}
 
 	/** @description Detetmines the minimum possible date of the Timeline. */
 	@Input()
-	get min(): any {
+	get min(): string | Date {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: string | Date) {
 		this.nativeElement ? this.nativeElement.min = value : undefined;
 	}
 
@@ -464,46 +464,46 @@ export class GanttChartComponent extends BaseElement implements OnInit, AfterVie
 
 	/** @description Determines the min size of the Task Panel. Used when Resource Panel is visible. */
 	@Input()
-	get taskPanelMin(): any {
+	get taskPanelMin(): string | number {
 		return this.nativeElement ? this.nativeElement.taskPanelMin : undefined;
 	}
-	set taskPanelMin(value: any) {
+	set taskPanelMin(value: string | number) {
 		this.nativeElement ? this.nativeElement.taskPanelMin = value : undefined;
 	}
 
 	/** @description Determines the size of the Task Panel. Used when Resource Panel is visible. */
 	@Input()
-	get taskPanelSize(): any {
+	get taskPanelSize(): string | number {
 		return this.nativeElement ? this.nativeElement.taskPanelSize : undefined;
 	}
-	set taskPanelSize(value: any) {
+	set taskPanelSize(value: string | number) {
 		this.nativeElement ? this.nativeElement.taskPanelSize = value : undefined;
 	}
 
 	/** @description Determines the min width of the timeline. */
 	@Input()
-	get timelineMin(): any {
+	get timelineMin(): string | number {
 		return this.nativeElement ? this.nativeElement.timelineMin : undefined;
 	}
-	set timelineMin(value: any) {
+	set timelineMin(value: string | number) {
 		this.nativeElement ? this.nativeElement.timelineMin = value : undefined;
 	}
 
 	/** @description Determines the min width of the task tree. */
 	@Input()
-	get treeMin(): any {
+	get treeMin(): string | number {
 		return this.nativeElement ? this.nativeElement.treeMin : undefined;
 	}
-	set treeMin(value: any) {
+	set treeMin(value: string | number) {
 		this.nativeElement ? this.nativeElement.treeMin = value : undefined;
 	}
 
 	/** @description Determines the size(width) of the task tree. */
 	@Input()
-	get treeSize(): any {
+	get treeSize(): string | number {
 		return this.nativeElement ? this.nativeElement.treeSize : undefined;
 	}
-	set treeSize(value: any) {
+	set treeSize(value: string | number) {
 		this.nativeElement ? this.nativeElement.treeSize = value : undefined;
 	}
 

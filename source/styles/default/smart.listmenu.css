@@ -1,5 +1,3 @@
-
-
 /* smart-list-menu */
 smart-list-menu {
     width: var(--smart-list-menu-default-width);
@@ -16,24 +14,24 @@ smart-list-menu {
     visibility: hidden;
 }
 
-    smart-list-menu.smart-element {
-        visibility: inherit;
-    }
+smart-list-menu.smart-element {
+    visibility: inherit;
+}
 
-    smart-list-menu .smart-ripple {
-        background: var(--smart-ui-state-focus);
-    }
+smart-list-menu .smart-ripple {
+    background: var(--smart-ui-state-focus);
+}
 
-    smart-list-menu:focus {
-        border-color: var(--smart-outline);
-    }
+smart-list-menu:focus {
+    border-color: var(--smart-outline);
+}
 
-    smart-list-menu[minimized] {
-        height: auto;
-        overflow: visible;
-        border: var(--smart-border-width) solid var(--smart-border);
-        background: var(--smart-surface);
-    }
+smart-list-menu[minimized] {
+    height: auto;
+    overflow: visible;
+    border: var(--smart-border-width) solid var(--smart-border);
+    background: var(--smart-surface);
+}
 
 .smart-list-menu .smart-header,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-header {
@@ -50,7 +48,7 @@ smart-list-menu {
     justify-content: flex-end;
 }
 
-smart-list-menu > .smart-container,
+smart-list-menu>.smart-container,
 .smart-list-menu.smart-container {
     position: relative;
     display: flex;
@@ -97,10 +95,10 @@ smart-list-menu > .smart-container,
     transform-origin: bottom;
 }
 
-    .smart-list-menu[drop-down-position|="top"]:not([animation='none']) .smart-list-menu-view-minimized.smart-visibility-hidden,
-    .smart-list-menu-view-minimized[drop-down-position|="top"]:not([animation='none']).smart-visibility-hidden {
-        transform: translateY(-100%) scaleY(0);
-    }
+.smart-list-menu[drop-down-position|="top"]:not([animation='none']) .smart-list-menu-view-minimized.smart-visibility-hidden,
+.smart-list-menu-view-minimized[drop-down-position|="top"]:not([animation='none']).smart-visibility-hidden {
+    transform: translateY(-100%) scaleY(0);
+}
 
 
 .smart-list-menu[minimize-icon-template] .smart-hamburger-icon {
@@ -138,16 +136,16 @@ smart-list-menu > .smart-container,
     margin-bottom: 0;
 }
 
-.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-top {
+.smart-list-menu .smart-hamburger-icon.smart-close-button>.smart-hamburger-icon-line-top {
     width: 29px;
     transform: translateX(4px) rotate(45deg);
 }
 
-.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-center {
+.smart-list-menu .smart-hamburger-icon.smart-close-button>.smart-hamburger-icon-line-center {
     visibility: hidden;
 }
 
-.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-bottom {
+.smart-list-menu .smart-hamburger-icon.smart-close-button>.smart-hamburger-icon-line-bottom {
     width: 29px;
     transform: translateX(4px) rotate(-45deg);
 }
@@ -186,10 +184,10 @@ smart-list-menu[drop-down-position$="left"] .smart-list-menu-view-minimized {
     border-right: none;
 }
 
-    .smart-list-menu .smart-menu-scroll-button:last-of-type,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button:last-of-type {
-        border-bottom: none;
-    }
+.smart-list-menu .smart-menu-scroll-button:last-of-type,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button:last-of-type {
+    border-bottom: none;
+}
 
 .smart-list-menu .smart-menu-scroll-button,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button {
@@ -197,31 +195,31 @@ smart-list-menu[drop-down-position$="left"] .smart-list-menu-view-minimized {
     height: var(--smart-menu-scroll-button-size);
 }
 
-    .smart-list-menu .smart-menu-scroll-button > button,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button > button {
-        border: none;
-        min-height: 0;
-    }
+.smart-list-menu .smart-menu-scroll-button>button,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-scroll-button>button {
+    border: none;
+    min-height: 0;
+}
 
-.smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container {
+.smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable]>smart-menu-item>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable]>smart-menu-item>.smart-menu-item-label-container,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable]>smart-menu-items-group>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable]>smart-menu-items-group>.smart-menu-item-label-container {
     padding-left: 35px;
 }
 
-.smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
+.smart-list-menu[checkboxes][checkable] smart-menu-item[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-item[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][checkable] smart-menu-items-group[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable] smart-menu-items-group[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable]>smart-menu-item[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable]>smart-menu-item[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable]>smart-menu-items-group[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable]>smart-menu-items-group[checked]>.smart-menu-item-label-container:after {
     position: absolute;
     left: 10px;
     top: 50%;
@@ -230,14 +228,14 @@ smart-list-menu[drop-down-position$="left"] .smart-list-menu-view-minimized {
     font-family: var(--smart-font-family-icon);
 }
 
-.smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
+.smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-item[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][check-mode="radioButton"] smart-menu-items-group[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"]>smart-menu-item[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"]>smart-menu-item[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"]>smart-menu-items-group[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes] .smart-menu-item-container[checkable][check-mode="radioButton"]>smart-menu-items-group[checked]>.smart-menu-item-label-container:after {
     content: var(--smart-icon-radio);
 }
 
@@ -269,125 +267,125 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
     overflow: hidden;
 }
 
-    .smart-list-menu .smart-menu-main-container,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
-        position: relative;
-    }
+.smart-list-menu .smart-menu-main-container,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container {
+    position: relative;
+}
 
-        .smart-list-menu .smart-menu-main-container.header-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown {
-            height: calc(100% - var(--smart-bar-height));
-        }
+.smart-list-menu .smart-menu-main-container.header-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown {
+    height: calc(100% - var(--smart-bar-height));
+}
 
-        .smart-list-menu .smart-menu-main-container.scroll-buttons-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown {
-            height: calc(100% - 2 * var(--smart-menu-scroll-button-size));
-        }
+.smart-list-menu .smart-menu-main-container.scroll-buttons-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown {
+    height: calc(100% - 2 * var(--smart-menu-scroll-button-size));
+}
 
-            .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown {
-                height: calc(100% - var(--smart-menu-scroll-button-size));
-            }
+.smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown {
+    height: calc(100% - var(--smart-menu-scroll-button-size));
+}
 
-        .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown {
-            height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size));
-        }
+.smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown {
+    height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size));
+}
 
-            .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown {
-                height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size));
-            }
+.smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown {
+    height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size));
+}
 
-        .smart-list-menu .smart-menu-main-container.filter-input-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.filter-input-shown {
-            height: calc(100% - var(--smart-text-box-default-height));
-        }
+.smart-list-menu .smart-menu-main-container.filter-input-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.filter-input-shown {
+    height: calc(100% - var(--smart-text-box-default-height));
+}
 
-        .smart-list-menu .smart-menu-main-container.header-shown.filter-input-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.filter-input-shown {
-            height: calc(100% - var(--smart-bar-height) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-        }
+.smart-list-menu .smart-menu-main-container.header-shown.filter-input-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.filter-input-shown {
+    height: calc(100% - var(--smart-bar-height) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+}
 
-        .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.filter-input-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.filter-input-shown {
-            height: calc(100% - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-        }
+.smart-list-menu .smart-menu-main-container.scroll-buttons-shown.filter-input-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.filter-input-shown {
+    height: calc(100% - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+}
 
-        .smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown {
-            height: calc(100% - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-        }
+.smart-list-menu .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.scroll-buttons-shown.one-button-shown.filter-input-shown {
+    height: calc(100% - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+}
 
-        .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown {
-            height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-        }
+.smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.filter-input-shown {
+    height: calc(100% - var(--smart-bar-height) - 2 * var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+}
 
-        .smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown {
-            height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
-        }
+.smart-list-menu .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.header-shown.scroll-buttons-shown.one-button-shown.filter-input-shown {
+    height: calc(100% - var(--smart-bar-height) - var(--smart-menu-scroll-button-size) - var(--smart-text-box-default-height) - 2 * var(--smart-list-menu-filter-input-vertical-offset));
+}
 
-        .smart-list-menu .smart-menu-main-container.bounce-top,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-top {
-            padding-top: 50px;
-        }
+.smart-list-menu .smart-menu-main-container.bounce-top,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-top {
+    padding-top: 50px;
+}
 
-        .smart-list-menu .smart-menu-main-container.bounce-bottom,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-bottom {
-            padding-bottom: 50px;
-        }
+.smart-list-menu .smart-menu-main-container.bounce-bottom,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container.bounce-bottom {
+    padding-bottom: 50px;
+}
 
-    .smart-list-menu .smart-header,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        height: var(--smart-bar-height);
-        border-bottom: var(--smart-border-width) solid var(--smart-primary);
-        overflow: hidden;
-    }
+.smart-list-menu .smart-header,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: var(--smart-bar-height);
+    border-bottom: var(--smart-border-width) solid var(--smart-primary);
+    overflow: hidden;
+}
 
-        .smart-list-menu .smart-header > smart-button,
-        .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button {
-            position: absolute;
-            width: 50px;
-            height: 100%;
-            left: 0;
-            top: 0;
-            background: inherit;
-            border: inherit;
-            color: inherit;
-        }
+.smart-list-menu .smart-header>smart-button,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header>smart-button {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: inherit;
+    border: inherit;
+    color: inherit;
+}
 
-            .smart-list-menu .smart-header > smart-button > .smart-button,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button > .smart-button {
-                border: none;
-            }
+.smart-list-menu .smart-header>smart-button>.smart-button,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header>smart-button>.smart-button {
+    border: none;
+}
 
-            .smart-list-menu .smart-header > smart-button .smart-arrow:after,
-            .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-arrow:after {
-                font-size: calc(var(--smart-font-size) - 3px);
-                color: inherit;
-            }
+.smart-list-menu .smart-header>smart-button .smart-arrow:after,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header>smart-button .smart-arrow:after {
+    font-size: calc(var(--smart-font-size) - 3px);
+    color: inherit;
+}
 
-    .smart-list-menu .smart-title,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-title {
-        font-size: calc(var(--smart-font-size) + 2px);
-    }
+.smart-list-menu .smart-title,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-title {
+    font-size: calc(var(--smart-font-size) + 2px);
+}
 
-    .smart-list-menu smart-menu-item.smart-element,
-    .smart-list-menu-view.smart-drop-down-repositioned smart-menu-item.smart-element,
-    .smart-list-menu smart-menu-items-group.smart-element,
-    .smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group.smart-element {
-        display: block;
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-    }
+.smart-list-menu smart-menu-item.smart-element,
+.smart-list-menu-view.smart-drop-down-repositioned smart-menu-item.smart-element,
+.smart-list-menu smart-menu-items-group.smart-element,
+.smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group.smart-element {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
 
 .smart-list-menu smart-menu-items-group[hover],
 .smart-list-menu smart-menu-item[hover] {
@@ -429,10 +427,10 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
     width: 100%;
 }
 
-    .smart-list-menu .smart-menu-drop-down[level="2"]:not(.smart-menu-minimized-items-container),
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-menu-drop-down[level="2"]:not(.smart-menu-minimized-items-container) {
-        margin: 0;
-    }
+.smart-list-menu .smart-menu-drop-down[level="2"]:not(.smart-menu-minimized-items-container),
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-drop-down[level="2"]:not(.smart-menu-minimized-items-container) {
+    margin: 0;
+}
 
 .smart-list-menu smart-menu-items-group.smart-menu-items-group-opened[separator],
 .smart-list-menu-view.smart-drop-down-repositioned smart-menu-items-group.smart-menu-items-group-opened[separator],
@@ -445,8 +443,8 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
 
 .smart-list-menu-view.smart-list-menu-view-minimized {
     position: absolute;
-    width: var(--smart-list-menu-drop-down-width);
-    height: var(--smart-list-menu-drop-down-height);
+    width: var(--smart-editor-drop-down-width);
+    height: var(--smart-editor-drop-down-height);
     left: calc(-1 * var(--smart-border-width));
     top: calc(100% + var(--smart-border-width));
     background-color: white;
@@ -471,19 +469,19 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
     font-size: inherit;
 }
 
-    .smart-list-menu .smart-list-menu-filter-input-container::after,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-filter-input-container::after {
-        content: var(--smart-icon-filter);
-        font-family: var(--smart-font-family-icon);
-        height: var(--smart-text-box-default-height);
-        position: absolute;
-        top: 0;
-        width: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        left: calc(100% - 25px);
-    }
+.smart-list-menu .smart-list-menu-filter-input-container::after,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-filter-input-container::after {
+    content: var(--smart-icon-filter);
+    font-family: var(--smart-font-family-icon);
+    height: var(--smart-text-box-default-height);
+    position: absolute;
+    top: 0;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: calc(100% - 25px);
+}
 
 .smart-list-menu .smart-filter-input,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input {
@@ -495,17 +493,17 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
     font-size: inherit;
 }
 
-    .smart-list-menu .smart-filter-input::selection,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input::selection {
-        background: var(--smart-editor-selection);
-        color: var(--smart-editor-selection-color);
-    }
+.smart-list-menu .smart-filter-input::selection,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input::selection {
+    background: var(--smart-editor-selection);
+    color: var(--smart-editor-selection-color);
+}
 
-    .smart-list-menu .smart-filter-input:focus,
-    .smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input:focus,
-    smart-tree .smart-filter-input:focus {
-        outline: none;
-    }
+.smart-list-menu .smart-filter-input:focus,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-filter-input:focus,
+smart-tree .smart-filter-input:focus {
+    outline: none;
+}
 
 .smart-list-menu .smart-list-menu-group-label,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-list-menu-group-label {
@@ -520,6 +518,7 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
 }
 
 .smart-list-menu:not([animation='none']) .smart-menu-items-group-opened,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.smart-element.smart-menu-items-group-opened,
 .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-items-group-opened {
     overflow: visible;
 }
@@ -532,16 +531,16 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
     transition: left 0.3s ease-in;
 }
 
-    .smart-list-menu:not([animation='none']) .smart-menu-drop-down.smart-hidden,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.smart-hidden {
-        display: block !important;
-        left: 100%;
-    }
+.smart-list-menu:not([animation='none']) .smart-menu-drop-down.smart-hidden,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.smart-hidden {
+    display: block !important;
+    left: 100%;
+}
 
-    .smart-list-menu:not([animation='none']) .smart-menu-drop-down.no-transition,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.no-transition {
-        transition: none;
-    }
+.smart-list-menu:not([animation='none']) .smart-menu-drop-down.no-transition,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-menu-drop-down.no-transition {
+    transition: none;
+}
 
 .smart-list-menu:not([animation='none']) smart-menu-item,
 .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item {
@@ -565,28 +564,28 @@ smart-date-time-picker .smart-date-time-drop-down.smart-visibility-hidden.not-in
     position: relative;
 }
 
-    .smart-list-menu:not([animation='none']) smart-menu-item.animate,
-    .smart-list-menu:not([animation='none']) smart-menu-items-group.animate,
-    .smart-list-menu:not([animation='none']) .smart-menu-item-label-container.animate,
-    .smart-list-menu:not([animation='none']) .smart-list-menu-group-label.animate,
-    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.animate,
-    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.animate,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.animate,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.animate {
-        left: -100%;
-    }
+.smart-list-menu:not([animation='none']) smart-menu-item.animate,
+.smart-list-menu:not([animation='none']) smart-menu-items-group.animate,
+.smart-list-menu:not([animation='none']) .smart-menu-item-label-container.animate,
+.smart-list-menu:not([animation='none']) .smart-list-menu-group-label.animate,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.animate,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.animate,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.animate,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.animate {
+    left: -100%;
+}
 
-    .smart-list-menu:not([animation='none']) smart-menu-item.right,
-    .smart-list-menu:not([animation='none']) smart-menu-items-group.right,
-    .smart-list-menu:not([animation='none']) .smart-menu-item-label-container.right,
-    .smart-list-menu:not([animation='none']) .smart-list-menu-group-label.right,
-    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.right,
-    .smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.right,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.right,
-    .smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.right {
-        left: -100%;
-        transition: none;
-    }
+.smart-list-menu:not([animation='none']) smart-menu-item.right,
+.smart-list-menu:not([animation='none']) smart-menu-items-group.right,
+.smart-list-menu:not([animation='none']) .smart-menu-item-label-container.right,
+.smart-list-menu:not([animation='none']) .smart-list-menu-group-label.right,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-item.right,
+.smart-list-menu-view-minimized:not([animation='none']) smart-menu-items-group.right,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-menu-item-label-container.right,
+.smart-list-menu-view-minimized:not([animation='none']) .smart-list-menu-group-label.right {
+    left: -100%;
+    transition: none;
+}
 
 /* Hamburger icon styles */
 
@@ -628,16 +627,16 @@ smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
     margin-bottom: 0;
 }
 
-.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-top {
+.smart-list-menu .smart-hamburger-icon.smart-close-button>.smart-hamburger-icon-line-top {
     width: 29px;
     transform: translateX(4px) rotate(45deg);
 }
 
-.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-center {
+.smart-list-menu .smart-hamburger-icon.smart-close-button>.smart-hamburger-icon-line-center {
     visibility: hidden;
 }
 
-.smart-list-menu .smart-hamburger-icon.smart-close-button > .smart-hamburger-icon-line-bottom {
+.smart-list-menu .smart-hamburger-icon.smart-close-button>.smart-hamburger-icon-line-bottom {
     width: 29px;
     transform: translateX(4px) rotate(-45deg);
 }
@@ -646,6 +645,16 @@ smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
     height: 100%;
     display: flex;
     align-items: center;
+}
+
+.smart-list-menu .smart-scroll-viewer,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-scroll-viewer {
+    border: none;
+}
+
+.smart-list-menu .smart-menu-main-container .smart-scroll-viewer-content-container,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-menu-main-container .smart-scroll-viewer-content-container {
+    width: 100%;
 }
 
 /* --- Right-To-Left --- */
@@ -667,7 +676,7 @@ smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
     padding-left: calc(var(--smart-editor-label-padding) + 25px);
 }
 
-.smart-list-menu[right-to-left] > .smart-container {
+.smart-list-menu[right-to-left]>.smart-container {
     flex-direction: row-reverse;
 }
 
@@ -681,8 +690,8 @@ smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
     left: 0;
 }
 
-.smart-list-menu[right-to-left] .smart-header > smart-button,
-.smart-list-menu-view.smart-drop-down-repositioned[right-to-left] .smart-header > smart-button {
+.smart-list-menu[right-to-left] .smart-header>smart-button,
+.smart-list-menu-view.smart-drop-down-repositioned[right-to-left] .smart-header>smart-button {
     left: initial;
     right: 0;
 }
@@ -698,7 +707,7 @@ smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
     margin-right: 50px;
 }
 
-.smart-list-menu[right-to-left] smart-menu-items-group[level="1"] > .smart-menu-item-label-container > .smart-menu-items-group-arrow {
+.smart-list-menu[right-to-left] smart-menu-items-group[level="1"]>.smart-menu-item-label-container>.smart-menu-items-group-arrow {
     margin-right: initial;
 }
 
@@ -740,26 +749,26 @@ smart-list-menu:not([animation='none']) .smart-hamburger-icon-line {
     left: 100%;
 }
 
-.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"] > .smart-menu-item-label-container,
-.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item > .smart-menu-item-label-container,
-.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group > .smart-menu-item-label-container {
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"]>.smart-menu-item-label-container,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-item>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-item>.smart-menu-item-label-container,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-items-group>.smart-menu-item-label-container,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-items-group>.smart-menu-item-label-container {
     padding-left: initial;
     padding-right: 35px;
 }
 
-.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-item[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after,
-.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable] > smart-menu-items-group[checked] > .smart-menu-item-label-container:after {
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-item[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][checkable][right-to-left] smart-menu-items-group[level="1"][checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-item[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-item[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-items-group[checked]>.smart-menu-item-label-container:after,
+.smart-list-menu-view.smart-drop-down-repositioned[checkboxes][right-to-left] .smart-menu-item-container[checkable]>smart-menu-items-group[checked]>.smart-menu-item-label-container:after {
     left: initial;
     right: 10px;
 }

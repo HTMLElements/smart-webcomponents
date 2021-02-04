@@ -50,10 +50,10 @@ export class FileUploadComponent extends BaseElement implements OnInit, AfterVie
 
 	/** @description Appends the list with selected files to a new custom container specified by the user. If the value of the property is a string it must represent a valid id of an HTML element inside the DOM that will be used as the new container for the uploaded files list. */
 	@Input()
-	get appendTo(): any {
+	get appendTo(): string {
 		return this.nativeElement ? this.nativeElement.appendTo : undefined;
 	}
-	set appendTo(value: any) {
+	set appendTo(value: string) {
 		this.nativeElement ? this.nativeElement.appendTo = value : undefined;
 	}
 

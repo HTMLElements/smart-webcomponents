@@ -96,7 +96,7 @@ export class Tank extends React.Component {
 	}
 
 	/** When cooerce property is true, all values coerce to the interval's value.
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get interval() {
 		return this.nativeElement ? this.nativeElement.interval : undefined;
@@ -180,7 +180,7 @@ export class Tank extends React.Component {
 	}
 
 	/** Sets or gets the maximum value of the widget.
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get max() {
 		return this.nativeElement ? this.nativeElement.max : undefined;
@@ -216,7 +216,7 @@ export class Tank extends React.Component {
 	}
 
 	/** Sets or gets the minimum value of the widget. 
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get min() {
 		return this.nativeElement ? this.nativeElement.min : undefined;

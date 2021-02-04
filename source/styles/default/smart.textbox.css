@@ -334,11 +334,16 @@ smart-input[drop-down-button-position="right"] .smart-input,
     background: var(--smart-surface);
     border-top-right-radius: var(--smart-border-top-right-radius);
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    outline: none;
 }
 
 .smart-input[drop-down-button-position="left"] .smart-drop-down-button,
 .smart-input[drop-down-button-position="right"] .smart-drop-down-button {
     display: flex;
+}
+.smart-input[drop-down-button-position="left"][disabled] .smart-drop-down-button,
+.smart-input[drop-down-button-position="right"][disabled] .smart-drop-down-button {
+    opacity: 0.5;
 }
 
 .smart-input[drop-down-button-position="right"] .smart-input {
@@ -361,7 +366,7 @@ smart-input[drop-down-button-position="right"] .smart-input,
     border-bottom-left-radius: 0px;
 }
 
-.smart-input[focus] .smart-drop-down-button {
+.smart-input[focus]:not([disabled]) .smart-drop-down-button {
     border-color: var(--smart-outline);
 }
 
@@ -383,6 +388,9 @@ smart-input[drop-down-button-position="right"] .smart-input,
     align-items: center;
     font-size: var(--smart-arrow-size);
     outline: none;
+}
+.smart-input[disabled] .smart-drop-down-button .arrow {
+    cursor: initial;
 }
 
 .smart-input .smart-drop-down-button .arrow:after {
@@ -411,30 +419,30 @@ smart-input[drop-down-button-position="right"] .smart-input,
     transform: rotate(0deg);
 }
 
-.smart-input[readonly]:hover .smart-input,
-.smart-input[readonly]:hover .smart-drop-down-button,
-.smart-input .smart-drop-down-button:hover {
+.smart-input:not([disabled])[readonly]:hover .smart-input,
+.smart-input:not([disabled])[readonly]:hover .smart-drop-down-button,
+.smart-input:not([disabled]) .smart-drop-down-button:hover {
     background: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
 }
 
-.smart-input[readonly][open] .smart-input,
-.smart-input[readonly][open] .smart-drop-down-button,
-.smart-input[readonly]:active .smart-input,
-.smart-input[readonly]:active .smart-drop-down-button,
-.smart-input .smart-drop-down-button[open],
-.smart-input .smart-drop-down-button:active {
+.smart-input:not([disabled])[readonly][open] .smart-input,
+.smart-input:not([disabled])[readonly][open] .smart-drop-down-button,
+.smart-input:not([disabled])[readonly]:active .smart-input,
+.smart-input:not([disabled])[readonly]:active .smart-drop-down-button,
+.smart-input:not([disabled]) .smart-drop-down-button[open],
+.smart-input:not([disabled]) .smart-drop-down-button:active {
     background: var(--smart-ui-state-active);
     color: var(--smart-ui-state-color-active);
 }
 
-.smart-input[readonly][open] .smart-input::-webkit-input-placeholder,
-.smart-input[readonly]:active .smart-input::-webkit-input-placeholder {
+.smart-input:not([disabled])[readonly][open] .smart-input::-webkit-input-placeholder,
+.smart-input:not([disabled])[readonly]:active .smart-input::-webkit-input-placeholder {
     color: var(--smart-ui-state-color-active);
 }
 
-.smart-input[readonly][open] .smart-input::-moz-placeholder,
-.smart-input[readonly]:active .smart-input::-moz-placeholder {
+.smart-input:not([disabled])[readonly][open] .smart-input::-moz-placeholder,
+.smart-input:not([disabled])[readonly]:active .smart-input::-moz-placeholder {
     color: var(--smart-ui-state-color-active);
 }
 

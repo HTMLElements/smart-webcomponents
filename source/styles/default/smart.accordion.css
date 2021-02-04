@@ -207,6 +207,10 @@ smart-accordion-item[focused] .smart-accordion-item-header > .smart-arrow {
 smart-accordion-item .smart-accordion-item-header > .smart-label {
     margin-left: 5px;
     width: calc(100% - var(--smart-editor-addon-width));
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 smart-accordion-item .smart-accordion-item-header > .smart-arrow:after {

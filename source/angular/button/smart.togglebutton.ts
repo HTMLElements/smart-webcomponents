@@ -147,9 +147,25 @@ export class ToggleButtonComponent extends BaseElement implements OnInit, AfterV
 		this.nativeElement ? this.nativeElement.value = value : undefined;
 	}
 
-	/** @description This event is triggered when the state of the element is changed.
-	*  @param event. The custom event. 	*/
+	/** @description This event is triggered when the widget is checked/unchecked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	value, 	oldValue, 	changeType)
+	*   value - A boolean value indicating the new state of the button ( checked or not ).
+	*   oldValue - A boolean value indicating the previous state of the button ( checked or not ).
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
 	@Output() onChange: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when the widget is checked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	@Output() onCheckValue: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when the widget is unchecked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	@Output() onUncheckValue: EventEmitter<CustomEvent> = new EventEmitter();
 
 
 	get isRendered(): boolean {
@@ -190,6 +206,12 @@ export class ToggleButtonComponent extends BaseElement implements OnInit, AfterV
 		that.eventHandlers['changeHandler'] = (event: CustomEvent) => { that.onChange.emit(event); }
 		that.nativeElement.addEventListener('change', that.eventHandlers['changeHandler']);
 
+		that.eventHandlers['checkValueHandler'] = (event: CustomEvent) => { that.onCheckValue.emit(event); }
+		that.nativeElement.addEventListener('checkValue', that.eventHandlers['checkValueHandler']);
+
+		that.eventHandlers['uncheckValueHandler'] = (event: CustomEvent) => { that.onUncheckValue.emit(event); }
+		that.nativeElement.addEventListener('uncheckValue', that.eventHandlers['uncheckValueHandler']);
+
 	}
 
 	/** @description Remove event listeners. */
@@ -197,6 +219,14 @@ export class ToggleButtonComponent extends BaseElement implements OnInit, AfterV
         const that = this;
 		if (that.eventHandlers['changeHandler']) {
 			that.nativeElement.removeEventListener('change', that.eventHandlers['changeHandler']);
+		}
+
+		if (that.eventHandlers['checkValueHandler']) {
+			that.nativeElement.removeEventListener('checkValue', that.eventHandlers['checkValueHandler']);
+		}
+
+		if (that.eventHandlers['uncheckValueHandler']) {
+			that.nativeElement.removeEventListener('uncheckValue', that.eventHandlers['uncheckValueHandler']);
 		}
 
 	}

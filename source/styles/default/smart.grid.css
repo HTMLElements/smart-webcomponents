@@ -1671,6 +1671,21 @@ smart-grid-cell[addNewRow] {
         visibility: hidden;
     }
 /*Cells Selection*/
+smart-grid:not([selection_allow-cell-selection]) smart-grid-row[focus] smart-grid-cell:not([editor]):not([header]),
+smart-grid:not([selection_allow-cell-selection]) smart-grid-row[focus] smart-grid-cell:not([editor]):not([header]) .smart-label {
+    background: var(--smart-primary) !important;
+    color: var(--smart-primary-color) !important;
+    border-color: var(--smart-primary) !important;
+}
+smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell[focus]:not([editor]):not([header]) {
+    background: var(--smart-primary);
+    color: var(--smart-primary-color);
+    border-color: var(--smart-primary);
+}
+smart-grid:not([selection_allow-cell-selection]) smart-grid-row[focus] smart-grid-cell:not([editor]):not([header])::before {
+    background: var(--smart-primary);
+}
+
 smart-grid-cell[selected]:not([editor]) {
     background: var(--smart-ui-state-selected);
     color: var(--smart-ui-state-color-selected);
@@ -1906,6 +1921,9 @@ smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-type {
     border-bottom-right-radius: 0px;
 }
 
+.smart-grid .smart-grid-row:not([leaf]) smart-grid-cell[group]:not([header]) div:not([content]){
+    visibility: hidden;
+}
 
 .smart-grid[grouped] smart-grid-row[leaf] > .smart-grid-cell-container > smart-grid-cell div[label] {
     display: flex;

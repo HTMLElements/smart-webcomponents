@@ -67,10 +67,15 @@ export interface TableProperties {
    */
   dataRowId?: string;
   /**
-   * Determines the data source of the table component.
+   * Determines the data source of the table component. The data source of the Table can be a regular Array or a DataAdapter instance. You can read more about the dataAdapter here - https://www.htmlelements.com/docs/data-adapter/.
    * Default value: 
    */
   dataSource?: any;
+  /**
+   * Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: TableDataSourceSettings;
   /**
    * A callback function that can be used to transform the initial dataSource records. If implemented, it is called once for each record (which is passed as an argument).
    * Default value: null
@@ -131,6 +136,11 @@ export interface TableProperties {
    * Default value: false
    */
   grouping?: boolean;
+  /**
+   * A callback function that can be used to modify the contents of a grouping header row. By changing the 'label' you modify the rendered grouping value. By changing the 'template' you can modify the entire content including the column and count information.
+   * Default value: null
+   */
+  groupFormatFunction?: any;
   /**
    * Sets or gets the id of an HTML template element to be applied as additional column header(s).
    * Default value: "null"
@@ -620,6 +630,11 @@ export interface TableColumn {
    */
   formatFunction?: any;
   /**
+   * Sets or gets whether the column is hidden or not. Hidden columns allow data to be grouped by their corresponding dataField.
+   * Default value: true
+   */
+  hidden: boolean;
+  /**
    * Sets or gets the text displayed in the column's header.
    * Default value: ""
    */
@@ -699,6 +714,93 @@ export interface TableConditionalFormatting {
   text?: string;
 }
 
+/**Sets the grid's data source settings when the <em>dataSource</em> property is set to an Array or URL. */
+export interface TableDataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: TableDataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: TableDataSourceSettingsDataSourceType;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface TableDataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: TableDataSourceSettingsDataFieldDataType;
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-table"): Table;
@@ -723,6 +825,10 @@ export declare type TableConditionalFormattingFontFamily = 'The default fontFami
 export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the column sizing behavior. */
 export declare type TableColumnSizeMode = 'auto' | 'default';
+/**Sets the dataField type. */
+export declare type TableDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type TableDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Sets or gets the edit mode. */
 export declare type TableEditMode = 'cell' | 'row';
 /**Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'. */

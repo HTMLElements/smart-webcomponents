@@ -48,7 +48,7 @@ export interface KanbanProperties {
   columns?: KanbanColumn[];
   /**
    * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
-   * Default value: false
+   * Default value: 
    */
   currentUser?: string | number;
   /**

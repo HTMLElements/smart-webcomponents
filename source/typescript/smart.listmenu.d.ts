@@ -153,6 +153,11 @@ export interface ListMenuProperties {
    */
   rightToLeft?: boolean;
   /**
+   * Determines whether to use scrollbar or scrollButtons when content overflows an element's box.
+   * Default value: scrollbar
+   */
+  scrollMode?: ListMenuScrollMode;
+  /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
    */
@@ -281,6 +286,8 @@ export declare type FilterMode = 'contains' | 'containsIgnoreCase' | 'doesNotCon
 export declare type VerticalAlignment = 'bottom' | 'center' | 'top';
 /**Sets or gets the ListMenu's scroll buttons behavior. */
 export declare type Overflow = 'auto' | 'hidden' | 'scroll';
+/**Determines whether to use scrollbar or scrollButtons when content overflows an element's box. */
+export declare type ListMenuScrollMode = 'scrollbar' | 'scrollButtons';
 export interface MenuItemProperties {
   /**
    * 

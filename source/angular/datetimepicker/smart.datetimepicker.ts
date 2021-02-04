@@ -162,10 +162,10 @@ export class DateTimePickerComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Sets custom container to append the pop-up to. By default, it is in the DateTimePicker. The value of the property can be an HTML element or the id of an HTML element. */
 	@Input()
-	get dropDownAppendTo(): any {
+	get dropDownAppendTo(): string {
 		return this.nativeElement ? this.nativeElement.dropDownAppendTo : undefined;
 	}
-	set dropDownAppendTo(value: any) {
+	set dropDownAppendTo(value: string) {
 		this.nativeElement ? this.nativeElement.dropDownAppendTo = value : undefined;
 	}
 

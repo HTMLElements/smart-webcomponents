@@ -120,12 +120,12 @@ export interface GanttChartProperties {
    * Detetmines the maximum possible date of the Timeline.
    * Default value: 2100-1-1
    */
-  max?: any;
+  max?: string | Date;
   /**
    * Detetmines the minimum possible date of the Timeline.
    * Default value: 1900-1-1
    */
-  min?: any;
+  min?: string | Date;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * [object Object]
@@ -245,27 +245,27 @@ export interface GanttChartProperties {
    * Determines the min size of the Task Panel. Used when Resource Panel is visible.
    * Default value: 200
    */
-  taskPanelMin?: any;
+  taskPanelMin?: string | number;
   /**
    * Determines the size of the Task Panel. Used when Resource Panel is visible.
    * Default value: 
    */
-  taskPanelSize?: any;
+  taskPanelSize?: string | number;
   /**
    * Determines the min width of the timeline.
    * Default value: 200
    */
-  timelineMin?: any;
+  timelineMin?: string | number;
   /**
    * Determines the min width of the task tree.
    * Default value: 100
    */
-  treeMin?: any;
+  treeMin?: string | number;
   /**
    * Determines the size(width) of the task tree.
    * Default value: 100
    */
-  treeSize?: any;
+  treeSize?: string | number;
   /**
    * A format function for the Header of the Timeline. The function provides the following arguments: date - a Date object that represets the date for the current cell.type - a string that represents the type of date that the cell is showing, e.g. 'month', 'week', 'day', etc.isHeaderDetails - a boolean that indicates whether the current cell is part of the Header Details Container or not.value - a string that represents the default value for the cell provided by the element.
    * Default value: null

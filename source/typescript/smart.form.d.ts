@@ -7,7 +7,7 @@ export interface FormProperties {
    */
   columns?: number;
   /**
-   * 
+   * Sets or gets the form controls.
    * Default value: null
    */
   controls?: Control[];
@@ -99,12 +99,12 @@ export interface Form extends BaseElement, FormProperties {
 export interface Control {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: 
+   * Default value: ""
    */
-  appendHTML?: any;
+  append?: string;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
-   * Default value: 
+   * Default value: null
    */
   controlOptions?: any;
   /**
@@ -122,6 +122,11 @@ export interface Control {
    * Default value: 1
    */
   columnSpan?: number;
+  /**
+   * 
+   * Default value: null
+   */
+  controls?: Control[];
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
    * Default value: ""
@@ -179,9 +184,9 @@ export interface Control {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: 
+   * Default value: ""
    */
-  prependHTML?: any;
+  prepend?: string;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false
@@ -193,10 +198,10 @@ export interface Control {
    */
   untouched?: boolean;
   /**
-   * Gets or Sets whether colon is displayed after the label.
-   * Default value: false
+   * Gets or Sets the placeholder.
+   * Default value: ""
    */
-  showColonAfterLabel?: boolean;
+  placeholder?: string;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set.
    * Default value: false
@@ -213,10 +218,10 @@ export interface Control {
    */
   valid?: boolean;
   /**
-   * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: []
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
@@ -379,10 +384,10 @@ export interface FormControlProperties {
    */
   valid?: boolean;
   /**
-   * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: []
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
@@ -613,10 +618,10 @@ export interface Control {
    */
   valid?: boolean;
   /**
-   * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: []
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 

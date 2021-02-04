@@ -288,7 +288,7 @@ export class GanttChart extends React.Component {
 	}
 
 	/** Detetmines the maximum possible date of the Timeline.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
 	get max() {
 		return this.nativeElement ? this.nativeElement.max : undefined;
@@ -300,7 +300,7 @@ export class GanttChart extends React.Component {
 	}
 
 	/** Detetmines the minimum possible date of the Timeline.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
 	get min() {
 		return this.nativeElement ? this.nativeElement.min : undefined;
@@ -588,7 +588,7 @@ export class GanttChart extends React.Component {
 	}
 
 	/** Determines the min size of the Task Panel. Used when Resource Panel is visible.
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get taskPanelMin() {
 		return this.nativeElement ? this.nativeElement.taskPanelMin : undefined;
@@ -600,7 +600,7 @@ export class GanttChart extends React.Component {
 	}
 
 	/** Determines the size of the Task Panel. Used when Resource Panel is visible.
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get taskPanelSize() {
 		return this.nativeElement ? this.nativeElement.taskPanelSize : undefined;
@@ -612,7 +612,7 @@ export class GanttChart extends React.Component {
 	}
 
 	/** Determines the min width of the timeline.
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get timelineMin() {
 		return this.nativeElement ? this.nativeElement.timelineMin : undefined;
@@ -624,7 +624,7 @@ export class GanttChart extends React.Component {
 	}
 
 	/** Determines the min width of the task tree.
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get treeMin() {
 		return this.nativeElement ? this.nativeElement.treeMin : undefined;
@@ -636,7 +636,7 @@ export class GanttChart extends React.Component {
 	}
 
 	/** Determines the size(width) of the task tree.
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get treeSize() {
 		return this.nativeElement ? this.nativeElement.treeSize : undefined;

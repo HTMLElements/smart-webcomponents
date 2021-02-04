@@ -3,6 +3,10 @@
     display: block;
 }
 
+.smart-sortable[disabled] {
+    pointer-events: none;
+    opacity: 0.7;
+}
     .smart-sortable:not([items]).smart-container,
     .smart-sortable:not([items]) > .smart-container,
     .smart-sortable .smart-sortable-items-parent {

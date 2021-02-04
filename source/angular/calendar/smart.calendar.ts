@@ -135,19 +135,19 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 	/** @description Determines the height of the month's drop down inside the Calendar. */
 	@Input()
-	get dropDownHeight(): string {
+	get dropDownHeight(): string | number {
 		return this.nativeElement ? this.nativeElement.dropDownHeight : undefined;
 	}
-	set dropDownHeight(value: string) {
+	set dropDownHeight(value: string | number) {
 		this.nativeElement ? this.nativeElement.dropDownHeight = value : undefined;
 	}
 
 	/** @description Determines the width of the month's drop down inside the Calendar. */
 	@Input()
-	get dropDownWidth(): string {
+	get dropDownWidth(): string | number {
 		return this.nativeElement ? this.nativeElement.dropDownWidth : undefined;
 	}
-	set dropDownWidth(value: string) {
+	set dropDownWidth(value: string | number) {
 		this.nativeElement ? this.nativeElement.dropDownWidth = value : undefined;
 	}
 
@@ -243,10 +243,10 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 	/** @description Determines the max date for the Calendar. Accepts date objects and valid date string formats. */
 	@Input()
-	get max(): any {
+	get max(): string | Date {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: string | Date) {
 		this.nativeElement ? this.nativeElement.max = value : undefined;
 	}
 
@@ -261,10 +261,10 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 	/** @description Determines the min date for the Calendar. Accepts date objects and valid date string formats. */
 	@Input()
-	get min(): any {
+	get min(): string | Date {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: string | Date) {
 		this.nativeElement ? this.nativeElement.min = value : undefined;
 	}
 
@@ -306,10 +306,10 @@ export class CalendarComponent extends BaseElement implements OnInit, AfterViewI
 
 	/** @description Sets restricted dates. Restricted dates are dates that cannot be selected/hovered/focused. They are visualy styled as restricted. The dates can be javascript date objects or strings representing a valid date. */
 	@Input()
-	get restrictedDates(): string[] {
+	get restrictedDates(): string[] | Date[] {
 		return this.nativeElement ? this.nativeElement.restrictedDates : undefined;
 	}
-	set restrictedDates(value: string[]) {
+	set restrictedDates(value: string[] | Date[]) {
 		this.nativeElement ? this.nativeElement.restrictedDates = value : undefined;
 	}
 

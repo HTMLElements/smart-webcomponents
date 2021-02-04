@@ -168,12 +168,12 @@ export class Tooltip extends React.Component<React.HTMLAttributes<Element> & Too
 	}
 
 	/** Sets the element which triggers the tooltip.
-	*	Property type: any
+	*	Property type: string | HTMLElement
 	*/
-	get selector(): any  {
+	get selector(): string | HTMLElement  {
 		return this.nativeElement ? this.nativeElement.selector : undefined;
 	}
-	set selector(value: any) {
+	set selector(value: string | HTMLElement) {
 		if (this.nativeElement) {
 			this.nativeElement.selector = value;
 		}

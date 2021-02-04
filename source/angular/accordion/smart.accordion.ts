@@ -42,6 +42,15 @@ export class AccordionComponent extends BaseElement implements OnInit, AfterView
 		this.nativeElement ? this.nativeElement.animation = value : undefined;
 	}
 
+	/** @description Determines the data source that will be loaded to the Accordion. */
+	@Input()
+	get dataSource(): any {
+		return this.nativeElement ? this.nativeElement.dataSource : undefined;
+	}
+	set dataSource(value: any) {
+		this.nativeElement ? this.nativeElement.dataSource = value : undefined;
+	}
+
 	/** @description Enables or disables the accordion. Disabled elements can not be interacted with. */
 	@Input()
 	get disabled(): boolean {

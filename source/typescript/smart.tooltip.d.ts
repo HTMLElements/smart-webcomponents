@@ -73,7 +73,7 @@ export interface TooltipProperties {
    * Sets the element which triggers the tooltip.
    * Default value: null
    */
-  selector?: any;
+  selector?: string | HTMLElement;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""

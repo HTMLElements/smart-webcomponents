@@ -1,9 +1,9 @@
 import React from "react";
 import { SchedulerProperties } from "./../../index";
-import { SchedulerRepeatFreq, SchedulerNotificationType, SchedulerDayFormat, SchedulerGroupOrientation, SchedulerHourFormat, SchedulerHeaderDatePosition, SchedulerHeaderNavigationStyle, SchedulerHeaderViewPosition, HorizontalScrollBarVisibility, MinuteFormat, MonthFormat, ResizeHandlesVisibility, SchedulerScrollButtonsPosition, SchedulerTimelineDayScale, VerticalScrollBarVisibility, SchedulerViewType, SchedulerViews, SchedulerViewSelectorType, WeekDayFormat, YearFormat, SchedulerDataExport, SchedulerDataSource, SchedulerDataSourceRepeat, SchedulerNotification, SchedulerEvent, SchedulerEventRepeat, SchedulerResource, SchedulerStatuse} from './../../index';
+import { SchedulerEventRenderMode, SchedulerRepeatFreq, SchedulerNotificationType, SchedulerDayFormat, FilterMode, SchedulerGroupOrientation, SchedulerHourFormat, SchedulerHeaderDatePosition, SchedulerHeaderNavigationStyle, SchedulerHeaderViewPosition, SchedulerLegendLocation, SchedulerLegendPosition, HorizontalScrollBarVisibility, MinuteFormat, MonthFormat, ResizeHandlesVisibility, SchedulerScrollButtonsPosition, SchedulerTimelineDayScale, SchedulerTimeZone, VerticalScrollBarVisibility, SchedulerViewType, SchedulerViews, SchedulerViewSelectorType, WeekDayFormat, YearFormat, SchedulerDataExport, SchedulerDataSource, SchedulerDataSourceRepeat, SchedulerNotification, SchedulerEvent, SchedulerEventRepeat, SchedulerResource, SchedulerStatuse} from './../../index';
 import { DataAdapter } from './../../index';
 export { SchedulerProperties } from "./../../index";
-export { SchedulerRepeatFreq, SchedulerNotificationType, SchedulerDayFormat, SchedulerGroupOrientation, SchedulerHourFormat, SchedulerHeaderDatePosition, SchedulerHeaderNavigationStyle, SchedulerHeaderViewPosition, HorizontalScrollBarVisibility, MinuteFormat, MonthFormat, ResizeHandlesVisibility, SchedulerScrollButtonsPosition, SchedulerTimelineDayScale, VerticalScrollBarVisibility, SchedulerViewType, SchedulerViews, SchedulerViewSelectorType, WeekDayFormat, YearFormat, SchedulerDataExport, SchedulerDataSource, SchedulerDataSourceRepeat, SchedulerNotification, SchedulerEvent, SchedulerEventRepeat, SchedulerResource, SchedulerStatuse} from './../../index';
+export { SchedulerEventRenderMode, SchedulerRepeatFreq, SchedulerNotificationType, SchedulerDayFormat, FilterMode, SchedulerGroupOrientation, SchedulerHourFormat, SchedulerHeaderDatePosition, SchedulerHeaderNavigationStyle, SchedulerHeaderViewPosition, SchedulerLegendLocation, SchedulerLegendPosition, HorizontalScrollBarVisibility, MinuteFormat, MonthFormat, ResizeHandlesVisibility, SchedulerScrollButtonsPosition, SchedulerTimelineDayScale, SchedulerTimeZone, VerticalScrollBarVisibility, SchedulerViewType, SchedulerViews, SchedulerViewSelectorType, WeekDayFormat, YearFormat, SchedulerDataExport, SchedulerDataSource, SchedulerDataSourceRepeat, SchedulerNotification, SchedulerEvent, SchedulerEventRepeat, SchedulerResource, SchedulerStatuse} from './../../index';
 export { DataAdapter } from './../../index';
 
 interface IWindow { Smart: any; }
@@ -21,6 +21,7 @@ export interface SchedulerProps extends SchedulerProperties {
 	onItemRemove?: ((event?: Event) => void) | undefined;
 	onItemUpdate?: ((event?: Event) => void) | undefined;
 	onViewChange?: ((event?: Event) => void) | undefined;
+	onViewChanging?: ((event?: Event) => void) | undefined;
 	onEventShortcutKey?: ((event?: Event) => void) | undefined;
 	onDateChange?: ((event?: Event) => void) | undefined;
 	onDragStart?: ((event?: Event) => void) | undefined;
@@ -125,6 +126,18 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 		}
 	}
 
+	/** Determines whether the clipboard shortcuts for copy/paste/cut action of events are visible in the Scheduler context menu or not.
+	*	Property type: boolean
+	*/
+	get contextMenuClipboardActions(): boolean  {
+		return this.nativeElement ? this.nativeElement.contextMenuClipboardActions : undefined;
+	}
+	set contextMenuClipboardActions(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.contextMenuClipboardActions = value;
+		}
+	}
+
 	/** Allows to customize the content of the event elements. It can be an HTMLTemplateElement that will be applied to all events or it's id as a string or a function that will be called for each event with the following parameters: eventContent - the content holder for the event,eventObj - the event object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
 	*	Property type: any
 	*/
@@ -150,12 +163,12 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 	}
 
 	/**  Determines how the events inside the Scheduler are rendered.classic - the events are arranged next to each other and try to fit inside the cells.modern - the events obey the CSS property that determines their size and if there's not enough space inside the cell for all events to appear, an event collector is created to hold the rest of the events. On mobile phones only collectors are created.
-	*	Property type: string
+	*	Property type: SchedulerEventRenderMode
 	*/
-	get eventRenderMode(): string  {
+	get eventRenderMode(): SchedulerEventRenderMode  {
 		return this.nativeElement ? this.nativeElement.eventRenderMode : undefined;
 	}
-	set eventRenderMode(value: string) {
+	set eventRenderMode(value: SchedulerEventRenderMode) {
 		if (this.nativeElement) {
 			this.nativeElement.eventRenderMode = value;
 		}
@@ -401,6 +414,42 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 		}
 	}
 
+	/** Determines the filtering condition for the events.The filter property takes an array of objects or a function. Each object represents a single filtering condition with the following attributes: name - the name of the Scheduler event property that will be filtered by.value - the filtering condition value. The value will be used to compare the events based on the filterMode, for example: [{ name: 'price', value: 25 }]. The value can also be a function. The function accepts a single arguemnt - the value that corresponds to the filtered attribute. The function allows to apply custom condition that is different from the default filter modes. It should return true ( if the evnet passes the filtering condition ) or false ( if the event does not meet the filtering condition ). Here's an example: [{ name: 'roomId', value: (id) => ['2', '3'].indexOf(id + '') > -1 }]. In the example the events that do not have a 'roomId' property that is equal to '2' or '3' will be filtered out.. If a function is set to the filter property instead, it allows to completely customize the filtering logic. The function passes a single argument - each Scheduler event that will be displayed. The function should return true ( if the condition is met ) or false ( if not ).
+	*	Property type: any
+	*/
+	get filter(): any  {
+		return this.nativeElement ? this.nativeElement.filter : undefined;
+	}
+	set filter(value: any) {
+		if (this.nativeElement) {
+			this.nativeElement.filter = value;
+		}
+	}
+
+	/** Determines whether Scheduler's filtering is enabled or not.
+	*	Property type: any
+	*/
+	get filterable(): any  {
+		return this.nativeElement ? this.nativeElement.filterable : undefined;
+	}
+	set filterable(value: any) {
+		if (this.nativeElement) {
+			this.nativeElement.filterable = value;
+		}
+	}
+
+	/** Determines the filter mode.
+	*	Property type: FilterMode
+	*/
+	get filterMode(): FilterMode  {
+		return this.nativeElement ? this.nativeElement.filterMode : undefined;
+	}
+	set filterMode(value: FilterMode) {
+		if (this.nativeElement) {
+			this.nativeElement.filterMode = value;
+		}
+	}
+
 	/** A getter that returns  an array of all Scheduler events.
 	*	Property type: SchedulerEvent[]
 	*/
@@ -422,6 +471,18 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 	set firstDayOfWeek(value: number) {
 		if (this.nativeElement) {
 			this.nativeElement.firstDayOfWeek = value;
+		}
+	}
+
+	/** Allows to customize the footer of the Scheduler. It can be an HTMLTemplateElement, it's id as a string or a function with the following parameters: footerContainer - the footer container..
+	*	Property type: any
+	*/
+	get footerTemplate(): any  {
+		return this.nativeElement ? this.nativeElement.footerTemplate : undefined;
+	}
+	set footerTemplate(value: any) {
+		if (this.nativeElement) {
+			this.nativeElement.footerTemplate = value;
 		}
 	}
 
@@ -617,6 +678,30 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 		}
 	}
 
+	/** Determines the location of the legend inside the Scheduler. By default the location is inside the footer but it can also reside in the header.
+	*	Property type: SchedulerLegendLocation
+	*/
+	get legendLocation(): SchedulerLegendLocation  {
+		return this.nativeElement ? this.nativeElement.legendLocation : undefined;
+	}
+	set legendLocation(value: SchedulerLegendLocation) {
+		if (this.nativeElement) {
+			this.nativeElement.legendLocation = value;
+		}
+	}
+
+	/** Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that.
+	*	Property type: SchedulerLegendPosition
+	*/
+	get legendPosition(): SchedulerLegendPosition  {
+		return this.nativeElement ? this.nativeElement.legendPosition : undefined;
+	}
+	set legendPosition(value: SchedulerLegendPosition) {
+		if (this.nativeElement) {
+			this.nativeElement.legendPosition = value;
+		}
+	}
+
 	/** Determines weather or not horizontal scrollbar is shown.
 	*	Property type: HorizontalScrollBarVisibility
 	*/
@@ -642,24 +727,24 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 	}
 
 	/** Detetmines the maximum view date for the Scheduler.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
-	get max(): any  {
+	get max(): string | Date  {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: string | Date) {
 		if (this.nativeElement) {
 			this.nativeElement.max = value;
 		}
 	}
 
 	/** Detetmines the minimum view date for the Scheduler.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
-	get min(): any  {
+	get min(): string | Date  {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: string | Date) {
 		if (this.nativeElement) {
 			this.nativeElement.min = value;
 		}
@@ -785,6 +870,18 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 		}
 	}
 
+	/** Defines an array of hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed.
+	*	Property type: any
+	*/
+	get restrictedHours(): any  {
+		return this.nativeElement ? this.nativeElement.restrictedHours : undefined;
+	}
+	set restrictedHours(value: any) {
+		if (this.nativeElement) {
+			this.nativeElement.restrictedHours = value;
+		}
+	}
+
 	/** Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
 	*	Property type: boolean
 	*/
@@ -818,6 +915,18 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 	set shadeUntilCurrentTime(value: boolean) {
 		if (this.nativeElement) {
 			this.nativeElement.shadeUntilCurrentTime = value;
+		}
+	}
+
+	/** Determines whether the resource legend is visible or not. The Legend shows the resources and their items in the footer section of the Scheduler. If filterable is enabled it is possible to filter by resource items by clicking on the corresponding resource item from the legend.
+	*	Property type: boolean
+	*/
+	get showLegend(): boolean  {
+		return this.nativeElement ? this.nativeElement.showLegend : undefined;
+	}
+	set showLegend(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.showLegend = value;
 		}
 	}
 
@@ -894,30 +1003,30 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 	}
 
 	/** Enables/Disables the tick marks next to the time cells in the vertical header of the element. Time header appears in 'day' and 'week' views.
-	*	Property type: string
+	*	Property type: boolean
 	*/
-	get timeRulerTicks(): string  {
+	get timeRulerTicks(): boolean  {
 		return this.nativeElement ? this.nativeElement.timeRulerTicks : undefined;
 	}
-	set timeRulerTicks(value: string) {
+	set timeRulerTicks(value: boolean) {
 		if (this.nativeElement) {
 			this.nativeElement.timeRulerTicks = value;
 		}
 	}
 
-	/** Determines the timeZone that the dates will be displayed in. Accepts values from the IANA time zone database. By default it uses the local time zone.
-	*	Property type: string
+	/** Determines the timeZone for the element. By default if the local time zone is used if the property is not set.
+	*	Property type: SchedulerTimeZone
 	*/
-	get timeZone(): string  {
+	get timeZone(): SchedulerTimeZone  {
 		return this.nativeElement ? this.nativeElement.timeZone : undefined;
 	}
-	set timeZone(value: string) {
+	set timeZone(value: SchedulerTimeZone) {
 		if (this.nativeElement) {
 			this.nativeElement.timeZone = value;
 		}
 	}
 
-	/** Allows to display multiple timeZones at once. Accepts an array values from the IANA time zone database. By default it uses the local time zone.
+	/** Allows to display additional timeZones at once along with the default that is set via the timeZone property. Accepts an array values that represent the ids of valid time zones. The possbile time zones can be viewed in the timeZone property description. By default the local time zone is displayed.
 	*	Property type: any
 	*/
 	get timeZones(): any  {
@@ -989,7 +1098,7 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 		}
 	}
 
-	/** Determines the viewing date range of the timeline. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.
+	/** Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.
 	*	Property type: SchedulerViews
 	*/
 	get views(): SchedulerViews  {
@@ -1049,6 +1158,18 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 		}
 	}
 
+	/** Determines the maximum number of redo/undo steps that will be remembered by the Scheduler. When the number is reached the oldest records are removed in order to add new.
+	*	Property type: number
+	*/
+	get undoRedoSteps(): number  {
+		return this.nativeElement ? this.nativeElement.undoRedoSteps : undefined;
+	}
+	set undoRedoSteps(value: number) {
+		if (this.nativeElement) {
+			this.nativeElement.undoRedoSteps = value;
+		}
+	}
+
 	/** A function that can be used to completly customize the popup Window that is used to edit events. The function has the following arguments: target - the target popup Window that is about to be opened.type - the type of the window. The type determines the purpose of the window. The default type is an empty string which means that it's the default event editing window. The other type is 'confirm' ( confirmation window) that appears when clicking on a repeating event. eventObj - the event object that is going to be edited.
 	*	Property type: any
 	*/
@@ -1064,7 +1185,7 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["autoScrollStep","colorScheme","currentTimeIndicator","currentTimeIndicatorInterval","contextMenuDataSource","eventTemplate","eventCollectorTemplate","eventRenderMode","eventTooltipTemplate","cellTemplate","dateCurrent","dataExport","dataSource","dateSelectorFormatFunction","dayFormat","disabled","disableAutoScroll","disableDrag","disableDrop","disableResize","disableSelection","disableWindowEditor","disableContextMenu","disableEventMenu","disableViewMenu","disableDateMenu","dragFeedbackFormatFunction","dragOffset","events","firstDayOfWeek","groupByDate","groupOrientation","groupTemplate","groups","hourEnd","hourStart","hourFormat","headerTemplate","headerDatePosition","headerNavigationStyle","headerViewPosition","hideAllDay","hideNonworkingWeekdays","hideTodayButton","hideViewMenuCheckableItems","hideWeekend","horizontalScrollBarVisibility","locale","max","min","messages","minuteFormat","monthFormat","nonworkingDays","nonworkingHours","notificationInterval","resizeHandlesVisibility","resizeInterval","resources","restrictedDates","rightToLeft","scrollButtonsPosition","shadeUntilCurrentTime","spinButtonsDelay","spinButtonsInitialDelay","statuses","theme","timelineHeaderFormatFunction","timelineDayScale","timeRulerTicks","timeZone","timeZones","tooltipDelay","tooltipOffset","verticalScrollBarVisibility","view","viewType","views","viewSelectorType","weekdayFormat","yearFormat","unfocusable","windowCustomizationFunction"];
+		return ["autoScrollStep","colorScheme","currentTimeIndicator","currentTimeIndicatorInterval","contextMenuDataSource","contextMenuClipboardActions","eventTemplate","eventCollectorTemplate","eventRenderMode","eventTooltipTemplate","cellTemplate","dateCurrent","dataExport","dataSource","dateSelectorFormatFunction","dayFormat","disabled","disableAutoScroll","disableDrag","disableDrop","disableResize","disableSelection","disableWindowEditor","disableContextMenu","disableEventMenu","disableViewMenu","disableDateMenu","dragFeedbackFormatFunction","dragOffset","filter","filterable","filterMode","events","firstDayOfWeek","footerTemplate","groupByDate","groupOrientation","groupTemplate","groups","hourEnd","hourStart","hourFormat","headerTemplate","headerDatePosition","headerNavigationStyle","headerViewPosition","hideAllDay","hideNonworkingWeekdays","hideTodayButton","hideViewMenuCheckableItems","hideWeekend","legendLocation","legendPosition","horizontalScrollBarVisibility","locale","max","min","messages","minuteFormat","monthFormat","nonworkingDays","nonworkingHours","notificationInterval","resizeHandlesVisibility","resizeInterval","resources","restrictedDates","restrictedHours","rightToLeft","scrollButtonsPosition","shadeUntilCurrentTime","showLegend","spinButtonsDelay","spinButtonsInitialDelay","statuses","theme","timelineHeaderFormatFunction","timelineDayScale","timeRulerTicks","timeZone","timeZones","tooltipDelay","tooltipOffset","verticalScrollBarVisibility","view","viewType","views","viewSelectorType","weekdayFormat","yearFormat","unfocusable","undoRedoSteps","windowCustomizationFunction"];
 	}
 	/**  This event is triggered when a batch update was started after executing the beginUpdate method.
 	*  @param event. The custom event. 	*/
@@ -1107,6 +1228,12 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 	*   value - The value of the new selected view.
 	*/
 	onViewChange?: ((event?: Event) => void) | undefined
+	/**  This event is triggered before the view is changed via user interaction. The view change action can be canceled if event.preventDefault() is called on the event.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	oldValue, 	value)
+	*   oldValue - The value of the previously selected view.
+	*   value - The value of the new selected view.
+	*/
+	onViewChanging?: ((event?: Event) => void) | undefined
 	/**  This event is triggered when a shortcut key for an event is pressed. By default only 'Delete' key is used.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	key, 	target, 	eventObj)
 	*   key - The shortcut key that was pressed.
@@ -1279,7 +1406,7 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 
 	// Gets the events of the React component.
 	get eventListeners(): string[] {
-		return ["onBeginUpdate","onEndUpdate","onChange","onItemClick","onItemInsert","onItemRemove","onItemUpdate","onViewChange","onEventShortcutKey","onDateChange","onDragStart","onDragEnd","onResizeStart","onResizeEnd","onEditDialogOpening","onEditDialogOpen","onEditDialogClose","onEditDialogClosing","onContextMenuOpening","onContextMenuOpen","onContextMenuClose","onContextMenuClosing","onEventMenuOpening","onEventMenuOpen","onEventMenuClose","onEventMenuClosing","onDateMenuOpen","onDateMenuClose","onViewMenuOpen","onViewMenuClose","onNotificationOpen","onNotificationClose","onCreate","onReady"];
+		return ["onBeginUpdate","onEndUpdate","onChange","onItemClick","onItemInsert","onItemRemove","onItemUpdate","onViewChange","onViewChanging","onEventShortcutKey","onDateChange","onDragStart","onDragEnd","onResizeStart","onResizeEnd","onEditDialogOpening","onEditDialogOpen","onEditDialogClose","onEditDialogClosing","onContextMenuOpening","onContextMenuOpen","onContextMenuClose","onContextMenuClosing","onEventMenuOpening","onEventMenuOpen","onEventMenuClose","onEventMenuClosing","onDateMenuOpen","onDateMenuClose","onViewMenuOpen","onViewMenuClose","onNotificationOpen","onNotificationClose","onCreate","onReady"];
 	}
 	/** Starts an update operation. This is appropriate when calling multiple methods or set multiple properties at once. 
 	*/
@@ -1511,15 +1638,16 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
 
 	/** Scrolls the Scheduler to a Date. 
 	* @param {Date} date. The date to scroll to.
+	* @param {boolean} strictScroll?. Determines whether to scroll strictly to the date or not. This mean sthat the Scheduler wll scroll to the begining of the cell that corresponds to the target date.
 	*/
-    public scrollToDate(date: Date): void {
+    public scrollToDate(date: Date, strictScroll?: boolean): void {
         if (this.nativeElement.isRendered) {
-            this.nativeElement.scrollToDate(date);
+            this.nativeElement.scrollToDate(date, strictScroll);
         }
         else
         {
             this.nativeElement.whenRendered(() => {
-                this.nativeElement.scrollToDate(date);
+                this.nativeElement.scrollToDate(date, strictScroll);
             });
         }
     }
@@ -1618,7 +1746,7 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
         }
     }
 
-	/** Returns the first occurance of an event before a date. 
+	/** Returns the last occurance of an event before a date. 
 	* @param {any} eventObj. A Scheduler event object.
 	* @param {number} date. The date before which the first occurance of the event will be returned.
 	*/
@@ -1682,7 +1810,7 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
     }
 
 	/** Returns true or false whether the date is restricted or not. 
-	* @param {Date} date. A Scheduler event object or it's index.
+	* @param {Date} date. A Date object.
 	* @returns {boolean}
   */
 	public async isDateRestricted(date:Date) : Promise<any> {
@@ -1690,6 +1818,24 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
                     const result = this.nativeElement.isDateRestricted(date);
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Returns true or false whether the hour is restricted or not. 
+	* @param {number | Date} hour. A number that represents an hour ( 0 to 23 ) or a Date object.
+	* @returns {boolean}
+  */
+	public async isHourRestricted(hour:number | Date) : Promise<any> {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.isHourRestricted(hour);
                     resolve(result)
                 });
             });
@@ -1708,6 +1854,93 @@ export class Scheduler extends React.Component<React.HTMLAttributes<Element> & S
             return new Promise(resolve => {
                 this.nativeElement.whenRendered(() => {
                     const result = this.nativeElement.isEventRestricted(eventObj);
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Deletes the current undo/redo history. 
+	* @returns {boolean}
+  */
+	public async deleteUndoRedoHistory() : Promise<any> {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.deleteUndoRedoHistory();
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Indicates whether it is possible to redo an action. 
+	* @returns {boolean}
+  */
+	public async canRedo() : Promise<any> {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.canRedo();
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Indicates whether it is possbile to undo an action. 
+	* @returns {boolean}
+  */
+	public async canUndo() : Promise<any> {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.canUndo();
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Redo the next event modification. 
+	* @param {number} step?. A step to redo to.
+	* @returns {boolean}
+  */
+	public async redo(step?:number) : Promise<any> {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.redo(step);
+                    resolve(result)
+                });
+            });
+        };
+        const result = await getResultOnRender();
+
+        return result;
+    }
+
+	/** Undo the last event modification. 
+	* @param {number} step?. A step to undo to.
+	* @returns {boolean}
+  */
+	public async undo(step?:number) : Promise<any> {
+		const getResultOnRender = () => {
+            return new Promise(resolve => {
+                this.nativeElement.whenRendered(() => {
+                    const result = this.nativeElement.undo(step);
                     resolve(result)
                 });
             });

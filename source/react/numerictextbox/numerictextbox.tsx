@@ -183,12 +183,12 @@ export class NumericTextBox extends React.Component<React.HTMLAttributes<Element
 	}
 
 	/** Sets or gets the maximum value of the widget. 
-	*	Property type: any
+	*	Property type: number | string
 	*/
-	get max(): any  {
+	get max(): number | string  {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: number | string) {
 		if (this.nativeElement) {
 			this.nativeElement.max = value;
 		}
@@ -207,12 +207,12 @@ export class NumericTextBox extends React.Component<React.HTMLAttributes<Element
 	}
 
 	/** Sets or gets the minimum value of the widget. 
-	*	Property type: any
+	*	Property type: number | string
 	*/
-	get min(): any  {
+	get min(): number | string  {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: number | string) {
 		if (this.nativeElement) {
 			this.nativeElement.min = value;
 		}
@@ -447,12 +447,12 @@ export class NumericTextBox extends React.Component<React.HTMLAttributes<Element
 	}
 
 	/** Sets or gets the increase/decrease step. 
-	*	Property type: any
+	*	Property type: number | string
 	*/
-	get spinButtonsStep(): any  {
+	get spinButtonsStep(): number | string  {
 		return this.nativeElement ? this.nativeElement.spinButtonsStep : undefined;
 	}
-	set spinButtonsStep(value: any) {
+	set spinButtonsStep(value: number | string) {
 		if (this.nativeElement) {
 			this.nativeElement.spinButtonsStep = value;
 		}

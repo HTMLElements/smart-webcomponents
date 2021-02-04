@@ -1,8 +1,8 @@
 import { ListMenu } from './../index';
-import { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow, ElementRenderMode} from './../index';
+import { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow, ListMenuScrollMode, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter, QueryList, ContentChildren } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow, ElementRenderMode} from './../index';
+export { Animation, MenuCheckMode, MenuDropDownPosition, FilterMode, VerticalAlignment, Overflow, ListMenuScrollMode, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { ListMenu } from './../index';
 
@@ -285,6 +285,15 @@ export class ListMenuComponent extends BaseElement implements OnInit, AfterViewI
 	}
 	set rightToLeft(value: boolean) {
 		this.nativeElement ? this.nativeElement.rightToLeft = value : undefined;
+	}
+
+	/** @description Determines whether to use scrollbar or scrollButtons when content overflows an element's box. */
+	@Input()
+	get scrollMode(): ListMenuScrollMode {
+		return this.nativeElement ? this.nativeElement.scrollMode : undefined;
+	}
+	set scrollMode(value: ListMenuScrollMode) {
+		this.nativeElement ? this.nativeElement.scrollMode = value : undefined;
 	}
 
 	/** @description Determines the theme. Theme defines the look of the element */

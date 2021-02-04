@@ -63,9 +63,9 @@ export interface DateTimePickerProperties {
   displayModeView?: CalendarDisplayModeView;
   /**
    * Sets custom container to append the pop-up to. By default, it is in the DateTimePicker. The value of the property can be an HTML element or the id of an HTML element.
-   * Default value: null
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Sets or gets the pop-up display mode (what components appear in it, and its behaviour).
    * Default value: default

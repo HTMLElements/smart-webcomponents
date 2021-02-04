@@ -136,10 +136,10 @@ export interface MultiSplitButtonProperties {
    */
   displayMember?: string;
   /**
-   * Sets the parent container of the button's dropDown list (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown list.
-   * Default value: null
+   * Sets the parent container of the button's dropDown list (the popup). The expected value is CSS Selector, ID or 'body'. Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown list.
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines position of the drop down button.
    * Default value: right

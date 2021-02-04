@@ -7,7 +7,7 @@ export interface DateInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
   dateTimeFormat?: DateTimeFormat;
@@ -159,23 +159,23 @@ export interface DateInput extends BaseElement, DateInputProperties {
   setValue(value: string | Date): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
 export interface DateTimeFormat {
   /**
    * Day format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  day?: string;
+  day?: DateTimeFormatDay;
   /**
    * Month format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  month?: string;
+  month?: DateTimeFormatMonth;
   /**
    * Year format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  year?: string;
+  year?: DateTimeFormatYear;
 }
 
 declare global {
@@ -188,5 +188,11 @@ declare global {
     }
 }
 
+/**Day format. */
+export declare type DateTimeFormatDay = 'numeric' | '2-digit';
+/**Month format. */
+export declare type DateTimeFormatMonth = 'numeric' | '2-digit' | 'narrow' | 'short' | 'long';
+/**Year format. */
+export declare type DateTimeFormatYear = 'numeric' | '2-digit';
 /**Determines the position of the drop down button. */
 export declare type DropDownButtonPosition = 'none' | 'left' | 'right';

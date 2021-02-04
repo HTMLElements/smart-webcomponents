@@ -5,19 +5,44 @@
     --smart-primary-rgb: 0, 92, 153; /* The r, g, and b components of the theme primary color */
     --smart-primary: rgb(var(--smart-primary-rgb)); /* The theme primary color */
     --smart-primary-color: #ffffff; /* Text color on top of a primary background */
-    --smart-secondary: #2D2D30; /* The theme secondary color */
+
+    --smart-secondary-rgb: 45, 45, 48; /* The r, g, and b components of the theme secondary color */
+    --smart-secondary: rgb(var(--smart-secondary-rgb)); /* The theme secondary color */
     --smart-secondary-color: #ffffff; /* Text color on top of a secondary background */
+
     --smart-error-rgb: 176, 0, 32; /* The theme error color */
     --smart-error: rgb(var(--smart-error-rgb)); /* The theme error color */
     --smart-error-color: #ffffff; /* Text color on top of a error background */
-    --smart-success: #8BC34A; /* The theme success color */
+
+    --smart-success-rgb: 139, 195, 74; /* The r, g, and b components of the theme success color */
+    --smart-success: rgb(var(--smart-success-rgb)); /* The theme success color */
     --smart-success-color: #ffffff; /* Text color on top of a success background */
+
+    --smart-info-rgb: 92, 192, 222; /* The r, g, and b components of the theme info color */
+    --smart-info: rgb(var(--smart-info-rgb)); /* The theme info color */
+    --smart-info-color: #fff; /* Text color on top of a info background */
+
+    --smart-warning-rgb: 240, 173, 78; /* The r, g, and b components of the theme warning color */
+    --smart-warning: rgb(var(--smart-warning-rgb)); /* The theme warning color */
+    --smart-warning-color: #fff; /* Text color on top of a warning background */
+
+    --smart-light-rgb: 255, 255, 255; /* The r, g, and b components of the theme light color */
+    --smart-light: rgb(var(--smart-light-rgb)); /* The theme light color */
+    --smart-light-color: #222222; /* Text color on top of a light background */
+
+    --smart-dark-rgb: 34, 34, 34; /* The r, g, and b components of the theme dark color */
+    --smart-dark: rgb(var(--smart-dark-rgb)); /* The theme dark color */
+    --smart-dark-color: #ffffff; /* Text color on top of a dark background */
+
     --smart-background: #fefefe; /* The theme background color. The background color appears behind scrollable content.*/
     --smart-background-color: #5A5A5A; /* Text color on top of a background background */
+
     --smart-surface: #F5F5F5; /* The theme surface color. Surface colors affect surfaces of components, such as cards, sheets, and menus. */
     --smart-surface-color: #323232; /* Text color on top of a surface surface */
+
     --smart-disabled: #CCCCCC; /* The theme primary color in disabled state. */
     --smart-disabled-color: #555; /* Text color on top of a theme background in disabled state */
+
     --smart-ui-state-hover: #ebebeb; /* Hover state background. */
     --smart-ui-state-color-hover: #333; /* Text color, when UI Element's state is 'hover'. */
     --smart-ui-state-border-hover: var(--smart-ui-state-hover); /* Border color, when UI Element's state is 'hover'. */
@@ -38,6 +63,7 @@
     --smart-item-border-bottom-right-radius: var(--smart-border-radius); /* Border bottom-right radius of items. */
     --smart-font-size: 14px; /* Theme font-size */
     --smart-font-weight: inherit; /* Theme font-weight */
+    --smart-font-style: inherit; /* Theme font-style */
     --smart-font-family: Roboto,"Helvetica Neue",sans-serif; /* Theme font-family */
     --smart-font-family-icon: smart-icons; /* Theme icons font-family. */
     --smart-font-family-icon-src: local('../font/smart-icons'), url('../font/smart-icons.woff2') format('woff2'), url('../font/smart-icons.woff') format('woff'), url('../font/smart-icons.ttf') format('truetype'), url('../font/smart-icons.eot') format('embedded-opentype'); /* The source of the theme icons font-family */
@@ -718,10 +744,10 @@
     --smart-toast-item-icon: ''; /* Code of toast item icon */
     --smart-toast-container-default-width: var(--smart-bar-width); /* Default width of the smartToast's containers, positioned top-left, top-right, bottom-left, bottom-right */
     --smart-toast-header-height: 20px; /* smartToast header height */
-    --smart-toast-info-background: #5bc0de; /* Background color for type info */
-    --smart-toast-info-color: #fff; /* Text color for type info */
-    --smart-toast-warning-background: #f0ad4e; /* Background color for type warning */
-    --smart-toast-warning-color: #fff; /* Text color for type warning */
+    --smart-toast-info-background: var(--smart-info); /* Background color for type info */
+    --smart-toast-info-color: var(--smart-info-color); /* Text color for type info */
+    --smart-toast-warning-background: var(--smart-warning); /* Background color for type warning */
+    --smart-toast-warning-color: var(--smart-warning-color); /* Text color for type warning */
     --smart-toast-error-background: var(--smart-error); /* Background color for type error */
     --smart-toast-error-color: var(--smart-error-color); /* Text color for type error */
     --smart-toast-success-background: var(--smart-success); /* Background color for type success */
@@ -827,6 +853,7 @@
     --smart-scheduler-current-time-indicator-header-size: 2px; /* Current Time Indicator size(width/height) inside the Headers */
     --smart-scheduler-current-time-indicator-arrow-size: 7px; /* Current Time Indicator arrow size */
     --smart-scheduler-shader-background: rgba(var(--smart-border-rgb), .5); /* Shade Until Current Time background */
+    --smart-scheduler-view-background: transparent;
     --smart-scheduler-view-line-size: var(--smart-border-width); /* Timeline lines size */
     --smart-scheduler-view-horizontal-line-color: var(--smart-border); /* Horizontal timeline line color */
     --smart-scheduler-view-vertical-line-color: var(--smart-border); /* Vertical timeline line color */
@@ -837,6 +864,7 @@
     --smart-scheduler-time-ruler-tick-size: 10px; /* Time ruler tick size. Applicable only to day/week views */
     --smart-scheduler-event-background-rgb: 52, 121, 186; /* Event background RGB */
     --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1); /* Event background color */
+    --smart-scheduler-legend-item-background: var(--smart-scheduler-event-background); /* The default background color for the legen items */
     --smart-scheduler-event-color: var(--smart-primary-color); /* Event color */
     --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9); /* Event focus background color */
     --smart-scheduler-event-color-focus: var(--smart-scheduler-event-color); /* Event focus color */
@@ -882,7 +910,7 @@
     --smart-scheduler-event-button-size: 30px; /* Event menu item button size(delete button) */
     --smart-scheduler-event-border-radius: initial; /* Event border radius */
     --smart-scheduler-event-collector-border-radius: 20px; /* Event collector border radius */
-    --smart-scheduler-context-menu-max-height: calc(3 * var(--smart-scheduler-event-item-size)); /* Context menu max-height */
+    --smart-scheduler-context-menu-max-height: calc(4 * var(--smart-scheduler-event-item-size)); /* Context menu max-height */
     --smart-scheduler-context-menu-max-width: 300px; /* Context menu max-width */
     --smart-scheduler-window-header-height:  var(--smart-gantt-chart-popup-window-header-height); /* Window editor header height */
     --smart-scheduler-window-footer-height:  var(--smart-gantt-chart-popup-window-footer-height); /* Window editor footer height */

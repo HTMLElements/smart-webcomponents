@@ -41,10 +41,10 @@ export class CarouselComponent extends BaseElement implements OnInit, AfterViewI
 
 	/** @description The items switch automatically if set to true or to a custom number(representing the timeout in milliseconds). This property works if slideShow property is enabled. */
 	@Input()
-	get autoPlay(): any {
+	get autoPlay(): boolean {
 		return this.nativeElement ? this.nativeElement.autoPlay : undefined;
 	}
-	set autoPlay(value: any) {
+	set autoPlay(value: boolean) {
 		this.nativeElement ? this.nativeElement.autoPlay = value : undefined;
 	}
 

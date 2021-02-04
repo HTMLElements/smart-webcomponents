@@ -257,17 +257,41 @@ export class SwitchButton extends React.Component {
 		return ["animation","clickMode","checked","disabled","falseContent","falseTemplate","indeterminate","inverted","locale","localizeFormatFunction","messages","name","orientation","readonly","trueContent","trueTemplate","switchMode","theme","unfocusable","value"];
 	}
 	/**  This event is triggered when the widget is checked/unchecked.
-	*  @param event. The custom event. 	*/
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	value, 	oldValue, 	changeType)
+	*   value - A boolean value indicating the new state of the button ( checked or not ).
+	*   oldValue - A boolean value indicating the previous state of the button ( checked or not ).
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
 	_onChange = null;	get onChange() {
 		return this._onChange;
 	}
 	set onChange(value) {
 		this._onChange = value;
 	}
+	/**  This event is triggered when the widget is checked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	_onCheckValue = null;	get onCheckValue() {
+		return this._onCheckValue;
+	}
+	set onCheckValue(value) {
+		this._onCheckValue = value;
+	}
+	/**  This event is triggered when the widget is unchecked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	_onUncheckValue = null;	get onUncheckValue() {
+		return this._onUncheckValue;
+	}
+	set onUncheckValue(value) {
+		this._onUncheckValue = value;
+	}
 
 	// Gets the events of the React component.
 	get eventListeners() {
-		return ["onChange"];
+		return ["onChange","onCheckValue","onUncheckValue"];
 	}
 
 

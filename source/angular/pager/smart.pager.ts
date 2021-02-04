@@ -104,10 +104,10 @@ export class PagerComponent extends BaseElement implements OnInit, AfterViewInit
 
 	/** @description Defines the number of page index selectors. */
 	@Input()
-	get pageIndexSelectors(): any {
+	get pageIndexSelectors(): number {
 		return this.nativeElement ? this.nativeElement.pageIndexSelectors : undefined;
 	}
-	set pageIndexSelectors(value: any) {
+	set pageIndexSelectors(value: number) {
 		this.nativeElement ? this.nativeElement.pageIndexSelectors = value : undefined;
 	}
 

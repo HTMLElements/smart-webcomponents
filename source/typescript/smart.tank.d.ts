@@ -40,7 +40,7 @@ export interface TankProperties {
    * When cooerce property is true, all values coerce to the interval's value.
    * Default value: 1
    */
-  interval?: any;
+  interval?: string | number;
   /**
    * Sets the direction of the tank. If is true - positions of the tank's begin and end are changed.
    * Default value: false
@@ -75,7 +75,7 @@ export interface TankProperties {
    * Sets or gets the maximum value of the widget.
    * Default value: 100
    */
-  max?: any;
+  max?: string | number;
   /**
    * Sets or gets the type of used mechanical action.
    * Default value: switchWhileDragging
@@ -104,7 +104,7 @@ export interface TankProperties {
    * Sets or gets the minimum value of the widget. 
    * Default value: 0
    */
-  min?: any;
+  min?: string | number;
   /**
    * Sets or gets whether the widget works with numbers or dates.
    * Default value: numeric

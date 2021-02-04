@@ -51,12 +51,12 @@ export class Toast extends React.Component<React.HTMLAttributes<Element> & Toast
 	}
 
 	/** Specifies the container where new openned toast items will be displayed. The value can be an HTMLElement or element's id. This property is in relation with modal(lower priority than modal) and position(higher priority than position) properties.
-	*	Property type: any
+	*	Property type: string
 	*/
-	get appendTo(): any  {
+	get appendTo(): string  {
 		return this.nativeElement ? this.nativeElement.appendTo : undefined;
 	}
-	set appendTo(value: any) {
+	set appendTo(value: string) {
 		if (this.nativeElement) {
 			this.nativeElement.appendTo = value;
 		}

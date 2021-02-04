@@ -171,10 +171,10 @@ export class GaugeComponent extends BaseElement implements OnInit, AfterViewInit
 
 	/** @description When cooerce property is true, all values coerce to the interval's value. */
 	@Input()
-	get interval(): any {
+	get interval(): number {
 		return this.nativeElement ? this.nativeElement.interval : undefined;
 	}
-	set interval(value: any) {
+	set interval(value: number) {
 		this.nativeElement ? this.nativeElement.interval = value : undefined;
 	}
 
@@ -234,10 +234,10 @@ export class GaugeComponent extends BaseElement implements OnInit, AfterViewInit
 
 	/** @description Determines the maximum value for the scale of the element. */
 	@Input()
-	get max(): any {
+	get max(): number {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: number) {
 		this.nativeElement ? this.nativeElement.max = value : undefined;
 	}
 
@@ -261,10 +261,10 @@ export class GaugeComponent extends BaseElement implements OnInit, AfterViewInit
 
 	/** @description Determines the minimum value for the scale of the element.  */
 	@Input()
-	get min(): any {
+	get min(): number {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: number) {
 		this.nativeElement ? this.nativeElement.min = value : undefined;
 	}
 

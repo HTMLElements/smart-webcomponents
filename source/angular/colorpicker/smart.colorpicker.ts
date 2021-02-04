@@ -124,12 +124,12 @@ export class ColorPickerComponent extends BaseElement implements OnInit, AfterVi
 		this.nativeElement ? this.nativeElement.disableUndo = value : undefined;
 	}
 
-	/** @description Sets the parent container of the dropDown (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown. */
+	/** @description Sets the parent container of the dropDown (the popup). The expected value is CSS Selector, ID or 'body'. Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown. Example: 'body'. */
 	@Input()
-	get dropDownAppendTo(): any {
+	get dropDownAppendTo(): string {
 		return this.nativeElement ? this.nativeElement.dropDownAppendTo : undefined;
 	}
-	set dropDownAppendTo(value: any) {
+	set dropDownAppendTo(value: string) {
 		this.nativeElement ? this.nativeElement.dropDownAppendTo = value : undefined;
 	}
 

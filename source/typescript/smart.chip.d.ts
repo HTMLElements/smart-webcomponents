@@ -38,18 +38,7 @@ export interface ChipProperties {
   localizeFormatFunction?: any;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
-   * Default value:    * {
-   *   "en": {
-   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
-   *     "propertyInvalidValue": "Invalid '!",
-   *     "propertyInvalidValueType": "Invalid '!",
-   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
-   *     "moduleUndefined": "Module is undefined.",
-   *     "missingReference": ".",
-   *     "htmlTemplateNotSuported": ":  Browser doesn't support HTMLTemplate elements.",
-   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM."
-   *   }
-   * }
+   * Default value:    * [object Object]
    */
   messages?: any;
   /**

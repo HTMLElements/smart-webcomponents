@@ -67,7 +67,7 @@ export interface PagerProperties {
    * Defines the number of page index selectors.
    * Default value: 0
    */
-  pageIndexSelectors?: any;
+  pageIndexSelectors?: number;
   /**
    * Gets/sets total number of items displayed on page.
    * Default value: 10

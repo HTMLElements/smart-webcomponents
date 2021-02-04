@@ -25,6 +25,18 @@ export class Accordion extends React.Component {
 		}
 	}
 
+	/** Determines the data source that will be loaded to the Accordion.
+	*	Property type: any
+	*/
+	get dataSource() {
+		return this.nativeElement ? this.nativeElement.dataSource : undefined;
+	}
+	set dataSource(value) {
+		if (this.nativeElement) {
+			this.nativeElement.dataSource = value;
+		}
+	}
+
 	/** Enables or disables the accordion. Disabled elements can not be interacted with.
 	*	Property type: boolean
 	*/
@@ -160,7 +172,7 @@ export class Accordion extends React.Component {
 
 	// Gets the properties of the React component.
 	get properties() {
-		return ["animation","disabled","expandedIndexes","expandMode","locale","localizeFormatFunction","messages","readonly","reorder","rightToLeft","theme","unfocusable"];
+		return ["animation","dataSource","disabled","expandedIndexes","expandMode","locale","localizeFormatFunction","messages","readonly","reorder","rightToLeft","theme","unfocusable"];
 	}
 	/**  This event is triggered when an item is collapsed.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	content, 	index, 	label)

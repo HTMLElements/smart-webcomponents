@@ -41,10 +41,10 @@ export class ToastComponent extends BaseElement implements OnInit, AfterViewInit
 
 	/** @description Specifies the container where new openned toast items will be displayed. The value can be an HTMLElement or element's id. This property is in relation with modal(lower priority than modal) and position(higher priority than position) properties. */
 	@Input()
-	get appendTo(): any {
+	get appendTo(): string {
 		return this.nativeElement ? this.nativeElement.appendTo : undefined;
 	}
-	set appendTo(value: any) {
+	set appendTo(value: string) {
 		this.nativeElement ? this.nativeElement.appendTo = value : undefined;
 	}
 

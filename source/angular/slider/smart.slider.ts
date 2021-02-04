@@ -126,10 +126,10 @@ export class SliderComponent extends BaseElement implements OnInit, AfterViewIni
 
 	/** @description Determines what values the thumb snaps to.  */
 	@Input()
-	get interval(): any {
+	get interval(): string | number {
 		return this.nativeElement ? this.nativeElement.interval : undefined;
 	}
-	set interval(value: any) {
+	set interval(value: string | number) {
 		this.nativeElement ? this.nativeElement.interval = value : undefined;
 	}
 
@@ -189,10 +189,10 @@ export class SliderComponent extends BaseElement implements OnInit, AfterViewIni
 
 	/** @description Sets or gets the maximum value of the widget.  */
 	@Input()
-	get max(): any {
+	get max(): string | number {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: string | number) {
 		this.nativeElement ? this.nativeElement.max = value : undefined;
 	}
 
@@ -216,10 +216,10 @@ export class SliderComponent extends BaseElement implements OnInit, AfterViewIni
 
 	/** @description Sets or gets the minimum value of the widget.  */
 	@Input()
-	get min(): any {
+	get min(): string | number {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: string | number) {
 		this.nativeElement ? this.nativeElement.min = value : undefined;
 	}
 

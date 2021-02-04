@@ -195,6 +195,18 @@ export class CheckBoxComponent extends BaseElement implements OnInit, AfterViewI
 	*/
 	@Output() onChange: EventEmitter<CustomEvent> = new EventEmitter();
 
+	/** @description This event is triggered when the widget is checked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	@Output() onCheckValue: EventEmitter<CustomEvent> = new EventEmitter();
+
+	/** @description This event is triggered when the widget is unchecked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	@Output() onUncheckValue: EventEmitter<CustomEvent> = new EventEmitter();
+
 
 	get isRendered(): boolean {
 		return this.nativeElement ? this.nativeElement.isRendered : false;
@@ -271,6 +283,12 @@ export class CheckBoxComponent extends BaseElement implements OnInit, AfterViewI
 		that.eventHandlers['changeHandler'] = (event: CustomEvent) => { that.onChange.emit(event); }
 		that.nativeElement.addEventListener('change', that.eventHandlers['changeHandler']);
 
+		that.eventHandlers['checkValueHandler'] = (event: CustomEvent) => { that.onCheckValue.emit(event); }
+		that.nativeElement.addEventListener('checkValue', that.eventHandlers['checkValueHandler']);
+
+		that.eventHandlers['uncheckValueHandler'] = (event: CustomEvent) => { that.onUncheckValue.emit(event); }
+		that.nativeElement.addEventListener('uncheckValue', that.eventHandlers['uncheckValueHandler']);
+
 
         that.eventHandlers['changeModelHandler'] = (event: Event) => {
             that._initialChange = false;
@@ -297,6 +315,14 @@ export class CheckBoxComponent extends BaseElement implements OnInit, AfterViewI
         const that = this;
 		if (that.eventHandlers['changeHandler']) {
 			that.nativeElement.removeEventListener('change', that.eventHandlers['changeHandler']);
+		}
+
+		if (that.eventHandlers['checkValueHandler']) {
+			that.nativeElement.removeEventListener('checkValue', that.eventHandlers['checkValueHandler']);
+		}
+
+		if (that.eventHandlers['uncheckValueHandler']) {
+			that.nativeElement.removeEventListener('uncheckValue', that.eventHandlers['uncheckValueHandler']);
 		}
 
 		if (that.eventHandlers['changeModelHandler']) {

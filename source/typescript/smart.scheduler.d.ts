@@ -27,6 +27,11 @@ export interface SchedulerProperties {
    */
   contextMenuDataSource?: any;
   /**
+   * Determines whether the clipboard shortcuts for copy/paste/cut action of events are visible in the Scheduler context menu or not.
+   * Default value: false
+   */
+  contextMenuClipboardActions?: boolean;
+  /**
    * Allows to customize the content of the event elements. It can be an HTMLTemplateElement that will be applied to all events or it's id as a string or a function that will be called for each event with the following parameters: eventContent - the content holder for the event,eventObj - the event object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
    */
@@ -38,9 +43,9 @@ export interface SchedulerProperties {
   eventCollectorTemplate?: any;
   /**
    *  Determines how the events inside the Scheduler are rendered.classic - the events are arranged next to each other and try to fit inside the cells.modern - the events obey the CSS property that determines their size and if there's not enough space inside the cell for all events to appear, an event collector is created to hold the rest of the events. On mobile phones only collectors are created.
-   * Default value: "modern"
+   * Default value: modern
    */
-  eventRenderMode?: string;
+  eventRenderMode?: SchedulerEventRenderMode;
   /**
    * Allows to customize the content of the event menu items (tooltip). When clicked on an event element an event menu with details opens. It can be an HTMLTemplateElement that will be applied to all events or it's id as a string or a function that will be called for each event with the following parameters: eventContent - the content holder for the event,eventObj - the event object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
@@ -142,6 +147,21 @@ export interface SchedulerProperties {
    */
   dragOffset?: any;
   /**
+   * Determines the filtering condition for the events.The filter property takes an array of objects or a function. Each object represents a single filtering condition with the following attributes: name - the name of the Scheduler event property that will be filtered by.value - the filtering condition value. The value will be used to compare the events based on the filterMode, for example: [{ name: 'price', value: 25 }]. The value can also be a function. The function accepts a single arguemnt - the value that corresponds to the filtered attribute. The function allows to apply custom condition that is different from the default filter modes. It should return true ( if the evnet passes the filtering condition ) or false ( if the event does not meet the filtering condition ). Here's an example: [{ name: 'roomId', value: (id) => ['2', '3'].indexOf(id + '') > -1 }]. In the example the events that do not have a 'roomId' property that is equal to '2' or '3' will be filtered out.. If a function is set to the filter property instead, it allows to completely customize the filtering logic. The function passes a single argument - each Scheduler event that will be displayed. The function should return true ( if the condition is met ) or false ( if not ).
+   * Default value: (eventObj) => return eventObj.label === 'TargetLabel',[{ name: 'roomId', value: (id) => ['2', '3'].indexOf(id + '') > -1 }]
+   */
+  filter?: any;
+  /**
+   * Determines whether Scheduler's filtering is enabled or not.
+   * Default value: true,false
+   */
+  filterable?: any;
+  /**
+   * Determines the filter mode.
+   * Default value: equals
+   */
+  filterMode?: FilterMode;
+  /**
    * A getter that returns  an array of all Scheduler events.
    * Default value: 
    */
@@ -151,6 +171,11 @@ export interface SchedulerProperties {
    * Default value: 0
    */
   firstDayOfWeek?: number;
+  /**
+   * Allows to customize the footer of the Scheduler. It can be an HTMLTemplateElement, it's id as a string or a function with the following parameters: footerContainer - the footer container..
+   * Default value: null
+   */
+  footerTemplate?: any;
   /**
    * Determines whether the events will be grouped by date.
    * Default value: false
@@ -232,6 +257,16 @@ export interface SchedulerProperties {
    */
   hideWeekend?: boolean;
   /**
+   * Determines the location of the legend inside the Scheduler. By default the location is inside the footer but it can also reside in the header.
+   * Default value: footer
+   */
+  legendLocation?: SchedulerLegendLocation;
+  /**
+   * Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that.
+   * Default value: near
+   */
+  legendPosition?: SchedulerLegendPosition;
+  /**
    * Determines weather or not horizontal scrollbar is shown.
    * Default value: auto
    */
@@ -245,12 +280,12 @@ export interface SchedulerProperties {
    * Detetmines the maximum view date for the Scheduler.
    * Default value: 2100-1-1
    */
-  max?: any;
+  max?: string | Date;
   /**
    * Detetmines the minimum view date for the Scheduler.
    * Default value: 1900-1-1
    */
-  min?: any;
+  min?: string | Date;
   /**
    * Sets or gets an object specifying strings used in the element that can be localized. Used in conjunction with the property locale. 
    * Default value:    * [object Object]
@@ -302,6 +337,11 @@ export interface SchedulerProperties {
    */
   restrictedDates?: any;
   /**
+   * Defines an array of hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed.
+   * Default value: 
+   */
+  restrictedHours?: any;
+  /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
@@ -316,6 +356,11 @@ export interface SchedulerProperties {
    * Default value: false
    */
   shadeUntilCurrentTime?: boolean;
+  /**
+   * Determines whether the resource legend is visible or not. The Legend shows the resources and their items in the footer section of the Scheduler. If filterable is enabled it is possible to filter by resource items by clicking on the corresponding resource item from the legend.
+   * Default value: false
+   */
+  showLegend?: boolean;
   /**
    * Determines the repeating delay of the repeat buttons inside the header of the element. Such buttons are the Date navigation buttons and the view scroll buttons.
    * Default value: 80
@@ -348,16 +393,16 @@ export interface SchedulerProperties {
   timelineDayScale?: SchedulerTimelineDayScale;
   /**
    * Enables/Disables the tick marks next to the time cells in the vertical header of the element. Time header appears in 'day' and 'week' views.
-   * Default value: "false"
+   * Default value: false
    */
-  timeRulerTicks?: string;
+  timeRulerTicks?: boolean;
   /**
-   * Determines the timeZone that the dates will be displayed in. Accepts values from the IANA time zone database. By default it uses the local time zone.
-   * Default value: ""
+   * Determines the timeZone for the element. By default if the local time zone is used if the property is not set.
+   * Default value: 
    */
-  timeZone?: string;
+  timeZone?: SchedulerTimeZone;
   /**
-   * Allows to display multiple timeZones at once. Accepts an array values from the IANA time zone database. By default it uses the local time zone.
+   * Allows to display additional timeZones at once along with the default that is set via the timeZone property. Accepts an array values that represent the ids of valid time zones. The possbile time zones can be viewed in the timeZone property description. By default the local time zone is displayed.
    * Default value: 
    */
   timeZones?: any;
@@ -387,8 +432,8 @@ export interface SchedulerProperties {
    */
   viewType?: SchedulerViewType;
   /**
-   * Determines the viewing date range of the timeline. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.
-   * Default value: day,week
+   * Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.
+   * Default value: day,week,month
    */
   views?: SchedulerViews;
   /**
@@ -411,6 +456,11 @@ export interface SchedulerProperties {
    * Default value: false
    */
   unfocusable?: boolean;
+  /**
+   * Determines the maximum number of redo/undo steps that will be remembered by the Scheduler. When the number is reached the oldest records are removed in order to add new.
+   * Default value: 100
+   */
+  undoRedoSteps?: number;
   /**
    * A function that can be used to completly customize the popup Window that is used to edit events. The function has the following arguments: target - the target popup Window that is about to be opened.type - the type of the window. The type determines the purpose of the window. The default type is an empty string which means that it's the default event editing window. The other type is 'confirm' ( confirmation window) that appears when clicking on a repeating event. eventObj - the event object that is going to be edited.
    * Default value: null
@@ -473,6 +523,13 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    *  value - The value of the new selected view.
    */
   onViewChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered before the view is changed via user interaction. The view change action can be canceled if event.preventDefault() is called on the event.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The value of the previously selected view.
+   *  value - The value of the new selected view.
+   */
+  onViewChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a shortcut key for an event is pressed. By default only 'Delete' key is used.
 	* @param event. The custom event. Custom data event was created with: ev.detail(key, target, eventObj)
@@ -737,8 +794,9 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   /**
    * Scrolls the Scheduler to a Date.
    * @param {Date} date. The date to scroll to.
+   * @param {boolean} strictScroll?. Determines whether to scroll strictly to the date or not. This mean sthat the Scheduler wll scroll to the begining of the cell that corresponds to the target date.
    */
-  scrollToDate(date: Date): void;
+  scrollToDate(date: Date, strictScroll?: boolean): void;
   /**
    * Scrolls the Scheduler to an event.
    * @param {any} index. The index of a Scheduler event or the actual event object to scroll to.
@@ -774,7 +832,7 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   occurrenceAfter(eventObj: any, date: number): void;
   /**
-   * Returns the first occurance of an event before a date.
+   * Returns the last occurance of an event before a date.
    * @param {any} eventObj. A Scheduler event object.
    * @param {number} date. The date before which the first occurance of the event will be returned.
    */
@@ -796,16 +854,49 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   closeEventTooltip(): void;
   /**
    * Returns true or false whether the date is restricted or not.
-   * @param {Date} date. A Scheduler event object or it's index.
+   * @param {Date} date. A Date object.
    * @returns {boolean}
    */
   isDateRestricted(date: Date): boolean;
+  /**
+   * Returns true or false whether the hour is restricted or not.
+   * @param {number | Date} hour. A number that represents an hour ( 0 to 23 ) or a Date object.
+   * @returns {boolean}
+   */
+  isHourRestricted(hour: number | Date): boolean;
   /**
    * Returns true or false whether the event is restricted or not.
    * @param {any} eventObj. A Scheduler event  object or a direct event HTMLElement instance.
    * @returns {boolean}
    */
   isEventRestricted(eventObj: any): boolean;
+  /**
+   * Deletes the current undo/redo history.
+   * @returns {boolean}
+   */
+  deleteUndoRedoHistory(): boolean;
+  /**
+   * Indicates whether it is possible to redo an action.
+   * @returns {boolean}
+   */
+  canRedo(): boolean;
+  /**
+   * Indicates whether it is possbile to undo an action.
+   * @returns {boolean}
+   */
+  canUndo(): boolean;
+  /**
+   * Redo the next event modification.
+   * @param {number} step?. A step to redo to.
+   * @returns {boolean}
+   */
+  redo(step?: number): boolean;
+  /**
+   * Undo the last event modification.
+   * @param {number} step?. A step to undo to.
+   * @returns {boolean}
+   */
+  undo(step?: number): boolean;
 }
 
 /**Sets the Schedulers's Data Export options. */
@@ -817,9 +908,9 @@ export interface SchedulerDataExport {
   header?: boolean;
   /**
    * Sets the name of the event properties that will be exported as columns.
-   * Default value: true
+   * Default value: 
    */
-  columns?: boolean;
+  columns?: string[];
   /**
    * Sets a custom style object of the dataExport. 
    * Default value: null
@@ -1100,12 +1191,18 @@ declare global {
     }
 }
 
+/** Determines how the events inside the Scheduler are rendered.<b>classic</b> - the events are arranged next to each other and try to fit inside the cells.
+<b>modern</b> - the events obey the CSS property that determines their size and if there's not enough space inside the cell for all events to appear, an event collector is created to hold the rest of the events. On mobile phones only collectors are created.
+ */
+export declare type SchedulerEventRenderMode = 'classic' | 'modern';
 /**Determines the repeating frequency. The event can repeat hourly, daily, weekly, monthly or yearly. */
 export declare type SchedulerRepeatFreq = 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly';
 /**The type of the interval for the notification. */
 export declare type SchedulerNotificationType = 'days' | 'weeks';
 /**Determines the day format of the dates in the timeline. */
 export declare type SchedulerDayFormat = '2-digit' | 'numeric' | 'long' | 'short' | 'narrow';
+/**Determines the filter mode. */
+export declare type FilterMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
 /**Determines the grouping orientation. */
 export declare type SchedulerGroupOrientation = 'horizontal' | 'vertical';
 /**Determines the formatting of hours inside the element. */
@@ -1116,6 +1213,10 @@ export declare type SchedulerHeaderDatePosition = 'far' | 'near';
 export declare type SchedulerHeaderNavigationStyle = 'flat' | 'raised';
 /** Determines the position of the view selector control inside the Header of the element. */
 export declare type SchedulerHeaderViewPosition = 'far' | 'near';
+/**Determines the location of the legend inside the Scheduler. By default the location is inside the footer but it can also reside in the header. */
+export declare type SchedulerLegendLocation = 'footer' | 'header';
+/**Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that. */
+export declare type SchedulerLegendPosition = 'near' | 'far';
 /**Determines weather or not horizontal scrollbar is shown. */
 export declare type HorizontalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 /**Determines the minute formatting inside the Scheduler. */
@@ -1128,11 +1229,13 @@ export declare type ResizeHandlesVisibility = 'auto' | 'hidden' | 'visible';
 export declare type SchedulerScrollButtonsPosition = 'both' | 'far' | 'near';
 /**Determines the date scale for the timeline cells. */
 export declare type SchedulerTimelineDayScale = 'hour' | 'halfHour' | 'quarterHour' | 'tenMinutes' | 'fiveMinutes';
+/**Determines the timeZone for the element. By default if the local time zone is used if the property is not set. */
+export declare type SchedulerTimeZone = 'Local' | 'Dateline Standard Time' | 'UTC-11' | 'Hawaiteratoran Standard Time' | 'Alaskan Standard Time' | 'Pacific Standard Time (Mexico)' | 'Pacific Standard Time' | 'US Mountain Standard Time' | 'Mountain Standard Time (Mexico)' | 'Mountain Standard Time' | 'Central Standard Time' | 'Central America Standard Time' | 'Canada Central Standard Time' | 'Central Standard Time (Mexico)' | 'SA Pacific Standard Time' | 'Eastern Standard Time' | 'US Eastern Standard Time' | 'Venezuela Standard Time' | 'Atlantic Standard Time' | 'Paraguay Standard Time' | 'Central Brazilian Standard Time' | 'Pacific SA Standard Time' | 'SA Western Standard Time' | 'Newfoundland Standard Time' | 'SA Eastern Standard Time' | 'Argentina Standard Time' | 'E. South America Standard Time' | 'Bahia Standard Time' | 'Montevideo Standard Time' | 'Greenland Standard Time' | 'UTC-02' | 'Mid-Atlantic Standard Time' | 'Azores Standard Time' | 'Cape Verde Standard Time' | 'Morocco Standard Time' | 'UTC' | 'GMT Standard Time' | 'Greenwich Standard Time' | 'Central European Standard Time' | 'Namibia Standard Time' | 'W. Central Africa Standard Time' | 'W. Europe Standard Time' | 'Central Europe Standard Time' | 'Romance Standard Time' | 'FLE Standard Time' | 'South Africa Standard Time' | 'Turkey Standard Time' | 'GTB Standard Time' | 'Libya Standard Time' | 'E. Europe Standard Time' | 'Jordan Standard Time' | 'Middle East Standard Time' | 'Egypt Standard Time' | 'Syria Standard Time' | 'Israel Standard Time' | 'Arab Standard Time' | 'E. Africa Standard Time' | 'Arabic Standard Time' | 'Kaliningrad Standard Time' | 'Iran Standard Time' | 'Mauritius Standard Time' | 'Georgian Standard Time' | 'Caucasus Standard Time' | 'Arabian Standard Time' | 'Azerbaijan Standard Time' | 'Russian Standard Time' | 'Afghanistan Standard Time' | 'Pakistan Standard Time' | 'West Asia Standard Time' | 'India Standard Time' | 'Sri Lanka Standard Time' | 'Nepal Standard Time' | 'Central Asia Standard Time' | 'Bangladesh Standard Time' | 'Ekaterinburg Standard Time' | 'Myanmar Standard Time' | 'SE Asia Standard Time' | 'N. Central Asia Standard Time' | 'Ulaanbaatar Standard Time' | 'China Standard Time' | 'Singapore Standard Time' | 'North Asia Standard Time' | 'Taipei Standard Time' | 'W. Australia Standard Time' | 'Korea Standard Time' | 'North Asia East Standard Time' | 'Tokyo Standard Time' | 'AUS Central Standard Time' | 'Cen. Australia Standard Time' | 'West Pacific Standard Time' | 'Tasmania Standard Time' | 'E. Australia Standard Time' | 'AUS Eastern Standard Time' | 'Yakutsk Standard Time' | 'Vladivostok Standard Time' | 'Central Pacific Standard Time' | 'Magadan Standard Time' | 'Kamchatka Standard Time' | 'Fiji Standard Time' | 'New Zealand Standard Time' | 'UTC+12' | 'Tonga Standard Time' | 'Samoa Standard Time';
 /**Determines weather or not vertical scrollbar is shown. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 /**Indicates the current Scheduler viewType. Custom views must contain a valid <b>type</b> property that corresponds to one of the view types. This property should not be set. */
 export declare type SchedulerViewType = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
-/**Determines the viewing date range of the timeline. Custom views can be defined as objects instead of strings. The view object should contain the following properties: <b>label</b> - the label for the view.
+/**Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: <b>label</b> - the label for the view.
 <b>value</b> - the value for the view. The value is the unique identifier for the view.
 <b>type</b> - the type of view. The type should be one of the default allowed values for a view.
 <b>hideWeekend</b> - an Optional property that allows to hide the weekend only for this specific view.

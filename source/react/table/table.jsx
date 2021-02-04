@@ -167,7 +167,7 @@ export class Table extends React.Component {
 		}
 	}
 
-	/** Determines the data source of the table component.
+	/** Determines the data source of the table component. The data source of the Table can be a regular Array or a DataAdapter instance. You can read more about the dataAdapter here - https://www.htmlelements.com/docs/data-adapter/.
 	*	Property type: any
 	*/
 	get dataSource() {
@@ -176,6 +176,18 @@ export class Table extends React.Component {
 	set dataSource(value) {
 		if (this.nativeElement) {
 			this.nativeElement.dataSource = value;
+		}
+	}
+
+	/** Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+	*	Property type: TableDataSourceSettings
+	*/
+	get dataSourceSettings() {
+		return this.nativeElement ? this.nativeElement.dataSourceSettings : undefined;
+	}
+	set dataSourceSettings(value) {
+		if (this.nativeElement) {
+			this.nativeElement.dataSourceSettings = value;
 		}
 	}
 
@@ -320,6 +332,18 @@ export class Table extends React.Component {
 	set grouping(value) {
 		if (this.nativeElement) {
 			this.nativeElement.grouping = value;
+		}
+	}
+
+	/** A callback function that can be used to modify the contents of a grouping header row. By changing the 'label' you modify the rendered grouping value. By changing the 'template' you can modify the entire content including the column and count information.
+	*	Property type: any
+	*/
+	get groupFormatFunction() {
+		return this.nativeElement ? this.nativeElement.groupFormatFunction : undefined;
+	}
+	set groupFormatFunction(value) {
+		if (this.nativeElement) {
+			this.nativeElement.groupFormatFunction = value;
 		}
 	}
 
@@ -590,7 +614,7 @@ export class Table extends React.Component {
 
 	// Gets the properties of the React component.
 	get properties() {
-		return ["animation","autoLoadState","autoSaveState","columnGroups","columnMinWidth","columnReorder","columnResize","columnResizeFeedback","columns","conditionalFormatting","columnSizeMode","conditionalFormattingButton","dataRowId","dataSource","dataTransform","disabled","editing","editMode","filtering","filterRow","filterTemplate","footerRow","formulas","freezeFooter","freezeHeader","grouping","headerRow","keyboardNavigation","loadColumnStateBehavior","locale","messages","onCellRender","onColumnRender","onInit","pageSize","pageIndex","paging","rightToLeft","rowDetailTemplate","selected","selection","selectionMode","sort","sortMode","stateSettings","theme","tooltip","virtualization"];
+		return ["animation","autoLoadState","autoSaveState","columnGroups","columnMinWidth","columnReorder","columnResize","columnResizeFeedback","columns","conditionalFormatting","columnSizeMode","conditionalFormattingButton","dataRowId","dataSource","dataSourceSettings","dataTransform","disabled","editing","editMode","filtering","filterRow","filterTemplate","footerRow","formulas","freezeFooter","freezeHeader","grouping","groupFormatFunction","headerRow","keyboardNavigation","loadColumnStateBehavior","locale","messages","onCellRender","onColumnRender","onInit","pageSize","pageIndex","paging","rightToLeft","rowDetailTemplate","selected","selection","selectionMode","sort","sortMode","stateSettings","theme","tooltip","virtualization"];
 	}
 	/**  This event is triggered when a cell edit operation has been initiated.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)

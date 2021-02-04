@@ -181,12 +181,12 @@ export class DateTimePicker extends React.Component<React.HTMLAttributes<Element
 	}
 
 	/** Sets custom container to append the pop-up to. By default, it is in the DateTimePicker. The value of the property can be an HTML element or the id of an HTML element.
-	*	Property type: any
+	*	Property type: string
 	*/
-	get dropDownAppendTo(): any  {
+	get dropDownAppendTo(): string  {
 		return this.nativeElement ? this.nativeElement.dropDownAppendTo : undefined;
 	}
-	set dropDownAppendTo(value: any) {
+	set dropDownAppendTo(value: string) {
 		if (this.nativeElement) {
 			this.nativeElement.dropDownAppendTo = value;
 		}

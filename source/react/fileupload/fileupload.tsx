@@ -63,12 +63,12 @@ export class FileUpload extends React.Component<React.HTMLAttributes<Element> & 
 	}
 
 	/** Appends the list with selected files to a new custom container specified by the user. If the value of the property is a string it must represent a valid id of an HTML element inside the DOM that will be used as the new container for the uploaded files list.
-	*	Property type: any
+	*	Property type: string
 	*/
-	get appendTo(): any  {
+	get appendTo(): string  {
 		return this.nativeElement ? this.nativeElement.appendTo : undefined;
 	}
-	set appendTo(value: any) {
+	set appendTo(value: string) {
 		if (this.nativeElement) {
 			this.nativeElement.appendTo = value;
 		}

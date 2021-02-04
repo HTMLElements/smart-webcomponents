@@ -7,8 +7,8 @@ export interface DateRangeInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property.
-   * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. Intl.DateTimeFormat is used to format date strings in JavaScript
+   * Default value: {"day": "numeric", "month": "numeric", "year": "numeric" }
    */
   dateFormat?: DateRangeFormat;
   /**
@@ -174,37 +174,37 @@ export interface DateRangeInput extends BaseElement, DateRangeInputProperties {
   select(): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. */
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. Intl.DateTimeFormat is used to format date strings in JavaScript */
 export interface DateRangeFormat {
   /**
    * Day format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  day?: string;
+  day?: DateRangeFormatDay;
   /**
    * Month format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  month?: string;
+  month?: DateRangeFormatMonth;
   /**
    * Year format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  year?: string;
+  year?: DateRangeFormatYear;
 }
 
 /**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
 export interface TimeRangeFormat {
   /**
    * Hour format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  hour?: string;
+  hour?: TimeRangeFormatHour;
   /**
    * Minute format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  minute?: string;
+  minute?: TimeRangeFormatMinute;
 }
 
 declare global {
@@ -217,7 +217,17 @@ declare global {
     }
 }
 
+/**Day format. */
+export declare type DateRangeFormatDay = 'numeric' | '2-digit';
+/**Month format. */
+export declare type DateRangeFormatMonth = 'numeric' | '2-digit' | 'narrow' | 'short' | 'long';
+/**Year format. */
+export declare type DateRangeFormatYear = 'numeric' | '2-digit';
 /**Determines the position of the drop down button. */
 export declare type DropDownButtonPosition = 'none' | 'left' | 'right';
+/**Hour format. */
+export declare type TimeRangeFormatHour = 'numeric' | '2-digit';
+/**Minute format. */
+export declare type TimeRangeFormatMinute = 'numeric' | '2-digit';
 /**Determines the value type returned from the `value` property. */
 export declare type DateRangeInputValueType = 'string' | 'object';

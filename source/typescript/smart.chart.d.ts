@@ -12,17 +12,17 @@ export interface ChartProperties {
    */
   animationDuration?: number;
   /**
-   * Sets the chart's background color.
+   * Sets the chart's background color. For example: '#DDFFE8'
    * Default value: null
    */
   backgroundColor?: string | null;
   /**
-   * Sets the chart's background image.
+   * Sets the chart's background image. For example: 'https://www.htmlelements.com/demos/images/carousel-large-1.jpg'
    * Default value: ""
    */
   backgroundImage?: string;
   /**
-   * Sets the chart's border color.
+   * Sets the chart's border color. For example: '#098700'
    * Default value: null
    */
   borderLineColor?: string | null;
@@ -52,17 +52,17 @@ export interface ChartProperties {
    */
   columnSeriesOverlap?: boolean;
   /**
-   * Gets or sets the color of the crosshairs lines.
+   * Gets or sets the color of the crosshairs lines. The 'enableCrosshairs' property should be 'true'.
    * Default value: null
    */
   crosshairsColor?: string | null;
   /**
-   * Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length.
+   * Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length. The 'enableCrosshairs' property should be 'true'. For example: '3,3'
    * Default value: "2,2"
    */
   crosshairsDashStyle?: string;
   /**
-   * Gets or sets the width of the crosshairs lines.
+   * Gets or sets the width of the crosshairs lines. The 'enableCrosshairs' property should be 'true'
    * Default value: 1
    */
   crosshairsLineWidth?: number;
@@ -131,11 +131,6 @@ export interface ChartProperties {
    * Default value: [object Object]
    */
   padding?: Padding;
-  /**
-   * Sets the legend bar position in the Chart.
-   * Default value: [object Object]
-   */
-  legendPosition?: ChartLegendPosition;
   /**
    * Determines the rendering engine used to display the chart. When the property is set to an empty string, jqxChart will automatically select an optimal rendering engine depending on the browser capabilities.
    * Default value: 
@@ -439,30 +434,6 @@ export interface Padding {
   top?: number;
 }
 
-/**Sets the legend bar position in the Chart. */
-export interface ChartLegendPosition {
-  /**
-   * Height of legend in the Chart.
-   * Default value: 5
-   */
-  height?: number;
-  /**
-   * Left legend position in the Chart.
-   * Default value: 5
-   */
-  left?: number;
-  /**
-   * Width of legend in the Chart.
-   * Default value: 5
-   */
-  width?: number;
-  /**
-   * Top legend position in the Chart.
-   * Default value: 5
-   */
-  top?: number;
-}
-
 export interface ChartSeriesGroup {
   /**
    * An array of chart annotation objects.
@@ -483,7 +454,7 @@ export interface ChartSeriesGroup {
    * Maximum width of columns in column series.
    * Default value: null
    */
-  columnsMaxWidth?: number;
+  columnsMaxWidth?: number | null;
   /**
    * Minimum width of columns in column series.
    * Default value: 1
@@ -849,7 +820,7 @@ export interface ChartSeriesGroupSerie {
    * Offset from the center point in a pie/donut series.
    * Default value: 0
    */
-  centerOffset?: any;
+  centerOffset?: number;
   /**
    * A custom function that returns the color of a data point. The function will receive the following parameters: dataValue, itemIndex, serie, group. The implementation of the function can return a single color which will be used as a fillColor and the other colors will be derived or it can return an object containing fillColor, fillColorSelected, etc.
    * Default value: null
@@ -1014,10 +985,10 @@ export interface ChartSeriesGroupSerie {
    * Inner radius of donut series in pixels or percents.
    * Default value: 0
    */
-  innerRadius?: any;
+  innerRadius?: number;
   /**
    * Object describing the labels properties of the axis.
-   * Default value: [object Object]
+   * Default value: undefined
    */
   labels?: ChartLabels;
   /**
@@ -1084,12 +1055,12 @@ export interface ChartSeriesGroupSerie {
    * Min radius of bubble series in pixels or percents.
    * Default value: null
    */
-  minRadius?: any;
+  minRadius?: string | null | number;
   /**
    * Max radius of bubble series in pixels or percents.
    * Default value: null
    */
-  maxRadius?: any;
+  maxRadius?: string | null | number;
   /**
    * Determines the opacity of the items in this serie.
    * Default value: 1
@@ -1099,12 +1070,12 @@ export interface ChartSeriesGroupSerie {
    * Outer radius of pie and donut series in pixels or percents.
    * Default value: null
    */
-  radius?: any;
+  radius?: number | null;
   /**
    * Radius change on selection of pie and donut series in pixels or percents.
    * Default value: null
    */
-  selectedRadiusChange?: any;
+  selectedRadiusChange?: number | null;
   /**
    * Minimum angle in a pie, donut, polar and spider series.
    * Default value: 0
@@ -1263,7 +1234,7 @@ export interface ChartLabels {
    * Possible values: true, false, 'custom'.Determines the visibility of labels. When 'custom' is set, displays only custom values/offsets from the labels.custom array.
    * Default value: true
    */
-  visible?: any;
+  visible?: boolean | string;
 }
 
 /**Object describing the valueAxis for this group. jqxChart allows you to use a common valueAxis and/or multiple value axes per serie group. */
@@ -1287,7 +1258,7 @@ export interface ChartValueAxis {
    * Sets the size of the axis.
    * Default value: null
    */
-  axisSize?: any;
+  axisSize?: number | string | null;
   /**
    * Optional color bands dislayed in the chart's plot area.
    * Default value: null
@@ -1456,7 +1427,7 @@ export interface ChartLines {
    * Possible values: true, false, 'custom'.Determines the visibility of grid lines. When 'custom' is set, displays only custom values/offsets from the gridLines.custom array.
    * Default value: true
    */
-  visible?: any;
+  visible?: boolean | string;
 }
 
 /**Object describing the line properties of the axis. */
@@ -1480,7 +1451,7 @@ export interface ChartLine {
    * boolean determining the visibility of the axis line.
    * Default value: true
    */
-  visible?: any;
+  visible?: boolean;
 }
 
 /**Object describing the title of the valueAxis. */
@@ -1533,7 +1504,7 @@ export interface ChartXAxis {
    * Sets the size of the xAxis.
    * Default value: null
    */
-  axisSize?: any;
+  axisSize?: number | string | null;
   /**
    * Optional color bands dislayed in the chart's plot area.
    * Default value: null

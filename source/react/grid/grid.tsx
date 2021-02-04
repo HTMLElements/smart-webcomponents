@@ -1,9 +1,9 @@
 import React from "react";
 import { GridProperties } from "./../../index";
-import { GridAppearanceAutoGenerateRowLabelMode, GridAppearanceAutoGenerateColumnLabelMode, GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridDataExportPageOrientation, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridFilteringFilterMenuMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
+import { GridAppearanceAutoGenerateRowLabelMode, GridAppearanceAutoGenerateColumnLabelMode, GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridColumnSummary, GridConditionalFormattingCondition, GridDataExportPageOrientation, GridDataSourceSettingsDataFieldDataType, GridDataSourceSettingsDataSourceType, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridEditingAddNewRowDisplayMode, GridFilteringFilterRowApplyMode, GridFilteringFilterMenuMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridDataSourceSettings, GridDataSourceSettingsDataField, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridEditingAddNewColumn, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
 import { DataAdapter, Chart } from './../../index';
 export { GridProperties } from "./../../index";
-export { GridAppearanceAutoGenerateRowLabelMode, GridAppearanceAutoGenerateColumnLabelMode, GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridConditionalFormattingCondition, GridDataExportPageOrientation, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridFilteringFilterRowApplyMode, GridFilteringFilterMenuMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
+export { GridAppearanceAutoGenerateRowLabelMode, GridAppearanceAutoGenerateColumnLabelMode, GridResizeMode, GridClipboardAutoFillMode, HorizontalAlignment, VerticalAlignment, Position, GridColumnSortOrder, GridColumnSummary, GridConditionalFormattingCondition, GridDataExportPageOrientation, GridDataSourceSettingsDataFieldDataType, GridDataSourceSettingsDataSourceType, GridEditingAction, LayoutPosition, GridCommandDisplayMode, GridEditingMode, GridEditingAddNewRowDisplayMode, GridFilteringFilterRowApplyMode, GridFilteringFilterMenuMode, GridGroupingExpandMode, GridGroupingRenderMode, GridPagerAutoEllipsis, Scrolling, GridSelectionMode, GridSelectionAction, GridSelectionCheckBoxesSelectAllMode, GridSortingMode, GridAppearance, GridBehavior, GridLayout, GridClipboard, GridColumn, GridColumnMenu, GridColumnMenuDataSource, GridCommand, GridColumnGroup, GridConditionalFormatting, GridCharting, Dialog, GridCheckBoxes, GridDataExport, GridDataSourceSettings, GridDataSourceSettingsDataField, GridEditing, GridEditingCommandKeys, GridCommandKey, GridEditingCommandBar, GridEditingCommandBarDataSource, GridEditingCommandColumn, GridEditingCommandColumnDataSource, GridEditingAddNewRow, GridEditingAddNewColumn, GridFiltering, GridFilteringFilterRow, GridFilteringFilterMenu, GridFilteringFilterBuilder, GridGrouping, GridGroupingGroupBar, GridGroupingSummaryRow, GridPaging, GridPagingSpinner, GridPager, GridPagerPageSizeSelector, GridPagerSummary, GridPagerNavigationButtons, GridPagerNavigationButtonsPrevNextButtons, GridPagerNavigationButtonsFirstLastButtons, GridPagerNavigationButtonsLabels, GridPagerNavigationInput, GridPagerPageIndexSelectors, GridRowDetail, GridColumnHeader, GridSummaryRow, GridGroupHeader, GridHeader, GridFooter, GridRow, GridCell, GridSelection, GridSelectionCheckBoxes, GridSorting} from './../../index';
 export { DataAdapter, Chart } from './../../index';
 
 interface IWindow { Smart: any; }
@@ -93,6 +93,18 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 	set layout(value: GridLayout) {
 		if (this.nativeElement) {
 			this.nativeElement.layout = value;
+		}
+	}
+
+	/** Sets or gets the language. Used in conjunction with the property messages. 
+	*	Property type: string
+	*/
+	get locale(): string  {
+		return this.nativeElement ? this.nativeElement.locale : undefined;
+	}
+	set locale(value: string) {
+		if (this.nativeElement) {
+			this.nativeElement.locale = value;
 		}
 	}
 
@@ -201,6 +213,18 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 	set dataSource(value: any) {
 		if (this.nativeElement) {
 			this.nativeElement.dataSource = value;
+		}
+	}
+
+	/** Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+	*	Property type: GridDataSourceSettings
+	*/
+	get dataSourceSettings(): GridDataSourceSettings  {
+		return this.nativeElement ? this.nativeElement.dataSourceSettings : undefined;
+	}
+	set dataSourceSettings(value: GridDataSourceSettings) {
+		if (this.nativeElement) {
+			this.nativeElement.dataSourceSettings = value;
 		}
 	}
 
@@ -384,7 +408,7 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 		}
 	}
 
-	/** The rows property is used to describe all rows displayed in the grid.
+	/** Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
 	*	Property type: {(index: number, row: GridRow, details: HTMLElement): void}
 	*/
 	get onRowDetailUpdated(): {(index: number, row: GridRow, details: HTMLElement): void}  {
@@ -396,7 +420,7 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 		}
 	}
 
-	/** Describes the selection settings.
+	/** The rows property is used to describe all rows displayed in the grid.
 	*	Property type: {(index: number, row: GridRow): void}
 	*/
 	get onRowInserted(): {(index: number, row: GridRow): void}  {
@@ -408,7 +432,7 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 		}
 	}
 
-	/** Describes sorting settings.
+	/** Describes the selection settings.
 	*	Property type: {(index: number, row: GridRow): void}
 	*/
 	get onRowRemoved(): {(index: number, row: GridRow): void}  {
@@ -420,7 +444,7 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 		}
 	}
 
-	/** undefined
+	/** Describes sorting settings.
 	*	Property type: {(index: number, row: GridRow, oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void}
 	*/
 	get onRowUpdate(): {(index: number, row: GridRow, oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void}  {
@@ -613,6 +637,18 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 	}
 
 	/** undefined
+	*	Property type: boolean
+	*/
+	get rightToLeft(): boolean  {
+		return this.nativeElement ? this.nativeElement.rightToLeft : undefined;
+	}
+	set rightToLeft(value: boolean) {
+		if (this.nativeElement) {
+			this.nativeElement.rightToLeft = value;
+		}
+	}
+
+	/** undefined
 	*	Property type: GridRow[]
 	*/
 	get rows(): GridRow[]  {
@@ -651,7 +687,7 @@ export class Grid extends React.Component<React.HTMLAttributes<Element> & GridPr
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["appearance","behavior","layout","clipboard","columns","columnMenu","columnGroups","conditionalFormatting","charting","checkBoxes","dataExport","dataSource","editing","filtering","grouping","messages","onCellValue","onCellUpdate","onCellRender","onBeforeInit","onInit","onAfterInit","onChartInit","onRender","onKey","onRowInit","onRowDetailInit","onRowDetailUpdated","onRowInserted","onRowRemoved","onRowUpdate","onRowUpdated","onColumnInit","onColumnInserted","onColumnRemoved","onColumnUpdated","onCommand","paging","pager","rowDetail","scrolling","columnHeader","summaryRow","groupHeader","header","footer","rows","selection","sorting"];
+		return ["appearance","behavior","layout","locale","clipboard","columns","columnMenu","columnGroups","conditionalFormatting","charting","checkBoxes","dataExport","dataSource","dataSourceSettings","editing","filtering","grouping","messages","onCellValue","onCellUpdate","onCellRender","onBeforeInit","onInit","onAfterInit","onChartInit","onRender","onKey","onRowInit","onRowDetailInit","onRowDetailUpdated","onRowInserted","onRowRemoved","onRowUpdate","onRowUpdated","onColumnInit","onColumnInserted","onColumnRemoved","onColumnUpdated","onCommand","paging","pager","rowDetail","scrolling","columnHeader","summaryRow","groupHeader","header","footer","rightToLeft","rows","selection","sorting"];
 	}
 	/**  This event is triggered, when the edit begins.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	row, 	column, 	cell)

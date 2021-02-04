@@ -1,8 +1,8 @@
 import { Chart } from './../index';
-import { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartLegendPosition, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector, ElementRenderMode} from './../index';
+import { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartLegendPosition, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector, ElementRenderMode} from './../index';
+export { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { Chart } from './../index';
 
@@ -48,7 +48,7 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.animationDuration = value : undefined;
 	}
 
-	/** @description Sets the chart's background color. */
+	/** @description Sets the chart's background color. For example: '#DDFFE8' */
 	@Input()
 	get backgroundColor(): string | null {
 		return this.nativeElement ? this.nativeElement.backgroundColor : undefined;
@@ -57,7 +57,7 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.backgroundColor = value : undefined;
 	}
 
-	/** @description Sets the chart's background image. */
+	/** @description Sets the chart's background image. For example: 'https://www.htmlelements.com/demos/images/carousel-large-1.jpg' */
 	@Input()
 	get backgroundImage(): string {
 		return this.nativeElement ? this.nativeElement.backgroundImage : undefined;
@@ -66,7 +66,7 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.backgroundImage = value : undefined;
 	}
 
-	/** @description Sets the chart's border color. */
+	/** @description Sets the chart's border color. For example: '#098700' */
 	@Input()
 	get borderLineColor(): string | null {
 		return this.nativeElement ? this.nativeElement.borderLineColor : undefined;
@@ -120,7 +120,7 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.columnSeriesOverlap = value : undefined;
 	}
 
-	/** @description Gets or sets the color of the crosshairs lines. */
+	/** @description Gets or sets the color of the crosshairs lines. The 'enableCrosshairs' property should be 'true'. */
 	@Input()
 	get crosshairsColor(): string | null {
 		return this.nativeElement ? this.nativeElement.crosshairsColor : undefined;
@@ -129,7 +129,7 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.crosshairsColor = value : undefined;
 	}
 
-	/** @description Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length. */
+	/** @description Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length. The 'enableCrosshairs' property should be 'true'. For example: '3,3' */
 	@Input()
 	get crosshairsDashStyle(): string {
 		return this.nativeElement ? this.nativeElement.crosshairsDashStyle : undefined;
@@ -138,7 +138,7 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.crosshairsDashStyle = value : undefined;
 	}
 
-	/** @description Gets or sets the width of the crosshairs lines. */
+	/** @description Gets or sets the width of the crosshairs lines. The 'enableCrosshairs' property should be 'true' */
 	@Input()
 	get crosshairsLineWidth(): number {
 		return this.nativeElement ? this.nativeElement.crosshairsLineWidth : undefined;
@@ -262,15 +262,6 @@ export class ChartComponent extends BaseElement implements OnInit, AfterViewInit
 	}
 	set padding(value: Padding) {
 		this.nativeElement ? this.nativeElement.padding = value : undefined;
-	}
-
-	/** @description Sets the legend bar position in the Chart. */
-	@Input()
-	get legendPosition(): ChartLegendPosition {
-		return this.nativeElement ? this.nativeElement.legendPosition : undefined;
-	}
-	set legendPosition(value: ChartLegendPosition) {
-		this.nativeElement ? this.nativeElement.legendPosition = value : undefined;
 	}
 
 	/** @description Determines the rendering engine used to display the chart. When the property is set to an empty string, jqxChart will automatically select an optimal rendering engine depending on the browser capabilities. */

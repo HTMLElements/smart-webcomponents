@@ -108,7 +108,7 @@ export class Slider extends React.Component {
 	}
 
 	/** Determines what values the thumb snaps to. 
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get interval() {
 		return this.nativeElement ? this.nativeElement.interval : undefined;
@@ -192,7 +192,7 @@ export class Slider extends React.Component {
 	}
 
 	/** Sets or gets the maximum value of the widget. 
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get max() {
 		return this.nativeElement ? this.nativeElement.max : undefined;
@@ -228,7 +228,7 @@ export class Slider extends React.Component {
 	}
 
 	/** Sets or gets the minimum value of the widget. 
-	*	Property type: any
+	*	Property type: string | number
 	*/
 	get min() {
 		return this.nativeElement ? this.nativeElement.min : undefined;

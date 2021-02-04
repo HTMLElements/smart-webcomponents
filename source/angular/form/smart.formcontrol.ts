@@ -273,12 +273,12 @@ export class FormControlComponent extends BaseElement implements OnInit, AfterVi
 		this.nativeElement ? this.nativeElement.valid = value : undefined;
 	}
 
-	/** @description Validation rules array. Accepts any JQX.Validator rules. */
+	/** @description Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message. */
 	@Input()
-	get validationRules(): any[] {
+	get validationRules(): [] | null {
 		return this.nativeElement ? this.nativeElement.validationRules : undefined;
 	}
-	set validationRules(value: any[]) {
+	set validationRules(value: [] | null) {
 		this.nativeElement ? this.nativeElement.validationRules = value : undefined;
 	}
 

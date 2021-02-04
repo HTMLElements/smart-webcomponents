@@ -803,8 +803,8 @@ smart-table table:not(.smart-table-container) {
 .smart-table td.indeterminate>div::after {
     content: '';
     position: absolute;
-    width: 65%;
-    height: 65%;
+    width: calc(0.5 * var(--smart-check-box-default-size));
+    height: calc(0.5 * var(--smart-check-box-default-size));
     background-color: var(--smart-primary-color);
 }
 

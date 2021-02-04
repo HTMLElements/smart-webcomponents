@@ -1,5 +1,5 @@
 
-/* Smart UI v9.0.0 (2020-Dec) 
+/* Smart UI v9.1.1 (2021-Feb) 
 Copyright (c) 2011-2021 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 

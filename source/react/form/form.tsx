@@ -51,7 +51,7 @@ export class Form extends React.Component<React.HTMLAttributes<Element> & FormPr
 		}
 	}
 
-	/** 
+	/** Sets or gets the form controls.
 	*	Property type: Control[]
 	*/
 	get controls(): Control[]  {

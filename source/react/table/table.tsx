@@ -1,8 +1,8 @@
 import React from "react";
 import { TableProperties } from "./../../index";
-import { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting} from './../../index';
+import { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableDataSourceSettingsDataFieldDataType, TableDataSourceSettingsDataSourceType, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, TableDataSourceSettings, TableDataSourceSettingsDataField} from './../../index';
 export { TableProperties } from "./../../index";
-export { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting} from './../../index';
+export { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableDataSourceSettingsDataFieldDataType, TableDataSourceSettingsDataSourceType, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, TableDataSourceSettings, TableDataSourceSettingsDataField} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -201,7 +201,7 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 		}
 	}
 
-	/** Determines the data source of the table component.
+	/** Determines the data source of the table component. The data source of the Table can be a regular Array or a DataAdapter instance. You can read more about the dataAdapter here - https://www.htmlelements.com/docs/data-adapter/.
 	*	Property type: any
 	*/
 	get dataSource(): any  {
@@ -210,6 +210,18 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 	set dataSource(value: any) {
 		if (this.nativeElement) {
 			this.nativeElement.dataSource = value;
+		}
+	}
+
+	/** Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+	*	Property type: TableDataSourceSettings
+	*/
+	get dataSourceSettings(): TableDataSourceSettings  {
+		return this.nativeElement ? this.nativeElement.dataSourceSettings : undefined;
+	}
+	set dataSourceSettings(value: TableDataSourceSettings) {
+		if (this.nativeElement) {
+			this.nativeElement.dataSourceSettings = value;
 		}
 	}
 
@@ -354,6 +366,18 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 	set grouping(value: boolean) {
 		if (this.nativeElement) {
 			this.nativeElement.grouping = value;
+		}
+	}
+
+	/** A callback function that can be used to modify the contents of a grouping header row. By changing the 'label' you modify the rendered grouping value. By changing the 'template' you can modify the entire content including the column and count information.
+	*	Property type: any
+	*/
+	get groupFormatFunction(): any  {
+		return this.nativeElement ? this.nativeElement.groupFormatFunction : undefined;
+	}
+	set groupFormatFunction(value: any) {
+		if (this.nativeElement) {
+			this.nativeElement.groupFormatFunction = value;
 		}
 	}
 
@@ -624,7 +648,7 @@ export class Table extends React.Component<React.HTMLAttributes<Element> & Table
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["animation","autoLoadState","autoSaveState","columnGroups","columnMinWidth","columnReorder","columnResize","columnResizeFeedback","columns","conditionalFormatting","columnSizeMode","conditionalFormattingButton","dataRowId","dataSource","dataTransform","disabled","editing","editMode","filtering","filterRow","filterTemplate","footerRow","formulas","freezeFooter","freezeHeader","grouping","headerRow","keyboardNavigation","loadColumnStateBehavior","locale","messages","onCellRender","onColumnRender","onInit","pageSize","pageIndex","paging","rightToLeft","rowDetailTemplate","selected","selection","selectionMode","sort","sortMode","stateSettings","theme","tooltip","virtualization"];
+		return ["animation","autoLoadState","autoSaveState","columnGroups","columnMinWidth","columnReorder","columnResize","columnResizeFeedback","columns","conditionalFormatting","columnSizeMode","conditionalFormattingButton","dataRowId","dataSource","dataSourceSettings","dataTransform","disabled","editing","editMode","filtering","filterRow","filterTemplate","footerRow","formulas","freezeFooter","freezeHeader","grouping","groupFormatFunction","headerRow","keyboardNavigation","loadColumnStateBehavior","locale","messages","onCellRender","onColumnRender","onInit","pageSize","pageIndex","paging","rightToLeft","rowDetailTemplate","selected","selection","selectionMode","sort","sortMode","stateSettings","theme","tooltip","virtualization"];
 	}
 	/**  This event is triggered when a cell edit operation has been initiated.
 	*  @param event. The custom event. 	Custom event was created with: event.detail(	dataField, 	row, 	value)

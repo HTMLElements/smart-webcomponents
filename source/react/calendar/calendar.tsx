@@ -147,24 +147,24 @@ export class Calendar extends React.Component<React.HTMLAttributes<Element> & Ca
 	}
 
 	/** Determines the height of the month's drop down inside the Calendar.
-	*	Property type: string
+	*	Property type: string | number
 	*/
-	get dropDownHeight(): string  {
+	get dropDownHeight(): string | number  {
 		return this.nativeElement ? this.nativeElement.dropDownHeight : undefined;
 	}
-	set dropDownHeight(value: string) {
+	set dropDownHeight(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.dropDownHeight = value;
 		}
 	}
 
 	/** Determines the width of the month's drop down inside the Calendar.
-	*	Property type: string
+	*	Property type: string | number
 	*/
-	get dropDownWidth(): string  {
+	get dropDownWidth(): string | number  {
 		return this.nativeElement ? this.nativeElement.dropDownWidth : undefined;
 	}
-	set dropDownWidth(value: string) {
+	set dropDownWidth(value: string | number) {
 		if (this.nativeElement) {
 			this.nativeElement.dropDownWidth = value;
 		}
@@ -291,12 +291,12 @@ export class Calendar extends React.Component<React.HTMLAttributes<Element> & Ca
 	}
 
 	/** Determines the max date for the Calendar. Accepts date objects and valid date string formats.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
-	get max(): any  {
+	get max(): string | Date  {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: string | Date) {
 		if (this.nativeElement) {
 			this.nativeElement.max = value;
 		}
@@ -315,12 +315,12 @@ export class Calendar extends React.Component<React.HTMLAttributes<Element> & Ca
 	}
 
 	/** Determines the min date for the Calendar. Accepts date objects and valid date string formats.
-	*	Property type: any
+	*	Property type: string | Date
 	*/
-	get min(): any  {
+	get min(): string | Date  {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: string | Date) {
 		if (this.nativeElement) {
 			this.nativeElement.min = value;
 		}
@@ -375,12 +375,12 @@ export class Calendar extends React.Component<React.HTMLAttributes<Element> & Ca
 	}
 
 	/** Sets restricted dates. Restricted dates are dates that cannot be selected/hovered/focused. They are visualy styled as restricted. The dates can be javascript date objects or strings representing a valid date.
-	*	Property type: string[]
+	*	Property type: string[] | Date[]
 	*/
-	get restrictedDates(): string[]  {
+	get restrictedDates(): string[] | Date[]  {
 		return this.nativeElement ? this.nativeElement.restrictedDates : undefined;
 	}
-	set restrictedDates(value: string[]) {
+	set restrictedDates(value: string[] | Date[]) {
 		if (this.nativeElement) {
 			this.nativeElement.restrictedDates = value;
 		}

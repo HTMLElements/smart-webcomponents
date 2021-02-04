@@ -208,10 +208,30 @@ export class CheckBox extends React.Component {
 	set onChange(value) {
 		this._onChange = value;
 	}
+	/**  This event is triggered when the widget is checked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	_onCheckValue = null;	get onCheckValue() {
+		return this._onCheckValue;
+	}
+	set onCheckValue(value) {
+		this._onCheckValue = value;
+	}
+	/**  This event is triggered when the widget is unchecked.
+	*  @param event. The custom event. 	Custom event was created with: event.detail(	changeType)
+	*   changeType - A string flag indicating whether the change event was triggered via API or an event.
+	*/
+	_onUncheckValue = null;	get onUncheckValue() {
+		return this._onUncheckValue;
+	}
+	set onUncheckValue(value) {
+		this._onUncheckValue = value;
+	}
 
 	// Gets the events of the React component.
 	get eventListeners() {
-		return ["onChange"];
+		return ["onChange","onCheckValue","onUncheckValue"];
 	}
 
 

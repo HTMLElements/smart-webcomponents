@@ -1,8 +1,8 @@
 import { Table } from './../index';
-import { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, ElementRenderMode} from './../index';
+import { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableDataSourceSettingsDataFieldDataType, TableDataSourceSettingsDataSourceType, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, TableDataSourceSettings, TableDataSourceSettingsDataField, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, ElementRenderMode} from './../index';
+export { Animation, TableColumnDataType, TableColumnFreeze, TableColumnResponsivePriority, TableConditionalFormattingCondition, TableConditionalFormattingFontFamily, TableConditionalFormattingFontSize, TableColumnSizeMode, TableDataSourceSettingsDataFieldDataType, TableDataSourceSettingsDataSourceType, TableEditMode, TableLoadColumnStateBehavior, TablePageSize, TableSelectionMode, TableSortMode, TableColumnGroup, TableColumn, TableConditionalFormatting, TableDataSourceSettings, TableDataSourceSettingsDataField, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { Table } from './../index';
 
@@ -147,13 +147,22 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 		this.nativeElement ? this.nativeElement.dataRowId = value : undefined;
 	}
 
-	/** @description Determines the data source of the table component. */
+	/** @description Determines the data source of the table component. The data source of the Table can be a regular Array or a DataAdapter instance. You can read more about the dataAdapter here - https://www.htmlelements.com/docs/data-adapter/. */
 	@Input()
 	get dataSource(): any {
 		return this.nativeElement ? this.nativeElement.dataSource : undefined;
 	}
 	set dataSource(value: any) {
 		this.nativeElement ? this.nativeElement.dataSource = value : undefined;
+	}
+
+	/** @description Sets the grid's data source settings when the dataSource property is set to an Array or URL. */
+	@Input()
+	get dataSourceSettings(): TableDataSourceSettings {
+		return this.nativeElement ? this.nativeElement.dataSourceSettings : undefined;
+	}
+	set dataSourceSettings(value: TableDataSourceSettings) {
+		this.nativeElement ? this.nativeElement.dataSourceSettings = value : undefined;
 	}
 
 	/** @description A callback function that can be used to transform the initial dataSource records. If implemented, it is called once for each record (which is passed as an argument). */
@@ -262,6 +271,15 @@ export class TableComponent extends BaseElement implements OnInit, AfterViewInit
 	}
 	set grouping(value: boolean) {
 		this.nativeElement ? this.nativeElement.grouping = value : undefined;
+	}
+
+	/** @description A callback function that can be used to modify the contents of a grouping header row. By changing the 'label' you modify the rendered grouping value. By changing the 'template' you can modify the entire content including the column and count information. */
+	@Input()
+	get groupFormatFunction(): any {
+		return this.nativeElement ? this.nativeElement.groupFormatFunction : undefined;
+	}
+	set groupFormatFunction(value: any) {
+		this.nativeElement ? this.nativeElement.groupFormatFunction = value : undefined;
 	}
 
 	/** @description Sets or gets the id of an HTML template element to be applied as additional column header(s). */

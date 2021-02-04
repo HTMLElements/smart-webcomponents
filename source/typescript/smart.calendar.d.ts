@@ -48,14 +48,14 @@ export interface CalendarProperties {
   displayModeView?: CalendarDisplayModeView;
   /**
    * Determines the height of the month's drop down inside the Calendar.
-   * Default value: "200"
+   * Default value: 200
    */
-  dropDownHeight?: string;
+  dropDownHeight?: string | number;
   /**
    * Determines the width of the month's drop down inside the Calendar.
-   * Default value: ""
+   * Default value: 
    */
-  dropDownWidth?: string;
+  dropDownWidth?: string | number;
   /**
    * Determines the first day of the week. From 0(Sunday) to 6(Saturday)
    * Default value: 0
@@ -110,7 +110,7 @@ export interface CalendarProperties {
    * Determines the max date for the Calendar. Accepts date objects and valid date string formats.
    * Default value: new Date(2100, 1, 1)
    */
-  max?: any;
+  max?: string | Date;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -131,7 +131,7 @@ export interface CalendarProperties {
    * Determines the min date for the Calendar. Accepts date objects and valid date string formats.
    * Default value: new Date(1900, 1, 1)
    */
-  min?: any;
+  min?: string | Date;
   /**
    * Determines the number of months to be displayed inside the calendar. The maximum amount of months that can be shown is 12. By default only 1 month is shown.
    * Default value: 1
@@ -156,7 +156,7 @@ export interface CalendarProperties {
    * Sets restricted dates. Restricted dates are dates that cannot be selected/hovered/focused. They are visualy styled as restricted. The dates can be javascript date objects or strings representing a valid date.
    * Default value: 
    */
-  restrictedDates?: string[];
+  restrictedDates?: string[] | Date[];
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false

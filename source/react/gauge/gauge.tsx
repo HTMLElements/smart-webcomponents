@@ -189,12 +189,12 @@ export class Gauge extends React.Component<React.HTMLAttributes<Element> & Gauge
 	}
 
 	/** When cooerce property is true, all values coerce to the interval's value.
-	*	Property type: any
+	*	Property type: number
 	*/
-	get interval(): any  {
+	get interval(): number  {
 		return this.nativeElement ? this.nativeElement.interval : undefined;
 	}
-	set interval(value: any) {
+	set interval(value: number) {
 		if (this.nativeElement) {
 			this.nativeElement.interval = value;
 		}
@@ -273,12 +273,12 @@ export class Gauge extends React.Component<React.HTMLAttributes<Element> & Gauge
 	}
 
 	/** Determines the maximum value for the scale of the element.
-	*	Property type: any
+	*	Property type: number
 	*/
-	get max(): any  {
+	get max(): number  {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: number) {
 		if (this.nativeElement) {
 			this.nativeElement.max = value;
 		}
@@ -309,12 +309,12 @@ export class Gauge extends React.Component<React.HTMLAttributes<Element> & Gauge
 	}
 
 	/** Determines the minimum value for the scale of the element. 
-	*	Property type: any
+	*	Property type: number
 	*/
-	get min(): any  {
+	get min(): number  {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: number) {
 		if (this.nativeElement) {
 			this.nativeElement.min = value;
 		}

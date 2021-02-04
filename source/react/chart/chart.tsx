@@ -1,8 +1,8 @@
 import React from "react";
 import { ChartProperties } from "./../../index";
-import { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartLegendPosition, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector} from './../../index';
+import { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector} from './../../index';
 export { ChartProperties } from "./../../index";
-export { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartLegendPosition, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector} from './../../index';
+export { Animation, ChartColorScheme, ChartRenderEngine, HorizontalAlignment, ChartRotationPoint, VerticalAlignment, ChartAnnotationType, ChartUnselectMode, Orientation, ChartSeriesGroupSerieEmptyPointsDisplay, ChartSymbolType, ChartType, AxisPosition, ChartBaseUnit, ChartXAxisType, ChartLocalization, Padding, ChartSeriesGroup, ChartAnnotation, Offset, ChartAnnotationText, ChartBand, ChartFormatSettings, ChartSeriesGroupSerie, ChartLabels, ChartValueAxis, ChartLines, ChartLine, ChartTitle, ChartXAxis, ChartRangeSelector} from './../../index';
 
 interface IWindow { Smart: any; }
 declare const window: IWindow;
@@ -66,7 +66,7 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 		}
 	}
 
-	/** Sets the chart's background color.
+	/** Sets the chart's background color. For example: '#DDFFE8'
 	*	Property type: string | null
 	*/
 	get backgroundColor(): string | null  {
@@ -78,7 +78,7 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 		}
 	}
 
-	/** Sets the chart's background image.
+	/** Sets the chart's background image. For example: 'https://www.htmlelements.com/demos/images/carousel-large-1.jpg'
 	*	Property type: string
 	*/
 	get backgroundImage(): string  {
@@ -90,7 +90,7 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 		}
 	}
 
-	/** Sets the chart's border color.
+	/** Sets the chart's border color. For example: '#098700'
 	*	Property type: string | null
 	*/
 	get borderLineColor(): string | null  {
@@ -162,7 +162,7 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 		}
 	}
 
-	/** Gets or sets the color of the crosshairs lines.
+	/** Gets or sets the color of the crosshairs lines. The 'enableCrosshairs' property should be 'true'.
 	*	Property type: string | null
 	*/
 	get crosshairsColor(): string | null  {
@@ -174,7 +174,7 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 		}
 	}
 
-	/** Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length.
+	/** Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length. The 'enableCrosshairs' property should be 'true'. For example: '3,3'
 	*	Property type: string
 	*/
 	get crosshairsDashStyle(): string  {
@@ -186,7 +186,7 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 		}
 	}
 
-	/** Gets or sets the width of the crosshairs lines.
+	/** Gets or sets the width of the crosshairs lines. The 'enableCrosshairs' property should be 'true'
 	*	Property type: number
 	*/
 	get crosshairsLineWidth(): number  {
@@ -351,18 +351,6 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 	set padding(value: Padding) {
 		if (this.nativeElement) {
 			this.nativeElement.padding = value;
-		}
-	}
-
-	/** Sets the legend bar position in the Chart.
-	*	Property type: ChartLegendPosition
-	*/
-	get legendPosition(): ChartLegendPosition  {
-		return this.nativeElement ? this.nativeElement.legendPosition : undefined;
-	}
-	set legendPosition(value: ChartLegendPosition) {
-		if (this.nativeElement) {
-			this.nativeElement.legendPosition = value;
 		}
 	}
 
@@ -561,7 +549,7 @@ export class Chart extends React.Component<React.HTMLAttributes<Element> & Chart
 
 	// Gets the properties of the React component.
 	get properties(): string[] {
-		return ["animation","animationDuration","backgroundColor","backgroundImage","borderLineColor","borderLineWidth","caption","clip","colorScheme","columnSeriesOverlap","crosshairsColor","crosshairsDashStyle","crosshairsLineWidth","dataSource","description","disabled","draw","drawBefore","enableAxisTextAnimation","enableCrosshairs","greyScale","legendLayout","locale","localization","messages","padding","legendPosition","renderEngine","rightToLeft","seriesGroups","showBorderLine","showLegend","showToolTips","showToolTipsOnAllSeries","theme","titlePadding","toolTipBackground","toolTipFormatFunction","toolTipHideDelay","toolTipLineColor","toolTipShowDelay","valueAxis","xAxis"];
+		return ["animation","animationDuration","backgroundColor","backgroundImage","borderLineColor","borderLineWidth","caption","clip","colorScheme","columnSeriesOverlap","crosshairsColor","crosshairsDashStyle","crosshairsLineWidth","dataSource","description","disabled","draw","drawBefore","enableAxisTextAnimation","enableCrosshairs","greyScale","legendLayout","locale","localization","messages","padding","renderEngine","rightToLeft","seriesGroups","showBorderLine","showLegend","showToolTips","showToolTipsOnAllSeries","theme","titlePadding","toolTipBackground","toolTipFormatFunction","toolTipHideDelay","toolTipLineColor","toolTipShowDelay","valueAxis","xAxis"];
 	}
 	/**  The event is raised when the user clicks on a chart annotation.
 	*  @param event. The custom event. 	*/

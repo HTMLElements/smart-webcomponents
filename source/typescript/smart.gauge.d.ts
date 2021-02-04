@@ -70,7 +70,7 @@ export interface GaugeProperties {
    * When cooerce property is true, all values coerce to the interval's value.
    * Default value: 1
    */
-  interval?: any;
+  interval?: number;
   /**
    * Sets the direction of the gauge. If true - the positions of the gauge's start and end are switched.
    * Default value: false
@@ -105,7 +105,7 @@ export interface GaugeProperties {
    * Determines the maximum value for the scale of the element.
    * Default value: 100
    */
-  max?: any;
+  max?: number;
   /**
    * Determines when the value of the element is updated.
    * Default value: switchWhileDragging
@@ -134,7 +134,7 @@ export interface GaugeProperties {
    * Determines the minimum value for the scale of the element. 
    * Default value: 0
    */
-  min?: any;
+  min?: number;
   /**
    * Determines whether the element works with numbers or dates.
    * Default value: numeric

@@ -18,9 +18,9 @@ export interface DropDownButtonProperties {
   disabled?: boolean;
   /**
    * Sets the parent container of the dropDown (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown.
-   * Default value: null
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines the position of the drop down button.
    * Default value: right

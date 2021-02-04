@@ -89,12 +89,12 @@ export class MultiSplitButtonComponent extends BaseElement implements OnInit, Af
 		this.nativeElement ? this.nativeElement.displayMember = value : undefined;
 	}
 
-	/** @description Sets the parent container of the button's dropDown list (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown list. */
+	/** @description Sets the parent container of the button's dropDown list (the popup). The expected value is CSS Selector, ID or 'body'. Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown list. */
 	@Input()
-	get dropDownAppendTo(): any {
+	get dropDownAppendTo(): string {
 		return this.nativeElement ? this.nativeElement.dropDownAppendTo : undefined;
 	}
-	set dropDownAppendTo(value: any) {
+	set dropDownAppendTo(value: string) {
 		this.nativeElement ? this.nativeElement.dropDownAppendTo = value : undefined;
 	}
 

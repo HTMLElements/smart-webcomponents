@@ -131,10 +131,10 @@ export class TooltipComponent extends BaseElement implements OnInit, AfterViewIn
 
 	/** @description Sets the element which triggers the tooltip. */
 	@Input()
-	get selector(): any {
+	get selector(): string | HTMLElement {
 		return this.nativeElement ? this.nativeElement.selector : undefined;
 	}
-	set selector(value: any) {
+	set selector(value: string | HTMLElement) {
 		this.nativeElement ? this.nativeElement.selector = value : undefined;
 	}
 

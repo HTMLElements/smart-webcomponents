@@ -103,6 +103,18 @@ export interface CheckBox extends BaseElement, CheckBoxProperties {
    *  changeType - A string flag indicating whether the change event was triggered via API or an event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when the widget is checked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onCheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the widget is unchecked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onUncheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
 declare global {

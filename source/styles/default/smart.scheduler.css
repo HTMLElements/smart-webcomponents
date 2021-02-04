@@ -59,6 +59,7 @@ smart-scheduler>.smart-container[show-footer],
 
 .smart-scheduler .smart-scheduler-footer {
     height: var(--smart-scheduler-footer-height);
+    border-top: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-scheduler .smart-scheduler-header:empty,
@@ -499,12 +500,12 @@ smart-scheduler>.smart-container[show-footer],
     pointer-events: none;
 }
 
-.smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cells .smart-scheduler-cell > div {
+.smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cells .smart-scheduler-cell>div {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.smart-scheduler[view-type^="timeline"] .smart-scheduler-cells .smart-scheduler-cell > div {
+.smart-scheduler[view-type^="timeline"] .smart-scheduler-cells .smart-scheduler-cell>div {
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -520,6 +521,7 @@ smart-scheduler>.smart-container[show-footer],
     display: grid;
     grid-area: content;
     height: 100%;
+    background: var(--smart-scheduler-view-background);
 }
 
 .smart-scheduler .smart-scheduler-content {
@@ -856,13 +858,23 @@ smart-scheduler>.smart-container[show-footer],
     box-sizing: border-box;
 } */
 
+
 .smart-scheduler .smart-scheduler-header {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-rows: 100%;
-    grid-template-areas: "date . view";
+    grid-template-areas: "date view";
     justify-content: start;
     border-bottom: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-scheduler .smart-scheduler-header[responsive-mode] {
+    grid-template-columns: repeat(2, auto);
+}
+
+.smart-scheduler[view-selector-type="tabs"] .smart-scheduler-header,
+.smart-scheduler[view-selector-type="auto"] .smart-scheduler-header {
+    grid-template-areas: "date . view";
 }
 
 .smart-scheduler[header-date-position="far"] .smart-scheduler-header {
@@ -1237,7 +1249,8 @@ smart-scheduler>.smart-container[show-footer],
 .smart-scheduler .smart-scheduler-event,
 .smart-scheduler-tooltip .smart-scheduler-event,
 .smart-scheduler-tooltip .smart-scheduler-context-menu .smart-scheduler-context-menu-item,
-.smart-scheduler-window .smart-scheduler-window-editor .smart-input[disabled] {
+.smart-scheduler-window .smart-scheduler-window-editor .smart-input[disabled],
+.smart-scheduler[filterable] .smart-scheduler-legend .smart-scheduler-legend-res-item {
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
@@ -1345,9 +1358,9 @@ smart-scheduler>.smart-container[show-footer],
     background-color: inherit;
 }
 
-.smart-scheduler[header-view-position="near"] .smart-scheduler-view-items-button {
+/* .smart-scheduler[header-view-position="near"] .smart-scheduler-view-items-button {
     margin-left: var(--smart-scheduler-header-padding);
-}
+} */
 
 /* .smart-scheduler .smart-scheduler-view-items-button:not(.smart-visibility-hidden)::after {
     transform: rotate(90deg);
@@ -1471,20 +1484,20 @@ smart-scheduler>.smart-container[show-footer],
 /* --- Scheduler Window --- */
 
 .smart-scheduler-window {
+    --smart-window-default-width: auto;
+    --smart-window-default-height: auto;
     --smart-window-header-height: var(--smart-scheduler-window-header-height);
     --smart-window-footer-height: var(--smart-scheduler-window-footer-height);
     --smart-window-header-footer-padding: 10px;
-    --smart-window-default-height: auto;
     --smart-window-header-background: transparent;
-}
-
-.smart-scheduler-window {
-    --smart-window-default-width: auto;
-    --smart-window-default-height: auto;
     --smart-window-footer-padding: 10px;
     --smart-window-content-padding: 20px;
     max-width: 100vw;
     max-height: 100vh;
+}
+
+.smart-scheduler-window[mobile] {
+    border-radius: initial;
 }
 
 .smart-scheduler-window>.smart-container,
@@ -1521,18 +1534,38 @@ smart-scheduler>.smart-container[show-footer],
 /* Safari specific. There's an issue with align-items when display: grid */
 
 @media not all and (min-resolution:.001dpcm) {
-    @media {
-        .smart-scheduler-window .smart-content-container>.smart-footer {
-            align-content: start;
-        }
+    .smart-scheduler-window .smart-content-container>.smart-footer {
+        align-content: start;
     }
 }
 
-.smart-window.smart-scheduler-window .smart-content-container>.smart-content,
+.smart-window.smart-scheduler-window.confirm .smart-content-container>.smart-content,
+.smart-window.smart-scheduler-window .smart-scheduler-window-content-wrapper {
+    width: 100%;
+    padding: var(--smart-window-content-padding);
+    justify-items: center;
+    /* Fallback if 'safe' is not recognized by the browser */
+    justify-items: safe center;
+    grid-template-rows: auto minmax(auto, 1fr);
+}
+
+.smart-window.smart-scheduler-window.confirm .smart-content-container>.smart-content,
+.smart-window.smart-scheduler-window .smart-scheduler-window-content-wrapper,
 .smart-window.smart-scheduler-window .smart-scheduler-window-main,
 .smart-window.smart-scheduler-window .smart-scheduler-window-repeat {
     display: grid;
     grid-row-gap: 10px;
+    justify-content: center;
+    grid-template-columns: 100%;
+}
+
+.smart-window.smart-scheduler-window.confirm .smart-content-container>.smart-content {
+    grid-row-gap: initial;
+}
+
+.smart-window.smart-scheduler-window .smart-content-container>.smart-content {
+    padding: initial;
+    align-items: flex-start;
 }
 
 .smart-window.smart-scheduler-window .smart-scheduler-window-main,
@@ -1541,11 +1574,7 @@ smart-scheduler>.smart-container[show-footer],
     width: var(--smart-box-width);
 }
 
-.smart-window.smart-scheduler-window .smart-content-container>.smart-content {
-    align-items: flex-start;
-}
-
-.smart-window.smart-scheduler-window[horizontal] .smart-content-container>.smart-content {
+.smart-window.smart-scheduler-window[horizontal] .smart-scheduler-window-content-wrapper {
     grid-template-columns: repeat(2, auto);
     grid-column-gap: 20px;
 }
@@ -1856,6 +1885,10 @@ smart-scheduler>.smart-container[show-footer],
     z-index: 10000;
 }
 
+.smart-scheduler .smart-scheduler-event[cut] .smart-scheduler-event-content {
+    opacity: 0.75;
+}
+
 .smart-scheduler-drag-feedback .smart-scheduler-event-content {
     box-sizing: border-box;
 }
@@ -1915,6 +1948,11 @@ smart-scheduler>.smart-container[show-footer],
     justify-content: flex-start;
 }
 
+/* Since the ScrollViewer has width: auto; We need to add the vScroll width to the menu container */
+.smart-scheduler-tooltip .smart-scroll-viewer-container.vscroll .smart-scheduler-context-menu {
+    padding-right: var(--smart-scroll-bar-size);
+}
+
 .smart-scheduler-tooltip .smart-scheduler-context-menu-item {
     height: var(--smart-list-item-height);
     padding: var(--smart-list-item-padding);
@@ -1938,6 +1976,10 @@ smart-scheduler>.smart-container[show-footer],
 .smart-scheduler:not([view-type^="timeline"]) .smart-scheduler-event,
 .smart-scheduler-drag-feedback:not([view-type^="timeline"]) {
     width: var(--smart-scheduler-event-size);
+}
+
+.smart-scheduler-drag-feedback[mobile]:not([view-type^="timeline"]) {
+    min-width: var(--smart-scheduler-event-size-timeline);
 }
 
 .smart-scheduler .smart-scheduler-event-content,
@@ -2017,6 +2059,13 @@ smart-scheduler>.smart-container[show-footer],
     width: 100%;
     height: 100%;
     display: block;
+}
+
+/* No need for view overlay on Mobile Firefox. */
+@-moz-document url-prefix() {
+    .smart-scheduler .smart-scheduler-view[mobile] .smart-scheduler-content:not(.hide-overlay)::after {
+        display: none;
+    }
 }
 
 .smart-scheduler .smart-scheduler-view[mobile] .smart-scheduler-event[collector] {
@@ -2817,4 +2866,119 @@ smart-scheduler[right-to-left]>.smart-container.vscroll .smart-scheduler-view-sc
 .smart-scheduler-loader::before,
 .smart-scheduler-loader::after {
     animation: smart-loader-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, smart-loader-spin-fade 1.1s linear infinite;
+}
+
+/* Sheduler Footer Legend */
+
+.smart-scheduler .smart-scheduler-legend {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    grid-area: legend;
+}
+
+.smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    padding: var(--smart-scheduler-header-padding);
+    overflow: hidden;
+    grid-row-gap: 2px;
+}
+
+.smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-items {
+    display: flex;
+    /* grid-column-gap: 20px; */  /* Safari does not support column-gap with Flexbox */
+}
+
+.smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    grid-column-gap: 5px;
+    white-space: nowrap;
+    outline: initial;
+    overflow: hidden;
+}
+
+.smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item:not(:first-of-type) {
+    margin-left: 20px;
+}
+
+.smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item>span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+    .smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item>span {
+        width: 0;
+    }
+}
+
+.smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item::before {
+    content: '';
+    width: var(--smart-check-box-default-size);
+    min-width: var(--smart-check-box-default-size);
+    height: var(--smart-check-box-default-size);
+    min-height: var(--smart-check-box-default-size);
+    display: flex;
+    border: var(--smart-border-width) solid var(--smart-border);
+    box-sizing: border-box;
+    background-color: var(--smart-scheduler-legend-item-background);
+    border-radius: var(--smart-border-radius);
+}
+
+.smart-scheduler[filterable] .smart-scheduler-legend .smart-scheduler-legend-res-item:hover::before {
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-scheduler[filterable] .smart-scheduler-legend .smart-scheduler-legend-res-item:focus::before {
+    border-color: var(--smart-primary);
+}
+
+.smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item:hover {
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-scheduler:not([animation="none"]) .smart-scheduler-legend .smart-scheduler-legend-res-item::before {
+    transition: background linear 0.2s, border linear 0.2s;
+}
+
+.smart-scheduler[filterable] .smart-scheduler-legend .smart-scheduler-legend-res-item[unselected]::before {
+    background: transparent;
+}
+
+.smart-scheduler[filterable] .smart-scheduler-legend .smart-scheduler-legend-res-item {
+    cursor: pointer;
+}
+
+.smart-scheduler[legend-location="header"] {
+    --smart-scheduler-header-height: auto;
+}
+
+.smart-scheduler[legend-position="far"] .smart-scheduler-legend {
+    justify-content: flex-end;
+}
+
+.smart-scheduler[legend-location="header"] .smart-scheduler-header {
+    grid-template-areas:
+        "date view"
+        "legend legend";
+    grid-template-rows: auto minmax(0, 1fr);
+}
+
+.smart-scheduler:not([filterable]) .smart-scheduler-legend,
+.smart-scheduler[filterable] .smart-scheduler-legend .smart-scheduler-legend-res-item[disabled] {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+}
+
+.smart-scheduler[right-to-left] .smart-scheduler-legend {
+    direction: rtl;
 }

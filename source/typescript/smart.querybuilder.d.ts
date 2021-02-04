@@ -17,7 +17,7 @@ export interface QueryBuilderProperties {
    */
   applyMode?: QueryBuilderApplyMode;
   /**
-   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closedhideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type Array[string]expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField). 
+   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closed. If the dataType is 'object' the expected result from the function should contain a 'label' and 'value' attributes. Where the label will be used for displaying purposes while 'value' will be used as the actual value. hideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type Array[string]expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField). 
    * Default value: 
    */
   customOperations?: any;
@@ -35,7 +35,7 @@ export interface QueryBuilderProperties {
    * Array with filter fields and their settings. The available field settings are:label - the field's label, as it will appear in the field selection drop downdataField - the field's data fielddataType - the field's data typefilterOperations - an array of the filter operations applicable to the field; if not set, the default filter operations are appliedlookup - an object with settings for customizing the field's respective value selection input. It has the following settings:autoCompleteDelay - delay between typing in the input and opening the drop down with available optionsdataSource - an array of available options to choose from (appear in a drop down)minLength - minimum number of charactes to type in the input before the options drop down is displayedreadonly - if set to true, the value selection input acts as a drop down list, otherwise it acts as a combo box
    * Default value: null
    */
-  fields?: any;
+  fields?: QueryBuilderField[];
   /**
    * Determines whether new fields can be dynamically added by typing in the field (property) box.
    * Default value: dynamic
@@ -222,6 +222,34 @@ export interface QueryBuilder extends BaseElement, QueryBuilderProperties {
   getLinq(): string;
 }
 
+export interface QueryBuilderField {
+  /**
+   * Sets or gets the label.
+   * Default value: ""
+   */
+  label?: string;
+  /**
+   * Sets or gets the data field
+   * Default value: ""
+   */
+  dataField?: string;
+  /**
+   * Sets or gets the data type.
+   * Default value: string
+   */
+  dataType?: QueryBuilderFieldDataType;
+  /**
+   * Sets or gets the filter format.
+   * Default value: ""
+   */
+  format?: string;
+  /**
+   * Sets or gets the filter operations.
+   * Default value: []
+   */
+  filterOperations?: string[];
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-query-builder"): QueryBuilder;
@@ -234,5 +262,7 @@ declare global {
 
 /**Determines when the value of the element is updated with the new changes. */
 export declare type QueryBuilderApplyMode = 'change' | 'immediately';
+/**Sets or gets the data type. */
+export declare type QueryBuilderFieldDataType = 'number' | 'string' | 'boolean' | 'date';
 /**Determines whether new fields can be dynamically added by typing in the field (property) box. */
 export declare type QueryBuilderFieldsMode = 'dynamic' | 'static';

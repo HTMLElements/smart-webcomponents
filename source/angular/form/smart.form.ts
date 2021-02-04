@@ -44,7 +44,7 @@ export class FormComponent extends BaseElement implements OnInit, AfterViewInit,
 		this.nativeElement ? this.nativeElement.columns = value : undefined;
 	}
 
-	/** @description  */
+	/** @description Sets or gets the form controls. */
 	@Input()
 	get controls(): Control[] {
 		return this.nativeElement ? this.nativeElement.controls : undefined;

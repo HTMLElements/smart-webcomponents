@@ -13,9 +13,9 @@ export interface FileUploadProperties {
   animation?: Animation;
   /**
    * Appends the list with selected files to a new custom container specified by the user. If the value of the property is a string it must represent a valid id of an HTML element inside the DOM that will be used as the new container for the uploaded files list.
-   * Default value: null
+   * Default value: "null"
    */
-  appendTo?: any;
+  appendTo?: string;
   /**
    * Sets or gets whether files will be automatically uploaded after selection.
    * Default value: false

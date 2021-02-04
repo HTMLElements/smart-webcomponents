@@ -42,10 +42,10 @@ export interface ColorPickerProperties {
    */
   disableUndo?: boolean;
   /**
-   * Sets the parent container of the dropDown (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown.
-   * Default value: body
+   * Sets the parent container of the dropDown (the popup). The expected value is CSS Selector, ID or 'body'. Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown. Example: 'body'.
+   * Default value: "body"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines how the drop down is going to open.
    * Default value: default

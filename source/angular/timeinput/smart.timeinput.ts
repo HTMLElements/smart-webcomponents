@@ -1,8 +1,8 @@
 import { TimeInput } from './../index';
-import { Animation, DropDownButtonPosition, TimeFormat, ElementRenderMode} from './../index';
+import { Animation, TimeFormatHour, TimeFormatMinute, DropDownButtonPosition, TimeFormat, ElementRenderMode} from './../index';
 import { Component, Directive, AfterViewInit, ElementRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { BaseElement, Smart } from './smart.element';
-export { Animation, DropDownButtonPosition, TimeFormat, ElementRenderMode} from './../index';
+export { Animation, TimeFormatHour, TimeFormatMinute, DropDownButtonPosition, TimeFormat, ElementRenderMode} from './../index';
 export { Smart } from './smart.element';
 export { TimeInput } from './../index';
 

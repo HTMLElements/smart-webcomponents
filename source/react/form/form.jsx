@@ -27,7 +27,7 @@ export class Form extends React.Component {
 		}
 	}
 
-	/** 
+	/** Sets or gets the form controls.
 	*	Property type: Control[]
 	*/
 	get controls() {

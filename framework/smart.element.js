@@ -1,12 +1,12 @@
 
-/* Smart UI v9.0.0 (2020-Dec) 
+/* Smart UI v9.1.1 (2021-Feb) 
 Copyright (c) 2011-2021 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
 
 
-    const Version = '8.0.1';
+    const Version = '9.1.0';
     const templates = [];
 
     let namespace = 'Smart';
@@ -533,6 +533,22 @@ License: https://htmlelements.com/license/ */ //
     class Core {
         static get isMobile() {
             const isMobile = /(iphone|ipod|ipad|android|iemobile|blackberry|bada)/.test(window.navigator.userAgent.toLowerCase());
+            const iOS = () => {
+                return [
+                  'iPad Simulator',
+                  'iPhone Simulator',
+                  'iPod Simulator',
+                  'iPad',
+                  'iPhone',
+                  'iPod'
+                ].includes(navigator.platform)
+                // iPad on iOS 13 detection
+                || (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+              }
+
+            if (!isMobile) {
+                return iOS();
+            }
 
             return isMobile;
         }
@@ -770,6 +786,14 @@ License: https://htmlelements.com/license/ */ //
 
         static observeElement(element) {
             const that = element;
+
+            if (window.Smart.Mode === 'test') {
+                if (StyleObserver.interval) {
+                    clearInterval(StyleObserver.interval);
+                }
+
+                return;
+            }
 
             let computedStyle = element._computedStyle || that.hasStyleObserver !== 'resize' ? document.defaultView.getComputedStyle(that, null) : {
             };
@@ -1708,14 +1732,15 @@ License: https://htmlelements.com/license/ */ //
                     event.originalEvent.stopPropagation();
                 }
 
-                hScrollInfo.visible = horizontalScrollBar.offsetHeight > 0;
-                vScrollInfo.visible = verticalScrollBar.offsetWidth > 0;
+                hScrollInfo.visible = that.scrollWidth > 0;
+                vScrollInfo.visible = that.scrollHeight > 0;
 
                 if (!pointerCaptured || (!hScrollInfo.visible && !vScrollInfo.visible)) {
                     return;
                 }
 
-                const touchScrollRatio = that.container.touchScrollRatio;
+                const touchScrollRatio = that.container.touchScrollRatio,
+                    container = that.container;
                 let vScrollRatio, hScrollRatio;
 
                 if (touchScrollRatio) {
@@ -1724,15 +1749,15 @@ License: https://htmlelements.com/license/ */ //
                         hScrollRatio = -touchScrollRatio;
                     }
                     else if (typeof touchScrollRatio === 'function') {
-                        vScrollRatio = touchScrollRatio(vScrollInfo.max, vScrollInfo.scrollBar.offsetHeight);
-                        hScrollRatio = touchScrollRatio(hScrollInfo.max, hScrollInfo.scrollBar.offsetWidth);
+                        vScrollRatio = touchScrollRatio(vScrollInfo.max, container.offsetHeight);
+                        hScrollRatio = touchScrollRatio(hScrollInfo.max, container.offsetWidth);
                     }
                 }
 
-                vScrollInfo.ratio = vScrollRatio || (-vScrollInfo.max / vScrollInfo.scrollBar.offsetHeight);
+                vScrollInfo.ratio = vScrollRatio || (-vScrollInfo.max / container.offsetHeight);
                 vScrollInfo.delta = (event.clientY - vScrollInfo.pointerPosition) * vScrollInfo.ratio;
 
-                hScrollInfo.ratio = hScrollRatio || (-hScrollInfo.max / hScrollInfo.scrollBar.offsetWidth);
+                hScrollInfo.ratio = hScrollRatio || (-hScrollInfo.max / container.offsetWidth);
                 hScrollInfo.delta = (event.clientX - hScrollInfo.pointerPosition) * hScrollInfo.ratio;
 
                 let dragged = 'value';
@@ -3937,9 +3962,9 @@ License: https://htmlelements.com/license/ */ //
             console.log('****************************************************************************************************************');
             console.log('****************************************************************************************************************');
             console.log('****************************************************************************************************************');
-            console.log('*Smart HTML Elements License Key Not Found.');
-            console.log('*This is an evaluation only version, it is not licensed for development projects intended for production.');
-            console.log('*if you want to hide the watermark, please send an email to: sales@htmlelements.com for a license.');
+            console.log('*jQWidgets License Key Not Found.');
+            console.log('*This is an EVALUATION only Version, it is NOT Licensed for software projects intended for PRODUCTION.');
+            console.log('*if you want to hide this message, please send an email to: sales@jqwidgets.com for a license.');
             console.log('****************************************************************************************************************');
             console.log('****************************************************************************************************************');
             console.log('****************************************************************************************************************');
@@ -4689,8 +4714,8 @@ License: https://htmlelements.com/license/ */ //
             }
 
             if (data && data[that._selector]) {
-				delete data[that._selector];
-			}
+                delete data[that._selector];
+            }
         }
 
         /** Called when a property value is changed. */
@@ -5082,6 +5107,10 @@ License: https://htmlelements.com/license/ */ //
             }
             else {
                 const modules = proto.modules;
+
+                if (!modules) {
+                    return;
+                }
 
                 for (let i = 0; i < modules.length; i += 1) {
                     const module = modules[i];
@@ -7715,6 +7744,7 @@ License: https://htmlelements.com/license/ */ //
         RenderMode: userDefinedSettings.RenderMode || 'auto',
         Render: render,
         Data: data,
+        Mode: userDefinedSettings.Mode || 'production',
         License: 'Evaluation'
     });
 
@@ -7986,11 +8016,11 @@ License: https://htmlelements.com/license/ */ //
                 return;
             }
 
-            const computedVerticalScrollBarVisibility = that.computedVerticalScrollBarVisibility,
+            const computedVerticalScrollBarVisibility = that.scrollHeight > 0,
+                computedHorizontalScrollBarVisibility = that.scrollWidth > 0,
                 coords = that._touchCoords;
 
-            if (!that.computedHorizontalScrollBarVisibility && !computedVerticalScrollBarVisibility ||
-                !coords) {
+            if (!computedVerticalScrollBarVisibility && !computedHorizontalScrollBarVisibility || !coords) {
                 return;
             }
 

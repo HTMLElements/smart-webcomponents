@@ -151,14 +151,14 @@ export interface TimeInput extends BaseElement, TimeInputProperties {
 export interface TimeFormat {
   /**
    * Hour format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  hour?: string;
+  hour?: TimeFormatHour;
   /**
    * Minute format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  minute?: string;
+  minute?: TimeFormatMinute;
 }
 
 declare global {
@@ -171,5 +171,9 @@ declare global {
     }
 }
 
+/**Hour format. */
+export declare type TimeFormatHour = 'numeric' | '2-digit';
+/**Minute format. */
+export declare type TimeFormatMinute = 'numeric' | '2-digit';
 /**Determines the position of the drop down button. */
 export declare type DropDownButtonPosition = 'none' | 'left' | 'right';

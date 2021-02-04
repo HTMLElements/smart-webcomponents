@@ -1,6 +1,4 @@
-
 /* .smart-badge */
-
 .smart-badge {
     display: inline-block;
     padding: .25em .4em;
@@ -8,44 +6,55 @@
     line-height: 1;
 }
 
-    .smart-badge.smart-badge-dark {
-        color: #fff;
-        background-color: #333;
-    }
+.smart-badge.smart-badge-primary {
+    color: var(--smart-primary-color);
+    background-color: var(--smart-primary);
+}
 
-    .smart-badge.smart-badge-primary {
-        color: var(--smart-primary-color);
-        background-color: var(--smart-primary);
-    }
+.smart-badge.smart-badge-secondary {
+    color: var(--smart-secondary-color);
+    background-color: var(--smart-secondary);
+}
 
-    .smart-badge.smart-badge-info {
-        color: var(--smart-secondary-color);
-        background-color: var(--smart-secondary);
-    }
+.smart-badge.smart-badge-success {
+    color: var(--smart-success-color);
+    background-color: var(--smart-success);
+}
 
-    .smart-badge.smart-badge-success {
-        color: var(--smart-success-color);
-        background-color: var(--smart-success);
-    }
+.smart-badge.smart-badge-error {
+    color: var(--smart-error-color);
+    background-color: var(--smart-error);
+}
 
-    .smart-badge.smart-badge-danger {
-        color: var(--smart-error-color);
-        background-color: var(--smart-error);
-    }
+.smart-badge.smart-badge-info {
+    color: var(--smart-info-color);
+    background-color: var(--smart-info);
+}
 
-    .smart-badge.smart-badge-warning {
-        color: #fff;
-        background-color: #C75200;
-    }
+.smart-badge.smart-badge-warning {
+    color: var(--smart-warning-color);
+    background-color: var(--smart-warning);
+}
 
-    .smart-badge.smart-badge-pill {
-        border-radius: 10rem;
-    }
+.smart-badge.smart-badge-light {
+    color: var(--smart-light-color);
+    background-color: var(--smart-light);
+}
 
-    /* --- Right to Left --- */
+.smart-badge.smart-badge-dark {
+    color: var(--smart-dark-color);
+    background-color: var(--smart-dark);
+}
 
-    .smart-badge[right-to-left] {
-        direction: rtl;
-    }
+.smart-badge.smart-badge-danger {
+    color: var(--smart-error-color);
+    background-color: var(--smart-error);
+}
 
-/* --- */
+.smart-badge.smart-badge-pill {
+    border-radius: 10rem;
+}
+
+.smart-badge[right-to-left] {
+    direction: rtl;
+}

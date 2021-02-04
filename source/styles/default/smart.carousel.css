@@ -1,56 +1,55 @@
-
 /* smart-carousel */
 smart-carousel {
     width: var(--smart-carousel-default-width);
     height: var(--smart-carousel-default-height);
 }
 
-    smart-carousel[disabled] {
-        opacity: 0.55;
-        cursor: default;
-        pointer-events: none;
-    }
+smart-carousel[disabled] {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+}
 
-    .smart-carousel > .smart-container,
-    .smart-carousel.smart-container {
-        display: block;
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+.smart-carousel > .smart-container,
+.smart-carousel.smart-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
-    .smart-carousel .smart-items-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
+.smart-carousel .smart-items-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
 
-    .smart-carousel[swipe] {
-        user-select: none;
-    }
+.smart-carousel[swipe] {
+    user-select: none;
+}
 
-    .smart-carousel .smart-carousel-item {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        opacity: 0;
-        z-index: 0;
-        box-sizing: border-box;
-        pointer-events: none;
-        user-select: none;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.smart-carousel .smart-carousel-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    z-index: 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    user-select: none;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-        .smart-carousel .smart-carousel-item.smart-active {
-            opacity: 1;
-            pointer-events: all;
-            user-select: text;
-        }
+.smart-carousel .smart-carousel-item.smart-active {
+    opacity: 1;
+    pointer-events: all;
+    user-select: text;
+}
 
 [disabled] .smart-carousel-item.smart-active {
     pointer-events: none;
@@ -113,9 +112,9 @@ smart-carousel {
     border-width: 0px;
 }
 
-    .smart-carousel  .smart-arrow > .smart-button:active {
-        background-color: transparent;
-    }
+.smart-carousel .smart-arrow > .smart-button:active {
+    background-color: transparent;
+}
 
 .smart-carousel .smart-arrow:after {
     font-size: 20px;
@@ -140,11 +139,11 @@ smart-carousel {
     opacity: 1;
 }
 
-.smart-carousel  .smart-arrow-left {
+.smart-carousel .smart-arrow-left {
     left: 0px;
 }
 
-.smart-carousel  .smart-arrow-right {
+.smart-carousel .smart-arrow-right {
     right: 0px;
 }
 
@@ -173,31 +172,31 @@ smart-carousel {
     opacity: 0.5;
 }
 
-    .smart-carousel .smart-indicator.smart-active {
-        opacity: 0.9;
-        border-width: 3px;
-    }
+.smart-carousel .smart-indicator.smart-active {
+    opacity: 0.9;
+    border-width: 3px;
+}
 
-    .smart-carousel .smart-indicator:hover {
-        opacity: 0.7;
-    }
+.smart-carousel .smart-indicator:hover {
+    opacity: 0.7;
+}
 
 /* animations */
 .smart-carousel:not([animation='none']) .smart-carousel-item {
     animation-duration: 1s;
 }
 
-    /* displayMode:"default" animations */
-    /* fade */
-    .smart-carousel:not([animation='none']) .smart-carousel-item.smart-active.smart-animate-trigger,
-    .smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-active.smart-animate-trigger {
-        animation-name: carousel-active-fade;
-    }
+/* displayMode:"default" animations */
+/* fade */
+.smart-carousel:not([animation='none']) .smart-carousel-item.smart-active.smart-animate-trigger,
+.smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-active.smart-animate-trigger {
+    animation-name: carousel-active-fade;
+}
 
-    .smart-carousel:not([animation='none']) .smart-carousel-item.smart-out.smart-animate-trigger,
-    .smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-out.smart-animate-trigger {
-        animation-name: carousel-out-fade;
-    }
+.smart-carousel:not([animation='none']) .smart-carousel-item.smart-out.smart-animate-trigger,
+.smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-out.smart-animate-trigger {
+    animation-name: carousel-out-fade;
+}
 
 @keyframes carousel-active-fade {
     from {
@@ -553,14 +552,14 @@ smart-carousel {
     width: var(--smart-carousel-multiple-mode-slide-width);
 }
 
-    .smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-active {
-        background-color: lightgray;
-        transition: background-color 1s ease-in-out;
-    }
+.smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-active {
+    background-color: lightgray;
+    transition: background-color 1s ease-in-out;
+}
 
-    .smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-out {
-        transition: background-color 1s ease-in-out;
-    }
+.smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-out {
+    transition: background-color 1s ease-in-out;
+}
 
 .smart-carousel smart-repeat-button[hover] button {
     background-color: transparent;
@@ -571,4 +570,79 @@ smart-carousel {
 .smart-carousel[right-to-left] .smart-indicators-container {
     direction: rtl;
 }
+
+/* --- Adaptive Height --- */
+smart-carousel[adaptive-height],
+smart-carousel[adaptive-auto-height] {
+    height: 100%;
+    overflow: visible;
+    transition: height 0.6s ease-out;
+    margin: 0 auto 70px auto;
+}
+
+smart-carousel[adaptive-height] > .smart-container,
+smart-carousel[adaptive-height].smart-container,
+smart-carousel[adaptive-auto-height] > .smart-container,
+smart-carousel[adaptive-auto-height].smart-container {
+    position: relative;
+}
+
+smart-carousel[adaptive-height] > .smart-container,
+smart-carousel[adaptive-auto-height] > .smart-container {
+    overflow: visible;
+}
+
+smart-carousel[adaptive-height] .smart-carousel-item,
+smart-carousel[adaptive-auto-height] .smart-carousel-item {
+    height: auto;
+}
+
+smart-carousel[adaptive-height].smart-calculated-height .smart-carousel-item,
+smart-carousel[adaptive-auto-height].smart-calculated-height .smart-carousel-item {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+smart-carousel[adaptive-height] .smart-slide-wrapper,
+smart-carousel[adaptive-auto-height] .smart-slide-wrapper {
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 65px;
+}
+
+smart-carousel[adaptive-height].smart-calculated-height .smart-slide-wrapper,
+smart-carousel[adaptive-auto-height].smart-calculated-height .smart-slide-wrapper {
+    height: auto;
+}
+
+smart-carousel[adaptive-height] .smart-indicators-container,
+smart-carousel[adaptive-auto-height] .smart-indicators-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    margin-top: 20px;
+}
+
+smart-carousel[adaptive-height] .smart-arrow,
+smart-carousel[adaptive-auto-height] .smart-arrow {
+    width: 50px;
+    height: 50px;
+    background: var(--smart-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: var(--smart-border);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
 /* --- */
+
+

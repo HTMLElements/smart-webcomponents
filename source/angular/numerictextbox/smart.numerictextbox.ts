@@ -162,10 +162,10 @@ export class NumericTextBoxComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Sets or gets the maximum value of the widget.  */
 	@Input()
-	get max(): any {
+	get max(): number | string {
 		return this.nativeElement ? this.nativeElement.max : undefined;
 	}
-	set max(value: any) {
+	set max(value: number | string) {
 		this.nativeElement ? this.nativeElement.max = value : undefined;
 	}
 
@@ -180,10 +180,10 @@ export class NumericTextBoxComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Sets or gets the minimum value of the widget.  */
 	@Input()
-	get min(): any {
+	get min(): number | string {
 		return this.nativeElement ? this.nativeElement.min : undefined;
 	}
-	set min(value: any) {
+	set min(value: number | string) {
 		this.nativeElement ? this.nativeElement.min = value : undefined;
 	}
 
@@ -360,10 +360,10 @@ export class NumericTextBoxComponent extends BaseElement implements OnInit, Afte
 
 	/** @description Sets or gets the increase/decrease step.  */
 	@Input()
-	get spinButtonsStep(): any {
+	get spinButtonsStep(): number | string {
 		return this.nativeElement ? this.nativeElement.spinButtonsStep : undefined;
 	}
-	set spinButtonsStep(value: any) {
+	set spinButtonsStep(value: number | string) {
 		this.nativeElement ? this.nativeElement.spinButtonsStep = value : undefined;
 	}
 

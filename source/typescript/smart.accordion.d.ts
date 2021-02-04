@@ -7,6 +7,11 @@ export interface AccordionProperties {
    */
   animation?: Animation;
   /**
+   * Determines the data source that will be loaded to the Accordion.
+   * Default value: null
+   */
+  dataSource?: any;
+  /**
    * Enables or disables the accordion. Disabled elements can not be interacted with.
    * Default value: false
    */

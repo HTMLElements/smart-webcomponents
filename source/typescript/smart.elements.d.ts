@@ -5,6 +5,11 @@ export interface AccordionProperties {
    */
   animation?: Animation;
   /**
+   * Determines the data source that will be loaded to the Accordion.
+   * Default value: null
+   */
+  dataSource?: any;
+  /**
    * Enables or disables the accordion. Disabled elements can not be interacted with.
    * Default value: false
    */
@@ -985,14 +990,14 @@ export interface CalendarProperties {
   displayModeView?: CalendarDisplayModeView;
   /**
    * Determines the height of the month's drop down inside the Calendar.
-   * Default value: "200"
+   * Default value: 200
    */
-  dropDownHeight?: string;
+  dropDownHeight?: string | number;
   /**
    * Determines the width of the month's drop down inside the Calendar.
-   * Default value: ""
+   * Default value: 
    */
-  dropDownWidth?: string;
+  dropDownWidth?: string | number;
   /**
    * Determines the first day of the week. From 0(Sunday) to 6(Saturday)
    * Default value: 0
@@ -1047,7 +1052,7 @@ export interface CalendarProperties {
    * Determines the max date for the Calendar. Accepts date objects and valid date string formats.
    * Default value: new Date(2100, 1, 1)
    */
-  max?: any;
+  max?: string | Date;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -1068,7 +1073,7 @@ export interface CalendarProperties {
    * Determines the min date for the Calendar. Accepts date objects and valid date string formats.
    * Default value: new Date(1900, 1, 1)
    */
-  min?: any;
+  min?: string | Date;
   /**
    * Determines the number of months to be displayed inside the calendar. The maximum amount of months that can be shown is 12. By default only 1 month is shown.
    * Default value: 1
@@ -1093,7 +1098,7 @@ export interface CalendarProperties {
    * Sets restricted dates. Restricted dates are dates that cannot be selected/hovered/focused. They are visualy styled as restricted. The dates can be javascript date objects or strings representing a valid date.
    * Default value: 
    */
-  restrictedDates?: string[];
+  restrictedDates?: string[] | Date[];
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -1326,7 +1331,7 @@ export interface CardProperties {
    */
   disabled?: boolean;
   /**
-   * Sets custom card template. The template can be the id of an HTMLTemplate element inside the DOM or it's reference. The content of the template may hold one or many property placeholders in format . These placeholders will be replaced with the values of the corresponding properties defined in the dataSource object.
+   * Sets custom card template. The template can be the ID of an HTMLTemplate element inside the DOM or it's reference. The content of the template may hold one or many property placeholders in format . These placeholders will be replaced with the values of the corresponding properties defined in the dataSource object. When setting the property to template ID, the property type is 'string'.
    * Default value: null
    */
   itemTemplate?: any;
@@ -1743,7 +1748,7 @@ export interface CarouselProperties {
    * The items switch automatically if set to true or to a custom number(representing the timeout in milliseconds). This property works if slideShow property is enabled.
    * Default value: false
    */
-  autoPlay?: any;
+  autoPlay?: boolean;
   /**
    * An array of objects. Each object defines an item. The following object properties are available: label - a string representing the label of the item.content - a string representing the content of the itemimage - a string representing a url link to an image.HTMLcontent - a string representing some HTML structure taht will be generated inside the item.
    * Default value: 
@@ -1942,17 +1947,17 @@ export interface ChartProperties {
    */
   animationDuration?: number;
   /**
-   * Sets the chart's background color.
+   * Sets the chart's background color. For example: '#DDFFE8'
    * Default value: null
    */
   backgroundColor?: string | null;
   /**
-   * Sets the chart's background image.
+   * Sets the chart's background image. For example: 'https://www.htmlelements.com/demos/images/carousel-large-1.jpg'
    * Default value: ""
    */
   backgroundImage?: string;
   /**
-   * Sets the chart's border color.
+   * Sets the chart's border color. For example: '#098700'
    * Default value: null
    */
   borderLineColor?: string | null;
@@ -1982,17 +1987,17 @@ export interface ChartProperties {
    */
   columnSeriesOverlap?: boolean;
   /**
-   * Gets or sets the color of the crosshairs lines.
+   * Gets or sets the color of the crosshairs lines. The 'enableCrosshairs' property should be 'true'.
    * Default value: null
    */
   crosshairsColor?: string | null;
   /**
-   * Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length.
+   * Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length. The 'enableCrosshairs' property should be 'true'. For example: '3,3'
    * Default value: "2,2"
    */
   crosshairsDashStyle?: string;
   /**
-   * Gets or sets the width of the crosshairs lines.
+   * Gets or sets the width of the crosshairs lines. The 'enableCrosshairs' property should be 'true'
    * Default value: 1
    */
   crosshairsLineWidth?: number;
@@ -2061,11 +2066,6 @@ export interface ChartProperties {
    * Default value: [object Object]
    */
   padding?: Padding;
-  /**
-   * Sets the legend bar position in the Chart.
-   * Default value: [object Object]
-   */
-  legendPosition?: ChartLegendPosition;
   /**
    * Determines the rendering engine used to display the chart. When the property is set to an empty string, jqxChart will automatically select an optimal rendering engine depending on the browser capabilities.
    * Default value: 
@@ -2369,30 +2369,6 @@ export interface Padding {
   top?: number;
 }
 
-/**Sets the legend bar position in the Chart. */
-export interface ChartLegendPosition {
-  /**
-   * Height of legend in the Chart.
-   * Default value: 5
-   */
-  height?: number;
-  /**
-   * Left legend position in the Chart.
-   * Default value: 5
-   */
-  left?: number;
-  /**
-   * Width of legend in the Chart.
-   * Default value: 5
-   */
-  width?: number;
-  /**
-   * Top legend position in the Chart.
-   * Default value: 5
-   */
-  top?: number;
-}
-
 export interface ChartSeriesGroup {
   /**
    * An array of chart annotation objects.
@@ -2413,7 +2389,7 @@ export interface ChartSeriesGroup {
    * Maximum width of columns in column series.
    * Default value: null
    */
-  columnsMaxWidth?: number;
+  columnsMaxWidth?: number | null;
   /**
    * Minimum width of columns in column series.
    * Default value: 1
@@ -2779,7 +2755,7 @@ export interface ChartSeriesGroupSerie {
    * Offset from the center point in a pie/donut series.
    * Default value: 0
    */
-  centerOffset?: any;
+  centerOffset?: number;
   /**
    * A custom function that returns the color of a data point. The function will receive the following parameters: dataValue, itemIndex, serie, group. The implementation of the function can return a single color which will be used as a fillColor and the other colors will be derived or it can return an object containing fillColor, fillColorSelected, etc.
    * Default value: null
@@ -2944,10 +2920,10 @@ export interface ChartSeriesGroupSerie {
    * Inner radius of donut series in pixels or percents.
    * Default value: 0
    */
-  innerRadius?: any;
+  innerRadius?: number;
   /**
    * Object describing the labels properties of the axis.
-   * Default value: [object Object]
+   * Default value: undefined
    */
   labels?: ChartLabels;
   /**
@@ -3014,12 +2990,12 @@ export interface ChartSeriesGroupSerie {
    * Min radius of bubble series in pixels or percents.
    * Default value: null
    */
-  minRadius?: any;
+  minRadius?: string | null | number;
   /**
    * Max radius of bubble series in pixels or percents.
    * Default value: null
    */
-  maxRadius?: any;
+  maxRadius?: string | null | number;
   /**
    * Determines the opacity of the items in this serie.
    * Default value: 1
@@ -3029,12 +3005,12 @@ export interface ChartSeriesGroupSerie {
    * Outer radius of pie and donut series in pixels or percents.
    * Default value: null
    */
-  radius?: any;
+  radius?: number | null;
   /**
    * Radius change on selection of pie and donut series in pixels or percents.
    * Default value: null
    */
-  selectedRadiusChange?: any;
+  selectedRadiusChange?: number | null;
   /**
    * Minimum angle in a pie, donut, polar and spider series.
    * Default value: 0
@@ -3193,7 +3169,7 @@ export interface ChartLabels {
    * Possible values: true, false, 'custom'.Determines the visibility of labels. When 'custom' is set, displays only custom values/offsets from the labels.custom array.
    * Default value: true
    */
-  visible?: any;
+  visible?: boolean | string;
 }
 
 /**Object describing the valueAxis for this group. jqxChart allows you to use a common valueAxis and/or multiple value axes per serie group. */
@@ -3217,7 +3193,7 @@ export interface ChartValueAxis {
    * Sets the size of the axis.
    * Default value: null
    */
-  axisSize?: any;
+  axisSize?: number | string | null;
   /**
    * Optional color bands dislayed in the chart's plot area.
    * Default value: null
@@ -3386,7 +3362,7 @@ export interface ChartLines {
    * Possible values: true, false, 'custom'.Determines the visibility of grid lines. When 'custom' is set, displays only custom values/offsets from the gridLines.custom array.
    * Default value: true
    */
-  visible?: any;
+  visible?: boolean | string;
 }
 
 /**Object describing the line properties of the axis. */
@@ -3410,7 +3386,7 @@ export interface ChartLine {
    * boolean determining the visibility of the axis line.
    * Default value: true
    */
-  visible?: any;
+  visible?: boolean;
 }
 
 /**Object describing the title of the valueAxis. */
@@ -3463,7 +3439,7 @@ export interface ChartXAxis {
    * Sets the size of the xAxis.
    * Default value: null
    */
-  axisSize?: any;
+  axisSize?: number | string | null;
   /**
    * Optional color bands dislayed in the chart's plot area.
    * Default value: null
@@ -3961,6 +3937,18 @@ export interface CheckBox extends BaseElement, CheckBoxProperties {
    *  changeType - A string flag indicating whether the change event was triggered via API or an event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when the widget is checked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onCheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the widget is unchecked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onUncheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
 declare global {
@@ -4215,18 +4203,7 @@ export interface ChipProperties {
   localizeFormatFunction?: any;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
-   * Default value:    * {
-   *   "en": {
-   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
-   *     "propertyInvalidValue": "Invalid '!",
-   *     "propertyInvalidValueType": "Invalid '!",
-   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
-   *     "moduleUndefined": "Module is undefined.",
-   *     "missingReference": ".",
-   *     "htmlTemplateNotSuported": ":  Browser doesn't support HTMLTemplate elements.",
-   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM."
-   *   }
-   * }
+   * Default value:    * [object Object]
    */
   messages?: any;
   /**
@@ -4862,10 +4839,10 @@ export interface ColorPickerProperties {
    */
   disableUndo?: boolean;
   /**
-   * Sets the parent container of the dropDown (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown.
-   * Default value: body
+   * Sets the parent container of the dropDown (the popup). The expected value is CSS Selector, ID or 'body'. Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown. Example: 'body'.
+   * Default value: "body"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines how the drop down is going to open.
    * Default value: default
@@ -5340,10 +5317,10 @@ export interface ComboBoxProperties {
    */
   displayMember?: string;
   /**
-   * Determines the drop down parent. The drop down can be removed from the body of the element and continue to work in another container. This is usefull when one of the parents of the element doesn't allow overflowing, by settings this property to 'body' the drop down will be appended to the DOM and the popup will open/close as usual. dropDownAppendTo can be a string representing the id of an HTML element on the page or a direct reference to that element. Reseting it back to null will take the drop down back to it's original place.
-   * Default value: null
+   * Determines the drop down parent. The expected value is CSS Selector, ID or 'body'. The drop down can be removed from the body of the element and continue to work in another container. This is usefull when one of the parents of the element doesn't allow overflowing, by settings this property to 'body' the drop down will be appended to the DOM and the popup will open/close as usual. dropDownAppendTo can be a string representing the id of an HTML element on the page or a direct reference to that element. Reseting it back to null will take the drop down back to it's original place.
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines the position of the drop down button.
    * Default value: right
@@ -6327,7 +6304,7 @@ export interface DateInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
   dateTimeFormat?: DateTimeFormat;
@@ -6479,23 +6456,23 @@ export interface DateInput extends BaseElement, DateInputProperties {
   setValue(value: string | Date): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
 export interface DateTimeFormat {
   /**
    * Day format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  day?: string;
+  day?: DateTimeFormatDay;
   /**
    * Month format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  month?: string;
+  month?: DateTimeFormatMonth;
   /**
    * Year format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  year?: string;
+  year?: DateTimeFormatYear;
 }
 
 declare global {
@@ -6508,6 +6485,12 @@ declare global {
     }
 }
 
+/**Day format. */
+export declare type DateTimeFormatDay = 'numeric' | '2-digit';
+/**Month format. */
+export declare type DateTimeFormatMonth = 'numeric' | '2-digit' | 'narrow' | 'short' | 'long';
+/**Year format. */
+export declare type DateTimeFormatYear = 'numeric' | '2-digit';
 export interface DateRangeInputProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -6515,8 +6498,8 @@ export interface DateRangeInputProperties {
    */
   animation?: Animation;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property.
-   * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
+   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. Intl.DateTimeFormat is used to format date strings in JavaScript
+   * Default value: {"day": "numeric", "month": "numeric", "year": "numeric" }
    */
   dateFormat?: DateRangeFormat;
   /**
@@ -6682,37 +6665,37 @@ export interface DateRangeInput extends BaseElement, DateRangeInputProperties {
   select(): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. */
+/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. Intl.DateTimeFormat is used to format date strings in JavaScript */
 export interface DateRangeFormat {
   /**
    * Day format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  day?: string;
+  day?: DateRangeFormatDay;
   /**
    * Month format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  month?: string;
+  month?: DateRangeFormatMonth;
   /**
    * Year format.
-   * Default value: "numeric"
+   * Default value: numeric
    */
-  year?: string;
+  year?: DateRangeFormatYear;
 }
 
 /**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
 export interface TimeRangeFormat {
   /**
    * Hour format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  hour?: string;
+  hour?: TimeRangeFormatHour;
   /**
    * Minute format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  minute?: string;
+  minute?: TimeRangeFormatMinute;
 }
 
 declare global {
@@ -6725,6 +6708,16 @@ declare global {
     }
 }
 
+/**Day format. */
+export declare type DateRangeFormatDay = 'numeric' | '2-digit';
+/**Month format. */
+export declare type DateRangeFormatMonth = 'numeric' | '2-digit' | 'narrow' | 'short' | 'long';
+/**Year format. */
+export declare type DateRangeFormatYear = 'numeric' | '2-digit';
+/**Hour format. */
+export declare type TimeRangeFormatHour = 'numeric' | '2-digit';
+/**Minute format. */
+export declare type TimeRangeFormatMinute = 'numeric' | '2-digit';
 /**Determines the value type returned from the `value` property. */
 export declare type DateRangeInputValueType = 'string' | 'object';
 export interface DateTimePickerProperties {
@@ -6790,9 +6783,9 @@ export interface DateTimePickerProperties {
   displayModeView?: CalendarDisplayModeView;
   /**
    * Sets custom container to append the pop-up to. By default, it is in the DateTimePicker. The value of the property can be an HTML element or the id of an HTML element.
-   * Default value: null
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Sets or gets the pop-up display mode (what components appear in it, and its behaviour).
    * Default value: default
@@ -7148,7 +7141,7 @@ export interface DockingLayoutProperties {
    */
   closedItems?: any;
   /**
-   * Determines the structure of the element. This property represents an array of objects that define the hierarchy of the items inside the element and their specific settings. Each object must have a type attribute that defines it's behavior.  Three types of objects are allowed:   LayoutGroup - Represents a group of items (Splitter). Used when the user wants more than one DockingLayout item in a single container.  Properties: orientation - A string value indicating the orientation of the Splitter group. Possible values: 'horizontal', 'vertical'. size - A string | number value indicating the size of the Splitter group. items - An array of LayoutPanel object definitions. resizeMode - A string indicating the resize mode. Possible values: 'none', 'adjacent', 'end', 'proportional'. resizeStep - A nummeric value that determines the step of resizing. liveResize - Determines if splitter resizing happens while dragging or not.   LayoutPanel - Represents a DockingLayout item (TabsWindow). LayoutPanels can have one or many items (TabItem).  Properties:   id - the ID of the LayoutPanel. autoHide - a boolean property that determines if the LayoutPanel is autoHidden. autoHidePosition - determines the autoHide position of the item if 'autoHide' property is set. Possible values: 'top', 'bottom', 'left', 'right'. dropPosition - Determines the possible positions for the item at which a new item can be dropped as a result of dragging. Possible values: 'top', 'bottom', 'left', 'right', 'center', 'header', 'layout-top', 'layout-bottom', 'layout-left', 'layout-right'. Positions with the 'layout' prefix reflect on LayoutPanelItems that are children of the LayoutPanel. label - the Label of the LayoutPanel window. tabPosition - Determines the position of the Tab labels inside the LayoutPanel. layout - determines the DockingLayout owner of the LayoutPanel. Accepts a string indicating the ID of a DockingLayout on the page or a direct reference to it. headerButtons - an Array of strings that define the buttons in the header section of the DockingLayout item. tabCloseButtons - a boolean property that Enables or disables the close buttons inside each Tab item label inside the DockingLayout item. tabOverflow - same as 'overflow' property of jqxTabs. It defines the overflow mode of the labels of the Tab items inside a DockingLayout item.selectionMode - the same as jqxTabs selection modes. Applies to Tab items inside a DockingLayout item. tabResize - the same as 'resize' property of jqxTabs. Allows resizing the Tab labels inside the DockingLayout item. locked - Locks the size of the item and does not allow resizing. max - sets the maximum size of the item. min - sets the minimum size of the item size - sets the size of the item. items - an array of objects. Each object defines the structure of a LayoutPanelItem.   LayoutPanelItem - Represents a LayoutPanel item (TabItem). Properties:  id - the ID of the Tab item. label - a string representing the label of the Tab item. content - represents the content of the Tab item. Can be anything. selected - determines if the item is selected. By default the first added item to the LayoutPanel is automatically selected. disableDrag - a boolean property that disables the dragging of the Tab item.    
+   * Determines the structure of the element. This property represents an array of objects that define the hierarchy of the items inside the element and their specific settings. Each object must have a type attribute that defines it's behavior.  Three types of objects are allowed:   LayoutGroup - Represents a group of items (Splitter). Used when the user wants more than one DockingLayout item in a single container.  Properties: orientation - A string value indicating the orientation of the Splitter group. Possible values: 'horizontal', 'vertical'. size - A string | number value indicating the size of the Splitter group. items - An array of LayoutPanel object definitions. resizeMode - A string indicating the resize mode. Possible values: 'none', 'adjacent', 'end', 'proportional'. resizeStep - A nummeric value that determines the step of resizing. liveResize - Determines if splitter resizing happens while dragging or not.   LayoutPanel - Represents a DockingLayout item (TabsWindow). LayoutPanels can have one or many items (TabItem).  Properties:   id - the ID of the LayoutPanel. autoHide - a boolean property that determines if the LayoutPanel is autoHidden. autoHidePosition - determines the autoHide position of the item if 'autoHide' property is set. Possible values: 'top', 'bottom', 'left', 'right'. dropPosition - Determines the possible positions for the item at which a new item can be dropped as a result of dragging. Possible values: 'top', 'bottom', 'left', 'right', 'center', 'header', 'layout-top', 'layout-bottom', 'layout-left', 'layout-right'. Positions with the 'layout' prefix reflect on LayoutPanelItems that are children of the LayoutPanel. label - the Label of the LayoutPanel window. tabPosition - Determines the position of the Tab labels inside the LayoutPanel. layout - determines the DockingLayout owner of the LayoutPanel. Accepts a string indicating the ID of a DockingLayout on the page or a direct reference to it. headerButtons - an Array of strings that define the buttons in the header section of the DockingLayout item. tabCloseButtons - a boolean property that Enables or disables the close buttons inside each Tab item label inside the DockingLayout item. tabOverflow - same as 'overflow' property of jqxTabs. It defines the overflow mode of the labels of the Tab items inside a DockingLayout item.selectionMode - the same as jqxTabs selection modes. Applies to Tab items inside a DockingLayout item. tabResize - the same as 'resize' property of jqxTabs. Allows resizing the Tab labels inside the DockingLayout item. locked - Locks the size of the item and does not allow resizing. max - sets the maximum size of the item. min - sets the minimum size of the item size - sets the size of the item. items - an array of objects. Each object defines the structure of a LayoutPanelItem.   LayoutPanelItem - Represents a LayoutPanel item (TabItem). Properties:  id - the ID of the Tab item. label - a string representing the label of the Tab item. content - represents the content of the Tab item. Can be anything. selected - determines if the item is selected. By default the first added item to the LayoutPanel is automatically selected. draggable - a boolean property that allows to disable the dragging of the Tab item.    
    * Default value: 
    */
   layout?: any;
@@ -7464,9 +7457,9 @@ export interface DropDownButtonProperties {
   disabled?: boolean;
   /**
    * Sets the parent container of the dropDown (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown.
-   * Default value: null
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines the position of the drop down button.
    * Default value: right
@@ -7726,10 +7719,10 @@ export interface DropDownListProperties {
    */
   displayMember?: string;
   /**
-   * Determines the drop down parent. The drop down can be removed from the body of the element and continue to work in another container. This is usefull when one of the parents of the element doesn't allow overflowing, by settings this property to 'body' the drop down will be appended to the DOM and the popup will open/close as usual. dropDownAppendTo can be a string representing the id of an HTML element on the page or a direct reference to that element. Reseting it back to null will take the drop down back to it's original place.
-   * Default value: null
+   * Determines the drop down parent. The expected value is CSS Selector, ID or 'body'. The drop down can be removed from the body of the element and continue to work in another container. This is usefull when one of the parents of the element doesn't allow overflowing, by settings this property to 'body' the drop down will be appended to the DOM and the popup will open/close as usual. dropDownAppendTo can be a string representing the id of an HTML element on the page or a direct reference to that element. Reseting it back to null will take the drop down back to it's original place.
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines the position of the drop down button.
    * Default value: right
@@ -8322,9 +8315,9 @@ export interface FileUploadProperties {
   animation?: Animation;
   /**
    * Appends the list with selected files to a new custom container specified by the user. If the value of the property is a string it must represent a valid id of an HTML element inside the DOM that will be used as the new container for the uploaded files list.
-   * Default value: null
+   * Default value: "null"
    */
-  appendTo?: any;
+  appendTo?: string;
   /**
    * Sets or gets whether files will be automatically uploaded after selection.
    * Default value: false
@@ -9938,7 +9931,7 @@ export interface FormProperties {
    */
   columns?: number;
   /**
-   * 
+   * Sets or gets the form controls.
    * Default value: null
    */
   controls?: Control[];
@@ -10030,12 +10023,12 @@ export interface Form extends BaseElement, FormProperties {
 export interface Control {
   /**
    * HTML Content displayed after the Form Control
-   * Default value: 
+   * Default value: ""
    */
-  appendHTML?: any;
+  append?: string;
   /**
    * JSON object with initialization properties of the UI component. Example: { dataSource: ['item 1', 'item 2', 'item 3'] } will set the dataSource property of the Form control.
-   * Default value: 
+   * Default value: null
    */
   controlOptions?: any;
   /**
@@ -10053,6 +10046,11 @@ export interface Control {
    * Default value: 1
    */
   columnSpan?: number;
+  /**
+   * 
+   * Default value: null
+   */
+  controls?: Control[];
   /**
    * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
    * Default value: ""
@@ -10110,9 +10108,9 @@ export interface Control {
   backButtonLabel?: string;
   /**
    * HTML Content displayed before the Form Control
-   * Default value: 
+   * Default value: ""
    */
-  prependHTML?: any;
+  prepend?: string;
   /**
    * Gets or Sets the Form control readonly mode.
    * Default value: false
@@ -10124,10 +10122,10 @@ export interface Control {
    */
   untouched?: boolean;
   /**
-   * Gets or Sets whether colon is displayed after the label.
-   * Default value: false
+   * Gets or Sets the placeholder.
+   * Default value: ""
    */
-  showColonAfterLabel?: boolean;
+  placeholder?: string;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set.
    * Default value: false
@@ -10144,10 +10142,10 @@ export interface Control {
    */
   valid?: boolean;
   /**
-   * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: []
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
@@ -10310,10 +10308,10 @@ export interface FormControlProperties {
    */
   valid?: boolean;
   /**
-   * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: []
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
@@ -10544,10 +10542,10 @@ export interface Control {
    */
   valid?: boolean;
   /**
-   * Validation rules array. Accepts any JQX.Validator rules.
-   * Default value: []
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
@@ -10687,12 +10685,12 @@ export interface GanttChartProperties {
    * Detetmines the maximum possible date of the Timeline.
    * Default value: 2100-1-1
    */
-  max?: any;
+  max?: string | Date;
   /**
    * Detetmines the minimum possible date of the Timeline.
    * Default value: 1900-1-1
    */
-  min?: any;
+  min?: string | Date;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * [object Object]
@@ -10812,27 +10810,27 @@ export interface GanttChartProperties {
    * Determines the min size of the Task Panel. Used when Resource Panel is visible.
    * Default value: 200
    */
-  taskPanelMin?: any;
+  taskPanelMin?: string | number;
   /**
    * Determines the size of the Task Panel. Used when Resource Panel is visible.
    * Default value: 
    */
-  taskPanelSize?: any;
+  taskPanelSize?: string | number;
   /**
    * Determines the min width of the timeline.
    * Default value: 200
    */
-  timelineMin?: any;
+  timelineMin?: string | number;
   /**
    * Determines the min width of the task tree.
    * Default value: 100
    */
-  treeMin?: any;
+  treeMin?: string | number;
   /**
    * Determines the size(width) of the task tree.
    * Default value: 100
    */
-  treeSize?: any;
+  treeSize?: string | number;
   /**
    * A format function for the Header of the Timeline. The function provides the following arguments: date - a Date object that represets the date for the current cell.type - a string that represents the type of date that the cell is showing, e.g. 'month', 'week', 'day', etc.isHeaderDetails - a boolean that indicates whether the current cell is part of the Header Details Container or not.value - a string that represents the default value for the cell provided by the element.
    * Default value: null
@@ -11830,7 +11828,7 @@ export interface GaugeProperties {
    * When cooerce property is true, all values coerce to the interval's value.
    * Default value: 1
    */
-  interval?: any;
+  interval?: number;
   /**
    * Sets the direction of the gauge. If true - the positions of the gauge's start and end are switched.
    * Default value: false
@@ -11865,7 +11863,7 @@ export interface GaugeProperties {
    * Determines the maximum value for the scale of the element.
    * Default value: 100
    */
-  max?: any;
+  max?: number;
   /**
    * Determines when the value of the element is updated.
    * Default value: switchWhileDragging
@@ -11894,7 +11892,7 @@ export interface GaugeProperties {
    * Determines the minimum value for the scale of the element. 
    * Default value: 0
    */
-  min?: any;
+  min?: number;
   /**
    * Determines whether the element works with numbers or dates.
    * Default value: numeric
@@ -12093,6 +12091,11 @@ export interface GridProperties {
    */
   layout?: GridLayout;
   /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
    * The clipboard property is used to enable/disable clipboard operations with Ctrl+C, Ctrl+X and Ctrl+V keyboard navigations..
    * Default value: [object Object]
    */
@@ -12137,6 +12140,11 @@ export interface GridProperties {
    * Default value: null
    */
   dataSource?: any;
+  /**
+   * Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: GridDataSourceSettings;
   /**
    * Describes the grid's editing settings.
    * Default value: [object Object]
@@ -12307,6 +12315,11 @@ export interface GridProperties {
    * Default value: [object Object]
    */
   footer?: GridFooter;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
   /**
    * The rows property is used to describe all rows displayed in the grid.
    * Default value: 
@@ -13248,9 +13261,9 @@ export interface GridColumn {
   group?: string;
   /**
    * Sets or gets the column's icon. Expects CSS class name.
-   * Default value: 
+   * Default value: ""
    */
-  icon?: any;
+  icon?: string;
   /**
    * Sets or gets the text displayed in the column's header.
    * Default value: ""
@@ -13285,22 +13298,27 @@ export interface GridColumn {
    * Sets or gets the width. Accepts: 'number', 'px', 'em', 'auto', 'null' values.
    * Default value: 
    */
-  width?: any;
+  width?: string | number;
   /**
    * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in values are: 'checkBox', 'url', 'email', 
    * Default value: 
    */
   template?: any;
   /**
-   * Sets or gets the column's validation rules. Accepts: Object with 'type' string property. It can be 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The object needs to have additional 'value' property for all validation rule types except 'email', 'required', 'requiredTrue' and 'null'. Optional property is 'message', which allows you to define user string displayed on validation error.
-   * Default value: 
+   * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
+   * Default value: null
    */
-  validationRules?: any[];
+  validationRules?: [] | null;
   /**
    * Sets or gets the column's header vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
    */
   verticalAlign?: VerticalAlignment;
+  /**
+   * Sets or gets the column summary.
+   * Default value: sum
+   */
+  summary?: GridColumnSummary;
   /**
    * Sets or gets whether the column is visible. Set the property to 'false' to hide the column.
    * Default value: true
@@ -13662,6 +13680,93 @@ export interface GridDataExport {
   rowIds?: {(): void};
 }
 
+/**Sets the grid's data source settings when the <em>dataSource</em> property is set to an Array or URL. */
+export interface GridDataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: GridDataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: GridDataSourceSettingsDataSourceType;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface GridDataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: GridDataSourceSettingsDataFieldDataType;
+}
+
 /**Describes the grid's editing settings. */
 export interface GridEditing {
   /**
@@ -13714,6 +13819,11 @@ export interface GridEditing {
    * Default value: [object Object]
    */
   addNewRow?: GridEditingAddNewRow;
+  /**
+   * Enables users to dynamically add new columns through the User Interface. When the add new column is visible, a '+' is displayed as a last column. Clicking it opens a dialog for adding new columns.
+   * Default value: [object Object]
+   */
+  addNewColumn?: GridEditingAddNewColumn;
   /**
    * Describes dialog's editing settings.
    * Default value: [object Object]
@@ -13888,10 +13998,20 @@ export interface GridEditingCommandColumnDataSource {
 /**Describes the settings of the 'Add New Row' UI element which enables the quick adding of rows to the Grid with a single click. */
 export interface GridEditingAddNewRow {
   /**
+   * Adds new row by clicking the Enter button, when the focused row is the last row.
+   * Default value: false
+   */
+  autoCreate?: boolean;
+  /**
    * Sets the position of the 'Add New Row' UI element.
    * Default value: both
    */
   position?: LayoutPosition;
+  /**
+   * Sets or gets the display mode of the new row action. It could be either 'row' or 'button'.
+   * Default value: row
+   */
+  displayMode?: GridEditingAddNewRowDisplayMode;
   /**
    * Makes the 'Add New Row' UI element visible.
    * Default value: false
@@ -13904,6 +14024,15 @@ export interface GridEditingAddNewRow {
   label?: string;
 }
 
+/**Enables users to dynamically add new columns through the User Interface. When the add new column is visible, a '+' is displayed as a last column. Clicking it opens a dialog for adding new columns. */
+export interface GridEditingAddNewColumn {
+  /**
+   * Makes the 'Add New Row' UI element visible.
+   * Default value: false
+   */
+  visible?: boolean;
+}
+
 /**Describes the grid's filtering settings. */
 export interface GridFiltering {
   /**
@@ -13912,7 +14041,7 @@ export interface GridFiltering {
    */
   enabled?: boolean;
   /**
-   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '>= 3 and <= 8']]
+   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]
    * Default value: 
    */
   filter?: any[];
@@ -14784,16 +14913,24 @@ export declare type GridClipboardAutoFillMode = 'none' | 'copy' | 'fillSeries';
 export declare type Position = 'near' | 'far';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
+/**Sets or gets the column summary. */
+export declare type GridColumnSummary = 'sum' | 'min' | 'max' | 'avg' | 'count' | 'median' | 'stdev' | 'stdevp' | 'var' | 'varp';
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Sets the page orientation, when exporting to PDF. */
 export declare type GridDataExportPageOrientation = 'landscape' | 'portrait';
+/**Sets the dataField type. */
+export declare type GridDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type GridDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Determines the way editing is initiated. */
 export declare type GridEditingAction = 'none' | 'click' | 'dblClick';
 /**Sets what is to be displayed in command column buttons. */
 export declare type GridCommandDisplayMode = 'label' | 'icon' | 'labelAndIcon';
 /**Sets the grid's edit mode. */
 export declare type GridEditingMode = 'cell' | 'row';
+/**Sets or gets the display mode of the new row action. It could be either 'row' or 'button'. */
+export declare type GridEditingAddNewRowDisplayMode = 'row' | 'button';
 /**Sets the way filtering through the filter row is applied. */
 export declare type GridFilteringFilterRowApplyMode = 'auto' | 'click';
 /**Sets the filter menu mode. */
@@ -14959,7 +15096,7 @@ export interface InputProperties {
   disabled?: boolean;
   /**
    * Determines the position of the drop down button.
-   * Default value: right
+   * Default value: none
    */
   dropDownButtonPosition?: DropDownButtonPosition;
   /**
@@ -15174,7 +15311,7 @@ export interface KanbanProperties {
   columns?: KanbanColumn[];
   /**
    * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
-   * Default value: false
+   * Default value: 
    */
   currentUser?: string | number;
   /**
@@ -16812,6 +16949,11 @@ export interface ListMenuProperties {
    */
   rightToLeft?: boolean;
   /**
+   * Determines whether to use scrollbar or scrollButtons when content overflows an element's box.
+   * Default value: scrollbar
+   */
+  scrollMode?: ListMenuScrollMode;
+  /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
    */
@@ -16936,6 +17078,64 @@ export declare type MenuCheckMode = 'checkbox' | 'radioButton';
 export declare type MenuDropDownPosition = 'auto' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'overlay-left' | 'overlay-right';
 /**Sets or gets the ListMenu's scroll buttons behavior. */
 export declare type Overflow = 'auto' | 'hidden' | 'scroll';
+/**Determines whether to use scrollbar or scrollButtons when content overflows an element's box. */
+export declare type ListMenuScrollMode = 'scrollbar' | 'scrollButtons';
+export interface MapProperties {
+  /**
+   * Before you start using the maps component, you need a project with a billing account and the Maps JavaScript API enabled.To learn more, see https://developers.google.com/maps/gmp-get-started.The API key is a unique identifier that authenticates requests associated with your project for usage and billing purposes. You must have at least one API key associated with your project.
+   * Default value: "null"
+   */
+  apiKey?: string;
+  /**
+   * The query parameter defines the location the user wants to display on the map.The user can input different values for continents, country, city or address.
+   * Default value: "null"
+   */
+  query?: string;
+  /**
+   * The mode property handles which mode for the map to be used.
+   * Default value: "null"
+   */
+  mode?: string;
+  /**
+   * The 'map-type' property gives the user a set of options to choose from  in order to display certain type of map such as: place,view, streetview.
+   * Default value: "null"
+   */
+  mapType?: string;
+  /**
+   * This property is defined when used with 'stretview' map type and it defines the horizontal orientation of the streetview panorama.
+   * Default value: 210
+   */
+  heading?: number;
+  /**
+   * The  'pitch' property set the value of the vertical orientation('up' and 'down') which by defaault from Google Maps is horizontal.
+   * Default value: 10
+   */
+  pitch?: number;
+  /**
+   * The zoom level of the camera determines the scale of the map. At larger zoom levels more detail can be seen on the screen, while at smaller zoom levels more of the world can be seen on the component.For example the following values show the approximate level of detail you can expect to see at eah zoom level( 1: World, 5: Landmas,10: City,15: Streets,20: Buildings )
+   * Default value: 12
+   */
+  zoom?: number;
+}
+/**
+ Our map component makes it easy for displaying map with defined location by user requireing a small piece of code.
+*/
+export interface Map extends BaseElement, MapProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-map"): Map;
+        querySelector(selectors: "smart-map"): Map | null;
+        querySelectorAll(selectors: "smart-map"): NodeListOf<Map>;
+        getElementsByTagName(qualifiedName: "smart-map"): HTMLCollectionOf<Map>;
+        getElementsByName(elementName: "smart-map"): NodeListOf<Map>;
+    }
+}
+
 export interface MaskedTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -18448,10 +18648,10 @@ export interface MultiSplitButtonProperties {
    */
   displayMember?: string;
   /**
-   * Sets the parent container of the button's dropDown list (the popup). Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown list.
-   * Default value: null
+   * Sets the parent container of the button's dropDown list (the popup). The expected value is CSS Selector, ID or 'body'. Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown list.
+   * Default value: "null"
    */
-  dropDownAppendTo?: any;
+  dropDownAppendTo?: string;
   /**
    * Determines position of the drop down button.
    * Default value: right
@@ -18905,7 +19105,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the maximum value of the widget. 
    * Default value: null
    */
-  max?: any;
+  max?: number | string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -18933,7 +19133,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the minimum value of the widget. 
    * Default value: null
    */
-  min?: any;
+  min?: number | string;
   /**
    * The name of the control.
    * Default value: ""
@@ -19033,7 +19233,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the increase/decrease step. 
    * Default value: 1
    */
-  spinButtonsStep?: any;
+  spinButtonsStep?: number | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -19196,7 +19396,7 @@ export interface PagerProperties {
    * Defines the number of page index selectors.
    * Default value: 0
    */
-  pageIndexSelectors?: any;
+  pageIndexSelectors?: number;
   /**
    * Gets/sets total number of items displayed on page.
    * Default value: 10
@@ -20444,7 +20644,7 @@ export interface QueryBuilderProperties {
    */
   applyMode?: QueryBuilderApplyMode;
   /**
-   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closedhideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type Array[string]expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField). 
+   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closed. If the dataType is 'object' the expected result from the function should contain a 'label' and 'value' attributes. Where the label will be used for displaying purposes while 'value' will be used as the actual value. hideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type Array[string]expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField). 
    * Default value: 
    */
   customOperations?: any;
@@ -20462,7 +20662,7 @@ export interface QueryBuilderProperties {
    * Array with filter fields and their settings. The available field settings are:label - the field's label, as it will appear in the field selection drop downdataField - the field's data fielddataType - the field's data typefilterOperations - an array of the filter operations applicable to the field; if not set, the default filter operations are appliedlookup - an object with settings for customizing the field's respective value selection input. It has the following settings:autoCompleteDelay - delay between typing in the input and opening the drop down with available optionsdataSource - an array of available options to choose from (appear in a drop down)minLength - minimum number of charactes to type in the input before the options drop down is displayedreadonly - if set to true, the value selection input acts as a drop down list, otherwise it acts as a combo box
    * Default value: null
    */
-  fields?: any;
+  fields?: QueryBuilderField[];
   /**
    * Determines whether new fields can be dynamically added by typing in the field (property) box.
    * Default value: dynamic
@@ -20649,6 +20849,34 @@ export interface QueryBuilder extends BaseElement, QueryBuilderProperties {
   getLinq(): string;
 }
 
+export interface QueryBuilderField {
+  /**
+   * Sets or gets the label.
+   * Default value: ""
+   */
+  label?: string;
+  /**
+   * Sets or gets the data field
+   * Default value: ""
+   */
+  dataField?: string;
+  /**
+   * Sets or gets the data type.
+   * Default value: string
+   */
+  dataType?: QueryBuilderFieldDataType;
+  /**
+   * Sets or gets the filter format.
+   * Default value: ""
+   */
+  format?: string;
+  /**
+   * Sets or gets the filter operations.
+   * Default value: []
+   */
+  filterOperations?: string[];
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-query-builder"): QueryBuilder;
@@ -20661,6 +20889,8 @@ declare global {
 
 /**Determines when the value of the element is updated with the new changes. */
 export declare type QueryBuilderApplyMode = 'change' | 'immediately';
+/**Sets or gets the data type. */
+export declare type QueryBuilderFieldDataType = 'number' | 'string' | 'boolean' | 'date';
 /**Determines whether new fields can be dynamically added by typing in the field (property) box. */
 export declare type QueryBuilderFieldsMode = 'dynamic' | 'static';
 export interface RadioButtonProperties {
@@ -20765,8 +20995,24 @@ export interface RadioButton extends BaseElement, RadioButtonProperties {
   [name: string]: any;
   /**
    * This event is triggered when the widget is checked/unchecked.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue, changeType)
+   *  value - A boolean value indicating the new state of the button ( checked or not ).
+   *  oldValue - A boolean value indicating the previous state of the button ( checked or not ).
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when the widget is checked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onCheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the widget is unchecked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onUncheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
 declare global {
@@ -20999,6 +21245,11 @@ export interface SchedulerProperties {
    */
   contextMenuDataSource?: any;
   /**
+   * Determines whether the clipboard shortcuts for copy/paste/cut action of events are visible in the Scheduler context menu or not.
+   * Default value: false
+   */
+  contextMenuClipboardActions?: boolean;
+  /**
    * Allows to customize the content of the event elements. It can be an HTMLTemplateElement that will be applied to all events or it's id as a string or a function that will be called for each event with the following parameters: eventContent - the content holder for the event,eventObj - the event object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
    */
@@ -21010,9 +21261,9 @@ export interface SchedulerProperties {
   eventCollectorTemplate?: any;
   /**
    *  Determines how the events inside the Scheduler are rendered.classic - the events are arranged next to each other and try to fit inside the cells.modern - the events obey the CSS property that determines their size and if there's not enough space inside the cell for all events to appear, an event collector is created to hold the rest of the events. On mobile phones only collectors are created.
-   * Default value: "modern"
+   * Default value: modern
    */
-  eventRenderMode?: string;
+  eventRenderMode?: SchedulerEventRenderMode;
   /**
    * Allows to customize the content of the event menu items (tooltip). When clicked on an event element an event menu with details opens. It can be an HTMLTemplateElement that will be applied to all events or it's id as a string or a function that will be called for each event with the following parameters: eventContent - the content holder for the event,eventObj - the event object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
@@ -21114,6 +21365,21 @@ export interface SchedulerProperties {
    */
   dragOffset?: any;
   /**
+   * Determines the filtering condition for the events.The filter property takes an array of objects or a function. Each object represents a single filtering condition with the following attributes: name - the name of the Scheduler event property that will be filtered by.value - the filtering condition value. The value will be used to compare the events based on the filterMode, for example: [{ name: 'price', value: 25 }]. The value can also be a function. The function accepts a single arguemnt - the value that corresponds to the filtered attribute. The function allows to apply custom condition that is different from the default filter modes. It should return true ( if the evnet passes the filtering condition ) or false ( if the event does not meet the filtering condition ). Here's an example: [{ name: 'roomId', value: (id) => ['2', '3'].indexOf(id + '') > -1 }]. In the example the events that do not have a 'roomId' property that is equal to '2' or '3' will be filtered out.. If a function is set to the filter property instead, it allows to completely customize the filtering logic. The function passes a single argument - each Scheduler event that will be displayed. The function should return true ( if the condition is met ) or false ( if not ).
+   * Default value: (eventObj) => return eventObj.label === 'TargetLabel',[{ name: 'roomId', value: (id) => ['2', '3'].indexOf(id + '') > -1 }]
+   */
+  filter?: any;
+  /**
+   * Determines whether Scheduler's filtering is enabled or not.
+   * Default value: true,false
+   */
+  filterable?: any;
+  /**
+   * Determines the filter mode.
+   * Default value: equals
+   */
+  filterMode?: FilterMode;
+  /**
    * A getter that returns  an array of all Scheduler events.
    * Default value: 
    */
@@ -21123,6 +21389,11 @@ export interface SchedulerProperties {
    * Default value: 0
    */
   firstDayOfWeek?: number;
+  /**
+   * Allows to customize the footer of the Scheduler. It can be an HTMLTemplateElement, it's id as a string or a function with the following parameters: footerContainer - the footer container..
+   * Default value: null
+   */
+  footerTemplate?: any;
   /**
    * Determines whether the events will be grouped by date.
    * Default value: false
@@ -21204,6 +21475,16 @@ export interface SchedulerProperties {
    */
   hideWeekend?: boolean;
   /**
+   * Determines the location of the legend inside the Scheduler. By default the location is inside the footer but it can also reside in the header.
+   * Default value: footer
+   */
+  legendLocation?: SchedulerLegendLocation;
+  /**
+   * Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that.
+   * Default value: near
+   */
+  legendPosition?: SchedulerLegendPosition;
+  /**
    * Determines weather or not horizontal scrollbar is shown.
    * Default value: auto
    */
@@ -21217,12 +21498,12 @@ export interface SchedulerProperties {
    * Detetmines the maximum view date for the Scheduler.
    * Default value: 2100-1-1
    */
-  max?: any;
+  max?: string | Date;
   /**
    * Detetmines the minimum view date for the Scheduler.
    * Default value: 1900-1-1
    */
-  min?: any;
+  min?: string | Date;
   /**
    * Sets or gets an object specifying strings used in the element that can be localized. Used in conjunction with the property locale. 
    * Default value:    * [object Object]
@@ -21274,6 +21555,11 @@ export interface SchedulerProperties {
    */
   restrictedDates?: any;
   /**
+   * Defines an array of hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed.
+   * Default value: 
+   */
+  restrictedHours?: any;
+  /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
@@ -21288,6 +21574,11 @@ export interface SchedulerProperties {
    * Default value: false
    */
   shadeUntilCurrentTime?: boolean;
+  /**
+   * Determines whether the resource legend is visible or not. The Legend shows the resources and their items in the footer section of the Scheduler. If filterable is enabled it is possible to filter by resource items by clicking on the corresponding resource item from the legend.
+   * Default value: false
+   */
+  showLegend?: boolean;
   /**
    * Determines the repeating delay of the repeat buttons inside the header of the element. Such buttons are the Date navigation buttons and the view scroll buttons.
    * Default value: 80
@@ -21320,16 +21611,16 @@ export interface SchedulerProperties {
   timelineDayScale?: SchedulerTimelineDayScale;
   /**
    * Enables/Disables the tick marks next to the time cells in the vertical header of the element. Time header appears in 'day' and 'week' views.
-   * Default value: "false"
+   * Default value: false
    */
-  timeRulerTicks?: string;
+  timeRulerTicks?: boolean;
   /**
-   * Determines the timeZone that the dates will be displayed in. Accepts values from the IANA time zone database. By default it uses the local time zone.
-   * Default value: ""
+   * Determines the timeZone for the element. By default if the local time zone is used if the property is not set.
+   * Default value: 
    */
-  timeZone?: string;
+  timeZone?: SchedulerTimeZone;
   /**
-   * Allows to display multiple timeZones at once. Accepts an array values from the IANA time zone database. By default it uses the local time zone.
+   * Allows to display additional timeZones at once along with the default that is set via the timeZone property. Accepts an array values that represent the ids of valid time zones. The possbile time zones can be viewed in the timeZone property description. By default the local time zone is displayed.
    * Default value: 
    */
   timeZones?: any;
@@ -21359,8 +21650,8 @@ export interface SchedulerProperties {
    */
   viewType?: SchedulerViewType;
   /**
-   * Determines the viewing date range of the timeline. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.
-   * Default value: day,week
+   * Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.
+   * Default value: day,week,month
    */
   views?: SchedulerViews;
   /**
@@ -21383,6 +21674,11 @@ export interface SchedulerProperties {
    * Default value: false
    */
   unfocusable?: boolean;
+  /**
+   * Determines the maximum number of redo/undo steps that will be remembered by the Scheduler. When the number is reached the oldest records are removed in order to add new.
+   * Default value: 100
+   */
+  undoRedoSteps?: number;
   /**
    * A function that can be used to completly customize the popup Window that is used to edit events. The function has the following arguments: target - the target popup Window that is about to be opened.type - the type of the window. The type determines the purpose of the window. The default type is an empty string which means that it's the default event editing window. The other type is 'confirm' ( confirmation window) that appears when clicking on a repeating event. eventObj - the event object that is going to be edited.
    * Default value: null
@@ -21445,6 +21741,13 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    *  value - The value of the new selected view.
    */
   onViewChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered before the view is changed via user interaction. The view change action can be canceled if event.preventDefault() is called on the event.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The value of the previously selected view.
+   *  value - The value of the new selected view.
+   */
+  onViewChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a shortcut key for an event is pressed. By default only 'Delete' key is used.
 	* @param event. The custom event. Custom data event was created with: ev.detail(key, target, eventObj)
@@ -21709,8 +22012,9 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   /**
    * Scrolls the Scheduler to a Date.
    * @param {Date} date. The date to scroll to.
+   * @param {boolean} strictScroll?. Determines whether to scroll strictly to the date or not. This mean sthat the Scheduler wll scroll to the begining of the cell that corresponds to the target date.
    */
-  scrollToDate(date: Date): void;
+  scrollToDate(date: Date, strictScroll?: boolean): void;
   /**
    * Scrolls the Scheduler to an event.
    * @param {any} index. The index of a Scheduler event or the actual event object to scroll to.
@@ -21746,7 +22050,7 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   occurrenceAfter(eventObj: any, date: number): void;
   /**
-   * Returns the first occurance of an event before a date.
+   * Returns the last occurance of an event before a date.
    * @param {any} eventObj. A Scheduler event object.
    * @param {number} date. The date before which the first occurance of the event will be returned.
    */
@@ -21768,16 +22072,49 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   closeEventTooltip(): void;
   /**
    * Returns true or false whether the date is restricted or not.
-   * @param {Date} date. A Scheduler event object or it's index.
+   * @param {Date} date. A Date object.
    * @returns {boolean}
    */
   isDateRestricted(date: Date): boolean;
+  /**
+   * Returns true or false whether the hour is restricted or not.
+   * @param {number | Date} hour. A number that represents an hour ( 0 to 23 ) or a Date object.
+   * @returns {boolean}
+   */
+  isHourRestricted(hour: number | Date): boolean;
   /**
    * Returns true or false whether the event is restricted or not.
    * @param {any} eventObj. A Scheduler event  object or a direct event HTMLElement instance.
    * @returns {boolean}
    */
   isEventRestricted(eventObj: any): boolean;
+  /**
+   * Deletes the current undo/redo history.
+   * @returns {boolean}
+   */
+  deleteUndoRedoHistory(): boolean;
+  /**
+   * Indicates whether it is possible to redo an action.
+   * @returns {boolean}
+   */
+  canRedo(): boolean;
+  /**
+   * Indicates whether it is possbile to undo an action.
+   * @returns {boolean}
+   */
+  canUndo(): boolean;
+  /**
+   * Redo the next event modification.
+   * @param {number} step?. A step to redo to.
+   * @returns {boolean}
+   */
+  redo(step?: number): boolean;
+  /**
+   * Undo the last event modification.
+   * @param {number} step?. A step to undo to.
+   * @returns {boolean}
+   */
+  undo(step?: number): boolean;
 }
 
 /**Sets the Schedulers's Data Export options. */
@@ -21789,9 +22126,9 @@ export interface SchedulerDataExport {
   header?: boolean;
   /**
    * Sets the name of the event properties that will be exported as columns.
-   * Default value: true
+   * Default value: 
    */
-  columns?: boolean;
+  columns?: string[];
   /**
    * Sets a custom style object of the dataExport. 
    * Default value: null
@@ -22072,6 +22409,10 @@ declare global {
     }
 }
 
+/** Determines how the events inside the Scheduler are rendered.<b>classic</b> - the events are arranged next to each other and try to fit inside the cells.
+<b>modern</b> - the events obey the CSS property that determines their size and if there's not enough space inside the cell for all events to appear, an event collector is created to hold the rest of the events. On mobile phones only collectors are created.
+ */
+export declare type SchedulerEventRenderMode = 'classic' | 'modern';
 /**Determines the repeating frequency. The event can repeat hourly, daily, weekly, monthly or yearly. */
 export declare type SchedulerRepeatFreq = 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly';
 /**The type of the interval for the notification. */
@@ -22088,6 +22429,10 @@ export declare type SchedulerHeaderDatePosition = 'far' | 'near';
 export declare type SchedulerHeaderNavigationStyle = 'flat' | 'raised';
 /** Determines the position of the view selector control inside the Header of the element. */
 export declare type SchedulerHeaderViewPosition = 'far' | 'near';
+/**Determines the location of the legend inside the Scheduler. By default the location is inside the footer but it can also reside in the header. */
+export declare type SchedulerLegendLocation = 'footer' | 'header';
+/**Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that. */
+export declare type SchedulerLegendPosition = 'near' | 'far';
 /**Determines the minute formatting inside the Scheduler. */
 export declare type MinuteFormat = '2-digit' | 'numeric';
 /**Determines the visibility of the resize handles. */
@@ -22096,9 +22441,11 @@ export declare type ResizeHandlesVisibility = 'auto' | 'hidden' | 'visible';
 export declare type SchedulerScrollButtonsPosition = 'both' | 'far' | 'near';
 /**Determines the date scale for the timeline cells. */
 export declare type SchedulerTimelineDayScale = 'hour' | 'halfHour' | 'quarterHour' | 'tenMinutes' | 'fiveMinutes';
+/**Determines the timeZone for the element. By default if the local time zone is used if the property is not set. */
+export declare type SchedulerTimeZone = 'Local' | 'Dateline Standard Time' | 'UTC-11' | 'Hawaiteratoran Standard Time' | 'Alaskan Standard Time' | 'Pacific Standard Time (Mexico)' | 'Pacific Standard Time' | 'US Mountain Standard Time' | 'Mountain Standard Time (Mexico)' | 'Mountain Standard Time' | 'Central Standard Time' | 'Central America Standard Time' | 'Canada Central Standard Time' | 'Central Standard Time (Mexico)' | 'SA Pacific Standard Time' | 'Eastern Standard Time' | 'US Eastern Standard Time' | 'Venezuela Standard Time' | 'Atlantic Standard Time' | 'Paraguay Standard Time' | 'Central Brazilian Standard Time' | 'Pacific SA Standard Time' | 'SA Western Standard Time' | 'Newfoundland Standard Time' | 'SA Eastern Standard Time' | 'Argentina Standard Time' | 'E. South America Standard Time' | 'Bahia Standard Time' | 'Montevideo Standard Time' | 'Greenland Standard Time' | 'UTC-02' | 'Mid-Atlantic Standard Time' | 'Azores Standard Time' | 'Cape Verde Standard Time' | 'Morocco Standard Time' | 'UTC' | 'GMT Standard Time' | 'Greenwich Standard Time' | 'Central European Standard Time' | 'Namibia Standard Time' | 'W. Central Africa Standard Time' | 'W. Europe Standard Time' | 'Central Europe Standard Time' | 'Romance Standard Time' | 'FLE Standard Time' | 'South Africa Standard Time' | 'Turkey Standard Time' | 'GTB Standard Time' | 'Libya Standard Time' | 'E. Europe Standard Time' | 'Jordan Standard Time' | 'Middle East Standard Time' | 'Egypt Standard Time' | 'Syria Standard Time' | 'Israel Standard Time' | 'Arab Standard Time' | 'E. Africa Standard Time' | 'Arabic Standard Time' | 'Kaliningrad Standard Time' | 'Iran Standard Time' | 'Mauritius Standard Time' | 'Georgian Standard Time' | 'Caucasus Standard Time' | 'Arabian Standard Time' | 'Azerbaijan Standard Time' | 'Russian Standard Time' | 'Afghanistan Standard Time' | 'Pakistan Standard Time' | 'West Asia Standard Time' | 'India Standard Time' | 'Sri Lanka Standard Time' | 'Nepal Standard Time' | 'Central Asia Standard Time' | 'Bangladesh Standard Time' | 'Ekaterinburg Standard Time' | 'Myanmar Standard Time' | 'SE Asia Standard Time' | 'N. Central Asia Standard Time' | 'Ulaanbaatar Standard Time' | 'China Standard Time' | 'Singapore Standard Time' | 'North Asia Standard Time' | 'Taipei Standard Time' | 'W. Australia Standard Time' | 'Korea Standard Time' | 'North Asia East Standard Time' | 'Tokyo Standard Time' | 'AUS Central Standard Time' | 'Cen. Australia Standard Time' | 'West Pacific Standard Time' | 'Tasmania Standard Time' | 'E. Australia Standard Time' | 'AUS Eastern Standard Time' | 'Yakutsk Standard Time' | 'Vladivostok Standard Time' | 'Central Pacific Standard Time' | 'Magadan Standard Time' | 'Kamchatka Standard Time' | 'Fiji Standard Time' | 'New Zealand Standard Time' | 'UTC+12' | 'Tonga Standard Time' | 'Samoa Standard Time';
 /**Indicates the current Scheduler viewType. Custom views must contain a valid <b>type</b> property that corresponds to one of the view types. This property should not be set. */
 export declare type SchedulerViewType = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
-/**Determines the viewing date range of the timeline. Custom views can be defined as objects instead of strings. The view object should contain the following properties: <b>label</b> - the label for the view.
+/**Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: <b>label</b> - the label for the view.
 <b>value</b> - the value for the view. The value is the unique identifier for the view.
 <b>type</b> - the type of view. The type should be one of the default allowed values for a view.
 <b>hideWeekend</b> - an Optional property that allows to hide the weekend only for this specific view.
@@ -22280,7 +22627,7 @@ export interface SliderProperties {
    * Determines what values the thumb snaps to. 
    * Default value: 1
    */
-  interval?: any;
+  interval?: string | number;
   /**
    * Sets the direction of the slider. If is true - positions of the slider's begin and end are changed. 
    * Default value: false
@@ -22315,7 +22662,7 @@ export interface SliderProperties {
    * Sets or gets the maximum value of the widget. 
    * Default value: 100
    */
-  max?: any;
+  max?: string | number;
   /**
    * Sets or gets the type of used mechanical action. 
    * Default value: switchWhileDragging
@@ -22344,7 +22691,7 @@ export interface SliderProperties {
    * Sets or gets the minimum value of the widget. 
    * Default value: 0
    */
-  min?: any;
+  min?: string | number;
   /**
    * Sets or gets whether the widget works with numbers or dates.
    * Default value: numeric
@@ -23197,8 +23544,24 @@ export interface SwitchButton extends BaseElement, SwitchButtonProperties {
   [name: string]: any;
   /**
    * This event is triggered when the widget is checked/unchecked.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue, changeType)
+   *  value - A boolean value indicating the new state of the button ( checked or not ).
+   *  oldValue - A boolean value indicating the previous state of the button ( checked or not ).
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when the widget is checked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onCheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the widget is unchecked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onUncheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
 declare global {
@@ -23489,10 +23852,15 @@ export interface TableProperties {
    */
   dataRowId?: string;
   /**
-   * Determines the data source of the table component.
+   * Determines the data source of the table component. The data source of the Table can be a regular Array or a DataAdapter instance. You can read more about the dataAdapter here - https://www.htmlelements.com/docs/data-adapter/.
    * Default value: 
    */
   dataSource?: any;
+  /**
+   * Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: TableDataSourceSettings;
   /**
    * A callback function that can be used to transform the initial dataSource records. If implemented, it is called once for each record (which is passed as an argument).
    * Default value: null
@@ -23553,6 +23921,11 @@ export interface TableProperties {
    * Default value: false
    */
   grouping?: boolean;
+  /**
+   * A callback function that can be used to modify the contents of a grouping header row. By changing the 'label' you modify the rendered grouping value. By changing the 'template' you can modify the entire content including the column and count information.
+   * Default value: null
+   */
+  groupFormatFunction?: any;
   /**
    * Sets or gets the id of an HTML template element to be applied as additional column header(s).
    * Default value: "null"
@@ -24042,6 +24415,11 @@ export interface TableColumn {
    */
   formatFunction?: any;
   /**
+   * Sets or gets whether the column is hidden or not. Hidden columns allow data to be grouped by their corresponding dataField.
+   * Default value: true
+   */
+  hidden: boolean;
+  /**
    * Sets or gets the text displayed in the column's header.
    * Default value: ""
    */
@@ -24121,6 +24499,93 @@ export interface TableConditionalFormatting {
   text?: string;
 }
 
+/**Sets the grid's data source settings when the <em>dataSource</em> property is set to an Array or URL. */
+export interface TableDataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: TableDataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: TableDataSourceSettingsDataSourceType;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface TableDataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: TableDataSourceSettingsDataFieldDataType;
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-table"): Table;
@@ -24145,6 +24610,10 @@ export declare type TableConditionalFormattingFontFamily = 'The default fontFami
 export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the column sizing behavior. */
 export declare type TableColumnSizeMode = 'auto' | 'default';
+/**Sets the dataField type. */
+export declare type TableDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type TableDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Sets or gets the edit mode. */
 export declare type TableEditMode = 'cell' | 'row';
 /**Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'. */
@@ -24452,7 +24921,7 @@ export interface TankProperties {
    * When cooerce property is true, all values coerce to the interval's value.
    * Default value: 1
    */
-  interval?: any;
+  interval?: string | number;
   /**
    * Sets the direction of the tank. If is true - positions of the tank's begin and end are changed.
    * Default value: false
@@ -24487,7 +24956,7 @@ export interface TankProperties {
    * Sets or gets the maximum value of the widget.
    * Default value: 100
    */
-  max?: any;
+  max?: string | number;
   /**
    * Sets or gets the type of used mechanical action.
    * Default value: switchWhileDragging
@@ -24516,7 +24985,7 @@ export interface TankProperties {
    * Sets or gets the minimum value of the widget. 
    * Default value: 0
    */
-  min?: any;
+  min?: string | number;
   /**
    * Sets or gets whether the widget works with numbers or dates.
    * Default value: numeric
@@ -25327,14 +25796,14 @@ export interface TimeInput extends BaseElement, TimeInputProperties {
 export interface TimeFormat {
   /**
    * Hour format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  hour?: string;
+  hour?: TimeFormatHour;
   /**
    * Minute format.
-   * Default value: "2-digit"
+   * Default value: 2-digit
    */
-  minute?: string;
+  minute?: TimeFormatMinute;
 }
 
 declare global {
@@ -25347,6 +25816,10 @@ declare global {
     }
 }
 
+/**Hour format. */
+export declare type TimeFormatHour = 'numeric' | '2-digit';
+/**Minute format. */
+export declare type TimeFormatMinute = 'numeric' | '2-digit';
 export interface TimePickerProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -25498,9 +25971,9 @@ export interface ToastProperties {
   animation?: Animation;
   /**
    * Specifies the container where new openned toast items will be displayed. The value can be an HTMLElement or element's id. This property is in relation with modal(lower priority than modal) and position(higher priority than position) properties.
-   * Default value: null
+   * Default value: "null"
    */
-  appendTo?: any;
+  appendTo?: string;
   /**
    * Sets or gets whether the toast will automatically close after duration equal to the autoCloseDelay property.
    * Default value: false
@@ -25765,9 +26238,25 @@ export interface ToggleButton extends BaseElement, ToggleButtonProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the state of the element is changed.
-	* @param event. The custom event.    */
+   * This event is triggered when the widget is checked/unchecked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue, changeType)
+   *  value - A boolean value indicating the new state of the button ( checked or not ).
+   *  oldValue - A boolean value indicating the previous state of the button ( checked or not ).
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when the widget is checked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onCheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the widget is unchecked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(changeType)
+   *  changeType - A string flag indicating whether the change event was triggered via API or an event.
+   */
+  onUncheckValue?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
 }
 
 declare global {
@@ -25853,7 +26342,7 @@ export interface TooltipProperties {
    * Sets the element which triggers the tooltip.
    * Default value: null
    */
-  selector?: any;
+  selector?: string | HTMLElement;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
