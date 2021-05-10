@@ -1,5 +1,5 @@
 # Smart UI
-Web Components, Anguiar UI Components and React UI Components  for Professional Web Applications
+Web Components, Anguiar, React, Vue and Blazor UI for Professional Web Development
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core)
 
