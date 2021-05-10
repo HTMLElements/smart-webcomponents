@@ -1,0 +1,359 @@
+//Date Input
+smart-time-input,
+smart-date-input,
+smart-date-range-input {
+  --smart-outline: var(--smart-primary);
+  display: inline-block;
+  width: var(--smart-text-box-default-width);
+  height: var(--smart-text-box-default-height);
+  background: var(--smart-background);
+  border: 1px solid var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  overflow: hidden;
+
+  > .smart-container {
+    display: flex;
+  }
+
+  &.smart-element {
+    background: var(--smart-background);
+  }
+
+  &[drop-down-button-position="left"],
+  &[drop-down-button-position="right"] {
+    .smart-input {
+      width: calc(100% - var(--smart-editor-addon-width));
+    }
+  }
+}
+
+smart-date-range-input {
+  input::selection {
+    background: var(--smart-editor-selection);
+    color: var(--smart-editor-selection-color);
+  }
+
+  input {
+    &.smart-input {
+      border: none;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &[focus],
+  &:focus {
+    border-color: var(--smart-outline);
+  }
+}
+
+.smart-time-box {
+  display: block;
+  height: auto;
+  width: 300px;
+  overflow: hidden;
+
+  .smart-timepicker {
+    display: grid;
+    grid-template-columns: 60% 35%;
+    grid-column-gap: 5%;
+    background: var(--smart-background);
+    padding: 10px;
+    border-color: var(--smart-border);
+  }
+
+  &[right-to-left] {
+    .smart-timepicker {
+      direction: rtl;
+    }
+  }
+}
+
+.smart-time-input {
+  &.smart-input {
+    .smart-drop-down-button,
+    .smart-drop-down-button[open] {
+      .arrow:after {
+        content: var(--smart-icon-clock);
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+.smart-timepicker {
+  .minute-selection,
+  .hour-selection {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(6, auto);
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    cursor: default;
+
+    .smart-calendar-cell {
+      margin: initial;
+      line-height: var(--smart-calendar-cell-size);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      box-sizing: border-box;
+      border-radius: 100%;
+    }
+
+    .header {
+      content: attr(header-label);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-row: 1 / 3;
+      grid-column: 1 / 6;
+      font-weight: 600;
+      height: var(--smart-calendar-cell-size);
+      line-height: calc(var(--smart-calendar-cell-size) - 2px);
+    }
+  }
+
+  .minute-selection {
+    border-left: initial;
+    border-right: var(--smart-border-width) solid var(--smart-border);
+    grid-template-columns: repeat(2, 50%);
+    border-left: var(--smart-border-width) solid var(--smart-border);
+
+    .header {
+      grid-column: span 2;
+    }
+  }
+
+  .hour-selection {
+    &:before,
+    &:after {
+      content: attr(am-label);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      grid-column: 1;
+      font-weight: 600;
+      height: var(--smart-calendar-cell-size);
+      line-height: calc(var(--smart-calendar-cell-size) - 2px);
+    }
+
+    &:after {
+      content: attr(pm-label);
+      grid-row: 4/9;
+    }
+  }
+}
+
+.smart-date-input {
+  &.smart-input {
+    .smart-drop-down-button,
+    .smart-drop-down-button[open] {
+      .arrow {
+        &:after {
+          content: var(--smart-icon-calendar);
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}
+
+.smart-date-range-input {
+  &.smart-input {
+    .smart-drop-down-button,
+    .smart-drop-down-button[open] {
+      .arrow {
+        &:after {
+          content: var(--smart-icon-calendar);
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+
+  .smart-container {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+    position: relative;
+    overflow: visible;
+  }
+}
+
+.smart-date-range-input-drop-down-menu {
+  smart-button {
+    &:first-of-type {
+      margin-left: 5px;
+    }
+
+    &:last-of-type {
+      margin-right: 5px;
+    }
+  }
+
+  .smart-calendar {
+    height: 100%;
+    min-width: 100%;
+    --smart-calendar-default-height: auto;
+    --smart-calendar-footer-height: 0px;
+  }
+
+  .smart-done-button,
+  .smart-today-button,
+  .smart-clear-button {
+    height: auto;
+    --smart-button-padding: 5px;
+  }
+
+  .smart-done-button,
+  .smart-today-button {
+    margin-right: 5px;
+  }
+
+  .smart-calendar-footer {
+    flex-direction: column;
+  }
+
+  .smart-timepicker-buttons,
+  .smart-button-controls {
+    display: none;
+  }
+
+  .smart-date-range-input-footer-controls {
+    width: 100%;
+    height: 100%;
+  }
+
+  .smart-timepicker-button {
+    position: relative;
+    white-space: nowrap;
+
+    &:empty {
+      display: none;
+    }
+
+    &:before {
+      content: var(--smart-icon-clock);
+      height: 100%;
+      font-family: var(--smart-font-family-icon);
+      font-weight: var(--smart-font-weight);
+      font-size: var(--smart-arrow-size);
+      margin: 0 var(--smart-editor-label-padding) 0 var(--smart-editor-label-padding);
+    }
+
+    &:hover {
+      color: var(--smart-ui-state-color-hover);
+      border-color: var(--smart-ui-state-hover);
+      background-color: var(--smart-ui-state-hover);
+      transition: background-color 100ms linear, color 100ms ease-in-out;
+      opacity: var(--smart-button-opacity-hover);
+      cursor: pointer;
+    }
+
+    &[selected] {
+      color: var(--smart-ui-state-color-selected)
+    }
+  }
+
+  .smart-icon-today {
+    &:before {
+      content: var(--smart-icon-calendar);
+    }
+  }
+
+  .smart-icon-clear {
+    &:before {
+      content: var(--smart-icon-cancel);
+    }
+  }
+
+  .smart-timepicker {
+    position: absolute;
+    top: 0;
+    display: grid;
+    grid-template-columns: 60% 35%;
+    height: calc(100% - var(--smart-calendar-footer-height));
+    width: 100%;
+    grid-column-gap: 5%;
+    background: var(--smart-background);
+    box-sizing: border-box;
+    padding: 10px;
+    border-color: var(--smart-border);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    border-width: var(--smart-border-width);
+    border-style: solid;
+    border-bottom: none;
+  }
+
+  &[icons],
+  &[timepicker] {
+    smart-calendar {
+      --smart-calendar-footer-height: 30px;
+    }
+
+    .smart-timepicker-buttons {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+    }
+  }
+
+  &[timepicker][icons] {
+    .smart-date-range-input-footer-controls {
+      display: grid;
+      grid-template-columns: 60% 38%;
+      grid-column-gap: 2%;
+      justify-items: center;
+    }
+  }
+
+  &.smart-input-drop-down-menu {
+    height: auto;
+    width: var(--smart-input-drop-down-menu-width);
+
+
+    &.smart-date-input-drop-down-menu {
+      height: 250px;
+    }
+  }
+
+  &:not([timepicker]) {
+    .smart-timepicker-buttons {
+      display: none;
+    }
+  }
+
+  &:not([animation='none']) {
+    .smart-timepicker {
+      transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+      transform: scale(1);
+
+      &.smart-visibility-hidden {
+        transition: visibility 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+        transform: scale(0);
+      }
+    }
+  }
+
+  &[right-to-left] {
+    .smart-timepicker {
+      direction: rtl;
+    }
+  }
+}
+
+

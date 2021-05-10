@@ -1,0 +1,66 @@
+@import '_functions';
+
+/* .smart-card */
+.smart-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--smart-surface);
+
+  //Mobile (portrait)
+  @media only screen and (max-width: 768px) {
+    smart-card {
+      margin: 0px 10px 10px 10px;
+    }
+  }
+}
+
+smart-card {
+  display: inline-block;
+  width: 30.5%;
+  min-height: 20px;
+  margin: 1%;
+  box-shadow: var(--smart-elevation-2);
+  box-sizing: border-box;
+  font-size: inherit;
+
+  //Mobile (landscape)
+  @media only screen and (max-width: 1024px) {
+    display: inline-block;
+    width: 47%;
+  }
+
+  //Mobile (portrait)
+  @media only screen and (max-width: 768px) {
+    display: block;
+    width: 100%;
+    margin: 0px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+
+  &:hover {
+    box-shadow: var(--smart-elevation-4);
+  }
+
+  &.simple {
+    box-shadow: unset;
+    width: auto;
+    margin: 0;
+  }
+
+  //Right To Left
+  &[right-to-left],
+  &[right-to-left] {
+    > .smart-container,
+    &.smart-container {
+      direction: rtl;
+    }
+  }
+}

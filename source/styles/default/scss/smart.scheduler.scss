@@ -1,0 +1,1370 @@
+smart-scheduler {
+  --smart-scheduler-event-size: var(--smart-scheduler-event-size-basic);
+
+  display: block;
+  width: var(--smart-scheduler-default-width);
+  height: var(--smart-scheduler-default-height);
+  contain: content;
+
+  > .smart-container,
+  &.smart-container {
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: var(--smart-scheduler-header-height) minmax(0, 1fr);
+    grid-template-columns: 100%;
+    margin-bottom: -2px;
+
+    &[show-footer] {
+      grid-template-rows: var(--smart-scheduler-header-height) minmax(0, 1fr) var(--smart-scheduler-footer-height);
+    }
+
+    &.hscroll {
+      > .smart-scheduler-view {
+        height: calc(100% - var(--smart-scroll-bar-size));
+      }
+    }
+
+    &.vscroll {
+      > .smart-scheduler-view {
+        width: calc(100% - var(--smart-scroll-bar-size));
+      }
+    }
+  }
+
+  .smart-scheduler-nav {
+    &[today],
+    &[prev],
+    &[current],
+    &[next] {
+      width: var(--smart-scheduler-header-navigation-button-size);
+      min-width: var(--smart-scheduler-header-navigation-button-size);
+      height: 100%;
+      position: relative;
+      font-size: initial;
+      display: inline-block;
+      font-weight: inherit;
+      font-family: var(--smart-font-family-icon);
+      border: var(--smart-border-width) solid var(--smart-border);
+      text-transform: initial;
+    }
+
+    &[current],
+    &[prev],
+    &[next] {
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-family: var(--smart-font-family-icon);
+        font-size: var(--smart-arrow-size);
+        color: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+    }
+
+    &[current] {
+      &:after {
+        width: var(--smart-editor-addon-width);
+        min-width: var(--smart-editor-addon-width);
+        left: initial;
+        right: 0;
+        content: var(--smart-icon-arrow-down);
+        background: transparent;
+        color: inherit;
+      }
+    }
+
+    &[today] {
+      width: var(--smart-scheduler-header-today-button-size);
+      --smart-button-padding: 0 10px 0 10px;
+      border-top-left-radius: var(--smart-item-border-top-left-radius);
+      border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+      border-top-right-radius: var(--smart-item-border-top-right-radius);
+      border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+      margin-right: 10px;
+
+      button {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    &[prev],
+    &[next] {
+      &[focus],
+      &[focus] {
+        button {
+          background-color: var(--smart-background-focus);
+          outline: none;
+        }
+      }
+
+      .smart-button {
+        font-family: var(--smart-font-family-icon);
+        padding: 0px;
+        border-radius: 0px;
+        border: none;
+        min-height: initial;
+      }
+    }
+
+    &[prev] {
+      &:after {
+        content: var(--smart-icon-arrow-left);
+      }
+    }
+
+    &[next] {
+      &:after {
+        content: var(--smart-icon-arrow-right);
+      }
+    }
+  }
+
+  .smart-scheduler-header {
+    width: 100%;
+    height: var(--smart-scheduler-header-height);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 100%;
+    grid-template-areas: "date view";
+    align-items: center;
+    justify-content: start;
+    background: var(--smart-surface);
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+
+    &:empty {
+      display: none;
+    }
+
+    &[responsive-mode] {
+      grid-template-columns: repeat(2, auto);
+    }
+  }
+
+  .smart-scheduler-footer {
+    width: 100%;
+    height: var(--smart-scheduler-footer-height);
+    border-top: var(--smart-border-width) solid var(--smart-border);
+    justify-content: center;
+    align-items: center;
+    background: var(--smart-surface);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+
+  //VIEW
+  .smart-scheduler-view {
+    text-align: center;
+    overflow: hidden;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas: 'hHeader hHeader''vHeader content';
+    grid-template-columns: auto minmax(0, 1fr);
+    outline: none;
+    position: relative;
+
+    &[show-group-header="vertical"] {
+      .smart-scheduler-cell[group-separator]:not(:last-of-type) {
+        border-bottom: var(--smart-border-width) solid var(--smart-border);
+      }
+
+      .smart-scheduler-view-header-vertical {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+      }
+
+      .smart-scheduler-view-header-groups-container {
+        flex-direction: row;
+      }
+
+      .smart-scheduler-cell[group-separator]:not(:last-of-type),
+      .smart-scheduler-cell:not(.scale)[group-separator]:not(:last-of-type),
+      .smart-scheduler-cell-container[group-separator]:not(:last-of-type),
+      .smart-scheduler-cell[group-separator]:not(:last-of-type) {
+        border-bottom-color: var(--smart-scheduler-timeline-group-separator-background);
+        border-bottom-width: var(--smart-scheduler-timeline-group-separator-size);
+      }
+    }
+
+    &[show-group-header="horizontal"] {
+      .smart-scheduler-view-header-groups-container {
+        flex-direction: column;
+
+        .smart-scheduler-cell-container:not(:last-of-type) {
+          > .smart-scheduler-cell {
+            border-bottom: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-horizontal-line-color);
+          }
+        }
+      }
+
+      .smart-scheduler-cell[group-separator]:not(:last-of-type),
+      .smart-scheduler-cell:not(.scale)[group-separator]:not(:last-of-type),
+      .smart-scheduler-cell-container[group-separator]:not(:last-of-type) {
+        border-right-color: var(--smart-scheduler-timeline-group-separator-background);
+        border-right-width: var(--smart-scheduler-timeline-group-separator-size);
+      }
+    }
+
+    &:focus {
+      .smart-scheduler-cell:not(.scale)[selected] {
+        background: var(--smart-ui-state-selected);
+        color: var(--smart-ui-state-color-selected);
+      }
+
+      .smart-scheduler-cell:not(.scale)[selected="start"] {
+        background: var(--smart-ui-state-active);
+        color: var(--smart-ui-state-color-active);
+      }
+    }
+
+    &[event-hovered="left"],
+    &[event-hovered="right"],
+    &[event-hovered="left"] .smart-scheduler-event-content,
+    &[event-hovered="right"] .smart-scheduler-event-content {
+      cursor: e-resize;
+    }
+
+    &[event-hovered="top"],
+    &[event-hovered="bottom"],
+    &[event-hovered="top"] .smart-scheduler-event-content,
+    &[event-hovered="bottom"] .smart-scheduler-event-content {
+      cursor: n-resize;
+    }
+
+    &[mobile] {
+      .smart-scheduler-content:not(.hide-overlay) {
+        &:after {
+          position: fixed;
+          content: '';
+          width: 100%;
+          height: 100%;
+          display: block;
+          
+        }
+      }
+
+      .smart-scheduler-event[collector] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+
+        .smart-scheduler-event-content {
+          width: var(--smart-scheduler-event-collector-mobile-size);
+          height: var(--smart-scheduler-event-collector-mobile-size);
+        }
+      }
+    }
+  }
+
+  .smart-scheduler-view-nav {
+    grid-area: view;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    overflow: hidden;
+
+    .smart-scheduler-nav[prev],
+    .smart-scheduler-nav[next] {
+      border: initial;
+      border-radius: initial;
+      --smart-background: transparent;
+      --smart-disabled: transparent;
+    }
+
+    &[show-menu] {
+      padding: var(--smart-scheduler-header-padding);
+    }
+
+    &.no-overflowing {
+      .smart-scheduler-items-container {
+        overflow: hidden;
+      }
+    }
+  }
+
+  .smart-scheduler-view-header {
+    box-shadow: var(--smart-scheduler-header-box-shadow);
+    position: relative;
+  }
+
+  .smart-scheduler-view-header-vertical {
+    height: 100%;
+    grid-area: vHeader;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    .smart-scheduler-view-details {
+      width: var(--smart-scheduler-timeline-header-vertical-details-size);
+    }
+
+    .smart-scheduler-groups-container {
+      width: var(--smart-scheduler-timeline-header-vertical-group-size);
+    }
+
+    .smart-scheduler-cells {
+      width: var(--smart-scheduler-timeline-header-vertical-cells-size);
+      border: none;
+      background: var(--smart-background);
+      position: relative;
+    }
+
+    .smart-scheduler-cell {
+      width: 100%;
+      min-width: initial;
+      align-items: flex-start;
+
+      > div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background: inherit;
+        padding: var(--smart-scheduler-timeline-header-vertical-label-padding);
+      }
+    }
+  }
+
+  .smart-scheduler-view-header-vertical-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .smart-scheduler-view-header-horizontal {
+    width: 100%;
+    display: grid;
+    grid-area: hHeader;
+
+    .smart-scheduler-view-details {
+      height: var(--smart-scheduler-timeline-header-horizontal-details-size);
+    }
+
+    .smart-scheduler-groups-container {
+      height: var(--smart-scheduler-timeline-header-horizontal-group-size);
+    }
+
+    .smart-scheduler-view-time-container {
+      display: grid;
+      width: 100%;
+      overflow: hidden;
+      border-bottom: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-horizontal-line-color);
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .smart-scheduler-cells {
+      height: var(--smart-scheduler-timeline-header-horizontal-cells-size);
+      position: relative;
+      display: flex;
+      width: 100%;
+      min-height: inherit;
+
+      .smart-scheduler-cell {
+        width: 100%;
+        min-height: inherit;
+        display: flex;
+        height: 100%;
+        border-left: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
+        border-right: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
+
+        > div {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: var(--smart-scheduler-timeline-header-horizontal-label-padding);
+        }
+
+        &:first-of-type {
+          border-left: none;
+        }
+      }
+    }
+
+    .smart-scheduler-view-groups-content {
+      border-bottom: var(--smart-border-width) solid var(--smart-border);
+    }
+  }
+
+  .smart-scheduler-view-header-horizontal-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .smart-scheduler-view-header-groups-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+
+    .smart-scheduler-cell-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: initial;
+      min-width: initial;
+    }
+  }
+
+  .smart-scheduler-view-time {
+    display: flex;
+    position: relative;
+  }
+
+  .smart-scheduler-view-all-day {
+    grid-template-columns: auto minmax(0, 1fr);
+    border-bottom: var(--smart-scheduler-day-week-view-hour-size) solid var(--smart-scheduler-day-week-view-hour-color);
+    height: var(--smart-scheduler-timeline-header-all-day-cells-size);
+    display: grid;
+
+    .smart-scheduler-cell {
+      &[all-day] {
+        height: 100%;
+        border-left: initial;
+      }
+    }
+
+    .smart-scheduler-event {
+      padding: var(--smart-scheduler-event-padding-all-day);
+      height: var(--smart-scheduler-event-size);
+
+      &:after {
+        top: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
+        left: calc(100% - var(--smart-scheduler-event-resize-indicator-size));
+      }
+
+      &:before {
+        top: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
+        left: 0;
+      }
+
+      .smart-scheduler-event-button {
+        display: none;
+      }
+
+      &[repeating] {
+        .smart-scheduler-event-content {
+          &[single-line] {
+            grid-template-columns: repeat(2, auto) var(--smart-scheduler-event-icon-size);
+          }
+        }
+      }
+    }
+
+    .smart-scheduler-event-content {
+      grid-template-columns: minmax(auto, 1fr);
+
+      &[single-line] {
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: 100%;
+        grid-column-gap: 5px;
+        justify-content: space-between;
+      }
+    }
+
+    &[exception],
+    &[repeating] {
+      .smart-scheduler-event-content {
+        grid-template-columns: minmax(auto, 1fr) var(--smart-scheduler-event-icon-size);
+      }
+    }
+  }
+
+  .smart-scheduler-view-all-day-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .smart-scheduler-view-all-day-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    min-width: var(--smart-scheduler-timeline-header-vertical-cells-size);
+    font-weight: var(--smart-scheduler-timeline-all-day-label-font-weight);
+    padding: var(--smart-scheduler-timeline-header-cell-padding);
+
+    > div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .smart-scheduler-view-all-day-label-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .smart-scheduler-view-details {
+    display: flex;
+    position: relative;
+
+    .smart-scheduler-cell {
+      border-bottom: var(--smart-border-width) solid var(--smart-border);
+
+      &:not(:first-of-type) {
+        border-left: none;
+      }
+    }
+  }
+
+  .smart-scheduler-view-container {
+    position: relative;
+  }
+
+  .smart-scheduler-view-label-container {
+    display: flex;
+    height: 100%;
+  }
+
+  .smart-scheduler-view-groups-label-container {
+    display: flex;
+    height: 100%;
+  }
+
+  .smart-scheduler-view-groups-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .smart-scheduler-view-items-button {
+    --smart-button-text-transform: initial;
+    transform: scale(1);
+    height: 100%;
+    width: var(--smart-scheduler-header-menu-button-size);
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+    overflow: hidden;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-family: var(--smart-font-family-icon);
+      font-size: var(--smart-arrow-size);
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+
+
+      width: var(--smart-editor-addon-width);
+      min-width: var(--smart-editor-addon-width);
+      left: initial;
+      right: 0;
+      content: var(--smart-icon-arrow-down);
+      background: transparent;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: initial;
+
+      > span {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    &:not([active]) {
+      button:active {
+        color: inherit;
+        border-color: inherit;
+        background-color: inherit;
+      }
+    }
+
+    &.smart-visibility-hidden {
+      transform: scale(0);
+    }
+  }
+
+
+  //CELLS
+  .smart-scheduler-cells {
+    .smart-scheduler-cell {
+      &:empty {
+        display: none;
+      }
+
+      &:not(:first-of-type) {
+        border-left: none;
+      }
+    }
+
+    div {
+      border-bottom-color: var(--smart-border);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+  }
+
+  .smart-scheduler-cells-container {
+    .smart-scheduler-cell {
+      &.scale {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: initial;
+        min-width: initial;
+      }
+
+      &:not(.scale)[restricted] {
+        background: var(--smart-scheduler-restricted-background);
+      }
+
+      &[nonworking] {
+        background: var(--smart-scheduler-timeline-nonworking-color);
+
+        .smart-scheduler-cell {
+          background: var(--smart-scheduler-timeline-nonworking-color);
+        }
+      }
+
+      &[weekend] {
+        background: var(--smart-scheduler-timeline-weekend-color);
+      }
+    }
+
+    .smart-scheduler-cell-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      padding: initial;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .smart-scheduler-cell:not(.scale) {
+      width: 100%;
+      height: 100%;
+      min-height: initial;
+      min-width: initial;
+    }
+  }
+
+  .smart-scheduler-cell {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--smart-background);
+    color: var(--smart-surface-color);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: var(--smart-scheduler-timeline-header-cell-padding);
+    border-bottom-color: transparent;
+    height: var(--smart-scheduler-timeline-cell-height);
+    min-height: var(--smart-scheduler-timeline-cell-min-height);
+    width: var(--smart-scheduler-timeline-cell-width);
+    min-width: var(--smart-scheduler-timeline-cell-min-size);
+
+    &.smart-scheduler-feedback {
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 2px dashed var(--smart-primary);
+        pointer-events: none;
+        background: var(--smart-scheduler-cell-feedback-background);
+      }
+    }
+
+    &[other-month] {
+      background: var(--smart-background);
+      color: var(--smart-background-color);
+      border-color: var(--smart-border);
+
+      > div {
+        opacity: 0.5;
+      }
+    }
+
+    &.smart-scheduler-view-header-cell-feedback {
+      width: initial;
+      height: initial;
+      visibility: hidden;
+    }
+  }
+
+  .smart-scheduler-cell-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--smart-background);
+    color: var(--smart-surface-color);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: var(--smart-scheduler-timeline-header-cell-padding);
+    border-bottom-color: transparent;
+    height: var(--smart-scheduler-timeline-cell-height);
+    min-height: var(--smart-scheduler-timeline-cell-min-height);
+    width: var(--smart-scheduler-timeline-cell-width);
+    min-width: var(--smart-scheduler-timeline-cell-min-size);
+  }
+
+
+  //EVENTS
+  .smart-scheduler-events-container {
+    .smart-scheduler-event {
+      .smart-scheduler-event-button {
+        display: none;
+      }
+    }
+  }
+
+  .smart-scheduler-event {
+    position: absolute;
+    padding: var(--smart-scheduler-event-padding-basic);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: var(--smart-scheduler-event-border-radius);
+
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    &:after {
+      left: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
+      top: calc(100% - var(--smart-scheduler-event-resize-indicator-size));
+    }
+
+    &:before {
+      left: calc(50% - var(--smart-scheduler-event-resize-indicator-size) / 4);
+      top: 0;
+    }
+
+    &[hover],
+    &[focus] {
+      &:before,
+      &:after {
+        transform: scale(1);
+      }
+    }
+
+    &:not([resized])[focus] {
+      .smart-scheduler-event-content {
+        background: var(--smart-scheduler-event-focus);
+        color: var(--smart-scheduler-event-color-focus);
+      }
+    }
+
+    &:not([resized])[hover] {
+      .smart-scheduler-event-content {
+        background: var(--smart-scheduler-event-hover);
+        color: var(--smart-scheduler-event-color-hover);
+      }
+    }
+
+    &:not([collector]) {
+      &:after,
+      &:before {
+        content: '';
+        width: var(--smart-scheduler-event-resize-indicator-size);
+        height: var(--smart-scheduler-event-resize-indicator-size);
+        position: absolute;
+        background-color: var(--smart-scheduler-event-resize-indicator-color);
+        box-shadow: 0 0 0 1px var(--smart-scheduler-event-resize-indicator-border-color);
+        transform: scale(0);
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+
+    .smart-scheduler-event-button {
+      display: none;
+    }
+
+    .smart-scheduler-event-label {
+      font-weight: var(--smart-scheduler-event-label-font-weight);
+      font-size: var(--smart-scheduler-event-label-font-size);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .smart-scheduler-event-time {
+      font-weight: var(--smart-scheduler-event-time-font-weight);
+      font-size: var(--smart-scheduler-event-time-font-size);
+      opacity: var(--smart-scheduler-event-time-opacity);
+      pointer-events: none;
+      white-space: pre-wrap;
+    }
+
+    .smart-scheduler-event-content {
+      > div {
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        align-self: flex-start;
+
+        &:first-of-type {
+          align-self: center;
+        }
+
+        //&:not(:first-of-type) {
+        //  grid-column: 1 / span 2;
+        //}
+      }
+
+      &:not([single-line]) {
+        > div:not(:first-of-type) {
+          grid-column: 1 / span 2;
+        }
+      }
+
+      &[single-line] {
+        > div {
+          align-self: initial;
+        }
+      }
+    }
+
+    &[resized] {
+      opacity: 0.75;
+      z-index: 10000;
+    }
+
+    &[cut] {
+      .smart-scheduler-event-content {
+        opacity: 0.75;
+      }
+    }
+
+    &[collector] {
+      width: var(--smart-scheduler-event-collector-size);
+      height: var(--smart-scheduler-event-collector-size);
+      border-radius: var(--smart-scheduler-event-collector-border-radius);
+
+      .smart-scheduler-event-content {
+        padding: 1px 5px;
+        justify-items: center;
+        background: var(--smart-scheduler-event-collector-background);
+        color: var(--smart-scheduler-event-collector-color);
+        grid-template-rows: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
+        grid-column-gap: 5px;
+
+        > div {
+          align-self: initial;
+          white-space: nowrap;
+        }
+      }
+
+      &[focus] {
+        .smart-scheduler-event-content {
+          background: var(--smart-scheduler-event-collector-focus);
+          color: var(--smart-scheduler-event-collector-color-focus);
+        }
+      }
+
+      &[hover] {
+        .smart-scheduler-event-content {
+          background: var(--smart-scheduler-event-collector-hover);
+          color: var(--smart-scheduler-event-collector-color-hover);
+        }
+      }
+    }
+
+    &[repeating] {
+      .smart-scheduler-event-content {
+        &:after {
+          content: var(--smart-icon-spin);
+          width: var(--smart-scheduler-event-icon-size);
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: 0;
+          right: 0;
+          font-family: var(--smart-font-family-icon);
+          font-size: var(--smart-font-size);
+          padding: var(--smart-scheduler-event-content-padding);
+          box-sizing: border-box;
+          line-height: 1rem;
+        }
+
+        &[single-line] {
+          grid-template-columns: repeat(2, auto) var(--smart-scheduler-event-icon-size);
+        }
+      }
+
+      &[exception] {
+        .smart-scheduler-event-content {
+          &:after {
+            content: var(--smart-icon-attention-circled);
+          }
+        }
+      }
+    }
+
+    &[status] {
+      .smart-scheduler-event-content::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: var(--smart-scheduler-status-size);
+        height: 100%;
+        background: var(--smart-scheduler-status-background);
+        box-shadow: 0 0 0 0.5px var(--smart-background);
+        border: 1px solid var(--smart-border);
+        border-radius: 20px;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+    }
+
+    &[status="free"] {
+      .smart-scheduler-event-content::before {
+        background: var(--smart-scheduler-status-free-background);
+      }
+    }
+
+    &[status="busy"] {
+      .smart-scheduler-event-content::before {
+        background: var(--smart-scheduler-status-busy-background);
+      }
+    }
+
+    &[status="outOfOffice"] {
+      .smart-scheduler-event-content::before {
+        background: var(--smart-scheduler-status-out-of-office-background);
+      }
+    }
+
+    &[status="tentative"] {
+      .smart-scheduler-event-content::before {
+        background: var(--smart-scheduler-status-tentative-background);
+      }
+    }
+
+    &[exception],
+    &[repeating] {
+      .smart-scheduler-event-button {
+        display: none;
+      }
+
+      .smart-scheduler-event-content {
+        grid-template-columns: minmax(auto, 1fr) var(--smart-scheduler-event-icon-size);
+      }
+    }
+
+    &:not([repeating]) {
+      .smart-scheduler-event-content {
+        //> div {
+        //  grid-column: 1 / span 2;
+        //}
+
+        &:not([single-line]) > div {
+          grid-column: 1 / span 2;
+        }
+      }
+    }
+  }
+
+  .smart-scheduler-event-content {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-rows: min-content minmax(auto, 1fr);
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: center;
+    overflow: hidden;
+    padding: var(--smart-scheduler-event-content-padding);
+    color: var(--smart-scheduler-event-color);
+    background: var(--smart-scheduler-event-background);
+    cursor: pointer;
+    position: relative;
+    border-radius: inherit;
+    grid-row-gap: 2px;
+    grid-template-columns: minmax(auto, 1fr);
+
+    &[single-line] {
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: 100%;
+      grid-column-gap: 5px;
+      justify-content: space-between;
+    }
+  }
+
+
+  //DATE TIME
+  .smart-scheduler-date-nav {
+    grid-area: date;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: var(--smart-scheduler-header-padding);
+    background: var(--smart-surface);
+    background-clip: content-box;
+    overflow: hidden;
+
+    .smart-scheduler-nav[current] {
+      --smart-button-padding: 0 10px 0 10px;
+      width: auto;
+      max-width: var(--smart-scheduler-header-date-button-max-size);
+      border-top-right-radius: var(--smart-item-border-top-right-radius);
+      border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+      border-top-left-radius: var(--smart-item-border-top-left-radius);
+      border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+
+      .smart-button {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+  }
+
+  .smart-scheduler-time-zone {
+    width: var(--smart-scheduler-timeline-header-vertical-cells-size);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--smart-scheduler-timeline-header-cell-padding);
+
+    > div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .smart-scheduler-time-zone-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .smart-scheduler-current-time-indicator {
+    position: absolute;
+    pointer-events: none;
+    width: var(--smart-scheduler-current-time-indicator-size);
+    height: var(--smart-scheduler-current-time-indicator-size);
+    background: var(--smart-scheduler-current-time-indicator-background);
+  }
+
+
+  //OTHERS
+
+  .smart-scheduler-items-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    outline: none;
+
+    .smart-scheduler-item[selected] {
+      background: var(--smart-background);
+      border-left: var(--smart-border-width) solid var(--smart-border);
+      border-right: var(--smart-border-width) solid var(--smart-border);
+      border-top: var(--smart-border-width) solid var(--smart-border);
+    }
+
+    &:focus .smart-scheduler-item[selected] {
+      background-color: var(--smart-ui-state-focus);
+      border-color: var(--smart-ui-state-border-focus);
+      color: var(--smart-ui-state-color-focus);
+    }
+
+    .smart-scheduler-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 100%;
+      width: var(--smart-scheduler-item-size);
+      padding: var(--smart-scheduler-header-padding);
+      border: var(--smart-border-width) solid transparent;
+    }
+
+    .smart-scheduler-item:last-of-type {
+      border-right: none;
+    }
+  }
+
+  .smart-scheduler-item {
+    > div {
+      position: relative;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .smart-scheduler-groups-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .smart-scheduler-cell {
+      font-weight: var(--smart-scheduler-timeline-all-day-label-font-weight);
+      white-space: var(--smart-scheduler-timeline-group-white-space);
+
+      > div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &:not(:first-of-type) {
+        border-left: none;
+      }
+    }
+  }
+
+  .smart-scheduler-scrollable-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-area: content;
+    height: 100%;
+    background: var(--smart-scheduler-view-background);
+  }
+
+  .smart-scheduler-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    .smart-scheduler-cell {
+      &[nonworking] {
+        background: var(--smart-scheduler-timeline-nonworking-color);
+      }
+
+      &[weekend] {
+        background: var(--smart-scheduler-timeline-weekend-color);
+      }
+    }
+  }
+
+  .smart-scheduler-view-scroll-bar {
+    overflow: visible;
+    position: relative;
+    height: var(--smart-scroll-bar-size);
+    width: 100%;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: var(--smart-scroll-bar-size);
+      background: var(--smart-scroll-bar-background);
+      left: 100%;
+      top: 0;
+    }
+
+    &.bottom-corner {
+      width: calc(100% - var(--smart-scroll-bar-size));
+    }
+
+    &[orientation="vertical"] {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: var(--smart-scroll-bar-size);
+
+      &.bottom-corner {
+        height: calc(100% - var(--smart-scroll-bar-size));
+      }
+    }
+  }
+
+  .smart-scheduler-tooltip {
+    pointer-events: none;
+    transform: scale(0);
+  }
+
+  .smart-toast-container-custom {
+    width: var(--smart-scheduler-toast-default-width);
+    top: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+
+    .smart-toast-item {
+      border-radius: 5px;
+      height: var(--smart-scheduler-toast-default-height);
+
+      > .smart-container {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .smart-toast-item-container {
+        padding: initial;
+        top: initial;
+        width: 100%;
+      }
+    }
+  }
+
+  .smart-scheduler-legend {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    grid-area: legend;
+
+    .smart-scheduler-legend-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 100%;
+      padding: var(--smart-scheduler-header-padding);
+      overflow: hidden;
+      grid-row-gap: 2px;
+    }
+
+    .smart-scheduler-legend-res-items {
+      display: flex;
+      /* grid-column-gap: 20px; */
+      /* Safari does not support column-gap with Flexbox */
+    }
+
+    .smart-scheduler-legend-res-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      grid-column-gap: 5px;
+      white-space: nowrap;
+      outline: initial;
+      overflow: hidden;
+
+      &:hover {
+        color: var(--smart-ui-state-color-hover);
+      }
+
+      &:before {
+        content: '';
+        width: var(--smart-check-box-default-size);
+        min-width: var(--smart-check-box-default-size);
+        height: var(--smart-check-box-default-size);
+        min-height: var(--smart-check-box-default-size);
+        display: flex;
+        border: var(--smart-border-width) solid var(--smart-border);
+        box-sizing: border-box;
+        background-color: var(--smart-scheduler-legend-item-background);
+        border-radius: var(--smart-border-radius);
+      }
+
+      &:not(:first-of-type) {
+        margin-left: 20px;
+      }
+
+      > span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        pointer-events: none;
+        @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+          width: 0;
+        }
+      }
+    }
+  }
+
+  .smart-scheduler-window-modal {
+    position: absolute;
+    opacity: 0.5;
+    background-color: var(--smart-disabled);
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
+  }
+
+  .smart-scheduler-shade-section {
+    position: absolute;
+    pointer-events: none;
+    background: var(--smart-scheduler-shader-background);
+  }
+
+  .smart-scheduler-item > div,
+  .smart-scheduler-view-header-horizontal .smart-scheduler-cell,
+  .smart-scheduler-view-header-vertical .smart-scheduler-cell,
+  .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale) > div,
+  .smart-scheduler-view-all-day-label {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  @import 'scheduler/_properties.scss';
+  @import 'scheduler/_rtl';
+}
+
+/* No need for view overlay on Mobile Firefox. */
+@-moz-document url-prefix() {
+  .smart-scheduler {
+    .smart-scheduler-view[mobile] {
+      .smart-scheduler-content:not(.hide-overlay) {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@import 'scheduler/_window';
+@import 'scheduler/_tooltip';
+@import 'scheduler/_color_input';
+@import 'scheduler/_drag';
+@import 'scheduler/_notification';
+@import 'scheduler/_loading_placeholder';
+
+/* --- Editor Color Input --- */
+@include color-input-mixin(scheduler);

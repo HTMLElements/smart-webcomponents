@@ -52,6 +52,11 @@ export interface CardViewProperties {
    */
   dataSource?: any;
   /**
+   * Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: DataSourceSettings;
+  /**
    * Allows the edit option for the cards.
    * Default value: false
    */
@@ -142,6 +147,16 @@ export interface CardViewProperties {
    * }
    */
   messages?: any;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the theme. Theme defines the look of the element
+   * Default value: ""
+   */
+  theme?: string;
   /**
    * Describes the scrolling behavior of the element.
    * Default value: physical
@@ -277,6 +292,11 @@ export interface CardViewColumn {
    */
   dataField?: string;
   /**
+   * Sets or gets the column's data type.
+   * Default value: string
+   */
+  dataType?: CardViewColumnDataType;
+  /**
    * Sets or gets the column's icon. Expects CSS class name.
    * Default value: 
    */
@@ -298,14 +318,106 @@ export interface CardViewColumn {
   visible?: boolean;
   /**
    * Sets or gets the column's format function.
-   * Default value: 
+   * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: { (settings: { template?: string, column?: any, record?: any, value?: any }): any };
   /**
    * Sets or gets the column's format settings. You can use any of the build in formatting options or to NumberFormat object like that: 'Intl: {  NumberFormat: {  style: \'currency\', currency: \'EUR\' }}' or DateTimeFormat object like that: 'Intl: {  DateTimeFormat: {  dateStyle: \'full\' }}''
    * Default value: [object Object]
    */
   formatSettings?: any;
+}
+
+/**Sets the grid's data source settings when the <em>dataSource</em> property is set to an Array or URL. */
+export interface DataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: blackList
+   */
+  sanitizeHTML?: DataSourceSettingsSanitizeHTML;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: DataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: DataSourceSettingsDataSourceType;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface DataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: DataSourceSettingsDataFieldDataType;
 }
 
 declare global {
@@ -320,8 +432,16 @@ declare global {
 
 /**Describes the orientation of the card cells. */
 export declare type Orientation = 'horizontal' | 'vertical';
+/**Sets or gets the column's data type. */
+export declare type CardViewColumnDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
 /**Describes the cover image fit property. */
 export declare type CardViewCoverMode = 'fit' | 'crop';
+/**Sets or gets the XML binding root. */
+export declare type DataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
+/**Sets the dataField type. */
+export declare type DataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type DataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons. */
 export declare type CardViewHeaderPosition = 'none' | 'top' | 'bottom';
 /**Describes the scrolling behavior of the element. */

@@ -469,7 +469,7 @@ export declare type TreeScrollMode = 'scrollbar' | 'scrollButtons';
 /**Determines the way selected items are highlighted. */
 export declare type TreeSelectionDisplayMode = 'row' | 'label';
 /**Determines selection mode. */
-export declare type TreeSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+export declare type TreeSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroAndOne' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
 /**Determines whether jqx-tree-items-groups can be selected. */
 export declare type TreeSelectionTarget = 'all' | 'leaf';
 /**Determines sort direction - ascending or descending. */

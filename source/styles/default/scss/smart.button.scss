@@ -1,0 +1,347 @@
+@import '_functions';
+
+/* smart-button, smart-repeat-button, smart-toggle-button */
+smart-button, smart-toggle-button, smart-repeat-button {
+  --smart-button-flat-color: var(--smart-background-color);
+  text-align: center;
+  display: inline-flex;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: var(--smart-button-text-transform);
+  letter-spacing: .08929em;
+  overflow: hidden;
+  border-color: var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  border-width: var(--smart-border-width);
+  border-style: solid;
+  visibility: hidden;
+  font-weight: 500;
+
+  &.smart-element {
+    display: inline-flex;
+    visibility: inherit;
+  }
+
+  button::-moz-focus-inner {
+    border: 0;
+  }
+
+  // ======== Buttons Colors ========
+  @each $value in $main-colors-list {
+    &.#{$value} {
+      --smart-button-opacity-hover: 0.75;
+      --smart-button-opacity-focus: 0.7;
+      --smart-button-opacity-active: 0.65;
+      --smart-background: var(--smart-#{$value});
+      --smart-border: var(--smart-#{$value});
+      --smart-border-rgb: var(--smart-#{$value}-rgb);
+      --smart-background-color: var(--smart-#{$value}-color);
+      --smart-ui-state-hover: var(--smart-#{$value});
+      --smart-ui-state-border-hover: var(--smart-#{$value});
+      --smart-ui-state-color-hover: var(--smart-#{$value}-color);
+      --smart-ui-state-active: var(--smart-#{$value});
+      --smart-ui-state-border-active: var(--smart-#{$value});
+      --smart-ui-state-color-active: var(--smart-#{$value}-color);
+      --smart-ui-state-focus: var(--smart-#{$value});
+      --smart-ui-state-border-focus: var(--smart-#{$value});
+      --smart-ui-state-color-focus: var(--smart-#{$value}-color);
+      --smart-button-flat-color: var(--smart-#{$value});
+      --smart-button-outlined-color: var(--smart-#{$value});
+      --smart-button-outlined-border: var(--smart-#{$value});
+    }
+  }
+
+  // ======== Buttons States ========
+  &[hover] {
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
+    background-color: var(--smart-ui-state-hover);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+    opacity: var(--smart-button-opacity-hover);
+  }
+
+  &[focus] {
+    color: var(--smart-ui-state-color-focus);
+    border-color: var(--smart-ui-state-border-focus);
+    background-color: var(--smart-ui-state-focus);
+    opacity: var(--smart-button-opacity-focus);
+  }
+
+  &[active] {
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+    background-color: var(--smart-ui-state-active);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+    opacity: var(--smart-button-opacity-active);
+  }
+
+  &[disabled] {
+    color: var(--smart-disabled-color);
+    border-color: var(--smart-disabled);
+    background-color: var(--smart-disabled);
+    cursor: default;
+    --smart-background: var(--smart-disabled);
+    --smart-border: var(--smart-disabled);
+    --smart-background-color: var(--smart-disabled-color);
+  }
+
+  // ======== Buttons Sizes ========
+  &.large {
+    button {
+      padding: var(--smart-button-large-padding);
+      font-size: var(--smart-button-large-font-size);
+    }
+  }
+
+  &.small {
+    button {
+      padding: var(--smart-button-small-padding);
+      font-size: var(--smart-button-small-font-size);
+    }
+  }
+
+  &.very-small {
+    button {
+      padding: var(--smart-button-very-small-padding);
+      font-size: var(--smart-button-very-small-font-size);
+    }
+  }
+
+  // ======== Buttons Variations ========
+
+  // Rounded Buttons
+  &.rounded {
+    --smart-border-top-left-radius: 50px;
+    --smart-border-top-right-radius: 50px;
+    --smart-border-bottom-left-radius: 50px;
+    --smart-border-bottom-right-radius: 50px;
+    border-radius: var(--smart-border-bottom-left-radius) !important;
+  }
+
+  // Square Buttons
+  &.squared {
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+  }
+
+  // ======== Buttons Effects ========
+
+  //Flat Button
+  &.flat {
+    color: var(--smart-button-flat-color);
+    background: transparent;
+    border-color: transparent;
+
+    &[hover] {
+      color: var(--smart-button-flat-color);
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &[active] {
+      color: var(--smart-button-flat-color);
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &[focus] {
+      border-color: var(--smart-ui-state-focus);
+    }
+
+    &[checked] {
+      text-decoration: underline;
+      background: var(--smart-ui-state-active);
+    }
+
+    .smart-ripple {
+      background-color: var(--smart-button-flat-color);
+    }
+  }
+
+  //Outlined Button
+  &.outlined {
+    color: var(--smart-button-outlined-color);
+    border-color: var(--smart-button-outlined-border);
+    background: transparent;
+    border-width: calc(2 * var(--smart-border-width));
+
+    //Outlined Button - Hover State
+    &[hover] {
+      color: var(--smart-button-outlined-color);
+      border-color: var(--smart-button-outlined-border);
+      background: transparent;
+    }
+
+    //Outlined Button - Active State
+    &[active] {
+      color: var(--smart-button-outlined-color);
+      border-color: var(--smart-button-outlined-border);
+      background: transparent;
+    }
+
+    //Outlined Button - Focus State
+    &[focus] {
+      color: var(--smart-button-outlined-color);
+      border-color: var(--smart-ui-state-focus);
+      background: transparent;
+    }
+
+    //Outlined Button - Checked State
+    &[checked] {
+      color: var(--smart-ui-state-color-active);
+      border-color: var(--smart-ui-state-active);
+      background: var(--smart-ui-state-active);
+    }
+
+    .smart-ripple {
+      background-color: var(--smart-button-outlined-color);
+    }
+
+    button.smart-button {
+      border-radius: initial;
+    }
+  }
+
+  //Raised Button
+  &.raised {
+    box-shadow: var(--smart-elevation-2);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+
+    &[hover] {
+      box-shadow: var(--smart-elevation-4);
+    }
+
+    &[active],
+    &[checked],
+    &[active],
+    button[active] {
+      box-shadow: var(--smart-elevation-8);
+    }
+
+    &[focus],
+    &[focus]:not([checked]) {
+      box-shadow: var(--smart-elevation-6);
+    }
+  }
+
+  //Floating Button
+  &.floating {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: var(--smart-elevation-4);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+
+    &[hover] {
+      box-shadow: var(--smart-elevation-6);
+    }
+
+    &[active],
+    &[checked] {
+      box-shadow: var(--smart-elevation-12);
+    }
+
+    &[focus], &[focus]:not([checked]) {
+      box-shadow: var(--smart-elevation-6);
+    }
+  }
+
+  // ======== Right To Left ========
+
+  &[right-to-left] {
+    direction: rtl;
+  }
+}
+
+button.smart-button {
+  position: relative;
+  padding: var(--smart-button-padding);
+  text-align: inherit;
+  vertical-align: inherit;
+  cursor: inherit;
+  text-transform: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  background: inherit;
+  color: inherit;
+  border: none;
+  -webkit-font-smoothing: antialiased;
+  opacity: var(--smart-button-opacity);
+  white-space: nowrap;
+  border-radius: inherit;
+}
+
+.smart-button {
+  .smart-ripple {
+    background: var(--smart-background-color);
+  }
+}
+
+smart-toggle-button, [smart-toggle-button] {
+  .smart-container {
+    font-weight: inherit;
+    font-style: inherit;
+  }
+
+  &[checked] {
+    color: var(--smart-ui-state-color-selected);
+    border-color: var(--smart-ui-state-border-selected);
+    background-color: var(--smart-ui-state-selected);
+  }
+}
+
+.smart-scroll-button {
+  .smart-button {
+    padding: 0px;
+  }
+}
+
+:host(.smart-button.flat) {
+  .smart-ripple {
+    background-color: var(--smart-button-flat-color);
+  }
+}
+
+:host(.smart-button.outlined) {
+  .smart-ripple {
+    background-color: var(--smart-button-outlined-color);
+  }
+}
+
+button.smart-button[type]:not(.smart-container) {
+  border-color: var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  border-width: var(--smart-border-width);
+  border-style: solid;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: var(--smart-button-text-transform);
+  font-weight: 500;
+  letter-spacing: .08929em;
+  overflow: hidden;
+  font-style: var(--smart-font-style);
+  font-size: var(--smart-font-size);
+  background: var(--smart-background);
+  outline: none;
+}
+
+button.smart-button[type]:hover {
+  color: var(--smart-ui-state-color-hover);
+  border-color: var(--smart-ui-state-border-hover);
+  background-color: var(--smart-ui-state-hover);
+}
+
+button.smart-button[type]:not([disabled]):active {
+  color: var(--smart-ui-state-color-active);
+  border-color: var(--smart-ui-state-border-active);
+  background-color: var(--smart-ui-state-active);
+}

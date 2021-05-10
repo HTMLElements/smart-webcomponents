@@ -1,0 +1,50 @@
+/* --- Scheduler Style Color Input --- */
+//  Used in smartEditor as well
+@mixin color-input-mixin($elementName) {
+  %colorInput {
+    &.smart-color-input-drop-down-menu {
+      .grid-samples-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      &:not([animation="none"]) {
+        .default-samples-container div {
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+
+      .default-samples-container {
+        div {
+          position: relative;
+          border-radius: 50%;
+          border: initial;
+          transform: scale(0.95);
+
+          &.selected {
+            transform: scale(1);
+
+            &:not(.no-color):after {
+              content: var(--smart-icon-check);
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-family: var(--smart-font-family-icon);
+              color: var(--smart-secondary-color);
+              border-radius: inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .smart-#{$elementName}-color-input {
+    --smart-input-drop-down-menu-width: auto;
+    @extend %colorInput;
+  }
+}

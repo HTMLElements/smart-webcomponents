@@ -1,0 +1,64 @@
+/* .smart-alert */
+.smart-alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: var(--smart-item-border-width) solid var(--smart-background-color);
+    border-radius: var(--smart-item-border-radius);
+    color: var(--smart-background-color);
+    background-color: var(--smart-background);
+}
+
+.smart-alert.smart-alert-primary {
+    color: var(--smart-primary-color);
+    background-color: rgba(var(--smart-primary-rgb), .7);
+    border-color: rgba(var(--smart-primary-rgb), 1);
+}
+
+.smart-alert.smart-alert-secondary {
+    color: var(--smart-secondary-color);
+    background-color: rgba(var(--smart-secondary-rgb), .7);
+    border-color: rgba(var(--smart-secondary-rgb), 1);
+}
+
+.smart-alert.smart-alert-success {
+    color: var(--smart-success-color);
+    background-color: rgba(var(--smart-success-rgb), .7);
+    border-color: rgba(var(--smart-success-rgb), 1);
+}
+
+.smart-alert.smart-alert-error {
+    color: var(--smart-error-color);
+    background-color: rgba(var(--smart-error-rgb), .7);
+    border-color: rgba(var(--smart-error-rgb), 1);
+}
+
+.smart-alert.smart-alert-info {
+    color: var(--smart-info-color);
+    background-color: rgba(var(--smart-info-rgb), .7);
+    border-color: rgba(var(--smart-info-rgb), 1);
+}
+
+.smart-alert.smart-alert-warning {
+    color: var(--smart-warning-color);
+    background-color: rgba(var(--smart-warning-rgb), .7);
+    border-color: rgba(var(--smart-warning-rgb), 1);
+}
+
+.smart-alert.smart-alert-light {
+    color: var(--smart-light-color);
+    background-color: rgba(var(--smart-light-rgb), .7);
+    border-color: rgba(var(--smart-light-rgb), 1);
+}
+
+.smart-alert.smart-alert-dark {
+    color: var(--smart-dark-color);
+    background-color: rgba(var(--smart-dark-rgb), .7);
+    border-color: rgba(var(--smart-dark-rgb), 1);
+}
+
+.smart-alert[right-to-left] {
+    direction: rtl;
+}
+
+/*# sourceMappingURL=smart.alert.css.map */

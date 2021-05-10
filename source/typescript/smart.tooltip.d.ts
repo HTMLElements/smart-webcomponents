@@ -7,6 +7,11 @@ export interface TooltipProperties {
    */
   animation?: Animation;
   /**
+   * Determines how to align the tooltip.
+   * Default value: "center"
+   */
+  align?: string;
+  /**
    * Gets or sets whether a tooltip's arrow will be shown.
    * Default value: false
    */

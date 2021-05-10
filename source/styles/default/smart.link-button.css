@@ -1,0 +1,324 @@
+/* smart-link-button */
+.smart-link-button {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  outline: none;
+  padding: var(--smart-button-padding);
+  cursor: pointer;
+  text-transform: var(--smart-button-text-transform);
+  letter-spacing: 0.08929em;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+  font-weight: var(--smart-font-weight);
+  border-color: var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  border-width: var(--smart-border-width);
+  border-style: solid;
+}
+.smart-link-button.primary {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-primary);
+  --smart-border: var(--smart-primary);
+  --smart-border-rgb: var(--smart-primary-rgb);
+  --smart-background-color: var(--smart-primary-color);
+  --smart-ui-state-hover: var(--smart-primary);
+  --smart-ui-state-border-hover: var(--smart-primary);
+  --smart-ui-state-color-hover: var(--smart-primary-color);
+  --smart-ui-state-active: var(--smart-primary);
+  --smart-ui-state-border-active: var(--smart-primary);
+  --smart-ui-state-color-active: var(--smart-primary-color);
+  --smart-ui-state-focus: var(--smart-primary);
+  --smart-ui-state-border-focus: var(--smart-primary);
+  --smart-ui-state-color-focus: var(--smart-primary-color);
+  --smart-button-flat-color: var(--smart-primary);
+  --smart-button-outlined-color: var(--smart-primary);
+  --smart-button-outlined-border: var(--smart-primary);
+}
+.smart-link-button.secondary {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-secondary);
+  --smart-border: var(--smart-secondary);
+  --smart-border-rgb: var(--smart-secondary-rgb);
+  --smart-background-color: var(--smart-secondary-color);
+  --smart-ui-state-hover: var(--smart-secondary);
+  --smart-ui-state-border-hover: var(--smart-secondary);
+  --smart-ui-state-color-hover: var(--smart-secondary-color);
+  --smart-ui-state-active: var(--smart-secondary);
+  --smart-ui-state-border-active: var(--smart-secondary);
+  --smart-ui-state-color-active: var(--smart-secondary-color);
+  --smart-ui-state-focus: var(--smart-secondary);
+  --smart-ui-state-border-focus: var(--smart-secondary);
+  --smart-ui-state-color-focus: var(--smart-secondary-color);
+  --smart-button-flat-color: var(--smart-secondary);
+  --smart-button-outlined-color: var(--smart-secondary);
+  --smart-button-outlined-border: var(--smart-secondary);
+}
+.smart-link-button.success {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-success);
+  --smart-border: var(--smart-success);
+  --smart-border-rgb: var(--smart-success-rgb);
+  --smart-background-color: var(--smart-success-color);
+  --smart-ui-state-hover: var(--smart-success);
+  --smart-ui-state-border-hover: var(--smart-success);
+  --smart-ui-state-color-hover: var(--smart-success-color);
+  --smart-ui-state-active: var(--smart-success);
+  --smart-ui-state-border-active: var(--smart-success);
+  --smart-ui-state-color-active: var(--smart-success-color);
+  --smart-ui-state-focus: var(--smart-success);
+  --smart-ui-state-border-focus: var(--smart-success);
+  --smart-ui-state-color-focus: var(--smart-success-color);
+  --smart-button-flat-color: var(--smart-success);
+  --smart-button-outlined-color: var(--smart-success);
+  --smart-button-outlined-border: var(--smart-success);
+}
+.smart-link-button.error {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-error);
+  --smart-border: var(--smart-error);
+  --smart-border-rgb: var(--smart-error-rgb);
+  --smart-background-color: var(--smart-error-color);
+  --smart-ui-state-hover: var(--smart-error);
+  --smart-ui-state-border-hover: var(--smart-error);
+  --smart-ui-state-color-hover: var(--smart-error-color);
+  --smart-ui-state-active: var(--smart-error);
+  --smart-ui-state-border-active: var(--smart-error);
+  --smart-ui-state-color-active: var(--smart-error-color);
+  --smart-ui-state-focus: var(--smart-error);
+  --smart-ui-state-border-focus: var(--smart-error);
+  --smart-ui-state-color-focus: var(--smart-error-color);
+  --smart-button-flat-color: var(--smart-error);
+  --smart-button-outlined-color: var(--smart-error);
+  --smart-button-outlined-border: var(--smart-error);
+}
+.smart-link-button.info {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-info);
+  --smart-border: var(--smart-info);
+  --smart-border-rgb: var(--smart-info-rgb);
+  --smart-background-color: var(--smart-info-color);
+  --smart-ui-state-hover: var(--smart-info);
+  --smart-ui-state-border-hover: var(--smart-info);
+  --smart-ui-state-color-hover: var(--smart-info-color);
+  --smart-ui-state-active: var(--smart-info);
+  --smart-ui-state-border-active: var(--smart-info);
+  --smart-ui-state-color-active: var(--smart-info-color);
+  --smart-ui-state-focus: var(--smart-info);
+  --smart-ui-state-border-focus: var(--smart-info);
+  --smart-ui-state-color-focus: var(--smart-info-color);
+  --smart-button-flat-color: var(--smart-info);
+  --smart-button-outlined-color: var(--smart-info);
+  --smart-button-outlined-border: var(--smart-info);
+}
+.smart-link-button.warning {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-warning);
+  --smart-border: var(--smart-warning);
+  --smart-border-rgb: var(--smart-warning-rgb);
+  --smart-background-color: var(--smart-warning-color);
+  --smart-ui-state-hover: var(--smart-warning);
+  --smart-ui-state-border-hover: var(--smart-warning);
+  --smart-ui-state-color-hover: var(--smart-warning-color);
+  --smart-ui-state-active: var(--smart-warning);
+  --smart-ui-state-border-active: var(--smart-warning);
+  --smart-ui-state-color-active: var(--smart-warning-color);
+  --smart-ui-state-focus: var(--smart-warning);
+  --smart-ui-state-border-focus: var(--smart-warning);
+  --smart-ui-state-color-focus: var(--smart-warning-color);
+  --smart-button-flat-color: var(--smart-warning);
+  --smart-button-outlined-color: var(--smart-warning);
+  --smart-button-outlined-border: var(--smart-warning);
+}
+.smart-link-button.light {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-light);
+  --smart-border: var(--smart-light);
+  --smart-border-rgb: var(--smart-light-rgb);
+  --smart-background-color: var(--smart-light-color);
+  --smart-ui-state-hover: var(--smart-light);
+  --smart-ui-state-border-hover: var(--smart-light);
+  --smart-ui-state-color-hover: var(--smart-light-color);
+  --smart-ui-state-active: var(--smart-light);
+  --smart-ui-state-border-active: var(--smart-light);
+  --smart-ui-state-color-active: var(--smart-light-color);
+  --smart-ui-state-focus: var(--smart-light);
+  --smart-ui-state-border-focus: var(--smart-light);
+  --smart-ui-state-color-focus: var(--smart-light-color);
+  --smart-button-flat-color: var(--smart-light);
+  --smart-button-outlined-color: var(--smart-light);
+  --smart-button-outlined-border: var(--smart-light);
+}
+.smart-link-button.dark {
+  --smart-button-opacity-hover: 0.75;
+  --smart-button-opacity-focus: 0.7;
+  --smart-button-opacity-active: 0.65;
+  --smart-background: var(--smart-dark);
+  --smart-border: var(--smart-dark);
+  --smart-border-rgb: var(--smart-dark-rgb);
+  --smart-background-color: var(--smart-dark-color);
+  --smart-ui-state-hover: var(--smart-dark);
+  --smart-ui-state-border-hover: var(--smart-dark);
+  --smart-ui-state-color-hover: var(--smart-dark-color);
+  --smart-ui-state-active: var(--smart-dark);
+  --smart-ui-state-border-active: var(--smart-dark);
+  --smart-ui-state-color-active: var(--smart-dark-color);
+  --smart-ui-state-focus: var(--smart-dark);
+  --smart-ui-state-border-focus: var(--smart-dark);
+  --smart-ui-state-color-focus: var(--smart-dark-color);
+  --smart-button-flat-color: var(--smart-dark);
+  --smart-button-outlined-color: var(--smart-dark);
+  --smart-button-outlined-border: var(--smart-dark);
+}
+.smart-link-button:hover {
+  color: var(--smart-ui-state-color-hover);
+  border-color: var(--smart-ui-state-border-hover);
+  background-color: var(--smart-ui-state-hover);
+  transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+  opacity: var(--smart-button-opacity-hover);
+  text-decoration: none;
+}
+.smart-link-button:focus {
+  color: var(--smart-ui-state-color-focus);
+  border-color: var(--smart-ui-state-border-focus);
+  background-color: var(--smart-ui-state-focus);
+  opacity: var(--smart-button-opacity-focus);
+}
+.smart-link-button:active {
+  color: var(--smart-ui-state-color-active);
+  border-color: var(--smart-ui-state-border-active);
+  background-color: var(--smart-ui-state-active);
+  transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+  opacity: var(--smart-button-opacity-active);
+}
+.smart-link-button[disabled] {
+  color: var(--smart-disabled-color);
+  border-color: var(--smart-disabled);
+  background-color: var(--smart-disabled);
+  cursor: default;
+  --smart-background: var(--smart-disabled);
+  --smart-border: var(--smart-disabled);
+  --smart-background-color: var(--smart-disabled-color);
+}
+.smart-link-button.large {
+  padding: var(--smart-button-large-padding);
+  font-size: var(--smart-button-large-font-size);
+}
+.smart-link-button.small {
+  padding: var(--smart-button-small-padding);
+  font-size: var(--smart-button-small-font-size);
+}
+.smart-link-button.very-small {
+  padding: var(--smart-button-very-small-padding);
+  font-size: var(--smart-button-very-small-font-size);
+}
+.smart-link-button.rounded {
+  --smart-border-top-left-radius: 50px;
+  --smart-border-top-right-radius: 50px;
+  --smart-border-bottom-left-radius: 50px;
+  --smart-border-bottom-right-radius: 50px;
+  border-radius: var(--smart-border-bottom-left-radius) !important;
+}
+.smart-link-button.squared {
+  --smart-border-top-left-radius: 0;
+  --smart-border-top-right-radius: 0;
+  --smart-border-bottom-left-radius: 0;
+  --smart-border-bottom-right-radius: 0;
+}
+.smart-link-button.flat {
+  color: var(--smart-button-flat-color);
+  background: transparent;
+  border-color: transparent;
+}
+.smart-link-button.flat:hover {
+  color: var(--smart-button-flat-color);
+  background: transparent;
+  border-color: transparent;
+}
+.smart-link-button.flat:active {
+  color: var(--smart-button-flat-color);
+  background: transparent;
+  border-color: transparent;
+}
+.smart-link-button.flat:focus {
+  border-color: var(--smart-ui-state-focus);
+}
+.smart-link-button.outlined {
+  color: var(--smart-button-outlined-color);
+  border-color: var(--smart-button-outlined-border);
+  background: transparent;
+  border-width: calc(2 * var(--smart-border-width));
+}
+.smart-link-button.outlined:hover {
+  color: var(--smart-button-outlined-color);
+  border-color: var(--smart-button-outlined-border);
+  background: transparent;
+}
+.smart-link-button.outlined:active {
+  color: var(--smart-button-outlined-color);
+  border-color: var(--smart-button-outlined-border);
+  background: transparent;
+}
+.smart-link-button.outlined:focus {
+  color: var(--smart-button-outlined-color);
+  border-color: var(--smart-ui-state-focus);
+  background: transparent;
+}
+.smart-link-button.raised {
+  box-shadow: var(--smart-elevation-2);
+  transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+}
+.smart-link-button.raised:hover {
+  box-shadow: var(--smart-elevation-4);
+}
+.smart-link-button.raised:active {
+  box-shadow: var(--smart-elevation-8);
+}
+.smart-link-button.raised:focus {
+  box-shadow: var(--smart-elevation-6);
+}
+.smart-link-button.floating {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  box-shadow: var(--smart-elevation-4);
+  transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+}
+.smart-link-button.floating:hover {
+  box-shadow: var(--smart-elevation-6);
+}
+.smart-link-button.floating:active {
+  box-shadow: var(--smart-elevation-12);
+}
+.smart-link-button.floating:focus {
+  box-shadow: var(--smart-elevation-6);
+}
+.smart-link-button[right-to-left] {
+  direction: rtl;
+}
+
+/*# sourceMappingURL=smart.link-button.css.map */

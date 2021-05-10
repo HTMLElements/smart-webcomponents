@@ -1,0 +1,60 @@
+smart-text-area {
+  --smart-outline: var(--smart-primary);
+  display: inline-block;
+  width: var(--smart-text-box-default-width);
+  overflow: visible;
+  background: var(--smart-background);
+  border: 1px solid var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  height: calc(1.5 * var(--smart-text-box-default-height));
+
+  textarea {
+    margin: 0;
+    resize: none;
+
+    &.smart-input {
+      border: none;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.smart-text-area {
+  .smart-container {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+    position: relative;
+    overflow: visible;
+  }
+
+  textarea {
+    &.smart-input {
+      border-width: var(--smart-border-width);
+      font-family: var(--smart-font-family);
+      font-size: var(--smart-font-size);
+      background: var(--smart-background);
+      border-color: var(--smart-border);
+      color: var(--smart-background-color);
+      border-top-left-radius: var(--smart-border-top-left-radius);
+      border-top-right-radius: var(--smart-border-top-right-radius);
+      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+      border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+      padding-left: var(--smart-editor-label-padding);
+      padding-right: var(--smart-editor-label-padding);
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding: var(--smart-editor-label-padding);
+      outline: none;
+      text-align: var(--smart-text-box-text-align);
+      box-sizing: border-box;
+      border: none;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -4,21 +4,14 @@ smart-carousel {
     height: var(--smart-carousel-default-height);
 }
 
-smart-carousel[disabled] {
-    opacity: 0.55;
-    cursor: default;
-    pointer-events: none;
-}
-
-.smart-carousel > .smart-container,
-.smart-carousel.smart-container {
+smart-carousel > .smart-container, smart-carousel.smart-container {
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.smart-carousel .smart-items-container {
+smart-carousel .smart-items-container {
     position: relative;
     width: 100%;
     height: 100%;
@@ -26,11 +19,17 @@ smart-carousel[disabled] {
     overflow: hidden;
 }
 
-.smart-carousel[swipe] {
+smart-carousel[disabled] {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+}
+
+smart-carousel[swipe] {
     user-select: none;
 }
 
-.smart-carousel .smart-carousel-item {
+smart-carousel .smart-carousel-item {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -45,17 +44,7 @@ smart-carousel[disabled] {
     background-repeat: no-repeat;
 }
 
-.smart-carousel .smart-carousel-item.smart-active {
-    opacity: 1;
-    pointer-events: all;
-    user-select: text;
-}
-
-[disabled] .smart-carousel-item.smart-active {
-    pointer-events: none;
-}
-
-.smart-carousel .smart-carousel-item .smart-carousel-item-container {
+smart-carousel .smart-carousel-item .smart-carousel-item-container {
     pointer-events: none;
     user-select: text;
     position: relative;
@@ -69,8 +58,8 @@ smart-carousel[disabled] {
     background-size: cover;
 }
 
-.smart-carousel .smart-carousel-item .smart-carousel-item-label,
-.smart-carousel .smart-carousel-item .smart-carousel-item-content {
+smart-carousel .smart-carousel-item .smart-carousel-item-label,
+smart-carousel .smart-carousel-item .smart-carousel-item-content {
     text-align: center;
     box-sizing: border-box;
     position: absolute;
@@ -79,12 +68,12 @@ smart-carousel[disabled] {
     transform: translate(-50%, -50%);
 }
 
-.smart-carousel .smart-carousel-item .smart-carousel-item-content {
+smart-carousel .smart-carousel-item .smart-carousel-item-content {
     top: 40%;
     transform: translate(-50%, 0%);
 }
 
-.smart-carousel .smart-carousel-item .smart-carousel-html-content {
+smart-carousel .smart-carousel-item .smart-carousel-html-content {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -94,7 +83,13 @@ smart-carousel[disabled] {
     box-sizing: border-box;
 }
 
-.smart-carousel .smart-arrow {
+smart-carousel .smart-carousel-item.smart-active {
+    opacity: 1;
+    pointer-events: all;
+    user-select: text;
+}
+
+smart-carousel .smart-arrow {
     position: absolute;
     top: 0px;
     width: 30px;
@@ -104,19 +99,7 @@ smart-carousel[disabled] {
     display: block;
 }
 
-.smart-carousel[hide-arrows] .smart-arrow {
-    display: none;
-}
-
-.smart-carousel .smart-arrow > .smart-button {
-    border-width: 0px;
-}
-
-.smart-carousel .smart-arrow > .smart-button:active {
-    background-color: transparent;
-}
-
-.smart-carousel .smart-arrow:after {
+smart-carousel .smart-arrow:after {
     font-size: 20px;
     position: absolute;
     left: 0px;
@@ -125,29 +108,40 @@ smart-carousel[disabled] {
     user-select: none;
 }
 
-.smart-carousel .smart-arrow[disabled] {
+smart-carousel .smart-arrow:focus, smart-carousel .smart-arrow:hover {
+    opacity: 0.8;
+}
+
+smart-carousel .smart-arrow:active {
+    opacity: 1;
+}
+
+smart-carousel .smart-arrow > .smart-button {
+    border-width: 0px;
+}
+
+smart-carousel .smart-arrow > .smart-button:active {
+    background-color: transparent;
+}
+
+smart-carousel .smart-arrow[disabled] {
     opacity: 0.4;
     pointer-events: none;
 }
 
-.smart-carousel .smart-arrow:focus,
-.smart-carousel .smart-arrow:hover {
-    opacity: 0.8;
-}
-
-.smart-carousel .smart-arrow:active {
-    opacity: 1;
-}
-
-.smart-carousel .smart-arrow-left {
+smart-carousel .smart-arrow.smart-arrow-left {
     left: 0px;
 }
 
-.smart-carousel .smart-arrow-right {
+smart-carousel .smart-arrow.smart-arrow-right {
     right: 0px;
 }
 
-.smart-carousel .smart-indicators-container {
+smart-carousel[hide-arrows] .smart-arrow {
+    display: none;
+}
+
+smart-carousel .smart-indicators-container {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -157,11 +151,7 @@ smart-carousel[disabled] {
     align-items: center;
 }
 
-.smart-carousel[hide-indicators] .smart-indicators-container {
-    display: none;
-}
-
-.smart-carousel .smart-indicator {
+smart-carousel .smart-indicators-container .smart-indicator {
     width: 10px;
     height: 10px;
     border: 1px solid gray;
@@ -172,194 +162,78 @@ smart-carousel[disabled] {
     opacity: 0.5;
 }
 
-.smart-carousel .smart-indicator.smart-active {
+smart-carousel .smart-indicators-container .smart-indicator.smart-active {
     opacity: 0.9;
     border-width: 3px;
 }
 
-.smart-carousel .smart-indicator:hover {
+smart-carousel .smart-indicators-container .smart-indicator:hover {
     opacity: 0.7;
 }
 
-/* animations */
-.smart-carousel:not([animation='none']) .smart-carousel-item {
+smart-carousel[hide-indicators] .smart-indicators-container {
+    display: none;
+}
+
+smart-carousel:not([animation='none']) {
+    /* displayMode:"default" animations */
+    /* fade */
+    /* slide right to left */
+    /* slide left to right */
+    /* slide bottom to top */
+    /* slide top to bottom */
+}
+
+smart-carousel:not([animation='none']) .smart-carousel-item {
     animation-duration: 1s;
 }
 
-/* displayMode:"default" animations */
-/* fade */
-.smart-carousel:not([animation='none']) .smart-carousel-item.smart-active.smart-animate-trigger,
-.smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-active.smart-animate-trigger {
+smart-carousel:not([animation='none']) .smart-carousel-item.smart-active.smart-animate-trigger, smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-active.smart-animate-trigger {
     animation-name: carousel-active-fade;
 }
 
-.smart-carousel:not([animation='none']) .smart-carousel-item.smart-out.smart-animate-trigger,
-.smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-out.smart-animate-trigger {
+smart-carousel:not([animation='none']) .smart-carousel-item.smart-out.smart-animate-trigger, smart-carousel:not([animation='none']).fade .smart-carousel-item.smart-out.smart-animate-trigger {
     animation-name: carousel-out-fade;
 }
 
-@keyframes carousel-active-fade {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes carousel-out-fade {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-/* slide right to left */
-.smart-carousel:not([animation='none']).slide .smart-carousel-item.smart-active.smart-animate-trigger,
-.smart-carousel:not([animation='none']).slide-left .smart-carousel-item.smart-active.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide .smart-carousel-item.smart-active.smart-animate-trigger, smart-carousel:not([animation='none']).slide-left .smart-carousel-item.smart-active.smart-animate-trigger {
     animation-name: carousel-active-slide;
 }
 
-.smart-carousel:not([animation='none']).slide .smart-carousel-item.smart-out.smart-animate-trigger,
-.smart-carousel:not([animation='none']).slide-left .smart-carousel-item.smart-out.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide .smart-carousel-item.smart-out.smart-animate-trigger, smart-carousel:not([animation='none']).slide-left .smart-carousel-item.smart-out.smart-animate-trigger {
     animation-name: carousel-out-slide;
 }
 
-@keyframes carousel-active-slide {
-    from {
-        left: 100%;
-        opacity: 1;
-    }
-
-    to {
-        left: 0%;
-        opacity: 1;
-    }
-}
-
-@keyframes carousel-out-slide {
-    from {
-        left: 0%;
-        opacity: 1;
-    }
-
-    to {
-        left: -100%;
-        opacity: 1;
-    }
-}
-
-/* slide left to right */
-.smart-carousel:not([animation='none']).slide-right .smart-carousel-item.smart-active.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide-right .smart-carousel-item.smart-active.smart-animate-trigger {
     animation-name: carousel-active-slide-right;
 }
 
-.smart-carousel:not([animation='none']).slide-right .smart-carousel-item.smart-out.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide-right .smart-carousel-item.smart-out.smart-animate-trigger {
     animation-name: carousel-out-slide-right;
 }
 
-@keyframes carousel-active-slide-right {
-    from {
-        opacity: 1;
-        left: -100%;
-    }
-
-    to {
-        opacity: 1;
-        left: 0%;
-    }
-}
-
-@keyframes carousel-out-slide-right {
-    from {
-        left: 0%;
-        opacity: 1;
-    }
-
-    to {
-        left: 100%;
-        opacity: 1;
-    }
-}
-
-/* slide bottom to top */
-.smart-carousel:not([animation='none']).slide-top .smart-carousel-item.smart-active.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide-top .smart-carousel-item.smart-active.smart-animate-trigger {
     animation-name: carousel-active-slide-top;
 }
 
-.smart-carousel:not([animation='none']).slide-top .smart-carousel-item.smart-out.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide-top .smart-carousel-item.smart-out.smart-animate-trigger {
     animation-name: carousel-out-slide-top;
 }
 
-@keyframes carousel-active-slide-top {
-    from {
-        top: 100%;
-        opacity: 1;
-    }
-
-    to {
-        top: 0%;
-        opacity: 1;
-    }
-}
-
-@keyframes carousel-out-slide-top {
-    from {
-        top: 0%;
-        opacity: 1;
-    }
-
-    to {
-        top: -100%;
-        opacity: 1;
-    }
-}
-
-/* slide top to bottom */
-.smart-carousel:not([animation='none']).slide-bottom .smart-carousel-item.smart-active.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide-bottom .smart-carousel-item.smart-active.smart-animate-trigger {
     animation-name: carousel-active-slide-bottom;
 }
 
-.smart-carousel:not([animation='none']).slide-bottom .smart-carousel-item.smart-out.smart-animate-trigger {
+smart-carousel:not([animation='none']).slide-bottom .smart-carousel-item.smart-out.smart-animate-trigger {
     animation-name: carousel-out-slide-bottom;
 }
 
-@keyframes carousel-active-slide-bottom {
-    from {
-        opacity: 1;
-        top: -100%;
-    }
-
-    to {
-        opacity: 1;
-        top: 0px;
-    }
-}
-
-@keyframes carousel-out-slide-bottom {
-    from {
-        opacity: 1;
-        top: 0px;
-    }
-
-    to {
-        opacity: 1;
-        top: 100%;
-    }
-}
-
-
-/* displayMode:"3d"*/
-.smart-carousel[display-mode="3d"] .smart-carousel-html-content {
+smart-carousel[display-mode="3d"] .smart-carousel-html-content {
     padding-left: 30px;
     padding-right: 20px;
 }
 
-.smart-carousel[display-mode="3d"] .smart-carousel-item {
+smart-carousel[display-mode="3d"] .smart-carousel-item {
     width: var(--smart-carousel-3d-mode-slide-width);
     height: var(--smart-carousel-3d-mode-slide-height);
     border: white solid 20px;
@@ -373,178 +247,167 @@ smart-carousel[disabled] {
     transition-duration: 0ms;
 }
 
-.smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item {
-    transition-duration: 700ms;
-}
-
-.smart-carousel[display-mode="3d"].circle .smart-carousel-item {
-    border-radius: 50%;
-}
-
-.smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item,
-.smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item.smart-active,
-.smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item.smart-out {
-    animation-name: unset;
-}
-
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="-3"] {
+smart-carousel[display-mode="3d"] .smart-carousel-item[position="-3"] {
     transform: perspective(800px) translateX(calc(-50% - 340px)) translateY(-50%) scale(0.4);
     opacity: .1;
     z-index: 1;
 }
 
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="-2"] {
+smart-carousel[display-mode="3d"] .smart-carousel-item[position="-2"] {
     transform: perspective(800px) translateX(calc(-50% - 300px)) translateY(-50%) scale(0.5);
     opacity: .2;
     z-index: 8;
 }
 
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="-1"],
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="1"] {
+smart-carousel[display-mode="3d"] .smart-carousel-item[position="-1"] {
+    transform: perspective(800px) translateX(calc(-50% - 260px)) translateY(-50%) scale(0.6);
     opacity: .3;
     z-index: 9;
 }
 
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="-1"] {
-    transform: perspective(800px) translateX(calc(-50% - 260px)) translateY(-50%) scale(0.6);
-}
-
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="1"] {
+smart-carousel[display-mode="3d"] .smart-carousel-item[position="1"] {
     transform: perspective(800px) translateX(calc(-50% + 260px)) translateY(-50%) scale(0.6);
+    opacity: .3;
+    z-index: 9;
 }
 
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="2"] {
+smart-carousel[display-mode="3d"] .smart-carousel-item[position="2"] {
     transform: perspective(800px) translateX(calc(-50% + 300px)) translateY(-50%) scale(0.5);
     opacity: .2;
     z-index: 8;
 }
 
-.smart-carousel[display-mode="3d"] .smart-carousel-item[position="3"] {
+smart-carousel[display-mode="3d"] .smart-carousel-item[position="3"] {
     transform: perspective(800px) translateX(calc(-50% + 340px)) translateY(-50%) scale(0.4);
     opacity: .1;
     z-index: 1;
 }
 
-/*Carousel 3d vertical*/
-.smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="-3"] {
+smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item {
+    transition-duration: 700ms;
+}
+
+smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item,
+smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item.smart-active,
+smart-carousel[display-mode="3d"]:not([animation='none']) .smart-carousel-item.smart-out {
+    animation-name: unset;
+}
+
+smart-carousel[display-mode="3d"].circle .smart-carousel-item {
+    border-radius: 50%;
+}
+
+smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="-3"] {
     transform: perspective(800px) translateX(-50%) translateY(calc(-50% - 210px)) scale(0.4);
 }
 
-.smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="-2"] {
+smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="-2"] {
     transform: perspective(800px) translateX(-50%) translateY(calc(-50% - 180px)) scale(0.5);
 }
 
-.smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="-1"] {
+smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="-1"] {
     transform: perspective(800px) translateX(-50%) translateY(calc(-50% - 150px)) scale(0.6);
 }
 
-.smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="1"] {
+smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="1"] {
     transform: perspective(800px) translateX(-50%) translateY(calc(-50% + 150px)) scale(0.6);
 }
 
-.smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="2"] {
+smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="2"] {
     transform: perspective(800px) translateX(-50%) translateY(calc(-50% + 180px)) scale(0.5);
 }
 
-.smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="3"] {
+smart-carousel[display-mode="3d"].vertical .smart-carousel-item[position="3"] {
     transform: perspective(800px) translateX(-50%) translateY(calc(-50% + 210px)) scale(0.4);
 }
 
-/*Carousel 3d horizontal stacked*/
-.smart-carousel:not([animation='none']).horizontal-stacked[display-mode="3d"] .smart-carousel-item[position="-3"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).horizontal-stacked .smart-carousel-item[position="-3"] {
     transform: perspective(800px) translateX(calc(-50% - 395px)) translateY(-50%) scale(0.4);
 }
 
-.smart-carousel:not([animation='none']).horizontal-stacked[display-mode="3d"] .smart-carousel-item[position="-2"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).horizontal-stacked .smart-carousel-item[position="-2"] {
     transform: perspective(800px) translateX(calc(-50% - 355px)) translateY(-50%) scale(0.5);
 }
 
-.smart-carousel:not([animation='none']).horizontal-stacked[display-mode="3d"] .smart-carousel-item[position="-1"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).horizontal-stacked .smart-carousel-item[position="-1"] {
     transform: perspective(800px) translateX(calc(-50% - 280px)) translateY(-50%) scale(0.6);
 }
 
-.smart-carousel:not([animation='none']).horizontal-stacked[display-mode="3d"] .smart-carousel-item[position="1"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).horizontal-stacked .smart-carousel-item[position="1"] {
     transform: perspective(800px) translateX(calc(-50% + 280px)) translateY(-50%) scale(0.6);
 }
 
-.smart-carousel:not([animation='none']).horizontal-stacked[display-mode="3d"] .smart-carousel-item[position="2"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).horizontal-stacked .smart-carousel-item[position="2"] {
     transform: perspective(800px) translateX(calc(-50% + 355px)) translateY(-50%) scale(0.5);
 }
 
-.smart-carousel:not([animation='none']).horizontal-stacked[display-mode="3d"] .smart-carousel-item[position="3"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).horizontal-stacked .smart-carousel-item[position="3"] {
     transform: perspective(800px) translateX(calc(-50% + 395px)) translateY(-50%) scale(0.4);
 }
 
-/*Carousel 3d bottom-top*/
-.smart-carousel:not([animation='none']).bottom-top[display-mode="3d"] .smart-carousel-item[position="-3"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).bottom-top .smart-carousel-item[position="-3"] {
     transform: perspective(800px) translateX(calc(-50% - 450px)) translateY(calc(-50% + 150px)) scale(0.2);
 }
 
-.smart-carousel:not([animation='none']).bottom-top[display-mode="3d"] .smart-carousel-item[position="-2"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).bottom-top .smart-carousel-item[position="-2"] {
     transform: perspective(800px) translateX(calc(-50% - 380px)) translateY(calc(-50% + 100px)) scale(0.4);
 }
 
-.smart-carousel:not([animation='none']).bottom-top[display-mode="3d"] .smart-carousel-item[position="-1"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).bottom-top .smart-carousel-item[position="-1"] {
     transform: perspective(800px) translateX(calc(-50% - 280px)) translateY(calc(-50% + 30px)) scale(0.6);
 }
 
-.smart-carousel:not([animation='none']).bottom-top[display-mode="3d"] .smart-carousel-item[position="1"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).bottom-top .smart-carousel-item[position="1"] {
     transform: perspective(800px) translateX(calc(-50% + 280px)) translateY(calc(-50% - 30px)) scale(0.6);
 }
 
-.smart-carousel:not([animation='none']).bottom-top[display-mode="3d"] .smart-carousel-item[position="2"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).bottom-top .smart-carousel-item[position="2"] {
     transform: perspective(800px) translateX(calc(-50% + 380px)) translateY(calc(-50% - 100px)) scale(0.4);
 }
 
-.smart-carousel:not([animation='none']).bottom-top[display-mode="3d"] .smart-carousel-item[position="3"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).bottom-top .smart-carousel-item[position="3"] {
     transform: perspective(800px) translateX(calc(-50% + 450px)) translateY(calc(-50% - 150px)) scale(0.2);
 }
 
-/*Carousel 3d top-bottom*/
-.smart-carousel:not([animation='none']).top-bottom[display-mode="3d"] .smart-carousel-item[position="-3"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).top-bottom .smart-carousel-item[position="-3"] {
     transform: perspective(800px) translateX(calc(-50% - 450px)) translateY(calc(-50% - 150px)) scale(0.2);
 }
 
-.smart-carousel:not([animation='none']).top-bottom[display-mode="3d"] .smart-carousel-item[position="-2"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).top-bottom .smart-carousel-item[position="-2"] {
     transform: perspective(800px) translateX(calc(-50% - 380px)) translateY(calc(-50% - 100px)) scale(0.4);
 }
 
-.smart-carousel:not([animation='none']).top-bottom[display-mode="3d"] .smart-carousel-item[position="-1"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).top-bottom .smart-carousel-item[position="-1"] {
     transform: perspective(800px) translateX(calc(-50% - 280px)) translateY(calc(-50% - 30px)) scale(0.6);
 }
 
-.smart-carousel:not([animation='none']).top-bottom[display-mode="3d"] .smart-carousel-item[position="1"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).top-bottom .smart-carousel-item[position="1"] {
     transform: perspective(800px) translateX(calc(-50% + 280px)) translateY(calc(-50% + 30px)) scale(0.6);
 }
 
-.smart-carousel:not([animation='none']).top-bottom[display-mode="3d"] .smart-carousel-item[position="2"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).top-bottom .smart-carousel-item[position="2"] {
     transform: perspective(800px) translateX(calc(-50% + 380px)) translateY(calc(-50% + 100px)) scale(0.4);
 }
 
-.smart-carousel:not([animation='none']).top-bottom[display-mode="3d"] .smart-carousel-item[position="3"] {
+smart-carousel[display-mode="3d"]:not([animation='none']).top-bottom .smart-carousel-item[position="3"] {
     transform: perspective(800px) translateX(calc(-50% + 450px)) translateY(calc(-50% + 150px)) scale(0.2);
 }
 
-
-/* displayMode:"multiple"*/
-.smart-carousel:not([animation='none'])[display-mode="multiple"] .smart-carousel-item.smart-out,
-.smart-carousel:not([animation='none'])[display-mode="multiple"] .smart-carousel-item.smart-active,
-.smart-carousel:not([animation='none'])[display-mode="multiple"] .smart-carousel-item.smart-animate-trigger.smart-out,
-.smart-carousel:not([animation='none'])[display-mode="multiple"] .smart-carousel-item.smart-animate-trigger.smart-active {
+smart-carousel[display-mode="multiple"]:not([animation='none']).smart-carousel-item.smart-out, smart-carousel[display-mode="multiple"]:not([animation='none']).smart-carousel-item.smart-active, smart-carousel[display-mode="multiple"]:not([animation='none']).smart-carousel-item.smart-animate-trigger.smart-out, smart-carousel[display-mode="multiple"]:not([animation='none']).smart-carousel-item.smart-animate-trigger.smart-active {
     animation-name: none;
 }
 
-.smart-carousel[display-mode="multiple"] .smart-items-container {
+smart-carousel[display-mode="multiple"]:not([animation='none']) .smart-items-container {
+    transition-duration: 1s;
+}
+
+smart-carousel[display-mode="multiple"] .smart-items-container {
     overflow: hidden;
     width: max-content;
     transition: margin-left ease-in-out;
 }
 
-.smart-carousel:not([animation='none'])[display-mode="multiple"] .smart-items-container {
-    transition-duration: 1s;
-}
-
-.smart-carousel[display-mode="multiple"] .smart-carousel-item {
+smart-carousel[display-mode="multiple"] .smart-carousel-item {
     opacity: 1;
     float: left;
     display: inline-block;
@@ -552,61 +415,39 @@ smart-carousel[disabled] {
     width: var(--smart-carousel-multiple-mode-slide-width);
 }
 
-.smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-active {
+smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-active {
     background-color: lightgray;
     transition: background-color 1s ease-in-out;
 }
 
-.smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-out {
+smart-carousel[display-mode="multiple"] .smart-carousel-item.smart-out {
     transition: background-color 1s ease-in-out;
 }
 
-.smart-carousel smart-repeat-button[hover] button {
+smart-carousel smart-repeat-button[hover] button {
     background-color: transparent;
 }
 
-/* --- Right-To-Left --- */
-.smart-carousel[right-to-left] .smart-carousel-item,
-.smart-carousel[right-to-left] .smart-indicators-container {
-    direction: rtl;
-}
-
-/* --- Adaptive Height --- */
-smart-carousel[adaptive-height],
-smart-carousel[adaptive-auto-height] {
+smart-carousel[adaptive-height], smart-carousel[adaptive-auto-height] {
     height: 100%;
     overflow: visible;
     transition: height 0.6s ease-out;
     margin: 0 auto 70px auto;
 }
 
-smart-carousel[adaptive-height] > .smart-container,
-smart-carousel[adaptive-height].smart-container,
-smart-carousel[adaptive-auto-height] > .smart-container,
-smart-carousel[adaptive-auto-height].smart-container {
+smart-carousel[adaptive-height] > .smart-container, smart-carousel[adaptive-height].smart-container, smart-carousel[adaptive-auto-height] > .smart-container, smart-carousel[adaptive-auto-height].smart-container {
     position: relative;
 }
 
-smart-carousel[adaptive-height] > .smart-container,
-smart-carousel[adaptive-auto-height] > .smart-container {
+smart-carousel[adaptive-height] .smart-container, smart-carousel[adaptive-auto-height] .smart-container {
     overflow: visible;
 }
 
-smart-carousel[adaptive-height] .smart-carousel-item,
-smart-carousel[adaptive-auto-height] .smart-carousel-item {
+smart-carousel[adaptive-height] .smart-carousel-item, smart-carousel[adaptive-auto-height] .smart-carousel-item {
     height: auto;
 }
 
-smart-carousel[adaptive-height].smart-calculated-height .smart-carousel-item,
-smart-carousel[adaptive-auto-height].smart-calculated-height .smart-carousel-item {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-smart-carousel[adaptive-height] .smart-slide-wrapper,
-smart-carousel[adaptive-auto-height] .smart-slide-wrapper {
+smart-carousel[adaptive-height] .smart-slide-wrapper, smart-carousel[adaptive-auto-height] .smart-slide-wrapper {
     height: 100%;
     position: relative;
     display: flex;
@@ -614,13 +455,7 @@ smart-carousel[adaptive-auto-height] .smart-slide-wrapper {
     padding: 0 65px;
 }
 
-smart-carousel[adaptive-height].smart-calculated-height .smart-slide-wrapper,
-smart-carousel[adaptive-auto-height].smart-calculated-height .smart-slide-wrapper {
-    height: auto;
-}
-
-smart-carousel[adaptive-height] .smart-indicators-container,
-smart-carousel[adaptive-auto-height] .smart-indicators-container {
+smart-carousel[adaptive-height] .smart-indicators-container, smart-carousel[adaptive-auto-height] .smart-indicators-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -629,8 +464,7 @@ smart-carousel[adaptive-auto-height] .smart-indicators-container {
     margin-top: 20px;
 }
 
-smart-carousel[adaptive-height] .smart-arrow,
-smart-carousel[adaptive-auto-height] .smart-arrow {
+smart-carousel[adaptive-height] .smart-arrow, smart-carousel[adaptive-auto-height] .smart-arrow {
     width: 50px;
     height: 50px;
     background: var(--smart-surface);
@@ -642,7 +476,130 @@ smart-carousel[adaptive-auto-height] .smart-arrow {
     transform: translateY(-50%);
 }
 
+smart-carousel[adaptive-height].smart-calculated-height .smart-carousel-item, smart-carousel[adaptive-auto-height].smart-calculated-height .smart-carousel-item {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/* --- */
+smart-carousel[adaptive-height].smart-calculated-height .smart-slide-wrapper, smart-carousel[adaptive-auto-height].smart-calculated-height .smart-slide-wrapper {
+    height: auto;
+}
 
+smart-carousel[right-to-left] .smart-carousel-item,
+smart-carousel[right-to-left] .smart-indicators-container {
+    direction: rtl;
+}
 
+[disabled] .smart-carousel-item.smart-active {
+    pointer-events: none;
+}
+
+@keyframes carousel-active-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes carousel-out-fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes carousel-active-slide {
+    from {
+        left: 100%;
+        opacity: 1;
+    }
+    to {
+        left: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes carousel-out-slide {
+    from {
+        left: 0%;
+        opacity: 1;
+    }
+    to {
+        left: -100%;
+        opacity: 1;
+    }
+}
+
+@keyframes carousel-active-slide-right {
+    from {
+        opacity: 1;
+        left: -100%;
+    }
+    to {
+        opacity: 1;
+        left: 0%;
+    }
+}
+
+@keyframes carousel-out-slide-right {
+    from {
+        left: 0%;
+        opacity: 1;
+    }
+    to {
+        left: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes carousel-active-slide-top {
+    from {
+        top: 100%;
+        opacity: 1;
+    }
+    to {
+        top: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes carousel-out-slide-top {
+    from {
+        top: 0%;
+        opacity: 1;
+    }
+    to {
+        top: -100%;
+        opacity: 1;
+    }
+}
+
+@keyframes carousel-active-slide-bottom {
+    from {
+        opacity: 1;
+        top: -100%;
+    }
+    to {
+        opacity: 1;
+        top: 0px;
+    }
+}
+
+@keyframes carousel-out-slide-bottom {
+    from {
+        opacity: 1;
+        top: 0px;
+    }
+    to {
+        opacity: 1;
+        top: 100%;
+    }
+}
+
+/*# sourceMappingURL=smart.carousel.css.map */

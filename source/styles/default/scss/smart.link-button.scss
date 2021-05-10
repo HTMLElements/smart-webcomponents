@@ -1,0 +1,225 @@
+@import '_functions';
+
+/* smart-link-button */
+.smart-link-button {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  outline: none;
+  padding: var(--smart-button-padding);
+  cursor: pointer;
+  text-transform: var(--smart-button-text-transform);
+  letter-spacing: .08929em;
+  overflow: hidden;
+  text-decoration: none;
+
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+  font-weight: var(--smart-font-weight);
+
+  border-color: var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  border-width: var(--smart-border-width);
+  border-style: solid;
+
+  @each $value in $main-colors-list {
+    &.#{$value} {
+      --smart-button-opacity-hover: 0.75;
+      --smart-button-opacity-focus: 0.7;
+      --smart-button-opacity-active: 0.65;
+      --smart-background: var(--smart-#{$value});
+      --smart-border: var(--smart-#{$value});
+      --smart-border-rgb: var(--smart-#{$value}-rgb);
+      --smart-background-color: var(--smart-#{$value}-color);
+      --smart-ui-state-hover: var(--smart-#{$value});
+      --smart-ui-state-border-hover: var(--smart-#{$value});
+      --smart-ui-state-color-hover: var(--smart-#{$value}-color);
+      --smart-ui-state-active: var(--smart-#{$value});
+      --smart-ui-state-border-active: var(--smart-#{$value});
+      --smart-ui-state-color-active: var(--smart-#{$value}-color);
+      --smart-ui-state-focus: var(--smart-#{$value});
+      --smart-ui-state-border-focus: var(--smart-#{$value});
+      --smart-ui-state-color-focus: var(--smart-#{$value}-color);
+      --smart-button-flat-color: var(--smart-#{$value});
+      --smart-button-outlined-color: var(--smart-#{$value});
+      --smart-button-outlined-border: var(--smart-#{$value});
+    }
+  }
+
+  // ======== Buttons States ========
+  &:hover {
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
+    background-color: var(--smart-ui-state-hover);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+    opacity: var(--smart-button-opacity-hover);
+    text-decoration: none;
+  }
+
+  &:focus {
+    color: var(--smart-ui-state-color-focus);
+    border-color: var(--smart-ui-state-border-focus);
+    background-color: var(--smart-ui-state-focus);
+    opacity: var(--smart-button-opacity-focus);
+  }
+
+  &:active {
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+    background-color: var(--smart-ui-state-active);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+    opacity: var(--smart-button-opacity-active);
+  }
+
+  &[disabled] {
+    color: var(--smart-disabled-color);
+    border-color: var(--smart-disabled);
+    background-color: var(--smart-disabled);
+    cursor: default;
+    --smart-background: var(--smart-disabled);
+    --smart-border: var(--smart-disabled);
+    --smart-background-color: var(--smart-disabled-color);
+  }
+
+  // ======== Buttons Sizes ========
+  &.large {
+    padding: var(--smart-button-large-padding);
+    font-size: var(--smart-button-large-font-size);
+  }
+
+  &.small {
+    padding: var(--smart-button-small-padding);
+    font-size: var(--smart-button-small-font-size);
+  }
+
+  &.very-small {
+    padding: var(--smart-button-very-small-padding);
+    font-size: var(--smart-button-very-small-font-size);
+  }
+
+  // ======== Buttons Variations ========
+
+  // Rounded Buttons
+  &.rounded {
+    --smart-border-top-left-radius: 50px;
+    --smart-border-top-right-radius: 50px;
+    --smart-border-bottom-left-radius: 50px;
+    --smart-border-bottom-right-radius: 50px;
+    border-radius: var(--smart-border-bottom-left-radius) !important;
+  }
+
+  // Square Buttons
+  &.squared {
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+  }
+
+  // ======== Buttons Effects ========
+
+  //Flat Button
+  &.flat {
+    color: var(--smart-button-flat-color);
+    background: transparent;
+    border-color: transparent;
+
+    &:hover {
+      color: var(--smart-button-flat-color);
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &:active {
+      color: var(--smart-button-flat-color);
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &:focus {
+      border-color: var(--smart-ui-state-focus);
+    }
+  }
+
+  //Outlined Button
+  &.outlined {
+    color: var(--smart-button-outlined-color);
+    border-color: var(--smart-button-outlined-border);
+    background: transparent;
+    border-width: calc(2 * var(--smart-border-width));
+
+    //Outlined Button - Hover State
+    &:hover {
+      color: var(--smart-button-outlined-color);
+      border-color: var(--smart-button-outlined-border);
+      background: transparent;
+    }
+
+    //Outlined Button - Active State
+    &:active {
+      color: var(--smart-button-outlined-color);
+      border-color: var(--smart-button-outlined-border);
+      background: transparent;
+    }
+
+    //Outlined Button - Focus State
+    &:focus {
+      color: var(--smart-button-outlined-color);
+      border-color: var(--smart-ui-state-focus);
+      background: transparent;
+    }
+  }
+
+  //Raised Button
+  &.raised {
+    box-shadow: var(--smart-elevation-2);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+
+    &:hover {
+      box-shadow: var(--smart-elevation-4);
+    }
+
+    &:active {
+      box-shadow: var(--smart-elevation-8);
+    }
+
+    &:focus {
+      box-shadow: var(--smart-elevation-6);
+    }
+  }
+
+  //Floating Button
+  &.floating {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: var(--smart-elevation-4);
+    transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+
+    &:hover {
+      box-shadow: var(--smart-elevation-6);
+    }
+
+    &:active {
+      box-shadow: var(--smart-elevation-12);
+    }
+
+    &:focus {
+      box-shadow: var(--smart-elevation-6);
+    }
+  }
+
+  // ======== Right To Left ========
+
+  &[right-to-left] {
+    direction: rtl;
+  }
+}

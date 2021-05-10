@@ -1,0 +1,213 @@
+/* smart-notificaiton-panel */
+
+.smart-notification-panel {
+  width: auto;
+  height: auto;
+  display: inline-block;
+  contain: content;
+  max-height: 100px;
+
+  &:focus {
+    border-color: var(--smart-outline);
+  }
+
+  > .smart-container,
+  &.smart-container {
+    padding: var(--smart-editor-label-padding);
+    overflow: auto;
+    max-height: inherit;
+  }
+
+  .smart-notification-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .smart-notification-placeholder,
+  .smart-notification-item {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .smart-notification-item {
+    display: inline-grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) var(--smart-editor-height);
+    grid-column-gap: 10px;
+    align-items: center;
+    padding: 0 0 var(--smart-editor-label-padding) 0;
+    justify-items: center;
+
+    .smart-input {
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      background: var(--smart-surface);
+      color: var(--smart-surface-color);
+      position: relative;
+      outline: none;
+      padding: var(--smart-editor-label-padding);
+      height: var(--smart-editor-height);
+      border-top-left-radius: var(--smart-border-top-left-radius);
+      border-top-right-radius: var(--smart-border-top-right-radius);
+      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+      border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--smart-font-family);
+      font-size: var(--smart-font-size);
+      border: var(--smart-border-width) solid transparent;
+
+      &[interval]::before,
+      &[interval]::after,
+      &[type]::after {
+        content: var(--smart-icon-arrow-down);
+        display: flex;
+        overflow: hidden;
+        cursor: pointer;
+        font-family: var(--smart-font-family-icon);
+        justify-content: center;
+        align-items: center;
+        font-size: var(--smart-arrow-size);
+        outline: none;
+        width: var(--smart-editor-addon-width);
+        position: absolute;
+        top: 1px;
+        right: -1px;
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+      &[interval]::before {
+        content: var(--smart-icon-arrow-up);
+        top: 0;
+        height: 50%;
+        border-bottom: var(--smart-border-width) solid transparent;
+      }
+
+      &[interval]::after {
+        content: var(--smart-icon-arrow-down);
+        bottom: 0;
+        top: initial;
+        height: 50%;
+      }
+    }
+
+    .smart-button {
+      &[delete] {
+        width: var(--smart-editor-height);
+        height: var(--smart-editor-height);
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.25;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        border-radius: 50%;
+        outline: none;
+
+        &:after {
+          content: var(--smart-icon-close);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 0;
+          cursor: pointer;
+          font-size: var(--smart-font-size);
+          font-family: var(--smart-font-family-icon);
+        }
+
+        &:hover {
+          opacity: 0.6;
+          color: var(--smart-ui-state-color-hover);
+          background-color: var(--smart-ui-state-hover);
+        }
+
+        &:active {
+          color: var(--smart-ui-state-color-hover);
+          background-color: var(--smart-ui-state-hover);
+          opacity: 1;
+        }
+      }
+    }
+
+    .smart-input,
+    .smart-button[delete] {
+      &:focus {
+        box-shadow: 0 0 0 1px var(--smart-outline);
+      }
+    }
+  }
+
+  .smart-notification-placeholder {
+    border-bottom: var(--smart-border-width) solid var(--smart-primary);
+    color: var(--smart-primary);
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+
+    .smart-input {
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--smart-font-family);
+      font-size: var(--smart-font-size);
+      border: var(--smart-border-width) solid transparent;
+    }
+
+    &:hover {
+      color: var(--smart-ui-state-color-hover);
+    }
+  }
+
+  .smart-notification-editor {
+    position: absolute;
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+  }
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Notification panel RTL */
+  &[right-to-left] {
+    .smart-notification-item {
+      .smart-input {
+        &[interval],
+        &[type] {
+          padding-left: var(--smart-editor-addon-width);
+        }
+
+        &[interval] {
+          padding-left: calc(var(--smart-editor-addon-width) + var(--smart-editor-label-padding));
+        }
+
+        &[interval]::before,
+        &[interval]::after,
+        &[type]::after {
+          right: initial;
+          left: -1px;
+        }
+      }
+    }
+  }
+}
+

@@ -1,200 +1,23 @@
 /* smart-numeric-text-box */
-
 smart-numeric-text-box {
     width: var(--smart-numeric-text-box-default-width);
     height: var(--smart-numeric-text-box-default-height);
 }
 
-    smart-numeric-text-box.smart-element {
-        overflow: visible;
-        border: none;
-        background: transparent;
-    }
-
-.smart-numeric-text-box * {
-    box-sizing: border-box;
-}
-
-smart-numeric-text-box .smart-container,
-.smart-numeric-text-box.smart-container {
+smart-numeric-text-box .smart-container {
     display: flex;
     border: none;
 }
 
-.smart-numeric-text-box .smart-spin-button.smart-element {
-    display: block;
-    min-height: 0;
-    border-radius: 0px;
-    background: var(--smart-surface);
-	color: var(--smart-surface-color);
-}
-
-smart-numeric-text-box .smart-container,
-.smart-numeric-text-box.smart-container,
-.smart-numeric-text-box input.smart-input,
-.smart-numeric-text-box .smart-spin-button,
-.smart-numeric-text-box .smart-numeric-text-box-drop-down {
+smart-numeric-text-box .smart-container {
     width: 100%;
 }
 
-.smart-numeric-text-box .smart-container,
-.smart-numeric-text-box.smart-container,
-.smart-numeric-text-box input.smart-input {
-    height: 100%;
+smart-numeric-text-box.smart-element {
+    overflow: visible;
+    border: none;
+    background: transparent;
 }
-
-.smart-numeric-text-box .smart-container,
-.smart-numeric-text-box.smart-container,
-.smart-arrow {
-    position: relative;
-}
-
-.smart-numeric-text-box-radix-display,
-.smart-numeric-text-box-unit-display {
-    display: flex;
-    align-items: center;
-    cursor: default;
-}
-
-.smart-numeric-text-box[radix-display-position="right"]:not([spin-buttons]) .smart-numeric-text-box-radix-display,
-.smart-numeric-text-box[radix-display-position="right"][spin-buttons][spin-buttons-position="left"] .smart-numeric-text-box-radix-display {
-    border-left-width: 0;
-    border-right-width: var(--smart-border-width);
-}
-
-.smart-numeric-text-box .smart-spin-button,
-.smart-numeric-text-box-radix-display,
-.smart-numeric-text-box-drop-down {
-    background-color: var(--smart-surface);
-	color: var(--smart-surface-color);
-}
-
-    .smart-numeric-text-box[drop-down-enabled] .smart-numeric-text-box-radix-display[hover],
-    .smart-numeric-text-box-drop-down .smart-list-item[hover] {
-        background-color: var(--smart-ui-state-hover);
-        color: var(--smart-ui-state-color-hover);
-    }
-
-    .smart-numeric-text-box[drop-down-enabled] .smart-numeric-text-box-radix-display,
-    .smart-numeric-text-box-drop-down .smart-list-item {
-        cursor: pointer;
-    }
-
-.smart-numeric-text-box[disabled],
-.smart-numeric-text-box[value="null"] .smart-numeric-text-box-radix-display,
-.smart-numeric-text-box[value="NaN"] .smart-spin-buttons-container,
-.smart-numeric-text-box[value="Infinity"] .smart-spin-buttons-container,
-.smart-numeric-text-box[value="-Infinity"] .smart-spin-buttons-container {
-    opacity: 0.55;
-    cursor: default;
-}
-
-
-.smart-numeric-text-box,
-.smart-numeric-text-box input.smart-input,
-.smart-numeric-text-box .smart-input-addon,
-.smart-numeric-text-box .smart-spin-button {
-    border-color: var(--smart-border);
-    border-width: 1px;
-    border-style: solid;
-}
-
-    .smart-numeric-text-box .smart-numeric-text-box-component {
-        border-width: var(--smart-border-width);
-        border-style: solid;
-        border-color: var(--smart-border);
-        border-left-width: var(--smart-border-width);
-        border-right-width: 0;
-    }
-
-    .smart-numeric-text-box:focus,
-    .smart-numeric-text-box[focus] input.smart-input,
-    .smart-numeric-text-box[focus] .smart-input-addon,
-    .smart-numeric-text-box[focus] .smart-spin-button {
-        border-color: var(--smart-outline);
-    }
-
-	.smart-numeric-text-box .smart-numeric-text-box-unit-display[hover],
-    .smart-numeric-text-box .smart-spin-button[hover] {
-        background-color: var(--smart-ui-state-hover);
-        color: var(--smart-ui-state-color-hover);
-        border-color: var(--smart-ui-state-border-hover);
-    }
-
-    .smart-numeric-text-box-pressed-component,
-    .smart-numeric-text-box .smart-spin-button[active],
-    .smart-numeric-text-box .smart-numeric-text-box-radix-display.smart-numeric-text-box-pressed-component,
-    .smart-numeric-text-box .smart-numeric-text-box-radix-display.smart-numeric-text-box-pressed-component[hover] {
-        background-color: var(--smart-ui-state-active);
-        color: var(--smart-ui-state-color-active);
-        border-color: var(--smart-ui-state-border-active);
-    }
-
-    .smart-numeric-text-box input.smart-input {
-        border-right-width: var(--smart-border-width);
-        padding: var(--smart-editor-label-padding);
-        background-color: var(--smart-background);
-        color: inherit;
-        font: inherit;
-        text-align: var(--smart-numeric-text-box-text-align);
-        outline: none;
-        -webkit-appearance: none;
-    }
-
-
-    /* spin buttons only */
-    .smart-numeric-text-box[spin-buttons] input.smart-input {
-        width: calc(100% - var(--smart-editor-addon-width));
-    }
-
-    /* radix display button only */
-    .smart-numeric-text-box[radix-display] input.smart-input {
-        width: calc(100% - var(--smart-numeric-text-box-default-radix-display-width));
-    }
-
-    /* unit display only */
-    .smart-numeric-text-box[show-unit] input.smart-input {
-        width: calc(100% - var(--smart-numeric-text-box-default-unit-display-width));
-    }
-
-    /* spin buttons and radix display button */
-    .smart-numeric-text-box[spin-buttons][radix-display] input.smart-input {
-        width: calc(100% - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-radix-display-width));
-    }
-
-    /* spin buttons and unit display */
-    .smart-numeric-text-box[spin-buttons][show-unit] input.smart-input {
-        width: calc(100% - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-unit-display-width));
-    }
-
-    /* radix display button and unit display */
-    .smart-numeric-text-box[radix-display][show-unit] input.smart-input {
-        width: calc(100% - var(--smart-numeric-text-box-default-radix-display-width) - var(--smart-numeric-text-box-default-unit-display-width));
-    }
-
-    /* buttons and unit display */
-    .smart-numeric-text-box[spin-buttons][radix-display][show-unit] input.smart-input {
-        width: calc(100% - var(--smart-numeric-text-box-default-unit-display-width) - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-radix-display-width));
-    }
-
-    .smart-numeric-text-box .smart-spin-buttons-container {
-        width: var(--smart-editor-addon-width);
-    }
-
-    .smart-numeric-text-box .smart-spin-button {
-        height: 50%;
-    }
-
-    .smart-numeric-text-box .smart-spin-buttons-container {
-        border: none;
-    }
-
-    .smart-numeric-text-box .smart-spin-button:first-child {
-        border-bottom: none;
-    }
-
-    .smart-numeric-text-box .smart-spin-button:last-child {
-    }
 
 smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] .smart-spin-button.smart-element:first-child {
     border-right: none;
@@ -204,84 +27,7 @@ smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] .smart-spin-b
     border-right: none;
 }
 
-.smart-numeric-text-box .smart-spin-button .smart-button {
-    border: none;
-    padding: 0px;
-}
-
-
-.smart-numeric-text-box-radix-display {
-    width: var(--smart-numeric-text-box-default-radix-display-width);
-    justify-content: center;
-}
-
-.smart-numeric-text-box-drop-down {
-    position: absolute;
-    box-sizing: border-box;
-    height: auto;
-    border-width: var(--smart-border-width);
-    border-style: solid;
-    border-color: var(--smart-border);
-    box-shadow: var(--smart-elevation-8);
-    padding: 2px;
-    top: 100%;
-    z-index: 9999;
-    list-style-type: none;
-    transform: scaleY(1);
-    opacity: 1;
-	background: var(--smart-background);
-    color: var(--smart-background-color);
-    font-family: var(--smart-font-family);
-    font-size: var(--smart-font-size);
-}
-
-    .smart-numeric-text-box-drop-down.smart-visibility-hidden {
-        transform: scaleY(0);
-        opacity: 0;
-    }
-
-.smart-numeric-text-box .smart-numeric-text-box-unit-display {
-    width: var(--smart-numeric-text-box-default-unit-display-width);
-    border-width: var(--smart-border-width) 0 var(--smart-border-width) 0;
-    overflow: hidden;
-    background-color: var(--smart-background);
-}
-
-.smart-numeric-text-box-drop-down .smart-list-item {
-    margin: 1px;
-    border: 1px solid transparent;
-    padding: 4px 8px 4px 8px;
-    word-break: break-all;
-}
-
-    .smart-numeric-text-box-drop-down .smart-list-item:hover {
-        background-color: var(--smart-ui-state-hover);
-        color: var(--smart-ui-state-color-hover);
-    }
-
-.smart-numeric-text-box[spin-buttons] input.smart-input,
-.smart-numeric-text-box[show-unit] input.smart-input,
-.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"][show-unit] input.smart-input,
-.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] .smart-spin-buttons-container,
-.smart-numeric-text-box[spin-buttons][show-unit] .smart-numeric-text-box-unit-display {
-    border-right-width: 0;
-}
-
-.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] input.smart-input,
-.smart-numeric-text-box[spin-buttons] .smart-spin-buttons-container,
-.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"][show-unit] .smart-numeric-text-box-unit-display,
-.smart-numeric-text-box[show-unit] .smart-numeric-text-box-unit-display {
-    border-right-width: var(--smart-border-width);
-}
-
-.smart-numeric-text-box .smart-label,
-.smart-numeric-text-box .smart-hint {
-    display: none;
-    position: absolute;
-}
-
-smart-numeric-text-box[label] .smart-label,
-smart-numeric-text-box[hint] .smart-hint {
+smart-numeric-text-box[label] .smart-label, smart-numeric-text-box[hint] .smart-hint {
     position: absolute;
     left: 0;
     bottom: 100%;
@@ -299,34 +45,140 @@ smart-numeric-text-box[hint] .smart-hint {
     vertical-align: initial;
 }
 
-.smart-numeric-text-box[hint] .smart-hint {
-    opacity: 0;
+.smart-numeric-text-box {
+    border-color: var(--smart-border);
+    border-width: 1px;
+    border-style: solid;
 }
 
-.smart-numeric-text-box[hint][focus] .smart-hint {
-    opacity: 1;
+.smart-numeric-text-box:focus {
+    border-color: var(--smart-outline);
 }
 
-.smart-numeric-text-box:not([animation="none"])[hint] .smart-hint {
-    transition: opacity 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+.smart-numeric-text-box * {
+    box-sizing: border-box;
 }
 
-.smart-numeric-text-box:not([animation="none"])[hint][focus] .smart-hint {
-    transition: opacity 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+.smart-numeric-text-box.smart-container {
+    display: flex;
+    border: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.smart-numeric-text-box[hint] .smart-hint {
-    top: 100%;
-    bottom: initial;
+.smart-numeric-text-box .smart-container {
+    height: 100%;
+    position: relative;
 }
 
-.smart-numeric-text-box:not([animation='none']) .smart-numeric-text-box-drop-down,
-.smart-numeric-text-box-drop-down.smart-drop-down-repositioned:not([animation="none"]) {
-    transform-origin: top;
-    transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+.smart-numeric-text-box input.smart-input {
+    width: 100%;
+    height: 100%;
+    border-color: var(--smart-border);
+    border-width: 1px;
+    border-style: solid;
+    border-right-width: var(--smart-border-width);
+    padding: var(--smart-editor-label-padding);
+    background-color: var(--smart-background);
+    color: inherit;
+    font: inherit;
+    text-align: var(--smart-numeric-text-box-text-align);
+    outline: none;
+    -webkit-appearance: none;
 }
 
-/*Shape settings*/
+.smart-numeric-text-box .smart-spin-button {
+    width: 100%;
+    height: 50%;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-color: var(--smart-border);
+    border-width: 1px;
+    border-style: solid;
+}
+
+.smart-numeric-text-box .smart-spin-button:first-child {
+    border-bottom: none;
+}
+
+.smart-numeric-text-box .smart-spin-button.smart-element {
+    display: block;
+    min-height: 0;
+    border-radius: 0px;
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+}
+
+.smart-numeric-text-box .smart-spin-button[hover] {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-numeric-text-box .smart-spin-button[active] {
+    background-color: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+}
+
+.smart-numeric-text-box .smart-spin-button .smart-button {
+    border: none;
+    padding: 0px;
+}
+
+.smart-numeric-text-box .smart-numeric-text-box-component {
+    border-width: var(--smart-border-width);
+    border-style: solid;
+    border-color: var(--smart-border);
+    border-left-width: var(--smart-border-width);
+    border-right-width: 0;
+}
+
+.smart-numeric-text-box .smart-input-addon {
+    border-color: var(--smart-border);
+    border-width: 1px;
+    border-style: solid;
+}
+
+.smart-numeric-text-box .smart-spin-buttons-container {
+    width: var(--smart-editor-addon-width);
+    border: none;
+}
+
+.smart-numeric-text-box .smart-numeric-text-box-drop-down {
+    width: 100%;
+}
+
+.smart-numeric-text-box .smart-numeric-text-box-radix-display.smart-numeric-text-box-pressed-component, .smart-numeric-text-box .smart-numeric-text-box-radix-display.smart-numeric-text-box-pressed-component[hover] {
+    background-color: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+}
+
+.smart-numeric-text-box .smart-numeric-text-box-unit-display {
+    width: var(--smart-numeric-text-box-default-unit-display-width);
+    border-width: var(--smart-border-width) 0 var(--smart-border-width) 0;
+    overflow: hidden;
+    background-color: var(--smart-background);
+}
+
+.smart-numeric-text-box .smart-numeric-text-box-unit-display[hover] {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-numeric-text-box .smart-arrow {
+    position: relative;
+}
+
+.smart-numeric-text-box .smart-label,
+.smart-numeric-text-box .smart-hint {
+    display: none;
+    position: absolute;
+}
+
 .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden) {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -334,57 +186,175 @@ smart-numeric-text-box[hint] .smart-hint {
     border-bottom-right-radius: 0px;
 }
 
-    .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left,
-    .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left .smart-spin-button.smart-repeat-button-element {
-        border-top-left-radius: var(--smart-border-top-left-radius);
-        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-    }
+.smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left, .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left .smart-spin-button.smart-repeat-button-element {
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    overflow: hidden;
+}
 
-        .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left .smart-spin-button.smart-element:first-child {
-            border-bottom-left-radius: 0px;
-        }
+.smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left .smart-spin-button.smart-element:first-child {
+    border-bottom-left-radius: 0px;
+}
 
-        .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left .smart-spin-button.smart-element:last-child {
-            border-top-left-radius: 0px;
-        }
+.smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-left .smart-spin-button.smart-element:last-child {
+    border-top-left-radius: 0px;
+}
 
-    .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right,
-    .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right .smart-spin-button.smart-element {
-        border-top-right-radius: var(--smart-border-top-right-radius);
-        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-    }
+.smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right, .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right .smart-spin-button.smart-element {
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    overflow: hidden;
+}
 
-        .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right .smart-spin-button.smart-element:first-child {
-            border-bottom-right-radius: 0px;
-        }
+.smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right .smart-spin-button.smart-element:first-child {
+    border-bottom-right-radius: 0px;
+}
 
-        .smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right .smart-spin-button.smart-element:last-child {
-            border-top-right-radius: 0px;
-        }
+.smart-numeric-text-box .smart-numeric-text-box-component:not(.smart-hidden).smart-numeric-text-box-component-border-right .smart-spin-button.smart-element:last-child {
+    border-top-right-radius: 0px;
+}
 
+.smart-numeric-text-box[drop-down-enabled] .smart-numeric-text-box-radix-display {
+    cursor: pointer;
+}
 
-        /* underlined*/
+.smart-numeric-text-box[drop-down-enabled] .smart-numeric-text-box-radix-display[hover]:not([aria-expanded="true"]) {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-numeric-text-box:not([animation="none"])[hint] .smart-hint {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.smart-numeric-text-box:not([animation="none"])[hint][focus] .smart-hint {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smart-numeric-text-box:not([animation="none"]) .smart-numeric-text-box-drop-down {
+    transform-origin: top;
+    transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.smart-numeric-text-box[focus] input.smart-input {
+    border-color: var(--smart-outline);
+}
+
+.smart-numeric-text-box[focus] .smart-input-addon {
+    border-color: var(--smart-outline);
+}
+
+.smart-numeric-text-box[focus] .smart-spin-button {
+    border-color: var(--smart-outline);
+}
+
+.smart-numeric-text-box[hint] .smart-hint {
+    opacity: 0;
+    top: 100%;
+    bottom: initial;
+}
+
+.smart-numeric-text-box[hint][focus] .smart-hint {
+    opacity: 1;
+}
+
+.smart-numeric-text-box[radix-display-position="right"]:not([spin-buttons]) .smart-numeric-text-box-radix-display, .smart-numeric-text-box[radix-display-position="right"][spin-buttons][spin-buttons-position="left"] .smart-numeric-text-box-radix-display {
+    border-left-width: 0;
+    border-right-width: var(--smart-border-width);
+}
+
+.smart-numeric-text-box[disabled], .smart-numeric-text-box[value="null"] .smart-numeric-text-box-radix-display, .smart-numeric-text-box[value="NaN"] .smart-spin-buttons-container, .smart-numeric-text-box[value="Infinity"] .smart-spin-buttons-container, .smart-numeric-text-box[value="-Infinity"] .smart-spin-buttons-container {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.smart-numeric-text-box[spin-buttons] input.smart-input {
+    width: calc(100% - var(--smart-editor-addon-width));
+}
+
+.smart-numeric-text-box[radix-display] input.smart-input {
+    width: calc(100% - var(--smart-numeric-text-box-default-radix-display-width));
+}
+
+.smart-numeric-text-box[show-unit] input.smart-input {
+    width: calc(100% - var(--smart-numeric-text-box-default-unit-display-width));
+}
+
+.smart-numeric-text-box[spin-buttons][radix-display] input.smart-input {
+    width: calc(100% - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-radix-display-width));
+}
+
+.smart-numeric-text-box[spin-buttons][show-unit] input.smart-input {
+    width: calc(100% - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-unit-display-width));
+}
+
+.smart-numeric-text-box[radix-display][show-unit] input.smart-input {
+    width: calc(100% - var(--smart-numeric-text-box-default-radix-display-width) - var(--smart-numeric-text-box-default-unit-display-width));
+}
+
+.smart-numeric-text-box[spin-buttons][radix-display][show-unit] input.smart-input {
+    width: calc(100% - var(--smart-numeric-text-box-default-unit-display-width) - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-radix-display-width));
+}
+
+.smart-numeric-text-box[spin-buttons] input.smart-input {
+    border-right-width: 0;
+}
+
+.smart-numeric-text-box[spin-buttons] .smart-spin-buttons-container {
+    border-right-width: var(--smart-border-width);
+}
+
+.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] .smart-spin-buttons-container {
+    border-right-width: 0;
+}
+
+.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"] input.smart-input {
+    border-right-width: var(--smart-border-width);
+}
+
+.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"][show-unit] input.smart-input {
+    border-right-width: 0;
+}
+
+.smart-numeric-text-box[spin-buttons][spin-buttons-position="left"][show-unit] .smart-numeric-text-box-unit-display {
+    border-right-width: var(--smart-border-width);
+}
+
+.smart-numeric-text-box[spin-buttons][show-unit] .smart-numeric-text-box-unit-display {
+    border-right-width: 0;
+}
+
+.smart-numeric-text-box[show-unit] input.smart-input {
+    border-right-width: 0;
+}
+
+.smart-numeric-text-box[show-unit] .smart-numeric-text-box-unit-display {
+    border-right-width: var(--smart-border-width);
+}
 
 .smart-numeric-text-box.underlined {
-    border-width:0px;
+    border-width: 0px;
     border-bottom-width: 1px;
     background: var(--smart-background);
 }
-.smart-numeric-text-box.underlined .smart-spin-button,
-.smart-numeric-text-box.underlined .smart-drop-down-button {
-    background: var(--smart-background);
-    border-width:0px;
-    border-bottom-width: 1px;
-    border-radius:0;
-}
+
 .smart-numeric-text-box.underlined input {
-    border-width:0px;
+    border-width: 0px;
     border-bottom-width: 1px;
 }
 
 .smart-numeric-text-box.underlined input:focus {
-    border:none;
+    border: none;
 }
+
+.smart-numeric-text-box.underlined .smart-spin-button,
+.smart-numeric-text-box.underlined .smart-drop-down-button {
+    background: var(--smart-background);
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-radius: 0;
+}
+
 .smart-numeric-text-box.underlined .smart-spin-button[hover],
 .smart-numeric-text-box.underlined .smart-drop-down-button[hover] {
     background: var(--smart-background);
@@ -397,7 +367,7 @@ smart-numeric-text-box[hint] .smart-hint {
     color: var(--smart-ui-state-active);
 }
 
-.smart-numeric-text-box.underlined .smart-hint{
+.smart-numeric-text-box.underlined .smart-hint {
     position: absolute;
     top: 0;
     left: 0;
@@ -411,10 +381,10 @@ smart-numeric-text-box[hint] .smart-hint {
     font-size: 75%;
     opacity: 0;
     transition: color 0.2s, font-size 0.2s, line-height 0.2s, margin-top 0.2s, opacity 0.1s, top 0.2s;
-    margin-top: calc(0px - var(--smart-font-size))
+    margin-top: calc(0px - var(--smart-font-size));
 }
 
-.smart-numeric-text-box.underlined  .smart-hint::after{
+.smart-numeric-text-box.underlined .smart-hint:after {
     content: "";
     position: absolute;
     left: 0;
@@ -429,26 +399,30 @@ smart-numeric-text-box[hint] .smart-hint {
 }
 
 .smart-numeric-text-box.underlined:not([focus]) .smart-hint {
-    margin-top:0px;
+    margin-top: 0px;
 }
 
-.smart-numeric-text-box.underlined[focus] .smart-drop-down-button,
+.smart-numeric-text-box.underlined[focus] .smart-drop-down-button {
+    color: var(--smart-primary);
+    opacity: 1;
+    border-bottom-color: transparent;
+}
+
 .smart-numeric-text-box.underlined[focus] .smart-hint {
     color: var(--smart-primary);
     opacity: 1;
 }
-.smart-numeric-text-box.underlined[focus] .smart-spin-button,
-.smart-numeric-text-box.underlined[focus] .smart-drop-down-button {
-    border-bottom-color: transparent;
-}
-.smart-numeric-text-box.underlined[focus] .smart-hint::after {
+
+.smart-numeric-text-box.underlined[focus] .smart-hint:after {
     transform: scale(1);
 }
-/*end of underlined */
 
-/* outlined */
+.smart-numeric-text-box.underlined[focus] .smart-spin-button {
+    border-bottom-color: transparent;
+}
+
 .smart-numeric-text-box.outlined {
-    height:auto;
+    height: auto;
     min-height: 0;
     border-radius: var(--smart-border-radius);
     border: 1px solid var(--smart-border);
@@ -460,21 +434,13 @@ smart-numeric-text-box[hint] .smart-hint {
     display: block;
     padding: 14px 0px;
 }
+
 .smart-numeric-text-box.outlined .smart-spin-button,
 .smart-numeric-text-box.outlined .smart-drop-down-button {
     background: var(--smart-background);
-    border-width:0px;
-}
-.smart-numeric-text-box.outlined .smart-drop-down-button {
-    padding: 8px 0px;
+    border-width: 0px;
 }
 
-.smart-numeric-text-box.outlined[focus]  {
-    border-color: var(--smart-primary);
-}
-.smart-numeric-text-box.outlined[focus] .smart-drop-down-button {
-    color: var(--smart-primary);
-}
 .smart-numeric-text-box.outlined .smart-spin-button[hover],
 .smart-numeric-text-box.outlined .smart-drop-down-button[hover] {
     background: var(--smart-background);
@@ -485,6 +451,10 @@ smart-numeric-text-box[hint] .smart-hint {
 .smart-numeric-text-box.outlined .smart-drop-down-button[active] {
     background: var(--smart-background);
     color: var(--smart-ui-state-active);
+}
+
+.smart-numeric-text-box.outlined .smart-drop-down-button {
+    padding: 8px 0px;
 }
 
 .smart-numeric-text-box.outlined .smart-hint {
@@ -499,14 +469,12 @@ smart-numeric-text-box[hint] .smart-hint {
     font-size: 75%;
     line-height: 15px;
     cursor: text;
-    padding:0;
+    padding: 0;
     margin-top: -6px;
     transition: color 0.2s, font-size 0.2s, opacity 0.1s, font-size 0.2s, line-height 0.2s;
 }
 
-/* Corners */
-.smart-numeric-text-box.outlined .smart-hint::before,
-.smart-numeric-text-box.outlined .smart-hint::after {
+.smart-numeric-text-box.outlined .smart-hint:before, .smart-numeric-text-box.outlined .smart-hint:after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -520,13 +488,13 @@ smart-numeric-text-box[hint] .smart-hint {
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.smart-numeric-text-box.outlined .smart-hint::before{
+.smart-numeric-text-box.outlined .smart-hint:before {
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: var(--smart-border-radius) 0;
 }
 
-.smart-numeric-text-box.outlined .smart-hint::after {
+.smart-numeric-text-box.outlined .smart-hint:after {
     flex-grow: 1;
     margin-left: 4px;
     border-right: solid 1px transparent;
@@ -538,38 +506,110 @@ smart-numeric-text-box[hint] .smart-hint {
     line-height: 48px;
     opacity: 0;
 }
-.smart-numeric-text-box.outlined[focus]
-{
+
+.smart-numeric-text-box.outlined[focus] {
+    border-color: var(--smart-primary);
     border-top-color: transparent !important;
 }
+
+.smart-numeric-text-box.outlined[focus] .smart-drop-down-button {
+    color: var(--smart-primary);
+}
+
 .smart-numeric-text-box.outlined[focus] .smart-hint {
     color: var(--smart-primary);
     opacity: 1;
 }
-.smart-numeric-text-box.outlined[focus] .smart-hint::before,
-.smart-numeric-text-box.outlined[focus] .smart-hint::after {
+
+.smart-numeric-text-box.outlined[focus] .smart-hint:before, .smart-numeric-text-box.outlined[focus] .smart-hint:after {
     border-top-color: var(--smart-primary) !important;
 }
-/* end of outlined */
 
-/* --- Right To Left --- */
+.smart-numeric-text-box-radix-display {
+    display: flex;
+    align-items: center;
+    cursor: default;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    width: var(--smart-numeric-text-box-default-radix-display-width);
+    justify-content: center;
+}
+
+.smart-numeric-text-box-unit-display {
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.smart-numeric-text-box-drop-down {
+    background-color: var(--smart-surface);
+    position: absolute;
+    box-sizing: border-box;
+    height: auto;
+    border-width: var(--smart-border-width);
+    border-style: solid;
+    border-color: var(--smart-border);
+    box-shadow: var(--smart-elevation-8);
+    padding: 2px;
+    top: 100%;
+    z-index: 9999;
+    list-style-type: none;
+    transform: scaleY(1);
+    opacity: 1;
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+}
+
+.smart-numeric-text-box-drop-down .smart-list-item {
+    cursor: pointer;
+    margin: 1px;
+    border: 1px solid transparent;
+    padding: 4px 8px 4px 8px;
+    word-break: break-all;
+}
+
+.smart-numeric-text-box-drop-down .smart-list-item[hover], .smart-numeric-text-box-drop-down .smart-list-item:hover {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-numeric-text-box-drop-down.smart-visibility-hidden {
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.smart-numeric-text-box-drop-down.smart-drop-down-repositioned:not([animation="none"]) {
+    transform-origin: top;
+    transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.smart-numeric-text-box-pressed-component {
+    background-color: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
+}
 
 smart-numeric-text-box[right-to-left] > .smart-container {
     direction: initial;
 }
 
-.smart-numeric-text-box-drop-down.smart-drop-down-repositioned[right-to-left],
+smart-numeric-text-box[right-to-left] input.smart-input,
 smart-numeric-text-box[right-to-left] .smart-numeric-text-box-drop-down,
 smart-numeric-text-box[right-to-left] .smart-numeric-text-box-radix-display,
-smart-numeric-text-box[right-to-left] .smart-numeric-text-box-unit-display,
-smart-numeric-text-box[right-to-left] input.smart-input,
 smart-numeric-text-box[right-to-left] .smart-label,
 smart-numeric-text-box[right-to-left] .smart-hint {
     direction: rtl;
 }
 
 smart-numeric-text-box[right-to-left] .smart-numeric-text-box-unit-display {
+    direction: rtl;
     flex-direction: row-reverse;
 }
 
-/* ---- */
+.smart-numeric-text-box-drop-down.smart-drop-down-repositioned[right-to-left] {
+    direction: rtl;
+}
+
+/*# sourceMappingURL=smart.numerictextbox.css.map */

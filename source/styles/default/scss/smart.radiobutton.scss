@@ -1,0 +1,182 @@
+/* smart-radio-button */
+smart-radio-button {
+  display: inline-block;
+  height: var(--smart-editor-height);
+  outline: none;
+  font-family: var(--smart-radio-button-font-family);
+  font-size: var(--smart-radio-button-font-size);
+  cursor: pointer;
+
+  .smart-ripple {
+    background: var(--smart-radio-button-background-active);
+  }
+
+  .smart-container {
+    position: relative;
+    display: flex;
+    /*justify-content:center;*/
+    align-items: center;
+  }
+
+  .smart-overlay {
+    height: 100%;
+    background: var(--smart-radio-button-background-active);
+    width: var(--smart-editor-height);
+    position: absolute;
+    left: 2px;
+    border-radius: 100%;
+    padding: 0px;
+    opacity: 0;
+    box-sizing: content-box;
+    transition: opacity 280ms ease-in-out;
+  }
+
+  .smart-label {
+    color: var(--smart-on-background);
+    font-size: var(--smart-font-size);
+    font-family: var(--smart-font-family);
+    margin: 0 8px 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+  }
+
+  .smart-input {
+    width: var(--smart-radio-button-default-size);
+    min-width: var(--smart-radio-button-default-size);
+    height: var(--smart-radio-button-default-size);
+    min-height: var(--smart-radio-button-default-size);
+    background-color: var(--smart-radio-button-background);
+    box-sizing: initial;
+    border-style: solid;
+    border-width: var(--smart-radio-button-border-width);
+    border-color: var(--smart-radio-button-border);
+    display: inline-block;
+    border-top-left-radius: var(--smart-radio-button-border-top-left-radius);
+    border-top-right-radius: var(--smart-radio-button-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-radio-button-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-radio-button-border-bottom-right-radius);
+    color: red;
+    margin: 0 0 0 8px;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      height: 50%;
+      font-style: normal;
+      text-decoration: inherit;
+      font-variant: normal;
+      text-transform: none;
+      color: inherit;
+      border-radius: 50%;
+      line-height: 100%;
+    }
+  }
+
+
+  &[check-mode="input"],
+  &[check-mode="label"] {
+    cursor: default;
+
+    .smart-input {
+      cursor: pointer;
+    }
+  }
+
+  &[readonly] {
+    cursor: initial;
+
+    .smart-input,
+    .smart-label {
+      cursor: initial;
+    }
+  }
+
+  &[hover] {
+    .smart-input {
+      border-color: var(--smart-radio-button-border-hover);
+      background-color: var(--smart-radio-button-background-hover);
+      color: var(--smart-radio-button-color-hover);
+    }
+  }
+
+  &[checked] {
+    .smart-input {
+      border-color: var(--smart-radio-button-border-active);
+      background-color: var(--smart-radio-button-background-active);
+      color: var(--smart-radio-button-color-active);
+
+      &:after {
+        font-size: 15px;
+        font-weight: 100;
+        background: var(--smart-radio-button-color-active);
+      }
+    }
+  }
+
+  &[active] {
+    .smart-input {
+      border-color: var(--smart-radio-button-border-active);
+      background-color: var(--smart-radio-button-background-active);
+      color: var(--smart-radio-button-color-active);
+    }
+
+    &:focus,
+    &[focus] {
+      .smart-overlay {
+        opacity: 0.4;
+      }
+    }
+
+    //&[focus] {
+    //  .smart-overlay {
+    //    opacity: 0.3;
+    //  }
+    //}
+  }
+
+  &:focus {
+    .smart-overlay {
+      opacity: 0.3;
+    }
+  }
+
+  &:focus,
+  &[focus] {
+    .smart-input {
+      border-color: var(--smart-radio-button-border-focus);
+      background-color: var(--smart-radio-button-background-focus);
+      color: var(--smart-radio-button-color-focus);
+      outline: none;
+      overflow: visible;
+    }
+  }
+
+  //Right To Left
+  &[right-to-left] {
+    .smart-container {
+      justify-content: flex-end;
+    }
+
+    .smart-label {
+      direction: rtl;
+      order: 2;
+    }
+
+    .smart-input {
+      order: 3;
+      margin: 0 8px 0 0;
+    }
+
+    .smart-overlay {
+      left: initial;
+      right: 2px;
+    }
+  }
+}

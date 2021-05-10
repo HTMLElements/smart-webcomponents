@@ -1,0 +1,227 @@
+@mixin checkbox-label {
+  display: flex;
+  padding-bottom: 0px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@mixin checkbox-styles-checked {
+  border-color: var(--smart-ui-state-border-active);
+  background-color: var(--smart-ui-state-active);
+  color: var(--smart-ui-state-color-active);
+
+  &:after {
+    content: var(--smart-icon-check);
+  }
+}
+
+@mixin checkbox-styles-hover {
+  border-color: var(--smart-ui-state-border-hover);
+  background-color: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
+}
+
+@mixin checkbox-styles {
+  width: calc(-2px + var(--smart-check-box-default-size));
+  height: calc(-2px + var(--smart-check-box-default-size));
+  line-height: var(--smart-check-box-default-size);
+  box-sizing: initial;
+  position: relative;
+  border-style: solid;
+  padding: 2px;
+  border-width: var(--smart-border-width);
+  border-radius: var(--smart-border-radius);
+  font-family: inherit;
+  font-size: 12px;
+  background-repeat: no-repeat;
+  border-color: var(--smart-border);
+  background-color: transparent;
+  color: var(--smart-background-color);
+  display: block;
+  outline: none;
+
+  &:after {
+    cursor: pointer;
+    content: inherit;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-family: var(--smart-font-family-icon);
+    font-weight: normal;
+    text-decoration: inherit;
+    font-variant: normal;
+    text-transform: none;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    outline: none;
+  }
+
+  &:hover {
+    @include checkbox-styles-hover;
+  }
+
+  &[checked] {
+    @include checkbox-styles-checked;
+  }
+}
+
+
+[editor="checkBox"],
+[template="checkBox"],
+[checkbox],
+[check-boxes_visible] [has-toggle-button] {
+  .smart-label {
+    @include checkbox-label;
+
+    [checkbox] {
+      @include checkbox-label;
+    }
+  }
+
+  .smart-input:not(.smart-grid-cell-editor) {
+    @include checkbox-styles;
+  }
+
+  .smart-input.smart-grid-check-box-cell-editor {
+    @include checkbox-styles;
+  }
+}
+
+
+smart-grid-column[checkbox],
+smart-grid-cell[checkbox] {
+  @include checkbox-label;
+
+  &[selected] {
+    .smart-input:not(.smart-grid-cell-editor) {
+      @include checkbox-styles-checked;
+    }
+  }
+
+  &[selected="indeterminate"] .smart-input:not(.smart-grid-cell-editor),
+  &[checked="indeterminate"] {
+    &:after {
+      top: 0;
+      background-color: var(--smart-ui-state-color-active);
+    }
+  }
+}
+
+[has-toggle-button] {
+  &[selected] {
+    [checkbox] {
+      .smart-input[checked] {
+        //Must be with styles of hover
+        @include checkbox-styles-hover;
+      }
+    }
+  }
+}
+
+[freeze][checkbox][auto-show] {
+  .smart-input {
+    opacity: 0;
+    transition: opacity ease-in-out 0.2s;
+  }
+
+  &[selected] {
+    .smart-input {
+      opacity: 1;
+      border-color: var(--smart-border);
+    }
+  }
+}
+
+[radioButton][selected] {
+  .smart-input {
+    &:after {
+      content: var(--smart-icon-radio);
+    }
+  }
+}
+
+[editor="checkBox"] {
+  .smart-input {
+    left: -1px;
+
+    &:focus {
+      border-color: var(--smart-ui-state-border-active);
+    }
+  }
+
+  &:not([readonly]) {
+    .smart-input {
+      &:hover {
+        border-color: var(--smart-ui-state-border-hover);
+        background-color: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
+      }
+    }
+  }
+}
+
+smart-grid-row:not([selected]):not(:hover) {
+  [header][checkbox] {
+    &[auto-show]:not(:hover) {
+      .smart-input {
+        opacity: 0;
+        transition: opacity ease-in-out 0.2s;
+      }
+    }
+  }
+}
+
+.smart-grid-dialog-editor,
+smart-grid-cell,
+smart-grid-column {
+  &[checkbox][selected="indeterminate"],
+  &[checkbox][checked="indeterminate"] {
+    .smart-input {
+      &:after {
+        margin: 14%;
+        width: 70%;
+        height: 70%;
+        content: '';
+        background-color: var(--smart-ui-state-color-active);
+        box-sizing: border-box;
+        top: 0px;
+        border-radius: 0px;
+      }
+    }
+  }
+}
+
+
+.smart-grid-cell-editor {
+  &.smart-grid-text-area-cell-editor,
+  &.smart-grid-number-input-cell-editor {
+    .smart-input {
+      width: calc(100% - var(--smart-editor-addon-width));
+      border: none;
+      padding: var(--smart-editor-label-padding);
+      resize: none;
+      border-radius: 0px;
+      background: inherit;
+      color: inherit;
+    }
+  }
+
+  &.smart-grid-number-input-cell-editor {
+    .smart-input {
+      text-align: right;
+      height: 100%;
+
+      &[type=number] {
+        -moz-appearance: textfield;
+
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

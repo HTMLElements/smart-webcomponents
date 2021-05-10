@@ -1464,6 +1464,11 @@ export interface CardViewProperties {
    */
   dataSource?: any;
   /**
+   * Sets the grid's data source settings when the dataSource property is set to an Array or URL.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: DataSourceSettings;
+  /**
    * Allows the edit option for the cards.
    * Default value: false
    */
@@ -1554,6 +1559,16 @@ export interface CardViewProperties {
    * }
    */
   messages?: any;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the theme. Theme defines the look of the element
+   * Default value: ""
+   */
+  theme?: string;
   /**
    * Describes the scrolling behavior of the element.
    * Default value: physical
@@ -1689,6 +1704,11 @@ export interface CardViewColumn {
    */
   dataField?: string;
   /**
+   * Sets or gets the column's data type.
+   * Default value: string
+   */
+  dataType?: CardViewColumnDataType;
+  /**
    * Sets or gets the column's icon. Expects CSS class name.
    * Default value: 
    */
@@ -1710,14 +1730,106 @@ export interface CardViewColumn {
   visible?: boolean;
   /**
    * Sets or gets the column's format function.
-   * Default value: 
+   * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: { (settings: { template?: string, column?: any, record?: any, value?: any }): any };
   /**
    * Sets or gets the column's format settings. You can use any of the build in formatting options or to NumberFormat object like that: 'Intl: {  NumberFormat: {  style: \'currency\', currency: \'EUR\' }}' or DateTimeFormat object like that: 'Intl: {  DateTimeFormat: {  dateStyle: \'full\' }}''
    * Default value: [object Object]
    */
   formatSettings?: any;
+}
+
+/**Sets the grid's data source settings when the <em>dataSource</em> property is set to an Array or URL. */
+export interface DataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: blackList
+   */
+  sanitizeHTML?: DataSourceSettingsSanitizeHTML;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: DataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: DataSourceSettingsDataSourceType;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface DataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: DataSourceSettingsDataFieldDataType;
 }
 
 declare global {
@@ -1732,8 +1844,16 @@ declare global {
 
 /**Describes the orientation of the card cells. */
 export declare type Orientation = 'horizontal' | 'vertical';
+/**Sets or gets the column's data type. */
+export declare type CardViewColumnDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
 /**Describes the cover image fit property. */
 export declare type CardViewCoverMode = 'fit' | 'crop';
+/**Sets or gets the XML binding root. */
+export declare type DataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
+/**Sets the dataField type. */
+export declare type DataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type DataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons. */
 export declare type CardViewHeaderPosition = 'none' | 'top' | 'bottom';
 /**Describes the scrolling behavior of the element. */
@@ -4276,7 +4396,7 @@ export interface CircularProgressBarProperties {
    * A callback function defining the new format for the label of the Progress Bar.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: {(value: number): string};
   /**
    * Sets the value of the Circular Progress bar to indeterminate state(null) and starts the animation.
    * Default value: false
@@ -8149,6 +8269,683 @@ declare global {
     }
 }
 
+export interface EditorProperties {
+  /**
+   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Default value: advanced
+   */
+  animation?: Animation;
+  /**
+   * Automatically loads the last saved state of the editor (from local storage) on element initialization. An id must be provided in order to load a previously saved state.
+   * Default value: false
+   */
+  autoLoad?: boolean;
+  /**
+   * Automatically saves the current content of the editor. Saving happens at time intervas determined by the autoSaveInterval property while the element on focus. An id must be provided to the element in order to store the state.
+   * Default value: false
+   */
+  autoSave?: boolean;
+  /**
+   * The interval that determines the interval to automatically save the state of the Editor when the autoSave property is set.
+   * Default value: false
+   */
+  autoSaveInterval?: boolean;
+  /**
+   * A formatting function for the char counter. Takes two arguments: chars - the current number of characters inside the Editor.maxCharCount - the maximum number of characters inside the Editor.
+   * Default value: null
+   */
+  chartCountFormatFunction?: any;
+  /**
+   * Sets the Editor's Data Export options.
+   * Default value: [object Object]
+   */
+  dataExport?: EditorDataExport;
+  /**
+   * Enables or disables the Editor.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Disables content editing inside Editor.
+   * Default value: false
+   */
+  disableEditing?: boolean;
+  /**
+   * Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode.
+   * Default value: html
+   */
+  editMode?: EditMode;
+  /**
+   * Determines whether the HTML returned from the value property or displayed by Preview mode is encoded or not
+   * Default value: false
+   */
+  enableHtmlEncode?: boolean;
+  /**
+   * Determines whether the Tab key can insert tab chars inside the Editor or change focus (default)
+   * Default value: false
+   */
+  enableTabKey?: boolean;
+  /**
+   * Determines whether the Toolbar is hidden or not.
+   * Default value: false
+   */
+  hideToolbar?: boolean;
+  /**
+   * Determines whether the Inline Toolbar is hidden or not.
+   * Default value: false
+   */
+  hideInlineToolbar?: boolean;
+  /**
+   * Sets the content of the Editor. Similar to value property allows to set the content of the editor.
+   * Default value: "en"
+   */
+  innerHTML: string;
+  /**
+   * Defines an offset(x,y) for the Inline Toolbar positioning on the page.
+   * Default value: [0, -5]
+   */
+  inlineToolbarOffset?: number[];
+  /**
+   * Determines the iframe settings of the Editor. When enabled the contents of the Editor are placed inside an iframe, isolated in a separate dom. The element allows to insert external resources into the iframe if needed.
+   * Default value: [object Object]
+   */
+  iframeSettings?: EditorIframeSettings;
+  /**
+   * Determines the format of the content that will be pasted inside the Editor.
+   * Default value: keepFormat
+   */
+  pasteFormat?: PasteFormat;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Sets a limit on the number of chars inside the Editor. 
+   * Default value: null
+   */
+  maxCharCount?: number;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property language. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownName": "Invalid property name: ''!",
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid ''!",
+   *     "propertyInvalidValueType": "Invalid ''!",
+   *     "methodInvalidValueType": "Invalid ''!",
+   *     "methodInvalidArgumentsCount": "Invalid '' argument(s)!",
+   *     "methodInvalidReturnType": "Invalid ''!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": "'.",
+   *     "htmlTemplateNotSuported": ": Web Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidValue": ".",
+   *     "incorrectArgument": ".",
+   *     "permissionsRequired": ".",
+   *     "ok": "Ok",
+   *     "cancel": "Cancel",
+   *     "alignLeft": "Align Left",
+   *     "alignCenter": "Align Center",
+   *     "alignRight": "Align Right",
+   *     "alignJustify": "Align Justify",
+   *     "segoeUi": "Segoe UI",
+   *     "arial": "Arial",
+   *     "georgia": "Georgia",
+   *     "impact": "Impact",
+   *     "tahoma": "Tahoma",
+   *     "timesNewRoman": "Times New Roman",
+   *     "verdana": "Verdana",
+   *     "p": "Paragraph",
+   *     "pre": "Code",
+   *     "code": "Code",
+   *     "blockquote": "Quotation",
+   *     "h1": "Heading 1",
+   *     "h2": "Heading 2",
+   *     "h3": "Heading 3",
+   *     "h4": "Heading 4",
+   *     "h5": "Heading 5",
+   *     "h6": "Heading 6",
+   *     "bold": "Bold",
+   *     "italic": "Italic",
+   *     "underline": "Underline",
+   *     "strikethrough": "Strikethrough",
+   *     "orderedlist": "Ordered List",
+   *     "unorderedlist": "Unordered List",
+   *     "subscript": "Subscript",
+   *     "superscript": "Superscript",
+   *     "alignment": "Alignments",
+   *     "fontname": "Font Name",
+   *     "fontsize": "Font Size",
+   *     "formats": "Formats",
+   *     "backgroundcolor": "Background Color",
+   *     "fontcolor": "Font Color",
+   *     "redo": "Redo",
+   *     "undo": "Undo",
+   *     "indent": "Indent",
+   *     "outdent": "Outdent",
+   *     "createlink": "Hyperlink",
+   *     "hyperlink": "Hyperlink",
+   *     "editlink": "Hyperlink",
+   *     "removelink": "Remove link",
+   *     "openlink": "Open link",
+   *     "image": "Image",
+   *     "table": "Table",
+   *     "lowercase": "Lower Case",
+   *     "uppercase": "Upper Case",
+   *     "print": " Print",
+   *     "cut": " Cut",
+   *     "copy": " Copy",
+   *     "paste": " Paste",
+   *     "clearformat": "Clear Format",
+   *     "fullscreen": "Full Screen",
+   *     "restore": "Restore Screen",
+   *     "sourcecode": "Source Code",
+   *     "preview": "Preview",
+   *     "splitmode": "Split Editor",
+   *     "address": "Web Address",
+   *     "text": "Display Text",
+   *     "addressPlaceholder": "http://example.com",
+   *     "textPlaceholder": "Enter Text",
+   *     "targetPlaceholder": "Select Target",
+   *     "titlePlaceholder": "Enter a Title",
+   *     "urlPlaceholder": "http://example.com/image.png",
+   *     "captionPlaceholder": "Caption",
+   *     "altPlaceholder": "Alternative Text",
+   *     "widthPlaceholder": "auto",
+   *     "heightPlaceholder": "auto",
+   *     "target": "Open Link in",
+   *     "linkBlankDescr": "New Window",
+   *     "linkSelfDescr": "Same Window",
+   *     "linkParentDescr": "Parent Frame",
+   *     "linkTopDescr": "Full Body of the Window",
+   *     "linkCustomDescr": "Custom Frame Name",
+   *     "title": "Title",
+   *     "url": "You can also provide the URL to an image",
+   *     "width": "Width",
+   *     "height": "Height",
+   *     "alt": "Alternative Text",
+   *     "caption": "Caption",
+   *     "display": "Display",
+   *     "displayPlaceholder": "Display",
+   *     "displayBlock": "Block",
+   *     "displayInline": "Inline",
+   *     "draggable": "Enable Dragging",
+   *     "resizable": "Enable Resizing",
+   *     "browse": "Browse",
+   *     "connectionError": ": File Upload requires connection to the server.",
+   *     "wrongItemIndex": ": There is no file with such an index in the list of uploaded files.",
+   *     "tooLongFileName": ": File name is too long.",
+   *     "totalFiles": "Total files: ",
+   *     "cancelFile": "Cancel File",
+   *     "dashedborders": "Dashed Borders",
+   *     "altrows": "Alternate Rows",
+   *     "insertRowBefore": "Insert Row Before",
+   *     "insertRowAfter": "Insert Row After",
+   *     "deleteRow": "Delete Row",
+   *     "insertColumnLeft": "Insert Column Left",
+   *     "insertColumnRight": "Insert Column Right",
+   *     "deleteColumn": "Delete Column",
+   *     "alignTop": "Align Top",
+   *     "alignMiddle": "Align Middle",
+   *     "alignBottom": "Align Bottom",
+   *     "delete": "Delete",
+   *     "tablerows": "Table Rows",
+   *     "tablecolumns": "Table Columns",
+   *     "tablevalign": "Table Cell Vertical Align",
+   *     "tablestyle": "Table Style",
+   *     "tableheader": "Table Header",
+   *     "buttonLabel": "Custom Table",
+   *     "pasteLabel": "Choose the paste format action:",
+   *     "cols": "Columns",
+   *     "rows": "Rows",
+   *     "alphabet": "abcdefghijklmnopqrstuvwxyz",
+   *     "header": "Header",
+   *     "column": "Column",
+   *     "plainText": "Plain Text",
+   *     "keepFormat": "Keep Format",
+   *     "cleanFormat": "Clean Format",
+   *     "roleDescription": "Text Editor",
+   *     "iframeTitle": "Editor Content is Encloused in it's own DOM inside an iFrame",
+   *     "toolbarButtonAriaLabel": "Toolbar Toggle Button",
+   *     "primaryToolbarAriaLabel": "Primary Toolbar",
+   *     "secondaryToolbarAriaLabel": "Secondary Toolbar",
+   *     "inputAriaLabel": "Enter Text"
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the placeholder that will be shown when there's no content inside the Editor.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Determines whether the value is sanitized from XSS content or not. When enabled scripts and other XSS vulnerabilities are not allowed to exist inside the Editor's as HTML content.
+   * Default value: false
+   */
+  sanitized?: boolean;
+  /**
+   * Determines whether the char counter is visible or not. When enabled it is displayed in the bottom right corner. If maxCharCount is set and the content characters are equal or more than 70% of the maximum char count the counter is colored in order to warn the user. If the char count is equal or more than 90% the counter is again colored with a different warning color to indicate that the counter is near maximum. When maximum is reached, text input is not allowed.
+   * Default value: false
+   */
+  showCharCount?: boolean;
+  /**
+   * Determines the refresh interval for the Source Code/Preview Panel when Split Mode is enabled. 
+   * Default value: 100
+   */
+  splitModeRefreshTimeout?: number;
+  /**
+   * Determines the theme. Theme defines the look of the element
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * Determines the Toolbar items list. Each item can be string pointing to the name of the item or an object that defines a custom item or adds aditional settings to an item. The name of the items are case insensitive. An object definition should contain a name attribute that refers to the name of the item when modifing an existing toolbar item. The name attribute determines the action of the item. If set to 'custom' it is possible to create a custom toolbar item. If name attribute is not set or not valid it is treated as a separator, no a toolbar item. The following items are supported by default by the Editor: SourceCode - shows the HTML/Preview Panel by hiding the input panel. Item type - 'Toggle button'.SplitMode - shows both input and HTML/Preview Panel by splitting the Editor content in two sections. Item type - 'Toggle button'FullScreen - fits the viewport with the Editor by expanding it over the page content. Item type - 'Toggle button'.Alignment - aligns the selected content. Item type - 'Drop down'.FontName - changes the font family of the selected content. Item type - 'drop-down'.FontSize - changes the font size of the selected content. Item type - 'drop-down'.Formats - changes the format of the current selection. Itme type - 'drop-down'.TableRows - allows to insert/remove a row into a selected table element. Item type - 'drop-down'.TableColumns - allows to insert/remove a column into a selected table element. Itme type - 'drop-down'.TableVAlign - sets the vertical alignment of a selected table cell. Item type - 'drop-down'.TableStyle - sets additional styling to a selected table inside the Editor. Item type - 'drop-down'.BackgroundColor - changes the background color of the current selection. Item type - 'color-input'.FontColor - changes the font color of the current selection. Item type = 'color-input'.Bold - sets the currently selected text as bold or not. Item type - 'button'.Italic - sets the currently selected text as italic. Item type - 'button'. Underline - sets the currently selected text as underlined. Itme type - 'button'.Strikethrough - set the currently selected text as strikethrough. Item type - 'button'.Delete - deletes the current selection. Item type - 'button'.Undo - undoes the last operation. Item type - 'button'.Redo - redoes the previous operation. Item type - 'button'.Indent - indents the current selection once. Item type - 'button'.Outdent - outdents the current selection once. Item type - 'button'.OpenLink - triggers a hyperlink. Item type - 'button'.EditLink - creates/edits the selected hyperlink. Item type - 'button'.CreateLink - creates/edits the selected hyperlink. Item type - 'button'.RemoveLink - removes the currently selected hyperlink. Item type - 'button'.Hyperlink - same as createLink, triggers a Dialog Window for link creation. Item type - 'button'.Cut - Cuts the currently selected text. Item type - 'button'.Copy - copies the currently selected text. Item type - 'button'Paste - pastes the currenly copied/cut text from the Clipboard. Item type = 'button' or 'drop-down' when advanced attribute is set to 'true'.Image - triggers a Dialog Window to insert/edit an image. Item type - 'button'.LowerCase - changes the current selection to lower case. Item type - 'button'.UpperCase - changes the current selection to upper case. Item type - 'button'.Print - opens the browser print preview window. Item type - 'button'.Caption - insert/remove a caption when a table is selected. Item type - 'button'.ClearFormat - removes the formatting of the currntly selected text. Item type - 'button'.Table - triggers a Dialog Window to insert a table. Item type - 'button'.TableHeader - insert/remove a header row to the currently selected table. Item type - 'button'.OrderedList - insert/remove an order list. Item type = 'button'.UnorderedList - insert/remove an unordered list. Item type - 'button'.Subscript - changes the currently selected text to subscript. Item type - 'button'.Superscript - changes the currently selected text to superscript. Item type - 'button'.  The inlineToolbarItems attribute is applicable only to the following items: 'table', 'image', 'hyperlink'. It accepts the same type of value as toolbarItems property but the toolbar items will be placed insinde the Inline Toolbar instead.
+   * Default value: bold,italic,underline,|,formats,alignment,orderedList,unorderedList,|,hyperlink,image,|,sourceCode,redo,undo
+   */
+  toolbarItems?: ToolbarItem[];
+  /**
+   * Determines the format of the content that will be pasted inside the Editor.
+   * Default value: toggle
+   */
+  toolbarViewMode?: ToolbarViewMode;
+  /**
+   * Sticks the Toolbar to the top of the window and stays there while scrolling.
+   * Default value: false
+   */
+  toolbarSticky?: boolean;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the Editor.
+   * Default value: """"
+   */
+  value?: string;
+}
+/**
+ jqxEditor represents an advanced HTML text editor which can simplify web content creation or be a replacement of your HTML/Markdown Text Areas.
+*/
+export interface Editor extends BaseElement, EditorProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered on blur if the content is changed.
+	* @param event. The custom event.    */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered before a Toolbar action is started. The event can be canceled via event.preventDefault().
+	* @param event. The custom event.    */
+  onActionStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Toolbar action has ended.
+	* @param event. The custom event.    */
+  onActionEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when an image/table resizing has started.
+	* @param event. The custom event.    */
+  onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when an image/table resizing has ended.
+	* @param event. The custom event.    */
+  onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the inline Toolbar is opened.
+	* @param event. The custom event.    */
+  onInlineToolbarOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the inline Toolbar is closed.
+	* @param event. The custom event.    */
+  onInlineToolbarClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Drop Down Toolbar is opened.
+	* @param event. The custom event.    */
+  onDropDownToolbarOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Drop Down Toolbar is closed.
+	* @param event. The custom event.    */
+  onDropDownToolbarClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered the Dialog Window is opened.
+	* @param event. The custom event.    */
+  onDialogOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered before the Dialog Window is opened. The event can be prevented via event.preventDefault().
+	* @param event. The custom event.    */
+  onDialogOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Dialog Window is closed.
+	* @param event. The custom event.    */
+  onDialogClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered before the Dialog Window is closed. The event can be prevented via event.preventDefault().
+	* @param event. The custom event.    */
+  onDialogClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the uploading of an image is successful.
+	* @param event. The custom event.    */
+  onImageUploadSuccess?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the uploading of an image is unsuccessful.
+	* @param event. The custom event.    */
+  onImageUploadFailed?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Toolbar item is clicked.
+	* @param event. The custom event.    */
+  onToobarItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Blurs the content of the Editor.
+   */
+  blur(): void;
+  /**
+   * Clears the content of the Editor.
+   */
+  clearContent(): void;
+  /**
+   * Collapse the Toolbar if the <b>toolbarViewMode</b> is set to 'toggle'.
+   */
+  collapseToolbar(): void;
+  /**
+   * Disables a Toolbar item.
+   * @param {string} itemName. The name of the toolbar item to disable.
+   */
+  disableToolbarItem(itemName: string): void;
+  /**
+   * Expand the Toolbar if the <b>toolbarViewMode</b> is set to 'toggle'.
+   */
+  expandToolbar(): void;
+  /**
+   * Enables a previously disabled Toolbar item.
+   * @param {string} itemName. The name of the toolbar item to enable.
+   */
+  enableToolbarItem(itemName: string): void;
+  /**
+   * Executes a command via the native <b>execCommand</b> method. The method returns true or false depending on whether the execution was successful or not.
+   * @param {string} commandName. The name of the command to execute.
+   * @param {string | number} value?. The value for the command. Some commands require a value to be passed, others do not.
+   * @returns {boolean}
+   */
+  executeCommand(commandName: string, value?: string | number): boolean;
+  /**
+   * Focuses the content of the Editor.
+   */
+  focus(): void;
+  /**
+   * Returns the number of characters inside the Editor's content. 
+   * @returns {number}
+   */
+  getCharCount(): number;
+  /**
+   * Returns the current selection range. By default the result is an object of type Range, but if the <b>editMode</b> property is set to 'markdown' the returned value is an object indicating the start/end indexes of the current selection. 
+   * @returns {any}
+   */
+  getSelectionRange(): any;
+  /**
+   * Selects the text inside Editor's content.
+   */
+  selectAll(): void;
+  /**
+   * Returns the content of the Editor as HTML. When <b>editMode</b> is set to 'markdown' the markdown is parsed and returned as HTML.
+   * @returns {string}
+   */
+  getHTML(): string;
+  /**
+   * Returns the content of the Editor as text.
+   * @returns {string}
+   */
+  getText(): string;
+  /**
+   * Applicable only when <b>editMode</b> is set to 'markdown'. Returns the Editor's content as markdown.
+   * @returns {string}
+   */
+  getMarkdown(): string;
+  /**
+   * Selects a range of text inside the Editor.
+   * @param {HTMLElement | Node} node. The node to be selected. It can be a text node or an HTML element.
+   * @param {number} startIndex?. The start index of the node to select from. If not provided all node contents are selected.
+   * @param {number} endIndex?. The end index of the node to select to. If not provided all node contents are selected.
+   */
+  selectRange(node: HTMLElement | Node, startIndex?: number, endIndex?: number): void;
+  /**
+   * Clears the local storage from previously stored states of the Editor with the current id.
+   */
+  clearState(): void;
+  /**
+   * Saves the current state of the Editor to local storage. Requires an id to be set to the Editor.
+   */
+  saveState(): void;
+  /**
+   * Loads the last stored state of the Editor from local storage. Requires an id to be set to the Editor.
+   */
+  loadState(): void;
+  /**
+   * Sets Editor into Split Mode. In split mode the HTML/Markdown editor and SourceCode/Preview panels are visible.
+   * @param {boolean} value?. Determines whether to enter or leave split mode. By default the argument is not passed and the mode is toggled.
+   */
+  splitMode(value?: boolean): void;
+  /**
+   * Sets Editor into SourceCode/Preview Mode. In this mode the HTML view panel is displayed.
+   * @param {boolean} value?. Determines whether to enter or leave split mode. By default the argument is not passed and the mode is toggled.
+   */
+  previewMode(value?: boolean): void;
+  /**
+   * Sets Editor into Full Screen Mode. If enabled the Editor is positioned above the page content and fills the screen.
+   * @param {boolean} value?. Determines whether to enter or leave split mode. By default the argument is not passed and the mode is toggled.
+   */
+  fullScreenMode(value?: boolean): void;
+  /**
+   * Exports the content of the Editor in the desired format. The currently supported formats are: HTML, Markdown.
+   * @param {string} dataFormat. The expected file format.
+   * @param {any} callback?. A callback that is executed before the data is exported. Allows to modify the output.
+   */
+  exportData(dataFormat: string, callback?: any): void;
+  /**
+   * Opens the Print Preview Panel of the Browser to print Editor's content.
+   */
+  print(): void;
+}
+
+/**Sets the Editor's Data Export options. */
+export interface EditorDataExport {
+  /**
+   * Sets a custom style object of the dataExport. 
+   * Default value: null
+   */
+  style?: any;
+  /**
+   * Sets the exported file's name.
+   * Default value: "jqxScheduler"
+   */
+  fileName?: string;
+  /**
+   * Sets the page orientation, when exporting to PDF.
+   * Default value: "portrait"
+   */
+  pageOrientation?: string;
+}
+
+/**Determines the iframe settings of the Editor. When enabled the contents of the Editor are placed inside an iframe, isolated in a separate dom. The element allows to insert external resources into the iframe if needed. */
+export interface EditorIframeSettings {
+  /**
+   * Determines the attributes and their values that will be set to the iframe. Here's how to define attributes: attributes: { height: 500 }
+   * Default value: null
+   */
+  attributes?: any;
+  /**
+   * Enables/Disables the usage of an iframe for the content of the Editor.
+   * Default value: false
+   */
+  enabled?: boolean;
+  /**
+   * Determines the resources like scripts/styles that will be imported into the iframe. Here's how to define resources: resources: { 'style': { href: 'styles.css' }, 'script': { src: 'index.js', type: 'module' }} 
+   * Default value: "portrait"
+   */
+  resources?: string;
+}
+
+export interface ToolbarItem {
+  /**
+   * The unique name of the toolbar item. The list of all possible names is available in the description above.
+   * Default value: 
+   */
+  name?: string | null;
+  /**
+   * Determines whethet the item is disabled or not.
+   * Default value: false
+   */
+  disabled?: boolean | null;
+  /**
+   * Applicable only to item 'paste'. Transforms the type of the Paste toolbar item to drop down list with paste format options.
+   * Default value: false
+   */
+  advanced?: boolean | null;
+  /**
+   * Allows to set a different dataSource for the toolbar items of type 'drop-down' or 'color-input.
+   * Default value: 
+   */
+  dataSource?: any;
+  /**
+   * Defines the list of toolbar items for the Inline Toolbar. Accept the same values as toolbarItems property.
+   * Default value: 
+   */
+  inlineToolbarItems?: any;
+  /**
+   * Allows to set predefined values for the Dialog Window of the following toolbar items: 'table', 'image', 'hyperlink'.
+   * Default value: [object Object]
+   */
+  editor?: ToolbarItemEditor;
+  /**
+   * Allows to set a template for a custom Toolbar item when the name attribute is set to 'custom'.
+   * Default value: null
+   */
+  template?: any;
+  /**
+   * Determines the width of the toolbar item.
+   * Default value: 
+   */
+  width?: number | string | null;
+}
+
+/**Allows to set predefined values for the Dialog Window of the following toolbar items: 'table', 'image', 'hyperlink'. */
+export interface ToolbarItemEditor {
+  /**
+   * Allows to preset the value for the hyperlink address field in the Dialog Window.
+   * Default value: 
+   */
+  address?: string | null;
+  /**
+   * Allows to preset the value for the hyperlink target field in the Dialog Window.
+   * Default value: 
+   */
+  target?: string | null;
+  /**
+   * Allows to preset the value for the hyperlink text field in the Dialog Window.
+   * Default value: 
+   */
+  text?: string | null;
+  /**
+   * Allows to preset the value for the hyperlink/image title field in the Dialog Window.
+   * Default value: 
+   */
+  title?: string | null;
+  /**
+   * Allows to preset the value for the image file uploader in the Dialog Window.
+   * Default value: null
+   */
+  file?: any;
+  /**
+   * Allows to preset the value for the image alt field in the Dialog Window.
+   * Default value: 
+   */
+  alt?: string | null;
+  /**
+   * Allows to preset the value for the image url field in the Dialog Window.
+   * Default value: 
+   */
+  url?: string | null;
+  /**
+   * Allows to preset the value for the image/table width field in the Dialog Window.
+   * Default value: 
+   */
+  width?: string | number;
+  /**
+   * Allows to preset the value for the image/table height field in the Dialog Window.
+   * Default value: 
+   */
+  height?: string | number;
+  /**
+   * Allows to preset the value for the image caption field in the Dialog Window.
+   * Default value: 
+   */
+  caption?: string | null;
+  /**
+   * Allows to preset the value for the image alignment field in the Dialog Window.
+   * Default value: 
+   */
+  alignment?: string | null;
+  /**
+   * Allows to preset the value for the image display field in the Dialog Window.
+   * Default value: 
+   */
+  display?: string | null;
+  /**
+   * Allows to preset the value for the image/table draggable field in the Dialog Window.
+   * Default value: false
+   */
+  draggable?: boolean | null;
+  /**
+   * Allows to preset the value for the image/table resizable field in the Dialog Window.
+   * Default value: false
+   */
+  resizable?: boolean | null;
+  /**
+   * Allows to preset the value for the table cols field in the Dialog Window.
+   * Default value: 
+   */
+  cols?: number | string | null;
+  /**
+   * Allows to preset the value for the table rows field in the Dialog Window.
+   * Default value: 
+   */
+  rows?: number | string | null;
+  /**
+   * Allows to preset the value for the table header field in the Dialog Window.
+   * Default value: false
+   */
+  tableheader?: boolean | null;
+  /**
+   * Allows to preset the value for the table altrows field in the Dialog Window.
+   * Default value: false
+   */
+  altrows?: boolean | null;
+  /**
+   * Allows to preset the value for the table dashedborders field in the Dialog Window.
+   * Default value: false
+   */
+  dashedborders?: boolean | null;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-editor"): Editor;
+        querySelector(selectors: "smart-editor"): Editor | null;
+        querySelectorAll(selectors: "smart-editor"): NodeListOf<Editor>;
+        getElementsByTagName(qualifiedName: "smart-editor"): HTMLCollectionOf<Editor>;
+        getElementsByName(elementName: "smart-editor"): NodeListOf<Editor>;
+    }
+}
+
+/**Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode. */
+export declare type EditMode = 'html' | 'markdown';
+/**Determines the format of the content that will be pasted inside the Editor. */
+export declare type PasteFormat = 'prompt' | 'plainText' | 'keepFormat' | 'cleanFormat';
+/**Determines the format of the content that will be pasted inside the Editor. */
+export declare type ToolbarViewMode = 'toggle' | 'multiRow' | 'scroll';
 export interface ElementProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -12699,6 +13496,13 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getBatchEditChanges(): { upDated: [{ id: string, dataField: string, oldValue: Object, newValue: Object }], deleted: [{id: string, data: Object}], added: [{id: string, data: Object}] };
   /**
+   * Gets a value of a cell.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field
+   * @returns {any}
+   */
+  getCellValue(rowId: string | number, dataField: string): any;
+  /**
    * Gets whether a column's drop-down menu is opened.
    * @returns {boolean}
    */
@@ -12708,6 +13512,21 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {string | number} rowId. row bound id
    */
   hideDetail(rowId: string | number): void;
+  /**
+   * Highlights a cell. Calling the method a second time toggle the highlight state.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field
+   * @param {string} className?. CSS Class Name
+   * @returns {any}
+   */
+  highlightCell(rowId: string | number, dataField: string, className?: string): any;
+  /**
+   * Highlights a row. Calling the method a second time toggle the highlight state.
+   * @param {string | number} rowId. row bound id
+   * @param {string} className?. CSS Class Name
+   * @returns {any}
+   */
+  highlightRow(rowId: string | number, className?: string): any;
   /**
    * Opens a column drop-down menu.
    * @param {string} dataField. column bound data field
@@ -12780,6 +13599,13 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {number[]} rowIndex. Array of row indexes
    */
   selectRowsByIndex(rowIndex: number[]): void;
+  /**
+   * Sets a new value to a cell.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field
+   * @param {string | number | Date | boolean} value. New Cell value.
+   */
+  setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
   /**
    * Shows the Details of a Row, when row details are enabled.
    * @param {string | number} rowId. row bound id
@@ -13230,7 +14056,7 @@ export interface GridColumn {
    */
   element?: HTMLElement;
   /**
-   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'timeInput', 'dateInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'onInit' and 'onRender' callback functions.
+   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'timeInput', 'dateInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): object', 'onRender(int row, string column, object editor, object rowData): object', 'setValue(object editor): void' and 'getValue(object value): object' callback functions.
    * Default value: null
    */
   editor?: any;
@@ -13692,6 +14518,11 @@ export interface GridDataSourceSettings {
    * Default value: ""
    */
   childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: blackList
+   */
+  sanitizeHTML?: GridDataSourceSettingsSanitizeHTML;
   /**
    * Sets or gets the XML binding root.
    * Default value: ""
@@ -14919,6 +15750,8 @@ export declare type GridColumnSummary = 'sum' | 'min' | 'max' | 'avg' | 'count' 
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Sets the page orientation, when exporting to PDF. */
 export declare type GridDataExportPageOrientation = 'landscape' | 'portrait';
+/**Sets or gets the XML binding root. */
+export declare type GridDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
 /**Sets the dataField type. */
 export declare type GridDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
 /**Sets or gets whether the data source type. */
@@ -15095,6 +15928,11 @@ export interface InputProperties {
    */
   disabled?: boolean;
   /**
+   * Sets additional class names to the Input drop down.
+   * Default value: 
+   */
+  dropDownClassList?: any;
+  /**
    * Determines the position of the drop down button.
    * Default value: none
    */
@@ -15233,6 +16071,13 @@ export interface Input extends BaseElement, InputProperties {
    *  value - The value of the new selected item.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered on each key up event of the Input, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes the drop down.
    */
@@ -16389,7 +17234,7 @@ export interface ListBoxProperties {
    * A getter that returns an array of all ListBox items.
    * Default value: 
    */
-  items?: {label: string, value: string}[];
+  items?: ListBoxItem[];
   /**
    * A string that represents the id of an HTMLTemplateElement inside the DOM or a reference to the template itself. It's used to set a custom template for the list items.
    * Default value: null
@@ -16637,6 +17482,11 @@ export interface ListBox extends BaseElement, ListBoxProperties {
    */
   getItem(value: string): HTMLElement;
   /**
+   * Returns an array of ListBox items.
+   * @returns {{label: string, value: string}[]}
+   */
+  getItems(): {label: string, value: string}[];
+  /**
    * Inserts a new item at a specified index.
    * @param {number} index. The index where the item must be inserted.
    * @param {any} items. A single item/definition or an array of List Items/definitions of list items to be inserted. The format of the item definitions is the same as the format of the <strong>dataSource</strong> property.
@@ -16676,6 +17526,19 @@ export interface ListBox extends BaseElement, ListBoxProperties {
    * @param {any} details. An object that contains the properties and their new values for the List item that should be updated. For example, label, value or selected attributes.
    */
   update(index: number, details: any): void;
+}
+
+export interface ListBoxItem {
+  /**
+   * The label of the list item.
+   * Default value: 
+   */
+  label?: string | null;
+  /**
+   * The value of the list item.
+   * Default value: 
+   */
+  value?: string | null;
 }
 
 declare global {
@@ -17329,11 +18192,18 @@ export interface MaskedTextBox extends BaseElement, MaskedTextBoxProperties {
   [name: string]: any;
   /**
    * This event is triggered when the value of the Text Box is changed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, newValue)
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value before it was changed.
-   *  newValue - The new value.
+   *  value - The new value.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered on each key up event of the MaskedTextBox, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered if the <b>validation</b> property is set. Indicates whether valiation has passed successfully or not.
 	* @param event. The custom event. Custom data event was created with: ev.detail(success)
@@ -19523,6 +20393,112 @@ declare global {
 
 /**Handles pager's elipsis. Ellipsis buttons are displayed as indicators and additional help to navigate between pages. */
 export declare type PagerAutoEllipsis = 'none' | 'before' | 'after' | 'both';
+export interface PasswordInputProperties {
+  /**
+   * Enables or disables the element.
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
+   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Default value: "en"
+   */
+  locale?: string;
+  /**
+   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Default value: null
+   */
+  localizeFormatFunction?: any;
+  /**
+   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Default value:    * {
+   *   "en": {
+   *     "propertyUnknownType": "'' property is with undefined 'type' member!",
+   *     "propertyInvalidValue": "Invalid '!",
+   *     "propertyInvalidValueType": "Invalid '!",
+   *     "elementNotInDOM": "Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.",
+   *     "moduleUndefined": "Module is undefined.",
+   *     "missingReference": ".",
+   *     "htmlTemplateNotSuported": ": Browser doesn't support HTMLTemplate elements.",
+   *     "invalidTemplate": "' property accepts a string that must match the id of an HTMLTemplate element from the DOM.",
+   *     "invalidNode": "."
+   *   }
+   * }
+   */
+  messages?: any;
+  /**
+   * Determines the minimum number of characters inside the input in order to trigger the autocomplete functionality that will open the drop down and show the matched items.
+   * Default value: 1
+   */
+  minLength?: number;
+  /**
+   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Determines the placeholder of the input.
+   * Default value: ""
+   */
+  placeholder?: string;
+  /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
+   * Determines the theme for the element. Themes define the look of the elements.
+   * Default value: ""
+   */
+  theme?: string;
+  /**
+   * If is set to true, the element cannot be focused.
+   * Default value: false
+   */
+  unfocusable?: boolean;
+  /**
+   * Sets or gets the value of the element.
+   * Default value: ""
+   */
+  value?: string;
+}
+/**
+ PasswordInput specifies a password field where the user can enter data. It is similar to the password text box, but this component does not have additional functionality for tooltips and popups.
+*/
+export interface PasswordInput extends BaseElement, PasswordInputProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when the value is changed and the focus moved out of the element.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value.
+   *  value - The new value.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered on each key up event of the PasswordInput, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   */
+  select(): void;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-password-input"): PasswordInput;
+        querySelector(selectors: "smart-password-input"): PasswordInput | null;
+        querySelectorAll(selectors: "smart-password-input"): NodeListOf<PasswordInput>;
+        getElementsByTagName(qualifiedName: "smart-password-input"): HTMLCollectionOf<PasswordInput>;
+        getElementsByName(elementName: "smart-password-input"): NodeListOf<PasswordInput>;
+    }
+}
+
 export interface PasswordTextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
@@ -19693,6 +20669,13 @@ export interface PasswordTextBox extends BaseElement, PasswordTextBoxProperties 
    *  value - The new value of the element.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered on each key up event of the TextBox, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Focuses the element.
    */
@@ -20008,6 +20991,31 @@ export interface PivotTableProperties {
    */
   drillDown?: boolean;
   /**
+   * If set, shows an export button in the drill down dialog.
+   * Default value: 
+   */
+  drillDownDataExport?: PivotTableDrillDownDataExport;
+  /**
+   * Sets or gets the drill down table export file name.
+   * Default value: ""
+   */
+  drillDownDataExportName?: string;
+  /**
+   * Sets or gets the drill down dialog callback function. The argument of the callback passed by the PivotTable is the drill-down Table component. You can use it to customize the table.
+   * Default value: null
+   */
+  drillDownTableInit?: { (table: HTMLElement ): void };
+  /**
+   * Sets or gets the drill down custom action callback function. The argument of the callback passed by the PivotTable is the drill-down data source. You can use it to override the default drill-down UI i.e to replace our Dialog with Table.
+   * Default value: null
+   */
+  drillDownCustomAction?: { (originalRecords: [] ): void };
+  /**
+   * Sets or gets whether sorting based on columns in classic row groups layout mode is enabled.
+   * Default value: false
+   */
+  enableSortByRowGroups?: boolean;
+  /**
    * Sets or gets whether the PivotTable's column header is sticky/frozen.
    * Default value: false
    */
@@ -20061,12 +21069,12 @@ export interface PivotTableProperties {
    * A callback function executed each time a PivotTable cell is rendered.
    * Default value: null
    */
-  onCellRender?: any;
+  onCellRender?: { (data: any, dynamicColumn: any, value: any, cell: HTMLTableCellElement): void };
   /**
    * A callback function executed each time a PivotTable column header cell is rendered.
    * Default value: null
    */
-  onColumnRender?: any;
+  onColumnRender?: { (settings: { text: string, cell: HTMLTableCellElement, column: PivotTableColumn, fullDefinition: any }): void };
   /**
    * A callback function executed when the PivotTable is being initialized.
    * Default value: null
@@ -20082,6 +21090,11 @@ export interface PivotTableProperties {
    * Default value: false
    */
   rowSort?: boolean;
+  /**
+   * Sets or gets whether row summaries are displayed in the row headers. Example: Peterson(40) vs Peterson, when rowSummary is set to false.
+   * Default value: true
+   */
+  rowSummary?: boolean;
   /**
    * Sets or gets whether to show row total columns for each summary column.
    * Default value: false
@@ -20310,7 +21323,7 @@ export interface PivotTableColumn {
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: { (settings: { value: any, row: string | number, column: string, cell: HTMLTableCellElement, template?: any }): void };
   /**
    * Sets or gets the column's displayed text (for example in summary column headers).
    * Default value: ""
@@ -20407,6 +21420,8 @@ export declare type PivotTableConditionalFormattingFontFamily = 'The default fon
 export declare type PivotTableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the position of the PivotTable's designer (shown when designer is enabled). */
 export declare type PivotTableDesignerPosition = 'near' | 'far';
+/**If set, shows an export button in the drill down dialog. */
+export declare type PivotTableDrillDownDataExport = null | 'xlsx' | 'pdf' | 'html' | 'json' | 'csv' | 'tsv' | 'xml';
 /**Sets or gets the way row nesting (based on rowGroup columns) is displayed. */
 export declare type PivotTableGroupLayout = 'classic' | 'default';
 /**Sets or gets the position of row total columns (shown when rowTotals is enabled). */
@@ -20536,7 +21551,7 @@ export interface ProgressBarProperties {
    * A callback function defining the new format for the label of the Progress Bar.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: {(value: number): string};
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -20643,6 +21658,11 @@ export interface QueryBuilderProperties {
    * Default value: change
    */
   applyMode?: QueryBuilderApplyMode;
+  /**
+   * Determines whether QueryBuilder will automatically prompt the user to enter a condition value when a new condition is created. When 'applyMode' is set to 'immediately', the operation field is automatically populated if empty when the selected condition operator is changed. The input field prompts the user when the operation or operator of the condition is changed.
+   * Default value: false
+   */
+  autoPrompt?: boolean;
   /**
    * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closed. If the dataType is 'object' the expected result from the function should contain a 'label' and 'value' attributes. Where the label will be used for displaying purposes while 'value' will be used as the actual value. hideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type Array[string]expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField). 
    * Default value: 
@@ -20761,6 +21781,11 @@ export interface QueryBuilderProperties {
    */
   showIcons?: boolean;
   /**
+   * Shows/Hides the drop down icon for the operator field name of the conditions.
+   * Default value: false
+   */
+  showFieldNameArrow?: boolean;
+  /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
    */
@@ -20776,7 +21801,7 @@ export interface QueryBuilderProperties {
    */
   value?: any;
   /**
-   * Callback used to format the content of the value fields.
+   * Callback used to format the content of the condition value fields.
    * Default value: null
    */
   valueFormatFunction?: any;
@@ -20862,9 +21887,9 @@ export interface QueryBuilderField {
   dataField?: string;
   /**
    * Sets or gets the data type.
-   * Default value: string
+   * Default value: "string"
    */
-  dataType?: QueryBuilderFieldDataType;
+  dataType?: string;
   /**
    * Sets or gets the filter format.
    * Default value: ""
@@ -20889,8 +21914,6 @@ declare global {
 
 /**Determines when the value of the element is updated with the new changes. */
 export declare type QueryBuilderApplyMode = 'change' | 'immediately';
-/**Sets or gets the data type. */
-export declare type QueryBuilderFieldDataType = 'number' | 'string' | 'boolean' | 'date';
 /**Determines whether new fields can be dynamically added by typing in the field (property) box. */
 export declare type QueryBuilderFieldsMode = 'dynamic' | 'static';
 export interface RadioButtonProperties {
@@ -21499,6 +22522,11 @@ export interface SchedulerProperties {
    * Default value: 2100-1-1
    */
   max?: string | Date;
+  /**
+   * Detetmines the maximum number of events per Scheduler cell. By default this property is null which means that the number of events per cell is automatically determined by the size of the events.
+   * Default value: null
+   */
+  maxEventsPerCell?: number | null;
   /**
    * Detetmines the minimum view date for the Scheduler.
    * Default value: 1900-1-1
@@ -23837,7 +24865,7 @@ export interface TableProperties {
    */
   conditionalFormatting?: TableConditionalFormatting[];
   /**
-   * Sets or gets the column sizing behavior.
+   * Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property.
    * Default value: default
    */
   columnSizeMode?: TableColumnSizeMode;
@@ -23865,7 +24893,7 @@ export interface TableProperties {
    * A callback function that can be used to transform the initial dataSource records. If implemented, it is called once for each record (which is passed as an argument).
    * Default value: null
    */
-  dataTransform?: any;
+  dataTransform?: { (record: any): void };
   /**
    * Disables the interaction with the element.
    * Default value: false
@@ -23881,6 +24909,11 @@ export interface TableProperties {
    * Default value: cell
    */
   editMode?: TableEditMode;
+  /**
+   * Sets or gets whether Row hierarchies are expanded by default, when created. Use this property when you want your groups to be expanded by default, when the Table is grouped or when you use the Table in tree mode.
+   * Default value: false
+   */
+  expandHierarchy?: boolean;
   /**
    * Sets or gets whether the Table can be filtered. By default, the Table can be filtered by all string and numeric columns through a filter input in the header.
    * Default value: false
@@ -23925,7 +24958,7 @@ export interface TableProperties {
    * A callback function that can be used to modify the contents of a grouping header row. By changing the 'label' you modify the rendered grouping value. By changing the 'template' you can modify the entire content including the column and count information.
    * Default value: null
    */
-  groupFormatFunction?: any;
+  groupFormatFunction?: { (settings: { value: any, row: string | number, column: string, template?: any }): void };
   /**
    * Sets or gets the id of an HTML template element to be applied as additional column header(s).
    * Default value: "null"
@@ -24010,7 +25043,7 @@ export interface TableProperties {
    * A callback function executed each time a Table cell is rendered.
    * Default value: null
    */
-  onCellRender?: any;
+  onCellRender?: { (data: any, dataField: string, value: any, cell: HTMLTableCellElement): void };
   /**
    * A callback function executed each time a Table column header cell is rendered.
    * Default value: null
@@ -24062,10 +25095,15 @@ export interface TableProperties {
    */
   selectionMode?: TableSelectionMode;
   /**
+   * Sets or gets whether row selection (via checkboxes) is hierarchical. When a parent row is selected, all sub rows are selected, too.
+   * Default value: true
+   */
+  selectionByHierarchy?: boolean;
+  /**
    * A callback function executed when a column is sorted that can be used to override the default sorting behavior. The function is passed four parameters: dataSource - the Table's data sourcesortColumns - an array of the data fields of columns to be sorted bydirections - an array of sort directions to be sorted by (corresponding to sortColumns)defaultCompareFunctions - an array of default compare functions to be sorted by (corresponding to sortColumns), useful if the sorting of some columns does not have to be overridden
    * Default value: null
    */
-  sort?: any;
+  sort?: { (dataSource: any, sortColumns: string[], directions: string[], defaultCompareFunctions: { (firstRecord: any, secondRecord: any): number }[]): void };
   /**
    * Determines the sorting mode of the Table.
    * Default value: none
@@ -24197,6 +25235,11 @@ export interface Table extends BaseElement, TableProperties {
    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * Adds a new row. When you invoke the method, pass a JSON object with the row's data.
+   * @param {any} data. JSON object with the new row's data. Sample JSON: {firstName: 'Peter', lastName: 'Fuller'}.
+   */
+  addRow(data: any): void;
+  /**
    * Adds a filter to a specific column.
    * @param {string} dataField. The column's data field.
    * @param {any} filter. FilterGroup object.
@@ -24213,6 +25256,10 @@ export interface Table extends BaseElement, TableProperties {
    * @param {string} dataField?. The dataField of the cell's column. May be omitted when <strong>editMode</strong> is <em>'row'</em>.
    */
   beginEdit(row: string | number, dataField?: string): void;
+  /**
+   * Begins an update operation. Suspends all table refreshes and renders.
+   */
+  beginUpdate(): void;
   /**
    * Ends the current edit operation and discards changes.
    */
@@ -24238,6 +25285,14 @@ export interface Table extends BaseElement, TableProperties {
    */
   collapseAllRows(): void;
   /**
+   * Collapses all groups (in tree mode).
+   */
+  collapseAllGroups(): void;
+  /**
+   * Collapses all row details. Rows that have details defined via the <b>rowDetailTemplate</b> will be collapsed.
+   */
+  collapseAllRowDetails(): void;
+  /**
    * Collapses a group.
    * @param {string} index. The group's hierarchical index.
    */
@@ -24252,9 +25307,22 @@ export interface Table extends BaseElement, TableProperties {
    */
   endEdit(): void;
   /**
+   * Ends an update operation. Resumes all table refreshes and renders. Re-renders the Table.
+   * @param {boolean} refresh?. Optionally you can pass 'false' in case you need to manually call the 'refresh' method. By default, the table is re-rendered.
+   */
+  endUpdate(refresh?: boolean): void;
+  /**
    * Expands all rows (in tree mode).
    */
   expandAllRows(): void;
+  /**
+   * Expands all groups (in tree mode).
+   */
+  expandAllGroups(): void;
+  /**
+   * Expands all row details. Rows that have details defined via <b>rowDetailTemplate</b> will be expanded.
+   */
+  expandAllRowDetails(): void;
   /**
    * Expands a group.
    * @param {string} index. The group's hierarchical index.
@@ -24292,6 +25360,19 @@ export interface Table extends BaseElement, TableProperties {
    */
   getValue(row: string | number, dataField: string): any;
   /**
+   * Gets a column property.
+   * @param {string} columnDataField. Column field name.
+   * @param {string} propertyName. Column property name.
+   * @returns {any}
+   */
+  getColumnProperty(columnDataField: string, propertyName: string): any;
+  /**
+   * Checks whether a group is expanded and returns <em>true</em> or <em>false</em>. <em>false</em> is returned when the group index is undefined, too.
+   * @param {string} index. The group's hierarchical index.
+   * @returns {boolean}
+   */
+  isGroupExpanded(index: string): boolean;
+  /**
    * Loads the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the <strong>stateSettings</strong> property.
    * @param {any} state?. An object returned by one of the methods <strong>getState</strong> or <strong>saveState</strong>. If a state is not passed, the method tries to load the state from the browser's localStorage.
    */
@@ -24316,6 +25397,11 @@ export interface Table extends BaseElement, TableProperties {
    */
   removeGroup(dataField: string): void;
   /**
+   * Removes a row by its id.
+   * @param {string | number} row. The id of the cell's row.
+   */
+  removeRow(row: string | number): void;
+  /**
    * Saves the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is saved, based on the value of the <strong>stateSettings</strong> property.
    * @returns {any}
    */
@@ -24338,6 +25424,19 @@ export interface Table extends BaseElement, TableProperties {
    * @param {string} sortOrder?. Sort order. Possible values: 'asc' (ascending), 'desc' (descending), and null (removes sorting by column). If not provided, toggles the sorting.
    */
   sortBy(columnDataField: string, sortOrder?: string): void;
+  /**
+   * Sets a column property.
+   * @param {string} columnDataField. Column field name.
+   * @param {string} propertyName. Column property name.
+   * @param {any} propertyValue. Property value.
+   */
+  setColumnProperty(columnDataField: string, propertyName: string, propertyValue: any): void;
+  /**
+   * Updates a table row. The method expects two parameters - row id and JSON object with the new row data.
+   * @param {string | number} rowId. The id of the row.
+   * @param {any} data. JSON object with the new row's data. Example: {firstName: 'Peter', lastName: 'Fuller'}.
+   */
+  updateRow(rowId: string | number, data: any): void;
   /**
    * Unselects one or more rows.
    * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to unselect.
@@ -24380,6 +25479,11 @@ export interface TableColumn {
    */
   allowGroup?: boolean;
   /**
+   * Sets or gets whether the column can be resized.
+   * Default value: true
+   */
+  allowResize?: boolean;
+  /**
    * Sets or gets whether the table can be sorted by the column.
    * Default value: true
    */
@@ -24413,22 +25517,27 @@ export interface TableColumn {
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
    */
-  formatFunction?: any;
-  /**
-   * Sets or gets whether the column is hidden or not. Hidden columns allow data to be grouped by their corresponding dataField.
-   * Default value: true
-   */
-  hidden: boolean;
+  formatFunction?: { (settings: { value: any, row: string | number, column: string, cell: HTMLTableCellElement, template?: any }): void };
   /**
    * Sets or gets the text displayed in the column's header.
    * Default value: ""
    */
   label?: string;
   /**
-   * Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden.
-   * Default value: 1
+   * Sets or gets the data field map, when the Table is bound to an Array and dataSourceSettings property is not set.
+   * Default value: ""
    */
-  responsivePriority?: TableColumnResponsivePriority;
+  map?: string;
+  /**
+   * Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden. The property should be set to a number in the range of 1 to 5. The property by default is not set.
+   * Default value: null
+   */
+  responsivePriority?: number | null;
+  /**
+   * Use this for custom sort implementation only. All non-undefined array elements are sorted according to the return value of the compare function (all undefined elements are sorted to the end of the array, with no call to compareFunction).
+   * Default value: null
+   */
+  sort?: { (firstRecord: any, secondRecord: any): number };
   /**
    * A string to be parsed into HTML and be used as custom cell content. Applicable only when virtualization is enabled.
    * Default value: "null"
@@ -24438,17 +25547,22 @@ export interface TableColumn {
    * A callback function that can be used to apply settings to a template element (specified by the column templateElement property). Applicable only when virtualization is enabled.
    * Default value: null
    */
-  templateElementSettings?: any;
+  templateElementSettings?: { (value: any, row: string | number, templateElement: HTMLElement): void };
   /**
    * A callback function that can be used to transform all the data of the column's original data field into a new data field to be used in column cells and all column operations. Can be useful for localizing data.
    * Default value: null
    */
-  transform?: any;
+  transform?: { (value: any): any };
   /**
    * A callback function that can be used to validate cell values after editing. If it returns true, the cell is valid. If it returns false or an object with a message field, the cell is not valid and the message (or a default one) is displayed in a tooltip.
    * Default value: null
    */
-  validation?: any;
+  validation?: { (value: any): boolean | { message: string } };
+  /**
+   * Sets or gets whether the column is hidden or not. Hidden columns allow data to be grouped by their corresponding dataField.
+   * Default value: true
+   */
+  visible?: boolean;
   /**
    * Sets the width of the column. The width can be entered as a number or string with px.
    * Default value: null
@@ -24516,6 +25630,11 @@ export interface TableDataSourceSettings {
    * Default value: ""
    */
   root?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: blackList
+   */
+  sanitizeHTML?: TableDataSourceSettingsSanitizeHTML;
   /**
    * Sets or gets the XML binding record.
    * Default value: ""
@@ -24597,19 +25716,19 @@ declare global {
 }
 
 /**Sets or gets the data type of the column's cells. */
-export declare type TableColumnDataType = 'boolean' | 'date' | 'number' | 'string';
+export declare type TableColumnDataType = 'boolean' | 'date' | 'number' | 'string' | 'any';
 /**Sets or gets whether the column is sticky/frozen. true and 'near' designate freezing on the left side, 'far' - on the right side. */
 export declare type TableColumnFreeze = 'true' | 'near' | 'far';
-/**Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden. */
-export declare type TableColumnResponsivePriority = '1' | '2' | '3' | '4' | '5';
 /**The formatting condition. */
 export declare type TableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**The fontFamily to apply to formatted cells. */
 export declare type TableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
 /**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
-/**Sets or gets the column sizing behavior. */
+/**Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property. */
 export declare type TableColumnSizeMode = 'auto' | 'default';
+/**Sets or gets the XML binding root. */
+export declare type TableDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
 /**Sets the dataField type. */
 export declare type TableDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
 /**Sets or gets whether the data source type. */
@@ -24621,7 +25740,7 @@ export declare type TableLoadColumnStateBehavior = 'implementationOnly' | 'inter
 /**Sets or gets the page size (when paging is enabled). */
 export declare type TablePageSize = '10' | '25' | '50';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */
-export declare type TableSelectionMode = 'many' | 'extended';
+export declare type TableSelectionMode = 'one' | 'many' | 'extended';
 /**Determines the sorting mode of the Table. */
 export declare type TableSortMode = 'none' | 'one' | 'many';
 export interface TabsProperties {
@@ -25301,6 +26420,13 @@ export interface TextArea extends BaseElement, TextAreaProperties {
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
+   * This event is triggered on each key up event of the TextArea, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Closes the drop down.
    */
   close(): void;
@@ -25612,13 +26738,20 @@ export interface TextBox extends BaseElement, TextBoxProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the value of the Text Box is changed.
+   * This event is triggered when the value of the Text Box is changed. This happens on blur and if 'Enter' is pressed.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value, type)
    *  oldValue - The previous value before it was changed.
    *  value - The new value.
    *  type - The type of the event.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered on each key up event of the TextBox, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Closes the drop down. <strong>The drop down is used only when auto complete is enabled.</strong>
    */
@@ -26091,7 +27224,7 @@ export interface Toast extends BaseElement, ToastProperties {
   /**
    * This event is triggered when the toast item is clicked.
 	* @param event. The custom event.    */
-  onClick: ((this: any, ev: Event) => any) | null;
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the toast item is closed.
 	* @param event. The custom event.    */
@@ -26275,6 +27408,11 @@ export interface TooltipProperties {
    * Default value: advanced
    */
   animation?: Animation;
+  /**
+   * Determines how to align the tooltip.
+   * Default value: "center"
+   */
+  align?: string;
   /**
    * Gets or sets whether a tooltip's arrow will be shown.
    * Default value: false
@@ -26887,7 +28025,7 @@ export declare type TreeScrollMode = 'scrollbar' | 'scrollButtons';
 /**Determines the way selected items are highlighted. */
 export declare type TreeSelectionDisplayMode = 'row' | 'label';
 /**Determines selection mode. */
-export declare type TreeSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+export declare type TreeSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroAndOne' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
 /**Determines whether jqx-tree-items-groups can be selected. */
 export declare type TreeSelectionTarget = 'all' | 'leaf';
 /**Determines sort direction - ascending or descending. */
@@ -27056,7 +28194,7 @@ export interface ValidatorRule {
    * A callback function whose result to compare to the input value by the comparisonType in order to show the validation message. Applicable when type is 'compare'.
    * Default value: 
    */
-  comparisonTarget?: any;
+  comparisonTarget?: { (inputElement: any, rule: ValidatorRule): any };
   /**
    * An operator to compare the input value by with the result of comparisonTarget in order to show the validation message. Applicable when type is 'compare'.
    * Default value: "=="
@@ -27096,7 +28234,7 @@ export interface ValidatorRule {
    * A callback function to validate the input's value by when the rule's type is 'custom'.
    * Default value: 
    */
-  validationCallback?: any;
+  validationCallback?: { (inputElement: any): boolean };
 }
 
 declare global {

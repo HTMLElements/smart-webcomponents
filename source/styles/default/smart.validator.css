@@ -1,22 +1,6 @@
-/* Error styles */
-.smart-validation-error:not(.underlined):not(.outlined),
-.smart-validation-error:not(.underlined):not(.outlined) input,
-.smart-validation-error:not(.underlined):not(.outlined) span {
-    border-color: var(--smart-error) !important;
-    outline: none;
-}
-
-input[type='checkbox'].smart-validation-error, /* input checkbox */
-input[type='radio'].smart-validation-error { /* input radio */
-    outline: auto;
-    outline-color: var(--smart-error);
-}
-
-
-.smart-error-label-like-after-element::after,
-.smart-validation-error:not(smart-check-box) > div.smart-container::after,
-.smart-success-label-like-after-element::after,
-.smart-validation-success:not(smart-check-box) > div.smart-container::after {
+/* Error and Success styles */
+.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+.smart-validation-success:not(smart-check-box) > div.smart-container:after {
     pointer-events: none;
     font-weight: bold;
     font-family: var(--smart-font-family);
@@ -30,33 +14,49 @@ input[type='radio'].smart-validation-error { /* input radio */
     align-items: center;
 }
 
-.smart-success-label-like-after-element::after,
-.smart-error-label-like-after-element::after {
-    display: flex;
-    top: 50%;
-    position: absolute;
-    left: calc(50% + 15px);
-    transform: translate(-50%,-50%);
-    justify-content: center;
-    align-items: center;
+.smart-validation-error:not(.underlined):not(.outlined) {
+    border-color: var(--smart-error) !important;
+    outline: none;
 }
 
-.smart-error-label-like-after-element::after,
-.smart-validation-error:not(smart-check-box) > div.smart-container::after {
+.smart-validation-error:not(.underlined):not(.outlined) input,
+.smart-validation-error:not(.underlined):not(.outlined) span {
+    border-color: var(--smart-error) !important;
+    outline: none;
+}
+
+.smart-validation-error:not(smart-check-box) > div.smart-container:after {
     background-color: var(--smart-error);
     color: var(--smart-error-color);
     content: '!';
-}
-
-.smart-error-label-like-after-element {
-    position: relative;
-}
-
-.smart-validation-error:not(smart-check-box) > div.smart-container::after {
     position: absolute;
     top: 50%;
     left: calc(100% + 20px);
     transform: translate(-50%, -50%);
+}
+
+.smart-validation-error.smart-element:not(.outlined):not(.underlined) .smart-hint::after {
+    background-color: var(--smart-error);
+}
+
+.smart-validation-success:not(smart-check-box) > div.smart-container:after {
+    background-color: var(--smart-success);
+    color: var(--smart-success-color);
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 20px);
+    transform: translate(-50%, -50%);
+}
+
+.smart-validation-success.smart-element:not(.outlined):not(.underlined) .smart-hint::after {
+    background-color: var(--smart-success);
+}
+
+input[type='checkbox'].smart-validation-error,
+input[type='radio'].smart-validation-error {
+    outline: auto;
+    outline-color: var(--smart-error);
 }
 
 input.smart-validation-error {
@@ -64,44 +64,56 @@ input.smart-validation-error {
     border-width: 1px;
 }
 
+.smart-success-label-like-after-element:after,
+.smart-error-label-like-after-element:after {
+    pointer-events: none;
+    font-weight: bold;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    position: absolute;
+    left: calc(50% + 15px);
+    transform: translate(-50%, -50%);
+}
+
+.smart-success-label-like-after-element {
+    position: relative;
+}
+
+.smart-success-label-like-after-element:after {
+    background-color: var(--smart-success);
+    color: var(--smart-success-color);
+    content: '✓';
+}
+
+.smart-error-label-like-after-element {
+    position: relative;
+}
+
+.smart-error-label-like-after-element:after {
+    background-color: var(--smart-error);
+    color: var(--smart-error-color);
+    content: '!';
+}
+
 .smart-validation-summary {
     font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
     color: var(--smart-error);
 }
+
 .smart-validation-summary span {
     display: block;
     margin-top: 5px;
 }
 
-/* Success styles */
-    .smart-success-label-like-after-element::after,
-    .smart-validation-success:not(smart-check-box) > div.smart-container::after {
-        background-color: var(--smart-success);
-        color: var(--smart-success-color);
-        content: '✓';
-    }
-
-    .smart-validation-success:not(smart-check-box) > div.smart-container::after {
-        position: absolute;
-        top: 50%;
-        left: calc(100% + 20px);
-        transform: translate(-50%, -50%);
-    }
-
-
-
- .smart-element.smart-validation-success:not(.outlined):not(.underlined) .smart-hint::after {
-    background-color: var(--smart-success);
- }
- .smart-element.smart-validation-error:not(.outlined):not(.underlined) .smart-hint::after {
-    background-color: var(--smart-error);
- }
-.smart-success-label-like-after-element {
-    position: relative;
-}
-
-/* Spans in the bottom of the body - shown on input click */
 .smart-error-holder {
     position: absolute;
     font-size: var(--smart-font-size);
@@ -112,3 +124,9 @@ input.smart-validation-error {
     z-index: var(--smart-editor-drop-down-z-index);
     margin-top: 10px;
 }
+
+.smart-error-holder.smart-error-hint-position-right {
+    white-space: nowrap;
+}
+
+/*# sourceMappingURL=smart.validator.css.map */

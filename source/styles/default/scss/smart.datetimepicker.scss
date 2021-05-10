@@ -1,0 +1,781 @@
+/* smart-date-time-picker */
+smart-date-time-picker {
+  width: var(--smart-date-time-picker-default-width);
+  min-width: var(--smart-editor-addon-width);
+  height: var(--smart-date-time-picker-default-height);
+  min-height: var(--smart-editor-height);
+
+  &.smart-element {
+    overflow: visible;
+  }
+
+  &[hover] {
+    border-color: var(--smart-ui-state-border-hover);
+  }
+}
+
+smart-date-time-picker > .smart-container,
+.smart-date-time-picker.smart-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  > .smart-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
+  > input {
+    height: 100%;
+  }
+}
+
+.smart-date-time-picker {
+  .smart-input.smart-date-time-input {
+    width: 100%;
+    border: none;
+    background: inherit;
+    padding: var(--smart-editor-label-padding);
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: inherit;
+  }
+
+  > .smart-container {
+    > .smart-label,
+    > .smart-hint {
+      display: none;
+      position: absolute;
+    }
+  }
+
+  .smart-spin-buttons-container {
+    height: 100%;
+    display: none;
+    width: var(--smart-editor-addon-width);
+    border-radius: 0;
+  }
+
+  .smart-spin-button {
+    --smart-button-padding: 0;
+    display: block;
+    width: 100%;
+    height: 50%;
+    min-height: 0;
+    color: var(--smart-surface-color);
+    background-color: var(--smart-surface);
+    border: none;
+    border-width: 0px;
+    border-color: var(--smart-border);
+    border-left-width: var(--smart-border-width);
+    border-style: solid;
+    font-weight: 500;
+    border-radius: 0;
+
+    &:first-child {
+      border-bottom-width: 1px;
+    }
+
+    &[hover] {
+      background-color: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+      border-color: var(--smart-ui-state-border-hover);
+    }
+
+    &[active] {
+      background-color: var(--smart-ui-state-active);
+      color: var(--smart-ui-state-color-active);
+      border-color: var(--smart-ui-state-border-active);
+    }
+  }
+
+  .smart-drop-down-button.smart-calendar-button {
+    height: 100%;
+    display: none;
+    width: var(--smart-editor-addon-width);
+    cursor: pointer;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-color: var(--smart-border);
+    border-width: 0px;
+    border-left-width: var(--smart-border-width);
+    border-style: solid;
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    overflow: hidden;
+
+    &:after {
+      width: 100%;
+      height: 100%;
+      font-family: var(--smart-font-family-icon);
+      font-style: normal;
+      font-weight: normal;
+      color: inherit;
+      font-size: var(--smart-arrow-size);
+      text-decoration: inherit;
+      font-variant: normal;
+      text-transform: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      content: var(--smart-icon-calendar);
+    }
+
+    &[hover] {
+      background-color: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+      border-color: var(--smart-ui-state-border-hover);
+    }
+
+    &[active] {
+      background-color: var(--smart-ui-state-active);
+      color: var(--smart-ui-state-color-active);
+      border-color: var(--smart-ui-state-border-active);
+    }
+
+    &.time {
+      &:after {
+        content: var(--smart-icon-clock);
+      }
+    }
+
+    &.smart-drop-down-button-pressed {
+      color: var(--smart-ui-state-color);
+
+      &[hover]:after {
+        color: var(--smart-ui-state-color-hover);
+      }
+    }
+  }
+
+  .smart-drop-down.smart-date-time-drop-down {
+    padding: 0px !important;
+  }
+
+  .smart-ripple {
+    background: var(--smart-background);
+  }
+
+  &[focus] {
+    border-color: var(--smart-outline);
+
+    .smart-drop-down-button.smart-calendar-button {
+      border-color: var(--smart-outline);
+    }
+  }
+
+  &[disabled] {
+    .smart-input.smart-date-time-input {
+      background-color: transparent;
+      user-select: none;
+    }
+  }
+
+  &[readonly],
+  &[disabled] {
+    .smart-drop-down-button.smart-calendar-button {
+      cursor: default;
+    }
+  }
+
+  &[label] {
+    > .smart-container > .smart-label {
+      position: absolute;
+      left: 0;
+      bottom: 100%;
+      font-size: 12px;
+      width: 100%;
+      display: block;
+      padding: var(--smart-editor-label-padding);
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+      text-align: initial;
+      line-height: initial;
+    }
+  }
+
+  &[spin-buttons-position="left"] {
+    .smart-spin-button {
+      border-right-width: var(--smart-border-width);
+      border-left-width: 0px;
+
+      &:first-child {
+        border-top-left-radius: var(--smart-border-top-left-radius);
+      }
+
+      &:last-child {
+        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+      }
+    }
+  }
+
+  &[spin-buttons] {
+    min-width: calc(var(--smart-editor-addon-width));
+
+    .smart-input.smart-date-time-input {
+      width: calc(100% - var(--smart-editor-addon-width));
+    }
+
+    .smart-spin-buttons-container {
+      display: block;
+    }
+
+    &:not([spin-buttons-position="left"]) {
+      .smart-input.smart-date-time-input {
+        border-top-left-radius: var(--smart-border-top-left-radius);
+        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+      }
+    }
+  }
+
+  &[calendar-button] {
+    min-width: var(--smart-editor-addon-width);
+
+    .smart-input.smart-date-time-input {
+      width: calc(100% - var(--smart-editor-addon-width));
+    }
+
+    .smart-drop-down-button.smart-calendar-button {
+      display: block;
+      position: relative;
+    }
+  }
+
+  &[spin-buttons][calendar-button] {
+    min-width: calc(var(--smart-editor-addon-width) + var(--smart-editor-addon-width));
+
+    .smart-input.smart-date-time-input {
+      width: calc(100% - var(--smart-editor-addon-width) - var(--smart-editor-addon-width));
+    }
+
+    &[calendar-button-position="left"][spin-buttons-position="left"] {
+      .smart-spin-button:first-child {
+        border-top-left-radius: 0;
+      }
+
+      .smart-spin-button:last-child {
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  &[calendar-button-position="left"] {
+    .smart-drop-down-button {
+      border-left: none;
+      border-right-width: var(--smart-border-width);
+      border-top-left-radius: var(--smart-border-top-left-radius);
+      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &[spin-buttons]:not([spin-buttons-position="left"]) {
+      .smart-spin-button {
+        &:first-child {
+          border-top-right-radius: var(--smart-border-top-right-radius);
+        }
+
+        &:last-child {
+          border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+        }
+      }
+    }
+
+    &[spin-buttons-position="left"] {
+      .smart-input.smart-date-time-input {
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+      }
+    }
+  }
+
+  &:not([calendar-button]) {
+    &[spin-buttons-position="left"] {
+      .smart-input.smart-date-time-input {
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+      }
+    }
+
+    &[spin-buttons]:not([spin-buttons-position="left"]) {
+      .smart-spin-button {
+        &:first-child {
+          border-top-right-radius: var(--smart-border-top-right-radius);
+        }
+
+        &:last-child {
+          border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+        }
+      }
+    }
+  }
+
+  &:not([spin-buttons]) {
+    .smart-input.smart-date-time-input {
+      border-top-left-radius: var(--smart-border-top-left-radius);
+      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    }
+
+    &:not([calendar-button]),
+    &[calendar-button-position="left"] {
+      .smart-input.smart-date-time-input {
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+      }
+    }
+  }
+
+  //underlined
+  &.underlined {
+    border-width: 0px;
+    border-bottom-width: 1px;
+    background: var(--smart-background);
+
+    .smart-spin-button {
+      background: var(--smart-background);
+      border-width: 0px;
+
+      &[hover] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+
+      &[active] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+    }
+
+    .smart-drop-down-button {
+      background: var(--smart-background);
+      border-width: 0px;
+
+      &.smart-calendar-button {
+        &[hover] {
+          background: var(--smart-background);
+          color: var(--smart-ui-state-active);
+        }
+
+        &[active] {
+          background: var(--smart-background);
+          color: var(--smart-ui-state-active);
+        }
+      }
+    }
+
+    .smart-hint {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block !important;
+      box-sizing: border-box;
+      padding: var(--smart-editor-label-padding);
+      color: var(--smart-background-color);
+      pointer-events: none;
+      font-size: 75%;
+      opacity: 0;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s, margin-top 0.2s, opacity 0.1s, top 0.2s;
+      margin-top: calc(0px - var(--smart-font-size));
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--smart-primary);
+        transform-origin: bottom center;
+        transform: scaleX(0);
+        transition: transform 0.2s;
+      }
+    }
+
+    &:not([focus]) {
+      .smart-hint {
+        margin-top: 0px;
+      }
+    }
+
+    &[focus] {
+      .smart-drop-down-button.smart-calendar-button {
+        color: var(--smart-primary);
+        opacity: 1;
+      }
+
+      .smart-hint {
+        color: var(--smart-primary);
+        opacity: 1;
+
+        &:after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  //outlined
+  &.outlined {
+    padding-top: 6px;
+    height: auto;
+    min-height: 0;
+    border: none;
+    background: inherit;
+
+    input {
+      padding: 0;
+      border: none !important;
+      z-index: initial;
+    }
+
+    .smart-content {
+      padding: 4px 3px 4px;
+      border: 1px solid var(--smart-border);
+      height: auto;
+      border-radius: var(--smart-border-radius);
+      background: var(--smart-background);
+      z-index: 5;
+    }
+
+    .smart-spin-button {
+      background: var(--smart-background);
+      border-width: 0px;
+
+      &[hover] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+
+      &[active] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+    }
+
+    .smart-drop-down-button {
+      padding: 8px 0px;
+      background: var(--smart-background);
+      border-width: 0px;
+
+      &.smart-calendar-button {
+        &[hover] {
+          background: var(--smart-background);
+          color: var(--smart-ui-state-active);
+        }
+
+        &[active] {
+          background: var(--smart-background);
+          color: var(--smart-ui-state-active);
+        }
+      }
+    }
+
+    .smart-hint {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex !important;
+      border-color: var(--smart-border) !important;
+      width: 100%;
+      max-height: 100%;
+      color: var(--smart-background-color);
+      z-index: 5;
+      pointer-events: none;
+      font-size: 75%;
+      line-height: 15px;
+      cursor: text;
+      margin-top: -6px;
+      transition: color 0.2s, font-size 0.2s, opacity 0.1s, font-size 0.2s, line-height 0.2s;
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        margin-top: 6px;
+        border-top: solid 1px;
+        border-top-color: var(--smart-border) !important;
+        min-width: 10px;
+        height: 8px;
+        pointer-events: none;
+        box-shadow: inset 0 1px transparent;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      &:before {
+        margin-right: 4px;
+        border-left: solid 1px transparent;
+        border-radius: 4px 0;
+      }
+
+      &:after {
+        flex-grow: 1;
+        margin-left: 4px;
+        border-right: solid 1px transparent;
+        border-radius: 0 4px;
+      }
+    }
+
+    &:not([focus]) {
+      .smart-hint {
+        font-size: var(--smart-font-size);
+        line-height: 48px;
+        opacity: 0;
+      }
+    }
+
+    &[focus] {
+      .smart-content {
+        border-color: var(--smart-primary);
+        border-top-color: transparent !important;
+      }
+
+      .smart-drop-down-button {
+        color: var(--smart-primary);
+      }
+
+      .smart-hint {
+        color: var(--smart-primary);
+        opacity: 1;
+
+        &:before,
+        &:after {
+          border-top-color: var(--smart-primary) !important;
+        }
+      }
+    }
+
+    &.smart-element-init {
+      .smart-hint {
+        visibility: hidden;
+        display: none !important;
+      }
+    }
+  }
+
+  //Right To Left
+  &[right-to-left] {
+    > .smart-container {
+      direction: initial;
+
+      > .smart-label {
+        direction: rtl;
+      }
+    }
+
+    .smart-input.smart-date-time-input,
+    .smart-hint {
+      direction: rtl;
+    }
+  }
+}
+
+.smart-drop-down.smart-date-time-drop-down {
+  padding: 0px !important;
+
+  smart-calendar {
+    border: none;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 0px;
+  }
+
+  smart-time-picker {
+    border: none;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0px;
+    min-width: initial;
+
+    .smart-hour-minute-container {
+      font-size: 40px;
+    }
+  }
+
+  .smart-header,
+  .smart-footer {
+    cursor: initial;
+  }
+
+  .smart-date-time-picker-footer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 1px;
+  }
+
+  .smart-am-pm-element {
+    width: 100%;
+  }
+
+  .smart-footer-component {
+    display: flex;
+    padding: 1px;
+
+    &:focus {
+      border-color: var(--smart-outline);
+    }
+
+    > input {
+      outline: none;
+      border: var(--smart-border-width) solid var(--smart-border);
+      text-align: center;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      height: 100%;
+
+      &:focus {
+        border-color: var(--smart-outline);
+      }
+    }
+
+    > span {
+      width: 30%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .smart-footer-component-today {
+    padding: 1px;
+    font-family: var(--smart-font-family-icon);
+    border: var(--smart-border-width) solid transparent;
+    display: flex;
+    width: 30%;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .smart-footer-component-hour,
+  .smart-footer-component-minute {
+    width: 30%;
+
+    smart-repeat-button {
+      border-radius: 0px;
+      margin: 0px;
+      margin-left: -1px;
+      width: 100%;
+      height: 50%;
+
+      &:last-child {
+        border-top-color: transparent;
+      }
+    }
+
+    button {
+      border-radius: 0px;
+      padding: 0px;
+    }
+  }
+
+  .smart-footer-component-ampm {
+    width: 30%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .smart-hour-element,
+  .smart-minute-element {
+    width: 60%;
+  }
+
+  .smart-today-element {
+    cursor: pointer;
+    outline: none;
+
+    &:after {
+      content: var(--smart-icon-calendar);
+    }
+
+    &:focus {
+      border-color: var(--smart-outline);
+    }
+  }
+
+  .smart-drop-down-header {
+    height: var(--smart-bar-height);
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    > div {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-color: var(--smart-primary);
+      color: var(--smart-primary-color);
+      opacity: var(--smart-date-time-picker-header-opacity);
+      outline: unset;
+
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    > .smart-selected {
+      background-color: var(--smart-primary);
+      border-color: var(--smart-primary);
+      color: var(--smart-primary-color);
+      opacity: var(--smart-date-time-picker-header-opacity-active);
+    }
+  }
+
+  .smart-drop-down-content {
+    width: 100%;
+    height: calc(100% - var(--smart-bar-height));
+
+    &.partial {
+      height: 100%;
+    }
+  }
+
+  .smart-date-time-picker {
+    .smart-hidden {
+      display: none;
+    }
+  }
+
+  &[drop-down-display-mode="classic"],
+  &[drop-down-display-mode="timePicker"] {
+    .smart-calendar-container {
+      height: 100%;
+    }
+  }
+
+  //Microsoft Edge-specific fix
+  &.smart-visibility-hidden.not-in-view {
+    left: -9999px;
+    top: -9999px;
+    transition: none;
+  }
+}
+

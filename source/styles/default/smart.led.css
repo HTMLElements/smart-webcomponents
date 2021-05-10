@@ -1,40 +1,43 @@
-
 /* smart-led */
 smart-led {
     padding: 0px;
     width: var(--smart-led-default-width);
     height: var(--smart-led-default-height);
-}
-
-smart-led {
     display: inline-block;
     border-radius: 50%;
 }
 
-    smart-led .smart-ripple {
-        background: var(--smart-primary);
-    }
+smart-led .smart-container {
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
 
-    smart-led[shape="square"] {
-        border-radius: 0px;
-    }
+smart-led .smart-ripple {
+    background: var(--smart-primary);
+}
 
-    smart-led[focus] {
-        outline: none;
-    }
+smart-led[focus] {
+    outline: none;
+}
 
-    smart-led .smart-container,
-    .smart-led.smart-container {
-        cursor: pointer;
-        height: 100%;
-        position: relative;
-        display: flex;
-        overflow: hidden;
-    }
+smart-led[disabled] .smart-container {
+    cursor: initial;
+}
 
-    smart-led[disabled] .smart-container {
-        cursor: initial;
-    }
+smart-led[shape="square"] {
+    border-radius: 0px;
+}
+
+.smart-led.smart-container {
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
 
 .smart-led .smart-input {
     width: 100%;
@@ -57,8 +60,41 @@ smart-led {
     outline: none;
 }
 
-.smart-led[shape="square"] .smart-input {
-    border-radius: 0px;
+.smart-led .smart-false-content-container,
+.smart-led .smart-true-content-container,
+.smart-led .smart-indeterminate-content-container {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.smart-led .smart-false-content-container {
+    display: flex;
+    background-color: transparent;
+}
+
+.smart-led .smart-true-content-container {
+    display: none;
+    background-color: var(--smart-primary);
+}
+
+.smart-led .smart-indeterminate-content-container {
+    display: none;
+    background-color: lightgray;
+}
+
+.smart-led .smart-false-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 100%;
 }
 
 .smart-led[focus] .smart-input {
@@ -80,52 +116,24 @@ smart-led {
     color: var(--smart-ui-state-color-active);
 }
 
-.smart-led .smart-false-content-container,
-.smart-led .smart-true-content-container,
-.smart-led .smart-indeterminate-content-container {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
+.smart-led[checked] .smart-true-content {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: transparent;
+    width: 100%;
+    height: 100%;
 }
 
-.smart-led .smart-true-content-container {
-    background-color: var(--smart-primary);
-}
-
-.smart-led .smart-indeterminate-content-container {
-    background-color: lightgray;
-}
-
-.smart-led[checked] .smart-false-content-container,
-.smart-led .smart-indeterminate-content-container,
-.smart-led .smart-true-content-container {
+.smart-led[checked] .smart-false-content-container {
     display: none;
 }
 
-.smart-led .smart-false-content-container,
-.smart-led[checked] .smart-true-content-container,
-.smart-led[checked="null"] .smart-indeterminate-content-container {
+.smart-led[checked] .smart-true-content-container {
     display: flex;
 }
 
-.smart-led[checked="null"] .smart-true-content-container {
-    display: none;
-}
-
-.smart-led[shape="square"] .smart-false-content-container,
-.smart-led[shape="square"] .smart-true-content-container,
-.smart-led[shape="square"] .smart-indeterminate-content-container {
-    border-radius: 0px;
-}
-
-.smart-led .smart-false-content,
-.smart-led[checked] .smart-true-content,
 .smart-led[checked="null"] .smart-indeterminate-content {
     display: flex;
     align-items: center;
@@ -136,11 +144,25 @@ smart-led {
     height: 100%;
 }
 
-/* --- Right-To-Left --- */
+.smart-led[checked="null"] .smart-indeterminate-content-container {
+    display: flex;
+}
+
+.smart-led[checked="null"] .smart-true-content-container {
+    display: none;
+}
+
+.smart-led[shape="square"] .smart-input,
+.smart-led[shape="square"] .smart-false-content-container,
+.smart-led[shape="square"] .smart-true-content-container,
+.smart-led[shape="square"] .smart-indeterminate-content-container {
+    border-radius: 0px;
+}
+
 .smart-led[right-to-left] .smart-false-content-container,
 .smart-led[right-to-left] .smart-true-content-container,
 .smart-led[right-to-left] .smart-indeterminate-content-container {
     direction: rtl;
 }
 
-/* --- */
+/*# sourceMappingURL=smart.led.css.map */

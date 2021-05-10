@@ -1,0 +1,84 @@
+.number-format-panel-demo-container {
+  max-width: 960px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.selected-custom-number-format-holder-and-apply-holder {
+  display: grid;
+  grid-template-columns: var(--smart-number-format-panel-selected-format-width) var(--smart-number-format-panel-apply-button-width);
+  grid-template-rows: auto;
+  grid-column-gap: var(--smart-number-format-panel-header-holder-offset);
+}
+
+.selected-custom-number-format-holder {
+  display: block;
+  border: var(--smart-number-format-panel-border-size) solid var(--smart-number-format-panel-border-color);
+  border-radius: var(--smart-number-format-panel-border-radius);
+  padding-left: var(--smart-number-format-panel-selected-format-padding-left);
+  padding-top: var(--smart-number-format-panel-selected-format-padding-top);
+  padding-bottom: var(--smart-number-format-panel-selected-format-padding-bottom);
+
+  .custom-number-format-input-holder {
+    width: auto;
+
+    smart-text-box {
+      width: var(--smart-number-format-panel-header-input-width);
+
+      input {
+        border: none;
+      }
+    }
+  }
+}
+
+// Apply button
+.apply-button-holder {
+  .use-number-format-button {
+    height: 100%;
+  }
+}
+
+// Sample container
+.sample-container {
+  margin-top: var(--smart-number-format-panel-sample-container-vertical-offset);
+  margin-left: var(--smart-number-format-panel-sample-container-horizontal-offset);
+}
+
+// List with custom number formats
+.custom-number-format-list {
+  padding: 0;
+  margin: 0;
+  margin-top: var(--smart-number-format-panel-formats-list-margin-top);
+  max-height: var(--smart-number-format-panel-formats-list-max-height);
+  overflow-y: auto;
+  border: var(--smart-number-format-panel-border-size) solid var(--smart-number-format-panel-border-color);
+}
+
+.custom-number-format-item {
+  cursor: pointer;
+  border: var(--smart-number-format-panel-border-size) solid var(--smart-number-format-panel-border-color);
+  border-left: 0px;
+  border-bottom: none;
+  padding: var(--smart-number-format-panel-formats-item-padding);
+  padding-left: var(--smart-number-format-panel-formats-item-left-padding);
+  list-style-type: none;
+
+  &:last-child {
+    border-bottom: 0px;
+  }
+
+  &:first-child {
+    border-top: 0px !important;
+  }
+
+  &:hover {
+    background: var(--smart-number-format-panel-formats-item-hover-background);
+  }
+}
+
+.custom-number-format-item-default-format {
+  float: right;
+  color: var(--smart-number-format-panel-formats-item-example-format-color);
+}

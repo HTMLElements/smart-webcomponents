@@ -1,4 +1,4 @@
-
+/* smart-switch-button */
 smart-switch-button {
     width: var(--smart-switch-button-default-width);
     height: var(--smart-switch-button-default-height);
@@ -9,37 +9,11 @@ smart-switch-button[orientation="vertical"] {
     width: var(--smart-switch-button-default-height);
 }
 
-    smart-switch-button.smart-element {
-        display: inline-block;
-        border: none;
-        background: none;
-        overflow: visible;
-    }
-
-.smart-switch-button[readonly] {
-    pointer-events: none;
-}
-
-.smart-switch-button .smart-container,
-:host(smart-switch-button) .smart-container {
-    font-size: inherit;
-    position: relative;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    touch-action: none;
-}
-
-.smart-switch-button .smart-inner-container {
-    width: calc(200% - var(--smart-switch-button-thumb-size));
-    height: 100%;
-    position: absolute;
-    color: inherit;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    pointer-events: none;
+smart-switch-button.smart-element {
+    display: inline-block;
+    border: none;
+    background: none;
+    overflow: visible;
 }
 
 .smart-switch-button .smart-thumb {
@@ -56,180 +30,7 @@ smart-switch-button[orientation="vertical"] {
     pointer-events: all;
 }
 
-.smart-switch-button[orientation="vertical"] .smart-thumb {
-    width: 100%;
-    height: var(--smart-switch-button-thumb-size);
-}
-
-.smart-switch-button[checked="null"] .smart-thumb {
-    background-color: var(--smart-surface);
-    border-color: var(--smart-border);
-}
-
-
-.smart-switch-button[checked] .smart-thumb,
-.smart-switch-button:focus .smart-thumb {
-    background-color: var(--smart-primary);
-    border-color: var(--smart-primary);
-}
-
-.smart-switch-button .smart-true-content-container,
-.smart-switch-button .smart-false-content-container {
-    width: calc(100% - var(--smart-switch-button-thumb-size));
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-clip: content-box;
-    padding: 2px 0px 2px 0px;
-    color: inherit;
-    overflow: hidden;
-    order: 1;
-}
-
-.smart-switch-button[orientation="vertical"] .smart-true-content-container,
-.smart-switch-button[orientation="vertical"] .smart-false-content-container {
-    height: calc(100% - var(--smart-switch-button-thumb-size));
-    width: 100%;
-    padding: 0px 2px 0px 2px;
-}
-
-.smart-switch-button[orientation="vertical"] .smart-inner-container {
-    height: calc(200% - var(--smart-switch-button-thumb-size));
-    width: 100%;
-    flex-direction: column;
-}
-
-.smart-switch-button[inverted] .smart-false-content-container,
-.smart-switch-button .smart-true-content-container {
-    order: 1;
-}
-
-.smart-switch-button[inverted] .smart-true-content-container,
-.smart-switch-button .smart-false-content-container {
-    order: 3;
-}
-
-.smart-switch-button .smart-inner-container,
-.smart-switch-button[checked][inverted] .smart-inner-container,
-.smart-switch-button[orientation="vertical"] .smart-inner-container,
-.smart-switch-button[orientation="vertical"][checked] .smart-inner-container,
-.smart-switch-button[orientation="vertical"][inverted] .smart-inner-container,
-.smart-switch-button[orientation="vertical"][checked="null"][inverted] .smart-inner-container {
-    left: 0;
-}
-
-.smart-switch-button[inverted] .smart-inner-container,
-.smart-switch-button[checked] .smart-inner-container {
-    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
-}
-
-.smart-switch-button[orientation="vertical"] .smart-inner-container,
-.smart-switch-button[orientation="vertical"][checked][inverted] .smart-inner-container {
-    top: 0;
-}
-
-.smart-switch-button[orientation="vertical"][checked] .smart-inner-container,
-.smart-switch-button[orientation="vertical"][inverted] .smart-inner-container {
-    top: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
-}
-
-.smart-switch-button[checked="null"] .smart-inner-container,
-.smart-switch-button[checked="null"][inverted] .smart-inner-container {
-    left: calc(-1 * 100%/ 2 + var(--smart-switch-button-thumb-size)/2);
-}
-
-.smart-switch-button[orientation="vertical"][checked="null"] .smart-inner-container,
-.smart-switch-button[orientation="vertical"][checked="null"][inverted] .smart-inner-container {
-    top: calc(-1 * 100%/ 2 + var(--smart-switch-button-thumb-size)/2);
-}
-
-/* those classes are set in demos for the content inside the true/false content-container */
-
-.smart-switch-button .smart-true-content,
-.smart-switch-button .smart-false-content {
-    font-size: inherit;
-    font-weight: inherit;
-    display: inline-block;
-    text-align: center;
-    box-sizing: border-box;
-    color: inherit;
-}
-
-.smart-switch-button[checked="null"] .smart-true-content-container,
-.smart-switch-button[checked="null"] .smart-false-content-container {
-    color: transparent;
-}
-
-.smart-switch-button[checked="null"] .smart-true-content,
-.smart-switch-button[checked="null"] .smart-false-content {
-    visibility: hidden;
-}
-
-.smart-switch-button[hover] {
-    border-color: var(--smart-ui-state-hover);
-}
-
-.smart-switch-button .smart-inner-container {
-    width: calc(200% - var(--smart-switch-button-thumb-size));
-}
-
-.smart-switch-button[orientation="vertical"] .smart-inner-container {
-    height: calc(200% - var(--smart-switch-button-thumb-size));
-}
-
-.smart-switch-button[orientation="vertical"] .smart-thumb {
-    height: var(--smart-switch-button-thumb-size);
-}
-
-.smart-switch-button .smart-true-content-container,
-.smart-switch-button .smart-false-content-container {
-    width: calc((100% - var(--smart-switch-button-thumb-size))/2);
-}
-
-.smart-switch-button[orientation="vertical"] .smart-true-content-container,
-.smart-switch-button[orientation="vertical"] .smart-false-content-container {
-    height: calc((100% - var(--smart-switch-button-thumb-size))/2);
-}
-
-.smart-switch-button[checked="null"] .smart-inner-container,
-.smart-switch-button[checked="null"] .smart-inner-container {
-    left: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size)/2);
-}
-
-.smart-switch-button[checked][orientation="vertical"] .smart-thumb,
-.smart-switch-button[checked] .smart-thumb {
-    background-color: var(--smart-primary);
-}
-
-.smart-switch-button .smart-container::before,
-:host(smart-switch-button) .smart-container::before {
-    content: "";
-    position: absolute;
-    width: 90%;
-    height: 50%;
-    left: 5%;
-    top: 25%;
-    border-radius: 10px;
-    background-color: var(--smart-surface);
-}
-
-.smart-switch-button:not([animation="none"]) .smart-container::before,
-:host(smart-switch-button:not([animation="none"])) .smart-container::before {
-    transition: opacity 0.2s ease-in-out, background 0.2s ease-in-out;
-}
-
-.smart-switch-button[checked][orientation="vertical"] .smart-container::before,
-.smart-switch-button[checked] .smart-container::before,
-:host(smart-switch-button[checked][orientation="vertical"]) .smart-container::before,
-:host(smart-switch-button[checked]) .smart-container::before {
-    background-color: var(--smart-primary);
-    opacity: 0.4;
-}
-
-/* Material Button Circle Effect */
-
-.smart-switch-button .smart-thumb::before {
+.smart-switch-button .smart-thumb:before {
     background-color: var(--smart-primary);
     position: absolute;
     width: 200%;
@@ -245,58 +46,79 @@ smart-switch-button[orientation="vertical"] {
     opacity: 0.2;
 }
 
-.smart-switch-button[disabled] .smart-thumb::before {
-    content: none;
-}
-
-.smart-switch-button[checked][orientation="vertical"] .smart-thumb:active::before,
-.smart-switch-button[checked][orientation="vertical"]:focus .smart-thumb::before,
-.smart-switch-button:focus .smart-thumb::before,
-.smart-switch-button[checked] .smart-thumb:active::before,
-.smart-switch-button[checked]:focus .smart-thumb::before {
-    transform: scale(1) translate(-50%, -50%);
-    background-color: var(--smart-primary);
-}
-
-.smart-switch-button[checked][orientation="vertical"]:not([animation="none"]) .smart-thumb:active::before,
-.smart-switch-button[checked][orientation="vertical"]:not([animation="none"]):focus .smart-thumb::before,
-.smart-switch-button[checked]:not([animation="none"]) .smart-thumb:active::before,
-.smart-switch-button[checked]:not([animation="none"]):focus .smart-thumb::before,
-.smart-switch-button[orientation="vertical"] .smart-thumb:active::before,
-.smart-switch-button[orientation="vertical"]:focus .smart-thumb::before,
-.smart-switch-button .smart-thumb:active::before,
-.smart-switch-button:focus .smart-thumb::before {
+.smart-switch-button .smart-thumb:active:before {
     animation: button-wave-effect 0.1s ease-in;
-}
-
-.smart-switch-button[orientation="vertical"] .smart-thumb:active::before,
-.smart-switch-button[orientation="vertical"]:focus .smart-thumb::before,
-.smart-switch-button .smart-thumb:active::before,
-.smart-switch-button:focus .smart-thumb::before,
-:host(smart-switch-button:focus) .smart-thumb::before {
     transform: scale(1) translate(-50%, -50%);
 }
 
-    .smart-switch-button[orientation="vertical"] .smart-thumb {
-        width: var(--smart-switch-button-thumb-size);
-        height: var(--smart-switch-button-thumb-size);
-        box-shadow: var(--smart-elevation-2);
-    }
+.smart-switch-button .smart-container {
+    font-size: inherit;
+    position: relative;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    touch-action: none;
+}
 
-    .smart-switch-button[orientation="vertical"] .smart-container::before,
-    :host(smart-switch-button[orientation="vertical"]) .smart-container::before {
-        content: "";
-        position: absolute;
-        width: 50%;
-        height: 90%;
-        left: 25%;
-        top: 5%;
-        border-radius: 10px;
-    }
+.smart-switch-button .smart-container:before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 50%;
+    left: 5%;
+    top: 25%;
+    border-radius: 10px;
+    background-color: var(--smart-surface);
+}
 
-    .smart-switch-button[orientation="vertical"] .smart-thumb::before {
-        border: var(--smart-border-width) solid var(--smart-border);
-    }
+.smart-switch-button .smart-inner-container {
+    width: calc(200% - var(--smart-switch-button-thumb-size));
+    height: 100%;
+    position: absolute;
+    color: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    pointer-events: none;
+    left: 0;
+}
+
+.smart-switch-button .smart-true-content,
+.smart-switch-button .smart-false-content {
+    font-size: inherit;
+    font-weight: inherit;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+.smart-switch-button .smart-true-content-container,
+.smart-switch-button .smart-false-content-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-clip: content-box;
+    padding: 2px 0px 2px 0px;
+    color: inherit;
+    overflow: hidden;
+    order: 1;
+    width: calc((100% - var(--smart-switch-button-thumb-size)) / 2);
+}
+
+.smart-switch-button .smart-true-content-container {
+    order: 1;
+}
+
+.smart-switch-button .smart-false-content-container {
+    order: 3;
+}
+
+.smart-switch-button:not([animation="none"]) .smart-container:before {
+    transition: opacity 0.2s ease-in-out, background 0.2s ease-in-out;
+}
 
 .smart-switch-button:not([animation="none"]):not([dragged]):not([checked="null"]) .smart-inner-container {
     transition: left 0.2s ease-in-out;
@@ -306,39 +128,228 @@ smart-switch-button[orientation="vertical"] {
     transition: top 0.2s ease-in-out;
 }
 
+.smart-switch-button[hover] {
+    border-color: var(--smart-ui-state-hover);
+}
+
+.smart-switch-button:focus .smart-thumb {
+    background-color: var(--smart-primary);
+    border-color: var(--smart-primary);
+}
+
+.smart-switch-button:focus .smart-thumb:before {
+    transform: scale(1) translate(-50%, -50%);
+    background-color: var(--smart-primary);
+    animation: button-wave-effect 0.1s ease-in;
+}
+
+.smart-switch-button[readonly] {
+    pointer-events: none;
+}
+
+.smart-switch-button[disabled] .smart-thumb:before {
+    content: none;
+}
+
+.smart-switch-button[checked] .smart-thumb {
+    background-color: var(--smart-primary);
+    border-color: var(--smart-primary);
+}
+
+.smart-switch-button[checked] .smart-thumb:active:before {
+    transform: scale(1) translate(-50%, -50%);
+    background-color: var(--smart-primary);
+}
+
+.smart-switch-button[checked] .smart-container:before {
+    background-color: var(--smart-primary);
+    opacity: 0.4;
+}
+
+.smart-switch-button[checked] .smart-inner-container {
+    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
+}
+
+.smart-switch-button[checked]:focus .smart-thumb:before {
+    transform: scale(1) translate(-50%, -50%);
+    background-color: var(--smart-primary);
+}
+
+.smart-switch-button[checked][inverted] .smart-inner-container {
+    left: 0;
+}
+
+.smart-switch-button[checked]:not([animation="none"]) .smart-thumb:active:before {
+    animation: button-wave-effect 0.1s ease-in;
+}
+
+.smart-switch-button[checked]:not([animation="none"]):focus .smart-thumb:before {
+    animation: button-wave-effect 0.1s ease-in;
+}
+
+.smart-switch-button[checked][orientation="vertical"] .smart-thumb {
+    background-color: var(--smart-primary);
+}
+
+.smart-switch-button[checked][orientation="vertical"] .smart-thumb:active:before {
+    transform: scale(1) translate(-50%, -50%);
+    background-color: var(--smart-primary);
+}
+
+.smart-switch-button[checked][orientation="vertical"] .smart-container:before {
+    background-color: var(--smart-primary);
+    opacity: 0.4;
+}
+
+.smart-switch-button[checked][orientation="vertical"]:focus .smart-thumb:before {
+    transform: scale(1) translate(-50%, -50%);
+    background-color: var(--smart-primary);
+}
+
+.smart-switch-button[checked][orientation="vertical"]:not([animation="none"]) .smart-thumb:active:before {
+    animation: button-wave-effect 0.1s ease-in;
+}
+
+.smart-switch-button[checked][orientation="vertical"]:not([animation="none"]):focus .smart-thumb:before {
+    animation: button-wave-effect 0.1s ease-in;
+}
+
+.smart-switch-button[checked="null"] .smart-thumb {
+    background-color: var(--smart-surface);
+    border-color: var(--smart-border);
+}
+
+.smart-switch-button[checked="null"] .smart-inner-container {
+    left: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size) / 2);
+}
+
+.smart-switch-button[checked="null"] .smart-true-content,
+.smart-switch-button[checked="null"] .smart-false-content {
+    visibility: hidden;
+}
+
+.smart-switch-button[checked="null"] .smart-true-content-container,
+.smart-switch-button[checked="null"] .smart-false-content-container {
+    color: transparent;
+}
+
+.smart-switch-button[checked="null"][inverted] .smart-inner-container {
+    left: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size) / 2);
+}
+
+.smart-switch-button[inverted] .smart-inner-container {
+    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
+}
+
+.smart-switch-button[inverted] .smart-true-content-container {
+    order: 3;
+}
+
+.smart-switch-button[inverted] .smart-false-content-container {
+    order: 1;
+}
+
+.smart-switch-button[orientation="vertical"] .smart-thumb {
+    width: var(--smart-switch-button-thumb-size);
+    height: var(--smart-switch-button-thumb-size);
+    box-shadow: var(--smart-elevation-2);
+}
+
+.smart-switch-button[orientation="vertical"] .smart-thumb:before {
+    border: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-switch-button[orientation="vertical"] .smart-thumb:active:before {
+    animation: button-wave-effect 0.1s ease-in;
+    transform: scale(1) translate(-50%, -50%);
+}
+
+.smart-switch-button[orientation="vertical"] .smart-thumb:focus .smart-thumb:before {
+    transform: scale(1) translate(-50%, -50%);
+}
+
+.smart-switch-button[orientation="vertical"] .smart-container:before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 90%;
+    left: 25%;
+    top: 5%;
+    border-radius: 10px;
+}
+
+.smart-switch-button[orientation="vertical"] .smart-inner-container {
+    height: calc(200% - var(--smart-switch-button-thumb-size));
+    width: 100%;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+}
+
+.smart-switch-button[orientation="vertical"] .smart-true-content-container,
+.smart-switch-button[orientation="vertical"] .smart-false-content-container {
+    width: 100%;
+    padding: 0px 2px 0px 2px;
+    height: calc((100% - var(--smart-switch-button-thumb-size)) / 2);
+}
+
+.smart-switch-button[orientation="vertical"]:focus .smart-thumb:before {
+    animation: button-wave-effect 0.1s ease-in;
+}
+
+.smart-switch-button[orientation="vertical"][checked] .smart-inner-container {
+    left: 0;
+    top: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
+}
+
+.smart-switch-button[orientation="vertical"][checked][inverted] .smart-inner-container {
+    top: 0;
+}
+
+.smart-switch-button[orientation="vertical"][checked="null"] .smart-inner-container {
+    top: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size) / 2);
+}
+
+.smart-switch-button[orientation="vertical"][checked="null"][inverted] .smart-inner-container {
+    left: 0;
+    top: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size) / 2);
+}
+
+.smart-switch-button[orientation="vertical"][inverted] .smart-inner-container {
+    left: 0;
+    top: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
+}
+
+.smart-switch-button[right-to-left][checked]:not([orientation="vertical"]) .smart-inner-container {
+    left: 0;
+}
+
+.smart-switch-button[right-to-left][inverted]:not([orientation="vertical"]) .smart-inner-container {
+    left: 0;
+}
+
+.smart-switch-button[right-to-left][checked][inverted]:not([orientation="vertical"]) .smart-inner-container {
+    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
+}
+
+.smart-switch-button[right-to-left]:not([orientation="vertical"]) .smart-inner-container {
+    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
+}
+
+.smart-switch-button[right-to-left][checked="null"]:not([orientation="vertical"]) .smart-inner-container {
+    left: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size) / 2);
+}
+
 @keyframes button-wave-effect {
     0% {
         transform: scale(0.2) translate(-50%, -50%);
     }
-
     50% {
         transform: scale(0.5) translate(-50%, -50%);
     }
-
     100% {
         transform: scale(1) translate(-50%, -50%);
     }
 }
 
-/* --- Right To Left --- */
-
-.smart-switch-button[checked][right-to-left]:not([orientation="vertical"]) .smart-inner-container,
-.smart-switch-button[right-to-left][inverted]:not([orientation="vertical"]) .smart-inner-container,
-:host(.smart-switch-button[checked][right-to-left]:not([orientation="vertical"])) .smart-inner-container,
-:host(.smart-switch-button[right-to-left][inverted]:not([orientation="vertical"])) .smart-inner-container {
-    left: 0;
-}
-
-.smart-switch-button[right-to-left]:not([orientation="vertical"]) .smart-inner-container,
-.smart-switch-button[checked][right-to-left][inverted]:not([orientation="vertical"]) .smart-inner-container,
-:host(.smart-switch-button[right-to-left]:not([orientation="vertical"])) .smart-inner-container,
-:host(.smart-switch-button[checked][right-to-left][inverted]:not([orientation="vertical"])) .smart-inner-container {
-    left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
-}
-
-.smart-switch-button[checked="null"][right-to-left]:not([orientation="vertical"]) .smart-inner-container,
-:host(.smart-switch-button[checked="null"][right-to-left]:not([orientation="vertical"])) .smart-inner-container {
-    left: calc(-1 * 100%/ 2 + var(--smart-switch-button-thumb-size)/2);
-}
-
-/* --- */
+/*# sourceMappingURL=smart.switchbutton.css.map */

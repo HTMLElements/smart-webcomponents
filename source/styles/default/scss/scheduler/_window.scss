@@ -1,0 +1,236 @@
+/* --- Scheduler Window --- */
+
+.smart-scheduler-window {
+  --smart-window-default-width: auto;
+  --smart-window-default-height: auto;
+  --smart-window-header-height: var(--smart-scheduler-window-header-height);
+  --smart-window-footer-height: var(--smart-scheduler-window-footer-height);
+  --smart-window-header-footer-padding: 10px;
+  --smart-window-header-background: transparent;
+  --smart-window-footer-padding: 10px;
+  --smart-window-content-padding: 20px;
+  max-width: 100vw;
+  max-height: 100vh;
+
+  &[mobile] {
+    border-radius: initial;
+  }
+
+  &.smart-window {
+    &.confirm {
+      .smart-scheduler-confirm-label {
+        width: var(--smart-box-width);
+      }
+
+      .smart-content-container {
+        > .smart-content {
+          width: 100%;
+          padding: var(--smart-window-content-padding);
+          justify-items: center;
+          /* Fallback if 'safe' is not recognized by the browser */
+          justify-items: safe center;
+          grid-template-rows: auto minmax(auto, 1fr);
+          display: grid;
+          grid-row-gap: 10px;
+          justify-content: center;
+          grid-template-columns: 100%;
+          grid-row-gap: initial;
+        }
+      }
+    }
+
+    .smart-scheduler-window-content-wrapper {
+      width: 100%;
+      padding: var(--smart-window-content-padding);
+      justify-items: center;
+      /* Fallback if 'safe' is not recognized by the browser */
+      justify-items: safe center;
+      grid-template-rows: auto minmax(auto, 1fr);
+    }
+
+    .smart-scheduler-window-content-wrapper,
+    .smart-scheduler-window-main,
+    .smart-scheduler-window-repeat {
+      display: grid;
+      grid-row-gap: 10px;
+      justify-content: center;
+      grid-template-columns: 100%;
+    }
+
+    .smart-content-container {
+      > .smart-content {
+        padding: initial;
+        align-items: flex-start;
+      }
+    }
+
+    .smart-scheduler-window-main,
+    .smart-scheduler-window-repeat {
+      width: var(--smart-box-width);
+    }
+
+    &[horizontal] {
+      .smart-scheduler-window-content-wrapper {
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 20px;
+      }
+    }
+
+    .smart-scheduler-window-repeat {
+      [multiple] {
+        grid-template-columns: minmax(0, 1fr);
+
+        .smart-scheduler-window-editor {
+          grid-template-columns: auto auto minmax(0, 1fr);
+        }
+      }
+    }
+  }
+
+  > .smart-container,
+  .smart-content-container {
+    max-height: inherit;
+  }
+
+  [multiple] {
+    .smart-scheduler-window-editor {
+      align-items: center;
+      justify-content: flex-start;
+
+      &[type="repeat"],
+      &:nth-child(even),
+      &:nth-child(odd):not(:first-of-type):not(:last-of-type) {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .smart-content-container {
+    > .smart-footer {
+      display: flex;
+      grid-column-gap: 2%;
+      justify-content: center;
+      align-items: center;
+      grid-template-areas: "buttonOk buttonCancel";
+
+      //Safari specific. There's an issue with align-items when display: grid
+      @media not all and (min-resolution: .001dpcm) {
+        align-content: start;
+      }
+
+      smart-button {
+        width: 100%;
+        height: 100%;
+        --smart-button-padding: 0.2rem 16px;
+      }
+
+      .smart-icon {
+        position: relative;
+        height: 100%;
+        font-family: var(--smart-font-family-icon);
+        font-size: 18px;
+        margin-right: 2.5px;
+      }
+    }
+  }
+
+  .smart-scheduler-window-button {
+    &.ok {
+      grid-area: buttonOk;
+
+      .smart-icon::after {
+        content: var(--smart-icon-check);
+      }
+    }
+
+    &.cancel {
+      grid-area: buttonCancel;
+
+      .smart-icon::after {
+        content: var(--smart-icon-cancel);
+      }
+    }
+
+    &.delete {
+      grid-area: buttonDelete;
+
+      .smart-icon::after {
+        content: var(--smart-icon-delete);
+      }
+    }
+  }
+
+  .smart-scheduler-window-editor {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-column-gap: 10px;
+
+    &[type="allDay"],
+    &[type="repeat"] {
+      grid-column-gap: initial;
+    }
+
+    &[multiple] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      .smart-color-input[event-editor] {
+        width: auto;
+        --smart-border-radius: 50%;
+      }
+    }
+
+    .smart-drop-down-list,
+    .smart-date-time-picker {
+      width: 100%;
+    }
+
+    .smart-switch-button {
+      margin: auto 10px;
+    }
+
+    > b {
+      text-align: center;
+    }
+
+    > .smart-input {
+      width: 100%
+    }
+
+    > .smart-number-input {
+      width: 100px;
+    }
+
+    input:not(.smart-input) {
+      height: var(--smart-editor-height);
+    }
+
+    .smart-input {
+      &[disabled] {
+        opacity: 0.55;
+        cursor: default;
+        pointer-events: none;
+
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+    }
+  }
+
+  .smart-scheduler-window-main {
+    [multiple] {
+      .smart-scheduler-window-editor:not([type^="date"]):not([resource-type]) {
+        grid-template-columns: repeat(2, auto);
+      }
+    }
+  }
+
+  .smart-scheduler-window-repeat {
+    [multiple] {
+      .smart-scheduler-window-editor[type="repeatEnd"] {
+        grid-template-columns: initial;
+      }
+    }
+  }
+}

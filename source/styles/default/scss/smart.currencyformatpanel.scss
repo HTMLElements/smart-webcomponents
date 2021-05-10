@@ -1,0 +1,80 @@
+.currency-format-panel-demo-container {
+  max-width: 960px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.selected-currency-holder-and-apply-holder {
+  display: grid;
+  grid-template-columns: var(--smart-currency-format-panel-currency-holder-width) var(--smart-currency-format-panel-apply-button-width);
+  grid-template-rows: auto;
+  grid-column-gap: var(--smart-currency-format-panel-header-holder-offset);
+}
+
+.input-currency-formats {
+  width: var(--smart-currency-format-panel-currency-holder-dropdown-button-width);
+}
+
+.selected-currency-holder {
+  border: var(--smart-currency-format-panel-border-size) solid var(--smart-currency-format-panel-border-color);
+  border-radius: var(--smart-currency-format-panel-border-radius);
+  display: grid;
+  grid-template-columns: var(--smart-currency-format-panel-currency-holder-input-width) var(--smart-currency-format-panel-currency-holder-dropdown-width);
+  grid-template-rows: auto;
+  align-items: baseline;
+  justify-content: center;
+
+  padding-left: var(--smart-currency-format-panel-currency-holder-padding-left);
+  padding-top: var(--smart-currency-format-panel-currency-holder-padding-top);
+  padding-bottom: var(--smart-currency-format-panel-currency-holder-padding-bottom);
+
+  .currency-sign-input-holder {
+    width: auto;
+
+    smart-text-box {
+      width: var(--smart-currency-format-panel-currency-input-width);
+
+      input {
+        border: none;
+      }
+    }
+  }
+}
+
+//List with currencies
+.currency-list {
+  padding: 0;
+  margin: 0;
+  margin-top: var(--smart-currency-format-panel-currencies-margin-top);
+  max-height: var(--smart-currency-format-panel-currencies-max-height);
+  overflow-y: auto;
+  border: var(--smart-currency-format-panel-border-size) solid var(--smart-currency-format-panel-border-color);
+}
+
+.currency-item {
+  cursor: pointer;
+  border: var(--smart-currency-format-panel-border-size) solid var(--smart-currency-format-panel-border-color);
+  border-left: 0px;
+  border-bottom: none;
+  padding: var(--smart-currency-format-panel-currencies-item-padding);
+  padding-left: var(--smart-currency-format-panel-currencies-left-padding);
+  list-style-type: none;
+
+  &:last-child {
+    border-bottom: 0px;
+  }
+
+  &:first-child {
+    border-top: 0px !important;
+  }
+
+  &:hover {
+    background: var(--smart-currency-format-panel-currencies-hover-background);
+  }
+}
+
+.currency-item-default-format {
+  float: right;
+  color: var(--smart-currency-format-panel-currencies-example-format-color);
+}

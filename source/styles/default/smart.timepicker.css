@@ -1,6 +1,4 @@
-
 /* .smart-time-picker */
-
 .smart-time-picker {
     display: block;
     width: var(--smart-time-picker-default-width);
@@ -9,172 +7,145 @@
     min-width: 250px;
 }
 
-    .smart-time-picker[view="landscape"] {
-        width: var(--smart-time-picker-default-height);
-        height: var(--smart-time-picker-default-width);
-        min-width: 400px;
-    }
-
-    .smart-time-picker > .smart-container,
-    :host(smart-time-picker) > .smart-container {
-        width: 100%;
-        height: 100%;
-    }
-
-    .smart-time-picker[view="landscape"] > .smart-container,
-    :host(smart-time-picker[view="landscape"]) > .smart-container,
-    .smart-time-picker .smart-header,
-    .smart-time-picker .smart-svg-container,
-    .smart-time-picker .smart-hour-minute-container {
-        display: flex;
-    }
-
-    .smart-time-picker .smart-header {
-        width: 100%;
-        height: var(--smart-calendar-title-height);
-        background-color: var(--smart-primary);
-        color: var(--smart-primary-color);
-        justify-content: center;
-        align-items: center;
-    }
-
-    .smart-time-picker[view="landscape"] .smart-header {
-        flex-direction: column;
-        width: 33%;
-        height: 100%;
-    }
-
-    .smart-time-picker .smart-main-container {
-        width: 100%;
-        height: calc(100% - var(--smart-calendar-title-height));
-        padding: 2%;
-        background-color: var(--smart-background);
-    }
-
-    .smart-time-picker[view="landscape"] .smart-main-container {
-        width: 67%;
-        height: 100%;
-    }
-
-    .smart-time-picker .smart-svg-container {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-    }
-
-    .smart-time-picker[footer] .smart-svg-container {
-        height: calc(100% - 30px);
-    }
-
-    .smart-time-picker .smart-footer {
-        display: none;
-    }
-
-    .smart-time-picker[footer] .smart-footer {
-        display: block;
-        width: 100%;
-        height: 30px;
-    }
-
-    .smart-time-picker .smart-hour-minute-container {
-        font-size: 50px;
-    }
-
-    .smart-time-picker .smart-am-pm-container {
-        margin-left: 10px;
-    }
-
-    .smart-time-picker[view="landscape"] .smart-am-pm-container {
-        margin-left: 0;
-    }
-
-    .smart-time-picker .smart-hour-container,
-    .smart-time-picker .smart-minute-container,
-    .smart-time-picker .smart-am-container,
-    .smart-time-picker .smart-pm-container {
-        opacity: 0.5;
-        cursor: pointer;
-    }
-
-    .smart-time-picker[readonly] .smart-hour-container,
-    .smart-time-picker[disabled] .smart-hour-container,
-    .smart-time-picker[readonly] .smart-minute-container,
-    .smart-time-picker[disabled] .smart-minute-container,
-    .smart-time-picker[readonly] .smart-am-container,
-    .smart-time-picker[disabled] .smart-am-container,
-    .smart-time-picker[readonly] .smart-pm-container,
-    .smart-time-picker[disabled] .smart-pm-container {
-        cursor: default;
-    }
-
-    .smart-time-picker .smart-selected {
-        opacity: 1;
-    }
-
-    .smart-time-picker .smart-hour-minute-container div:nth-child(2) {
-        opacity: 0.5;
-    }
-
-    .smart-time-picker .smart-svg-picker {
-        border-radius: 50%;
-        background-color: var(--smart-background);
-        position: relative;
-        box-sizing: content-box;
-        touch-action: none;
-    }
-
-        .smart-time-picker .smart-svg-picker.animate {
-            animation: smart-time-picker-animation 0.5s linear;
-        }
-
-    .smart-time-picker .smart-needle,
-    .smart-time-picker .smart-needle-central-circle {
-        fill: var(--smart-primary);
-    }
-
-    .smart-time-picker .smart-label {
-        fill: var(--smart-background-color);
-    }
-
-        .smart-time-picker .smart-label.smart-selected {
-            fill: var(--smart-primary-color);
-            stroke: var(--smart-primary-color);
-            stroke-width: 0px;
-        }
-
-    .smart-time-picker .smart-header :focus {
-        outline: 1px solid var(--smart-background);
-    }
-
-    .smart-time-picker .smart-svg-picker:focus {
-        border: 1px solid var(--smart-outline);
-        outline: none;
-    }
-
-@keyframes smart-time-picker-animation {
-    0% {
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 1;
-    }
+.smart-time-picker > .smart-container {
+    width: 100%;
+    height: 100%;
 }
 
-/* ---  Right-To-Left --- */
+.smart-time-picker .smart-main-container {
+    width: 100%;
+    height: calc(100% - var(--smart-calendar-title-height));
+    padding: 2%;
+    background-color: var(--smart-background);
+}
+
+.smart-time-picker .smart-header {
+    display: flex;
+    width: 100%;
+    height: var(--smart-calendar-title-height);
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    justify-content: center;
+    align-items: center;
+}
+
+.smart-time-picker .smart-header:focus {
+    outline: 1px solid var(--smart-background);
+}
+
+.smart-time-picker .smart-footer {
+    display: none;
+}
+
+.smart-time-picker .smart-svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.smart-time-picker .smart-hour-container,
+.smart-time-picker .smart-minute-container,
+.smart-time-picker .smart-am-container,
+.smart-time-picker .smart-pm-container {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.smart-time-picker .smart-hour-minute-container {
+    display: flex;
+    font-size: 50px;
+}
+
+.smart-time-picker .smart-hour-minute-container div:nth-child(2) {
+    opacity: 0.5;
+}
+
+.smart-time-picker .smart-am-pm-container {
+    margin-left: 10px;
+}
+
+.smart-time-picker .smart-selected {
+    opacity: 1;
+}
+
+.smart-time-picker .smart-svg-picker {
+    border-radius: 50%;
+    background-color: var(--smart-background);
+    position: relative;
+    box-sizing: content-box;
+    touch-action: none;
+}
+
+.smart-time-picker .smart-svg-picker:focus {
+    border: 1px solid var(--smart-outline);
+    outline: none;
+}
+
+.smart-time-picker .smart-svg-picker.animate {
+    animation: smart-time-picker-animation 0.5s linear;
+}
+
+.smart-time-picker .smart-label {
+    fill: var(--smart-background-color);
+}
+
+.smart-time-picker .smart-label.smart-selected {
+    fill: var(--smart-primary-color);
+    stroke: var(--smart-primary-color);
+    stroke-width: 0px;
+}
+
+.smart-time-picker .smart-needle,
+.smart-time-picker .smart-needle-central-circle {
+    fill: var(--smart-primary);
+}
+
+.smart-time-picker[readonly] .smart-hour-container,
+.smart-time-picker[readonly] .smart-minute-container,
+.smart-time-picker[readonly] .smart-am-container,
+.smart-time-picker[readonly] .smart-pm-container, .smart-time-picker[disabled] .smart-hour-container,
+.smart-time-picker[disabled] .smart-minute-container,
+.smart-time-picker[disabled] .smart-am-container,
+.smart-time-picker[disabled] .smart-pm-container {
+    cursor: default;
+}
+
+.smart-time-picker[footer] .smart-footer {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+.smart-time-picker[footer] .smart-svg-container {
+    height: calc(100% - 30px);
+}
+
+.smart-time-picker[view="landscape"] {
+    width: var(--smart-time-picker-default-height);
+    height: var(--smart-time-picker-default-width);
+    min-width: 400px;
+}
+
+.smart-time-picker[view="landscape"] > .smart-container {
+    display: flex;
+}
+
+.smart-time-picker[view="landscape"] .smart-header {
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+}
+
+.smart-time-picker[view="landscape"] .smart-main-container {
+    width: 67%;
+    height: 100%;
+}
+
+.smart-time-picker[view="landscape"] .smart-am-pm-container {
+    margin-left: 0;
+}
 
 .smart-time-picker[right-to-left] .smart-header,
 .smart-time-picker[right-to-left] .smart-footer {
@@ -185,9 +156,26 @@
     margin: 0 10px 0 0;
 }
 
-.smart-time-picker[view="landscape"][right-to-left] > .smart-container,
-:host(smart-time-picker[view="landscape"][right-to-left]) > .smart-container {
+.smart-time-picker[right-to-left][view="landscape"] > .smart-container {
     flex-direction: row-reverse;
 }
 
-/* --- */
+@keyframes smart-time-picker-animation {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*# sourceMappingURL=smart.timepicker.css.map */

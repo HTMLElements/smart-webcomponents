@@ -10,6 +10,8 @@ body[theme="dark-green"], .smart-ui-component[theme="dark-green"] {
     --smart-border: #464646; /* The theme background border color */
     --smart-editor-selection: var(--smart-primary);
     --smart-editor-selection-color: var(--smart-primary-color);
+	--smart-grid-cell-background-freeze: #333;
+	--smart-grid-cell-color-freeze: #fff;
     --smart-ui-state-hover: #444;
     --smart-ui-state-color-hover: #fff;
     --smart-ui-state-border-hover: #444;

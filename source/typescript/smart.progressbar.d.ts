@@ -15,7 +15,7 @@ export interface CircularProgressBarProperties {
    * A callback function defining the new format for the label of the Progress Bar.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: {(value: number): string};
   /**
    * Sets the value of the Circular Progress bar to indeterminate state(null) and starts the animation.
    * Default value: false
@@ -136,7 +136,7 @@ export interface ProgressBarProperties {
    * A callback function defining the new format for the label of the Progress Bar.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: {(value: number): string};
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"

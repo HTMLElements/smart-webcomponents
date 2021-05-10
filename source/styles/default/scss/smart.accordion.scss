@@ -1,0 +1,454 @@
+@import '_functions';
+
+/* smart-accordion */
+smart-accordion {
+  width: var(--smart-accordion-default-width);
+  height: var(--smart-accordion-default-height);
+  border: 0px;
+  display: block;
+
+  &.smart-element {
+    background: transparent;
+  }
+
+  &:not(.smart-element) {
+    visibility: hidden;
+  }
+
+  > .smart-container {
+    overflow: auto;
+    touch-action: none;
+    padding: 10px;
+  }
+
+  &.smart-container {
+    overflow: auto;
+    touch-action: none;
+  }
+
+  .smart-reordering {
+    * {
+      user-select: none;
+      cursor: move;
+    }
+  }
+
+  .smart-empty {
+    &:after {
+      content: "No accordion items.";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .smart-accordion {
+    &.smart-container {
+      padding: 10px;
+    }
+  }
+
+  smart-accordion-item {
+    font-size: inherit;
+    font-family: inherit;
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: var(--smart-elevation-4);
+    width: 100%;
+    border: 0px;
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+
+    &:first-child {
+      border-top-left-radius: var(--smart-first-item-border-top-left-radius, --smart-item-border-top-left-radius);
+      border-top-right-radius: var(--smart-first-item-border-top-right-radius, --smart-item-border-top-right-radius);
+      border-bottom-left-radius: var(--smart-first-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
+      border-bottom-right-radius: var(--smart-first-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);
+    }
+
+    &:last-child {
+      border-top-left-radius: var(--smart-last-item-border-top-left-radius, --smart-item-border-top-left-radius);
+      border-top-right-radius: var(--smart-last-item-border-top-right-radius, --smart-item-border-top-right-radius);
+      border-bottom-left-radius: var(--smart-last-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
+      border-bottom-right-radius: var(--smart-last-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);
+    }
+
+    > .smart-container {
+      border-bottom: var(--smart-border-width) solid var(--smart-border);
+    }
+
+    .smart-ripple {
+      background-color: var(--smart-background-color);
+      opacity: 0.5;
+    }
+
+    .smart-accordion-item-header {
+      width: 100%;
+      cursor: pointer;
+      color: var(--smart-surface-color);
+      background: var(--smart-surface);
+      border-color: var(--smart-border);
+      font-family: inherit;
+      font-size: inherit;
+      box-sizing: border-box;
+      padding: 0px 24px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: var(--smart-accordion-item-header-height);
+
+      > .smart-arrow {
+        width: var(--smart-editor-addon-width);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: 2;
+
+        &:after {
+          vertical-align: middle;
+          content: var(--smart-icon-arrow-up-alt);
+          transform: rotate(180deg);
+          width: var(--smart-editor-addon-width);
+          height: 100%;
+          margin-left: 2px;
+          font-family: var(--smart-font-family-icon);
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          text-decoration: inherit;
+          font-variant: normal;
+          text-transform: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--smart-ui-state);
+          transform-origin: center;
+        }
+      }
+
+      > .smart-label {
+        margin-left: 5px;
+        width: calc(100% - var(--smart-editor-addon-width));
+        display: block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+
+    .smart-accordion-item-content {
+      overflow-y: auto;
+      height: var(--smart-accordion-expanded-content-height);
+      padding: 0px 24px;
+      color: var(--smart-background-color);
+      background: var(--smart-background);
+      width: 100%;
+      box-sizing: border-box;
+      display: none;
+
+      .smart-content-container {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        min-height: 5px;
+        padding: 10px;
+      }
+    }
+
+    &[expanded] {
+      &:not(:last-child) {
+        margin-bottom: var(--smart-accordion-item-expanded-offset);
+      }
+
+      &:last-child:not(:first-child) {
+        margin-top: var(--smart-accordion-item-expanded-offset);
+      }
+
+      .smart-accordion-item-header {
+        color: var(--smart-ui-state-color-focus);
+        background: var(--smart-ui-state-focus);
+        border-color: var(--smart-ui-state-border-focus);
+        border-bottom: var(--smart-border-width) solid var(--smart-border);
+
+        > .smart-arrow:after {
+          transform: rotate(0deg);
+          transform-origin: center;
+        }
+      }
+
+      .smart-accordion-item-content {
+        display: block;
+      }
+    }
+
+    &[hover] {
+      .smart-accordion-item-header {
+        color: var(--smart-ui-state-color-hover);
+        background: var(--smart-ui-state-hover);
+        border-color: vaR(--smart-ui-state-border-hover);
+      }
+    }
+
+    &[focused] {
+      .smart-accordion-item-header {
+        color: var(--smart-ui-state-color-focus);
+        background: var(--smart-ui-state-focus);
+        border-color: vaR(--smart-ui-state-border-focus);
+
+        > .smart-arrow {
+          opacity: 0.6;
+        }
+      }
+    }
+
+    &[dragged] {
+      user-select: none;
+      cursor: move;
+
+      .smart-accordion-item-header {
+        cursor: move;
+      }
+    }
+
+    &[disabled] {
+      cursor: default;
+      opacity: 1;
+
+      .smart-accordion-item-header {
+        cursor: initial;
+      }
+    }
+  }
+
+  &[expand-mode="singleFitHeight"] {
+    smart-accordion-item {
+      .smart-accordion-item-header {
+        height: var(--smart-accordion-item-header-height);
+      }
+
+      .smart-accordion-item-content {
+        overflow-y: auto;
+        height: var(--smart-accordion-expanded-content-height);
+        padding: 0px 24px;
+        color: var(--smart-background-color);
+        background: var(--smart-background);
+      }
+    }
+  }
+
+  &[expand-mode="single"],
+  &[expand-mode="toggle"],
+  &[expand-mode="multiple"],
+  &[expand-mode="none"] {
+    smart-accordion-item {
+      .smart-accordion-item-content {
+        overflow-y: hidden;
+        height: auto;
+      }
+    }
+  }
+
+  &[expand-mode="multiple"] {
+    > .smart-container {
+      &.smart-toggling {
+        padding: 10px;
+      }
+    }
+
+    &.smart-container {
+      &.smart-toggling {
+        padding: 10px;
+      }
+    }
+  }
+
+  &[disabled] {
+    cursor: default;
+
+    smart-accordion-item {
+      .smart-accordion-item-header {
+        cursor: default;
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    smart-accordion-item {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &.smart-no-arrow {
+    .smart-accordion-item-header {
+      > .smart-arrow,
+      > .smart-arrow:after {
+        visibility: hidden;
+        width: 0px;
+      }
+    }
+  }
+
+  &.smart-arrow-right {
+    smart-accordion-item {
+      .smart-accordion-item-header {
+        > .smart-arrow {
+          float: right;
+
+          &:after {
+            content: var(--smart-icon-arrow-right);
+          }
+        }
+      }
+
+      &[expanded] {
+        .smart-accordion-item-header {
+          > .smart-arrow:after {
+            content: var(--smart-icon-arrow-up-alt);
+          }
+        }
+      }
+    }
+  }
+
+  .smart-toggled-item {
+    .smart-accordion-item-content {
+      overflow: hidden;
+    }
+  }
+
+  &:not([animation='none']) {
+    animation-duration: var(--smart-accordion-animation-duration);
+
+    * {
+      animation-duration: inherit;
+    }
+
+    &[expand-mode="singleFitHeight"] {
+      smart-accordion-item {
+        &.smart-toggled-item {
+          .smart-accordion-item-content {
+            animation: smart-accordion-item-expand-animation-default-mode ease-out;
+            animation-direction: reverse;
+            display: block;
+            animation-duration: inherit;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+          }
+        }
+      }
+
+      &.smart-toggled-item {
+        smart-accordion-item {
+          &[expanded] {
+            .smart-accordion-item-content {
+              animation: smart-accordion-item-expand-animation-default-mode ease-in;
+              animation-duration: inherit;
+              animation-iteration-count: 1;
+            }
+          }
+        }
+      }
+    }
+
+    &[expand-mode="single"],
+    &[expand-mode="multiple"],
+    &[expand-mode="toggle"],
+    &[expand-mode="none"] {
+      smart-accordion-item {
+        &.smart-toggled-item {
+          .smart-accordion-item-content {
+            animation: smart-accordion-item-expand-animation ease-out;
+            animation-direction: reverse;
+            display: block;
+            animation-duration: inherit;
+            animation-iteration-count: 1;
+          }
+        }
+
+        &[expanded] {
+          &.smart-toggled-item {
+            .smart-accordion-item-content {
+              animation: smart-accordion-item-expand-animation ease-in;
+              animation-duration: inherit;
+              animation-iteration-count: 1;
+            }
+          }
+        }
+      }
+    }
+
+    smart-accordion-item {
+      .smart-accordion-item-header {
+        > .smart-arrow.smart-animate-trigger:after {
+          transition: transform 0.2s ease-out;
+        }
+      }
+
+      &.smart-toggled-item {
+        .smart-accordion-item-content {
+          animation: smart-accordion-item-expand-animation-default-mode ease-out;
+          animation-direction: reverse;
+          display: block;
+          animation-duration: inherit;
+          -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+        }
+      }
+
+      &[expanded] {
+        &.smart-toggled-item {
+          .smart-accordion-item-content {
+            animation: smart-accordion-item-expand-animation-default-mode ease-in;
+            animation-duration: inherit;
+            animation-iteration-count: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &[right-to-left] {
+    > .smart-container {
+      direction: rtl;
+    }
+  }
+}
+
+
+:host .smart-ripple {
+  background-color: var(--smart-background-color);
+  opacity: 0.5;
+}
+
+
+@keyframes smart-accordion-item-expand-animation-default-mode {
+  0% {
+    height: 0px;
+  }
+
+  100% {
+    height: var(--smart-accordion-expanded-content-height);
+  }
+}
+
+@keyframes smart-accordion-item-expand-animation {
+  0% {
+    height: 0px;
+  }
+
+  100% {
+    height: var(--smart-accordion-expanded-content-local-height);
+  }
+}

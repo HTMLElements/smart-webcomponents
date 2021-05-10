@@ -9,7 +9,7 @@ smart-chart .smart-chart-axis-text,
 smart-chart .smart-chart-label-text,
 smart-chart .smart-chart-legend-text,
 smart-chart .smart-chart-annotation-text,
-.smart-chart-tooltip-text {
+smart-chart .smart-chart-axis-description {
     box-sizing: content-box;
     fill: var(--smart-background-color);
     color: var(--smart-background-color);
@@ -17,27 +17,51 @@ smart-chart .smart-chart-annotation-text,
     font-size: calc(var(--smart-font-size) - 1px);
 }
 
-smart-chart .smart-chart-axis-description {
-    fill: var(--smart-background-color);
-    color: var(--smart-background-color);
-    font-family: var(--smart-font-family);
-    font-size: calc(var(--smart-font-size) - 1px);
-}
-
-smart-chart .smart-chart-title-text,
-smart-chart .smart-chart-title-description {
-    fill: var(--smart-background-color);
-    color: var(--smart-background-color);
-    font-family: var(--smart-font-family);
-}
-
 smart-chart .smart-chart-title-text {
+    fill: var(--smart-background-color);
+    color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
     font-weight: bold;
     font-size: calc(var(--smart-font-size) + 2px);
 }
 
 smart-chart .smart-chart-title-description {
+    fill: var(--smart-background-color);
+    color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
     font-size: var(--smart-font-size);
+}
+
+smart-chart[theme="dark"] .smart-chart-title-text,
+smart-chart[theme="dark"] .smart-chart-title-description,
+smart-chart[theme="dark"] .smart-chart-axis-text,
+smart-chart[theme="dark"] .smart-chart-axis-description
+.smart-chart-label-text,
+smart-chart[theme="dark"] .smart-chart-legend-text,
+smart-chart[theme="dark"] .smart-chart-annotation-text {
+    fill: var(--smart-background-color);
+    color: var(--smart-background-color);
+}
+
+smart-chart[right-to-left] .smart-chart-axis-text,
+smart-chart[right-to-left] .smart-chart-axis-description,
+smart-chart[right-to-left] .smart-chart-title-text,
+smart-chart[right-to-left] .smart-chart-legend-text,
+smart-chart[right-to-left] .smart-chart-annotation-text,
+smart-chart[right-to-left] .smart-chart-label-text {
+    direction: rtl;
+    text-anchor: end;
+}
+
+.smart-chart-range-selector > smart-chart {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+.smart-chart-range-selector .slider {
+    box-sizing: content-box;
+    pointer-events: none;
 }
 
 .smart-chart-tooltip {
@@ -49,28 +73,7 @@ smart-chart .smart-chart-title-description {
     transform: scale(1);
 }
 
-.smart-chart-tooltip[animation="none"] {
-    transition: none;
-}
-
-.smart-chart-tooltip.smart-visibility-hidden {
-    transform: scale(0);
-}
-
-.smart-chart-tooltip-arrow-outer,
-.smart-chart-tooltip-arrow-inner {
-    box-sizing: content-box;
-    width: 0;
-    height: 0;
-    position: absolute;
-    z-index: 10000001;
-}
-
-.smart-chart-tooltip-arrow-inner {
-    z-index: 10000002;
-}
-
-.smart-chart-tooltip-content {
+.smart-chart-tooltip .smart-chart-tooltip-content {
     position: absolute;
     box-sizing: content-box;
     outline: none;
@@ -85,52 +88,46 @@ smart-chart .smart-chart-title-description {
     border-radius: var(--smart-border-radius);
 }
 
-/*[theme="dark"] smart-chart .smart-chart-title-text,*/
-/*[theme="dark"] smart-chart .smart-chart-title-description,*/
-/*[theme="dark"] smart-chart .smart-chart-axis-text,*/
-/*[theme="dark"] smart-chart .smart-chart-axis-description,*/
-/*[theme="dark"] smart-chart .smart-chart-label-text,*/
-/*[theme="dark"] smart-chart .smart-chart-legend-text,*/
-/*[theme="dark"] smart-chart .smart-chart-annotation-text,*/
-[theme="dark"] .smart-chart-tooltip:not([theme="dark"]) .smart-chart-tooltip-text {
-    fill: var(--smart-background);
-    color: var(--smart-background);
-}
-
-smart-chart[theme="dark"] .smart-chart-title-text,
-smart-chart[theme="dark"] .smart-chart-title-description,
-smart-chart[theme="dark"] .smart-chart-axis-text,
-smart-chart[theme="dark"] .smart-chart-axis-description
-smart-chart[theme="dark"] .smart-chart-label-text,
-smart-chart[theme="dark"] .smart-chart-legend-text,
-smart-chart[theme="dark"] .smart-chart-annotation-text {
+.smart-chart-tooltip .smart-chart-tooltip-text {
+    box-sizing: content-box;
     fill: var(--smart-background-color);
     color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
+    font-size: calc(var(--smart-font-size) - 1px);
 }
 
-
-.smart-chart-range-selector > smart-chart {
-    width: 100%;
-    height: 100%;
-    touch-action: none;
-}
-
-.smart-chart-range-selector .slider {
+.smart-chart-tooltip .smart-chart-tooltip-arrow-outer {
     box-sizing: content-box;
-    pointer-events: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 10000001;
 }
 
-/* --- Right To Left --- */
+.smart-chart-tooltip .smart-chart-tooltip-arrow-inner {
+    box-sizing: content-box;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 10000002;
+}
 
-smart-chart[right-to-left] .smart-chart-axis-text,
-smart-chart[right-to-left] .smart-chart-axis-description,
-smart-chart[right-to-left] .smart-chart-title-text,
-smart-chart[right-to-left] .smart-chart-legend-text,
-smart-chart[right-to-left] .smart-chart-annotation-text,
-smart-chart[right-to-left] .smart-chart-label-text,
+.smart-chart-tooltip[animation="none"] {
+    transition: none;
+}
+
+.smart-chart-tooltip.smart-visibility-hidden {
+    transform: scale(0);
+}
+
 .smart-chart-tooltip[right-to-left] .smart-chart-tooltip-text {
     direction: rtl;
     text-anchor: end;
 }
 
-/* --- */
+[theme="dark"] .smart-chart-tooltip:not([theme="dark"]) .smart-chart-tooltip-text {
+    fill: var(--smart-background);
+    color: var(--smart-background);
+}
+
+/*# sourceMappingURL=smart.chart.css.map */

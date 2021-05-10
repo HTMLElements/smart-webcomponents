@@ -1,0 +1,17 @@
+/*Shadow DOM for Misc*/
+//This kind of styling for shadow dom is deprecated!!!
+:host .smart-ripple {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple 0.35s linear;
+  border: none;
+  opacity: 0.5;
+}
+
+:host .smart-ripple.smart-animate {
+  animation: ripple 0.65s linear;
+  position: absolute;
+}

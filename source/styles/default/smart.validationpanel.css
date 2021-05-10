@@ -42,6 +42,10 @@
     grid-column-gap: 0;
 }
 
+.smart-data-validation-container .criteria-container {
+    margin-top: var(--smart-validation-panel-criteria-row-margin-top);
+}
+
 .smart-data-validation-container .right-elements {
     display: flex;
     align-items: center;
@@ -49,16 +53,8 @@
     flex-direction: row;
 }
 
-.smart-data-validation-container .criteria-container,
-.smart-criteria-container,
-.smart-criteria-type-container,
-.smart-input-criteria-container {
-    margin-top: var(--smart-validation-panel-criteria-row-margin-top);
-}
-
 .smart-data-validation-container .smart-criteria-container,
-.smart-data-validation-container .smart-criteria-type-container,
-.smart-data-validation-container .smart-input-criteria-container {
+.smart-data-validation-container .smart-criteria-type-container {
     display: flex;
     align-items: center;
 }
@@ -74,6 +70,7 @@
 .smart-data-validation-container .smart-input-criteria-container {
     display: inline-flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .smart-data-validation-container .smart-input-criteria-container smart-text-box {
@@ -87,13 +84,19 @@
     order: 1;
 }
 
+.smart-data-validation-container .smart-input-criteria-container smart-text-box:nth-child(2) {
+    order: 3;
+}
+
 .smart-data-validation-container .smart-input-criteria-container .smart-text-between-inputs {
     margin: var(--smart-validation-panel-criteria-container-text-between-inputs-offset);
     order: 2;
 }
 
-.smart-data-validation-container .smart-input-criteria-container smart-text-box:nth-child(2) {
-    order: 3;
+.smart-criteria-container,
+.smart-criteria-type-container,
+.smart-input-criteria-container {
+    margin-top: var(--smart-validation-panel-criteria-row-margin-top);
 }
 
 .smart-footer-buttons {
@@ -103,15 +106,6 @@
 .smart-footer-buttons smart-button {
     margin-left: var(--smart-validation-panel-footer-button-horizontal-offset);
     margin-right: var(--smart-validation-panel-footer-button-horizontal-offset);
-}
-
-.smart-footer-buttons .right-elements {
-    float: right;
-}
-
-.right-elements-reset {
-    display: flex;
-    align-items: center;
 }
 
 .smart-footer-buttons smart-button.smart-remove-validation-footer-button {
@@ -129,3 +123,14 @@
     background: var(--smart-validation-panel-footer-save-button-background);
     color: var(--smart-validation-panel-footer-save-button-color);
 }
+
+.smart-footer-buttons .right-elements {
+    float: right;
+}
+
+.right-elements-reset {
+    display: flex;
+    align-items: center;
+}
+
+/*# sourceMappingURL=smart.validationpanel.css.map */

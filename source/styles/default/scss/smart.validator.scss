@@ -1,0 +1,157 @@
+/* Error and Success styles */
+.smart-validation-error,
+.smart-validation-success {
+  &:not(smart-check-box) {
+    > div.smart-container {
+      &:after {
+        pointer-events: none;
+        font-weight: bold;
+        font-family: var(--smart-font-family);
+        font-size: var(--smart-font-size);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.smart-validation-error {
+  &:not(.underlined):not(.outlined) {
+    border-color: var(--smart-error) !important;
+    outline: none;
+
+    input,
+    span {
+      border-color: var(--smart-error) !important;
+      outline: none;
+    }
+  }
+
+  &:not(smart-check-box) {
+    > div.smart-container {
+      &:after {
+        background-color: var(--smart-error);
+        color: var(--smart-error-color);
+        content: '!';
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 20px);
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &.smart-element:not(.outlined):not(.underlined) {
+    .smart-hint::after {
+      background-color: var(--smart-error);
+    }
+  }
+}
+
+.smart-validation-success {
+  &:not(smart-check-box) {
+    > div.smart-container {
+      &:after {
+        background-color: var(--smart-success);
+        color: var(--smart-success-color);
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 20px);
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &.smart-element:not(.outlined):not(.underlined) {
+    .smart-hint::after {
+      background-color: var(--smart-success);
+    }
+  }
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  &.smart-validation-error {
+    outline: auto;
+    outline-color: var(--smart-error);
+  }
+}
+
+input.smart-validation-error {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.smart-success-label-like-after-element,
+.smart-error-label-like-after-element {
+  &:after {
+    pointer-events: none;
+    font-weight: bold;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    top: 50%;
+    position: absolute;
+    left: calc(50% + 15px);
+    transform: translate(-50%, -50%);
+  }
+}
+
+.smart-success-label-like-after-element {
+  position: relative;
+
+  &:after {
+    background-color: var(--smart-success);
+    color: var(--smart-success-color);
+    content: '✓';
+  }
+}
+
+.smart-error-label-like-after-element {
+  position: relative;
+
+  &:after {
+    background-color: var(--smart-error);
+    color: var(--smart-error-color);
+    content: '!';
+  }
+}
+
+.smart-validation-summary {
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+  color: var(--smart-error);
+
+  span {
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+//Spans in the bottom of the body - shown on input click
+.smart-error-holder {
+  position: absolute;
+  font-size: var(--smart-font-size);
+  background-color: var(--smart-error);
+  color: var(--smart-error-color);
+  padding: 10px;
+  pointer-events: none;
+  z-index: var(--smart-editor-drop-down-z-index);
+  margin-top: 10px;
+  &.smart-error-hint-position-right{
+    white-space: nowrap;
+  }
+}

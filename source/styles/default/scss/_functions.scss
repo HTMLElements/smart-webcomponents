@@ -1,0 +1,32 @@
+//----------------------------------------------------/
+// Main Colors Vars
+//----------------------------------------------------/
+$main-colors-list: primary secondary success error info warning light dark;
+
+$primary:       '#005C99';
+$secondary:     '#2D2D30';
+$success:       '#8BC34A';
+$info:          '#5CC0DE';
+$warning:       '#F0AD4E';
+$error:         '#B00020';
+$light:         '#ffffff';
+$dark:          '#222222';
+
+$theme-colors: ();
+$theme-colors: map-merge(
+                (
+                        "primary": $primary,
+                        "secondary": $secondary,
+                        "success": $success,
+                        "info": $info,
+                        "warning": $warning,
+                        "error": $error,
+                        "light": $light,
+                        "dark": $dark
+                ),
+                $theme-colors
+);
+
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

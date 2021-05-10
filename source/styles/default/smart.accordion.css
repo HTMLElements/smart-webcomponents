@@ -6,38 +6,44 @@ smart-accordion {
     display: block;
 }
 
-    smart-accordion.smart-element {
-        background: transparent;
-    }
-
-    smart-accordion:not(.smart-element) {
-        visibility: hidden;
-    }
-
-    smart-accordion[disabled] {
-        cursor: default;
-    }
-
-:host .smart-ripple,
-smart-accordion-item .smart-ripple {
-    background-color: var(--smart-background-color);
-    opacity: 0.5;
+smart-accordion.smart-element {
+    background: transparent;
 }
 
-smart-accordion > .smart-container,
-.smart-accordion.smart-container {
+smart-accordion:not(.smart-element) {
+    visibility: hidden;
+}
+
+smart-accordion > .smart-container {
+    overflow: auto;
+    touch-action: none;
+    padding: 10px;
+}
+
+smart-accordion.smart-container {
     overflow: auto;
     touch-action: none;
 }
 
-smart-accordion > .smart-container,
-smart-accordion[expand-mode="multiple"] > .smart-container.smart-toggling,
-.smart-accordion.smart-container,
-.smart-accordion[expand-mode="multiple"].smart-container.smart-toggling {
+smart-accordion .smart-reordering * {
+    user-select: none;
+    cursor: move;
+}
+
+smart-accordion .smart-empty:after {
+    content: "No accordion items.";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+smart-accordion .smart-accordion.smart-container {
     padding: 10px;
 }
 
-smart-accordion-item {
+smart-accordion smart-accordion-item {
     font-size: inherit;
     font-family: inherit;
     display: block;
@@ -45,75 +51,37 @@ smart-accordion-item {
     box-sizing: border-box;
     box-shadow: var(--smart-elevation-4);
     width: 100%;
-    box-sizing: border-box;
     border: 0px;
-	border-top-left-radius: var(--smart-item-border-top-left-radius);
-	border-top-right-radius: var(--smart-item-border-top-right-radius);
-	border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
-	border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);	
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
 }
 
-.smart-accordion smart-accordion-item:first-child {
-	border-top-left-radius: var(--smart-first-item-border-top-left-radius, --smart-item-border-top-left-radius);
-	border-top-right-radius: var(--smart-first-item-border-top-right-radius, --smart-item-border-top-right-radius);
-	border-bottom-left-radius: var(--smart-first-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
-	border-bottom-right-radius: var(--smart-first-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);	
+smart-accordion smart-accordion-item:first-child {
+    border-top-left-radius: var(--smart-first-item-border-top-left-radius, --smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-first-item-border-top-right-radius, --smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-first-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-first-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);
 }
 
-.smart-accordion smart-accordion-item:last-child {
-	border-top-left-radius: var(--smart-last-item-border-top-left-radius, --smart-item-border-top-left-radius);
-	border-top-right-radius: var(--smart-last-item-border-top-right-radius, --smart-item-border-top-right-radius);
-	border-bottom-left-radius: var(--smart-last-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
-	border-bottom-right-radius: var(--smart-last-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);
+smart-accordion smart-accordion-item:last-child {
+    border-top-left-radius: var(--smart-last-item-border-top-left-radius, --smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-last-item-border-top-right-radius, --smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-last-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-last-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);
 }
 
-.smart-accordion smart-accordion-item[expanded]:not(:last-child) {
-    margin-bottom: var(--smart-accordion-item-expanded-offset);
-}
-
-.smart-accordion smart-accordion-item[expanded]:last-child:not(:first-child) {
-    margin-top: var(--smart-accordion-item-expanded-offset);
-}
-
-.smart-accordion smart-accordion-item .smart-accordion-item-content,
-.smart-accordion[expand-mode="singleFitHeight"] smart-accordion-item .smart-accordion-item-content {
-    overflow-y: auto;
-    height: var(--smart-accordion-expanded-content-height);
-    padding: 0px 24px;
-    color: var(--smart-background-color);
-    background: var(--smart-background);
-}
-
-.smart-accordion[expand-mode="single"] smart-accordion-item .smart-accordion-item-content,
-.smart-accordion[expand-mode="toggle"] smart-accordion-item .smart-accordion-item-content,
-.smart-accordion[expand-mode="multiple"] smart-accordion-item .smart-accordion-item-content,
-.smart-accordion[expand-mode="none"] smart-accordion-item .smart-accordion-item-content {
-    overflow-y: hidden;
-    height: auto;
-}
-
-.smart-accordion[disabled] smart-accordion-item .smart-accordion-item-header {
-    cursor: default;
-}
-
-smart-accordion-item > .smart-container {
+smart-accordion smart-accordion-item > .smart-container {
     border-bottom: var(--smart-border-width) solid var(--smart-border);
 }
 
-smart-accordion:focus,
-smart-accordion-item:focus {
-    outline: none;
+smart-accordion smart-accordion-item .smart-ripple {
+    background-color: var(--smart-background-color);
+    opacity: 0.5;
 }
 
-smart-accordion-item[disabled] {
-    cursor: default;
-}
-
-.smart-accordion smart-accordion-item[disabled] {
-    opacity: 1;
-}
-
-smart-accordion-item .smart-accordion-item-header {
+smart-accordion smart-accordion-item .smart-accordion-item-header {
     width: 100%;
     cursor: pointer;
     color: var(--smart-surface-color);
@@ -129,70 +97,10 @@ smart-accordion-item .smart-accordion-item-header {
     display: flex;
     align-items: center;
     position: relative;
-}
-
-smart-accordion-item[expanded] .smart-accordion-item-header {
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-}
-
-smart-accordion-item .smart-accordion-item-header,
-.smart-accordion[expand-mode="singleFitHeight"] smart-accordion-item .smart-accordion-item-header {
     height: var(--smart-accordion-item-header-height);
 }
 
-smart-accordion-item[hover] .smart-accordion-item-header {
-    color: var(--smart-ui-state-color-hover);
-    background: var(--smart-ui-state-hover);
-    border-color: vaR(--smart-ui-state-border-hover);
-}
-
-smart-accordion-item[focused] .smart-accordion-item-header {
-    color: var(--smart-ui-state-color-focus);
-    background: var(--smart-ui-state-focus);
-    border-color: vaR(--smart-ui-state-border-focus);
-}
-
-smart-accordion-item[expanded] .smart-accordion-item-header {
-    color: var(--smart-ui-state-color-focus);
-    background: var(--smart-ui-state-focus);
-    border-color: vaR(--smart-ui-state-border-focus);
-}
-
-smart-accordion-item[dragged] {
-    user-select: none;
-    cursor: move;
-}
-
-    smart-accordion-item[dragged] .smart-accordion-item-header {
-        cursor: move;
-    }
-
-smart-accordion-item[disabled] .smart-accordion-item-header {
-    cursor: initial;
-}
-
-smart-accordion-item .smart-accordion-item-content {
-    width: 100%;
-    box-sizing: border-box;
-    display: none;
-}
-
-smart-accordion-item .smart-content-container {
-    width: 100%;
-    box-sizing: border-box;
-    min-height: 5px;
-    padding: 10px;
-}
-
-smart-accordion-item .smart-content-container {
-    height: 100%;
-}
-
-smart-accordion-item[expanded] .smart-accordion-item-content {
-    display: block;
-}
-
-smart-accordion-item .smart-accordion-item-header > .smart-arrow {
+smart-accordion smart-accordion-item .smart-accordion-item-header > .smart-arrow {
     width: var(--smart-editor-addon-width);
     display: flex;
     justify-content: center;
@@ -200,20 +108,7 @@ smart-accordion-item .smart-accordion-item-header > .smart-arrow {
     order: 2;
 }
 
-smart-accordion-item[focused] .smart-accordion-item-header > .smart-arrow {
-    opacity: 0.6;
-}
-
-smart-accordion-item .smart-accordion-item-header > .smart-label {
-    margin-left: 5px;
-    width: calc(100% - var(--smart-editor-addon-width));
-    display: block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-smart-accordion-item .smart-accordion-item-header > .smart-arrow:after {
+smart-accordion smart-accordion-item .smart-accordion-item-header > .smart-arrow:after {
     vertical-align: middle;
     content: var(--smart-icon-arrow-up-alt);
     transform: rotate(180deg);
@@ -234,89 +129,224 @@ smart-accordion-item .smart-accordion-item-header > .smart-arrow:after {
     transform-origin: center;
 }
 
-.smart-accordion:not([animation='none']) smart-accordion-item .smart-accordion-item-header > .smart-arrow.smart-animate-trigger:after {
-    transition: transform 0.2s ease-out;
+smart-accordion smart-accordion-item .smart-accordion-item-header > .smart-label {
+    margin-left: 5px;
+    width: calc(100% - var(--smart-editor-addon-width));
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-smart-accordion-item[expanded] .smart-accordion-item-header > .smart-arrow:after {
-    /*margin-left: 0px;*/
+smart-accordion smart-accordion-item .smart-accordion-item-content {
+    overflow-y: auto;
+    height: var(--smart-accordion-expanded-content-height);
+    padding: 0px 24px;
+    color: var(--smart-background-color);
+    background: var(--smart-background);
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+}
+
+smart-accordion smart-accordion-item .smart-accordion-item-content .smart-content-container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    min-height: 5px;
+    padding: 10px;
+}
+
+smart-accordion smart-accordion-item[expanded]:not(:last-child) {
+    margin-bottom: var(--smart-accordion-item-expanded-offset);
+}
+
+smart-accordion smart-accordion-item[expanded]:last-child:not(:first-child) {
+    margin-top: var(--smart-accordion-item-expanded-offset);
+}
+
+smart-accordion smart-accordion-item[expanded] .smart-accordion-item-header {
+    color: var(--smart-ui-state-color-focus);
+    background: var(--smart-ui-state-focus);
+    border-color: var(--smart-ui-state-border-focus);
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+}
+
+smart-accordion smart-accordion-item[expanded] .smart-accordion-item-header > .smart-arrow:after {
     transform: rotate(0deg);
     transform-origin: center;
-    /*content: '\e804';*/
 }
 
-.smart-accordion.smart-no-arrow .smart-accordion-item-header > .smart-arrow,
-.smart-accordion.smart-no-arrow .smart-accordion-item-header > .smart-arrow:after {
+smart-accordion smart-accordion-item[expanded] .smart-accordion-item-content {
+    display: block;
+}
+
+smart-accordion smart-accordion-item[hover] .smart-accordion-item-header {
+    color: var(--smart-ui-state-color-hover);
+    background: var(--smart-ui-state-hover);
+    border-color: vaR(--smart-ui-state-border-hover);
+}
+
+smart-accordion smart-accordion-item[focused] .smart-accordion-item-header {
+    color: var(--smart-ui-state-color-focus);
+    background: var(--smart-ui-state-focus);
+    border-color: vaR(--smart-ui-state-border-focus);
+}
+
+smart-accordion smart-accordion-item[focused] .smart-accordion-item-header > .smart-arrow {
+    opacity: 0.6;
+}
+
+smart-accordion smart-accordion-item[dragged] {
+    user-select: none;
+    cursor: move;
+}
+
+smart-accordion smart-accordion-item[dragged] .smart-accordion-item-header {
+    cursor: move;
+}
+
+smart-accordion smart-accordion-item[disabled] {
+    cursor: default;
+    opacity: 1;
+}
+
+smart-accordion smart-accordion-item[disabled] .smart-accordion-item-header {
+    cursor: initial;
+}
+
+smart-accordion[expand-mode="singleFitHeight"] smart-accordion-item .smart-accordion-item-header {
+    height: var(--smart-accordion-item-header-height);
+}
+
+smart-accordion[expand-mode="singleFitHeight"] smart-accordion-item .smart-accordion-item-content {
+    overflow-y: auto;
+    height: var(--smart-accordion-expanded-content-height);
+    padding: 0px 24px;
+    color: var(--smart-background-color);
+    background: var(--smart-background);
+}
+
+smart-accordion[expand-mode="single"] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode="toggle"] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode="multiple"] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode="none"] smart-accordion-item .smart-accordion-item-content {
+    overflow-y: hidden;
+    height: auto;
+}
+
+smart-accordion[expand-mode="multiple"] > .smart-container.smart-toggling {
+    padding: 10px;
+}
+
+smart-accordion[expand-mode="multiple"].smart-container.smart-toggling {
+    padding: 10px;
+}
+
+smart-accordion[disabled] {
+    cursor: default;
+}
+
+smart-accordion[disabled] smart-accordion-item .smart-accordion-item-header {
+    cursor: default;
+}
+
+smart-accordion:focus {
+    outline: none;
+}
+
+smart-accordion:focus smart-accordion-item:focus {
+    outline: none;
+}
+
+smart-accordion.smart-no-arrow .smart-accordion-item-header > .smart-arrow,
+smart-accordion.smart-no-arrow .smart-accordion-item-header > .smart-arrow:after {
     visibility: hidden;
     width: 0px;
 }
 
-.smart-accordion.smart-arrow-right smart-accordion-item .smart-accordion-item-header > .smart-arrow {
+smart-accordion.smart-arrow-right smart-accordion-item .smart-accordion-item-header > .smart-arrow {
     float: right;
 }
 
-    .smart-accordion.smart-arrow-right smart-accordion-item .smart-accordion-item-header > .smart-arrow:after {
-        content: var(--smart-icon-arrow-right);
-    }
+smart-accordion.smart-arrow-right smart-accordion-item .smart-accordion-item-header > .smart-arrow:after {
+    content: var(--smart-icon-arrow-right);
+}
 
-.smart-accordion.smart-arrow-right smart-accordion-item[expanded] .smart-accordion-item-header > .smart-arrow:after {
+smart-accordion.smart-arrow-right smart-accordion-item[expanded] .smart-accordion-item-header > .smart-arrow:after {
     content: var(--smart-icon-arrow-up-alt);
 }
 
-.smart-accordion:not([animation='none']) {
+smart-accordion .smart-toggled-item .smart-accordion-item-content {
+    overflow: hidden;
+}
+
+smart-accordion:not([animation='none']) {
     animation-duration: var(--smart-accordion-animation-duration);
 }
 
-    .smart-accordion:not([animation='none']) * {
-        animation-duration: inherit;
-    }
+smart-accordion:not([animation='none']) * {
+    animation-duration: inherit;
+}
 
-    .smart-accordion:not([animation='none']) smart-accordion-item.smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="singleFitHeight"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
-        animation: smart-accordion-item-expand-animation-default-mode ease-out;
-        animation-direction: reverse;
-        display: block;
-        animation-duration: inherit;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-    }
+smart-accordion:not([animation='none'])[expand-mode="singleFitHeight"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
+    animation: smart-accordion-item-expand-animation-default-mode ease-out;
+    animation-direction: reverse;
+    display: block;
+    animation-duration: inherit;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
 
-    .smart-accordion:not([animation='none']) smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="singleFitHeight"].smart-toggled-item smart-accordion-item[expanded] .smart-accordion-item-content {
-        animation: smart-accordion-item-expand-animation-default-mode ease-in;
-        animation-duration: inherit;
-        animation-iteration-count: 1;
-    }
+smart-accordion:not([animation='none'])[expand-mode="singleFitHeight"].smart-toggled-item smart-accordion-item[expanded] .smart-accordion-item-content {
+    animation: smart-accordion-item-expand-animation-default-mode ease-in;
+    animation-duration: inherit;
+    animation-iteration-count: 1;
+}
 
-    .smart-accordion:not([animation='none'])[expand-mode="single"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="multiple"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="toggle"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="none"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
-        animation: smart-accordion-item-expand-animation ease-out;
-        animation-direction: reverse;
-        display: block;
-        animation-duration: inherit;
-        animation-iteration-count: 1;
-    }
+smart-accordion:not([animation='none'])[expand-mode="single"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="multiple"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="toggle"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="none"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
+    animation: smart-accordion-item-expand-animation ease-out;
+    animation-direction: reverse;
+    display: block;
+    animation-duration: inherit;
+    animation-iteration-count: 1;
+}
 
-    .smart-accordion:not([animation='none'])[expand-mode="single"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="multiple"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="toggle"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content,
-    .smart-accordion:not([animation='none'])[expand-mode="none"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content {
-        animation: smart-accordion-item-expand-animation ease-in;
-        animation-duration: inherit;
-        animation-iteration-count: 1;
-    }
+smart-accordion:not([animation='none'])[expand-mode="single"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="multiple"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="toggle"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="none"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content {
+    animation: smart-accordion-item-expand-animation ease-in;
+    animation-duration: inherit;
+    animation-iteration-count: 1;
+}
 
-    .smart-accordion:not([animation='none']) .smart-toggled-item .smart-accordion-item-content {
-        overflow: hidden;
-    }
+smart-accordion:not([animation='none']) smart-accordion-item .smart-accordion-item-header > .smart-arrow.smart-animate-trigger:after {
+    transition: transform 0.2s ease-out;
+}
+
+smart-accordion:not([animation='none']) smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
+    animation: smart-accordion-item-expand-animation-default-mode ease-out;
+    animation-direction: reverse;
+    display: block;
+    animation-duration: inherit;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+smart-accordion:not([animation='none']) smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content {
+    animation: smart-accordion-item-expand-animation-default-mode ease-in;
+    animation-duration: inherit;
+    animation-iteration-count: 1;
+}
+
+smart-accordion[right-to-left] > .smart-container {
+    direction: rtl;
+}
+
+:host .smart-ripple {
+    background-color: var(--smart-background-color);
+    opacity: 0.5;
+}
 
 @keyframes smart-accordion-item-expand-animation-default-mode {
     0% {
         height: 0px;
     }
-
     100% {
         height: var(--smart-accordion-expanded-content-height);
     }
@@ -326,30 +356,9 @@ smart-accordion-item[expanded] .smart-accordion-item-header > .smart-arrow:after
     0% {
         height: 0px;
     }
-
     100% {
         height: var(--smart-accordion-expanded-content-local-height);
     }
 }
 
-.smart-accordion .smart-reordering * {
-    user-select: none;
-    cursor: move;
-}
-
-.smart-accordion .smart-empty:after {
-    content: "No accordion items.";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-/* --- Right To Left --- */
-
-.smart-accordion[right-to-left] > .smart-container {
-    direction: rtl;
-}
-
-/* --- */
+/*# sourceMappingURL=smart.accordion.css.map */

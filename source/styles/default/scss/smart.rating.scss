@@ -1,0 +1,39 @@
+.smart-rating {
+  .rating-star {
+    &:after {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      font-size: var(--smart-font-size);
+      content: var(--smart-icon-star);
+      color: var(--smart-primary);
+      font-family: var(--smart-font-family-icon);
+    }
+
+    &.hover {
+      &:after {
+        color: var(--smart-secondary);
+      }
+    }
+
+    &.active {
+      &:after {
+        color: var(--smart-secondary);
+      }
+    }
+
+    &.active.hover {
+      &:after {
+        color: var(--smart-secondary);
+      }
+    }
+  }
+
+  // Right To Left
+  &[right-to-left] {
+    #ratingStars {
+      direction: rtl;
+      display: flex;
+    }
+  }
+}

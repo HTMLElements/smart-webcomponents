@@ -1,0 +1,188 @@
+/* smart-check-box */
+smart-check-box {
+  display: inline-block;
+  outline: none;
+  height: var(--smart-editor-height);
+  font-family: var(--smart-check-box-font-family);
+  font-size: var(--smart-check-box-font-size);
+  cursor: pointer;
+  line-height: 1;
+
+  .smart-container {
+    position: relative;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+  }
+
+  .smart-overlay {
+    top: 0;
+    height: 100%;
+    background: var(--smart-check-box-background-active);
+    width: var(--smart-editor-height);
+    position: absolute;
+    left: 2px;
+    border-radius: 100%;
+    padding: 0px;
+    opacity: 0;
+    box-sizing: content-box;
+    transition: opacity 280ms ease-in-out;
+  }
+
+  .smart-input {
+    width: var(--smart-check-box-default-size);
+    min-width: var(--smart-check-box-default-size);
+    height: var(--smart-check-box-default-size);
+    min-height: var(--smart-check-box-default-size);
+    background-color: var(--smart-check-box-background);
+    box-sizing: initial;
+    border-style: solid;
+    border-width: var(--smart-check-box-border-width);
+    border-color: var(--smart-check-box-border);
+    display: inline-block;
+    color: var(--smart-check-box-color);
+    border-top-left-radius: var(--smart-check-box-border-top-left-radius);
+    border-top-right-radius: var(--smart-check-box-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-check-box-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-check-box-border-bottom-right-radius);
+    margin: 0 0 0 8px;
+    transition: background linear 0.2s;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      font-style: normal;
+      font-variant: normal;
+      font-family: 'Material icons';
+      font-size: 15px;
+      font-weight: 100;
+      text-decoration: inherit;
+      text-transform: none;
+      color: inherit;
+      line-height: 100%;
+    }
+  }
+
+  .smart-label {
+    color: var(--smart-check-box-color);
+    font-size: var(--smart-check-box-font-size);
+    font-family: var(--smart-check-box-font-family);
+    margin: 0 8px 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+  }
+
+  .smart-ripple {
+    background: var(--smart-check-box-background-active);
+  }
+
+  &:focus,
+  &[focus] {
+    .smart-input {
+      outline: none;
+      overflow: visible;
+      border-color: var(--smart-check-box-border-focus);
+      background-color: var(--smart-check-box-background-focus);
+      color: var(--smart-check-box-color-focus);
+    }
+
+    .smart-overlay {
+      opacity: 0.3;
+    }
+
+    &[active] {
+      .smart-overlay {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &[hover] {
+    .smart-input {
+      border-color: var(--smart-check-box-border-hover);
+      background-color: var(--smart-check-box-background-hover);
+      color: var(--smart-check-box-color-hover);
+    }
+  }
+
+  &[active] {
+    .smart-input {
+      border-color: var(--smart-check-box-border-active);
+      background-color: var(--smart-check-box-background-active);
+      color: var(--smart-check-box-color-active);
+    }
+  }
+
+  &[checked] {
+    .smart-input {
+      border-color: var(--smart-check-box-border-active);
+      background-color: var(--smart-check-box-background-active);
+      color: var(--smart-check-box-color-active);
+
+      &:after {
+        content: '\e876';
+        font-family: 'Material icons';
+        font-size: 15px;
+        font-weight: 100;
+      }
+    }
+  }
+
+  &[checked="null"] {
+    .smart-input {
+      &:after {
+        content: '-';
+      }
+    }
+  }
+
+  &[check-mode="label"] {
+    cursor: default;
+
+    .smart-label {
+      cursor: pointer;
+    }
+  }
+
+  &[check-mode="input"] {
+    cursor: default;
+
+    .smart-input {
+      cursor: pointer;
+    }
+  }
+
+  &[readonly] {
+    cursor: initial;
+
+    .smart-input,
+    .smart-label {
+      cursor: initial;
+    }
+  }
+
+  //Right To Left
+  &[right-to-left] {
+    .smart-container,
+    .smart-hidden-input {
+      direction: rtl;
+    }
+
+    .smart-overlay {
+      left: initial;
+      right: 2px;
+    }
+
+    .smart-input {
+      margin: 0 8px 0 0;
+    }
+  }
+}

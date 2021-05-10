@@ -1,0 +1,109 @@
+@import '_functions';
+
+/* smart-drop-down-button */
+smart-drop-down-button {
+  width: var(--smart-drop-down-button-default-width);
+  height: var(--smart-drop-down-button-default-height);
+  visibility: hidden;
+
+  &.smart-element {
+    display: inline-block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: visible;
+    border: none;
+    visibility: initial;
+  }
+
+  .smart-ripple {
+    background: var(--smart-primary-color);
+  }
+
+  .smart-buttons-container {
+    > .smart-action-button:empty {
+      padding: 0;
+      width: 0;
+    }
+  }
+
+  .smart-drop-down-container {
+    > smart-scroll-viewer {
+      --smart-scroll-viewer-min-width: calc(var(--smart-editor-drop-down-min-width) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+      --smart-scroll-viewer-max-width: calc(var(--smart-editor-drop-down-max-width) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+      --smart-scroll-viewer-min-height: calc(var(--smart-editor-drop-down-min-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+      --smart-scroll-viewer-max-height: calc(var(--smart-editor-drop-down-max-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 0;
+      overflow: hidden;
+
+      > .smart-container {
+        > .smart-scroll-viewer-container {
+          > .smart-scroll-viewer-content-container {
+            vertical-align: top; /* Fixes the height issue of display: inline-block */
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    &:not([resize-mode='none']) {
+      > smart-scroll-viewer {
+        --smart-scroll-viewer-min-height: calc(var(--smart-editor-drop-down-min-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size) - var(--smart-editor-drop-down-resize-bar-height));
+        --smart-scroll-viewer-max-height: calc(var(--smart-editor-drop-down-max-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size) - var(--smart-editor- drop-down-resize-bar-height));
+        height: calc(100% - var(--smart-editor-drop-down-resize-bar-height));
+      }
+    }
+
+    &[empty] {
+      > smart-scroll-viewer {
+        > .smart-container {
+          > .smart-scroll-viewer-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    smart-tree{
+      border: 0;
+    }
+  }
+
+  // ======== Buttons Colors ========
+  @each $name, $hex in $theme-colors {
+    &.#{$name} {
+      --smart-editor-selection: var(--smart-#{$name});
+      --smart-editor-selection-color: var(--smart-#{$name}-color);
+      --smart-ui-state-active: var(--smart-#{$name});
+      --smart-ui-state-color-active: var(--smart-#{$name}-color);
+      --smart-ui-state-border-active: var(--smart-#{$name});
+      --smart-ui-state-selected: rgba(var(--smart-#{$name}-rgb), .1);
+      --smart-ui-state-color-selected: var(--smart-#{$name});
+      --smart-ui-state-border-selected: rgba(var(--smart-#{$name}-rgb), .1);
+      --smart-border: rgba(var(--smart-#{$name}-rgb), .9);
+
+      &:not([drop-down-open-mode="dropDownButton"]) {
+        .smart-action-button {
+          --smart-border: rgba(var(--smart-#{$name}-rgb), .9);
+          background-color: var(--smart-#{$name});
+          color: var(--smart-#{$name}-color);
+        }
+      }
+
+      .smart-action-button,
+      .smart-drop-down-button {
+        --smart-ui-state-border-hover: rgba(var(--smart-#{$name}-rgb), .9);
+        --smart-ui-state-hover: rgba(var(--smart-#{$name}-rgb), .9);
+        --smart-ui-state-color-hover: var(--smart-#{$name}-color);
+
+        background-color: var(--smart-#{$name});
+        color: var(--smart-#{$name}-color);
+      }
+    }
+  }
+}

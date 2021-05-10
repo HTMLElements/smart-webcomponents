@@ -213,34 +213,34 @@ smart-formatting-panel {
     border-style: solid;
 }
 
-    smart-numeric-text-box.smart-element,
-    smart-masked-text-box.smart-element,
-    smart-multiline-text-box.smart-element,
-    smart-text-box.smart-element,
-    smart-drop-down-button.smart-element,
-    smart-drop-down-list.smart-element,
-    smart-combo-box.smart-element,
-    smart-password-text-box.smart-element,
-    smart-multi-split-button.smart-element,
-    smart-switch-button.smart-element,
-    smart-multiline-text-box.smart-element,
-    smart-date-time-picker.smart-element,
-    smart-pager.smart-element,
-    smart-menu.smart-element,
-    smart-menu.smart-element,
-    smart-numeric-text-box.smart-element,
-    smart-tabs.smart-element,
-    smart-tank.smart-element,
-    smart-slider.smart-element,
-    smart-filter-panel.smart-element,
-    smart-color-panel.smart-element,
-    smart-color-picker.smart-element,
-    smart-query-builder.smart-element,
-    smart-card-view.smart-element,
-    smart-path.smart-element,
-    smart-kanban.smart-element {
-        overflow: visible;
-    }
+smart-numeric-text-box.smart-element,
+smart-masked-text-box.smart-element,
+smart-multiline-text-box.smart-element,
+smart-text-box.smart-element,
+smart-drop-down-button.smart-element,
+smart-drop-down-list.smart-element,
+smart-combo-box.smart-element,
+smart-password-text-box.smart-element,
+smart-multi-split-button.smart-element,
+smart-switch-button.smart-element,
+smart-multiline-text-box.smart-element,
+smart-date-time-picker.smart-element,
+smart-pager.smart-element,
+smart-menu.smart-element,
+smart-menu.smart-element,
+smart-numeric-text-box.smart-element,
+smart-tabs.smart-element,
+smart-tank.smart-element,
+smart-slider.smart-element,
+smart-filter-panel.smart-element,
+smart-color-panel.smart-element,
+smart-color-picker.smart-element,
+smart-query-builder.smart-element,
+smart-card-view.smart-element,
+smart-path.smart-element,
+smart-kanban.smart-element {
+    overflow: visible;
+}
 
 /*
     Common code for Box Components with Content and Action buttons.

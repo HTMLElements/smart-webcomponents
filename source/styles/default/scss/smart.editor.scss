@@ -1,0 +1,1309 @@
+/* .smart-editor */
+//Use the Scheduler SASS placeholder for the ColorInput styling
+@import 'scheduler/color_input';
+
+//Toolbar item values that correspond to the icons in smart.variables.css
+$iconTypes: 'bold''bold',
+'italic''italic',
+'underline''underline',
+'strikethrough''strike-through',
+'caption''format-clear',
+'orderedlist''list-ordered',
+'unorderedlist''list-unordered',
+'subscript''subscript',
+'superscript''superscript',
+'backgroundcolor''color-background',
+'fontcolor''font',
+'delete''delete',
+'redo''reload',
+'undo''reload',
+'indent''indent-left',
+'outdent''indent-right',
+'createlink''link',
+'removelink''unlink',
+'hyperlink''link',
+'openlink''link-ext',
+'editlink''mode-edit',
+'image''image',
+'table''table',
+'lowercase''case-lower',
+'uppercase''case-upper',
+'print''print',
+'copy''copy-record',
+'paste''paste',
+'cut''cut',
+'clearformat''format-clear',
+'fullscreen''resize-full',
+'sourcecode''source-code',
+'preview''visibility',
+'splitmode''split-mode',
+'tableheader''header',
+'tablerows''row',
+'tablecolumns''column',
+'tablevalign''vertical-align',
+'tablestyle''styles';
+$tableActions: 'insertRowBefore''row-before',
+'insertRowAfter''row-after',
+'deleteRow''row-delete',
+'insertColumnLeft''column-left',
+'insertColumnRight''column-right',
+'deleteColumn''column-delete';
+$alignment: 'left''align-left',
+'center''align-center',
+'right''align-right',
+'justify''align-justify';
+$border: var(--smart-border-width) solid var(--smart-border);
+$headings: 'h1'1.5rem,
+'h2'1.3rem,
+'h3'1.1rem,
+'h4'0.9rem;
+$fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+'arial''Arial, Helvetica, sans-serif',
+'georgia''Georgia, "Times New Roman", Times, serif',
+'impact''Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
+'tahoma''Tahoma, Geneva, Verdana, sans-serif',
+'timesnewRoman''"Times New Roman", Times, serif',
+'verdana''Verdana, Geneva, Tahoma, sans-serif';
+
+//hover, focus, active states
+@mixin itemState($state) {
+  color: var(--smart-ui-state-color-#{$state});
+  border-color: var(--smart-ui-state-border-#{$state});
+  background-color: var(--smart-ui-state-#{$state});
+}
+
+@mixin userSelect {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+//Input common styles
+%input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: var(--smart-editor-padding);
+  background: transparent;
+}
+
+//Toolbar item common styles
+%toolbarItem {
+  position: relative;
+  height: var(--smart-editor-toolbar-item-height);
+  outline: none;
+}
+
+//Ellipsis
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin iconFont {
+  font-size: var(--smart-font-size);
+  font-family: var(--smart-font-family-icon);
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin disabledState {
+  @include userSelect;
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}
+
+//A toolbar item pserudo element for the icons
+%toolbarIconPseudo {
+  @include iconFont;
+  @include flexCenter;
+  width: 100%;
+  min-width: var(--smart-editor-addon-width);
+  height: 100%;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+//A toolbar item pseudo element for drop down icon
+%toolbarItemDropDownPseudo {
+  @extend %toolbarIconPseudo;
+  content: var(--smart-icon-arrow-down);
+  width: var(--smart-editor-addon-width);
+  min-width: var(--smart-editor-addon-width);
+}
+
+%toolbarItemDropDownLabelPseudo {
+  @include iconFont;
+  @include ellipsis;
+  content: attr(item-value);
+  width: calc(100% - 30px);
+  padding: var(--smart-editor-label-padding);
+  padding-top: initial;
+  padding-right: initial;
+  padding-bottom: initial;
+  text-align: center;
+}
+
+//Disabled state
+%disabledState[disabled] {
+  @include disabledState;
+}
+
+.smart-editor {
+  display: block;
+  width: var(--smart-editor-default-width);
+  height: var(--smart-editor-default-height);
+  min-height: var(--smart-editor-input-min-height);
+  border: $border;
+  border-radius: var(--smart-border-radius);
+  contain: content;
+
+  //When inside an iframe
+  &.smart-editor-iframe-body {
+    margin: initial;
+    border: initial;
+    min-height: initial;
+    border-radius: initial;
+    width: 100%;
+    height: 100%;
+
+    table {
+      font-size: var(--smart-font-size);
+      font-weight: var(--smart-font-weight);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  &>.smart-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  &.full-screen-mode {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    //The use of !important is needed to make sure that no inline style will interfere with full screen mode
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
+  }
+
+  &[readonly] {
+
+    .smart-editor-toolbar-items-primary,
+    .smart-editor-toolbar-items-secondary {
+      pointer-events: none;
+    }
+  }
+
+  //Toolbar Scroll Mode
+  &[toolbar-view-mode="multiRow"],
+  &[toolbar-view-mode="scroll"] {
+
+    .smart-editor-toolbar {
+      grid-template-areas:
+        'primary primary'
+        'secondary secondary ';
+
+      .smart-editor-toolbar-toggle-button {
+        display: none;
+      }
+    }
+
+    .smart-editor-toolbar-items-primary {
+      padding: 0 5px 5px 0;
+
+      .smart-editor-toolbar-item {
+        margin-bottom: initial;
+      }
+    }
+  }
+
+  &[toolbar-view-mode="multiRow"] {
+
+    >.smart-container {
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .smart-editor-toolbar .smart-editor-toolbar-items-primary {
+      height: auto;
+    }
+  }
+
+  &[toolbar-view-mode="scroll"] {
+
+    &>.smart-container {
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .smart-editor-toolbar-items-primary {
+      overflow-y: auto;
+    }
+  }
+
+  //Animations
+  &:not([animation="none"]) {
+
+    .smart-editor-toolbar:not(.smart-tooltip),
+    .smart-editor-content-container {
+      transition: height 0.2s ease-in-out;
+    }
+
+    .smart-editor-toolbar-item,
+    .smart-editor-toolbar-toggle-button {
+      transition: background-color 0.2ms linear, border-color 0.2ms ease-in-out, color 0.2ms linear, box-shadow 0.2s ease-in-out;
+    }
+
+    .smart-editor-toolbar-toggle-button::before {
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  &[right-to-left] {
+    .smart-editor-toolbar:not(.smart-tooltip) {
+      grid-template-areas:
+        'toggleButton primary'
+        'secondary secondary';
+      grid-template-columns: auto minmax(0, 1fr);
+
+      .smart-editor-toolbar-item {
+        margin-left: initial;
+        margin-right: var(--smart-editor-toolbar-item-margin);
+      }
+    }
+
+    .smart-editor-content-container,
+    .smart-editor-toolbar-items-primary,
+    .smart-editor-toolbar-items-secondary,
+    .smart-editor-toolbar-item[item-type="drop-down"],
+    .smart-editor-toolbar-item[item-type="color-input"] {
+      direction: rtl;
+    }
+
+    .smart-editor-resize-frame span {
+      transform: translate(50%, -50%);
+
+      &[position="top-left"],
+      &[position="bottom-right"] {
+        cursor: sw-resize;
+      }
+
+      &[position="top-right"],
+      &[position="bottom-left"] {
+        cursor: se-resize;
+      }
+    }
+  }
+
+  //Toolbar Items that are disabled in 'markdown' mode
+  &[edit-mode="markdown"] .smart-editor-toolbar-item {
+
+    &[item-name="alignment"],
+    &[item-name="indent"],
+    &[item-name="outdent"],
+    &[item-name="lowercase"],
+    &[item-name="uppercase"],
+    &[item-name="removelink"] {
+      @include disabledState;
+    }
+  }
+
+  &.preview-mode .smart-editor-toolbar-item {
+    &:not([item-name="print"]):not([item-name="sourcecode"]):not([item-name="fullscreen"]):not([item-name="splitmode"]) {
+      @include disabledState;
+    }
+  }
+
+  &[hide-toolbar] {
+    &>.smart-container {
+      grid-template-rows: minmax(auto, 1fr);
+    }
+
+    .smart-editor-toolbar:not(.smart-tooltip) {
+      display: none;
+    }
+  }
+
+  .smart-editor-toolbar:not(.smart-tooltip) {
+    width: 100%;
+    height: 100%;
+    border-bottom: $border;
+    background: var(--smart-surface);
+    display: grid;
+    grid-template-areas:
+      'primary toggleButton'
+      'secondary secondary ';
+    grid-template-columns: minmax(0, 1fr) auto;
+    overflow: hidden;
+    position: relative;
+
+    &[expanded] {
+      .smart-editor-toolbar-toggle-button::before {
+        transform: rotate(180deg);
+      }
+    }
+
+    .smart-editor-toolbar-item {
+      margin-left: var(--smart-editor-toolbar-item-margin);
+      margin-top: var(--smart-editor-toolbar-item-margin);
+    }
+  }
+
+  &[toolbar-sticky] .smart-editor-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
+  }
+
+  &[edit-mode="markdown"] .smart-editor-toolbar-item[item-name="sourcecode"]::before {
+    content: var(--smart-icon-visibility);
+  }
+
+  .smart-editor-toolbar-toggle-button {
+    grid-area: toggleButton;
+    width: var(--smart-editor-toolbar-button-width);
+    height: var(--smart-editor-toolbar-height);
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      @include iconFont;
+      @include flexCenter;
+      height: 100%;
+      box-sizing: border-box;
+      pointer-events: none;
+      content: var(--smart-icon-arrow-down);
+      width: var(--smart-editor-addon-width);
+      min-width: var(--smart-editor-addon-width);
+    }
+  }
+
+  .smart-editor-toolbar-items-primary {
+    grid-area: primary;
+    height: var(--smart-editor-toolbar-height);
+    overflow: hidden;
+
+    .smart-editor-toolbar-item {
+      margin-bottom: var(--smart-editor-toolbar-item-margin);
+    }
+  }
+
+  .smart-editor-toolbar-items-secondary {
+    grid-area: secondary;
+    padding-bottom: var(--smart-editor-toolbar-item-margin);
+  }
+
+  .smart-editor-toolbar-items-primary,
+  .smart-editor-toolbar-items-secondary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .smart-editor-toolbar-items-secondary:empty {
+    display: none;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    min-height: var(--smart-editor-input-min-height);
+    border: initial;
+  }
+
+  .smart-editor-content-container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    outline: none;
+    background: transparent;
+
+    &[split-mode] {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) var(--smart-border-width) minmax(0, 1fr);
+      grid-template-rows: 100%;
+      grid-column-gap: 2px;
+
+      .smart-editor-editable {
+        order: 1;
+      }
+
+      &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: var(--smart-border);
+        order: 2;
+      }
+
+      textarea {
+        order: 3;
+      }
+    }
+
+    textarea {
+      @extend %input;
+      resize: none;
+      outline: none;
+      border: initial;
+      min-height: var(--smart-editor-input-min-height);
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+    }
+
+    .smart-editor-editable {
+      @extend %input;
+      min-height: var(--smart-editor-input-min-height);
+      overflow: auto;
+
+      &[show-placeholder]::before {
+        content: attr(placeholder);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        pointer-events: none;
+        color: var(--smart-disabled-color);
+        opacity: 0.9;
+        font-family: inherit;
+        font-size: inherit;
+      }
+
+      p:first-child {
+        margin-top: 0;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        display: inline-block;
+      }
+
+      [alignment="left"] {
+        text-align: left;
+      }
+
+      [alignment="center"] {
+        text-align: center;
+      }
+
+      [alignment="right"] {
+        text-align: right;
+      }
+
+      [alignment="justify"] {
+        text-align: justify;
+      }
+
+      &[table-cell-resize="horizontal"] {
+        cursor: col-resize;
+
+        table {
+          overflow: hidden;
+        }
+
+        th[resizing],
+        td[resizing] {
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            display: flex;
+            width: var(--smart-border-width);
+            height: 100%;
+            transform: scaleY(100);
+            background-color: var(--smart-primary);
+          }
+        }
+      }
+
+      &[table-cell-resize="vertical"] {
+        cursor: row-resize;
+
+        tr[resizing]>th,
+        tr[resizing]>td {
+          border-bottom-color: var(--smart-primary);
+        }
+      }
+
+      &[contenteditable="true"] img {
+        cursor: pointer;
+      }
+
+      font:empty {
+        min-width: 1px;
+        min-height: 1px;
+        display: inline-block;
+
+        &::before {
+          content: 'a';
+          opacity: 0;
+        }
+      }
+
+      pre {
+        padding: 10px;
+        background: var(--smart-surface);
+      }
+
+      blockquote {
+        border-left: calc(2 * var(--smart-border-width)) solid var(--smart-border);
+        padding: 20px 10px;
+      }
+    }
+
+    img {
+      float: initial;
+      vertical-align: initial;
+      margin: auto;
+      min-width: 10px;
+      min-height: 10px;
+
+      &[display="block"] {
+        display: block;
+
+        &[alignment="left"] {
+          margin-left: 0;
+        }
+
+        &[alignment="right"] {
+          margin-right: 0;
+        }
+      }
+
+      &[show-resize-frame] {
+        box-shadow: 0 0 0 var(--smart-border-width) var(--smart-primary);
+      }
+
+      &:not([display="block"]) {
+        &[alignment="left"] {
+          float: left;
+        }
+
+        &[alignment="right"] {
+          float: right;
+        }
+      }
+    }
+  }
+
+  &[show-char-count] .smart-editor-content-container {
+    &::after {
+      content: attr(char-count);
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      bottom: var(--smart-editor-char-counter-offset);
+      right: var(--smart-editor-char-counter-offset);
+      box-sizing: border-box;
+      background: var(--smart-background);
+      border-radius: var(--smart-border-radius);
+      background-clip: content-box;
+      font-family: inherit;
+      font-size: inherit;
+      pointer-events: none;
+      @include userSelect;
+    }
+
+    &.char-count-error::after {
+      color: var(--smart-error);
+    }
+
+    &.char-count-warning::after {
+      color: var(--smart-warning);
+    }
+  }
+
+  &[edit-mode="markdown"] .smart-editor-content-container[split-mode] {
+
+    .smart-editor-editable {
+      order: 3;
+    }
+
+    textarea {
+      order: 1;
+    }
+  }
+
+  .smart-editor-resize-frame {
+    @include userSelect;
+    position: absolute;
+
+    span {
+      cursor: pointer;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: var(--smart-primary);
+      transform: translate(-50%, -50%);
+
+      &[position="top-left"],
+      &[position="bottom-right"] {
+        cursor: se-resize;
+      }
+
+      &[position="top-right"],
+      &[position="bottom-left"] {
+        cursor: sw-resize;
+      }
+
+      &[position="top-center"],
+      &[position="bottom-center"] {
+        cursor: ns-resize;
+      }
+
+      &[position="left-center"],
+      &[position="right-center"] {
+        cursor: ew-resize;
+      }
+    }
+  }
+
+  .smart-editor-image-container {
+    display: inline-block;
+
+    &[display="block"] {
+      display: block;
+
+      &[alignment="left"] {
+        img {
+          margin-left: 0;
+        }
+
+        .smart-editor-image-caption {
+          text-align: left;
+        }
+      }
+
+      &[alignment="right"] {
+        img {
+          margin-right: 0;
+        }
+
+        .smart-editor-image-caption {
+          text-align: right;
+        }
+      }
+    }
+
+    &:not([display="block"]) {
+      &[alignment="left"] {
+        float: left;
+      }
+
+      &[alignment="right"] {
+        float: right;
+      }
+    }
+
+    .smart-editor-image-caption {
+      display: block;
+      text-align: center;
+      outline: none;
+    }
+  }
+
+  table {
+    width: 100%;
+    // min-width: 0;
+    border-collapse: collapse;
+    empty-cells: show;
+    border-spacing: 0;
+    table-layout: fixed;
+
+    td,
+    th {
+      border: $border;
+      width: var(--smart-editor-table-column-width);
+      min-height: var(--smart-editor-table-cell-min-height);
+      min-width: var(--smart-editor-table-cell-min-width);
+      padding: 2px 5px;
+      vertical-align: middle;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th {
+      background: var(--smart-surface);
+    }
+
+    //Note: Workaround for the Webkit Browser bug with user-modify CSS proeprty of contenteditable elements
+    th:empty::before,
+    td:empty::before {
+      content: 'A';
+      visibility: hidden;
+    }
+
+    &[dashed-borders] th,
+    &[dashed-borders] td {
+      border-style: dashed;
+    }
+
+    &[alternation] {
+      tr:nth-child(2n) {
+        background-color: var(--smart-alternation-index0-background);
+      }
+    }
+
+    [selected] {
+      box-shadow: 0 0 0 var(--smart-border-width) var(--smart-primary) inset;
+    }
+  }
+
+  &[focus] .smart-editor-toolbar-item[item-type="button"][checked] {
+    @include itemState(active);
+  }
+}
+
+.smart-editor-toolbar-item {
+  @include ellipsis;
+  @extend %disabledState;
+  position: relative;
+  border-radius: var(--smart-editor-toolbar-item-border-radius);
+  cursor: pointer;
+
+  &:not([item-type="custom"]) {
+    &:hover {
+      @include itemState(hover);
+      box-shadow: var(--smart-elevation-1);
+    }
+
+    &:not([item-type="color-input"]):not([disabled]):active {
+      @include itemState(active);
+    }
+  }
+
+  &:not([item-type="drop-down"])::before {
+    @extend %toolbarIconPseudo;
+  }
+
+  @each $iconType,
+  $iconName in $iconTypes {
+    @if (str-index($iconType, "color")) {
+      .smart-editor-item-action-button[item-name="#{$iconType}"]::before {
+        content: var(--smart-icon-#{$iconName});
+      }
+    }
+
+    @else {
+      &[item-name="#{$iconType}"]::before {
+        content: var(--smart-icon-#{$iconName});
+
+        @if ($iconName=='cut') {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
+  &[item-name="redo"]::before {
+    transform: scaleX(-1);
+  }
+
+  &[item-name="caption"]::before {
+    font-weight: 600;
+  }
+
+  &[item-name="clearformat"]::before {
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  &[item-name="clearformat"]::after {
+    @extend %toolbarIconPseudo;
+    content: '-';
+    position: absolute;
+    top: 0;
+    font-weight: 600;
+    transform: scaleX(1.5);
+  }
+
+  &[item-name="alignment"]::before {
+    @extend %toolbarIconPseudo;
+  }
+
+  @each $alignmentName,
+  $alignmentIcon in $alignment {
+    &[item-name="alignment"][item-value="#{$alignmentName}"]::before {
+      content: var(--smart-icon-#{$alignmentIcon});
+    }
+  }
+
+  &[item-type="toggle"][checked] {
+    @include itemState(active);
+  }
+
+  &[item-type="button"],
+  &[item-type="toggle"] {
+    @extend %toolbarItem;
+    width: var(--smart-editor-toolbar-button-width);
+  }
+
+  &[item-type="drop-down"],
+  &[item-type="color-input"] {
+    @extend %toolbarItem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--smart-editor-toolbar-drop-down-width-small);
+  }
+
+  &[item-type="drop-down"] {
+
+    &[item-name="fontname"],
+    &[item-name="formats"] {
+      width: var(--smart-editor-toolbar-drop-down-width-large);
+    }
+
+    &[item-name="tablerows"]:before {
+      transform: rotate(90deg);
+      padding: var(--smart-editor-label-padding);
+      padding-left: initial;
+      padding-right: initial;
+      padding-top: initial;
+    }
+
+    &:after {
+      @extend %toolbarItemDropDownPseudo;
+    }
+
+    &:before {
+      @extend %toolbarItemDropDownLabelPseudo;
+    }
+  }
+
+  &[item-type="color-input"] {
+
+    .smart-editor-item-action-button {
+      @include flexCenter;
+      position: relative;
+      width: calc(100% - var(--smart-editor-addon-width));
+      height: 100%;
+      min-width: var(--smart-editor-addon-width);
+      padding: var(--smart-editor-label-padding);
+      padding-top: initial;
+      padding-bottom: initial;
+
+      &::before {
+        @include iconFont;
+        border-bottom: calc(3 * var(--smart-border-width)) solid var(--item-value);
+      }
+    }
+
+    .smart-editor-item-drop-down-button {
+      position: relative;
+      height: 100%;
+
+      &::before {
+        @extend %toolbarItemDropDownPseudo;
+      }
+    }
+  }
+
+  &[item-type="custom"] {
+    > :first-child {
+      width: 100%;
+      height: var(--smart-editor-toolbar-item-height);
+    }
+  }
+
+  .smart-editor-item-action-button,
+  .smart-editor-item-drop-down-button {
+
+    &:hover {
+      @include itemState(hover);
+      border-color: var(--smart-ui-state-focus);
+      background-color: var(--smart-ui-state-focus);
+    }
+
+    &:not([disabled]):active {
+      @include itemState(active);
+    }
+  }
+
+  &[item-type="delimiter"] {
+    @extend %toolbarItem;
+    width: var(--smart-editor-toolbar-delimiter-width);
+    pointer-events: none;
+
+    &::before {
+      @extend %toolbarIconPseudo;
+      content: attr(item-name);
+      transform: scaleY(1.5);
+      min-width: initial;
+    }
+  }
+
+  .smart-ripple {
+    background-color: var(--smart-background-color);
+  }
+
+  .smart-editor-item-drop-down {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+}
+
+/* --- Editor Color Input --- */
+@include color-input-mixin(editor);
+
+.smart-editor-color-input.smart-color-input-drop-down-menu .default-samples-container div.selected[value="#FFFFFF"]::after {
+  border: var(--smart-border-width) solid var(--smart-border);
+  color: var(--smart-ui-state-color-hover);
+  box-sizing: border-box;
+}
+
+
+
+/* --- Editor Input Drop Down --- */
+.smart-editor-input {
+  li {
+    .editor-icon::before {
+      @include iconFont;
+      @include flexCenter;
+      position: absolute;
+      left: 0;
+      width: var(--smart-column-icon-size);
+      line-height: 1rem;
+    }
+
+    //Alignment Drop Down Items
+    @each $alignmentName,
+    $alignmentIcon in $alignment {
+      &[value="#{$alignmentName}"] .editor-icon::before {
+        content: var(--smart-icon-#{$alignmentIcon});
+      }
+    }
+
+    //Table Action Items
+    @each $actionName,
+    $actionIcon in $tableActions {
+      &[value="#{$actionName}"] .editor-icon::before {
+        content: var(--smart-icon-#{$actionIcon});
+
+        @if ($actionName=='insertRowAfter') {
+          transform: rotate(180deg);
+        }
+
+        @else if($actionName=='insertColumnLeft') {
+          transform: rotate(-90deg);
+        }
+
+        @else if($actionName=='insertColumnRight') {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    //Formats Drop Down Items
+    @each $heading,
+    $headingSize in $headings {
+
+      &[value="#{$heading}"] a {
+        font-size: $headingSize;
+        font-weight: bold;
+      }
+    }
+
+    //Font Drop Down Items
+    @each $fontName,
+    $fontFamily in $fonts {
+      &[value="#{$fontName}"] a {
+        font-family: #{$fontFamily};
+      }
+    }
+  }
+
+  &[right-to-left] li .editor-icon::before {
+    right: 0;
+    left: initial;
+  }
+}
+
+/* --- Editor Window --- */
+
+.smart-editor-window {
+  --smart-window-default-width: auto;
+  --smart-window-default-height: auto;
+  --smart-window-header-height: var(--smart-editor-window-header-height);
+  --smart-window-footer-height: var(--smart-editor-window-footer-height);
+  --smart-window-header-footer-padding: 10px;
+  --smart-window-header-background: transparent;
+  --smart-window-footer-padding: 10px;
+  --smart-window-content-padding: 20px;
+  max-width: 95vw;
+  max-height: 95vh;
+
+  &.smart-window .smart-content-container>.smart-content {
+    padding: initial;
+    align-items: flex-start;
+  }
+
+  .smart-editor-window-button {
+    width: 100%;
+    height: 100%;
+    --smart-button-padding: 0.2rem 16px;
+
+    &:not(:last-of-type) {
+      margin-right: 2.5%;
+    }
+  }
+
+  .smart-editor-window-content-wrapper {
+    grid-template-rows: auto minmax(auto, 1fr);
+    padding: var(--smart-window-content-padding);
+    width: 100%;
+
+    >div {
+      display: grid;
+      width: var(--smart-box-width);
+      grid-row-gap: 10px;
+      justify-content: center;
+      grid-template-columns: 100%;
+    }
+  }
+
+  .smart-editor-window-editor {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-column-gap: 10px;
+
+    >.smart-input {
+      width: 100%;
+    }
+
+    >.smart-check-box {
+      width: max-content;
+    }
+
+    &[multiple] .smart-editor-window-editor {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &[type="file"] {
+
+      .smart-drop-zone {
+        width: 100%;
+        height: 100px;
+        border: calc(2 * var(--smart-border-width)) dashed var(--smart-border);
+        border-radius: var(--smart-border-radius);
+      }
+
+      //File Upload Styles
+      .smart-file-upload {
+        --smart-file-upload-drop-zone-height: 100px;
+        width: 100%;
+        order: 1;
+        min-height: initial;
+
+        .smart-browse-button {
+          margin: initial;
+        }
+
+        .smart-item-upload-button {
+          display: none;
+        }
+
+        .smart-file-upload-header {
+          margin-bottom: 5px;
+          padding: initial;
+        }
+
+        .smart-file-upload-container {
+          padding: initial;
+        }
+
+        //NOTE: Move to FileUpload CSS file
+        .smart-selected-files {
+          padding: initial;
+
+          .smart-file {
+            display: flex;
+            margin: initial;
+            border: $border;
+            border-radius: var(--smart-border-radius);
+          }
+
+          .smart-item-upload-button:after,
+          .smart-item-pause-button:after,
+          .smart-item-cancel-button:after {
+            position: initial;
+            left: initial;
+            top: initial;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .smart-item-name {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* --- Editor Tooltip --- */
+.smart-tooltip.smart-editor-toolbar {
+  --smart-tooltip-padding: 5px;
+  --smart-tooltip-arrow-color: var(--smart-surface);
+
+  .smart-tooltip-content {
+    display: flex;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-color: var(--smart-surface);
+    opacity: initial;
+  }
+
+  &.smart-editor-inline-toolbar .smart-tooltip-content {
+    max-width: var(--smart-editor-inline-toolbar-max-width);
+    flex-wrap: wrap;
+  }
+
+  &:not([animation="none"]) .smart-editor-toolbar-item {
+    transition: background-color 0.2ms linear, border-color 0.2ms ease-in-out, color 0.2ms linear, box-shadow 0.2s ease-in-out;
+  }
+
+  &:not(.smart-editor-drop-down-toolbar) .smart-editor-toolbar-item:not(:first-of-type) {
+    margin-left: var(--smart-editor-toolbar-item-margin);
+  }
+
+  &[right-to-left]:not(.smart-editor-drop-down-toolbar) .smart-editor-toolbar-item:not(:first-of-type) {
+    margin-left: initial;
+    margin-right: var(--smart-editor-toolbar-item-margin);
+  }
+}
+
+.smart-editor-drop-down-toolbar {
+
+  &:not([animation="none"]) {
+    animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+    transition: animation 0.2s ease-in, opacity 0.2s ease-in, visibility 0.2s ease-in;
+
+    &[visible] {
+      animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+      transition: animation 0.2s ease-out, opacity 0.2s ease-out, visibility 0.2s ease-out;
+    }
+  }
+
+  &:not([arrow-direction]),
+  &[arrow-direction="bottom"] {
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+  }
+
+  &:not([arrow]),
+  &[arrow-direction="top"] {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+
+  //smartTablePicker Custom Element Styles
+  .smart-table-picker {
+    overflow: hidden;
+    display: block;
+    background: transparent;
+
+    &[right-to-left] {
+      .smart-table-picker-grid {
+        direction: rtl;
+      }
+
+      .smart-table-picker-button>button.smart-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+          margin-right: initial;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .smart-table-picker-grid {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &::before {
+        content: attr(value);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0.2rem 16px;
+        box-sizing: border-box;
+      }
+
+      >div {
+        display: flex;
+      }
+    }
+
+    .smart-table-picker-cell {
+      width: 15px;
+      height: 15px;
+      border: var(--smart-border-width) solid var(--smart-border);
+      margin: 2px;
+      cursor: pointer;
+
+      &[selected] {
+        border-color: var(--smart-primary);
+        background: rgba(var(--smart-primary-rgb), 0.7);
+      }
+    }
+
+    .smart-table-picker-separator {
+      width: 100%;
+      height: var(--smart-border-width);
+      background: var(--smart-border);
+      margin: 10px 0;
+    }
+
+    .smart-table-picker-button {
+      width: 100%;
+      background: transparent;
+      border: initial;
+
+      button::before {
+        @include iconFont;
+        content: var(--smart-icon-table);
+        margin-right: 10px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

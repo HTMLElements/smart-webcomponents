@@ -1,0 +1,202 @@
+/* smart-gauge */
+smart-gauge {
+  display: block;
+  width: var(--smart-gauge-default-width);
+  height: var(--smart-gauge-default-height);
+  min-width: 125px;
+  min-height: 125px;
+  fill: var(--smart-background-color);
+
+  &:focus {
+    outline: none;
+  }
+
+  &.smart-element {
+    border: none;
+  }
+
+  &[disabled] {
+    user-select: none;
+  }
+
+  &[size-mode="auto"] {
+    min-height: initial;
+  }
+}
+
+.smart-gauge {
+  &:focus {
+    .smart-needle,
+    .smart-needle-central-circle {
+      fill: var(--smart-primary);
+    }
+  }
+
+  .smart-container,
+  &.smart-container {
+    position: relative;
+    border-radius: 50%;
+  }
+
+  .drawContainer {
+    > svg {
+      fill: var(--smart-gauge-label-fill-state);
+      stroke: var(--smart-gauge-label-stroke);
+    }
+  }
+
+  .smart-svg-container {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+  }
+
+  .smart-tick {
+    stroke: var(--smart-border);
+    stroke-width: 1px;
+    width: 15px;
+    pointer-events: none;
+  }
+
+  .smart-tick-minor {
+    width: 5px;
+  }
+
+  .smart-needle {
+    width: 20px;
+    height: 110px;
+    fill: var(--smart-background-color);
+  }
+
+  .smart-needle-central-circle {
+    fill: var(--smart-background-color);
+  }
+
+  .smart-track {
+    width: 15px;
+    stroke: var(--smart-border);
+    stroke-width: 2px;
+    fill: var(--smart-background);
+  }
+
+  .smart-value {
+    stroke: var(--smart-ui-state-border-active);
+    stroke-width: 2px;
+    fill: var(--smart-ui-state-active);
+  }
+
+  .smart-line {
+    stroke: var(--smart-background-color);
+    stroke-width: 5px;
+  }
+
+  .smart-range {
+    width: 75px;
+    fill: #D8D8D8;
+  }
+
+  .smart-digital-display-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+
+  .smart-digital-display {
+    --smart-numeric-text-box-background: transparent;
+    --smart-numeric-text-box-text-align: center;
+    position: absolute;
+    display: none;
+    width: 80px;
+    height: auto;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: inherit;
+    pointer-events: initial;
+  }
+
+  &[dragged] {
+    cursor: pointer;
+
+    .smart-label {
+      cursor: pointer;
+    }
+  }
+
+  &[analog-display-type="fill"][ticks-position="track"],
+  &[analog-display-type="line"][ticks-position="track"] {
+    .smart-tick {
+      stroke: #F2F2F2;
+    }
+  }
+
+  &[ticks-visibility="major"] .smart-tick-minor,
+  &[labels-visibility="endPoints"] .smart-label-middle {
+    visibility: hidden;
+  }
+
+  &[show-ranges][ranges] {
+    .smart-track {
+      opacity: 0;
+    }
+  }
+
+  &[show-unit] {
+    .smart-digital-display {
+      --smart-numeric-text-box-text-align: right;
+
+      input.smart-input {
+        border-right: none;
+      }
+    }
+  }
+
+  &[digital-display] {
+    .smart-digital-display {
+      display: inline-block;
+    }
+  }
+
+  &[digital-display-position="top"] {
+    .smart-digital-display {
+      top: 25%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &[digital-display-position="right"] {
+    .smart-digital-display {
+      top: 50%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &[digital-display-position="left"] {
+    .smart-digital-display {
+      top: 50%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &[digital-display-position="center"] {
+    .smart-digital-display {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  //Right-To-Left
+  &[right-to-left] {
+    .smart-label,
+    .smart-label-middle {
+      direction: rtl;
+      text-anchor: end;
+    }
+  }
+}

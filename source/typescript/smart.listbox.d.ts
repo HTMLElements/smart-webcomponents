@@ -135,7 +135,7 @@ export interface ListBoxProperties {
    * A getter that returns an array of all ListBox items.
    * Default value: 
    */
-  items?: {label: string, value: string}[];
+  items?: ListBoxItem[];
   /**
    * A string that represents the id of an HTMLTemplateElement inside the DOM or a reference to the template itself. It's used to set a custom template for the list items.
    * Default value: null
@@ -383,6 +383,11 @@ export interface ListBox extends BaseElement, ListBoxProperties {
    */
   getItem(value: string): HTMLElement;
   /**
+   * Returns an array of ListBox items.
+   * @returns {{label: string, value: string}[]}
+   */
+  getItems(): {label: string, value: string}[];
+  /**
    * Inserts a new item at a specified index.
    * @param {number} index. The index where the item must be inserted.
    * @param {any} items. A single item/definition or an array of List Items/definitions of list items to be inserted. The format of the item definitions is the same as the format of the <strong>dataSource</strong> property.
@@ -422,6 +427,19 @@ export interface ListBox extends BaseElement, ListBoxProperties {
    * @param {any} details. An object that contains the properties and their new values for the List item that should be updated. For example, label, value or selected attributes.
    */
   update(index: number, details: any): void;
+}
+
+export interface ListBoxItem {
+  /**
+   * The label of the list item.
+   * Default value: 
+   */
+  label?: string | null;
+  /**
+   * The value of the list item.
+   * Default value: 
+   */
+  value?: string | null;
 }
 
 declare global {

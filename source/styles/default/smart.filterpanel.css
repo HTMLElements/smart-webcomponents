@@ -8,21 +8,66 @@ smart-filter-panel.smart-element {
     border: none;
 }
 
-.smart-filter-panel .smart-filter-panel-label,
-.smart-filter-panel .smart-filter-panel-list,
-.smart-filter-panel .smart-filter-panel-input,
-.smart-filter-panel .smart-filter-panel-operator-list,
+.smart-filter-panel smart-numeric-text-box.smart-filter-panel-input input {
+    text-align: right;
+}
+
 .smart-filter-panel smart-tree,
 .smart-filter-panel smart-filter-builder {
+    width: 100%;
+    height: var(--smart-filter-panel-main-element-height);
+    margin-bottom: var(--smart-filter-panel-vertical-offset);
+}
+
+.smart-filter-panel smart-tree.date-excel smart-tree-items-group[level="1"] > .smart-tree-item-label-container > .smart-tree-items-group-arrow {
+    visibility: hidden;
+}
+
+.smart-filter-panel smart-tree.standard-excel .smart-tree-items-group-arrow {
+    visibility: hidden;
+}
+
+.smart-filter-panel smart-tree.standard-excel smart-tree-item:not([level="1"]) > .smart-tree-item-label-container {
+    margin-left: -30px;
+}
+
+.smart-filter-panel smart-filter-builder {
+    --smart-filter-builder-item-width: 150px;
+    display: block;
+}
+
+.smart-filter-panel smart-filter-builder .smart-filter-field-name {
+    display: none;
+}
+
+.smart-filter-panel smart-filter-builder .smart-scroll-viewer-content-container {
+    padding: 0;
+}
+
+.smart-filter-panel smart-filter-builder .smart-content-container > .smart-filter-group > .smart-filter-group-operator {
+    margin-left: 15px;
+}
+
+.smart-filter-panel smart-filter-builder .smart-filter-group-condition-container {
+    padding-left: 15px;
+}
+
+.smart-filter-panel smart-menu-item[value="notand"], .smart-filter-panel smart-menu-item[value="notor"] {
+    display: none;
+}
+
+.smart-filter-panel .smart-filter-panel-label {
     margin-bottom: var(--smart-filter-panel-vertical-offset);
 }
 
 .smart-filter-panel .smart-filter-panel-list {
     width: 100%;
+    margin-bottom: var(--smart-filter-panel-vertical-offset);
 }
 
 .smart-filter-panel .smart-filter-panel-operator-list {
     width: 80px;
+    margin-bottom: var(--smart-filter-panel-vertical-offset);
 }
 
 .smart-filter-panel .smart-filter-panel-button-container {
@@ -33,11 +78,11 @@ smart-filter-panel.smart-element {
     justify-content: space-around;
 }
 
-.smart-filter-panel .smart-filter-panel-button-container>smart-button {
+.smart-filter-panel .smart-filter-panel-button-container > smart-button {
     width: 80px;
 }
 
-.smart-filter-panel .smart-filter-panel-button-container>smart-button button {
+.smart-filter-panel .smart-filter-panel-button-container > smart-button button {
     padding: 8px;
 }
 
@@ -45,35 +90,7 @@ smart-filter-panel.smart-element {
     height: var(--smart-editor-height);
     width: 100%;
     display: block;
-}
-
-.smart-filter-panel smart-numeric-text-box.smart-filter-panel-input input {
-    text-align: right;
-}
-
-.smart-filter-panel smart-tree,
-.smart-filter-panel smart-filter-builder {
-    width: 100%;
-    height: var(--smart-filter-panel-main-element-height);
-}
-
-.smart-filter-panel smart-tree.standard-excel .smart-tree-items-group-arrow,
-.smart-filter-panel smart-tree.date-excel smart-tree-items-group[level="1"]>.smart-tree-item-label-container>.smart-tree-items-group-arrow {
-    visibility: hidden;
-}
-
-.smart-filter-panel smart-tree.standard-excel smart-tree-item:not([level="1"])>.smart-tree-item-label-container {
-    margin-left: -30px;
-}
-
-.smart-filter-panel[right-to-left] smart-tree.standard-excel smart-tree-item:not([level="1"])>.smart-tree-item-label-container {
-    margin-right: -30px;
-    margin-left: unset;
-}
-
-.smart-filter-panel smart-filter-builder {
-    --smart-filter-builder-item-width: 150px;
-    display: block;
+    margin-bottom: var(--smart-filter-panel-vertical-offset);
 }
 
 .smart-filter-panel[filter-type="string"] smart-filter-builder {
@@ -104,27 +121,13 @@ smart-filter-panel.smart-element {
     width: 100%;
 }
 
-.smart-filter-panel smart-filter-builder .smart-filter-field-name {
-    display: none;
-}
-
-.smart-filter-panel smart-filter-builder .smart-scroll-viewer-content-container {
-    padding: 0;
-}
-
-.smart-filter-panel smart-filter-builder .smart-content-container>.smart-filter-group>.smart-filter-group-operator {
-    margin-left: 15px;
-}
-
-.smart-filter-panel smart-filter-builder .smart-filter-group-condition-container {
-    padding-left: 15px;
-}
-
-.smart-filter-panel smart-menu-item[value="notand"],
-.smart-filter-panel smart-menu-item[value="notor"] {
-    display: none;
-}
-
 .smart-filter-panel[right-to-left] {
     direction: rtl;
 }
+
+.smart-filter-panel[right-to-left] smart-tree.standard-excel smart-tree-item:not([level="1"]) > .smart-tree-item-label-container {
+    margin-right: -30px;
+    margin-left: unset;
+}
+
+/*# sourceMappingURL=smart.filterpanel.css.map */

@@ -1,5 +1,59 @@
-
 /*smart-pager*/
+.smart-pager-middle-buttons-container {
+    order: 1;
+    height: 100%;
+}
+
+.smart-pager-far-buttons-container {
+    order: 2;
+    height: 100%;
+}
+
+.smart-pager-far-buttons-container.near {
+    order: 0;
+}
+
+.smart-pager-far-buttons-container.far {
+    order: 2;
+}
+
+.smart-pager-input-and-label-container {
+    order: 3;
+}
+
+.smart-pager-input-and-label-container.near {
+    order: -2;
+}
+
+.smart-pager-size-selector-and-label-container {
+    order: 4;
+}
+
+.smart-pager-size-selector-and-label-container.near {
+    order: -1;
+}
+
+.smart-pager-summary-container {
+    order: 5;
+}
+
+.smart-pager-summary-container.near {
+    order: -2;
+}
+
+.smart-pager-near-buttons-container {
+    order: 0;
+    height: 100%;
+}
+
+.smart-pager-near-buttons-container.near {
+    order: 0;
+}
+
+.smart-pager-near-buttons-container.far {
+    order: 2;
+}
+
 smart-pager {
     min-width: 300px;
     height: var(--smart-pager-default-height);
@@ -12,85 +66,29 @@ smart-pager {
     --smart-item-border-bottom-right-radius: 100%;
 }
 
-    smart-pager.smart-element {
-        overflow: visible;
-        border-radius: 0px;
-        background: var(--smart-surface);
-        color: var(--smart-surface-color);
-    }
-
-    smart-pager:focus {
-        border-color: var(--smart-outline);
-    }
-
-    smart-pager > .smart-container,
-    .smart-pager.smart-container {
-        flex-direction: row;
-        display: flex;
-        align-items: center;
-    }
-
-.smart-pager-near-buttons-container {
-    order: 0;
-    height: 100%;
+smart-pager.smart-element {
+    overflow: visible;
+    border-radius: 0px;
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
 }
 
-.smart-pager-middle-buttons-container {
-    order: 1;
-    height: 100%;
+smart-pager:focus {
+    border-color: var(--smart-outline);
 }
 
-.smart-pager-far-buttons-container {
-    order: 2;
-    height: 100%;
+smart-pager > .smart-container, smart-pager.smart-container {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
 }
 
-.smart-pager-input-and-label-container {
-    order: 3;
-}
-
-    .smart-pager-input-and-label-container.near {
-        order: -2;
-    }
-
-.smart-pager-size-selector-and-label-container {
-    order: 4;
-}
-
-    .smart-pager-size-selector-and-label-container.near {
-        order: -1;
-    }
-
-.smart-pager-summary-container.near {
-    order: -2;
-}
-
-.smart-pager-summary-container {
-    order: 5;
-}
-
-.smart-pager-near-buttons-container.near {
-    order: 0;
-}
-
-.smart-pager-far-buttons-container.near {
-    order: 0;
-}
-
-.smart-pager-near-buttons-container.far {
-    order: 2;
-}
-
-.smart-pager-far-buttons-container.far {
-    order: 2;
-}
-
-.smart-pager .smart-pager-near-buttons-container,
-.smart-pager .smart-pager-far-buttons-container,
-.smart-pager .smart-pager-middle-buttons-container,
-.smart-pager .smart-pager-input-and-label-container,
-.smart-pager .smart-pager-size-selector-and-label-container,
-.smart-pager .smart-pager-summary-container {
+smart-pager .smart-pager-near-buttons-container,
+smart-pager .smart-pager-far-buttons-container,
+smart-pager .smart-pager-middle-buttons-container,
+smart-pager .smart-pager-input-and-label-container,
+smart-pager .smart-pager-size-selector-and-label-container,
+smart-pager .smart-pager-summary-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -98,7 +96,7 @@ smart-pager {
     margin: 0px 4px;
 }
 
-.smart-pager .smart-pager-page-index-selectors-container {
+smart-pager .smart-pager-page-index-selectors-container {
     display: flex;
     color: var(--smart-pager-color);
     width: auto;
@@ -107,11 +105,11 @@ smart-pager {
     align-items: center;
 }
 
-.smart-pager-page-index-selectors-container:focus .smart-pager-page-index-selector[selected] {
+smart-pager .smart-pager-page-index-selectors-container:focus .smart-pager-page-index-selector[selected] {
     text-decoration: underline;
 }
 
-.smart-pager .smart-pager-label {
+smart-pager .smart-pager-label {
     display: flex;
     border: none;
     align-items: center;
@@ -120,13 +118,14 @@ smart-pager {
     text-overflow: ellipsis;
     height: 100%;
     margin: 0px 8px;
+    white-space: nowrap;
 }
 
-    .smart-pager .smart-pager-label span {
-        padding: 2px;
-    }
+smart-pager .smart-pager-label span {
+    padding: 2px;
+}
 
-.smart-pager .smart-pager-button {
+smart-pager .smart-pager-button {
     display: flex;
     font-size: inherit;
     font-family: inherit;
@@ -143,32 +142,31 @@ smart-pager {
     /*margin-left: -1px;*/
 }
 
-
-.smart-pager:not([show-navigation-button-labels]) .smart-pager-button {
-    border-top-left-radius: var(--smart-item-border-top-left-radius);
-    border-top-right-radius: var(--smart-item-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
-    width: var(--smart-pager-page-index-selector-width);
-}
-
-.smart-pager .smart-pager-button:hover {
+smart-pager .smart-pager-button:hover {
     background: var(--smart-ui-state-hover);
     border-color: var(--smart-ui-state-border-hover);
     color: var(--smart-ui-state-color-hover);
 }
 
-.smart-pager .smart-pager-button:active {
+smart-pager .smart-pager-button:active {
     background: var(--smart-ui-state-active);
     border-color: var(--smart-ui-state-border-active);
     color: var(--smart-ui-state-color-active);
 }
 
-.smart-pager .smart-pager-button[disabled] {
+smart-pager .smart-pager-button:active .smart-ripple {
+    background-color: var(--smart-ui-state-color-active);
+}
+
+smart-pager .smart-pager-button[disabled] {
     opacity: 0.55;
 }
 
-.smart-pager .smart-pager-page-index-selector {
+smart-pager .smart-pager-button .smart-ripple {
+    background-color: var(--smart-ui-state-active);
+}
+
+smart-pager .smart-pager-page-index-selector {
     font-size: inherit;
     font-family: inherit;
     display: flex;
@@ -189,46 +187,38 @@ smart-pager {
     border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
 }
 
-.smart-pager .smart-previous-ellipsis-button,
-.smart-pager .smart-next-ellipsis-button {
-    width: var(--smart-pager-page-index-ellipsis-selector-width);
-    height: var(--smart-pager-page-index-ellipsis-selector-height);
-}
-
-.smart-pager .smart-pager-page-index-selector:first-child {
+smart-pager .smart-pager-page-index-selector:first-child {
     margin-left: -1px;
 }
 
-.smart-pager[disabled] .smart-pager-page-index-selector {
-    user-select: none;
-    cursor: default;
-}
-
-.smart-pager .smart-pager-page-index-selector:hover {
+smart-pager .smart-pager-page-index-selector:hover {
     background-color: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
     border-color: var(--smart-ui-state-border-hover);
 }
 
+smart-pager .smart-pager-page-index-selector .smart-ripple {
+    background-color: var(--smart-ui-state-active);
+}
 
-.smart-pager .smart-pager-page-index-selector[selected] {
+smart-pager .smart-pager-page-index-selector[selected] {
     background-color: var(--smart-ui-state-active);
     color: var(--smart-ui-state-color-active);
     border-color: var(--smart-ui-state-border-active);
     box-shadow: var(--smart-elevation-2);
 }
 
-.smart-pager .smart-pager-page-index-selector .smart-ripple,
-.smart-pager .smart-pager-button .smart-ripple {
-    background-color: var(--smart-ui-state-active);
-}
-
-.smart-pager .smart-pager-page-index-selector[selected] .smart-ripple,
-.smart-pager .smart-pager-button:active .smart-ripple {
+smart-pager .smart-pager-page-index-selector[selected] .smart-ripple {
     background-color: var(--smart-ui-state-color-active);
 }
 
-.smart-pager .smart-page-size-selector {
+smart-pager .smart-previous-ellipsis-button,
+smart-pager .smart-next-ellipsis-button {
+    width: var(--smart-pager-page-index-ellipsis-selector-width);
+    height: var(--smart-pager-page-index-ellipsis-selector-height);
+}
+
+smart-pager .smart-page-size-selector {
     width: var(--smart-pager-page-size-selector-width);
     background: var(--smart-background);
     color: var(--smart-background-color);
@@ -238,7 +228,7 @@ smart-pager {
     --smart-item-border-bottom-right-radius: var(--smart-border-radius);
 }
 
-.smart-pager .smart-pager-input {
+smart-pager .smart-pager-input {
     width: var(--smart-pager-input-width);
     box-sizing: border-box;
     padding: 0px var(--smart-editor-label-padding);
@@ -255,8 +245,18 @@ smart-pager {
     height: var(--smart-text-box-default-height);
 }
 
+smart-pager:not([show-navigation-button-labels]) .smart-pager-button {
+    border-top-left-radius: var(--smart-item-border-top-left-radius);
+    border-top-right-radius: var(--smart-item-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+    width: var(--smart-pager-page-index-selector-width);
+}
 
-/* --- Right To Left --- */
+smart-pager[disabled] .smart-pager-page-index-selector {
+    user-select: none;
+    cursor: default;
+}
 
 smart-pager[right-to-left] > .smart-container,
 smart-pager[right-to-left] .smart-pager-middle-buttons-container,
@@ -288,4 +288,4 @@ smart-pager[right-to-left] .smart-pager-label {
     direction: rtl;
 }
 
-/* --- */
+/*# sourceMappingURL=smart.pager.css.map */

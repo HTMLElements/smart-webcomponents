@@ -1,0 +1,35 @@
+/* smart-masked-text-box */
+smart-masked-text-box {
+  width: var(--smart-text-box-default-width);
+  height: var(--smart-text-box-default-height);
+
+  &.smart-element {
+    border: 1px solid var(--smart-border);
+    background: var(--smart-background);
+    overflow: visible;
+    border-radius: var(--smart-border-radius);
+  }
+}
+
+.smart-masked-text-box {
+  > .smart-container {
+    position: relative;
+  }
+
+  .smart-input {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+  }
+
+  //Right To Left
+  &[right-to-left] {
+    .smart-container {
+      direction: rtl;
+    }
+  }
+}

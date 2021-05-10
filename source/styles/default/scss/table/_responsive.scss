@@ -1,0 +1,94 @@
+//Responsive
+@media (max-width: 575.98px) {
+  &.table-responsive-sm {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    > .smart-table.table-bordered {
+      table {
+        border: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  &.table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    > .smart-table.table-bordered table {
+      border: 0;
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  &.table-responsive-lg {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    > .smart-table.table-bordered table {
+      border: 0;
+    }
+  }
+}
+
+@media (max-width: 1199.98px) {
+  &.table-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    > .smart-table.table-bordered table {
+      border: 0;
+    }
+  }
+}
+
+&.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  > .smart-table.table-bordered table {
+    border: 0;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .priority-5 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .priority-4 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .priority-3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .priority-2 {
+    display: none;
+  }
+}

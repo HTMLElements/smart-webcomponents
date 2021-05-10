@@ -1,120 +1,104 @@
 /* smart-scroll-bar */
-
 smart-scroll-bar {
-    display: block;
-    touch-action: none;
-    width: var(--smart-scroll-bar-default-width);
-    height: var(--smart-scroll-bar-default-height);
+  display: block;
+  touch-action: none;
+  width: var(--smart-scroll-bar-default-width);
+  height: var(--smart-scroll-bar-default-height);
 }
-
-smart-scroll-bar[orientation="vertical"] {
-    height: var(--smart-scroll-bar-default-width);
-    width: var(--smart-scroll-bar-default-height);
-}
-
 smart-scroll-bar .smart-thumb {
-    position: absolute;
-    width: 40px;
-    background-clip: content-box;
-    padding: var(--smart-scroll-bar-thumb-padding) 0 var(--smart-scroll-bar-thumb-padding) 0;
-    height: var(--smart-scroll-bar-thumb-size);
-    cursor: default;
-    box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--smart-scroll-bar-thumb-border);
-    background-color: var(--smart-scroll-bar-thumb-background);
-    border-top-left-radius: var(--smart-scroll-bar-thumb-border-top-left-radius);
-    border-top-right-radius: var(--smart-scroll-bar-thumb-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-scroll-bar-thumb-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-scroll-bar-thumb-border-bottom-right-radius);
+  position: absolute;
+  width: 40px;
+  background-clip: content-box;
+  padding: var(--smart-scroll-bar-thumb-padding) 0 var(--smart-scroll-bar-thumb-padding) 0;
+  height: var(--smart-scroll-bar-thumb-size);
+  cursor: default;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--smart-scroll-bar-thumb-border);
+  background-color: var(--smart-scroll-bar-thumb-background);
+  border-top-left-radius: var(--smart-scroll-bar-thumb-border-top-left-radius);
+  border-top-right-radius: var(--smart-scroll-bar-thumb-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-scroll-bar-thumb-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-scroll-bar-thumb-border-bottom-right-radius);
 }
-
 smart-scroll-bar .smart-thumb:hover {
-    border-color: var(--smart-scroll-bar-thumb-border-hover);
-    background-color: var(--smart-scroll-bar-thumb-background-hover);
+  border-color: var(--smart-scroll-bar-thumb-border-hover);
+  background-color: var(--smart-scroll-bar-thumb-background-hover);
 }
-
 smart-scroll-bar .smart-thumb:active {
-    border-color: var(--smart-scroll-bar-thumb-border-active);
-    background-color: var(--smart-scroll-bar-thumb-background-active);
+  border-color: var(--smart-scroll-bar-thumb-border-active);
+  background-color: var(--smart-scroll-bar-thumb-background-active);
 }
-
-smart-scroll-bar[orientation="vertical"] .smart-thumb {
-    width: var(--smart-scroll-bar-thumb-size);
-    padding: 0 var(--smart-scroll-bar-thumb-padding) 0 var(--smart-scroll-bar-thumb-padding);
-    height: 40px;
-    top: 0;
-}
-
 smart-scroll-bar .smart-track {
-    position: relative;
-    float: left;
-    height: 100%;
-    background-color: var(--smart-scroll-bar-track-background);
-    width: 100%;
+  position: relative;
+  float: left;
+  height: 100%;
+  background-color: var(--smart-scroll-bar-track-background);
+  width: 100%;
 }
-
-smart-scroll-bar[show-buttons] .smart-track {
-    width: calc(calc(100% - var(--smart-scroll-button-size) * 2));
-}
-
-smart-scroll-bar[orientation="vertical"] .smart-track {
-    float: none;
-    width: 100%;
-    height: 100%;
-}
-
-smart-scroll-bar[orientation="vertical"][show-buttons] .smart-track {
-    height: calc(calc(100% - var(--smart-scroll-button-size) * 2));
-}
-
-smart-scroll-bar[spinner][show-buttons] .smart-track {
-    display: none;
-}
-
 smart-scroll-bar .smart-scroll-button {
-    display: none;
+  display: none;
+  float: left;
+  width: var(--smart-scroll-button-size);
+  height: 100%;
+  cursor: default;
+  background-color: var(--smart-scroll-bar-button-background);
+  color: var(--smart-scroll-bar-button-color);
+  border: 1px solid var(--smart-scroll-bar-button-border);
+  min-height: 0;
+  padding: 0;
+  border-radius: 0px;
 }
-
-smart-scroll-bar[show-buttons] .smart-scroll-button {
-    display: block;
-    float: left;
-    width: var(--smart-scroll-button-size);
-    height: 100%;
-    cursor: default;
-    background-color: var(--smart-scroll-bar-button-background);
-    color: var(--smart-scroll-bar-button-color);
-    border: 1px solid var(--smart-scroll-bar-button-border);
-    min-height: 0;
-    padding: 0;
-    border-radius: 0px;
-}
-
 smart-scroll-bar .smart-scroll-button:hover {
-    background-color: var(--smart-scroll-bar-button-background-hover);
-    color: var(--smart-scroll-bar-button-color-hover);
-    border-color: var(--smart-scroll-bar-button-border-hover);
+  background-color: var(--smart-scroll-bar-button-background-hover);
+  color: var(--smart-scroll-bar-button-color-hover);
+  border-color: var(--smart-scroll-bar-button-border-hover);
 }
-
 smart-scroll-bar .smart-scroll-button:active {
-    background-color: var(--smart-scroll-bar-button-background-active);
-    color: var(--smart-scroll-bar-button-color-active);
-    border-color: var(--smart-scroll-bar-button-border-active);
+  background-color: var(--smart-scroll-bar-button-background-active);
+  color: var(--smart-scroll-bar-button-color-active);
+  border-color: var(--smart-scroll-bar-button-border-active);
 }
-
+smart-scroll-bar[show-buttons] .smart-track {
+  width: calc(calc(100% - var(--smart-scroll-button-size) * 2));
+}
+smart-scroll-bar[show-buttons] .smart-scroll-button {
+  display: block;
+}
+smart-scroll-bar[spinner][show-buttons] .smart-track {
+  display: none;
+}
 smart-scroll-bar[spinner][show-buttons] .smart-scroll-button {
-    width: 50%;
+  width: 50%;
+}
+smart-scroll-bar[orientation=vertical] {
+  height: var(--smart-scroll-bar-default-width);
+  width: var(--smart-scroll-bar-default-height);
+}
+smart-scroll-bar[orientation=vertical] .smart-thumb {
+  width: var(--smart-scroll-bar-thumb-size);
+  padding: 0 var(--smart-scroll-bar-thumb-padding) 0 var(--smart-scroll-bar-thumb-padding);
+  height: 40px;
+  top: 0;
+}
+smart-scroll-bar[orientation=vertical] .smart-track {
+  float: none;
+  width: 100%;
+  height: 100%;
+}
+smart-scroll-bar[orientation=vertical] .smart-scroll-button {
+  float: none;
+  height: var(--smart-scroll-button-size);
+  width: 100%;
+}
+smart-scroll-bar[orientation=vertical][show-buttons] .smart-track {
+  height: calc(calc(100% - var(--smart-scroll-button-size) * 2));
+}
+smart-scroll-bar[orientation=vertical][spinner] .smart-scroll-button {
+  height: 50%;
+  width: 100%;
+  float: none;
 }
 
-smart-scroll-bar[orientation="vertical"] .smart-scroll-button {
-    float: none;
-    height: var(--smart-scroll-button-size);
-    width: 100%;
-}
-
-smart-scroll-bar[spinner][orientation="vertical"] .smart-scroll-button {
-    height: 50%;
-    width: 100%;
-    float: none;
-}
+/*# sourceMappingURL=smart.scrollbar.css.map */

@@ -1,0 +1,104 @@
+/* smart-array */
+smart-array {
+  width: var(--smart-array-default-width);
+  height: var(--smart-array-default-height);
+  display: block;
+  overflow: visible;
+
+  > .smart-container,
+  .smart-big-container {
+    display: flex;
+  }
+
+  .smart-array-indexer {
+    display: block;
+    margin-bottom: 2px;
+    width: 100%;
+  }
+
+  .smart-big-container {
+    background-color: var(--smart-background);
+  }
+
+  &[show-index-display] {
+    .smart-big-container {
+      margin-left: 2px;
+    }
+  }
+
+  .smart-main-container,
+  .smart-scrollbar-container-horizontal {
+    width: 100%;
+  }
+
+  .smart-array-element-gap {
+    border-spacing: 0;
+  }
+
+  .smart-array-table-data {
+    border: 2px solid transparent;
+    padding: 0;
+    min-width: 0;
+    background-color: transparent;
+    white-space: nowrap;
+  }
+
+  .smart-array-table-data-gap {
+    border-width: var(--smart-array-element-gap);
+    padding: var(--smart-array-element-gap);
+  }
+
+  .smart-scrollbar-container-horizontal {
+    height: 20px;
+  }
+
+  .smart-scrollbar-container-vertical {
+    width: 20px;
+  }
+
+  .smart-scrollbar-container-horizontal,
+  .smart-scrollbar-container-vertical {
+    > smart-scroll-bar {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .smart-array-element {
+    position: relative;
+  }
+
+  .smart-array-element-selected {
+    border-color: blue;
+  }
+
+  .smart-array-element-empty {
+    border-color: #999;
+    color: #999;
+    opacity: 0.7;
+  }
+
+  //Custom smart-elements in smartArray
+  smart-switch-button,
+  smart-text-box {
+    &.smart-array-element {
+      display: block;
+    }
+  }
+
+  .smart-array-element {
+    > smart-toggle-button,
+    > smart-switch-button,
+    > smart-led,
+    > smart-power-button,
+    > smart-numeric-text-box,
+    > smart-check-box,
+    > smart-radio-button {
+      display: block;
+    }
+
+    > smart-check-box {
+      padding: 0;
+    }
+  }
+}

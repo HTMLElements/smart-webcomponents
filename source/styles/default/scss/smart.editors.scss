@@ -1,0 +1,211 @@
+/* smart-multiline-text-box */
+smart-multiline-text-box {
+  display: inline-block;
+  width: var(--smart-multiline-text-box-default-width);
+  height: var(--smart-multiline-text-box-default-height);
+  border: 1px solid #A9A9A9;
+  color: #A9A9A9;
+
+  &:focus {
+    border-color: #555555;
+  }
+
+  &.hovered,
+  &:focus.hovered {
+    border-color: #FFBB00;
+  }
+
+  &[disabled] {
+    border-color: #A9A9A9;
+    outline: none;
+
+    textarea.hovered,
+    &.hovered {
+      border-color: #A9A9A9;
+      outline: none;
+    }
+  }
+
+  smart-scroll-bar {
+    display: none;
+
+    &[disabled] {
+      pointer-events: none;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    color: inherit;
+    border: none;
+    padding: 2px;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    background-color: inherit;
+    overflow: hidden;
+    resize: none;
+    float: left;
+
+    &::selection {
+      background: #FFBB00;
+    }
+
+    &.smart-text-box-hidden {
+      visibility: hidden;
+      width: 100%;
+      height: 0px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+  }
+
+  .smart-container,
+  .smart-inner-container {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    overflow: hidden;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .smart-initialization-value {
+    display: none;
+  }
+
+  .smart-container {
+    textarea {
+      height: 100%;
+    }
+
+    &.hscroll {
+      textarea {
+        height: calc(100% - var(--smart-scroll-bar-size));
+      }
+
+      smart-scroll-bar {
+        width: 100%;
+        height: calc(var(--smart-scroll-bar-size));
+        display: block;
+
+        &[orientation="vertical"] {
+          display: none;
+        }
+      }
+    }
+
+    &.vscroll {
+      textarea {
+        width: calc(100% - var(--smart-scroll-bar-size));
+      }
+
+      smart-scroll-bar {
+        &[orientation="vertical"] {
+          float: right;
+          width: calc(var(--smart-scroll-bar-size));
+          height: 100%;
+          display: block;
+        }
+      }
+    }
+
+    &.vscroll.hscroll {
+      smart-scroll-bar {
+        &[orientation="vertical"] {
+          height: calc(100% - var(--smart-scroll-bar-size));
+          width: calc(var(--smart-scroll-bar-size));
+        }
+      }
+    }
+  }
+
+  .smart-resize-element {
+    box-sizing: border-box;
+    height: calc(var(--smart-scroll-bar-size));
+    width: calc(var(--smart-scroll-bar-size));
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: lightgray;
+    background-clip: content-box;
+    border: #ddd solid 1px;
+    display: none;
+    padding: 2px 0px 0px 2px;
+    cursor: nw-resize;
+  }
+
+  .smart-label,
+  .smart-hint,
+  .smart-required-message {
+    display: none;
+  }
+
+  &[cols],
+  &[rows] {
+    width: auto;
+    height: auto;
+
+    textarea {
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  &[auto-capitalize="words"] {
+    textarea {
+      text-transform: capitalize;
+    }
+  }
+
+  &[auto-capitalize="characters"] {
+    textarea {
+      text-transform: uppercase;
+    }
+  }
+
+  &[resizable] {
+    .smart-container.hscroll {
+      smart-scroll-bar {
+        width: calc(100% - var(--smart-scroll-bar-size));
+
+        smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar {
+          height: calc(var(--smart-scroll-bar-size));
+          width: calc(100% - var(--smart-scroll-bar-size));
+        }
+
+      }
+    }
+
+    .smart-container.vscroll {
+      smart-scroll-bar {
+        &[orientation="vertical"] {
+          height: calc(100% - var(--smart-scroll-bar-size));
+          width: calc(var(--smart-scroll-bar-size));
+        }
+      }
+    }
+
+    .smart-resize-element {
+      display: block;
+    }
+
+    .smart-resize,
+    .smart-resize textarea {
+      user-select: none;
+    }
+  }
+
+  &[display-mode="escaped"] {
+    textarea {
+      white-space: nowrap;
+    }
+  }
+}

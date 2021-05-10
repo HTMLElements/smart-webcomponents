@@ -1,0 +1,209 @@
+smart-text-box,
+smart-input,
+smart-password-input,
+smart-date-range-input,
+smart-multi-input,
+smart-multi-combo-input,
+smart-check-input {
+  &.underlined {
+    background-color: transparent;
+  }
+}
+
+smart-date-range-input,
+smart-date-input,
+smart-time-input {
+  &.underlined {
+    overflow: visible;
+  }
+}
+
+.underlined {
+  &.smart-input {
+    transition: border-bottom 0.2s, background-color 0.2s;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    .smart-hint {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block !important;
+      box-sizing: border-box;
+      padding: var(--smart-editor-label-padding);
+      color: var(--smart-background-color);
+      pointer-events: none;
+      font-size: 75%;
+      opacity: 0;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s, margin-top 0.2s, opacity 0.3s, top 0.2s;
+      margin-top: calc(0px - var(--smart-font-size));
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--smart-primary);
+        transform-origin: bottom center;
+        transform: scaleX(0);
+        transition: transform 0.2s;
+      }
+    }
+
+    &[drop-down-button-position="left"] .smart-drop-down-button {
+      border-bottom-left-radius: initial;
+    }
+
+    &[drop-down-button-position="right"] .smart-drop-down-button {
+      border-bottom-right-radius: initial;
+    }
+
+    .smart-drop-down-button {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    &[hover] {
+      border-bottom-color: var(--smart-background-color);
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    &[focus] {
+      .smart-hint {
+        color: var(--smart-primary);
+        opacity: 1;
+
+        &:before {
+          opacity: 0.12;
+        }
+
+        &:after {
+          transform: scale(1);
+        }
+      }
+    }
+
+    .smart-input:not(:focus):placeholder-shown+.smart-hint {
+      font-size: inherit;
+      margin-top: 0px;
+    }
+
+    &:not([readonly]) {
+      .smart-drop-down-button {
+        border-bottom-left-radius: initial;
+        border-bottom-right-radius: initial;
+      }
+    }
+
+    &:not([opened]) {
+      .smart-drop-down-button {
+        background-color: transparent;
+      }
+    }
+
+    &.smart-multi-combo-input:not([focus]) {
+      .smart-hint {
+        margin-top: 0px;
+      }
+    }
+
+    &.smart-date-range-input {
+      &[opened][drop-down-button-position="right"]:not([readonly]) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &[readonly] {
+      .smart-input {
+        background: var(--smart-background) !important;
+        color: var(--smart-background-color) !important;
+        opacity: 0.75;
+      }
+    }
+
+    &[drop-down-button-position="left"] {
+      .smart-drop-down-button {
+        background: inherit;
+        color: inherit;
+        border-bottom-left-radius: initial;
+      }
+
+      .smart-hint {
+        margin-left: var(--smart-editor-addon-width);
+      }
+
+      &[focus] {
+        .smart-hint:after {
+          margin-left: calc(0px - var(--smart-editor-addon-width));
+          width: calc(100% + var(--smart-editor-addon-width));
+        }
+      }
+
+      &[opened] {
+
+        &:not([readonly]),
+        &:not([readonly]) input {
+          border-bottom-right-radius: 0;
+        }
+      }
+    }
+
+    &[drop-down-button-position="right"] {
+      .smart-drop-down-button {
+        background: inherit;
+        color: inherit;
+        border-bottom-right-radius: initial;
+      }
+
+      &[opened] {
+
+        &:not([readonly]),
+        &:not([readonly]) input {
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+
+    &.smart-invalid {
+      border-bottom-color: #{'rgba(var(--smart-error-rgb), 0.5)'};
+
+      .smart-hint {
+        &:after {
+          background-color: var(--smart-error);
+        }
+      }
+    }
+  }
+
+  &.smart-text-box {
+    input.smart-input {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom-left-radius: initial;
+      border-bottom-right-radius: initial;
+    }
+  }
+
+  &.smart-number-input {
+    .nav {
+      background: var(--smart-background);
+      color: var(--smart-background-color);
+
+      .up {
+        border-bottom: none;
+      }
+    }
+  }
+}

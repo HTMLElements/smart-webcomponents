@@ -1,5 +1,4 @@
 /* smart-multiline-text-box */
-
 smart-multiline-text-box.smart-element {
     width: var(--smart-multiline-text-box-default-width);
     height: var(--smart-multiline-text-box-default-height);
@@ -15,44 +14,31 @@ smart-multiline-text-box[rows] {
     height: auto;
 }
 
-.smart-multiline-text-box>.smart-resize-trigger-container, .smart-multiline-text-box .smart-container>.smart-resize-trigger-container, .smart-multiline-text-box .smart-inner-container>.smart-resize-trigger-container {
+.smart-multiline-text-box[hover] {
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-multiline-text-box[focus] {
+    border-color: var(--smart-outline);
+}
+
+.smart-multiline-text-box > .smart-resize-trigger-container {
     margin-bottom: -1px;
 }
 
-.smart-multiline-text-box.smart-drop-down-box>.smart-container, .smart-multiline-text-box.smart-drop-down-box[label][hint]>.smart-container, .smart-multiline-text-box.smart-drop-down-box.smart-container {
+.smart-multiline-text-box .smart-container > .smart-resize-trigger-container,
+.smart-multiline-text-box .smart-inner-container > .smart-resize-trigger-container {
+    margin-bottom: -1px;
+}
+
+.smart-multiline-text-box.smart-drop-down-box > .smart-container, .smart-multiline-text-box.smart-drop-down-box[label][hint] > .smart-container, .smart-multiline-text-box.smart-drop-down-box.smart-container {
     overflow: visible;
     display: block;
     max-height: inherit;
 }
 
-.smart-multiline-text-box .smart-inner-container {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    font-style: inherit;
-    overflow: hidden;
-    color: inherit;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    max-height: inherit;
-}
-
-.smart-multiline-text-box .smart-initialization-value {
+.smart-multiline-text-box smart-scroll-bar {
     display: none;
-}
-
-.smart-multiline-text-box textarea:not(.smart-text-box-hidden) {
-    max-height: inherit;
-}
-
-.smart-multiline-text-box[auto-expand] textarea.smart-text-box-hidden {
-    height: 0;
-}
-
-.smart-multiline-text-box[auto-expand]  {
-    height: auto;
-    min-height: var(--smart-editor-height);
 }
 
 .smart-multiline-text-box textarea {
@@ -73,17 +59,8 @@ smart-multiline-text-box[rows] {
     float: left;
 }
 
-.smart-multiline-text-box.outlined.smart-element {
-    height: var(--smart-multiline-text-box-default-height);
-}
-
-.smart-multiline-text-box.outlined textarea {
-    border: 1px solid var(--smart-border) !important;
-    padding: 10px;
-}
-.smart-multiline-text-box.outlined[focus] textarea {
-    border: 1px solid var(--smart-primary) !important;
-    border-top-color:transparent !important;
+.smart-multiline-text-box textarea:not(.smart-text-box-hidden) {
+    max-height: inherit;
 }
 
 .smart-multiline-text-box textarea.smart-text-box-hidden {
@@ -95,78 +72,21 @@ smart-multiline-text-box[rows] {
     top: 0px;
 }
 
-.smart-multiline-text-box[auto-capitalize="words"] textarea {
-    text-transform: capitalize;
-}
-
-.smart-multiline-text-box[auto-capitalize="characters"] textarea {
-    text-transform: uppercase;
-}
-
-.smart-multiline-text-box[cols] textarea, .smart-multiline-text-box[rows] textarea {
-    width: inherit;
-    height: inherit;
-}
-
-.smart-multiline-text-box[hover] {
-    border-color: var(--smart-ui-state-border-hover);
-}
-
-.smart-multiline-text-box[focus] {
-    border-color: var(--smart-outline);
-}
-
-.smart-multiline-text-box smart-scroll-bar {
-    display: none;
-}
-
-.smart-multiline-text-box .smart-container textarea, .smart-multiline-text-box.smart-container textarea {
-    height: 100%;
-}
-
-.smart-multiline-text-box .smart-container.hscroll textarea, .smart-multiline-text-box.smart-container.hscroll textarea {
-    height: calc(100% - var(--smart-scroll-bar-size));
-}
-
-.smart-multiline-text-box .smart-container.vscroll textarea, .smart-multiline-text-box.smart-container.vscroll textarea {
-    width: calc(100% - var(--smart-scroll-bar-size));
-}
-
-.smart-multiline-text-box .smart-container.hscroll smart-scroll-bar, .smart-multiline-text-box.smart-container.hscroll smart-scroll-bar {
+.smart-multiline-text-box .smart-inner-container {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    overflow: hidden;
+    color: inherit;
     width: 100%;
-    height: calc(var(--smart-scroll-bar-size));
-    display: block;
-}
-
-.smart-multiline-text-box .smart-container.hscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box.smart-container.hscroll smart-scroll-bar[orientation="vertical"] {
-    display: none;
-}
-
-.smart-multiline-text-box .smart-container.vscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box.smart-container.vscroll smart-scroll-bar[orientation="vertical"] {
-    float: right;
-    width: calc(var(--smart-scroll-bar-size));
     height: 100%;
-    display: block;
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    position: relative;
+    max-height: inherit;
 }
 
-.smart-multiline-text-box[resizable] .smart-container.hscroll smart-scroll-bar smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar, .smart-multiline-text-box[resizable].smart-container.hscroll smart-scroll-bar smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar {
-    height: calc(var(--smart-scroll-bar-size));
-    width: calc(100% - var(--smart-scroll-bar-size));
-}
-
-.smart-multiline-text-box[resizable] .smart-container.vscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box[resizable].smart-container.vscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box.smart-container.vscroll.hscroll smart-scroll-bar[orientation="vertical"] {
-    height: calc(100% - var(--smart-scroll-bar-size));
-    width: calc(var(--smart-scroll-bar-size));
-}
-
-.smart-multiline-text-box[resizable] .smart-container.hscroll smart-scroll-bar, .smart-multiline-text-box .smart-container.hscroll.vscroll smart-scroll-bar, .smart-multiline-text-box[resizable].smart-container.hscroll smart-scroll-bar, .smart-multiline-text-box.smart-container.hscroll.vscroll smart-scroll-bar {
-    width: calc(100% - var(--smart-scroll-bar-size));
-}
-
-.smart-multiline-text-box[display-mode="escaped"] textarea {
-    white-space: nowrap;
+.smart-multiline-text-box .smart-initialization-value {
+    display: none;
 }
 
 .smart-multiline-text-box .smart-resize-element {
@@ -185,25 +105,122 @@ smart-multiline-text-box[rows] {
     touch-action: none;
 }
 
-.smart-multiline-text-box[resizable] .smart-resize-element {
-    display: block;
-}
-
-.smart-multiline-text-box[resizable] .smart-resize, .smart-multiline-text-box[resizable] .smart-resize textarea {
-    user-select: none;
-}
-
 .smart-multiline-text-box .smart-required-message {
     display: none;
 }
 
-.smart-multiline-text-box[right-to-left] .smart-container.vscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box.smart-container.vscroll[right-to-left] smart-scroll-bar[orientation="vertical"] {
+.smart-multiline-text-box .smart-container textarea, .smart-multiline-text-box.smart-container textarea {
+    height: 100%;
+}
+
+.smart-multiline-text-box .smart-container.hscroll textarea, .smart-multiline-text-box.smart-container.hscroll textarea {
+    height: calc(100% - var(--smart-scroll-bar-size));
+}
+
+.smart-multiline-text-box .smart-container.hscroll smart-scroll-bar, .smart-multiline-text-box.smart-container.hscroll smart-scroll-bar {
+    width: 100%;
+    height: calc(var(--smart-scroll-bar-size));
+    display: block;
+}
+
+.smart-multiline-text-box .smart-container.hscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box.smart-container.hscroll smart-scroll-bar[orientation="vertical"] {
+    display: none;
+}
+
+.smart-multiline-text-box .smart-container.vscroll textarea, .smart-multiline-text-box.smart-container.vscroll textarea {
+    width: calc(100% - var(--smart-scroll-bar-size));
+}
+
+.smart-multiline-text-box .smart-container.vscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box.smart-container.vscroll smart-scroll-bar[orientation="vertical"] {
+    float: right;
+    width: calc(var(--smart-scroll-bar-size));
+    height: 100%;
+    display: block;
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+}
+
+.smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar, .smart-multiline-text-box.smart-container.vscroll.hscroll smart-scroll-bar {
+    width: calc(100% - var(--smart-scroll-bar-size));
+}
+
+.smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box.smart-container.vscroll.hscroll smart-scroll-bar[orientation="vertical"] {
+    height: calc(100% - var(--smart-scroll-bar-size));
+    width: calc(var(--smart-scroll-bar-size));
+}
+
+.smart-multiline-text-box[auto-expand] {
+    height: auto;
+    min-height: var(--smart-editor-height);
+}
+
+.smart-multiline-text-box[auto-expand] textarea.smart-text-box-hidden {
+    height: 0;
+}
+
+.smart-multiline-text-box[auto-capitalize="words"] textarea {
+    text-transform: capitalize;
+}
+
+.smart-multiline-text-box[auto-capitalize="characters"] textarea {
+    text-transform: uppercase;
+}
+
+.smart-multiline-text-box[display-mode="escaped"] textarea {
+    white-space: nowrap;
+}
+
+.smart-multiline-text-box[cols] textarea, .smart-multiline-text-box[rows] textarea {
+    width: inherit;
+    height: inherit;
+}
+
+.smart-multiline-text-box[resizable] .smart-container.hscroll smart-scroll-bar, .smart-multiline-text-box[resizable].smart-container.hscroll smart-scroll-bar {
+    width: calc(100% - var(--smart-scroll-bar-size));
+}
+
+.smart-multiline-text-box[resizable] .smart-container.hscroll smart-scroll-bar smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar, .smart-multiline-text-box[resizable].smart-container.hscroll smart-scroll-bar smart-multiline-text-box .smart-container.vscroll.hscroll smart-scroll-bar {
+    height: calc(var(--smart-scroll-bar-size));
+    width: calc(100% - var(--smart-scroll-bar-size));
+}
+
+.smart-multiline-text-box[resizable] .smart-container.vscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box[resizable].smart-container.vscroll smart-scroll-bar[orientation="vertical"] {
+    height: calc(100% - var(--smart-scroll-bar-size));
+    width: calc(var(--smart-scroll-bar-size));
+}
+
+.smart-multiline-text-box[resizable] .smart-resize-element {
+    display: block;
+}
+
+.smart-multiline-text-box[resizable] .smart-resize,
+.smart-multiline-text-box[resizable] .smart-resize textarea {
+    user-select: none;
+}
+
+.smart-multiline-text-box.outlined textarea {
+    border: 1px solid var(--smart-border) !important;
+    padding: 10px;
+}
+
+.smart-multiline-text-box.outlined[focus] textarea {
+    border: 1px solid var(--smart-primary) !important;
+    border-top-color: transparent !important;
+}
+
+.smart-multiline-text-box.outlined.smart-element {
+    height: var(--smart-multiline-text-box-default-height);
+}
+
+.smart-multiline-text-box[right-to-left] textarea {
+    float: right;
+}
+
+.smart-multiline-text-box[right-to-left] .smart-container.vscroll smart-scroll-bar[orientation="vertical"], .smart-multiline-text-box[right-to-left].smart-container.vscroll smart-scroll-bar[orientation="vertical"] {
     border-top-left-radius: var(--smart-border-top-right-radius);
     border-bottom-left-radius: var(--smart-border-bottom-right-radius);
     border-top-right-radius: initial;
     border-bottom-right-radius: initial;
 }
 
-.smart-multiline-text-box[right-to-left] textarea {
-    float: right;
-}
+/*# sourceMappingURL=smart.multilinetextbox.css.map */

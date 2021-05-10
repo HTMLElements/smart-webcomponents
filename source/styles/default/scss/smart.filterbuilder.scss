@@ -1,0 +1,248 @@
+/*smart-filter-builder*/
+smart-filter-builder {
+  display: inline-block;
+  width: var(--smart-filter-builder-default-width);
+  height: var(--smart-filter-builder-default-height);
+  font-size: var(--smart-filter-builder-font-size);
+  font-family: var(--smart-filter-builder-font-family);
+  overflow: visible;
+  box-sizing: border-box;
+  background-color: transparent;
+  position: relative;
+
+  &[disabled] {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+smart-filter-builder > .smart-container,
+.smart-filter-builder.smart-container {
+  position: relative;
+  overflow: visible;
+
+  > .smart-inner-container {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.smart-filter-builder {
+  smart-menu[mode="dropDown"] {
+    width: auto;
+    height: auto;
+  }
+
+  smart-scroll-viewer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .filter-builder-item {
+    min-height: var(--smart-filter-builder-row-height);
+    vertical-align: middle;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: lightblue;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .smart-filter-builder-icon {
+    width: 40px;
+    height: 100%;
+    display: inline-block;
+    font-weight: bold;
+    border-right: 1px solid gray;
+    margin-right: 5px;
+    padding: 0px 2px 0px 2px;
+    text-align: center;
+  }
+
+  .smart-filter-builder-menu-item {
+    height: 100%;
+    display: inline-block;
+  }
+
+  .smart-filter-add-btn,
+  .smart-filter-delete-btn {
+    min-width: var(--smart-filter-builder-row-height);
+    min-height: var(--smart-filter-builder-row-height);
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 5px 0px 5px 0px;
+    opacity: 0.3;
+    font-size: 16px;
+
+    &:after {
+      content: "+";
+      font-family: var(--smart-font-family-icon);
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      vertical-align: middle;
+      cursor: pointer;
+      font-size: 25px;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  .smart-filter-add-btn {
+    color: var(--smart-background-color);
+
+    &:after {
+      font-weight: bold;
+    }
+  }
+
+  .smart-filter-delete-btn {
+    &:after {
+      content: "\e81F";
+      font-size: 10px;
+    }
+  }
+
+  .smart-filter-value {
+    min-width: 100px;
+    padding: 0px;
+
+    .smart-value-container {
+      color: gray;
+      width: 100%;
+      height: 100%;
+      display: inline-flex;
+      align-content: center;
+      justify-content: center;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    &[edited] {
+      padding: 0px;
+      background-color: transparent;
+
+      .smart-value-container {
+        display: none;
+      }
+    }
+  }
+
+  .smart-filter-group,
+  .smart-filter-group-operator {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+
+  .smart-filter-group-condition {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    margin-bottom: 5px;
+  }
+
+  .smart-filter-group-condition-container {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding-left: 30px;
+  }
+
+  .smart-filter-group-operation {
+    min-width: 50px;
+  }
+
+  .smart-content-container {
+    > .smart-filter-group {
+      > .smart-filter-group-operator {
+        margin-left: 30px;
+
+        .smart-filter-delete-btn {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .smart-editors-container {
+    position: relative;
+    pointer-events: none;
+    height: 20px;
+
+    &[open] {
+      min-width: 100px;
+      width: var(--smart-filter-builder-item-width);
+      min-height: var(--smart-filter-builder-row-height);
+
+      .smart-check-box-editor {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        width: 30px;
+        height: 30px;
+
+        &.smart-hidden {
+          display: none;
+        }
+      }
+    }
+
+    .smart-text-box-editor,
+    .smart-numeric-text-box-editor,
+    .smart-drop-down-list-editor,
+    .smart-combo-box-editor,
+    .smart-date-time-picker-editor,
+    .smart-check-box-editor,
+    .smart-custom-editor > * {
+      pointer-events: all;
+      width: 100%;
+    }
+  }
+
+  .smart-filter-field-name,
+  .smart-filter-operation {
+    min-width: 100px;
+  }
+
+  .smart-selected-menu-item {
+    background-color: lightgray;
+  }
+
+  .smart-hidden {
+    display: none;
+  }
+
+  .smart-scrollable-outer-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .smart-filter-value:hover > * {
+    color: initial;
+    border-color: initial;
+    background-color: initial;
+  }
+}

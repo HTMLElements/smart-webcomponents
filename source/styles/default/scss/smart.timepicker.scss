@@ -1,0 +1,191 @@
+/* .smart-time-picker */
+.smart-time-picker {
+  display: block;
+  width: var(--smart-time-picker-default-width);
+  height: var(--smart-time-picker-default-height);
+  line-height: initial;
+  min-width: 250px;
+
+  > .smart-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .smart-main-container {
+    width: 100%;
+    height: calc(100% - var(--smart-calendar-title-height));
+    padding: 2%;
+    background-color: var(--smart-background);
+  }
+
+  .smart-header {
+    display: flex;
+    width: 100%;
+    height: var(--smart-calendar-title-height);
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    justify-content: center;
+    align-items: center;
+
+    &:focus {
+      outline: 1px solid var(--smart-background);
+    }
+  }
+
+  .smart-footer {
+    display: none;
+  }
+
+  .smart-svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .smart-hour-container,
+  .smart-minute-container,
+  .smart-am-container,
+  .smart-pm-container {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .smart-hour-minute-container {
+    display: flex;
+    font-size: 50px;
+
+    div:nth-child(2) {
+      opacity: 0.5;
+    }
+  }
+
+  .smart-am-pm-container {
+    margin-left: 10px;
+  }
+
+  .smart-selected {
+    opacity: 1;
+  }
+
+  .smart-svg-picker {
+    border-radius: 50%;
+    background-color: var(--smart-background);
+    position: relative;
+    box-sizing: content-box;
+    touch-action: none;
+
+    &:focus {
+      border: 1px solid var(--smart-outline);
+      outline: none;
+    }
+
+    &.animate {
+      animation: smart-time-picker-animation 0.5s linear;
+    }
+  }
+
+  .smart-label {
+    fill: var(--smart-background-color);
+
+    &.smart-selected {
+      fill: var(--smart-primary-color);
+      stroke: var(--smart-primary-color);
+      stroke-width: 0px;
+    }
+  }
+
+  .smart-needle,
+  .smart-needle-central-circle {
+    fill: var(--smart-primary);
+  }
+
+  &[readonly],
+  &[disabled] {
+    .smart-hour-container,
+    .smart-minute-container,
+    .smart-am-container,
+    .smart-pm-container {
+      cursor: default;
+    }
+  }
+
+  &[footer] {
+    .smart-footer {
+      display: block;
+      width: 100%;
+      height: 30px;
+    }
+
+    .smart-svg-container {
+      height: calc(100% - 30px);
+    }
+  }
+
+  &[view="landscape"] {
+    width: var(--smart-time-picker-default-height);
+    height: var(--smart-time-picker-default-width);
+    min-width: 400px;
+
+    > .smart-container {
+      display: flex;
+    }
+
+    .smart-header {
+      flex-direction: column;
+      width: 33%;
+      height: 100%;
+    }
+
+    .smart-main-container {
+      width: 67%;
+      height: 100%;
+    }
+
+    .smart-am-pm-container {
+      margin-left: 0;
+    }
+  }
+
+  //Right To Left
+  &[right-to-left] {
+    .smart-header,
+    .smart-footer {
+      direction: rtl;
+    }
+
+    .smart-am-pm-container {
+      margin: 0 10px 0 0;
+    }
+
+    &[view="landscape"] {
+      > .smart-container {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+@keyframes smart-time-picker-animation {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+

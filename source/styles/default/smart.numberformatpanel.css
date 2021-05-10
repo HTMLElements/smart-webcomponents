@@ -33,18 +33,15 @@
     border: none;
 }
 
-/* Apply button */
 .apply-button-holder .use-number-format-button {
     height: 100%;
 }
 
-/* Sample container */
 .sample-container {
     margin-top: var(--smart-number-format-panel-sample-container-vertical-offset);
     margin-left: var(--smart-number-format-panel-sample-container-horizontal-offset);
 }
 
-/* List with custom number formats */
 .custom-number-format-list {
     padding: 0;
     margin: 0;
@@ -68,12 +65,10 @@
     border-bottom: 0px;
 }
 
-/* Each custom number format */
 .custom-number-format-item:first-child {
     border-top: 0px !important;
 }
 
-/* Each custom number format */
 .custom-number-format-item:hover {
     background: var(--smart-number-format-panel-formats-item-hover-background);
 }
@@ -82,3 +77,5 @@
     float: right;
     color: var(--smart-number-format-panel-formats-item-example-format-color);
 }
+
+/*# sourceMappingURL=smart.numberformatpanel.css.map */

@@ -1,0 +1,91 @@
+//Colors
+.smart-table-primary {
+  background-color: #b8daff;
+
+  > th,
+  > td {
+    background-color: #b8daff;
+  }
+}
+
+.smart-table-secondary {
+  background-color: #d6d8db;
+
+  > th,
+  > td {
+    background-color: #d6d8db;
+  }
+}
+
+.smart-table-success {
+  background-color: #c3e6cb;
+
+  > th,
+  > td {
+    background-color: #c3e6cb;
+  }
+}
+
+.smart-table-info {
+  background-color: #bee5eb;
+
+  > th,
+  > td {
+    background-color: #bee5eb;
+  }
+}
+
+.smart-table-warning {
+  background-color: #ffeeba;
+
+  > th,
+  > td {
+    background-color: #ffeeba;
+  }
+}
+
+.smart-table-danger {
+  background-color: #f5c6cb;
+
+  > th,
+  > td {
+    background-color: #f5c6cb;
+  }
+}
+
+.smart-table.table-light {
+  table {
+    background-color: #fdfdfe;
+
+    > th,
+    > td {
+      background-color: #fdfdfe;
+    }
+  }
+}
+
+.smart-table.table-dark {
+  table {
+    background-color: #212529;
+
+    th,
+    td,
+    thead th {
+      border-color: #32383e;
+    }
+
+    > th,
+    > td {
+      background-color: #212529;
+    }
+  }
+}
+
+.smart-table-active {
+  background-color: rgba(0, 0, 0, 0.075);
+
+  > th,
+  > td {
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+}

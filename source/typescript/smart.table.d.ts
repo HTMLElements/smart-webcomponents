@@ -52,7 +52,7 @@ export interface TableProperties {
    */
   conditionalFormatting?: TableConditionalFormatting[];
   /**
-   * Sets or gets the column sizing behavior.
+   * Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property.
    * Default value: default
    */
   columnSizeMode?: TableColumnSizeMode;
@@ -80,7 +80,7 @@ export interface TableProperties {
    * A callback function that can be used to transform the initial dataSource records. If implemented, it is called once for each record (which is passed as an argument).
    * Default value: null
    */
-  dataTransform?: any;
+  dataTransform?: { (record: any): void };
   /**
    * Disables the interaction with the element.
    * Default value: false
@@ -96,6 +96,11 @@ export interface TableProperties {
    * Default value: cell
    */
   editMode?: TableEditMode;
+  /**
+   * Sets or gets whether Row hierarchies are expanded by default, when created. Use this property when you want your groups to be expanded by default, when the Table is grouped or when you use the Table in tree mode.
+   * Default value: false
+   */
+  expandHierarchy?: boolean;
   /**
    * Sets or gets whether the Table can be filtered. By default, the Table can be filtered by all string and numeric columns through a filter input in the header.
    * Default value: false
@@ -140,7 +145,7 @@ export interface TableProperties {
    * A callback function that can be used to modify the contents of a grouping header row. By changing the 'label' you modify the rendered grouping value. By changing the 'template' you can modify the entire content including the column and count information.
    * Default value: null
    */
-  groupFormatFunction?: any;
+  groupFormatFunction?: { (settings: { value: any, row: string | number, column: string, template?: any }): void };
   /**
    * Sets or gets the id of an HTML template element to be applied as additional column header(s).
    * Default value: "null"
@@ -225,7 +230,7 @@ export interface TableProperties {
    * A callback function executed each time a Table cell is rendered.
    * Default value: null
    */
-  onCellRender?: any;
+  onCellRender?: { (data: any, dataField: string, value: any, cell: HTMLTableCellElement): void };
   /**
    * A callback function executed each time a Table column header cell is rendered.
    * Default value: null
@@ -277,10 +282,15 @@ export interface TableProperties {
    */
   selectionMode?: TableSelectionMode;
   /**
+   * Sets or gets whether row selection (via checkboxes) is hierarchical. When a parent row is selected, all sub rows are selected, too.
+   * Default value: true
+   */
+  selectionByHierarchy?: boolean;
+  /**
    * A callback function executed when a column is sorted that can be used to override the default sorting behavior. The function is passed four parameters: dataSource - the Table's data sourcesortColumns - an array of the data fields of columns to be sorted bydirections - an array of sort directions to be sorted by (corresponding to sortColumns)defaultCompareFunctions - an array of default compare functions to be sorted by (corresponding to sortColumns), useful if the sorting of some columns does not have to be overridden
    * Default value: null
    */
-  sort?: any;
+  sort?: { (dataSource: any, sortColumns: string[], directions: string[], defaultCompareFunctions: { (firstRecord: any, secondRecord: any): number }[]): void };
   /**
    * Determines the sorting mode of the Table.
    * Default value: none
@@ -412,6 +422,11 @@ export interface Table extends BaseElement, TableProperties {
    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * Adds a new row. When you invoke the method, pass a JSON object with the row's data.
+   * @param {any} data. JSON object with the new row's data. Sample JSON: {firstName: 'Peter', lastName: 'Fuller'}.
+   */
+  addRow(data: any): void;
+  /**
    * Adds a filter to a specific column.
    * @param {string} dataField. The column's data field.
    * @param {any} filter. FilterGroup object.
@@ -428,6 +443,10 @@ export interface Table extends BaseElement, TableProperties {
    * @param {string} dataField?. The dataField of the cell's column. May be omitted when <strong>editMode</strong> is <em>'row'</em>.
    */
   beginEdit(row: string | number, dataField?: string): void;
+  /**
+   * Begins an update operation. Suspends all table refreshes and renders.
+   */
+  beginUpdate(): void;
   /**
    * Ends the current edit operation and discards changes.
    */
@@ -453,6 +472,14 @@ export interface Table extends BaseElement, TableProperties {
    */
   collapseAllRows(): void;
   /**
+   * Collapses all groups (in tree mode).
+   */
+  collapseAllGroups(): void;
+  /**
+   * Collapses all row details. Rows that have details defined via the <b>rowDetailTemplate</b> will be collapsed.
+   */
+  collapseAllRowDetails(): void;
+  /**
    * Collapses a group.
    * @param {string} index. The group's hierarchical index.
    */
@@ -467,9 +494,22 @@ export interface Table extends BaseElement, TableProperties {
    */
   endEdit(): void;
   /**
+   * Ends an update operation. Resumes all table refreshes and renders. Re-renders the Table.
+   * @param {boolean} refresh?. Optionally you can pass 'false' in case you need to manually call the 'refresh' method. By default, the table is re-rendered.
+   */
+  endUpdate(refresh?: boolean): void;
+  /**
    * Expands all rows (in tree mode).
    */
   expandAllRows(): void;
+  /**
+   * Expands all groups (in tree mode).
+   */
+  expandAllGroups(): void;
+  /**
+   * Expands all row details. Rows that have details defined via <b>rowDetailTemplate</b> will be expanded.
+   */
+  expandAllRowDetails(): void;
   /**
    * Expands a group.
    * @param {string} index. The group's hierarchical index.
@@ -507,6 +547,19 @@ export interface Table extends BaseElement, TableProperties {
    */
   getValue(row: string | number, dataField: string): any;
   /**
+   * Gets a column property.
+   * @param {string} columnDataField. Column field name.
+   * @param {string} propertyName. Column property name.
+   * @returns {any}
+   */
+  getColumnProperty(columnDataField: string, propertyName: string): any;
+  /**
+   * Checks whether a group is expanded and returns <em>true</em> or <em>false</em>. <em>false</em> is returned when the group index is undefined, too.
+   * @param {string} index. The group's hierarchical index.
+   * @returns {boolean}
+   */
+  isGroupExpanded(index: string): boolean;
+  /**
    * Loads the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the <strong>stateSettings</strong> property.
    * @param {any} state?. An object returned by one of the methods <strong>getState</strong> or <strong>saveState</strong>. If a state is not passed, the method tries to load the state from the browser's localStorage.
    */
@@ -531,6 +584,11 @@ export interface Table extends BaseElement, TableProperties {
    */
   removeGroup(dataField: string): void;
   /**
+   * Removes a row by its id.
+   * @param {string | number} row. The id of the cell's row.
+   */
+  removeRow(row: string | number): void;
+  /**
    * Saves the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is saved, based on the value of the <strong>stateSettings</strong> property.
    * @returns {any}
    */
@@ -553,6 +611,19 @@ export interface Table extends BaseElement, TableProperties {
    * @param {string} sortOrder?. Sort order. Possible values: 'asc' (ascending), 'desc' (descending), and null (removes sorting by column). If not provided, toggles the sorting.
    */
   sortBy(columnDataField: string, sortOrder?: string): void;
+  /**
+   * Sets a column property.
+   * @param {string} columnDataField. Column field name.
+   * @param {string} propertyName. Column property name.
+   * @param {any} propertyValue. Property value.
+   */
+  setColumnProperty(columnDataField: string, propertyName: string, propertyValue: any): void;
+  /**
+   * Updates a table row. The method expects two parameters - row id and JSON object with the new row data.
+   * @param {string | number} rowId. The id of the row.
+   * @param {any} data. JSON object with the new row's data. Example: {firstName: 'Peter', lastName: 'Fuller'}.
+   */
+  updateRow(rowId: string | number, data: any): void;
   /**
    * Unselects one or more rows.
    * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to unselect.
@@ -595,6 +666,11 @@ export interface TableColumn {
    */
   allowGroup?: boolean;
   /**
+   * Sets or gets whether the column can be resized.
+   * Default value: true
+   */
+  allowResize?: boolean;
+  /**
    * Sets or gets whether the table can be sorted by the column.
    * Default value: true
    */
@@ -628,22 +704,27 @@ export interface TableColumn {
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
    */
-  formatFunction?: any;
-  /**
-   * Sets or gets whether the column is hidden or not. Hidden columns allow data to be grouped by their corresponding dataField.
-   * Default value: true
-   */
-  hidden: boolean;
+  formatFunction?: { (settings: { value: any, row: string | number, column: string, cell: HTMLTableCellElement, template?: any }): void };
   /**
    * Sets or gets the text displayed in the column's header.
    * Default value: ""
    */
   label?: string;
   /**
-   * Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden.
-   * Default value: 1
+   * Sets or gets the data field map, when the Table is bound to an Array and dataSourceSettings property is not set.
+   * Default value: ""
    */
-  responsivePriority?: TableColumnResponsivePriority;
+  map?: string;
+  /**
+   * Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden. The property should be set to a number in the range of 1 to 5. The property by default is not set.
+   * Default value: null
+   */
+  responsivePriority?: number | null;
+  /**
+   * Use this for custom sort implementation only. All non-undefined array elements are sorted according to the return value of the compare function (all undefined elements are sorted to the end of the array, with no call to compareFunction).
+   * Default value: null
+   */
+  sort?: { (firstRecord: any, secondRecord: any): number };
   /**
    * A string to be parsed into HTML and be used as custom cell content. Applicable only when virtualization is enabled.
    * Default value: "null"
@@ -653,17 +734,22 @@ export interface TableColumn {
    * A callback function that can be used to apply settings to a template element (specified by the column templateElement property). Applicable only when virtualization is enabled.
    * Default value: null
    */
-  templateElementSettings?: any;
+  templateElementSettings?: { (value: any, row: string | number, templateElement: HTMLElement): void };
   /**
    * A callback function that can be used to transform all the data of the column's original data field into a new data field to be used in column cells and all column operations. Can be useful for localizing data.
    * Default value: null
    */
-  transform?: any;
+  transform?: { (value: any): any };
   /**
    * A callback function that can be used to validate cell values after editing. If it returns true, the cell is valid. If it returns false or an object with a message field, the cell is not valid and the message (or a default one) is displayed in a tooltip.
    * Default value: null
    */
-  validation?: any;
+  validation?: { (value: any): boolean | { message: string } };
+  /**
+   * Sets or gets whether the column is hidden or not. Hidden columns allow data to be grouped by their corresponding dataField.
+   * Default value: true
+   */
+  visible?: boolean;
   /**
    * Sets the width of the column. The width can be entered as a number or string with px.
    * Default value: null
@@ -731,6 +817,11 @@ export interface TableDataSourceSettings {
    * Default value: ""
    */
   root?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: blackList
+   */
+  sanitizeHTML?: TableDataSourceSettingsSanitizeHTML;
   /**
    * Sets or gets the XML binding record.
    * Default value: ""
@@ -812,19 +903,19 @@ declare global {
 }
 
 /**Sets or gets the data type of the column's cells. */
-export declare type TableColumnDataType = 'boolean' | 'date' | 'number' | 'string';
+export declare type TableColumnDataType = 'boolean' | 'date' | 'number' | 'string' | 'any';
 /**Sets or gets whether the column is sticky/frozen. true and 'near' designate freezing on the left side, 'far' - on the right side. */
 export declare type TableColumnFreeze = 'true' | 'near' | 'far';
-/**Sets or gets the column's priority when resizing the browser window. The larger the priority value, the column will be hidden at a larger screen resolution. Columns with priority 1 are never hidden. */
-export declare type TableColumnResponsivePriority = '1' | '2' | '3' | '4' | '5';
 /**The formatting condition. */
 export declare type TableConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**The fontFamily to apply to formatted cells. */
 export declare type TableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
 /**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
-/**Sets or gets the column sizing behavior. */
+/**Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property. */
 export declare type TableColumnSizeMode = 'auto' | 'default';
+/**Sets or gets the XML binding root. */
+export declare type TableDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
 /**Sets the dataField type. */
 export declare type TableDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
 /**Sets or gets whether the data source type. */
@@ -836,6 +927,6 @@ export declare type TableLoadColumnStateBehavior = 'implementationOnly' | 'inter
 /**Sets or gets the page size (when paging is enabled). */
 export declare type TablePageSize = '10' | '25' | '50';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */
-export declare type TableSelectionMode = 'many' | 'extended';
+export declare type TableSelectionMode = 'one' | 'many' | 'extended';
 /**Determines the sorting mode of the Table. */
 export declare type TableSortMode = 'none' | 'one' | 'many';

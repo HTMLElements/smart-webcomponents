@@ -1,28 +1,17 @@
 /* smart-progress-bar */
-
-
-smart-progress-bar,
-smart-circular-progress-bar {
-}
-
 smart-progress-bar.smart-element,
 smart-circular-progress-bar.smart-element {
     border: none;
 }
 
-smart-circular-progress-bar.smart-element {
-    background: transparent;
+smart-progress-bar.smart-element:focus > .smart-container,
+smart-circular-progress-bar.smart-element:focus > .smart-container {
+    border-color: var(--smart-outline);
 }
 
-smart-progress-bar {
-    width: var(--smart-progress-bar-default-width);
-    height: var(--smart-progress-bar-default-height);
-}
-
-smart-progress-bar > .smart-container,
-.smart-progress-bar.smart-container,
+smart-progress-bar > .smart-container, smart-progress-bar.smart-container,
 smart-circular-progress-bar > .smart-container,
-.smart-circular-progress-bar.smart-container {
+smart-circular-progress-bar.smart-container {
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
     border-bottom-left-radius: var(--smart-border-bottom-left-radius);
@@ -35,98 +24,8 @@ smart-circular-progress-bar > .smart-container,
     color: var(--smart-background-color);
 }
 
-smart-progress-bar[orientation="vertical"] {
-    width: var(--smart-progress-bar-default-height);
-    height: var(--smart-progress-bar-default-width);
-}
-
-smart-circular-progress-bar {
-    width: var(--smart-circular-progress-bar-default-size);
-    height: var(--smart-circular-progress-bar-default-size);
-}
-
-smart-circular-progress-bar > .smart-container,
-.smart-circular-progress-bar.smart-container {
-    border-radius: 50%;
-}
-
-
-.smart-progress-bar .smart-value {
-    outline: none;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    position: absolute;
-}
-
-.smart-progress-bar .smart-value {
-    border: 1px solid var(--smart-ui-state-border-active);
-    background-color: var(--smart-ui-state-active);
-}
-
-.smart-progress-bar.primary .smart-value {
-    border: 1px solid var(--smart-primary);
-    background-color: var(--smart-primary);
-}
-
-.smart-progress-bar.secondary .smart-value {
-    border: 1px solid var(--smart-secondary);
-    background-color: var(--smart-secondary);
-}
-
-.smart-progress-bar.error .smart-value {
-    border: 1px solid var(--smart-error);
-    background-color: var(--smart-error);
-}
-
-.smart-progress-bar.success .smart-value {
-    border: 1px solid var(--smart-success);
-    background-color: var(--smart-success);
-}
-
-.smart-progress-bar.info .smart-value {
-    border: 1px solid var(--smart-info);
-    background-color: var(--smart-info);
-}
-
-.smart-progress-bar.warning .smart-value {
-    border: 1px solid var(--smart-warning);
-    background-color: var(--smart-warning);
-}
-
-.smart-progress-bar.smart-element:focus > .smart-container,
-.smart-circular-progress-bar.smart-element:focus > .smart-container {
-    border-color: var(--smart-outline);
-}
-
-.smart-progress-bar:not([animation='none']) .smart-value {
-    transition: 0.2s ease-in-out;
-}
-
-.smart-progress-bar[orientation][inverted] .smart-value,
-.smart-progress-bar[inverted] .smart-value {
-    transform-origin: right;
-}
-
-.smart-progress-bar[orientation] .smart-value,
-.smart-progress-bar .smart-value {
-    transform-origin: left;
-}
-
-.smart-progress-bar[orientation="vertical"][inverted] .smart-value {
-    transform-origin: left bottom;
-}
-
-.smart-progress-bar[orientation="vertical"] .smart-value {
-    transform-origin: left top;
-}
-
-.smart-circular-progress-bar .smart-value-animation-ms {
-    stroke-dashoffset: 114;
-}
-
-.smart-progress-bar .smart-label,
-.smart-circular-progress-bar .smart-label {
+smart-progress-bar .smart-label,
+smart-circular-progress-bar .smart-label {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -135,119 +34,161 @@ smart-circular-progress-bar > .smart-container,
     color: var(--smart-background-color);
 }
 
-.smart-progress-bar .smart-label {
+smart-progress-bar[right-to-left] .smart-label,
+smart-circular-progress-bar[right-to-left] .smart-label {
+    direction: rtl;
+}
+
+smart-progress-bar {
+    width: var(--smart-progress-bar-default-width);
+    height: var(--smart-progress-bar-default-height);
+}
+
+smart-progress-bar .smart-label {
     width: auto;
     color: var(--smart-outline);
 }
 
-.smart-progress-bar[orientation="vertical"] .smart-label {
+smart-progress-bar .smart-value {
+    outline: none;
+    height: 100%;
     width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid var(--smart-ui-state-border-active);
+    background-color: var(--smart-ui-state-active);
+    transform-origin: left;
 }
 
-
-/*---------- Barber Shop ----------*/
-.barber-shop-effect .smart-value {
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 75%, transparent 75%, transparent);
-    background-size: 5rem 5rem;
-    background-position: 0 -244rem;
-    animation: stripes 10s linear infinite;
-    animation-direction: normal;
-}
-
-.barber-shop-effect[inverted] .smart-value,
-.barber-shop-effect[orientation="vertical"] .smart-value {
-    animation-direction: reverse;
-}
-
-/*---------------------------
-ANIMATION - BarberShop style
----------------------------*/
-@keyframes stripes {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 60rem 0;
-    }
-    /*Including the alternative for best browser support*/
-    From {
-        background-position: 0 0;
-    }
-
-    To {
-        background-position: 60rem 0;
-    }
-}
-
-.smart-progress-bar .smart-value.smart-value-animation {
+smart-progress-bar .smart-value.smart-value-animation {
     animation: indeterminate 3s infinite linear;
 }
 
-.smart-progress-bar[orientation="vertical"] .smart-value.smart-value-animation {
-    animation: indeterminate-vertical 3s infinite linear;
+smart-progress-bar.primary .smart-value {
+    border: 1px solid var(--smart-primary);
+    background-color: var(--smart-primary);
 }
 
-.smart-progress-bar[inverted][orientation="vertical"] .smart-value.smart-value-animation {
-    animation: indeterminate-vertical-inverted 3s infinite linear;
+smart-progress-bar.secondary .smart-value {
+    border: 1px solid var(--smart-secondary);
+    background-color: var(--smart-secondary);
 }
 
-.smart-progress-bar[inverted] .smart-value.smart-value-animation {
+smart-progress-bar.success .smart-value {
+    border: 1px solid var(--smart-success);
+    background-color: var(--smart-success);
+}
+
+smart-progress-bar.info .smart-value {
+    border: 1px solid var(--smart-info);
+    background-color: var(--smart-info);
+}
+
+smart-progress-bar.warning .smart-value {
+    border: 1px solid var(--smart-warning);
+    background-color: var(--smart-warning);
+}
+
+smart-progress-bar.error .smart-value {
+    border: 1px solid var(--smart-error);
+    background-color: var(--smart-error);
+}
+
+smart-progress-bar.light .smart-value {
+    border: 1px solid var(--smart-light);
+    background-color: var(--smart-light);
+}
+
+smart-progress-bar.dark .smart-value {
+    border: 1px solid var(--smart-dark);
+    background-color: var(--smart-dark);
+}
+
+smart-progress-bar:not([animation='none']) .smart-value {
+    transition: 0.2s ease-in-out;
+}
+
+smart-progress-bar[orientation][inverted] .smart-value {
+    transform-origin: right;
+}
+
+smart-progress-bar[inverted] .smart-value {
+    transform-origin: right;
+}
+
+smart-progress-bar[inverted] .smart-value.smart-value-animation {
     animation: indeterminate-inverted 3s infinite linear;
 }
 
-.smart-circular-progress-bar svg:first-of-type {
+smart-progress-bar[orientation] .smart-value {
+    transform-origin: left;
+}
+
+smart-progress-bar[orientation="vertical"] {
+    width: var(--smart-progress-bar-default-height);
+    height: var(--smart-progress-bar-default-width);
+}
+
+smart-progress-bar[orientation="vertical"][inverted] .smart-value {
+    transform-origin: left bottom;
+}
+
+smart-progress-bar[orientation="vertical"] .smart-value {
+    transform-origin: left top;
+}
+
+smart-progress-bar[orientation="vertical"] .smart-value.smart-value-animation {
+    animation: indeterminate-vertical 3s infinite linear;
+}
+
+smart-progress-bar[orientation="vertical"] .smart-label {
+    width: 100%;
+}
+
+smart-progress-bar[inverted][orientation="vertical"] .smart-value.smart-value-animation {
+    animation: indeterminate-vertical-inverted 3s infinite linear;
+}
+
+smart-progress-bar[right-to-left]:not([orientation="vertical"]) .smart-value, smart-progress-bar[right-to-left][orientation="horizontal"] .smart-value {
+    transform-origin: right;
+}
+
+smart-progress-bar[right-to-left]:not([orientation="vertical"])[inverted] .smart-value, smart-progress-bar[right-to-left][orientation="horizontal"][inverted] .smart-value {
+    transform-origin: left;
+}
+
+smart-progress-bar[right-to-left][orientation="horizontal"] .smart-value.smart-value-animation, smart-progress-bar[right-to-left]:not([orientation="vertical"]) .smart-value.smart-value-animation {
+    animation: indeterminate-inverted 3s infinite linear;
+}
+
+smart-progress-bar[right-to-left][inverted][orientation="horizontal"] .smart-value.smart-value-animation, smart-progress-bar[right-to-left][inverted]:not([orientation="vertical"]) .smart-value.smart-value-animation {
+    animation: indeterminate 3s infinite linear;
+}
+
+smart-circular-progress-bar {
+    width: var(--smart-circular-progress-bar-default-size);
+    height: var(--smart-circular-progress-bar-default-size);
+}
+
+smart-circular-progress-bar > .smart-container, smart-circular-progress-bar.smart-container {
+    border-radius: 50%;
+}
+
+smart-circular-progress-bar .smart-value-animation-ms {
+    stroke-dashoffset: 114;
+}
+
+smart-circular-progress-bar svg:first-of-type {
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
 }
 
-.smart-circular-progress-bar .smart-value,
-.smart-circular-progress-bar .smart-value-path {
-    stroke-width: var(--smart-circular-progress-bar-fill-size);
-    fill: transparent;
-    stroke-dasharray: 314.159;
+smart-circular-progress-bar svg:first-of-type .smart-value.smart-value-animation {
+    animation: circle 2s infinite linear;
 }
 
-.smart-circular-progress-bar .smart-value {
-    stroke: var(--smart-ui-state-active);
-}
-
-.smart-circular-progress-bar.primary .smart-value {
-    stroke: var(--smart-primary);
-}
-
-.smart-circular-progress-bar.secondary .smart-value {
-    stroke: var(--smart-secondary);
-}
-
-.smart-circular-progress-bar.error .smart-value {
-    stroke: var(--smart-error);
-}
-
-.smart-circular-progress-bar.success .smart-value {
-    stroke: var(--smart-success);
-}
-
-.smart-circular-progress-bar.info .smart-value {
-    stroke: var(--smart-info);
-}
-
-.smart-circular-progress-bar.warning .smart-value {
-    stroke: var(--smart-warning);
-}
-
-
-.smart-circular-progress-bar .smart-value-path {
-    stroke-dashoffset: 0;
-    stroke: transparent;
-}
-
-.smart-circular-progress-bar:not([animation='none']) .smart-value {
-    transition: stroke-dashoffset 1s linear;
-}
-
-.smart-circular-progress-bar .smart-label-container {
+smart-circular-progress-bar .smart-label-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -263,22 +204,122 @@ ANIMATION - BarberShop style
     height: calc(100% - var(--smart-circular-progress-bar-fill-size));
 }
 
-.smart-circular-progress-bar svg:first-of-type .smart-value.smart-value-animation {
-    animation: circle 2s infinite linear;
+smart-circular-progress-bar .smart-value,
+smart-circular-progress-bar .smart-value-path {
+    stroke-width: var(--smart-circular-progress-bar-fill-size);
+    fill: transparent;
+    stroke-dasharray: 314.159;
 }
 
-.smart-circular-progress-bar[inverted] svg:first-of-type .smart-value.smart-value-animation {
+smart-circular-progress-bar .smart-value {
+    stroke: var(--smart-ui-state-active);
+}
+
+smart-circular-progress-bar .smart-value-path {
+    stroke-dashoffset: 0;
+    stroke: transparent;
+}
+
+smart-circular-progress-bar.primary .smart-value {
+    stroke: var(--smart-primary);
+}
+
+smart-circular-progress-bar.secondary .smart-value {
+    stroke: var(--smart-secondary);
+}
+
+smart-circular-progress-bar.success .smart-value {
+    stroke: var(--smart-success);
+}
+
+smart-circular-progress-bar.info .smart-value {
+    stroke: var(--smart-info);
+}
+
+smart-circular-progress-bar.warning .smart-value {
+    stroke: var(--smart-warning);
+}
+
+smart-circular-progress-bar.error .smart-value {
+    stroke: var(--smart-error);
+}
+
+smart-circular-progress-bar.light .smart-value {
+    stroke: var(--smart-light);
+}
+
+smart-circular-progress-bar.dark .smart-value {
+    stroke: var(--smart-dark);
+}
+
+smart-circular-progress-bar:not([animation='none']) .smart-value {
+    transition: stroke-dashoffset 1s linear;
+}
+
+smart-circular-progress-bar[inverted] svg:first-of-type .smart-value.smart-value-animation {
     animation: circle-inverted 2s infinite linear;
 }
 
-.smart-circular-progress-bar[indeterminate][inverted] svg:first-of-type,
-.smart-circular-progress-bar[value="null"][inverted] svg:first-of-type {
+smart-circular-progress-bar[indeterminate][inverted] svg:first-of-type, smart-circular-progress-bar[value="null"][inverted] svg:first-of-type {
     animation: rotate-circle-inverted 1s infinite linear;
 }
 
-.smart-circular-progress-bar[indeterminate] svg:first-of-type,
-.smart-circular-progress-bar[value="null"] svg:first-of-type {
+smart-circular-progress-bar[indeterminate] svg:first-of-type, smart-circular-progress-bar[value="null"] svg:first-of-type {
     animation: rotate-circle 1s infinite linear;
+}
+
+smart-circular-progress-bar[right-to-left][inverted] svg:first-of-type .smart-value.smart-value-animation {
+    animation: circle 2s infinite linear;
+}
+
+smart-circular-progress-bar[right-to-left] svg:first-of-type .smart-value.smart-value-animation {
+    animation: circle-inverted 2s infinite linear;
+}
+
+smart-circular-progress-bar[right-to-left][indeterminate] svg:first-of-type, smart-circular-progress-bar[right-to-left][value="null"] svg:first-of-type {
+    animation: rotate-circle-inverted 1s infinite linear;
+}
+
+smart-circular-progress-bar[right-to-left][indeterminate][inverted] svg:first-of-type, smart-circular-progress-bar[right-to-left][value="null"][inverted] svg:first-of-type {
+    animation: rotate-circle 1s infinite linear;
+}
+
+/* Barber Shop */
+.barber-shop-effect .smart-value {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 75%, transparent 75%, transparent);
+    background-size: 5rem 5rem;
+    background-position: 0 -244rem;
+    animation: stripes 10s linear infinite;
+    animation-direction: normal;
+}
+
+.barber-shop-effect[inverted] .smart-value, .barber-shop-effect[orientation="vertical"] .smart-value {
+    animation-direction: reverse;
+}
+
+.barber-shop-effect[right-to-left] .smart-value {
+    animation-direction: reverse;
+}
+
+.barber-shop-effect[right-to-left][inverted] .smart-value {
+    animation-direction: normal;
+}
+
+/* ANIMATION - BarberShop style */
+@keyframes stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60rem 0;
+    }
+    /*Including the alternative for best browser support*/
+    From {
+        background-position: 0 0;
+    }
+    To {
+        background-position: 60rem 0;
+    }
 }
 
 @keyframes indeterminate {
@@ -287,91 +328,76 @@ ANIMATION - BarberShop style
         transform: scaleX(0.4);
         transform-origin: left;
     }
-
     20% {
         left: -40%;
         transform: scaleX(0.3);
         transform-origin: left;
     }
-
     35% {
         left: 35%;
         transform: scaleX(0.4);
         transform-origin: left;
     }
-
     50% {
         left: 75%;
         transform: scaleX(0.6);
         transform-origin: left;
     }
-
     55% {
         left: 100%;
         transform: scaleX(0.7);
         transform-origin: left;
     }
-
     55.99% {
         left: 100%;
         transform: scaleX(0);
         transform-origin: left;
     }
-
     56% {
         left: -100%;
         transform: scaleX(0);
         transform-origin: left;
     }
-
     56.99% {
         left: -100%;
         transform: scaleX(0.6);
         transform-origin: left;
     }
-
     75% {
         left: -5%;
         transform: scaleX(0.6);
         transform-origin: left;
     }
-
     80% {
         left: 30%;
         transform: scaleX(0.5);
         transform-origin: left;
     }
-
     85% {
         left: 50%;
         transform: scaleX(0.4);
         transform-origin: left;
     }
-
     90% {
         left: 75%;
         transform: scaleX(0.3);
         transform-origin: left;
     }
-
     95% {
         left: 95%;
         transform: scaleX(0.2);
         transform-origin: left;
     }
-
     98% {
         left: 100%;
         transform: scaleX(0.2);
         transform-origin: left;
     }
-
     99.99% {
         left: 100%;
         transform: scaleX(0);
         transform-origin: left;
     }
-
     100% {
         left: -100%;
         transform: scaleX(0);
@@ -385,91 +411,76 @@ ANIMATION - BarberShop style
         transform: scaleX(0.4);
         transform-origin: right;
     }
-
     20% {
         right: -40%;
         transform: scaleX(0.3);
         transform-origin: right;
     }
-
     35% {
         right: 35%;
         transform: scaleX(0.4);
         transform-origin: right;
     }
-
     50% {
         right: 75%;
         transform: scaleX(0.6);
         transform-origin: right;
     }
-
     55% {
         right: 100%;
         transform: scaleX(0.7);
         transform-origin: right;
     }
-
     55.99% {
         right: 100%;
         transform: scaleX(0);
         transform-origin: right;
     }
-
     56% {
         right: -100%;
         transform: scaleX(0);
         transform-origin: right;
     }
-
     56.99% {
         right: -100%;
         transform: scaleX(0.6);
         transform-origin: right;
     }
-
     75% {
         right: -5%;
         transform: scaleX(0.6);
         transform-origin: right;
     }
-
     80% {
         right: 30%;
         transform: scaleX(0.5);
         transform-origin: right;
     }
-
     85% {
         right: 50%;
         transform: scaleX(0.4);
         transform-origin: right;
     }
-
     90% {
         right: 75%;
         transform: scaleX(0.3);
         transform-origin: right;
     }
-
     95% {
         right: 95%;
         transform: scaleX(0.2);
         transform-origin: right;
     }
-
     98% {
         right: 100%;
         transform: scaleX(0.2);
         transform-origin: right;
     }
-
     99.99% {
         right: 100%;
         transform: scaleX(0);
         transform-origin: right;
     }
-
     100% {
         right: -100%;
         transform: scaleX(0);
@@ -483,91 +494,76 @@ ANIMATION - BarberShop style
         transform: scaleY(0.4);
         transform-origin: bottom;
     }
-
     20% {
         bottom: -40%;
         transform: scaleY(0.3);
         transform-origin: bottom;
     }
-
     35% {
         bottom: 35%;
         transform: scaleY(0.4);
         transform-origin: bottom;
     }
-
     50% {
         bottom: 75%;
         transform: scaleY(0.6);
         transform-origin: bottom;
     }
-
     55% {
         bottom: 100%;
         transform: scaleY(0.7);
         transform-origin: bottom;
     }
-
     55.99% {
         bottom: 100%;
         transform: scaleY(0);
         transform-origin: bottom;
     }
-
     56% {
         bottom: -100%;
         transform: scaleY(0);
         transform-origin: bottom;
     }
-
     56.99% {
         bottom: -100%;
         transform: scaleY(0.6);
         transform-origin: bottom;
     }
-
     75% {
         bottom: -5%;
         transform: scaleY(0.6);
         transform-origin: bottom;
     }
-
     80% {
         bottom: 30%;
         transform: scaleY(0.5);
         transform-origin: bottom;
     }
-
     85% {
         bottom: 50%;
         transform: scaleY(0.4);
         transform-origin: bottom;
     }
-
     90% {
         bottom: 75%;
         transform: scaleY(0.3);
         transform-origin: bottom;
     }
-
     95% {
         bottom: 95%;
         transform: scaleY(0.2);
         transform-origin: bottom;
     }
-
     98% {
         bottom: 100%;
         transform: scaleY(0.2);
         transform-origin: bottom;
     }
-
     99.99% {
         bottom: 100%;
         transform: scaleY(0);
         transform-origin: bottom;
     }
-
     100% {
         bottom: -100%;
         transform: scaleY(0);
@@ -581,91 +577,76 @@ ANIMATION - BarberShop style
         transform: scaleY(0.4);
         transform-origin: top;
     }
-
     20% {
         top: -40%;
         transform: scaleY(0.3);
         transform-origin: top;
     }
-
     35% {
         top: 35%;
         transform: scaleY(0.4);
         transform-origin: top;
     }
-
     50% {
         top: 75%;
         transform: scaleY(0.6);
         transform-origin: top;
     }
-
     55% {
         top: 100%;
         transform: scaleY(0.7);
         transform-origin: top;
     }
-
     55.99% {
         top: 100%;
         transform: scaleY(0);
         transform-origin: top;
     }
-
     56% {
         top: -100%;
         transform: scaleY(0);
         transform-origin: top;
     }
-
     56.99% {
         top: -100%;
         transform: scaleY(0.6);
         transform-origin: top;
     }
-
     75% {
         top: -5%;
         transform: scaleY(0.6);
         transform-origin: top;
     }
-
     80% {
         top: 30%;
         transform: scaleY(0.5);
         transform-origin: top;
     }
-
     85% {
         top: 50%;
         transform: scaleY(0.4);
         transform-origin: top;
     }
-
     90% {
         top: 75%;
         transform: scaleY(0.3);
         transform-origin: top;
     }
-
     95% {
         top: 95%;
         transform: scaleY(0.2);
         transform-origin: top;
     }
-
     98% {
         top: 100%;
         transform: scaleY(0.2);
         transform-origin: top;
     }
-
     99.99% {
         top: 100%;
         transform: scaleY(0);
         transform-origin: top;
     }
-
     100% {
         top: -100%;
         transform: scaleY(0);
@@ -677,11 +658,9 @@ ANIMATION - BarberShop style
     0% {
         stroke-dashoffset: 314;
     }
-
     5% {
         stroke-dashoffset: 164;
     }
-
     25% {
         stroke-dashoffset: 104;
     }
@@ -691,99 +670,36 @@ ANIMATION - BarberShop style
     0% {
         stroke-dashoffset: -314;
     }
-
     5% {
         stroke-dashoffset: -164;
     }
-
     25% {
         stroke-dashoffset: -104;
     }
 }
 
 @keyframes rotate-circle {
-
     50% {
         transform: rotate(180deg);
     }
-
     75% {
         transform: rotate(270deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
 }
 
 @keyframes rotate-circle-inverted {
-
     50% {
         transform: rotate(-180deg);
     }
-
     75% {
         transform: rotate(-270deg);
     }
-
     100% {
         transform: rotate(-360deg);
     }
 }
 
-/* --- Right To Left --- */
-
-smart-progress-bar[right-to-left] .smart-label,
-smart-circular-progress-bar[right-to-left] .smart-label {
-    direction: rtl;
-}
-
-smart-progress-bar[orientation="horizontal"][right-to-left] .smart-value,
-smart-progress-bar:not([orientation="vertical"])[right-to-left] .smart-value,
-smart-progress-bar[orientation="horizontal"][right-to-left] .smart-value,
-smart-progress-bar:not([orientation="vertical"])[right-to-left] .smart-value {
-    transform-origin: right;
-}
-
-smart-progress-bar[orientation="horizontal"][right-to-left][inverted] .smart-value,
-smart-progress-bar:not([orientation="vertical"])[right-to-left][inverted] .smart-value {
-    transform-origin: left;
-}
-
-.barber-shop-effect[right-to-left] .smart-value {
-    animation-direction: reverse;
-}
-
-.barber-shop-effect[inverted][right-to-left] .smart-value {
-    animation-direction: normal;
-}
-
-smart-progress-bar[right-to-left][orientation="horizontal"] .smart-value.smart-value-animation,
-smart-progress-bar[right-to-left]:not([orientation="vertical"]) .smart-value.smart-value-animation {
-    animation: indeterminate-inverted 3s infinite linear;
-}
-
-smart-progress-bar[inverted][right-to-left][orientation="horizontal"] .smart-value.smart-value-animation,
-smart-progress-bar[inverted][right-to-left]:not([orientation="vertical"]) .smart-value.smart-value-animation {
-    animation: indeterminate 3s infinite linear;
-}
-
-smart-circular-progress-bar[inverted][right-to-left] svg:first-of-type .smart-value.smart-value-animation {
-    animation: circle 2s infinite linear;
-}
-
-smart-circular-progress-bar[right-to-left] svg:first-of-type .smart-value.smart-value-animation {
-    animation: circle-inverted 2s infinite linear;
-}
-
-smart-circular-progress-bar[indeterminate][right-to-left] svg:first-of-type,
-smart-circular-progress-bar[value="null"][right-to-left] svg:first-of-type {
-    animation: rotate-circle-inverted 1s infinite linear;
-}
-
-smart-circular-progress-bar[indeterminate][right-to-left][inverted] svg:first-of-type,
-smart-circular-progress-bar[value="null"][right-to-left][inverted] svg:first-of-type {
-    animation: rotate-circle 1s infinite linear;
-}
-
-/* --- */
+/*# sourceMappingURL=smart.progressbar.css.map */

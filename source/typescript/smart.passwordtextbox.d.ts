@@ -171,6 +171,13 @@ export interface PasswordTextBox extends BaseElement, PasswordTextBoxProperties 
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
+   * This event is triggered on each key up event of the TextBox, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Focuses the element.
    */
   focus(): void;

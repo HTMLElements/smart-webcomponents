@@ -1,28 +1,29 @@
+/* smart-drop-down-button */
 smart-drop-down-button {
     width: var(--smart-drop-down-button-default-width);
     height: var(--smart-drop-down-button-default-height);
     visibility: hidden;
 }
 
-    smart-drop-down-button.smart-element {
-        display: inline-block;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        overflow: visible;
-        border: none;
-        visibility: initial;
-    }
+smart-drop-down-button.smart-element {
+    display: inline-block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: visible;
+    border: none;
+    visibility: initial;
+}
 
-.smart-drop-down-button .smart-ripple {
+smart-drop-down-button .smart-ripple {
     background: var(--smart-primary-color);
 }
 
-.smart-drop-down-button .smart-buttons-container > .smart-action-button:empty {
+smart-drop-down-button .smart-buttons-container > .smart-action-button:empty {
     padding: 0;
     width: 0;
 }
 
-.smart-drop-down-container > smart-scroll-viewer {
+smart-drop-down-button .smart-drop-down-container > smart-scroll-viewer {
     --smart-scroll-viewer-min-width: calc(var(--smart-editor-drop-down-min-width) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
     --smart-scroll-viewer-max-width: calc(var(--smart-editor-drop-down-max-width) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
     --smart-scroll-viewer-min-height: calc(var(--smart-editor-drop-down-min-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
@@ -34,20 +35,243 @@ smart-drop-down-button {
     overflow: hidden;
 }
 
-.smart-drop-down-container:not([resize-mode='none']) > smart-scroll-viewer {
+smart-drop-down-button .smart-drop-down-container > smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container > .smart-scroll-viewer-content-container {
+    vertical-align: top;
+    /* Fixes the height issue of display: inline-block */
+    padding: 0;
+}
+
+smart-drop-down-button .smart-drop-down-container:not([resize-mode='none']) > smart-scroll-viewer {
     --smart-scroll-viewer-min-height: calc(var(--smart-editor-drop-down-min-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size) - var(--smart-editor-drop-down-resize-bar-height));
     --smart-scroll-viewer-max-height: calc(var(--smart-editor-drop-down-max-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size) - var(--smart-editor- drop-down-resize-bar-height));
     height: calc(100% - var(--smart-editor-drop-down-resize-bar-height));
 }
 
-.smart-drop-down-container > smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container > .smart-scroll-viewer-content-container {
-    vertical-align: top; /* Fixes the height issue of display: inline-block */
-    padding: 0;
-}
-
-.smart-drop-down-container[empty] > smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container {
+smart-drop-down-button .smart-drop-down-container[empty] > smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container {
     display: flex;
     align-items: center;
     justify-content: center;
     font-style: italic;
 }
+
+smart-drop-down-button .smart-drop-down-container smart-tree {
+    border: 0;
+}
+
+smart-drop-down-button.primary {
+    --smart-editor-selection: var(--smart-primary);
+    --smart-editor-selection-color: var(--smart-primary-color);
+    --smart-ui-state-active: var(--smart-primary);
+    --smart-ui-state-color-active: var(--smart-primary-color);
+    --smart-ui-state-border-active: var(--smart-primary);
+    --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-primary);
+    --smart-ui-state-border-selected: rgba(var(--smart-primary-rgb), .1);
+    --smart-border: rgba(var(--smart-primary-rgb), .9);
+}
+
+smart-drop-down-button.primary:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-primary-rgb), .9);
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+smart-drop-down-button.primary .smart-action-button,
+smart-drop-down-button.primary .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-primary-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-primary-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-primary-color);
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+smart-drop-down-button.secondary {
+    --smart-editor-selection: var(--smart-secondary);
+    --smart-editor-selection-color: var(--smart-secondary-color);
+    --smart-ui-state-active: var(--smart-secondary);
+    --smart-ui-state-color-active: var(--smart-secondary-color);
+    --smart-ui-state-border-active: var(--smart-secondary);
+    --smart-ui-state-selected: rgba(var(--smart-secondary-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-secondary);
+    --smart-ui-state-border-selected: rgba(var(--smart-secondary-rgb), .1);
+    --smart-border: rgba(var(--smart-secondary-rgb), .9);
+}
+
+smart-drop-down-button.secondary:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-secondary-rgb), .9);
+    background-color: var(--smart-secondary);
+    color: var(--smart-secondary-color);
+}
+
+smart-drop-down-button.secondary .smart-action-button,
+smart-drop-down-button.secondary .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-secondary-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-secondary-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-secondary-color);
+    background-color: var(--smart-secondary);
+    color: var(--smart-secondary-color);
+}
+
+smart-drop-down-button.success {
+    --smart-editor-selection: var(--smart-success);
+    --smart-editor-selection-color: var(--smart-success-color);
+    --smart-ui-state-active: var(--smart-success);
+    --smart-ui-state-color-active: var(--smart-success-color);
+    --smart-ui-state-border-active: var(--smart-success);
+    --smart-ui-state-selected: rgba(var(--smart-success-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-success);
+    --smart-ui-state-border-selected: rgba(var(--smart-success-rgb), .1);
+    --smart-border: rgba(var(--smart-success-rgb), .9);
+}
+
+smart-drop-down-button.success:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-success-rgb), .9);
+    background-color: var(--smart-success);
+    color: var(--smart-success-color);
+}
+
+smart-drop-down-button.success .smart-action-button,
+smart-drop-down-button.success .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-success-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-success-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-success-color);
+    background-color: var(--smart-success);
+    color: var(--smart-success-color);
+}
+
+smart-drop-down-button.info {
+    --smart-editor-selection: var(--smart-info);
+    --smart-editor-selection-color: var(--smart-info-color);
+    --smart-ui-state-active: var(--smart-info);
+    --smart-ui-state-color-active: var(--smart-info-color);
+    --smart-ui-state-border-active: var(--smart-info);
+    --smart-ui-state-selected: rgba(var(--smart-info-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-info);
+    --smart-ui-state-border-selected: rgba(var(--smart-info-rgb), .1);
+    --smart-border: rgba(var(--smart-info-rgb), .9);
+}
+
+smart-drop-down-button.info:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-info-rgb), .9);
+    background-color: var(--smart-info);
+    color: var(--smart-info-color);
+}
+
+smart-drop-down-button.info .smart-action-button,
+smart-drop-down-button.info .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-info-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-info-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-info-color);
+    background-color: var(--smart-info);
+    color: var(--smart-info-color);
+}
+
+smart-drop-down-button.warning {
+    --smart-editor-selection: var(--smart-warning);
+    --smart-editor-selection-color: var(--smart-warning-color);
+    --smart-ui-state-active: var(--smart-warning);
+    --smart-ui-state-color-active: var(--smart-warning-color);
+    --smart-ui-state-border-active: var(--smart-warning);
+    --smart-ui-state-selected: rgba(var(--smart-warning-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-warning);
+    --smart-ui-state-border-selected: rgba(var(--smart-warning-rgb), .1);
+    --smart-border: rgba(var(--smart-warning-rgb), .9);
+}
+
+smart-drop-down-button.warning:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-warning-rgb), .9);
+    background-color: var(--smart-warning);
+    color: var(--smart-warning-color);
+}
+
+smart-drop-down-button.warning .smart-action-button,
+smart-drop-down-button.warning .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-warning-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-warning-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-warning-color);
+    background-color: var(--smart-warning);
+    color: var(--smart-warning-color);
+}
+
+smart-drop-down-button.error {
+    --smart-editor-selection: var(--smart-error);
+    --smart-editor-selection-color: var(--smart-error-color);
+    --smart-ui-state-active: var(--smart-error);
+    --smart-ui-state-color-active: var(--smart-error-color);
+    --smart-ui-state-border-active: var(--smart-error);
+    --smart-ui-state-selected: rgba(var(--smart-error-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-error);
+    --smart-ui-state-border-selected: rgba(var(--smart-error-rgb), .1);
+    --smart-border: rgba(var(--smart-error-rgb), .9);
+}
+
+smart-drop-down-button.error:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-error-rgb), .9);
+    background-color: var(--smart-error);
+    color: var(--smart-error-color);
+}
+
+smart-drop-down-button.error .smart-action-button,
+smart-drop-down-button.error .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-error-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-error-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-error-color);
+    background-color: var(--smart-error);
+    color: var(--smart-error-color);
+}
+
+smart-drop-down-button.light {
+    --smart-editor-selection: var(--smart-light);
+    --smart-editor-selection-color: var(--smart-light-color);
+    --smart-ui-state-active: var(--smart-light);
+    --smart-ui-state-color-active: var(--smart-light-color);
+    --smart-ui-state-border-active: var(--smart-light);
+    --smart-ui-state-selected: rgba(var(--smart-light-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-light);
+    --smart-ui-state-border-selected: rgba(var(--smart-light-rgb), .1);
+    --smart-border: rgba(var(--smart-light-rgb), .9);
+}
+
+smart-drop-down-button.light:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-light-rgb), .9);
+    background-color: var(--smart-light);
+    color: var(--smart-light-color);
+}
+
+smart-drop-down-button.light .smart-action-button,
+smart-drop-down-button.light .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-light-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-light-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-light-color);
+    background-color: var(--smart-light);
+    color: var(--smart-light-color);
+}
+
+smart-drop-down-button.dark {
+    --smart-editor-selection: var(--smart-dark);
+    --smart-editor-selection-color: var(--smart-dark-color);
+    --smart-ui-state-active: var(--smart-dark);
+    --smart-ui-state-color-active: var(--smart-dark-color);
+    --smart-ui-state-border-active: var(--smart-dark);
+    --smart-ui-state-selected: rgba(var(--smart-dark-rgb), .1);
+    --smart-ui-state-color-selected: var(--smart-dark);
+    --smart-ui-state-border-selected: rgba(var(--smart-dark-rgb), .1);
+    --smart-border: rgba(var(--smart-dark-rgb), .9);
+}
+
+smart-drop-down-button.dark:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
+    --smart-border: rgba(var(--smart-dark-rgb), .9);
+    background-color: var(--smart-dark);
+    color: var(--smart-dark-color);
+}
+
+smart-drop-down-button.dark .smart-action-button,
+smart-drop-down-button.dark .smart-drop-down-button {
+    --smart-ui-state-border-hover: rgba(var(--smart-dark-rgb), .9);
+    --smart-ui-state-hover: rgba(var(--smart-dark-rgb), .9);
+    --smart-ui-state-color-hover: var(--smart-dark-color);
+    background-color: var(--smart-dark);
+    color: var(--smart-dark-color);
+}
+
+/*# sourceMappingURL=smart.dropdownbutton.css.map */

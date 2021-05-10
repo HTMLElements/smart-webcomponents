@@ -1,5 +1,4 @@
 /* smart-color-picker */
-
 smart-color-picker {
     width: var(--smart-color-picker-default-width);
     height: var(--smart-color-picker-default-height);
@@ -13,31 +12,6 @@ smart-color-picker.smart-element {
 .smart-color-picker smart-color-panel {
     position: relative;
     display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-.smart-color-picker .smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container,
-.smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container.smart-drop-down-repositioned,
-.smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container {
-    width: var(--smart-color-picker-drop-down-width);
-    max-width: none;
-    height: var(--smart-color-picker-drop-down-height);
-    max-height: none;
-    box-sizing: content-box;
-    overflow: hidden;
-}
-
-/*
-  transfered from drop down button
-*/
-
-.smart-color-picker .smart-ripple {
-    background: var(--smart-primary-color);
-}
-
-.smart-color-picker smart-color-panel,
-.smart-drop-down-repositioned smart-color-panel {
     width: 100%;
     height: 100%;
     padding: 5px;
@@ -58,14 +32,13 @@ smart-color-picker.smart-element {
     background-size: 10px 10px;
 }
 
-.smart-color-picker .smart-color-box.no-color,
-.smart-color-panel .color-sample.no-color {
+.smart-color-picker .smart-color-box.no-color {
     background-image: linear-gradient(45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%), linear-gradient(-45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%);
     background-position: initial;
     background-size: initial;
 }
 
-.smart-color-picker .smart-color-box>div {
+.smart-color-picker .smart-color-box > div {
     width: 100%;
     height: 100%;
 }
@@ -77,18 +50,37 @@ smart-color-picker.smart-element {
     color: inherit;
 }
 
+.smart-color-picker .smart-ripple {
+    background: var(--smart-primary-color);
+}
+
+.smart-color-picker .smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container {
+    width: var(--smart-color-picker-drop-down-width);
+    max-width: none;
+    height: var(--smart-color-picker-drop-down-height);
+    max-height: none;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
 .smart-color-picker:not([opened]) .smart-color-input {
     color: inherit;
 }
 
-.smart-color-picker[value-display-mode="colorCode"] .smart-color-box,
+.smart-color-picker:not([editable]) .smart-color-input {
+    cursor: pointer;
+    user-select: none;
+}
+
 .smart-color-picker[value-display-mode="none"] .smart-color-box {
     display: none;
 }
 
-.smart-color-picker[value-display-mode="colorBox"] .smart-color-input.smart-input,
-.smart-color-picker[value-display-mode="none"]  .smart-color-input.smart-input {
-    /* display: none; */
+.smart-color-picker[value-display-mode="none"] .smart-color-input {
+    display: none;
+}
+
+.smart-color-picker[value-display-mode="none"] .smart-color-input.smart-input {
     width: 0;
     opacity: 0;
     padding: initial;
@@ -110,14 +102,20 @@ smart-color-picker.smart-element {
     border-left-color: var(--smart-border);
 }
 
-.smart-color-picker[value-display-mode="colorCode"] .smart-color-box,
-.smart-color-picker[value-display-mode="none"] .smart-color-box {
+.smart-color-picker[value-display-mode="colorCode"] .smart-color-box {
     display: none;
 }
 
-.smart-color-picker[value-display-mode="colorBox"] .smart-color-box,
 .smart-color-picker[value-display-mode="colorCode"] .smart-color-input {
     display: block;
+}
+
+.smart-color-picker[value-display-mode="colorBox"] .smart-color-box {
+    display: block;
+}
+
+.smart-color-picker[value-display-mode="colorBox"] .smart-input {
+    display: none;
 }
 
 .smart-color-picker[editable] .smart-action-button {
@@ -129,12 +127,31 @@ smart-color-picker.smart-element {
     color: var(--smart-background-color);
 }
 
-.smart-color-picker:not([editable]) .smart-color-input {
-    cursor: pointer;
-    user-select: none;
-}
-
 .smart-color-picker[opened][editable] .smart-action-button {
     background-color: var(--smart-backgroud);
     color: var(--smart-background-color);
 }
+
+.smart-color-panel .color-sample.no-color {
+    background-image: linear-gradient(45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%), linear-gradient(-45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%);
+    background-position: initial;
+    background-size: initial;
+}
+
+.smart-drop-down-repositioned smart-color-panel {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border: none;
+}
+
+.smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container, .smart-drop-down.smart-drop-down-color-picker.smart-drop-down-container.smart-drop-down-repositioned {
+    width: var(--smart-color-picker-drop-down-width);
+    max-width: none;
+    height: var(--smart-color-picker-drop-down-height);
+    max-height: none;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
+/*# sourceMappingURL=smart.colorpicker.css.map */

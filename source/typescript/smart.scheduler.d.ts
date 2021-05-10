@@ -282,6 +282,11 @@ export interface SchedulerProperties {
    */
   max?: string | Date;
   /**
+   * Detetmines the maximum number of events per Scheduler cell. By default this property is null which means that the number of events per cell is automatically determined by the size of the events.
+   * Default value: null
+   */
+  maxEventsPerCell?: number | null;
+  /**
    * Detetmines the minimum view date for the Scheduler.
    * Default value: 1900-1-1
    */

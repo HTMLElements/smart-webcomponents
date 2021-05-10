@@ -627,6 +627,13 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getBatchEditChanges(): { upDated: [{ id: string, dataField: string, oldValue: Object, newValue: Object }], deleted: [{id: string, data: Object}], added: [{id: string, data: Object}] };
   /**
+   * Gets a value of a cell.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field
+   * @returns {any}
+   */
+  getCellValue(rowId: string | number, dataField: string): any;
+  /**
    * Gets whether a column's drop-down menu is opened.
    * @returns {boolean}
    */
@@ -636,6 +643,21 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {string | number} rowId. row bound id
    */
   hideDetail(rowId: string | number): void;
+  /**
+   * Highlights a cell. Calling the method a second time toggle the highlight state.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field
+   * @param {string} className?. CSS Class Name
+   * @returns {any}
+   */
+  highlightCell(rowId: string | number, dataField: string, className?: string): any;
+  /**
+   * Highlights a row. Calling the method a second time toggle the highlight state.
+   * @param {string | number} rowId. row bound id
+   * @param {string} className?. CSS Class Name
+   * @returns {any}
+   */
+  highlightRow(rowId: string | number, className?: string): any;
   /**
    * Opens a column drop-down menu.
    * @param {string} dataField. column bound data field
@@ -708,6 +730,13 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {number[]} rowIndex. Array of row indexes
    */
   selectRowsByIndex(rowIndex: number[]): void;
+  /**
+   * Sets a new value to a cell.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field
+   * @param {string | number | Date | boolean} value. New Cell value.
+   */
+  setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
   /**
    * Shows the Details of a Row, when row details are enabled.
    * @param {string | number} rowId. row bound id
@@ -1158,7 +1187,7 @@ export interface GridColumn {
    */
   element?: HTMLElement;
   /**
-   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'timeInput', 'dateInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'onInit' and 'onRender' callback functions.
+   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'timeInput', 'dateInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): object', 'onRender(int row, string column, object editor, object rowData): object', 'setValue(object editor): void' and 'getValue(object value): object' callback functions.
    * Default value: null
    */
   editor?: any;
@@ -1620,6 +1649,11 @@ export interface GridDataSourceSettings {
    * Default value: ""
    */
   childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: blackList
+   */
+  sanitizeHTML?: GridDataSourceSettingsSanitizeHTML;
   /**
    * Sets or gets the XML binding root.
    * Default value: ""
@@ -2851,6 +2885,8 @@ export declare type GridColumnSummary = 'sum' | 'min' | 'max' | 'avg' | 'count' 
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Sets the page orientation, when exporting to PDF. */
 export declare type GridDataExportPageOrientation = 'landscape' | 'portrait';
+/**Sets or gets the XML binding root. */
+export declare type GridDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
 /**Sets the dataField type. */
 export declare type GridDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
 /**Sets or gets whether the data source type. */

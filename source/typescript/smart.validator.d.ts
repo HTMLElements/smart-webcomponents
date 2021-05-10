@@ -40,7 +40,7 @@ export interface ValidatorRule {
    * A callback function whose result to compare to the input value by the comparisonType in order to show the validation message. Applicable when type is 'compare'.
    * Default value: 
    */
-  comparisonTarget?: any;
+  comparisonTarget?: { (inputElement: any, rule: ValidatorRule): any };
   /**
    * An operator to compare the input value by with the result of comparisonTarget in order to show the validation message. Applicable when type is 'compare'.
    * Default value: "=="
@@ -80,7 +80,7 @@ export interface ValidatorRule {
    * A callback function to validate the input's value by when the rule's type is 'custom'.
    * Default value: 
    */
-  validationCallback?: any;
+  validationCallback?: { (inputElement: any): boolean };
 }
 
 declare global {

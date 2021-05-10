@@ -1,0 +1,409 @@
+smart-text-box,
+smart-input,
+smart-password-input,
+smart-date-range-input,
+smart-multi-input,
+smart-multi-combo-input,
+smart-check-input,
+smart-masked-text-box,
+smart-password-text-box {
+  &.outlined {
+    background-color: transparent;
+  }
+}
+
+smart-date-range-input,
+smart-date-input,
+smart-time-input {
+  &.outlined {
+    overflow: visible;
+  }
+}
+
+.outlined {
+  &.smart-input {
+    position: relative;
+    display: inline-block;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    line-height: 1.5;
+    height: 50px;
+    margin: 0px;
+    border: none;
+    border-radius: 0px;
+    padding-top: 6px;
+    overflow: hidden;
+
+    .smart-input {
+      padding: 12px 13px 12px;
+      z-index: 5;
+      background: var(--smart-background);
+      border: 1px solid var(--smart-border);
+      transition: border-color 0.2s;
+    }
+
+
+    &.smart-valid {
+      &[focus] {
+        .smart-input,
+        .smart-drop-down-button {
+          border-color: var(--smart-primary);
+        }
+
+        .smart-drop-down-button {
+          color: var(--smart-primary);
+        }
+      }
+    }
+
+    &.smart-invalid {
+      .smart-input,
+      .smart-drop-down-button {
+        border-color: #{'rgba(var(--smart-error-rgb), 0.5)'};
+      }
+
+      &[focus] {
+        .smart-input,
+        .smart-drop-down-button {
+          border-color: var(--smart-error);
+        }
+
+        .smart-drop-down-button {
+          color: var(--smart-error);
+        }
+      }
+    }
+
+    &.smart-multi-combo-input {
+      .smart-input {
+        padding: 0;
+        border: none !important;
+        z-index: initial;
+      }
+
+      .smart-drop-down-button {
+        padding: 0;
+        //border-top: 1px solid var(--smart-border);
+      }
+
+      .smart-action-button {
+        border-right: none;
+        border-top: 1px solid var(--smart-border);
+
+        padding: 12px 13px 12px;
+        z-index: 5;
+        background: var(--smart-background);
+        border: 1px solid var(--smart-border);
+        transition: border-color 0.2s;
+      }
+
+      &[hint] {
+        .smart-action-button {
+          border-top: 1px solid var(--smart-background);
+        }
+      }
+
+      &[focus] {
+        .smart-action-button {
+          border-color: var(--smart-primary);
+          color: var(--smart-primary);
+        }
+      }
+
+      &[focus][hint] {
+        .smart-action-button {
+          border-top-color: var(--smart-background);
+        }
+      }
+
+      &.smart-valid {
+        &[focus] {
+          .smart-action-button {
+            border-color: var(--smart-primary);
+          }
+
+          .smart-action-button.smart-valid {
+            color: var(--smart-primary);
+          }
+        }
+      }
+
+      &.smart-invalid {
+        &[focus] {
+          .smart-action-button.smart-invalid {
+            color: var(--smart-error);
+          }
+        }
+      }
+    }
+
+    &[drop-down-button-position="right"] {
+      input {
+        border-right: none;
+      }
+
+      .smart-drop-down-button {
+        padding: 10px 0px 9px 0px;
+        border-left: none;
+        border-bottom: 1px solid var(--smart-border);
+        border-right: 1px solid var(--smart-border);
+        border-top: 1px solid var(--smart-border);
+        background: inherit;
+        color: inherit;
+        z-index: 6;
+        cursor: pointer;
+      }
+    }
+
+    &[drop-down-button-position="left"] {
+      input {
+        border-left: none;
+      }
+
+      .smart-drop-down-button {
+        padding: 10px 0px;
+        border-right: none;
+        border-bottom: 1px solid var(--smart-border);
+        border-left: 1px solid var(--smart-border);
+        background: inherit;
+        color: inherit;
+        z-index: 6;
+        cursor: pointer;
+      }
+    }
+
+    &[hint] {
+      .smart-hint {
+        //border-top: 1px solid var(--smart-background);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex !important;
+        border-color: var(--smart-border) !important;
+        width: 100%;
+        max-height: 100%;
+        color: var(--smart-background-color);
+        font-size: 75%;
+        line-height: 15px;
+        cursor: text;
+        margin-top: -6px;
+        z-index: 7;
+        white-space: nowrap;
+        transition: color 0.2s, z-index 0.2s, font-size 0.2s, opacity 0.3s, font-size 0.2s, line-height 0.2s;
+      }
+
+      .smart-hint {
+        &:before,
+        &:after {
+          content: "";
+          display: block;
+          box-sizing: border-box;
+          margin-top: 6px;
+          border-top: solid 1px;
+          border-top-color: var(--smart-border) !important;
+          min-width: 10px;
+          height: 8px;
+          pointer-events: none;
+          box-shadow: inset 0 1px transparent;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          z-index: 7;
+        }
+
+        &:before {
+          margin-right: 4px;
+          border-left: solid 1px transparent;
+          border-radius: 4px 0;
+        }
+
+        &:after {
+          flex-grow: 1;
+          margin-left: 4px;
+          border-right: solid 1px transparent;
+          border-radius: 0 4px;
+        }
+      }
+
+      &[drop-down-button-position="left"] {
+        .smart-hint:before {
+          width: var(--smart-editor-addon-width);
+          margin-right: 13px;
+        }
+      }
+    }
+
+    &[focus] {
+      border-color: var(--smart-primary);
+      border-top-color: transparent !important;
+      box-shadow: inset 1px 0 var(--smart-material-safari-helper1), inset -1px 0 var(--smart-material-safari-helper1), inset 0 -1px var(--smart-material-safari-helper1);
+      outline: none;
+
+      .smart-input {
+        border-color: var(--smart-primary);
+      }
+
+      .smart-drop-down-button {
+        color: var(--smart-primary);
+        border-color: var(--smart-primary);
+      }
+
+      &[hint] {
+        .smart-input {
+          border-top-color: var(--smart-background);
+        }
+
+        .smart-hint {
+          color: var(--smart-primary);
+          opacity: 1;
+
+          &:before,
+          &:after {
+            border-top-color: var(--smart-primary) !important;
+            box-shadow: none !important;
+          }
+        }
+      }
+    }
+
+    &[hover] {
+      border-color: var(--smart-border);
+      border-top-color: transparent;
+
+      &[hint] {
+        .smart-hint:before {
+          border-top-color: var(--smart-border);
+        }
+
+        > input:not(:focus),
+        > textarea:not(:focus) {
+          &:placeholder-shown {
+            border-color: var(--smart-border);
+          }
+        }
+      }
+    }
+
+    &[readonly] {
+      .smart-input {
+        background: var(--smart-background) !important;
+        color: var(--smart-background-color) !important;
+        opacity: 0.75;
+      }
+    }
+
+    //Placeholder-shown
+    &:not([focus]) {
+      .smart-input:not(:focus):placeholder-shown,
+      .smart-input {
+        border-top: 1px solid var(--smart-border);
+        z-index: 5;
+      }
+
+      &.smart-invalid {
+        .smart-input:not(:focus):placeholder-shown,
+        .smart-input {
+          border-top: #{'1px solid rgba(var(--smart-error-rgb), 0.5)'};
+          z-index: 5;
+        }
+      }
+    }
+
+    &:not([focus]):not([value]).smart-multi-combo-input[hint] .smart-hint,
+    &[hint] .smart-input:not(:focus):placeholder-shown + .smart-hint,
+    &[hint]:not([focus]) .smart-hint {
+      font-size: var(--smart-font-size);
+      line-height: 60px;
+      z-index: 2;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &.smart-invalid {
+      &[focus] {
+        border-color: var(--smart-error);
+
+        &[hint] {
+          .smart-hint {
+            color: var(--smart-error);
+
+            &:before,
+            &:after {
+              border-top-color: var(--smart-error) !important;
+            }
+          }
+        }
+      }
+    }
+
+    &.smart-valid {
+      &[focus] {
+        border-color: var(--smart-primary);
+
+        &[hint] {
+          .smart-hint {
+            color: var(--smart-primary);
+
+            &:before,
+            &:after {
+              border-top-color: var(--smart-primary) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.smart-text-area {
+    &[hint] {
+      .smart-input:not(:focus):placeholder-shown + .smart-hint,
+      &:not([focus]) .smart-hint {
+        font-size: var(--smart-font-size);
+        line-height: var(--smart-editor-height);
+        opacity: 0;
+        z-index: 2;
+      }
+    }
+  }
+
+  &.smart-text-box {
+    input {
+      border: none;
+      padding: 7px;
+    }
+  }
+
+  &.smart-number-input {
+    .nav {
+      background: var(--smart-background);
+      color: var(--smart-background-color);
+
+      .up {
+        border-bottom: none;
+      }
+    }
+
+    &[drop-down-button-position="right"],
+    &[drop-down-button-position="left"] {
+      .smart-drop-down-button {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.smart-invalid {
+  .outlined {
+    &.smart-input {
+      &.smart-multi-combo-input {
+        .smart-action-button {
+          border-color: #{'rgba(var(--smart-error-rgb), 0.5)'};
+        }
+
+        &[focus] {
+          .smart-action-button {
+            border-color: var(--smart-error);
+          }
+        }
+      }
+    }
+  }
+}

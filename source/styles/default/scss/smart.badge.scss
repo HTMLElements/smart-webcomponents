@@ -1,0 +1,32 @@
+@import '_functions';
+
+/* .smart-badge */
+.smart-badge {
+  display: inline-block;
+  padding: .25em .4em;
+  font-weight: 700;
+  line-height: 1;
+
+  // ======== Badge Colors ========
+  @each $value in $main-colors-list {
+    &.smart-badge-#{$value} {
+      color: var(--smart-#{$value}-color);
+      background-color: var(--smart-#{$value});
+    }
+  }
+
+  &.smart-badge-danger {
+    color: var(--smart-error-color);
+    background-color: var(--smart-error);
+  }
+
+  // ======== Badge Variations ========
+  &.smart-badge-pill {
+    border-radius: 10rem;
+  }
+
+  // ======== Right to Left ========
+  &[right-to-left] {
+    direction: rtl;
+  }
+}

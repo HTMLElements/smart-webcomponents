@@ -1,0 +1,282 @@
+smart-input {
+  --smart-outline: var(--smart-primary);
+  display: inline-block;
+  width: var(--smart-text-box-default-width);
+  height: var(--smart-text-box-default-height);
+  overflow: visible;
+  background: var(--smart-background);
+  border: 1px solid var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+
+  > .smart-container {
+    display: flex;
+  }
+
+  &.smart-element {
+    background: var(--smart-background);
+  }
+
+  input::selection {
+    background: var(--smart-editor-selection);
+    color: var(--smart-editor-selection-color);
+  }
+
+  input {
+    &.smart-input {
+      border: none;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &:focus {
+    border-color: var(--smart-outline);
+  }
+
+  &:hover {
+    border-color: var(--smart-ui-state-border-hover);
+  }
+
+  &[disabled] {
+    border-color: var(--smart-disabled);
+    outline: none;
+  }
+
+  &[drop-down-button-position="right"] {
+    .smart-input {
+      width: calc(100% - var(--smart-editor-addon-width));
+    }
+  }
+}
+
+.smart-input {
+  &.smart-container {
+    display: flex;
+  }
+
+  &.smart-container,
+  .smart-container {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+    position: relative;
+    overflow: visible;
+  }
+
+  .smart-drop-down-button {
+    display: none;
+    width: var(--smart-editor-addon-width);
+    height: 100%;
+    flex-direction: column;
+    color: var(--smart-surface-color);
+    border-left: 1px solid var(--smart-border);
+    background: var(--smart-surface);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    outline: none;
+
+    .arrow {
+      display: flex;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+      font-family: var(--smart-font-family-icon);
+      justify-content: center;
+      align-items: center;
+      font-size: var(--smart-arrow-size);
+      outline: none;
+
+      &:after {
+        content: var(--smart-icon-arrow-down);
+        transition: opacity 0.2s, transform 0.2s ease-out;
+      }
+    }
+
+    &[open] {
+      .arrow {
+        &:after {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+
+  .smart-input {
+    border: none;
+    padding: var(--smart-editor-label-padding);
+    height: 100%;
+    width: 100%;
+  }
+
+  &[drop-down-button-position="left"],
+  &[drop-down-button-position="right"] {
+    .smart-drop-down-button {
+      display: flex;
+    }
+
+    .smart-input {
+      width: calc(100% - var(--smart-editor-addon-width));
+    }
+
+    &[disabled] {
+      .smart-drop-down-button {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &[drop-down-button-position="left"] {
+    .smart-drop-down-button {
+      order: -1;
+      border-right: 1px solid var(--smart-border);
+      border-left: none;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: var(--smart-border-top-left-radius);
+      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    }
+
+    .smart-input {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    &[readonly] {
+      .smart-drop-down-button {
+        border-right: none;
+      }
+    }
+  }
+
+  &[drop-down-button-position="right"] {
+    .smart-input {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+
+  &[focus] {
+    border-color: var(--smart-outline);
+
+    &:not([disabled]) {
+      .smart-drop-down-button {
+        border-color: var(--smart-outline);
+      }
+    }
+  }
+
+  &[readonly] {
+    .smart-drop-down-button {
+      border-left: none;
+    }
+
+    &:not(.underlined):not(.outlined) {
+      input.smart-input,
+      textarea.smart-input {
+        padding: 0;
+        cursor: pointer;
+        padding-left: var(--smart-editor-label-padding);
+        outline: none;
+      }
+
+      &:not([opened]):not(:active) {
+        input.smart-input,
+        textarea.smart-input {
+          background: var(--smart-surface);
+          color: var(--smart-surface-color);
+        }
+      }
+    }
+  }
+
+  &:not([disabled]) {
+    &[readonly]:hover {
+      .smart-input,
+      .smart-drop-down-button {
+        background: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
+      }
+    }
+
+    .smart-drop-down-button:hover {
+      background: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+    }
+
+    .smart-drop-down-button[open],
+    .smart-drop-down-button:active {
+      background: var(--smart-ui-state-active);
+      color: var(--smart-ui-state-color-active);
+    }
+
+    &[readonly][open],
+    &[readonly]:active {
+      .smart-input,
+      .smart-drop-down-button {
+        background: var(--smart-ui-state-active);
+        color: var(--smart-ui-state-color-active)
+      }
+
+      .smart-input::-webkit-input-placeholder {
+        color: var(--smart-ui-state-color-active);
+      }
+
+      .smart-input::-moz-placeholder {
+        color: var(--smart-ui-state-color-active);
+      }
+    }
+  }
+
+  &[disabled] {
+    .smart-drop-down-button .arrow {
+      cursor: initial;
+    }
+  }
+
+  &[right-to-left] {
+    .smart-input {
+      direction: rtl;
+    }
+
+    > .smart-container {
+      //direction: initial;
+    }
+
+    &[readonly] {
+      .smart-drop-down-button {
+        border-right: none;
+      }
+    }
+
+    &[readonly],
+    &[readonly]:not(.underlined):not(.outlined) {
+      .smart-input {
+        padding-left: initial;
+        padding-right: var(--smart-editor-label-padding);
+      }
+    }
+  }
+}
+
+.smart-input-drop-down-menu {
+  &[right-to-left] {
+    ul.scroll {
+      width: 100%;
+    }
+
+    li {
+      a.icon {
+        padding-left: initial;
+        padding-right: var(--smart-column-icon-size);
+
+        &:after {
+          left: initial;
+          right: 0;
+        }
+      }
+    }
+  }
+}

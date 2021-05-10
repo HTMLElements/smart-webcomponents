@@ -23,19 +23,16 @@
     border: none;
 }
 
-/* List of appended smart inputs */
 .smart-input-list-holder smart-input {
     display: inline-flex;
     height: var(--smart-date-format-panel-smart-input-height);
     margin: var(--smart-date-format-panel-each-smart-input-offset);
 }
 
-/* Format smart inputs */
 .smart-input-list-holder .format-smart-input-list {
     width: var(--smart-date-format-panel-smart-input-format-width);
 }
 
-/* Sign smart inputs */
 .smart-input-list-holder .sign-smart-input {
     width: var(--smart-date-format-panel-smart-input-sign-width);
 }
@@ -60,7 +57,6 @@
     --smart-date-format-panel-smart-drop-down-button-border: transparent;
 }
 
-/* Button */
 .add-format-holder smart-button {
     font-size: var(--smart-date-format-panel-smart-font-size);
     width: auto;
@@ -76,12 +72,10 @@
     display: none;
 }
 
-/* li in the smart input with empty value */
 li[value=' '] a {
     height: calc(var(--smart-date-format-panel-smart-font-size) + 2 * 8px);
 }
 
-/* List with formats */
 .date-time-format-list {
     padding: 0;
     margin: 0;
@@ -90,11 +84,6 @@ li[value=' '] a {
     overflow-y: auto;
 }
 
-.date-time-format:last-child {
-    border-bottom: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
-}
-
-/* Each date&time format */
 .date-time-format {
     cursor: pointer;
     border: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
@@ -105,7 +94,10 @@ li[value=' '] a {
     padding-left: 0;
 }
 
-/* Each date&time format */
+.date-time-format:last-child {
+    border-bottom: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
+}
+
 .date-time-format:hover {
     background: #f1f1f1;
 }
@@ -113,7 +105,7 @@ li[value=' '] a {
 .text-tramsform-none {
     text-transform: none;
 }
-    
+
 .cboth {
     clear: both;
 }
@@ -121,3 +113,5 @@ li[value=' '] a {
 .bold {
     font-weight: bold;
 }
+
+/*# sourceMappingURL=smart.dateformatpanel.css.map */

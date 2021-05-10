@@ -128,7 +128,7 @@ export interface Toast extends BaseElement, ToastProperties {
   /**
    * This event is triggered when the toast item is clicked.
 	* @param event. The custom event.    */
-  onClick: ((this: any, ev: Event) => any) | null;
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the toast item is closed.
 	* @param event. The custom event.    */

@@ -1,0 +1,139 @@
+@import '_functions';
+
+/* smart-multi-split-button */
+smart-multi-split-button {
+  width: var(--smart-multi-split-button-default-width);
+  height: var(--smart-multi-split-button-default-height);
+  overflow: initial;
+  visibility: hidden;
+  cursor: pointer;
+
+  //Overrides smartWidgets Framework - base.css selector
+  &.smart-element {
+    overflow: visible;
+    visibility: inherit;
+    border-width: 0px;
+  }
+
+  //Right to Left
+  &[right-to-left] {
+    .smart-content,
+    .smart-label,
+    .smart-hint {
+      direction: rtl;
+    }
+
+    .smart-drop-down {
+      direction: initial;
+    }
+  }
+}
+
+//ListBox
+.smart-multi-split-button {
+  smart-list-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: initial;
+    padding: initial;
+    overflow: hidden;
+    font-size: inherit;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .smart-buttons-container {
+    .smart-input {
+      .smart-token {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 2px;
+        user-select: none;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .smart-drop-down {
+    &.smart-visibility-hidden {
+      transform: scale(0);
+      transition: transform 0.2s ease-in;
+      transform-origin: left top 0px;
+    }
+  }
+
+  .smart-template-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .smart-multi-split-button-buttons {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    justify-content: space-around;
+
+    .smart-action-split-button {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      &[hover] {
+        background: var(--smart-ui-state-hover);
+        border: var(--smart-ui-state-border-hover);
+        color: var(--smart-ui-state-color-hover);
+      }
+
+      &[active] {
+        background: var(--smart-ui-state-active);
+        border: var(--smart-ui-state-border-active);
+        color: var(--smart-ui-state-color-active);
+      }
+    }
+  }
+
+  // ======== Buttons Colors ========
+  @each $value in $main-colors-list {
+    &.#{$value} {
+      --smart-border: var(--smart-#{$value});
+      --smart-outline: var(--smart-#{$value});
+
+      --smart-surface: var(--smart-#{$value});
+      --smart-surface-color: var(--smart-#{$value}-color);
+
+      --smart-ui-state-selected: #{'rgba(var(--smart-#{$value}-rgb), .8)'};
+      --smart-ui-state-color-selected: var(--smart-#{$value}-color);
+      --smart-ui-state-active: #{'rgba(var(--smart-#{$value}-rgb), .8)'};
+      --smart-ui-state-color-active: var(--smart-#{$value}-color);
+      --smart-ui-state-hover: var(--smart-#{$value});
+      --smart-ui-state-color-hover: var(--smart-#{$value}-color);
+
+      --smart-ui-state-border-selected: var(--smart-#{$value});
+      --smart-ui-state-border-active: var(--smart-#{$value});
+      --smart-ui-state-border-hover: var(--smart-#{$value});
+
+      &[hover] {
+        --smart-surface: var(--smart-#{$value}-color);
+      }
+    }
+  }
+
+  &[selection-display-mode="tokens"] {
+    .smart-multi-split-button-unselect-button {
+      pointer-events: initial;
+    }
+  }
+
+  &[selection-display-mode="plain"] {
+    .smart-multi-split-button-unselect-button {
+      pointer-events: none;
+    }
+  }
+}

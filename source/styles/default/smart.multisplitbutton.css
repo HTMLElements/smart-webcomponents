@@ -1,6 +1,4 @@
-
 /* smart-multi-split-button */
-
 smart-multi-split-button {
     width: var(--smart-multi-split-button-default-width);
     height: var(--smart-multi-split-button-default-height);
@@ -9,14 +7,22 @@ smart-multi-split-button {
     cursor: pointer;
 }
 
-    /* Overrides smartWidgets Framework - base.css selector */
-    smart-multi-split-button.smart-element {
-        overflow: visible;
-        visibility: inherit;
-        border-width: 0px;
-    }
+smart-multi-split-button.smart-element {
+    overflow: visible;
+    visibility: inherit;
+    border-width: 0px;
+}
 
-/*ListBox*/
+smart-multi-split-button[right-to-left] .smart-content,
+smart-multi-split-button[right-to-left] .smart-label,
+smart-multi-split-button[right-to-left] .smart-hint {
+    direction: rtl;
+}
+
+smart-multi-split-button[right-to-left] .smart-drop-down {
+    direction: initial;
+}
+
 .smart-multi-split-button smart-list-box {
     position: relative;
     width: 100%;
@@ -40,16 +46,6 @@ smart-multi-split-button {
     margin-bottom: 0;
 }
 
-.smart-multi-split-button[selection-display-mode="tokens"] .smart-multi-split-button-unselect-button,
-.smart-multi-split-button[selection-display-mode="tokens"] .smart-multi-split-button-unselect-button {
-    pointer-events: initial;
-}
-
-.smart-multi-split-button[selection-display-mode="plain"] .smart-multi-split-button-unselect-button,
-.smart-multi-split-button[selection-display-mode="plain"] .smart-multi-split-button-unselect-button {
-    pointer-events: none;
-}
-
 .smart-multi-split-button .smart-drop-down.smart-visibility-hidden {
     transform: scale(0);
     transition: transform 0.2s ease-in;
@@ -69,35 +65,192 @@ smart-multi-split-button {
     justify-content: space-around;
 }
 
-    .smart-multi-split-button .smart-multi-split-button-buttons .smart-action-split-button {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
-        .smart-multi-split-button .smart-multi-split-button-buttons .smart-action-split-button[hover] {
-            background: var(--smart-ui-state-hover);
-            border: var(--smart-ui-state-border-hover);
-            color: var(--smart-ui-state-color-hover);
-        }
-
-        .smart-multi-split-button .smart-multi-split-button-buttons .smart-action-split-button[active] {
-            background: var(--smart-ui-state-active);
-            border: var(--smart-ui-state-border-active);
-            color: var(--smart-ui-state-color-active);
-        }
-
-
-/* --- Right-to-Left --- */
-
-smart-multi-split-button[right-to-left] .smart-content,
-smart-multi-split-button[right-to-left] .smart-label,
-smart-multi-split-button[right-to-left] .smart-hint {
-    direction: rtl;
+.smart-multi-split-button .smart-multi-split-button-buttons .smart-action-split-button {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-smart-multi-split-button[right-to-left] .smart-drop-down {
-    direction: initial;
+.smart-multi-split-button .smart-multi-split-button-buttons .smart-action-split-button[hover] {
+    background: var(--smart-ui-state-hover);
+    border: var(--smart-ui-state-border-hover);
+    color: var(--smart-ui-state-color-hover);
 }
+
+.smart-multi-split-button .smart-multi-split-button-buttons .smart-action-split-button[active] {
+    background: var(--smart-ui-state-active);
+    border: var(--smart-ui-state-border-active);
+    color: var(--smart-ui-state-color-active);
+}
+
+.smart-multi-split-button.primary {
+    --smart-border: var(--smart-primary);
+    --smart-outline: var(--smart-primary);
+    --smart-surface: var(--smart-primary);
+    --smart-surface-color: var(--smart-primary-color);
+    --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-primary-color);
+    --smart-ui-state-active: rgba(var(--smart-primary-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-primary-color);
+    --smart-ui-state-hover: var(--smart-primary);
+    --smart-ui-state-color-hover: var(--smart-primary-color);
+    --smart-ui-state-border-selected: var(--smart-primary);
+    --smart-ui-state-border-active: var(--smart-primary);
+    --smart-ui-state-border-hover: var(--smart-primary);
+}
+
+.smart-multi-split-button.primary[hover] {
+    --smart-surface: var(--smart-primary-color);
+}
+
+.smart-multi-split-button.secondary {
+    --smart-border: var(--smart-secondary);
+    --smart-outline: var(--smart-secondary);
+    --smart-surface: var(--smart-secondary);
+    --smart-surface-color: var(--smart-secondary-color);
+    --smart-ui-state-selected: rgba(var(--smart-secondary-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-secondary-color);
+    --smart-ui-state-active: rgba(var(--smart-secondary-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-secondary-color);
+    --smart-ui-state-hover: var(--smart-secondary);
+    --smart-ui-state-color-hover: var(--smart-secondary-color);
+    --smart-ui-state-border-selected: var(--smart-secondary);
+    --smart-ui-state-border-active: var(--smart-secondary);
+    --smart-ui-state-border-hover: var(--smart-secondary);
+}
+
+.smart-multi-split-button.secondary[hover] {
+    --smart-surface: var(--smart-secondary-color);
+}
+
+.smart-multi-split-button.success {
+    --smart-border: var(--smart-success);
+    --smart-outline: var(--smart-success);
+    --smart-surface: var(--smart-success);
+    --smart-surface-color: var(--smart-success-color);
+    --smart-ui-state-selected: rgba(var(--smart-success-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-success-color);
+    --smart-ui-state-active: rgba(var(--smart-success-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-success-color);
+    --smart-ui-state-hover: var(--smart-success);
+    --smart-ui-state-color-hover: var(--smart-success-color);
+    --smart-ui-state-border-selected: var(--smart-success);
+    --smart-ui-state-border-active: var(--smart-success);
+    --smart-ui-state-border-hover: var(--smart-success);
+}
+
+.smart-multi-split-button.success[hover] {
+    --smart-surface: var(--smart-success-color);
+}
+
+.smart-multi-split-button.error {
+    --smart-border: var(--smart-error);
+    --smart-outline: var(--smart-error);
+    --smart-surface: var(--smart-error);
+    --smart-surface-color: var(--smart-error-color);
+    --smart-ui-state-selected: rgba(var(--smart-error-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-error-color);
+    --smart-ui-state-active: rgba(var(--smart-error-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-error-color);
+    --smart-ui-state-hover: var(--smart-error);
+    --smart-ui-state-color-hover: var(--smart-error-color);
+    --smart-ui-state-border-selected: var(--smart-error);
+    --smart-ui-state-border-active: var(--smart-error);
+    --smart-ui-state-border-hover: var(--smart-error);
+}
+
+.smart-multi-split-button.error[hover] {
+    --smart-surface: var(--smart-error-color);
+}
+
+.smart-multi-split-button.info {
+    --smart-border: var(--smart-info);
+    --smart-outline: var(--smart-info);
+    --smart-surface: var(--smart-info);
+    --smart-surface-color: var(--smart-info-color);
+    --smart-ui-state-selected: rgba(var(--smart-info-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-info-color);
+    --smart-ui-state-active: rgba(var(--smart-info-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-info-color);
+    --smart-ui-state-hover: var(--smart-info);
+    --smart-ui-state-color-hover: var(--smart-info-color);
+    --smart-ui-state-border-selected: var(--smart-info);
+    --smart-ui-state-border-active: var(--smart-info);
+    --smart-ui-state-border-hover: var(--smart-info);
+}
+
+.smart-multi-split-button.info[hover] {
+    --smart-surface: var(--smart-info-color);
+}
+
+.smart-multi-split-button.warning {
+    --smart-border: var(--smart-warning);
+    --smart-outline: var(--smart-warning);
+    --smart-surface: var(--smart-warning);
+    --smart-surface-color: var(--smart-warning-color);
+    --smart-ui-state-selected: rgba(var(--smart-warning-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-warning-color);
+    --smart-ui-state-active: rgba(var(--smart-warning-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-warning-color);
+    --smart-ui-state-hover: var(--smart-warning);
+    --smart-ui-state-color-hover: var(--smart-warning-color);
+    --smart-ui-state-border-selected: var(--smart-warning);
+    --smart-ui-state-border-active: var(--smart-warning);
+    --smart-ui-state-border-hover: var(--smart-warning);
+}
+
+.smart-multi-split-button.warning[hover] {
+    --smart-surface: var(--smart-warning-color);
+}
+
+.smart-multi-split-button.light {
+    --smart-border: var(--smart-light);
+    --smart-outline: var(--smart-light);
+    --smart-surface: var(--smart-light);
+    --smart-surface-color: var(--smart-light-color);
+    --smart-ui-state-selected: rgba(var(--smart-light-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-light-color);
+    --smart-ui-state-active: rgba(var(--smart-light-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-light-color);
+    --smart-ui-state-hover: var(--smart-light);
+    --smart-ui-state-color-hover: var(--smart-light-color);
+    --smart-ui-state-border-selected: var(--smart-light);
+    --smart-ui-state-border-active: var(--smart-light);
+    --smart-ui-state-border-hover: var(--smart-light);
+}
+
+.smart-multi-split-button.light[hover] {
+    --smart-surface: var(--smart-light-color);
+}
+
+.smart-multi-split-button.dark {
+    --smart-border: var(--smart-dark);
+    --smart-outline: var(--smart-dark);
+    --smart-surface: var(--smart-dark);
+    --smart-surface-color: var(--smart-dark-color);
+    --smart-ui-state-selected: rgba(var(--smart-dark-rgb), .8);
+    --smart-ui-state-color-selected: var(--smart-dark-color);
+    --smart-ui-state-active: rgba(var(--smart-dark-rgb), .8);
+    --smart-ui-state-color-active: var(--smart-dark-color);
+    --smart-ui-state-hover: var(--smart-dark);
+    --smart-ui-state-color-hover: var(--smart-dark-color);
+    --smart-ui-state-border-selected: var(--smart-dark);
+    --smart-ui-state-border-active: var(--smart-dark);
+    --smart-ui-state-border-hover: var(--smart-dark);
+}
+
+.smart-multi-split-button.dark[hover] {
+    --smart-surface: var(--smart-dark-color);
+}
+
+.smart-multi-split-button[selection-display-mode="tokens"] .smart-multi-split-button-unselect-button {
+    pointer-events: initial;
+}
+
+.smart-multi-split-button[selection-display-mode="plain"] .smart-multi-split-button-unselect-button {
+    pointer-events: none;
+}
+
+/*# sourceMappingURL=smart.multisplitbutton.css.map */

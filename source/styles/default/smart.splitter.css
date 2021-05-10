@@ -1,5 +1,4 @@
 /* .smart-splitter */
-
 smart-splitter {
     width: var(--smart-splitter-default-width);
     height: var(--smart-splitter-default-height);
@@ -7,8 +6,134 @@ smart-splitter {
     /* Fixes the issue with the overflow and resize-container */
 }
 
-.smart-splitter[auto-fit-mode="overflow"]>.smart-container {
+smart-splitter[dragged] {
+    cursor: w-resize;
+}
+
+smart-splitter[orientation="horizontal"][dragged] {
+    cursor: s-resize;
+}
+
+smart-splitter-item > .smart-container {
+    overflow: hidden;
+    position: relative;
+    padding: var(--smart-splitter-item-padding);
+}
+
+.smart-splitter smart-splitter-bar {
+    min-width: 5px;
+    width: var(--smart-splitter-bar-size);
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.smart-splitter smart-splitter-bar > .smart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+}
+
+.smart-splitter smart-splitter-bar.smart-element {
+    background: var(--smart-surface);
+    border-color: var(--smart-surface-color);
+    color: var(--smart-surface-color);
+    border-radius: initial;
+}
+
+.smart-splitter smart-splitter-bar[focus] .smart-splitter-resize-button > span,
+.smart-splitter smart-splitter-bar[focus] .smart-splitter-resize-button > span::before,
+.smart-splitter smart-splitter-bar[focus] .smart-splitter-resize-button > span::after {
+    background-color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-color-active);
+    color: var(--smart-ui-state-color-active);
+}
+
+.smart-splitter smart-splitter-bar[focus].smart-element {
+    outline: none;
+    background: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
+}
+
+.smart-splitter smart-splitter-bar[locked] .smart-splitter-resize-button > span {
+    visibility: hidden;
+}
+
+.smart-splitter smart-splitter-bar[locked] .smart-splitter-resize-button > span:before, .smart-splitter smart-splitter-bar[locked] .smart-splitter-resize-button > span:after {
+    content: none;
+}
+
+.smart-splitter smart-splitter-bar[locked][hover] {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-splitter smart-splitter-bar[show-near-button] .smart-splitter-near-collapse-button {
+    visibility: visible;
+    width: 100%;
+}
+
+.smart-splitter smart-splitter-bar[show-far-button] .smart-splitter-far-collapse-button {
+    visibility: visible;
+    width: 100%;
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] {
+    cursor: initial;
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] > .smart-container {
+    flex-direction: initial;
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-resize-button {
+    display: none;
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-resize-button > span:before, .smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-resize-button > span:after {
+    content: initial;
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button > span,
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button > span {
+    transform: rotate(270deg);
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button.smart-visibility-hidden,
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button.smart-visibility-hidden {
+    width: initial;
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button > span {
+    transform: translate(-50%, -50%) rotate(270deg);
+}
+
+.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button > span {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.smart-splitter smart-splitter-item {
+    overflow: hidden;
+}
+
+.smart-splitter smart-splitter-item > .smart-container > .smart-content {
+    width: 100%;
+    height: 100%;
     overflow: auto;
+    padding: var(--smart-splitter-item-content-padding);
+}
+
+.smart-splitter smart-splitter-item.smart-element {
+    background-color: inherit;
+    color: inherit;
+    border-radius: initial;
+}
+
+.smart-splitter smart-splitter-item[collapsed] {
+    overflow: hidden;
+    padding: initial;
 }
 
 .smart-splitter .smart-splitter {
@@ -18,155 +143,43 @@ smart-splitter {
     border: none;
 }
 
-.smart-splitter[dragged] {
-    pointer-events: none;
-    user-select: none;
-    touch-action: none;
-}
-
-.smart-splitter>.smart-container {
-    display: flex;
-    position: relative;
-    overflow: inherit;
-}
-
-smart-splitter-item>.smart-container {
-    overflow: hidden;
-    position: relative;
-    padding: var(--smart-splitter-item-padding);
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container {
-    flex-direction: column;
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-item, .smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar, .smart-splitter[orientation="horizontal"]>.smart-container>.smart-splitter-bar-feedback {
-    width: 100%;
-    height: auto;
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-item {
-    height: var(--smart-splitter-item-size);
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar {
-    width: var(--smart-splitter-bar-fit-size);
-}
-
-.smart-splitter>.smart-container>smart-splitter-item, .smart-splitter>.smart-container>smart-splitter-bar, .smart-splitter>.smart-container>.smart-splitter-bar-feedback {
-    height: 100%;
-    flex-shrink: 0;
-}
-
-.smart-splitter>.smart-container>smart-splitter-item {
-    width: var(--smart-splitter-item-size);
-}
-
-.smart-splitter>.smart-container>smart-splitter-bar {
-    height: var(--smart-splitter-bar-fit-size);
-}
-
-.smart-splitter smart-splitter-bar, .smart-splitter .smart-splitter-bar-feedback {
-    min-width: 5px;
-    width: var(--smart-splitter-bar-size);
-    position: relative;
-    user-select: none;
-    overflow: hidden;
-    touch-action: none;
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar {
-    min-height: 5px;
-    height: var(--smart-splitter-bar-size);
-}
-
 .smart-splitter .smart-splitter smart-splitter-bar {
     background-color: var(--smart-primary);
     color: var(--smart-primary-color);
 }
 
-.smart-splitter:not([readonly])>.smart-container>smart-splitter-bar[hover], .smart-splitter[dragged] {
-    cursor: w-resize;
+.smart-splitter > .smart-container {
+    display: flex;
+    position: relative;
+    overflow: inherit;
 }
 
-.smart-splitter[resize-mode="none"]>.smart-container>smart-splitter-bar, .smart-splitter[disabled]>.smart-container>smart-splitter-bar, .smart-splitter[orientation][disabled]>.smart-container>smart-splitter-bar {
+.smart-splitter > .smart-container > smart-splitter-item {
+    height: 100%;
+    flex-shrink: 0;
+    width: var(--smart-splitter-item-size);
+}
+
+.smart-splitter > .smart-container > smart-splitter-bar {
+    flex-shrink: 0;
+    height: var(--smart-splitter-bar-fit-size);
+}
+
+.smart-splitter > .smart-container > smart-splitter-bar[locked] {
     cursor: default;
 }
 
-.smart-splitter[disabled]>.smart-container>smart-splitter-bar {
-    outline: none;
-    border: none;
-    box-shadow: none;
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar, .smart-splitter[orientation="horizontal"]>.smart-container>.smart-splitter-bar-feedback {
-    min-height: 5px;
-    height: var(--smart-splitter-bar-size);
-}
-
-.smart-splitter[orientation="horizontal"]:not([resize-mode="none"]):not([readonly])>.smart-container>smart-splitter-bar[hover]:not([locked]), .smart-splitter[orientation="horizontal"][dragged], .smart-splitter[orientation="horizontal"][dragged] {
-    cursor: s-resize;
-}
-
-.smart-splitter[dragging-not-allowed]>.smart-container>smart-splitter-bar, .smart-splitter[dragging-not-allowed]>.smart-container>.smart-splitter-bar-feedback {
-    cursor: default;
-}
-
-.smart-splitter:not([dragged]) smart-splitter-bar.smart-element,
-.smart-splitter:not([dragged]) smart-splitter-bar[hover] {
-    background-color: var(--smart-ui-state-hover);
-    border-color: var(--smart-ui-state-border-hover);
-    color: var(--smart-ui-state-color-hover);
-}
-
-.smart-splitter:not([dragged])>.smart-container>smart-splitter-bar:not([focus]) .smart-splitter-near-collapse-button, .smart-splitter:not([dragged])>.smart-container>smart-splitter-bar:not([focus]) .smart-splitter-far-collapse-button {
-    color: inherit;
-}
-
-.smart-splitter:not([dragged])>.smart-container>smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-near-collapse-button, .smart-splitter:not([dragged])>.smart-container>smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-far-collapse-button {
-    color: var(--smart-ui-state-color-hover);
-}
-
-.smart-splitter:not([dragged]) smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-resize-button span, .smart-splitter:not([dragged]) smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-resize-button span:after, .smart-splitter:not([dragged]) smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-resize-button span:before {
-    background-color: var(--smart-ui-state-color-hover);
-    border-color: var(--smart-ui-state-color-hover);
-    color: var(--smart-ui-state-color-hover);
-}
-
-.smart-splitter:not([dragged]) smart-splitter-bar:not([item-collapsed]):not([focus]) .smart-splitter-near-collapse-button[hover], .smart-splitter:not([dragged]) smart-splitter-bar:not([item-collapsed]):not([focus]) .smart-splitter-far-collapse-button[hover] {
-    color: var(--smart-ui-state-color-hover);
-}
-
-.smart-splitter smart-splitter-bar[locked][hover] {
-    background-color: var(--smart-ui-state-hover);
-    color: var(--smart-ui-state-color-hover);
-}
-
-.smart-splitter smart-splitter-bar[focus].smart-element {
-    outline: none;
-    background: var(--smart-ui-state-active);
-    color: var(--smart-ui-state-color-active);
-}
-
-.smart-splitter smart-splitter-bar[focus] .smart-splitter-resize-button>span, .smart-splitter smart-splitter-bar[focus] .smart-splitter-resize-button>span::before, .smart-splitter smart-splitter-bar[focus] .smart-splitter-resize-button>span::after {
-    background-color: var(--smart-ui-state-color-active);
-    border-color: var(--smart-ui-state-color-active);
-    color: var(--smart-ui-state-color-active);
-}
-
-.smart-splitter>.smart-container>smart-splitter-bar[locked] {
-    cursor: default;
-}
-
-.smart-splitter smart-splitter-bar[locked] .smart-splitter-resize-button>span {
-    visibility: hidden;
-}
-
-.smart-splitter smart-splitter-bar[locked] .smart-splitter-resize-button>span::before, .smart-splitter smart-splitter-bar[locked] .smart-splitter-resize-button>span::after {
-    content: none;
+.smart-splitter > .smart-container > .smart-splitter-bar-feedback {
+    height: 100%;
+    flex-shrink: 0;
 }
 
 .smart-splitter .smart-splitter-bar-feedback {
+    min-width: 5px;
+    width: var(--smart-splitter-bar-size);
+    user-select: none;
+    overflow: hidden;
+    touch-action: none;
     position: absolute;
     background-color: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
@@ -177,53 +190,10 @@ smart-splitter-item>.smart-container {
     background-color: var(--smart-error);
 }
 
-.smart-splitter smart-splitter-bar>.smart-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column-reverse;
-}
-
-.smart-splitter smart-splitter-bar[show-near-button] .smart-splitter-near-collapse-button, .smart-splitter smart-splitter-bar[show-far-button] .smart-splitter-far-collapse-button {
-    visibility: visible;
+.smart-splitter .smart-splitter-resize-button {
     width: 100%;
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar>.smart-container {
-    flex-direction: row;
-}
-
-.smart-splitter .smart-splitter-resize-button, .smart-splitter .smart-splitter-near-collapse-button, .smart-splitter .smart-splitter-far-collapse-button {
-    width: 100%;
-    height: 20px;
     position: relative;
     font-family: var(--smart-font-family-icon);
-}
-
-.smart-splitter .smart-splitter-resize-button, .smart-splitter .smart-splitter-near-collapse-button, .smart-splitter .smart-splitter-far-collapse-button {
-    cursor: pointer;
-}
-
-.smart-splitter .smart-splitter-near-collapse-button, .smart-splitter .smart-splitter-far-collapse-button {
-    visibility: hidden;
-    width: 0;
-}
-
-.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button>span, .smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button>span {
-    transform: rotate(270deg);
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-resize-button, .smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar[show-near-button] .smart-splitter-near-collapse-button, .smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar[show-far-button] .smart-splitter-far-collapse-button {
-    width: 20px;
-    height: 100%;
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-near-collapse-button, .smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-far-collapse-button {
-    width: 0;
-    height: 100%;
-}
-
-.smart-splitter .smart-splitter-resize-button {
     height: 40px;
     display: flex;
     justify-content: center;
@@ -231,36 +201,7 @@ smart-splitter-item>.smart-container {
     cursor: inherit;
 }
 
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-resize-button {
-    width: 40px;
-}
-
-.smart-splitter .smart-splitter-near-collapse-button .smart-arrow, .smart-splitter .smart-splitter-far-collapse-button .smart-arrow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: auto;
-}
-
-.smart-splitter .smart-splitter-near-collapse-button .smart-arrow::after, .smart-splitter .smart-splitter-far-collapse-button .smart-arrow::after {
-    content: var(--smart-icon-arrow-down);
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    line-height: normal;
-}
-
-.smart-splitter:not([animation='none']) .smart-splitter-near-collapse-button .smart-arrow, .smart-splitter:not([animation='none']) .smart-splitter-far-collapse-button .smart-arrow {
-    transition: transform 0.2s ease-out;
-}
-
-.smart-splitter .smart-splitter-resize-button>span {
+.smart-splitter .smart-splitter-resize-button > span {
     width: 6px;
     height: 6px;
     border: 1px solid var(--smart-surface-color);
@@ -270,11 +211,7 @@ smart-splitter-item>.smart-container {
     cursor: inherit;
 }
 
-.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-resize-button {
-    display: none;
-}
-
-.smart-splitter .smart-splitter-resize-button>span::before, .smart-splitter .smart-splitter-resize-button>span::after {
+.smart-splitter .smart-splitter-resize-button > span:before, .smart-splitter .smart-splitter-resize-button > span:after {
     position: absolute;
     transform: translate(-50%, -50%);
     content: '';
@@ -288,108 +225,219 @@ smart-splitter-item>.smart-container {
     font-family: var(--smart-font-family-icon);
 }
 
-.smart-splitter .smart-splitter-resize-button>span::before {
+.smart-splitter .smart-splitter-resize-button > span:before {
     left: 50%;
     top: calc(50% - var(--smart-splitter-bar-size));
 }
 
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-resize-button>span::before {
-    left: calc(50% - var(--smart-splitter-bar-size));
-    top: 50%;
-}
-
-.smart-splitter .smart-splitter-resize-button>span::after {
+.smart-splitter .smart-splitter-resize-button > span:after {
     top: calc(50% + var(--smart-splitter-bar-size));
     left: 50%;
 }
 
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-resize-button>span::after {
+.smart-splitter .smart-splitter-near-collapse-button,
+.smart-splitter .smart-splitter-far-collapse-button {
+    height: 20px;
+    position: relative;
+    font-family: var(--smart-font-family-icon);
+    cursor: pointer;
+    visibility: hidden;
+    width: 0;
+}
+
+.smart-splitter .smart-splitter-near-collapse-button .smart-arrow,
+.smart-splitter .smart-splitter-far-collapse-button .smart-arrow {
+    position: absolute;
     top: 50%;
-    left: calc(50% + var(--smart-splitter-bar-size));
+    left: 50%;
+    width: auto;
+    height: auto;
 }
 
-.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-resize-button>span::before, .smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-resize-button>span::after {
-    content: initial;
+.smart-splitter .smart-splitter-near-collapse-button .smart-arrow:after,
+.smart-splitter .smart-splitter-far-collapse-button .smart-arrow:after {
+    content: var(--smart-icon-arrow-down);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    line-height: normal;
 }
 
-.smart-splitter .smart-splitter-far-collapse-button>span {
+.smart-splitter .smart-splitter-far-collapse-button > span {
     transform: translate(-50%, -50%) rotate(270deg);
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-far-collapse-button>span {
-    transform: translate(-50%, -45%) rotate(0deg);
 }
 
 .smart-splitter .smart-splitter-near-collapse-button .smart-arrow {
     transform: translate(-55%, -50%) rotate(90deg);
 }
 
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar .smart-splitter-near-collapse-button>span {
-    transform: translate(-50%, -50%) rotate(180deg);
+.smart-splitter:not([readonly]) > .smart-container > smart-splitter-bar[hover] {
+    cursor: w-resize;
 }
 
-.smart-splitter smart-splitter-bar[item-collapsed] {
-    cursor: initial;
-}
-
-.smart-splitter smart-splitter-bar[item-collapsed]>.smart-container {
-    flex-direction: initial;
-}
-
-.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button.smart-visibility-hidden, .smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button.smart-visibility-hidden {
-    width: initial;
-}
-
-.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button>span {
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button>span {
-    transform: translate(-50%, -50%) rotate(180deg);
-}
-
-.smart-splitter smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button>span {
-    transform: translate(-50%, -50%) rotate(270deg);
-}
-
-.smart-splitter[orientation="horizontal"]>.smart-container>smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button>span {
-    transform: translate(-50%, -50%) rotate(0deg);
-}
-
-.smart-splitter smart-splitter-item.smart-element {
-    background-color: inherit;
+.smart-splitter:not([dragged]) > .smart-container > smart-splitter-bar:not([focus]) .smart-splitter-near-collapse-button,
+.smart-splitter:not([dragged]) > .smart-container > smart-splitter-bar:not([focus]) .smart-splitter-far-collapse-button {
     color: inherit;
-    border-radius: initial;
 }
 
-.smart-splitter smart-splitter-bar.smart-element {
-    background: var(--smart-surface);
-    border-color: var(--smart-surface-color);
-    color: var(--smart-surface-color);
-    border-radius: initial;
+.smart-splitter:not([dragged]) > .smart-container > smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-near-collapse-button,
+.smart-splitter:not([dragged]) > .smart-container > smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-far-collapse-button {
+    color: var(--smart-ui-state-color-hover);
 }
 
-.smart-splitter smart-splitter-item[collapsed] {
-    overflow: hidden;
-    padding: initial;
+.smart-splitter:not([dragged]) smart-splitter-bar.smart-element, .smart-splitter:not([dragged]) smart-splitter-bar[hover] {
+    background-color: var(--smart-ui-state-hover);
+    border-color: var(--smart-ui-state-border-hover);
+    color: var(--smart-ui-state-color-hover);
 }
 
-.smart-splitter smart-splitter-item>.smart-container>.smart-content {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    padding: var(--smart-splitter-item-content-padding);
+.smart-splitter:not([dragged]) smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-resize-button span,
+.smart-splitter:not([dragged]) smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-resize-button span:after,
+.smart-splitter:not([dragged]) smart-splitter-bar[hover]:not([item-collapsed]):not([focus]) .smart-splitter-resize-button span:before {
+    background-color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-color-hover);
+    color: var(--smart-ui-state-color-hover);
 }
 
-.smart-splitter:not([animation='none'])>.smart-container>smart-splitter-item.animate {
-    transition: all 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
+.smart-splitter:not([dragged]) smart-splitter-bar:not([item-collapsed]):not([focus]) .smart-splitter-near-collapse-button[hover],
+.smart-splitter:not([dragged]) smart-splitter-bar:not([item-collapsed]):not([focus]) .smart-splitter-far-collapse-button[hover] {
+    color: var(--smart-ui-state-color-hover);
 }
 
-.smart-splitter[dragged]:not([animation='none'])>.smart-container>smart-splitter-item, .smart-splitter[orientation-change]:not([animation='none'])>.smart-container>smart-splitter-item {
+.smart-splitter[dragged] {
+    cursor: w-resize;
+    pointer-events: none;
+    user-select: none;
+    touch-action: none;
+}
+
+.smart-splitter[dragged]:not([animation='none']) > .smart-container > smart-splitter-item {
     transition: none;
 }
 
-.smart-splitter[show-locked-items]>.smart-container>smart-splitter-item[locked]>.smart-container::after {
+.smart-splitter[auto-fit-mode="overflow"] > .smart-container {
+    overflow: auto;
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container {
+    flex-direction: column;
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-item {
+    width: 100%;
+    height: var(--smart-splitter-item-size);
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar {
+    width: var(--smart-splitter-bar-fit-size);
+    min-height: 5px;
+    height: var(--smart-splitter-bar-size);
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar > .smart-container {
+    flex-direction: row;
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar .smart-splitter-near-collapse-button,
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar .smart-splitter-far-collapse-button {
+    width: 0;
+    height: 100%;
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar .smart-splitter-far-collapse-button > span {
+    transform: translate(-50%, -45%) rotate(0deg);
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar .smart-splitter-near-collapse-button > span {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar .smart-splitter-resize-button {
+    width: 20px;
+    height: 100%;
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar .smart-splitter-resize-button > span:before {
+    left: calc(50% - var(--smart-splitter-bar-size));
+    top: 50%;
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar .smart-splitter-resize-button > span:after {
+    top: 50%;
+    left: calc(50% + var(--smart-splitter-bar-size));
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar[item-collapsed] .smart-splitter-far-collapse-button > span {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar[item-collapsed] .smart-splitter-near-collapse-button > span {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar[show-near-button] .smart-splitter-near-collapse-button, .smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar[show-far-button] .smart-splitter-far-collapse-button {
+    width: 20px;
+    height: 100%;
+}
+
+.smart-splitter[orientation="horizontal"] > .smart-container > .smart-splitter-bar-feedback {
+    width: 100%;
+    min-height: 5px;
+    height: var(--smart-splitter-bar-size);
+}
+
+.smart-splitter[orientation="horizontal"] smart-splitter-item[collapsed] {
+    min-width: 0;
+    min-height: 0;
+}
+
+.smart-splitter[orientation="horizontal"]:not([resize-mode="none"]):not([readonly]) > .smart-container > smart-splitter-bar[hover]:not([locked]) {
+    cursor: s-resize;
+}
+
+.smart-splitter[orientation="horizontal"][dragged] {
+    cursor: s-resize;
+}
+
+.smart-splitter[resize-mode="none"] > .smart-container > smart-splitter-bar {
+    cursor: default;
+}
+
+.smart-splitter[disabled] > .smart-container > smart-splitter-bar {
+    cursor: default;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.smart-splitter[orientation][disabled] > .smart-container > smart-splitter-bar {
+    cursor: default;
+}
+
+.smart-splitter[dragging-not-allowed] > .smart-container > smart-splitter-bar,
+.smart-splitter[dragging-not-allowed] > .smart-container > .smart-splitter-bar-feedback {
+    cursor: default;
+}
+
+.smart-splitter:not([animation='none']) .smart-splitter-near-collapse-button .smart-arrow,
+.smart-splitter:not([animation='none']) .smart-splitter-far-collapse-button .smart-arrow {
+    transition: transform 0.2s ease-out;
+}
+
+.smart-splitter:not([animation='none']) > .smart-container > smart-splitter-item.animate {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smart-splitter[orientation-change]:not([animation='none']) > .smart-container > smart-splitter-item {
+    transition: none;
+}
+
+.smart-splitter[show-locked-items] > .smart-container > smart-splitter-item[locked] > .smart-container:after {
     position: absolute;
     content: var(--smart-icon-lock);
     font-family: var(--smart-font-family-icon);
@@ -400,149 +448,12 @@ smart-splitter-item>.smart-container {
     transform: translate(-50%, -50%);
 }
 
-.smart-splitter smart-splitter-item {
-    overflow: hidden;
-}
-
-.smart-splitter[orientation="horizontal"] smart-splitter-item[collapsed] {
-    min-width: 0;
-    min-height: 0;
-}
-
-/* --- Right To Left --- */
-
-.smart-splitter[right-to-left] .smart-splitter>.smart-container {
+.smart-splitter[right-to-left] .smart-splitter > .smart-container {
     direction: initial;
 }
 
-.smart-splitter[right-to-left] smart-splitter-item>.smart-container>.smart-content {
+.smart-splitter[right-to-left] smart-splitter-item > .smart-container > .smart-content {
     direction: rtl;
 }
 
-/* --- */
-
-/*Shadow DOM */
-
-:host(smart-splitter[auto-fit-mode="overflow"])>.smart-container {
-    overflow: auto;
-}
-
-:host(smart-splitter) smart-splitter {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-:host(smart-splitter)>.smart-container {
-    display: flex;
-    position: relative;
-    overflow: inherit;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container {
-    flex-direction: column;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-item, :host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar, :host(smart-splitter[orientation="horizontal"])>.smart-container>.smart-splitter-bar-feedback {
-    width: 100%;
-    height: auto;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-item {
-    height: var(--smart-splitter-item-size);
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar {
-    width: var(--smart-splitter-bar-fit-size);
-}
-
-:host(smart-splitter)>.smart-container>smart-splitter-item, :host(smart-splitter)>.smart-container>smart-splitter-bar, :host(smart-splitter)>.smart-container>.smart-splitter-bar-feedback {
-    height: 100%;
-    flex-shrink: 0;
-}
-
-:host(smart-splitter)>.smart-container>smart-splitter-item {
-    width: var(--smart-splitter-item-size);
-}
-
-:host(smart-splitter)>.smart-container>smart-splitter-bar {
-    height: var(--smart-splitter-bar-fit-size);
-}
-
-:host(smart-splitter)>.smart-container>smart-splitter-bar[hover], smart-splitter[dragged] {
-    cursor: w-resize;
-}
-
-:host(smart-splitter[resize-mode="none"])>.smart-container>smart-splitter-bar, :host(smart-splitter[disabled])>.smart-container>smart-splitter-bar, :host(smart-splitter[orientation][disabled])>.smart-container>smart-splitter-bar {
-    cursor: default;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar, :host(smart-splitter[orientation="horizontal"])>.smart-container>.smart-splitter-bar-feedback {
-    min-height: 5px;
-    height: var(--smart-splitter-bar-size);
-}
-
-:host(smart-splitter[orientation="horizontal"]:not([resize-mode="none"]))>.smart-container>smart-splitter-bar[hover]:not([locked]), smart-splitter[orientation="horizontal"][dragged], smart-splitter[orientation="horizontal"][dragged] {
-    cursor: s-resize;
-}
-
-:host(smart-splitter[dragging-not-allowed])>.smart-container>smart-splitter-bar, :host(smart-splitter[dragging-not-allowed])>.smart-container>.smart-splitter-bar-feedback {
-    cursor: default;
-}
-
-:host(smart-splitter)>.smart-container>smart-splitter-bar[locked] {
-    cursor: default;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar>.smart-container {
-    flex-direction: row;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar .smart-splitter-resize-button, :host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar[show-near-button] .smart-splitter-near-collapse-button, :host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar[show-far-button] .smart-splitter-far-collapse-button {
-    width: 20px;
-    height: 100%;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar .smart-splitter-near-collapse-button, :host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar .smart-splitter-far-collapse-button {
-    width: 0;
-    height: 100%;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar .smart-splitter-resize-button {
-    width: 40px;
-}
-
-:host(smart-splitter) .smart-splitter-resize-button>span::before {
-    left: 50%;
-    top: calc(50% - var(--smart-splitter-bar-size));
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar .smart-splitter-resize-button>span::before {
-    left: calc(50% - var(--smart-splitter-bar-size));
-    top: 50%;
-}
-
-:host(smart-splitter) .smart-splitter-resize-button>span::after {
-    top: calc(50% + var(--smart-splitter-bar-size));
-    left: 50%;
-}
-
-:host(smart-splitter[orientation="horizontal"])>.smart-container>smart-splitter-bar .smart-splitter-resize-button>span::after {
-    top: 50%;
-    left: calc(50% + var(--smart-splitter-bar-size));
-}
-
-/* --- Right To Left --- */
-
-:host(smart-splitter[right-to-left]) .smart-splitter>.smart-container {
-    direction: initial;
-}
-
-:host(smart-splitter[right-to-left]) smart-splitter-item>.smart-container>.smart-content {
-    direction: rtl;
-}
-
-/* --- */
-
-/*End of Shadow DOM*/
+/*# sourceMappingURL=smart.splitter.css.map */

@@ -1,0 +1,158 @@
+/*Shadow DOM for  Spiltter*/
+//This kind of styling for shadow dom is deprecated!!!
+
+:host(smart-splitter[auto-fit-mode="overflow"]) {
+  > .smart-container {
+    overflow: auto;
+  }
+}
+
+:host(smart-splitter) {
+  smart-splitter {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  > .smart-container {
+    display: flex;
+    position: relative;
+    overflow: inherit;
+
+    > .smart-splitter-bar-feedback {
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    > smart-splitter-item {
+      height: 100%;
+      flex-shrink: 0;
+      width: var(--smart-splitter-item-size);
+    }
+
+    > smart-splitter-bar {
+      //height: 100%;
+      flex-shrink: 0;
+      height: var(--smart-splitter-bar-fit-size);
+
+      &[hover] {
+        cursor: w-resize;
+      }
+
+      &[locked] {
+        cursor: default;
+      }
+    }
+  }
+
+  .smart-splitter-resize-button {
+    > span {
+      &:before {
+        left: 50%;
+        top: calc(50% - var(--smart-splitter-bar-size));
+      }
+
+      &:after {
+        top: calc(50% + var(--smart-splitter-bar-size));
+        left: 50%;
+      }
+    }
+  }
+}
+
+:host(smart-splitter[orientation="horizontal"]) {
+  > .smart-container {
+    flex-direction: column;
+
+    .smart-splitter-bar-feedback {
+      width: 100%;
+      height: auto;
+    }
+
+    > .smart-splitter-bar-feedback {
+      min-height: 5px;
+      height: var(--smart-splitter-bar-size);
+    }
+
+    > smart-splitter-item {
+      width: 100%;
+      //height: auto;
+      height: var(--smart-splitter-item-size);
+    }
+
+    > smart-splitter-bar {
+      //width: 100%;
+      //height: auto;
+      width: var(--smart-splitter-bar-fit-size);
+      min-height: 5px;
+      height: var(--smart-splitter-bar-size);
+
+      > .smart-container {
+        flex-direction: row;
+      }
+
+      .smart-splitter-near-collapse-button,
+      .smart-splitter-far-collapse-button {
+        width: 0;
+        height: 100%;
+      }
+
+      .smart-splitter-resize-button {
+        //width: 20px;
+        height: 100%;
+        width: 40px;
+
+        > span {
+          &:before {
+            left: calc(50% - var(--smart-splitter-bar-size));
+            top: 50%;
+          }
+
+          &:after {
+            top: 50%;
+            left: calc(50% + var(--smart-splitter-bar-size));
+          }
+        }
+      }
+
+      &[show-near-button] .smart-splitter-near-collapse-button,
+      &[show-far-button] .smart-splitter-far-collapse-button {
+        width: 20px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+:host(smart-splitter[orientation="horizontal"]:not([resize-mode="none"])) {
+  > .smart-container > smart-splitter-bar[hover]:not([locked]) {
+    cursor: s-resize;
+  }
+}
+
+:host(smart-splitter[resize-mode="none"]),
+:host(smart-splitter[disabled]),
+:host(smart-splitter[orientation][disabled]) {
+  > .smart-container > smart-splitter-bar {
+    cursor: default;
+  }
+}
+
+:host(smart-splitter[dragging-not-allowed]) {
+  > .smart-container > smart-splitter-bar,
+  > .smart-container > .smart-splitter-bar-feedback {
+    cursor: default;
+  }
+}
+
+//Right To Left
+:host(smart-splitter[right-to-left]) {
+  .smart-splitter > .smart-container {
+    direction: initial;
+  }
+
+  smart-splitter-item > .smart-container > .smart-content {
+    direction: rtl;
+  }
+}

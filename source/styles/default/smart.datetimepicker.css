@@ -1,5 +1,4 @@
 /* smart-date-time-picker */
-
 smart-date-time-picker {
     width: var(--smart-date-time-picker-default-width);
     min-width: var(--smart-editor-addon-width);
@@ -15,21 +14,22 @@ smart-date-time-picker[hover] {
     border-color: var(--smart-ui-state-border-hover);
 }
 
-.smart-date-time-picker[focus], .smart-date-time-picker[focus] .smart-drop-down-button.smart-calendar-button {
-    border-color: var(--smart-outline);
-}
-
-.smart-date-time-picker .smart-ripple {
-    background: var(--smart-background);
-}
-
-smart-date-time-picker>.smart-container, .smart-date-time-picker.smart-container {
+smart-date-time-picker > .smart-container,
+.smart-date-time-picker.smart-container {
     display: flex;
     position: relative;
     align-items: center;
 }
 
-smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-container>input, .smart-date-time-picker .smart-spin-buttons-container, .smart-date-time-picker .smart-drop-down-button.smart-calendar-button {
+smart-date-time-picker > .smart-container > .smart-content,
+.smart-date-time-picker.smart-container > .smart-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+smart-date-time-picker > .smart-container > input,
+.smart-date-time-picker.smart-container > input {
     height: 100%;
 }
 
@@ -45,36 +45,14 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     text-align: inherit;
 }
 
-.smart-date-time-picker[disabled] .smart-input.smart-date-time-input {
-    background-color: transparent;
-    user-select: none;
-}
-
-.smart-date-time-picker>.smart-container>.smart-label, .smart-date-time-picker>.smart-container>.smart-hint {
+.smart-date-time-picker > .smart-container > .smart-label,
+.smart-date-time-picker > .smart-container > .smart-hint {
     display: none;
     position: absolute;
 }
 
-.smart-date-time-picker[label]>.smart-container>.smart-label {
-    position: absolute;
-    left: 0;
-    bottom: 100%;
-    font-size: 12px;
-    width: 100%;
-    display: block;
-    padding: var(--smart-editor-label-padding);
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    text-align: initial;
-    line-height: initial;
-}
-
-/*Spin and Calendar Button position*/
-
 .smart-date-time-picker .smart-spin-buttons-container {
+    height: 100%;
     display: none;
     width: var(--smart-editor-addon-width);
     border-radius: 0;
@@ -85,7 +63,6 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     display: block;
     width: 100%;
     height: 50%;
-    border: none;
     min-height: 0;
     color: var(--smart-surface-color);
     background-color: var(--smart-surface);
@@ -98,36 +75,24 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     border-radius: 0;
 }
 
-.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button {
-    border-right-width: var(--smart-border-width);
-    border-left-width: 0px;
-}
-
-.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button:first-child {
-    border-top-left-radius: var(--smart-border-top-left-radius);
-}
-
-.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button:last-child {
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-}
-
 .smart-date-time-picker .smart-spin-button:first-child {
     border-bottom-width: 1px;
 }
 
-.smart-date-time-picker .smart-spin-button[hover], .smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover] {
+.smart-date-time-picker .smart-spin-button[hover] {
     background-color: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
     border-color: var(--smart-ui-state-border-hover);
 }
 
-.smart-date-time-picker .smart-spin-button[active], .smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active] {
+.smart-date-time-picker .smart-spin-button[active] {
     background-color: var(--smart-ui-state-active);
     color: var(--smart-ui-state-color-active);
     border-color: var(--smart-ui-state-border-active);
 }
 
 .smart-date-time-picker .smart-drop-down-button.smart-calendar-button {
+    height: 100%;
     display: none;
     width: var(--smart-editor-addon-width);
     cursor: pointer;
@@ -150,7 +115,6 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     font-weight: normal;
     color: inherit;
     font-size: var(--smart-arrow-size);
-    display: inline-block;
     text-decoration: inherit;
     font-variant: normal;
     text-transform: none;
@@ -158,27 +122,90 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-}
-
-.smart-date-time-picker[readonly] .smart-drop-down-button.smart-calendar-button, .smart-date-time-picker[disabled] .smart-drop-down-button.smart-calendar-button {
-    cursor: default;
-}
-
-.smart-date-time-picker .smart-drop-down-button.smart-calendar-button:after, .smart-drop-down.smart-date-time-drop-down .smart-today-element:after {
     content: var(--smart-icon-calendar);
+}
+
+.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover] {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active] {
+    background-color: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
+    border-color: var(--smart-ui-state-border-active);
 }
 
 .smart-date-time-picker .smart-drop-down-button.smart-calendar-button.time:after {
     content: var(--smart-icon-clock);
 }
 
-.smart-date-time-picker[spin-buttons] {
-    min-width: calc(var(--smart-editor-addon-width));
+.smart-date-time-picker .smart-drop-down-button.smart-calendar-button.smart-drop-down-button-pressed {
+    color: var(--smart-ui-state-color);
 }
 
-.smart-date-time-picker:not([spin-buttons]) .smart-input.smart-date-time-input, .smart-date-time-picker[spin-buttons]:not([spin-buttons-position="left"]) .smart-input.smart-date-time-input {
+.smart-date-time-picker .smart-drop-down-button.smart-calendar-button.smart-drop-down-button-pressed[hover]:after {
+    color: var(--smart-ui-state-color-hover);
+}
+
+.smart-date-time-picker .smart-drop-down.smart-date-time-drop-down {
+    padding: 0px !important;
+}
+
+.smart-date-time-picker .smart-ripple {
+    background: var(--smart-background);
+}
+
+.smart-date-time-picker[focus] {
+    border-color: var(--smart-outline);
+}
+
+.smart-date-time-picker[focus] .smart-drop-down-button.smart-calendar-button {
+    border-color: var(--smart-outline);
+}
+
+.smart-date-time-picker[disabled] .smart-input.smart-date-time-input {
+    background-color: transparent;
+    user-select: none;
+}
+
+.smart-date-time-picker[readonly] .smart-drop-down-button.smart-calendar-button, .smart-date-time-picker[disabled] .smart-drop-down-button.smart-calendar-button {
+    cursor: default;
+}
+
+.smart-date-time-picker[label] > .smart-container > .smart-label {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    font-size: 12px;
+    width: 100%;
+    display: block;
+    padding: var(--smart-editor-label-padding);
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    text-align: initial;
+    line-height: initial;
+}
+
+.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button {
+    border-right-width: var(--smart-border-width);
+    border-left-width: 0px;
+}
+
+.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button:first-child {
     border-top-left-radius: var(--smart-border-top-left-radius);
+}
+
+.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button:last-child {
     border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+}
+
+.smart-date-time-picker[spin-buttons] {
+    min-width: calc(var(--smart-editor-addon-width));
 }
 
 .smart-date-time-picker[spin-buttons] .smart-input.smart-date-time-input {
@@ -187,6 +214,11 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
 
 .smart-date-time-picker[spin-buttons] .smart-spin-buttons-container {
     display: block;
+}
+
+.smart-date-time-picker[spin-buttons]:not([spin-buttons-position="left"]) .smart-input.smart-date-time-input {
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
 }
 
 .smart-date-time-picker[calendar-button] {
@@ -202,14 +234,6 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     position: relative;
 }
 
-.smart-date-time-picker .smart-drop-down-button.smart-calendar-button.smart-drop-down-button-pressed {
-    color: var(--smart-ui-state-color);
-}
-
-.smart-date-time-picker .smart-drop-down-button.smart-calendar-button.smart-drop-down-button-pressed[hover]:after {
-    color: var(--smart-ui-state-color-hover);
-}
-
 .smart-date-time-picker[spin-buttons][calendar-button] {
     min-width: calc(var(--smart-editor-addon-width) + var(--smart-editor-addon-width));
 }
@@ -218,9 +242,12 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     width: calc(100% - var(--smart-editor-addon-width) - var(--smart-editor-addon-width));
 }
 
-.smart-date-time-picker:not([spin-buttons]):not([calendar-button]) .smart-input.smart-date-time-input, .smart-date-time-picker:not([spin-buttons])[calendar-button-position="left"] .smart-input.smart-date-time-input, .smart-date-time-picker:not([calendar-button])[spin-buttons-position="left"] .smart-input.smart-date-time-input, .smart-date-time-picker[calendar-button-position="left"][spin-buttons-position="left"] .smart-input.smart-date-time-input {
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+.smart-date-time-picker[spin-buttons][calendar-button][calendar-button-position="left"][spin-buttons-position="left"] .smart-spin-button:first-child {
+    border-top-left-radius: 0;
+}
+
+.smart-date-time-picker[spin-buttons][calendar-button][calendar-button-position="left"][spin-buttons-position="left"] .smart-spin-button:last-child {
+    border-bottom-left-radius: 0;
 }
 
 .smart-date-time-picker[calendar-button-position="left"] .smart-drop-down-button {
@@ -232,196 +259,41 @@ smart-date-time-picker>.smart-container>input, .smart-date-time-picker.smart-con
     border-bottom-right-radius: 0;
 }
 
-.smart-date-time-picker[calendar-button][calendar-button-position="left"][spin-buttons][spin-buttons-position="left"] .smart-spin-button:first-child {
-    border-top-left-radius: 0;
-}
-
-.smart-date-time-picker[calendar-button][calendar-button-position="left"][spin-buttons][spin-buttons-position="left"] .smart-spin-button:last-child {
-    border-bottom-left-radius: 0;
-}
-
-.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:first-child, .smart-date-time-picker[calendar-button-position="left"][spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:first-child {
+.smart-date-time-picker[calendar-button-position="left"][spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:first-child {
     border-top-right-radius: var(--smart-border-top-right-radius);
 }
 
-.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:last-child, .smart-date-time-picker[calendar-button-position="left"][spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:last-child {
+.smart-date-time-picker[calendar-button-position="left"][spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:last-child {
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-/*End of Spin and Calendar button position*/
-
-.smart-drop-down.smart-date-time-drop-down .smart-header, .smart-drop-down.smart-date-time-drop-down .smart-footer {
-    cursor: initial;
+.smart-date-time-picker[calendar-button-position="left"][spin-buttons-position="left"] .smart-input.smart-date-time-input {
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-.smart-drop-down.smart-date-time-drop-down .smart-date-time-picker-footer {
-    height: 100%;
+.smart-date-time-picker:not([calendar-button])[spin-buttons-position="left"] .smart-input.smart-date-time-input {
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-.smart-drop-down.smart-date-time-drop-down .smart-date-time-picker-footer, .smart-drop-down.smart-date-time-drop-down .smart-am-pm-element {
-    width: 100%;
+.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:first-child {
+    border-top-right-radius: var(--smart-border-top-right-radius);
 }
 
-.smart-drop-down.smart-date-time-drop-down .smart-date-time-picker-footer, .smart-drop-down.smart-date-time-drop-down .smart-footer-component, .smart-drop-down.smart-date-time-drop-down .smart-footer-component-today {
-    display: flex;
-    padding: 1px;
+.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:last-child {
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-today {
-    font-family: var(--smart-font-family-icon);
+.smart-date-time-picker:not([spin-buttons]) .smart-input.smart-date-time-input {
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
 }
 
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component>input {
-    outline: none;
-    border: var(--smart-border-width) solid var(--smart-border);
-    text-align: center;
-    color: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    height: 100%;
+.smart-date-time-picker:not([spin-buttons]):not([calendar-button]) .smart-input.smart-date-time-input, .smart-date-time-picker:not([spin-buttons])[calendar-button-position="left"] .smart-input.smart-date-time-input {
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-today {
-    border: var(--smart-border-width) solid transparent;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component>input:focus, .smart-drop-down.smart-date-time-drop-down .smart-footer-component:focus {
-    border-color: var(--smart-outline);
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour smart-repeat-button, .smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute smart-repeat-button {
-    border-radius: 0px;
-    margin: 0px;
-    margin-left: -1px;
-    width: 100%;
-    height: 50%;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour smart-repeat-button:last-child, .smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute smart-repeat-button:last-child {
-    border-top-color: transparent;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour button, .smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute button {
-    border-radius: 0px;
-    padding: 0px;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour, .smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute {
-    width: 30%;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-ampm, .smart-drop-down.smart-date-time-drop-down .smart-footer-component-today, .smart-drop-down.smart-date-time-drop-down .smart-footer-component>span {
-    width: 30%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-hour-element, .smart-drop-down.smart-date-time-drop-down .smart-minute-element {
-    width: 60%;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-footer-component-today {
-    align-items: center;
-    justify-content: center;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-today-element {
-    cursor: pointer;
-    outline: none;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-today-element:focus {
-    border-color: var(--smart-outline);
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header {
-    height: var(--smart-bar-height);
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header>div {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: var(--smart-primary);
-    color: var(--smart-primary-color);
-    opacity: var(--smart-date-time-picker-header-opacity);
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header>div:focus {
-    text-decoration: underline;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header>.smart-selected {
-    background-color: var(--smart-primary);
-    border-color: var(--smart-primary);
-    color: var(--smart-primary-color);
-    opacity: var(--smart-date-time-picker-header-opacity-active);
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-drop-down-content {
-    width: 100%;
-    height: calc(100% - var(--smart-bar-height));
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-drop-down-content.partial {
-    height: 100%;
-}
-
-.smart-date-time-picker .smart-drop-down.smart-date-time-drop-down, .smart-drop-down.smart-date-time-drop-down {
-    padding: 0px !important;
-}
-
-.smart-drop-down.smart-date-time-drop-down smart-calendar, .smart-drop-down.smart-date-time-drop-down smart-time-picker {
-    border: none;
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-    min-height: 0;
-    border-radius: 0px;
-}
-
-.smart-drop-down.smart-date-time-drop-down smart-time-picker {
-    min-width: initial;
-}
-
-.smart-drop-down.smart-date-time-drop-down smart-time-picker .smart-hour-minute-container {
-    font-size: 40px;
-}
-
-.smart-drop-down.smart-date-time-drop-down[drop-down-display-mode="classic"] .smart-calendar-container, .smart-drop-down.smart-date-time-drop-down[drop-down-display-mode="timePicker"] .smart-calendar-container {
-    height: 100%;
-}
-
-.smart-date-time-picker .smart-hidden {
-    display: none;
-}
-
-.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header :focus, .smart-drop-down.smart-date-time-drop-down .smart-footer-component-today:focus {
-    outline: none;
-}
-
-smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.smart-container>.smart-content {
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
-/* Microsoft Edge-specific fix */
-
-.smart-drop-down.smart-date-time-drop-down.smart-visibility-hidden.not-in-view {
-    left: -9999px;
-    top: -9999px;
-    transition: none;
-}
-
-/* underlined*/
 
 .smart-date-time-picker.underlined {
     border-width: 0px;
@@ -429,17 +301,32 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     background: var(--smart-background);
 }
 
-.smart-date-time-picker.underlined .smart-spin-button, .smart-date-time-picker.underlined .smart-drop-down-button {
+.smart-date-time-picker.underlined .smart-spin-button {
     background: var(--smart-background);
     border-width: 0px;
 }
 
-.smart-date-time-picker.underlined .smart-spin-button[hover], .smart-date-time-picker.underlined .smart-drop-down-button.smart-calendar-button[hover] {
+.smart-date-time-picker.underlined .smart-spin-button[hover] {
     background: var(--smart-background);
     color: var(--smart-ui-state-active);
 }
 
-.smart-date-time-picker.underlined .smart-spin-button[active], .smart-date-time-picker.underlined .smart-drop-down-button.smart-calendar-button[active] {
+.smart-date-time-picker.underlined .smart-spin-button[active] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-date-time-picker.underlined .smart-drop-down-button {
+    background: var(--smart-background);
+    border-width: 0px;
+}
+
+.smart-date-time-picker.underlined .smart-drop-down-button.smart-calendar-button[hover] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-date-time-picker.underlined .smart-drop-down-button.smart-calendar-button[active] {
     background: var(--smart-background);
     color: var(--smart-ui-state-active);
 }
@@ -458,10 +345,10 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     font-size: 75%;
     opacity: 0;
     transition: color 0.2s, font-size 0.2s, line-height 0.2s, margin-top 0.2s, opacity 0.1s, top 0.2s;
-    margin-top: calc(0px - var(--smart-font-size))
+    margin-top: calc(0px - var(--smart-font-size));
 }
 
-.smart-date-time-picker.underlined .smart-hint::after {
+.smart-date-time-picker.underlined .smart-hint:after {
     content: "";
     position: absolute;
     left: 0;
@@ -479,18 +366,19 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     margin-top: 0px;
 }
 
-.smart-date-time-picker.underlined[focus] .smart-drop-down-button.smart-calendar-button, .smart-date-time-picker.underlined[focus] .smart-hint {
+.smart-date-time-picker.underlined[focus] .smart-drop-down-button.smart-calendar-button {
     color: var(--smart-primary);
     opacity: 1;
 }
 
-.smart-date-time-picker.underlined[focus] .smart-hint::after {
-    transform: scale(1);
+.smart-date-time-picker.underlined[focus] .smart-hint {
+    color: var(--smart-primary);
+    opacity: 1;
 }
 
-/*end of underlined */
-
-/* outlined */
+.smart-date-time-picker.underlined[focus] .smart-hint:after {
+    transform: scale(1);
+}
 
 .smart-date-time-picker.outlined {
     padding-top: 6px;
@@ -498,6 +386,12 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     min-height: 0;
     border: none;
     background: inherit;
+}
+
+.smart-date-time-picker.outlined input {
+    padding: 0;
+    border: none !important;
+    z-index: initial;
 }
 
 .smart-date-time-picker.outlined .smart-content {
@@ -509,42 +403,35 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     z-index: 5;
 }
 
-.smart-date-time-picker.outlined input {
-    padding: 0;
-    border: none !important;
-    z-index: initial;
-}
-
-.smart-date-time-picker.outlined .smart-spin-button, .smart-date-time-picker.outlined .smart-drop-down-button {
+.smart-date-time-picker.outlined .smart-spin-button {
     background: var(--smart-background);
     border-width: 0px;
 }
 
+.smart-date-time-picker.outlined .smart-spin-button[hover] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
+.smart-date-time-picker.outlined .smart-spin-button[active] {
+    background: var(--smart-background);
+    color: var(--smart-ui-state-active);
+}
+
 .smart-date-time-picker.outlined .smart-drop-down-button {
     padding: 8px 0px;
+    background: var(--smart-background);
+    border-width: 0px;
 }
 
-.smart-date-time-picker.outlined[focus] .smart-content {
-    border-color: var(--smart-primary);
-}
-
-.smart-date-time-picker.outlined[focus] .smart-drop-down-button {
-    color: var(--smart-primary);
-}
-
-.smart-date-time-picker.outlined .smart-spin-button[hover], .smart-date-time-picker.outlined .smart-drop-down-button.smart-calendar-button[hover] {
+.smart-date-time-picker.outlined .smart-drop-down-button.smart-calendar-button[hover] {
     background: var(--smart-background);
     color: var(--smart-ui-state-active);
 }
 
-.smart-date-time-picker.outlined .smart-spin-button[active], .smart-date-time-picker.outlined .smart-drop-down-button.smart-calendar-button[active] {
+.smart-date-time-picker.outlined .smart-drop-down-button.smart-calendar-button[active] {
     background: var(--smart-background);
     color: var(--smart-ui-state-active);
-}
-
-.smart-date-time-picker.outlined.smart-element-init .smart-hint {
-    visibility: hidden;
-    display: none !important;
 }
 
 .smart-date-time-picker.outlined .smart-hint {
@@ -565,9 +452,7 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     transition: color 0.2s, font-size 0.2s, opacity 0.1s, font-size 0.2s, line-height 0.2s;
 }
 
-/* Corners */
-
-.smart-date-time-picker.outlined .smart-hint::before, .smart-date-time-picker.outlined .smart-hint::after {
+.smart-date-time-picker.outlined .smart-hint:before, .smart-date-time-picker.outlined .smart-hint:after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -581,13 +466,13 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.smart-date-time-picker.outlined .smart-hint::before {
+.smart-date-time-picker.outlined .smart-hint:before {
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: 4px 0;
 }
 
-.smart-date-time-picker.outlined .smart-hint::after {
+.smart-date-time-picker.outlined .smart-hint:after {
     flex-grow: 1;
     margin-left: 4px;
     border-right: solid 1px transparent;
@@ -601,7 +486,12 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
 }
 
 .smart-date-time-picker.outlined[focus] .smart-content {
+    border-color: var(--smart-primary);
     border-top-color: transparent !important;
+}
+
+.smart-date-time-picker.outlined[focus] .smart-drop-down-button {
+    color: var(--smart-primary);
 }
 
 .smart-date-time-picker.outlined[focus] .smart-hint {
@@ -609,20 +499,222 @@ smart-date-time-picker>.smart-container>.smart-content, .smart-date-time-picker.
     opacity: 1;
 }
 
-.smart-date-time-picker.outlined[focus] .smart-hint::before, .smart-date-time-picker.outlined[focus] .smart-hint::after {
+.smart-date-time-picker.outlined[focus] .smart-hint:before, .smart-date-time-picker.outlined[focus] .smart-hint:after {
     border-top-color: var(--smart-primary) !important;
 }
 
-/* end of outlined */
+.smart-date-time-picker.outlined.smart-element-init .smart-hint {
+    visibility: hidden;
+    display: none !important;
+}
 
-/* --- Right-To-Left --- */
-
-.smart-date-time-picker[right-to-left]>.smart-container {
+.smart-date-time-picker[right-to-left] > .smart-container {
     direction: initial;
 }
 
-.smart-date-time-picker[right-to-left] .smart-input.smart-date-time-input, .smart-date-time-picker[right-to-left]>.smart-container>.smart-label, .smart-date-time-picker[right-to-left] .smart-hint {
+.smart-date-time-picker[right-to-left] > .smart-container > .smart-label {
     direction: rtl;
 }
 
-/* --- */
+.smart-date-time-picker[right-to-left] .smart-input.smart-date-time-input,
+.smart-date-time-picker[right-to-left] .smart-hint {
+    direction: rtl;
+}
+
+.smart-drop-down.smart-date-time-drop-down {
+    padding: 0px !important;
+}
+
+.smart-drop-down.smart-date-time-drop-down smart-calendar {
+    border: none;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 0px;
+}
+
+.smart-drop-down.smart-date-time-drop-down smart-time-picker {
+    border: none;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0px;
+    min-width: initial;
+}
+
+.smart-drop-down.smart-date-time-drop-down smart-time-picker .smart-hour-minute-container {
+    font-size: 40px;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-header,
+.smart-drop-down.smart-date-time-drop-down .smart-footer {
+    cursor: initial;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-date-time-picker-footer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 1px;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-am-pm-element {
+    width: 100%;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component {
+    display: flex;
+    padding: 1px;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component:focus {
+    border-color: var(--smart-outline);
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component > input {
+    outline: none;
+    border: var(--smart-border-width) solid var(--smart-border);
+    text-align: center;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    height: 100%;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component > input:focus {
+    border-color: var(--smart-outline);
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component > span {
+    width: 30%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-today {
+    padding: 1px;
+    font-family: var(--smart-font-family-icon);
+    border: var(--smart-border-width) solid transparent;
+    display: flex;
+    width: 30%;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-today:focus {
+    outline: none;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour,
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute {
+    width: 30%;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour smart-repeat-button,
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute smart-repeat-button {
+    border-radius: 0px;
+    margin: 0px;
+    margin-left: -1px;
+    width: 100%;
+    height: 50%;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour smart-repeat-button:last-child,
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute smart-repeat-button:last-child {
+    border-top-color: transparent;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-hour button,
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-minute button {
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-footer-component-ampm {
+    width: 30%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-hour-element,
+.smart-drop-down.smart-date-time-drop-down .smart-minute-element {
+    width: 60%;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-today-element {
+    cursor: pointer;
+    outline: none;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-today-element:after {
+    content: var(--smart-icon-calendar);
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-today-element:focus {
+    border-color: var(--smart-outline);
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header {
+    height: var(--smart-bar-height);
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header:focus {
+    outline: none;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header > div {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    opacity: var(--smart-date-time-picker-header-opacity);
+    outline: unset;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header > div:focus {
+    text-decoration: underline;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-drop-down-header > .smart-selected {
+    background-color: var(--smart-primary);
+    border-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    opacity: var(--smart-date-time-picker-header-opacity-active);
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-drop-down-content {
+    width: 100%;
+    height: calc(100% - var(--smart-bar-height));
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-drop-down-content.partial {
+    height: 100%;
+}
+
+.smart-drop-down.smart-date-time-drop-down .smart-date-time-picker .smart-hidden {
+    display: none;
+}
+
+.smart-drop-down.smart-date-time-drop-down[drop-down-display-mode="classic"] .smart-calendar-container, .smart-drop-down.smart-date-time-drop-down[drop-down-display-mode="timePicker"] .smart-calendar-container {
+    height: 100%;
+}
+
+.smart-drop-down.smart-date-time-drop-down.smart-visibility-hidden.not-in-view {
+    left: -9999px;
+    top: -9999px;
+    transition: none;
+}
+
+/*# sourceMappingURL=smart.datetimepicker.css.map */

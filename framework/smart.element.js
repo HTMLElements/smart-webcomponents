@@ -1,12 +1,12 @@
 
-/* Smart UI v9.1.1 (2021-Feb) 
+/* Smart UI v9.3.53 (2021-05-10) 
 Copyright (c) 2011-2021 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
 
 
-    const Version = '9.1.0';
+    const Version = '9.1.27';
     const templates = [];
 
     let namespace = 'Smart';
@@ -535,16 +535,16 @@ License: https://htmlelements.com/license/ */ //
             const isMobile = /(iphone|ipod|ipad|android|iemobile|blackberry|bada)/.test(window.navigator.userAgent.toLowerCase());
             const iOS = () => {
                 return [
-                  'iPad Simulator',
-                  'iPhone Simulator',
-                  'iPod Simulator',
-                  'iPad',
-                  'iPhone',
-                  'iPod'
+                    'iPad Simulator',
+                    'iPhone Simulator',
+                    'iPod Simulator',
+                    'iPad',
+                    'iPhone',
+                    'iPod'
                 ].includes(navigator.platform)
-                // iPad on iOS 13 detection
-                || (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
-              }
+                    // iPad on iOS 13 detection
+                    || (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+            }
 
             if (!isMobile) {
                 return iOS();
@@ -640,6 +640,13 @@ License: https://htmlelements.com/license/ */ //
             };
 
             return String(value).replace(/[&<>"'`=\/]/g, s => entityMap[s]);
+        }
+
+        static sanitizeHTML(value) {
+            const regExp = new RegExp('<\s*(applet|audio|base|bgsound|embed|form|iframe|isindex|keygen|layout|link|meta|object|script|svg|style|template|video)[^>]*>(.*?)<\s*/\s*(applet|audio|base|bgsound|embed|form|iframe|isindex|keygen|layout|link|meta|object|script|svg|style|template|video)>', 'ig');
+            const result = String(value).replace(regExp, s => this.escapeHTML(s));
+
+            return result;
         }
 
         static createGUID() {
@@ -773,10 +780,46 @@ License: https://htmlelements.com/license/ */ //
     let styleObservedElements = [];
     class StyleObserver {
         static watch(element) {
-            styleObservedElements.push(element);
+            switch (element.nodeName.toLowerCase()) {
+                case 'smart-grid':
+                case 'smart-kanban':
+                case 'smart-table':
+                case 'smart-pivot-table':
+                case 'smart-scheduler':
+                case 'smart-tabs':
+                case 'smart-card-view':
+                case 'smart-list-box':
+                case 'smart-combo-box':
+                case 'smart-drop-down-list':
+                case 'smart-calendar':
+                case 'smart-gauge':
+                case 'smart-numeric-text-box':
+                case 'smart-menu':
+                case 'smart-tree':
+                    styleObservedElements.push(element);
+                    break;
+                default: {
+                    return;
+                }
+            }
+
+            StyleObserver.start();
+        }
+
+        static start() {
+            if (StyleObserver.isStarted) {
+                return;
+            }
+
+            StyleObserver.isStarted = true;
 
             if (StyleObserver.interval) {
                 clearInterval(StyleObserver.interval);
+            }
+
+            if (styleObservedElements.length === 0 || document.hidden) {
+                StyleObserver.isStarted = false;
+                return;
             }
 
             StyleObserver.interval = setInterval(function () {
@@ -784,10 +827,18 @@ License: https://htmlelements.com/license/ */ //
             }, 100);
         }
 
+        static stop() {
+            StyleObserver.isStarted = false;
+
+            if (StyleObserver.interval) {
+                clearInterval(StyleObserver.interval);
+            }
+        }
+
         static observeElement(element) {
             const that = element;
 
-            if (window.Smart.Mode === 'test') {
+            if (window.Smart.Mode === 'test' || document.hidden) {
                 if (StyleObserver.interval) {
                     clearInterval(StyleObserver.interval);
                 }
@@ -886,9 +937,7 @@ License: https://htmlelements.com/license/ */ //
         }
 
         static unwatch(element) {
-            if (StyleObserver.interval) {
-                clearInterval(StyleObserver.interval);
-            }
+            StyleObserver.stop();
 
             const elementIndex = styleObservedElements.indexOf(element);
 
@@ -896,11 +945,7 @@ License: https://htmlelements.com/license/ */ //
                 styleObservedElements.splice(elementIndex, 1);
             }
 
-            if (styleObservedElements.length > 0) {
-                StyleObserver.interval = setInterval(function () {
-                    StyleObserver.observe();
-                }, 100);
-            }
+            StyleObserver.start();
         }
     }
 
@@ -971,6 +1016,11 @@ License: https://htmlelements.com/license/ */ //
                 if (Smart.Utilities.Core.Browser.Firefox) {
                     if (!that.target.resizeObserver) {
                         let firstCallPassed = false;
+                        let dirty, newWidth, newHeight;
+
+                        let lastWidth = that.target.offsetWidth;
+                        let lastHeight = that.target.offsetHeight;
+
                         const resizeObserver = new ResizeObserver(() => {
                             if (!firstCallPassed) {
                                 firstCallPassed = true;
@@ -982,7 +1032,19 @@ License: https://htmlelements.com/license/ */ //
                                 cancelable: true
                             });
 
+                            newWidth = that.target.offsetWidth;
+                            newHeight = that.target.offsetHeight;
+                            dirty = newWidth !== lastWidth || newHeight !== lastHeight;
+                            if (that.target.requiresLayout) {
+                                dirty = true;
+                            }
+
+                            if (!dirty) {
+                                return;
+                            }
+
                             that.resize(resizeEvent);
+                            that.target.requiresLayout = false;
                         });
 
                         resizeObserver.observe(that.target);
@@ -2149,6 +2211,7 @@ License: https://htmlelements.com/license/ */ //
             try {
                 let opts = Object.defineProperty({
                 }, 'passive', {
+                    // eslint-disable-next-line getter-return
                     get: function () {
                         that.supportsPassive = true;
                     }
@@ -2589,6 +2652,25 @@ License: https://htmlelements.com/license/ */ //
     }
 
     const $document = Utilities.Extend(document);
+    let observerTimer = null;
+
+    document.addEventListener('click', () => {
+        StyleObserver.start();
+        if (observerTimer) {
+            clearTimeout(observerTimer);
+        }
+        observerTimer = setTimeout(() => {
+            StyleObserver.stop();
+        }, 10000);
+    });
+
+    document.addEventListener('mouseenter', () => {
+        StyleObserver.start();
+    });
+
+    document.addEventListener('mouseleave', () => {
+        StyleObserver.stop();
+    });
 
     class BindingModule {
 
@@ -5395,6 +5477,7 @@ License: https://htmlelements.com/license/ */ //
                                 if (context) {
                                     const elementProperty = context._properties[subPropertyName];
 
+                                    // eslint-disable-next-line no-prototype-builtins
                                     if (parentProperty.value.hasOwnProperty(propertyName)) {
                                         if (!elementProperty.isDefined) {
                                             delete parentProperty.value[propertyName];
@@ -5514,6 +5597,7 @@ License: https://htmlelements.com/license/ */ //
                         delete that[propertyName];
                     }
 
+                    // eslint-disable-next-line no-prototype-builtins
                     if (window.navigator.userAgent.indexOf('PhantomJS') === -1 && that.hasOwnProperty(propertyName)) {
                         defaultValue = that[propertyName];
 
@@ -5555,6 +5639,7 @@ License: https://htmlelements.com/license/ */ //
 
                     that.propertyByAttributeName[property.attributeName] = that._properties[propertyName];
 
+                    // eslint-disable-next-line no-prototype-builtins
                     if (!property.hasOwnProperty('type')) {
                         const localizedError = that.localize('propertyUnknownType', {
                             name: propertyName
@@ -5873,6 +5958,7 @@ License: https://htmlelements.com/license/ */ //
                     }
                 }
 
+                // eslint-disable-next-line no-prototype-builtins
                 if (!property.hasOwnProperty('type')) {
                     const localizedError = that.localize('propertyUnknownType', {
                         name: propertyName
@@ -6033,6 +6119,7 @@ License: https://htmlelements.com/license/ */ //
                     Utilities.Core.assign(property.value, defaultProperties[propertyName].value);
                 }
 
+                // eslint-disable-next-line no-prototype-builtins
                 if (proto.hasOwnProperty(propertyName)) {
                     continue;
                 }
@@ -6111,6 +6198,10 @@ License: https://htmlelements.com/license/ */ //
         get isInShadowDOM() {
             const that = this;
             const rootNode = that.getRootNode();
+
+            if (that.hasAttribute('smart-blazor')) {
+                return false;
+            }
 
             return rootNode !== document && rootNode !== that;
         }
@@ -6532,7 +6623,7 @@ License: https://htmlelements.com/license/ */ //
                             break;
                         }
 
-                        if (that.parents[i].hasAttribute('ng-version')) {
+                        if (that.parents[i].hasAttribute('ng-version') && !that.classList.contains('smart-angular')) {
                             window[namespace].RenderMode = 'manual';
                             break;
                         }
@@ -7741,6 +7832,7 @@ License: https://htmlelements.com/license/ */ //
         BaseUrl: './',
         StyleBaseUrl: '/styles/default/',
         Version: Version,
+        Templates: templates,
         RenderMode: userDefinedSettings.RenderMode || 'auto',
         Render: render,
         Data: data,
@@ -7911,8 +8003,6 @@ License: https://htmlelements.com/license/ */ //
 
         static get listeners() {
             return {
-                'horizontalScrollBar.change': '_horizontalScrollbarHandler',
-                'verticalScrollBar.change': '_verticalScrollbarHandler',
                 'touchmove': '_touchmoveHandler',
                 'touchstart': '_touchstartHandler',
                 'wheel': '_mouseWheelHandler',
@@ -7985,7 +8075,9 @@ License: https://htmlelements.com/license/ */ //
 
             that.$.scrollViewerContentContainer.style.left = ((that.rightToLeft ? 1 : -1) * that.scrollLeft) + 'px';
 
-            event.stopPropagation();
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            }
 
             if (that.onHorizontalChange) {
                 that.onHorizontalChange(event);
@@ -7997,7 +8089,9 @@ License: https://htmlelements.com/license/ */ //
 
             that.$.scrollViewerContentContainer.style.top = -that.scrollTop + 'px';
 
-            event.stopPropagation();
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            }
 
             if (that.onVerticalChange) {
                 that.onVerticalChange(event);
@@ -8265,6 +8359,16 @@ License: https://htmlelements.com/license/ */ //
             super.ready();
 
             const that = this;
+
+            that.$.verticalScrollBar.onChange = (event) => {
+                event.detail = event;
+                that._verticalScrollbarHandler(event);
+            }
+
+            that.$.horizontalScrollBar.onChange = (event) => {
+                event.detail = event;
+                that._horizontalScrollbarHandler(event);
+            }
 
             that.$.verticalScrollBar.setAttribute('aria-controls', that.id);
             that.$.horizontalScrollBar.setAttribute('aria-controls', that.id);
@@ -8542,7 +8646,7 @@ License: https://htmlelements.com/license/ */ //
             const positionDetection = this,
                 that = positionDetection.context;
 
-            if (that.dropDownPosition !== 'auto' || that.disabled) {
+            if (that.dropDownPosition !== 'auto' || that.disabled || that.isHidden) {
                 return;
             }
 
@@ -8553,11 +8657,19 @@ License: https://htmlelements.com/license/ */ //
             let start = Date.now(), animationFrame;
 
             function loop() {
+                if (that.isHidden || document.hidden) {
+                    return;
+                }
+
                 animationFrame = requestAnimFrame(loop);
 
                 //Cancel condition.
                 if (that.dropDownPosition !== 'auto' || that.disabled ||
                     !(that.isInShadowDOM ? document.body.contains(that.shadowParent) : document.body.contains(that))) {
+                    cancelAnimationFrame(animationFrame);
+                }
+
+                if (that.isHidden) {
                     cancelAnimationFrame(animationFrame);
                 }
 
@@ -8953,7 +9065,7 @@ License: https://htmlelements.com/license/ */ //
             const positionedParent = this.context._positionedParent;
             let xOffset, yOffset;
 
-            if (positionedParent) {
+            if (positionedParent && positionedParent.nodeName !== '#document-fragment') {
                 const parentRect = positionedParent.getBoundingClientRect();
 
                 xOffset = -parentRect.left;

@@ -1,4 +1,3 @@
-
 /* smart-gauge */
 smart-gauge {
     display: block;
@@ -9,36 +8,35 @@ smart-gauge {
     fill: var(--smart-background-color);
 }
 
-    smart-gauge.smart-element {
-        border: none;
-    }
+smart-gauge:focus {
+    outline: none;
+}
 
-    smart-gauge[disabled] {
-        user-select: none;
-    }
+smart-gauge.smart-element {
+    border: none;
+}
 
-    smart-gauge[size-mode="auto"] {
-        min-height: initial;
-    }
+smart-gauge[disabled] {
+    user-select: none;
+}
 
-    smart-gauge:focus {
-        outline: none;
-    }
+smart-gauge[size-mode="auto"] {
+    min-height: initial;
+}
+
+.smart-gauge:focus .smart-needle,
+.smart-gauge:focus .smart-needle-central-circle {
+    fill: var(--smart-primary);
+}
+
+.smart-gauge .smart-container, .smart-gauge.smart-container {
+    position: relative;
+    border-radius: 50%;
+}
 
 .smart-gauge .drawContainer > svg {
     fill: var(--smart-gauge-label-fill-state);
     stroke: var(--smart-gauge-label-stroke);
-}
-
-.smart-gauge[dragged],
-.smart-gauge[dragged] .smart-label {
-    cursor: pointer;
-}
-
-.smart-gauge .smart-container,
-.smart-gauge.smart-container {
-    position: relative;
-    border-radius: 50%;
 }
 
 .smart-gauge .smart-svg-container {
@@ -47,31 +45,18 @@ smart-gauge {
     touch-action: none;
 }
 
-.smart-gauge .smart-tick,
-:host(smart-gauge) .smart-tick {
+.smart-gauge .smart-tick {
     stroke: var(--smart-border);
     stroke-width: 1px;
     width: 15px;
     pointer-events: none;
 }
 
-.smart-gauge[analog-display-type="fill"][ticks-position="track"] .smart-tick,
-.smart-gauge[analog-display-type="line"][ticks-position="track"] .smart-tick {
-    stroke: #F2F2F2;
-}
-
-.smart-gauge .smart-tick-minor,
-:host(smart-gauge) .smart-tick-minor {
+.smart-gauge .smart-tick-minor {
     width: 5px;
 }
 
-.smart-gauge[ticks-visibility="major"] .smart-tick-minor,
-.smart-gauge[labels-visibility="endPoints"] .smart-label-middle {
-    visibility: hidden;
-}
-
-.smart-gauge .smart-needle,
-:host(smart-gauge) .smart-needle {
+.smart-gauge .smart-needle {
     width: 20px;
     height: 110px;
     fill: var(--smart-background-color);
@@ -81,40 +66,25 @@ smart-gauge {
     fill: var(--smart-background-color);
 }
 
-.smart-gauge:focus .smart-needle,
-:host(smart-gauge:focus) .smart-needle,
-.smart-gauge:focus .smart-needle-central-circle,
-:host(smart-gauge:focus) .smart-needle-central-circle {
-    fill: var(--smart-primary);
-}
-
-.smart-gauge .smart-track,
-:host(smart-gauge) .smart-track {
+.smart-gauge .smart-track {
     width: 15px;
     stroke: var(--smart-border);
     stroke-width: 2px;
     fill: var(--smart-background);
 }
 
-.smart-gauge[show-ranges][ranges] .smart-track {
-    opacity: 0;
-}
-
-.smart-gauge .smart-value,
-:host(smart-gauge) .smart-value {
+.smart-gauge .smart-value {
     stroke: var(--smart-ui-state-border-active);
     stroke-width: 2px;
     fill: var(--smart-ui-state-active);
 }
 
-.smart-gauge .smart-line,
-:host(smart-gauge) .smart-line {
+.smart-gauge .smart-line {
     stroke: var(--smart-background-color);
     stroke-width: 5px;
 }
 
-.smart-gauge .smart-range,
-:host(smart-gauge) .smart-range {
+.smart-gauge .smart-range {
     width: 75px;
     fill: #D8D8D8;
 }
@@ -143,6 +113,34 @@ smart-gauge {
     pointer-events: initial;
 }
 
+.smart-gauge[dragged] {
+    cursor: pointer;
+}
+
+.smart-gauge[dragged] .smart-label {
+    cursor: pointer;
+}
+
+.smart-gauge[analog-display-type="fill"][ticks-position="track"] .smart-tick, .smart-gauge[analog-display-type="line"][ticks-position="track"] .smart-tick {
+    stroke: #F2F2F2;
+}
+
+.smart-gauge[ticks-visibility="major"] .smart-tick-minor, .smart-gauge[labels-visibility="endPoints"] .smart-label-middle {
+    visibility: hidden;
+}
+
+.smart-gauge[show-ranges][ranges] .smart-track {
+    opacity: 0;
+}
+
+.smart-gauge[show-unit] .smart-digital-display {
+    --smart-numeric-text-box-text-align: right;
+}
+
+.smart-gauge[show-unit] .smart-digital-display input.smart-input {
+    border-right: none;
+}
+
 .smart-gauge[digital-display] .smart-digital-display {
     display: inline-block;
 }
@@ -169,22 +167,10 @@ smart-gauge {
     transform: translate(-50%, -50%);
 }
 
-
-
-.smart-gauge[show-unit] .smart-digital-display {
-    --smart-numeric-text-box-text-align: right;
-}
-
-    .smart-gauge[show-unit] .smart-digital-display input.smart-input {
-        border-right: none;
-    }
-
-/* --- Right-To-Left --- */
-
 .smart-gauge[right-to-left] .smart-label,
 .smart-gauge[right-to-left] .smart-label-middle {
     direction: rtl;
     text-anchor: end;
 }
 
-/* --- */
+/*# sourceMappingURL=smart.gauge.css.map */

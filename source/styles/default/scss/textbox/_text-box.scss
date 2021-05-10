@@ -1,0 +1,198 @@
+smart-text-box {
+  --smart-outline: var(--smart-primary);
+  display: inline-block;
+  border: none;
+  width: var(--smart-text-box-default-width);
+  height: var(--smart-text-box-default-height);
+  overflow: visible;
+  background: var(--smart-background);
+
+  input::selection {
+    background: var(--smart-editor-selection);
+    color: var(--smart-editor-selection-color);
+  }
+
+  &.smart-element {
+    background: var(--smart-background);
+  }
+
+  &[disabled] {
+    border-color: var(--smart-disabled);
+    outline: none;
+  }
+
+  &[hover] input,
+  &:focus input.hovered {
+    border-color: var(--smart-ui-state-border-hover);
+  }
+
+  input {
+    &:focus {
+      border-color: var(--smart-outline);
+    }
+
+    &:hover {
+      border-color: var(--smart-ui-state-border-hover);
+    }
+  }
+}
+
+.smart-text-box {
+  input,
+  &.smart-container {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+    position: relative;
+    overflow: visible;
+  }
+
+  .smart-container {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+    position: relative;
+    overflow: visible;
+  }
+
+  > .smart-container {
+    > .smart-content {
+      height: 100%;
+
+      > div {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-width: var(--smart-border-width);
+        border-style: solid;
+        border-color: var(--smart-border);
+        border-top-left-radius: var(--smart-border-top-left-radius);
+        border-top-right-radius: var(--smart-border-top-right-radius);
+        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+        border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+        padding: var(--smart-editor-label-padding);
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        font-weight: inherit;
+        font-style: inherit;
+        overflow: hidden;
+
+        > label {
+          color: transparent;
+        }
+
+        &:first-of-type {
+          position: absolute;
+          display: flex;
+          width: initial;
+          height: initial;
+          user-select: none;
+          pointer-events: none;
+          min-height: initial;
+          max-height: initial;
+          align-items: center;
+          padding-top: 1px;
+          padding-bottom: 1px;
+          opacity: 0.5;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          border: var(--smart-border-width);
+          border-style: solid;
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+  &[disabled],
+  &[readonly] {
+    input {
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+    }
+  }
+
+  .smart-label,
+  .smart-hint {
+    display: none;
+    position: absolute;
+  }
+
+  &[label] {
+    .smart-label {
+      position: absolute;
+      left: 0;
+      bottom: 100%;
+      font-size: 12px;
+      width: 100%;
+      display: block;
+      padding: var(--smart-editor-label-padding);
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+      text-align: initial;
+      line-height: initial;
+      vertical-align: initial;
+    }
+  }
+
+  &[hint] {
+    .smart-hint {
+      position: absolute;
+      left: 0;
+      bottom: 100%;
+      font-size: 12px;
+      width: 100%;
+      display: block;
+      padding: var(--smart-editor-label-padding);
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+      text-align: initial;
+      line-height: initial;
+      vertical-align: initial;
+      opacity: 0;
+      transition: opacity 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+      top: 100%;
+      bottom: initial;
+    }
+
+    &[focus] {
+      .smart-hint {
+        opacity: 1;
+        transition: opacity 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+      }
+    }
+  }
+
+  .smart-drop-down {
+    font-family: inherit;
+  }
+
+  &:focus.hovered {
+    input {
+      border-color: var(--smart-ui-state-border-hover);
+    }
+  }
+
+  &[right-to-left] {
+    > .smart-container > .smart-content {
+      direction: rtl;
+    }
+
+    .smart-label,
+    .smart-hint {
+      direction: rtl;
+    }
+  }
+}

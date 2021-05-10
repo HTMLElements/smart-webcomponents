@@ -1,0 +1,99 @@
+//Colors on Hover
+.smart-table-primary {
+  &:hover {
+    background-color: #9fcdff;
+
+    > td,
+    > th {
+      background-color: #9fcdff;
+    }
+  }
+}
+
+.smart-table-secondary {
+  &:hover {
+    background-color: #c8cbcf;
+
+    > td,
+    > th {
+      background-color: #c8cbcf;
+    }
+  }
+}
+
+.smart-table-success {
+  &:hover {
+    background-color: #b1dfbb;
+
+    > td,
+    > th {
+      background-color: #b1dfbb;
+    }
+  }
+}
+
+.smart-table-info {
+  &:hover {
+    background-color: #abdde5;
+
+    > td,
+    > th {
+      background-color: #abdde5;
+    }
+  }
+}
+
+.smart-table-warning {
+  &:hover {
+    background-color: #ffe8a1;
+
+    > td,
+    > th {
+      background-color: #ffe8a1;
+    }
+  }
+}
+
+.smart-table-danger {
+  &:hover {
+    background-color: #f1b0b7;
+
+    > td,
+    > th {
+      background-color: #f1b0b7;
+    }
+  }
+}
+
+.smart-table.table-light {
+  table:hover {
+    background-color: #ececf6;
+
+    > td,
+    > th {
+      background-color: #ececf6;
+    }
+  }
+}
+
+.smart-table.table-dark {
+  table:hover {
+    background-color: #b9bbbe;
+
+    > td,
+    > th {
+      background-color: #b9bbbe;
+    }
+  }
+}
+
+.smart-table-active {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+
+    > td,
+    > th {
+      background-color: rgba(0, 0, 0, 0.075);
+    }
+  }
+}

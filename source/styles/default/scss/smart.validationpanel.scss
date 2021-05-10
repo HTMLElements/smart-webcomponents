@@ -1,0 +1,134 @@
+/* On invalid data */
+.smart-on-invalid-data-container {
+  margin-top: var(--smart-validation-panel-invalid-data-vertical-offset);
+  display: grid;
+  grid-template-columns: var(--smart-validation-panel-description-width) var(--smart-validation-panel-content-width);
+  grid-template-rows: auto;
+  grid-column-gap: 0;
+}
+
+/* Appearance */
+.smart-appearance {
+  margin-top: var(--smart-validation-panel-appearance-vertical-offset);
+  display: grid;
+  grid-template-columns: var(--smart-validation-panel-description-width) var(--smart-validation-panel-content-width);
+  grid-template-rows: auto;
+  grid-column-gap: 0;
+
+  .smart-checkbox-appearance {
+    display: block;
+  }
+
+  .smart-appearance-text-box-value {
+    display: inline-block;
+    margin-top: var(--smart-validation-panel-appearance-textbox-vertical-offset);
+  }
+
+  .reset-appearance {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: var(--smart-validation-panel-appearance-reset-button-left-offset);
+    text-decoration: underline;
+    color: var(--smart-validation-panel-appearance-reset-button-color);
+  }
+}
+
+/* Validation container */
+.smart-data-validation-container {
+  margin-top: var(--smart-validation-panel-criteria-container-vertical-offset);
+  display: grid;
+  grid-template-columns: var(--smart-validation-panel-description-width) var(--smart-validation-panel-content-width);
+  grid-template-rows: auto;
+  grid-column-gap: 0;
+
+  .criteria-container {
+    margin-top: var(--smart-validation-panel-criteria-row-margin-top);
+  }
+
+  .right-elements {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .smart-criteria-container,
+  .smart-criteria-type-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .smart-input-criteria,
+  .smart-input-criteria-type {
+    display: inline-block;
+    width: var(--smart-validation-panel-criteria-container-input-width);
+    margin-left: var(--smart-validation-panel-criteria-container-input-horizontal-offset);
+    margin-right: var(--smart-validation-panel-criteria-container-input-horizontal-offset);
+  }
+
+  .smart-input-criteria-container {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    smart-text-box {
+      display: inline-block;
+      width: var(--smart-validation-panel-criteria-container-textbox-width);
+      margin-left: var(--smart-validation-panel-criteria-container-textbox-horizontal-offset);
+      margin-right: var(--smart-validation-panel-criteria-container-textbox-horizontal-offset);
+    }
+
+    smart-text-box:nth-child(1) {
+      order: 1;
+    }
+
+    smart-text-box:nth-child(2) {
+      order: 3;
+    }
+
+    .smart-text-between-inputs {
+      margin: var(--smart-validation-panel-criteria-container-text-between-inputs-offset);
+      order: 2;
+    }
+  }
+}
+
+.smart-criteria-container,
+.smart-criteria-type-container,
+.smart-input-criteria-container {
+  margin-top: var(--smart-validation-panel-criteria-row-margin-top);
+}
+
+.smart-footer-buttons {
+  margin-top: var(--smart-validation-panel-footer-vertical-offset);
+
+  smart-button {
+    margin-left: var(--smart-validation-panel-footer-button-horizontal-offset);
+    margin-right: var(--smart-validation-panel-footer-button-horizontal-offset);
+
+    &.smart-remove-validation-footer-button {
+      width: auto;
+      color: var(--smart-validation-panel-footer-remove-validation-button-color);
+      font-weight: bold;
+    }
+
+    &.smart-cancel-footer-button {
+      color: var(--smart-validation-panel-footer-cancel-button-color);
+      font-weight: bold;
+    }
+
+    &.smart-save-footer-button {
+      background: var(--smart-validation-panel-footer-save-button-background);
+      color: var(--smart-validation-panel-footer-save-button-color);
+    }
+  }
+
+  .right-elements {
+    float: right;
+  }
+}
+
+.right-elements-reset {
+  display: flex;
+  align-items: center;
+}

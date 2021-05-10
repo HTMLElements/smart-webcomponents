@@ -1,0 +1,154 @@
+/* smart-chart */
+smart-chart {
+  display: block;
+  width: var(--smart-chart-default-width);
+  height: var(--smart-chart-default-height);
+
+  .smart-chart-axis-text,
+  .smart-chart-label-text,
+  .smart-chart-legend-text,
+  .smart-chart-annotation-text,
+  .smart-chart-axis-description {
+    box-sizing: content-box;
+    fill: var(--smart-background-color);
+    color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
+    font-size: calc(var(--smart-font-size) - 1px);
+  }
+
+  .smart-chart-title-text {
+    fill: var(--smart-background-color);
+    color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
+    font-weight: bold;
+    font-size: calc(var(--smart-font-size) + 2px);
+  }
+
+  .smart-chart-title-description {
+    fill: var(--smart-background-color);
+    color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+  }
+
+  &[theme="dark"] {
+    .smart-chart-title-text,
+    .smart-chart-title-description,
+    .smart-chart-axis-text,
+    .smart-chart-axis-description
+    .smart-chart-label-text,
+    .smart-chart-legend-text,
+    .smart-chart-annotation-text {
+      fill: var(--smart-background-color);
+      color: var(--smart-background-color);
+    }
+  }
+
+  //Right To Left
+  &[right-to-left] {
+    .smart-chart-axis-text,
+    .smart-chart-axis-description,
+    .smart-chart-title-text,
+    .smart-chart-legend-text,
+    .smart-chart-annotation-text,
+    .smart-chart-label-text {
+      direction: rtl;
+      text-anchor: end;
+    }
+  }
+}
+
+.smart-chart-range-selector {
+  > smart-chart {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+  }
+
+  .slider {
+    box-sizing: content-box;
+    pointer-events: none;
+  }
+}
+
+.smart-chart-tooltip {
+  position: absolute;
+  cursor: default;
+  z-index: 10000000;
+  transition: 0.3s ease-in, transform 0.3s ease-in;
+  opacity: 1;
+  transform: scale(1);
+
+  .smart-chart-tooltip-content {
+    position: absolute;
+    box-sizing: content-box;
+    outline: none;
+    border: 1px solid transparent;
+    padding: 3px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 0 0 0;
+    cursor: default;
+    left: 0;
+    top: 0;
+    border-radius: var(--smart-border-radius);
+  }
+
+  .smart-chart-tooltip-text {
+    box-sizing: content-box;
+    fill: var(--smart-background-color);
+    color: var(--smart-background-color);
+    font-family: var(--smart-font-family);
+    font-size: calc(var(--smart-font-size) - 1px);
+  }
+
+  .smart-chart-tooltip-arrow-outer {
+    box-sizing: content-box;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 10000001;
+  }
+
+  .smart-chart-tooltip-arrow-inner {
+    box-sizing: content-box;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 10000002;
+  }
+
+  &[animation="none"] {
+    transition: none;
+  }
+
+  &.smart-visibility-hidden {
+    transform: scale(0);
+  }
+
+  //Right to Left
+  &[right-to-left] {
+    .smart-chart-tooltip-text {
+      direction: rtl;
+      text-anchor: end;
+    }
+  }
+}
+
+[theme="dark"] {
+  // smart-chart .smart-chart-title-text,
+  // smart-chart .smart-chart-title-description,
+  // smart-chart .smart-chart-axis-text,
+  // smart-chart .smart-chart-axis-description,
+  // smart-chart .smart-chart-label-text,
+  // smart-chart .smart-chart-legend-text,
+  // smart-chart .smart-chart-annotation-text,
+  .smart-chart-tooltip:not([theme="dark"]) {
+    .smart-chart-tooltip-text {
+      fill: var(--smart-background);
+      color: var(--smart-background);
+    }
+  }
+}
+
+

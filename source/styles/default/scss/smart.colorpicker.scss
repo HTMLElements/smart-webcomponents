@@ -1,0 +1,186 @@
+/* smart-color-picker */
+smart-color-picker {
+  width: var(--smart-color-picker-default-width);
+  height: var(--smart-color-picker-default-height);
+
+  &.smart-element {
+    overflow: initial;
+    border: none;
+  }
+}
+
+.smart-color-picker {
+  smart-color-panel {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border: none;
+  }
+
+  .smart-color-box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: var(--smart-border-radius);
+    border: var(--smart-border-width) solid var(--smart-border);
+    background-color: var(--smart-background);
+    margin-right: 5px;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
+    background-position: 0px 5px, 5px 10px;
+    background-size: 10px 10px;
+
+    &.no-color {
+      background-image: linear-gradient(45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%), linear-gradient(-45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%);
+      background-position: initial;
+      background-size: initial;
+    }
+
+    > div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .smart-color-input {
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    color: inherit;
+  }
+
+  .smart-ripple {
+    background: var(--smart-primary-color);
+  }
+
+  .smart-drop-down {
+    &.smart-drop-down-color-picker.smart-drop-down-container {
+      width: var(--smart-color-picker-drop-down-width);
+      max-width: none;
+      height: var(--smart-color-picker-drop-down-height);
+      max-height: none;
+      box-sizing: content-box;
+      overflow: hidden;
+    }
+  }
+
+  &:not([opened]) {
+    .smart-color-input {
+      color: inherit;
+    }
+  }
+
+  &:not([editable]) {
+    .smart-color-input {
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  &[value-display-mode="none"] {
+    .smart-color-box {
+      display: none;
+    }
+
+    .smart-color-input {
+      display: none;
+
+      &.smart-input {
+        width: 0;
+        opacity: 0;
+        padding: initial;
+      }
+    }
+
+    .smart-action-button {
+      padding: initial;
+      border: none;
+    }
+
+    .smart-drop-down-button {
+      border-top-left-radius: var(--smart-border-top-left-radius);
+      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+      border-left-width: var(--smart-border-width);
+      border-left-style: solid;
+    }
+
+    &:not([opened]):not([drop-down-open-mode="dropDownButton"]) {
+      .smart-drop-down-button {
+        border-left-color: var(--smart-border);
+      }
+    }
+  }
+
+  &[value-display-mode="colorCode"] {
+    .smart-color-box {
+      display: none;
+    }
+
+    .smart-color-input {
+      display: block;
+    }
+  }
+
+  &[value-display-mode="colorBox"] {
+    .smart-color-box {
+      display: block;
+    }
+
+    .smart-input {
+      display: none;
+    }
+  }
+
+  &[editable] {
+    .smart-action-button {
+      cursor: initial;
+    }
+
+    &:not([opened]):not([drop-down-open-mode="dropDownButton"])[hover] {
+      .smart-action-button {
+        background: var(--smart-background);
+        color: var(--smart-background-color);
+      }
+    }
+  }
+
+  &[opened][editable] {
+    .smart-action-button {
+      background-color: var(--smart-backgroud);
+      color: var(--smart-background-color);
+    }
+  }
+}
+
+.smart-color-panel {
+  .color-sample {
+    &.no-color {
+      background-image: linear-gradient(45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%), linear-gradient(-45deg, transparent 47.5%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.2) 52.5%, transparent 52.5%);
+      background-position: initial;
+      background-size: initial;
+    }
+  }
+}
+
+.smart-drop-down-repositioned {
+  smart-color-panel {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border: none;
+  }
+}
+
+.smart-drop-down {
+  &.smart-drop-down-color-picker.smart-drop-down-container,
+  &.smart-drop-down-color-picker.smart-drop-down-container.smart-drop-down-repositioned {
+    width: var(--smart-color-picker-drop-down-width);
+    max-width: none;
+    height: var(--smart-color-picker-drop-down-height);
+    max-height: none;
+    box-sizing: content-box;
+    overflow: hidden;
+  }
+}

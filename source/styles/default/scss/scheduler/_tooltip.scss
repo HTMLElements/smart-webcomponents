@@ -1,0 +1,376 @@
+/* --- Scheduler Tooltip --- */
+
+.smart-scheduler-tooltip {
+  --smart-tooltip-arrow-color: var(--smart-background);
+  --smart-tooltip-padding: 4px;
+
+  &.smart-tooltip {
+    .smart-tooltip-content {
+      opacity: initial;
+      background-color: var(--smart-background);
+      color: var(--smart-color);
+      border: none;
+    }
+  }
+
+  .smart-calendar {
+    border: initial;
+    border-radius: initial;
+    direction: initial;
+
+    .smart-calendar-header {
+      border: var(--smart-border-width) solid var(--smart-border);
+    }
+  }
+
+  .smart-scheduler-items-container {
+    flex-direction: column;
+    outline: none;
+
+    &:focus {
+      .smart-scheduler-item[selected] {
+        background-color: var(--smart-ui-state-focus);
+        border-color: var(--smart-ui-state-border-focus);
+        color: var(--smart-ui-state-color-focus);
+      }
+    }
+  }
+
+  .smart-scheduler-item {
+    width: 100%;
+    cursor: pointer;
+    height: auto;
+    position: relative;
+    padding-right: calc(var(--smart-scheduler-shortcut-size) - 4px);
+
+    &:after {
+      content: attr(shortcut-key);
+      position: absolute;
+      height: 100%;
+      width: var(--smart-scheduler-shortcut-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      top: 0;
+      right: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0.5;
+      margin: 0 6px 0 10px;
+    }
+
+    &:hover {
+      color: var(--smart-ui-state-color-hover);
+      background-color: var(--smart-ui-state-hover);
+    }
+
+    &[checkable] {
+      &:after {
+        content: '';
+        opacity: initial;
+        left: 0;
+        right: initial;
+        margin: initial;
+      }
+
+      > div {
+        padding-left: var(--smart-scheduler-shortcut-size);
+        padding-right: initial;
+      }
+
+      &[checked] {
+        &:after {
+          content: var(--smart-icon-check);
+          font-family: var(--smart-font-family-icon);
+          font-size: var(--smart-font-size);
+        }
+      }
+    }
+
+    &[separator] {
+      position: relative;
+      margin-top: 15px;
+
+      &:before {
+        content: '';
+        display: flex;
+        width: 100%;
+        border-bottom: var(--smart-border-width) solid var(--smart-border);
+        margin: 7px 0;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+      }
+    }
+
+    > div {
+      position: relative;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      padding: 10px var(--smart-scheduler-shortcut-size) 10px 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  }
+
+  .smart-scheduler-event {
+    display: grid;
+    position: relative;
+    /* !important is nedded to keep the inline style of the event intact */
+    width: 100% !important;
+    height: var(--smart-scheduler-event-item-size) !important;
+    top: initial !important;
+    left: initial !important;
+    right: initial !important;
+    grid-template-columns: 20px minmax(0, 1fr) var(--smart-scheduler-event-button-size);
+    grid-column-gap: 10px;
+    justify-content: center;
+    padding: var(--smart-scheduler-event-content-padding);
+    cursor: pointer;
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+    outline: none;
+    /* !important is nedded to keep the inline style of the event intact */
+    --smart-scheduler-event-focus: var(--smart-ui-state-focus);
+    --smart-scheduler-event-color-focus: var(--smart-ui-state-color-focus);
+    --smart-scheduler-event-hover: var(--smart-ui-state-hover);
+    --smart-scheduler-event-color-hover: var(--smart-ui-state-color-hover);
+
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    &:before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      display: flex;
+      background: var(--smart-scheduler-event-background);
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      box-sizing: border-box;
+      border-radius: 50%;
+      padding: var(--smart-scheduler-event-content-padding);
+    }
+
+    &:hover {
+      background: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+    }
+
+    &[hover] {
+      .smart-scheduler-event-button:hover {
+        color: var(--smart-ui-state-color-focus);
+        background-color: var(--smart-ui-state-focus);
+      }
+    }
+
+    .smart-scheduler-event-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      overflow: hidden;
+
+      > div {
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        align-self: flex-start;
+      }
+    }
+  }
+
+  .smart-scheduler-context-menu {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
+
+    .smart-scheduler-context-menu-item {
+      height: var(--smart-list-item-height);
+      padding: var(--smart-list-item-padding);
+      border-top-left-radius: var(--smart-item-border-top-left-radius);
+      border-top-right-radius: var(--smart-item-border-top-right-radius);
+      border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+      border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      background: var(--smart-background);
+      color: var(--smart-background-color);
+      display: flex;
+      align-items: center;
+
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+
+      &:hover {
+        background: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
+      }
+    }
+  }
+
+  .smart-scheduler-item,
+  .smart-scheduler-event,
+  .smart-scheduler-context-menu .smart-scheduler-context-menu-item {
+    &[selected] {
+      background-color: var(--smart-ui-state-selected);
+      border-color: var(--smart-ui-state-border-selected);
+      color: var(--smart-ui-state-color-selected);
+    }
+
+    &[disabled] {
+      opacity: 0.55;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  .smart-scheduler-collector-event-list {
+    width: 100%;
+    height: 100%;
+
+    .smart-scheduler-event[repeating],
+    .smart-scheduler-event[exception] {
+      .smart-scheduler-event-button {
+        display: none;
+      }
+    }
+  }
+
+  .smart-scroll-viewer {
+    --smart-scroll-viewer-max-height: var(--smart-scheduler-context-menu-max-height);
+    --smart-scroll-viewer-max-width: var(--smart-scheduler-context-menu-max-width);
+    --smart-list-box-default-height: auto;
+    width: auto;
+    border: initial;
+    padding: initial;
+
+    /* Since the ScrollViewer has width: auto; We need to add the vScroll width to the menu container */
+    .smart-scroll-viewer-container {
+      &.vscroll {
+        .smart-scheduler-context-menu {
+          padding-right: var(--smart-scroll-bar-size);
+        }
+      }
+
+      .smart-scroll-viewer-content-container {
+        padding: initial;
+      }
+    }
+  }
+
+  .smart-scheduler-event-button {
+    position: relative;
+    width: var(--smart-scheduler-collector-item-button-size);
+    height: var(--smart-scheduler-collector-item-button-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-color: var(--smart-border);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    outline: none;
+
+    &:hover {
+      color: var(--smart-ui-state-color-hover);
+      background-color: var(--smart-ui-state-hover);
+    }
+
+    &:active {
+      color: var(--smart-ui-state-color-active);
+      background-color: var(--smart-ui-state-active);
+    }
+
+    &:focus {
+      color: var(--smart-ui-state-color-focus);
+      background-color: var(--smart-ui-state-focus);
+    }
+
+    &:before {
+      content: var(--smart-icon-delete);
+      font-family: var(--smart-font-family-icon);
+      position: absolute;
+      pointer-events: none;
+      box-sizing: border-box;
+      font-size: var(--smart-button-large-font-size);
+    }
+  }
+
+  .smart-scheduler-event-label {
+    font-weight: var(--smart-scheduler-event-label-font-weight);
+    font-size: var(--smart-scheduler-event-label-font-size);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .smart-scheduler-event-time {
+    font-weight: var(--smart-scheduler-event-time-font-weight);
+    font-size: var(--smart-scheduler-event-time-font-size);
+    opacity: var(--smart-scheduler-event-time-opacity);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  &:not([animation="none"]) {
+    animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+    transition: animation 0.2s ease-in, opacity 0.2s ease-in, visibility 0.2s ease-in;
+
+    &[visible] {
+      animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+      transition: animation 0.2s ease-out, opacity 0.2s ease-out, visibility 0.2s ease-out;
+    }
+  }
+
+  &:not([arrow-direction]),
+  &[arrow-direction="bottom"] {
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+  }
+
+  &:not([arrow]),
+  &[arrow-direction="top"] {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+
+  &[right-to-left] {
+    .smart-scheduler-item {
+      padding-right: initial;
+      padding-left: calc(var(--smart-scheduler-shortcut-size) - 4px);
+
+      &:after {
+        left: 0;
+        right: initial;
+        margin: 0 10px 0 6px;
+      }
+
+      > div {
+        padding: 10px 12px 10px var(--smart-scheduler-shortcut-size);
+      }
+    }
+  }
+}

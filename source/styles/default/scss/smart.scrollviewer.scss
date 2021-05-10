@@ -1,0 +1,132 @@
+/* smart-scroll-viewer */
+smart-scroll-viewer {
+  /*min-width: 100px;*/
+  display: block;
+  width: var(--smart-editor-width);
+  min-width: var(--smart-scroll-viewer-min-width);
+  max-width: var(--smart-scroll-viewer-max-width);
+  height: var(--smart-list-box-default-height);
+  min-height: var(--smart-scroll-viewer-min-height);
+  max-height: var(--smart-scroll-viewer-max-height);
+  padding: 3px;
+
+  > .smart-container {
+    height: 100%;
+    width: 100%;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.smart-scroll-viewer {
+  &.smart-container {
+    height: 100%;
+    width: 100%;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  > .smart-container {
+    max-height: inherit;
+    min-height: inherit;
+    max-width: inherit;
+    min-width: inherit;
+
+    > .smart-scroll-viewer-container {
+      max-height: inherit;
+      min-height: inherit;
+      max-width: inherit;
+      min-width: inherit;
+    }
+  }
+
+  smart-scroll-bar {
+    overflow: visible;
+    position: absolute;
+    bottom: 0;
+    height: calc(var(--smart-scroll-bar-size));
+    width: 100%;
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: var(--smart-scroll-bar-size);
+      background-color: var(--smart-surface);
+      left: 100%;
+    }
+
+    &.bottom-corner {
+      width: calc(100% - var(--smart-scroll-bar-size));
+    }
+
+    &[orientation="vertical"] {
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: calc(var(--smart-scroll-bar-size));
+
+      &.bottom-corner {
+        height: calc(100% - var(--smart-scroll-bar-size));
+      }
+    }
+  }
+
+  .smart-scroll-viewer-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+
+    &.hscroll {
+      height: calc(100% - var(--smart-scroll-bar-size));
+    }
+
+    &.vscroll {
+      width: calc(100% - var(--smart-scroll-bar-size));
+    }
+  }
+
+  .smart-scroll-viewer-content-container {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    padding: 5px;
+    position: relative;
+    background-color: transparent;
+  }
+
+  //Right To Left
+  &[right-to-left] {
+    .smart-scroll-viewer-container {
+      direction: rtl;
+      text-align: initial;
+
+      &.vscroll {
+        left: var(--smart-scroll-bar-size);
+        right: 0;
+      }
+    }
+
+    smart-scroll-bar {
+      left: var(--smart-scroll-bar-size);
+      right: 0;
+
+      &:after {
+        left: -100%;
+      }
+
+      &[orientation="vertical"] {
+        left: 0;
+        right: initial;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}

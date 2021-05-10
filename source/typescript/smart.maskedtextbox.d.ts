@@ -193,11 +193,18 @@ export interface MaskedTextBox extends BaseElement, MaskedTextBoxProperties {
   [name: string]: any;
   /**
    * This event is triggered when the value of the Text Box is changed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, newValue)
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value before it was changed.
-   *  newValue - The new value.
+   *  value - The new value.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered on each key up event of the MaskedTextBox, if the value is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
+   *  oldValue - The previous value before it was changed.
+   *  value - The new value.
+   */
+  onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered if the <b>validation</b> property is set. Indicates whether valiation has passed successfully or not.
 	* @param event. The custom event. Custom data event was created with: ev.detail(success)

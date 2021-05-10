@@ -1,6 +1,4 @@
-
 /* smart-drop-down-list */
-
 smart-drop-down-list {
     width: var(--smart-drop-down-list-default-width);
     height: var(--smart-drop-down-list-default-height);
@@ -9,14 +7,18 @@ smart-drop-down-list {
     cursor: pointer;
 }
 
-    /* Overrides smartWidgets Framework - base.css selector */
-    smart-drop-down-list.smart-element {
-        overflow: visible;
-        visibility: inherit;
-        border-width: 0px;
-    }
+smart-drop-down-list.smart-element {
+    overflow: visible;
+    visibility: inherit;
+    border-width: 0px;
+}
 
-/*ListBox*/
+smart-drop-down-list.smart-element .smart-drop-down.smart-visibility-hidden {
+    transform: scale(0);
+    transition: transform 0.2s ease-in;
+    transform-origin: left top 0px;
+}
+
 .smart-drop-down-list smart-list-box {
     position: relative;
     width: 100%;
@@ -40,23 +42,18 @@ smart-drop-down-list {
     margin-bottom: 0;
 }
 
-
 .smart-drop-down-list .smart-drop-down-list-unselect-button {
     /*visibility: hidden;*/
     pointer-events: none;
 }
 
-    .smart-drop-down-list .smart-drop-down-list-unselect-button:not(:empty) {
-        margin-right: 2px;
-    }
-
-    .smart-drop-down-list[selection-display-mode="tokens"] .smart-drop-down-list-unselect-button {
-        /*visibility: visible;*/
-        pointer-events: initial;
-    }
-
-smart-drop-down-list.smart-element .smart-drop-down.smart-visibility-hidden {
-    transform: scale(0);
-    transition: transform 0.2s ease-in;
-    transform-origin: left top 0px;
+.smart-drop-down-list .smart-drop-down-list-unselect-button:not(:empty) {
+    margin-right: 2px;
 }
+
+.smart-drop-down-list[selection-display-mode="tokens"] .smart-drop-down-list-unselect-button {
+    /*visibility: visible;*/
+    pointer-events: initial;
+}
+
+/*# sourceMappingURL=smart.dropdownlist.css.map */

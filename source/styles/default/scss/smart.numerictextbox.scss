@@ -1,0 +1,706 @@
+/* smart-numeric-text-box */
+smart-numeric-text-box {
+  width: var(--smart-numeric-text-box-default-width);
+  height: var(--smart-numeric-text-box-default-height);
+
+  .smart-container {
+    display: flex;
+    border: none;
+  }
+
+  .smart-container {
+    width: 100%;
+  }
+
+  &.smart-element {
+    overflow: visible;
+    border: none;
+    background: transparent;
+  }
+
+  &[spin-buttons][spin-buttons-position="left"] {
+    .smart-spin-button.smart-element {
+      &:first-child {
+        border-right: none;
+        //border-left: none;
+        //border-top: none;
+      }
+
+      &:last-child {
+        border-right: none;
+        //border-left: none;
+        //border-bottom: none;
+      }
+    }
+  }
+
+  &[label] .smart-label,
+  &[hint] .smart-hint {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    font-size: 12px;
+    width: 100%;
+    display: block;
+    padding: var(--smart-editor-label-padding);
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    text-align: initial;
+    line-height: initial;
+    vertical-align: initial;
+  }
+}
+
+.smart-numeric-text-box {
+  border-color: var(--smart-border);
+  border-width: 1px;
+  border-style: solid;
+
+  &:focus {
+    border-color: var(--smart-outline);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &.smart-container {
+    display: flex;
+    border: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .smart-container {
+    height: 100%;
+    position: relative;
+  }
+
+  input.smart-input {
+    width: 100%;
+    height: 100%;
+    border-color: var(--smart-border);
+    border-width: 1px;
+    border-style: solid;
+    border-right-width: var(--smart-border-width);
+    padding: var(--smart-editor-label-padding);
+    background-color: var(--smart-background);
+    color: inherit;
+    font: inherit;
+    text-align: var(--smart-numeric-text-box-text-align);
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .smart-spin-button {
+    width: 100%;
+    height: 50%;
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-color: var(--smart-border);
+    border-width: 1px;
+    border-style: solid;
+
+    &:first-child {
+      border-bottom: none;
+    }
+
+    &.smart-element {
+      display: block;
+      min-height: 0;
+      border-radius: 0px;
+      background: var(--smart-surface);
+      color: var(--smart-surface-color);
+    }
+
+    &[hover] {
+      background-color: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+      border-color: var(--smart-ui-state-border-hover);
+    }
+
+    &[active] {
+      background-color: var(--smart-ui-state-active);
+      color: var(--smart-ui-state-color-active);
+      border-color: var(--smart-ui-state-border-active);
+    }
+
+    .smart-button {
+      border: none;
+      padding: 0px;
+    }
+  }
+
+  .smart-numeric-text-box-component {
+    border-width: var(--smart-border-width);
+    border-style: solid;
+    border-color: var(--smart-border);
+    border-left-width: var(--smart-border-width);
+    border-right-width: 0;
+  }
+
+  .smart-input-addon {
+    border-color: var(--smart-border);
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .smart-spin-buttons-container {
+    width: var(--smart-editor-addon-width);
+    border: none;
+  }
+
+
+  .smart-numeric-text-box-drop-down {
+    width: 100%;
+  }
+
+
+  .smart-numeric-text-box-radix-display {
+    &.smart-numeric-text-box-pressed-component,
+    &.smart-numeric-text-box-pressed-component[hover] {
+      background-color: var(--smart-ui-state-active);
+      color: var(--smart-ui-state-color-active);
+      border-color: var(--smart-ui-state-border-active);
+    }
+  }
+
+  .smart-numeric-text-box-unit-display {
+    width: var(--smart-numeric-text-box-default-unit-display-width);
+    border-width: var(--smart-border-width) 0 var(--smart-border-width) 0;
+    overflow: hidden;
+    background-color: var(--smart-background);
+
+    &[hover] {
+      background-color: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+      border-color: var(--smart-ui-state-border-hover);
+    }
+  }
+
+  .smart-arrow {
+    position: relative;
+  }
+
+  .smart-label,
+  .smart-hint {
+    display: none;
+    position: absolute;
+  }
+
+  .smart-numeric-text-box-component:not(.smart-hidden) {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    &.smart-numeric-text-box-component-border-left,
+    &.smart-numeric-text-box-component-border-left .smart-spin-button.smart-repeat-button-element {
+      border-top-left-radius: var(--smart-border-top-left-radius);
+      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+      overflow: hidden;
+    }
+
+    &.smart-numeric-text-box-component-border-left {
+      .smart-spin-button.smart-element:first-child {
+        border-bottom-left-radius: 0px;
+      }
+
+      .smart-spin-button.smart-element:last-child {
+        border-top-left-radius: 0px;
+      }
+    }
+
+    &.smart-numeric-text-box-component-border-right,
+    &.smart-numeric-text-box-component-border-right .smart-spin-button.smart-element {
+      border-top-right-radius: var(--smart-border-top-right-radius);
+      border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+      overflow: hidden;
+    }
+
+    &.smart-numeric-text-box-component-border-right {
+      .smart-spin-button.smart-element:first-child {
+        border-bottom-right-radius: 0px;
+      }
+
+      .smart-spin-button.smart-element:last-child {
+        border-top-right-radius: 0px;
+      }
+    }
+  }
+
+  &[drop-down-enabled] {
+    .smart-numeric-text-box-radix-display {
+      cursor: pointer;
+
+      &[hover]:not([aria-expanded="true"]) {
+        background-color: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
+      }
+    }
+  }
+
+  &:not([animation="none"]) {
+    &[hint] {
+      .smart-hint {
+        transition: opacity 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+      }
+
+      &[focus] {
+        .smart-hint {
+          transition: opacity 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+      }
+    }
+
+    .smart-numeric-text-box-drop-down {
+      transform-origin: top;
+      transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+    }
+  }
+
+  &[focus] {
+    input.smart-input {
+      border-color: var(--smart-outline);
+    }
+
+    .smart-input-addon {
+      border-color: var(--smart-outline);
+    }
+
+    .smart-spin-button {
+      border-color: var(--smart-outline);
+    }
+  }
+
+  &[hint] {
+    .smart-hint {
+      opacity: 0;
+      top: 100%;
+      bottom: initial;
+    }
+
+    &[focus] {
+      .smart-hint {
+        opacity: 1;
+      }
+    }
+  }
+
+  &[radix-display-position="right"] {
+    &:not([spin-buttons]),
+    &[spin-buttons][spin-buttons-position="left"] {
+      .smart-numeric-text-box-radix-display {
+        border-left-width: 0;
+        border-right-width: var(--smart-border-width);
+      }
+    }
+  }
+
+  &[disabled],
+  &[value="null"] .smart-numeric-text-box-radix-display,
+  &[value="NaN"] .smart-spin-buttons-container,
+  &[value="Infinity"] .smart-spin-buttons-container,
+  &[value="-Infinity"] .smart-spin-buttons-container {
+    opacity: 0.55;
+    cursor: default;
+  }
+
+  //spin buttons only
+  &[spin-buttons] {
+    input.smart-input {
+      width: calc(100% - var(--smart-editor-addon-width));
+    }
+  }
+
+  //radix display button only
+  &[radix-display] {
+    input.smart-input {
+      width: calc(100% - var(--smart-numeric-text-box-default-radix-display-width));
+    }
+  }
+
+  //unit display only
+  &[show-unit] {
+    input.smart-input {
+      width: calc(100% - var(--smart-numeric-text-box-default-unit-display-width));
+    }
+  }
+
+  //spin buttons and radix display button
+  &[spin-buttons][radix-display] {
+    input.smart-input {
+      width: calc(100% - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-radix-display-width));
+    }
+  }
+
+  //spin buttons and unit display
+  &[spin-buttons][show-unit] {
+    input.smart-input {
+      width: calc(100% - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-unit-display-width));
+    }
+  }
+
+  //radix display button and unit display
+  &[radix-display][show-unit] {
+    input.smart-input {
+      width: calc(100% - var(--smart-numeric-text-box-default-radix-display-width) - var(--smart-numeric-text-box-default-unit-display-width));
+    }
+  }
+
+  //buttons and unit display
+  &[spin-buttons][radix-display][show-unit] {
+    input.smart-input {
+      width: calc(100% - var(--smart-numeric-text-box-default-unit-display-width) - var(--smart-editor-addon-width) - var(--smart-numeric-text-box-default-radix-display-width));
+    }
+  }
+
+  &[spin-buttons] {
+    input.smart-input {
+      border-right-width: 0;
+    }
+
+    .smart-spin-buttons-container {
+      border-right-width: var(--smart-border-width);
+    }
+
+    &[spin-buttons-position="left"] {
+      .smart-spin-buttons-container {
+        border-right-width: 0;
+      }
+
+      input.smart-input {
+        border-right-width: var(--smart-border-width);
+      }
+
+      &[show-unit] {
+        input.smart-input {
+          border-right-width: 0;
+        }
+
+        .smart-numeric-text-box-unit-display {
+          border-right-width: var(--smart-border-width);
+        }
+      }
+    }
+
+    &[show-unit] {
+      .smart-numeric-text-box-unit-display {
+        border-right-width: 0;
+      }
+    }
+  }
+
+  &[show-unit] {
+    input.smart-input {
+      border-right-width: 0;
+    }
+
+    .smart-numeric-text-box-unit-display {
+      border-right-width: var(--smart-border-width);
+    }
+  }
+
+  //Underlined
+  &.underlined {
+    border-width: 0px;
+    border-bottom-width: 1px;
+    background: var(--smart-background);
+
+    input {
+      border-width: 0px;
+      border-bottom-width: 1px;
+
+      &:focus {
+        border: none;
+      }
+    }
+
+    .smart-spin-button,
+    .smart-drop-down-button {
+      background: var(--smart-background);
+      border-width: 0px;
+      border-bottom-width: 1px;
+      border-radius: 0;
+
+      &[hover] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+
+      &[active] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+    }
+
+    .smart-hint {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block !important;
+      box-sizing: border-box;
+      padding: var(--smart-editor-label-padding);
+      color: var(--smart-background-color);
+      pointer-events: none;
+      font-size: 75%;
+      opacity: 0;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s, margin-top 0.2s, opacity 0.1s, top 0.2s;
+      margin-top: calc(0px - var(--smart-font-size));
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--smart-primary);
+        transform-origin: bottom center;
+        transform: scaleX(0);
+        transition: transform 0.2s;
+      }
+    }
+
+    &:not([focus]) {
+      .smart-hint {
+        margin-top: 0px;
+      }
+    }
+
+    &[focus] {
+      .smart-drop-down-button {
+        color: var(--smart-primary);
+        opacity: 1;
+        border-bottom-color: transparent;
+      }
+
+      .smart-hint {
+        color: var(--smart-primary);
+        opacity: 1;
+
+        &:after {
+          transform: scale(1);
+        }
+      }
+
+      .smart-spin-button {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  //Outlined
+  &.outlined {
+    height: auto;
+    min-height: 0;
+    border-radius: var(--smart-border-radius);
+    border: 1px solid var(--smart-border);
+    background: var(--smart-background);
+
+    input {
+      border: 0;
+      display: block;
+      padding: 14px 0px;
+    }
+
+    .smart-spin-button,
+    .smart-drop-down-button {
+      background: var(--smart-background);
+      border-width: 0px;
+
+      &[hover] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+
+      &[active] {
+        background: var(--smart-background);
+        color: var(--smart-ui-state-active);
+      }
+    }
+
+    .smart-drop-down-button {
+      padding: 8px 0px;
+    }
+
+    .smart-hint {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex !important;
+      border-color: var(--smart-border) !important;
+      width: 100%;
+      max-height: 100%;
+      color: var(--smart-background-color);
+      font-size: 75%;
+      line-height: 15px;
+      cursor: text;
+      padding: 0;
+      margin-top: -6px;
+      transition: color 0.2s, font-size 0.2s, opacity 0.1s, font-size 0.2s, line-height 0.2s;
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        margin-top: 6px;
+        border-top: solid 1px;
+        border-top-color: var(--smart-border) !important;
+        min-width: 10px;
+        height: 8px;
+        pointer-events: none;
+        box-shadow: inset 0 1px transparent;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      &:before {
+        margin-right: 4px;
+        border-left: solid 1px transparent;
+        border-radius: var(--smart-border-radius) 0;
+      }
+
+      &:after {
+        flex-grow: 1;
+        margin-left: 4px;
+        border-right: solid 1px transparent;
+        border-radius: 0 var(--smart-border-radius);
+      }
+    }
+
+    &:not([focus]) {
+      .smart-hint {
+        font-size: var(--smart-font-size);
+        line-height: 48px;
+        opacity: 0;
+      }
+    }
+
+    &[focus] {
+      border-color: var(--smart-primary);
+      border-top-color: transparent !important;
+
+      .smart-drop-down-button {
+        color: var(--smart-primary);
+      }
+
+      .smart-hint {
+        color: var(--smart-primary);
+        opacity: 1;
+
+        &:before,
+        &:after {
+          border-top-color: var(--smart-primary) !important;
+        }
+      }
+    }
+  }
+}
+
+.smart-numeric-text-box-radix-display {
+  display: flex;
+  align-items: center;
+  cursor: default;
+  background-color: var(--smart-surface);
+  color: var(--smart-surface-color);
+  width: var(--smart-numeric-text-box-default-radix-display-width);
+  justify-content: center;
+}
+
+.smart-numeric-text-box-unit-display {
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.smart-numeric-text-box-drop-down {
+  background-color: var(--smart-surface);
+  //color: var(--smart-surface-color);
+  position: absolute;
+  box-sizing: border-box;
+  height: auto;
+  border-width: var(--smart-border-width);
+  border-style: solid;
+  border-color: var(--smart-border);
+  box-shadow: var(--smart-elevation-8);
+  padding: 2px;
+  top: 100%;
+  z-index: 9999;
+  list-style-type: none;
+  transform: scaleY(1);
+  opacity: 1;
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+
+  .smart-list-item {
+    cursor: pointer;
+    margin: 1px;
+    border: 1px solid transparent;
+    padding: 4px 8px 4px 8px;
+    word-break: break-all;
+
+    &[hover],
+    &:hover {
+      background-color: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+    }
+  }
+
+  &.smart-visibility-hidden {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  &.smart-drop-down-repositioned {
+    &:not([animation="none"]) {
+      transform-origin: top;
+      transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+    }
+  }
+}
+
+.smart-numeric-text-box-pressed-component {
+  background-color: var(--smart-ui-state-active);
+  color: var(--smart-ui-state-color-active);
+  border-color: var(--smart-ui-state-border-active);
+}
+
+//Right To Left
+smart-numeric-text-box {
+  &[right-to-left] {
+    > .smart-container {
+      direction: initial;
+    }
+
+    input.smart-input,
+    .smart-numeric-text-box-drop-down,
+    .smart-numeric-text-box-radix-display,
+    .smart-label,
+    .smart-hint {
+      direction: rtl;
+    }
+
+    .smart-numeric-text-box-unit-display {
+      direction: rtl;
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.smart-numeric-text-box-drop-down {
+  &.smart-drop-down-repositioned {
+    &[right-to-left] {
+      direction: rtl;
+    }
+  }
+}

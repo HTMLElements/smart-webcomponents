@@ -1,0 +1,255 @@
+/* --- Scheduler Drag Feedback --- */
+
+.smart-scheduler-drag-feedback {
+  position: absolute;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: var(--smart-scheduler-event-border-radius);
+  pointer-events: none;
+  padding: initial;
+  text-align: center;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: var(--smart-elevation-8);
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+  cursor: move;
+  opacity: 0.75;
+  z-index: 10000;
+
+  .smart-scheduler-event-content {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-rows: min-content minmax(auto, 1fr);
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: center;
+    overflow: hidden;
+    padding: var(--smart-scheduler-event-content-padding);
+    color: var(--smart-scheduler-event-color);
+    background: var(--smart-scheduler-event-background);
+    cursor: pointer;
+    position: relative;
+    border-radius: inherit;
+    grid-row-gap: 2px;
+
+    &[single-line] {
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: 100%;
+      grid-column-gap: 5px;
+      justify-content: space-between;
+
+      > div {
+        align-self: initial;
+      }
+    }
+
+    &:not([single-line]) {
+      > div:not(:first-of-type) {
+        grid-column: 1 / span 2;
+      }
+    }
+  }
+
+  .smart-scheduler-event-label {
+    font-weight: var(--smart-scheduler-event-label-font-weight);
+    font-size: var(--smart-scheduler-event-label-font-size);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .smart-scheduler-event-time {
+    font-weight: var(--smart-scheduler-event-time-font-weight);
+    font-size: var(--smart-scheduler-event-time-font-size);
+    opacity: var(--smart-scheduler-event-time-opacity);
+    pointer-events: none;
+    white-space: pre-wrap;
+  }
+
+  .smart-scheduler-event-content {
+    grid-template-columns: minmax(auto, 1fr);
+
+    > div {
+      max-width: 100%;
+      max-height: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      align-self: flex-start;
+
+      &:first-of-type {
+        align-self: center;
+      }
+    }
+  }
+
+  //.smart-scheduler-event-content:not([single-line]) > div:not(:first-of-type),
+  //&:not([repeating]) .smart-scheduler-event-content:not([single-line]) > div {
+  //  grid-column: 1 / span 2;
+  //}
+
+  &[status] {
+    .smart-scheduler-event-content {
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: var(--smart-scheduler-status-size);
+        height: 100%;
+        background: var(--smart-scheduler-status-background);
+        box-shadow: 0 0 0 0.5px var(--smart-background);
+        border: 1px solid var(--smart-border);
+        border-radius: 20px;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+    }
+
+    &:not([view-type="agenda"]) {
+      .smart-scheduler-event-content {
+        padding-left: calc(var(--smart-scheduler-status-size) + var(--smart-scheduler-status-padding));
+      }
+    }
+  }
+
+  &[status="free"] {
+    .smart-scheduler-event-content{
+      &:before {
+        background: var(--smart-scheduler-status-free-background);
+      }
+    }
+  }
+
+  &[status="busy"] {
+    .smart-scheduler-event-content{
+      &:before {
+        background: var(--smart-scheduler-status-busy-background);
+      }
+    }
+  }
+
+  &[status="outOfOffice"] {
+    .smart-scheduler-event-content{
+      &:before {
+        background: var(--smart-scheduler-status-out-of-office-background);
+      }
+    }
+  }
+
+  &[status="tentative"] {
+    .smart-scheduler-event-content{
+      &:before {
+        background: var(--smart-scheduler-status-tentative-background);
+      }
+    }
+  }
+
+  &[view-type="agenda"] {
+    .smart-scheduler-event-time {
+      opacity: var(--smart-scheduler-event-time-opacity-agenda);
+      font-size: var(--smart-scheduler-event-time-font-size-agenda);
+      font-weight: var(--smart-scheduler-event-time-font-weight-agenda);
+    }
+
+    .smart-scheduler-event {
+      padding: var(--smart-scheduler-event-padding-agenda);
+    }
+
+    .smart-scheduler-event-content > div {
+      padding: var(--smart-scheduler-event-padding-agenda);
+    }
+
+    &[status] {
+      .smart-scheduler-event-content{
+        &:before {
+          content: initial;
+        }
+      }
+    }
+  }
+
+  &:not([view-type^="timeline"]) {
+    width: var(--smart-scheduler-event-size);
+
+    .smart-scheduler-event-content > div {
+      padding: var(--smart-scheduler-event-padding-basic);
+    }
+  }
+
+  &[view-type^="timeline"] {
+    .smart-scheduler-event-content > div {
+      padding: var(--smart-scheduler-event-padding-timeline);
+    }
+  }
+
+  &[mobile]:not([view-type^="timeline"]) {
+    min-width: var(--smart-scheduler-event-size-timeline);
+  }
+
+  &[exception],
+  &[repeating] {
+    .smart-scheduler-event-content {
+      grid-template-columns: minmax(auto, 1fr) var(--smart-scheduler-event-icon-size);
+    }
+  }
+
+  &:not([repeating]) {
+    .smart-scheduler-event-content:not([single-line]) > div {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &[repeating] {
+    .smart-scheduler-event-content {
+      &:after {
+        content: var(--smart-icon-spin);
+        width: var(--smart-scheduler-event-icon-size);
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        right: 0;
+        font-family: var(--smart-font-family-icon);
+        font-size: var(--smart-font-size);
+        padding: var(--smart-scheduler-event-content-padding);
+        box-sizing: border-box;
+        line-height: 1rem;
+      }
+
+      &[single-line] {
+        grid-template-columns: repeat(2, auto) var(--smart-scheduler-event-icon-size);
+      }
+    }
+
+    &[exception] {
+      .smart-scheduler-event-content {
+        &:after {
+          content: var(--smart-icon-attention-circled);
+        }
+      }
+    }
+  }
+
+  &[right-to-left] {
+    direction: rtl;
+
+    &:not([view-type="agenda"])[status] .smart-scheduler-event-content {
+      padding-left: initial;
+      padding-right: calc(var(--smart-scheduler-status-size) + var(--smart-scheduler-status-padding));
+    }
+
+    &[repeating] .smart-scheduler-event-content{
+      &:after {
+        right: initial;
+        left: 0;
+      }
+    }
+  }
+}
+
+.smart-dragging-disabled {
+  cursor: no-drop;
+}

@@ -62,6 +62,31 @@ export interface PivotTableProperties {
    */
   drillDown?: boolean;
   /**
+   * If set, shows an export button in the drill down dialog.
+   * Default value: 
+   */
+  drillDownDataExport?: PivotTableDrillDownDataExport;
+  /**
+   * Sets or gets the drill down table export file name.
+   * Default value: ""
+   */
+  drillDownDataExportName?: string;
+  /**
+   * Sets or gets the drill down dialog callback function. The argument of the callback passed by the PivotTable is the drill-down Table component. You can use it to customize the table.
+   * Default value: null
+   */
+  drillDownTableInit?: { (table: HTMLElement ): void };
+  /**
+   * Sets or gets the drill down custom action callback function. The argument of the callback passed by the PivotTable is the drill-down data source. You can use it to override the default drill-down UI i.e to replace our Dialog with Table.
+   * Default value: null
+   */
+  drillDownCustomAction?: { (originalRecords: [] ): void };
+  /**
+   * Sets or gets whether sorting based on columns in classic row groups layout mode is enabled.
+   * Default value: false
+   */
+  enableSortByRowGroups?: boolean;
+  /**
    * Sets or gets whether the PivotTable's column header is sticky/frozen.
    * Default value: false
    */
@@ -115,12 +140,12 @@ export interface PivotTableProperties {
    * A callback function executed each time a PivotTable cell is rendered.
    * Default value: null
    */
-  onCellRender?: any;
+  onCellRender?: { (data: any, dynamicColumn: any, value: any, cell: HTMLTableCellElement): void };
   /**
    * A callback function executed each time a PivotTable column header cell is rendered.
    * Default value: null
    */
-  onColumnRender?: any;
+  onColumnRender?: { (settings: { text: string, cell: HTMLTableCellElement, column: PivotTableColumn, fullDefinition: any }): void };
   /**
    * A callback function executed when the PivotTable is being initialized.
    * Default value: null
@@ -136,6 +161,11 @@ export interface PivotTableProperties {
    * Default value: false
    */
   rowSort?: boolean;
+  /**
+   * Sets or gets whether row summaries are displayed in the row headers. Example: Peterson(40) vs Peterson, when rowSummary is set to false.
+   * Default value: true
+   */
+  rowSummary?: boolean;
   /**
    * Sets or gets whether to show row total columns for each summary column.
    * Default value: false
@@ -364,7 +394,7 @@ export interface PivotTableColumn {
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: { (settings: { value: any, row: string | number, column: string, cell: HTMLTableCellElement, template?: any }): void };
   /**
    * Sets or gets the column's displayed text (for example in summary column headers).
    * Default value: ""
@@ -461,6 +491,8 @@ export declare type PivotTableConditionalFormattingFontFamily = 'The default fon
 export declare type PivotTableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the position of the PivotTable's designer (shown when designer is enabled). */
 export declare type PivotTableDesignerPosition = 'near' | 'far';
+/**If set, shows an export button in the drill down dialog. */
+export declare type PivotTableDrillDownDataExport = null | 'xlsx' | 'pdf' | 'html' | 'json' | 'csv' | 'tsv' | 'xml';
 /**Sets or gets the way row nesting (based on rowGroup columns) is displayed. */
 export declare type PivotTableGroupLayout = 'classic' | 'default';
 /**Sets or gets the position of row total columns (shown when rowTotals is enabled). */

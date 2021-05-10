@@ -1,0 +1,131 @@
+@import '_functions';
+
+.smart-button-group {
+  display: inline-flex;
+  vertical-align: middle;
+  width: var(--smart-button-group-default-width);
+  height: var(--smart-button-group-default-height);
+  cursor: pointer;
+  text-transform: var(--smart-button-text-transform);
+  letter-spacing: .08929em;
+  overflow: hidden;
+
+  .smart-button-group-items {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .smart-button-group-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: var(--smart-button-padding);
+      cursor: inherit;
+      font-weight: inherit;
+      -webkit-font-smoothing: antialiased;
+      opacity: var(--smart-button-opacity);
+      white-space: nowrap;
+      border-radius: inherit;
+      width: 100%;
+      height: 100%;
+
+      > div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      &:hover {
+        color: var(--smart-ui-state-color-hover);
+        border-color: var(--smart-ui-state-border-hover);
+        background-color: var(--smart-ui-state-hover);
+        opacity: var(--smart-button-opacity-hover);
+      }
+
+      &[active] {
+        color: var(--smart-ui-state-color-selected);
+        border-color: var(--smart-ui-state-border-selected);
+        background-color: var(--smart-ui-state-selected);
+      }
+
+      &:active {
+        color: var(--smart-ui-state-color-active);
+        border-color: var(--smart-ui-state-border-active);
+        background-color: var(--smart-ui-state-active);
+        opacity: var(--smart-button-opacity-active);
+      }
+    }
+  }
+
+  &.small {
+    .smart-button-group-items {
+      .smart-button-group-item {
+        padding: var(--smart-button-small-padding);
+        font-size: var(--smart-button-small-font-size);
+      }
+    }
+  }
+
+  &.large {
+    .smart-button-group-items {
+      .smart-button-group-item {
+        padding: var(--smart-button-large-padding);
+        font-size: var(--smart-button-large-font-size);
+      }
+    }
+  }
+
+  &:focus {
+    .smart-button-group-item {
+      &[focus]:not(:active) {
+        color: var(--smart-ui-state-color-focus);
+        border-color: var(--smart-ui-state-border-focus);
+        background-color: var(--smart-ui-state-focus);
+        opacity: var(--smart-button-opacity-focus);
+      }
+    }
+  }
+
+  // ======== Buttons Colors ========
+  @each $value in $main-colors-list {
+    &.#{$value} {
+      border-color: var(--smart-#{$value});
+
+      .smart-button-group-items {
+        .smart-button-group-item {
+          color: var(--smart-#{$value}-color);
+          background-color: var(--smart-#{$value});
+
+          &:hover {
+            background-color: #{'rgba(var(--smart-#{$value}-rgb), .8)'};
+          }
+
+          &:active,
+          &[active] {
+            color: var(--smart-#{$value});
+            border-color: var(--smart-ui-state-border-selected);
+            background-color: #{'rgba(var(--smart-#{$value}-rgb), .2)'};
+          }
+        }
+      }
+    }
+  }
+
+  &:not([animation="none"]) {
+    .smart-button-group-item {
+      transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
+    }
+  }
+
+  // ======== Right To Left ========
+  &[right-to-left] {
+    .smart-button-group-items {
+      direction: rtl;
+    }
+  }
+}

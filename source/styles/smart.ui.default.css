@@ -59,6 +59,8 @@ smart-ui-card-view,
 smart-ui-tooltip,
 smart-ui-layout,
 smart-ui-path,
+smart-ui-editor,
+smart-ui-scheduler,
 smart-ui-kanban {
 	visibility: hidden;
 }
@@ -124,6 +126,8 @@ smart-ui-card-view.smart-ui-component,
 smart-ui-tooltip.smart-ui-component,
 smart-ui-layout.smart-ui-component,
 smart-ui-path.smart-ui-component,
+smart-ui-editor.smart-ui-component,
+smart-ui-scheduler.smart-ui-component,
 smart-ui-kanban.smart-ui-component {
 	visibility: inherit;
 }

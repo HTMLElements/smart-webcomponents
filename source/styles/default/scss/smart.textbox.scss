@@ -1,0 +1,247 @@
+@import '_functions';
+
+/* smart-text-box */
+input {
+  &.smart-input {
+    border-width: var(--smart-border-width);
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    background: var(--smart-background);
+    border-style: solid;
+    border-color: var(--smart-border);
+    color: var(--smart-background-color);
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    padding-left: var(--smart-editor-label-padding);
+    padding-right: var(--smart-editor-label-padding);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: var(--smart-editor-height);
+    outline: none;
+    text-align: var(--smart-text-box-text-align);
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: var(--smart-outline);
+    }
+
+    &:hover {
+      border-color: var(--smart-ui-state-border-hover);
+    }
+
+    &:disabled {
+      border-color: var(--smart-disabled);
+      outline: none;
+    }
+  }
+
+  &.smart-input::selection {
+    background: var(--smart-editor-selection);
+    color: var(--smart-editor-selection-color);
+  }
+}
+
+textarea {
+  &.smart-input::selection {
+    background: var(--smart-editor-selection);
+    color: var(--smart-editor-selection-color);
+  }
+}
+
+.smart-input-drop-down-menu {
+  display: block;
+  transform: scaleY(0);
+  transform-origin: top left;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: var(--smart-editor-drop-down-z-index);
+  float: left;
+  padding: 2px;
+  margin: var(--smart-list-item-vertical-offset) var(--smart-list-item-horizontal-offset);
+  color: var(--smart-background-color);
+  background-color: var(--smart-background);
+  border: 1px solid var(--smart-border);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  box-shadow: var(--smart-elevation-8);
+  font-size: var(--smart-font-size);
+  font-family: var(--smart-font-family);
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  --smart-input-drop-down-menu-width: auto;
+  --smart-input-drop-down-menu-height: 200px;
+  /*min-width: 150px;*/
+  min-height: 0;
+
+  &:not([animation="none"]) {
+    transition: opacity 0.2s, transform 0.2s ease-out;
+  }
+
+  &.smart-container {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .smart-scroll-viewer-content-container,
+  .smart-scroll-viewer-container,
+  > .smart-container {
+    /*min-width: 150px;*/
+    width: var(--smart-input-drop-down-menu-width);
+    max-height: calc(var(--smart-input-drop-down-menu-height) - 6px);
+  }
+
+  .smart-scroll-viewer-content-container {
+    padding: 0px;
+    max-height: initial;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+
+    &.scroll {
+      width: calc(100% - var(--smart-scroll-bar-size) - 2px);
+    }
+
+    li {
+      padding-bottom: 1px;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      a {
+        display: block;
+        padding: 8px 12px;
+        border-top-left-radius: var(--smart-item-border-top-left-radius);
+        border-top-right-radius: var(--smart-item-border-top-right-radius);
+        border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+        border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+        clear: both;
+        font-weight: normal;
+        white-space: nowrap;
+        color: var(--smart-background-color);
+        text-decoration: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:hover {
+          color: var(--smart-ui-state-color-hover);
+          background: var(--smart-ui-state-hover);
+        }
+
+        &.icon {
+          position: relative;
+          padding-left: var(--smart-column-icon-size);
+
+          &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: var(--smart-column-icon-size);
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+      }
+    }
+  }
+
+  &:not(.smart-check-input-drop-down-menu) {
+    li {
+      &.active {
+        a {
+          color: var(--smart-ui-state-color-focus);
+          background: var(--smart-ui-state-focus);
+          text-decoration: none;
+          outline: 0;
+        }
+      }
+    }
+  }
+
+  &[open] {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.smart-multi-combo-input-scroll-viewer {
+  .smart-scroll-viewer-content-container {
+    width: var(--smart-input-drop-down-menu-width);
+    max-height: initial;
+  }
+
+  .smart-scroll-viewer-container,
+  > .smart-container {
+    /*min-width: 150px;*/
+    width: var(--smart-input-drop-down-menu-width);
+    max-height: calc(var(--smart-input-drop-down-menu-height) - 6px);
+  }
+}
+
+.smart-drop-down {
+  smart-list-item[focus] {
+    .smart-overlay {
+      background-color: var(--smart-ui-state-focus);
+    }
+
+    .smart-content {
+      color: var(--smart-ui-state-color-focus);
+      border-color: var(--smart-ui-state-border-focus);
+    }
+
+    &[selected] {
+      .smart-overlay {
+        background-color: var(--smart-ui-state-selected);
+      }
+
+      .smart-content {
+        color: var(--smart-ui-state-color-selected);
+        border-color: var(--smart-ui-state-border-selected);
+      }
+    }
+  }
+}
+
+@import 'textbox/_text-box';
+@import 'textbox/_text-area';
+@import 'textbox/_input';
+@import 'textbox/_number-input';
+@import 'textbox/_password-input';
+@import 'textbox/_multi-input';
+@import 'textbox/_multi-combo-input';
+@import 'textbox/_check-input';
+@import 'textbox/_color-input';
+@import 'textbox/_date-input';
+
+@import 'textbox/_underlined';
+@import 'textbox/_outlined';
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution: .001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .smart-input {
+      .smart-input,
+      .smart-hint,
+      .smart-hint::after {
+        transition-duration: 0.1s;
+      }
+    }
+  }
+}

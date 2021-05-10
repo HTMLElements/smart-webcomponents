@@ -1,0 +1,67 @@
+/* smart-drop-down-list */
+smart-drop-down-list {
+  width: var(--smart-drop-down-list-default-width);
+  height: var(--smart-drop-down-list-default-height);
+  overflow: initial;
+  visibility: hidden;
+  cursor: pointer;
+
+  //Overrides smartWidgets Framework - base.css selector
+  &.smart-element {
+    overflow: visible;
+    visibility: inherit;
+    border-width: 0px;
+
+    .smart-drop-down.smart-visibility-hidden {
+      transform: scale(0);
+      transition: transform 0.2s ease-in;
+      transform-origin: left top 0px;
+    }
+  }
+}
+
+//ListBox
+.smart-drop-down-list {
+  smart-list-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: initial;
+    padding: initial;
+    overflow: hidden;
+    font-size: inherit;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .smart-buttons-container {
+    .smart-action-button {
+      .smart-token {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 2px;
+        user-select: none;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .smart-drop-down-list-unselect-button {
+    /*visibility: hidden;*/
+    pointer-events: none;
+
+    &:not(:empty) {
+      margin-right: 2px;
+    }
+  }
+
+  &[selection-display-mode="tokens"] {
+    .smart-drop-down-list-unselect-button {
+      /*visibility: visible;*/
+      pointer-events: initial;
+    }
+  }
+}

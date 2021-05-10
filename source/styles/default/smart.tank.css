@@ -1,6 +1,4 @@
-
 /* .smart-tank */
-
 smart-tank {
     padding-left: 5px;
     padding-right: 5px;
@@ -8,193 +6,90 @@ smart-tank {
     height: var(--smart-tank-default-height);
 }
 
-    smart-tank.smart-element,
-    smart-slider.smart-element {
-        overflow: visible;
-        border: none;
-        background: none;
-    }
+smart-tank.smart-element {
+    overflow: visible;
+    border: none;
+    background: none;
+}
 
-.smart-tank *,
+smart-tank.smart-scale-far .smart-tick {
+    top: initial;
+}
+
 smart-slider * {
     box-sizing: border-box;
 }
 
-.smart-tank[orientation="horizontal"] {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: initial;
-    padding-right: initial;
-}
-
-.smart-tank:focus,
 smart-slider:focus {
     outline: none;
 }
 
-.smart-tank .smart-track.track-hovered {
-    cursor: pointer;
+smart-slider.smart-element {
+    overflow: visible;
+    border: none;
+    background: none;
 }
 
-.smart-tank:active .smart-track {
-    cursor: n-resize;
-}
-
-.smart-tank[orientation="horizontal"]:active .smart-track {
-    cursor: w-resize;
-}
-
-.smart-tank[readonly]:active .smart-track,
-.smart-tank[disabled]:active .smart-track {
-    cursor: default;
-}
-
-.smart-tank[readonly] .smart-track.track-hovered,
-.smart-tank[disabled] .smart-track.track-hovered {
-    cursor: default;
-}
-
-.smart-tank .smart-container,
-:host(smart-tank) .smart-container,
 smart-slider .smart-container {
     overflow: visible;
 }
 
-.smart-tank .smart-thumb {
-    display: none;
-    position: absolute;
-    width: var(--smart-tank-thumb-width);
-    height: var(--smart-tank-thumb-height);
-    transform: scale(0);
-    transition: transform 0.2s ease-out;
-    left: calc(-1 * var(--smart-tank-thumb-width) * 2);
-    top: calc(-1 * var(--smart-tank-thumb-height) / 2);
-    border-radius: 50%;
-    background-color: var(--smart-primary);
-}
-
-.smart-tank[inverted] .smart-thumb {
-    top: calc(100% - var(--smart-tank-thumb-height) / 2);
-}
-
-.smart-tank[show-thumb-label][orientation="horizontal"][inverted] .smart-thumb,
-.smart-tank[show-thumb-label][orientation="horizontal"][thumb-label-position="far"][inverted] .smart-thumb {
-    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
-}
-
-.smart-tank[show-thumb-label]:not([animation="none"]) .smart-thumb {
-    transition: transform 0.2s ease-out, left 0.2s ease-in-out, top 0.2s ease-in-out;
-}
-
-.smart-tank[show-thumb-label][orientation="horizontal"] .smart-thumb,
-.smart-tank[show-thumb-label][orientation="horizontal"][thumb-label-position="near"] .smart-thumb {
-    left: 100%;
-    top: calc(-1 * var(--smart-tank-thumb-width) / 2);
-}
-
-
-.smart-tank[show-thumb-label][orientation="horizontal"][thumb-label-position="far"] .smart-thumb {
-    left: 100%;
-    top: calc(100% - var(--smart-tank-thumb-width) / 2);
-}
-
-.smart-tank[show-thumb-label] .smart-thumb {
-    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
-}
-
-.smart-tank[show-thumb-label][thumb-label-position="far"] .smart-thumb {
-    left: calc(100% - var(--smart-tank-thumb-width) / 2);
-}
-
-.smart-tank[show-thumb-label] .smart-thumb {
-    overflow: visible;
-    display: initial;
-}
-
-.smart-tank[orientation="horizontal"][show-thumb-label]:focus .smart-thumb {
-    left: 100%;
-    top: calc(-1 * var(--smart-tank-thumb-height) - var(--smart-tank-thumb-height) /2 - 2px); /* 2px comes from the border */
-}
-
-.smart-tank[orientation="horizontal"][show-thumb-label][thumb-label-position="far"]:focus .smart-thumb {
-    top: calc(100% + var(--smart-tank-thumb-height) /2);
-}
-
-.smart-tank[show-thumb-label]:focus .smart-thumb {
-    left: calc(-1 * var(--smart-tank-thumb-width) - var(--smart-tank-thumb-width) /2 - 2px); /* 2px comes from the border */
-    transform: scale(1);
-}
-
-.smart-tank[thumb-label-position="far"]:focus .smart-thumb {
-    left: calc(100% + var(--smart-tank-thumb-width) / 2 + 2px); /* 2px comes from the border */
-}
-
-.smart-tank .smart-thumb::before {
-    transform: scale(1.1) rotate(45deg);
-    border: 1px solid var(--smart-primary);
-    border-radius: 50% 0 50% 50%;
-    background-color: var(--smart-primary);
-    width: 100%;
-    height: 100%;
-    display: block;
-    content: "";
-}
-
-.smart-tank[orientation="horizontal"] .smart-thumb::before {
-    border-radius: 50% 50% 0 50%;
-}
-
-.smart-tank[orientation="horizontal"][thumb-label-position="far"] .smart-thumb::before {
-    border-radius: 0 50% 50% 50%;
-}
-
-.smart-tank[thumb-label-position="far"] .smart-thumb::before,
-.smart-tank[orientation="vertical"][thumb-label-position="far"] .smart-thumb::before {
-    border: 1px solid var(--smart-primary);
-    border-radius: 50% 50% 50% 0;
-}
-
-.smart-tank[orientation="horizontal"][thumb-label-position="far"]:focus .smart-thumb {
-    left: 100%;
-}
-
-.smart-tank .smart-thumb-label-container {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: var(--smart-tank-thumb-width);
-    height: var(--smart-tank-thumb-height);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.smart-tank[show-thumb-label] .smart-thumb-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 0.65rem;
-    font-family: var(--smart-font-family);
+smart-slider .smart-scale {
+    position: relative;
     user-select: none;
+    pointer-events: none;
+}
+
+smart-slider .smart-label {
+    position: absolute;
+    float: left;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: inherit;
     color: var(--smart-background-color);
 }
 
-.smart-tank[inverted]:focus .smart-thumb,
-.smart-tank[inverted][orientation="vertical"] .smart-thumb {
-    top: calc(100% - var(--smart-tank-thumb-height) / 2);
+smart-slider .smart-tooltip {
+    z-index: 1;
 }
 
-.smart-tank[orientation="horizontal"][inverted]:focus .smart-thumb {
-    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+smart-slider .smart-tooltip-content {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.smart-tank[orientation="horizontal"] .smart-thumb {
-    margin-left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+smart-slider .smart-track-container {
+    touch-action: none;
 }
 
-.smart-tank[inverted] .smart-thumb {
-    margin-left: initial;
-    margin-top: initial;
+smart-slider .smart-track-ticks-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+smart-slider[ticks-visibility="major"] .smart-tick-minor,
+smart-slider[ticks-visibility="major"] .smart-tick, smart-slider[ticks-visibility="none"] .smart-tick-minor,
+smart-slider[ticks-visibility="none"] .smart-tick {
+    display: none;
+}
+
+smart-slider[labels-visibility="endPoints"] .smart-label-middle {
+    visibility: hidden;
+}
+
+smart-slider[labels-visibility="none"] .smart-label {
+    visibility: hidden;
+}
+
+.smart-tank * {
+    box-sizing: border-box;
+}
+
+.smart-tank .smart-container {
+    overflow: visible;
 }
 
 .smart-tank .smart-track {
@@ -214,53 +109,18 @@ smart-slider .smart-container {
     border-bottom-left-radius: var(--smart-border-bottom-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
     border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    touch-action: none;
 }
 
-.smart-tank[scale-position="none"] .smart-track {
+.smart-tank .smart-track.track-hovered {
+    cursor: pointer;
+}
+
+.smart-tank .smart-track-ticks-container {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    width: 100%;
-    position: relative;
-    border: solid var(--smart-border);
-    border-width: var(--smart-border-width);
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.smart-tank[scale-position="both"] .smart-track {
-    width: calc(100% - 2 * var(--smart-tank-scale-size) - 4px);
-}
-
-.smart-tank[orientation="horizontal"] .smart-track {
-    height: calc(100% - var(--smart-tank-scale-size) - 4px);
-    min-height: var(--smart-tank-minimum-track-size);
-    width: 100%;
-    background-color: transparent;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.smart-tank[orientation="horizontal"][scale-position="both"] .smart-track {
-    height: calc(100% - 2 * var(--smart-tank-scale-size) - 4px);
-}
-
-.smart-tank[orientation="horizontal"][scale-position="none"] .smart-track {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    border: solid var(--smart-border);
-    border-width: var(--smart-border-width);
-    background-color: transparent;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.smart-tank:focus .smart-track,
-.smart-tank[scale-position="none"]:focus .smart-track {
-    border-style: solid;
-    border-color: var(--smart-outline);
-    border-width: var(--smart-border-width);
+    pointer-events: none;
 }
 
 .smart-tank .smart-value {
@@ -271,50 +131,75 @@ smart-slider .smart-container {
     position: absolute;
 }
 
-.smart-tank[orientation="horizontal"] .smart-value {
-    height: 100%;
-    width: 0;
+.smart-tank .smart-label {
+    position: absolute;
+    float: left;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--smart-background-color);
 }
 
-.smart-tank .smart-scale,
-smart-slider .smart-scale {
+.smart-tank .smart-thumb {
+    display: none;
+    position: absolute;
+    width: var(--smart-tank-thumb-width);
+    height: var(--smart-tank-thumb-height);
+    transform: scale(0);
+    transition: transform 0.2s ease-out;
+    left: calc(-1 * var(--smart-tank-thumb-width) * 2);
+    top: calc(-1 * var(--smart-tank-thumb-height) / 2);
+    border-radius: 50%;
+    background-color: var(--smart-primary);
+}
+
+.smart-tank .smart-thumb:before {
+    transform: scale(1.1) rotate(45deg);
+    border: 1px solid var(--smart-primary);
+    border-radius: 50% 0 50% 50%;
+    background-color: var(--smart-primary);
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: "";
+}
+
+.smart-tank .smart-thumb-label-container {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: var(--smart-tank-thumb-width);
+    height: var(--smart-tank-thumb-height);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.smart-tank .smart-scale {
     position: relative;
     user-select: none;
     pointer-events: none;
-}
-
-.smart-tank .smart-scale {
     float: left;
-}
-
-.smart-tank[orientation="horizontal"] .smart-scale {
-    width: 100%;
-    float: left;
-    height: calc(var(--smart-tank-scale-size));
-    margin-left: var(--smart-border-width);
-}
-
-.smart-tank[scale-position="both"] .smart-scale {
-    width: var(--smart-tank-scale-size);
-    height: 100%;
-    max-width: 47%;
-}
-
-.smart-tank[orientation="horizontal"][scale-position="both"] .smart-scale {
-    width: 100%;
-    height: var(--smart-tank-scale-size);
-}
-
-.smart-tank .smart-scale {
     margin-top: var(--smart-border-width);
     margin-left: initial;
     height: calc(100% - var(--smart-border-width));
     width: var(--smart-tank-scale-size);
-    max-width: calc(100% - var(--smart-tank-minimum-track-size) - 4px); /* 4px is the margin left/right of the track */
+    max-width: calc(100% - var(--smart-tank-minimum-track-size) - 4px);
+    /* 4px is the margin left/right of the track */
 }
 
-.smart-tank .smart-tooltip.smart-hidden {
-    display: none;
+.smart-tank .smart-scale-near .smart-tick {
+    bottom: initial;
+    right: 0;
+}
+
+.smart-tank .smart-scale-near .smart-label {
+    bottom: initial;
+    right: calc(var(--smart-tank-tick-size) + 2px);
+}
+
+.smart-tank .smart-scale-far .smart-label {
+    left: calc(var(--smart-tank-tick-size) + 2px);
+    top: initial;
 }
 
 .smart-tank .smart-tooltip {
@@ -329,76 +214,9 @@ smart-slider .smart-scale {
     background-color: var(--smart-background);
     color: var(--smart-background-color);
     opacity: 0.7;
-}
-
-.smart-tank[orientation="horizontal"] .smart-tooltip {
-    left: calc(100% - var(--smart-tank-tooltip-width) / 2);
-}
-
-.smart-tank .smart-tooltip,
-.smart-tank[tooltip-position="far"] .smart-tooltip {
-    top: initial;
-}
-
-.smart-tank[orientation="horizontal"][tooltip-position="near"][inverted] .smart-tooltip,
-.smart-tank[orientation="horizontal"][inverted] .smart-tooltip {
-    top: calc(-1 * var(--smart-tank-tooltip-height) - 12px);
-    left: calc(-1 * var(--smart-tank-tooltip-width) / 2);
-}
-
-.smart-tank[inverted] .smart-tooltip {
-    left: calc(-1 * var(--smart-tank-tooltip-width) - 10.5px);
-    top: calc(100% - 1 * var(--smart-tank-tooltip-height) / 2);
-}
-
-.smart-tank[orientation="horizontal"][tooltip-position="far"] .smart-tooltip {
-    top: calc(100% + 12px);
-    left: calc(100% - var(--smart-tank-tooltip-width) / 2);
-}
-
-.smart-tank[scale-position="none"][tooltip-position="near"] .smart-tooltip {
-    top: calc(-1 * var(--smart-tank-tooltip-height) / 2);
-}
-
-.smart-tank[orientation="horizontal"] .smart-tooltip {
-    top: calc(-1 * var(--smart-tank-tooltip-height) - 12px);
-    left: calc(100% - var(--smart-tank-tooltip-width) / 2);
-}
-
-.smart-tank[orientation="horizontal"][inverted][tooltip-position="far"] .smart-tooltip {
-    left: calc(-1* var(--smart-tank-tooltip-width) / 2);
-    top: calc(100% + 12px);
-}
-
-.smart-tank[orientation="horizontal"] .smart-tooltip:before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid var(--smart-border);
-    position: absolute;
-    top: 100%;
-    left: calc(var(--smart-tank-tooltip-width) / 2 - 6px);
-}
-
-.smart-tank[orientation="horizontal"][tooltip-position="far"] .smart-tooltip:before {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid var(--smart-border);
-    border-top: 0;
-    position: absolute;
-    left: calc(var(--smart-tank-tooltip-width) / 2 - 6px);
-    top: -7px;
-}
-
-.smart-tank .smart-tooltip {
     left: calc(-1 * var(--smart-tank-tooltip-width) - 10.5px);
     top: calc(-1 * var(--smart-tank-tooltip-height) / 2);
-}
-
-.smart-tank[inverted][tooltip-position="far"] .smart-tooltip {
-    top: calc(100% - var(--smart-tank-tooltip-height) / 2);
+    z-index: 1;
 }
 
 .smart-tank .smart-tooltip:before {
@@ -415,61 +233,14 @@ smart-slider .smart-scale {
     left: auto;
 }
 
-.smart-tank[tooltip-position="far"] .smart-tooltip:before {
-    border-left: none;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-right: 6px solid var(--smart-border);
-    top: calc(50% - 6px);
-    left: -7px;
+.smart-tank .smart-tooltip.smart-hidden {
+    display: none;
 }
 
-.smart-tank[tooltip-position="far"] .smart-tooltip {
-    left: calc(100% + 10.5px);
-    top: calc(-1 * var(--smart-tank-tooltip-height) / 2);
-}
-
-.smart-tank[inverted][tooltip-position="far"][scale-position="none"] .smart-tooltip {
-    left: calc(-100% - 7px);
-}
-
-.smart-tank[inverted][tooltip-position="near"] .smart-tooltip {
-    left: calc(-1 * var(--smart-tank-tooltip-width) - 10.5px);
-    top: calc(100% - var(--smart-tank-tooltip-height) / 2);
-}
-
-.smart-tank .smart-tooltip,
-smart-slider .smart-tooltip {
-    z-index: 1;
-}
-
-.smart-tank .smart-tooltip-content,
-smart-slider .smart-tooltip-content {
+.smart-tank .smart-tooltip-content {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-
-.smart-tank[orientation="horizontal"] .smart-tick {
-    float: left;
-    width: 1px;
-    height: var(--smart-tank-tick-size);
-}
-
-.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-tick {
-    height: 100%;
-    width: 1px;
-}
-
-.smart-tank[orientation="horizontal"] .smart-tick-minor {
-    height: var(--smart-tank-minor-tick-size);
-    width: 1px;
-}
-
-.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-tick-minor {
-    height: 80%;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .smart-tank .smart-tick {
@@ -480,134 +251,32 @@ smart-slider .smart-tooltip-content {
     height: 1px;
 }
 
-.smart-tank[ticks-position="track"] .smart-tick {
-    width: 100%;
-}
-
 .smart-tank .smart-tick-minor {
     width: var(--smart-tank-minor-tick-size);
     height: 1px;
 }
 
-.smart-tank[ticks-position="track"] .smart-tick-minor {
-    width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
+.smart-tank:focus {
+    outline: none;
 }
 
-.smart-tank[orientation="horizontal"] .smart-scale-near .smart-tick {
-    bottom: 0;
-    right: initial;
+.smart-tank:focus .smart-track {
+    border-style: solid;
+    border-color: var(--smart-outline);
+    border-width: var(--smart-border-width);
 }
 
-.smart-tank .smart-scale-near .smart-tick {
-    bottom: initial;
-    right: 0;
+.smart-tank:active .smart-track {
+    cursor: n-resize;
 }
 
-.smart-tank[orientation="horizontal"] .smart-scale-near .smart-label {
-    bottom: calc(var(--smart-tank-tick-size) + 2px);
-    right: initial;
-}
-
-.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-scale-near .smart-label,
-.smart-tank[orientation="horizontal"][ticks-visibility="none"] .smart-scale-near .smart-label {
-    bottom: 2px;
-}
-
-.smart-tank .smart-scale-near .smart-label {
-    bottom: initial;
-    right: calc(var(--smart-tank-tick-size) + 2px);
-}
-
-.smart-tank[ticks-position="track"] .smart-scale-near .smart-label,
-.smart-tank[ticks-visibility="none"] .smart-scale-near .smart-label {
-    right: 2px;
-}
-
-.smart-tank[orientation="horizontal"] .smart-scale-far .smart-tick {
-    top: 0;
-}
-
-smart-tank.smart-scale-far .smart-tick {
-    top: initial;
-}
-
-.smart-tank[ticks-visibility="major"] .smart-tick-minor,
-.smart-tank[ticks-visibility="none"] .smart-tick,
-smart-slider[ticks-visibility="major"] .smart-tick-minor,
-smart-slider[ticks-visibility="none"] .smart-tick {
-    display: none;
-}
-
-.smart-tank[orientation="horizontal"] .smart-scale-far .smart-label {
-    top: calc(var(--smart-tank-tick-size) + 2px);
-    left: initial;
-}
-
-.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-scale-far .smart-label,
-.smart-tank[orientation="horizontal"][ticks-visibility="none"] .smart-scale-far .smart-label {
-    top: 2px;
-    left: initial;
-}
-
-.smart-tank .smart-scale-far .smart-label {
-    left: calc(var(--smart-tank-tick-size) + 2px);
-    top: initial;
-}
-
-.smart-tank[ticks-position="track"] .smart-scale-far .smart-label,
-.smart-tank[ticks-visibility="none"] .smart-scale-far .smart-label {
-    left: 2px;
-    top: initial;
-}
-
-.smart-tank .smart-label,
-smart-slider .smart-label {
-    position: absolute;
-    float: left;
-    white-space: nowrap;
-    font-family: inherit;
-    font-size: inherit;
-    color: var(--smart-background-color);
-}
-
-.smart-tank[labels-visibility="endPoints"] .smart-label-middle,
-.smart-tank[labels-visibility="none"] .smart-label,
-smart-slider[labels-visibility="endPoints"] .smart-label-middle,
-smart-slider[labels-visibility="none"] .smart-label {
-    visibility: hidden;
-}
-
-.smart-tank .smart-track-ticks-container,
-smart-slider .smart-track-ticks-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.smart-tank .smart-track,
-smart-slider .smart-track-container {
-    touch-action: none;
-}
-
-.smart-tank:not([animation="none"]) .smart-value.disable-animation,
-.smart-tank[orientation="vertical"]:not([animation="none"]) .smart-value.disable-animation,
-.smart-tank[orientation="horizontal"]:not([animation="none"]) .smart-value.disable-animation {
-    transition: none;
-}
-
-.smart-tank:not([animation="none"]) .smart-value,
-.smart-tank[orientation="vertical"]:not([animation="none"]) .smart-value {
+.smart-tank:not([animation="none"]) .smart-value {
     transition: height 0.15s ease-out, margin-top 0.15s ease-out;
 }
 
-.smart-tank[orientation="horizontal"]:not([animation="none"]) .smart-value {
-    transition: width 0.15s ease-out, margin-left 0.15s ease-out;
+.smart-tank:not([animation="none"]) .smart-value.disable-animation {
+    transition: none;
 }
-
-/* Bubbles */
 
 .smart-tank:not([animation="none"]) .smart-bubble-container {
     position: relative;
@@ -622,18 +291,9 @@ smart-slider .smart-track-container {
     user-select: none;
     pointer-events: none;
     border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0px 10px 25px 5px rgba(255, 255, 255, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0px 10px 25px 5px white;
     width: 50px;
     height: 50px;
-}
-
-.smart-tank[orientation="horizontal"]:not([animation="none"]) .bubble,
-.smart-tank[disabled]:not([animation="none"]) .bubble {
-    display: none;
-}
-
-.smart-tank[inverted]:not([animation="none"]) .bubble {
-    display: none;
 }
 
 .smart-tank:not([animation="none"]) .bubble1 {
@@ -671,11 +331,454 @@ smart-slider .smart-track-container {
     transform: scale(0.35);
 }
 
+.smart-tank:not([animation="none"])[disabled] .bubble, .smart-tank:not([animation="none"])[inverted] .bubble, .smart-tank:not([animation="none"])[orientation="horizontal"] .bubble {
+    display: none;
+}
+
+.smart-tank[readonly] .smart-track.track-hovered, .smart-tank[disabled] .smart-track.track-hovered {
+    cursor: default;
+}
+
+.smart-tank[readonly]:active .smart-track, .smart-tank[disabled]:active .smart-track {
+    cursor: default;
+}
+
+.smart-tank[inverted] .smart-thumb {
+    top: calc(100% - var(--smart-tank-thumb-height) / 2);
+    margin-left: initial;
+    margin-top: initial;
+}
+
+.smart-tank[inverted] .smart-tooltip {
+    left: calc(-1 * var(--smart-tank-tooltip-width) - 10.5px);
+    top: calc(100% - 1 * var(--smart-tank-tooltip-height) / 2);
+}
+
+.smart-tank[inverted]:focus .smart-thumb {
+    top: calc(100% - var(--smart-tank-thumb-height) / 2);
+}
+
+.smart-tank[inverted][tooltip-position="far"] .smart-tooltip {
+    top: calc(100% - var(--smart-tank-tooltip-height) / 2);
+}
+
+.smart-tank[inverted][tooltip-position="far"][scale-position="none"] .smart-tooltip {
+    left: calc(-100% - 7px);
+}
+
+.smart-tank[inverted][tooltip-position="near"] .smart-tooltip {
+    left: calc(-1 * var(--smart-tank-tooltip-width) - 10.5px);
+    top: calc(100% - var(--smart-tank-tooltip-height) / 2);
+}
+
+.smart-tank[inverted][orientation="vertical"] .smart-thumb {
+    top: calc(100% - var(--smart-tank-thumb-height) / 2);
+}
+
+.smart-tank[ticks-visibility="none"] .smart-tick-minor,
+.smart-tank[ticks-visibility="none"] .smart-tick {
+    display: none;
+}
+
+.smart-tank[ticks-visibility="none"] .smart-scale-near .smart-label {
+    right: 2px;
+}
+
+.smart-tank[ticks-visibility="none"] .smart-scale-far .smart-label {
+    left: 2px;
+    top: initial;
+}
+
+.smart-tank[ticks-visibility="major"] .smart-tick-minor,
+.smart-tank[ticks-visibility="major"] .smart-tick {
+    display: none;
+}
+
+.smart-tank[ticks-position="track"] .smart-tick {
+    width: 100%;
+}
+
+.smart-tank[ticks-position="track"] .smart-tick-minor {
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.smart-tank[ticks-position="track"] .smart-scale-near .smart-label {
+    right: 2px;
+}
+
+.smart-tank[ticks-position="track"] .smart-scale-far .smart-label {
+    left: 2px;
+    top: initial;
+}
+
+.smart-tank[tooltip-position="far"] .smart-tooltip {
+    left: calc(100% + 10.5px);
+    top: calc(-1 * var(--smart-tank-tooltip-height) / 2);
+}
+
+.smart-tank[tooltip-position="far"] .smart-tooltip:before {
+    border-left: none;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid var(--smart-border);
+    top: calc(50% - 6px);
+    left: -7px;
+}
+
+.smart-tank[show-thumb-label] .smart-thumb {
+    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+    overflow: visible;
+    display: initial;
+}
+
+.smart-tank[show-thumb-label] .smart-thumb-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.65rem;
+    font-family: var(--smart-font-family);
+    user-select: none;
+    color: var(--smart-background-color);
+}
+
+.smart-tank[show-thumb-label]:focus .smart-thumb {
+    left: calc(-1 * var(--smart-tank-thumb-width) - var(--smart-tank-thumb-width) / 2 - 2px);
+    /* 2px comes from the border */
+    transform: scale(1);
+}
+
+.smart-tank[show-thumb-label]:not([animation="none"]) .smart-thumb {
+    transition: transform 0.2s ease-out, left 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+
+.smart-tank[show-thumb-label][thumb-label-position="far"] .smart-thumb {
+    left: calc(100% - var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[show-thumb-label][orientation="horizontal"] .smart-thumb {
+    left: 100%;
+    top: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[show-thumb-label][orientation="horizontal"][inverted] .smart-thumb {
+    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[show-thumb-label][orientation="horizontal"][thumb-label-position="far"] .smart-thumb {
+    left: 100%;
+    top: calc(100% - var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[show-thumb-label][orientation="horizontal"][thumb-label-position="far"][inverted] .smart-thumb {
+    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[show-thumb-label][orientation="horizontal"][thumb-label-position="near"] .smart-thumb {
+    left: 100%;
+    top: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[thumb-label-position="far"] .smart-thumb:before {
+    border: 1px solid var(--smart-primary);
+    border-radius: 50% 50% 50% 0;
+}
+
+.smart-tank[thumb-label-position="far"]:focus .smart-thumb {
+    left: calc(100% + var(--smart-tank-thumb-width) / 2 + 2px);
+    /* 2px comes from the border */
+}
+
+.smart-tank[scale-position="none"] .smart-track {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border: solid var(--smart-border);
+    border-width: var(--smart-border-width);
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.smart-tank[scale-position="none"]:focus .smart-track {
+    border-style: solid;
+    border-color: var(--smart-outline);
+    border-width: var(--smart-border-width);
+}
+
+.smart-tank[scale-position="none"][tooltip-position="near"] .smart-tooltip {
+    top: calc(-1 * var(--smart-tank-tooltip-height) / 2);
+}
+
+.smart-tank[scale-position="both"] .smart-track {
+    width: calc(100% - 2 * var(--smart-tank-scale-size) - 4px);
+}
+
+.smart-tank[scale-position="both"] .smart-scale {
+    width: var(--smart-tank-scale-size);
+    height: 100%;
+    max-width: 47%;
+}
+
+.smart-tank[labels-visibility="endPoints"] .smart-label-middle {
+    visibility: hidden;
+}
+
+.smart-tank[labels-visibility="none"] .smart-label {
+    visibility: hidden;
+}
+
+.smart-tank[orientation="vertical"][thumb-label-position="far"] .smart-thumb:before {
+    border: 1px solid var(--smart-primary);
+    border-radius: 50% 50% 50% 0;
+}
+
+.smart-tank[orientation="vertical"]:not([animation="none"]) .smart-value {
+    transition: height 0.15s ease-out, margin-top 0.15s ease-out;
+}
+
+.smart-tank[orientation="vertical"]:not([animation="none"]) .smart-value.disable-animation {
+    transition: none;
+}
+
+.smart-tank[orientation="horizontal"] {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: initial;
+    padding-right: initial;
+}
+
+.smart-tank[orientation="horizontal"]:active .smart-track {
+    cursor: w-resize;
+}
+
+.smart-tank[orientation="horizontal"] .smart-track {
+    height: calc(100% - var(--smart-tank-scale-size) - 4px);
+    min-height: var(--smart-tank-minimum-track-size);
+    width: 100%;
+    background-color: transparent;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.smart-tank[orientation="horizontal"] .smart-value {
+    height: 100%;
+    width: 0;
+}
+
+.smart-tank[orientation="horizontal"] .smart-thumb {
+    margin-left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[orientation="horizontal"] .smart-thumb:before {
+    border-radius: 50% 50% 0 50%;
+}
+
+.smart-tank[orientation="horizontal"] .smart-scale {
+    width: 100%;
+    float: left;
+    height: calc(var(--smart-tank-scale-size));
+    margin-left: var(--smart-border-width);
+}
+
+.smart-tank[orientation="horizontal"] .smart-scale-near .smart-tick {
+    bottom: 0;
+    right: initial;
+}
+
+.smart-tank[orientation="horizontal"] .smart-scale-near .smart-label {
+    bottom: calc(var(--smart-tank-tick-size) + 2px);
+    right: initial;
+}
+
+.smart-tank[orientation="horizontal"] .smart-scale-far .smart-tick {
+    top: 0;
+}
+
+.smart-tank[orientation="horizontal"] .smart-scale-far .smart-label {
+    top: calc(var(--smart-tank-tick-size) + 2px);
+    left: initial;
+}
+
+.smart-tank[orientation="horizontal"] .smart-tooltip {
+    top: calc(-1 * var(--smart-tank-tooltip-height) - 12px);
+    left: calc(100% - var(--smart-tank-tooltip-width) / 2);
+}
+
+.smart-tank[orientation="horizontal"] .smart-tooltip:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--smart-border);
+    position: absolute;
+    top: 100%;
+    left: calc(var(--smart-tank-tooltip-width) / 2 - 6px);
+}
+
+.smart-tank[orientation="horizontal"] .smart-tick {
+    float: left;
+    width: 1px;
+    height: var(--smart-tank-tick-size);
+}
+
+.smart-tank[orientation="horizontal"] .smart-tick-minor {
+    height: var(--smart-tank-minor-tick-size);
+    width: 1px;
+}
+
+.smart-tank[orientation="horizontal"]:not([animation="none"]) .smart-value {
+    transition: width 0.15s ease-out, margin-left 0.15s ease-out;
+}
+
+.smart-tank[orientation="horizontal"]:not([animation="none"]) .smart-value.disable-animation {
+    transition: none;
+}
+
+.smart-tank[orientation="horizontal"][inverted] .smart-tooltip {
+    top: calc(-1 * var(--smart-tank-tooltip-height) - 12px);
+    left: calc(-1 * var(--smart-tank-tooltip-width) / 2);
+}
+
+.smart-tank[orientation="horizontal"][inverted]:focus .smart-thumb {
+    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+.smart-tank[orientation="horizontal"][inverted][tooltip-position="far"] .smart-tooltip {
+    left: calc(-1 * var(--smart-tank-tooltip-width) / 2);
+    top: calc(100% + 12px);
+}
+
+.smart-tank[orientation="horizontal"][ticks-visibility="none"] .smart-scale-near .smart-label {
+    bottom: 2px;
+}
+
+.smart-tank[orientation="horizontal"][ticks-visibility="none"] .smart-scale-far .smart-label {
+    top: 2px;
+    left: initial;
+}
+
+.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-tick {
+    height: 100%;
+    width: 1px;
+}
+
+.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-tick-minor {
+    height: 80%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-scale-near .smart-label {
+    bottom: 2px;
+}
+
+.smart-tank[orientation="horizontal"][ticks-position="track"] .smart-scale-far .smart-label {
+    top: 2px;
+    left: initial;
+}
+
+.smart-tank[orientation="horizontal"][tooltip-position="near"][inverted] .smart-tooltip {
+    top: calc(-1 * var(--smart-tank-tooltip-height) - 12px);
+    left: calc(-1 * var(--smart-tank-tooltip-width) / 2);
+}
+
+.smart-tank[orientation="horizontal"][tooltip-position="far"] .smart-tooltip {
+    top: calc(100% + 12px);
+    left: calc(100% - var(--smart-tank-tooltip-width) / 2);
+}
+
+.smart-tank[orientation="horizontal"][tooltip-position="far"] .smart-tooltip:before {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--smart-border);
+    border-top: 0;
+    position: absolute;
+    left: calc(var(--smart-tank-tooltip-width) / 2 - 6px);
+    top: -7px;
+}
+
+.smart-tank[orientation="horizontal"][show-thumb-label]:focus .smart-thumb {
+    left: 100%;
+    top: calc(-1 * var(--smart-tank-thumb-height) - var(--smart-tank-thumb-height) / 2 - 2px);
+    /* 2px comes from the border */
+}
+
+.smart-tank[orientation="horizontal"][show-thumb-label][thumb-label-position="far"]:focus .smart-thumb {
+    top: calc(100% + var(--smart-tank-thumb-height) / 2);
+}
+
+.smart-tank[orientation="horizontal"][thumb-label-position="far"] .smart-thumb:before {
+    border-radius: 0 50% 50% 50%;
+}
+
+.smart-tank[orientation="horizontal"][thumb-label-position="far"]:focus .smart-thumb {
+    left: 100%;
+}
+
+.smart-tank[orientation="horizontal"][scale-position="none"] .smart-track {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border: solid var(--smart-border);
+    border-width: var(--smart-border-width);
+    background-color: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.smart-tank[orientation="horizontal"][scale-position="both"] .smart-track {
+    height: calc(100% - 2 * var(--smart-tank-scale-size) - 4px);
+}
+
+.smart-tank[orientation="horizontal"][scale-position="both"] .smart-scale {
+    width: 100%;
+    height: var(--smart-tank-scale-size);
+}
+
+smart-tank[right-to-left] .smart-label,
+smart-tank[right-to-left] .smart-tooltip-content {
+    direction: rtl;
+}
+
+smart-tank[right-to-left][show-thumb-label][orientation="horizontal"] .smart-thumb {
+    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+    margin-left: initial;
+}
+
+smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][inverted] .smart-thumb {
+    left: 100%;
+    margin-left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="far"] .smart-thumb {
+    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="far"][inverted] .smart-thumb {
+    top: calc(100% - var(--smart-tank-thumb-width) / 2);
+}
+
+smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="far"][inverted]:focus .smart-thumb {
+    top: calc(100% + var(--smart-tank-thumb-height) / 2);
+}
+
+smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="near"][inverted] .smart-thumb {
+    top: calc(-1 * var(--smart-tank-thumb-width) / 2);
+}
+
+smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="near"][inverted]:focus .smart-thumb {
+    top: calc(-1 * var(--smart-tank-thumb-height) - var(--smart-tank-thumb-height) / 2 - 2px);
+}
+
 @keyframes sideWays {
     0% {
         margin-left: -10%;
     }
-
     100% {
         margin-left: 55%;
     }
@@ -685,50 +788,9 @@ smart-slider .smart-track-container {
     0% {
         margin-top: 100%;
     }
-
     100% {
         margin-top: -100%;
     }
 }
 
-/* --- Right To Left --- */
-
-smart-tank[right-to-left] .smart-label,
-smart-tank[right-to-left] .smart-tooltip-content {
-    direction: rtl;
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"] .smart-thumb,
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="far"] .smart-thumb {
-    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][inverted] .smart-thumb {
-    left: 100%;
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"] .smart-thumb {
-    margin-left: initial;
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][inverted] .smart-thumb {
-    margin-left: calc(-1 * var(--smart-tank-thumb-width) / 2);
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="far"][inverted] .smart-thumb {
-    top: calc(100% - var(--smart-tank-thumb-width) / 2);
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="far"][inverted]:focus .smart-thumb {
-    top: calc(100% + var(--smart-tank-thumb-height) /2);
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="near"][inverted] .smart-thumb {
-    top: calc(-1 * var(--smart-tank-thumb-width) / 2);
-}
-
-smart-tank[right-to-left][show-thumb-label][orientation="horizontal"][thumb-label-position="near"][inverted]:focus .smart-thumb {
-    top: calc(-1 * var(--smart-tank-thumb-height) - var(--smart-tank-thumb-height) /2 - 2px);
-}
-
-/* --- */
+/*# sourceMappingURL=smart.tank.css.map */

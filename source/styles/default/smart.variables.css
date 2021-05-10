@@ -117,6 +117,7 @@
     --smart-icon-align-left: '\e806'; /* Code of align left icon */
     --smart-icon-align-right: '\e807'; /* Code of align right icon */
     --smart-icon-align-center: '\e808'; /* Code of align center icon */
+    --smart-icon-align-justify: '\e813'; /* Code of align justify icon */
     --smart-icon-reload: '\e809'; /* Code of reload icon */
     --smart-icon-cancel: '\e80d'; /* Code of cancel icon */
     --smart-icon-close: '\e80d'; /* Code of close icon */
@@ -169,6 +170,8 @@
     --smart-icon-replay: '\e90c'; /* Code of replay icon */
     --smart-icon-visibility: '\e90d'; /* Code of visibility icon */
     --smart-icon-visibility-off: '\e90e'; /* Code of visibility off icon */
+    --smart-icon-link: '\e831'; /* Code of link icon */
+    --smart-icon-unlink: '\f127'; /* Code of link icon */
     --smart-icon-link-ext: '\f08e'; /* Code of link icon */
     --smart-icon-check-empty: '\f096'; /* Code of empty check icon */
     --smart-icon-filter: '\f0b0'; /* Code of filter icon */
@@ -215,6 +218,36 @@
     --smart-icon-percentage: '\f541'; /* Code of percentage icon */
     --smart-icon-grip-vertical: '\f58e'; /* Code of grip icon */
     --smart-icon-between: '\f06a'; /* Code of between icon */
+    --smart-icon-bold: '\e820'; /* Code of bold icon */
+    --smart-icon-italic: '\e822'; /* Code of italic icon */
+    --smart-icon-underline: '\f0cd'; /* Code of underline icon */
+    --smart-icon-strike-through: '\f0cc'; /* Code of strike-through icon */
+    --smart-icon-list-ordered: '\f0cb'; /* Code of list numbered icon */
+    --smart-icon-list-unordered: '\f0ca'; /* Code of list bullet icon */
+    --smart-icon-subscript: '\f12c'; /* Code of subscript icon */
+    --smart-icon-superscript: '\f12b'; /* Code of superscript icon */
+    --smart-icon-color-background: '\e830'; /* Code of bucket icon */
+    --smart-icon-indent-right: '\e824'; /* Code of indent icon */
+    --smart-icon-indent-left: '\e825'; /* Code of outdent icon */
+    --smart-icon-image: '\e827'; /* Code of image icon */
+    --smart-icon-case-lower: 'aa'; /* Code of lower case icon */
+    --smart-icon-case-upper: 'AA'; /* Code of upper case icon */
+    --smart-icon-print: '\e82b'; /* Code of print icon */
+    --smart-icon-format-clear: 'T'; /* Code of clear format icon */
+    --smart-icon-source-code: '\f121'; /* Code of source code icon */
+    --smart-icon-split-mode: '\e83b'; /* Code of split mode icon */
+    --smart-icon-cut: '\e83a'; /* Code of Cut icon */
+    --smart-icon-header: '\f1dc'; /* Code of Table Header */
+    --smart-icon-row: '\f0db'; /* Code of Table Row icon */
+    --smart-icon-row-before: '\f2d0'; /* Code of Table Row icon */
+    --smart-icon-row-after: '\f2d0'; /* Code of Table Row icon */
+    --smart-icon-row-delete: var(--smart-icon-cancel-circled); /* Code of Table Row icon */
+    --smart-icon-column: '\f0db'; /* Code of Table Column icon */
+    --smart-icon-column-left: '\f2d0'; /* Code of Table Column left insert icon */
+    --smart-icon-column-right: '\f2d0'; /* Code of Table Column right insert icon */
+    --smart-icon-column-delete: var(--smart-icon-cancel-circled); /* Code of Table Column delete icon */
+    --smart-icon-vertical-align: '\f06a \e80c'; /* Code of Table Vertical Align icon */
+    --smart-icon-styles: '\f1fc'; /* Code of Table Styles icon */
     /* Accordion */
     --smart-accordion-animation-duration: 225ms; /* smartAccordion animation duration */
     --smart-accordion-default-width: var(--smart-box-width); /* smartAccordion default width */
@@ -241,8 +274,8 @@
     --smart-button-large-font-size: 18px; /* Sets large button's font size. */
     --smart-button-small-padding: 5px 10px; /* Sets small button's paddings. */
     --smart-button-small-font-size: 12px; /* Sets small button's font size. */
-    --smart-button-very-small-padding: 1px 5px; /* Sets very small button's paddings. */
-    --smart-button-very-small-font-size: 12px; /* Sets very small button's font size. */
+    --smart-button-very-small-padding: 3px 5px; /* Sets very small button's paddings. */
+    --smart-button-very-small-font-size: 10px; /* Sets very small button's font size. */
     /* Button - Flat */
     --smart-button-flat-color: var(--smart-background-color); /* The color of the flat button. */
     /* Button - Outlined */
@@ -250,7 +283,7 @@
     --smart-button-outlined-border: var(--smart-border); /* The border of the outlined button. */
     /* Button Group */
     --smart-button-group-default-width: auto;
-    --smart-button-group-default-height: var(--smart-editor-height);
+    --smart-button-group-default-height: auto;
     /* Calendar */
     --smart-calendar-header-height: calc(0.75 * var(--smart-bar-height)); /* Default height for smartCalendar's header section */
     --smart-calendar-footer-height: calc(0.75 * var(--smart-bar-height)); /* Default height for smartCalendar's footer section */
@@ -387,6 +420,26 @@
     --smart-drop-down-button-default-height: var(--smart-editor-height); /* smartDropDownButton default height */
     --smart-drop-down-button-drop-down-width: var(--smart-editor-drop-down-width); /* smartDropDownButton drop down width */
     --smart-drop-down-button-drop-down-height: var(--smart-editor-drop-down-height); /* smartDropDownButton drop down height */
+    /* Editor */
+    --smart-editor-default-width: 100%; /* smartEditor default width */
+    --smart-editor-default-height: 600px; /* smartEditor default height */
+    --smart-editor-input-min-height: 100px; /* smartEditor input min height */
+    --smart-editor-padding: 15px; /* smartEditor padding */
+    --smart-editor-toolbar-item-margin: 5px; /* smartEditor toolbar item margin */
+    --smart-editor-toolbar-button-width: 30px; /* smartEditor toolbar button width */
+    --smart-editor-toolbar-delimiter-width: 5px; /* smartEditor toolbar delimiter items width */
+    --smart-editor-toolbar-drop-down-width-large: 100px; /* smartEditor wider drop down toolbar items like - format, fontname, etc. */
+    --smart-editor-toolbar-drop-down-width-small: 65px; /* smartEditor all drop down toolbar items default width */
+    --smart-editor-window-header-height: var(--smart-scheduler-window-header-height); /* smartEditor Dialog Window header height */
+    --smart-editor-window-footer-height: var(--smart-scheduler-window-footer-height); /* smartEditor Dialog Window footer height */
+    --smart-editor-inline-toolbar-max-width: 80vw; /* smartEditor Inline toolbar max width */
+    --smart-editor-table-column-width: initial; /* smartEditor table column default width */
+    --smart-editor-table-cell-min-height: 20px; /* smartEditor table cell defaut min height */
+    --smart-editor-table-cell-min-width: var(--smart-editor-table-cell-min-height); /* smartEditor table cell default min width */
+    --smart-editor-char-counter-offset: 30px; /* smartEditor char count offset from the edges of the element */
+    --smart-editor-toolbar-item-height: 30px; /* smartEditor default toolbar item height */
+    --smart-editor-toolbar-item-border-radius: var(--smart-border-radius); /* smartEditor toolbar item border radius */
+    --smart-editor-toolbar-height: calc(var(--smart-editor-toolbar-item-height) + 2 * var(--smart-editor-toolbar-item-margin)); /* smartEditor toolbar height */
     /* Filter Builder */
     --smart-filter-builder-default-width: var(--smart-box-width); /* Default width of the smartFilterBuilder*/
     --smart-filter-builder-default-height: var(--smart-box-height); /* Default height of the smartFilterBuilder*/
@@ -424,6 +477,7 @@
     --smart-file-upload-text-content-drop-zone-over: "Drop here \e824"; /* Default text content of the pseudo element shown when dragged files are over the drop zone. */
     --smart-file-upload-container-min-height: 60px; /* Sets minimmum height of the drop zone and file zone containers. */
     --smart-file-upload-total-files-min-height: 20px; /* Sets min height of the container where total numbers of items is displayed. */
+    --smart-file-upload-drop-zone-height: 100%; /* Sets min height of the container where total numbers of items is displayed. */
     /* Gantt Chart */
     --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height)); /* The fit size of all Splitter bars inside the element*/
     --smart-gantt-chart-task-tree-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size); /* The fit size of the Splitter Bars that are inside the Task Tree Splitter */
@@ -988,6 +1042,8 @@ body[theme="dark"], .smart-ui-component[theme="dark"] {
     --smart-alternation-index2-color: #fff; /*Alternation color for index2 */
     --smart-alternation-index2-border: #FC3752; /* Alternation border color for index2 */
     --smart-alternation-index2-background: #FC3752; /* Alternation background color for index2 */
+	--smart-grid-cell-background-freeze: #242424;
+	--smart-grid-cell-color-freeze: #fff;
     --smart-scroll-bar-background: #3E3E42;
     --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
     --smart-scroll-bar-border: #3E3E42;
@@ -1006,7 +1062,6 @@ body[theme="dark"], .smart-ui-component[theme="dark"] {
     --smart-scroll-bar-button-background-active: #3E3E42;
     --smart-scroll-bar-button-border-active: #3E3E42;
     --smart-scroll-bar-button-color-active: var(--smart-primary);
-
     --smart-gantt-chart-timeline-nonworking-color:  #3E3E42;
     --smart-scheduler-timeline-weekend-color: var(--smart-background); /* Sets the background color for the weekend cells */
     --smart-scheduler-timeline-nonworking-color: var(--smart-gantt-chart-timeline-nonworking-color); /* Sets the background color for nonworking days/hours cells */
