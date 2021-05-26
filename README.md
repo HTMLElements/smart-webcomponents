@@ -1,8 +1,7 @@
 # Smart UI
 Web Components, Anguiar, React, Vue and Blazor UI for Professional Web Development
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core) [![Build Status](https://www.travis-ci.com/HTMLElements/Team.svg?token=4VSAagStBB3xmHF2Epxz&branch=master)](https://www.travis-ci.com/HTMLElements/Team)
-
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core)
 Build responsive, mobile-first projects on the Web with the most advanced front-end component library
 -----------------------------------------------------------------------------------------------------
 
