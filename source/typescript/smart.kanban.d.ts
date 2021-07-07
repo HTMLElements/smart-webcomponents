@@ -107,6 +107,11 @@ export interface KanbanProperties {
    */
   selectionMode?: KanbanSelectionMode;
   /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
    * Describes the swimlanes in the kanban board. Sub-columns are not applicable when swimlanes are present.
    * Default value: 
    */
@@ -171,6 +176,11 @@ export interface KanbanProperties {
    * Default value: null
    */
   textTemplate?: any;
+  /**
+   * Determines the theme. Theme defines the look of the element
+   * Default value: ""
+   */
+  theme?: string;
   /**
    * Determines whether the user list (as defined by the users property) will be shown when clicking the user icon. Only applicable if editable privileges are enabled.
    * Default value: false

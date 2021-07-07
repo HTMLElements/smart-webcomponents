@@ -81,6 +81,7 @@
       .smart-input:after {
         font-weight: 100;
         content: var(--smart-icon-check);
+		pointer-events: none;
       }
     }
 

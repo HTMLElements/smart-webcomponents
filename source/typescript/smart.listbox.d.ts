@@ -465,7 +465,7 @@ export declare type ListItemMeasureMode = 'auto' | 'precise';
 /**Determines the position of the loading indicator. */
 export declare type VerticalAlignment = 'bottom' | 'center' | 'top';
 /**Determines how many items can be selected depending on the selection mode. */
-export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroAndOne' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
 /**Determines when listbox selection is achieved - on 'press' or 'release'. */
 export declare type ListBoxSelectionChangeAction = 'press' | 'release';
 /**Determines the visibility of the vertical scroll bar. */

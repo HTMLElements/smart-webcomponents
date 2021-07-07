@@ -440,6 +440,10 @@
     --smart-editor-toolbar-item-height: 30px; /* smartEditor default toolbar item height */
     --smart-editor-toolbar-item-border-radius: var(--smart-border-radius); /* smartEditor toolbar item border radius */
     --smart-editor-toolbar-height: calc(var(--smart-editor-toolbar-item-height) + 2 * var(--smart-editor-toolbar-item-margin)); /* smartEditor toolbar height */
+    --smart-editor-highlight-rgb: var(--smart-primary-rgb); /* smartEditor Find and Replace highlight color */
+    --smart-editor-highlight-color: var(--smart-primary-color); /* smartEditor highligh text color */
+    --smart-editor-search-bar-offset: 5px; /* smartEditor search bar offset */
+    --smart-editor-search-bar-padding: 5px; /* smartEditor search bar padding */
     /* Filter Builder */
     --smart-filter-builder-default-width: var(--smart-box-width); /* Default width of the smartFilterBuilder*/
     --smart-filter-builder-default-height: var(--smart-box-height); /* Default height of the smartFilterBuilder*/

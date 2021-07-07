@@ -5675,7 +5675,7 @@ export interface ComboBoxProperties {
   selectedValues?: string[];
   /**
    * Determines how many items can be selected.
-   * Default value: one
+   * Default value: zeroAndOne
    */
   selectionMode?: ListSelectionMode;
   /**
@@ -5893,7 +5893,7 @@ export declare type ListItemMeasureMode = 'auto' | 'precise';
 /**Determines what will be displayed in the input. */
 export declare type SelectionDisplayMode = 'plain' | 'placeholder' | 'tokens';
 /**Determines how many items can be selected. */
-export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroAndOne' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
 /**Determines the visibility of the vertical scroll bar. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 export interface CustomizationDialogProperties {
@@ -6424,6 +6424,16 @@ export interface DateInputProperties {
    */
   animation?: Animation;
   /**
+   * Determines whether the calendar button pop-up will be closed automatically when date or time is selected through it.
+   * Default value: false
+   */
+  autoClose?: boolean;
+  /**
+   * Determines the delay before the calendar pop-up is automatically closed. Applicable only when autoClose is set to true.
+   * Default value: 500
+   */
+  autoCloseDelay?: number;
+  /**
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
@@ -6526,7 +6536,7 @@ export interface DateInputProperties {
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets the value of the element.
+   * Sets or gets the value of the element. Expected value is: Date string, Date object or null.
    * Default value: 
    */
   value?: any;
@@ -8062,7 +8072,7 @@ export interface DropDownListProperties {
   selectedValues?: string[];
   /**
    * Determines how many items can be selected.
-   * Default value: one
+   * Default value: zeroAndOne
    */
   selectionMode?: ListSelectionMode;
   /**
@@ -8294,7 +8304,22 @@ export interface EditorProperties {
    * A formatting function for the char counter. Takes two arguments: chars - the current number of characters inside the Editor.maxCharCount - the maximum number of characters inside the Editor.
    * Default value: null
    */
-  chartCountFormatFunction?: any;
+  charCountFormatFunction?: any;
+  /**
+   * Determines the content filtering settings.
+   * Default value: [object Object]
+   */
+  contentFiltering?: EditorContentFiltering;
+  /**
+   * Determines the context menu for the Editor. The context menu is triggered when the user right clicks on the content area of the Editor.
+   * Default value: default
+   */
+  contextMenu?: EditorContextMenu;
+  /**
+   * Allows to customize default the context menu of the Editor. The property accepts an array of items which can be strings that represent the value of the item, or objects of the following format: { label: string, value: string }, where the label will be displayed and the value will be action value for the item. The property also accepts a function that must return an array of items with the following format function (target: HTMLElement, type: string, defaultItems: string[]) { return defaultItems } and the following arguments: target - the element that is the target of the context menu.type - the type of context menu ( whether it's a table, image, link or other)defaultItems - an array of strings which represent the default items for the context menu.
+   * Default value: null
+   */
+  contextMenuDataSource?: string[] | { label: string, value: 'string' }[] | Function | null;
   /**
    * Sets the Editor's Data Export options.
    * Default value: [object Object]
@@ -8311,12 +8336,17 @@ export interface EditorProperties {
    */
   disableEditing?: boolean;
   /**
+   * Disables the Quick Search Bar.
+   * Default value: false
+   */
+  disableSearchBar?: boolean;
+  /**
    * Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode.
    * Default value: html
    */
   editMode?: EditMode;
   /**
-   * Determines whether the HTML returned from the value property or displayed by Preview mode is encoded or not
+   * Determines whether the value returned from getHTML method and Source Code view are encoded or not.
    * Default value: false
    */
   enableHtmlEncode?: boolean;
@@ -8325,6 +8355,11 @@ export interface EditorProperties {
    * Default value: false
    */
   enableTabKey?: boolean;
+  /**
+   * Determines the time interval between results for the find and replace and search bar features.
+   * Default value: 50
+   */
+  findAndReplaceTimeout?: number;
   /**
    * Determines whether the Toolbar is hidden or not.
    * Default value: false
@@ -8336,7 +8371,7 @@ export interface EditorProperties {
    */
   hideInlineToolbar?: boolean;
   /**
-   * Sets the content of the Editor. Similar to value property allows to set the content of the editor.
+   * Sets the content of the Editor as HTML. Allows to insert text and HTML.
    * Default value: "en"
    */
   innerHTML: string;
@@ -8350,11 +8385,6 @@ export interface EditorProperties {
    * Default value: [object Object]
    */
   iframeSettings?: EditorIframeSettings;
-  /**
-   * Determines the format of the content that will be pasted inside the Editor.
-   * Default value: keepFormat
-   */
-  pasteFormat?: PasteFormat;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -8511,16 +8541,27 @@ export interface EditorProperties {
    *     "toolbarButtonAriaLabel": "Toolbar Toggle Button",
    *     "primaryToolbarAriaLabel": "Primary Toolbar",
    *     "secondaryToolbarAriaLabel": "Secondary Toolbar",
-   *     "inputAriaLabel": "Enter Text"
+   *     "inputAriaLabel": "Enter Text",
+   *     "requiredMessage": "The content of the Editor cannot be empty"
    *   }
    * }
    */
   messages?: any;
   /**
+   * Determines the format of the content that will be pasted inside the Editor.
+   * Default value: keepFormat
+   */
+  pasteFormat?: PasteFormat;
+  /**
    * Determines the placeholder that will be shown when there's no content inside the Editor.
    * Default value: ""
    */
   placeholder?: string;
+  /**
+   * Determines whether Editor's content is required ot not. If set and the Editor's content is empty, a notification will appear to notify that the Editor cannot be empty.
+   * Default value: false
+   */
+  required?: boolean;
   /**
    * Determines whether the value is sanitized from XSS content or not. When enabled scripts and other XSS vulnerabilities are not allowed to exist inside the Editor's as HTML content.
    * Default value: false
@@ -8542,10 +8583,20 @@ export interface EditorProperties {
    */
   theme?: string;
   /**
-   * Determines the Toolbar items list. Each item can be string pointing to the name of the item or an object that defines a custom item or adds aditional settings to an item. The name of the items are case insensitive. An object definition should contain a name attribute that refers to the name of the item when modifing an existing toolbar item. The name attribute determines the action of the item. If set to 'custom' it is possible to create a custom toolbar item. If name attribute is not set or not valid it is treated as a separator, no a toolbar item. The following items are supported by default by the Editor: SourceCode - shows the HTML/Preview Panel by hiding the input panel. Item type - 'Toggle button'.SplitMode - shows both input and HTML/Preview Panel by splitting the Editor content in two sections. Item type - 'Toggle button'FullScreen - fits the viewport with the Editor by expanding it over the page content. Item type - 'Toggle button'.Alignment - aligns the selected content. Item type - 'Drop down'.FontName - changes the font family of the selected content. Item type - 'drop-down'.FontSize - changes the font size of the selected content. Item type - 'drop-down'.Formats - changes the format of the current selection. Itme type - 'drop-down'.TableRows - allows to insert/remove a row into a selected table element. Item type - 'drop-down'.TableColumns - allows to insert/remove a column into a selected table element. Itme type - 'drop-down'.TableVAlign - sets the vertical alignment of a selected table cell. Item type - 'drop-down'.TableStyle - sets additional styling to a selected table inside the Editor. Item type - 'drop-down'.BackgroundColor - changes the background color of the current selection. Item type - 'color-input'.FontColor - changes the font color of the current selection. Item type = 'color-input'.Bold - sets the currently selected text as bold or not. Item type - 'button'.Italic - sets the currently selected text as italic. Item type - 'button'. Underline - sets the currently selected text as underlined. Itme type - 'button'.Strikethrough - set the currently selected text as strikethrough. Item type - 'button'.Delete - deletes the current selection. Item type - 'button'.Undo - undoes the last operation. Item type - 'button'.Redo - redoes the previous operation. Item type - 'button'.Indent - indents the current selection once. Item type - 'button'.Outdent - outdents the current selection once. Item type - 'button'.OpenLink - triggers a hyperlink. Item type - 'button'.EditLink - creates/edits the selected hyperlink. Item type - 'button'.CreateLink - creates/edits the selected hyperlink. Item type - 'button'.RemoveLink - removes the currently selected hyperlink. Item type - 'button'.Hyperlink - same as createLink, triggers a Dialog Window for link creation. Item type - 'button'.Cut - Cuts the currently selected text. Item type - 'button'.Copy - copies the currently selected text. Item type - 'button'Paste - pastes the currenly copied/cut text from the Clipboard. Item type = 'button' or 'drop-down' when advanced attribute is set to 'true'.Image - triggers a Dialog Window to insert/edit an image. Item type - 'button'.LowerCase - changes the current selection to lower case. Item type - 'button'.UpperCase - changes the current selection to upper case. Item type - 'button'.Print - opens the browser print preview window. Item type - 'button'.Caption - insert/remove a caption when a table is selected. Item type - 'button'.ClearFormat - removes the formatting of the currntly selected text. Item type - 'button'.Table - triggers a Dialog Window to insert a table. Item type - 'button'.TableHeader - insert/remove a header row to the currently selected table. Item type - 'button'.OrderedList - insert/remove an order list. Item type = 'button'.UnorderedList - insert/remove an unordered list. Item type - 'button'.Subscript - changes the currently selected text to subscript. Item type - 'button'.Superscript - changes the currently selected text to superscript. Item type - 'button'.  The inlineToolbarItems attribute is applicable only to the following items: 'table', 'image', 'hyperlink'. It accepts the same type of value as toolbarItems property but the toolbar items will be placed insinde the Inline Toolbar instead.
+   * Determines the Toolbar items list. Each item can be string pointing to the name of the item or an object that defines a custom item or adds aditional settings to an item. The name of the items are case insensitive. An object definition should contain a name attribute that refers to the name of the item when modifing an existing toolbar item. The name attribute determines the action of the item. If set to 'custom' it is possible to create a custom toolbar item. If name attribute is not set or not valid it is treated as a separator, no a toolbar item. The following items are supported by default by the Editor: SourceCode - shows the HTML/Preview Panel by hiding the input panel. Item type - 'Toggle button'.SplitMode - shows both input and HTML/Preview Panel by splitting the Editor content in two sections. Item type - 'Toggle button'FullScreen - fits the viewport with the Editor by expanding it over the page content. Item type - 'Toggle button'.Alignment - aligns the selected content. Item type - 'Drop down'.FontName - changes the font family of the selected content. Item type - 'drop-down'.FontSize - changes the font size of the selected content. Item type - 'drop-down'.Formats - changes the format of the current selection. Itme type - 'drop-down'.TableRows - allows to insert/remove a row into a selected table element. Item type - 'drop-down'.TableColumns - allows to insert/remove a column into a selected table element. Itme type - 'drop-down'.TableVAlign - sets the vertical alignment of a selected table cell. Item type - 'drop-down'.TableStyle - sets additional styling to a selected table inside the Editor. Item type - 'drop-down'.BackgroundColor - changes the background color of the current selection. Item type - 'color-input'.FontColor - changes the font color of the current selection. Item type = 'color-input'.Bold - sets the currently selected text as bold or not. Item type - 'button'.Italic - sets the currently selected text as italic. Item type - 'button'. Underline - sets the currently selected text as underlined. Itme type - 'button'.Strikethrough - set the currently selected text as strikethrough. Item type - 'button'.Delete - deletes the current selection. Item type - 'button'.Undo - undoes the last operation. Item type - 'button'.Redo - redoes the previous operation. Item type - 'button'.Indent - indents the current selection once. Item type - 'button'.Outdent - outdents the current selection once. Item type - 'button'.OpenLink - triggers a hyperlink. Item type - 'button'.EditLink - creates/edits the selected hyperlink. Item type - 'button'.CreateLink - creates/edits the selected hyperlink. Item type - 'button'.RemoveLink - removes the currently selected hyperlink. Item type - 'button'.Hyperlink - same as createLink, triggers a Dialog Window for link creation. Item type - 'button'.Cut - Cuts the currently selected text. Item type - 'button'.Copy - copies the currently selected text. Item type - 'button'Paste - pastes the currenly copied/cut text from the Clipboard. Item type = 'button' or 'drop-down' when advanced attribute is set to 'true'.Image - triggers a Dialog Window to insert/edit an image. Item type - 'button'.LowerCase - changes the current selection to lower case. Item type - 'button'.UpperCase - changes the current selection to upper case. Item type - 'button'.Print - opens the browser print preview window. Item type - 'button'.Caption - insert/remove a caption when a table is selected. Item type - 'button'.ClearFormat - removes the formatting of the currntly selected text. Item type - 'button'.Table - triggers a Dialog Window to insert a table. Item type - 'button'.TableHeader - insert/remove a header row to the currently selected table. Item type - 'button'.OrderedList - insert/remove an order list. Item type = 'button'.UnorderedList - insert/remove an unordered list. Item type - 'button'.Subscript - changes the currently selected text to subscript. Item type - 'button'.Superscript - changes the currently selected text to superscript. Item type - 'button'.FindAndReplace - opens a dialog that allows to find and replace text inside the Editor's content section. Item type - 'button'.  The inlineToolbarItems attribute is applicable only to the following items: 'table', 'image', 'hyperlink'. It accepts the same type of value as toolbarItems property but the toolbar items will be placed insinde the Inline Toolbar instead.
    * Default value: bold,italic,underline,|,formats,alignment,orderedList,unorderedList,|,hyperlink,image,|,sourceCode,redo,undo
    */
   toolbarItems?: ToolbarItem[];
+  /**
+   * Determines the toolbar mode of the Editor. The main toolbar of the Editor can appear as a Ribbon or as a Menu.
+   * Default value: menu
+   */
+  toolbarMode?: ToolbarMode;
+  /**
+   * Allows to configure the SingleLineRibbon appearance by changing the order and items of the groups.
+   * Default value: [{"name":"homeTab","groups":[{"name":"undoGroup","items":["undo","redo"]},{"name":"clipboardGroup","items":["cut","copy","paste"]},{"name":"fontGroup","items":["fontName","fontSize","backgroundColor","fontColor","clearFormat","formats","bold","italic","underline","strikethrough","superscript","subscript"]},{"name":"paragraphGroup","items":["orderedList","unorderedList","indent","outdent","alignment"]},{"name":"editingGroup","items":["findAndReplace"]}]},{"name":"insertTab","groups":[{"name":"tableGroup","items":["table"]},{"name":"imageGroup","items":["image"]},{"name":"linkGroup","items":["createLink","removeLink"]}]},{"name":"viewTab","groups":[{"name":"viewsGroup","items":["fullScreen","sourceCode","splitMode"]}]},{"name":"layoutTab","hidden":true,"groups":[{"name":"deleteGroup","items":["delete"]},{"name":"tableGroup","items":["table","tableHeader","tableRows","tableColumns","tableVAlign","tableStyle",""]},{"name":"imageGroup","items":["image","caption"]}]}]
+   */
+  toolbarRibbonConfig?: { name: string, groups: { name: string, items: string[] }[] }[];
   /**
    * Determines the format of the content that will be pasted inside the Editor.
    * Default value: toggle
@@ -8586,6 +8637,26 @@ export interface Editor extends BaseElement, EditorProperties {
    * This event is triggered when a Toolbar action has ended.
 	* @param event. The custom event.    */
   onActionEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Context menu item has been clicked.
+	* @param event. The custom event.    */
+  onContextMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is opened.
+	* @param event. The custom event.    */
+  onContextMenuOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is opening. The event can be canceled via event.preventDefault().
+	* @param event. The custom event.    */
+  onContextMenuOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is closed.
+	* @param event. The custom event.    */
+  onContextMenuClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is closing. The event can be canceled via event.preventDefault().
+	* @param event. The custom event.    */
+  onContextMenuClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when an image/table resizing has started.
 	* @param event. The custom event.    */
@@ -8639,6 +8710,14 @@ export interface Editor extends BaseElement, EditorProperties {
 	* @param event. The custom event.    */
   onToobarItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when a message is closed.
+	* @param event. The custom event.    */
+  onMessageClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a message is opened.
+	* @param event. The custom event.    */
+  onMessageOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Blurs the content of the Editor.
    */
   blur(): void;
@@ -8665,7 +8744,7 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   enableToolbarItem(itemName: string): void;
   /**
-   * Executes a command via the native <b>execCommand</b> method. The method returns true or false depending on whether the execution was successful or not.
+   * Executes a command via the native <b>execCommand</b> method. The method returns true or false depending on whether the execution was successful or not. The following list of commands can be eexecuted: <ul><li>bold - makes the currently selected content bold. Example: <b>editor.executeCommand('bold');</b></li><li>italic - makes the currently selected content italic. Example: <b>editor.executeCommand('italic');</b></li><li>undelined - makes the currently selected content underlined. Example: <b>editor.executeCommand('underline');</b></li><li>strikeThrough - applies a single line strike through formatting to the currently selected content. Example: <b>editor.executeCommand('strikeThrough');</b></li><li>superscript - sets the selected content as superscript. Example: <b>editor.executeCommand('superscript');</b></li><li>subscript - sets the selected content as superscript. Example: <b>editor.executeCommand('subscript');</b></li><li>uppercase - changes the case of the current selection to upper. Example: <b>editor.executeCommand('uppercase');</b></li><li>lowercase - changes the case of the current selection to lower. Example: <b>editor.executeCommand('lowercase');</b></li><li>foreColor - changes the font color of the current content selection. Example: <b>editor.executeCommand('foreColor', '#000000');</b></li><li>fontName - changes the font name for the selected content. Example: <b>editor.executeCommand('fontName', 'Arial');</b></li><li>fontSize - changes the font size of the currently selected content. Example: <b>editor.executeCommand('fontSize', '15px');</b></li><li>hiliteColor - changes the background color of current selection. Example: <b>editor.executeCommand('hiliteColor', '#000000');</b></li><li>justifyCenter - aligns the content to the center. Example: <b>editor.executeCommand('justifyCenter');</b></li><li>justifyFull - aligns the content to be fully justified. Example: <b>editor.executeCommand('justifyFull');</b></li><li>justifyLeft - aligns the content to the left. Example: <b>editor.executeCommand('justifyLeft');</b></li><li>justifyRight - aligns the content to the right. Example: <b>editor.executeCommand('justifyRight');</b></li><li>undo - allows to undo the previous action. Example: <b>editor.executeCommand('undo');</b></li><li>redo - allows to redo the previous actions. Example: <b>editor.executeCommand('redo');</b></li><li>createLink - creates a hyperlink in the content section of the Editor. Example: <b>editor.executeCommand('createLink', { text: 'Links', url: 'http://', title : 'Link' });</b></li><li>indent - indents the content with one level. Example: <b>editor.executeCommand('indent');</b></li><li>outdent - outdents the content with one level. Example: <b>editor.executeCommand('outdent');</b></li><li>insertHTML - insert an HTML content as string at the current cursor location. Example: <b>editor.executeCommand('insertHTML', '<p>Text</p>');</b></li><li>insertOrderedList - inserts a new numbered list item. Example: <b>editor.executeCommand('insertOrderedList');</b></li><li>insertUnorderedList - inserts a new bulleted list item. Example: <b>editor.executeCommand('insertUnorderedList');</b></li><li>removeFormat - removes the formatting styles from currently selected text. Example: <b>editor.executeCommand('removeFormat');</b></li><li>insertText - inserts a text at the current cursor location. Example: <b>editor.executeCommand('insertText', 'Some text to insert');</b></li><li>insertImage - inserts an image at the current cursor location. Example: <b>editor.executeCommand('insertImage', { url: 'https://www.htmlelements.com/demos/images/carousel-medium-2.jpg'});</b></li></ul>
    * @param {string} commandName. The name of the command to execute.
    * @param {string | number} value?. The value for the command. Some commands require a value to be passed, others do not.
    * @returns {boolean}
@@ -8686,10 +8765,6 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   getSelectionRange(): any;
   /**
-   * Selects the text inside Editor's content.
-   */
-  selectAll(): void;
-  /**
    * Returns the content of the Editor as HTML. When <b>editMode</b> is set to 'markdown' the markdown is parsed and returned as HTML.
    * @returns {string}
    */
@@ -8700,10 +8775,25 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   getText(): string;
   /**
-   * Applicable only when <b>editMode</b> is set to 'markdown'. Returns the Editor's content as markdown.
-   * @returns {string}
+   * Hides a specific message or all messages if no argument is provided.
+   * @param {HTMLElement | string | number} item?. Hides a specific message. The argument can be a DOM reference to a specific item, it's index or it's id. If the argument is not provided then all messages will be closed.
    */
-  getMarkdown(): string;
+  hideMessage(item?: HTMLElement | string | number): void;
+  /**
+   * Hides the last shown message.
+   */
+  hideLastMessage(): void;
+  /**
+   * Shows a custom message inside the Editor.
+   * @param {string} message. The text message to be displayed.
+   * @param {any} settings?. Additional settings that can be applied to the Toast element that handles the messages. This parameter should contain only valid Toast properties and values.
+   * @returns {HTMLElement | undefined}
+   */
+  showMessage(message: string, settings?: any): HTMLElement | undefined;
+  /**
+   * Selects the text inside Editor's content.
+   */
+  selectAll(): void;
   /**
    * Selects a range of text inside the Editor.
    * @param {HTMLElement | Node} node. The node to be selected. It can be a text node or an HTML element.
@@ -8739,15 +8829,55 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   fullScreenMode(value?: boolean): void;
   /**
-   * Exports the content of the Editor in the desired format. The currently supported formats are: HTML, Markdown.
+   * Exports the content of the Editor in the desired format. The currently supported formats are: HTML, Markdown and PDF.
    * @param {string} dataFormat. The expected file format.
    * @param {any} callback?. A callback that is executed before the data is exported. Allows to modify the output.
    */
   exportData(dataFormat: string, callback?: any): void;
   /**
+   * Imports the content of a file to the Editor. The currently supported formats are: TXT or HTML.
+   * @param {any} source. The url to the file or an object that defines settings for the Ajax request like url, timeput, etc. Object format: { url: string, type: string, data: object, timeout: number }
+   * @param {any} settings?. Additional settings for the ajax request. Such as loadError function, contentType, etc. Format: { contentType: string, beforeSend: Function, loadError: Function, beforeLoadComplete: Function  }
+   */
+  importData(source: any, settings?: any): void;
+  /**
    * Opens the Print Preview Panel of the Browser to print Editor's content.
    */
   print(): void;
+}
+
+/**Determines the content filtering settings. */
+export interface EditorContentFiltering {
+  /**
+   * Determines which element attributes to filter.
+   * Default value: null
+   */
+  attributes?: string[];
+  /**
+   * Determines whether to allow (whiteList) or remove (blackList) the specified attributes.
+   * Default value: blackList
+   */
+  attributeFilterMode?: EditorContentFilteringAttributeFilterMode;
+  /**
+   * Determines which element tags to filter.
+   * Default value: null
+   */
+  tags?: string[];
+  /**
+   * Determines whether to allow (whiteList) or remove (blackList) the specified tags.
+   * Default value: blackList
+   */
+  tagFilterMode?: EditorContentFilteringTagFilterMode;
+  /**
+   * Determines which style attributes to filter.
+   * Default value: null
+   */
+  styleAttributes?: string[];
+  /**
+   * Determines whether to allow (whiteList) or remove (blackList) the specified style attributes.
+   * Default value: blackList
+   */
+  styleAttributeFilterMode?: EditorContentFilteringStyleAttributeFilterMode;
 }
 
 /**Sets the Editor's Data Export options. */
@@ -8940,10 +9070,20 @@ declare global {
     }
 }
 
+/**Determines whether to allow (whiteList) or remove (blackList) the specified attributes. */
+export declare type EditorContentFilteringAttributeFilterMode = 'blackList' | 'whiteList';
+/**Determines whether to allow (whiteList) or remove (blackList) the specified tags. */
+export declare type EditorContentFilteringTagFilterMode = 'blackList' | 'whiteList';
+/**Determines whether to allow (whiteList) or remove (blackList) the specified style attributes. */
+export declare type EditorContentFilteringStyleAttributeFilterMode = 'blackList' | 'whiteList';
+/**Determines the context menu for the Editor. The context menu is triggered when the user right clicks on the content area of the Editor. */
+export declare type EditorContextMenu = 'default' | 'browser' | 'none';
 /**Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode. */
 export declare type EditMode = 'html' | 'markdown';
 /**Determines the format of the content that will be pasted inside the Editor. */
 export declare type PasteFormat = 'prompt' | 'plainText' | 'keepFormat' | 'cleanFormat';
+/**Determines the toolbar mode of the Editor. The main toolbar of the Editor can appear as a Ribbon or as a Menu. */
+export declare type ToolbarMode = 'menu' | 'singleLineRibbon';
 /**Determines the format of the content that will be pasted inside the Editor. */
 export declare type ToolbarViewMode = 'toggle' | 'multiRow' | 'scroll';
 export interface ElementProperties {
@@ -13248,16 +13388,24 @@ export interface Grid extends BaseElement, GridProperties {
   onRowCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the user clicks on a row of the grid.
-	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent, id, isRightClick, pageX, pageY)
    *  row - The clicked row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
+   *  id - Gets the row id.
+   *  isRightClick - Gets whether the pointing device's right button is clicked.
+   *  pageX - Gets the click's X position.
+   *  pageY - Gets the click's Y position.
    */
   onRowClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the user double clicks on a row of the grid.
-	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent)
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent, id, isRightClick, pageX, pageY)
    *  row - The double-clicked row.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
+   *  id - Gets the row id.
+   *  isRightClick - Gets whether the pointing device's right button is clicked.
+   *  pageX - Gets the click's X position.
+   *  pageY - Gets the click's Y position.
    */
   onRowDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -13270,16 +13418,26 @@ export interface Grid extends BaseElement, GridProperties {
   onRowResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the user clicks on a cell of the grid.
-	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
+	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent, id, dataField, isRightClick, pageX, pageY)
    *  cell - The clicked cell.
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
+   *  id - Gets the row id.
+   *  dataField - Gets the column dataField.
+   *  isRightClick - Gets whether the pointing device's right button is clicked.
+   *  pageX - Gets the click's X position.
+   *  pageY - Gets the click's Y position.
    */
   onCellClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the user double clicks on a cell of the grid.
-	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent)
+	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent, id, dataField, isRightClick, pageX, pageY)
    *  cell - The double-clicked cell. 
    *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
+   *  id - Gets the row id.
+   *  dataField - Gets the column dataField.
+   *  isRightClick - Gets whether the pointing device's right button is clicked.
+   *  pageX - Gets the click's X position.
+   *  pageY - Gets the click's Y position.
    */
   onCellDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -13370,6 +13528,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   autoSizeColumns(): void;
   /**
+   * This method returns true, if all rows in the Grid are selected.
+   * @returns {boolean}
+   */
+  areAllRowsSelected(): boolean;
+  /**
    * Starts an update operation. This is appropriate when calling multiple methods or set multiple properties at once.
    */
   beginUpdate(): void;
@@ -13377,9 +13540,8 @@ export interface Grid extends BaseElement, GridProperties {
    * Begins row, cell or column. This method allows you to programmatically start a cell, row or column editing. After calling it, an editor HTMLElement will be created and displayed in the Grid.
    * @param {string | number} rowId. row bound id
    * @param {string} dataField?. column bound data field
-   * @returns {boolean}
    */
-  beginEdit(rowId: string | number, dataField?: string): boolean;
+  beginEdit(rowId: string | number, dataField?: string): void;
   /**
    * Clears all filters. Refreshes the view and updates all filter input components.
    */
@@ -13461,7 +13623,17 @@ export interface Grid extends BaseElement, GridProperties {
    */
   exportData(Dataformat: string): void;
   /**
-   * Gets an array of columns with applied sorting.
+   * Navigates to a page, when paging is enabled.
+   * @param {number} index. page index
+   */
+  goToPage(index: number): void;
+  /**
+   * Gets the groups array.
+   * @returns {any[]}
+   */
+  getGroups(): any[];
+  /**
+   * Gets an array of columns with applied sorting. Each member in the array is with column's data field used as a key and 'sortOrder' and 'sortIndex' as a value.
    * @returns 
    */
   getSortedColumns(): {[dataField: string]: { sortOrder: string, sortIndex: number }};
@@ -13475,6 +13647,11 @@ export interface Grid extends BaseElement, GridProperties {
    * @returns {any[]}
    */
   getSelectedRows(): any[];
+  /**
+   * Gets the selected cells. The method returns an array of cell. Each cell is an array with row id, column data field and cell value.
+   * @returns {any[]}
+   */
+  getSelectedCells(): any[];
   /**
    * Gets an array of columns with applied filters.
    * @returns {any}
@@ -13491,6 +13668,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getViewRows(): any;
   /**
+   * Gets a JSON object with the following fields: 'sort', 'filter', 'groups', 'paging', 'selectedCells', 'selectedrows'.
+   * @returns {any}
+   */
+  getState(): any;
+  /**
    * Gets the changes from the batch edit.
    * @returns 
    */
@@ -13503,30 +13685,64 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getCellValue(rowId: string | number, dataField: string): any;
   /**
+   * Gets a value of a column.
+   * @param {string} dataField. column bound data field
+   * @param {string} propertyName. The property name.
+   * @returns {any}
+   */
+  getColumnProperty(dataField: string, propertyName: string): any;
+  /**
+   * Gets a value of a row.
+   * @param {string | number} rowId. row bound id
+   * @param {string} propertyName. The property name.
+   * @returns {any}
+   */
+  getRowProperty(rowId: string | number, propertyName: string): any;
+  /**
+   * Gets the Data source data associated to the row.
+   * @param {string | number} rowId. row bound id
+   * @returns {any}
+   */
+  getRowData(rowId: string | number): any;
+  /**
+   * Gets the Row's id.
+   * @param {number} rowIndex. row index
+   * @returns {any}
+   */
+  getRowId(rowIndex: number): any;
+  /**
    * Gets whether a column's drop-down menu is opened.
    * @returns {boolean}
    */
   hasMenu(): boolean;
+  /**
+   * This method returns true, if any rows in the Grid are selected.
+   * @returns {boolean}
+   */
+  hasSelectedRows(): boolean;
   /**
    * Hides the Details of a Row, when row details are enabled.
    * @param {string | number} rowId. row bound id
    */
   hideDetail(rowId: string | number): void;
   /**
+   * Highlights a column. Highlights a Grid column.
+   * @param {string} dataField. column bound data field
+   */
+  highlightColumn(dataField: string): void;
+  /**
    * Highlights a cell. Calling the method a second time toggle the highlight state.
    * @param {string | number} rowId. row bound id
    * @param {string} dataField. column bound data field
    * @param {string} className?. CSS Class Name
-   * @returns {any}
    */
-  highlightCell(rowId: string | number, dataField: string, className?: string): any;
+  highlightCell(rowId: string | number, dataField: string, className?: string): void;
   /**
    * Highlights a row. Calling the method a second time toggle the highlight state.
    * @param {string | number} rowId. row bound id
    * @param {string} className?. CSS Class Name
-   * @returns {any}
    */
-  highlightRow(rowId: string | number, className?: string): any;
+  highlightRow(rowId: string | number, className?: string): void;
   /**
    * Opens a column drop-down menu.
    * @param {string} dataField. column bound data field
@@ -13559,16 +13775,22 @@ export interface Grid extends BaseElement, GridProperties {
    */
   revertBatchEdit(): void;
   /**
+   * Reorders two DataGrid columns.
+   * @param {string | number} dataField. The data field or column index of the first grid column.
+   * @param {string | number} referenceDataField. The data field or column index of the second grid column.
+   * @param {boolean} insertAfter?. Determines whether to insert the first column after the reference column.
+   */
+  reorderColumns(dataField: string | number, referenceDataField: string | number, insertAfter?: boolean): void;
+  /**
+   * Swaps two DataGrid columns.
+   * @param {string | number} dataField. The data field or column index of the first grid column.
+   * @param {string | number} referenceDataField. The data field or column index of the second grid column.
+   */
+  swapColumns(dataField: string | number, referenceDataField: string | number): void;
+  /**
    * Saves the batch edit changes. This method confirms the editing changes made by the end-user.
    */
   saveBatchEdit(): void;
-  /**
-   * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
-   * @param {string | number} rowId. row bound id
-   * @param {any} data. row data matching the data source
-   * @param {any} callback?. Sets a callback function, which is called after the row is updated. The callback's argument is the updated row.
-   */
-  updateRow(rowId: string | number, data: any, callback?: any): void;
   /**
    * Selects a row, cell or column.
    * @param {string | number} rowId. row bound id
@@ -13595,6 +13817,10 @@ export interface Grid extends BaseElement, GridProperties {
    */
   selectRows(rowId: (string | number)[]): void;
   /**
+   * Selects all rows.
+   */
+  selectAllRows(): void;
+  /**
    * Selects multiple rows by their index.
    * @param {number[]} rowIndex. Array of row indexes
    */
@@ -13607,10 +13833,31 @@ export interface Grid extends BaseElement, GridProperties {
    */
   setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
   /**
+   * Sets a property to a column.
+   * @param {string} dataField. column bound data field
+   * @param {string} propertyName. The column property's name.
+   * @param {any} value. The new property value.
+   */
+  setColumnProperty(dataField: string, propertyName: string, value: any): void;
+  /**
+   * Sets a property to a row.
+   * @param {string | number} rowId. row bound id
+   * @param {string} propertyName. The row property's name.
+   * @param {any} value. The new property value.
+   */
+  setRowProperty(rowId: string | number, propertyName: string, value: any): void;
+  /**
    * Shows the Details of a Row, when row details are enabled.
    * @param {string | number} rowId. row bound id
    */
   showDetail(rowId: string | number): void;
+  /**
+   * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
+   * @param {string | number} rowId. row bound id
+   * @param {any} data. row data matching the data source
+   * @param {any} callback?. Sets a callback function, which is called after the row is updated. The callback's argument is the updated row.
+   */
+  updateRow(rowId: string | number, data: any, callback?: any): void;
   /**
    * Unselects a row, cell or column.
    * @param {string | number} rowId. row bound id
@@ -14041,7 +14288,7 @@ export interface GridColumn {
    */
   dataField?: string;
   /**
-   * Sets or gets the column's data type.
+   * Sets or gets the column's data type. Any of the following value is valid: 'string', 'number', 'int', 'date', 'bool', 'object', 'any'
    * Default value: "string"
    */
   dataType?: string;
@@ -14050,6 +14297,11 @@ export interface GridColumn {
    * Default value: ""
    */
   displayField?: string;
+  /**
+   * Sets or gets the column's description. The description of the column is displayed in the column's header, when the end-user moves the pointer over the description button. 'showDescriptionButton' property determines whether the description button is visible.
+   * Default value: ""
+   */
+  description?: string;
   /**
    * Gets the HTML Element. The property returns null when the Column is not in the View.
    * Default value: null
@@ -14070,6 +14322,11 @@ export interface GridColumn {
    * Default value: ""
    */
   filter?: string;
+  /**
+   * Sets or gets the filter menu mode of the column.
+   * Default value: default
+   */
+  filterMenuMode?: GridColumnFilterMenuMode;
   /**
    * Sets or gets the column's format function.
    * Default value: null
@@ -14141,10 +14398,10 @@ export interface GridColumn {
    */
   verticalAlign?: VerticalAlignment;
   /**
-   * Sets or gets the column summary.
-   * Default value: sum
+   * Sets or gets the column summary. The property should be set to an array with the following possible values: 'sum', 'min', 'max', 'avg', 'count', 'median', 'stdev', 'stdevp', 'var', 'varp'.
+   * Default value: 
    */
-  summary?: GridColumnSummary;
+  summary?: string[];
   /**
    * Sets or gets whether the column is visible. Set the property to 'false' to hide the column.
    * Default value: true
@@ -14834,6 +15091,11 @@ export interface GridEditingAddNewRow {
    */
   autoCreate?: boolean;
   /**
+   * Determines whether the newly added row enters automatically in edit mode, when added.
+   * Default value: true
+   */
+  autoEdit?: boolean;
+  /**
    * Sets the position of the 'Add New Row' UI element.
    * Default value: both
    */
@@ -15330,6 +15592,11 @@ export interface GridHeader {
    */
   template?: string | HTMLTemplateElement;
   /**
+   * This callback function can be used for customization of the Header toolbar. The Toolbar HTML Element is passed as an argument.
+   * Default value: null
+   */
+  onInit?: any;
+  /**
    * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
    * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
    */
@@ -15742,10 +16009,10 @@ export declare type GridResizeMode = 'none' | 'split' | 'growAndShrink';
 export declare type GridClipboardAutoFillMode = 'none' | 'copy' | 'fillSeries';
 /**Sets or gets whether the position of the checkbox selection column. */
 export declare type Position = 'near' | 'far';
+/**Sets or gets the filter menu mode of the column. */
+export declare type GridColumnFilterMenuMode = 'default' | 'excel';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
-/**Sets or gets the column summary. */
-export declare type GridColumnSummary = 'sum' | 'min' | 'max' | 'avg' | 'count' | 'median' | 'stdev' | 'stdevp' | 'var' | 'varp';
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Sets the page orientation, when exporting to PDF. */
@@ -16215,6 +16482,11 @@ export interface KanbanProperties {
    */
   selectionMode?: KanbanSelectionMode;
   /**
+   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Default value: false
+   */
+  rightToLeft?: boolean;
+  /**
    * Describes the swimlanes in the kanban board. Sub-columns are not applicable when swimlanes are present.
    * Default value: 
    */
@@ -16279,6 +16551,11 @@ export interface KanbanProperties {
    * Default value: null
    */
   textTemplate?: any;
+  /**
+   * Determines the theme. Theme defines the look of the element
+   * Default value: ""
+   */
+  theme?: string;
   /**
    * Determines whether the user list (as defined by the users property) will be shown when clicking the user icon. Only applicable if editable privileges are enabled.
    * Default value: false
@@ -17735,6 +18012,11 @@ export interface ListMenuProperties {
    * Default value: ""
    */
   filterInputPlaceholder?: string;
+  /**
+   * Determines the MenuItem property that will be used as a filtering criteria. By default the label property is used. It can be set to 'value' if the user wants to filter by the 'value' property or 'textContent' if the user wants to filter by text inside the MenuItem's content or any other property.
+   * Default value: "label"
+   */
+  filterMember?: string;
   /**
    * Determines the filtering mode.
    * Default value: containsIgnoreCase
@@ -19683,8 +19965,20 @@ export interface MultiSplitButton extends BaseElement, MultiSplitButtonPropertie
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when button's dropDown selection is changed.
+   * This event is triggered when action button is clicked.
 	* @param event. The custom event.    */
+  onButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
+   *  addedItems - An array of List items that have been selected.
+   *  disabled - A flag indicating whether or not the item that caused the change event is disabled.
+   *  index - The index of the List item that triggered the event.
+   *  label - The label of the List item that triggered the event.
+   *  removedItems - An array of List items that have been unselected before the event was fired.
+   *  selected - The selected state of the List item that triggered the event. If an item was selected the value will be true and vice versa.
+   *  value - The value of the List item that triggered the event.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when button's dropDown list is closed.
@@ -19695,8 +19989,14 @@ export interface MultiSplitButton extends BaseElement, MultiSplitButtonPropertie
 	* @param event. The custom event.    */
   onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when user clicks any of the element's buttons or button's dropDown items.
-	* @param event. The custom event.    */
+   * This event is triggered when an item is clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
+   *  disabled - Indicates whether the List item that was clicked is disabled or not.
+   *  index - Indicates the index of the List item that was clicked.
+   *  label - The label of the List item that was clicked.
+   *  selected - Indicates whether the List item that was clicked is selected or not.
+   *  value - The value of the List item that was clicked.
+   */
   onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when button's dropDown list is opened.
@@ -22735,6 +23035,13 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    *  oldValue - The previously selected Date.
    */
   onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * This event is triggered when an Event has been updated/inserted/removed/dragged/resized.
+	* @param event. The custom event. Custom data event was created with: ev.detail(type, item)
+   *  type - The type of change that is being done to the item.
+   *  item - An object that represents the actual item with it's attributes.
+   */
+  onItemChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when en event, event item or a context menu item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, type, itemObj)
@@ -27648,6 +27955,11 @@ export interface TreeProperties {
    * Default value: ""
    */
   filterInputPlaceholder?: string;
+  /**
+   * Determines the TreeItem property that will be used as a filtering criteria. By default the label property is used. It can be set to 'value' if the user wants to filter by the value property or 'textContent' if the user wants to filter by text inside the TreeItem's content or any other property.
+   * Default value: "label"
+   */
+  filterMember?: string;
   /**
    * Sets filter mode.
    * Default value: containsIgnoreCase

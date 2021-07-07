@@ -74,7 +74,6 @@ body[theme="dark"] {
   --smart-color-panel-grid-mode-item-size: 20px; /* smartColorPanel item size */
 
   --smart-progress-bar-default-height: 7px; /* smartProgressBar default height */
-  --smart-circular-progress-bar-default-size: 13px; /* smartCircularProgressBar default size (width = height) */
   --smart-circular-progress-bar-fill-size: 20%;
 
   --smart-radio-button-default-size: 16px; /* Default size for the radio button. */
@@ -92,6 +91,7 @@ body[theme="dark"] {
   --smart-scroll-bar-thumb-padding: 0px;
   
   --smart-pager-page-size-selector-width: 65px;
+  --smart-accordion-item-expanded-offset: 0px;
 }
 
 

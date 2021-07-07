@@ -90,6 +90,15 @@
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto minmax(0, 1fr);
+  position: relative;
+}
+
+.smart-editor .smart-toast-container.smart-toast-container-custom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+  max-height: 100%;
 }
 
 .smart-editor.full-screen-mode {
@@ -107,6 +116,85 @@
 .smart-editor[readonly] .smart-editor-toolbar-items-primary,
 .smart-editor[readonly] .smart-editor-toolbar-items-secondary {
   pointer-events: none;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar[toolbar-tab-selected]:not([expanded]) .smart-editor-toolbar-toggle-button::before {
+  content: var(--smart-icon-window-pin);
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-tab-selection-bar {
+  position: absolute;
+  bottom: 0;
+  height: calc(2* var(--smart-border-width));
+  background-color: var(--smart-primary);
+  transform: scaleX(1);
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-tab-selection-bar.smart-visibility-hidden {
+  transform: scaleX(0);
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-items-primary {
+  position: relative;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar[expanded] .smart-editor-toolbar-items-primary,
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar[expanded] .smart-editor-toolbar-toggle-button {
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar:not(.smart-tooltip) .smart-editor-toolbar-items-secondary .smart-editor-toolbar-item {
+  margin-left: initial;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-items-secondary {
+  background-color: var(--smart-background);
+  padding-bottom: initial;
+  flex-wrap: initial;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-items-secondary.smart-drop-down {
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+  box-shadow: var(--smart-elevation-4);
+  overflow: hidden;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-items-secondary .smart-editor-toolbar-item {
+  margin-bottom: var(--smart-editor-toolbar-item-margin);
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-items-secondary .smart-editor-toolbar-item:not(:last-of-type) {
+  margin-right: var(--smart-editor-toolbar-item-margin);
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-tab {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: var(--smart-tab-item-padding);
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-tab:not([disabled]) {
+  cursor: pointer;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar .smart-editor-toolbar-tab-group {
+  padding-top: initial;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-tab-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  padding: var(--smart-editor-toolbar-item-margin);
+  padding-bottom: initial;
+}
+
+.smart-editor[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-tab-group:not(:first-of-type) {
+  border-left: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-editor[toolbar-view-mode="multiRow"] .smart-editor-toolbar, .smart-editor[toolbar-view-mode="scroll"] .smart-editor-toolbar {
@@ -139,6 +227,22 @@
 
 .smart-editor[toolbar-view-mode="scroll"] .smart-editor-toolbar-items-primary {
   overflow-y: auto;
+}
+
+.smart-editor:not([animation="none"]) .smart-editor-toolbar-tab-selection-bar {
+  transition: width 0.2s cubic-bezier(0.35, 0, 0.25, 1), left 0.2s cubic-bezier(0.35, 0, 0.25, 1), visibility 0.2s cubic-bezier(0.35, 0, 0.25, 1), transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+}
+
+.smart-editor:not([animation="none"]) .smart-editor-search-bar, .smart-editor:not([animation="none"])[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-items-secondary {
+  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  transition: animation 0.2s ease-out, opacity 0.2s ease-out, visibility 0.2s ease-out;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+}
+
+.smart-editor:not([animation="none"]) .smart-editor-search-bar.smart-visibility-hidden, .smart-editor:not([animation="none"])[toolbar-mode="singleLineRibbon"] .smart-editor-toolbar-items-secondary.smart-visibility-hidden {
+  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  transition: animation 0.2s ease-in, opacity 0.2s ease-in, visibility 0.2s ease-in;
 }
 
 .smart-editor:not([animation="none"]) .smart-editor-toolbar:not(.smart-tooltip),
@@ -281,16 +385,16 @@
   padding-bottom: var(--smart-editor-toolbar-item-margin);
 }
 
+.smart-editor .smart-editor-toolbar-items-secondary:empty {
+  display: none;
+}
+
 .smart-editor .smart-editor-toolbar-items-primary,
 .smart-editor .smart-editor-toolbar-items-secondary {
   width: 100%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.smart-editor .smart-editor-toolbar-items-secondary:empty {
-  display: none;
 }
 
 .smart-editor iframe {
@@ -446,6 +550,15 @@
   padding: 20px 10px;
 }
 
+.smart-editor .smart-editor-content-container .smart-editor-editable .find-and-replace-match {
+  background-color: rgba(var(--smart-editor-highlight-rgb), 0.75);
+  color: var(--smart-editor-highlight-color);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-editable .find-and-replace-match.selected {
+  background-color: rgba(var(--smart-editor-highlight-rgb), 1);
+}
+
 .smart-editor .smart-editor-content-container img {
   float: initial;
   vertical-align: initial;
@@ -476,6 +589,74 @@
 
 .smart-editor .smart-editor-content-container img:not([display="block"])[alignment="right"] {
   float: right;
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar {
+  position: absolute;
+  top: var(--smart-editor-search-bar-offset);
+  right: var(--smart-editor-search-bar-offset);
+  padding: var(--smart-editor-search-bar-padding);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) repeat(3, auto);
+  grid-column-gap: 5px;
+  border: var(--smart-border-width) solid var(--smart-border);
+  box-shadow: var(--smart-elevation-4);
+  background: var(--smart-background);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-input-container {
+  width: var(--smart-text-box-default-width);
+  display: flex;
+  align-items: center;
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-input-container::after {
+  content: attr(selected) "/" attr(matches);
+  margin: 0 var(--smart-editor-search-bar-offset);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-input {
+  height: 100%;
+  outline: none;
+  border: initial;
+  padding: var(--smart-editor-label-padding);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-input:focus {
+  border-color: var(--smart-outline);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-button {
+  --smart-button-padding: 0;
+  border: initial;
+  height: var(--smart-editor-toolbar-button-width);
+  width: var(--smart-editor-toolbar-button-width);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-button button::after {
+  font-size: var(--smart-font-size);
+  font-family: var(--smart-font-family-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-button.prev button::after {
+  content: var(--smart-icon-arrow-up);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-button.next button::after {
+  content: var(--smart-icon-arrow-down);
+}
+
+.smart-editor .smart-editor-content-container .smart-editor-search-bar .smart-search-button.close button::after {
+  content: var(--smart-icon-close);
 }
 
 .smart-editor[show-char-count] .smart-editor-content-container::after {
@@ -818,6 +999,10 @@
   content: var(--smart-icon-styles);
 }
 
+.smart-editor-toolbar-item[item-name="findandreplace"]::before {
+  content: var(--smart-icon-search);
+}
+
 .smart-editor-toolbar-item[item-name="redo"]::before {
   transform: scaleX(-1);
 }
@@ -1154,7 +1339,8 @@
   grid-column-gap: 10px;
 }
 
-.smart-editor-window .smart-editor-window-editor > .smart-input {
+.smart-editor-window .smart-editor-window-editor > .smart-input,
+.smart-editor-window .smart-editor-window-editor > .smart-list-box {
   width: 100%;
 }
 
@@ -1164,6 +1350,15 @@
 
 .smart-editor-window .smart-editor-window-editor[multiple] .smart-editor-window-editor {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.smart-editor-window .smart-editor-window-editor[type="results"] label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.smart-editor-window .smart-editor-window-editor[type="results"] label[matches]::after {
+  content: attr(selected) " of " attr(matches);
 }
 
 .smart-editor-window .smart-editor-window-editor[type="file"] .smart-drop-zone {
@@ -1224,17 +1419,27 @@
 }
 
 /* --- Editor Tooltip --- */
+.smart-tooltip .smart-tooltip-content {
+  display: flex;
+  background-color: var(--smart-background);
+  color: var(--smart-background-color);
+  border-color: var(--smart-background);
+  opacity: initial;
+}
+
+.smart-tooltip:not(.smart-editor-toolbar):not([animation="none"]) {
+  transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+}
+
 .smart-tooltip.smart-editor-toolbar {
   --smart-tooltip-padding: 5px;
   --smart-tooltip-arrow-color: var(--smart-surface);
 }
 
 .smart-tooltip.smart-editor-toolbar .smart-tooltip-content {
-  display: flex;
   background-color: var(--smart-surface);
   color: var(--smart-surface-color);
   border-color: var(--smart-surface);
-  opacity: initial;
 }
 
 .smart-tooltip.smart-editor-toolbar.smart-editor-inline-toolbar .smart-tooltip-content {
@@ -1253,6 +1458,165 @@
 .smart-tooltip.smart-editor-toolbar[right-to-left]:not(.smart-editor-drop-down-toolbar) .smart-editor-toolbar-item:not(:first-of-type) {
   margin-left: initial;
   margin-right: var(--smart-editor-toolbar-item-margin);
+}
+
+.smart-tooltip:not(.smart-editor-toolbar) {
+  opacity: 0.2;
+  transform: scale(0);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+.smart-tooltip:not(.smart-editor-toolbar)[visible] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  height: var(--smart-list-item-height);
+  padding: var(--smart-list-item-padding);
+  border-top-left-radius: var(--smart-item-border-top-left-radius);
+  border-top-right-radius: var(--smart-item-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: var(--smart-column-icon-size);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item::before {
+  font-size: var(--smart-font-size);
+  font-family: var(--smart-font-family-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  width: var(--smart-column-icon-size);
+  line-height: 1rem;
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="insertRowBefore"]::before {
+  content: var(--smart-icon-row-before);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="insertRowAfter"]::before {
+  content: var(--smart-icon-row-after);
+  transform: rotate(180deg);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="deleteRow"]::before {
+  content: var(--smart-icon-row-delete);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="insertColumnLeft"]::before {
+  content: var(--smart-icon-column-left);
+  transform: rotate(-90deg);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="insertColumnRight"]::before {
+  content: var(--smart-icon-column-right);
+  transform: rotate(90deg);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="deleteColumn"]::before {
+  content: var(--smart-icon-column-delete);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="tableProperties"]::before {
+  content: var(--smart-icon-table);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="imageProperties"]::before {
+  content: var(--smart-icon-image);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="linkProperties"]::before {
+  content: var(--smart-icon-link);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="deleteTable"]::before {
+  content: var(--smart-icon-delete);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="copyImage"]::before {
+  content: var(--smart-icon-copy-record);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="cutImage"]::before {
+  content: var(--smart-icon-cut);
+  transform: rotate(-90deg);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="deleteImage"]::before {
+  content: var(--smart-icon-delete);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="deleteLink"]::before {
+  content: var(--smart-icon-delete);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="createLink"]::before {
+  content: var(--smart-icon-link);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="deleteLink"]::before {
+  content: var(--smart-icon-unlink);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="caption"]::before {
+  content: var(--smart-icon-format-clear);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="selectAll"]::before {
+  content: var(--smart-icon-group);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="cut"]::before {
+  content: var(--smart-icon-cut);
+  transform: rotate(-90deg);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="copy"]::before {
+  content: var(--smart-icon-copy-record);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[value="paste"]::before {
+  content: var(--smart-icon-paste);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item:hover {
+  background: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[selected] {
+  background-color: var(--smart-ui-state-selected);
+  border-color: var(--smart-ui-state-border-selected);
+  color: var(--smart-ui-state-color-selected);
+}
+
+.smart-tooltip .smart-editor-context-menu-item-container .smart-editor-context-menu-item[disabled] {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
 }
 
 .smart-editor-drop-down-toolbar:not([animation="none"]) {

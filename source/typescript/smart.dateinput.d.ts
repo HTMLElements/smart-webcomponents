@@ -7,6 +7,16 @@ export interface DateInputProperties {
    */
   animation?: Animation;
   /**
+   * Determines whether the calendar button pop-up will be closed automatically when date or time is selected through it.
+   * Default value: false
+   */
+  autoClose?: boolean;
+  /**
+   * Determines the delay before the calendar pop-up is automatically closed. Applicable only when autoClose is set to true.
+   * Default value: 500
+   */
+  autoCloseDelay?: number;
+  /**
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
@@ -109,7 +119,7 @@ export interface DateInputProperties {
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets the value of the element.
+   * Sets or gets the value of the element. Expected value is: Date string, Date object or null.
    * Default value: 
    */
   value?: any;

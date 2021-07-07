@@ -382,6 +382,10 @@ input[type=number] {
     content: var(--smart-icon-check-empty);
   }
 
+  &.smart-icon-check-squared:before {
+    content: var(--smart-icon-check-squared);
+  }
+
   &.smart-icon-filter:before {
     content: var(--smart-icon-filter);
   }
@@ -700,7 +704,7 @@ input[type=number] {
 }
 
 .smart-grid-cell-editor {
-  > * {
+  >* {
     display: block;
     width: 100%;
     height: 100%;
@@ -738,14 +742,7 @@ input[type=number] {
       color: var(--smart-surface-color);
       border-left: 1px solid var(--smart-border);
       background: var(--smart-surface);
-		
-	  &:active,
-	  &:hover {
-		color: var(--smart-surface-color)  !important;
-		border-left: 1px solid var(--smart-border)  !important;
-		background: var(--smart-surface) !important;
-	  }
-	  
+
       .up,
       .down {
         display: flex;
@@ -775,28 +772,11 @@ input[type=number] {
           background: var(--smart-ui-state-hover);
           color: var(--smart-ui-state-color-hover);
         }
-		
-		&:active,
-        &[active] {
-          background: var(--smart-ui-state-active);
-          color: var(--smart-ui-state-color-active);
-        }
       }
 
       .down {
         &:after {
           content: var(--smart-icon-arrow-down);
-        }
-		
-		&:hover {
-          background: var(--smart-ui-state-hover);
-          color: var(--smart-ui-state-color-hover);
-        }
-		
-		&:active,
-        &[active] {
-          background: var(--smart-ui-state-active);
-          color: var(--smart-ui-state-color-active);
         }
       }
     }
@@ -872,7 +852,7 @@ input[type=number] {
     }
   }
 
-  > input[type="checkbox"] {
+  >input[type="checkbox"] {
     border: none;
     min-width: 16px;
     height: 16px;
@@ -925,7 +905,7 @@ input[type=number] {
     padding-top: 3px;
   }
 
-  > div {
+  >div {
     display: flex;
     align-items: flex-start;
     padding: 3px;
@@ -956,6 +936,7 @@ input[type=number] {
     width: calc(100% - var(--smart-scroll-bar-size));
 
     .smart-grid-row-container {
+
       &.near,
       &.far {
         width: calc(100% - var(--smart-scroll-bar-size));
@@ -986,6 +967,7 @@ input[type=number] {
   &.add-column {
     display: flex;
     height: 30px;
+    align-items: center;
     margin-bottom: 10px;
   }
 }
@@ -1001,11 +983,6 @@ input[type=number] {
     .smart-grid-dialog-editor {
       margin-bottom: initial;
       margin-right: 10px;
-	  
-	  &.add-column {
-		display: flex;
-		align-items: center;
-	  }
     }
   }
 }
@@ -1178,7 +1155,7 @@ input[type=number] {
       padding: 0px;
     }
 
-    > .smart-container .smart-header-section {
+    >.smart-container .smart-header-section {
       cursor: default;
     }
 
@@ -1204,7 +1181,7 @@ input[type=number] {
       height: 100%;
     }
 
-    > .smart-container > .smart-footer {
+    >.smart-container>.smart-footer {
       height: auto;
     }
 
@@ -1237,6 +1214,31 @@ smart-grid {
   contain: content;
   visibility: hidden;
 
+
+  .smart-grid-add-row-button {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 9;
+    width: 30px;
+    height: 30px;
+    background: var(--smart-surface);
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+
+    &.show {
+      transform: scale(1);
+      opacity: 1;
+
+      &:active,
+      &:hover {
+        color: var(--smart-primary-color);
+        background: var(--smart-primary);
+      }
+    }
+  }
+
   &:not([selection-mode="excel"])[appearance_allow-hover] {
     smart-grid-row:hover {
       smart-grid-cell {
@@ -1265,6 +1267,7 @@ smart-grid {
 
   &:not([selection_allow-cell-selection]) {
     smart-grid-row[focus] {
+
       smart-grid-cell:not([editor]):not([header]),
       smart-grid-cell:not([editor]):not([header]) .smart-label {
         background: var(--smart-primary) !important;
@@ -1302,7 +1305,7 @@ smart-grid {
     visibility: hidden;
   }
 
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     .smart-grid-header {
       background: var(--smart-surface);
@@ -1368,7 +1371,7 @@ smart-grid {
       display: flex;
       justify-content: flex-start;
 
-      > div {
+      >div {
         width: 100%;
         height: 100%;
         line-height: initial;
@@ -1418,7 +1421,8 @@ smart-grid {
       padding: 0px;
       align-items: center;
       justify-content: center;
-      border-radius: 0px;;
+      border-radius: 0px;
+      ;
     }
 
     &:not(.smart-grid-column-border) {
@@ -1548,8 +1552,9 @@ smart-grid {
   }
 
   .smart-breadcrumb-items {
-    > .target:before,
-    > .afterTarget:last-child:after {
+
+    >.target:before,
+    >.afterTarget:last-child:after {
       content: '';
       display: none;
     }
@@ -1686,20 +1691,20 @@ smart-grid {
 
     smart-grid-row {
       &[group] {
-        &:not([summary]) > .smart-grid-cell-container > smart-grid-cell .smart-label {
+        &:not([summary])>.smart-grid-cell-container>smart-grid-cell .smart-label {
           align-items: center;
           padding: 0px;
           padding-top: calc(var(--smart-grid-group-row-vertical-offset) * 1px);
         }
 
-        &[summary] > .smart-grid-cell-container > smart-grid-cell div[content] {
+        &[summary]>.smart-grid-cell-container>smart-grid-cell div[content] {
           border-top: none;
           background: var(--smart-surface);
           color: var(--smart-surface-color);
         }
 
-        > .smart-grid-cell-container {
-          > smart-grid-cell {
+        >.smart-grid-cell-container {
+          >smart-grid-cell {
             div[label] {
               justify-content: space-between;
               align-items: center;
@@ -1737,8 +1742,8 @@ smart-grid {
         }
 
         &[selected] {
-          > .smart-grid-cell-container {
-            > smart-grid-cell div[label] {
+          >.smart-grid-cell-container {
+            >smart-grid-cell div[label] {
               div[summary] span {
                 color: var(--smart-ui-state-color-selected);
               }
@@ -1748,7 +1753,7 @@ smart-grid {
               }
             }
 
-            > smart-grid-cell div[content] {
+            >smart-grid-cell div[content] {
               color: var(--smart-ui-state-color-selected);
               background: var(--smart-ui-state-selected);
               border: 1px solid var(--smart-ui-state-selected);
@@ -1756,8 +1761,8 @@ smart-grid {
           }
         }
 
-        > .smart-grid-cell-container {
-          > smart-grid-cell {
+        >.smart-grid-cell-container {
+          >smart-grid-cell {
             background: var(--smart-surface);
 
             div[content] {
@@ -1781,12 +1786,13 @@ smart-grid {
             }
           }
 
-          > smart-grid-cell[has-toggle-button] div[content] {
+          >smart-grid-cell[has-toggle-button] div[content] {
             border-top-left-radius: var(--smart-item-border-radius);
             border-bottom-left-radius: var(--smart-item-border-radius);
           }
 
-          > smart-grid-cell:not(.smart-grid-column-border) {
+          >smart-grid-cell:not(.smart-grid-column-border) {
+
             &:after,
             &:before {
               display: none;
@@ -1795,29 +1801,29 @@ smart-grid {
         }
 
 
-        &[level="1"] > .smart-grid-cell-container > smart-grid-cell div[content] {
+        &[level="1"]>.smart-grid-cell-container>smart-grid-cell div[content] {
           background: var(--smart-surface);
         }
 
-        &[level="2"] > .smart-grid-cell-container > smart-grid-cell div[content] {
+        &[level="2"]>.smart-grid-cell-container>smart-grid-cell div[content] {
           background: var(--smart-surface);
         }
       }
 
-      > .smart-grid-cell-container {
-        > smart-grid-cell[has-toggle-button] .smart-label {
+      >.smart-grid-cell-container {
+        >smart-grid-cell[has-toggle-button] .smart-label {
           margin-left: calc(-1px + 1px * calc(var(--smart-grid-group-row-horizontal-offset)));
         }
 
-        > smart-grid-cell:last-child {
+        >smart-grid-cell:last-child {
           margin-left: calc(1px - calc(1px * calc(var(--smart-grid-group-row-horizontal-offset))));
         }
 
       }
 
       &[leaf]:not([group]) {
-        > .smart-grid-cell-container {
-          > smart-grid-cell[has-toggle-button] {
+        >.smart-grid-cell-container {
+          >smart-grid-cell[has-toggle-button] {
             .smart-label {
               background: var(--smart-surface);
               color: var(--smart-surface-color);
@@ -1861,14 +1867,15 @@ smart-grid {
             }
           }
 
-          > smart-grid-cell.smart-grid-column-border {
+          >smart-grid-cell.smart-grid-column-border {
             border-right-width: calc(1px * calc(var(--smart-grid-group-row-horizontal-offset) / (1 + var(--smart-grid-group-row-horizontal-offset))));
           }
         }
       }
 
       &:not([leaf])[group] {
-        > .smart-grid-cell-container > smart-grid-cell:not(.smart-grid-column-border) {
+        >.smart-grid-cell-container>smart-grid-cell:not(.smart-grid-column-border) {
+
           &:before,
           &:after {
             display: none;
@@ -1877,15 +1884,15 @@ smart-grid {
       }
 
       &[expanded][leaf][group] {
-        > .smart-grid-cell-container > smart-grid-cell div[content] {
+        >.smart-grid-cell-container>smart-grid-cell div[content] {
           border-bottom-left-radius: 0px;
           border-bottom-right-radius: 0px;
         }
       }
 
       &[leaf] {
-        > .smart-grid-cell-container {
-          > smart-grid-cell {
+        >.smart-grid-cell-container {
+          >smart-grid-cell {
             div[label] {
               display: flex;
               width: 100%;
@@ -1910,18 +1917,18 @@ smart-grid {
 
 
       &[summary] {
-        > .smart-grid-cell-container > smart-grid-cell {
+        >.smart-grid-cell-container>smart-grid-cell {
           color: var(--smart-surface-color);
           font-size: 9px;
           font-weight: 500;
           opacity: 0.75;
         }
 
-        &[selected] > .smart-grid-cell-container > smart-grid-cell {
+        &[selected]>.smart-grid-cell-container>smart-grid-cell {
           color: var(--smart-ui-state-color-selected);
         }
 
-        &[group] > .smart-grid-cell-container > smart-grid-cell div[content] {
+        &[group]>.smart-grid-cell-container>smart-grid-cell div[content] {
           border-top-left-radius: 0px;
           border-top-right-radius: 0px;
           border-bottom-left-radius: 0px;
@@ -1931,7 +1938,7 @@ smart-grid {
     }
 
     &[right-to-left] {
-      smart-grid-row[group] > .smart-grid-cell-container > smart-grid-cell div[content] {
+      smart-grid-row[group]>.smart-grid-cell-container>smart-grid-cell div[content] {
         flex-direction: row-reverse;
       }
     }
@@ -1939,24 +1946,24 @@ smart-grid {
 
   &[tree] {
     smart-grid-row[level] {
-      > .smart-grid-cell-container > smart-grid-cell div[content] {
+      >.smart-grid-cell-container>smart-grid-cell div[content] {
         line-height: initial;
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
 
-        > div[checkbox]:not(.smart-hidden) {
+        >div[checkbox]:not(.smart-hidden) {
           margin-right: 7px;
         }
       }
     }
 
     &[right-to-left] {
-      smart-grid-row[level] > .smart-grid-cell-container > smart-grid-cell div[content] {
+      smart-grid-row[level]>.smart-grid-cell-container>smart-grid-cell div[content] {
         flex-direction: row-reverse;
 
-        > div[checkbox]:not(.smart-hidden) {
+        >div[checkbox]:not(.smart-hidden) {
           margin-left: 5px;
           margin-right: initial;
         }
@@ -1977,6 +1984,7 @@ smart-grid {
   }
 
   &[appearance_allow-header-hover] {
+
     smart-grid-column:not(.top-far-corner):not(.top-near-corner)[header],
     smart-grid-cell[header] {
       &:hover {
@@ -1989,7 +1997,7 @@ smart-grid {
 
   &[appearance_show-row-header-drag-icon] {
     smart-grid-row smart-grid-cell[header]:not([detail]) {
-      > .smart-label {
+      >.smart-label {
         height: 100%;
         font-family: var(--smart-font-family-icon);
         font-style: normal;
@@ -2028,10 +2036,11 @@ smart-grid {
   }
 
   &[appearance_show-row-header-edit-icon] {
+
     smart-grid-row[edit],
     smart-grid-row[edit][focus] {
       smart-grid-cell[header]:not([detail]) {
-        > .smart-label {
+        >.smart-label {
           height: 100%;
           font-family: var(--smart-font-family-icon);
           font-style: normal;
@@ -2062,7 +2071,7 @@ smart-grid {
         }
 
         &:last-child {
-          > .smart-label {
+          >.smart-label {
             height: 100%;
             font-family: var(--smart-font-family-icon);
             font-style: normal;
@@ -2090,13 +2099,13 @@ smart-grid {
   &[appearance_show-row-header-focus-icon] {
     smart-grid-row[focus] {
       smart-grid-cell[header] {
-        > .smart-label:before {
+        >.smart-label:before {
           content: var(--smart-icon-arrow-right);
         }
 
         &:not([detail]),
         &:not([detail]):last-child {
-          > .smart-label {
+          >.smart-label {
             height: 100%;
             font-family: var(--smart-font-family-icon);
             font-style: normal;
@@ -2119,7 +2128,7 @@ smart-grid {
         }
 
         &:not([detail]) {
-          > .smart-label {
+          >.smart-label {
             &:before {
               content: var(--smart-icon-check-empty);
               background: var(--smart-ui-state-hover);
@@ -2139,7 +2148,7 @@ smart-grid {
   &[appearance_show-row-header-select-icon][selection_enabled][selection_allow-row-header-selection] {
     smart-grid-row smart-grid-cell[header] {
       &:not([detail]):hover {
-        > .smart-label {
+        >.smart-label {
           height: 100%;
           font-family: var(--smart-font-family-icon);
           font-style: normal;
@@ -2170,7 +2179,7 @@ smart-grid {
         }
 
         &:last-child {
-          > .smart-label {
+          >.smart-label {
             height: 100%;
             font-family: var(--smart-font-family-icon);
             font-style: normal;
@@ -2193,10 +2202,20 @@ smart-grid {
         }
 
         &[selected] {
-          > .smart-label:before {
+          >.smart-label:before {
             content: var(--smart-icon-check-squared);
             transform: rotate(0deg);
           }
+        }
+      }
+
+      &:not([detail])[selected] {
+        >.smart-label:before {
+          font-family: var(--smart-font-family-icon);
+          font-style: normal;
+          font-weight: normal;
+          content: var(--smart-icon-check-squared);
+          transform: rotate(0deg);
         }
       }
     }
@@ -2276,6 +2295,7 @@ smart-grid {
 
     smart-grid-cell {
       &[has-toggle-button] {
+
         .smart-label,
         div[indent] {
           flex-direction: row-reverse;
@@ -2296,7 +2316,7 @@ smart-grid {
   }
 }
 
-smart-grid > .smart-container,
+smart-grid>.smart-container,
 .smart-grid.smart-container {
   height: 100%;
   width: 100%;
@@ -2355,7 +2375,7 @@ smart-grid-row {
   }
 
   .smart-grid-command-bar {
-    z-index: 6;
+    z-index: 7;
     height: calc(100% - 1px);
     position: absolute;
     right: 0px;
@@ -2494,8 +2514,8 @@ smart-grid-row {
   &[alternation-index="1"],
   &[alternation-index="3"],
   &[alternation-index="4"] {
-    smart-grid-cell[editor]:not([selected]):not([header]) {
-      > .smart-label {
+    smart-grid-cell[editor]:not([selected]):not([header]):not([highlight]):not([freeze]) {
+      >.smart-label {
         padding: 0;
         margin: 0;
         border: 1px solid var(--smart-primary);
@@ -2506,42 +2526,37 @@ smart-grid-row {
         height: calc(100% - 1px);
         position: relative;
         left: 1px;
-        //margin-left: 2px;
         user-select: none;
         padding-left: 5px;
-
-        [checkbox] {
-          //margin-left: 5px;
-        }
       }
     }
   }
 
-  &[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
+  &[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]) .smart-label {
     background-color: var(--smart-background);
     color: var(--smart-background-color);
     border-color: var(--smart-border);
   }
 
-  &[alternation-index="1"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
+  &[alternation-index="1"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]) .smart-label {
     background-color: var(--smart-alternation-index0-background);
     color: var(--smart-alternation-index0-color);
     border-color: var(--smart-alternation-index0-border);
   }
 
-  &[alternation-index="2"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
+  &[alternation-index="2"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]) .smart-label {
     background-color: var(--smart-alternation-index1-background);
     color: var(--smart-alternation-index1-color);
     border-color: var(--smart-alternation-index1-border);
   }
 
-  &[alternation-index="3"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
+  &[alternation-index="3"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]) .smart-label {
     background-color: var(--smart-alternation-index2-background);
     color: var(--smart-alternation-index2-color);
     border-color: var(--smart-alternation-index2-border);
   }
 
-  &[alternation-index="4"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]) .smart-label {
+  &[alternation-index="4"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]) .smart-label {
     background-color: var(--smart-alternation-index3-background);
     color: var(--smart-alternation-index3-color);
     border-color: var(--smart-alternation-index3-border);
@@ -2564,8 +2579,13 @@ smart-grid-column {
   font-weight: var(--smart-grid-column-font-weight, inherit);
   display: flex;
   cursor: default;
-  //height: var(--smart-grid-column-header-height);
   min-height: 30px;
+
+  &[highlight],
+  &[highlight][freeze] {
+    background: var(--smart-primary);
+    color: var(--smart-primary-color);
+  }
 
   &:hover {
     .smart-action-button {
@@ -2659,6 +2679,7 @@ smart-grid-column {
   }
 
   .smart-sort-button {
+
     &.asc,
     &.desc {
       display: flex;
@@ -2690,6 +2711,10 @@ smart-grid-column {
     &.smart-animate:before {
       transition: transform 0.2s ease-out, opacity 0.3s ease-out;
     }
+  }
+
+  .smart-description-button {
+    margin-right: 3px;
   }
 
   .smart-action-button {
@@ -2961,13 +2986,7 @@ smart-grid-cell {
       }
     }
   }
-  
-  &[has-toggle-button].group {
-	button[toggle-button]:after {
-		margin-left: 7px;
-	}
-  }
-  
+
   &[has-toggle-button] {
     button[toggle-button] {
       font-family: var(--smart-font-family-icon);
@@ -2994,7 +3013,7 @@ smart-grid-cell {
 
       &:after {
         content: var(--smart-icon-arrow-down);
-	  }
+      }
 
       &.row-detail {
         &:after {
@@ -3081,7 +3100,7 @@ smart-grid-cell {
   //left & margin-left is related to demos:
   //grid/editing-row
   &[editor] {
-    > .smart-label:not(.smart-input) {
+    >.smart-label:not(.smart-input) {
       padding: 0;
       margin: 0;
       border: 1px solid var(--smart-primary);
@@ -3115,7 +3134,7 @@ smart-grid-cell {
       }
     }
 
-    &[row-editor] ~ smart-grid-cell[editor][row-editor] {
+    &[row-editor]~smart-grid-cell[editor][row-editor] {
       border-left: 0px solid var(--smart-primary);
     }
   }
@@ -3217,7 +3236,7 @@ smart-grid-cell {
     z-index: 9999;
 
     &:not([row-editor]) {
-      > .smart-label {
+      >.smart-label {
         padding: 0;
         margin: 0;
         border: 1px solid var(--smart-error) !important;
@@ -3268,8 +3287,19 @@ smart-grid-cell {
   }
 
   &[highlight] {
-    background: var(--smart-info);
-    color: var(--smart-info-color);
+    .smart-label {
+      background: #FFF1C8 !important;
+      color: #333 !important;
+    }
+
+    &[highlight-data-field] {
+      border-left: 1px solid var(--smart-primary);
+      border-right: 1px solid var(--smart-primary);
+
+      &:first-child {
+        border-left: 2px solid var(--smart-primary);
+      }
+    }
   }
 
   &[group] {
@@ -3285,7 +3315,7 @@ smart-grid-cell {
 //second
 smart-grid-column,
 smart-grid-cell {
-  > .smart-label:not(.smart-input) {
+  >.smart-label:not(.smart-input) {
     width: 100%;
     height: 100%;
   }

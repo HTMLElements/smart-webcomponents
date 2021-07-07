@@ -285,7 +285,7 @@ export interface ComboBoxProperties {
   selectedValues?: string[];
   /**
    * Determines how many items can be selected.
-   * Default value: one
+   * Default value: zeroAndOne
    */
   selectionMode?: ListSelectionMode;
   /**
@@ -513,7 +513,7 @@ export declare type ResizeMode = 'none' | 'horizontal' | 'vertical' | 'both';
 /**Determines what will be displayed in the input. */
 export declare type SelectionDisplayMode = 'plain' | 'placeholder' | 'tokens';
 /**Determines how many items can be selected. */
-export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
+export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroAndOne' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
 /**Determines the visibility of the vertical scroll bar. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 export interface ListItemProperties {

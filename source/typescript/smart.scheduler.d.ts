@@ -495,6 +495,13 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
+   * This event is triggered when an Event has been updated/inserted/removed/dragged/resized.
+	* @param event. The custom event. Custom data event was created with: ev.detail(type, item)
+   *  type - The type of change that is being done to the item.
+   *  item - An object that represents the actual item with it's attributes.
+   */
+  onItemChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when en event, event item or a context menu item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, type, itemObj)
    *  item - The HTMLElement for the event.

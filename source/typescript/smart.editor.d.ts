@@ -25,7 +25,22 @@ export interface EditorProperties {
    * A formatting function for the char counter. Takes two arguments: chars - the current number of characters inside the Editor.maxCharCount - the maximum number of characters inside the Editor.
    * Default value: null
    */
-  chartCountFormatFunction?: any;
+  charCountFormatFunction?: any;
+  /**
+   * Determines the content filtering settings.
+   * Default value: [object Object]
+   */
+  contentFiltering?: EditorContentFiltering;
+  /**
+   * Determines the context menu for the Editor. The context menu is triggered when the user right clicks on the content area of the Editor.
+   * Default value: default
+   */
+  contextMenu?: EditorContextMenu;
+  /**
+   * Allows to customize default the context menu of the Editor. The property accepts an array of items which can be strings that represent the value of the item, or objects of the following format: { label: string, value: string }, where the label will be displayed and the value will be action value for the item. The property also accepts a function that must return an array of items with the following format function (target: HTMLElement, type: string, defaultItems: string[]) { return defaultItems } and the following arguments: target - the element that is the target of the context menu.type - the type of context menu ( whether it's a table, image, link or other)defaultItems - an array of strings which represent the default items for the context menu.
+   * Default value: null
+   */
+  contextMenuDataSource?: string[] | { label: string, value: 'string' }[] | Function | null;
   /**
    * Sets the Editor's Data Export options.
    * Default value: [object Object]
@@ -42,12 +57,17 @@ export interface EditorProperties {
    */
   disableEditing?: boolean;
   /**
+   * Disables the Quick Search Bar.
+   * Default value: false
+   */
+  disableSearchBar?: boolean;
+  /**
    * Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode.
    * Default value: html
    */
   editMode?: EditMode;
   /**
-   * Determines whether the HTML returned from the value property or displayed by Preview mode is encoded or not
+   * Determines whether the value returned from getHTML method and Source Code view are encoded or not.
    * Default value: false
    */
   enableHtmlEncode?: boolean;
@@ -56,6 +76,11 @@ export interface EditorProperties {
    * Default value: false
    */
   enableTabKey?: boolean;
+  /**
+   * Determines the time interval between results for the find and replace and search bar features.
+   * Default value: 50
+   */
+  findAndReplaceTimeout?: number;
   /**
    * Determines whether the Toolbar is hidden or not.
    * Default value: false
@@ -67,7 +92,7 @@ export interface EditorProperties {
    */
   hideInlineToolbar?: boolean;
   /**
-   * Sets the content of the Editor. Similar to value property allows to set the content of the editor.
+   * Sets the content of the Editor as HTML. Allows to insert text and HTML.
    * Default value: "en"
    */
   innerHTML: string;
@@ -81,11 +106,6 @@ export interface EditorProperties {
    * Default value: [object Object]
    */
   iframeSettings?: EditorIframeSettings;
-  /**
-   * Determines the format of the content that will be pasted inside the Editor.
-   * Default value: keepFormat
-   */
-  pasteFormat?: PasteFormat;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -242,16 +262,27 @@ export interface EditorProperties {
    *     "toolbarButtonAriaLabel": "Toolbar Toggle Button",
    *     "primaryToolbarAriaLabel": "Primary Toolbar",
    *     "secondaryToolbarAriaLabel": "Secondary Toolbar",
-   *     "inputAriaLabel": "Enter Text"
+   *     "inputAriaLabel": "Enter Text",
+   *     "requiredMessage": "The content of the Editor cannot be empty"
    *   }
    * }
    */
   messages?: any;
   /**
+   * Determines the format of the content that will be pasted inside the Editor.
+   * Default value: keepFormat
+   */
+  pasteFormat?: PasteFormat;
+  /**
    * Determines the placeholder that will be shown when there's no content inside the Editor.
    * Default value: ""
    */
   placeholder?: string;
+  /**
+   * Determines whether Editor's content is required ot not. If set and the Editor's content is empty, a notification will appear to notify that the Editor cannot be empty.
+   * Default value: false
+   */
+  required?: boolean;
   /**
    * Determines whether the value is sanitized from XSS content or not. When enabled scripts and other XSS vulnerabilities are not allowed to exist inside the Editor's as HTML content.
    * Default value: false
@@ -273,10 +304,20 @@ export interface EditorProperties {
    */
   theme?: string;
   /**
-   * Determines the Toolbar items list. Each item can be string pointing to the name of the item or an object that defines a custom item or adds aditional settings to an item. The name of the items are case insensitive. An object definition should contain a name attribute that refers to the name of the item when modifing an existing toolbar item. The name attribute determines the action of the item. If set to 'custom' it is possible to create a custom toolbar item. If name attribute is not set or not valid it is treated as a separator, no a toolbar item. The following items are supported by default by the Editor: SourceCode - shows the HTML/Preview Panel by hiding the input panel. Item type - 'Toggle button'.SplitMode - shows both input and HTML/Preview Panel by splitting the Editor content in two sections. Item type - 'Toggle button'FullScreen - fits the viewport with the Editor by expanding it over the page content. Item type - 'Toggle button'.Alignment - aligns the selected content. Item type - 'Drop down'.FontName - changes the font family of the selected content. Item type - 'drop-down'.FontSize - changes the font size of the selected content. Item type - 'drop-down'.Formats - changes the format of the current selection. Itme type - 'drop-down'.TableRows - allows to insert/remove a row into a selected table element. Item type - 'drop-down'.TableColumns - allows to insert/remove a column into a selected table element. Itme type - 'drop-down'.TableVAlign - sets the vertical alignment of a selected table cell. Item type - 'drop-down'.TableStyle - sets additional styling to a selected table inside the Editor. Item type - 'drop-down'.BackgroundColor - changes the background color of the current selection. Item type - 'color-input'.FontColor - changes the font color of the current selection. Item type = 'color-input'.Bold - sets the currently selected text as bold or not. Item type - 'button'.Italic - sets the currently selected text as italic. Item type - 'button'. Underline - sets the currently selected text as underlined. Itme type - 'button'.Strikethrough - set the currently selected text as strikethrough. Item type - 'button'.Delete - deletes the current selection. Item type - 'button'.Undo - undoes the last operation. Item type - 'button'.Redo - redoes the previous operation. Item type - 'button'.Indent - indents the current selection once. Item type - 'button'.Outdent - outdents the current selection once. Item type - 'button'.OpenLink - triggers a hyperlink. Item type - 'button'.EditLink - creates/edits the selected hyperlink. Item type - 'button'.CreateLink - creates/edits the selected hyperlink. Item type - 'button'.RemoveLink - removes the currently selected hyperlink. Item type - 'button'.Hyperlink - same as createLink, triggers a Dialog Window for link creation. Item type - 'button'.Cut - Cuts the currently selected text. Item type - 'button'.Copy - copies the currently selected text. Item type - 'button'Paste - pastes the currenly copied/cut text from the Clipboard. Item type = 'button' or 'drop-down' when advanced attribute is set to 'true'.Image - triggers a Dialog Window to insert/edit an image. Item type - 'button'.LowerCase - changes the current selection to lower case. Item type - 'button'.UpperCase - changes the current selection to upper case. Item type - 'button'.Print - opens the browser print preview window. Item type - 'button'.Caption - insert/remove a caption when a table is selected. Item type - 'button'.ClearFormat - removes the formatting of the currntly selected text. Item type - 'button'.Table - triggers a Dialog Window to insert a table. Item type - 'button'.TableHeader - insert/remove a header row to the currently selected table. Item type - 'button'.OrderedList - insert/remove an order list. Item type = 'button'.UnorderedList - insert/remove an unordered list. Item type - 'button'.Subscript - changes the currently selected text to subscript. Item type - 'button'.Superscript - changes the currently selected text to superscript. Item type - 'button'.  The inlineToolbarItems attribute is applicable only to the following items: 'table', 'image', 'hyperlink'. It accepts the same type of value as toolbarItems property but the toolbar items will be placed insinde the Inline Toolbar instead.
+   * Determines the Toolbar items list. Each item can be string pointing to the name of the item or an object that defines a custom item or adds aditional settings to an item. The name of the items are case insensitive. An object definition should contain a name attribute that refers to the name of the item when modifing an existing toolbar item. The name attribute determines the action of the item. If set to 'custom' it is possible to create a custom toolbar item. If name attribute is not set or not valid it is treated as a separator, no a toolbar item. The following items are supported by default by the Editor: SourceCode - shows the HTML/Preview Panel by hiding the input panel. Item type - 'Toggle button'.SplitMode - shows both input and HTML/Preview Panel by splitting the Editor content in two sections. Item type - 'Toggle button'FullScreen - fits the viewport with the Editor by expanding it over the page content. Item type - 'Toggle button'.Alignment - aligns the selected content. Item type - 'Drop down'.FontName - changes the font family of the selected content. Item type - 'drop-down'.FontSize - changes the font size of the selected content. Item type - 'drop-down'.Formats - changes the format of the current selection. Itme type - 'drop-down'.TableRows - allows to insert/remove a row into a selected table element. Item type - 'drop-down'.TableColumns - allows to insert/remove a column into a selected table element. Itme type - 'drop-down'.TableVAlign - sets the vertical alignment of a selected table cell. Item type - 'drop-down'.TableStyle - sets additional styling to a selected table inside the Editor. Item type - 'drop-down'.BackgroundColor - changes the background color of the current selection. Item type - 'color-input'.FontColor - changes the font color of the current selection. Item type = 'color-input'.Bold - sets the currently selected text as bold or not. Item type - 'button'.Italic - sets the currently selected text as italic. Item type - 'button'. Underline - sets the currently selected text as underlined. Itme type - 'button'.Strikethrough - set the currently selected text as strikethrough. Item type - 'button'.Delete - deletes the current selection. Item type - 'button'.Undo - undoes the last operation. Item type - 'button'.Redo - redoes the previous operation. Item type - 'button'.Indent - indents the current selection once. Item type - 'button'.Outdent - outdents the current selection once. Item type - 'button'.OpenLink - triggers a hyperlink. Item type - 'button'.EditLink - creates/edits the selected hyperlink. Item type - 'button'.CreateLink - creates/edits the selected hyperlink. Item type - 'button'.RemoveLink - removes the currently selected hyperlink. Item type - 'button'.Hyperlink - same as createLink, triggers a Dialog Window for link creation. Item type - 'button'.Cut - Cuts the currently selected text. Item type - 'button'.Copy - copies the currently selected text. Item type - 'button'Paste - pastes the currenly copied/cut text from the Clipboard. Item type = 'button' or 'drop-down' when advanced attribute is set to 'true'.Image - triggers a Dialog Window to insert/edit an image. Item type - 'button'.LowerCase - changes the current selection to lower case. Item type - 'button'.UpperCase - changes the current selection to upper case. Item type - 'button'.Print - opens the browser print preview window. Item type - 'button'.Caption - insert/remove a caption when a table is selected. Item type - 'button'.ClearFormat - removes the formatting of the currntly selected text. Item type - 'button'.Table - triggers a Dialog Window to insert a table. Item type - 'button'.TableHeader - insert/remove a header row to the currently selected table. Item type - 'button'.OrderedList - insert/remove an order list. Item type = 'button'.UnorderedList - insert/remove an unordered list. Item type - 'button'.Subscript - changes the currently selected text to subscript. Item type - 'button'.Superscript - changes the currently selected text to superscript. Item type - 'button'.FindAndReplace - opens a dialog that allows to find and replace text inside the Editor's content section. Item type - 'button'.  The inlineToolbarItems attribute is applicable only to the following items: 'table', 'image', 'hyperlink'. It accepts the same type of value as toolbarItems property but the toolbar items will be placed insinde the Inline Toolbar instead.
    * Default value: bold,italic,underline,|,formats,alignment,orderedList,unorderedList,|,hyperlink,image,|,sourceCode,redo,undo
    */
   toolbarItems?: ToolbarItem[];
+  /**
+   * Determines the toolbar mode of the Editor. The main toolbar of the Editor can appear as a Ribbon or as a Menu.
+   * Default value: menu
+   */
+  toolbarMode?: ToolbarMode;
+  /**
+   * Allows to configure the SingleLineRibbon appearance by changing the order and items of the groups.
+   * Default value: [{"name":"homeTab","groups":[{"name":"undoGroup","items":["undo","redo"]},{"name":"clipboardGroup","items":["cut","copy","paste"]},{"name":"fontGroup","items":["fontName","fontSize","backgroundColor","fontColor","clearFormat","formats","bold","italic","underline","strikethrough","superscript","subscript"]},{"name":"paragraphGroup","items":["orderedList","unorderedList","indent","outdent","alignment"]},{"name":"editingGroup","items":["findAndReplace"]}]},{"name":"insertTab","groups":[{"name":"tableGroup","items":["table"]},{"name":"imageGroup","items":["image"]},{"name":"linkGroup","items":["createLink","removeLink"]}]},{"name":"viewTab","groups":[{"name":"viewsGroup","items":["fullScreen","sourceCode","splitMode"]}]},{"name":"layoutTab","hidden":true,"groups":[{"name":"deleteGroup","items":["delete"]},{"name":"tableGroup","items":["table","tableHeader","tableRows","tableColumns","tableVAlign","tableStyle",""]},{"name":"imageGroup","items":["image","caption"]}]}]
+   */
+  toolbarRibbonConfig?: { name: string, groups: { name: string, items: string[] }[] }[];
   /**
    * Determines the format of the content that will be pasted inside the Editor.
    * Default value: toggle
@@ -317,6 +358,26 @@ export interface Editor extends BaseElement, EditorProperties {
    * This event is triggered when a Toolbar action has ended.
 	* @param event. The custom event.    */
   onActionEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a Context menu item has been clicked.
+	* @param event. The custom event.    */
+  onContextMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is opened.
+	* @param event. The custom event.    */
+  onContextMenuOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is opening. The event can be canceled via event.preventDefault().
+	* @param event. The custom event.    */
+  onContextMenuOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is closed.
+	* @param event. The custom event.    */
+  onContextMenuClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the Context Menu is closing. The event can be canceled via event.preventDefault().
+	* @param event. The custom event.    */
+  onContextMenuClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when an image/table resizing has started.
 	* @param event. The custom event.    */
@@ -370,6 +431,14 @@ export interface Editor extends BaseElement, EditorProperties {
 	* @param event. The custom event.    */
   onToobarItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when a message is closed.
+	* @param event. The custom event.    */
+  onMessageClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a message is opened.
+	* @param event. The custom event.    */
+  onMessageOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Blurs the content of the Editor.
    */
   blur(): void;
@@ -396,7 +465,7 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   enableToolbarItem(itemName: string): void;
   /**
-   * Executes a command via the native <b>execCommand</b> method. The method returns true or false depending on whether the execution was successful or not.
+   * Executes a command via the native <b>execCommand</b> method. The method returns true or false depending on whether the execution was successful or not. The following list of commands can be eexecuted: <ul><li>bold - makes the currently selected content bold. Example: <b>editor.executeCommand('bold');</b></li><li>italic - makes the currently selected content italic. Example: <b>editor.executeCommand('italic');</b></li><li>undelined - makes the currently selected content underlined. Example: <b>editor.executeCommand('underline');</b></li><li>strikeThrough - applies a single line strike through formatting to the currently selected content. Example: <b>editor.executeCommand('strikeThrough');</b></li><li>superscript - sets the selected content as superscript. Example: <b>editor.executeCommand('superscript');</b></li><li>subscript - sets the selected content as superscript. Example: <b>editor.executeCommand('subscript');</b></li><li>uppercase - changes the case of the current selection to upper. Example: <b>editor.executeCommand('uppercase');</b></li><li>lowercase - changes the case of the current selection to lower. Example: <b>editor.executeCommand('lowercase');</b></li><li>foreColor - changes the font color of the current content selection. Example: <b>editor.executeCommand('foreColor', '#000000');</b></li><li>fontName - changes the font name for the selected content. Example: <b>editor.executeCommand('fontName', 'Arial');</b></li><li>fontSize - changes the font size of the currently selected content. Example: <b>editor.executeCommand('fontSize', '15px');</b></li><li>hiliteColor - changes the background color of current selection. Example: <b>editor.executeCommand('hiliteColor', '#000000');</b></li><li>justifyCenter - aligns the content to the center. Example: <b>editor.executeCommand('justifyCenter');</b></li><li>justifyFull - aligns the content to be fully justified. Example: <b>editor.executeCommand('justifyFull');</b></li><li>justifyLeft - aligns the content to the left. Example: <b>editor.executeCommand('justifyLeft');</b></li><li>justifyRight - aligns the content to the right. Example: <b>editor.executeCommand('justifyRight');</b></li><li>undo - allows to undo the previous action. Example: <b>editor.executeCommand('undo');</b></li><li>redo - allows to redo the previous actions. Example: <b>editor.executeCommand('redo');</b></li><li>createLink - creates a hyperlink in the content section of the Editor. Example: <b>editor.executeCommand('createLink', { text: 'Links', url: 'http://', title : 'Link' });</b></li><li>indent - indents the content with one level. Example: <b>editor.executeCommand('indent');</b></li><li>outdent - outdents the content with one level. Example: <b>editor.executeCommand('outdent');</b></li><li>insertHTML - insert an HTML content as string at the current cursor location. Example: <b>editor.executeCommand('insertHTML', '<p>Text</p>');</b></li><li>insertOrderedList - inserts a new numbered list item. Example: <b>editor.executeCommand('insertOrderedList');</b></li><li>insertUnorderedList - inserts a new bulleted list item. Example: <b>editor.executeCommand('insertUnorderedList');</b></li><li>removeFormat - removes the formatting styles from currently selected text. Example: <b>editor.executeCommand('removeFormat');</b></li><li>insertText - inserts a text at the current cursor location. Example: <b>editor.executeCommand('insertText', 'Some text to insert');</b></li><li>insertImage - inserts an image at the current cursor location. Example: <b>editor.executeCommand('insertImage', { url: 'https://www.htmlelements.com/demos/images/carousel-medium-2.jpg'});</b></li></ul>
    * @param {string} commandName. The name of the command to execute.
    * @param {string | number} value?. The value for the command. Some commands require a value to be passed, others do not.
    * @returns {boolean}
@@ -417,10 +486,6 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   getSelectionRange(): any;
   /**
-   * Selects the text inside Editor's content.
-   */
-  selectAll(): void;
-  /**
    * Returns the content of the Editor as HTML. When <b>editMode</b> is set to 'markdown' the markdown is parsed and returned as HTML.
    * @returns {string}
    */
@@ -431,10 +496,25 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   getText(): string;
   /**
-   * Applicable only when <b>editMode</b> is set to 'markdown'. Returns the Editor's content as markdown.
-   * @returns {string}
+   * Hides a specific message or all messages if no argument is provided.
+   * @param {HTMLElement | string | number} item?. Hides a specific message. The argument can be a DOM reference to a specific item, it's index or it's id. If the argument is not provided then all messages will be closed.
    */
-  getMarkdown(): string;
+  hideMessage(item?: HTMLElement | string | number): void;
+  /**
+   * Hides the last shown message.
+   */
+  hideLastMessage(): void;
+  /**
+   * Shows a custom message inside the Editor.
+   * @param {string} message. The text message to be displayed.
+   * @param {any} settings?. Additional settings that can be applied to the Toast element that handles the messages. This parameter should contain only valid Toast properties and values.
+   * @returns {HTMLElement | undefined}
+   */
+  showMessage(message: string, settings?: any): HTMLElement | undefined;
+  /**
+   * Selects the text inside Editor's content.
+   */
+  selectAll(): void;
   /**
    * Selects a range of text inside the Editor.
    * @param {HTMLElement | Node} node. The node to be selected. It can be a text node or an HTML element.
@@ -470,15 +550,55 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   fullScreenMode(value?: boolean): void;
   /**
-   * Exports the content of the Editor in the desired format. The currently supported formats are: HTML, Markdown.
+   * Exports the content of the Editor in the desired format. The currently supported formats are: HTML, Markdown and PDF.
    * @param {string} dataFormat. The expected file format.
    * @param {any} callback?. A callback that is executed before the data is exported. Allows to modify the output.
    */
   exportData(dataFormat: string, callback?: any): void;
   /**
+   * Imports the content of a file to the Editor. The currently supported formats are: TXT or HTML.
+   * @param {any} source. The url to the file or an object that defines settings for the Ajax request like url, timeput, etc. Object format: { url: string, type: string, data: object, timeout: number }
+   * @param {any} settings?. Additional settings for the ajax request. Such as loadError function, contentType, etc. Format: { contentType: string, beforeSend: Function, loadError: Function, beforeLoadComplete: Function  }
+   */
+  importData(source: any, settings?: any): void;
+  /**
    * Opens the Print Preview Panel of the Browser to print Editor's content.
    */
   print(): void;
+}
+
+/**Determines the content filtering settings. */
+export interface EditorContentFiltering {
+  /**
+   * Determines which element attributes to filter.
+   * Default value: null
+   */
+  attributes?: string[];
+  /**
+   * Determines whether to allow (whiteList) or remove (blackList) the specified attributes.
+   * Default value: blackList
+   */
+  attributeFilterMode?: EditorContentFilteringAttributeFilterMode;
+  /**
+   * Determines which element tags to filter.
+   * Default value: null
+   */
+  tags?: string[];
+  /**
+   * Determines whether to allow (whiteList) or remove (blackList) the specified tags.
+   * Default value: blackList
+   */
+  tagFilterMode?: EditorContentFilteringTagFilterMode;
+  /**
+   * Determines which style attributes to filter.
+   * Default value: null
+   */
+  styleAttributes?: string[];
+  /**
+   * Determines whether to allow (whiteList) or remove (blackList) the specified style attributes.
+   * Default value: blackList
+   */
+  styleAttributeFilterMode?: EditorContentFilteringStyleAttributeFilterMode;
 }
 
 /**Sets the Editor's Data Export options. */
@@ -671,9 +791,19 @@ declare global {
     }
 }
 
+/**Determines whether to allow (whiteList) or remove (blackList) the specified attributes. */
+export declare type EditorContentFilteringAttributeFilterMode = 'blackList' | 'whiteList';
+/**Determines whether to allow (whiteList) or remove (blackList) the specified tags. */
+export declare type EditorContentFilteringTagFilterMode = 'blackList' | 'whiteList';
+/**Determines whether to allow (whiteList) or remove (blackList) the specified style attributes. */
+export declare type EditorContentFilteringStyleAttributeFilterMode = 'blackList' | 'whiteList';
+/**Determines the context menu for the Editor. The context menu is triggered when the user right clicks on the content area of the Editor. */
+export declare type EditorContextMenu = 'default' | 'browser' | 'none';
 /**Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode. */
 export declare type EditMode = 'html' | 'markdown';
 /**Determines the format of the content that will be pasted inside the Editor. */
 export declare type PasteFormat = 'prompt' | 'plainText' | 'keepFormat' | 'cleanFormat';
+/**Determines the toolbar mode of the Editor. The main toolbar of the Editor can appear as a Ribbon or as a Menu. */
+export declare type ToolbarMode = 'menu' | 'singleLineRibbon';
 /**Determines the format of the content that will be pasted inside the Editor. */
 export declare type ToolbarViewMode = 'toggle' | 'multiRow' | 'scroll';

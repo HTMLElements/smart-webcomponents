@@ -165,7 +165,6 @@ smart-table {
     &[row-id] {
       td {
         white-space: nowrap;
-        line-height: calc(var(--smart-table-row-height) - 2 * var(--smart-table-cell-padding) - var(--smart-border-width));
       }
     }
   }

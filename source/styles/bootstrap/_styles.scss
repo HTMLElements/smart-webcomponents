@@ -274,11 +274,9 @@ smart-breadcrumb {
 
 /* ACCORDION */
 .smart-accordion {
-  width: 100%;
-  height: auto;
 
   > .smart-container {
-    padding: 0;
+	overflow: hidden;
   }
 
   .smart-accordion-item {
@@ -300,15 +298,15 @@ smart-breadcrumb {
 
     .smart-accordion-item-header,
     .smart-accordion-item-content {
-      padding: $card-spacer-y $card-spacer-x;
+   
     }
 
     .smart-accordion-item-content {
-      height: auto;
+    
     }
 
     .smart-accordion-item-header {
-      height: auto;
+	  padding: 0px;
       background: $card-cap-bg;
 
       .smart-arrow {
@@ -349,7 +347,7 @@ smart-breadcrumb {
 
 
     &[expanded]:not(:last-child) {
-      margin: 0 !important;
+     
     }
   }
 }
@@ -818,6 +816,54 @@ smart-card.card {
       }
     }
   }
+
+  &.alert-holder {
+    background: transparent;
+    padding: 0;
+
+    .smart-alert {
+      margin: 0;
+    }
+
+    .smart-toast-item-header {
+      padding: 0 $toast-padding-x;
+      font-weight: 600;
+      height: 0;
+
+      .smart-toast-item-close-button {
+        color: $toast-header-color;
+
+        margin: 0 10px;
+        width: auto;
+        z-index: 999;
+
+        &:after {
+          content: '×';
+          font-size: 1.5rem;
+          font-weight: 700;
+          line-height: 1;
+          color: $toast-color;
+          text-shadow: 0 1px 0 #fff;
+          opacity: .5;
+        }
+      }
+    }
+
+    .smart-toast-item-container {
+      padding: 0;
+      top: 0;
+
+      .smart-toast-item-icon {
+        display: none;
+      }
+
+      .smart-toast-item-content {
+        margin: 0;
+        width: 100%;
+        text-align: unset;
+      }
+    }
+  }
 }
 
 /* ALERT */
@@ -953,12 +999,9 @@ smart-tooltip {
 }
 
 /* PROGRESSBAR */
-.smart-progress-bar,
-.smart-circular-progress-bar {
+.smart-progress-bar {
   --smart-progress-bar-default-width: var(--smart-editor-width);
   --smart-progress-bar-default-height: #{$progress-height};
-  --smart-circular-progress-bar-default-size: #{$progress-height};
-  --smart-circular-progress-bar-fill-size: 12%;
   --smart-border-top-left-radius: #{$progress-border-radius};
   --smart-border-top-right-radius: #{$progress-border-radius};
   --smart-border-bottom-left-radius: #{$progress-border-radius};
@@ -967,11 +1010,6 @@ smart-tooltip {
   border-width: 1px;
   border-color: $progress-bg;
   color: $progress-bar-color;
-  //box-shadow: $progress-box-shadow;
-
-  &:not([orientation="vertical"]) {
-    width: 100%;
-  }
 
   &:not(.smart-circular-progress-bar) {
     background-color: $progress-bg !important;
@@ -1595,7 +1633,6 @@ smart-carousel {
 
     .smart-tab-strip {
       border-bottom: 1px solid $nav-tabs-border-color;
-      overflow: unset;
       margin-bottom: 1rem;
     }
 
@@ -1634,7 +1671,18 @@ smart-carousel {
     background: transparent;
 
   }
-
+	
+  &[horizontal] {
+  	.smart-nav-button,
+	.smart-tabs-header-items > .smart-drop-down-button {
+		margin-bottom: 1rem;
+	}
+	
+	.smart-tab-group-arrow {
+		height: 1rem;
+	}
+  }
+  
   &[vertical] {
     .smart-header {
       .smart-tab-label-container {
@@ -1651,6 +1699,8 @@ smart-carousel {
 
 /* GRID */
 .smart-grid {
+  --smart-editor-label-padding: 4px;
+
   div[class^="smart-"] {
     line-height: unset;
   }
@@ -1666,7 +1716,15 @@ smart-carousel {
     margin: 0;
     border-radius: 0;
   }
-
+	
+  .smart-grid-command-item {
+    align-items: center;
+	
+	> .smart-grid-icon {
+		font-size: calc(var(--smart-font-size) + 2px);
+	}
+  }
+  
   smart-grid-column {
     background: $body-bg;
   }
@@ -2066,8 +2124,9 @@ smart-carousel {
     display: inline-block;
     margin-bottom: .5rem;
   }
-  smart-multiline-text-box{
-    .smart-label{
+
+  smart-multiline-text-box {
+    .smart-label {
       margin: unset;
       display: none;
     }
@@ -2413,7 +2472,7 @@ body[theme="dark"] {
 /* Tree */
 .smart-tree {
   smart-tree-items-group {
-    .smart-tree-items-group-arrow{
+    .smart-tree-items-group-arrow {
       height: unset;
     }
   }

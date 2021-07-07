@@ -1,6 +1,6 @@
 @charset "UTF-8";
 :root,
-body[theme=dark] {
+body[theme="dark"] {
   --smart-primary-rgb: 67, 160, 71;
   /* The r, g, and b components of the theme primary color */
   --smart-primary: #43A047;
@@ -105,8 +105,6 @@ body[theme=dark] {
   /* smartColorPanel item size */
   --smart-progress-bar-default-height: 7px;
   /* smartProgressBar default height */
-  --smart-circular-progress-bar-default-size: 13px;
-  /* smartCircularProgressBar default size (width = height) */
   --smart-circular-progress-bar-fill-size: 20%;
   --smart-radio-button-default-size: 16px;
   /* Default size for the radio button. */
@@ -125,9 +123,10 @@ body[theme=dark] {
   --smart-grid-cell-background-update: rgba(var(--smart-success-rgb), .3);
   --smart-scroll-bar-thumb-padding: 0px;
   --smart-pager-page-size-selector-width: 65px;
+  --smart-accordion-item-expanded-offset: 0px;
 }
 
-body:not([theme=dark]) {
+body:not([theme="dark"]) {
   --smart-scroll-bar-thumb-background: #ced4da;
   --smart-scroll-bar-thumb-background-hover: #6c757d;
   --smart-scroll-bar-thumb-background-active: #adb5bd;
@@ -145,7 +144,7 @@ body:not([theme=dark]) {
   /* Alternation background color for index0 */
 }
 
-body[theme=dark] {
+body[theme="dark"] {
   --smart-scroll-bar-background: #3E3E42;
   --smart-scroll-bar-border: #1E1E1E;
   --smart-scroll-bar-thumb-background: #686868;
@@ -176,7 +175,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-div[class^=smart-]:not(.smart-alert) {
+div[class^="smart-"]:not(.smart-alert) {
   line-height: 1;
 }
 
@@ -586,12 +585,8 @@ smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadc
 }
 
 /* ACCORDION */
-.smart-accordion {
-  width: 100%;
-  height: auto;
-}
 .smart-accordion > .smart-container {
-  padding: 0;
+  overflow: hidden;
 }
 .smart-accordion .smart-accordion-item {
   background: #ffffff;
@@ -603,15 +598,8 @@ smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadc
 .smart-accordion .smart-accordion-item:hover .smart-accordion-item-header, .smart-accordion .smart-accordion-item[hover] .smart-accordion-item-header, .smart-accordion .smart-accordion-item[focus] .smart-accordion-item-header, .smart-accordion .smart-accordion-item[focused] .smart-accordion-item-header, .smart-accordion .smart-accordion-item[expanded] .smart-accordion-item-header {
   background: rgba(0, 0, 0, 0.03);
 }
-.smart-accordion .smart-accordion-item .smart-accordion-item-header,
-.smart-accordion .smart-accordion-item .smart-accordion-item-content {
-  padding: 0.75rem 1.25rem;
-}
-.smart-accordion .smart-accordion-item .smart-accordion-item-content {
-  height: auto;
-}
 .smart-accordion .smart-accordion-item .smart-accordion-item-header {
-  height: auto;
+  padding: 0px;
   background: rgba(0, 0, 0, 0.03);
 }
 .smart-accordion .smart-accordion-item .smart-accordion-item-header .smart-arrow {
@@ -620,7 +608,7 @@ smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadc
 .smart-accordion .smart-accordion-item .smart-accordion-item-header .smart-label {
   font-size: 1rem;
   color: #43A047;
-  padding: 0.375rem 0.75rem;
+  padding: .375rem .75rem;
 }
 .smart-accordion .smart-accordion-item .smart-container {
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -635,9 +623,6 @@ smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadc
 }
 .smart-accordion .smart-accordion-item:not(:last-of-type) .smart-container {
   border-bottom: 0;
-}
-.smart-accordion .smart-accordion-item[expanded]:not(:last-child) {
-  margin: 0 !important;
 }
 
 /* DROPDOWN BUTTON */
@@ -656,15 +641,15 @@ smart-drop-down-button .smart-drop-down smart-tree {
 smart-drop-down-button .smart-drop-down-container {
   --smart-border: rgba(0, 0, 0, 0.15);
   min-width: 10rem !important;
-  padding: 0.5rem 0 !important;
-  margin: 0.325rem 0 0 !important;
+  padding: .5rem 0 !important;
+  margin: .325rem 0 0 !important;
   font-size: 1rem !important;
   color: #212529;
   text-align: left;
   list-style: none;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   box-shadow: unset !important;
 }
 smart-drop-down-button .smart-date-time-picker .smart-drop-down[bottom],
@@ -714,13 +699,13 @@ smart-drop-down-button .smart-drop-down-button[center-top] .smart-drop-down-butt
 smart-drop-down-button .smart-buttons-container .smart-drop-down-button .smart-drop-down-button-icon:after {
   font-size: unset !important;
   display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
+  margin-left: .255em;
+  vertical-align: .255em;
   content: "" !important;
-  border-top: 0.3em solid;
-  border-right: 0.3em solid transparent;
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
   border-bottom: 0;
-  border-left: 0.3em solid transparent;
+  border-left: .3em solid transparent;
 }
 smart-drop-down-button.primary {
   --smart-button-opacity-hover: 1;
@@ -850,25 +835,25 @@ smart-drop-down-button.dark {
 smart-drop-down-button.dark[opened] {
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-dark-rgb), 0.5) !important;
 }
-smart-drop-down-button[animation=none] .smart-drop-down-container {
+smart-drop-down-button[animation="none"] .smart-drop-down-container {
   animation: unset !important;
 }
-smart-drop-down-button[animation=none] .smart-date-time-picker .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-date-time-picker .smart-drop-down,
-smart-drop-down-button[animation=none] .smart-drop-down-button .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-drop-down-button .smart-drop-down,
-smart-drop-down-button[animation=none] .smart-text-box .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-text-box .smart-drop-down,
-smart-drop-down-button[animation=none] .smart-drop-down-list .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-drop-down-list .smart-drop-down,
-smart-drop-down-button[animation=none] .smart-combo-box .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-combo-box .smart-drop-down,
-smart-drop-down-button[animation=none] .smart-multi-split-button .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-multi-split-button .smart-drop-down,
-smart-drop-down-button[animation=none] .smart-color-picker .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-color-picker .smart-drop-down,
-smart-drop-down-button[animation=none] .smart-path .smart-drop-down[bottom],
-smart-drop-down-button[animation=none] .smart-path .smart-drop-down {
+smart-drop-down-button[animation="none"] .smart-date-time-picker .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-date-time-picker .smart-drop-down,
+smart-drop-down-button[animation="none"] .smart-drop-down-button .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-drop-down-button .smart-drop-down,
+smart-drop-down-button[animation="none"] .smart-text-box .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-text-box .smart-drop-down,
+smart-drop-down-button[animation="none"] .smart-drop-down-list .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-drop-down-list .smart-drop-down,
+smart-drop-down-button[animation="none"] .smart-combo-box .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-combo-box .smart-drop-down,
+smart-drop-down-button[animation="none"] .smart-multi-split-button .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-multi-split-button .smart-drop-down,
+smart-drop-down-button[animation="none"] .smart-color-picker .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-color-picker .smart-drop-down,
+smart-drop-down-button[animation="none"] .smart-path .smart-drop-down[bottom],
+smart-drop-down-button[animation="none"] .smart-path .smart-drop-down {
   animation: unset;
 }
 
@@ -895,10 +880,10 @@ smart-scheduler.no-border {
 smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cells {
   font-weight: bold;
 }
-smart-scheduler[view-type=week] .smart-scheduler-view-header-horizontal .smart-scheduler-cell {
+smart-scheduler[view-type="week"] .smart-scheduler-view-header-horizontal .smart-scheduler-cell {
   border-left: 0;
 }
-smart-scheduler:not([view-type^=timeline]) .smart-scheduler-cells-container .smart-scheduler-cell.scale:not(:last-of-type) {
+smart-scheduler:not([view-type^="timeline"]) .smart-scheduler-cells-container .smart-scheduler-cell.scale:not(:last-of-type) {
   border-color: #dee2e6 !important;
 }
 smart-scheduler:not(.table-primary).striped .smart-scheduler-cells-container .smart-scheduler-cell-container {
@@ -1449,7 +1434,7 @@ smart-card.card .card-footer:last-child {
   -ms-flex-preferred-size: 350px;
   flex-basis: 350px;
   max-width: 350px;
-  font-size: 0.875rem;
+  font-size: .875rem;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
@@ -1473,13 +1458,13 @@ smart-card.card .card-footer:last-child {
   z-index: 999;
 }
 .smart-toast-item.bootstrap .smart-toast-item-header .smart-toast-item-close-button:after {
-  content: "×";
+  content: '×';
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
   color: #343a40;
   text-shadow: 0 1px 0 #fff;
-  opacity: 0.5;
+  opacity: .5;
 }
 .smart-toast-item.bootstrap .smart-toast-item-container {
   padding: 0.75rem;
@@ -1506,6 +1491,45 @@ smart-card.card .card-footer:last-child {
   position: absolute;
   top: -22px;
   color: #6c757d;
+}
+.smart-toast-item.alert-holder {
+  background: transparent;
+  padding: 0;
+}
+.smart-toast-item.alert-holder .smart-alert {
+  margin: 0;
+}
+.smart-toast-item.alert-holder .smart-toast-item-header {
+  padding: 0 0.75rem;
+  font-weight: 600;
+  height: 0;
+}
+.smart-toast-item.alert-holder .smart-toast-item-header .smart-toast-item-close-button {
+  color: #6c757d;
+  margin: 0 10px;
+  width: auto;
+  z-index: 999;
+}
+.smart-toast-item.alert-holder .smart-toast-item-header .smart-toast-item-close-button:after {
+  content: '×';
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #343a40;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+.smart-toast-item.alert-holder .smart-toast-item-container {
+  padding: 0;
+  top: 0;
+}
+.smart-toast-item.alert-holder .smart-toast-item-container .smart-toast-item-icon {
+  display: none;
+}
+.smart-toast-item.alert-holder .smart-toast-item-container .smart-toast-item-content {
+  margin: 0;
+  width: 100%;
+  text-align: unset;
 }
 
 /* ALERT */
@@ -1617,12 +1641,9 @@ smart-tooltip .smart-tooltip-content {
 }
 
 /* PROGRESSBAR */
-.smart-progress-bar,
-.smart-circular-progress-bar {
+.smart-progress-bar {
   --smart-progress-bar-default-width: var(--smart-editor-width);
   --smart-progress-bar-default-height: 1rem;
-  --smart-circular-progress-bar-default-size: 1rem;
-  --smart-circular-progress-bar-fill-size: 12%;
   --smart-border-top-left-radius: 0.25rem;
   --smart-border-top-right-radius: 0.25rem;
   --smart-border-bottom-left-radius: 0.25rem;
@@ -1631,16 +1652,10 @@ smart-tooltip .smart-tooltip-content {
   border-color: #e9ecef;
   color: #ffffff;
 }
-.smart-progress-bar:not([orientation=vertical]),
-.smart-circular-progress-bar:not([orientation=vertical]) {
-  width: 100%;
-}
-.smart-progress-bar:not(.smart-circular-progress-bar),
-.smart-circular-progress-bar:not(.smart-circular-progress-bar) {
+.smart-progress-bar:not(.smart-circular-progress-bar) {
   background-color: #e9ecef !important;
 }
-.smart-progress-bar .smart-value-path,
-.smart-circular-progress-bar .smart-value-path {
+.smart-progress-bar .smart-value-path {
   stroke: #e9ecef;
 }
 
@@ -1665,7 +1680,7 @@ smart-tooltip .smart-tooltip-content {
   height: auto;
 }
 .smart-window .smart-content-container > .smart-header-section .smart-buttons-container .smart-button {
-  opacity: 0.5;
+  opacity: .5;
 }
 .smart-window .smart-content-container > .smart-header-section .smart-buttons-container .smart-button:after {
   text-shadow: 0 1px 0 #fff;
@@ -1678,7 +1693,7 @@ smart-tooltip .smart-tooltip-content {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
-  content: "×";
+  content: '×';
 }
 .smart-window .smart-content-container > .smart-header-section .smart-header {
   line-height: 1.5;
@@ -1737,7 +1752,7 @@ smart-carousel.slider .smart-slide-wrapper {
   background-position: center center;
 }
 smart-carousel.slider .smart-slide-wrapper:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   right: 0;
@@ -1793,8 +1808,8 @@ smart-carousel.slider .smart-indicators-container .smart-indicator {
   background-clip: padding-box;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  opacity: 0.5;
-  transition: opacity 0.6s ease;
+  opacity: .5;
+  transition: opacity .6s ease;
 }
 smart-carousel.slider .smart-indicators-container .smart-indicator.smart-active {
   opacity: 1;
@@ -1833,7 +1848,7 @@ smart-carousel.slider .smart-arrow:hover {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   background-color: #e9ecef;
-  border-radius: 0.3rem;
+  border-radius: .3rem;
 }
 @media (min-width: 576px) {
   .jumbotron {
@@ -1844,7 +1859,7 @@ smart-carousel.slider .smart-arrow:hover {
   font-size: 3.5rem;
   font-weight: 300;
   line-height: 1.2;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   margin-top: 0;
 }
 .jumbotron p.lead {
@@ -1933,31 +1948,31 @@ smart-carousel.slider .smart-arrow:hover {
   --smart-check-box-default-size: 14px;
   --smart-list-item-check-box-radius: 4px;
 }
-.smart-list-box[selection-mode=checkBox][focus] .smart-list-item[focus][selected] .smart-input:before {
+.smart-list-box[selection-mode="checkBox"][focus] .smart-list-item[focus][selected] .smart-input:before {
   display: none !important;
 }
-.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=radioButton] .smart-overlay,
-.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=radioButton] .smart-content,
-.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=checkBox] .smart-overlay,
-.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=checkBox] .smart-content {
+.smart-list-box[selection-mode="checkBox"] .smart-list-item[display-mode="radioButton"] .smart-overlay,
+.smart-list-box[selection-mode="checkBox"] .smart-list-item[display-mode="radioButton"] .smart-content,
+.smart-list-box[selection-mode="checkBox"] .smart-list-item[display-mode="checkBox"] .smart-overlay,
+.smart-list-box[selection-mode="checkBox"] .smart-list-item[display-mode="checkBox"] .smart-content {
   padding: 5px;
   left: calc(22px + var(--smart-check-box-default-size));
   width: calc(100% - 22px - var(--smart-check-box-default-size));
 }
-.smart-list-box[selection-mode=checkBox] .smart-list-item[selected] .smart-input {
+.smart-list-box[selection-mode="checkBox"] .smart-list-item[selected] .smart-input {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.smart-list-box[selection-mode=checkBox] .smart-list-item[selected] .smart-input:after {
-  content: "";
+.smart-list-box[selection-mode="checkBox"] .smart-list-item[selected] .smart-input:after {
+  content: '';
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center bottom;
   width: 100%;
   height: 100%;
 }
-.smart-list-box[selection-mode=checkBox] .smart-list-item[focus] .smart-input {
+.smart-list-box[selection-mode="checkBox"] .smart-list-item[focus] .smart-input {
   --smart-border: #43A047;
   --smart-outline: #43A047;
   box-shadow: 0 0 0 0.2rem rgba(67, 160, 71, 0.25) !important;
@@ -1982,11 +1997,11 @@ smart-carousel.slider .smart-arrow:hover {
   border-width: 1px;
   border-style: solid !important;
   border-color: rgba(0, 0, 0, 0.15) !important;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   box-shadow: unset !important;
 }
-.smart-menu[animation=none],
-.smart-drop-down[animation=none] {
+.smart-menu[animation="none"],
+.smart-drop-down[animation="none"] {
   animation: unset !important;
 }
 
@@ -2012,7 +2027,7 @@ smart-carousel.slider .smart-arrow:hover {
   list-style: none;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   box-shadow: unset !important;
 }
 .smart-input-drop-down-menu ul li a {
@@ -2022,14 +2037,14 @@ smart-carousel.slider .smart-arrow:hover {
   background: #e9ecef !important;
   color: #212529 !important;
 }
-.smart-input-drop-down-menu[animation=none] {
+.smart-input-drop-down-menu[animation="none"] {
   animation: unset !important;
 }
 
 .smart-drop-down-box .smart-drop-down-button {
   border-left-style: unset;
 }
-.smart-drop-down-box.smart-invalid:not([drop-down-open-mode=dropDownButton]) .smart-action-button {
+.smart-drop-down-box.smart-invalid:not([drop-down-open-mode="dropDownButton"]) .smart-action-button {
   border-bottom-color: var(--smart-error) !important;
 }
 
@@ -2156,17 +2171,17 @@ smart-carousel.slider .smart-arrow:hover {
 .smart-sortable ul li, .smart-sortable ol li {
   position: relative;
   display: block;
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 .smart-sortable ul li:first-child, .smart-sortable ol li:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
 }
 .smart-sortable ul li:last-child, .smart-sortable ol li:last-child {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: .25rem;
 }
 .smart-sortable ul li + li, .smart-sortable ol li + li {
   border-top-width: 0;
@@ -2200,7 +2215,6 @@ smart-carousel.slider .smart-arrow:hover {
 }
 .smart-tabs .smart-header .smart-tab-strip {
   border-bottom: 1px solid #dee2e6;
-  overflow: unset;
   margin-bottom: 1rem;
 }
 .smart-tabs .smart-header .smart-tab-label-container {
@@ -2230,6 +2244,13 @@ smart-carousel.slider .smart-arrow:hover {
   border: 0;
   background: transparent;
 }
+.smart-tabs[horizontal] .smart-nav-button,
+.smart-tabs[horizontal] .smart-tabs-header-items > .smart-drop-down-button {
+  margin-bottom: 1rem;
+}
+.smart-tabs[horizontal] .smart-tab-group-arrow {
+  height: 1rem;
+}
 .smart-tabs[vertical] .smart-header .smart-tab-label-container {
   border: 1px solid #dee2e6 !important;
   border-radius: 0;
@@ -2239,7 +2260,10 @@ smart-carousel.slider .smart-arrow:hover {
 }
 
 /* GRID */
-.smart-grid div[class^=smart-] {
+.smart-grid {
+  --smart-editor-label-padding: 4px;
+}
+.smart-grid div[class^="smart-"] {
   line-height: unset;
 }
 .smart-grid > .smart-container .smart-grid-pager {
@@ -2251,6 +2275,12 @@ smart-carousel.slider .smart-arrow:hover {
   border: 0;
   margin: 0;
   border-radius: 0;
+}
+.smart-grid .smart-grid-command-item {
+  align-items: center;
+}
+.smart-grid .smart-grid-command-item > .smart-grid-icon {
+  font-size: calc(var(--smart-font-size) + 2px);
 }
 .smart-grid smart-grid-column {
   background: #ffffff;
@@ -2282,7 +2312,7 @@ smart-carousel.slider .smart-arrow:hover {
   border-radius: 0.45rem;
 }
 .smart-grid .smart-check-box.smart-toggle-box[checked] .smart-input:after {
-  content: "";
+  content: '';
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center center;
@@ -2290,28 +2320,28 @@ smart-carousel.slider .smart-arrow:hover {
 .smart-grid smart-grid-column[checkbox][selected] .smart-input:not(.smart-grid-cell-editor):after,
 .smart-grid smart-grid-cell[checkbox][selected] .smart-input:not(.smart-grid-cell-editor):after {
   top: 0 !important;
-  content: "" !important;
+  content: '' !important;
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center center;
 }
 .smart-grid [checkbox] .smart-input[checked]:after {
   top: 0 !important;
-  content: "" !important;
+  content: '' !important;
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center center;
 }
-.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor):hover,
-.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor):hover,
+.smart-grid [editor="checkBox"] .smart-input:not(.smart-grid-cell-editor):hover,
+.smart-grid [template="checkBox"] .smart-input:not(.smart-grid-cell-editor):hover,
 .smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor):hover,
 .smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor):hover {
   background: rgba(var(--smart-primary-rgb), .5);
   border: var(--smart-border-width) solid var(--smart-border);
 }
-.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor):hover:focus, .smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor):hover[focus],
-.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor):hover:focus,
-.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor):hover[focus],
+.smart-grid [editor="checkBox"] .smart-input:not(.smart-grid-cell-editor):hover:focus, .smart-grid [editor="checkBox"] .smart-input:not(.smart-grid-cell-editor):hover[focus],
+.smart-grid [template="checkBox"] .smart-input:not(.smart-grid-cell-editor):hover:focus,
+.smart-grid [template="checkBox"] .smart-input:not(.smart-grid-cell-editor):hover[focus],
 .smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor):hover:focus,
 .smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor):hover[focus],
 .smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor):hover:focus,
@@ -2435,14 +2465,14 @@ smart-carousel.slider .smart-arrow:hover {
 }
 
 /* DOCKING LAYOUT */
-.smart-docking-layout .smart-tabs[tab-text-orientation=vertical] .smart-header .smart-tab-label-container {
+.smart-docking-layout .smart-tabs[tab-text-orientation="vertical"] .smart-header .smart-tab-label-container {
   border: 1px solid #dee2e6 !important;
 }
-.smart-docking-layout .smart-tabs[tab-text-orientation=vertical] .smart-header .smart-tab-label-container:last-of-type {
+.smart-docking-layout .smart-tabs[tab-text-orientation="vertical"] .smart-header .smart-tab-label-container:last-of-type {
   border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
   border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
 }
-.smart-docking-layout .smart-tabs[tab-text-orientation=vertical] .smart-header .smart-tab-label-container.smart-tab-selected {
+.smart-docking-layout .smart-tabs[tab-text-orientation="vertical"] .smart-header .smart-tab-label-container.smart-tab-selected {
   border-bottom: 1px solid #dee2e6 !important;
 }
 
@@ -2487,17 +2517,17 @@ smart-carousel.slider .smart-arrow:hover {
   font-size: 1rem !important;
   color: #212529;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   box-shadow: unset !important;
 }
-.smart-menu[animation=none] .smart-menu-drop-down {
+.smart-menu[animation="none"] .smart-menu-drop-down {
   animation: unset !important;
 }
-.smart-menu[aria-orientation=horizontal] {
+.smart-menu[aria-orientation="horizontal"] {
   --smart-surface: #f8f9fa;
   --smart-surface-color: rgba(0, 0, 0, 0.9);
   border: 0 !important;
-  padding: 0.5rem 1rem;
+  padding: .5rem 1rem;
 }
 .smart-menu smart-menu-item[level="1"],
 .smart-menu smart-menu-items-group[level="1"] {
@@ -2564,13 +2594,13 @@ smart-carousel.slider .smart-arrow:hover {
 .smart-menu .smart-arrow-down:after {
   box-sizing: border-box;
   display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
+  margin-left: .255em;
+  vertical-align: .255em;
   content: "";
-  border-top: 0.3em solid;
-  border-right: 0.3em solid transparent;
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
   border-bottom: 0;
-  border-left: 0.3em solid transparent;
+  border-left: .3em solid transparent;
   width: unset;
   height: unset;
 }
@@ -2601,7 +2631,7 @@ smart-carousel.slider .smart-arrow:hover {
   border-radius: 0.45rem;
 }
 .smart-check-box.smart-toggle-box[checked] .smart-input:after {
-  content: "";
+  content: '';
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center center;
@@ -2617,7 +2647,7 @@ smart-carousel.slider .smart-arrow:hover {
 .field-holder .smart-label,
 .field-holder label {
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 .field-holder smart-multiline-text-box .smart-label {
   margin: unset;
@@ -2687,7 +2717,7 @@ smart-password-text-box.smart-password-text-box.smart-validation-error,
 smart-date-time-picker.smart-date-time-picker.smart-validation-error,
 smart-multiline-text-box.smart-multiline-text-box.smart-validation-error,
 smart-input.smart-input.smart-validation-error {
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
 smart-date-input.smart-date-input.smart-validation-success:not(smart-check-box) > div.smart-container:after, smart-date-input.smart-date-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
 smart-text-area.smart-text-area.smart-validation-success:not(smart-check-box) > div.smart-container:after,
@@ -3084,12 +3114,12 @@ smart-multiline-text-box.smart-multiline-text-box.smart-validation-success .smar
   background-position: right calc(.375em + .1875rem) top calc(.375em + .1875rem);
 }
 
-smart-color-picker.smart-color-picker[hover]:not([drop-down-open-mode=dropDownButton]) .smart-action-button,
-smart-color-picker.smart-color-picker[hover]:not([drop-down-open-mode=dropDownButton]) .smart-drop-down-button,
-smart-combo-box.smart-combo-box[hover]:not([drop-down-open-mode=dropDownButton]) .smart-action-button,
-smart-combo-box.smart-combo-box[hover]:not([drop-down-open-mode=dropDownButton]) .smart-drop-down-button,
-smart-drop-down-list.smart-drop-down-list[hover]:not([drop-down-open-mode=dropDownButton]) .smart-action-button,
-smart-drop-down-list.smart-drop-down-list[hover]:not([drop-down-open-mode=dropDownButton]) .smart-drop-down-button {
+smart-color-picker.smart-color-picker[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-action-button,
+smart-color-picker.smart-color-picker[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-drop-down-button,
+smart-combo-box.smart-combo-box[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-action-button,
+smart-combo-box.smart-combo-box[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-drop-down-button,
+smart-drop-down-list.smart-drop-down-list[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-action-button,
+smart-drop-down-list.smart-drop-down-list[hover]:not([drop-down-open-mode="dropDownButton"]) .smart-drop-down-button {
   background-color: var(--smart-surface);
   border-color: var(--smart-border);
 }
@@ -3156,7 +3186,7 @@ smart-drop-down-list.smart-drop-down-list.smart-validation-error .smart-action-b
   color: #dc3545;
   padding: 0;
   font-size: 80%;
-  margin-top: 0.3rem;
+  margin-top: .3rem;
   z-index: -1;
 }
 
@@ -3185,13 +3215,13 @@ smart-combo-box.smart-combo-box .smart-resize-trigger-container {
   --smart-border: rgba(0, 0, 0, 0.15);
   min-width: 10rem !important;
   padding: 0 !important;
-  margin: 0.325rem 0 0 !important;
+  margin: .325rem 0 0 !important;
   font-size: 1rem !important;
   text-align: left;
   list-style: none;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   box-shadow: unset !important;
   animation: unset !important;
 }
@@ -3219,42 +3249,42 @@ smart-combo-box.smart-combo-box .smart-resize-trigger-container {
   display: none !important;
 }
 
-body[theme=dark] .smart-alert.smart-alert-primary {
+body[theme="dark"] .smart-alert.smart-alert-primary {
   color: #204d22;
   background-color: #7fca83;
   border-color: #b9e2bb;
 }
-body[theme=dark] .smart-alert.smart-alert-secondary {
+body[theme="dark"] .smart-alert.smart-alert-secondary {
   color: #363a3e;
   background-color: #a1a8ae;
   border-color: #cdd1d4;
 }
-body[theme=dark] .smart-alert.smart-alert-success {
+body[theme="dark"] .smart-alert.smart-alert-success {
   color: #11481e;
   background-color: #5dd879;
   border-color: #9fe8af;
 }
-body[theme=dark] .smart-alert.smart-alert-info {
+body[theme="dark"] .smart-alert.smart-alert-info {
   color: #0a4650;
   background-color: #4cd3e9;
   border-color: #95e5f2;
 }
-body[theme=dark] .smart-alert.smart-alert-warning {
+body[theme="dark"] .smart-alert.smart-alert-warning {
   color: #916d00;
   background-color: #ffdb6d;
   border-color: #ffefbf;
 }
-body[theme=dark] .smart-alert.smart-alert-error {
+body[theme="dark"] .smart-alert.smart-alert-error {
   color: #851722;
   background-color: #eb8c95;
   border-color: #f7d1d5;
 }
-body[theme=dark] .smart-alert.smart-alert-light {
+body[theme="dark"] .smart-alert.smart-alert-light {
   color: #b4bec9;
   background-color: white;
   border-color: white;
 }
-body[theme=dark] .smart-alert.smart-alert-dark {
+body[theme="dark"] .smart-alert.smart-alert-dark {
   color: black;
   background-color: #626d78;
   border-color: #8b96a1;
@@ -3299,7 +3329,7 @@ body[theme=dark] .smart-alert.smart-alert-dark {
   background-color: rgba(67, 160, 71, 0.1);
 }
 
-.smart-drop-down-box[drop-down-open-mode=dropDownButton] .smart-action-button {
+.smart-drop-down-box[drop-down-open-mode="dropDownButton"] .smart-action-button {
   padding-left: 0;
 }
 

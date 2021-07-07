@@ -6,7 +6,7 @@ smart-scheduler {
   height: var(--smart-scheduler-default-height);
   contain: content;
 
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     overflow: hidden;
     display: grid;
@@ -18,20 +18,17 @@ smart-scheduler {
       grid-template-rows: var(--smart-scheduler-header-height) minmax(0, 1fr) var(--smart-scheduler-footer-height);
     }
 
-    &.hscroll {
-      > .smart-scheduler-view {
-        height: calc(100% - var(--smart-scroll-bar-size));
-      }
+    &.hscroll .smart-scheduler-view {
+      height: calc(100% - var(--smart-scroll-bar-size));
     }
 
-    &.vscroll {
-      > .smart-scheduler-view {
-        width: calc(100% - var(--smart-scroll-bar-size));
-      }
+    &.vscroll .smart-scheduler-view {
+      width: calc(100% - var(--smart-scroll-bar-size));
     }
   }
 
   .smart-scheduler-nav {
+
     &[today],
     &[prev],
     &[current],
@@ -96,6 +93,7 @@ smart-scheduler {
 
     &[prev],
     &[next] {
+
       &[focus],
       &[focus] {
         button {
@@ -201,7 +199,7 @@ smart-scheduler {
         flex-direction: column;
 
         .smart-scheduler-cell-container:not(:last-of-type) {
-          > .smart-scheduler-cell {
+          >.smart-scheduler-cell {
             border-bottom: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-horizontal-line-color);
           }
         }
@@ -249,7 +247,7 @@ smart-scheduler {
           width: 100%;
           height: 100%;
           display: block;
-          
+
         }
       }
 
@@ -326,7 +324,7 @@ smart-scheduler {
       min-width: initial;
       align-items: flex-start;
 
-      > div {
+      >div {
         overflow: hidden;
         text-overflow: ellipsis;
         background: inherit;
@@ -379,7 +377,7 @@ smart-scheduler {
         border-left: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
         border-right: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
 
-        > div {
+        >div {
           overflow: hidden;
           text-overflow: ellipsis;
           padding: var(--smart-scheduler-timeline-header-horizontal-label-padding);
@@ -504,7 +502,7 @@ smart-scheduler {
     font-weight: var(--smart-scheduler-timeline-all-day-label-font-weight);
     padding: var(--smart-scheduler-timeline-header-cell-padding);
 
-    > div {
+    >div {
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -591,7 +589,7 @@ smart-scheduler {
       justify-content: center;
       border-radius: initial;
 
-      > span {
+      >span {
         text-overflow: ellipsis;
         overflow: hidden;
       }
@@ -610,6 +608,9 @@ smart-scheduler {
     }
   }
 
+  &[disable-view-menu] .smart-scheduler-view-items-button {
+    transform: scale(0);
+  }
 
   //CELLS
   .smart-scheduler-cells {
@@ -710,7 +711,7 @@ smart-scheduler {
       color: var(--smart-background-color);
       border-color: var(--smart-border);
 
-      > div {
+      >div {
         opacity: 0.5;
       }
     }
@@ -771,8 +772,9 @@ smart-scheduler {
       top: 0;
     }
 
-    &[hover],
-    &[focus] {
+    &[hover]:not([collector]),
+    &[focus]:not([collector]) {
+
       &:before,
       &:after {
         transform: scale(1);
@@ -794,6 +796,7 @@ smart-scheduler {
     }
 
     &:not([collector]) {
+
       &:after,
       &:before {
         content: '';
@@ -828,7 +831,7 @@ smart-scheduler {
     }
 
     .smart-scheduler-event-content {
-      > div {
+      >div {
         max-width: 100%;
         max-height: 100%;
         overflow: hidden;
@@ -845,13 +848,13 @@ smart-scheduler {
       }
 
       &:not([single-line]) {
-        > div:not(:first-of-type) {
+        >div:not(:first-of-type) {
           grid-column: 1 / span 2;
         }
       }
 
       &[single-line] {
-        > div {
+        >div {
           align-self: initial;
         }
       }
@@ -882,7 +885,7 @@ smart-scheduler {
         grid-template-columns: minmax(0, 1fr);
         grid-column-gap: 5px;
 
-        > div {
+        >div {
           align-self: initial;
           white-space: nowrap;
         }
@@ -992,7 +995,7 @@ smart-scheduler {
         //  grid-column: 1 / span 2;
         //}
 
-        &:not([single-line]) > div {
+        &:not([single-line])>div {
           grid-column: 1 / span 2;
         }
       }
@@ -1064,7 +1067,7 @@ smart-scheduler {
     justify-content: center;
     padding: var(--smart-scheduler-timeline-header-cell-padding);
 
-    > div {
+    >div {
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -1129,7 +1132,7 @@ smart-scheduler {
   }
 
   .smart-scheduler-item {
-    > div {
+    >div {
       position: relative;
       align-items: center;
       overflow: hidden;
@@ -1148,7 +1151,7 @@ smart-scheduler {
       font-weight: var(--smart-scheduler-timeline-all-day-label-font-weight);
       white-space: var(--smart-scheduler-timeline-group-white-space);
 
-      > div {
+      >div {
         overflow: hidden;
         text-overflow: ellipsis;
       }
@@ -1236,7 +1239,7 @@ smart-scheduler {
       border-radius: 5px;
       height: var(--smart-scheduler-toast-default-height);
 
-      > .smart-container {
+      >.smart-container {
         display: flex;
         flex-direction: row-reverse;
       }
@@ -1303,10 +1306,11 @@ smart-scheduler {
         margin-left: 20px;
       }
 
-      > span {
+      >span {
         overflow: hidden;
         text-overflow: ellipsis;
         pointer-events: none;
+
         @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
           width: 0;
         }
@@ -1331,10 +1335,10 @@ smart-scheduler {
     background: var(--smart-scheduler-shader-background);
   }
 
-  .smart-scheduler-item > div,
+  .smart-scheduler-item>div,
   .smart-scheduler-view-header-horizontal .smart-scheduler-cell,
   .smart-scheduler-view-header-vertical .smart-scheduler-cell,
-  .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale) > div,
+  .smart-scheduler-cells-container .smart-scheduler-cell:not(.scale)>div,
   .smart-scheduler-view-all-day-label {
     -moz-user-select: none;
     -ms-user-select: none;

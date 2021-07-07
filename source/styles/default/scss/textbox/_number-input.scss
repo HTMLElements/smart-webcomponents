@@ -1,5 +1,5 @@
 //Number input
-smart-number-input{
+smart-number-input {
   --smart-outline: var(--smart-primary);
   display: inline-block;
   width: var(--smart-text-box-default-width);
@@ -11,8 +11,9 @@ smart-number-input{
   border-top-right-radius: var(--smart-border-top-right-radius);
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  text-align: right;
 
-  > .smart-container {
+  >.smart-container {
     display: flex;
   }
 
@@ -91,6 +92,7 @@ smart-number-input{
 
   &[disabled] {
     .nav {
+
       .up,
       .down {
         pointer-events: none;
@@ -99,7 +101,7 @@ smart-number-input{
   }
 
   &[right-to-left] {
-    > .smart-container {
+    >.smart-container {
       direction: rtl;
     }
 
@@ -120,7 +122,7 @@ smart-number-input{
       border-bottom-right-radius: var(--smart-border-bottom-right-radius);
     }
 
-    &[focus]{
+    &[focus] {
       .nav {
         border-color: var(--smart-outline);
       }
