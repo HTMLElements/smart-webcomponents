@@ -1,133 +1,150 @@
 smart-filter-panel {
-    width: var(--smart-filter-panel-default-width);
-    height: var(--smart-filter-panel-default-height);
-}
-
-smart-filter-panel.smart-element {
+  width: var(--smart-filter-panel-default-width);
+  height: var(--smart-filter-panel-default-height); }
+  smart-filter-panel.smart-element {
     padding: var(--smart-filter-panel-padding);
-    border: none;
-}
+    border: none; }
 
+.smart-filter-panel .smart-filter-panel-input:focus,
+.smart-filter-panel .smart-filter-panel-input:active {
+  border-color: var(--smart-primary); }
 .smart-filter-panel smart-numeric-text-box.smart-filter-panel-input input {
-    text-align: right;
-}
-
+  text-align: right; }
 .smart-filter-panel smart-tree,
 .smart-filter-panel smart-filter-builder {
-    width: 100%;
-    height: var(--smart-filter-panel-main-element-height);
-    margin-bottom: var(--smart-filter-panel-vertical-offset);
-}
-
+  width: 100%;
+  height: var(--smart-filter-panel-main-element-height);
+  margin-bottom: var(--smart-filter-panel-vertical-offset); }
 .smart-filter-panel smart-tree.date-excel smart-tree-items-group[level="1"] > .smart-tree-item-label-container > .smart-tree-items-group-arrow {
-    visibility: hidden;
-}
-
+  visibility: hidden; }
 .smart-filter-panel smart-tree.standard-excel .smart-tree-items-group-arrow {
-    visibility: hidden;
-}
-
+  visibility: hidden; }
 .smart-filter-panel smart-tree.standard-excel smart-tree-item:not([level="1"]) > .smart-tree-item-label-container {
-    margin-left: -30px;
-}
-
+  margin-left: -30px; }
 .smart-filter-panel smart-filter-builder {
-    --smart-filter-builder-item-width: 150px;
-    display: block;
-}
-
-.smart-filter-panel smart-filter-builder .smart-filter-field-name {
-    display: none;
-}
-
-.smart-filter-panel smart-filter-builder .smart-scroll-viewer-content-container {
-    padding: 0;
-}
-
-.smart-filter-panel smart-filter-builder .smart-content-container > .smart-filter-group > .smart-filter-group-operator {
-    margin-left: 15px;
-}
-
-.smart-filter-panel smart-filter-builder .smart-filter-group-condition-container {
-    padding-left: 15px;
-}
-
+  --smart-filter-builder-item-width: 150px;
+  display: block; }
+  .smart-filter-panel smart-filter-builder .smart-filter-field-name {
+    display: none; }
+  .smart-filter-panel smart-filter-builder .smart-scroll-viewer-content-container {
+    padding: 0; }
+  .smart-filter-panel smart-filter-builder .smart-content-container > .smart-filter-group > .smart-filter-group-operator {
+    margin-left: 15px; }
+  .smart-filter-panel smart-filter-builder .smart-filter-group-condition-container {
+    padding-left: 15px; }
 .smart-filter-panel smart-menu-item[value="notand"], .smart-filter-panel smart-menu-item[value="notor"] {
-    display: none;
-}
-
+  display: none; }
 .smart-filter-panel .smart-filter-panel-label {
-    margin-bottom: var(--smart-filter-panel-vertical-offset);
-}
-
+  margin-bottom: var(--smart-filter-panel-vertical-offset); }
 .smart-filter-panel .smart-filter-panel-list {
-    width: 100%;
-    margin-bottom: var(--smart-filter-panel-vertical-offset);
-}
-
+  width: 100%;
+  margin-bottom: var(--smart-filter-panel-vertical-offset); }
 .smart-filter-panel .smart-filter-panel-operator-list {
-    width: 80px;
-    margin-bottom: var(--smart-filter-panel-vertical-offset);
-}
-
+  width: 80px;
+  margin-bottom: var(--smart-filter-panel-vertical-offset); }
 .smart-filter-panel .smart-filter-panel-button-container {
-    width: 100%;
-    min-height: 33px;
-    height: var(--smart-editor-height);
-    display: flex;
-    justify-content: space-around;
-}
-
-.smart-filter-panel .smart-filter-panel-button-container > smart-button {
-    width: 80px;
-}
-
-.smart-filter-panel .smart-filter-panel-button-container > smart-button button {
-    padding: 8px;
-}
-
+  width: 100%;
+  min-height: 33px;
+  height: var(--smart-editor-height);
+  display: flex;
+  justify-content: space-around; }
+  .smart-filter-panel .smart-filter-panel-button-container > smart-button {
+    width: 80px; }
+    .smart-filter-panel .smart-filter-panel-button-container > smart-button button {
+      padding: 8px; }
 .smart-filter-panel .smart-filter-panel-input {
-    height: var(--smart-editor-height);
-    width: 100%;
-    display: block;
-    margin-bottom: var(--smart-filter-panel-vertical-offset);
-}
-
+  height: var(--smart-editor-height);
+  width: 100%;
+  display: block;
+  margin-bottom: var(--smart-filter-panel-vertical-offset); }
+  .smart-filter-panel .smart-filter-panel-input.case-sensitive {
+    width: calc(100% - 32px);
+    display: inline-block; }
 .smart-filter-panel[filter-type="string"] smart-filter-builder {
-    height: calc(var(--smart-filter-panel-main-element-height) - var(--smart-editor-height));
-    margin-bottom: 0;
-}
-
+  height: calc(var(--smart-filter-panel-main-element-height) - var(--smart-editor-height));
+  margin-bottom: 0; }
 .smart-filter-panel[filter-type="string"] .case-sensitive {
-    display: block;
-    margin-top: 5px;
-    margin-bottom: calc(var(--smart-filter-panel-vertical-offset) - 5px);
-}
-
+  display: block;
+  margin-top: 5px;
+  margin-bottom: calc(var(--smart-filter-panel-vertical-offset) - 5px); }
 .smart-filter-panel[filter-type="boolean"] smart-filter-builder {
-    --smart-filter-builder-item-width: 34px;
-}
-
-.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-filter-value,
-.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container {
-    min-width: initial;
-}
-
-.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-value-container {
-    width: 100px;
-}
-
-.smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container[open] .smart-check-box-editor {
-    width: 100%;
-}
-
+  --smart-filter-builder-item-width: 34px; }
+  .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-filter-value,
+  .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container {
+    min-width: initial; }
+  .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-value-container {
+    width: 100px; }
+  .smart-filter-panel[filter-type="boolean"] smart-filter-builder .smart-editors-container[open] .smart-check-box-editor {
+    width: 100%; }
 .smart-filter-panel[right-to-left] {
-    direction: rtl;
-}
-
-.smart-filter-panel[right-to-left] smart-tree.standard-excel smart-tree-item:not([level="1"]) > .smart-tree-item-label-container {
+  direction: rtl; }
+  .smart-filter-panel[right-to-left] smart-tree.standard-excel smart-tree-item:not([level="1"]) > .smart-tree-item-label-container {
     margin-right: -30px;
-    margin-left: unset;
-}
+    margin-left: unset; }
+.smart-filter-panel span.case-sensitive.smart-icon {
+  font-family: var(--smart-font-family-icon);
+  font-size: 16px;
+  position: relative;
+  margin-left: 5px;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: var(--smart-border-radius); }
+  .smart-filter-panel span.case-sensitive.smart-icon.smart-icon-font-size:after {
+    content: var(--smart-icon-fontsize); }
+  .smart-filter-panel span.case-sensitive.smart-icon:hover {
+    background: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+    border: 1px solid var(--smart-ui-state-border-hover); }
+  .smart-filter-panel span.case-sensitive.smart-icon:active, .smart-filter-panel span.case-sensitive.smart-icon.active {
+    background: var(--smart-ui-state-active);
+    color: var(--smart-ui-state-color-active);
+    border: 1px solid var(--smart-ui-state-border-active); }
+
+.smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon {
+  font-family: var(--smart-font-family-icon);
+  margin-right: 5px;
+  font-size: 16px;
+  position: relative;
+  left: -3px; }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-contains:after {
+    content: var(--smart-icon-contains); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-starts-with:after {
+    content: var(--smart-icon-starts_with); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-ends-with:after {
+    content: var(--smart-icon-ends_with); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-does-not-contain:after {
+    content: var(--smart-icon-does_not_contain); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-equal:after {
+    content: var(--smart-icon-equals); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-greater-than:after {
+    content: var(--smart-icon-greater-than); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-greater-than-equal:after {
+    content: var(--smart-icon-greater-than-equal); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-less-than:after {
+    content: var(--smart-icon-less-than); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-less-than-equal:after {
+    content: var(--smart-icon-less-than-equal); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-not-equal:after {
+    content: var(--smart-icon-not-equal); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-between:after {
+    content: var(--smart-icon-between); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-empty:after {
+    content: var(--smart-icon-check-empty);
+    position: relative;
+    top: 1px; }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-not-empty:after {
+    content: var(--smart-icon-check-empty);
+    position: relative;
+    top: 1px; }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-not-empty:before {
+    content: var(--smart-icon-close);
+    font-size: 10px;
+    left: calc(50% - 4px);
+    top: calc(50% - 5px);
+    position: absolute; }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-null:after {
+    content: var(--smart-icon-circle-empty); }
+  .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-not-null:after {
+    content: var(--smart-icon-circle); }
 
 /*# sourceMappingURL=smart.filterpanel.css.map */

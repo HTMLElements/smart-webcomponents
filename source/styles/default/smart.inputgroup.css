@@ -1,92 +1,78 @@
 .input-group {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    box-sizing: border-box;
-    font-family: var(--smart-font-family);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  box-sizing: border-box;
+  font-family: var(--smart-font-family);
 }
-
 .input-group smart-input .smart-drop-down-button {
-    border-left: none;
+  border-left: none;
 }
-
 .input-group smart-button[focus] {
-    z-index: 3;
+  z-index: 3;
 }
-
 .input-group > .input-group-prepend > smart-button,
 .input-group > .input-group-prepend > .input-group-text {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
-
 .input-group > .input-group-prepend:first-child > smart-button:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
 .input-group > .input-group-prepend:not(:first-child) > smart-button,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
 .input-group > .input-group-append > smart-button,
 .input-group > .input-group-append > .input-group-text {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
 .input-group > .input-group-append:last-child > smart-button:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
-
 .input-group > .input-group-append:not(:last-child) > smart-button,
 .input-group > .input-group-append:not(:last-child) > .input-group-text {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
-
 .input-group > .custom-file,
 .input-group > .custom-select,
 .input-group > .form-control {
-    position: relative;
-    flex: 1 1 auto;
-    width: 1%;
-    margin-bottom: 0;
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
 }
-
 .input-group > .custom-file:focus,
 .input-group > .custom-select:focus,
 .input-group > .form-control:focus {
-    z-index: 3;
+  z-index: 3;
 }
-
 .input-group > .custom-select:not(:first-child),
 .input-group > .form-control:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
 .input-group > .custom-select:not(:last-child),
 .input-group > .form-control:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
-
 .input-group > .form-control[focus] {
-    z-index: 3;
+  z-index: 3;
 }
-
 .input-group > .custom-file + .custom-file,
 .input-group > .custom-file + .custom-select,
 .input-group > .custom-file + .form-control,
@@ -96,23 +82,21 @@
 .input-group > .form-control + .custom-file,
 .input-group > .form-control + .custom-select,
 .input-group > .form-control + .form-control {
-    margin-left: -1px;
+  margin-left: -1px;
 }
 
 .input-group-append,
 .input-group-prepend {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    box-sizing: border-box;
-    height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  height: auto;
 }
-
 .input-group-append > smart-button,
 .input-group-prepend > smart-button {
-    height: 100%;
+  height: 100%;
 }
-
 .input-group-append smart-button + smart-button,
 .input-group-append smart-button + .input-group-text,
 .input-group-append .input-group-text + smart-button,
@@ -121,427 +105,381 @@
 .input-group-prepend smart-button + .input-group-text,
 .input-group-prepend .input-group-text + smart-button,
 .input-group-prepend .input-group-text + .input-group-text {
-    margin-left: -1px;
+  margin-left: -1px;
 }
 
 .input-group-prepend {
-    margin-right: -1px;
+  margin-right: -1px;
 }
 
 .input-group-append {
-    margin-left: -1px;
+  margin-left: -1px;
 }
 
 .input-group-text {
-    border-radius: var(--smart-border-radius);
-    display: flex;
-    align-items: center;
-    padding: .375rem .75rem;
-    margin-bottom: 0;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--smart-surface-color);
-    text-align: center;
-    white-space: nowrap;
-    background-color: var(--smart-surface);
-    border: 1px solid var(--smart-border);
+  border-radius: var(--smart-border-radius);
+  display: flex;
+  align-items: center;
+  padding: .375rem .75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--smart-surface-color);
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--smart-surface);
+  border: 1px solid var(--smart-border);
 }
 
 .form-control {
-    border-radius: var(--smart-border-radius);
-    height: auto;
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: var(--smart-font-size);
-    line-height: 1.5;
-    color: #495057;
-    background-color: var(--smart-background);
-    background-clip: padding-box;
-    border: 1px solid var(--smart-border);
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border-radius: var(--smart-border-radius);
+  height: auto;
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: var(--smart-font-size);
+  line-height: 1.5;
+  color: #495057;
+  background-color: var(--smart-background);
+  background-clip: padding-box;
+  border: 1px solid var(--smart-border);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-
 .form-control:focus, .form-control[focus] {
-    color: var(--smart-color);
-    background-color: var(--smart-background);
-    border-color: var(--smart-primary);
-    outline: 0;
+  color: var(--smart-color);
+  background-color: var(--smart-background);
+  border-color: var(--smart-primary);
+  outline: 0;
 }
 
 .smart-form {
-    background: var(--smart-background);
-    color: var(--smart-background-color);
-    border: 0px solid var(--smart-border);
-    border-radius: var(--smart-border-radius);
-    box-sizing: border-box;
-    overflow: visible;
-    width: 600px;
-    font-family: var(--smart-font-family);
-    font-size: var(--smart-font-size);
-    display: block;
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  border: 0px solid var(--smart-border);
+  border-radius: var(--smart-border-radius);
+  box-sizing: border-box;
+  overflow: visible;
+  width: 600px;
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+  display: block;
 }
-
 @media only screen and (max-width: 600px) {
-    .smart-form {
-        width: 350px;
-    }
+  .smart-form {
+    width: 350px;
+  }
 }
 
 .smart-form-row {
-    padding: 5px 0px;
-    box-sizing: border-box;
+  padding: 5px 0px;
+  box-sizing: border-box;
 }
-
 .smart-form-row .smart-form-control-label {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-family: var(--smart-font-family);
-    font-size: calc(0.9 * var(--smart-font-size));
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--smart-font-family);
+  font-size: calc(0.9 * var(--smart-font-size));
 }
-
 .smart-form-row .smart-form-control-label[required]:after {
-    content: '*';
-    color: #a94442;
-    font-size: 14px;
-    margin-left: 2px;
-    margin-right: 2px;
+  content: '*';
+  color: #a94442;
+  font-size: 14px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
-
 .smart-form-row .smart-form-control {
-    display: flex;
-    box-sizing: border-box;
+  display: flex;
+  box-sizing: border-box;
 }
-
 .smart-form-row .smart-form-control + .smart-form-label[required]:before {
-    content: '*';
-    color: #a94442;
-    font-size: 14px;
-    margin-left: 2px;
-    margin-right: 2px;
+  content: '*';
+  color: #a94442;
+  font-size: 14px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
-
 .smart-form-row .smart-form-control + .smart-form-control-label[required]:after {
-    content: '';
+  content: '';
 }
 
 .smart-form-row-flex {
-    display: flex;
+  display: flex;
 }
 
 .smart-form-control .smart-form-control-addon {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 .smart-form-control.left {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
-
 .smart-form-control.center {
-    justify-content: center;
+  justify-content: center;
 }
-
 .smart-form-control.right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
-
 .smart-form-control[readonly] .smart-form-editor {
-    pointer-events: none;
+  pointer-events: none;
 }
-
 .smart-form-control[readonly] .smart-form-editor .smart-drop-down-button,
 .smart-form-control[readonly] .smart-form-editor .smart-calendar-button {
-    visibility: hidden;
+  visibility: hidden;
 }
-
 .smart-form-control[readonly] .smart-form-editor textarea,
 .smart-form-control[readonly] .smart-form-editor input,
 .smart-form-control[readonly] .smart-form-editor div,
 .smart-form-control[readonly] .smart-form-editor span {
-    border: none !important;
+  border: none !important;
 }
-
 .smart-form-control[readonly] .smart-form-editor + div,
 .smart-form-control[readonly] .smart-form-editor + .smart-form-control-addon,
 .smart-form-control[readonly] .smart-form-editor + .smart-form-control-icon {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .smart-form-control-icon:after {
-    content: attr(tooltip);
-    visibility: hidden;
-    white-space: nowrap;
-    margin-top: 25px;
-    position: absolute;
-    border-top-left-radius: var(--smart-border-top-left-radius);
-    border-top-right-radius: var(--smart-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-    padding: 7px;
-    background-color: var(--smart-secondary);
-    color: var(--smart-secondary-color);
-    font-size: calc(var(--smart-font-size) - 2px);
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.2s ease-out, transform 0.1s ease-out;
-    z-index: 9;
+  content: attr(tooltip);
+  visibility: hidden;
+  white-space: nowrap;
+  margin-top: 25px;
+  position: absolute;
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  padding: 7px;
+  background-color: var(--smart-secondary);
+  color: var(--smart-secondary-color);
+  font-size: calc(var(--smart-font-size) - 2px);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s ease-out, transform 0.1s ease-out;
+  z-index: 9;
 }
-
 .smart-form-control-icon:hover:after {
-    visibility: visible;
-    opacity: 0.9;
-    transform: scale(1);
-    color: var(--smart-secondary-color);
-    background: var(--smart-secondary);
+  visibility: visible;
+  opacity: 0.9;
+  transform: scale(1);
+  color: var(--smart-secondary-color);
+  background: var(--smart-secondary);
 }
 
 .smart-form-control-label[readonly]:after {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .smart-form-group .smart-form-group-content {
-    display: grid;
-    grid-template-columns: none;
+  display: grid;
+  grid-template-columns: none;
 }
-
 .smart-form-group[columns="2"] > .smart-form-group-content {
-    grid-template-columns: 50% 50%;
+  grid-template-columns: 50% 50%;
 }
-
 .smart-form-group[columns="3"] > .smart-form-group-content {
-    grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 33% 33% 33%;
 }
-
 .smart-form-group[columns="4"] > .smart-form-group-content {
-    grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 25% 25% 25% 25%;
 }
-
 .smart-form-group[columns="5"] > .smart-form-group-content {
-    grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
 }
-
 .smart-form-group[columns="6"] > .smart-form-group-content {
-    grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
 }
 
 .smart-form-group-label {
-    font-size: 20px;
-    font-family: var(--smart-font-family);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--smart-border);
+  font-size: 20px;
+  font-family: var(--smart-font-family);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--smart-border);
 }
-
 .smart-form-group-label.center {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-
 .smart-form-group-label.right {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .smart-form-group-buttons {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 30px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
 }
-
 .smart-form-group-buttons smart-button {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .smart-form-editor {
-    width: 100%;
+  width: 100%;
 }
-
 .smart-form-editor.smart-validation-success:not(smart-check-box):not([focus]) > div.smart-container::after {
-    display: none;
+  display: none;
 }
-
 .smart-form-editor.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after {
-    left: initial;
-    right: 0px;
-    z-index: 9;
+  left: initial;
+  right: 0px;
+  z-index: 9;
 }
-
 .smart-form-editor.smart-validation-error:not(smart-check-box) > div.smart-container::after {
-    left: initial;
-    right: 0px;
-    z-index: 9;
+  left: initial;
+  right: 0px;
+  z-index: 9;
 }
-
 .smart-form-editor.smart-numeric-text-box.smart-validation-success:not(smart-check-box)[focus] > div.smart-container input, .smart-form-editor.smart-numeric-text-box.smart-validation-error:not(smart-check-box) > div.smart-container input {
-    padding-right: 30px;
+  padding-right: 30px;
 }
-
+.smart-form-editor.smart-numeric-text-box[focus][spin-buttons].smart-validation-success[focus] input, .smart-form-editor.smart-numeric-text-box[focus][spin-buttons].smart-validation-error[focus] input, .smart-form-editor.smart-number-input[focus]:not([drop-down-button-position="none"]).smart-validation-success[focus] input, .smart-form-editor.smart-number-input[focus]:not([drop-down-button-position="none"]).smart-validation-error[focus] input {
+  padding-right: 30px;
+}
 .smart-form-editor.smart-numeric-text-box.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after, .smart-form-editor.smart-numeric-text-box.smart-validation-error:not(smart-check-box) > div.smart-container::after, .smart-form-editor.smart-number-input.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after, .smart-form-editor.smart-number-input.smart-validation-error:not(smart-check-box) > div.smart-container::after, .smart-form-editor.smart-combo-box.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after, .smart-form-editor.smart-combo-box.smart-validation-error:not(smart-check-box) > div.smart-container::after, .smart-form-editor.smart-date-time-picker.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after, .smart-form-editor.smart-date-time-picker.smart-validation-error:not(smart-check-box) > div.smart-container::after, .smart-form-editor.smart-drop-down-list.smart-validation-success:not(smart-check-box)[focus] > div.smart-container::after, .smart-form-editor.smart-drop-down-list.smart-validation-error:not(smart-check-box) > div.smart-container::after {
-    right: 20px;
+  right: 20px;
 }
-
 .smart-form-editor.smart-invalid + .smart-error-label-like-after-element, .smart-form-editor.smart-valid + .smart-success-label-like-after-element {
-    left: initial;
-    right: 0px;
-    z-index: 9;
+  left: initial;
+  right: 0px;
+  z-index: 9;
 }
 
 input.smart-form-editor.smart-valid:not(:focus) + .smart-success-label-like-after-element {
-    display: none;
+  display: none;
 }
-
 input.smart-form-editor.smart-invalid + .smart-error-label-like-after-element, input.smart-form-editor.smart-valid + .smart-success-label-like-after-element {
-    right: 35px;
+  right: 35px;
 }
 
 .smart-form-tab {
-    grid-row: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-    cursor: pointer;
-    font-family: var(--smart-font-family);
-    box-sizing: border-box;
-    transition: background-color 0.2s ease-in-out;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  cursor: pointer;
+  font-family: var(--smart-font-family);
+  box-sizing: border-box;
+  transition: background-color 0.2s ease-in-out;
 }
-
 .smart-form-tab.selected {
-    border-bottom: 2px solid var(--smart-primary);
-    color: var(--smart-primary);
+  border-bottom: 2px solid var(--smart-primary);
+  color: var(--smart-primary);
 }
-
 .smart-form-tab.smart-invalid {
-    border-bottom: 2px solid var(--smart-error);
-    color: var(--smart-error);
+  border-bottom: 2px solid var(--smart-error);
+  color: var(--smart-error);
 }
 
 .smart-form-tab-strip {
-    display: grid;
-    grid-auto-columns: 1fr;
-    overflow: hidden;
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    height: 30px;
-    margin-bottom: 10px;
+  display: grid;
+  grid-auto-columns: 1fr;
+  overflow: hidden;
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+  height: 30px;
+  margin-bottom: 10px;
 }
-
 .smart-form-tab-strip .smart-form-tab .smart-form-tab-label {
-    font-size: calc(var(--smart-font-size) + 1px);
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: 5px;
+  font-size: calc(var(--smart-font-size) + 1px);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 5px;
 }
-
 .smart-form-tab-strip .smart-form-tab:hover {
-    background: var(--smart-ui-state-hover);
-    color: var(--smart-ui-state-color-hover);
+  background: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
 }
-
 .smart-form-tab-strip[vertical] {
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    background: var(--smart-background);
-    border: none;
-    border-radius: initial;
-    padding-bottom: 1px;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  background: var(--smart-background);
+  border: none;
+  border-radius: initial;
+  padding-bottom: 1px;
 }
-
 .smart-form-tab-strip[vertical] .smart-form-tab {
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    overflow: hidden;
-    border: var(--smart-border-width) solid var(--smart-border);
-    border-radius: 0px;
-    padding: 10px;
-    margin-bottom: -1px;
-    justify-content: left;
+  background-color: var(--smart-surface);
+  color: var(--smart-surface-color);
+  overflow: hidden;
+  border: var(--smart-border-width) solid var(--smart-border);
+  border-radius: 0px;
+  padding: 10px;
+  margin-bottom: -1px;
+  justify-content: left;
 }
-
 .smart-form-tab-strip[vertical] .smart-form-tab .smart-form-tab-label {
-    width: 100%;
+  width: 100%;
 }
-
 .smart-form-tab-strip[vertical] .smart-form-tab .smart-form-tab-button {
-    float: right;
-    transition: transform 0.3s ease-in-out;
-    transform: rotate(-180deg);
-    font-size: 17px;
+  float: right;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(-180deg);
+  font-size: 17px;
 }
-
 .smart-form-tab-strip[vertical] .smart-form-tab.selected {
-    background: var(--smart-ui-state-focus);
+  background: var(--smart-ui-state-focus);
 }
-
 .smart-form-tab-strip[vertical] .smart-form-tab.selected .smart-form-tab-button {
-    transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-
 .smart-form-tab-strip[vertical] .smart-form-tab.smart-invalid {
-    color: var(--smart-error);
-    background-color: var(--smart-surface);
+  color: var(--smart-error);
+  background-color: var(--smart-surface);
 }
-
 .smart-form-tab-strip[breadcrumb] {
-    border: none;
+  border: none;
 }
-
 .smart-form-tab-strip[breadcrumb] .smart-form-tab {
-    border-bottom: none;
+  border-bottom: none;
 }
-
 .smart-form-tab-strip[breadcrumb] .smart-form-tab .smart-form-tab-label {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 .smart-form-tab-strip[breadcrumb] .smart-form-tab .smart-form-tab-label .circle {
-    border-radius: 100%;
-    font-family: var(--smart-font-family);
-    width: 12px;
-    height: 12px;
-    padding: 5px;
-    margin-right: 10px;
-    background: var(--smart-secondary);
-    color: var(--smart-secondary-color);
-    align-items: center;
-    justify-content: center;
-    display: flex;
+  border-radius: 100%;
+  font-family: var(--smart-font-family);
+  width: 12px;
+  height: 12px;
+  padding: 5px;
+  margin-right: 10px;
+  background: var(--smart-secondary);
+  color: var(--smart-secondary-color);
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
-
 .smart-form-tab-strip[breadcrumb] .smart-form-tab.smart-invalid {
-    color: var(--smart-color);
+  color: var(--smart-color);
 }
-
 .smart-form-tab-strip[breadcrumb] .smart-form-tab.selected .smart-form-tab-label .circle {
-    background: var(--smart-primary);
-    color: var(--smart-primary-color);
+  background: var(--smart-primary);
+  color: var(--smart-primary-color);
 }
 
 .smart-form-tab-control {
-    padding: 0;
-    display: none !important;
+  padding: 0;
+  display: none !important;
 }
-
 .smart-form-tab-control.selected {
-    margin-bottom: -1px;
-    display: grid !important;
+  margin-bottom: -1px;
+  display: grid !important;
 }
-
 .smart-form-tab-control.selected[vertical] {
-    padding: 10px;
-    border: 1px solid var(--smart-border);
+  padding: 10px;
+  border: 1px solid var(--smart-border);
 }
 
 .smart-form-options-horizontal {
-    display: flex;
+  display: flex;
 }
 
 /*# sourceMappingURL=smart.inputgroup.css.map */

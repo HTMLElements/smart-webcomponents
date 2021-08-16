@@ -204,7 +204,8 @@
     --smart-icon-math: '\f01a'; /* Code of math icon */
     --smart-icon-spin: '\e80b'; /* Code of spin icon */
     --smart-icon-user: '\e81f'; /* Code of user icon */
-    --smart-icon-font: '\f031'; /* Code of user icon */
+    --smart-icon-font: '\f031'; /* Code of font icon */
+    --smart-icon-fontsize: '\f088'; /* Code of fontsize icon */
     --smart-icon-contains: '\f063'; /* Code of contains icon */
     --smart-icon-starts_with: '\f064'; /* Code of starts with icon */
     --smart-icon-ends_with: '\f065'; /* Code of ends with icon */
@@ -483,9 +484,8 @@
     --smart-file-upload-total-files-min-height: 20px; /* Sets min height of the container where total numbers of items is displayed. */
     --smart-file-upload-drop-zone-height: 100%; /* Sets min height of the container where total numbers of items is displayed. */
     /* Gantt Chart */
-    --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height)); /* The fit size of all Splitter bars inside the element*/
-    --smart-gantt-chart-task-tree-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size); /* The fit size of the Splitter Bars that are inside the Task Tree Splitter */
-    --smart-gantt-chart-resource-tree-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height)); /* The fit size of the Splitter Bars that are inside the Resource Tree Splitter */
+    --smart-gantt-chart-resource-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height)); /* The fit size of all Resource Splitter bar inside the Resource Panel of the element*/
+    --smart-gantt-chart-task-splitter-bar-fit-size: var(--smart-gantt-chart-task-timeline-content-height); /* The fit size of all Splitter bar inside the element*/
     --smart-gantt-chart-task-default-height: 30px; /* The height of a Task inside the Timeline */
     --smart-gantt-chart-header-height: var(--smart-gantt-chart-task-default-height); /* The height of the header of the Task and Resource Panels */
     --smart-gantt-chart-task-bar-fill-padding: 5px; /* The padding of the Fill of the Task Bar */
@@ -526,7 +526,8 @@
     --smart-gantt-chart-popup-window-footer-height: 50px; /* Determines the height of the footer of the popup windows insinde the element. */
     --smart-gantt-chart-header-placeholder: ' - '; /* Placeholder for thea Header sections when there're no items */
     --smart-gantt-chart-progress-label-padding: 0 10px 0 10px; /* Task progress label padding */
-    --smart-gantt-chart-header-box-shadow: initial; /* Sets a box shadow to the Task Timeline header */
+    --smart-gantt-chart-filter-row-height: 30px; /* Sets a box shadow to the Task Timeline header */
+    --smart-gantt-chart-task-fill-border-radius: 0; /* Sets the default border radius for the Timeline task bars */
     /* Gauge */
     --smart-gauge-default-width: var(--smart-box-width); /* smartGauge default width */
     --smart-gauge-default-height: var(--smart-box-height); /* smartgauge default height */
@@ -582,6 +583,7 @@
     --smart-grid-panel-padding: 10px; /* padding of the smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel */
     --smart-grid-panel-vertical-offset: 10px; /* Vertical offset between smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel items */
     --smart-grid-panel-item-height: 30px; /* height of smartGroupPanel/smartSortPanel/smartColumnPanel/smartMultiColumnFilterPanel items */
+    --smart-column-panel-drop-down-height: 350px; /* height of drop-downs */
     --smart-multi-column-filter-panel-template-columns: 15px 60px 2fr 3fr 3fr; /* smartMultiColumnFilterPanel grid-template-columns */
     --smart-formatting-panel-default-width: 600px; /* Default width of the smartFormattingPanel */
     --smart-formatting-panel-row-height: 30px; /* Height of rows in smartFormattingPanel */

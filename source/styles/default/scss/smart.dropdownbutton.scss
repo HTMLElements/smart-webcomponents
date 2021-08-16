@@ -12,7 +12,7 @@ smart-drop-down-button {
     backface-visibility: hidden;
     overflow: visible;
     border: none;
-    visibility: initial;
+    visibility: inherit;
   }
 
   .smart-ripple {

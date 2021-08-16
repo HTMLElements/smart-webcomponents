@@ -205,6 +205,7 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     grid-template-columns: 100%;
     grid-template-rows: auto minmax(0, 1fr);
     position: relative;
+    min-height: inherit;
   }
 
   .smart-toast-container.smart-toast-container-custom {

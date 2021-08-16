@@ -2,6 +2,21 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface KanbanProperties {
   /**
+   * Enables or disables column reordering. When this property is set to true and allowDrag is enabled, users will be able to reoder columns through drag & drop. For example: Click and drag the first column's header and drop it over another column.
+   * Default value: false
+   */
+  allowColumnReorder?: boolean;
+  /**
+   * Enables or disables column editing. When this property is set to true, users will be able to dynamically change the column's header label by double clicking on it.
+   * Default value: false
+   */
+  allowColumnEdit?: boolean;
+  /**
+   * Enables or disables column removing. When this property is set to true, users will be able to dynamically remove a column through the column actions menu. the 'columnActions' property should be true.
+   * Default value: false
+   */
+  allowColumnRemove?: boolean;
+  /**
    * Toggles the visibility of the column buttons for adding tasks. A particular button can be disabled by setting addNewButton in the column's definition to false.
    * Default value: false
    */
@@ -46,6 +61,16 @@ export interface KanbanProperties {
    * Default value: 
    */
   columns?: KanbanColumn[];
+  /**
+   * Toggles the visibility of the column actions icon.
+   * Default value: false
+   */
+  columnActions?: boolean;
+  /**
+   * Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options.
+   * Default value: headerAndMenu
+   */
+  columnEditMode?: KanbanColumnEditMode;
   /**
    * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
    * Default value: 
@@ -98,7 +123,7 @@ export interface KanbanProperties {
   locale?: string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
-   * Default value:    * { 'en': { 'addFilter': '+ Add filter', 'and': 'And', 'apply': 'Apply', 'booleanFirst': '☐', 'booleanLast': '☑', 'cancel': 'Cancel', 'CONTAINS': 'contains', 'CONTAINS_CASE_SENSITIVE': 'contains (case sensitive)', 'dateFirst': '1', 'dateLast': '9', 'DOES_NOT_CONTAIN': 'does not contain', 'DOES_NOT_CONTAIN_CASE_SENSITIVE': 'does not contain (case sensitive)', 'EMPTY': 'empty', 'ENDS_WITH': 'ends with', 'ENDS_WITH_CASE_SENSITIVE': 'ends with (case sensitive)', 'EQUAL': 'equal', 'EQUAL_CASE_SENSITIVE': 'equal (case sensitive)', 'filter': 'Filter', 'filteredByMultiple': '"?', 'remove': 'Remove', 'removeSubtask': 'Remove subtask', 'send': 'Send', 'startDate': 'Start date', 'status': 'Status', 'swimlane': 'Swimlane', 'tags': 'Tags', 'text': 'Text', 'userId': 'User ID', 'userIcon': 'User icon' } }
+   * Default value:    * { 'en': { 'addFilter': '+ Add filter', 'and': 'And', 'apply': 'Apply', 'booleanFirst': '☐', 'booleanLast': '☑', 'cancel': 'Cancel', 'CONTAINS': 'contains', 'CONTAINS_CASE_SENSITIVE': 'contains (case sensitive)', 'dateFirst': '1', 'dateLast': '9', 'DOES_NOT_CONTAIN': 'does not contain', 'DOES_NOT_CONTAIN_CASE_SENSITIVE': 'does not contain (case sensitive)', 'EMPTY': 'empty', 'ENDS_WITH': 'ends with', 'ENDS_WITH_CASE_SENSITIVE': 'ends with (case sensitive)', 'EQUAL': 'equal', 'EQUAL_CASE_SENSITIVE': 'equal (case sensitive)', 'filter': 'Filter', 'filteredByMultiple': '%', 'removeComment': 'Remove comment', 'promptColumn': 'Are you sure you want to remove this column?'} }
    */
   messages?: any;
   /**
@@ -216,6 +241,54 @@ export interface Kanban extends BaseElement, KanbanProperties {
 	* @param event. The custom event.    */
   onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when a column is added.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField, collapsed)
+   *  label - The column label.
+   *  dataField - The column data field.
+   *  collapsed - The column's collapsed state.
+   */
+  onColumnAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column is removed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField, collapsed)
+   *  label - The column label.
+   *  dataField - The column data field.
+   *  collapsed - The column's collapsed state.
+   */
+  onColumnRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column is reordered.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldIndex, index, column)
+   *  oldIndex - The column's old index.
+   *  index - The column's new index.
+   *  column - The column's data object with 'label', 'dataField' and 'collapsed' fields.
+   */
+  onColumnReorder?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column is updated.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField, collapsed)
+   *  label - The column label.
+   *  dataField - The column data field.
+   *  collapsed - The column's collapsed state.
+   */
+  onColumnUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column header is clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField, collapsed)
+   *  label - The column label.
+   *  dataField - The column data field.
+   *  collapsed - The column's collapsed state.
+   */
+  onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column header is double clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField, collapsed)
+   *  label - The column label.
+   *  dataField - The column data field.
+   *  collapsed - The column's collapsed state.
+   */
+  onColumnDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a task is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
    *  container - the Kanban the dragged task(s) is dropped to
@@ -268,6 +341,18 @@ export interface Kanban extends BaseElement, KanbanProperties {
 	* @param event. The custom event.    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when a new task is added.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value)
+   *  value - The task data that is added to the Kanban.
+   */
+  onTaskAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a task is removed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value)
+   *  value - The task data that is removed from the Kanban.
+   */
+  onTaskRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Adds filtering
    * @param {string[]} filters. Filter information
    * @param {string} operator?. Logical operator between the filters of different fields
@@ -284,6 +369,11 @@ export interface Kanban extends BaseElement, KanbanProperties {
    * @param {any} data?. An object containing the new task's data
    */
   addTask(data?: any): void;
+  /**
+   * Adds a column to a Kanban. If no data is specified, an empty column is added.
+   * @param {any} data?. An object containing the new column's data
+   */
+  addColumn(data?: any): void;
   /**
    * Begins an edit operation
    * @param {number | string | HTMLElement} task. The task's id or corresponding HTMLElement
@@ -377,6 +467,11 @@ export interface Kanban extends BaseElement, KanbanProperties {
    */
   removeTask(task: number | string | HTMLElement, prompt?: boolean): void;
   /**
+   * Removes a column.
+   * @param {string} dataField. The column's data field
+   */
+  removeColumn(dataField: string): void;
+  /**
    * Saves the Kanban's state to the browser's localStorage.
    */
   saveState(): void;
@@ -386,6 +481,12 @@ export interface Kanban extends BaseElement, KanbanProperties {
    * @param {{}} newData. The new data to visualize in the task.
    */
   updateTask(task: number | string | HTMLElement, newData: {}): void;
+  /**
+   * Updates a column.
+   * @param {string} dataField. The new column's data field
+   * @param {{}} newData. The new data to visualize in the column.
+   */
+  updateColumn(dataField: string, newData: {}): void;
 }
 
 export interface KanbanColumn {
@@ -394,6 +495,11 @@ export interface KanbanColumn {
    * Default value: true
    */
   addNewButton?: boolean;
+  /**
+   * Sets or gets whether the column can be removed from the column menu.
+   * Default value: true
+   */
+  allowRemove?: boolean;
   /**
    * Sets or gets whether the column is collapsed.
    * Default value: false
@@ -419,6 +525,16 @@ export interface KanbanColumn {
    * Default value: ""
    */
   label?: string;
+  /**
+   * Sets or gets whether a column is editable.
+   * Default value: true
+   */
+  editable?: boolean;
+  /**
+   * Sets or gets whether a column can be reordered.
+   * Default value: true
+   */
+  reorder?: boolean;
   /**
    * Sets or gets whether the tasks in the column flow vertically or horizontally.
    * Default value: vertical
@@ -572,6 +688,8 @@ declare global {
 
 /**Sets or gets whether the tasks in the column flow vertically or horizontally. */
 export declare type KanbanColumnOrientation = 'vertical' | 'horizontal';
+/**Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options. */
+export declare type KanbanColumnEditMode = 'header' | 'menu' | 'headerAndMenu';
 /**The task's priority. */
 export declare type KanbanDataSourcePriority = 'low' | 'normal' | 'high';
 /**Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons. */

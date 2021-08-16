@@ -62,6 +62,11 @@ export interface TableProperties {
    */
   conditionalFormattingButton?: boolean;
   /**
+   * This property determines the time in milliseconds after which the Table data is updated, when you vertically scroll.
+   * Default value: 1
+   */
+  deferredScrollDelay?: number;
+  /**
    * When binding the dataSource property directly to an array (as opposed to an instance of JQX.DataAdapter), sets or gets the name of the data field in the source array to bind row ids to.
    * Default value: "null"
    */
@@ -326,7 +331,8 @@ export interface Table extends BaseElement, TableProperties {
   [name: string]: any;
   /**
    * This event is triggered when a cell edit operation has been initiated.
-	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row, value)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, value)
+   *  id - The id of the row.
    *  dataField - The data field of the cell's column.
    *  row - The data of the cell's row.
    *  value - The data value of the cell.
@@ -344,27 +350,30 @@ export interface Table extends BaseElement, TableProperties {
   onCellClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a cell has been edited.
-	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, row, value)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, value)
+   *  id - The id of the row.
    *  dataField - The data field of the cell's column.
    *  row - The new data of the cell's row.
    *  value - The data value of the cell.
    */
   onCellEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the selection is changed.
+   * This event is triggered when the selection is changed. Within the event handler you can get the selection by using the 'getSelection' method.
 	* @param event. The custom event. Custom data event was created with: ev.detail(type)
    *  type - The type of action that initiated the selection change. Possible types: 'programmatic', 'interaction', 'remove'.
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a row has been collapsed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(record)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, record)
+   *  id - The id of the collapsed row.
    *  record - The data of the collapsed row.
    */
   onCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a row has been expanded.
-	* @param event. The custom event. Custom data event was created with: ev.detail(record)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, record)
+   *  id - The id of the expanded row.
    *  record - The (aggregated) data of the expanded row.
    */
   onExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
@@ -391,10 +400,11 @@ export interface Table extends BaseElement, TableProperties {
   onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a grouping-related action is made.
-	* @param event. The custom event. Custom data event was created with: ev.detail(action, dataField, label)
+	* @param event. The custom event. Custom data event was created with: ev.detail(action, dataField, label, path)
    *  action - The grouping action. Possible actions: 'add', 'collapse', 'expand', 'remove'.
    *  dataField - The data field of the column whose grouping is modified.
    *  label - The label of the group (only when collapsing/expanding).
+   *  path - The group's path (only when collapsing/expanding). The path includes the path to the expanded/collapsed group starting from the root group. The indexes are joined with '.'. This parameter is available when the 'action' is 'expand' or 'collapse'.
    */
   onGroup?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -405,20 +415,26 @@ export interface Table extends BaseElement, TableProperties {
   onPage?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a row edit operation has been initiated (only when <strong>editMode</strong> is <em>'row'</em>).
-	* @param event. The custom event. Custom data event was created with: ev.detail(row)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, row)
+   *  id - The id of the row.
    *  row - The data of the row.
    */
   onRowBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a row has been edited (only when <strong>editMode</strong> is <em>'row'</em>).
-	* @param event. The custom event. Custom data event was created with: ev.detail(row)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, row)
+   *  id - The id of the row.
    *  row - The new data of the row.
    */
   onRowEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when a column header cell has been clicked.
-	* @param event. The custom event. Custom data event was created with: ev.detail(columns)
+   * This event is triggered when a column header cell has been clicked or sorting is applied programmatically using the Table API.
+	* @param event. The custom event. Custom data event was created with: ev.detail(columns, sortDataFields, sortOrders, sortDataTypes, type)
    *  columns - An array with information about the columns the Table has been sorted by.
+   *  sortDataFields - An array with information about the data fields the Table has been sorted by.
+   *  sortOrders - An array with information about the columns sort orders the Table has been sorted by.
+   *  sortDataTypes - An array with information about the columns data types the Table has been sorted by.
+   *  type - The type of action that initiated the data sort. Possible types: 'programmatic', 'interaction'
    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -489,6 +505,16 @@ export interface Table extends BaseElement, TableProperties {
    * @param {string | number} rowId. The id of the row to collapse.
    */
   collapseRow(rowId: string | number): void;
+  /**
+   * Disables a selection of a row. When the 'selection' property is set to 'true', selection is enabled for all rows by default.
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select.
+   */
+  disableSelect(rowId: string | number | (string | number)[]): void;
+  /**
+   * Enables a selection of a row, if it was previously disabled through a 'disableSelect' method call. When the 'selection' property is set to 'true', selection is enabled for all rows by default.
+   * @param {string | number | (string | number)[]} rowId. The id of the row (or an array of row ids) to select.
+   */
+  enableSelect(rowId: string | number | (string | number)[]): void;
   /**
    * Ends the current edit operation and saves changes.
    */

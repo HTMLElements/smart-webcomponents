@@ -154,6 +154,16 @@ export interface QueryBuilderProperties {
    */
   unfocusable?: boolean;
   /**
+   * Determines whether the value of the condition is validated on key up or not. By default the value is validated when the user blur's the value input. The validationTimeout determines the time interval after the user has ended typing that triggers the value validation.
+   * Default value: false
+   */
+  validateOnInput?: boolean;
+  /**
+   * Determines the timeout (starting after the user has finished typing in the value field) before the validation is applied to the condition value. This property works along validationOnInput.
+   * Default value: 100
+   */
+  validationTimeout?: number;
+  /**
    * The value is represented by multidimensional array. The array contains group operators with conditions. Each group can contain multiple conditions.
    * Default value: 
    */

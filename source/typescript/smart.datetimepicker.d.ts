@@ -102,6 +102,11 @@ export interface DateTimePickerProperties {
    */
   footerTemplate?: any;
   /**
+   * Determines whether to display a footer.
+   * Default value: false
+   */
+  footer?: boolean;
+  /**
    * Determines the pattern that is used to display the value in.
    * Default value: "dd-MMM-yy HH:mm:ss.fff"
    */

@@ -29,10 +29,8 @@ smart-table tr.expanded .hierarchy-arrow {
   border-radius: inherit;
 }
 .smart-table thead th {
-  --smart-surface: var(--smart-background);
-  --smart-surface-color: var(--smart-background-color);
-  background-color: var(--smart-surface);
-  color: var(--smart-surface-color);
+  background-color: var(--smart-background);
+  color: var(--smart-background-color);
   font-size: calc(var(--smart-font-size) - 2px);
   border-bottom: var(--smart-border-width) solid var(--smart-border);
   text-align: left;
@@ -316,10 +314,8 @@ smart-table tr.expanded .hierarchy-arrow {
   background-color: var(--smart-primary);
 }
 .smart-table .smart-table-select-all.freeze-near {
-  --smart-surface: var(--smart-background);
-  --smart-surface-color: var(--smart-background-color);
-  background-color: var(--smart-surface);
-  color: var(--smart-surface-color);
+  background-color: var(--smart-background);
+  color: var(--smart-background-color);
 }
 .smart-table smart-pager.smart-element {
   display: none;

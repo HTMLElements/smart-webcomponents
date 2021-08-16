@@ -400,6 +400,7 @@ smart-window:not([opened]) {
     smart-tab-item {
       padding: 5px;
       user-select: text;
+      -webkit-user-select: text;
     }
   }
 

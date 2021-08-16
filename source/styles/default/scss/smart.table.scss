@@ -20,7 +20,7 @@ smart-table {
   font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
 
-  > .smart-container {
+  >.smart-container {
     border: var(--smart-border-width) solid var(--smart-border);
     position: relative;
     overflow: auto;
@@ -40,11 +40,8 @@ smart-table {
 
   thead {
     th {
-      --smart-surface: var(--smart-background);
-      --smart-surface-color: var(--smart-background-color);
-      background-color: var(--smart-surface);
-      color: var(--smart-surface-color);
-
+      background-color: var(--smart-background);
+      color: var(--smart-background-color);
       font-size: calc(var(--smart-font-size) - 2px);
       border-bottom: var(--smart-border-width) solid var(--smart-border);
       text-align: left;
@@ -143,7 +140,7 @@ smart-table {
     }
   }
 
-  tbody + tbody {
+  tbody+tbody {
     border-top: 2px solid var(--smart-border);
   }
 
@@ -182,11 +179,11 @@ smart-table {
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    > .wrapper {
+    >.wrapper {
       display: flex;
       align-items: center;
 
-      > .label {
+      >.label {
         overflow: hidden;
         text-overflow: ellipsis;
       }
@@ -196,7 +193,7 @@ smart-table {
       width: calc(var(--smart-check-box-default-size) * 3);
 
       &.indeterminate {
-        > div {
+        >div {
           background-color: var(--smart-primary);
 
           &:after {
@@ -251,7 +248,7 @@ smart-table {
     }
 
     &.indeterminate {
-      > div {
+      >div {
         background-color: var(--smart-primary);
 
         &:after {
@@ -286,8 +283,9 @@ smart-table {
       }
     }
 
+  
     &.group-header {
-      > div {
+      >div {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -295,7 +293,7 @@ smart-table {
     }
 
     &.tree-cell {
-      > div {
+      >div {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -346,7 +344,7 @@ smart-table {
 
   th.smart-table-select-all,
   td.smart-table-select-row {
-    > div {
+    >div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -391,7 +389,7 @@ smart-table {
     }
 
     &.selected {
-      > div {
+      >div {
         border-color: var(--smart-primary);
         background-color: var(--smart-primary);
 
@@ -408,10 +406,8 @@ smart-table {
 
   .smart-table-select-all {
     &.freeze-near {
-      --smart-surface: var(--smart-background);
-      --smart-surface-color: var(--smart-background-color);
-      background-color: var(--smart-surface);
-      color: var(--smart-surface-color);
+      background-color: var(--smart-background);
+      color: var(--smart-background-color);
     }
   }
 
@@ -429,7 +425,7 @@ smart-table {
       bottom: 0;
     }
 
-    > .smart-container {
+    >.smart-container {
       justify-content: flex-end;
     }
 
@@ -623,12 +619,12 @@ smart-table {
       }
     }
 
-    > button {
+    >button {
       overflow: hidden;
     }
 
     &.conditional-formatting {
-      > button {
+      >button {
         &:after {
           //content: var(--smart-icon-table);
           display: flex;
@@ -660,7 +656,7 @@ smart-table {
         width: calc(2 * var(--smart-table-row-height));
       }
 
-      > button {
+      >button {
         &:after {
           //content: var(--smart-icon-table);
           display: flex;
@@ -701,8 +697,8 @@ smart-table {
       }
     }
 
-    > td {
-      > div {
+    >td {
+      >div {
         --smart-filter-row-content-height: calc(var(--smart-table-row-height) - 2 * var(--smart-table-cell-padding) - var(--smart-border-width));
         display: grid;
         grid-template-columns: 1fr var(--smart-filter-row-content-height) var(--smart-filter-row-content-height);
@@ -774,7 +770,7 @@ smart-table {
   .smart-table-row-detail {
     height: var(--smart-table-row-detail-height);
 
-    > td {
+    >td {
       border: none;
       padding: 0;
     }
@@ -804,7 +800,7 @@ smart-table {
 
   .disable-select {
     td.smart-table-select-row {
-      > div {
+      >div {
         pointer-events: none;
         opacity: 0.2;
       }
@@ -914,18 +910,18 @@ smart-table {
     }
 
     th.smart-table-select-all {
-      > div {
+      >div {
         border-color: var(--smart-primary-color);
       }
 
       &.selected {
-        > div {
+        >div {
           border-color: var(--smart-primary-color);
         }
       }
 
       &.indeterminate {
-        > div {
+        >div {
           background-color: var(--smart-primary-color);
         }
       }
@@ -1003,6 +999,7 @@ smart-table {
       border: var(--smart-border-width) solid var(--smart-border);
 
       thead {
+
         th,
         td {
           border-bottom-width: 2px;
@@ -1039,7 +1036,7 @@ smart-table {
   }
 
   &.no-border {
-    > .smart-container {
+    >.smart-container {
       border: none;
     }
   }
@@ -1280,6 +1277,7 @@ smart-table {
     }
 
     th[data-field] {
+
       &:before,
       &:after {
         content: '';
@@ -1321,7 +1319,7 @@ smart-table {
         }
       }
 
-      th[locked] + th[data-field] {
+      th[locked]+th[data-field] {
         &:before {
           content: none;
         }
@@ -1421,19 +1419,19 @@ smart-table {
         }
       }
 
-      tr:nth-child(2) > th {
+      tr:nth-child(2)>th {
         top: var(--smart-table-column-header-height);
       }
 
-      tr:nth-child(3) > th {
+      tr:nth-child(3)>th {
         top: calc(2 * var(--smart-table-column-header-height));
       }
 
-      tr:nth-child(4) > th {
+      tr:nth-child(4)>th {
         top: calc(3 * var(--smart-table-column-header-height));
       }
 
-      tr:nth-child(5) > th {
+      tr:nth-child(5)>th {
         top: calc(4 * var(--smart-table-column-header-height));
       }
     }
@@ -1445,19 +1443,19 @@ smart-table {
           top: var(--smart-table-header-footer-height);
         }
 
-        tr:nth-child(2) > th {
+        tr:nth-child(2)>th {
           top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
         }
 
-        tr:nth-child(3) > th {
+        tr:nth-child(3)>th {
           top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
         }
 
-        tr:nth-child(4) > th {
+        tr:nth-child(4)>th {
           top: calc(var(--smart-table-header-footer-height) + 3 * var(--smart-table-column-header-height));
         }
 
-        tr:nth-child(5) > th {
+        tr:nth-child(5)>th {
           top: calc(var(--smart-table-header-footer-height) + 4 * var(--smart-table-column-header-height));
         }
       }
@@ -1622,6 +1620,7 @@ smart-table {
     }
 
     &[selection] {
+
       th.smart-table-select-all,
       th.empty {
         border-top: none;
@@ -1681,6 +1680,7 @@ smart-table {
     }
 
     &[freeze-header] {
+
       &[filtering]:not([filter-row]),
       &[conditional-formatting-button] {
         thead th {
@@ -1717,6 +1717,7 @@ smart-table {
     }
 
     &[freeze-header] {
+
       thead th.empty,
       thead th:empty {
         box-shadow: -1px 0px 0px 0px var(--smart-border);
@@ -1740,6 +1741,7 @@ smart-table {
     }
 
     &[right-to-left] {
+
       .freeze-near,
       .freeze-far {
         box-shadow: 0px 0px 0px 1px var(--smart-border);
@@ -1749,7 +1751,7 @@ smart-table {
 
   //Right To Left
   &[right-to-left] {
-    > .smart-container {
+    >.smart-container {
       direction: rtl;
     }
 
@@ -1904,7 +1906,7 @@ smart-table {
         }
       }
 
-      th[locked] + th[data-field] {
+      th[locked]+th[data-field] {
         &:after {
           content: none;
         }
@@ -1970,6 +1972,7 @@ smart-table {
 
   //Firefox bug fixes
   @-moz-document url-prefix() {
+
     thead th:not(:last-child),
     thead th:last-child {
       border: none;
@@ -1993,6 +1996,7 @@ smart-table {
     }
 
     &[right-to-left] {
+
       thead th:not(:last-child),
       thead th:last-child {
         border: none;
@@ -2032,7 +2036,7 @@ smart-table {
 }
 
 .smart-pivot-panel {
-  > .smart-container {
+  >.smart-container {
     &[modal] {
       position: relative;
       pointer-events: none;
@@ -2069,6 +2073,7 @@ smart-table {
 }
 
 .smart-table-sm {
+
   th,
   td {
     padding: 0.3rem;
@@ -2116,11 +2121,11 @@ smart-table {
   &.conditional-formatting {
     --smart-window-default-width: 650px;
 
-    > .smart-container {
+    >.smart-container {
       overflow: visible;
     }
 
-    .smart-content-container > .smart-content {
+    .smart-content-container>.smart-content {
       overflow: visible;
     }
 
@@ -2137,7 +2142,7 @@ smart-table {
     }
 
     .smart-content-container {
-      > .smart-footer {
+      >.smart-footer {
         display: flex;
         justify-content: space-evenly;
         align-items: center;

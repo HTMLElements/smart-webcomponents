@@ -173,6 +173,14 @@ export interface Input extends BaseElement, InputProperties {
    */
   onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the user clicks on an item from the popup list.
+	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
+   *  item - The item that was clicked.
+   *  label - The label of the item that was clicked.
+   *  value - The value of the item that was clicked.
+   */
+  onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Closes the drop down.
    */
   close(): void;

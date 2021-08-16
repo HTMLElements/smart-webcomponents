@@ -3,31 +3,36 @@ smart-gantt-chart {
   width: var(--smart-gantt-chart-default-width);
   height: var(--smart-gantt-chart-default-height);
   contain: content;
-
-  &:not([animation="none"]) {
-    .smart-timeline-task-cell,
-    .smart-timeline-resource-cell {
-      transition: background ease-in-out 0.28s;
-    }
-  }
 }
 
 smart-gantt-chart,
 .smart-gantt-chart {
   .smart-splitter {
     //Necessary in order to set the default size of the Splitters inside the GanttChart
-
-    /*width: auto;*/
     width: 100%;
     height: 100%;
     border: none;
     border-radius: initial;
   }
+
+  smart-table {
+    width: 100%;
+    height: 100%;
+    //The CSS vars are calculated in smartTable render(), when the ganttChart does not have a .smart-gantt-chart class yet !
+    --smart-table-row-height: var(--smart-gantt-chart-task-default-height);
+    --smart-table-header-footer-height: var(--smart-gantt-chart-filter-row-height);
+  }
 }
 
-smart-gantt-chart > .smart-container,
+smart-gantt-chart>.smart-container,
 .smart-gantt-chart.smart-container {
   overflow: hidden;
+  --smart-scroll-bar-default-height: 100%;
+  --smart-scroll-bar-default-width: 100%;
+  --smart-gantt-chart-task-timeline-content-height: calc(2 * var(--smart-gantt-chart-task-default-height));
+  /* Default task Timeline content height. Needed as a FireFox bug fix*/
+  --smart-gantt-chart-task-splitter-bar-fit-size: var(--smart-gantt-chart-task-timeline-content-height);
+  --smart-gantt-chart-resource-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
 
   &:not(.hscroll) {
     //Hides the resize trigger
@@ -35,51 +40,20 @@ smart-gantt-chart > .smart-container,
   }
 }
 
-
-.smart-container .smart-resource-splitter > .smart-resize-trigger-container {
+.smart-container .smart-resource-splitter>.smart-resize-trigger-container {
   margin-bottom: -2px;
 }
 
 .smart-gantt-chart {
   smart-splitter {
-    smart-splitter-bar {
-      overflow: visible;
-      min-width: 1px;
-      width: 1px;
-      //In order to pick the splitter bar's pseudo element from both sides to drag it z-index is necessary
-      z-index: 1;
-    }
-
-    .smart-splitter-bar-feedback {
-      //In order to pick the splitter bar's pseudo element from both sides to drag it z-index is necessary
-      z-index: 1;
-    }
-
-    &:not([orientation="horizontal"]) {
-      &.transition-scroll-bars {
-        smart-splitter-bar {
-          transition: height 0.2s ease-in;
-        }
-      }
-    }
-
-    &[orientation="horizontal"] {
-      > .smart-container > smart-splitter-bar {
-        min-height: 5px;
-        height: 5px;
-        /*background-color: var(--smart-border);*/
-      }
-    }
+    --smart-splitter-bar-size: 5px;
   }
 
-  smart-splitter-item {
-    background-color: var(--smart-background);
+  .smart-task-splitter smart-splitter-item {
 
-    &.smart-timeline-splitter-item {
-      > .smart-container,
-      > .smart-container > .smart-content {
-        overflow: hidden;
-      }
+    >.smart-container,
+    >.smart-container>.smart-content {
+      overflow: hidden;
     }
   }
 
@@ -96,62 +70,159 @@ smart-gantt-chart > .smart-container,
     padding: initial;
   }
 
-  smart-tree {
-    .smart-tree-item-label-container {
-      height: var(--smart-gantt-chart-task-default-height);
+  .smart-table {
+    --smart-table-cell-padding: var(--smart-gantt-chart-task-bar-fill-padding);
+
+    &.smart-task-table {
+      --smart-table-column-header-height: calc(2 * var(--smart-gantt-chart-task-default-height) - calc(var(--smart-border-width) / 2));
     }
 
-    &[selection-mode="checkBox"],
-    &[selection-mode="radioButton"] {
-      smart-tree-item,
-      smart-tree-items-group > .smart-tree-item-label-container {
-        border-radius: 0;
+    &.smart-resource-table {
+      --smart-table-column-header-height: calc(var(--smart-gantt-chart-task-default-height) - calc(var(--smart-border-width) / 2));
+    }
+
+    //Firefox specific selector
+    @-moz-document url-prefix() {
+      &.smart-task-table {
+        --smart-table-column-header-height: calc(2 * var(--smart-gantt-chart-task-default-height));
+      }
+
+      &.smart-resource-table {
+        --smart-table-column-header-height: var(--smart-gantt-chart-task-default-height);
       }
     }
 
-    &:not([selection-display-mode="label"]) {
-      smart-tree-items-group {
-        > .smart-tree-item-label-container {
-          border-bottom-width: var(--smart-border-width);
-          border-bottom-style: solid;
-          border-top-color: var(--smart-border);
-          border-bottom-color: var(--smart-border);
+    &>.smart-container {
+      border: initial;
+    }
+
+
+    .smart-table-virtualization-container {
+      .smart-scroll-viewer-content-container {
+        display: block;
+      }
+    }
+
+    td {
+      &.tree-cell {
+        >div {
+          .hierarchy-arrow::after {
+            display: initial;
+          }
         }
       }
 
-      &:not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) {
-        smart-tree-item[selected],
-        smart-tree-items-group[selected] > .smart-tree-item-label-container {
-          border-top-color: var(--smart-border);
-          border-bottom-color: var(--smart-border);
+      div,
+      span {
+        line-height: inherit;
+      }
+
+      &.tree-cell {
+        >div {
+          div:nth-child(2) {
+            line-height: 1rem;
+          }
+        }
+      }
+    }
+
+    thead tr {
+      th {
+        background-color: var(--smart-surface);
+        color: var(--smart-surface-color);
+        border-bottom: var(--smart-border-width) solid var(--smart-border);
+        font-size: var(--smart-font-size);
+
+        &.smart-table-select-all {
+          &.freeze-near {
+            background-color: var(--smart-surface);
+            color: var(--smart-surface-color);
+          }
+        }
+      }
+    }
+
+    tbody tr {
+      cursor: pointer;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+
+      td {
+        //To avoid custom template rows from growing more then the --smart-table-row-height value
+        line-height: 100%;
+      }
+
+      &[unused] td {
+        border: initial;
+      }
+
+      &[focus] {
+        border-color: var(--smart-ui-state-border-focus);
+        background-color: var(--smart-ui-state-focus);
+        color: var(--smart-ui-state-color-focus);
+      }
+
+      &[hover] {
+        border-color: var(--smart-ui-state-border-hover);
+        background-color: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
+      }
+
+      &[aria-selected="true"] {
+        border-color: var(--smart-ui-state-border-selected);
+        background-color: var(--smart-ui-state-selected);
+        color: var(--smart-ui-state-color-selected);
+      }
+    }
+
+    td {
+      border-bottom: var(--smart-border-width) solid var(--smart-border);
+      border-top: none;
+    }
+
+    &[freeze-footer] .smart-table-container:focus td[focus]:after {
+      height: 100%;
+
+      //Firefox bug fix
+      @-moz-document url-prefix() {
+        top: 0;
+      }
+    }
+  }
+
+  &[group-by-resources] .smart-table tbody {
+    tr[role="group"] {
+      background: var(--smart-background);
+      color: var(--smart-background-color);
+      cursor: initial;
+
+      .selection-checkbox {
+        background: var(--smart-background);
+        color: var(--smart-background-color);
+        cursor: initial;
+        border-color: var(--smart-border);
+
+        &::before,
+        &::after {
+          content: initial;
         }
       }
     }
   }
 
-  smart-tree-item {
-    &:not([selected]) {
-      border-radius: 0;
-    }
-  }
-
-  smart-tree-items-group {
-    &:not([selected]) {
-      > .smart-tree-item-label-container {
-        border-radius: 0;
-      }
-    }
-  }
-
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     position: relative;
 
-    &.hscroll > smart-splitter {
+    &.hscroll>smart-splitter {
       height: calc(100% - var(--smart-scroll-bar-size));
     }
 
-    > .smart-popup-window-modal {
+    >.smart-popup-window-modal {
       position: absolute;
       opacity: 0.5;
       background-color: var(--smart-disabled);
@@ -164,9 +235,9 @@ smart-gantt-chart > .smart-container,
   }
 
   .smart-splitter {
-    > .smart-container {
-      > smart-splitter-bar {
-        > .smart-container {
+    >.smart-container {
+      >smart-splitter-bar {
+        >.smart-container {
           transform: scaleX(5);
           transform-origin: left;
         }
@@ -180,125 +251,15 @@ smart-gantt-chart > .smart-container,
     }
 
     &[orientation="horizontal"] {
-      > .smart-container {
-        > smart-splitter-bar {
-          > .smart-container {
+      >.smart-container {
+        >smart-splitter-bar {
+          >.smart-container {
             transform: scaleY(2.5);
             transform-origin: center;
           }
         }
       }
     }
-  }
-
-  .smart-splitter-item {
-    &[sort] {
-      .smart-task-tree-content,
-      .smart-resource-tree-content {
-        background: var(--smart-grid-cell-background-sort);
-        color: var(--smart-grid-cell-color-sort);
-      }
-    }
-
-    &[sort="asc"] {
-      .smart-task-tree-header,
-      .smart-resource-tree-header {
-        &:after {
-          transform: rotate(180deg) scale(1);
-        }
-      }
-    }
-
-    &[sort="desc"] {
-      .smart-task-tree-header,
-      .smart-resource-tree-header {
-        &:after {
-          transform: rotate(0) scale(1);
-        }
-      }
-    }
-  }
-
-  .smart-splitter-bar-feedback {
-    &[vertical] {
-      width: 1px;
-    }
-
-    &[horizontal] {
-      height: 5px;
-    }
-  }
-
-  .smart-tree {
-    --smart-tree-default-width: auto;
-    --smart-tree-default-height: 100%;
-    --smart-tree-item-label-height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-border-width));
-    --smart-tree-item-vertical-offset: 0;
-    --smart-tree-item-horizontal-offset: 0;
-    --smart-item-border-width: 0;
-    --smart-item-border-top-left-radius: 0;
-    --smart-item-border-top-right-radius: 0;
-    --smart-item-border-bottom-left-radius: 0;
-    --smart-item-border-bottom-right-radius: 0;
-    --smart-background: transparent;
-    border: none;
-
-    .smart-resize-trigger-container {
-      display: none;
-    }
-  }
-
-  .smart-tree-splitter {
-    --smart-border-top-left-radius: 0;
-    --smart-border-top-right-radius: 0;
-    --smart-border-bottom-left-radius: 0;
-    --smart-border-bottom-right-radius: 0;
-
-    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-tree-splitter-bar-fit-size);
-
-    smart-splitter-bar {
-      --smart-splitter-bar-background: var(--smart-border);
-    }
-
-    smart-splitter-item {
-      > .smart-container {
-        > .smart-content {
-          padding: 0;
-          overflow: hidden;
-        }
-      }
-    }
-
-    smart-tree-item[assigned],
-    smart-tree-items-group[assigned] > .smart-tree-item-label-container {
-      /*border-color: #{'rgba(var(--smart-primary-rgb), .05)'};*/
-      background-color: #{'rgba(var(--smart-primary-rgb), .05)'};
-      color: #{'rgba(var(--smart-primary), .5)'};
-    }
-
-    .smart-resize-trigger-container {
-      //hide the unnecessary Resize Triggers
-      margin-bottom: -1px;
-    }
-
-    .smart-task-drop-down {
-      transform: scaleY(1);
-      transform-origin: top;
-      overflow: hidden;
-
-      &.smart-visibility-hidden {
-        margin-top: 0;
-        height: 0;
-        transform: scaleY(0);
-      }
-    }
-  }
-
-  .smart-tree-item-label-container {
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
   }
 
   .smart-timeline {
@@ -309,7 +270,6 @@ smart-gantt-chart > .smart-container,
     text-align: center;
     overflow: hidden;
     height: 100%;
-    display: flex;
 
     &[task-bar-hovered] {
       cursor: e-resize;
@@ -321,17 +281,85 @@ smart-gantt-chart > .smart-container,
     }
   }
 
-  .smart-timeline-header {
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-    position: relative;
+  &[task-filtering] {
+    &[hide-timeline-header-details] {
+      .smart-task-splitter .smart-timeline-view-cells .smart-timeline-view-cell {
+        border-top: initial;
+      }
+
+      .smart-task-splitter {
+        .smart-timeline-content-container {
+          height: calc(100% - var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-filter-row-height));
+        }
+      }
+    }
+
+    .smart-task-splitter {
+      .smart-timeline-content-container {
+        height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-filter-row-height));
+      }
+
+      .smart-timeline-header::before {
+        content: '';
+      }
+    }
   }
 
-  .smart-timeline-content {
+  &[resource-filtering] {
+    .smart-resource-splitter {
+      --smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-splitter-bar-fit-size) + var(--smart-gantt-chart-filter-row-height));
+
+      .smart-timeline-header::before {
+        content: '';
+      }
+    }
+  }
+
+  &[task-filtering][filter-row] {
+    .smart-task-splitter {
+      .smart-timeline-header::after {
+        content: '';
+      }
+
+      .smart-timeline-header::before {
+        content: none;
+      }
+    }
+  }
+
+  .smart-timeline-header {
     position: relative;
     overflow: hidden;
     width: 100%;
+
+    &::after,
+    &::before {
+      width: 100%;
+      height: var(--smart-gantt-chart-filter-row-height);
+      display: block;
+      background: var(--smart-surface);
+      border-bottom: var(--smart-border) solid var(--smart-border-width);
+      box-sizing: border-box;
+      position: sticky;
+      left: 0;
+    }
+
+    .smart-timeline-header-content {
+      width: 100%;
+    }
+  }
+
+  .smart-timeline-content-container {
+    width: 100%;
     height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    transition: max-height 0.2s ease-in, min-height 0.2s ease-in, height 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .smart-timeline-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
 
     &:empty {
       &:after {
@@ -382,23 +410,14 @@ smart-gantt-chart > .smart-container,
       width: calc(100% - var(--smart-scroll-bar-size));
     }
 
-    &.smart-resource-scroll-bar {
+    &.smart-resource-scroll-bar[orientation="vertical"] {
       height: calc(100% - var(--smart-gantt-chart-task-default-height));
       top: var(--smart-gantt-chart-task-default-height);
       z-index: 1;
 
-      &[orientation="vertical"] {
-        &:before {
-          top: calc(-1 * var(--smart-gantt-chart-task-default-height));
-          height: var(--smart-gantt-chart-task-default-height);
-        }
-
-        &[disabled] {
-          &:after {
-            left: 0;
-            height: 100%;
-          }
-        }
+      &:before {
+        top: calc(-1 * var(--smart-gantt-chart-task-default-height));
+        height: var(--smart-gantt-chart-task-default-height);
       }
     }
 
@@ -421,13 +440,13 @@ smart-gantt-chart > .smart-container,
         border-top: none;
         box-sizing: border-box;
       }
-    }
-  }
 
-  .smart-timeline-cells-container {
-    &:empty {
-      //The Timeline needs some height when all tasks are hidden
-      min-height: 1px;
+      &[disabled] {
+        &:after {
+          left: 0;
+          height: 100%;
+        }
+      }
     }
   }
 
@@ -510,7 +529,7 @@ smart-gantt-chart > .smart-container,
     }
 
     &[selected] {
-      .smart-timeline-task-progress-thumb {
+      &:not([resource-group]) .smart-timeline-task-progress-thumb {
         transform: scale(1);
       }
 
@@ -540,6 +559,10 @@ smart-gantt-chart > .smart-container,
     &[disable-drag] {
       cursor: pointer;
     }
+
+    &[resource-group] {
+      cursor: initial;
+    }
   }
 
   .smart-timeline-task-progress {
@@ -547,6 +570,7 @@ smart-gantt-chart > .smart-container,
     height: 100%;
     transform-origin: left;
     position: relative;
+    pointer-events: none;
   }
 
   .smart-timeline-task-progress-thumb {
@@ -585,7 +609,6 @@ smart-gantt-chart > .smart-container,
 
   .smart-timeline-task-cells {
     position: relative;
-    /*overflow: hidden;*/
   }
 
   .smart-timeline-view-details {
@@ -600,7 +623,7 @@ smart-gantt-chart > .smart-container,
       user-select: none;
       background-color: var(--smart-surface);
       color: var(--smart-surface-color);
-      box-shadow: var(--smart-gantt-chart-header-box-shadow);
+      // box-shadow: var(--smart-gantt-chart-header-box-shadow);
       border-bottom: var(--smart-border-width) solid var(--smart-border);
       display: flex;
       justify-content: center;
@@ -613,7 +636,6 @@ smart-gantt-chart > .smart-container,
 
     .smart-timeline-view-cell {
       min-width: initial;
-
       border-top: none;
 
       &:not(:first-of-type) {
@@ -626,9 +648,6 @@ smart-gantt-chart > .smart-container,
     display: flex;
     width: 100%;
     height: var(--smart-gantt-chart-task-default-height);
-    //display: grid;
-    //    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    //Lags when DIV's are more than 1000 and 1fr calculates inaccurately
 
     &:empty {
       -webkit-user-select: none;
@@ -637,7 +656,6 @@ smart-gantt-chart > .smart-container,
       user-select: none;
       background-color: var(--smart-surface);
       color: var(--smart-surface-color);
-      box-shadow: var(--smart-gantt-chart-header-box-shadow);
       border-bottom: var(--smart-border-width) solid var(--smart-border);
       display: flex;
       justify-content: center;
@@ -649,18 +667,6 @@ smart-gantt-chart > .smart-container,
     }
 
     .smart-timeline-view-cell {
-      &:after {
-        content: '';
-        width: 100%;
-        background-color: transparent;
-        border-left: var(--smart-border-width) solid var(--smart-border);
-        border-right: var(--smart-border-width) solid transparent;
-        position: absolute;
-        top: calc(100% + var(--smart-border-width));
-        right: 0;
-        height: var(--smart-gantt-chart-task-timeline-content-height);
-      }
-
       &:last-of-type {
         &:after {
           border-right-color: transparent;
@@ -672,15 +678,11 @@ smart-gantt-chart > .smart-container,
       }
 
       &[weekend] {
-        &:after {
-          background: var(--smart-gantt-chart-timeline-weekend-color);
-        }
+        background: var(--smart-gantt-chart-timeline-weekend-color);
       }
 
       &[nonworking] {
-        &:after {
-          background: var(--smart-gantt-chart-timeline-nonworking-color);
-        }
+        background: var(--smart-gantt-chart-timeline-nonworking-color);
       }
     }
 
@@ -717,7 +719,7 @@ smart-gantt-chart > .smart-container,
       border-right: none;
     }
 
-    > div {
+    >div {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -725,125 +727,22 @@ smart-gantt-chart > .smart-container,
     }
   }
 
-  .smart-timeline-animation-inner-container {
+  .smart-timeline-cells-container {
     width: 100%;
-    position: absolute;
-
-    > div {
-      transform: scaleY(1);
-      transform-origin: top;
-      transition: height 0.2s ease-in, transform 0.2s ease-in;
-
-      &.animate {
-        transform: scaleY(0);
-        height: 0;
-      }
-    }
   }
 
-  .smart-timeline-animation-container {
-    width: 100%;
-    position: absolute;
-    pointer-events: none;
-    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    overflow: hidden;
-    transform: scale(1);
-
-    &.smart-visibility-hidden {
-      transform: scale(0);
-    }
-
-    .smart-timeline-task {
-      position: initial;
-
-      &:after,
-      &:before {
-        content: ' ';
-        position: absolute;
-        width: 100%;
-        border-top: var(--smart-border-width) solid var(--smart-border);
-        top: initial;
-        left: 0;
-        height: 0;
-        box-shadow: none;
-        transform: translateY(-1px);
-      }
-
-      &:before {
-        transition: background ease-in-out 0.28s;
-        background: var(--smart-gantt-chart-timeline-task-background-color);
-      }
-
-      &[selected] {
-        &:after {
-          transform: scale(0);
-        }
-
-        &:before {
-          content: ' ';
-          position: absolute;
-          width: 100%;
-          border-top: var(--smart-border-width) solid var(--smart-border);
-          top: initial;
-          left: 0;
-          height: 0;
-          box-shadow: none;
-          transform: translateY(-1px);
-          //height: var(--smart-gantt-chart-task-default-height);
-          box-sizing: border-box;
-          background: var(--smart-ui-state-selected);
-        }
-      }
-
-      &[assigned] {
-        &:after {
-          transform: scale(0);
-        }
-
-        &:before {
-          height: var(--smart-gantt-chart-task-default-height);
-          box-sizing: border-box;
-          background: #{'rgba(var(--smart-primary-rgb), .05)'};
-        }
-      }
-
-      &[focus] {
-        &:before {
-          height: var(--smart-gantt-chart-task-default-height);
-          box-sizing: border-box;
-          background: var(--smart-ui-state-focus);
-        }
-      }
-
-      &[hover] {
-        &:before {
-          height: var(--smart-gantt-chart-task-default-height);
-          box-sizing: border-box;
-          background: var(--smart-ui-state-hover);
-        }
-      }
-
-      &.milestone {
-        .smart-task-container {
-          width: 0;
-        }
-      }
-    }
-  }
-
-  .smart-timeline-task-cell,
-  .smart-timeline-resource-cell {
+  .smart-timeline-row {
+    display: flex;
     border-width: var(--smart-border-width);
     border-style: solid;
-    border-top-color: var(--smart-border);
+    border-top: initial;
     border-bottom-color: var(--smart-border);
-    border-left-color: var(--smart-border);
-    border-right-color: var(--smart-border);
     background: var(--smart-gantt-chart-timeline-task-background-color);
     border-left: none;
     border-right: none;
-    border-top-color: transparent;
-    position: relative;
+    position: absolute;
+    left: 0;
+    width: inherit;
     height: var(--smart-gantt-chart-task-default-height);
 
     &:first-of-type {
@@ -854,14 +753,6 @@ smart-gantt-chart > .smart-container,
       border-right-color: var(--smart-border);
     }
 
-    &[assigned] {
-      background: #{'rgba(var(--smart-primary-rgb), .05)'};
-    }
-
-    &[focus] {
-      background: var(--smart-ui-state-focus);
-    }
-
     &[hover] {
       background: var(--smart-ui-state-hover);
     }
@@ -870,14 +761,36 @@ smart-gantt-chart > .smart-container,
       background: var(--smart-ui-state-selected);
     }
 
-    &.smart-visibility-hidden {
-      height: 0;
-      border: 0;
+    .smart-timeline-cell {
+      position: absolute;
+      padding: var(--smart-gantt-chart-task-bar-fill-padding);
+      height: 100%;
+      min-width: var(--smart-gantt-chart-timeline-cell-min-size);
+      width: var(--smart-gantt-chart-timeline-cell-size);
+
+      &:not(:last-of-type) {
+        border-right: var(--smart-border-width) solid var(--smart-border);
+      }
+    }
+
+    &:not([hover]):not([selected]) {
+      .smart-timeline-cell[weekend] {
+        background: var(--smart-gantt-chart-timeline-weekend-color);
+      }
+
+      .smart-timeline-cell[nonworking] {
+        background: var(--smart-gantt-chart-timeline-nonworking-color);
+      }
     }
   }
 
   .smart-resource-splitter {
-    --smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
+    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-resource-splitter-bar-fit-size);
+
+    .smart-timeline-content {
+      overflow: hidden;
+      position: relative;
+    }
 
     .smart-timeline-view-cells {
       .smart-timeline-view-cell {
@@ -885,22 +798,19 @@ smart-gantt-chart > .smart-container,
       }
     }
 
-    .smart-tree-splitter {
-      --smart-splitter-bar-fit-size: var(--smart-gantt-chart-resource-tree-splitter-bar-fit-size);
-    }
-
     .smart-timeline-content {
       height: calc(100% - var(--smart-gantt-chart-task-default-height));
+    }
+
+    .smart-timeline-row .smart-timeline-cell {
+      padding: initial;
     }
   }
 
   .smart-resource-splitter-item {
-    > .smart-container {
-      > .smart-content {
+    >.smart-container {
+      >.smart-content {
         overflow: hidden;
-        //Can't use Grid, because Gantt uses JS height when it has animations and height is 'auto' */
-        /*display: grid;/*
-        /*grid-template-rows: auto 1fr;*/
       }
     }
 
@@ -916,12 +826,11 @@ smart-gantt-chart > .smart-container,
       .smart-resource-splitter {
         height: calc(100% - var(--smart-gantt-chart-header-height));
       }
+    }
 
-      .smart-timeline-view-cells {
-        .smart-timeline-view-cell {
-          border-top: var(--smart-border-width) solid var(--smart-border);
-        }
-      }
+    .smart-timeline-cell:first-of-type .smart-resource-timeline-view-cell {
+      width: 100%;
+      left: 0;
     }
   }
 
@@ -931,6 +840,7 @@ smart-gantt-chart > .smart-container,
     align-items: center;
     height: var(--smart-gantt-chart-header-height);
     background: var(--smart-surface);
+    border-bottom: var(--smart-border) solid var(--smart-border-width);
 
     &:empty {
       display: none;
@@ -938,12 +848,18 @@ smart-gantt-chart > .smart-container,
   }
 
   .smart-resource-timeline-view-cell {
+    position: absolute;
     background: var(--smart-gantt-chart-timeline-task-background-color);
     bottom: 0;
     border: none;
+    width: calc(100% + var(--smart-border-width));
+    left: calc(-1 * var(--smart-border-width));
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:after {
-      position: absolute;
       content: '';
       display: flex;
       justify-content: center;
@@ -956,8 +872,8 @@ smart-gantt-chart > .smart-container,
 
     &[load] {
       &:after {
-        content: attr(load) !important;
-        transform: scale(1) rotate(0deg) !important;
+        content: attr(load);
+        transform: scale(1) rotate(0deg);
       }
     }
 
@@ -968,156 +884,6 @@ smart-gantt-chart > .smart-container,
         border-radius: 5px;
       }
     }
-  }
-
-  .smart-resource-tree-header {
-    height: var(--smart-gantt-chart-task-default-height);
-    //height: calc(2 * var(--smart-gantt-chart-task-default-height));
-    padding: var(--smart-gantt-chart-task-bar-fill-padding);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    border-left: none;
-    border-right: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-
-    &:after {
-      content: "";
-      position: absolute;
-      right: 2.5%;
-      content: var(--smart-icon-arrow-down);
-      font-family: var(--smart-font-family-icon);
-      font-size: var(--smart-font-size);
-      transform: rotate(0deg) scale(0);
-      transition: transform .2s ease-out, opacity .2s ease-out;
-    }
-
-    &:empty {
-      padding: 0;
-    }
-
-    > div {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      pointer-events: none;
-    }
-  }
-
-  .smart-resource-tree-content {
-    //height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    overflow: hidden;
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
-  }
-
-  .smart-resource-item-label-container {
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
-  }
-
-  .smart-resource-label-container {
-    cursor: pointer;
-    height: var(--smart-gantt-chart-task-default-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
-
-    > span {
-      white-space: inherit;
-      overflow: inherit;
-      text-overflow: inherit;
-    }
-
-    &[assigned] {
-      /*border-color: #{'rgba(var(--smart-primary-rgb), .05)'};*/
-      background-color: #{'rgba(var(--smart-primary-rgb), .05)'};
-      color: #{'rgba(var(--smart-primary), .5)'};
-    }
-
-    &[focus] {
-      border-color: var(--smart-ui-state-border-focus);
-      background-color: var(--smart-ui-state-focus);
-      color: var(--smart-ui-state-color-focus);
-    }
-
-    &[hover],
-    &[hover] {
-      border-color: var(--smart-ui-state-border-hover);
-      background-color: var(--smart-ui-state-hover);
-      color: var(--smart-ui-state-color-hover);
-    }
-
-    &[selected],
-    &[selected] {
-      border-color: var(--smart-ui-state-border-selected);
-      background-color: var(--smart-ui-state-selected);
-      color: var(--smart-ui-state-color-selected);
-    }
-
-  }
-
-  .smart-task-tree-header {
-    height: calc(2 * var(--smart-gantt-chart-task-default-height));
-    padding: var(--smart-gantt-chart-task-bar-fill-padding);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    border-left: none;
-    border-right: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-
-    &:after {
-      content: "";
-      position: absolute;
-      right: 2.5%;
-      content: var(--smart-icon-arrow-down);
-      font-family: var(--smart-font-family-icon);
-      font-size: var(--smart-font-size);
-      transform: rotate(0deg) scale(0);
-    }
-
-    &:empty {
-      padding: 0;
-    }
-
-    > div {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      pointer-events: none;
-    }
-  }
-
-  .smart-task-tree-content {
-    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    overflow: hidden;
   }
 
   .smart-task-container {
@@ -1142,33 +908,32 @@ smart-gantt-chart > .smart-container,
   }
 
   .smart-task-splitter {
-    // --smart-gantt-chart-splitter-bar-fit-size in this case shouldn't be changed, because it is used for the collapse/expand animation !
-    --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height));
-    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
+    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-splitter-bar-fit-size);
 
-    > .smart-resize-trigger-container {
-      display: none;
+    >.smart-resize-trigger-container {
+      margin-bottom: -2px;
     }
   }
 
   .smart-task-splitter-item {
-    > .smart-container {
-      > .smart-content {
+    >.smart-container {
+      >.smart-content {
         overflow: hidden;
-        //Can't use Grid, because Gantt uses JS height when it has animations and height is 'auto' */
-        /*display: grid;/*
-        /*grid-template-rows: auto 1fr;*/
       }
     }
 
     &[show-header] {
-      .smart-resource-splitter {
+      .smart-task-panel-header {
+        border-bottom: var(--smart-border-width) solid var(--smart-border);
+      }
+
+      .smart-task-splitter {
         height: calc(100% - var(--smart-gantt-chart-header-height));
       }
 
       .smart-timeline-view-details {
         .smart-timeline-view-cell {
-          border-top: var(--smart-border-width) solid var(--smart-border);
+          border-top: initial;
         }
       }
     }
@@ -1263,98 +1028,29 @@ smart-gantt-chart > .smart-container,
     }
   }
 
-  .smart-task-bar-limitter-min {
+  .smart-task-bar-limiter {
     position: absolute;
     top: 0;
     height: 100%;
     width: 1px;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: lightgreen;
-  }
 
-  .smart-task-bar-limitter-max {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: red;
-  }
-
-  .smart-task-bar-limitter-min-date,
-  .smart-task-bar-limitter-max-date {
-    position: absolute;
-    top: 0;
-    left: var(--smart-border-width);
-    height: calc(100% - 2 * var(--smart-border-width));
-    background-image: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.2) 50%, rgba(255, 0, 0, 0.2) 75%, transparent 75%, transparent);
-    background-size: 1rem 1rem;
-    border: 1px solid white;
-  }
-
-  .smart-task-bar-limitter-max-date {
-    left: inherit;
-    right: 0;
-  }
-
-  .smart-task-label-container {
-    cursor: pointer;
-    height: var(--smart-gantt-chart-task-default-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
-
-    > span {
-      white-space: inherit;
-      overflow: inherit;
-      text-overflow: inherit;
+    &.min {
+      border: var(--smart-border-width) dashed lightgreen;
     }
 
-    &[assigned] {
-      /*border-color: #{'rgba(var(--smart-primary-rgb), .05)'};*/
-      background-color: #{'rgba(var(--smart-primary-rgb), .05)'};
-      color: #{'rgba(var(--smart-primary), .5)'};
+    &.max {
+      border: var(--smart-border-width) dashed red;
     }
 
-    &[focus] {
-      border-color: var(--smart-ui-state-border-focus);
-      background-color: var(--smart-ui-state-focus);
-      color: var(--smart-ui-state-color-focus);
+    &.min-date,
+    &.max-date {
+      background-image: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.2) 50%, rgba(255, 0, 0, 0.2) 75%, transparent 75%, transparent);
+      background-size: 1rem 1rem;
+      border: 1px solid white;
     }
 
-    &[hover],
-    &[hover] {
-      border-color: var(--smart-ui-state-border-hover);
-      background-color: var(--smart-ui-state-hover);
-      color: var(--smart-ui-state-color-hover);
-    }
-
-    &[selected],
-    &[selected] {
-      border-color: var(--smart-ui-state-border-selected);
-      background-color: var(--smart-ui-state-selected);
-      color: var(--smart-ui-state-color-selected);
-    }
-
-  }
-
-  [show-header] {
-    .smart-task-tree-header,
-    .smart-resource-tree-header {
-      border-top: var(--smart-border-width) solid var(--smart-border);
+    &.max-date {
+      right: 0;
     }
   }
 
@@ -1370,6 +1066,7 @@ smart-gantt-chart > .smart-container,
         height: 100%;
         box-sizing: border-box;
         left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 2);
+        // left: 0;
         border-right: calc(var(--smart-gantt-chart-task-default-height) / 2) solid var(--smart-gantt-chart-milestone-color);
         border-top: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
         border-bottom: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
@@ -1389,11 +1086,11 @@ smart-gantt-chart > .smart-container,
 
     .smart-task-connection-point {
       &.start {
-        left: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+        transform: translate(calc(-1 * var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(0);
       }
 
       &.end {
-        right: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+        transform: translate(calc(var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(0);
       }
     }
 
@@ -1427,6 +1124,7 @@ smart-gantt-chart > .smart-container,
   }
 
   &:not([disable-task-drag]) {
+
     .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::after,
     .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::before,
     .smart-timeline-task:not([disable-drag]) .smart-timeline-task-fill {
@@ -1435,9 +1133,23 @@ smart-gantt-chart > .smart-container,
   }
 
   &:not([dragged]):not([resized]) {
-    .smart-timeline-task[selected] .smart-task-connection-point,
-    .smart-timeline-task[hover] .smart-task-connection-point {
+
+    .smart-timeline-task[selected]:not([resource-group]) .smart-task-connection-point,
+    .smart-timeline-task[hover]:not([resource-group]) .smart-task-connection-point {
       transform: translateY(-50%) scale(1);
+    }
+
+    &:not([right-to-left]) {
+
+      .smart-timeline-task.milestone[selected] .smart-task-connection-point.start,
+      .smart-timeline-task.milestone[hover] .smart-task-connection-point.start {
+        transform: translate(calc(-1 * var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(1);
+      }
+
+      .smart-timeline-task.milestone[selected] .smart-task-connection-point.end,
+      .smart-timeline-task.milestone[hover] .smart-task-connection-point.end {
+        transform: translate(calc(1 * var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(1);
+      }
     }
   }
 
@@ -1454,17 +1166,22 @@ smart-gantt-chart > .smart-container,
   }
 
   &:not([resource-timeline-mode="histogram"]) {
-    .smart-resource-timeline-view-cell::after {
-      height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
-      width: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
-      border-radius: 50%;
-      transform: scale(0) rotate(360deg);
-      background: var(--smart-success);
-      color: var(--smart-success-color);
-      line-height: 100%;
+    .smart-resource-timeline-view-cell {
+      &:not([load])::after {
+        transform: scale(0) rotate(360deg);
+      }
+
+      &::after {
+        height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
+        width: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
+        border-radius: 50%;
+        background: var(--smart-success);
+        color: var(--smart-success-color);
+        line-height: 100%;
+      }
     }
 
-    .smart-timeline-resource-cell:first-of-type .smart-resource-timeline-view-cell {
+    .smart-timeline-row:first-of-type .smart-resource-timeline-view-cell {
       border-top: none;
     }
   }
@@ -1480,9 +1197,12 @@ smart-gantt-chart > .smart-container,
 
       &:after {
         width: 100%;
-        content: '-';
         height: calc(var(--smart-gantt-chart-task-default-height) - 2px);
         bottom: 0;
+      }
+
+      &:not([load]):after {
+        content: '-';
       }
 
       &.hide-left-border,
@@ -1533,106 +1253,21 @@ smart-gantt-chart > .smart-container,
         border-radius: initial;
       }
     }
-
-
   }
 
   &:not([animation="none"]) {
-    .smart-resource-splitter {
-      .smart-resource-timeline-view-cell {
-        &:after {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-      }
-    }
-
     .smart-resource-timeline-view-cell {
       &[load] {
         &:after {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), border-radius 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), background 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), color 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
+          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), border-radius 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
         }
       }
     }
 
-    .smart-task-connection-point {
-      transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-
-    .smart-task-tree-header {
-      &:after {
-        transition: transform .2s ease-out, opacity .2s ease-out;
-      }
-    }
-
-    .smart-timeline-task {
-      &:after {
-        transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-      }
-
-      .smart-task-container {
-        &:after {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        }
-      }
-
-      .smart-timeline-task-fill {
-        transition: box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-      }
-
-      &[selected] {
-        &:after {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        }
-
-        .smart-task-connection-point {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        }
-
-        .smart-timeline-task-progress-thumb {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        }
-
-        .smart-task-container::after {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        }
-      }
-
-      &[hover] {
-        .smart-task-connection-point {
-          transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        }
-      }
-
-      &.task {
-        .smart-timeline-task-label {
-          transition: color 0.2s ease-in-out;
-        }
-      }
-
-      &.project {
-        .smart-timeline-task-label {
-          transition: color 0.2s ease-in-out;
-        }
-      }
-    }
-
-    .smart-timeline-task-progress-thumb {
-      transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-
-    .smart-tree-splitter {
-      .smart-task-drop-down {
-        transition: height 0.2s ease-in, transform 0.2s ease-in, visibility 0.2s ease-in;
-      }
-    }
 
     &[resource-timeline-mode="histogram"] {
       .smart-resource-timeline-view-cell {
         transition: height 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-
-        &:after {
-          transition: background 0.2s cubic-bezier(0.4, 0.0, 0.6, 1), color 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
-        }
       }
     }
 
@@ -1641,37 +1276,12 @@ smart-gantt-chart > .smart-container,
         transition: color 0.2s ease-in-out;
       }
     }
-
-    smart-tree:not([selection-display-mode="label"]) smart-tree-item,
-    smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container,
-    .smart-task-label-container,
-    .smart-resource-label-container {
-      transition: color ease-in-out 0.28s, border-color ease-in-out 0.28s, background ease-in-out 0.28s;
-    }
   }
 
-  &[animation="none"] {
-    .smart-timeline-animation-container {
-      display: none;
-    }
-
-    .smart-timeline-view-cells:not([no-transition]) {
-      .smart-timeline-view-cell::after {
-        transition: height 0.2s ease-in;
-      }
-    }
-  }
-
-  &.vscroll {
+  >.smart-container.vscroll,
+  &.smart-container.vscroll {
     .smart-timeline {
       width: calc(100% - var(--smart-scroll-bar-size));
-    }
-  }
-
-  &[sortable] {
-    .smart-task-tree-header,
-    .smart-resource-tree-header {
-      padding: 0 var(--smart-font-size) 0 var(--smart-font-size);
     }
   }
 
@@ -1684,7 +1294,7 @@ smart-gantt-chart > .smart-container,
       }
     }
 
-    > .smart-container.vscroll,
+    >.smart-container.vscroll,
     &.smart-container.vscroll {
       .smart-timeline {
         margin-left: var(--smart-scroll-bar-size);
@@ -1704,32 +1314,29 @@ smart-gantt-chart > .smart-container,
   }
 
   &[hide-timeline-header-details] {
+
+    &>.smart-container,
+    &.smart-container {
+      --smart-gantt-chart-task-timeline-content-height: var(--smart-gantt-chart-task-default-height);
+    }
+
     .smart-timeline-view-details {
       display: none;
     }
 
-    .smart-task-splitter-item:not([show-header]) .smart-timeline-view-cell {
+    .smart-task-splitter-item[show-header] .smart-timeline-view-cell {
       border-top: none;
     }
 
-    .smart-timeline-view-cells,
-    .smart-task-tree-header {
+    .smart-timeline-view-cells {
       height: var(--smart-gantt-chart-task-default-height);
     }
 
-    .smart-task-splitter {
-      --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
+    .smart-table {
+      --smart-table-column-header-height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-border-width));
     }
 
-    .smart-timeline-animation-container {
-      height: calc(100% - var(--smart-gantt-chart-task-default-height));
-    }
-
-    .smart-task-tree-content {
-      height: calc(100% - var(--smart-gantt-chart-task-default-height));
-    }
-
-    .smart-timeline-content {
+    .smart-timeline-content-container {
       height: calc(100% - var(--smart-gantt-chart-task-default-height));
     }
 
@@ -1780,6 +1387,7 @@ smart-gantt-chart > .smart-container,
   }
 
   &[auto-schedule][auto-schedule-strict-mode] {
+
     .smart-timeline-task.milestone[connected] .smart-task-container::after,
     .smart-timeline-task.milestone[connected] .smart-task-container::before,
     .smart-timeline:not([task-bar-hovered]) .smart-timeline-task[connected] .smart-timeline-task-fill {
@@ -1802,9 +1410,8 @@ smart-gantt-chart > .smart-container,
 
   //Right To Left
   &[right-to-left] {
-    .smart-timeline-task-label,
-    .smart-task-tree-header,
-    .smart-resource-tree-header {
+
+    .smart-timeline-task-label {
       direction: rtl;
     }
 
@@ -1812,7 +1419,7 @@ smart-gantt-chart > .smart-container,
       direction: initial;
     }
 
-    > .smart-container.vscroll {
+    >.smart-container.vscroll {
       .smart-timeline-scroll-bar:not([orientation="vertical"]) {
         left: calc(var(--smart-scroll-bar-size));
       }
@@ -1832,6 +1439,21 @@ smart-gantt-chart > .smart-container,
       &:first-of-type {
         border-right: none;
         border-left: var(--smart-border-width) solid transparent;
+      }
+    }
+
+    .smart-timeline-row {
+      left: initial;
+      right: 0;
+
+      .smart-timeline-cell {
+        &:first-of-type {
+          border-right: initial;
+        }
+
+        &:not(:first-of-type) {
+          border-right: var(--smart-border-width) solid var(--smart-border);
+        }
       }
     }
 
@@ -1880,15 +1502,18 @@ smart-gantt-chart > .smart-container,
       }
     }
 
-    .smart-task-bar-limitter-min-date,
-    .smart-task-bar-limitter-max-date {
-      right: var(--smart-gantt-chart-timeline-column-border-width);
-      left: initial;
-    }
+    .smart-task-bar-limiter {
 
-    .smart-task-bar-limitter-max-date {
-      right: inherit;
-      left: 0;
+      &.min-date,
+      &.max-date {
+        right: var(--smart-gantt-chart-timeline-column-border-width);
+        left: initial;
+      }
+
+      &.max-date {
+        right: inherit;
+        left: 0;
+      }
     }
 
     .milestone {
@@ -1929,7 +1554,7 @@ smart-gantt-chart > .smart-container,
     }
 
     &[inverted] {
-      > .smart-container.vscroll {
+      >.smart-container.vscroll {
         .smart-timeline {
           margin-right: var(--smart-scroll-bar-size);
         }
@@ -1955,99 +1580,28 @@ smart-gantt-chart > .smart-container,
       }
     }
   }
+
 }
 
 /* Popup Windows */
-.smart-window.smart-task-popup-window {
+.smart-window.smart-gantt-chart-popup-window {
   --smart-window-header-height: var(--smart-gantt-chart-popup-window-header-height);
   --smart-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height);
   --smart-window-header-footer-padding: 10px;
   --smart-window-default-height: auto;
   --smart-window-header-background: transparent;
-  --smart-window-default-width: var(--smart-gantt-chart-task-popup-window-default-width);
+  max-width: 97vw;
+  max-height: 97vh;
 
   .smart-content-container {
-    > .smart-footer {
-      display: grid;
-      grid-template-columns: 23% 23% 23% 23%;
-      grid-column-gap: 2%;
-      grid-template-areas: "buttonOk buttonCancel . buttonDelete";
-
-      @media not all and (min-resolution: .001dpcm) {
-        //Safari specific. There's an issue with align-items when display: grid
-        align-content: start;
-      }
-
-      .smart-icon {
-        position: relative;
-        height: 100%;
-        font-family: var(--smart-font-family-icon);
-        font-size: 18px;
-        margin-right: 2.5px;
-      }
+    >.smart-content {
+      align-items: initial;
     }
 
-    > .smart-content {
-      display: grid;
-      grid-row-gap: 10px;
-    }
-  }
-
-  .smart-popup-window-button.ok {
-    .smart-icon::after {
-      content: var(--smart-icon-check);
-    }
-  }
-
-  &[right-to-left] {
-    > .smart-container > .smart-footer .smart-icon {
-      margin-left: 2.5px;
-    }
-  }
-}
-
-.smart-connection-popup-window {
-  --smart-window-header-height: var(--smart-gantt-chart-popup-window-header-height);
-  --smart-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height);
-  --smart-window-header-footer-padding: 10px;
-  --smart-window-default-height: auto;
-  --smart-window-header-background: transparent;
-  --smart-window-default-width: var(--smart-gantt-chart-connection-popup-window-default-width);
-
-  .smart-content-container {
-    > .smart-content {
-      justify-content: center;
-      max-height: calc(var(--smart-gantt-chart-task-timeline-content-height) - var(--smart-window-header-height));
-    }
-
-    > .smart-footer {
-      @media not all and (min-resolution: .001dpcm) {
-        //Safari specific. There's an issue with align-items when display: grid
-        align-content: start;
-      }
-    }
-  }
-
-  .smart-gantt-chart-popup-window-editor {
-    justify-items: center;
-  }
-}
-
-.smart-gantt-chart-popup-window {
-  .smart-content-container {
-    > .smart-footer {
-      display: grid;
-      grid-template-columns: 40% 40%;
-      grid-column-gap: 2%;
-      justify-content: center;
-      align-items: center;
-      grid-template-areas: "buttonOk buttonCancel";
-
-      smart-button {
-        width: 100%;
-        height: 100%;
-        --smart-button-padding: 0.2rem;
-      }
+    >.smart-footer smart-button {
+      width: 100%;
+      height: 100%;
+      --smart-button-padding: 0.2rem;
     }
   }
 
@@ -2082,7 +1636,7 @@ smart-gantt-chart > .smart-container,
       width: 100%;
     }
 
-    > b {
+    >b {
       text-align: center;
     }
 
@@ -2092,18 +1646,70 @@ smart-gantt-chart > .smart-container,
   }
 }
 
-.smart-confirm-popup-window {
-  --smart-window-header-height: var(--smart-gantt-chart-popup-window-header-height);
-  --smart-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height);
-  --smart-window-header-footer-padding: 10px;
-  --smart-window-default-height: auto;
-  --smart-window-header-background: transparent;
-  --smart-window-default-width: var(--smart-gantt-chart-confirm-popup-window-default-width);
+.smart-window.smart-task-popup-window {
+  --smart-window-default-width: var(--smart-gantt-chart-task-popup-window-default-width);
 
   .smart-content-container {
-    > .smart-content {
+    >.smart-footer {
+      display: grid;
+      grid-template-columns: 23% 23% 23% 23%;
+      grid-column-gap: 2%;
+      grid-template-areas: "buttonOk buttonCancel . buttonDelete";
+
+      // @media not all and (min-resolution: .001dpcm) {
+      //   //Safari specific. There's an issue with align-items when display: grid
+      //   align-content: start;
+      // }
+
+      .smart-icon {
+        position: relative;
+        height: 100%;
+        font-family: var(--smart-font-family-icon);
+        font-size: 18px;
+        margin-right: 2.5px;
+      }
+    }
+
+    >.smart-content {
+      display: grid;
+      grid-row-gap: 10px;
+    }
+  }
+
+  .smart-popup-window-button.ok {
+    .smart-icon::after {
+      content: var(--smart-icon-check);
+    }
+  }
+
+  &[right-to-left] {
+    >.smart-container>.smart-footer .smart-icon {
+      margin-left: 2.5px;
+    }
+  }
+}
+
+.smart-confirm-popup-window {
+  --smart-window-default-width: var(--smart-gantt-chart-confirm-popup-window-default-width);
+}
+
+.smart-connection-popup-window {
+  --smart-window-default-width: var(--smart-gantt-chart-connection-popup-window-default-width);
+}
+
+.smart-confirm-popup-window,
+.smart-connection-popup-window {
+  .smart-content-container {
+    >.smart-content {
       justify-content: center;
       max-height: calc(var(--smart-gantt-chart-task-timeline-content-height) - var(--smart-window-header-height));
+    }
+
+    >.smart-footer {
+      display: grid;
+      grid-template-columns: 49% 49%;
+      grid-column-gap: 2%;
+      grid-template-areas: "buttonOk buttonCancel";
 
       @media not all and (min-resolution: .001dpcm) {
         //Safari specific. There's an issue with align-items when display: grid
@@ -2128,4 +1734,3 @@ smart-gantt-chart > .smart-container,
     -ms-user-select: none;
   }
 }
-

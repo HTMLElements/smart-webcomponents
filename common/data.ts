@@ -1284,3 +1284,139 @@ export function GetKanbanHierarchicalData() {
 	data = data.concat(GetKanbanData());
 	return data;
 }
+
+export function GetGanttChartTreeData(count: number = 50, minDate?: Date, maxDate?: Date) {
+	const data = [];
+
+	if (!minDate || isNaN(new Date(minDate).getTime())) {
+		minDate = new Date();
+	}
+
+	if (!maxDate || isNaN(new Date(maxDate).getTime())) {
+		maxDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 1);
+	}
+
+	const dateMin = new Date(minDate),
+		dateMax = new Date(maxDate);
+	let [taskCounter, projectCounter] = [0, 0];
+
+	function getTasks(n: number = 1, includeSubProjects?: boolean) {
+		let tasks = [];
+
+		for (let i = 0; i < n; i += 1) {
+			const rand = getRandom();
+			let task;
+
+			if (includeSubProjects && rand % 5 === 0) {
+				task = getProject(rand);
+			}
+			else {
+				task = {
+					label: 'Task ' + taskCounter,
+					dateStart: `${dateMin.getFullYear()}-${dateMin.getMonth()}-${dateMin.getDate()}`,
+					dateEnd: `${dateMax.getFullYear()}-${dateMax.getMonth()}-${dateMax.getDate()}`,
+					type: 'task'
+				};
+			}
+
+			// if (i % 5 === 0) {
+			//     task.connections = [{
+			//         target: rand % count,
+			//         type: rand % 3
+			//     }];
+			// }
+
+			tasks.push(task);
+
+			dateMin.setDate(dateMin.getDate() + rand);
+			dateMax.setDate(dateMax.getDate() + rand + getRandom());
+			taskCounter++;
+		}
+
+		return tasks
+	}
+
+	function getProject(rand: number) {
+		const isEven = rand % 2 === 0,
+			projObj = {
+				label: 'Project ' + projectCounter,
+				dateStart: `${dateMin.getFullYear()}-${dateMin.getMonth()}-${dateMin.getDate()}`,
+				dateEnd: `${dateMax.getFullYear()}-${dateMax.getMonth()}-${dateMax.getDate()}`,
+				type: 'project',
+				expanded: isEven,
+				tasks: getTasks(rand, isEven)
+			}
+
+		projectCounter++;
+		dateMin.setDate(dateMin.getDate() + rand);
+		dateMax.setDate(dateMax.getDate() + rand + getRandom());
+
+		return projObj
+	}
+
+	for (let i = 0; i < count; i += 1) {
+		const rand = getRandom();
+
+		if (rand % 5 === 0) {
+			data.push(getProject(rand));
+		}
+		else {
+			data.push(getTasks()[0]);
+		}
+	}
+
+	return data
+}
+
+function getRandom(coeff = 10) {
+	return Math.round(Math.random() * coeff)
+}
+
+export function GetGanttChartFlatData(count: number = 50, minDate?: Date, maxDate?: Date) {
+	const data = [];
+
+	if (!minDate || isNaN(new Date(minDate).getTime())) {
+		minDate = new Date();
+	}
+
+	if (!maxDate || isNaN(new Date(maxDate).getTime())) {
+		maxDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + getRandom(50));
+	}
+
+	const dateMin = new Date(minDate),
+		dateMax = new Date(maxDate);
+	let dateMinYear = dateMin.getFullYear(),
+		dateMinMonth = dateMin.getMonth(),
+		dateMinDate = dateMin.getDate(),
+		dateMaxYear = dateMax.getFullYear(),
+		dateMaxMonth = dateMax.getMonth(),
+		dateMaxDate = dateMax.getDate(),
+		[taskCounter, projectCounter] = [0, 0];
+
+	for (let i = 0; i < count; i += 1) {
+		const rand = getRandom(),
+			task: any = {
+				label: 'Task ' + (taskCounter + 1),
+				dateStart: `${dateMinYear}-${dateMinMonth}-${dateMinDate}`,
+				dateEnd: `${dateMaxYear}-${dateMaxMonth}-${dateMaxDate}`,
+				type: 'task'
+			};
+
+		if (i % 4 === 0) {
+			task.connections = [{
+				target: i + rand % count,
+				type: rand % 3
+			}];
+		}
+
+		dateMinMonth = rand;
+		dateMaxMonth = rand + getRandom(20);
+		dateMinDate = getRandom();
+		dateMaxDate = getRandom(20);
+		taskCounter++;
+
+		data.push(task);
+	}
+
+	return data
+}

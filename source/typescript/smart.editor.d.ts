@@ -516,12 +516,11 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   selectAll(): void;
   /**
-   * Selects a range of text inside the Editor.
-   * @param {HTMLElement | Node} node. The node to be selected. It can be a text node or an HTML element.
-   * @param {number} startIndex?. The start index of the node to select from. If not provided all node contents are selected.
-   * @param {number} endIndex?. The end index of the node to select to. If not provided all node contents are selected.
+   * Selects a range of text inside the Editor. The method will find the nodes containing the text from the start to the end indexes and will select them as ranges. However, currently only FireFox supports multiple range selection. The rest of the browsers will only select the first node. If the editor is in 'html' <b>editMode</b> then the expected text will be selected regardless of the browser because there's only one node inside the editor.
+   * @param {number} startIndex. The start index to select from.
+   * @param {number} endIndex. The end index to select to.
    */
-  selectRange(node: HTMLElement | Node, startIndex?: number, endIndex?: number): void;
+  selectRange(startIndex: number, endIndex: number): void;
   /**
    * Clears the local storage from previously stored states of the Editor with the current id.
    */

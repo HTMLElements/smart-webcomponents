@@ -107,7 +107,12 @@ export interface ScrollBar extends BaseElement, ScrollBarProperties {
   [name: string]: any;
   /**
    * This event is triggered when the value is changed.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue, min, max)
+   *  value - A numeric value indicating the scroll position.
+   *  oldValue - A numeric value indicating the previous scroll position.
+   *  min - A numeric value indicating the min scroll position.
+   *  max - A numeric value indicating the max scroll position.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
    * Redraws the element.

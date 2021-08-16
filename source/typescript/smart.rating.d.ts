@@ -75,6 +75,23 @@ export interface Rating extends BaseElement, RatingProperties {
 
   /* Get a member by its name */
   [name: string]: any;
+  /**
+   * This event is triggered when the value of the slider is changed. 
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue)
+   *  value - A numeric value indicating the scroll position.
+   *  oldValue - A numeric value indicating the previous scroll position.
+   */
+  onChange: ((this: any, ev: Event) => any) | null;
+  /**
+   * Get the value of the rating.
+   * @returns {number}
+   */
+  getValue(): number;
+  /**
+   * Sets the value of the rating.
+   * @param {number} value. Sets the value of the rating
+   */
+  setValue(value: number): void;
 }
 
 declare global {

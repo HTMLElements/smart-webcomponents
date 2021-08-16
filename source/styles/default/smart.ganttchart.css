@@ -1,1838 +1,1492 @@
 smart-gantt-chart {
-    display: block;
-    width: var(--smart-gantt-chart-default-width);
-    height: var(--smart-gantt-chart-default-height);
-    contain: content;
-}
-
-smart-gantt-chart:not([animation="none"]) .smart-timeline-task-cell,
-smart-gantt-chart:not([animation="none"]) .smart-timeline-resource-cell {
-    transition: background ease-in-out 0.28s;
+  display: block;
+  width: var(--smart-gantt-chart-default-width);
+  height: var(--smart-gantt-chart-default-height);
+  contain: content;
 }
 
 smart-gantt-chart .smart-splitter,
 .smart-gantt-chart .smart-splitter {
-    /*width: auto;*/
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: initial;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: initial;
+}
+
+smart-gantt-chart smart-table,
+.smart-gantt-chart smart-table {
+  width: 100%;
+  height: 100%;
+  --smart-table-row-height: var(--smart-gantt-chart-task-default-height);
+  --smart-table-header-footer-height: var(--smart-gantt-chart-filter-row-height);
 }
 
 smart-gantt-chart > .smart-container,
 .smart-gantt-chart.smart-container {
-    overflow: hidden;
+  overflow: hidden;
+  --smart-scroll-bar-default-height: 100%;
+  --smart-scroll-bar-default-width: 100%;
+  --smart-gantt-chart-task-timeline-content-height: calc(2 * var(--smart-gantt-chart-task-default-height));
+  /* Default task Timeline content height. Needed as a FireFox bug fix*/
+  --smart-gantt-chart-task-splitter-bar-fit-size: var(--smart-gantt-chart-task-timeline-content-height);
+  --smart-gantt-chart-resource-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
 }
 
 smart-gantt-chart > .smart-container:not(.hscroll),
 .smart-gantt-chart.smart-container:not(.hscroll) {
-    margin-bottom: -3px;
+  margin-bottom: -3px;
 }
 
 .smart-container .smart-resource-splitter > .smart-resize-trigger-container {
-    margin-bottom: -2px;
+  margin-bottom: -2px;
 }
 
-.smart-gantt-chart smart-splitter smart-splitter-bar {
-    overflow: visible;
-    min-width: 1px;
-    width: 1px;
-    z-index: 1;
+.smart-gantt-chart smart-splitter {
+  --smart-splitter-bar-size: 5px;
 }
 
-.smart-gantt-chart smart-splitter .smart-splitter-bar-feedback {
-    z-index: 1;
-}
-
-.smart-gantt-chart smart-splitter:not([orientation="horizontal"]).transition-scroll-bars smart-splitter-bar {
-    transition: height 0.2s ease-in;
-}
-
-.smart-gantt-chart smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar {
-    min-height: 5px;
-    height: 5px;
-    /*background-color: var(--smart-border);*/
-}
-
-.smart-gantt-chart smart-splitter-item {
-    background-color: var(--smart-background);
-}
-
-.smart-gantt-chart smart-splitter-item.smart-timeline-splitter-item > .smart-container,
-.smart-gantt-chart smart-splitter-item.smart-timeline-splitter-item > .smart-container > .smart-content {
-    overflow: hidden;
+.smart-gantt-chart .smart-task-splitter smart-splitter-item > .smart-container,
+.smart-gantt-chart .smart-task-splitter smart-splitter-item > .smart-container > .smart-content {
+  overflow: hidden;
 }
 
 .smart-gantt-chart smart-splitter-bar .smart-splitter-resize-button {
-    display: none;
+  display: none;
 }
 
 .smart-gantt-chart smart-scroll-viewer {
-    width: 100%;
-    height: 100%;
-    border: none;
-    padding: initial;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: initial;
 }
 
-.smart-gantt-chart smart-tree .smart-tree-item-label-container {
-    height: var(--smart-gantt-chart-task-default-height);
+.smart-gantt-chart .smart-table {
+  --smart-table-cell-padding: var(--smart-gantt-chart-task-bar-fill-padding);
 }
 
-.smart-gantt-chart smart-tree[selection-mode="checkBox"] smart-tree-item,
-.smart-gantt-chart smart-tree[selection-mode="checkBox"] smart-tree-items-group > .smart-tree-item-label-container, .smart-gantt-chart smart-tree[selection-mode="radioButton"] smart-tree-item,
-.smart-gantt-chart smart-tree[selection-mode="radioButton"] smart-tree-items-group > .smart-tree-item-label-container {
-    border-radius: 0;
+.smart-gantt-chart .smart-table.smart-task-table {
+  --smart-table-column-header-height: calc(2 * var(--smart-gantt-chart-task-default-height) - calc(var(--smart-border-width) / 2));
 }
 
-.smart-gantt-chart smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container {
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
+.smart-gantt-chart .smart-table.smart-resource-table {
+  --smart-table-column-header-height: calc(var(--smart-gantt-chart-task-default-height) - calc(var(--smart-border-width) / 2));
 }
 
-.smart-gantt-chart smart-tree:not([selection-display-mode="label"]):not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) smart-tree-item[selected],
-.smart-gantt-chart smart-tree:not([selection-display-mode="label"]):not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) smart-tree-items-group[selected] > .smart-tree-item-label-container {
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
+@-moz-document url-prefix() {
+  .smart-gantt-chart .smart-table.smart-task-table {
+    --smart-table-column-header-height: calc(2 * var(--smart-gantt-chart-task-default-height));
+  }
+  .smart-gantt-chart .smart-table.smart-resource-table {
+    --smart-table-column-header-height: var(--smart-gantt-chart-task-default-height);
+  }
 }
 
-.smart-gantt-chart smart-tree-item:not([selected]) {
-    border-radius: 0;
+.smart-gantt-chart .smart-table > .smart-container {
+  border: initial;
 }
 
-.smart-gantt-chart smart-tree-items-group:not([selected]) > .smart-tree-item-label-container {
-    border-radius: 0;
+.smart-gantt-chart .smart-table .smart-table-virtualization-container .smart-scroll-viewer-content-container {
+  display: block;
+}
+
+.smart-gantt-chart .smart-table td.tree-cell > div .hierarchy-arrow::after {
+  display: initial;
+}
+
+.smart-gantt-chart .smart-table td div,
+.smart-gantt-chart .smart-table td span {
+  line-height: inherit;
+}
+
+.smart-gantt-chart .smart-table td.tree-cell > div div:nth-child(2) {
+  line-height: 1rem;
+}
+
+.smart-gantt-chart .smart-table thead tr th {
+  background-color: var(--smart-surface);
+  color: var(--smart-surface-color);
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+  font-size: var(--smart-font-size);
+}
+
+.smart-gantt-chart .smart-table thead tr th.smart-table-select-all.freeze-near {
+  background-color: var(--smart-surface);
+  color: var(--smart-surface-color);
+}
+
+.smart-gantt-chart .smart-table tbody tr {
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.smart-gantt-chart .smart-table tbody tr td {
+  line-height: 100%;
+}
+
+.smart-gantt-chart .smart-table tbody tr[unused] td {
+  border: initial;
+}
+
+.smart-gantt-chart .smart-table tbody tr[focus] {
+  border-color: var(--smart-ui-state-border-focus);
+  background-color: var(--smart-ui-state-focus);
+  color: var(--smart-ui-state-color-focus);
+}
+
+.smart-gantt-chart .smart-table tbody tr[hover] {
+  border-color: var(--smart-ui-state-border-hover);
+  background-color: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
+}
+
+.smart-gantt-chart .smart-table tbody tr[aria-selected="true"] {
+  border-color: var(--smart-ui-state-border-selected);
+  background-color: var(--smart-ui-state-selected);
+  color: var(--smart-ui-state-color-selected);
+}
+
+.smart-gantt-chart .smart-table td {
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+  border-top: none;
+}
+
+.smart-gantt-chart .smart-table[freeze-footer] .smart-table-container:focus td[focus]:after {
+  height: 100%;
+}
+
+@-moz-document url-prefix() {
+  .smart-gantt-chart .smart-table[freeze-footer] .smart-table-container:focus td[focus]:after {
+    top: 0;
+  }
+}
+
+.smart-gantt-chart[group-by-resources] .smart-table tbody tr[role="group"] {
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  cursor: initial;
+}
+
+.smart-gantt-chart[group-by-resources] .smart-table tbody tr[role="group"] .selection-checkbox {
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  cursor: initial;
+  border-color: var(--smart-border);
+}
+
+.smart-gantt-chart[group-by-resources] .smart-table tbody tr[role="group"] .selection-checkbox::before, .smart-gantt-chart[group-by-resources] .smart-table tbody tr[role="group"] .selection-checkbox::after {
+  content: initial;
 }
 
 .smart-gantt-chart > .smart-container, .smart-gantt-chart.smart-container {
-    position: relative;
+  position: relative;
 }
 
 .smart-gantt-chart > .smart-container.hscroll > smart-splitter, .smart-gantt-chart.smart-container.hscroll > smart-splitter {
-    height: calc(100% - var(--smart-scroll-bar-size));
+  height: calc(100% - var(--smart-scroll-bar-size));
 }
 
 .smart-gantt-chart > .smart-container > .smart-popup-window-modal, .smart-gantt-chart.smart-container > .smart-popup-window-modal {
-    position: absolute;
-    opacity: 0.5;
-    background-color: var(--smart-disabled);
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-    z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
+  position: absolute;
+  opacity: 0.5;
+  background-color: var(--smart-disabled);
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
 }
 
 .smart-gantt-chart .smart-splitter > .smart-container > smart-splitter-bar > .smart-container {
-    transform: scaleX(5);
-    transform-origin: left;
+  transform: scaleX(5);
+  transform-origin: left;
 }
 
 .smart-gantt-chart .smart-splitter:not([dragged]) smart-splitter-bar.smart-element {
-    background-color: var(--smart-border);
+  background-color: var(--smart-border);
 }
 
 .smart-gantt-chart .smart-splitter[orientation="horizontal"] > .smart-container > smart-splitter-bar > .smart-container {
-    transform: scaleY(2.5);
-    transform-origin: center;
-}
-
-.smart-gantt-chart .smart-splitter-item[sort] .smart-task-tree-content,
-.smart-gantt-chart .smart-splitter-item[sort] .smart-resource-tree-content {
-    background: var(--smart-grid-cell-background-sort);
-    color: var(--smart-grid-cell-color-sort);
-}
-
-.smart-gantt-chart .smart-splitter-item[sort="asc"] .smart-task-tree-header:after,
-.smart-gantt-chart .smart-splitter-item[sort="asc"] .smart-resource-tree-header:after {
-    transform: rotate(180deg) scale(1);
-}
-
-.smart-gantt-chart .smart-splitter-item[sort="desc"] .smart-task-tree-header:after,
-.smart-gantt-chart .smart-splitter-item[sort="desc"] .smart-resource-tree-header:after {
-    transform: rotate(0) scale(1);
-}
-
-.smart-gantt-chart .smart-splitter-bar-feedback[vertical] {
-    width: 1px;
-}
-
-.smart-gantt-chart .smart-splitter-bar-feedback[horizontal] {
-    height: 5px;
-}
-
-.smart-gantt-chart .smart-tree {
-    --smart-tree-default-width: auto;
-    --smart-tree-default-height: 100%;
-    --smart-tree-item-label-height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-border-width));
-    --smart-tree-item-vertical-offset: 0;
-    --smart-tree-item-horizontal-offset: 0;
-    --smart-item-border-width: 0;
-    --smart-item-border-top-left-radius: 0;
-    --smart-item-border-top-right-radius: 0;
-    --smart-item-border-bottom-left-radius: 0;
-    --smart-item-border-bottom-right-radius: 0;
-    --smart-background: transparent;
-    border: none;
-}
-
-.smart-gantt-chart .smart-tree .smart-resize-trigger-container {
-    display: none;
-}
-
-.smart-gantt-chart .smart-tree-splitter {
-    --smart-border-top-left-radius: 0;
-    --smart-border-top-right-radius: 0;
-    --smart-border-bottom-left-radius: 0;
-    --smart-border-bottom-right-radius: 0;
-    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-tree-splitter-bar-fit-size);
-}
-
-.smart-gantt-chart .smart-tree-splitter smart-splitter-bar {
-    --smart-splitter-bar-background: var(--smart-border);
-}
-
-.smart-gantt-chart .smart-tree-splitter smart-splitter-item > .smart-container > .smart-content {
-    padding: 0;
-    overflow: hidden;
-}
-
-.smart-gantt-chart .smart-tree-splitter smart-tree-item[assigned],
-.smart-gantt-chart .smart-tree-splitter smart-tree-items-group[assigned] > .smart-tree-item-label-container {
-    /*border-color: rgba(var(--smart-primary-rgb), .05);*/
-    background-color: rgba(var(--smart-primary-rgb), .05);
-    color: rgba(var(--smart-primary), .5);
-}
-
-.smart-gantt-chart .smart-tree-splitter .smart-resize-trigger-container {
-    margin-bottom: -1px;
-}
-
-.smart-gantt-chart .smart-tree-splitter .smart-task-drop-down {
-    transform: scaleY(1);
-    transform-origin: top;
-    overflow: hidden;
-}
-
-.smart-gantt-chart .smart-tree-splitter .smart-task-drop-down.smart-visibility-hidden {
-    margin-top: 0;
-    height: 0;
-    transform: scaleY(0);
-}
-
-.smart-gantt-chart .smart-tree-item-label-container {
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
+  transform: scaleY(2.5);
+  transform-origin: center;
 }
 
 .smart-gantt-chart .smart-timeline {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-align: center;
-    overflow: hidden;
-    height: 100%;
-    display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
 }
 
 .smart-gantt-chart .smart-timeline[task-bar-hovered] {
-    cursor: e-resize;
+  cursor: e-resize;
 }
 
 .smart-gantt-chart .smart-timeline[task-bar-hovered] .smart-timeline-task.project .smart-timeline-task-fill,
 .smart-gantt-chart .smart-timeline[task-bar-hovered] .smart-timeline-task.task .smart-timeline-task-fill {
-    cursor: e-resize;
+  cursor: e-resize;
+}
+
+.smart-gantt-chart[task-filtering][hide-timeline-header-details] .smart-task-splitter .smart-timeline-view-cells .smart-timeline-view-cell {
+  border-top: initial;
+}
+
+.smart-gantt-chart[task-filtering][hide-timeline-header-details] .smart-task-splitter .smart-timeline-content-container {
+  height: calc(100% - var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-filter-row-height));
+}
+
+.smart-gantt-chart[task-filtering] .smart-task-splitter .smart-timeline-content-container {
+  height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-filter-row-height));
+}
+
+.smart-gantt-chart[task-filtering] .smart-task-splitter .smart-timeline-header::before {
+  content: '';
+}
+
+.smart-gantt-chart[resource-filtering] .smart-resource-splitter {
+  --smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-splitter-bar-fit-size) + var(--smart-gantt-chart-filter-row-height));
+}
+
+.smart-gantt-chart[resource-filtering] .smart-resource-splitter .smart-timeline-header::before {
+  content: '';
+}
+
+.smart-gantt-chart[task-filtering][filter-row] .smart-task-splitter .smart-timeline-header::after {
+  content: '';
+}
+
+.smart-gantt-chart[task-filtering][filter-row] .smart-task-splitter .smart-timeline-header::before {
+  content: none;
 }
 
 .smart-gantt-chart .smart-timeline-header {
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-    position: relative;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.smart-gantt-chart .smart-timeline-header::after, .smart-gantt-chart .smart-timeline-header::before {
+  width: 100%;
+  height: var(--smart-gantt-chart-filter-row-height);
+  display: block;
+  background: var(--smart-surface);
+  border-bottom: var(--smart-border) solid var(--smart-border-width);
+  box-sizing: border-box;
+  position: sticky;
+  left: 0;
+}
+
+.smart-gantt-chart .smart-timeline-header .smart-timeline-header-content {
+  width: 100%;
+}
+
+.smart-gantt-chart .smart-timeline-content-container {
+  width: 100%;
+  height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
+  position: relative;
+  overflow: hidden;
 }
 
 .smart-gantt-chart .smart-timeline-content {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    transition: max-height 0.2s ease-in, min-height 0.2s ease-in, height 0.2s ease-in;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .smart-gantt-chart .smart-timeline-content:empty:after {
-    content: 'No Items';
-    height: var(--smart-gantt-chart-task-default-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    user-select: none;
+  content: 'No Items';
+  height: var(--smart-gantt-chart-task-default-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
 }
 
 .smart-gantt-chart .smart-timeline-content .smart-timeline-task:not(.milestone)[disable-resize]:after,
 .smart-gantt-chart .smart-timeline-content .smart-timeline-task:not(.milestone)[disable-resize] .smart-task-container:after {
-    content: none;
+  content: none;
 }
 
 .smart-gantt-chart .smart-timeline-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    height: 100%;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar {
-    overflow: visible;
-    position: relative;
-    /*bottom: 0;*/
-    height: calc(var(--smart-scroll-bar-size));
-    width: 100%;
+  overflow: visible;
+  position: relative;
+  /*bottom: 0;*/
+  height: calc(var(--smart-scroll-bar-size));
+  width: 100%;
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar:after {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: var(--smart-scroll-bar-size);
-    background: var(--smart-scroll-bar-background);
-    left: 100%;
-    top: 0;
-    /*left:0;*/
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: var(--smart-scroll-bar-size);
+  background: var(--smart-scroll-bar-background);
+  left: 100%;
+  top: 0;
+  /*left:0;*/
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar.bottom-corner {
-    width: calc(100% - var(--smart-scroll-bar-size));
+  width: calc(100% - var(--smart-scroll-bar-size));
 }
 
-.smart-gantt-chart .smart-timeline-scroll-bar.smart-resource-scroll-bar {
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
-    top: var(--smart-gantt-chart-task-default-height);
-    z-index: 1;
+.smart-gantt-chart .smart-timeline-scroll-bar.smart-resource-scroll-bar[orientation="vertical"] {
+  height: calc(100% - var(--smart-gantt-chart-task-default-height));
+  top: var(--smart-gantt-chart-task-default-height);
+  z-index: 1;
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar.smart-resource-scroll-bar[orientation="vertical"]:before {
-    top: calc(-1 * var(--smart-gantt-chart-task-default-height));
-    height: var(--smart-gantt-chart-task-default-height);
-}
-
-.smart-gantt-chart .smart-timeline-scroll-bar.smart-resource-scroll-bar[orientation="vertical"][disabled]:after {
-    left: 0;
-    height: 100%;
+  top: calc(-1 * var(--smart-gantt-chart-task-default-height));
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"] {
-    position: absolute;
-    right: 0;
-    top: calc(2 * var(--smart-gantt-chart-task-default-height));
-    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    width: calc(var(--smart-scroll-bar-size));
+  position: absolute;
+  right: 0;
+  top: calc(2 * var(--smart-gantt-chart-task-default-height));
+  height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
+  width: calc(var(--smart-scroll-bar-size));
 }
 
 .smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"]:before {
-    position: absolute;
-    width: 100%;
-    background: var(--smart-scroll-bar-background);
-    content: '';
-    left: 0;
-    top: calc(-2 * var(--smart-gantt-chart-task-default-height));
-    height: calc(2 * var(--smart-gantt-chart-task-default-height));
-    border: 1px solid var(--smart-border);
-    border-top: none;
-    box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  background: var(--smart-scroll-bar-background);
+  content: '';
+  left: 0;
+  top: calc(-2 * var(--smart-gantt-chart-task-default-height));
+  height: calc(2 * var(--smart-gantt-chart-task-default-height));
+  border: 1px solid var(--smart-border);
+  border-top: none;
+  box-sizing: border-box;
 }
 
-.smart-gantt-chart .smart-timeline-cells-container:empty {
-    min-height: 1px;
+.smart-gantt-chart .smart-timeline-scroll-bar[orientation="vertical"][disabled]:after {
+  left: 0;
+  height: 100%;
 }
 
 .smart-gantt-chart .smart-timeline-task {
-    position: absolute;
-    height: var(--smart-gantt-chart-task-default-height);
+  position: absolute;
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart .smart-timeline-task:empty {
-    height: 0;
+  height: 0;
 }
 
 .smart-gantt-chart .smart-timeline-task .smart-timeline-task-progress-thumb:after {
-    content: "";
-    border-right: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
-    border-left: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
-    border-bottom: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid var(--smart-gantt-chart-task-thumb-color);
-    box-shadow: 0 1px 0 0 var(--smart-gantt-chart-task-thumb-color);
-    position: absolute;
-    bottom: calc(-1 * var(--smart-gantt-chart-task-bar-fill-padding) / 2);
-    left: calc(-1 * var(--smart-gantt-chart-timeline-task-progress-thumb-size));
-    z-index: 1;
+  content: "";
+  border-right: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
+  border-left: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid transparent;
+  border-bottom: var(--smart-gantt-chart-timeline-task-progress-thumb-size) solid var(--smart-gantt-chart-task-thumb-color);
+  box-shadow: 0 1px 0 0 var(--smart-gantt-chart-task-thumb-color);
+  position: absolute;
+  bottom: calc(-1 * var(--smart-gantt-chart-task-bar-fill-padding) / 2);
+  left: calc(-1 * var(--smart-gantt-chart-timeline-task-progress-thumb-size));
+  z-index: 1;
 }
 
 .smart-gantt-chart .smart-timeline-task.task .smart-timeline-task-label {
-    color: var(--smart-gantt-chart-task-label-color);
+  color: var(--smart-gantt-chart-task-label-color);
 }
 
 .smart-gantt-chart .smart-timeline-task.task[selected] .smart-timeline-task-label {
-    color: var(--smart-gantt-chart-task-label-color-selected);
+  color: var(--smart-gantt-chart-task-label-color-selected);
 }
 
 .smart-gantt-chart .smart-timeline-task.project .smart-timeline-task-label {
-    color: var(--smart-gantt-chart-project-label-color);
+  color: var(--smart-gantt-chart-project-label-color);
 }
 
 .smart-gantt-chart .smart-timeline-task.project[selected] .smart-timeline-task-label {
-    color: var(--smart-gantt-chart-project-label-color-selected);
+  color: var(--smart-gantt-chart-project-label-color-selected);
 }
 
 .smart-gantt-chart .smart-timeline-task:not(.milestone) {
-    min-width: var(--smart-gantt-chart-timeline-task-min-width);
+  min-width: var(--smart-gantt-chart-timeline-task-min-width);
 }
 
 .smart-gantt-chart .smart-timeline-task:not(.milestone):after {
-    content: '';
-    width: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
-    height: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
-    position: absolute;
-    top: calc(50% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
-    left: calc(100% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
-    background-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
-    box-shadow: 0 0 0 1px var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
-    transform: scale(0);
-    pointer-events: none;
+  content: '';
+  width: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
+  height: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
+  position: absolute;
+  top: calc(50% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
+  left: calc(100% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
+  background-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
+  box-shadow: 0 0 0 1px var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
+  transform: scale(0);
+  pointer-events: none;
 }
 
 .smart-gantt-chart .smart-timeline-task:not(.milestone) .smart-task-container:after {
-    content: '';
-    width: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
-    height: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
-    position: absolute;
-    top: calc(50% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
-    left: calc(-1 * var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
-    background-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
-    box-shadow: 0 0 0 1px var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
-    transform: scale(0);
-    pointer-events: none;
+  content: '';
+  width: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
+  height: var(--smart-gantt-chart-timeline-task-resize-indicator-width);
+  position: absolute;
+  top: calc(50% - var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
+  left: calc(-1 * var(--smart-gantt-chart-timeline-task-resize-indicator-width) / 2);
+  background-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
+  box-shadow: 0 0 0 1px var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
+  transform: scale(0);
+  pointer-events: none;
 }
 
-.smart-gantt-chart .smart-timeline-task[selected] .smart-timeline-task-progress-thumb {
-    transform: scale(1);
+.smart-gantt-chart .smart-timeline-task[selected]:not([resource-group]) .smart-timeline-task-progress-thumb {
+  transform: scale(1);
 }
 
 .smart-gantt-chart .smart-timeline-task[selected]:not([disable-resize]):after {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 .smart-gantt-chart .smart-timeline-task[selected]:not([disable-resize]) .smart-task-container::after {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 .smart-gantt-chart .smart-timeline-task[selected]:not(.milestone) .smart-timeline-task-fill {
-    box-shadow: var(--smart-elevation-2);
+  box-shadow: var(--smart-elevation-2);
 }
 
 .smart-gantt-chart .smart-timeline-task[connection-point="end"] .smart-task-connection-feedback {
-    left: 100%;
+  left: 100%;
 }
 
 .smart-gantt-chart .smart-timeline-task[disable-drag] {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.smart-gantt-chart .smart-timeline-task[resource-group] {
+  cursor: initial;
 }
 
 .smart-gantt-chart .smart-timeline-task-progress {
-    width: 100%;
-    height: 100%;
-    transform-origin: left;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  position: relative;
+  pointer-events: none;
 }
 
 .smart-gantt-chart .smart-timeline-task-progress-thumb {
-    position: absolute;
-    right: 0;
-    cursor: e-resize;
-    transform: scale(0);
-    transform-origin: left bottom;
+  position: absolute;
+  right: 0;
+  cursor: e-resize;
+  transform: scale(0);
+  transform-origin: left bottom;
 }
 
 .smart-gantt-chart .smart-timeline-task-fill {
-    width: 100%;
-    height: 100%;
-    border-radius: var(--smart-gantt-chart-task-fill-border-radius);
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--smart-gantt-chart-task-fill-border-radius);
+  overflow: hidden;
 }
 
 .smart-gantt-chart .smart-timeline-task-label {
-    position: absolute;
-    width: 100%;
-    left: 50%;
-    top: 50%;
-    padding: var(--smart-gantt-chart-task-label-padding);
-    transform: translate(-50%, -50%);
-    font-size: inherit;
-    font-family: inherit;
-    pointer-events: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  padding: var(--smart-gantt-chart-task-label-padding);
+  transform: translate(-50%, -50%);
+  font-size: inherit;
+  font-family: inherit;
+  pointer-events: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .smart-gantt-chart .smart-timeline-task-cells {
-    position: relative;
-    /*overflow: hidden;*/
+  position: relative;
 }
 
 .smart-gantt-chart .smart-timeline-view-details {
-    display: flex;
-    width: 100%;
-    height: var(--smart-gantt-chart-task-default-height);
+  display: flex;
+  width: 100%;
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart .smart-timeline-view-details:empty {
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: var(--smart-surface);
+  color: var(--smart-surface-color);
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .smart-gantt-chart .smart-timeline-view-details:empty:after {
-    content: var(--smart-gantt-chart-header-placeholder);
+  content: var(--smart-gantt-chart-header-placeholder);
 }
 
 .smart-gantt-chart .smart-timeline-view-details .smart-timeline-view-cell {
-    min-width: initial;
-    border-top: none;
+  min-width: initial;
+  border-top: none;
 }
 
 .smart-gantt-chart .smart-timeline-view-details .smart-timeline-view-cell:not(:first-of-type) {
-    border-left-color: transparent;
+  border-left-color: transparent;
 }
 
 .smart-gantt-chart .smart-timeline-view-cells {
-    display: flex;
-    width: 100%;
-    height: var(--smart-gantt-chart-task-default-height);
+  display: flex;
+  width: 100%;
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart .smart-timeline-view-cells:empty {
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: var(--smart-surface);
+  color: var(--smart-surface-color);
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .smart-gantt-chart .smart-timeline-view-cells:empty:after {
-    content: var(--smart-gantt-chart-header-placeholder);
-}
-
-.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell:after {
-    content: '';
-    width: 100%;
-    background-color: transparent;
-    border-left: var(--smart-border-width) solid var(--smart-border);
-    border-right: var(--smart-border-width) solid transparent;
-    position: absolute;
-    top: calc(100% + var(--smart-border-width));
-    right: 0;
-    height: var(--smart-gantt-chart-task-timeline-content-height);
+  content: var(--smart-gantt-chart-header-placeholder);
 }
 
 .smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell:last-of-type:after {
-    border-right-color: transparent;
+  border-right-color: transparent;
 }
 
 .smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell:not(:first-of-type) {
-    border-left-color: transparent;
+  border-left-color: transparent;
 }
 
-.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[weekend]:after {
-    background: var(--smart-gantt-chart-timeline-weekend-color);
+.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[weekend] {
+  background: var(--smart-gantt-chart-timeline-weekend-color);
 }
 
-.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[nonworking]:after {
-    background: var(--smart-gantt-chart-timeline-nonworking-color);
+.smart-gantt-chart .smart-timeline-view-cells .smart-timeline-view-cell[nonworking] {
+  background: var(--smart-gantt-chart-timeline-nonworking-color);
 }
 
 .smart-gantt-chart .smart-timeline-view-cells div {
-    border-bottom-color: var(--smart-border);
+  border-bottom-color: var(--smart-border);
 }
 
 .smart-gantt-chart .smart-timeline-view-cell {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    border-top: var(--smart-border-width) solid var(--smart-border);
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    border-left: var(--smart-border-width) solid var(--smart-border);
-    border-right: var(--smart-border-width) solid var(--smart-border);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: var(--smart-gantt-chart-task-bar-fill-padding);
-    height: 100%;
-    border-bottom-color: transparent;
-    height: var(--smart-gantt-chart-task-default-height);
-    min-width: var(--smart-gantt-chart-timeline-cell-min-size);
-    width: var(--smart-gantt-chart-timeline-cell-size);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--smart-surface);
+  color: var(--smart-surface-color);
+  border-top: var(--smart-border-width) solid var(--smart-border);
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+  border-left: var(--smart-border-width) solid var(--smart-border);
+  border-right: var(--smart-border-width) solid var(--smart-border);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: var(--smart-gantt-chart-task-bar-fill-padding);
+  height: 100%;
+  border-bottom-color: transparent;
+  height: var(--smart-gantt-chart-task-default-height);
+  min-width: var(--smart-gantt-chart-timeline-cell-min-size);
+  width: var(--smart-gantt-chart-timeline-cell-size);
 }
 
 .smart-gantt-chart .smart-timeline-view-cell:first-of-type {
-    border-left: none;
+  border-left: none;
 }
 
 .smart-gantt-chart .smart-timeline-view-cell:last-of-type {
-    border-right: none;
+  border-right: none;
 }
 
 .smart-gantt-chart .smart-timeline-view-cell > div {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    pointer-events: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-.smart-gantt-chart .smart-timeline-animation-inner-container {
-    width: 100%;
-    position: absolute;
+.smart-gantt-chart .smart-timeline-cells-container {
+  width: 100%;
 }
 
-.smart-gantt-chart .smart-timeline-animation-inner-container > div {
-    transform: scaleY(1);
-    transform-origin: top;
-    transition: height 0.2s ease-in, transform 0.2s ease-in;
+.smart-gantt-chart .smart-timeline-row {
+  display: flex;
+  border-width: var(--smart-border-width);
+  border-style: solid;
+  border-top: initial;
+  border-bottom-color: var(--smart-border);
+  background: var(--smart-gantt-chart-timeline-task-background-color);
+  border-left: none;
+  border-right: none;
+  position: absolute;
+  left: 0;
+  width: inherit;
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
-.smart-gantt-chart .smart-timeline-animation-inner-container > div.animate {
-    transform: scaleY(0);
-    height: 0;
+.smart-gantt-chart .smart-timeline-row:first-of-type {
+  border-left-color: var(--smart-border);
 }
 
-.smart-gantt-chart .smart-timeline-animation-container {
-    width: 100%;
-    position: absolute;
-    pointer-events: none;
-    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    overflow: hidden;
-    transform: scale(1);
+.smart-gantt-chart .smart-timeline-row:last-of-type {
+  border-right-color: var(--smart-border);
 }
 
-.smart-gantt-chart .smart-timeline-animation-container.smart-visibility-hidden {
-    transform: scale(0);
+.smart-gantt-chart .smart-timeline-row[hover] {
+  background: var(--smart-ui-state-hover);
 }
 
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task {
-    position: initial;
+.smart-gantt-chart .smart-timeline-row[selected] {
+  background: var(--smart-ui-state-selected);
 }
 
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task:after, .smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task:before {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    border-top: var(--smart-border-width) solid var(--smart-border);
-    top: initial;
-    left: 0;
-    height: 0;
-    box-shadow: none;
-    transform: translateY(-1px);
+.smart-gantt-chart .smart-timeline-row .smart-timeline-cell {
+  position: absolute;
+  padding: var(--smart-gantt-chart-task-bar-fill-padding);
+  height: 100%;
+  min-width: var(--smart-gantt-chart-timeline-cell-min-size);
+  width: var(--smart-gantt-chart-timeline-cell-size);
 }
 
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task:before {
-    transition: background ease-in-out 0.28s;
-    background: var(--smart-gantt-chart-timeline-task-background-color);
+.smart-gantt-chart .smart-timeline-row .smart-timeline-cell:not(:last-of-type) {
+  border-right: var(--smart-border-width) solid var(--smart-border);
 }
 
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[selected]:after {
-    transform: scale(0);
+.smart-gantt-chart .smart-timeline-row:not([hover]):not([selected]) .smart-timeline-cell[weekend] {
+  background: var(--smart-gantt-chart-timeline-weekend-color);
 }
 
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[selected]:before {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    border-top: var(--smart-border-width) solid var(--smart-border);
-    top: initial;
-    left: 0;
-    height: 0;
-    box-shadow: none;
-    transform: translateY(-1px);
-    box-sizing: border-box;
-    background: var(--smart-ui-state-selected);
-}
-
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[assigned]:after {
-    transform: scale(0);
-}
-
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[assigned]:before {
-    height: var(--smart-gantt-chart-task-default-height);
-    box-sizing: border-box;
-    background: rgba(var(--smart-primary-rgb), .05);
-}
-
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[focus]:before {
-    height: var(--smart-gantt-chart-task-default-height);
-    box-sizing: border-box;
-    background: var(--smart-ui-state-focus);
-}
-
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task[hover]:before {
-    height: var(--smart-gantt-chart-task-default-height);
-    box-sizing: border-box;
-    background: var(--smart-ui-state-hover);
-}
-
-.smart-gantt-chart .smart-timeline-animation-container .smart-timeline-task.milestone .smart-task-container {
-    width: 0;
-}
-
-.smart-gantt-chart .smart-timeline-task-cell,
-.smart-gantt-chart .smart-timeline-resource-cell {
-    border-width: var(--smart-border-width);
-    border-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
-    border-left-color: var(--smart-border);
-    border-right-color: var(--smart-border);
-    background: var(--smart-gantt-chart-timeline-task-background-color);
-    border-left: none;
-    border-right: none;
-    border-top-color: transparent;
-    position: relative;
-    height: var(--smart-gantt-chart-task-default-height);
-}
-
-.smart-gantt-chart .smart-timeline-task-cell:first-of-type,
-.smart-gantt-chart .smart-timeline-resource-cell:first-of-type {
-    border-left-color: var(--smart-border);
-}
-
-.smart-gantt-chart .smart-timeline-task-cell:last-of-type,
-.smart-gantt-chart .smart-timeline-resource-cell:last-of-type {
-    border-right-color: var(--smart-border);
-}
-
-.smart-gantt-chart .smart-timeline-task-cell[assigned],
-.smart-gantt-chart .smart-timeline-resource-cell[assigned] {
-    background: rgba(var(--smart-primary-rgb), .05);
-}
-
-.smart-gantt-chart .smart-timeline-task-cell[focus],
-.smart-gantt-chart .smart-timeline-resource-cell[focus] {
-    background: var(--smart-ui-state-focus);
-}
-
-.smart-gantt-chart .smart-timeline-task-cell[hover],
-.smart-gantt-chart .smart-timeline-resource-cell[hover] {
-    background: var(--smart-ui-state-hover);
-}
-
-.smart-gantt-chart .smart-timeline-task-cell[selected],
-.smart-gantt-chart .smart-timeline-resource-cell[selected] {
-    background: var(--smart-ui-state-selected);
-}
-
-.smart-gantt-chart .smart-timeline-task-cell.smart-visibility-hidden,
-.smart-gantt-chart .smart-timeline-resource-cell.smart-visibility-hidden {
-    height: 0;
-    border: 0;
+.smart-gantt-chart .smart-timeline-row:not([hover]):not([selected]) .smart-timeline-cell[nonworking] {
+  background: var(--smart-gantt-chart-timeline-nonworking-color);
 }
 
 .smart-gantt-chart .smart-resource-splitter {
-    --smart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
-}
-
-.smart-gantt-chart .smart-resource-splitter .smart-timeline-view-cells .smart-timeline-view-cell {
-    border-top: none;
-}
-
-.smart-gantt-chart .smart-resource-splitter .smart-tree-splitter {
-    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-resource-tree-splitter-bar-fit-size);
+  --smart-splitter-bar-fit-size: var(--smart-gantt-chart-resource-splitter-bar-fit-size);
 }
 
 .smart-gantt-chart .smart-resource-splitter .smart-timeline-content {
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
+  overflow: hidden;
+  position: relative;
+}
+
+.smart-gantt-chart .smart-resource-splitter .smart-timeline-view-cells .smart-timeline-view-cell {
+  border-top: none;
+}
+
+.smart-gantt-chart .smart-resource-splitter .smart-timeline-content {
+  height: calc(100% - var(--smart-gantt-chart-task-default-height));
+}
+
+.smart-gantt-chart .smart-resource-splitter .smart-timeline-row .smart-timeline-cell {
+  padding: initial;
 }
 
 .smart-gantt-chart .smart-resource-splitter-item > .smart-container > .smart-content {
-    overflow: hidden;
-    /*display: grid;/*
-    /*grid-template-rows: auto 1fr;*/
+  overflow: hidden;
 }
 
 .smart-gantt-chart .smart-resource-splitter-item .smart-timeline-view-cells .smart-timeline-view-cell:after {
-    height: var(--smart-gantt-chart-resource-timeline-content-height);
+  height: var(--smart-gantt-chart-resource-timeline-content-height);
 }
 
 .smart-gantt-chart .smart-resource-splitter-item[show-header] .smart-resource-splitter {
-    height: calc(100% - var(--smart-gantt-chart-header-height));
+  height: calc(100% - var(--smart-gantt-chart-header-height));
 }
 
-.smart-gantt-chart .smart-resource-splitter-item[show-header] .smart-timeline-view-cells .smart-timeline-view-cell {
-    border-top: var(--smart-border-width) solid var(--smart-border);
+.smart-gantt-chart .smart-resource-splitter-item .smart-timeline-cell:first-of-type .smart-resource-timeline-view-cell {
+  width: 100%;
+  left: 0;
 }
 
 .smart-gantt-chart .smart-resource-panel-header {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: var(--smart-gantt-chart-header-height);
-    background: var(--smart-surface);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: var(--smart-gantt-chart-header-height);
+  background: var(--smart-surface);
+  border-bottom: var(--smart-border) solid var(--smart-border-width);
 }
 
 .smart-gantt-chart .smart-resource-panel-header:empty {
-    display: none;
+  display: none;
 }
 
 .smart-gantt-chart .smart-resource-timeline-view-cell {
-    background: var(--smart-gantt-chart-timeline-task-background-color);
-    bottom: 0;
-    border: none;
+  position: absolute;
+  background: var(--smart-gantt-chart-timeline-task-background-color);
+  bottom: 0;
+  border: none;
+  width: calc(100% + var(--smart-border-width));
+  left: calc(-1 * var(--smart-border-width));
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .smart-gantt-chart .smart-resource-timeline-view-cell:after {
-    position: absolute;
-    content: '';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    font-size: var(--smart-font-size);
-    font-family: var(--smart-font-family-icon);
-    box-sizing: border-box;
+  content: '';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: var(--smart-font-size);
+  font-family: var(--smart-font-family-icon);
+  box-sizing: border-box;
 }
 
 .smart-gantt-chart .smart-resource-timeline-view-cell[load]:after {
-    content: attr(load) !important;
-    transform: scale(1) rotate(0deg) !important;
+  content: attr(load);
+  transform: scale(1) rotate(0deg);
 }
 
 .smart-gantt-chart .smart-resource-timeline-view-cell.warning[load]:after {
-    background: var(--smart-error);
-    color: var(--smart-error-color);
-    border-radius: 5px;
-}
-
-.smart-gantt-chart .smart-resource-tree-header {
-    height: var(--smart-gantt-chart-task-default-height);
-    padding: var(--smart-gantt-chart-task-bar-fill-padding);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    border-left: none;
-    border-right: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-}
-
-.smart-gantt-chart .smart-resource-tree-header:after {
-    content: "";
-    position: absolute;
-    right: 2.5%;
-    content: var(--smart-icon-arrow-down);
-    font-family: var(--smart-font-family-icon);
-    font-size: var(--smart-font-size);
-    transform: rotate(0deg) scale(0);
-    transition: transform .2s ease-out, opacity .2s ease-out;
-}
-
-.smart-gantt-chart .smart-resource-tree-header:empty {
-    padding: 0;
-}
-
-.smart-gantt-chart .smart-resource-tree-header > div {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    pointer-events: none;
-}
-
-.smart-gantt-chart .smart-resource-tree-content {
-    overflow: hidden;
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
-}
-
-.smart-gantt-chart .smart-resource-item-label-container {
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
-}
-
-.smart-gantt-chart .smart-resource-label-container {
-    cursor: pointer;
-    height: var(--smart-gantt-chart-task-default-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
-}
-
-.smart-gantt-chart .smart-resource-label-container > span {
-    white-space: inherit;
-    overflow: inherit;
-    text-overflow: inherit;
-}
-
-.smart-gantt-chart .smart-resource-label-container[assigned] {
-    /*border-color: rgba(var(--smart-primary-rgb), .05);*/
-    background-color: rgba(var(--smart-primary-rgb), .05);
-    color: rgba(var(--smart-primary), .5);
-}
-
-.smart-gantt-chart .smart-resource-label-container[focus] {
-    border-color: var(--smart-ui-state-border-focus);
-    background-color: var(--smart-ui-state-focus);
-    color: var(--smart-ui-state-color-focus);
-}
-
-.smart-gantt-chart .smart-resource-label-container[hover], .smart-gantt-chart .smart-resource-label-container[hover] {
-    border-color: var(--smart-ui-state-border-hover);
-    background-color: var(--smart-ui-state-hover);
-    color: var(--smart-ui-state-color-hover);
-}
-
-.smart-gantt-chart .smart-resource-label-container[selected], .smart-gantt-chart .smart-resource-label-container[selected] {
-    border-color: var(--smart-ui-state-border-selected);
-    background-color: var(--smart-ui-state-selected);
-    color: var(--smart-ui-state-color-selected);
-}
-
-.smart-gantt-chart .smart-task-tree-header {
-    height: calc(2 * var(--smart-gantt-chart-task-default-height));
-    padding: var(--smart-gantt-chart-task-bar-fill-padding);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-    border-left: none;
-    border-right: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: var(--smart-surface);
-    color: var(--smart-surface-color);
-    box-shadow: var(--smart-gantt-chart-header-box-shadow);
-}
-
-.smart-gantt-chart .smart-task-tree-header:after {
-    content: "";
-    position: absolute;
-    right: 2.5%;
-    content: var(--smart-icon-arrow-down);
-    font-family: var(--smart-font-family-icon);
-    font-size: var(--smart-font-size);
-    transform: rotate(0deg) scale(0);
-}
-
-.smart-gantt-chart .smart-task-tree-header:empty {
-    padding: 0;
-}
-
-.smart-gantt-chart .smart-task-tree-header > div {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    pointer-events: none;
-}
-
-.smart-gantt-chart .smart-task-tree-content {
-    height: calc(100% - 2 * var(--smart-gantt-chart-task-default-height));
-    overflow: hidden;
+  background: var(--smart-error);
+  color: var(--smart-error-color);
+  border-radius: 5px;
 }
 
 .smart-gantt-chart .smart-task-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding-top: var(--smart-gantt-chart-task-bar-fill-padding);
-    padding-bottom: var(--smart-gantt-chart-task-bar-fill-padding);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: var(--smart-gantt-chart-task-bar-fill-padding);
+  padding-bottom: var(--smart-gantt-chart-task-bar-fill-padding);
 }
 
 .smart-gantt-chart .smart-task-panel-header {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: var(--smart-gantt-chart-header-height);
-    background: var(--smart-surface);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: var(--smart-gantt-chart-header-height);
+  background: var(--smart-surface);
 }
 
 .smart-gantt-chart .smart-task-panel-header:empty {
-    display: none;
+  display: none;
 }
 
 .smart-gantt-chart .smart-task-splitter {
-    --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height));
-    --smart-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size);
+  --smart-splitter-bar-fit-size: var(--smart-gantt-chart-task-splitter-bar-fit-size);
 }
 
 .smart-gantt-chart .smart-task-splitter > .smart-resize-trigger-container {
-    display: none;
+  margin-bottom: -2px;
 }
 
 .smart-gantt-chart .smart-task-splitter-item > .smart-container > .smart-content {
-    overflow: hidden;
-    /*display: grid;/*
-    /*grid-template-rows: auto 1fr;*/
+  overflow: hidden;
 }
 
-.smart-gantt-chart .smart-task-splitter-item[show-header] .smart-resource-splitter {
-    height: calc(100% - var(--smart-gantt-chart-header-height));
+.smart-gantt-chart .smart-task-splitter-item[show-header] .smart-task-panel-header {
+  border-bottom: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-gantt-chart .smart-task-splitter-item[show-header] .smart-task-splitter {
+  height: calc(100% - var(--smart-gantt-chart-header-height));
 }
 
 .smart-gantt-chart .smart-task-splitter-item[show-header] .smart-timeline-view-details .smart-timeline-view-cell {
-    border-top: var(--smart-border-width) solid var(--smart-border);
+  border-top: initial;
 }
 
 .smart-gantt-chart .smart-task-connection {
-    cursor: pointer;
-    position: absolute;
-    border: var(--smart-gantt-chart-timeline-task-connection-width) var(--smart-gantt-chart-timeline-task-connection-style) var(--smart-gantt-chart-timeline-task-connection-color);
-    top: 50%;
+  cursor: pointer;
+  position: absolute;
+  border: var(--smart-gantt-chart-timeline-task-connection-width) var(--smart-gantt-chart-timeline-task-connection-style) var(--smart-gantt-chart-timeline-task-connection-color);
+  top: 50%;
 }
 
 .smart-gantt-chart .smart-task-connection:after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    border: inherit;
-    position: absolute;
-    border-color: transparent;
-    border-width: 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  content: '';
+  width: 100%;
+  height: 100%;
+  border: inherit;
+  position: absolute;
+  border-color: transparent;
+  border-width: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .smart-gantt-chart .smart-task-connection[arrow-direction]:before {
-    content: '';
-    position: absolute;
-    left: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
-    top: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width));
-    border-top: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
-    border-bottom: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
-    border-left: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+  content: '';
+  position: absolute;
+  left: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
+  top: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width));
+  border-top: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
+  border-bottom: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
+  border-left: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
 }
 
 .smart-gantt-chart .smart-task-connection[arrow-direction="left"]:before {
-    left: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width) / 2 + 1px);
-    border-right: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
-    border-left: none;
+  left: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width) / 2 + 1px);
+  border-right: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+  border-left: none;
 }
 
 .smart-gantt-chart .smart-task-connection[hover] {
-    border-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
-    box-shadow: 0 0 2.5px 0 var(--smart-gantt-chart-timeline-task-connection-color);
+  border-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
+  box-shadow: 0 0 2.5px 0 var(--smart-gantt-chart-timeline-task-connection-color);
 }
 
 .smart-gantt-chart .smart-task-connection[hover]:before {
-    border-left-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
-    border-right-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
+  border-left-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
+  border-right-color: var(--smart-gantt-chart-timeline-task-connection-color-hover);
 }
 
 .smart-gantt-chart .smart-task-connection-point {
-    cursor: pointer;
-    position: absolute;
-    border: 1px solid #A9A9A9;
-    border-radius: 50%;
-    width: calc(var(--smart-gantt-chart-task-default-height) / 2);
-    height: calc(var(--smart-gantt-chart-task-default-height) / 2);
-    top: 50%;
-    transform: translateY(-50%) scale(0);
-    background-color: #DEDEDE;
+  cursor: pointer;
+  position: absolute;
+  border: 1px solid #A9A9A9;
+  border-radius: 50%;
+  width: calc(var(--smart-gantt-chart-task-default-height) / 2);
+  height: calc(var(--smart-gantt-chart-task-default-height) / 2);
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  background-color: #DEDEDE;
 }
 
 .smart-gantt-chart .smart-task-connection-point.start {
-    left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+  left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
 }
 
 .smart-gantt-chart .smart-task-connection-point.end {
-    right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+  right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
 }
 
 .smart-gantt-chart .smart-task-connection-feedback {
-    position: absolute;
-    top: 50%;
-    transform-origin: left;
-    border: var(--smart-gantt-chart-timeline-task-connection-feedback-width) var(--smart-gantt-chart-timeline-task-connection-feedback-style) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
-    z-index: 1;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform-origin: left;
+  border: var(--smart-gantt-chart-timeline-task-connection-feedback-width) var(--smart-gantt-chart-timeline-task-connection-feedback-style) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .smart-gantt-chart .smart-task-connection-feedback:before {
-    content: '';
-    position: absolute;
-    left: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
-    top: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width));
-    border-top: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
-    border-bottom: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
-    border-left: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+  content: '';
+  position: absolute;
+  left: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
+  top: calc(-1 * var(--smart-gantt-chart-timeline-task-connection-arrow-width));
+  border-top: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
+  border-bottom: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) transparent;
+  border-left: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
 }
 
-.smart-gantt-chart .smart-task-bar-limitter-min {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: lightgreen;
+.smart-gantt-chart .smart-task-bar-limiter {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 1px;
 }
 
-.smart-gantt-chart .smart-task-bar-limitter-max {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: red;
+.smart-gantt-chart .smart-task-bar-limiter.min {
+  border: var(--smart-border-width) dashed lightgreen;
 }
 
-.smart-gantt-chart .smart-task-bar-limitter-min-date,
-.smart-gantt-chart .smart-task-bar-limitter-max-date {
-    position: absolute;
-    top: 0;
-    left: var(--smart-border-width);
-    height: calc(100% - 2 * var(--smart-border-width));
-    background-image: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.2) 50%, rgba(255, 0, 0, 0.2) 75%, transparent 75%, transparent);
-    background-size: 1rem 1rem;
-    border: 1px solid white;
+.smart-gantt-chart .smart-task-bar-limiter.max {
+  border: var(--smart-border-width) dashed red;
 }
 
-.smart-gantt-chart .smart-task-bar-limitter-max-date {
-    left: inherit;
-    right: 0;
+.smart-gantt-chart .smart-task-bar-limiter.min-date, .smart-gantt-chart .smart-task-bar-limiter.max-date {
+  background-image: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.2) 50%, rgba(255, 0, 0, 0.2) 75%, transparent 75%, transparent);
+  background-size: 1rem 1rem;
+  border: 1px solid white;
 }
 
-.smart-gantt-chart .smart-task-label-container {
-    cursor: pointer;
-    height: var(--smart-gantt-chart-task-default-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    border-bottom-width: var(--smart-border-width);
-    border-bottom-style: solid;
-    border-top-color: var(--smart-border);
-    border-bottom-color: var(--smart-border);
-}
-
-.smart-gantt-chart .smart-task-label-container > span {
-    white-space: inherit;
-    overflow: inherit;
-    text-overflow: inherit;
-}
-
-.smart-gantt-chart .smart-task-label-container[assigned] {
-    /*border-color: rgba(var(--smart-primary-rgb), .05);*/
-    background-color: rgba(var(--smart-primary-rgb), .05);
-    color: rgba(var(--smart-primary), .5);
-}
-
-.smart-gantt-chart .smart-task-label-container[focus] {
-    border-color: var(--smart-ui-state-border-focus);
-    background-color: var(--smart-ui-state-focus);
-    color: var(--smart-ui-state-color-focus);
-}
-
-.smart-gantt-chart .smart-task-label-container[hover], .smart-gantt-chart .smart-task-label-container[hover] {
-    border-color: var(--smart-ui-state-border-hover);
-    background-color: var(--smart-ui-state-hover);
-    color: var(--smart-ui-state-color-hover);
-}
-
-.smart-gantt-chart .smart-task-label-container[selected], .smart-gantt-chart .smart-task-label-container[selected] {
-    border-color: var(--smart-ui-state-border-selected);
-    background-color: var(--smart-ui-state-selected);
-    color: var(--smart-ui-state-color-selected);
-}
-
-.smart-gantt-chart [show-header] .smart-task-tree-header,
-.smart-gantt-chart [show-header] .smart-resource-tree-header {
-    border-top: var(--smart-border-width) solid var(--smart-border);
+.smart-gantt-chart .smart-task-bar-limiter.max-date {
+  right: 0;
 }
 
 .smart-gantt-chart .milestone {
-    height: var(--smart-gantt-chart-task-default-height);
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart .milestone .smart-task-container {
-    padding: 0;
+  padding: 0;
 }
 
 .smart-gantt-chart .milestone .smart-task-container:before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    box-sizing: border-box;
-    left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 2);
-    border-right: calc(var(--smart-gantt-chart-task-default-height) / 2) solid var(--smart-gantt-chart-milestone-color);
-    border-top: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
-    border-bottom: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
+  content: "";
+  position: absolute;
+  height: 100%;
+  box-sizing: border-box;
+  left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 2);
+  border-right: calc(var(--smart-gantt-chart-task-default-height) / 2) solid var(--smart-gantt-chart-milestone-color);
+  border-top: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
+  border-bottom: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
 }
 
 .smart-gantt-chart .milestone .smart-task-container:after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    box-sizing: border-box;
-    top: 0;
-    border-left: calc(var(--smart-gantt-chart-task-default-height) / 2) solid var(--smart-gantt-chart-milestone-color);
-    border-top: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
-    border-bottom: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
+  content: "";
+  position: absolute;
+  height: 100%;
+  box-sizing: border-box;
+  top: 0;
+  border-left: calc(var(--smart-gantt-chart-task-default-height) / 2) solid var(--smart-gantt-chart-milestone-color);
+  border-top: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
+  border-bottom: calc(var(--smart-gantt-chart-task-default-height) / 2) solid transparent;
 }
 
 .smart-gantt-chart .milestone .smart-task-connection-point.start {
-    left: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+  transform: translate(calc(-1 * var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(0);
 }
 
 .smart-gantt-chart .milestone .smart-task-connection-point.end {
-    right: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+  transform: translate(calc(var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(0);
 }
 
 .smart-gantt-chart .milestone .smart-task-connection-feedback {
-    left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 2);
+  left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 2);
 }
 
 .smart-gantt-chart .milestone[connection-point="end"] .smart-task-connection-feedback {
-    left: calc(100% + var(--smart-gantt-chart-task-default-height) / 2);
+  left: calc(100% + var(--smart-gantt-chart-task-default-height) / 2);
 }
 
 .smart-gantt-chart .project .smart-timeline-task-fill {
-    background: var(--smart-gantt-chart-project-color);
+  background: var(--smart-gantt-chart-project-color);
 }
 
 .smart-gantt-chart .project .smart-timeline-task-progress {
-    background: var(--smart-gantt-chart-project-progress-color);
+  background: var(--smart-gantt-chart-project-progress-color);
 }
 
 .smart-gantt-chart .task .smart-timeline-task-fill {
-    background: var(--smart-gantt-chart-task-color);
+  background: var(--smart-gantt-chart-task-color);
 }
 
 .smart-gantt-chart .task .smart-timeline-task-progress {
-    background: var(--smart-gantt-chart-task-progress-color);
+  background: var(--smart-gantt-chart-task-progress-color);
 }
 
 .smart-gantt-chart:not([disable-task-drag]) .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::after,
 .smart-gantt-chart:not([disable-task-drag]) .smart-timeline-task:not([disable-drag]).milestone .smart-task-container::before,
 .smart-gantt-chart:not([disable-task-drag]) .smart-timeline-task:not([disable-drag]) .smart-timeline-task-fill {
-    cursor: move;
+  cursor: move;
 }
 
-.smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[selected] .smart-task-connection-point,
-.smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[hover] .smart-task-connection-point {
-    transform: translateY(-50%) scale(1);
+.smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[selected]:not([resource-group]) .smart-task-connection-point,
+.smart-gantt-chart:not([dragged]):not([resized]) .smart-timeline-task[hover]:not([resource-group]) .smart-task-connection-point {
+  transform: translateY(-50%) scale(1);
+}
+
+.smart-gantt-chart:not([dragged]):not([resized]):not([right-to-left]) .smart-timeline-task.milestone[selected] .smart-task-connection-point.start,
+.smart-gantt-chart:not([dragged]):not([resized]):not([right-to-left]) .smart-timeline-task.milestone[hover] .smart-task-connection-point.start {
+  transform: translate(calc(-1 * var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(1);
+}
+
+.smart-gantt-chart:not([dragged]):not([resized]):not([right-to-left]) .smart-timeline-task.milestone[selected] .smart-task-connection-point.end,
+.smart-gantt-chart:not([dragged]):not([resized]):not([right-to-left]) .smart-timeline-task.milestone[hover] .smart-task-connection-point.end {
+  transform: translate(calc(1 * var(--smart-gantt-chart-task-default-height) / 2), -50%) scale(1);
 }
 
 .smart-gantt-chart:not([disable-task-progress-change]) .smart-timeline-task .smart-timeline-task-progress-thumb:after {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .smart-gantt-chart:not([inverted]) .smart-timeline-scroll-bar[orientation="vertical"]::before {
-    border-right: none;
+  border-right: none;
+}
+
+.smart-gantt-chart:not([resource-timeline-mode="histogram"]) .smart-resource-timeline-view-cell:not([load])::after {
+  transform: scale(0) rotate(360deg);
 }
 
 .smart-gantt-chart:not([resource-timeline-mode="histogram"]) .smart-resource-timeline-view-cell::after {
-    height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
-    width: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
-    border-radius: 50%;
-    transform: scale(0) rotate(360deg);
-    background: var(--smart-success);
-    color: var(--smart-success-color);
-    line-height: 100%;
+  height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
+  width: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-gantt-chart-task-bar-fill-padding));
+  border-radius: 50%;
+  background: var(--smart-success);
+  color: var(--smart-success-color);
+  line-height: 100%;
 }
 
-.smart-gantt-chart:not([resource-timeline-mode="histogram"]) .smart-timeline-resource-cell:first-of-type .smart-resource-timeline-view-cell {
-    border-top: none;
+.smart-gantt-chart:not([resource-timeline-mode="histogram"]) .smart-timeline-row:first-of-type .smart-resource-timeline-view-cell {
+  border-top: none;
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell {
-    /*border-color: var(--smart-primary);*/
-    border: var(--smart-border-width) solid var(--smart-primary);
-    border-bottom: none;
-    height: 0;
-    padding: 0;
-    background: rgba(var(--smart-primary-rgb), 0.15);
+  /*border-color: var(--smart-primary);*/
+  border: var(--smart-border-width) solid var(--smart-primary);
+  border-bottom: none;
+  height: 0;
+  padding: 0;
+  background: rgba(var(--smart-primary-rgb), 0.15);
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell:after {
-    width: 100%;
-    content: '-';
-    height: calc(var(--smart-gantt-chart-task-default-height) - 2px);
-    bottom: 0;
+  width: 100%;
+  height: calc(var(--smart-gantt-chart-task-default-height) - 2px);
+  bottom: 0;
+}
+
+.smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell:not([load]):after {
+  content: '-';
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-left-border:before, .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-right-border:before {
-    width: 100%;
-    content: '';
-    position: absolute;
-    height: 100%;
-    bottom: 0;
-    z-index: 1;
+  width: 100%;
+  content: '';
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  z-index: 1;
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-left-border.warning:before, .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-right-border.warning:before {
-    z-index: initial;
-    left: initial;
+  z-index: initial;
+  left: initial;
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-right-border {
-    border-right: none;
+  border-right: none;
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-right-border:before {
-    border-right: 1px solid var(--smart-border);
-    left: 0;
+  border-right: 1px solid var(--smart-border);
+  left: 0;
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-left-border {
-    border-left: none;
+  border-left: none;
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.hide-left-border:before {
-    border-left: 1px solid var(--smart-border);
-    left: -1px;
+  border-left: 1px solid var(--smart-border);
+  left: -1px;
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell[load] {
-    border-bottom: none;
-    /*border-left: none;
-        border-right: none;*/
-    border-top: var(--smart-border-width) solid var(--smart-primary);
+  border-bottom: none;
+  /*border-left: none;
+            border-right: none;*/
+  border-top: var(--smart-border-width) solid var(--smart-primary);
 }
 
 .smart-gantt-chart[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell.warning[load]::after {
-    border-radius: initial;
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-resource-splitter .smart-resource-timeline-view-cell:after {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: initial;
 }
 
 .smart-gantt-chart:not([animation="none"]) .smart-resource-timeline-view-cell[load]:after {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1), border-radius 0.2s cubic-bezier(0.4, 0, 0.6, 1), background 0.2s cubic-bezier(0.4, 0, 0.6, 1), color 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-task-connection-point {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-task-tree-header:after {
-    transition: transform .2s ease-out, opacity .2s ease-out;
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task:after {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task .smart-task-container:after {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task .smart-timeline-task-fill {
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected]:after {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-task-connection-point {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-timeline-task-progress-thumb {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[selected] .smart-task-container::after {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task[hover] .smart-task-connection-point {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task.task .smart-timeline-task-label {
-    transition: color 0.2s ease-in-out;
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task.project .smart-timeline-task-label {
-    transition: color 0.2s ease-in-out;
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-timeline-task-progress-thumb {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.smart-gantt-chart:not([animation="none"]) .smart-tree-splitter .smart-task-drop-down {
-    transition: height 0.2s ease-in, transform 0.2s ease-in, visibility 0.2s ease-in;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.6, 1), border-radius 0.2s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .smart-gantt-chart:not([animation="none"])[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell {
-    transition: height 0.2s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.smart-gantt-chart:not([animation="none"])[resource-timeline-mode="histogram"] .smart-resource-timeline-view-cell:after {
-    transition: background 0.2s cubic-bezier(0.4, 0, 0.6, 1), color 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+  transition: height 0.2s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .smart-gantt-chart:not([animation="none"])[show-progress-label] .smart-timeline-task-progress::after {
-    transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
-.smart-gantt-chart:not([animation="none"]) smart-tree:not([selection-display-mode="label"]) smart-tree-item,
-.smart-gantt-chart:not([animation="none"]) smart-tree:not([selection-display-mode="label"]) smart-tree-items-group > .smart-tree-item-label-container,
-.smart-gantt-chart:not([animation="none"]) .smart-task-label-container,
-.smart-gantt-chart:not([animation="none"]) .smart-resource-label-container {
-    transition: color ease-in-out 0.28s, border-color ease-in-out 0.28s, background ease-in-out 0.28s;
-}
-
-.smart-gantt-chart[animation="none"] .smart-timeline-animation-container {
-    display: none;
-}
-
-.smart-gantt-chart[animation="none"] .smart-timeline-view-cells:not([no-transition]) .smart-timeline-view-cell::after {
-    transition: height 0.2s ease-in;
-}
-
-.smart-gantt-chart.vscroll .smart-timeline {
-    width: calc(100% - var(--smart-scroll-bar-size));
-}
-
-.smart-gantt-chart[sortable] .smart-task-tree-header,
-.smart-gantt-chart[sortable] .smart-resource-tree-header {
-    padding: 0 var(--smart-font-size) 0 var(--smart-font-size);
+.smart-gantt-chart > .smart-container.vscroll .smart-timeline, .smart-gantt-chart.smart-container.vscroll .smart-timeline {
+  width: calc(100% - var(--smart-scroll-bar-size));
 }
 
 .smart-gantt-chart[inverted] .smart-timeline-scroll-bar[orientation="vertical"] {
-    right: initial;
+  right: initial;
 }
 
 .smart-gantt-chart[inverted] .smart-timeline-scroll-bar[orientation="vertical"]:before {
-    border-left: none;
+  border-left: none;
 }
 
 .smart-gantt-chart[inverted] > .smart-container.vscroll .smart-timeline, .smart-gantt-chart[inverted].smart-container.vscroll .smart-timeline {
-    margin-left: var(--smart-scroll-bar-size);
+  margin-left: var(--smart-scroll-bar-size);
 }
 
 .smart-gantt-chart[inverted] > .smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]), .smart-gantt-chart[inverted].smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]) {
-    left: calc(var(--smart-scroll-bar-size));
+  left: calc(var(--smart-scroll-bar-size));
 }
 
 .smart-gantt-chart[inverted] .smart-timeline-scroll-bar:after {
-    width: calc(var(--smart-scroll-bar-size));
-    left: calc(-1 * var(--smart-scroll-bar-size));
+  width: calc(var(--smart-scroll-bar-size));
+  left: calc(-1 * var(--smart-scroll-bar-size));
+}
+
+.smart-gantt-chart[hide-timeline-header-details] > .smart-container, .smart-gantt-chart[hide-timeline-header-details].smart-container {
+  --smart-gantt-chart-task-timeline-content-height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart[hide-timeline-header-details] .smart-timeline-view-details {
-    display: none;
+  display: none;
 }
 
-.smart-gantt-chart[hide-timeline-header-details] .smart-task-splitter-item:not([show-header]) .smart-timeline-view-cell {
-    border-top: none;
+.smart-gantt-chart[hide-timeline-header-details] .smart-task-splitter-item[show-header] .smart-timeline-view-cell {
+  border-top: none;
 }
 
-.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-view-cells,
-.smart-gantt-chart[hide-timeline-header-details] .smart-task-tree-header {
-    height: var(--smart-gantt-chart-task-default-height);
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-view-cells {
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
-.smart-gantt-chart[hide-timeline-header-details] .smart-task-splitter {
-    --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + var(--smart-gantt-chart-task-default-height));
+.smart-gantt-chart[hide-timeline-header-details] .smart-table {
+  --smart-table-column-header-height: calc(var(--smart-gantt-chart-task-default-height) - var(--smart-border-width));
 }
 
-.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-animation-container {
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
-}
-
-.smart-gantt-chart[hide-timeline-header-details] .smart-task-tree-content {
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
-}
-
-.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-content {
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
+.smart-gantt-chart[hide-timeline-header-details] .smart-timeline-content-container {
+  height: calc(100% - var(--smart-gantt-chart-task-default-height));
 }
 
 .smart-gantt-chart[hide-timeline-header-details] .smart-timeline-scroll-bar[orientation="vertical"] {
-    top: var(--smart-gantt-chart-task-default-height);
-    height: calc(100% - var(--smart-gantt-chart-task-default-height));
+  top: var(--smart-gantt-chart-task-default-height);
+  height: calc(100% - var(--smart-gantt-chart-task-default-height));
 }
 
 .smart-gantt-chart[hide-timeline-header-details] .smart-timeline-scroll-bar[orientation="vertical"]:before {
-    top: calc(-1 * var(--smart-gantt-chart-task-default-height));
-    height: var(--smart-gantt-chart-task-default-height);
+  top: calc(-1 * var(--smart-gantt-chart-task-default-height));
+  height: var(--smart-gantt-chart-task-default-height);
 }
 
 .smart-gantt-chart[show-progress-label] .smart-timeline-task-progress:after {
-    display: flex;
-    height: 100%;
-    content: attr(value);
-    align-items: center;
-    padding: var(--smart-gantt-chart-progress-label-padding);
-    color: var(--smart-gantt-chart-task-label-color);
-    font-weight: var(--smart-font-weight);
-    font-size: var(--smart-font-size);
+  display: flex;
+  height: 100%;
+  content: attr(value);
+  align-items: center;
+  padding: var(--smart-gantt-chart-progress-label-padding);
+  color: var(--smart-gantt-chart-task-label-color);
+  font-weight: var(--smart-font-weight);
+  font-size: var(--smart-font-size);
 }
 
 .smart-gantt-chart[show-progress-label] [selected] .smart-timeline-task-progress::after {
-    color: var(--smart-gantt-chart-task-label-color-selected);
+  color: var(--smart-gantt-chart-task-label-color-selected);
 }
 
 .smart-gantt-chart[show-progress-label] .project .smart-timeline-task-progress::after {
-    color: var(--smart-gantt-chart-project-label-color);
+  color: var(--smart-gantt-chart-project-label-color);
 }
 
 .smart-gantt-chart[show-progress-label] .project[selected] .smart-timeline-task-progress::after {
-    color: var(--smart-gantt-chart-project-label-color-selected);
+  color: var(--smart-gantt-chart-project-label-color-selected);
 }
 
 .smart-gantt-chart[connecting-task] .smart-task-connection {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline-task.milestone[connected] .smart-task-container::after,
 .smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline-task.milestone[connected] .smart-task-container::before,
 .smart-gantt-chart[auto-schedule][auto-schedule-strict-mode] .smart-timeline:not([task-bar-hovered]) .smart-timeline-task[connected] .smart-timeline-task-fill {
-    cursor: initial;
+  cursor: initial;
 }
 
 .smart-gantt-chart[dragged], .smart-gantt-chart[resized] {
-    touch-action: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .smart-gantt-chart[modal] {
-    pointer-events: none;
+  pointer-events: none;
 }
 
-.smart-gantt-chart[right-to-left] .smart-timeline-task-label,
-.smart-gantt-chart[right-to-left] .smart-task-tree-header,
-.smart-gantt-chart[right-to-left] .smart-resource-tree-header {
-    direction: rtl;
+.smart-gantt-chart[right-to-left] .smart-timeline-task-label {
+  direction: rtl;
 }
 
 .smart-gantt-chart[right-to-left] .milestone .smart-task-container {
-    direction: initial;
+  direction: initial;
 }
 
 .smart-gantt-chart[right-to-left] > .smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]) {
-    left: calc(var(--smart-scroll-bar-size));
+  left: calc(var(--smart-scroll-bar-size));
 }
 
 .smart-gantt-chart[right-to-left] > .smart-container.vscroll .smart-timeline {
-    margin-left: var(--smart-scroll-bar-size);
+  margin-left: var(--smart-scroll-bar-size);
 }
 
 .smart-gantt-chart[right-to-left] .smart-timeline-view-cell {
-    direction: rtl;
+  direction: rtl;
 }
 
 .smart-gantt-chart[right-to-left] .smart-timeline-view-cell:last-of-type {
-    border-right: var(--smart-border-width) solid var(--smart-border);
+  border-right: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-gantt-chart[right-to-left] .smart-timeline-view-cell:first-of-type {
-    border-right: none;
-    border-left: var(--smart-border-width) solid transparent;
+  border-right: none;
+  border-left: var(--smart-border-width) solid transparent;
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-row {
+  left: initial;
+  right: 0;
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-row .smart-timeline-cell:first-of-type {
+  border-right: initial;
+}
+
+.smart-gantt-chart[right-to-left] .smart-timeline-row .smart-timeline-cell:not(:first-of-type) {
+  border-right: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-gantt-chart[right-to-left] .smart-timeline-task[connection-point="end"] .smart-task-connection-feedback {
-    left: initial;
-    right: 100%;
+  left: initial;
+  right: 100%;
 }
 
 .smart-gantt-chart[right-to-left] .smart-timeline-scroll-bar:after {
-    right: 100%;
-    left: initial;
+  right: 100%;
+  left: initial;
 }
 
 .smart-gantt-chart[right-to-left] .smart-timeline-scroll-bar[orientation="vertical"]:after {
-    left: calc(-1 * var(--smart-scroll-bar-size));
+  left: calc(-1 * var(--smart-scroll-bar-size));
 }
 
 .smart-gantt-chart[right-to-left] .smart-task-connection-point.end {
-    left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
-    right: initial;
+  left: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+  right: initial;
 }
 
 .smart-gantt-chart[right-to-left] .smart-task-connection-point.start {
-    right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
-    left: initial;
+  right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 1.5);
+  left: initial;
 }
 
 .smart-gantt-chart[right-to-left] .smart-task-connection-feedback {
-    transform-origin: right;
+  transform-origin: right;
 }
 
 .smart-gantt-chart[right-to-left] .smart-task-connection-feedback:before {
-    left: initial;
-    right: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
-    border-right: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
-    border-left: initial;
+  left: initial;
+  right: calc(100% - var(--smart-gantt-chart-timeline-task-connection-arrow-width) + 1px);
+  border-right: var(--smart-gantt-chart-timeline-task-connection-arrow-width) var(--smart-gantt-chart-timeline-task-connection-arrow-type) var(--smart-gantt-chart-timeline-task-connection-feedback-color);
+  border-left: initial;
 }
 
-.smart-gantt-chart[right-to-left] .smart-task-bar-limitter-min-date,
-.smart-gantt-chart[right-to-left] .smart-task-bar-limitter-max-date {
-    right: var(--smart-gantt-chart-timeline-column-border-width);
-    left: initial;
+.smart-gantt-chart[right-to-left] .smart-task-bar-limiter.min-date, .smart-gantt-chart[right-to-left] .smart-task-bar-limiter.max-date {
+  right: var(--smart-gantt-chart-timeline-column-border-width);
+  left: initial;
 }
 
-.smart-gantt-chart[right-to-left] .smart-task-bar-limitter-max-date {
-    right: inherit;
-    left: 0;
+.smart-gantt-chart[right-to-left] .smart-task-bar-limiter.max-date {
+  right: inherit;
+  left: 0;
 }
 
 .smart-gantt-chart[right-to-left] .milestone .smart-task-connection-point.end {
-    left: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
-    right: initial;
+  left: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+  right: initial;
 }
 
 .smart-gantt-chart[right-to-left] .milestone .smart-task-connection-point.start {
-    right: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
-    left: initial;
+  right: calc(-1 * var(--smart-gantt-chart-task-default-height) * 1.15);
+  left: initial;
 }
 
 .smart-gantt-chart[right-to-left] .milestone .smart-task-connection-feedback {
-    right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 2);
-    left: initial;
+  right: calc(-1 * var(--smart-gantt-chart-task-default-height) / 2);
+  left: initial;
 }
 
 .smart-gantt-chart[right-to-left] .milestone[connection-point="end"] .smart-task-connection-feedback {
-    right: calc(100% + var(--smart-gantt-chart-task-default-height) / 2);
+  right: calc(100% + var(--smart-gantt-chart-task-default-height) / 2);
 }
 
 .smart-gantt-chart[right-to-left]:not([inverted]) .smart-timeline-scroll-bar[orientation="vertical"] {
-    right: initial;
-    left: 0;
+  right: initial;
+  left: 0;
 }
 
 .smart-gantt-chart[right-to-left]:not([inverted]) .smart-timeline-scroll-bar[orientation="vertical"]:before {
-    border-left: none;
-    border-right: 1px solid var(--smart-border);
+  border-left: none;
+  border-right: 1px solid var(--smart-border);
 }
 
 .smart-gantt-chart[right-to-left][inverted] > .smart-container.vscroll .smart-timeline {
-    margin-right: var(--smart-scroll-bar-size);
+  margin-right: var(--smart-scroll-bar-size);
 }
 
 .smart-gantt-chart[right-to-left][inverted] > .smart-container.vscroll .smart-timeline-scroll-bar:not([orientation="vertical"]) {
-    left: initial;
+  left: initial;
 }
 
 .smart-gantt-chart[right-to-left][inverted] .smart-timeline-scroll-bar:after {
-    right: calc(-1 * var(--smart-scroll-bar-size));
+  right: calc(-1 * var(--smart-scroll-bar-size));
 }
 
 .smart-gantt-chart[right-to-left][inverted] .smart-timeline-scroll-bar[orientation="vertical"] {
-    right: 0;
+  right: 0;
 }
 
 .smart-gantt-chart[right-to-left][inverted] .smart-timeline-scroll-bar[orientation="vertical"]:before {
-    border-right: none;
-    border-left: 1px solid var(--smart-border);
+  border-right: none;
+  border-left: 1px solid var(--smart-border);
 }
 
 /* Popup Windows */
+.smart-window.smart-gantt-chart-popup-window {
+  --smart-window-header-height: var(--smart-gantt-chart-popup-window-header-height);
+  --smart-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height);
+  --smart-window-header-footer-padding: 10px;
+  --smart-window-default-height: auto;
+  --smart-window-header-background: transparent;
+  max-width: 97vw;
+  max-height: 97vh;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-content-container > .smart-content {
+  align-items: initial;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-content-container > .smart-footer smart-button {
+  width: 100%;
+  height: 100%;
+  --smart-button-padding: 0.2rem;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-popup-window-button.ok {
+  grid-area: buttonOk;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-popup-window-button.cancel {
+  grid-area: buttonCancel;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-popup-window-button.cancel .smart-icon::after {
+  content: var(--smart-icon-cancel);
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-popup-window-button.delete {
+  grid-area: buttonDelete;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-popup-window-button.delete .smart-icon::after {
+  content: var(--smart-icon-delete);
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor {
+  display: grid;
+  grid-row-gap: 5px;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor .smart-drop-down-list,
+.smart-window.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor .smart-date-time-picker {
+  width: 100%;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor > b {
+  text-align: center;
+}
+
+.smart-window.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor input {
+  height: var(--smart-editor-height);
+}
+
 .smart-window.smart-task-popup-window {
-    --smart-window-header-height: var(--smart-gantt-chart-popup-window-header-height);
-    --smart-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height);
-    --smart-window-header-footer-padding: 10px;
-    --smart-window-default-height: auto;
-    --smart-window-header-background: transparent;
-    --smart-window-default-width: var(--smart-gantt-chart-task-popup-window-default-width);
+  --smart-window-default-width: var(--smart-gantt-chart-task-popup-window-default-width);
 }
 
 .smart-window.smart-task-popup-window .smart-content-container > .smart-footer {
-    display: grid;
-    grid-template-columns: 23% 23% 23% 23%;
-    grid-column-gap: 2%;
-    grid-template-areas: "buttonOk buttonCancel . buttonDelete";
-}
-
-@media not all and (min-resolution: 0.001dpcm) {
-    .smart-window.smart-task-popup-window .smart-content-container > .smart-footer {
-        align-content: start;
-    }
+  display: grid;
+  grid-template-columns: 23% 23% 23% 23%;
+  grid-column-gap: 2%;
+  grid-template-areas: "buttonOk buttonCancel . buttonDelete";
 }
 
 .smart-window.smart-task-popup-window .smart-content-container > .smart-footer .smart-icon {
-    position: relative;
-    height: 100%;
-    font-family: var(--smart-font-family-icon);
-    font-size: 18px;
-    margin-right: 2.5px;
+  position: relative;
+  height: 100%;
+  font-family: var(--smart-font-family-icon);
+  font-size: 18px;
+  margin-right: 2.5px;
 }
 
 .smart-window.smart-task-popup-window .smart-content-container > .smart-content {
-    display: grid;
-    grid-row-gap: 10px;
+  display: grid;
+  grid-row-gap: 10px;
 }
 
 .smart-window.smart-task-popup-window .smart-popup-window-button.ok .smart-icon::after {
-    content: var(--smart-icon-check);
+  content: var(--smart-icon-check);
 }
 
 .smart-window.smart-task-popup-window[right-to-left] > .smart-container > .smart-footer .smart-icon {
-    margin-left: 2.5px;
-}
-
-.smart-connection-popup-window {
-    --smart-window-header-height: var(--smart-gantt-chart-popup-window-header-height);
-    --smart-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height);
-    --smart-window-header-footer-padding: 10px;
-    --smart-window-default-height: auto;
-    --smart-window-header-background: transparent;
-    --smart-window-default-width: var(--smart-gantt-chart-connection-popup-window-default-width);
-}
-
-.smart-connection-popup-window .smart-content-container > .smart-content {
-    justify-content: center;
-    max-height: calc(var(--smart-gantt-chart-task-timeline-content-height) - var(--smart-window-header-height));
-}
-
-@media not all and (min-resolution: 0.001dpcm) {
-    .smart-connection-popup-window .smart-content-container > .smart-footer {
-        align-content: start;
-    }
-}
-
-.smart-connection-popup-window .smart-gantt-chart-popup-window-editor {
-    justify-items: center;
-}
-
-.smart-gantt-chart-popup-window .smart-content-container > .smart-footer {
-    display: grid;
-    grid-template-columns: 40% 40%;
-    grid-column-gap: 2%;
-    justify-content: center;
-    align-items: center;
-    grid-template-areas: "buttonOk buttonCancel";
-}
-
-.smart-gantt-chart-popup-window .smart-content-container > .smart-footer smart-button {
-    width: 100%;
-    height: 100%;
-    --smart-button-padding: 0.2rem;
-}
-
-.smart-gantt-chart-popup-window .smart-popup-window-button.ok {
-    grid-area: buttonOk;
-}
-
-.smart-gantt-chart-popup-window .smart-popup-window-button.cancel {
-    grid-area: buttonCancel;
-}
-
-.smart-gantt-chart-popup-window .smart-popup-window-button.cancel .smart-icon::after {
-    content: var(--smart-icon-cancel);
-}
-
-.smart-gantt-chart-popup-window .smart-popup-window-button.delete {
-    grid-area: buttonDelete;
-}
-
-.smart-gantt-chart-popup-window .smart-popup-window-button.delete .smart-icon::after {
-    content: var(--smart-icon-delete);
-}
-
-.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor {
-    display: grid;
-    grid-row-gap: 5px;
-}
-
-.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor .smart-drop-down-list,
-.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor .smart-date-time-picker {
-    width: 100%;
-}
-
-.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor > b {
-    text-align: center;
-}
-
-.smart-gantt-chart-popup-window .smart-gantt-chart-popup-window-editor input {
-    height: var(--smart-editor-height);
+  margin-left: 2.5px;
 }
 
 .smart-confirm-popup-window {
-    --smart-window-header-height: var(--smart-gantt-chart-popup-window-header-height);
-    --smart-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height);
-    --smart-window-header-footer-padding: 10px;
-    --smart-window-default-height: auto;
-    --smart-window-header-background: transparent;
-    --smart-window-default-width: var(--smart-gantt-chart-confirm-popup-window-default-width);
+  --smart-window-default-width: var(--smart-gantt-chart-confirm-popup-window-default-width);
 }
 
-.smart-confirm-popup-window .smart-content-container > .smart-content {
-    justify-content: center;
-    max-height: calc(var(--smart-gantt-chart-task-timeline-content-height) - var(--smart-window-header-height));
+.smart-connection-popup-window {
+  --smart-window-default-width: var(--smart-gantt-chart-connection-popup-window-default-width);
+}
+
+.smart-confirm-popup-window .smart-content-container > .smart-content,
+.smart-connection-popup-window .smart-content-container > .smart-content {
+  justify-content: center;
+  max-height: calc(var(--smart-gantt-chart-task-timeline-content-height) - var(--smart-window-header-height));
+}
+
+.smart-confirm-popup-window .smart-content-container > .smart-footer,
+.smart-connection-popup-window .smart-content-container > .smart-footer {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  grid-column-gap: 2%;
+  grid-template-areas: "buttonOk buttonCancel";
 }
 
 @media not all and (min-resolution: 0.001dpcm) {
-    .smart-confirm-popup-window .smart-content-container > .smart-content {
-        align-content: start;
-    }
+  .smart-confirm-popup-window .smart-content-container > .smart-footer,
+.smart-connection-popup-window .smart-content-container > .smart-footer {
+    align-content: start;
+  }
 }
 
-.smart-confirm-popup-window .smart-gantt-chart-popup-window-editor {
-    justify-items: center;
+.smart-confirm-popup-window .smart-gantt-chart-popup-window-editor,
+.smart-connection-popup-window .smart-gantt-chart-popup-window-editor {
+  justify-items: center;
 }
 
 .smart-gantt-chart-popup-window-editor .smart-input[disabled] {
-    opacity: 0.55;
-    cursor: default;
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /*# sourceMappingURL=smart.ganttchart.css.map */

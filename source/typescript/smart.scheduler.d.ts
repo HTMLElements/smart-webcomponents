@@ -70,7 +70,7 @@ export interface SchedulerProperties {
    * Determines the events that will be loaded inside the Timeline. Each event represents an object that should contain the following properties:
    * Default value: 
    */
-  dataSource?: SchedulerDataSource[];
+  dataSource?: SchedulerEvent[];
   /**
    * A callback that can be used to customize the text inside the date selector located in the header. The callback has one parameter - the current date.
    * Default value: null
@@ -241,6 +241,11 @@ export interface SchedulerProperties {
    * Default value: false
    */
   hideNonworkingWeekdays?: boolean;
+  /**
+   * Determines whether other month days are visible when view is set to month. When enabled, events that start on other month days are not displayed and the cells that represent such days do not allow the creation of new events on them. Also dragging and droping an event on other month days is not allowed. Reszing is also affected. Events can end on other month days, but cannot start on one.
+   * Default value: false
+   */
+  hideOtherMonthDays?: boolean;
   /**
    * Determines whether the 'Today' button is hidden or not.
    * Default value: false
@@ -437,7 +442,7 @@ export interface SchedulerProperties {
    */
   viewType?: SchedulerViewType;
   /**
-   * Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.
+   * Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.hideHours - an Optional property applicable only to timelineWeek view that allows to hide the hour cells and only show the day cells.
    * Default value: day,week,month
    */
   views?: SchedulerViews;
@@ -940,12 +945,12 @@ export interface SchedulerDataExport {
   pageOrientation?: string;
 }
 
-export interface SchedulerDataSource {
+export interface SchedulerEvent {
   /**
    * Event Repeat Object.
    * Default value: undefined
    */
-  repeat?: SchedulerDataSourceRepeat;
+  repeat?: SchedulerEventRepeat;
   /**
    * Event CSS class.
    * Default value: ""
@@ -1009,7 +1014,7 @@ export interface SchedulerDataSource {
 }
 
 /**Event Repeat Object. */
-export interface SchedulerDataSourceRepeat {
+export interface SchedulerEventRepeat {
   /**
    * Determines the repeating frequency. The event can repeat hourly, daily, weekly, monthly or yearly.
    * Default value: hourly
@@ -1063,103 +1068,6 @@ export interface SchedulerNotification {
    * Default value: ""
    */
   iconType?: string;
-}
-
-export interface SchedulerEvent {
-  /**
-   * Event Repeat Object.
-   * Default value: undefined
-   */
-  repeat?: SchedulerEventRepeat;
-  /**
-   * Event CSS class.
-   * Default value: ""
-   */
-  class?: string;
-  /**
-   * Event start date.
-   * Default value: 
-   */
-  dateStart?: string | Date;
-  /**
-   * Event end date.
-   * Default value: 
-   */
-  dateEnd?: string | Date;
-  /**
-   * Determines whether dragging is disabled for the event.
-   * Default value: false
-   */
-  disableDrag?: boolean;
-  /**
-   * Determines whether resizing is disabled for the event.
-   * Default value: false
-   */
-  disableResize?: boolean;
-  /**
-   * Event unique id.
-   * Default value: 
-   */
-  id?: string | undefined;
-  /**
-   * Event Label.
-   * Default value: 
-   */
-  label?: string | undefined;
-  /**
-   * Event Description.
-   * Default value: 
-   */
-  description?: string | undefined;
-  /**
-   * Determines whether an event is an all day event ot nor. All day events ignore time.
-   * Default value: false
-   */
-  allDay?: boolean | undefined;
-  /**
-   * Sets a background color for the event. The background color should be in HEX format.
-   * Default value: false
-   */
-  backgroundColor?: string | undefined;
-  /**
-   * Sets a color for the event. The color should be in HEX format.
-   * Default value: false
-   */
-  color?: string | undefined;
-  /**
-   * Event notifications.
-   * Default value: null
-   */
-  notifications?: SchedulerNotification[];
-}
-
-/**Event Repeat Object. */
-export interface SchedulerEventRepeat {
-  /**
-   * Determines the repeating frequency. The event can repeat hourly, daily, weekly, monthly or yearly.
-   * Default value: hourly
-   */
-  repeatFreq?: SchedulerRepeatFreq;
-  /**
-   * Determines the repeating interval.
-   * Default value: 1
-   */
-  repeatInterval?: number;
-  /**
-   * Determines on wah day/date the event will repeat on. This is applicable only when repeatFreq is of type 'weekly' ( allows to pick the days of week from 0 to 6, where 0 is Sunday and 6 is Saturday), 'monthly' ( allows to pick a date of the month from 0 to 31) or 'yearly' (allows to pick a particular Date to repeat on. The date can be set as a Date or an object of type{ month: string, date: number }).
-   * Default value: 
-   */
-  repeatOn?: any;
-  /**
-   * Determines when the repeating event will end. By default it does not have an end condition. If the value is set to a number than it is considered as the number of time the event will repeat before it ends. If it's a Date then it is considered as the end date for the repeating series. If not set it will never end.
-   * Default value: 0
-   */
-  repeatEnd?: number | Date | undefined;
-  /**
-   * Event exceptions represent a repeating series event that has been re-scheduler for another date/time or it has been hidden from the Scheduler. Exceptions cannot repeat.
-   * Default value: undefined
-   */
-  exceptions?: { Date: string | Date, DateStart: Date | string, DateEnd: Date | string, backgroundColor: 'string', color: string, hidden: boolean }[] | undefined;
 }
 
 export interface SchedulerResource {
@@ -1253,6 +1161,7 @@ export declare type SchedulerViewType = 'day' | 'week' | 'month' | 'agenda' | 't
 <b>hideWeekend</b> - an Optional property that allows to hide the weekend only for this specific view.
 <b>hideNonworkingWeekdays</b> - an Optional property that allows to hide the nonwrking weekdays for this specific view.
 <b>shortcutKey</b> - an Optional property that allows to set a custom shortcut key for the view.
+<b>hideHours</b> - an Optional property applicable only to <b>timelineWeek</b> view that allows to hide the hour cells and only show the day cells.
  */
 export declare type SchedulerViews = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
 /**Determines type of the view selector located in the header of the element. */

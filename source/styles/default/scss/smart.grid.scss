@@ -386,8 +386,26 @@ input[type=number] {
     content: var(--smart-icon-check-squared);
   }
 
+  &.smart-icon-number:before {
+    content: '#';
+    font-family: var(--smart-font-family);
+    font-weight: bold;
+  }
+
   &.smart-icon-filter:before {
     content: var(--smart-icon-filter);
+  }
+
+  &.smart-icon-clock:before {
+    content: var(--smart-icon-clock);
+  }
+
+  &.smart-icon-font:before {
+    content: var(--smart-icon-font);
+  }
+
+  &.smart-icon-fontsize:before {
+    content: var(--smart-icon-fontsize);
   }
 
   &.smart-icon-menu:before {
@@ -1215,6 +1233,17 @@ smart-grid {
   visibility: hidden;
 
 
+  .smart-grid-cell-loading {
+    height: 10px;
+    position: relative;
+    top: calc(50% - 5px);
+    background: var(--smart-surface);
+    width: 80%;
+    left: 10%;
+    border: 1px solid var(--smart-surface);
+    border-radius: var(--smart-border-radius);
+  }
+
   .smart-grid-add-row-button {
     position: absolute;
     bottom: 0px;
@@ -1226,6 +1255,15 @@ smart-grid {
     transform: scale(0);
     opacity: 0;
     transition: all 0.2s ease-in-out;
+
+    &.float {
+      border-radius: 50%;
+      border: 1px solid var(--smart-border);
+      left: 5px;
+      bottom: 5px;
+      background: var(--smart-primary);
+      color: var(--smart-primary-color);
+    }
 
     &.show {
       transform: scale(1);
@@ -1353,6 +1391,29 @@ smart-grid {
 
   &.smart-element {
     visibility: inherit;
+  }
+
+  &[sorting_mode="many"] {
+    smart-grid-column[sort-index] {
+      .smart-sort-button[order] {
+        width: 40px;
+      }
+
+      .smart-sort-button:after {
+        content: attr(order);
+        font-family: var(--smart-font-family);
+        font-size: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: var(--smart-primary);
+        color: var(--smart-primary-color);
+        padding: 5px;
+        margin-left: 5px;
+        height: 8px;
+      }
+    }
   }
 
   smart-grid-row {

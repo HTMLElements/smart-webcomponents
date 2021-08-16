@@ -21,57 +21,63 @@
     z-index: 3;
   }
 
-  > .input-group-prepend {
-    > smart-button,
-    > .input-group-text {
+  >.input-group-prepend {
+
+    >smart-button,
+    >.input-group-text {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
 
     &:first-child {
-      > smart-button:not(:first-child),
-      > .input-group-text:not(:first-child) {
+
+      >smart-button:not(:first-child),
+      >.input-group-text:not(:first-child) {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
     }
 
     &:not(:first-child) {
-      > smart-button,
-      > .input-group-text {
+
+      >smart-button,
+      >.input-group-text {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
     }
   }
 
-  > .input-group-append {
-    > smart-button,
-    > .input-group-text {
+  >.input-group-append {
+
+    >smart-button,
+    >.input-group-text {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
 
     &:last-child {
-      > smart-button:not(:last-child):not(.dropdown-toggle),
-      > .input-group-text:not(:last-child) {
+
+      >smart-button:not(:last-child):not(.dropdown-toggle),
+      >.input-group-text:not(:last-child) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
     }
 
     &:not(:last-child) {
-      > smart-button,
-      > .input-group-text {
+
+      >smart-button,
+      >.input-group-text {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
     }
   }
 
-  > .custom-file,
-  > .custom-select,
-  > .form-control {
+  >.custom-file,
+  >.custom-select,
+  >.form-control {
     position: relative;
     flex: 1 1 auto;
     width: 1%;
@@ -82,8 +88,8 @@
     }
   }
 
-  > .custom-select,
-  > .form-control {
+  >.custom-select,
+  >.form-control {
     &:not(:first-child) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -95,21 +101,21 @@
     }
   }
 
-  > .form-control {
+  >.form-control {
     &[focus] {
       z-index: 3;
     }
   }
 
-  > .custom-file + .custom-file,
-  > .custom-file + .custom-select,
-  > .custom-file + .form-control,
-  > .custom-select + .custom-file,
-  > .custom-select + .custom-select,
-  > .custom-select + .form-control,
-  > .form-control + .custom-file,
-  > .form-control + .custom-select,
-  > .form-control + .form-control {
+  >.custom-file+.custom-file,
+  >.custom-file+.custom-select,
+  >.custom-file+.form-control,
+  >.custom-select+.custom-file,
+  >.custom-select+.custom-select,
+  >.custom-select+.form-control,
+  >.form-control+.custom-file,
+  >.form-control+.custom-select,
+  >.form-control+.form-control {
     margin-left: -1px;
   }
 }
@@ -122,14 +128,14 @@
   box-sizing: border-box;
   height: auto;
 
-  > smart-button {
+  >smart-button {
     height: 100%;
   }
 
-  smart-button + smart-button,
-  smart-button + .input-group-text,
-  .input-group-text + smart-button,
-  .input-group-text + .input-group-text {
+  smart-button+smart-button,
+  smart-button+.input-group-text,
+  .input-group-text+smart-button,
+  .input-group-text+.input-group-text {
     margin-left: -1px;
   }
 }
@@ -192,6 +198,7 @@
   font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
   display: block;
+
   @media only screen and (max-width: 600px) {
     width: 350px;
   }
@@ -225,7 +232,7 @@
     box-sizing: border-box;
   }
 
-  .smart-form-control + .smart-form-label[required] {
+  .smart-form-control+.smart-form-label[required] {
     &:before {
       content: '*';
       color: #a94442;
@@ -235,7 +242,7 @@
     }
   }
 
-  .smart-form-control + .smart-form-control-label[required] {
+  .smart-form-control+.smart-form-control-label[required] {
     &:after {
       content: '';
     }
@@ -281,9 +288,9 @@
       }
     }
 
-    .smart-form-editor + div,
-    .smart-form-editor + .smart-form-control-addon,
-    .smart-form-editor + .smart-form-control-icon {
+    .smart-form-editor+div,
+    .smart-form-editor+.smart-form-control-addon,
+    .smart-form-editor+.smart-form-control-icon {
       visibility: hidden;
     }
   }
@@ -336,31 +343,31 @@
   }
 
   &[columns="2"] {
-    > .smart-form-group-content {
+    >.smart-form-group-content {
       grid-template-columns: 50% 50%;
     }
   }
 
   &[columns="3"] {
-    > .smart-form-group-content {
+    >.smart-form-group-content {
       grid-template-columns: 33% 33% 33%;
     }
   }
 
   &[columns="4"] {
-    > .smart-form-group-content {
+    >.smart-form-group-content {
       grid-template-columns: 25% 25% 25% 25%;
     }
   }
 
   &[columns="5"] {
-    > .smart-form-group-content {
+    >.smart-form-group-content {
       grid-template-columns: 20% 20% 20% 20% 20%;
     }
   }
 
   &[columns="6"] {
-    > .smart-form-group-content {
+    >.smart-form-group-content {
       grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
     }
   }
@@ -400,13 +407,13 @@
 
   &.smart-validation-success {
     &:not(smart-check-box):not([focus]) {
-      > div.smart-container::after {
+      >div.smart-container::after {
         display: none;
       }
     }
 
     &:not(smart-check-box)[focus] {
-      > div.smart-container::after {
+      >div.smart-container::after {
         left: initial;
         right: 0px;
         z-index: 9;
@@ -415,7 +422,7 @@
   }
 
   &.smart-validation-error {
-    &:not(smart-check-box) > div.smart-container::after {
+    &:not(smart-check-box)>div.smart-container::after {
       left: initial;
       right: 0px;
       z-index: 9;
@@ -423,9 +430,21 @@
   }
 
   &.smart-numeric-text-box {
+
     &.smart-validation-success:not(smart-check-box)[focus],
     &.smart-validation-error:not(smart-check-box) {
-      > div.smart-container input {
+      >div.smart-container input {
+        padding-right: 30px;
+      }
+    }
+  }
+
+  &.smart-numeric-text-box[focus][spin-buttons],
+  &.smart-number-input[focus]:not([drop-down-button-position="none"]) {
+
+    &.smart-validation-success[focus],
+    &.smart-validation-error[focus] {
+      input {
         padding-right: 30px;
       }
     }
@@ -436,16 +455,17 @@
   &.smart-combo-box,
   &.smart-date-time-picker,
   &.smart-drop-down-list {
+
     &.smart-validation-success:not(smart-check-box)[focus],
     &.smart-validation-error:not(smart-check-box) {
-      > div.smart-container::after {
+      >div.smart-container::after {
         right: 20px;
       }
     }
   }
 
-  &.smart-invalid + .smart-error-label-like-after-element,
-  &.smart-valid + .smart-success-label-like-after-element {
+  &.smart-invalid+.smart-error-label-like-after-element,
+  &.smart-valid+.smart-success-label-like-after-element {
     left: initial;
     right: 0px;
     z-index: 9;
@@ -453,12 +473,12 @@
 }
 
 input.smart-form-editor {
-  &.smart-valid:not(:focus) + .smart-success-label-like-after-element {
+  &.smart-valid:not(:focus)+.smart-success-label-like-after-element {
     display: none;
   }
 
-  &.smart-invalid + .smart-error-label-like-after-element,
-  &.smart-valid + .smart-success-label-like-after-element {
+  &.smart-invalid+.smart-error-label-like-after-element,
+  &.smart-valid+.smart-success-label-like-after-element {
     right: 35px;
   }
 }

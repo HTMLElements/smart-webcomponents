@@ -14,19 +14,19 @@ smart-date-time-picker {
   }
 }
 
-smart-date-time-picker > .smart-container,
+smart-date-time-picker>.smart-container,
 .smart-date-time-picker.smart-container {
   display: flex;
   position: relative;
   align-items: center;
 
-  > .smart-content {
+  >.smart-content {
     display: flex;
     height: 100%;
     width: 100%;
   }
 
-  > input {
+  >input {
     height: 100%;
   }
 }
@@ -44,9 +44,10 @@ smart-date-time-picker > .smart-container,
     text-align: inherit;
   }
 
-  > .smart-container {
-    > .smart-label,
-    > .smart-hint {
+  >.smart-container {
+
+    >.smart-label,
+    >.smart-hint {
       display: none;
       position: absolute;
     }
@@ -183,7 +184,7 @@ smart-date-time-picker > .smart-container,
   }
 
   &[label] {
-    > .smart-container > .smart-label {
+    >.smart-container>.smart-label {
       position: absolute;
       left: 0;
       bottom: 100%;
@@ -565,10 +566,10 @@ smart-date-time-picker > .smart-container,
 
   //Right To Left
   &[right-to-left] {
-    > .smart-container {
+    >.smart-container {
       direction: initial;
 
-      > .smart-label {
+      >.smart-label {
         direction: rtl;
       }
     }
@@ -582,6 +583,11 @@ smart-date-time-picker > .smart-container,
 
 .smart-drop-down.smart-date-time-drop-down {
   padding: 0px !important;
+
+  &[footer] {
+    height: calc(30px + var(--smart-editor-drop-down-height));
+    max-height: calc(30px + var(--smart-editor-drop-down-height));
+  }
 
   smart-calendar {
     border: none;
@@ -629,7 +635,7 @@ smart-date-time-picker > .smart-container,
       border-color: var(--smart-outline);
     }
 
-    > input {
+    >input {
       outline: none;
       border: var(--smart-border-width) solid var(--smart-border);
       text-align: center;
@@ -643,7 +649,7 @@ smart-date-time-picker > .smart-container,
       }
     }
 
-    > span {
+    >span {
       width: 30%;
       overflow: hidden;
       display: flex;
@@ -724,7 +730,7 @@ smart-date-time-picker > .smart-container,
       outline: none;
     }
 
-    > div {
+    >div {
       width: 50%;
       height: 100%;
       display: flex;
@@ -741,7 +747,7 @@ smart-date-time-picker > .smart-container,
       }
     }
 
-    > .smart-selected {
+    >.smart-selected {
       background-color: var(--smart-primary);
       border-color: var(--smart-primary);
       color: var(--smart-primary-color);
@@ -778,4 +784,3 @@ smart-date-time-picker > .smart-container,
     transition: none;
   }
 }
-

@@ -210,6 +210,7 @@ smart-scheduler {
       .smart-scheduler-cell-container[group-separator]:not(:last-of-type) {
         border-right-color: var(--smart-scheduler-timeline-group-separator-background);
         border-right-width: var(--smart-scheduler-timeline-group-separator-size);
+        border-right-style: solid;
       }
     }
 
@@ -415,6 +416,11 @@ smart-scheduler {
       min-height: initial;
       min-width: initial;
     }
+
+    .smart-scheduler-cell {
+      height: 100%;
+      border-right: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
+    }
   }
 
   .smart-scheduler-view-time {
@@ -520,6 +526,9 @@ smart-scheduler {
 
     .smart-scheduler-cell {
       border-bottom: var(--smart-border-width) solid var(--smart-border);
+      height: 100%;
+      min-height: inherit;
+      min-width: inherit;
 
       &:not(:first-of-type) {
         border-left: none;
@@ -610,6 +619,12 @@ smart-scheduler {
 
   &[disable-view-menu] .smart-scheduler-view-items-button {
     transform: scale(0);
+  }
+
+  &[hide-other-month-days] {
+    .smart-scheduler-cell[other-month]>div {
+      visibility: hidden;
+    }
   }
 
   //CELLS
@@ -1150,6 +1165,8 @@ smart-scheduler {
     .smart-scheduler-cell {
       font-weight: var(--smart-scheduler-timeline-all-day-label-font-weight);
       white-space: var(--smart-scheduler-timeline-group-white-space);
+      min-height: inherit;
+      min-width: inherit;
 
       >div {
         overflow: hidden;
