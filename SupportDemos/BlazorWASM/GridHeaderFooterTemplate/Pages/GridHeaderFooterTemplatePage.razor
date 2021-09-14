@@ -1,0 +1,72 @@
+
+@page "/grid-header-footer-template"
+
+@using Smart.Blazor.Demos.Data
+@inject RandomDataService dataService
+
+<style>
+    body,
+    html,
+    app {
+        height: 100%;
+    }
+    app {
+        overflow: auto;
+    }
+    .content {
+        height: calc(100% - 70px);
+    }
+    /* This is the CSS used in the demo */
+    smart-grid {
+        --smart-grid-template-columns: 200px 100px 300px auto auto;
+        width: 60%;
+        height: auto;
+    }
+    .smart-grid-footer,
+    .smart-grid-header {
+        text-align: center;
+    }
+</style>
+<div>
+    <p>Grid Row Headers example.</p>
+   
+         <Grid DataSource="data">
+            <Columns>
+                <Column DataField="RowId" Label="Row Id" />
+                <Column DataField="RowType" Label="Row Type" />
+            </Columns>
+        </Grid>
+        <div class="option">
+                <Button OnClick="ChangeData">Change data</Button>
+        </div>
+</div>
+
+@code {
+       private  List<object> data;
+        
+    public class Thing
+    {
+        public int RowId { get; set; }
+        public string RowType { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        data=new List<object> () 
+        {
+            new Thing {RowId = 1, RowType = "Test 1"},
+            new Thing {RowId = 2, RowType = "Test 2"}
+        };
+        Console.WriteLine(data.First());
+    }
+
+    public void ChangeData ( )
+    {
+        data = new List<object> () 
+        {
+            new Thing {RowId = 4444, RowType = "Test 5555"},
+            new Thing {RowId = 55, RowType = "Test 2555"}
+        };
+    }
+}

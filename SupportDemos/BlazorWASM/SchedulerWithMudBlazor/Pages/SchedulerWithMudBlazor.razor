@@ -1,0 +1,62 @@
+﻿@page "/"
+
+@using Smart.Blazor.Demos.Data;
+@inject RandomDataService dataService
+
+<style>
+    smart-scheduler {
+        width: 80%; 
+        height:30%; 
+        margin-bottom: 50px;
+    }
+</style>
+<Example Name="Scheduler">
+        <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
+            <MudTabPanel Text="Tab One">
+                <Scheduler
+                    DateCurrent="dateCurrent" 
+                    TimelineDayScale="SchedulerTimelineDayScale.HalfHour" 
+                    Views="@views" View="SchedulerViewType.Week" 
+                    DataSource="dataRecords" 
+                >
+                </Scheduler>
+            </MudTabPanel>
+            <MudTabPanel Text="Tab Two">
+                 <MudText>Content of second tab</MudText>
+            </MudTabPanel>
+            <MudTabPanel Text="Tab Three">
+                <MudText>Content Three</MudText>
+            </MudTabPanel>
+            <MudTabPanel Text="Tab Disabled" Disabled="true">
+                <MudText>Content Disabled</MudText>
+            </MudTabPanel>
+        </MudTabs>
+</Example>
+@code {
+    private List<SchedulerDataSource> dataRecords = new List<SchedulerDataSource>();
+    private DateTime dateCurrent = new DateTime(2021, 1, 25);
+    private IEnumerable<SchedulerViewType> views = new List<SchedulerViewType>()
+    {
+        SchedulerViewType.Day,
+        SchedulerViewType.Week,
+        SchedulerViewType.Month
+    };
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        dataService.GenerateSchedulerData().ForEach((SchedulerDataRecord record) =>
+        {
+            SchedulerDataSource schedulerDataItem = new SchedulerDataSource()
+            {
+                Label = record.Label,
+                DateStart = record.DateStart,
+                DateEnd = record.DateEnd,
+                BackgroundColor = record.BackgroundColor,
+                AllDay = record.AllDay
+            };
+            dataRecords.Add(schedulerDataItem);
+        });
+    }
+  
+}

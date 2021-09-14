@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Blazor WebAssembly App</title>
+    <base href="/" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="_framework/scoped.styles.css" rel="stylesheet" />
+    <link href="_content/Smart.Blazor/css/smart.default.css" rel="stylesheet" />
+    <script src="_content/Smart.Blazor/js/smart.blazor.js"></script>
+    <script src="_content/Smart.Blazor/js/smart.elements.js"></script>
+
+    <script src="_content/Smart.Blazor/js/jszip.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+    <script src="./jszip.min.js"></script>
+    <script src="./pdfmake.min.js"></script>
+    <script src="./vfs_fonts.js"></script>
+    <script src="./formula-parser.min.js"></script>
+    <script>
+        window.gridMethod = () => {
+            alert(1)
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="app">Loading...</div>
+    <template id="footerTemplate">
+        <div>
+            <h3>This is a simple footer template.</h3>
+        </div>
+    </template>
+
+    <template id="headerTemplate">
+        <div>
+            <h3>Your header template.</h3>
+        </div>
+    </template>
+    
+    <div id="blazor-error-ui">
+	An unhandled error has occurred.
+	<a href="" class="reload">Reload</a>
+	<a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
