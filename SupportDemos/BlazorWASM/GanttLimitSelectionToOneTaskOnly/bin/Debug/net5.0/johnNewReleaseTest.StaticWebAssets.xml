@@ -1,0 +1,5 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/Smart.Blazor" Path="C:\Users\macair1\.nuget\packages\smart.blazor\10.0.31\build\..\staticwebassets\" />
+  <ContentRoot BasePath="/" Path="C:\Users\macair1\Desktop\smart-tests\johnNewReleaseTest\bin\Debug\net5.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\macair1\Desktop\smart-tests\johnNewReleaseTest\obj\Debug\net5.0\scopedcss\bundle\" />
+</StaticWebAssets>

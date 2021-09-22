@@ -1,0 +1,65 @@
+﻿@page "/"
+
+@using Smart.Blazor.Demos.Data
+@using System.Linq;
+@using System.Text.Json;
+@inject RandomDataService RandomDataService
+	<style>
+			.smart-gantt-chart.disabled-selection .smart-table-select-row{
+				pointer-events: none;
+			}
+
+			.smart-gantt-chart.disabled-selection .smart-table-select-row.selected {
+				pointer-events: initial;
+			}
+			
+	</style>
+	<GanttChart class="@ganttSelectionClass"  @ref="ganttChart" OnChange="@ChangedHandler" DataSource="Data" OnProgressChangeEnd ="@ProgressChangedHandler"  TaskColumns="taskColumns" DurationUnit="Duration.Hour"></GanttChart>
+@code {
+	GanttChart ganttChart;
+
+ 	string ganttSelectionClass= "";
+
+	public async void ChangedHandler(Event args)
+	{
+		IEnumerable<object> SelectedTasks = await ganttChart.GetSelectedTasks();
+		
+		List<object> tasksList = SelectedTasks.ToList();
+		
+		int maxCount = 1;
+
+		if (tasksList.Count() >= maxCount) 
+		{
+			ganttSelectionClass= "disabled-selection";
+		}
+		else 
+		{
+			ganttSelectionClass= "";
+		}
+	
+	}
+
+    public void ProgressChangedHandler (Event EventObj) 
+    {
+        var details = EventObj["detail"];
+
+        Console.WriteLine(details);
+
+    }
+	List<GanttChartTaskColumn> taskColumns = new List<GanttChartTaskColumn>{
+		new GanttChartTaskColumn() {
+			Label = "Tasks",
+			Value = "label",
+			Size = "60%"
+		},
+		new GanttChartTaskColumn() {
+			Label = "Duration (hours)",
+			Value = "duration"
+		}
+	};
+	public GanttDataRecord[] Data;
+	protected override async Task OnInitializedAsync()
+	{
+		Data = await RandomDataService.GetGanttDataAsync();
+	}
+}
