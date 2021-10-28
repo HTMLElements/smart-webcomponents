@@ -1,0 +1,130 @@
+
+@page "/"
+
+@using Smart.Blazor.Demos.Data
+@inject RandomDataService dataService
+@inject HttpClient Http
+@using System.Text.Json
+
+<style>
+    body,
+    html,
+    app {
+        height: 100%;
+    }
+    app {
+        overflow: auto;
+    }
+    .content {
+        height: calc(100% - 70px);
+    }
+    /* This is the CSS used in the demo */
+    @@media only screen and (max-width: 700px) {
+        smart-grid {
+            width: 100%;
+        }
+    }
+    .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    }   
+
+    .smart-table td.no-edit {
+        background-color: initial!important;
+    }
+</style>
+    <p>
+        This demo showcases the cell editing functionality of smart-table. Double-click a cell to start an edit operation.
+    </p>
+    @if (dataRecords == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <Table 
+            DataSource="dataRecords" 
+            Paging="true"
+            Editing="true"  
+            EditMode="TableEditMode.Row"
+            KeyboardNavigation="true" 
+            Columns="@columns" 
+            Virtualization="true" 
+            >
+        </Table>
+    }
+@code {   
+    private List<DataRecord> dataRecords;
+    
+    public TableCellClickedEventHandler eventObj;
+    public void CellClickHandler (Event eventObj) 
+    {
+        TableCellClickedEventArgs  detail = eventObj["Detail"];
+        Console.WriteLine(detail);
+    }
+    List<TableColumn> columns = new List<TableColumn>()
+    {
+        new TableColumn()
+        {
+            DataField = "Id",
+            Label = "Id",
+            DataType = TableColumnDataType.Number
+        },
+        new TableColumn()
+        {
+            DataField = "ProductName",
+            Label = "Product Name",
+            DataType = TableColumnDataType.String,
+        },
+        new TableColumn()
+        {
+            DataField = "Quantity",
+            Label = "Quantity",
+            DataType = TableColumnDataType.Number
+        },
+        new TableColumn()
+        {
+            DataField = "Price",
+            Label = "Price",
+            DataType = TableColumnDataType.Number,
+            
+        },
+        new TableColumn()
+        {
+            DataField = "TimeOfPurchase",
+            Label = "Date Purchased",
+            DataType = TableColumnDataType.Date
+        },
+           new TableColumn()
+        {
+            DataField = "Action",
+            Label = "Template",
+            AllowEdit = false,
+            DataType = TableColumnDataType.String,
+            TemplateElement = "<div class='actions-container'><span class='material-icons' @onclick='EditClick'>edit</span><span class='material-icons'>delete_forever</span></div>",
+            TemplateElementSettings = {
+                }
+        }
+    };
+
+    public void EditClick ()
+    {
+        Console.WriteLine("Edit click");
+    }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        dataRecords = dataService.GenerateData(100);
+    }
+}

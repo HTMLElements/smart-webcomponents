@@ -1,0 +1,2444 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Microsoft.AspNetCore.Authorization/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "5.0.9",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "5.0.9",
+          "Microsoft.AspNetCore.Components.Analyzers": "5.0.9"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/5.0.9": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Forms/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.9"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.9",
+          "Microsoft.AspNetCore.Components.Forms": "5.0.9",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "Microsoft.JSInterop": "5.0.9",
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.4",
+          "Microsoft.Extensions.Configuration.Binder": "5.0.0",
+          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.JSInterop.WebAssembly": "5.0.4"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.dll": {}
+        },
+        "build": {
+          "build/net5.0/Microsoft.AspNetCore.Components.WebAssembly.props": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.DevServer/5.0.4": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.AspNetCore.Components.WebAssembly.DevServer.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/5.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/5.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Physical/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileSystemGlobbing": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Options.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        }
+      },
+      "Microsoft.JSInterop/5.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.JSInterop.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.JSInterop.dll": {}
+        }
+      },
+      "Microsoft.JSInterop.WebAssembly/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.JSInterop": "5.0.4"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.JSInterop.WebAssembly.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.JSInterop.WebAssembly.dll": {}
+        }
+      },
+      "MudBlazor/5.1.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.9",
+          "Microsoft.AspNetCore.Components.Web": "5.0.9"
+        },
+        "compile": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Smart.Blazor/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Web": "3.1.2",
+          "Microsoft.CSharp": "4.7.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.1/Smart.Blazor.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Smart.Blazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/Smart.Blazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Smart.Blazor.props": {}
+        }
+      },
+      "System.IO.Pipelines/5.0.1": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
+        }
+      },
+      "System.Net.Http.Json/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/System.Net.Http.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/System.Net.Http.Json.dll": {}
+        }
+      }
+    },
+    "net5.0/browser-wasm": {
+      "Microsoft.AspNetCore.Authorization/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "5.0.9",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "5.0.9",
+          "Microsoft.AspNetCore.Components.Analyzers": "5.0.9"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/5.0.9": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Forms/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.9"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/5.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.9",
+          "Microsoft.AspNetCore.Components.Forms": "5.0.9",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "Microsoft.JSInterop": "5.0.9",
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.4",
+          "Microsoft.Extensions.Configuration.Binder": "5.0.0",
+          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.JSInterop.WebAssembly": "5.0.4"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.dll": {}
+        },
+        "build": {
+          "build/net5.0/Microsoft.AspNetCore.Components.WebAssembly.props": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.DevServer/5.0.4": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.AspNetCore.Components.WebAssembly.DevServer.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/5.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/5.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Physical/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileSystemGlobbing": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Options.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        }
+      },
+      "Microsoft.JSInterop/5.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.JSInterop.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.JSInterop.dll": {}
+        }
+      },
+      "Microsoft.JSInterop.WebAssembly/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.JSInterop": "5.0.4"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.JSInterop.WebAssembly.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.JSInterop.WebAssembly.dll": {}
+        }
+      },
+      "MudBlazor/5.1.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.9",
+          "Microsoft.AspNetCore.Components.Web": "5.0.9"
+        },
+        "compile": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Smart.Blazor/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Web": "3.1.2",
+          "Microsoft.CSharp": "4.7.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.1/Smart.Blazor.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Smart.Blazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/Smart.Blazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Smart.Blazor.props": {}
+        }
+      },
+      "System.IO.Pipelines/5.0.1": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
+        }
+      },
+      "System.Net.Http.Json/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/System.Net.Http.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/System.Net.Http.Json.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.AspNetCore.Authorization/5.0.9": {
+      "sha512": "fS4eD0OPTj29/8xnGybpbsre6OUFoeHX5J1HTSS6o/jmOYOaSyW+C0m/cmJSoVdl2VFaF0ZPggi2ATzYBYzq6w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authorization/5.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net461/Microsoft.AspNetCore.Authorization.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authorization.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
+        "microsoft.aspnetcore.authorization.5.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components/5.0.9": {
+      "sha512": "i0QEG2qlfthb0wlJcY42bRej0NkWi/tXjnvNz7FmwU+PGK25oxa0DjPa4N+sK4vnMOXvwWaNOkbCoY2CGhwFFA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components/5.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net5.0/Microsoft.AspNetCore.Components.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Components.xml",
+        "microsoft.aspnetcore.components.5.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.components.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/5.0.9": {
+      "sha512": "own4KPP3OyNRlXECGjAqUEGim5Z+EG0ht2iKPuTV2PDN9Gu8oP1hsk6697xy/4v6edLWSr+xCVv4Ic2ZiDIh0Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.analyzers/5.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
+        "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
+        "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
+        "microsoft.aspnetcore.components.analyzers.5.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Forms/5.0.9": {
+      "sha512": "hbqyiwzNjaIabJscVf4wjjqofJM0FKOwzlyJ3QoCDb7xTUXfGU22a4nHw4dHkC2rnkYOCg9BFjo+z4IHh16uJQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.forms/5.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Components.Forms.xml",
+        "microsoft.aspnetcore.components.forms.5.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Web/5.0.9": {
+      "sha512": "ckEZouiONUC3lGup/QpTijffo9KU84R/B2rTuvtiMB7meGcqiyBuSB1vX2v/yZRy27LP6YbElwig+vMTlW5SbQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.web/5.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Components.Web.xml",
+        "microsoft.aspnetcore.components.web.5.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly/5.0.4": {
+      "sha512": "6/zWAwHqOAULEYJQH4ZmRCXqCgLPghjSAQtS5XN5jXQw8IpHnVMjvgPxcKhWrSNotw6rJ1q6ZDXid8VUzwIw8w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.webassembly/5.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net5.0/Microsoft.AspNetCore.Components.WebAssembly.props",
+        "build/net5.0/blazor.webassembly.js",
+        "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.xml",
+        "microsoft.aspnetcore.components.webassembly.5.0.4.nupkg.sha512",
+        "microsoft.aspnetcore.components.webassembly.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly.DevServer/5.0.4": {
+      "sha512": "eXIiIaYL6NUG0qw5WEMq0DwCHZ2VepwvTEIu8rxVV+xaS8bdpGjPvVfzI+ZV3qwOQqx5eJDEwjtPtEleC+UZUg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.webassembly.devserver/5.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Microsoft.AspNetCore.Components.WebAssembly.DevServer.targets",
+        "microsoft.aspnetcore.components.webassembly.devserver.5.0.4.nupkg.sha512",
+        "microsoft.aspnetcore.components.webassembly.devserver.nuspec",
+        "tools/BlazorDebugProxy/BrowserDebugHost.dll",
+        "tools/BlazorDebugProxy/BrowserDebugHost.runtimeconfig.json",
+        "tools/BlazorDebugProxy/BrowserDebugProxy.dll",
+        "tools/BlazorDebugProxy/Microsoft.CodeAnalysis.CSharp.dll",
+        "tools/BlazorDebugProxy/Microsoft.CodeAnalysis.dll",
+        "tools/BlazorDebugProxy/Mono.Cecil.Pdb.dll",
+        "tools/BlazorDebugProxy/Mono.Cecil.Rocks.dll",
+        "tools/BlazorDebugProxy/Mono.Cecil.dll",
+        "tools/BlazorDebugProxy/Newtonsoft.Json.dll",
+        "tools/Microsoft.AspNetCore.Components.WebAssembly.Server.dll",
+        "tools/Microsoft.AspNetCore.Components.WebAssembly.Server.xml",
+        "tools/System.IO.Pipelines.dll",
+        "tools/blazor-devserver.deps.json",
+        "tools/blazor-devserver.dll",
+        "tools/blazor-devserver.exe",
+        "tools/blazor-devserver.runtimeconfig.json",
+        "tools/blazor-devserver.xml",
+        "tools/x64/aspnetcorev2_inprocess.dll",
+        "tools/x86/aspnetcorev2_inprocess.dll"
+      ]
+    },
+    "Microsoft.AspNetCore.Metadata/5.0.9": {
+      "sha512": "ITEZAAGTl58j3mPiYg+iDnhLw9YqWoPmDOSmiyb9mVnrK+a6nMU6Bnf90Gh/cYJ8QbvFpq1DhWx39YHID8eIDQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.metadata/5.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net461/Microsoft.AspNetCore.Metadata.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Metadata.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
+        "microsoft.aspnetcore.metadata.5.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.nuspec"
+      ]
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "type": "package",
+      "path": "microsoft.csharp/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration/5.0.0": {
+      "sha512": "LN322qEKHjuVEhhXueTUe7RNePooZmS8aGid5aK2woX3NPjSnONFyKUc6+JknOS6ce6h2tCLfKPTBXE3mN/6Ag==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
+        "microsoft.extensions.configuration.5.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
+      "sha512": "ETjSBHMp3OAZ4HxGQYpwyGsD8Sw5FegQXphi0rpoGMT74S4+I2mm7XJEswwn59XAaKOzC15oDSOWEE8SzDCd6Q==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.abstractions/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Binder/5.0.0": {
+      "sha512": "Of1Irt1+NzWO+yEYkuDh5TpT4On7LKl98Q9iLqCdOZps6XXEWDj3AKtmyvzJPVXZe4apmkJJIiDL7rR1yC+hjQ==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.binder/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.FileExtensions/5.0.0": {
+      "sha512": "rRdspYKA18ViPOISwAihhCMbusHsARCOtDMwa23f+BGEdIjpKPlhs3LLjmKlxfhpGXBjIsS0JpXcChjRUN+PAw==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.fileextensions/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.FileExtensions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.xml",
+        "microsoft.extensions.configuration.fileextensions.5.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.fileextensions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Json/5.0.0": {
+      "sha512": "Pak8ymSUfdzPfBTLHxeOwcR32YDbuVfhnH2hkfOLnJNQd19ItlBdpMjIDY9C5O/nS2Sn9bzDMai0ZrvF7KyY/Q==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.json/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Json.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.xml",
+        "microsoft.extensions.configuration.json.5.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection/5.0.2": {
+      "sha512": "xzFW00AZEvOXM1OX+0+AYH5op/Hf3u//e6wszBd/rK72sypD+jx5CtsHxM4BVuFBEs8SajfO4QzSJtrQaHDr4A==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection/5.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net5.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net5.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
+        "microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+      "sha512": "ORj7Zh81gC69TyvmcUm9tSzytcy8AVousi+IVRAI8nLieQjOFryRusSFh7+aLk16FN9pQNqJAiMd7BTKINK0kA==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
+      "sha512": "iuZIiZ3mteEb+nsUqpGXKx2cGF+cv6gWPd5jqQI4hzqdiJ6I94ddLjKhQOuRW1lueHwocIw30xbSHGhQj0zjdQ==",
+      "type": "package",
+      "path": "microsoft.extensions.fileproviders.abstractions/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.FileProviders.Physical/5.0.0": {
+      "sha512": "1rkd8UO2qf21biwO7X0hL9uHP7vtfmdv/NLvKgCRHkdz1XnW8zVQJXyEYiN68WYpExgtVWn55QF0qBzgfh1mGg==",
+      "type": "package",
+      "path": "microsoft.extensions.fileproviders.physical/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.FileProviders.Physical.dll",
+        "lib/net461/Microsoft.Extensions.FileProviders.Physical.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.xml",
+        "microsoft.extensions.fileproviders.physical.5.0.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.physical.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.FileSystemGlobbing/5.0.0": {
+      "sha512": "ArliS8lGk8sWRtrWpqI8yUVYJpRruPjCDT+EIjrgkA/AAPRctlAkRISVZ334chAKktTLzD1+PK8F5IZpGedSqA==",
+      "type": "package",
+      "path": "microsoft.extensions.filesystemglobbing/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "lib/net461/Microsoft.Extensions.FileSystemGlobbing.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.xml",
+        "microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512",
+        "microsoft.extensions.filesystemglobbing.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging/5.0.0": {
+      "sha512": "MgOwK6tPzB6YNH21wssJcw/2MKwee8b2gI7SllYfn6rvTpIrVvVS5HAjSU2vqSku1fwqRvWP0MdIi14qjd93Aw==",
+      "type": "package",
+      "path": "microsoft.extensions.logging/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Logging.dll",
+        "lib/net461/Microsoft.Extensions.Logging.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.xml",
+        "microsoft.extensions.logging.5.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
+      "sha512": "NxP6ahFcBnnSfwNBi2KH2Oz8Xl5Sm2krjId/jRR3I7teFphwiUoUeZPwTNA21EX+5PtjqmyAvKaOeBXcJjcH/w==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Options/5.0.0": {
+      "sha512": "CBvR92TCJ5uBIdd9/HzDSrxYak+0W/3+yxrNg8Qm6Bmrkh5L+nu6m3WeazQehcZ5q1/6dDA7J5YdQjim0165zg==",
+      "type": "package",
+      "path": "microsoft.extensions.options/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Options.dll",
+        "lib/net461/Microsoft.Extensions.Options.xml",
+        "lib/net5.0/Microsoft.Extensions.Options.dll",
+        "lib/net5.0/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
+        "microsoft.extensions.options.5.0.0.nupkg.sha512",
+        "microsoft.extensions.options.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Primitives/5.0.0": {
+      "sha512": "cI/VWn9G1fghXrNDagX9nYaaB/nokkZn0HYAawGaELQrl8InSezfe9OnfPZLcJq3esXxygh3hkq2c3qoV3SDyQ==",
+      "type": "package",
+      "path": "microsoft.extensions.primitives/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Primitives.dll",
+        "lib/net461/Microsoft.Extensions.Primitives.xml",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
+        "microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.JSInterop/5.0.9": {
+      "sha512": "NApBQOBhgeDd6wXUdsM1uLCvgmwkSS+4VAtHECu/aB5cekTZ0bstqCBzs3/MJYZ5eEXKoglOM1v7wf4jh/t7gA==",
+      "type": "package",
+      "path": "microsoft.jsinterop/5.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.JSInterop.dll",
+        "lib/net5.0/Microsoft.JSInterop.xml",
+        "microsoft.jsinterop.5.0.9.nupkg.sha512",
+        "microsoft.jsinterop.nuspec"
+      ]
+    },
+    "Microsoft.JSInterop.WebAssembly/5.0.4": {
+      "sha512": "reONbMSB5UZz253OlKuWMWZGHZHN1t8t3KaTGmcg9WYueNMv3eWEThSw6k0siwC//N4PLX4SiUtz14HYA/Nf3g==",
+      "type": "package",
+      "path": "microsoft.jsinterop.webassembly/5.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net5.0/Microsoft.JSInterop.WebAssembly.dll",
+        "lib/net5.0/Microsoft.JSInterop.WebAssembly.xml",
+        "microsoft.jsinterop.webassembly.5.0.4.nupkg.sha512",
+        "microsoft.jsinterop.webassembly.nuspec"
+      ]
+    },
+    "MudBlazor/5.1.3": {
+      "sha512": "RCcUmoNdP+EHOrEWzE9uzy1K7hWjvGNTnvnTPpYscfAPbfTFWPzsjC9jVjO7G+o1wEzvIAuiGZYVFL+VeTVJaA==",
+      "type": "package",
+      "path": "mudblazor/5.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Nuget.png",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.props",
+        "buildMultiTargeting/MudBlazor.props",
+        "buildTransitive/MudBlazor.props",
+        "lib/net5.0/MudBlazor.dll",
+        "lib/net5.0/MudBlazor.xml",
+        "mudblazor.5.1.3.nupkg.sha512",
+        "mudblazor.nuspec",
+        "staticwebassets/MudBlazor.min.css",
+        "staticwebassets/MudBlazor.min.js"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "Smart.Blazor/10.0.1": {
+      "sha512": "QBkAMCCOAxw1eZZ8tXkyDV56q7MX5r9IdBoBJZOmYii9cseuNGu3NKbD96uD6N26UfCBksTCeLBLOIOCn6v5Yw==",
+      "type": "package",
+      "path": "smart.blazor/10.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Smart.Blazor.props",
+        "buildMultiTargeting/Smart.Blazor.props",
+        "buildTransitive/Smart.Blazor.props",
+        "icon.png",
+        "lib/netstandard2.1/Smart.Blazor.dll",
+        "smart.blazor.10.0.1.nupkg.sha512",
+        "smart.blazor.nuspec",
+        "staticwebassets/css/bootstrap/_bootstrap_vars.scss",
+        "staticwebassets/css/bootstrap/_bootstrap_vars_dark.scss",
+        "staticwebassets/css/bootstrap/_bootstrap_vars_light.scss",
+        "staticwebassets/css/bootstrap/_mixins.scss",
+        "staticwebassets/css/bootstrap/_styles.scss",
+        "staticwebassets/css/bootstrap/_vars.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.blue.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.blue.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.cyan.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.cyan.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.green.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.green.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.indigo.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.indigo.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.orange.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.orange.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.pink.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.pink.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.purple.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.purple.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.red.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.red.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.teal.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.teal.scss",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.turquoise.css",
+        "staticwebassets/css/bootstrap/dark/smart.bootstrap.turquoise.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.blue.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.blue.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.cyan.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.cyan.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.green.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.green.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.indigo.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.indigo.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.orange.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.orange.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.pink.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.pink.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.purple.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.purple.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.red.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.red.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.teal.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.teal.scss",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.turquoise.css",
+        "staticwebassets/css/bootstrap/light/smart.bootstrap.turquoise.scss",
+        "staticwebassets/css/bootstrap/smart.bootstrap.css",
+        "staticwebassets/css/bootstrap/smart.bootstrap.scss",
+        "staticwebassets/css/components/smart.accordion.css",
+        "staticwebassets/css/components/smart.array.css",
+        "staticwebassets/css/components/smart.base.css",
+        "staticwebassets/css/components/smart.breadcrumb.css",
+        "staticwebassets/css/components/smart.button.css",
+        "staticwebassets/css/components/smart.buttongroup.css",
+        "staticwebassets/css/components/smart.calendar.css",
+        "staticwebassets/css/components/smart.card.css",
+        "staticwebassets/css/components/smart.cardview.css",
+        "staticwebassets/css/components/smart.carousel.css",
+        "staticwebassets/css/components/smart.chart.css",
+        "staticwebassets/css/components/smart.checkbox.css",
+        "staticwebassets/css/components/smart.checkinput.css",
+        "staticwebassets/css/components/smart.chip.css",
+        "staticwebassets/css/components/smart.colorinput.css",
+        "staticwebassets/css/components/smart.colorpanel.css",
+        "staticwebassets/css/components/smart.colorpicker.css",
+        "staticwebassets/css/components/smart.columnpanel.css",
+        "staticwebassets/css/components/smart.combobox.css",
+        "staticwebassets/css/components/smart.common.css",
+        "staticwebassets/css/components/smart.dateformatpanel.css",
+        "staticwebassets/css/components/smart.dateinput.css",
+        "staticwebassets/css/components/smart.daterangeinput.css",
+        "staticwebassets/css/components/smart.datetimeformatpanel.css",
+        "staticwebassets/css/components/smart.datetimepicker.css",
+        "staticwebassets/css/components/smart.dockinglayout.css",
+        "staticwebassets/css/components/smart.dropdownbutton.css",
+        "staticwebassets/css/components/smart.dropdownlist.css",
+        "staticwebassets/css/components/smart.editor.css",
+        "staticwebassets/css/components/smart.fileupload.css",
+        "staticwebassets/css/components/smart.filterbuilder.css",
+        "staticwebassets/css/components/smart.filterpanel.css",
+        "staticwebassets/css/components/smart.form.css",
+        "staticwebassets/css/components/smart.ganttchart.css",
+        "staticwebassets/css/components/smart.gauge.css",
+        "staticwebassets/css/components/smart.grid.css",
+        "staticwebassets/css/components/smart.gridlayout.css",
+        "staticwebassets/css/components/smart.gridpanel.css",
+        "staticwebassets/css/components/smart.input.css",
+        "staticwebassets/css/components/smart.kanban.css",
+        "staticwebassets/css/components/smart.layout.css",
+        "staticwebassets/css/components/smart.led.css",
+        "staticwebassets/css/components/smart.listbox.css",
+        "staticwebassets/css/components/smart.listmenu.css",
+        "staticwebassets/css/components/smart.maskedtextbox.css",
+        "staticwebassets/css/components/smart.menu.css",
+        "staticwebassets/css/components/smart.multicolumnfilterpanel.css",
+        "staticwebassets/css/components/smart.multicomboinput.css",
+        "staticwebassets/css/components/smart.multiinput.css",
+        "staticwebassets/css/components/smart.multilinetextbox.css",
+        "staticwebassets/css/components/smart.multisplitbutton.css",
+        "staticwebassets/css/components/smart.numberformatpanel.css",
+        "staticwebassets/css/components/smart.numberinput.css",
+        "staticwebassets/css/components/smart.numerictextbox.css",
+        "staticwebassets/css/components/smart.pager.css",
+        "staticwebassets/css/components/smart.passwordinput.css",
+        "staticwebassets/css/components/smart.passwordtextbox.css",
+        "staticwebassets/css/components/smart.path.css",
+        "staticwebassets/css/components/smart.pivottable.css",
+        "staticwebassets/css/components/smart.powerbutton.css",
+        "staticwebassets/css/components/smart.progressbar.css",
+        "staticwebassets/css/components/smart.querybuilder.css",
+        "staticwebassets/css/components/smart.radiobutton.css",
+        "staticwebassets/css/components/smart.rating.css",
+        "staticwebassets/css/components/smart.repeatbutton.css",
+        "staticwebassets/css/components/smart.scheduler.css",
+        "staticwebassets/css/components/smart.scrollbar.css",
+        "staticwebassets/css/components/smart.slider.css",
+        "staticwebassets/css/components/smart.sortable.css",
+        "staticwebassets/css/components/smart.sortpanel.css",
+        "staticwebassets/css/components/smart.splitter.css",
+        "staticwebassets/css/components/smart.switchbutton.css",
+        "staticwebassets/css/components/smart.table.css",
+        "staticwebassets/css/components/smart.tabs.css",
+        "staticwebassets/css/components/smart.tank.css",
+        "staticwebassets/css/components/smart.textarea.css",
+        "staticwebassets/css/components/smart.textbox.css",
+        "staticwebassets/css/components/smart.timeinput.css",
+        "staticwebassets/css/components/smart.timepicker.css",
+        "staticwebassets/css/components/smart.toast.css",
+        "staticwebassets/css/components/smart.togglebutton.css",
+        "staticwebassets/css/components/smart.tooltip.css",
+        "staticwebassets/css/components/smart.tree.css",
+        "staticwebassets/css/components/smart.validationpanel.css",
+        "staticwebassets/css/components/smart.window.css",
+        "staticwebassets/css/default/scss/_functions.scss",
+        "staticwebassets/css/default/scss/grid/_checkbox.scss",
+        "staticwebassets/css/default/scss/misc/_shadow_dom.scss",
+        "staticwebassets/css/default/scss/scheduler/_color_input.scss",
+        "staticwebassets/css/default/scss/scheduler/_drag.scss",
+        "staticwebassets/css/default/scss/scheduler/_loading_placeholder.scss",
+        "staticwebassets/css/default/scss/scheduler/_notification.scss",
+        "staticwebassets/css/default/scss/scheduler/_properties.scss",
+        "staticwebassets/css/default/scss/scheduler/_rtl.scss",
+        "staticwebassets/css/default/scss/scheduler/_tooltip.scss",
+        "staticwebassets/css/default/scss/scheduler/_window.scss",
+        "staticwebassets/css/default/scss/smart.accordion.scss",
+        "staticwebassets/css/default/scss/smart.alert.scss",
+        "staticwebassets/css/default/scss/smart.array.scss",
+        "staticwebassets/css/default/scss/smart.badge.scss",
+        "staticwebassets/css/default/scss/smart.breadcrumb.scss",
+        "staticwebassets/css/default/scss/smart.button.scss",
+        "staticwebassets/css/default/scss/smart.buttongroup.scss",
+        "staticwebassets/css/default/scss/smart.calendar.scss",
+        "staticwebassets/css/default/scss/smart.card.scss",
+        "staticwebassets/css/default/scss/smart.cardview.scss",
+        "staticwebassets/css/default/scss/smart.carousel.scss",
+        "staticwebassets/css/default/scss/smart.chart.scss",
+        "staticwebassets/css/default/scss/smart.checkbox.scss",
+        "staticwebassets/css/default/scss/smart.chip.scss",
+        "staticwebassets/css/default/scss/smart.colorpanel.scss",
+        "staticwebassets/css/default/scss/smart.colorpicker.scss",
+        "staticwebassets/css/default/scss/smart.combobox.scss",
+        "staticwebassets/css/default/scss/smart.currencyformatpanel.scss",
+        "staticwebassets/css/default/scss/smart.dateformatpanel.scss",
+        "staticwebassets/css/default/scss/smart.datetimepicker.scss",
+        "staticwebassets/css/default/scss/smart.dockinglayout.scss",
+        "staticwebassets/css/default/scss/smart.dropdown.scss",
+        "staticwebassets/css/default/scss/smart.dropdownbutton.scss",
+        "staticwebassets/css/default/scss/smart.dropdownlist.scss",
+        "staticwebassets/css/default/scss/smart.editor.scss",
+        "staticwebassets/css/default/scss/smart.editors.scss",
+        "staticwebassets/css/default/scss/smart.fileupload.scss",
+        "staticwebassets/css/default/scss/smart.filterbuilder.scss",
+        "staticwebassets/css/default/scss/smart.filterpanel.scss",
+        "staticwebassets/css/default/scss/smart.ganttchart.scss",
+        "staticwebassets/css/default/scss/smart.gauge.scss",
+        "staticwebassets/css/default/scss/smart.grid.scss",
+        "staticwebassets/css/default/scss/smart.gridpanel.scss",
+        "staticwebassets/css/default/scss/smart.inputgroup.scss",
+        "staticwebassets/css/default/scss/smart.kanban.scss",
+        "staticwebassets/css/default/scss/smart.layout.scss",
+        "staticwebassets/css/default/scss/smart.layouts.scss",
+        "staticwebassets/css/default/scss/smart.led.scss",
+        "staticwebassets/css/default/scss/smart.link-button.scss",
+        "staticwebassets/css/default/scss/smart.listbox.scss",
+        "staticwebassets/css/default/scss/smart.listmenu.scss",
+        "staticwebassets/css/default/scss/smart.loader.scss",
+        "staticwebassets/css/default/scss/smart.maskedtextbox.scss",
+        "staticwebassets/css/default/scss/smart.menu.scss",
+        "staticwebassets/css/default/scss/smart.misc.scss",
+        "staticwebassets/css/default/scss/smart.multilinetextbox.scss",
+        "staticwebassets/css/default/scss/smart.multisplitbutton.scss",
+        "staticwebassets/css/default/scss/smart.numberformatpanel.scss",
+        "staticwebassets/css/default/scss/smart.numerictextbox.scss",
+        "staticwebassets/css/default/scss/smart.pager.scss",
+        "staticwebassets/css/default/scss/smart.passwordtextbox.scss",
+        "staticwebassets/css/default/scss/smart.path.scss",
+        "staticwebassets/css/default/scss/smart.pivottable.scss",
+        "staticwebassets/css/default/scss/smart.powerbutton.scss",
+        "staticwebassets/css/default/scss/smart.progressbar.scss",
+        "staticwebassets/css/default/scss/smart.querybuilder.scss",
+        "staticwebassets/css/default/scss/smart.radiobutton.scss",
+        "staticwebassets/css/default/scss/smart.rating.scss",
+        "staticwebassets/css/default/scss/smart.scheduler.scss",
+        "staticwebassets/css/default/scss/smart.scrollbar.scss",
+        "staticwebassets/css/default/scss/smart.scrollviewer.scss",
+        "staticwebassets/css/default/scss/smart.slider.scss",
+        "staticwebassets/css/default/scss/smart.sortable.scss",
+        "staticwebassets/css/default/scss/smart.splitter.scss",
+        "staticwebassets/css/default/scss/smart.switchbutton.scss",
+        "staticwebassets/css/default/scss/smart.table.scss",
+        "staticwebassets/css/default/scss/smart.tabs.scss",
+        "staticwebassets/css/default/scss/smart.tank.scss",
+        "staticwebassets/css/default/scss/smart.textbox.scss",
+        "staticwebassets/css/default/scss/smart.timepicker.scss",
+        "staticwebassets/css/default/scss/smart.toast.scss",
+        "staticwebassets/css/default/scss/smart.toggle.scss",
+        "staticwebassets/css/default/scss/smart.tooltip.scss",
+        "staticwebassets/css/default/scss/smart.tree.scss",
+        "staticwebassets/css/default/scss/smart.validationpanel.scss",
+        "staticwebassets/css/default/scss/smart.validator.scss",
+        "staticwebassets/css/default/scss/smart.window.scss",
+        "staticwebassets/css/default/scss/splitter/_shadow_dom.scss",
+        "staticwebassets/css/default/scss/table/_colors.scss",
+        "staticwebassets/css/default/scss/table/_colors_hover.scss",
+        "staticwebassets/css/default/scss/table/_outline_level.scss",
+        "staticwebassets/css/default/scss/table/_responsive.scss",
+        "staticwebassets/css/default/scss/textbox/_check-input.scss",
+        "staticwebassets/css/default/scss/textbox/_color-input.scss",
+        "staticwebassets/css/default/scss/textbox/_date-input.scss",
+        "staticwebassets/css/default/scss/textbox/_input.scss",
+        "staticwebassets/css/default/scss/textbox/_multi-combo-input.scss",
+        "staticwebassets/css/default/scss/textbox/_multi-input.scss",
+        "staticwebassets/css/default/scss/textbox/_number-input.scss",
+        "staticwebassets/css/default/scss/textbox/_outlined.scss",
+        "staticwebassets/css/default/scss/textbox/_password-input.scss",
+        "staticwebassets/css/default/scss/textbox/_text-area.scss",
+        "staticwebassets/css/default/scss/textbox/_text-box.scss",
+        "staticwebassets/css/default/scss/textbox/_underlined.scss",
+        "staticwebassets/css/default/smart.accordion.css",
+        "staticwebassets/css/default/smart.alert.css",
+        "staticwebassets/css/default/smart.array.css",
+        "staticwebassets/css/default/smart.badge.css",
+        "staticwebassets/css/default/smart.breadcrumb.css",
+        "staticwebassets/css/default/smart.button.css",
+        "staticwebassets/css/default/smart.buttongroup.css",
+        "staticwebassets/css/default/smart.calendar.css",
+        "staticwebassets/css/default/smart.card.css",
+        "staticwebassets/css/default/smart.cardview.css",
+        "staticwebassets/css/default/smart.carousel.css",
+        "staticwebassets/css/default/smart.chart.css",
+        "staticwebassets/css/default/smart.checkbox.css",
+        "staticwebassets/css/default/smart.chip.css",
+        "staticwebassets/css/default/smart.colorpanel.css",
+        "staticwebassets/css/default/smart.colorpicker.css",
+        "staticwebassets/css/default/smart.combobox.css",
+        "staticwebassets/css/default/smart.common.css",
+        "staticwebassets/css/default/smart.currencyformatpanel.css",
+        "staticwebassets/css/default/smart.dateformatpanel.css",
+        "staticwebassets/css/default/smart.datetimepicker.css",
+        "staticwebassets/css/default/smart.dockinglayout.css",
+        "staticwebassets/css/default/smart.dropdown.css",
+        "staticwebassets/css/default/smart.dropdownbutton.css",
+        "staticwebassets/css/default/smart.dropdownlist.css",
+        "staticwebassets/css/default/smart.editor.css",
+        "staticwebassets/css/default/smart.editors.css",
+        "staticwebassets/css/default/smart.fileupload.css",
+        "staticwebassets/css/default/smart.filterbuilder.css",
+        "staticwebassets/css/default/smart.filterpanel.css",
+        "staticwebassets/css/default/smart.ganttchart.css",
+        "staticwebassets/css/default/smart.gauge.css",
+        "staticwebassets/css/default/smart.grid.css",
+        "staticwebassets/css/default/smart.gridpanel.css",
+        "staticwebassets/css/default/smart.inputgroup.css",
+        "staticwebassets/css/default/smart.kanban.css",
+        "staticwebassets/css/default/smart.layout.css",
+        "staticwebassets/css/default/smart.layouts.css",
+        "staticwebassets/css/default/smart.led.css",
+        "staticwebassets/css/default/smart.link-button.css",
+        "staticwebassets/css/default/smart.listbox.css",
+        "staticwebassets/css/default/smart.listmenu.css",
+        "staticwebassets/css/default/smart.loader.css",
+        "staticwebassets/css/default/smart.maskedtextbox.css",
+        "staticwebassets/css/default/smart.menu.css",
+        "staticwebassets/css/default/smart.misc.css",
+        "staticwebassets/css/default/smart.multilinetextbox.css",
+        "staticwebassets/css/default/smart.multisplitbutton.css",
+        "staticwebassets/css/default/smart.numberformatpanel.css",
+        "staticwebassets/css/default/smart.numerictextbox.css",
+        "staticwebassets/css/default/smart.pager.css",
+        "staticwebassets/css/default/smart.passwordtextbox.css",
+        "staticwebassets/css/default/smart.path.css",
+        "staticwebassets/css/default/smart.pivottable.css",
+        "staticwebassets/css/default/smart.powerbutton.css",
+        "staticwebassets/css/default/smart.progressbar.css",
+        "staticwebassets/css/default/smart.querybuilder.css",
+        "staticwebassets/css/default/smart.radiobutton.css",
+        "staticwebassets/css/default/smart.rating.css",
+        "staticwebassets/css/default/smart.scheduler.css",
+        "staticwebassets/css/default/smart.scrollbar.css",
+        "staticwebassets/css/default/smart.scrollviewer.css",
+        "staticwebassets/css/default/smart.slider.css",
+        "staticwebassets/css/default/smart.sortable.css",
+        "staticwebassets/css/default/smart.splitter.css",
+        "staticwebassets/css/default/smart.switchbutton.css",
+        "staticwebassets/css/default/smart.table.css",
+        "staticwebassets/css/default/smart.tabs.css",
+        "staticwebassets/css/default/smart.tank.css",
+        "staticwebassets/css/default/smart.textbox.css",
+        "staticwebassets/css/default/smart.timepicker.css",
+        "staticwebassets/css/default/smart.toast.css",
+        "staticwebassets/css/default/smart.toggle.css",
+        "staticwebassets/css/default/smart.tooltip.css",
+        "staticwebassets/css/default/smart.tree.css",
+        "staticwebassets/css/default/smart.validationpanel.css",
+        "staticwebassets/css/default/smart.validator.css",
+        "staticwebassets/css/default/smart.variables.css",
+        "staticwebassets/css/default/smart.window.css",
+        "staticwebassets/css/font/smart-icons.eot",
+        "staticwebassets/css/font/smart-icons.svg",
+        "staticwebassets/css/font/smart-icons.ttf",
+        "staticwebassets/css/font/smart-icons.woff",
+        "staticwebassets/css/font/smart-icons.woff2",
+        "staticwebassets/css/images/dropable_zone_image.svg",
+        "staticwebassets/css/images/error.png",
+        "staticwebassets/css/images/icons-sprite.svg",
+        "staticwebassets/css/images/icons-stack.svg",
+        "staticwebassets/css/images/info.png",
+        "staticwebassets/css/images/magnifier.png",
+        "staticwebassets/css/images/mail.png",
+        "staticwebassets/css/images/radial.svg",
+        "staticwebassets/css/images/success.png",
+        "staticwebassets/css/images/time.png",
+        "staticwebassets/css/images/warning.png",
+        "staticwebassets/css/smart.bootstrap.css",
+        "staticwebassets/css/smart.cyan.css",
+        "staticwebassets/css/smart.dark-cyan.css",
+        "staticwebassets/css/smart.dark-green.css",
+        "staticwebassets/css/smart.dark-indigo.css",
+        "staticwebassets/css/smart.dark-orange.css",
+        "staticwebassets/css/smart.dark-pink.css",
+        "staticwebassets/css/smart.dark-purple.css",
+        "staticwebassets/css/smart.dark-red.css",
+        "staticwebassets/css/smart.dark-teal.css",
+        "staticwebassets/css/smart.dark-turquoise.css",
+        "staticwebassets/css/smart.default-dev.css",
+        "staticwebassets/css/smart.default.css",
+        "staticwebassets/css/smart.green.css",
+        "staticwebassets/css/smart.indigo.css",
+        "staticwebassets/css/smart.nimble.css",
+        "staticwebassets/css/smart.orange.css",
+        "staticwebassets/css/smart.pink.css",
+        "staticwebassets/css/smart.purple.css",
+        "staticwebassets/css/smart.red.css",
+        "staticwebassets/css/smart.teal.css",
+        "staticwebassets/css/smart.turquoise.css",
+        "staticwebassets/css/smart.ui.default.css",
+        "staticwebassets/favicon.ico",
+        "staticwebassets/js/assets/beverages.json",
+        "staticwebassets/js/assets/customers.xml",
+        "staticwebassets/js/assets/data.js",
+        "staticwebassets/js/assets/data.xlsx",
+        "staticwebassets/js/assets/employees.csv",
+        "staticwebassets/js/assets/formula-parser.min.js",
+        "staticwebassets/js/assets/homeprices.tsv",
+        "staticwebassets/js/assets/html2canvas.min.js",
+        "staticwebassets/js/assets/icalendar.ics",
+        "staticwebassets/js/assets/jquery-3.3.1.min.js",
+        "staticwebassets/js/assets/jquery-jvectormap-2.0.5.css",
+        "staticwebassets/js/assets/jquery-jvectormap-2.0.5.min.js",
+        "staticwebassets/js/assets/jquery-jvectormap-world-mill.js",
+        "staticwebassets/js/assets/jszip.min.js",
+        "staticwebassets/js/assets/pdfmake.min.js",
+        "staticwebassets/js/assets/rrule.min.js",
+        "staticwebassets/js/assets/vfs_fonts.js",
+        "staticwebassets/js/assets/webcomponents-lite.js",
+        "staticwebassets/js/assets/webfont.js",
+        "staticwebassets/js/modules/smart.accordion.js",
+        "staticwebassets/js/modules/smart.accordion.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.array.js",
+        "staticwebassets/js/modules/smart.array.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.blazor.js",
+        "staticwebassets/js/modules/smart.breadcrumb.js",
+        "staticwebassets/js/modules/smart.breadcrumb.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.button.js",
+        "staticwebassets/js/modules/smart.button.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.buttongroup.js",
+        "staticwebassets/js/modules/smart.buttongroup.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.calendar.js",
+        "staticwebassets/js/modules/smart.calendar.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.card.js",
+        "staticwebassets/js/modules/smart.card.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.cardview.js",
+        "staticwebassets/js/modules/smart.cardview.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.carousel.js",
+        "staticwebassets/js/modules/smart.carousel.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.cdk.js",
+        "staticwebassets/js/modules/smart.chart.js",
+        "staticwebassets/js/modules/smart.chart.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.checkbox.js",
+        "staticwebassets/js/modules/smart.checkbox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.checkinput.js",
+        "staticwebassets/js/modules/smart.checkinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.chip.js",
+        "staticwebassets/js/modules/smart.chip.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.colorinput.js",
+        "staticwebassets/js/modules/smart.colorinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.colorpanel.js",
+        "staticwebassets/js/modules/smart.colorpanel.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.colorpicker.js",
+        "staticwebassets/js/modules/smart.colorpicker.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.combobox.js",
+        "staticwebassets/js/modules/smart.combobox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.common.js",
+        "staticwebassets/js/modules/smart.common.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.dateinput.js",
+        "staticwebassets/js/modules/smart.dateinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.daterangeinput.js",
+        "staticwebassets/js/modules/smart.daterangeinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.datetimepicker.js",
+        "staticwebassets/js/modules/smart.datetimepicker.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.dockinglayout.js",
+        "staticwebassets/js/modules/smart.dockinglayout.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.dropdownbutton.js",
+        "staticwebassets/js/modules/smart.dropdownbutton.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.dropdownlist.js",
+        "staticwebassets/js/modules/smart.dropdownlist.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.editor.js",
+        "staticwebassets/js/modules/smart.editor.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.element.js",
+        "staticwebassets/js/modules/smart.element.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.fileupload.js",
+        "staticwebassets/js/modules/smart.fileupload.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.form.js",
+        "staticwebassets/js/modules/smart.form.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.formulaparser.js",
+        "staticwebassets/js/modules/smart.formulaparser.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.ganttchart.js",
+        "staticwebassets/js/modules/smart.ganttchart.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.gauge.js",
+        "staticwebassets/js/modules/smart.gauge.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.grid.js",
+        "staticwebassets/js/modules/smart.grid.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.gridpanel.js",
+        "staticwebassets/js/modules/smart.gridpanel.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.input.js",
+        "staticwebassets/js/modules/smart.input.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.kanban.js",
+        "staticwebassets/js/modules/smart.kanban.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.layout.js",
+        "staticwebassets/js/modules/smart.layout.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.led.js",
+        "staticwebassets/js/modules/smart.led.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.listbox.js",
+        "staticwebassets/js/modules/smart.listbox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.listmenu.js",
+        "staticwebassets/js/modules/smart.listmenu.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.map.js",
+        "staticwebassets/js/modules/smart.map.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.maskedtextbox.js",
+        "staticwebassets/js/modules/smart.maskedtextbox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.menu.js",
+        "staticwebassets/js/modules/smart.menu.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.multicomboinput.js",
+        "staticwebassets/js/modules/smart.multicomboinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.multiinput.js",
+        "staticwebassets/js/modules/smart.multiinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.multilinetextbox.js",
+        "staticwebassets/js/modules/smart.multilinetextbox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.multisplitbutton.js",
+        "staticwebassets/js/modules/smart.multisplitbutton.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.numberinput.js",
+        "staticwebassets/js/modules/smart.numberinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.numerictextbox.js",
+        "staticwebassets/js/modules/smart.numerictextbox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.pager.js",
+        "staticwebassets/js/modules/smart.pager.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.passwordinput.js",
+        "staticwebassets/js/modules/smart.passwordinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.passwordtextbox.js",
+        "staticwebassets/js/modules/smart.passwordtextbox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.path.js",
+        "staticwebassets/js/modules/smart.path.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.pivottable.js",
+        "staticwebassets/js/modules/smart.pivottable.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.progressbar.js",
+        "staticwebassets/js/modules/smart.progressbar.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.querybuilder.js",
+        "staticwebassets/js/modules/smart.querybuilder.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.radiobutton.js",
+        "staticwebassets/js/modules/smart.radiobutton.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.rating.js",
+        "staticwebassets/js/modules/smart.rating.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.router.js",
+        "staticwebassets/js/modules/smart.router.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.scheduler.js",
+        "staticwebassets/js/modules/smart.scheduler.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.scrollbar.js",
+        "staticwebassets/js/modules/smart.scrollbar.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.slider.js",
+        "staticwebassets/js/modules/smart.slider.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.sortable.js",
+        "staticwebassets/js/modules/smart.sortable.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.splitter.js",
+        "staticwebassets/js/modules/smart.splitter.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.switchbutton.js",
+        "staticwebassets/js/modules/smart.switchbutton.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.table.js",
+        "staticwebassets/js/modules/smart.table.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.tabs.js",
+        "staticwebassets/js/modules/smart.tabs.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.tank.js",
+        "staticwebassets/js/modules/smart.tank.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.textarea.js",
+        "staticwebassets/js/modules/smart.textarea.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.textbox.js",
+        "staticwebassets/js/modules/smart.textbox.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.timeinput.js",
+        "staticwebassets/js/modules/smart.timeinput.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.timepicker.js",
+        "staticwebassets/js/modules/smart.timepicker.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.toast.js",
+        "staticwebassets/js/modules/smart.toast.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.tooltip.js",
+        "staticwebassets/js/modules/smart.tooltip.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.tree.js",
+        "staticwebassets/js/modules/smart.tree.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.validator.js",
+        "staticwebassets/js/modules/smart.validator.js.LICENSE.txt",
+        "staticwebassets/js/modules/smart.window.js",
+        "staticwebassets/js/modules/smart.window.js.LICENSE.txt",
+        "staticwebassets/js/rrule.min.js",
+        "staticwebassets/js/smart.accordion.js",
+        "staticwebassets/js/smart.ajax.js",
+        "staticwebassets/js/smart.array.js",
+        "staticwebassets/js/smart.blazor.js",
+        "staticwebassets/js/smart.bootstrap.js",
+        "staticwebassets/js/smart.breadcrumb.js",
+        "staticwebassets/js/smart.button.js",
+        "staticwebassets/js/smart.buttongroup.js",
+        "staticwebassets/js/smart.calendar.js",
+        "staticwebassets/js/smart.card.js",
+        "staticwebassets/js/smart.cardview.js",
+        "staticwebassets/js/smart.carousel.js",
+        "staticwebassets/js/smart.chart.annotations.js",
+        "staticwebassets/js/smart.chart.api.js",
+        "staticwebassets/js/smart.chart.core.js",
+        "staticwebassets/js/smart.chart.js",
+        "staticwebassets/js/smart.chart.rangeselector.js",
+        "staticwebassets/js/smart.chart.waterfall.js",
+        "staticwebassets/js/smart.checkbox.js",
+        "staticwebassets/js/smart.checkinput.js",
+        "staticwebassets/js/smart.chip.js",
+        "staticwebassets/js/smart.colorinput.js",
+        "staticwebassets/js/smart.colorpanel.js",
+        "staticwebassets/js/smart.colorpicker.js",
+        "staticwebassets/js/smart.combobox.js",
+        "staticwebassets/js/smart.complex.js",
+        "staticwebassets/js/smart.core.js",
+        "staticwebassets/js/smart.customizationdialog.js",
+        "staticwebassets/js/smart.data.js",
+        "staticwebassets/js/smart.date.js",
+        "staticwebassets/js/smart.dateformatpanel.js",
+        "staticwebassets/js/smart.dateinput.js",
+        "staticwebassets/js/smart.daterangeinput.js",
+        "staticwebassets/js/smart.datetimepicker.js",
+        "staticwebassets/js/smart.dockinglayout.js",
+        "staticwebassets/js/smart.draw.js",
+        "staticwebassets/js/smart.dropdownbutton.js",
+        "staticwebassets/js/smart.dropdownlist.js",
+        "staticwebassets/js/smart.editor.js",
+        "staticwebassets/js/smart.element-polyfills.js",
+        "staticwebassets/js/smart.element.js",
+        "staticwebassets/js/smart.elements.js",
+        "staticwebassets/js/smart.export.js",
+        "staticwebassets/js/smart.fileupload.js",
+        "staticwebassets/js/smart.filter.js",
+        "staticwebassets/js/smart.filterbuilder.js",
+        "staticwebassets/js/smart.filterpanel.js",
+        "staticwebassets/js/smart.form.js",
+        "staticwebassets/js/smart.format.js",
+        "staticwebassets/js/smart.formulaparser.js",
+        "staticwebassets/js/smart.ganttchart.js",
+        "staticwebassets/js/smart.gauge.js",
+        "staticwebassets/js/smart.grid.cell.js",
+        "staticwebassets/js/smart.grid.chart.js",
+        "staticwebassets/js/smart.grid.column.js",
+        "staticwebassets/js/smart.grid.core.js",
+        "staticwebassets/js/smart.grid.edit.js",
+        "staticwebassets/js/smart.grid.export.js",
+        "staticwebassets/js/smart.grid.filter.js",
+        "staticwebassets/js/smart.grid.group.js",
+        "staticwebassets/js/smart.grid.js",
+        "staticwebassets/js/smart.grid.menu.js",
+        "staticwebassets/js/smart.grid.pager.js",
+        "staticwebassets/js/smart.grid.reorder.js",
+        "staticwebassets/js/smart.grid.resize.js",
+        "staticwebassets/js/smart.grid.row.js",
+        "staticwebassets/js/smart.grid.select.js",
+        "staticwebassets/js/smart.grid.sort.js",
+        "staticwebassets/js/smart.grid.toolbar.js",
+        "staticwebassets/js/smart.grid.tree.js",
+        "staticwebassets/js/smart.gridpanel.js",
+        "staticwebassets/js/smart.input.js",
+        "staticwebassets/js/smart.kanban.js",
+        "staticwebassets/js/smart.layout.js",
+        "staticwebassets/js/smart.led.js",
+        "staticwebassets/js/smart.listbox.js",
+        "staticwebassets/js/smart.listmenu.js",
+        "staticwebassets/js/smart.map.js",
+        "staticwebassets/js/smart.maskedtextbox.js",
+        "staticwebassets/js/smart.math.js",
+        "staticwebassets/js/smart.menu.js",
+        "staticwebassets/js/smart.multicomboinput.js",
+        "staticwebassets/js/smart.multiinput.js",
+        "staticwebassets/js/smart.multilinetextbox.js",
+        "staticwebassets/js/smart.multisplitbutton.js",
+        "staticwebassets/js/smart.numberformatpanel.js",
+        "staticwebassets/js/smart.numberinput.js",
+        "staticwebassets/js/smart.numeric.js",
+        "staticwebassets/js/smart.numerictextbox.js",
+        "staticwebassets/js/smart.pager.js",
+        "staticwebassets/js/smart.passwordinput.js",
+        "staticwebassets/js/smart.passwordtextbox.js",
+        "staticwebassets/js/smart.path.js",
+        "staticwebassets/js/smart.pivottable.js",
+        "staticwebassets/js/smart.powerbutton.js",
+        "staticwebassets/js/smart.progressbar.js",
+        "staticwebassets/js/smart.radiobutton.js",
+        "staticwebassets/js/smart.rating.js",
+        "staticwebassets/js/smart.router.js",
+        "staticwebassets/js/smart.scheduler.js",
+        "staticwebassets/js/smart.scrollbar.js",
+        "staticwebassets/js/smart.slider.js",
+        "staticwebassets/js/smart.sort.js",
+        "staticwebassets/js/smart.sortable.js",
+        "staticwebassets/js/smart.splitter.js",
+        "staticwebassets/js/smart.switchbutton.js",
+        "staticwebassets/js/smart.table.js",
+        "staticwebassets/js/smart.tabs.js",
+        "staticwebassets/js/smart.tank.js",
+        "staticwebassets/js/smart.textarea.js",
+        "staticwebassets/js/smart.textbox.js",
+        "staticwebassets/js/smart.tickintervalhandler.js",
+        "staticwebassets/js/smart.timeinput.js",
+        "staticwebassets/js/smart.timepicker.js",
+        "staticwebassets/js/smart.toast.js",
+        "staticwebassets/js/smart.tooltip.js",
+        "staticwebassets/js/smart.tree.js",
+        "staticwebassets/js/smart.validationpanel.js",
+        "staticwebassets/js/smart.validator.js",
+        "staticwebassets/js/smart.window.js",
+        "staticwebassets/js/styles/bootstrap/_bootstrap_vars.scss",
+        "staticwebassets/js/styles/bootstrap/_mixins.scss",
+        "staticwebassets/js/styles/bootstrap/_vars.scss",
+        "staticwebassets/js/styles/bootstrap/smart.bootstrap.css",
+        "staticwebassets/js/styles/bootstrap/smart.bootstrap.css.map",
+        "staticwebassets/js/styles/bootstrap/smart.bootstrap.scss",
+        "staticwebassets/js/styles/components/smart.accordion.css",
+        "staticwebassets/js/styles/components/smart.array.css",
+        "staticwebassets/js/styles/components/smart.base.css",
+        "staticwebassets/js/styles/components/smart.breadcrumb.css",
+        "staticwebassets/js/styles/components/smart.button.css",
+        "staticwebassets/js/styles/components/smart.buttongroup.css",
+        "staticwebassets/js/styles/components/smart.calendar.css",
+        "staticwebassets/js/styles/components/smart.card.css",
+        "staticwebassets/js/styles/components/smart.cardview.css",
+        "staticwebassets/js/styles/components/smart.carousel.css",
+        "staticwebassets/js/styles/components/smart.chart.css",
+        "staticwebassets/js/styles/components/smart.checkbox.css",
+        "staticwebassets/js/styles/components/smart.checkinput.css",
+        "staticwebassets/js/styles/components/smart.chip.css",
+        "staticwebassets/js/styles/components/smart.colorinput.css",
+        "staticwebassets/js/styles/components/smart.colorpanel.css",
+        "staticwebassets/js/styles/components/smart.colorpicker.css",
+        "staticwebassets/js/styles/components/smart.columnpanel.css",
+        "staticwebassets/js/styles/components/smart.combobox.css",
+        "staticwebassets/js/styles/components/smart.common.css",
+        "staticwebassets/js/styles/components/smart.dateformatpanel.css",
+        "staticwebassets/js/styles/components/smart.dateinput.css",
+        "staticwebassets/js/styles/components/smart.daterangeinput.css",
+        "staticwebassets/js/styles/components/smart.datetimeformatpanel.css",
+        "staticwebassets/js/styles/components/smart.datetimepicker.css",
+        "staticwebassets/js/styles/components/smart.dockinglayout.css",
+        "staticwebassets/js/styles/components/smart.dropdownbutton.css",
+        "staticwebassets/js/styles/components/smart.dropdownlist.css",
+        "staticwebassets/js/styles/components/smart.fileupload.css",
+        "staticwebassets/js/styles/components/smart.filterbuilder.css",
+        "staticwebassets/js/styles/components/smart.filterpanel.css",
+        "staticwebassets/js/styles/components/smart.form.css",
+        "staticwebassets/js/styles/components/smart.ganttchart.css",
+        "staticwebassets/js/styles/components/smart.gauge.css",
+        "staticwebassets/js/styles/components/smart.grid.css",
+        "staticwebassets/js/styles/components/smart.gridlayout.css",
+        "staticwebassets/js/styles/components/smart.gridpanel.css",
+        "staticwebassets/js/styles/components/smart.input.css",
+        "staticwebassets/js/styles/components/smart.kanban.css",
+        "staticwebassets/js/styles/components/smart.layout.css",
+        "staticwebassets/js/styles/components/smart.led.css",
+        "staticwebassets/js/styles/components/smart.listbox.css",
+        "staticwebassets/js/styles/components/smart.listmenu.css",
+        "staticwebassets/js/styles/components/smart.maskedtextbox.css",
+        "staticwebassets/js/styles/components/smart.menu.css",
+        "staticwebassets/js/styles/components/smart.multicolumnfilterpanel.css",
+        "staticwebassets/js/styles/components/smart.multicomboinput.css",
+        "staticwebassets/js/styles/components/smart.multiinput.css",
+        "staticwebassets/js/styles/components/smart.multilinetextbox.css",
+        "staticwebassets/js/styles/components/smart.multisplitbutton.css",
+        "staticwebassets/js/styles/components/smart.numberformatpanel.css",
+        "staticwebassets/js/styles/components/smart.numberinput.css",
+        "staticwebassets/js/styles/components/smart.numerictextbox.css",
+        "staticwebassets/js/styles/components/smart.pager.css",
+        "staticwebassets/js/styles/components/smart.passwordinput.css",
+        "staticwebassets/js/styles/components/smart.passwordtextbox.css",
+        "staticwebassets/js/styles/components/smart.path.css",
+        "staticwebassets/js/styles/components/smart.pivottable.css",
+        "staticwebassets/js/styles/components/smart.powerbutton.css",
+        "staticwebassets/js/styles/components/smart.progressbar.css",
+        "staticwebassets/js/styles/components/smart.querybuilder.css",
+        "staticwebassets/js/styles/components/smart.radiobutton.css",
+        "staticwebassets/js/styles/components/smart.rating.css",
+        "staticwebassets/js/styles/components/smart.repeatbutton.css",
+        "staticwebassets/js/styles/components/smart.scheduler.css",
+        "staticwebassets/js/styles/components/smart.scrollbar.css",
+        "staticwebassets/js/styles/components/smart.slider.css",
+        "staticwebassets/js/styles/components/smart.sortable.css",
+        "staticwebassets/js/styles/components/smart.sortpanel.css",
+        "staticwebassets/js/styles/components/smart.splitter.css",
+        "staticwebassets/js/styles/components/smart.switchbutton.css",
+        "staticwebassets/js/styles/components/smart.table.css",
+        "staticwebassets/js/styles/components/smart.tabs.css",
+        "staticwebassets/js/styles/components/smart.tank.css",
+        "staticwebassets/js/styles/components/smart.textarea.css",
+        "staticwebassets/js/styles/components/smart.textbox.css",
+        "staticwebassets/js/styles/components/smart.timeinput.css",
+        "staticwebassets/js/styles/components/smart.timepicker.css",
+        "staticwebassets/js/styles/components/smart.toast.css",
+        "staticwebassets/js/styles/components/smart.togglebutton.css",
+        "staticwebassets/js/styles/components/smart.tooltip.css",
+        "staticwebassets/js/styles/components/smart.tree.css",
+        "staticwebassets/js/styles/components/smart.validationpanel.css",
+        "staticwebassets/js/styles/components/smart.window.css",
+        "staticwebassets/js/styles/default/smart.accordion.css",
+        "staticwebassets/js/styles/default/smart.alert.css",
+        "staticwebassets/js/styles/default/smart.array.css",
+        "staticwebassets/js/styles/default/smart.badge.css",
+        "staticwebassets/js/styles/default/smart.breadcrumb.css",
+        "staticwebassets/js/styles/default/smart.button.css",
+        "staticwebassets/js/styles/default/smart.buttongroup.css",
+        "staticwebassets/js/styles/default/smart.calendar.css",
+        "staticwebassets/js/styles/default/smart.card.css",
+        "staticwebassets/js/styles/default/smart.cardview.css",
+        "staticwebassets/js/styles/default/smart.carousel.css",
+        "staticwebassets/js/styles/default/smart.chart.css",
+        "staticwebassets/js/styles/default/smart.checkbox.css",
+        "staticwebassets/js/styles/default/smart.chip.css",
+        "staticwebassets/js/styles/default/smart.colorpanel.css",
+        "staticwebassets/js/styles/default/smart.colorpicker.css",
+        "staticwebassets/js/styles/default/smart.combobox.css",
+        "staticwebassets/js/styles/default/smart.common.css",
+        "staticwebassets/js/styles/default/smart.currencyformatpanel.css",
+        "staticwebassets/js/styles/default/smart.dateformatpanel.css",
+        "staticwebassets/js/styles/default/smart.datetimepicker.css",
+        "staticwebassets/js/styles/default/smart.dockinglayout.css",
+        "staticwebassets/js/styles/default/smart.dropdown.css",
+        "staticwebassets/js/styles/default/smart.dropdownbutton.css",
+        "staticwebassets/js/styles/default/smart.dropdownlist.css",
+        "staticwebassets/js/styles/default/smart.editors.css",
+        "staticwebassets/js/styles/default/smart.fileupload.css",
+        "staticwebassets/js/styles/default/smart.filterbuilder.css",
+        "staticwebassets/js/styles/default/smart.filterpanel.css",
+        "staticwebassets/js/styles/default/smart.ganttchart.css",
+        "staticwebassets/js/styles/default/smart.gauge.css",
+        "staticwebassets/js/styles/default/smart.grid.css",
+        "staticwebassets/js/styles/default/smart.gridpanel.css",
+        "staticwebassets/js/styles/default/smart.inputgroup.css",
+        "staticwebassets/js/styles/default/smart.kanban.css",
+        "staticwebassets/js/styles/default/smart.layout.css",
+        "staticwebassets/js/styles/default/smart.layouts.css",
+        "staticwebassets/js/styles/default/smart.led.css",
+        "staticwebassets/js/styles/default/smart.listbox.css",
+        "staticwebassets/js/styles/default/smart.listmenu.css",
+        "staticwebassets/js/styles/default/smart.loader.css",
+        "staticwebassets/js/styles/default/smart.maskedtextbox.css",
+        "staticwebassets/js/styles/default/smart.menu.css",
+        "staticwebassets/js/styles/default/smart.misc.css",
+        "staticwebassets/js/styles/default/smart.multilinetextbox.css",
+        "staticwebassets/js/styles/default/smart.multisplitbutton.css",
+        "staticwebassets/js/styles/default/smart.numberformatpanel.css",
+        "staticwebassets/js/styles/default/smart.numerictextbox.css",
+        "staticwebassets/js/styles/default/smart.pager.css",
+        "staticwebassets/js/styles/default/smart.passwordtextbox.css",
+        "staticwebassets/js/styles/default/smart.path.css",
+        "staticwebassets/js/styles/default/smart.pivottable.css",
+        "staticwebassets/js/styles/default/smart.powerbutton.css",
+        "staticwebassets/js/styles/default/smart.progressbar.css",
+        "staticwebassets/js/styles/default/smart.querybuilder.css",
+        "staticwebassets/js/styles/default/smart.radiobutton.css",
+        "staticwebassets/js/styles/default/smart.rating.css",
+        "staticwebassets/js/styles/default/smart.scheduler.css",
+        "staticwebassets/js/styles/default/smart.scrollbar.css",
+        "staticwebassets/js/styles/default/smart.scrollviewer.css",
+        "staticwebassets/js/styles/default/smart.slider.css",
+        "staticwebassets/js/styles/default/smart.sortable.css",
+        "staticwebassets/js/styles/default/smart.splitter.css",
+        "staticwebassets/js/styles/default/smart.switchbutton.css",
+        "staticwebassets/js/styles/default/smart.table.css",
+        "staticwebassets/js/styles/default/smart.tabs.css",
+        "staticwebassets/js/styles/default/smart.tank.css",
+        "staticwebassets/js/styles/default/smart.textbox.css",
+        "staticwebassets/js/styles/default/smart.timepicker.css",
+        "staticwebassets/js/styles/default/smart.toast.css",
+        "staticwebassets/js/styles/default/smart.toggle.css",
+        "staticwebassets/js/styles/default/smart.tooltip.css",
+        "staticwebassets/js/styles/default/smart.tree.css",
+        "staticwebassets/js/styles/default/smart.validationpanel.css",
+        "staticwebassets/js/styles/default/smart.validator.css",
+        "staticwebassets/js/styles/default/smart.variables.css",
+        "staticwebassets/js/styles/default/smart.window.css",
+        "staticwebassets/js/styles/font/smart-icons.eot",
+        "staticwebassets/js/styles/font/smart-icons.svg",
+        "staticwebassets/js/styles/font/smart-icons.ttf",
+        "staticwebassets/js/styles/font/smart-icons.woff",
+        "staticwebassets/js/styles/font/smart-icons.woff2",
+        "staticwebassets/js/styles/images/dropable_zone_image.svg",
+        "staticwebassets/js/styles/images/error.png",
+        "staticwebassets/js/styles/images/icons-sprite.svg",
+        "staticwebassets/js/styles/images/icons-stack.svg",
+        "staticwebassets/js/styles/images/info.png",
+        "staticwebassets/js/styles/images/magnifier.png",
+        "staticwebassets/js/styles/images/mail.png",
+        "staticwebassets/js/styles/images/radial.svg",
+        "staticwebassets/js/styles/images/success.png",
+        "staticwebassets/js/styles/images/time.png",
+        "staticwebassets/js/styles/images/warning.png",
+        "staticwebassets/js/styles/smart.bootstrap.css",
+        "staticwebassets/js/styles/smart.dark-green.css",
+        "staticwebassets/js/styles/smart.dark-orange.css",
+        "staticwebassets/js/styles/smart.dark-pink.css",
+        "staticwebassets/js/styles/smart.dark-purple.css",
+        "staticwebassets/js/styles/smart.dark-red.css",
+        "staticwebassets/js/styles/smart.dark-turquoise.css",
+        "staticwebassets/js/styles/smart.default-dev.css",
+        "staticwebassets/js/styles/smart.default.css",
+        "staticwebassets/js/styles/smart.green.css",
+        "staticwebassets/js/styles/smart.nimble.css",
+        "staticwebassets/js/styles/smart.orange.css",
+        "staticwebassets/js/styles/smart.pink.css",
+        "staticwebassets/js/styles/smart.purple.css",
+        "staticwebassets/js/styles/smart.red.css",
+        "staticwebassets/js/styles/smart.turquoise.css",
+        "staticwebassets/js/styles/smart.ui.default.css",
+        "staticwebassets/js/typescript/bootstrap.button.d.ts",
+        "staticwebassets/js/typescript/bootstrap.checkbox.d.ts",
+        "staticwebassets/js/typescript/bootstrap.circular.d.ts",
+        "staticwebassets/js/typescript/bootstrap.dropdown.d.ts",
+        "staticwebassets/js/typescript/bootstrap.fileinput.d.ts",
+        "staticwebassets/js/typescript/bootstrap.input.d.ts",
+        "staticwebassets/js/typescript/bootstrap.inputgroup.d.ts",
+        "staticwebassets/js/typescript/bootstrap.modal.d.ts",
+        "staticwebassets/js/typescript/bootstrap.progressbar.d.ts",
+        "staticwebassets/js/typescript/bootstrap.radiobutton.d.ts",
+        "staticwebassets/js/typescript/bootstrap.range.d.ts",
+        "staticwebassets/js/typescript/bootstrap.splitbutton.d.ts",
+        "staticwebassets/js/typescript/bootstrap.switchbutton.d.ts",
+        "staticwebassets/js/typescript/bootstrap.tabs.d.ts",
+        "staticwebassets/js/typescript/bootstrap.textarea.d.ts",
+        "staticwebassets/js/typescript/bootstrap.togglebutton.d.ts",
+        "staticwebassets/js/typescript/smart.accordion.d.ts",
+        "staticwebassets/js/typescript/smart.array.d.ts",
+        "staticwebassets/js/typescript/smart.breadcrumb.d.ts",
+        "staticwebassets/js/typescript/smart.button.d.ts",
+        "staticwebassets/js/typescript/smart.buttongroup.d.ts",
+        "staticwebassets/js/typescript/smart.calendar.d.ts",
+        "staticwebassets/js/typescript/smart.card.d.ts",
+        "staticwebassets/js/typescript/smart.cardview.d.ts",
+        "staticwebassets/js/typescript/smart.carousel.d.ts",
+        "staticwebassets/js/typescript/smart.chart.d.ts",
+        "staticwebassets/js/typescript/smart.checkbox.d.ts",
+        "staticwebassets/js/typescript/smart.checkinput.d.ts",
+        "staticwebassets/js/typescript/smart.chip.d.ts",
+        "staticwebassets/js/typescript/smart.colorinput.d.ts",
+        "staticwebassets/js/typescript/smart.colorpanel.d.ts",
+        "staticwebassets/js/typescript/smart.colorpicker.d.ts",
+        "staticwebassets/js/typescript/smart.columnpanel.d.ts",
+        "staticwebassets/js/typescript/smart.combobox.d.ts",
+        "staticwebassets/js/typescript/smart.customizationdialog.d.ts",
+        "staticwebassets/js/typescript/smart.dataadapter.d.ts",
+        "staticwebassets/js/typescript/smart.dateinput.d.ts",
+        "staticwebassets/js/typescript/smart.daterangeinput.d.ts",
+        "staticwebassets/js/typescript/smart.datetimepicker.d.ts",
+        "staticwebassets/js/typescript/smart.dockinglayout.d.ts",
+        "staticwebassets/js/typescript/smart.dropdownbutton.d.ts",
+        "staticwebassets/js/typescript/smart.dropdownlist.d.ts",
+        "staticwebassets/js/typescript/smart.element.d.ts",
+        "staticwebassets/js/typescript/smart.elements.d.ts",
+        "staticwebassets/js/typescript/smart.fileupload.d.ts",
+        "staticwebassets/js/typescript/smart.filterbuilder.d.ts",
+        "staticwebassets/js/typescript/smart.filterpanel.d.ts",
+        "staticwebassets/js/typescript/smart.form.d.ts",
+        "staticwebassets/js/typescript/smart.ganttchart.d.ts",
+        "staticwebassets/js/typescript/smart.gauge.d.ts",
+        "staticwebassets/js/typescript/smart.grid.d.ts",
+        "staticwebassets/js/typescript/smart.grouppanel.d.ts",
+        "staticwebassets/js/typescript/smart.input.d.ts",
+        "staticwebassets/js/typescript/smart.kanban.d.ts",
+        "staticwebassets/js/typescript/smart.layout.d.ts",
+        "staticwebassets/js/typescript/smart.led.d.ts",
+        "staticwebassets/js/typescript/smart.listbox.d.ts",
+        "staticwebassets/js/typescript/smart.listmenu.d.ts",
+        "staticwebassets/js/typescript/smart.map.d.ts",
+        "staticwebassets/js/typescript/smart.maskedtextbox.d.ts",
+        "staticwebassets/js/typescript/smart.menu.d.ts",
+        "staticwebassets/js/typescript/smart.multicolumnfilterpanel.d.ts",
+        "staticwebassets/js/typescript/smart.multicomboinput.d.ts",
+        "staticwebassets/js/typescript/smart.multiinput.d.ts",
+        "staticwebassets/js/typescript/smart.multilinetextbox.d.ts",
+        "staticwebassets/js/typescript/smart.multisplitbutton.d.ts",
+        "staticwebassets/js/typescript/smart.numberinput.d.ts",
+        "staticwebassets/js/typescript/smart.numerictextbox.d.ts",
+        "staticwebassets/js/typescript/smart.pager.d.ts",
+        "staticwebassets/js/typescript/smart.passwordtextbox.d.ts",
+        "staticwebassets/js/typescript/smart.path.d.ts",
+        "staticwebassets/js/typescript/smart.pivottable.d.ts",
+        "staticwebassets/js/typescript/smart.progressbar.d.ts",
+        "staticwebassets/js/typescript/smart.querybuilder.d.ts",
+        "staticwebassets/js/typescript/smart.radiobutton.d.ts",
+        "staticwebassets/js/typescript/smart.rating.d.ts",
+        "staticwebassets/js/typescript/smart.scheduler.d.ts",
+        "staticwebassets/js/typescript/smart.scrollbar.d.ts",
+        "staticwebassets/js/typescript/smart.slider.d.ts",
+        "staticwebassets/js/typescript/smart.sortable.d.ts",
+        "staticwebassets/js/typescript/smart.sortpanel.d.ts",
+        "staticwebassets/js/typescript/smart.splitter.d.ts",
+        "staticwebassets/js/typescript/smart.switchbutton.d.ts",
+        "staticwebassets/js/typescript/smart.table.d.ts",
+        "staticwebassets/js/typescript/smart.tabs.d.ts",
+        "staticwebassets/js/typescript/smart.tank.d.ts",
+        "staticwebassets/js/typescript/smart.textarea.d.ts",
+        "staticwebassets/js/typescript/smart.textbox.d.ts",
+        "staticwebassets/js/typescript/smart.timeinput.d.ts",
+        "staticwebassets/js/typescript/smart.timepicker.d.ts",
+        "staticwebassets/js/typescript/smart.toast.d.ts",
+        "staticwebassets/js/typescript/smart.tooltip.d.ts",
+        "staticwebassets/js/typescript/smart.tree.d.ts",
+        "staticwebassets/js/typescript/smart.validator.d.ts",
+        "staticwebassets/js/typescript/smart.window.d.ts"
+      ]
+    },
+    "System.IO.Pipelines/5.0.1": {
+      "sha512": "qEePWsaq9LoEEIqhbGe6D5J8c9IqQOUuTzzV6wn1POlfdLkJliZY3OlB0j0f17uMWlqZYjH7txj+2YbyrIA8Yg==",
+      "type": "package",
+      "path": "system.io.pipelines/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.IO.Pipelines.dll",
+        "lib/net461/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
+        "lib/netstandard1.3/System.IO.Pipelines.dll",
+        "lib/netstandard1.3/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
+        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.5.0.1.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Net.Http.Json/5.0.0": {
+      "sha512": "3CPSQpCzEmI9o+1G79TnPCjF40omCdnoXj2Rg76BDwGj5+LZnFPjV+t35eedlvl+uthmholk/XXxXTYgJWSexw==",
+      "type": "package",
+      "path": "system.net.http.json/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Net.Http.Json.dll",
+        "lib/net461/System.Net.Http.Json.xml",
+        "lib/net5.0/System.Net.Http.Json.dll",
+        "lib/net5.0/System.Net.Http.Json.xml",
+        "lib/netstandard2.0/System.Net.Http.Json.dll",
+        "lib/netstandard2.0/System.Net.Http.Json.xml",
+        "system.net.http.json.5.0.0.nupkg.sha512",
+        "system.net.http.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "Microsoft.AspNetCore.Components.WebAssembly >= 5.0.4",
+      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.4",
+      "MudBlazor >= 5.1.3",
+      "Smart.Blazor >= 10.0.1",
+      "System.Net.Http.Json >= 5.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\macair1\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\macair1\\Desktop\\JqWidgets\\smart-webcomponents\\SupportSolutionCases\\BlazorWASM\\Tree&GridOnChange\\latestBlazor.csproj",
+      "projectName": "latestBlazor",
+      "projectPath": "C:\\Users\\macair1\\Desktop\\JqWidgets\\smart-webcomponents\\SupportSolutionCases\\BlazorWASM\\Tree&GridOnChange\\latestBlazor.csproj",
+      "packagesPath": "C:\\Users\\macair1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\macair1\\Desktop\\JqWidgets\\smart-webcomponents\\SupportSolutionCases\\BlazorWASM\\Tree&GridOnChange\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\macair1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly": {
+            "target": "Package",
+            "version": "[5.0.4, )"
+          },
+          "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[5.0.4, )"
+          },
+          "MudBlazor": {
+            "target": "Package",
+            "version": "[5.1.3, )"
+          },
+          "Smart.Blazor": {
+            "target": "Package",
+            "version": "[10.0.1, )"
+          },
+          "System.Net.Http.Json": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+            "version": "[5.0.9, 5.0.9]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "browser-wasm": {
+        "#import": []
+      }
+    }
+  }
+}

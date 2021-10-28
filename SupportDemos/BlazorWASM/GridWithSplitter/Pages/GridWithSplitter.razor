@@ -1,0 +1,96 @@
+﻿@page "/"
+@inject HttpClient Http
+@using Smart.Blazor.Demos.Data
+@inject RandomDataService dataService
+
+<div id="colourDifferenceHolder">
+
+        <Splitter  Orientation="Smart.Blazor.Orientation.Horizontal" Style="width: 100%; height: 100%">
+
+            <SplitterItem Style="width: 100%">
+
+            </SplitterItem>
+
+            <SplitterItem Style="width:100%">
+
+                <Splitter Orientation="Smart.Blazor.Orientation.Vertical">
+
+                    <SplitterItem Style="width:80%">
+
+                        <template id="quantityTemplate">
+                            <div style="width: 100%; height:100%;">
+                                <div smart-if="value >= 7">
+                                    <div style="padding-left: 4px; color: green;">{{value}}</div>
+                                </div>
+                                <div smart-if="value >= 5">
+                                    <div style="padding-left: 4px; color: purple;">{{value}}</div>
+                                </div>
+                                <div smart-if="value <= 3">
+                                    <div style="padding-left: 4px; color: red;">{{value}}</div>
+                                </div>
+                                <div smart-else>
+                                    <div style="padding-left: 4px; color: blue;">{{value}}</div>
+                                </div>
+                            </div>
+                        </template>
+                        <Grid OnRowClick=@cdf_OnRowClick  DataSource="dataRecords" Sorting="@sorting" Appearance="@appearance" Selection="@selection">
+                            <Columns>
+                                <Column SortOrder="GridColumnSortOrder.Asc" DataField="FirstName" Label="First Name" >
+                                </Column>
+                                <Column DataField="LastName" Label="Last Name"></Column>
+                                <Column DataField="ProductName" Label="Product Name"></Column>
+                                <Column DataField="Price" Label="Price"></Column>
+                                <Column DataField="Quantity" Label="Quantity" Template="templateID"></Column>
+                                <Column DataField="TimeOfPurchase" Label="Time Of Purchase"></Column>
+                            </Columns>
+                        </Grid>
+
+                    </SplitterItem>
+
+                    <SplitterItem Style="width:20%; height:100%">
+                        
+
+                    </SplitterItem>
+
+                </Splitter>
+
+            </SplitterItem>
+
+        </Splitter>
+
+    </div>
+
+ 
+
+@code {
+
+
+    private void cdf_OnRowClick(object eventObj)
+    {
+
+        //Never gets this far
+
+        Console.WriteLine("hello from cdf_OnRowClick");
+
+    }
+
+  string templateID = "#quantityTemplate";
+    GridSorting sorting = new GridSorting() { Enabled = true };
+    GridAppearance appearance = new GridAppearance() { AlternationCount = 2 };
+    GridSelection selection = new GridSelection()
+    {
+        Enabled = true,
+        Mode = GridSelectionMode.Extended,
+        CheckBoxes = new GridSelectionCheckBoxes()
+        {
+            Enabled = true
+        }
+    };
+    private List<DataRecord> dataRecords;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        dataRecords = dataService.GenerateData(1000);
+    }
+
+}
