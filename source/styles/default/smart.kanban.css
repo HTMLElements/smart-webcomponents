@@ -957,11 +957,14 @@
   grid-template-rows: auto auto;
   grid-column-gap: var(--smart-data-view-padding);
 }
+.smart-window.smart-kanban-window .editor-container.single-column {
+  grid-template-columns: 1fr;
+}
 .smart-window.smart-kanban-window .editor {
   width: 100%;
   margin-bottom: var(--smart-data-view-padding);
 }
-.smart-window.smart-kanban-window .text-editor {
+.smart-window.smart-kanban-window .description-editor {
   min-height: 75px;
   resize: none;
   border: var(--smart-border-width) solid var(--smart-border);
@@ -974,12 +977,12 @@
   font-family: inherit;
   font-size: inherit;
 }
-.smart-window.smart-kanban-window .text-editor:hover {
+.smart-window.smart-kanban-window .description-editor:hover {
   border-color: var(--smart-ui-state-border-hover);
 }
-.smart-window.smart-kanban-window .text-editor:focus {
+.smart-window.smart-kanban-window .description-editor:focus {
   outline: none;
-  border-color: var(--smart-outline);
+  border-color: var(--smart-primary);
 }
 .smart-window.smart-kanban-window .new-container {
   display: grid;

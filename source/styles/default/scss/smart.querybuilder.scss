@@ -1,4 +1,4 @@
-/* .smart-query-builder */
+
 smart-query-builder {
   display: block;
   border: var(--smart-border-width) solid var(--smart-border);
@@ -12,6 +12,7 @@ smart-query-builder {
 
   &[allow-drag] {
     .smart-filter-group-condition {
+
       &:before,
       &:after {
         content: var(--smart-icon-ellipsis);
@@ -22,6 +23,7 @@ smart-query-builder {
 
   &[dragging] {
     .smart-filter-group-condition {
+
       &:before,
       &:after {
         content: none;
@@ -36,12 +38,12 @@ smart-query-builder {
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     position: relative;
     overflow: visible;
 
-    > .smart-inner-container {
+    >.smart-inner-container {
       overflow: hidden;
       width: 100%;
       height: 100%;
@@ -67,9 +69,6 @@ smart-query-builder {
     &[mode="dropDown"] {
       --smart-menu-vertical-default-width: auto;
       --smart-menu-vertical-default-height: auto;
-      /*--smart-menu-item-background-focus: var(--smart-menu-item-background-hover);
-      --smart-menu-item-border-focus: var(--smart-menu-item-border-hover);
-      --smart-menu-item-color-focus: var(--smart-menu-item-color-hover);*/
     }
   }
 
@@ -82,8 +81,8 @@ smart-query-builder {
   }
 
   .smart-content-container {
-    > .smart-filter-group:first-child {
-      > .smart-filter-group-operator {
+    >.smart-filter-group:first-child {
+      >.smart-filter-group-operator {
         display: none;
       }
     }
@@ -100,12 +99,9 @@ smart-query-builder {
     margin-left: calc(var(--smart-filter-builder-item-margin) / 2);
     margin-right: calc(var(--smart-filter-builder-item-margin) / 2);
     border: none;
-    /*border-radius: 3px;*/
     border-bottom: var(--smart-border-width) solid var(--smart-border);
     display: flex;
-    /*justify-content: center;*/
     align-items: center;
-    /*padding: 5px;*/
     cursor: pointer;
 
     .smart-value-container {
@@ -124,7 +120,6 @@ smart-query-builder {
       opacity: 0.75;
       font-style: italic;
 
-      //This is used to avoid placeholder being clipped. Italic font is being cutt off from the overflow:hidden.
       .smart-value-container {
         padding-right: 2px;
       }
@@ -160,7 +155,7 @@ smart-query-builder {
   }
 
   .smart-editors-container {
-    > * {
+    >* {
       width: var(--smart-query-builder-editor-width);
       min-width: 100px;
     }
@@ -178,7 +173,7 @@ smart-query-builder {
     }
 
     .smart-custom-editor {
-      > * {
+      >* {
         pointer-events: all;
         width: 100%;
       }
@@ -250,25 +245,11 @@ smart-query-builder {
 
     &:before,
     &:after {
-      //content: "+";
-      //display: flex;
-      //justify-content: center;
-      //align-items: center;
-      //width: 100%;
-      //height: 0;
-      //cursor: pointer;
-      //font-size: 30px;
       font-weight: 800;
       font-family: var(--smart-font-family-icon);
-
       position: absolute;
       right: 100%;
-      //top: 0;
       width: auto;
-      //height: 100%;
-      //font-size: 20px;
-      //margin-right: 5px;
-
       content: none;
       transform: rotate(90deg);
       display: flex;
@@ -293,6 +274,7 @@ smart-query-builder {
     }
 
     &[limit-selection] {
+
       &:before,
       &:after {
         content: none;
@@ -306,7 +288,6 @@ smart-query-builder {
 
   .smart-filter-group-condition-container {
     display: flex;
-    //width: 100%;
     box-sizing: border-box;
     white-space: nowrap;
     flex-direction: column;
@@ -381,14 +362,12 @@ smart-query-builder {
     cursor: pointer;
 
     &:after {
-      //content: "+";
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 0;
       cursor: pointer;
-      //font-size: 30px;
       font-weight: 800;
       font-family: var(--smart-font-family-icon);
 
@@ -412,9 +391,7 @@ smart-query-builder {
     display: flex;
     align-items: center;
     justify-content: center;
-    //opacity: 0.25;
     font-size: 16px;
-
     width: var(--smart-filter-builder-row-height);
     height: var(--smart-filter-builder-row-height);
     border-radius: 50%;
@@ -424,6 +401,7 @@ smart-query-builder {
     margin-bottom: calc(var(--smart-filter-builder-group-condition-margin) * 2);
     line-height: 1rem;
     opacity: 1;
+
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
       padding-bottom: 7px;
     }
@@ -434,24 +412,18 @@ smart-query-builder {
       justify-content: center;
       align-items: center;
       width: 100%;
-      //height: 0;
       cursor: pointer;
       font-size: 30px;
       font-weight: 800;
       font-family: var(--smart-font-family-icon);
-
       height: 100%;
     }
   }
 
   .smart-filter-add-condition-btn {
-    //min-width: var(--smart-filter-builder-row-height);
     min-height: var(--smart-filter-builder-row-height);
     box-sizing: border-box;
     display: flex;
-    //align-items: center;
-    //justify-content: center;
-    //opacity: 0.25;
     font-size: 16px;
 
     width: var(--smart-filter-builder-row-height);
@@ -469,7 +441,7 @@ smart-query-builder {
     -moz-user-select: none;
     user-select: none;
 
-    > div {
+    >div {
       position: relative;
       padding-left: calc(var(--smart-filter-builder-item-margin) / 2);
 
@@ -478,10 +450,7 @@ smart-query-builder {
         display: flex;
         justify-content: center;
         align-items: center;
-        //width: 100%;
-        //height: 0;
         cursor: pointer;
-        //font-size: 30px;
         font-weight: 800;
         font-family: var(--smart-font-family-icon);
 
@@ -528,7 +497,7 @@ smart-query-builder {
       -moz-user-select: none;
       user-select: none;
 
-      > span {
+      >span {
         text-overflow: ellipsis;
         overflow: hidden;
         min-width: 0;
@@ -620,6 +589,7 @@ smart-query-builder {
   }
 
   .drop-target {
+
     &.bottom,
     &.top {
       &:after {
@@ -654,7 +624,7 @@ smart-query-builder {
     }
 
     .smart-filter-add-condition-btn {
-      > div {
+      >div {
         &:before {
           align-items: stretch;
           line-height: 80%;
@@ -672,35 +642,11 @@ smart-query-builder {
         width: var(--smart-editor-addon-width);
         position: absolute;
         top: 1px;
-        /* top: 1px; */
         right: -1px;
         height: 100%;
-        /* height: 100%; */
       }
     }
   }
-
-  //Used for requiredFields  property
-  //.smart-filter-group-operator[restricted] {
-  //  pointer-events: none;
-  //}
-  //
-  //.smart-filter-group[restricted] {
-  //  .smart-filter-nested-operator,
-  //  .smart-filter-field-name {
-  //    pointer-events: none;
-  //  }
-  //
-  //  .smart-filter-add-condition-btn {
-  //    display: none;
-  //  }
-  //
-  //  .smart-filter-group-condition::before,
-  //  .smart-filter-group-condition::after {
-  //    content: none;
-  //  }
-  //}
-  //Used for requiredFields  property - end
 }
 
 .smart-query-builder-drag-feedback {
@@ -818,6 +764,7 @@ smart-query-builder {
     }
 
     .smart-filter-group-condition {
+
       &:before,
       &:after {
         right: initial;
@@ -834,7 +781,7 @@ smart-query-builder {
       margin-left: initial;
       margin-right: calc(calc(var(--smart-filter-builder-group-condition-margin) * 3) - var(--smart-border-width) / 5);
 
-      > div {
+      >div {
         padding-left: initial;
         padding-right: calc(var(--smart-filter-builder-item-margin) / 2);
 

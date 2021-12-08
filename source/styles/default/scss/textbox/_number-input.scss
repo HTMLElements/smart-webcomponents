@@ -52,6 +52,12 @@ smart-number-input {
       color: var(--smart-surface-color);
     }
 
+    &.smart-drop-down-button:hover,
+    &.smart-drop-down-button:active {
+      background: var(--smart-surface);
+      color: var(--smart-surface-color);
+    }
+
     .up,
     .down {
       display: flex;

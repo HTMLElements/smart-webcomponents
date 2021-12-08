@@ -126,6 +126,7 @@ smart-time-input {
 
     &[readonly] {
       .smart-input {
+        cursor: pointer;
         background: var(--smart-background) !important;
         color: var(--smart-background-color) !important;
         opacity: 0.75;
@@ -161,8 +162,8 @@ smart-time-input {
 
     &[drop-down-button-position="right"] {
       .smart-drop-down-button {
-        background: inherit;
-        color: inherit;
+        background: var(--smart-background);
+        color: var(--smart-background-color);
         border-bottom-right-radius: initial;
       }
 

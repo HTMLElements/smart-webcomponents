@@ -9,6 +9,7 @@
 
   .smart-scheduler-event,
   .smart-scheduler-event {
+
     &:after,
     &:before {
       transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.6, 1);
@@ -42,7 +43,6 @@
   .smart-scheduler-view-items-button button {
     padding-right: var(--smart-editor-addon-width);
   }
-
 }
 
 
@@ -110,7 +110,7 @@
   .smart-scheduler-view[show-group-header="vertical"] {
     .smart-scheduler-view-header-groups-container {
       .smart-scheduler-cell-container:not(:last-of-type) {
-        > .smart-scheduler-cell {
+        >.smart-scheduler-cell {
           border-right: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
         }
       }
@@ -143,7 +143,7 @@
 
 &:not([view-type="agenda"]) {
   .smart-scheduler-view-header-vertical-content {
-    .smart-scheduler-cell:not(:first-of-type) > div {
+    .smart-scheduler-cell:not(:first-of-type)>div {
       transform: translateY(calc(-50% - var(--smart-scheduler-timeline-header-cell-padding)));
     }
   }
@@ -165,7 +165,7 @@
   &[group-by-date] {
     .smart-scheduler-view[show-group-header="vertical"] {
       .smart-scheduler-view-header-vertical {
-        .smart-scheduler-view-time .smart-scheduler-cell:not([group-separator]) > div {
+        .smart-scheduler-view-time .smart-scheduler-cell:not([group-separator])>div {
           display: none;
         }
       }
@@ -173,8 +173,9 @@
   }
 }
 
-&[view-type]{
+&[view-type] {
   &:not([view-type="day"]) {
+
     .smart-scheduler-view-all-day-label,
     &:not([view-type="agenda"]) .smart-scheduler-time-zone:last-of-type {
       border-right: var(--smart-scheduler-view-line-size) solid var(--smart-scheduler-view-vertical-line-color);
@@ -191,7 +192,7 @@
 
   .smart-scheduler-cells {
     .smart-scheduler-cell {
-      > div {
+      >div {
         text-overflow: ellipsis;
         overflow: hidden;
       }
@@ -425,7 +426,7 @@
   .smart-scheduler-content {
     grid-template-columns: 100%;
 
-    .smart-scheduler-cell[nonworking][other-month] {
+    .smart-scheduler-cell[nonworking][other-month]:not([selected]) {
       background: var(--smart-scheduler-timeline-nonworking-color);
     }
   }
@@ -436,7 +437,7 @@
       align-items: flex-start;
     }
 
-    .smart-scheduler-cell:not(.scale)[today] > div:not([class]) {
+    .smart-scheduler-cell:not(.scale)[today]>div:not([class]) {
       border-radius: 50%;
       background: var(--smart-primary);
       color: var(--smart-primary-color);
@@ -498,7 +499,7 @@
     .smart-scheduler-cell {
       justify-content: flex-start;
 
-      > div {
+      >div {
         text-align: left;
       }
     }
@@ -523,7 +524,7 @@
 
   .smart-scheduler-view-header-vertical .smart-scheduler-cell[separator],
   .smart-scheduler-cells-container .smart-scheduler-cell-container[separator] {
-    &:last-of-type > .smart-scheduler-cell {
+    &:last-of-type>.smart-scheduler-cell {
       &:after {
         border-bottom: var(--smart-border-width) solid var(--smart-border);
         content: '';
@@ -569,6 +570,7 @@
 
     &:not([collector]):not([disable-resize]),
     &:not([collector]):not([disable-resize]) {
+
       &:after,
       &:before {
         content: initial;
@@ -650,7 +652,7 @@
         }
 
         .smart-scheduler-view-time {
-          .smart-scheduler-cell:not([show-label]) > div {
+          .smart-scheduler-cell:not([show-label])>div {
             display: none;
           }
 
@@ -664,13 +666,13 @@
         &[show-label] {
           justify-content: flex-start;
 
-          > div {
+          >div {
             transform: translateX(calc(-50% - var(--smart-scheduler-timeline-header-cell-padding)));
           }
         }
 
         &[show-label="offset"] {
-          > div {
+          >div {
             margin-left: var(--smart-scheduler-timeline-group-header-offset);
           }
         }
@@ -687,11 +689,11 @@
       }
 
       .smart-scheduler-cell {
-        &[show-label] > div {
+        &[show-label]>div {
           transform: translateY(calc(-50% - var(--smart-scheduler-timeline-header-cell-padding)));
         }
 
-        &[show-label="offset"] > div {
+        &[show-label="offset"]>div {
           margin-top: var(--smart-scheduler-timeline-group-header-offset);
         }
       }
@@ -735,6 +737,7 @@
 &[disable-resize] {
   .smart-scheduler-event {
     &:not([collector]) {
+
       &:after,
       &:before {
         content: initial;
@@ -793,6 +796,7 @@
 }
 
 &[modal] {
+
   .smart-scheduler-header,
   .smart-scheduler-view-container,
   .smart-scheduler-footer {
@@ -810,6 +814,10 @@
   .smart-scheduler-nav[current] {
     cursor: initial;
 
+    &::after {
+      content: initial;
+    }
+
     .smart-ripple {
       visibility: hidden;
     }
@@ -817,9 +825,6 @@
 
   .smart-scheduler-nav[current],
   .smart-scheduler-view-items-button {
-    &:after {
-      content: initial;
-    }
 
     &[hover],
     &[focus] {
@@ -834,6 +839,10 @@
     border: initial;
     cursor: initial;
 
+    &::after {
+      content: initial;
+    }
+
     .smart-ripple {
       visibility: hidden;
     }
@@ -841,6 +850,7 @@
 }
 
 &[time-ruler-ticks] {
+
   &[view-type="day"],
   &[view-type="week"] {
     .smart-scheduler-view-header-vertical {
@@ -868,8 +878,8 @@
 
   .smart-scheduler-header {
     grid-template-areas:
-        "date view"
-        "legend legend";
+      "date view"
+      "legend legend";
     grid-template-rows: auto minmax(0, 1fr);
   }
 }
@@ -1002,6 +1012,7 @@
 &:not([header-navigation-style="raised"]) {
   .smart-scheduler-date-nav {
     .smart-scheduler-nav {
+
       &[prev],
       &[next] {
         border-radius: 50%;
@@ -1047,6 +1058,7 @@
 
   .smart-scheduler-items-container {
     .smart-scheduler-item {
+
       &:first-of-type,
       &:first-of-type[selected] {
         border-left: none;

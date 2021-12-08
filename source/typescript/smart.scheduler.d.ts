@@ -25,7 +25,7 @@ export interface SchedulerProperties {
    * Determines the context menu items that are visible when the Context Menu is opened.
    * Default value: null
    */
-  contextMenuDataSource?: any;
+  contextMenuDataSource?: any[];
   /**
    * Determines whether the clipboard shortcuts for copy/paste/cut action of events are visible in the Scheduler context menu or not.
    * Default value: false
@@ -60,7 +60,7 @@ export interface SchedulerProperties {
    * Determines the currently visible date for the Scheduler.
    * Default value: new Date()
    */
-  dateCurrent?: any;
+  dateCurrent?: string | Date;
   /**
    * Sets the Schedulers's Data Export options.
    * Default value: [object Object]
@@ -372,6 +372,21 @@ export interface SchedulerProperties {
    */
   showLegend?: boolean;
   /**
+   * Determines the name of the resource data item property that will be used for sorting the resource data defined as the resource.dataSource.
+   * Default value: "null"
+   */
+  sortBy?: string;
+  /**
+   * Allows to define a custom sorting function that will be used to sort the resource data. The sortFunction is used when sortOrder is set to custom.
+   * Default value: null
+   */
+  sortFunction?: any;
+  /**
+   * Determines the sorting order of the resource data items. When set to custom, a custom sorting function has to be defined for the sortFunction property. The asc stands for 'ascending' while desc means 'descending' sorting order.
+   * Default value: asc
+   */
+  sortOrder?: SchedulerSortOrder;
+  /**
    * Determines the repeating delay of the repeat buttons inside the header of the element. Such buttons are the Date navigation buttons and the view scroll buttons.
    * Default value: 80
    */
@@ -500,12 +515,19 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered when an Event has been updated/inserted/removed/dragged/resized.
-	* @param event. The custom event. Custom data event was created with: ev.detail(type, item)
-   *  type - The type of change that is being done to the item.
+   * This event is triggered when an Event has been updated/inserted/removed/dragged/resized or an exception of a repeating event has been added/updated/removed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(item, type)
    *  item - An object that represents the actual item with it's attributes.
+   *  type - The type of change that is being done to the item.
    */
   onItemChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when an Event is going to be updated/inserted/removed. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
+	* @param event. The custom event. Custom data event was created with: ev.detail(item, type)
+   *  item - An object that represents the actual item with it's attributes.
+   *  type - The type of change that is going to be made to the item (e.g. 'inserting', 'removing', 'updating', 'exceptionInserting', 'exceptionUpdating', 'exceptionRemoving').
+   */
+  onItemChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when en event, event item or a context menu item is clicked.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, type, itemObj)
@@ -600,34 +622,38 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the user starts top open the event dialog window. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, type)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, type, eventObj)
    *  target - The dialog window that is opening.
    *  item - The event object that is going to be edited.
    *  type - The type of window that is going to open. Two window types are available, the dafault which is an empty string ( does not have a type) and 'confirm' which is displayed when clicked on a repeating event.
+   *  eventObj - The event object that is the target of the menu.
    */
   onEditDialogOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the user opens the event dialog window.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, editors, item)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, editors, item, eventObj)
    *  target - The dialog window that is opened.
    *  editors - An object containing all event editors that are present inside the window. This property is undefined when the window is of type 'confirm', because confirm windows do not contain editors.
    *  item - The event object that is being edited.
+   *  eventObj - The event object that is the target of the menu.
    */
   onEditDialogOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the user closes the event dialog window.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, editors, item)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, editors, item, eventObj)
    *  target - The dialog window that is closed.
    *  editors - An object containing all event editors that are present inside the window. This property is undefined when the window is of type 'confirm', because confirm windows do not contain editors.
    *  item - The event object that is being edited.
+   *  eventObj - The event object that is the target of the menu.
    */
   onEditDialogClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the user is about to close the event dialog window. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, type)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, type, eventObj)
    *  target - The dialog window that is closing.
    *  item - The event object that is edited.
    *  type - The type of window that is going to be closed. Two window types are available, the dafault which is an empty string ( does not have a type) and 'confirm' which is displayed when clicked on a repeating event.
+   *  eventObj - The event object that is the target of the menu.
    */
   onEditDialogClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -735,6 +761,11 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   onNotificationClose?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * Adds an event to the Scheduler. Accepts an event object of the following format (same as the dataSource format): <pre>{ label?: string, dateStart: date, dateEnd: date, description?: string, id?: string | number, class?: string, backgroundColor?: string, color?: string, notifications?: { interval: numeric, type?: string, time: number[] }[], allDay?: boolean, disableDrag?: boolean, disableResize?: boolean, repeat?: { repeatFreq: string, repeatInterval: number, repeatOn?: number | number[] | date, repeatEnd?: number | date, exceptions?: { date: date, dateStart?: date, dateEnd?: date, hidden?: boolean, backgroundColor?: string, status?: string, label?: string, description?: string, notifications?: { interval: numeric, type?: string, time: number[] }[], disableDrag?: boolean, disableResize?: boolean }[] }, status?: string }</pre>
+   * @param {any} eventObj. An object describing a Scheduler event that is not already present in the element.
+   */
+  addEvent(eventObj: any): void;
+  /**
    * Starts an update operation. This is appropriate when calling multiple methods or set multiple properties at once.
    */
   beginUpdate(): void;
@@ -755,6 +786,16 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   exportData(dataFormat: string, callback?: any): void;
   /**
    * Returns a JSON representation of the events inside the Scheduler.
+   * @returns {any}
+   */
+  getDataSource(): any;
+  /**
+   * Returns a JSON representation of the resources inside the Scheduler.
+   * @returns {any}
+   */
+  getResources(): any;
+  /**
+   * Returns the current state of the Scheduler. Includes the current <b>dateCurernt</b>, <b>dataSource</b> and <b>timeZone</b> properties.
    * @returns {any}
    */
   getState(): any;
@@ -779,22 +820,47 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   containsEvent(eventObj: any): boolean;
   /**
-   * Inserts an event.
+   * Inserts an event as object of the following format (same as the dataSource format): <pre>{ label?: string, dateStart: date, dateEnd: date, description?: string, id?: string | number, class?: string, backgroundColor?: string, color?: string, notifications?: { interval: numeric, type?: string, time: number[] }[], allDay?: boolean, disableDrag?: boolean, disableResize?: boolean, repeat?: { repeatFreq: string, repeatInterval: number, repeatOn?: number | number[] | date, repeatEnd?: number | date, exceptions?: { date: date, dateStart?: date, dateEnd?: date, hidden?: boolean, backgroundColor?: string, status?: string, label?: string, description?: string, notifications?: { interval: numeric, type?: string, time: number[] }[], disableDrag?: boolean, disableResize?: boolean }[] }, status?: string }</pre>
    * @param {any} eventObj. An object describing a Scheduler event that is not already present in the element.
    * @param {number} index?. A number that represents the index to insert the event at. If not provided the event is inserted at the end of the list.
    */
   insertEvent(eventObj: any, index?: number): void;
   /**
-   * Updates an event.
+   * Updates an event object of the following format (same as the dataSource format): <pre>{ label?: string, dateStart: date, dateEnd: date, description?: string, id?: string | number, class?: string, backgroundColor?: string, color?: string, notifications?: { interval: numeric, type?: string, time: number[] }[], allDay?: boolean, disableDrag?: boolean, disableResize?: boolean, repeat?: { repeatFreq: string, repeatInterval: number, repeatOn?: number | number[] | date, repeatEnd?: number | date, exceptions?: { date: date, dateStart?: date, dateEnd?: date, hidden?: boolean, backgroundColor?: string, status?: string, label?: string, description?: string, notifications?: { interval: numeric, type?: string, time: number[] }[], disableDrag?: boolean, disableResize?: boolean }[] }, status?: string }</pre>
    * @param {any} index. A number that represents the index of an event or a Scheduler event object.
    * @param {any} eventObj. An object describing a Scheduler event. The properties of this object will be applied to the desired event.
    */
   updateEvent(index: any, eventObj: any): void;
   /**
-   * Removes an event.
+   * Removes an existing event.
    * @param {any} index. A number that represents the index of an event or the actual event object to be removed.
    */
   removeEvent(index: any): void;
+  /**
+   * Returns an array of all exceptions of the target repeating event.
+   * @param {any} eventObj. The index, id or an object reference of an existing repeating Scheduler event.
+   * @returns {any}
+   */
+  getEventExceptions(eventObj: any): any;
+  /**
+   * Adds an event exception to a repeating event. The exception occurences for a repeating event can be gathered via the following methods: <ul><li><b>occurences</b></li><li><b>occurrencesBetween</b></li><li><b>occurrenceAfter</b></li><li><b>occurrenceBefore</b></li></ul>.  <p>Example usage:</p> <pre>scheduler.addEventException(eventObj, { date: occuranceDate, dateStart: newDateStart, dateEnd: newDateEnd, label: 'Exception' });</pre>
+   * @param {any} eventObj. The index, id or an object reference of an existing repeating Scheduler event.
+   * @param {any} exceptionObj. An event object that describes an exception. Exception event objects must have a <b>date</b> attribute of type Date which indicates the date of occurence.
+   */
+  addEventException(eventObj: any, exceptionObj: any): void;
+  /**
+   * Updates an event exception of a repeating event. The exception occurences for a repeating event can be gathered via the following methods: <ul><li><b>occurences</b></li><li><b>occurrencesBetween</b></li><li><b>occurrenceAfter</b></li><li><b>occurrenceBefore</b></li></ul>.  <p>Example usage:</p> <pre>scheduler.updateEventException(eventObj, dateOfOccurance, { dateStart: newDateStart, dateEnd: newDateEnd, label: 'Updated Exception' });</pre>
+   * @param {any} eventObj. The index, id or an object reference of an existing repeating Scheduler event.
+   * @param {any} exceptionRef. The index, id, an occurence date of the exception or an object reference of an existing Scheduler repeating event exception.
+   * @param {any} exceptionObj. An event object that describes an exception. All attributes of an exception can be updated except the occurance date (the <b>date</b> attribute).
+   */
+  updateEventException(eventObj: any, exceptionRef: any, exceptionObj: any): void;
+  /**
+   * Removes an exception from a repeating event.
+   * @param {any} eventObj. The index, id or an object reference of an existing repeating Scheduler event.
+   * @param {any} index. The index, id, occurance date or an object reference of an event exception that belongs to the target repeating event.
+   */
+  removeEventException(eventObj: any, index: any): void;
   /**
    * Opens the popup Window for specific event Editing.
    * @param {any} index. A number that represents the index of a event or the actual event object to be edited.
@@ -1007,6 +1073,16 @@ export interface SchedulerEvent {
    */
   color?: string;
   /**
+   * Sets the appointment status.
+   * Default value: "false"
+   */
+  status?: string;
+  /**
+   * Event resource unique id.
+   * Default value: ""
+   */
+  resourceId?: string;
+  /**
    * Event notifications.
    * Default value: null
    */
@@ -1039,7 +1115,7 @@ export interface SchedulerEventRepeat {
    * Event exceptions represent a repeating series event that has been re-scheduler for another date/time or it has been hidden from the Scheduler. Exceptions cannot repeat.
    * Default value: undefined
    */
-  exceptions?: { Date: string | Date, DateStart: Date | string, DateEnd: Date | string, backgroundColor: 'string', color: string, hidden: boolean }[] | undefined;
+  exceptions?: { Date: string | Date, DateStart: Date | string, DateEnd: Date | string, backgroundColor: string, color: string, hidden: boolean }[] | undefined;
 }
 
 export interface SchedulerNotification {
@@ -1057,7 +1133,7 @@ export interface SchedulerNotification {
    * An array that represents the time when the notification should appear before the event starts. The array should have the following format: [hours: number, minutes:number]
    * Default value: 
    */
-  time?: any;
+  time?: number[];
   /**
    * The message that will appear inside the notificaiton. If no message is set, then the label of the event is displayed.
    * Default value: ""
@@ -1086,6 +1162,21 @@ export interface SchedulerResource {
    * Default value: 
    */
   dataSource?: any;
+  /**
+   * Determines the property name to sort the dataSource by.
+   * Default value: "null"
+   */
+  sortBy?: string;
+  /**
+   * Determines the custom sorting function that will be used to sort the resource dataSource. The sortFunction is used when sortOrder is set to custom.
+   * Default value: null
+   */
+  sortFunction?: any;
+  /**
+   * Determines the sorting order. When set to custom, a custom sorting function has to be defined for the sortFunction property. The asc stands for 'ascending' while desc means 'descending' sorting order.
+   * Default value: asc
+   */
+  sortOrder?: SchedulerResourceSortOrder;
 }
 
 export interface SchedulerStatuse {
@@ -1145,8 +1236,12 @@ export declare type MinuteFormat = '2-digit' | 'numeric';
 export declare type MonthFormat = '2-digit' | 'numeric' | 'long' | 'short' | 'narrow';
 /**Determines the visibility of the resize handles. */
 export declare type ResizeHandlesVisibility = 'auto' | 'hidden' | 'visible';
+/**Determines the sorting order. When set to <b>custom</b>, a custom sorting function has to be defined for the <b>sortFunction</b> property. The <b>asc</b> stands for 'ascending' while <b>desc</b> means 'descending' sorting order. */
+export declare type SchedulerResourceSortOrder = 'asc' | 'desc' | 'custom';
 /** Determines the position of the date navigation navigation buttons inside the header of the element. */
 export declare type SchedulerScrollButtonsPosition = 'both' | 'far' | 'near';
+/**Determines the sorting order of the resource data items. When set to <b>custom</b>, a custom sorting function has to be defined for the <b>sortFunction</b> property. The <b>asc</b> stands for 'ascending' while <b>desc</b> means 'descending' sorting order. */
+export declare type SchedulerSortOrder = 'asc' | 'desc' | 'custom';
 /**Determines the date scale for the timeline cells. */
 export declare type SchedulerTimelineDayScale = 'hour' | 'halfHour' | 'quarterHour' | 'tenMinutes' | 'fiveMinutes';
 /**Determines the timeZone for the element. By default if the local time zone is used if the property is not set. */

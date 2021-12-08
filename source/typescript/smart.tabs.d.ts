@@ -7,6 +7,11 @@ export interface TabItemProperties {
    */
   closeButtonHidden?: boolean;
   /**
+   * Disables the Tab item
+   * Default value: false
+   */
+  disabled?: boolean;
+  /**
    * Tab item index
    * Default value: null
    */
@@ -248,33 +253,69 @@ export interface Tabs extends BaseElement, TabsProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the tab selection is changed.
+   * This event is triggered when the addNewTab is enabled and is clicked.
 	* @param event. The custom event.    */
+  onAddNewTabClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the tab selection is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(index, oldIndex)
+   *  index - The tab's index.
+   *  oldIndex - The tab's old index.
+   */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a tab is closed.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(index)
+   *  index - The tab's index.
+   */
   onClose: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a tab is about to be closed. The closing operation can be canceled by calling event.preventDefault() in the event handler function.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(index)
+   *  index - The tab's index.
+   */
   onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a drag operation has ended.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(left, top, index, label)
+   *  left - The tab's left position.
+   *  top - The tab's top position.
+   *  index - The tab's index.
+   *  label - The tab's label.
+   */
   onDragEnd: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when a drag operation has started.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(left, top, index, label)
+   *  left - The tab's left position.
+   *  top - The tab's top position.
+   *  index - The tab's index.
+   *  label - The tab's label.
+   */
   onDragStart: ((this: any, ev: Event) => any) | null;
   /**
    * This event is triggered when tabs have been reordered.
-	* @param event. The custom event.    */
+	* @param event. The custom event. Custom data event was created with: ev.detail(index, oldIndex)
+   *  index - The tab's index.
+   *  oldIndex - The tab's old index.
+   */
   onReorder?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Collapses the content section.
    */
   collapse(): void;
+  /**
+   * Returns the label of a Tab at given index.
+   * @param {number} index. The index of the tab.
+   * @returns {string}
+   */
+  getTabLabel(index: number): string;
+  /**
+   * Returns the content of a Tab at given index.
+   * @param {number} index. The index of the tab.
+   * @returns {HTMLElement}
+   */
+  getTabContent(index: number): HTMLElement;
   /**
    * Makes sure a tab is visible by scrolling to it.
    * @param {number} index. The index of the tab to scroll to.
@@ -284,6 +325,11 @@ export interface Tabs extends BaseElement, TabsProperties {
    * Expands the content section.
    */
   expand(): void;
+  /**
+   * Returns an array of the TabItems inside the element.
+   * @returns {TabItem[]}
+   */
+  getTabs(): TabItem[];
   /**
    * Returns the offset of the tab item container (smart-tab-item element) from the edge of the Tabs (smart-tabs element) where the tab strip is positioned.
    * @param {number} index. The index of the tab item.

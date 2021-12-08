@@ -42,7 +42,8 @@ $iconTypes: 'bold''bold',
 'tablecolumns''column',
 'tablevalign''vertical-align',
 'tablestyle''styles',
-'findandreplace''search';
+'findandreplace''search',
+'video''video';
 $tableActions: 'insertRowBefore''row-before',
 'insertRowAfter''row-after',
 'deleteRow''row-delete',
@@ -52,10 +53,14 @@ $tableActions: 'insertRowBefore''row-before',
 $contextMenuActions: 'tableProperties''table',
 'imageProperties''image',
 'linkProperties''link',
+'videoProperties''link',
 'deleteTable''delete',
 'copyImage''copy-record',
+'copyVideo''copy-record',
 'cutImage''cut',
+'cutVideo''cut',
 'deleteImage''delete',
+'deleteVideo''delete',
 'deleteLink''delete',
 'createLink''link',
 'deleteLink''unlink',
@@ -558,6 +563,7 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
     outline: none;
     background: transparent;
 
@@ -699,16 +705,20 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
       }
 
       .find-and-replace-match {
-        background-color: rgba(var(--smart-editor-highlight-rgb), 0.75);
+        background-color: var(--smart-editor-highlight);
+        opacity: 0.75;
         color: var(--smart-editor-highlight-color);
 
         &.selected {
-          background-color: rgba(var(--smart-editor-highlight-rgb), 1);
+          background-color: var(--smart-editor-highlight);
+          opacity: 1;
         }
       }
     }
 
-    img {
+    img,
+    .smart-editor-video-container video,
+    .smart-editor-video-container iframe {
       float: initial;
       vertical-align: initial;
       margin: auto;
@@ -821,6 +831,8 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
       background: var(--smart-background);
       border-radius: var(--smart-border-radius);
       background-clip: content-box;
+      -webkit-background-clip: content-box;
+
       font-family: inherit;
       font-size: inherit;
       pointer-events: none;
@@ -883,6 +895,59 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
 
   .smart-editor-image-container {
     display: inline-block;
+
+    &.smart-editor-video-container {
+      position: relative;
+
+      .smart-editor-video-white-space {
+        position: absolute;
+        opacity: 0;
+      }
+
+      &[dragged]::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0
+      }
+
+      video,
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+
+      >br[class] {
+        display: none;
+      }
+
+      &::after {
+        content: var(--smart-icon-menu);
+        position: absolute;
+        font-family: var(--smart-font-family-icon);
+        font-size: var(--smart-font-size);
+        width: var(--smart-editor-toolbar-item-height);
+        height: var(--smart-editor-toolbar-item-height);
+        top: 0;
+        left: calc(50% - var(--smart-editor-toolbar-item-height)/2);
+        background: var(--smart-background);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        transform-origin: top;
+        transform: scale(0) translateY(-100%);
+        transition: transform 0.2s ease-in-out, visibility 0.2s ease-in-out;
+      }
+
+      &:hover::after {
+        visibility: visible;
+        transform: scale(1) translateY(25%);
+      }
+    }
 
     &[display="block"] {
       display: block;
@@ -1395,7 +1460,7 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     opacity: initial;
   }
 
-  &:not(.smart-editor-toolbar):not([animation="none"]) {
+  &.smart-editor-context-menu:not([animation="none"]) {
     transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
   }
 
@@ -1430,7 +1495,7 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     }
   }
 
-  &:not(.smart-editor-toolbar) {
+  &.smart-editor-context-menu {
     opacity: 0.2;
     transform: scale(0);
     -webkit-transform-origin: 0 0;
@@ -1604,7 +1669,7 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
 
       &[selected] {
         border-color: var(--smart-primary);
-        background: rgba(var(--smart-primary-rgb), 0.7);
+        background: var(--smart-primary);
       }
     }
 

@@ -32,7 +32,9 @@ div[class^="smart-"]:not(.smart-alert) {
 smart-button,
 smart-toggle-button,
 smart-repeat-button {
-  button, a {
+
+  button,
+  a {
     &.smart-button {
       line-height: 1.5;
       letter-spacing: 0;
@@ -123,6 +125,7 @@ smart-repeat-button {
     &.#{$name} {
       .smart-button-group-items {
         .smart-button-group-item {
+
           &[hover],
           &:hover {
             background-color: darken($hex, 12.5) !important;
@@ -131,11 +134,11 @@ smart-repeat-button {
           &[focus] {
             background-color: darken($hex, 12.5) !important;
             color: var(--smart-#{$name}-color);
-            box-shadow: 0 0 0 0.25rem #{'rgba(var(--smart-#{$name}-rgb), 0.5)'} !important;
+            box-shadow: 0 0 0 0.25rem #{ 'rgba(var(--smart-#{$name}-rgb), 0.5) '} !important;
           }
 
           &:active,
-          &[active] {
+          & [ active ] {
             background-color: darken($hex, 12.5) !important;
             color: var(--smart-#{$name}-color);
           }
@@ -276,7 +279,7 @@ smart-breadcrumb {
 .smart-accordion {
 
   > .smart-container {
-	overflow: hidden;
+    overflow: hidden;
   }
 
   .smart-accordion-item {
@@ -296,17 +299,8 @@ smart-breadcrumb {
       }
     }
 
-    .smart-accordion-item-header,
-    .smart-accordion-item-content {
-   
-    }
-
-    .smart-accordion-item-content {
-    
-    }
-
     .smart-accordion-item-header {
-	  padding: 0px;
+      padding: 0px;
       background: $card-cap-bg;
 
       .smart-arrow {
@@ -343,11 +337,6 @@ smart-breadcrumb {
       .smart-container {
         border-bottom: 0;
       }
-    }
-
-
-    &[expanded]:not(:last-child) {
-     
     }
   }
 }
@@ -390,6 +379,7 @@ smart-drop-down-button {
   .smart-multi-split-button,
   .smart-color-picker,
   .smart-path {
+
     .smart-drop-down[bottom],
     .smart-drop-down {
       --smart-editor-drop-down-min-width: auto;
@@ -482,7 +472,7 @@ smart-drop-down-button {
       --smart-ui-state-color-hover: var(--smart-#{$name}-color);
 
       &[opened] {
-        box-shadow: 0 0 0 0.25rem #{'rgba(var(--smart-#{$name}-rgb), 0.5)'} !important;
+        box-shadow: 0 0 0 0.25rem #{ 'rgba(var(--smart-#{$name}-rgb), 0.5) '} !important;
       }
     }
   }
@@ -500,6 +490,7 @@ smart-drop-down-button {
     .smart-multi-split-button,
     .smart-color-picker,
     .smart-path {
+
       .smart-drop-down[bottom],
       .smart-drop-down {
         animation: unset;
@@ -521,11 +512,13 @@ smart-scheduler {
   }
 
   &:not(.bordered) {
-    --smart-scheduler-day-week-view-vertical-line-color: transparent; /* Vertical timeline color in 'day' and 'week' views */
+    --smart-scheduler-day-week-view-vertical-line-color: transparent;
+    /* Vertical timeline color in 'day' and 'week' views */
   }
 
   &.bordered {
-    --smart-scheduler-day-week-view-vertical-line-color: #{$table-border-color}; /* Vertical timeline color in 'day' and 'week' views */
+    --smart-scheduler-day-week-view-vertical-line-color: #{$table-border-color};
+    /* Vertical timeline color in 'day' and 'week' views */
   }
 
   &.no-border {
@@ -650,7 +643,8 @@ smart-scheduler {
 
   &.table-secondary,
   &.table-dark {
-    --smart-scheduler-day-week-view-vertical-line-color: #{$table-dark-border-color}; /* Vertical timeline color in 'day' and 'week' views */
+    --smart-scheduler-day-week-view-vertical-line-color: #{$table-dark-border-color};
+    /* Vertical timeline color in 'day' and 'week' views */
 
     .smart-scheduler-view-all-day-label,
     .smart-scheduler-time-zone:last-of-type,
@@ -726,6 +720,7 @@ smart-card.card {
 
 /* TOAST */
 .smart-toast-container {
+
   &.smart-toast-container-top-left,
   &.smart-toast-container-top-right,
   &.smart-toast-container-bottom-left,
@@ -1250,9 +1245,11 @@ smart-carousel {
 /* JUMBOTRON */
 .jumbotron {
   padding: 2rem 1rem;
+
   @media (min-width: 576px) {
     padding: 4rem 2rem;
   }
+
   margin-bottom: 2rem;
   background-color: $jumbotron-bg;
   border-radius: .3rem;
@@ -1280,6 +1277,7 @@ smart-carousel {
 
 /* QUERY BUILDER */
 .smart-query-builder {
+
   .smart-input,
   smart-input {
     box-shadow: unset;
@@ -1513,18 +1511,10 @@ smart-carousel {
   }
 }
 
-/* DROPDOWN LIST */
-.smart-drop-down-list {
-  .smart-list-box {
-    .smart-list-items-inner-container {
-      //It brokes the horizontal scroll
-      //width: 100% !important;
-    }
-  }
-}
 
 /* MULTI SPLIT BUTTON */
 .smart-multi-split-button {
+
   @each $name, $hex in $theme-colors {
     &.#{$name} {
       --smart-button-opacity-hover: 1;
@@ -1568,7 +1558,9 @@ smart-carousel {
 
 /* SORTABLE LIST */
 .smart-sortable {
-  ul, ol {
+
+  ul,
+  ol {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -1671,18 +1663,19 @@ smart-carousel {
     background: transparent;
 
   }
-	
+
   &[horizontal] {
-  	.smart-nav-button,
-	.smart-tabs-header-items > .smart-drop-down-button {
-		margin-bottom: 1rem;
-	}
-	
-	.smart-tab-group-arrow {
-		height: 1rem;
-	}
+
+    .smart-nav-button,
+    .smart-tabs-header-items > .smart-drop-down-button {
+      margin-bottom: 1rem;
+    }
+
+    .smart-tab-group-arrow {
+      height: 1rem;
+    }
   }
-  
+
   &[vertical] {
     .smart-header {
       .smart-tab-label-container {
@@ -1716,15 +1709,23 @@ smart-carousel {
     margin: 0;
     border-radius: 0;
   }
-	
+
   .smart-grid-command-item {
     align-items: center;
-	
-	> .smart-grid-icon {
-		font-size: calc(var(--smart-font-size) + 2px);
-	}
+
+    > .smart-grid-icon {
+      font-size: calc(var(--smart-font-size) + 2px);
+    }
   }
-  
+
+  .smart-tool-label {
+    margin-left: 5px;
+  }
+
+  .smart-data-view-header-button:after {
+    margin-top: 2px;
+  }
+
   smart-grid-column {
     background: $body-bg;
   }
@@ -2074,6 +2075,7 @@ smart-carousel {
 
   smart-menu-item:not([level="1"]),
   smart-menu-items-group:not([level="1"]) {
+
     &[hover],
     &[focus] {
       background: $dropdown-link-hover-bg;
@@ -2134,6 +2136,7 @@ smart-carousel {
 
   smart-radio-button,
   smart-check-box {
+
     .smart-label,
     label {
       margin-bottom: 0;
@@ -2266,6 +2269,7 @@ smart-input.smart-input {
 }
 
 smart-drop-down-list.smart-drop-down-list {
+
   &.underlined,
   &.outlined {
     &[focus] {
@@ -2283,6 +2287,7 @@ smart-date-time-picker.smart-date-time-picker {
 }
 
 smart-multiline-text-box.smart-multiline-text-box {
+
   &.smart-validation-success,
   &.smart-validation-error {
     .smart-input {
@@ -2296,6 +2301,7 @@ smart-combo-box.smart-combo-box,
 smart-drop-down-list.smart-drop-down-list {
   &[hover] {
     &:not([drop-down-open-mode="dropDownButton"]) {
+
       .smart-action-button,
       .smart-drop-down-button {
         background-color: var(--smart-surface);
@@ -2383,6 +2389,7 @@ smart-combo-box.smart-combo-box {
 
 /* OTHER */
 .smart-file-upload {
+
   .smart-file-upload-header,
   .smart-browse-button {
     padding: 0;
@@ -2427,6 +2434,7 @@ smart-combo-box.smart-combo-box {
 }
 
 .input-group {
+
   .input-group-prepend,
   .input-group-append {
     .input-group-text {
@@ -2443,6 +2451,7 @@ smart-combo-box.smart-combo-box {
 
 body[theme="dark"] {
   .smart-alert {
+
     @each $name, $hex in $theme-colors {
       &.smart-alert-#{$name} {
         @include darken-color(23, $hex, 'color');
@@ -2503,4 +2512,42 @@ body[theme="dark"] {
 
 .smart-drop-down-box[drop-down-open-mode="dropDownButton"] .smart-action-button {
   padding-left: 0;
+}
+
+
+.smart-multi-column-filter-panel {
+  --smart-multi-column-filter-panel-template-columns: 15px 80px 3fr 3fr 3fr;
+
+  &[close-button-position="right"] {
+    --smart-multi-column-filter-panel-template-columns: 80px 3fr 3fr 3fr 15px;
+  }
+}
+
+
+.smart-data-view-header-drop-down {
+  .smart-filter-panel-items-container {
+    overflow: hidden;
+    line-height: 1.5;
+  }
+
+  .smart-formatting-panel {
+    .smart-add-new-button {
+      box-shadow: var(--smart-elevation-4);
+
+      &:hover {
+        box-shadow: var(--smart-elevation-8);
+      }
+    }
+
+    .smart-add-new-button:after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      content: var(--smart-icon-plus);
+      font-family: var(--smart-font-family-icon);
+      font-size: var(--smart-font-size);
+    }
+  }
 }

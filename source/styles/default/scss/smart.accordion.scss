@@ -15,7 +15,7 @@ smart-accordion {
     visibility: hidden;
   }
 
-  > .smart-container {
+  >.smart-container {
     overflow: auto;
     touch-action: none;
     padding: 10px;
@@ -29,6 +29,7 @@ smart-accordion {
   .smart-reordering {
     * {
       user-select: none;
+      -webkit-user-select: none;
       cursor: move;
     }
   }
@@ -78,7 +79,7 @@ smart-accordion {
       border-bottom-right-radius: var(--smart-last-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius);
     }
 
-    > .smart-container {
+    >.smart-container {
       border-bottom: var(--smart-border-width) solid var(--smart-border);
     }
 
@@ -105,7 +106,7 @@ smart-accordion {
       position: relative;
       height: var(--smart-accordion-item-header-height);
 
-      > .smart-arrow {
+      >.smart-arrow {
         width: var(--smart-editor-addon-width);
         display: flex;
         justify-content: center;
@@ -134,7 +135,7 @@ smart-accordion {
         }
       }
 
-      > .smart-label {
+      >.smart-label {
         margin-left: 5px;
         width: calc(100% - var(--smart-editor-addon-width));
         display: block;
@@ -178,7 +179,7 @@ smart-accordion {
         border-color: var(--smart-ui-state-border-focus);
         border-bottom: var(--smart-border-width) solid var(--smart-border);
 
-        > .smart-arrow:after {
+        >.smart-arrow:after {
           transform: rotate(0deg);
           transform-origin: center;
         }
@@ -203,7 +204,7 @@ smart-accordion {
         background: var(--smart-ui-state-focus);
         border-color: vaR(--smart-ui-state-border-focus);
 
-        > .smart-arrow {
+        >.smart-arrow {
           opacity: 0.6;
         }
       }
@@ -257,7 +258,7 @@ smart-accordion {
   }
 
   &[expand-mode="multiple"] {
-    > .smart-container {
+    >.smart-container {
       &.smart-toggling {
         padding: 10px;
       }
@@ -292,8 +293,9 @@ smart-accordion {
 
   &.smart-no-arrow {
     .smart-accordion-item-header {
-      > .smart-arrow,
-      > .smart-arrow:after {
+
+      >.smart-arrow,
+      >.smart-arrow:after {
         visibility: hidden;
         width: 0px;
       }
@@ -303,7 +305,7 @@ smart-accordion {
   &.smart-arrow-right {
     smart-accordion-item {
       .smart-accordion-item-header {
-        > .smart-arrow {
+        >.smart-arrow {
           float: right;
 
           &:after {
@@ -314,7 +316,7 @@ smart-accordion {
 
       &[expanded] {
         .smart-accordion-item-header {
-          > .smart-arrow:after {
+          >.smart-arrow:after {
             content: var(--smart-icon-arrow-up-alt);
           }
         }
@@ -391,7 +393,7 @@ smart-accordion {
 
     smart-accordion-item {
       .smart-accordion-item-header {
-        > .smart-arrow.smart-animate-trigger:after {
+        >.smart-arrow.smart-animate-trigger:after {
           transition: transform 0.2s ease-out;
         }
       }
@@ -420,7 +422,7 @@ smart-accordion {
   }
 
   &[right-to-left] {
-    > .smart-container {
+    >.smart-container {
       direction: rtl;
     }
   }

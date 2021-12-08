@@ -136,9 +136,28 @@ smart-table tr.expanded .hierarchy-arrow {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.smart-table th:hover .column-menu, .smart-table th[column-menu-button] .column-menu {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  right: 3px;
+  width: 25px;
+  height: 100%;
+}
+.smart-table th:hover .column-menu:after, .smart-table th[column-menu-button] .column-menu:after {
+  content: var(--smart-icon-arrow-down);
+  font-family: var(--smart-font-family-icon);
+  width: 100%;
+  cursor: pointer;
+  color: var(--smart-surface-color);
+  font-size: 16px;
+  font-weight: bold;
+}
 .smart-table th > .wrapper {
   display: flex;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 .smart-table th > .wrapper > .label {
   overflow: hidden;
@@ -260,6 +279,11 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table td.editing.invalid .smart-table-editor {
   border-color: var(--smart-error);
 }
+.smart-table th.smart-table-select-all:hover,
+.smart-table td.smart-table-select-row:hover {
+  z-index: 99;
+  overflow: visible;
+}
 .smart-table th.smart-table-select-all > div,
 .smart-table td.smart-table-select-row > div {
   display: flex;
@@ -268,13 +292,14 @@ smart-table tr.expanded .hierarchy-arrow {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: var(--smart-border-width) solid var(--smart-secondary);
+  border: var(--smart-border-width) solid var(--smart-border);
   width: var(--smart-check-box-default-size);
   height: var(--smart-check-box-default-size);
-  padding: 2px;
+  padding: 8px;
   color: var(--smart-primary-color);
   font-family: var(--smart-font-family-icon);
   cursor: pointer;
+  border-radius: var(--smart-border-radius);
 }
 .smart-table th.smart-table-select-all > div:before,
 .smart-table td.smart-table-select-row > div:before {
@@ -583,7 +608,7 @@ smart-table tr.expanded .hierarchy-arrow {
 }
 .smart-table .smart-table-filter-row .smart-input .smart-drop-down-button .arrow:after {
   content: var(--smart-icon-filter);
-  transform: none;
+  transform: none !important;
 }
 .smart-table .smart-table-row-detail {
   height: var(--smart-table-row-detail-height);
@@ -1125,7 +1150,7 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[loading] smart-pager {
   pointer-events: none;
 }
-.smart-table[freeze-header] thead th {
+.smart-table[freeze-header]:not([virtualization]) thead th {
   position: sticky;
   opacity: 1;
   border-bottom: none;
@@ -1133,39 +1158,91 @@ smart-table tr.expanded .hierarchy-arrow {
   box-shadow: 0px 1px 0px 0px var(--smart-border);
   z-index: 100;
 }
-.smart-table[freeze-header] thead th.freeze-near {
+.smart-table[freeze-header]:not([virtualization]) thead th.freeze-near {
   box-shadow: 1px 1px 0px 0px var(--smart-border);
   z-index: 200;
 }
-.smart-table[freeze-header] thead th.freeze-far {
+.smart-table[freeze-header]:not([virtualization]) thead th.freeze-far {
   box-shadow: -1px 1px 0px 0px var(--smart-border);
   z-index: 200;
 }
-.smart-table[freeze-header] thead tr:nth-child(2) > th {
+.smart-table[freeze-header]:not([virtualization]) thead tr:nth-child(2) > th {
   top: var(--smart-table-column-header-height);
 }
-.smart-table[freeze-header] thead tr:nth-child(3) > th {
+.smart-table[freeze-header]:not([virtualization]) thead tr:nth-child(3) > th {
   top: calc(2 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header] thead tr:nth-child(4) > th {
+.smart-table[freeze-header]:not([virtualization]) thead tr:nth-child(4) > th {
   top: calc(3 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header] thead tr:nth-child(5) > th {
+.smart-table[freeze-header]:not([virtualization]) thead tr:nth-child(5) > th {
   top: calc(4 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][filtering]:not([filter-row]) thead th, .smart-table[freeze-header][conditional-formatting-button] thead th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead th {
   top: var(--smart-table-header-footer-height);
 }
-.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(2) > th, .smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(2) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(2) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(2) > th {
   top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(3) > th, .smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(3) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(3) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(3) > th {
   top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(4) > th, .smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(4) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(4) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(4) > th {
   top: calc(var(--smart-table-header-footer-height) + 3 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][filtering]:not([filter-row]) thead tr:nth-child(5) > th, .smart-table[freeze-header][conditional-formatting-button] thead tr:nth-child(5) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(5) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(5) > th {
+  top: calc(var(--smart-table-header-footer-height) + 4 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header][virtualization] thead {
+  box-shadow: 0px 1px 0px 0px var(--smart-border);
+  top: 0;
+  position: relative;
+  z-index: 200;
+}
+.smart-table[freeze-header][virtualization] thead th {
+  opacity: 1;
+  border-bottom: none;
+  top: 0;
+  box-shadow: 0px 1px 0px 0px var(--smart-border);
+  z-index: 100;
+  position: relative;
+}
+.smart-table[freeze-header][virtualization] thead th.sticky {
+  position: sticky;
+}
+.smart-table[freeze-header][virtualization] thead th.freeze-near {
+  box-shadow: 1px 1px 0px 0px var(--smart-border);
+  z-index: 200;
+}
+.smart-table[freeze-header][virtualization] thead th.freeze-far {
+  box-shadow: -1px 1px 0px 0px var(--smart-border);
+  z-index: 200;
+}
+.smart-table[freeze-header][virtualization] thead tr:nth-child(2) > th {
+  top: var(--smart-table-column-header-height);
+}
+.smart-table[freeze-header][virtualization] thead tr:nth-child(3) > th {
+  top: calc(2 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header][virtualization] thead tr:nth-child(4) > th {
+  top: calc(3 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header][virtualization] thead tr:nth-child(5) > th {
+  top: calc(4 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead th {
+  top: var(--smart-table-header-footer-height);
+}
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(2) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(2) > th {
+  top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(3) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(3) > th {
+  top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(4) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(4) > th {
+  top: calc(var(--smart-table-header-footer-height) + 3 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(5) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(5) > th {
   top: calc(var(--smart-table-header-footer-height) + 4 * var(--smart-table-column-header-height));
 }
 .smart-table[freeze-footer] tfoot td {
@@ -1401,6 +1478,24 @@ smart-table tr.expanded .hierarchy-arrow {
   .smart-table[right-to-left] .freeze-far {
     box-shadow: 0px 0px 0px 1px var(--smart-border);
   }
+}
+.smart-table[hide-selection-column] th.smart-table-select-all {
+  width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.smart-table[hide-selection-column] th.smart-table-select-all > div {
+  visibility: hidden;
+}
+.smart-table[hide-selection-column] td.smart-table-select-row {
+  visibility: hidden;
+}
+.smart-table[hide-selection-column] td.smart-table-select-row .selection-checkbox {
+  visibility: hidden;
+}
+.smart-table[hide-selection-column] tr[aria-selected="true"] td {
+  background: var(--smart-ui-state-selected);
+  color: var(--smart-ui-state-color-selected);
 }
 .smart-table[right-to-left] > .smart-container {
   direction: rtl;
@@ -1732,6 +1827,159 @@ smart-table tr.expanded .hierarchy-arrow {
   --smart-button-padding: 0;
   width: 40%;
   height: 100%;
+}
+
+.smart-table-column-menu {
+  border: 1px solid var(--smart-border);
+  box-shadow: var(--smart-elevation-8);
+  z-index: 9999;
+  width: 200px;
+  height: auto;
+  padding: 10px;
+  border-radius: var(--smart-border-radius);
+  position: absolute;
+  background: var(--smart-background);
+  top: 0px;
+  left: 0px;
+}
+.smart-table-column-menu smart-button {
+  --smart-button-padding: 0;
+}
+.smart-table-column-menu smart-button button:after {
+  content: var(--smart-icon-filter);
+  font-family: var(--smart-font-family-icon);
+  width: 100%;
+  height: 100%;
+  text-decoration: line-through;
+}
+.smart-table-column-menu.wrapper > div {
+  --smart-filter-row-content-height: calc(var(--smart-table-row-height) - 2 * var(--smart-table-cell-padding) - var(--smart-border-width));
+  display: grid;
+  grid-template-columns: 1fr var(--smart-filter-row-content-height) var(--smart-filter-row-content-height);
+  grid-template-rows: 100%;
+  column-gap: 2px;
+  height: var(--smart-filter-row-content-height);
+  position: relative;
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item {
+  display: flex;
+  cursor: pointer;
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+  height: 30px;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item.smart-disabled {
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .label {
+  padding: 5px;
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item:not(.filter-item):hover {
+  background: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .menu-icon::after {
+  font-family: var(--smart-font-family-icon);
+  width: 100%;
+  height: 100%;
+  color: var(--smart-surface-color);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .sort-asc::after {
+  content: var(--smart-icon-sort-name-up);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .sort-desc::after {
+  content: var(--smart-icon-sort-name-down);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .sort-remove::after {
+  content: var(--smart-icon-sort-name-up);
+  text-decoration: line-through;
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .reset::after {
+  content: var(--smart-icon-refresh);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .columns::after {
+  content: var(--smart-icon-table);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .filter-by::after {
+  content: var(--smart-icon-add-filter);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .filter-by-remove::after {
+  content: var(--smart-icon-filter);
+  text-decoration: line-through;
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .column-item::after {
+  content: var(--smart-icon-check-squared);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item .column-item.off::after {
+  content: var(--smart-icon-check-empty);
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item.columns-item::after {
+  content: var(--smart-icon-arrow-right);
+  font-family: var(--smart-font-family-icon);
+  width: 100%;
+  height: 100%;
+  color: var(--smart-surface-color);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.smart-table-column-menu.wrapper .smart-table-menu-item.filter-item {
+  cursor: default;
+  border-top: 1px solid var(--smart-border);
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+.smart-table-column-menu.wrapper.no-filter {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.smart-table-column-menu .filter-value {
+  min-width: 0;
+  border: var(--smart-border-width) solid var(--smart-border);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  padding: var(--smart-editor-label-padding);
+  background-color: var(--smart-background);
+  color: var(--smart-background-color);
+  font-family: inherit;
+  font-size: inherit;
+}
+.smart-table-column-menu .filter-value:hover {
+  border-color: var(--smart-ui-state-border-hover);
+}
+.smart-table-column-menu .filter-value:focus {
+  outline: none;
+  border-color: var(--smart-outline);
+}
+.smart-table-column-menu .filter-value[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+.smart-table-column-menu .filter-value::-webkit-outer-spin-button, .smart-table-column-menu .filter-value::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+.smart-table-column-menu .smart-input {
+  --smart-editor-addon-width: 100%;
+  --smart-editor-label-padding: 0;
+  width: unset;
+  height: 100%;
+}
+.smart-table-column-menu .smart-input .smart-drop-down-button {
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+}
+.smart-table-column-menu .smart-input .smart-drop-down-button .arrow:after {
+  content: var(--smart-icon-filter);
+  transform: none !important;
 }
 
 @keyframes active {

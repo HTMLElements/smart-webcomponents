@@ -9,7 +9,8 @@ smart-tree {
 }
 
 .smart-tree {
-  > .smart-container,
+
+  >.smart-container,
   &.smart-container {
     display: flex;
     flex-direction: column;
@@ -95,11 +96,11 @@ smart-tree {
     flex-direction: column;
     overflow: hidden;
 
-    > .smart-tree-item-label-container {
+    >.smart-tree-item-label-container {
       justify-content: flex-start;
       overflow: hidden;
 
-      > .smart-tree-item-label-element {
+      >.smart-tree-item-label-element {
         order: 1;
       }
     }
@@ -129,7 +130,7 @@ smart-tree {
     }
 
     &.filtered-child {
-      > .smart-tree-item-label-container > .smart-tree-item-label-element {
+      >.smart-tree-item-label-container>.smart-tree-item-label-element {
         font-weight: unset;
       }
     }
@@ -143,8 +144,8 @@ smart-tree {
   }
 
   .smart-tree-items-group-opened {
-    > .smart-tree-item-label-container {
-      > .smart-tree-items-group-arrow {
+    >.smart-tree-item-label-container {
+      >.smart-tree-items-group-arrow {
         transform: rotate(180deg);
       }
     }
@@ -158,18 +159,18 @@ smart-tree {
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    > span {
+    >span {
       position: relative;
       padding: var(--smart-tree-item-padding);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      > smart-button button {
+      >smart-button button {
         padding: initial;
       }
 
-      > i {
+      >i {
         vertical-align: middle;
       }
     }
@@ -250,7 +251,7 @@ smart-tree {
     background-color: var(--smart-scroll-bar-button-background);
     --smart-button-padding: 0;
 
-    > button {
+    >button {
       border: none;
     }
   }
@@ -332,9 +333,10 @@ smart-tree {
 
   &[selection-mode="radioButton"],
   &[selection-mode="checkBox"] {
+
     smart-tree-item,
     smart-tree-items-group {
-      > .smart-tree-item-label-container {
+      >.smart-tree-item-label-container {
         &:before {
           content: '';
           transform: scale(0);
@@ -360,7 +362,7 @@ smart-tree {
       }
 
       &[selected][focus] {
-        > .smart-tree-item-label-container {
+        >.smart-tree-item-label-container {
           &:before {
             position: absolute;
             content: '';
@@ -377,6 +379,35 @@ smart-tree {
       }
     }
 
+    &[show-lines] {
+
+      smart-tree-items-group {
+        >.smart-tree-item-label-container {
+          &:after {
+            margin-left: calc(var(--smart-tree-indent) + 5px);
+          }
+        }
+
+        &[selected][focus] {
+          >.smart-tree-item-label-container {
+            &:before {
+              margin-left: calc(var(--smart-tree-indent));
+            }
+          }
+        }
+      }
+
+      smart-tree-item {
+        &[selected][focus] {
+          >.smart-tree-item-label-container {
+            &:before {
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+
     smart-tree-item {
       .smart-tree-item-label-element {
         padding-left: calc(var(--smart-tree-indent) + 10px);
@@ -384,36 +415,35 @@ smart-tree {
     }
 
     smart-tree-items-group {
-      > .smart-tree-item-label-container {
-        &:after {
-          margin-left: calc(var(--smart-check-box-default-size) - 11px);
-        }
+      >.smart-tree-item-label-container {
 
-        > .smart-tree-item-label-element {
+        >.smart-tree-item-label-element {
           padding-left: calc(var(--smart-tree-indent) + 10px);
         }
       }
     }
 
     .smart-tree-item-label-element {
-      > span {
+      >span {
         padding-left: 5px;
       }
     }
 
     &:not([animation="none"]) {
+
       smart-tree-item,
       smart-tree-items-group {
-        > .smart-tree-item-label-container:before {
+        >.smart-tree-item-label-container:before {
           transition: transform 0.25s ease-in-out;
         }
       }
     }
 
     &[toggle-element-position="far"] {
+
       smart-tree-item[focus],
       smart-tree-items-group[focus] {
-        > .smart-tree-item-label-container:before {
+        >.smart-tree-item-label-container:before {
           margin-left: -1px;
         }
       }
@@ -421,22 +451,23 @@ smart-tree {
 
     &:not([show-lines]) {
       smart-tree-items-group {
-        > .smart-tree-item-label-container:after {
+        >.smart-tree-item-label-container:after {
           margin-left: calc(var(--smart-check-box-default-size) + 5px);
         }
       }
 
       &:not([toggle-element-position="far"]) {
+
         smart-tree-items-group,
         smart-tree-item {
-          > .smart-tree-item-label-container:after {
+          >.smart-tree-item-label-container:after {
             margin-left: calc(var(--smart-check-box-default-size) - 5px);
           }
         }
 
         &:not([right-to-left]) {
           smart-tree-item {
-            .smart-tree-item-label-element > span {
+            .smart-tree-item-label-element>span {
               padding: var(--smart-tree-item-padding);
             }
           }
@@ -445,15 +476,16 @@ smart-tree {
 
       &[right-to-left] {
         smart-tree-items-group {
-          > .smart-tree-item-label-container:after {
+          >.smart-tree-item-label-container:after {
             margin-left: calc(var(--smart-check-box-default-size) - 21px);
           }
         }
 
         &:not([toggle-element-position="far"]) {
+
           smart-tree-item,
           smart-tree-items-group {
-            > .smart-tree-item-label-container:after {
+            >.smart-tree-item-label-container:after {
               margin-left: calc(var(--smart-check-box-default-size) - 25px);
             }
           }
@@ -461,53 +493,39 @@ smart-tree {
       }
     }
 
-    &[show-lines] {
-      smart-tree-item[focus] {
-        > .smart-tree-item-label-container {
-          &:before {
-            margin-left: -1px;
-          }
-        }
-      }
 
-      smart-tree-items-group[focus] {
-        > .smart-tree-item-label-container {
-          &:before {
-            margin-left: calc(var(--smart-check-box-default-size) - 1px);
-          }
-        }
-      }
-    }
 
     &[right-to-left] {
+
       smart-tree-item .smart-tree-item-label-element,
-      smart-tree-items-group > .smart-tree-item-label-container > .smart-tree-item-label-element {
+      smart-tree-items-group>.smart-tree-item-label-container>.smart-tree-item-label-element {
         padding-left: initial;
         padding-right: calc(var(--smart-tree-indent) + 10px);
       }
 
 
-      smart-tree-item > .smart-tree-item-label-container:after {
+      smart-tree-item>.smart-tree-item-label-container:after {
         margin-left: -5px;
       }
 
-      smart-tree-items-group > .smart-tree-item-label-container:after {
+      smart-tree-items-group>.smart-tree-item-label-container:after {
         margin-left: calc(0px - var(--smart-check-box-default-size) - 5px);
       }
 
       smart-tree-item,
       smart-tree-items-group {
         &[focus] {
-          > .smart-tree-item-label-container:before {
+          >.smart-tree-item-label-container:before {
             margin-left: -3px;
           }
         }
       }
 
       &[toggle-element-position="far"] {
+
         smart-tree-item[focus],
         smart-tree-items-group[focus] {
-          > .smart-tree-item-label-container:before {
+          >.smart-tree-item-label-container:before {
             margin-left: 1px;
           }
         }
@@ -515,7 +533,7 @@ smart-tree {
 
       &[show-lines] {
         smart-tree-item[focus] {
-          > .smart-tree-item-label-container {
+          >.smart-tree-item-label-container {
             &:before {
               margin-left: 1px;
             }
@@ -523,7 +541,7 @@ smart-tree {
         }
 
         smart-tree-items-group[focus] {
-          > .smart-tree-item-label-container {
+          >.smart-tree-item-label-container {
             &:before {
               margin-left: calc(1px - var(--smart-check-box-default-size));
             }
@@ -534,14 +552,15 @@ smart-tree {
   }
 
   &[selection-mode="radioButton"] {
+
     smart-tree-item,
     smart-tree-items-group {
-      > .smart-tree-item-label-container:after {
+      >.smart-tree-item-label-container:after {
         border-radius: 100%;
       }
 
       &[selected] {
-        > .smart-tree-item-label-container:after {
+        >.smart-tree-item-label-container:after {
           content: var(--smart-icon-radio);
           background: var(--smart-primary);
           border-color: var(--smart-primary);
@@ -552,9 +571,10 @@ smart-tree {
   }
 
   &[selection-mode="checkBox"] {
+
     smart-tree-item,
     smart-tree-items-group {
-      &[selected] > .smart-tree-item-label-container:after {
+      &[selected]>.smart-tree-item-label-container:after {
         background: var(--smart-primary);
         border-color: var(--smart-primary);
         color: var(--smart-primary-color);
@@ -562,7 +582,7 @@ smart-tree {
       }
 
 
-      &[indeterminate] > .smart-tree-item-label-container:after {
+      &[indeterminate]>.smart-tree-item-label-container:after {
         padding: 2px;
         background-clip: content-box;
         width: calc(var(--smart-check-box-default-size) - 1px);
@@ -573,6 +593,7 @@ smart-tree {
 
   &[disabled],
   &[display-loading-indicator] {
+
     smart-tree-item,
     smart-tree-items-group {
       cursor: default;
@@ -624,15 +645,15 @@ smart-tree {
 
   &[toggle-element-position="far"] {
     smart-tree-items-group {
-      > .smart-tree-item-label-container {
+      >.smart-tree-item-label-container {
         justify-content: space-between;
 
-        > .smart-tree-item-label-element {
+        >.smart-tree-item-label-element {
           order: 0;
           margin-left: var(--smart-tree-indent);
         }
 
-        > .smart-tree-items-group-arrow {
+        >.smart-tree-items-group-arrow {
           order: 1;
         }
       }
@@ -640,8 +661,8 @@ smart-tree {
 
     &[right-to-left] {
       smart-tree-items-group {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element {
             margin-left: initial;
             margin-right: var(--smart-tree-indent);
           }
@@ -651,12 +672,13 @@ smart-tree {
   }
 
   &:not([show-lines]) {
+
     &[selection-mode="checkBox"],
     &[selection-mode="radioButton"] {
       &[toggle-element-position="far"]:not([right-to-left]) {
         smart-tree-items-group {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element {
               margin-left: calc(var(--smart-tree-indent) - 11px);
             }
           }
@@ -664,8 +686,9 @@ smart-tree {
       }
 
       &[toggle-element-position="far"][right-to-left] {
+
         smart-tree-item .smart-tree-item-label-element,
-        smart-tree-items-group > .smart-tree-item-label-container > .smart-tree-item-label-element {
+        smart-tree-items-group>.smart-tree-item-label-container>.smart-tree-item-label-element {
           padding-right: calc(var(--smart-tree-indent) + 4px);
         }
       }
@@ -674,8 +697,8 @@ smart-tree {
     &:not([toggle-element-position="far"]) {
       &:not([right-to-left]) {
         smart-tree-items-group {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element {
               margin-left: -4px;
             }
           }
@@ -684,8 +707,8 @@ smart-tree {
 
       &[right-to-left] {
         smart-tree-items-group {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element {
               margin-right: -4px;
             }
           }
@@ -696,8 +719,8 @@ smart-tree {
     &[toggle-element-position="far"] {
       &:not([right-to-left]) {
         smart-tree-items-group {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element {
               margin-left: calc(var(--smart-tree-indent) - 4px);
             }
           }
@@ -706,8 +729,8 @@ smart-tree {
 
       &[right-to-left] {
         smart-tree-items-group {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element {
               margin-right: calc(var(--smart-tree-indent) - 4px);
             }
           }
@@ -718,8 +741,8 @@ smart-tree {
     &:not([selection-display-mode="label"]) {
       &:not([right-to-left]) {
         smart-tree-items-group {
-          > .smart-tree-item-label-container > .smart-tree-item-label-element {
-            > span {
+          >.smart-tree-item-label-container>.smart-tree-item-label-element {
+            >span {
               padding-left: 0;
             }
           }
@@ -728,8 +751,8 @@ smart-tree {
 
       &[right-to-left] {
         smart-tree-items-group {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element > span {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element>span {
               padding-right: 0;
             }
           }
@@ -739,13 +762,14 @@ smart-tree {
   }
 
   &[show-lines] {
+
     smart-tree-item,
     smart-tree-items-group {
-      > .smart-tree-item-label-container {
+      >.smart-tree-item-label-container {
         position: relative;
         overflow: visible;
 
-        > .smart-tree-item-label-element {
+        >.smart-tree-item-label-element {
           position: relative;
           overflow: visible;
 
@@ -771,8 +795,8 @@ smart-tree {
 
       &:last-child,
       &.last-filtered-child {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element {
             &:before {
               height: 150%;
               top: -100%;
@@ -787,8 +811,8 @@ smart-tree {
     }
 
     smart-tree-items-group {
-      > .smart-tree-item-label-container {
-        > .smart-tree-item-label-element {
+      >.smart-tree-item-label-container {
+        >.smart-tree-item-label-element {
           width: calc(100% - var(--smart-tree-indent));
         }
       }
@@ -798,6 +822,7 @@ smart-tree {
       smart-tree-item {
         &[level="1"] {
           .smart-tree-item-label-element {
+
             &:before,
             &:after {
               content: none;
@@ -808,8 +833,9 @@ smart-tree {
 
       smart-tree-items-group {
         &[level="1"] {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element {
+
               &:before,
               &:after {
                 content: none;
@@ -823,6 +849,7 @@ smart-tree {
     &[show-root-lines] {
       smart-tree-item[level="1"] {
         .smart-tree-item-label-element {
+
           &:before,
           &:after {
             pointer-events: none;
@@ -831,8 +858,9 @@ smart-tree {
       }
 
       smart-tree-items-group[level="1"] {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element {
+
             &:before,
             &:after {
               pointer-events: none;
@@ -843,8 +871,8 @@ smart-tree {
     }
 
     .smart-tree-items-group-expanded {
-      &:not(:last-child):not(.last-filtered-child) > .smart-tree-item-label-container {
-        > .smart-tree-item-label-element:before {
+      &:not(:last-child):not(.last-filtered-child)>.smart-tree-item-label-container {
+        >.smart-tree-item-label-element:before {
           height: 3000px;
           z-index: 1;
         }
@@ -870,8 +898,8 @@ smart-tree {
       }
 
       smart-tree-items-group {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element {
             &:before {
               right: calc(0px - var(--smart-tree-indent));
               left: initial;
@@ -913,7 +941,7 @@ smart-tree {
     }
 
     smart-tree-items-group {
-      > .smart-tree-item-label-container {
+      >.smart-tree-item-label-container {
         border-top-left-radius: var(--smart-item-border-top-left-radius);
         border-top-right-radius: var(--smart-item-border-top-right-radius);
         border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
@@ -924,13 +952,13 @@ smart-tree {
         margin-bottom: var(--smart-tree-item-vertical-offset);
       }
 
-      &[focus] > .smart-tree-item-label-container {
+      &[focus]>.smart-tree-item-label-container {
         color: var(--smart-ui-state-color-focus);
         background-color: var(--smart-ui-state-focus);
         border-color: var(--smart-ui-state-border-focus);
       }
 
-      &[selected] > .smart-tree-item-label-container {
+      &[selected]>.smart-tree-item-label-container {
         border-color: var(--smart-ui-state-border-selected);
         background-color: var(--smart-ui-state-selected);
         color: var(--smart-ui-state-color-selected);
@@ -943,7 +971,7 @@ smart-tree {
       }
 
       smart-tree-items-group {
-        > .smart-tree-item-label-container {
+        >.smart-tree-item-label-container {
           transition: color ease-in-out 0.28s, border-color ease-in-out 0.28s, background ease-in-out 0.28s;
         }
       }
@@ -951,10 +979,11 @@ smart-tree {
   }
 
   &[selection-display-mode="label"] {
+
     smart-tree-item,
     smart-tree-items-group {
-      > .smart-tree-item-label-container {
-        > .smart-tree-item-label-element > span {
+      >.smart-tree-item-label-container {
+        >.smart-tree-item-label-element>span {
           border-top-left-radius: var(--smart-item-border-top-left-radius);
           border-top-right-radius: var(--smart-item-border-top-right-radius);
           border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
@@ -968,8 +997,8 @@ smart-tree {
       }
 
       &[focus] {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element > span:not(.smart-ripple) {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element>span:not(.smart-ripple) {
             color: var(--smart-ui-state-color-focus);
             background-color: var(--smart-ui-state-focus);
             border-color: var(--smart-ui-state-border-focus);
@@ -987,9 +1016,10 @@ smart-tree {
     &[selection-mode="checkBox"],
     &[selection-mode="radioButton"] {
       &:not([right-to-left]) {
+
         smart-tree-item,
         smart-tree-items-group {
-          > .smart-tree-item-label-container > .smart-tree-item-label-element > span {
+          >.smart-tree-item-label-container>.smart-tree-item-label-element>span {
             margin-left: 5px;
             padding: var(--smart-tree-item-padding);
           }
@@ -997,9 +1027,10 @@ smart-tree {
       }
 
       &[right-to-left] {
+
         smart-tree-item,
         smart-tree-items-group {
-          > .smart-tree-item-label-container > .smart-tree-item-label-element > span {
+          >.smart-tree-item-label-container>.smart-tree-item-label-element>span {
             margin-right: 5px;
             padding: var(--smart-tree-item-padding);
           }
@@ -1010,20 +1041,20 @@ smart-tree {
         &:not([right-to-left]) {
           &:not([toggle-element-position="far"]) {
             smart-tree-item {
-              > .smart-tree-item-label-container > .smart-tree-item-label-element {
+              >.smart-tree-item-label-container>.smart-tree-item-label-element {
                 padding-left: calc(var(--smart-tree-indent) + 15px);
               }
             }
 
             smart-tree-items-group {
-              > .smart-tree-item-label-container > .smart-tree-item-label-element {
+              >.smart-tree-item-label-container>.smart-tree-item-label-element {
                 padding-left: calc(var(--smart-tree-indent) + 3px);
               }
             }
           }
 
           &[toggle-element-position="far"] {
-            smart-tree-items-group > .smart-tree-item-label-container > .smart-tree-item-label-element {
+            smart-tree-items-group>.smart-tree-item-label-container>.smart-tree-item-label-element {
               margin-left: 0;
             }
           }
@@ -1032,22 +1063,23 @@ smart-tree {
         &[right-to-left] {
           &:not([toggle-element-position="far"]) {
             smart-tree-item {
-              > .smart-tree-item-label-container > .smart-tree-item-label-element {
+              >.smart-tree-item-label-container>.smart-tree-item-label-element {
                 padding-right: calc(var(--smart-tree-indent) + 15px);
               }
             }
 
             smart-tree-items-group {
-              > .smart-tree-item-label-container > .smart-tree-item-label-element {
+              >.smart-tree-item-label-container>.smart-tree-item-label-element {
                 padding-right: calc(var(--smart-tree-indent) + 3px);
               }
             }
           }
 
           &[toggle-element-position="far"] {
+
             smart-tree-item,
             smart-tree-items-group {
-              > .smart-tree-item-label-container > .smart-tree-item-label-element {
+              >.smart-tree-item-label-container>.smart-tree-item-label-element {
                 margin-right: 5px;
               }
             }
@@ -1057,10 +1089,11 @@ smart-tree {
     }
 
     &:not([selection-mode="checkBox"]):not([selection-mode="radioButton"]) {
+
       smart-tree-item,
       smart-tree-items-group {
         &[selected] {
-          > .smart-tree-item-label-container > .smart-tree-item-label-element > span:not(.smart-ripple) {
+          >.smart-tree-item-label-container>.smart-tree-item-label-element>span:not(.smart-ripple) {
             background-color: var(--smart-ui-state-selected);
             color: var(--smart-ui-state-color-selected);
             border-color: var(--smart-ui-state-border-selected);
@@ -1071,7 +1104,7 @@ smart-tree {
 
     &:not([show-lines]) {
       &:not([right-to-left]) {
-        smart-tree-item > .smart-tree-item-label-container > .smart-tree-item-label-element > span {
+        smart-tree-item>.smart-tree-item-label-container>.smart-tree-item-label-element>span {
           margin: var(--smart-tree-item-padding);
           margin-right: 0;
           margin-top: 0;
@@ -1081,7 +1114,7 @@ smart-tree {
       }
 
       &[right-to-left] {
-        smart-tree-item > .smart-tree-item-label-container > .smart-tree-item-label-element > span {
+        smart-tree-item>.smart-tree-item-label-container>.smart-tree-item-label-element>span {
           margin: var(--smart-tree-item-padding);
           margin-left: 0;
           margin-top: var(--smart-tree-item-vertical-offset);
@@ -1091,16 +1124,17 @@ smart-tree {
     }
 
     &:not([animation="none"]) {
+
       smart-tree-item,
       smart-tree-items-group {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element > span {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element>span {
             transition: color ease-in-out 0.28s, background ease-in-out 0.28s, border-color ease-in-out 0.28s;
           }
         }
 
-        &[focus]:not([selected]) > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element > span:not(.smart-ripple) {
+        &[focus]:not([selected])>.smart-tree-item-label-container {
+          >.smart-tree-item-label-element>span:not(.smart-ripple) {
             transition: color ease-in-out 0.28s, border-color ease-in-out 0.28s, background ease-in-out 0.28s;
           }
         }
@@ -1125,14 +1159,14 @@ smart-tree {
     }
 
     .smart-tree-item-label-container {
-      > .smart-tree-items-group-arrow {
+      >.smart-tree-items-group-arrow {
         transition: transform 0.2s ease-in;
       }
     }
 
     &[auto-hide-toggle-element] {
       .smart-tree-item-label-container {
-        > .smart-tree-items-group-arrow {
+        >.smart-tree-items-group-arrow {
           transition: transform 0.2s ease-in, opacity 0.2s ease-in;
         }
       }
@@ -1140,11 +1174,12 @@ smart-tree {
   }
 
   @media (hover: hover) {
+
     &[selection-mode="checkBox"],
     &[selection-mode="radioButton"] {
       smart-tree-item:hover {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element {
             span.smart-ripple {
               background-color: var(--smart-ui-state-selected);
             }
@@ -1153,8 +1188,8 @@ smart-tree {
       }
 
       smart-tree-items-group {
-        > .smart-tree-item-label-container:hover {
-          > .smart-tree-item-label-element {
+        >.smart-tree-item-label-container:hover {
+          >.smart-tree-item-label-element {
             span.smart-ripple {
               background-color: var(--smart-ui-state-selected);
             }
@@ -1164,22 +1199,24 @@ smart-tree {
     }
 
     &[selection-mode="checkBox"] {
-      smart-tree-item:hover > .smart-tree-item-label-container:after,
-      smart-tree-items-group > .smart-tree-item-label-container:hover:after {
+
+      smart-tree-item:hover>.smart-tree-item-label-container:after,
+      smart-tree-items-group>.smart-tree-item-label-container:hover:after {
         color: var(--smart-background-color);
         background-color: var(--smart-background);
         border-color: var(--smart-border);
       }
 
-      smart-tree-item[indeterminate]:not(:hover) > .smart-tree-item-label-container:after,
-      smart-tree-items-group[indeterminate] > .smart-tree-item-label-container:not(:hover):after {
+      smart-tree-item[indeterminate]:not(:hover)>.smart-tree-item-label-container:after,
+      smart-tree-items-group[indeterminate]>.smart-tree-item-label-container:not(:hover):after {
         background-color: var(--smart-ui-state-selected);
       }
     }
 
     &[selection-mode="radioButton"] {
-      smart-tree-item:not([selected]):hover > .smart-tree-item-label-container:after,
-      smart-tree-items-group:not([selected]) > .smart-tree-item-label-container:hover:after {
+
+      smart-tree-item:not([selected]):hover>.smart-tree-item-label-container:after,
+      smart-tree-items-group:not([selected])>.smart-tree-item-label-container:hover:after {
         color: var(--smart-background-color);
         background-color: var(--smart-background);
         border-color: var(--smart-border);
@@ -1197,7 +1234,7 @@ smart-tree {
         }
 
         smart-tree-items-group:not([selected]) {
-          > .smart-tree-item-label-container {
+          >.smart-tree-item-label-container {
             &:hover {
               color: var(--smart-ui-state-color-hover);
               background-color: var(--smart-ui-state-hover);
@@ -1215,8 +1252,9 @@ smart-tree {
       }
 
       smart-tree-items-group:not([selected])[hover] {
+
         //Used in GanttChart
-        > .smart-tree-item-label-container {
+        >.smart-tree-item-label-container {
           color: var(--smart-ui-state-color-hover);
           background-color: var(--smart-ui-state-hover);
           border-color: var(--smart-ui-state-border-hover);
@@ -1227,8 +1265,8 @@ smart-tree {
     &[selection-display-mode="label"] {
       &:not([disable-hover]) {
         smart-tree-item:not([selected]):hover {
-          > .smart-tree-item-label-container {
-            > .smart-tree-item-label-element > span {
+          >.smart-tree-item-label-container {
+            >.smart-tree-item-label-element>span {
               color: var(--smart-ui-state-color-hover);
               background-color: var(--smart-ui-state-hover);
               border-color: var(--smart-ui-state-border-hover);
@@ -1238,8 +1276,8 @@ smart-tree {
       }
 
       smart-tree-item:not([selected])[hover] {
-        > .smart-tree-item-label-container {
-          > .smart-tree-item-label-element > span {
+        >.smart-tree-item-label-container {
+          >.smart-tree-item-label-element>span {
             color: var(--smart-ui-state-color-hover);
             background-color: var(--smart-ui-state-hover);
             border-color: var(--smart-ui-state-border-hover);
@@ -1248,7 +1286,7 @@ smart-tree {
       }
 
       smart-tree-items-group:not([selected])[hover] {
-        > .smart-tree-item-label-container {
+        >.smart-tree-item-label-container {
           //Used in GanttChart
           color: var(--smart-ui-state-color-hover);
           background-color: var(--smart-ui-state-hover);

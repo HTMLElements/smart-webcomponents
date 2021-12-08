@@ -199,6 +199,16 @@ export interface GridProperties {
    */
   onCommand?: {(name: string, command: any, details: GridCell, event: Event | KeyboardEvent | PointerEvent, handled: boolean): void};
   /**
+   * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
+   * Default value: 
+   */
+  currentUser?: string | number;
+  /**
+   * Sets the grid users. Expects an array with 'id', 'name' and optionally 'color' and 'image' properties.
+   * Default value: []
+   */
+  users?: any[];
+  /**
    * Describes the paging settings.
    * Default value: [object Object]
    */
@@ -273,7 +283,9 @@ export interface Grid extends BaseElement, GridProperties {
   [name: string]: any;
   /**
    * This event is triggered, when the edit begins.
-	* @param event. The custom event. Custom data event was created with: ev.detail(row, column, cell)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell)
+   *  id - The edited row id.
+   *  dataField - The edited column data field.
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
@@ -479,7 +491,9 @@ export interface Grid extends BaseElement, GridProperties {
   onCellDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the edit ends.
-	* @param event. The custom event. Custom data event was created with: ev.detail(row, column, cell)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell)
+   *  id - The edited row id.
+   *  dataField - The edited column data field.
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
@@ -492,6 +506,18 @@ export interface Grid extends BaseElement, GridProperties {
    *  data - Array of {dataField: string, filter: string}. <em>dataField</em> is the column's data field. <em>filter</em> is a filter expression like 'startsWith B'
    */
   onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the add new column dialog is opened.
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
+   *  dataField - The column data field.
+   */
+  onOpenColumnDialog?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the add new column dialog is closed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
+   *  dataField - The column data field.
+   */
+  onCloseColumnDialog?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the grid is resized.
 	* @param event. The custom event.    */
@@ -557,6 +583,17 @@ export interface Grid extends BaseElement, GridProperties {
    */
   addFilter(dataField: string, filter: string, refreshFilters?: boolean): void;
   /**
+   * Groups the Grid by a data field. This method will add a group to the Grid when grouping is enabled.
+   * @param {string} dataField. column bound data field
+   */
+  addGroup(dataField: string): void;
+  /**
+   * Sorts the Grid by a data field. This method will add a sorting to the Grid when sorting is enabled.
+   * @param {string} dataField. column bound data field
+   * @param {string} sortOrder. column's sort order. Use 'asc' or 'desc'.
+   */
+  addSort(dataField: string, sortOrder: string): void;
+  /**
    * Auto-sizes grid rows. This method will update the <em>height</em> of all Grid rows.
    */
   autoSizeRows(): void;
@@ -583,6 +620,14 @@ export interface Grid extends BaseElement, GridProperties {
    * Clears all filters. Refreshes the view and updates all filter input components.
    */
   clearFilter(): void;
+  /**
+   * Clears all data groups. Refreshes the view and updates the DataGrid component.
+   */
+  clearGroups(): void;
+  /**
+   * Clears all sorting. Refreshes the view and updates the DataGrid component.
+   */
+  clearSort(): void;
   /**
    * Clears the selection that user have made. All row, cell and column selection highlights will be removed.
    */
@@ -849,6 +894,20 @@ export interface Grid extends BaseElement, GridProperties {
    */
   removeFilter(dataField: string, refreshFilters?: boolean): void;
   /**
+   * Removes a group by data field. This method will remove a group to the Grid when grouping is enabled.
+   * @param {string} dataField. column bound data field
+   */
+  removeGroup(dataField: string): void;
+  /**
+   * Removes a sorting by data field. This method will remove a sorting from a Grid column.
+   * @param {string} dataField. column bound data field
+   */
+  removeSort(dataField: string): void;
+  /**
+   * Re-sorts the Grid by using the already applied column sortings and re-renders the Grid.
+   */
+  refreshSort(): void;
+  /**
    * Reverts the batch edit changes. This method cancels all changes made by the end-user.
    */
   revertBatchEdit(): void;
@@ -859,6 +918,12 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {boolean} insertAfter?. Determines whether to insert the first column after the reference column.
    */
   reorderColumns(dataField: string | number, referenceDataField: string | number, insertAfter?: boolean): void;
+  /**
+   * Sorts the Grid by a data field. This method will add or remove sorting, when sorting is enabled. To remove the sorting, use 'null' for the sortOrder parameter.
+   * @param {string} dataField. column bound data field
+   * @param {string | null} sortOrder. column's sort order. Use 'asc', 'desc' or null.
+   */
+  sortBy(dataField: string, sortOrder: string | null): void;
   /**
    * Swaps two DataGrid columns.
    * @param {string | number} dataField. The data field or column index of the first grid column.
@@ -1346,7 +1411,12 @@ export interface GridColumn {
    */
   allowResize?: boolean;
   /**
-   * Sets or gets the column's cells format.
+   * Sets or gets whether the column can have 'null' values.
+   * Default value: true
+   */
+  allowNull?: boolean;
+  /**
+   * Sets or gets the column's cells format. This property is used for applying a formatting to the cell values. Number format strings: 'd' - decimal numbers.'f' - floating-point numbers.'n' - integer numbers.'c' - currency numbers.'p' - percentage numbers.For adding decimal places to the numbers, add a number after the formatting striFor example: 'c3' displays a number in this format $25.256Built-in Date formats:// short date pattern'd' - 'M/d/yyyy',// long date pattern'D' - 'dddd, MMMM dd, yyyy',// short time pattern't' - 'h:mm tt',// long time pattern'T' - 'h:mm:ss tt',// long date, short time pattern'f' - 'dddd, MMMM dd, yyyy h:mm tt',// long date, long time pattern'F' - 'dddd, MMMM dd, yyyy h:mm:ss tt',// month/day pattern'M' - 'MMMM dd',// month/year pattern'Y' - 'yyyy MMMM',// S is a sortable format that does not vary by culture'S' - 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'Date format strings:'d'-the day of the month;'dd'-the day of the month'ddd'-the abbreviated name of the day of the week'dddd'- the full name of the day of the week'h'-the hour, using a 12-hour clock from 1 to 12'hh'-the hour, using a 12-hour clock from 01 to 12'H'-the hour, using a 24-hour clock from 0 to 23'HH'- the hour, using a 24-hour clock from 00 to 23'm'-the minute, from 0 through 59'mm'-the minutes,from 00 though59'M'- the month, from 1 through 12'MM'- the month, from 01 through 12'MMM'-the abbreviated name of the month'MMMM'-the full name of the month's'-the second, from 0 through 59'ss'-the second, from 00 through 59't'- the first character of the AM/PM designator'tt'-the AM/PM designator'y'- the year, from 0 to 99'yy'- the year, from 00 to 99'yyy'-the year, with a minimum of three digits'yyyy'-the year as a four-digit number;'yyyyy'-the year as a four-digit number.
    * Default value: ""
    */
   cellsFormat?: string;
@@ -1365,6 +1435,16 @@ export interface GridColumn {
    * Default value: center
    */
   cellsVerticalAlign?: VerticalAlignment;
+  /**
+   * Sets or gets the column's header CSS class name.
+   * Default value: ""
+   */
+  className?: string;
+  /**
+   * Sets or gets the column's cells CSS class name.
+   * Default value: ""
+   */
+  cellsClassName?: string;
   /**
    * Sets the name of the column group.
    * Default value: ""
@@ -1396,7 +1476,7 @@ export interface GridColumn {
    */
   element?: HTMLElement;
   /**
-   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'numberInput', 'checkBox', 'deteTimePicker', 'timeInput', 'dateInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): object', 'onRender(int row, string column, object editor, object rowData): object', 'setValue(object editor): void' and 'getValue(object value): object' callback functions.
+   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'comboBox', 'dropDownList', 'image', 'numberInput', 'checkBox', 'multiInput', 'multiComboInput', 'checkInput', 'slider', 'dateTimePicker', 'timeInput', 'dateInput', 'dateRangeInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): object', 'onRender(int row, string column, object editor, object rowData): object', 'setValue(object value): void' and 'getValue(object value): object' callback functions.
    * Default value: null
    */
   editor?: any;
@@ -1451,8 +1531,13 @@ export interface GridColumn {
    */
   sortOrder?: GridColumnSortOrder | null;
   /**
+   * Sets or gets the sort index of the column. Accepts an integer value. This property can be used to get or set the column's sort index when sorting mode is 'many'.
+   * Default value: null
+   */
+  sortIndex?: number;
+  /**
    * Sets or gets whether the column's header action drop-down button is displayed. This button opens the column's menu.
-   * Default value: false
+   * Default value: true
    */
   showActionButton?: boolean;
   /**
@@ -1471,7 +1556,7 @@ export interface GridColumn {
    */
   width?: string | number;
   /**
-   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in values are: 'checkBox', 'url', 'email', 
+   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'radioButton', 'url', 'email', 'dropdownlist', 'list', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
    * Default value: 
    */
   template?: any;
@@ -2817,6 +2902,11 @@ export interface GridRow {
    */
   showDetail?: boolean;
   /**
+   * "Method which applies a style object to all cells. Expects a JSON object with the following allowed values: 'background', 'color', 'fontSize', 'fontFamily', 'fontWeight', 'fontStyle', 'textDecoration'
+   * Default value: undefined
+   */
+  setStyle?: {(value: any): void};
+  /**
    * Sets or gets whether the row is visible. Set the property to 'false' to hide the row.
    * Default value: true
    */
@@ -2949,6 +3039,11 @@ export interface GridCell {
    * Default value: "'center'"
    */
   verticalAlign?: string;
+  /**
+   * "Method which applies a cell style object. Expects a JSON object with the following possible values: 'background', 'color', 'fontSize', 'fontFamily', 'fontWeight', 'fontStyle', 'textDecoration'
+   * Default value: undefined
+   */
+  setStyle?: {(value: any): void};
 }
 
 /**Describes the selection settings. */
@@ -3003,6 +3098,11 @@ export interface GridSelection {
    * Default value: true
    */
   allowCellDragSelectionAutoFill?: boolean;
+  /**
+   * Sets or gets whether the default browser's text selection is enabled.
+   * Default value: false
+   */
+  defaultSelection?: boolean;
   /**
    * Sets or gets whether the selection allows you to select 'one', 'many' or a variation of 'many' called 'extended'. 'one' allows you to have only single cell or row selected. 'many' 
    * Default value: many
@@ -3066,7 +3166,7 @@ export interface GridSorting {
    */
   sort?: string[];
   /**
-   * Sets the count of allowed sorting columns.
+   * Sets the count of allowed sorting columns. When the property value is set to 'many', users can sort data by multiple columns.
    * Default value: one
    */
   mode?: GridSortingMode;
@@ -3116,7 +3216,7 @@ export declare type GridDataSourceSettingsDataFieldDataType = 'string' | 'date' 
 /**Sets or gets whether the data source type. */
 export declare type GridDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Determines the way editing is initiated. */
-export declare type GridEditingAction = 'none' | 'click' | 'dblClick';
+export declare type GridEditingAction = 'none' | 'click' | 'doubleClick';
 /**Sets the navigation buttons position. */
 export declare type LayoutPosition = 'near' | 'far' | 'both';
 /**Sets what is to be displayed in command column buttons. */
@@ -3143,5 +3243,5 @@ export declare type GridSelectionMode = 'one' | 'many' | 'extended';
 export declare type GridSelectionAction = 'none' | 'click' | 'doubleClick';
 /**Sets or gets whether the checkbox selection selects all rows in the current page or all rows. The 'none' setting disables the header checkbox. */
 export declare type GridSelectionCheckBoxesSelectAllMode = 'none' | 'page' | 'all';
-/**Sets the count of allowed sorting columns. */
+/**Sets the count of allowed sorting columns. When the property value is set to 'many', users can sort data by multiple columns. */
 export declare type GridSortingMode = 'one' | 'many';

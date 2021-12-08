@@ -12,6 +12,7 @@ smart-toast {
 }
 
 .smart-toast-container {
+
   &.smart-toast-container-top-left,
   &.smart-toast-container-top-right,
   &.smart-toast-container-bottom-left,
@@ -45,9 +46,7 @@ smart-toast {
     right: 0px;
   }
 
-  &.smart-toast-container-custom {
-    height: 100%;
-  }
+  &.smart-toast-container-custom {}
 
   &.smart-toast-container-modal {
     width: 100%;
@@ -270,7 +269,7 @@ smart-toast {
 
   //Right To Left
   &[right-to-left] {
-    > .smart-container {
+    >.smart-container {
       direction: rtl;
     }
   }

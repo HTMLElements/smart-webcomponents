@@ -25,11 +25,27 @@
 }
 
 @font-face {
-    font-family: smart-icons;
-    src: local("../font/smart-icons"), url("../font/smart-icons.woff2") format("woff2"), url("../font/smart-icons.woff") format("woff"), url("../font/smart-icons.ttf") format("truetype"), url("../font/smart-icons.eot") format("embedded-opentype");
+    font-family: 'smart-icons';
+    src: url("../font/smart-icons.woff2") format("woff2"), url("../font/smart-icons.woff") format("woff"), url("../font/smart-icons.ttf") format("truetype"), url("../font/smart-icons.eot") format("embedded-opentype");
     font-weight: normal;
     font-style: normal;
 }
+
+.smart-icons {
+    font-family: 'smart-icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
 
 .smart-arrow {
     width: 100%;
@@ -201,7 +217,8 @@ smart-table .smart-loader {
     height: calc(var(--smart-loader-size) + 10px);
 }
 
-smart-grid .smart-loader:before, smart-grid .smart-loader:after,
+smart-grid .smart-loader:before,
+smart-grid .smart-loader:after,
 smart-list-box .smart-loader:before,
 smart-list-box .smart-loader:after,
 smart-list-menu .smart-loader:before,
@@ -237,7 +254,8 @@ smart-table .smart-loader.smart-hidden {
     display: none;
 }
 
-smart-grid[loading-indicator-position="top"] .smart-loader, smart-grid[loading-indicator-position="bottom"] .smart-loader,
+smart-grid[loading-indicator-position="top"] .smart-loader,
+smart-grid[loading-indicator-position="bottom"] .smart-loader,
 smart-list-box[loading-indicator-position="top"] .smart-loader,
 smart-list-box[loading-indicator-position="bottom"] .smart-loader,
 smart-list-menu[loading-indicator-position="top"] .smart-loader,
@@ -251,7 +269,8 @@ smart-tree[loading-indicator-position="bottom"] .smart-loader {
     left: 20%;
 }
 
-smart-grid[loading-indicator-position="top"] .smart-loader-container, smart-grid[loading-indicator-position="bottom"] .smart-loader-container,
+smart-grid[loading-indicator-position="top"] .smart-loader-container,
+smart-grid[loading-indicator-position="bottom"] .smart-loader-container,
 smart-list-box[loading-indicator-position="top"] .smart-loader-container,
 smart-list-box[loading-indicator-position="bottom"] .smart-loader-container,
 smart-list-menu[loading-indicator-position="top"] .smart-loader-container,
@@ -269,7 +288,8 @@ smart-tree[loading-indicator-position="bottom"] .smart-loader-container {
     animation: smart-loader-container-pop-up-down 0.3s linear;
 }
 
-smart-grid[loading-indicator-position="top"] .smart-loader-container.smart-hidden, smart-grid[loading-indicator-position="bottom"] .smart-loader-container.smart-hidden,
+smart-grid[loading-indicator-position="top"] .smart-loader-container.smart-hidden,
+smart-grid[loading-indicator-position="bottom"] .smart-loader-container.smart-hidden,
 smart-list-box[loading-indicator-position="top"] .smart-loader-container.smart-hidden,
 smart-list-box[loading-indicator-position="bottom"] .smart-loader-container.smart-hidden,
 smart-list-menu[loading-indicator-position="top"] .smart-loader-container.smart-hidden,
@@ -281,7 +301,8 @@ smart-tree[loading-indicator-position="bottom"] .smart-loader-container.smart-hi
     display: none;
 }
 
-smart-grid[loading-indicator-position="top"] .smart-loader-label, smart-grid[loading-indicator-position="bottom"] .smart-loader-label,
+smart-grid[loading-indicator-position="top"] .smart-loader-label,
+smart-grid[loading-indicator-position="bottom"] .smart-loader-label,
 smart-list-box[loading-indicator-position="top"] .smart-loader-label,
 smart-list-box[loading-indicator-position="bottom"] .smart-loader-label,
 smart-list-menu[loading-indicator-position="top"] .smart-loader-label,
@@ -328,7 +349,8 @@ smart-tree[loading-indicator-position="center"] .smart-loader {
     height: calc(var(--smart-loader-size) + 10px);
 }
 
-smart-grid[disabled] .smart-loader:before, smart-grid[disabled] .smart-loader:after,
+smart-grid[disabled] .smart-loader:before,
+smart-grid[disabled] .smart-loader:after,
 smart-list-box[disabled] .smart-loader:before,
 smart-list-box[disabled] .smart-loader:after,
 smart-list-menu[disabled] .smart-loader:before,
@@ -342,15 +364,19 @@ smart-tree[disabled] .smart-loader:after {
     0% {
         top: 0;
     }
+
     20% {
         top: -2%;
     }
+
     35% {
         top: -6%;
     }
+
     60% {
         top: -8%;
     }
+
     100% {
         top: -10%;
     }
@@ -360,15 +386,19 @@ smart-tree[disabled] .smart-loader:after {
     0% {
         top: -10%;
     }
+
     20% {
         top: -8%;
     }
+
     35% {
         top: -6%;
     }
+
     60% {
         top: -2%;
     }
+
     100% {
         top: 0;
     }
@@ -384,15 +414,19 @@ smart-tree[disabled] .smart-loader:after {
     0% {
         border-top-color: #7A7A7A;
     }
+
     20% {
         border-top-color: #7A7A7A;
     }
+
     35% {
         border-top-color: transparent;
     }
+
     60% {
         border-top-color: #7A7A7A;
     }
+
     100% {
         border-top-color: #7A7A7A;
     }
@@ -420,6 +454,18 @@ smart-tree[disabled] .smart-loader:after {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.smart-flex-auto {
+    flex: 1 1 auto;
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+}
+
+.smart-flex {
+    display: flex;
+    align-items: center;
 }
 
 .smart-quiet {

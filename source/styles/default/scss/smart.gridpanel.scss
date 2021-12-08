@@ -289,6 +289,16 @@ smart-group-panel {
   }
 }
 
+.smart-kanban-column-panel {
+  .smart-grid-panel-item {
+
+    &::after,
+    &::before {
+      display: none !important;
+    }
+  }
+}
+
 .smart-group-panel {
   .smart-sortable-container {
     smart-column-panel {
@@ -858,7 +868,12 @@ smart-group-panel {
   grid-area: customize;
 
   &:after {
-    content: var(--smart-icon-settings);
+    content: var(--smart-icon-visibility-off);
+  }
+
+  &.hidden {
+    background-color: var(--smart-info);
+    color: var(--smart-info-color);
   }
 }
 
@@ -930,6 +945,30 @@ smart-group-panel {
   }
 }
 
+.smart-data-view-download-button {
+  grid-area: download;
+
+  &:after {
+    content: var(--smart-icon-arrow-down);
+    content: var(--smart-icon-arrow-down);
+    position: initial;
+    margin-left: 8px;
+  }
+
+  &:before {
+    content: var(--smart-icon-download-alt);
+    font-family: var(--smart-font-family-icon);
+    left: 8px;
+    content: var(--smart-icon-download-alt);
+    position: absolute;
+  }
+
+  &.formatted {
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+  }
+}
+
 .smart-grid-toolbar {
   .smart-data-view-header {
     height: 100%;
@@ -937,7 +976,7 @@ smart-group-panel {
   }
 
   .smart-data-view-header-button {
-    margin-right: 5px;
+    margin-right: 0px;
 
     &.smart-disabled {
       pointer-events: none;

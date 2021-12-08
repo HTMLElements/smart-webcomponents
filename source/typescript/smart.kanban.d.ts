@@ -67,6 +67,16 @@ export interface KanbanProperties {
    */
   columnActions?: boolean;
   /**
+   * Determines whether task count information is displayed in column headers.
+   * Default value: false
+   */
+  columnSummary?: boolean;
+  /**
+   * Determines whether a column header has a template. You can pass 'string', 'function' or HTMLTemplateElement as a value.
+   * Default value: null
+   */
+  columnHeaderTemplate?: any;
+  /**
    * Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options.
    * Default value: headerAndMenu
    */
@@ -83,9 +93,9 @@ export interface KanbanProperties {
   dataSource?: KanbanDataSource[];
   /**
    * Determines the the relation (mapping) between the Kanban's default fields (keywords) and the data fields from the data source. Not necessary if both match. Only some of the default mapping can be overwritten.
-   * Default value: { checklist: 'checklist', color: 'color', comments: 'comments', dueDate: 'dueDate', id: 'id', priority: 'priority', progress: 'progress', startDate: 'startDate', status: 'status', swimlane: 'swimlane', tags: 'tags', text: 'text', userId: 'userId' }
+   * Default value: { checklist: 'checklist', color: 'color', comments: 'comments', dueDate: 'dueDate', id: 'id', priority: 'priority', progress: 'progress', startDate: 'startDate', status: 'status', swimlane: 'swimlane', tags: 'tags', text: 'text', userId: 'userId'. createdUserId: 'createdUserId', createdDate: 'createdDate', updatedUserId: 'updatedUserId', updatedDate: 'updatedDate' }
    */
-  dataSourceMap?: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; };
+  dataSourceMap?: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; createdUserId: string; upDatedUserId: string; createdDate: Date; upDatedDate: Date;};
   /**
    * Determines the offset of the drag feedback element from the mouse cursor when dragging tasks. The first member of the array is the horizontal offset and the second one - the vertical offset. If set to 'auto', the offset is based on the mouse position when the dragging started.
    * Default value: auto
@@ -266,10 +276,10 @@ export interface Kanban extends BaseElement, KanbanProperties {
   onColumnReorder?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a column is updated.
-	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField, collapsed)
-   *  label - The column label.
-   *  dataField - The column data field.
-   *  collapsed - The column's collapsed state.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value, column)
+   *  oldValue - The column's old label.
+   *  value - The column's new label.
+   *  column - The column's data object with 'label', 'dataField' and 'collapsed' fields.
    */
   onColumnUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -419,11 +429,17 @@ export interface Kanban extends BaseElement, KanbanProperties {
   /**
    * Exports the Kanban's data.
    * @param {string} dataFormat. The file format to export to. Supported formats: 'csv', 'html', 'json', 'pdf', 'tsv', 'xlsx', 'xml'.
-   * @param {string} fileName?. The name of the file to export to
+   * @param {string} fileName. The name of the file to export to
    * @param {Function} callback?. A callback function to pass the exported data to (if fileName is not provided)
    * @returns {any}
    */
-  exportData(dataFormat: string, fileName?: string, callback?: Function): any;
+  exportData(dataFormat: string, fileName: string, callback?: Function): any;
+  /**
+   * Gets the data of a column. The returned value is a JSON object with the following fields: 'label', 'dataField', 'collapsed', 'collapsible', 'allowRemove', 'editable', 'reorder', 'orientation'.
+   * @param {string} dataField. The column's data field
+   * @returns {any}
+   */
+  getColumn(dataField: string): any;
   /**
    * Gets the Kanban's state.
    * @returns 
@@ -545,6 +561,11 @@ export interface KanbanColumn {
    * Default value: false
    */
   selected?: boolean;
+  /**
+   * Determines whether a column header has a template. You can pass 'string', 'function' or HTMLTemplateElement as a value.
+   * Default value: null
+   */
+  headerTemplate?: any;
 }
 
 export interface KanbanDataSource {

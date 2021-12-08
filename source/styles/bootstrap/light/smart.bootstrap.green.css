@@ -220,7 +220,8 @@ div[class^="smart-"]:not(.smart-alert) {
 }
 
 /* BUTTON */
-smart-button button.smart-button, smart-button a.smart-button,
+smart-button button.smart-button,
+smart-button a.smart-button,
 smart-toggle-button button.smart-button,
 smart-toggle-button a.smart-button,
 smart-repeat-button button.smart-button,
@@ -344,7 +345,9 @@ smart-toggle-button.link,
 smart-repeat-button.link {
   --smart-background: transparent;
   --smart-border: transparent;
-  --smart-border-rgb: 67, 160, 71;
+  --smart-border-rgb: 67,
+  160,
+  71;
   --smart-background-color: #43A047;
   --smart-ui-state-hover: transparent;
   --smart-ui-state-border-hover: transparent;
@@ -2048,7 +2051,6 @@ smart-carousel.slider .smart-arrow:hover {
   border-bottom-color: var(--smart-error) !important;
 }
 
-/* DROPDOWN LIST */
 /* MULTI SPLIT BUTTON */
 .smart-multi-split-button.primary {
   --smart-button-opacity-hover: 1;
@@ -2160,7 +2162,8 @@ smart-carousel.slider .smart-arrow:hover {
 }
 
 /* SORTABLE LIST */
-.smart-sortable ul, .smart-sortable ol {
+.smart-sortable ul,
+.smart-sortable ol {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -2168,22 +2171,26 @@ smart-carousel.slider .smart-arrow:hover {
   padding-left: 0;
   margin-bottom: 0;
 }
-.smart-sortable ul li, .smart-sortable ol li {
+.smart-sortable ul li,
+.smart-sortable ol li {
   position: relative;
   display: block;
   padding: .75rem 1.25rem;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
-.smart-sortable ul li:first-child, .smart-sortable ol li:first-child {
+.smart-sortable ul li:first-child,
+.smart-sortable ol li:first-child {
   border-top-left-radius: .25rem;
   border-top-right-radius: .25rem;
 }
-.smart-sortable ul li:last-child, .smart-sortable ol li:last-child {
+.smart-sortable ul li:last-child,
+.smart-sortable ol li:last-child {
   border-bottom-left-radius: .25rem;
   border-bottom-right-radius: .25rem;
 }
-.smart-sortable ul li + li, .smart-sortable ol li + li {
+.smart-sortable ul li + li,
+.smart-sortable ol li + li {
   border-top-width: 0;
 }
 
@@ -2281,6 +2288,12 @@ smart-carousel.slider .smart-arrow:hover {
 }
 .smart-grid .smart-grid-command-item > .smart-grid-icon {
   font-size: calc(var(--smart-font-size) + 2px);
+}
+.smart-grid .smart-tool-label {
+  margin-left: 5px;
+}
+.smart-grid .smart-data-view-header-button:after {
+  margin-top: 2px;
 }
 .smart-grid smart-grid-column {
   background: #ffffff;
@@ -3331,6 +3344,34 @@ body[theme="dark"] .smart-alert.smart-alert-dark {
 
 .smart-drop-down-box[drop-down-open-mode="dropDownButton"] .smart-action-button {
   padding-left: 0;
+}
+
+.smart-multi-column-filter-panel {
+  --smart-multi-column-filter-panel-template-columns: 15px 80px 3fr 3fr 3fr;
+}
+.smart-multi-column-filter-panel[close-button-position="right"] {
+  --smart-multi-column-filter-panel-template-columns: 80px 3fr 3fr 3fr 15px;
+}
+
+.smart-data-view-header-drop-down .smart-filter-panel-items-container {
+  overflow: hidden;
+  line-height: 1.5;
+}
+.smart-data-view-header-drop-down .smart-formatting-panel .smart-add-new-button {
+  box-shadow: var(--smart-elevation-4);
+}
+.smart-data-view-header-drop-down .smart-formatting-panel .smart-add-new-button:hover {
+  box-shadow: var(--smart-elevation-8);
+}
+.smart-data-view-header-drop-down .smart-formatting-panel .smart-add-new-button:after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  content: var(--smart-icon-plus);
+  font-family: var(--smart-font-family-icon);
+  font-size: var(--smart-font-size);
 }
 
 /*# sourceMappingURL=smart.bootstrap.green.css.map */

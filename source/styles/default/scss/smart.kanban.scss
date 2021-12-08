@@ -1235,6 +1235,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-column-gap: var(--smart-data-view-padding);
+
+    &.single-column {
+      grid-template-columns: 1fr;
+    }
   }
 
   .editor {
@@ -1242,7 +1246,7 @@
     margin-bottom: var(--smart-data-view-padding);
   }
 
-  .text-editor {
+  .description-editor {
     min-height: 75px;
     resize: none;
     border: var(--smart-border-width) solid var(--smart-border);
@@ -1261,7 +1265,7 @@
 
     &:focus {
       outline: none;
-      border-color: var(--smart-outline);
+      border-color: var(--smart-primary);
     }
   }
 

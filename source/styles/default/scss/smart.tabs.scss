@@ -16,7 +16,7 @@ smart-tabs {
 }
 
 smart-tab-item {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -43,6 +43,8 @@ smart-tab-item {
   }
 
   &.smart-visibility-hidden {
+    position: absolute;
+
     >.smart-container {
       .smart-widget * {
         visibility: hidden;
@@ -76,6 +78,7 @@ smart-tab-items-group {
     -webkit-flex-direction: column;
     flex-direction: column;
     position: relative;
+    min-height: inherit;
   }
 
   .smart-tabs-header-section {
@@ -202,6 +205,16 @@ smart-tab-items-group {
     border-top-right-radius: var(--smart-item-border-top-right-radius);
     border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
     border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+
+    &[disabled] {
+      opacity: 0.55;
+      cursor: default;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
 
     &[selected] {
       color: var(--smart-ui-state-color-selected);

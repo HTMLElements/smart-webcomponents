@@ -1741,7 +1741,7 @@ window.addEventListener('load', function() {
 		'https://www.htmlelements.com/demos/styles/demos.css'
 	];
 	let js_external = [
-		'https://www.htmlelements.com/demos/scripts/data.js',
+		'https://www.htmlelements.com/demos/common/data.js',
 		'https://www.htmlelements.com/demos/source/smart.elements.js'
 	];
 		
@@ -1749,10 +1749,10 @@ window.addEventListener('load', function() {
 	const href = demoFrame.src.replace('index.htm', '');
 	
 	if (href.indexOf('export') >= 0 || href.indexOf('data-import') >= 0 || href.indexOf('print') >= 0) {
-		js_external.push('https://www.htmlelements.com/demos/scripts/jszip.min.js');
-		js_external.push('https://www.htmlelements.com/demos/scripts/pdfmake.min.js');
-		js_external.push('https://www.htmlelements.com/demos/scripts/vfs_fonts.js');		
-		js_external.push('https://www.htmlelements.com/demos/scripts/html2canvas.min.js');			
+		js_external.push('https://www.htmlelements.com/demos/common/jszip.min.js');
+		js_external.push('https://www.htmlelements.com/demos/common/pdfmake.min.js');
+		js_external.push('https://www.htmlelements.com/demos/common/vfs_fonts.js');		
+		js_external.push('https://www.htmlelements.com/demos/common/html2canvas.min.js');			
 	}	
 	let title = document.title;
 

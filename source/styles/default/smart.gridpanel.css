@@ -276,6 +276,10 @@ smart-group-panel {
   --smart-multi-column-filter-panel-template-columns: 60px 2fr 3fr 3fr 15px;
 }
 
+.smart-kanban-column-panel .smart-grid-panel-item::after, .smart-kanban-column-panel .smart-grid-panel-item::before {
+  display: none !important;
+}
+
 .smart-group-panel .smart-sortable-container smart-column-panel smart-sortable {
   margin-bottom: var(--smart-grid-panel-padding);
 }
@@ -724,7 +728,11 @@ smart-group-panel {
   grid-area: customize;
 }
 .smart-data-view-customize-button:after {
-  content: var(--smart-icon-settings);
+  content: var(--smart-icon-visibility-off);
+}
+.smart-data-view-customize-button.hidden {
+  background-color: var(--smart-info);
+  color: var(--smart-info-color);
 }
 
 .smart-data-view-delete-button {
@@ -785,12 +793,33 @@ smart-group-panel {
   color: var(--smart-primary-color);
 }
 
+.smart-data-view-download-button {
+  grid-area: download;
+}
+.smart-data-view-download-button:after {
+  content: var(--smart-icon-arrow-down);
+  content: var(--smart-icon-arrow-down);
+  position: initial;
+  margin-left: 8px;
+}
+.smart-data-view-download-button:before {
+  content: var(--smart-icon-download-alt);
+  font-family: var(--smart-font-family-icon);
+  left: 8px;
+  content: var(--smart-icon-download-alt);
+  position: absolute;
+}
+.smart-data-view-download-button.formatted {
+  background-color: var(--smart-primary);
+  color: var(--smart-primary-color);
+}
+
 .smart-grid-toolbar .smart-data-view-header {
   height: 100%;
   display: flex;
 }
 .smart-grid-toolbar .smart-data-view-header-button {
-  margin-right: 5px;
+  margin-right: 0px;
 }
 .smart-grid-toolbar .smart-data-view-header-button.smart-disabled {
   pointer-events: none;

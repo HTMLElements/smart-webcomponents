@@ -45,6 +45,7 @@ smart-time-input {
 
     &.smart-valid {
       &[focus] {
+
         .smart-input,
         .smart-drop-down-button {
           border-color: var(--smart-primary);
@@ -57,12 +58,14 @@ smart-time-input {
     }
 
     &.smart-invalid {
+
       .smart-input,
       .smart-drop-down-button {
         border-color: #{'rgba(var(--smart-error-rgb), 0.5)'};
       }
 
       &[focus] {
+
         .smart-input,
         .smart-drop-down-button {
           border-color: var(--smart-error);
@@ -82,14 +85,13 @@ smart-time-input {
       }
 
       .smart-drop-down-button {
-        padding: 0;
+        padding: 0 !important;
         //border-top: 1px solid var(--smart-border);
       }
 
       .smart-action-button {
         border-right: none;
         border-top: 1px solid var(--smart-border);
-
         padding: 12px 13px 12px;
         z-index: 5;
         background: var(--smart-background);
@@ -193,6 +195,7 @@ smart-time-input {
       }
 
       .smart-hint {
+
         &:before,
         &:after {
           content: "";
@@ -273,8 +276,8 @@ smart-time-input {
           border-top-color: var(--smart-border);
         }
 
-        > input:not(:focus),
-        > textarea:not(:focus) {
+        >input:not(:focus),
+        >textarea:not(:focus) {
           &:placeholder-shown {
             border-color: var(--smart-border);
           }
@@ -292,6 +295,7 @@ smart-time-input {
 
     //Placeholder-shown
     &:not([focus]) {
+
       .smart-input:not(:focus):placeholder-shown,
       .smart-input {
         border-top: 1px solid var(--smart-border);
@@ -299,6 +303,7 @@ smart-time-input {
       }
 
       &.smart-invalid {
+
         .smart-input:not(:focus):placeholder-shown,
         .smart-input {
           border-top: #{'1px solid rgba(var(--smart-error-rgb), 0.5)'};
@@ -308,7 +313,7 @@ smart-time-input {
     }
 
     &:not([focus]):not([value]).smart-multi-combo-input[hint] .smart-hint,
-    &[hint] .smart-input:not(:focus):placeholder-shown + .smart-hint,
+    &[hint] .smart-input:not(:focus):placeholder-shown+.smart-hint,
     &[hint]:not([focus]) .smart-hint {
       font-size: var(--smart-font-size);
       line-height: 60px;
@@ -354,7 +359,8 @@ smart-time-input {
 
   &.smart-text-area {
     &[hint] {
-      .smart-input:not(:focus):placeholder-shown + .smart-hint,
+
+      .smart-input:not(:focus):placeholder-shown+.smart-hint,
       &:not([focus]) .smart-hint {
         font-size: var(--smart-font-size);
         line-height: var(--smart-editor-height);

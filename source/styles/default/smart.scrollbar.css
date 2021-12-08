@@ -72,30 +72,47 @@ smart-scroll-bar[spinner][show-buttons] .smart-track {
 smart-scroll-bar[spinner][show-buttons] .smart-scroll-button {
   width: 50%;
 }
-smart-scroll-bar[orientation=vertical] {
+smart-scroll-bar[discrete] {
+  --smart-scroll-button-size: 0px;
+  --smart-scroll-bar-size: 15px;
+  --smart-scroll-bar-thumb-border-top-right-radius: 6px;
+  --smart-scroll-bar-thumb-border-top-left-radius: 6px;
+  --smart-scroll-bar-thumb-border-bottom-left-radius: 6px;
+  --smart-scroll-bar-thumb-border-bottom-right-radius: 6px;
+  --smart-scroll-bar-thumb-size: 100%;
+  --smart-scroll-bar-thumb-padding: 3px;
+  --smart-scroll-bar-default-width: var(--smart-editor-width);
+  --smart-scroll-bar-default-height: var(--smart-scroll-bar-size);
+  --smart-scroll-bar-background: #fafafa;
+  --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
+  --smart-scroll-bar-border: #F1F1F1;
+  --smart-scroll-bar-thumb-background: #C1C1C1;
+  --smart-scroll-bar-thumb-border: transparent;
+}
+smart-scroll-bar[orientation="vertical"] {
   height: var(--smart-scroll-bar-default-width);
   width: var(--smart-scroll-bar-default-height);
 }
-smart-scroll-bar[orientation=vertical] .smart-thumb {
+smart-scroll-bar[orientation="vertical"] .smart-thumb {
   width: var(--smart-scroll-bar-thumb-size);
   padding: 0 var(--smart-scroll-bar-thumb-padding) 0 var(--smart-scroll-bar-thumb-padding);
   height: 40px;
   top: 0;
 }
-smart-scroll-bar[orientation=vertical] .smart-track {
+smart-scroll-bar[orientation="vertical"] .smart-track {
   float: none;
   width: 100%;
   height: 100%;
 }
-smart-scroll-bar[orientation=vertical] .smart-scroll-button {
+smart-scroll-bar[orientation="vertical"] .smart-scroll-button {
   float: none;
   height: var(--smart-scroll-button-size);
   width: 100%;
 }
-smart-scroll-bar[orientation=vertical][show-buttons] .smart-track {
+smart-scroll-bar[orientation="vertical"][show-buttons] .smart-track {
   height: calc(calc(100% - var(--smart-scroll-button-size) * 2));
 }
-smart-scroll-bar[orientation=vertical][spinner] .smart-scroll-button {
+smart-scroll-bar[orientation="vertical"][spinner] .smart-scroll-button {
   height: 50%;
   width: 100%;
   float: none;

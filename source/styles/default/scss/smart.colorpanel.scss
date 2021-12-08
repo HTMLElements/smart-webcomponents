@@ -53,6 +53,7 @@ smart-color-panel {
 
   input[type=number] {
     -moz-appearance: textfield;
+    -webkit-appearance: textfied;
   }
 
   .color-input {
@@ -103,7 +104,8 @@ smart-color-panel {
     display: block;
     max-width: 100px;
     height: var(--smart-color-panel-palette-size);
-    background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000); /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
+    background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+    /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
     width: 20px;
     margin-left: 15px;
     margin-right: 15px;
@@ -111,6 +113,7 @@ smart-color-panel {
     padding: 1px;
     border: var(--smart-border-width) solid var(--smart-border);
     background-clip: content-box;
+    -webkit-background-clip: content-box;
   }
 
   .hue-scale-thumb {
@@ -160,6 +163,7 @@ smart-color-panel {
     padding: 1px;
     border: 1px solid lightgray;
     background-clip: content-box;
+    -webkit-background-clip: content-box;
 
     &:before,
     &:after {
@@ -197,7 +201,8 @@ smart-color-panel {
 
   .preview-container {
     width: 100%;
-    min-width: 100px; /* or use variable thet defines the default width of the column*/
+    min-width: 100px;
+    /* or use variable thet defines the default width of the column*/
     height: 100px;
     background-color: white;
     margin-bottom: 20px;
@@ -205,6 +210,7 @@ smart-color-panel {
     padding: 1px;
     border: var(--smart-border-width) solid var(--smart-border);
     background-clip: content-box;
+    -webkit-background-clip: content-box;
   }
 
   .preview-container-top,
@@ -323,12 +329,14 @@ smart-color-panel {
     cursor: pointer;
     border: var(--smart-border-width) solid rgba(0, 0, 0, 0.1);
     background-clip: content-box;
+    -webkit-background-clip: content-box;
     text-overflow: ellipsis;
 
     &.user-color {
       position: relative;
       background-clip: padding-box;
-
+      -webkit-background-clip: padding-box;
+  
       &:before {
         position: absolute;
         content: '';
@@ -371,8 +379,10 @@ smart-color-panel {
 
     &.color-sample-column,
     &.color-sample-row {
-      width: 16px; /*to be calculated dinamically*/
-      height: 16px; /*to be calculated dinamically*/
+      width: 16px;
+      /*to be calculated dinamically*/
+      height: 16px;
+      /*to be calculated dinamically*/
       border: 2px solid rgba(0, 0, 0, 0.2);
       padding: 1px;
       background: repeating-linear-gradient(-55deg, #fff, #fff 10px, #eee 10px, #eee 20px);
@@ -439,6 +449,7 @@ smart-color-panel {
   }
 
   &[enable-custom-colors] {
+
     .button-custom-color,
     .user-samples-container {
       width: 100%;
@@ -465,7 +476,8 @@ smart-color-panel {
       display: block;
       max-width: 100px;
       height: var(--smart-color-panel-palette-size);
-      background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000); /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
+      background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+      /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
       width: 20px;
       margin-left: 15px;
       margin-right: 15px;
@@ -473,6 +485,7 @@ smart-color-panel {
       padding: 1px;
       border: var(--smart-border-width) solid var(--smart-border);
       background-clip: content-box;
+      -webkit-background-clip: content-box;
     }
 
     .brightness-scale-thumb {
@@ -511,10 +524,11 @@ smart-color-panel {
       height: var(--smart-color-panel-palette-height);
     }
 
-    .palette-mode-container{
+    .palette-mode-container {
       display: block;
     }
-    .color-palette-hexagonal{
+
+    .color-palette-hexagonal {
       display: block;
     }
   }
@@ -538,7 +552,8 @@ smart-color-panel {
       padding: 1px;
       border: 1px solid lightgray;
       background-clip: content-box;
-
+      -webkit-background-clip: content-box;
+  
       background: conic-gradient(from 90deg, red, yellow, lime, aqua, blue, magenta, red) rgb(255, 0, 90);
       border-radius: 50%;
 
@@ -591,7 +606,7 @@ smart-color-panel {
       background-image: radial-gradient(circle, white, transparent);
     }
 
-    .palette-mode-container{
+    .palette-mode-container {
       display: block;
     }
 
@@ -626,9 +641,10 @@ smart-color-panel {
   }
 
   &[display-mode="palette"] {
-    .palette-mode-container{
+    .palette-mode-container {
       display: block;
     }
+
     .color-palette {
       display: block;
     }
@@ -650,6 +666,7 @@ smart-color-panel {
 
   //Right To Left
   &[right-to-left] {
+
     .grid-mode-container,
     .color-palette-container,
     .alpha-channel-container {
@@ -673,7 +690,9 @@ smart-color-panel {
     }
   }
 }
+
 .smart-color-panel {
+
   .palette-mode-container,
   .spectrum-grid-samples-container,
   .color-palette-hexagonal,
@@ -684,6 +703,7 @@ smart-color-panel {
   }
 
   &[display-mode="default"] {
+
     .grid-samples-container,
     .palette-mode-container,
     .material-grid-samples-container {
@@ -692,6 +712,7 @@ smart-color-panel {
   }
 
   &[display-mode="grid"] {
+
     .palette-mode-container,
     .material-grid-samples-container,
     .default-samples-container {
@@ -700,6 +721,7 @@ smart-color-panel {
   }
 
   &[display-mode="spectrumGrid"] {
+
     .palette-mode-container,
     .grid-samples-container,
     .material-grid-samples-container,
@@ -709,6 +731,7 @@ smart-color-panel {
   }
 
   &[display-mode="materialGrid"] {
+
     .palette-mode-container,
     .grid-samples-container,
     .default-samples-container {
@@ -717,6 +740,7 @@ smart-color-panel {
   }
 
   &[display-mode="hexagonal"] {
+
     .grid-samples-container,
     .spectrum-grid-samples-container,
     .color-palette,
@@ -727,6 +751,7 @@ smart-color-panel {
   }
 
   &[display-mode="palette"] {
+
     .color-palette-radial,
     .grid-mode-container {
       display: none;
@@ -734,6 +759,7 @@ smart-color-panel {
   }
 
   &[display-mode="radial"] {
+
     .color-palette,
     .grid-mode-container {
       display: none;
@@ -741,6 +767,7 @@ smart-color-panel {
   }
 
   &[enable-custom-colors][display-mode="hexagonal"] {
+
     .button-custom-color,
     .user-samples-container {
       display: none;
@@ -760,6 +787,7 @@ smart-color-panel {
   }
 
   &[hide-r-g-b-editor] {
+
     .r-channel,
     .g-channel,
     .b-channel {

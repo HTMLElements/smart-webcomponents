@@ -92,7 +92,7 @@ textarea {
 
   .smart-scroll-viewer-content-container,
   .smart-scroll-viewer-container,
-  > .smart-container {
+  >.smart-container {
     /*min-width: 150px;*/
     width: var(--smart-input-drop-down-menu-width);
     max-height: calc(var(--smart-input-drop-down-menu-height) - 6px);
@@ -188,7 +188,7 @@ textarea {
   }
 
   .smart-scroll-viewer-container,
-  > .smart-container {
+  >.smart-container {
     /*min-width: 150px;*/
     width: var(--smart-input-drop-down-menu-width);
     max-height: calc(var(--smart-input-drop-down-menu-height) - 6px);
@@ -229,6 +229,7 @@ textarea {
 @import 'textbox/_check-input';
 @import 'textbox/_color-input';
 @import 'textbox/_date-input';
+@import 'textbox/_phone-input';
 
 @import 'textbox/_underlined';
 @import 'textbox/_outlined';
@@ -237,6 +238,7 @@ textarea {
 @media not all and (min-resolution: .001dpcm) {
   @supports (-webkit-appearance: none) {
     .smart-input {
+
       .smart-input,
       .smart-hint,
       .smart-hint::after {

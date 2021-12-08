@@ -6,4 +6,10 @@ smart-color-input {
   height: var(--smart-text-box-default-height);
   overflow: visible;
   background: var(--smart-background);
+
+  &[value-display-mode="colorBox"] {
+    .smart-action-button {
+      cursor: pointer;
+    }
+  }
 }

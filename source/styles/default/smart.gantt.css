@@ -1,0 +1,294 @@
+smart-gantt {
+  height: var(--smart-grid-default-height);
+  --smart-table-row-detail-height: 200px;
+  --smart-gantt-row-detail-height: var(--smart-table-row-detail-height);
+  --smart-gantt-timeline-nav-button: var(--smart-scheduler-header-navigation-button-size);
+  --smart-gantt-timeline-padding: 10px;
+  --smart-gantt-ticket-progress-color: green;
+  --smart-gantt-ticket-progress-thumb-icon: '';
+  --smart-gantt-ticket-progress-thumb-icon-size: var(--smart-font-size);
+  --smart-gantt-ticket-progress-thumb-size: 15px;
+  --smart-gantt-ticket-progress-thumb-padding: 2px;
+}
+
+.smart-gantt thead th {
+  height: 100%;
+}
+
+.smart-gantt tbody td[data-field="timeline"] {
+  padding-top: initial;
+  padding-bottom: initial;
+}
+
+.smart-gantt tbody tr.smart-table-row-detail .smart-table-detail-container {
+  padding: initial;
+}
+
+.smart-gantt tbody tr.smart-table-row-detail > td {
+  border-top-width: var(--smart-border-width);
+  border-top-style: solid;
+  border-top-color: var(--smart-border);
+}
+
+.smart-gantt .smart-table-detail-col {
+  width: calc(var(--smart-check-box-default-size) * 3);
+}
+
+.smart-gantt .detail-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: var(--smart-border-width) solid var(--smart-secondary);
+  width: var(--smart-check-box-default-size);
+  height: var(--smart-check-box-default-size);
+  padding: 2px;
+  color: var(--smart-primary-color);
+  font-family: var(--smart-font-family-icon);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.smart-gantt .detail-checkbox::before {
+  content: '+';
+  color: var(--smart-secondary);
+  transform-origin: center;
+  box-sizing: border-box;
+}
+
+.smart-gantt .detail-checkbox[aria-checked="true"]::before {
+  content: '-';
+}
+
+.smart-gantt .smart-gantt-timeline-column {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-container {
+  width: calc(100% - calc(2 * var(--smart-gantt-timeline-nav-button)));
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0 var(--smart-gantt-timeline-padding);
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-cell {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: inherit;
+  color: inherit;
+  height: 100%;
+  min-height: inherit;
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-cell::after {
+  content: attr(hour);
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-button[prev], .smart-gantt .smart-gantt-timeline-column .smart-timeline-button[next] {
+  width: var(--smart-gantt-timeline-nav-button);
+  min-width: var(--smart-gantt-timeline-nav-button);
+  height: 100%;
+  position: relative;
+  font-size: initial;
+  display: inline-block;
+  font-weight: inherit;
+  font-family: var(--smart-font-family-icon);
+  text-transform: initial;
+  border-radius: 50%;
+  border: initial;
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-button[prev]:after, .smart-gantt .smart-gantt-timeline-column .smart-timeline-button[next]:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--smart-font-family-icon);
+  font-size: var(--smart-arrow-size);
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-button[prev][focus] button, .smart-gantt .smart-gantt-timeline-column .smart-timeline-button[prev][focus] button, .smart-gantt .smart-gantt-timeline-column .smart-timeline-button[next][focus] button, .smart-gantt .smart-gantt-timeline-column .smart-timeline-button[next][focus] button {
+  background-color: var(--smart-background-focus);
+  outline: none;
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-button[prev] .smart-button, .smart-gantt .smart-gantt-timeline-column .smart-timeline-button[next] .smart-button {
+  font-family: var(--smart-font-family-icon);
+  padding: 0px;
+  border-radius: 0px;
+  border: none;
+  min-height: initial;
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-button[prev]:after {
+  content: var(--smart-icon-arrow-left);
+}
+
+.smart-gantt .smart-gantt-timeline-column .smart-timeline-button[next]:after {
+  content: var(--smart-icon-arrow-right);
+}
+
+.smart-gantt .smart-table-detail-container {
+  display: flex;
+}
+
+.smart-gantt .smart-gantt-tickets {
+  overflow: hidden;
+  border-left: var(--smart-border-width) solid var(--smart-border);
+  border-right: var(--smart-border-width) solid var(--smart-border);
+  padding: 5px var(--smart-gantt-timeline-padding);
+  width: calc(100% - calc(2 * var(--smart-gantt-timeline-nav-button)));
+  height: 100%;
+  margin-left: var(--smart-gantt-timeline-nav-button);
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: var(--smart-gantt-timeline-width);
+  height: 100%;
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket-container::before {
+  content: '';
+  position: absolute;
+  left: var(--smart-gantt-ticket-drop-zone-left);
+  width: calc(var(--smart-gantt-ticket-drop-zone-width) - var(--smart-gantt-timeline-padding));
+  height: 100%;
+  background: rgba(var(--smart-success-rgb), 0.15);
+  border: var(--smart-border-width) dashed var(--smart-success);
+  border-radius: 5px;
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket {
+  position: absolute;
+  height: 100%;
+  border: var(--smart-border-width) solid var(--smart-border);
+  border-radius: 5px;
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket[completed] {
+  opacity: 0.65;
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket[active] {
+  box-shadow: 0 0 4px 0px inset var(--smart-gantt-ticket-progress-color);
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket[active][progress] .smart-gantt-ticket-progress-thumb::after {
+  content: var(--smart-gantt-ticket-progress-thumb-icon);
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket .smart-gantt-ticket-content {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket .smart-gantt-ticket-progress-thumb {
+  position: absolute;
+  height: calc(100% - var(--smart-border-width));
+  width: 1px;
+  transform-origin: left bottom;
+  background: var(--smart-gantt-ticket-progress-color);
+}
+
+.smart-gantt .smart-gantt-tickets .smart-gantt-ticket .smart-gantt-ticket-progress-thumb::after {
+  position: absolute;
+  font-family: var(--smart-font-family-icon);
+  font-size: var(--smart-gantt-ticket-progress-thumb-icon-size);
+  background: var(--smart-background);
+  border: var(--smart-border-width) solid var(--smart-gantt-ticket-progress-color);
+  border-radius: 50%;
+  width: var(--smart-gantt-ticket-progress-thumb-size);
+  height: var(--smart-gantt-ticket-progress-thumb-size);
+  padding: var(--smart-gantt-ticket-progress-thumb-padding);
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -40%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.smart-gantt .smart-gantt-row-detail-table {
+  --smart-table-row-height: 30px;
+  --smart-table-cell-padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.smart-gantt .smart-gantt-row-detail-table > .smart-container {
+  border: initial;
+}
+
+.smart-gantt .smart-gantt-row-detail-table thead tr {
+  height: 0;
+}
+
+.smart-gantt .smart-gantt-row-detail-table thead tr th[data-field="options"] {
+  width: calc(var(--smart-check-box-default-size) * 3);
+}
+
+.smart-gantt .smart-gantt-row-detail-table[freeze-header] thead th {
+  padding: initial;
+  line-height: initial;
+  box-shadow: initial;
+  z-index: initial;
+}
+
+.smart-gantt .smart-gantt-row-detail-table tbody tr:first-of-type td {
+  border-top: initial;
+  border-bottom: initial;
+}
+
+.smart-gantt .smart-gantt-row-detail-table tbody tr[unused] + tr td {
+  border-top: initial;
+  border-bottom: initial;
+}
+
+.smart-gantt .smart-gantt-row-detail-table tbody tr td[data-field="options"] {
+  position: relative;
+}
+
+.smart-gantt .smart-gantt-row-detail-table tbody tr td[data-field="options"]::after {
+  content: var(--smart-icon-more-horiz);
+  font-family: var(--smart-font-family-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  height: 100%;
+}
+
+/*# sourceMappingURL=smart.gantt.css.map */

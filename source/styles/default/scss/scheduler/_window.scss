@@ -108,10 +108,10 @@
   .smart-content-container {
     > .smart-footer {
       display: flex;
-      grid-column-gap: 2%;
-      justify-content: center;
-      align-items: center;
-      grid-template-areas: "buttonOk buttonCancel";
+      // grid-column-gap: 2%;
+      // justify-content: center;
+      // align-items: center;
+      // grid-template-areas: "buttonOk buttonCancel";
 
       //Safari specific. There's an issue with align-items when display: grid
       @media not all and (min-resolution: .001dpcm) {
@@ -122,6 +122,10 @@
         width: 100%;
         height: 100%;
         --smart-button-padding: 0.2rem 16px;
+
+        &:not(:first-of-type) {
+          margin-inline-start: 2%;
+        }
       }
 
       .smart-icon {
@@ -136,8 +140,6 @@
 
   .smart-scheduler-window-button {
     &.ok {
-      grid-area: buttonOk;
-
       .smart-icon::after {
         content: var(--smart-icon-check);
       }
@@ -152,8 +154,6 @@
     }
 
     &.delete {
-      grid-area: buttonDelete;
-
       .smart-icon::after {
         content: var(--smart-icon-delete);
       }

@@ -1,635 +1,555 @@
 /* smart-color-panel */
 smart-color-panel {
-    width: var(--smart-color-panel-default-width);
-    height: var(--smart-color-panel-default-height);
-    user-select: none;
+  width: var(--smart-color-panel-default-width);
+  height: var(--smart-color-panel-default-height);
+  user-select: none;
 }
-
 smart-color-panel .no-touch {
-    touch-action: none;
+  touch-action: none;
 }
-
 smart-color-panel.smart-element {
-    display: inline-block;
-    overflow: initial;
-    border: none;
-    background: var(--smart-background);
-    color: var(--smart-background-color);
+  display: inline-block;
+  overflow: initial;
+  border: none;
+  background: var(--smart-background);
+  color: var(--smart-background-color);
 }
-
 smart-color-panel[disabled] {
-    opacity: 0.55;
-    pointer-events: none;
-    user-select: none;
+  opacity: 0.55;
+  pointer-events: none;
+  user-select: none;
 }
 
 .smart-color-panel .smart-content {
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
-
 .smart-color-panel label {
-    /*min-width: 16px;*/
-    display: inline-block;
-    user-select: none;
+  /*min-width: 16px;*/
+  display: inline-block;
+  user-select: none;
 }
-
 .smart-color-panel smart-tooltip .smart-tooltip-content {
-    box-shadow: 0px 0px 20px 0px #8b8b8b;
+  box-shadow: 0px 0px 20px 0px #8b8b8b;
 }
-
 .smart-color-panel input[type=number]::-webkit-inner-spin-button,
 .smart-color-panel input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
-
 .smart-color-panel input[type=number] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfied;
 }
-
 .smart-color-panel .color-input {
-    width: 70px;
-    height: var(--smart-editor-height);
-    margin: 5px;
-    padding: 5px;
-    border: var(--smart-border-width) solid var(--smart-border);
-    border-radius: var(--smart-border-radius);
-    background: var(--smart-background);
-    color: var(--smart-color);
-    outline: none;
+  width: 70px;
+  height: var(--smart-editor-height);
+  margin: 5px;
+  padding: 5px;
+  border: var(--smart-border-width) solid var(--smart-border);
+  border-radius: var(--smart-border-radius);
+  background: var(--smart-background);
+  color: var(--smart-color);
+  outline: none;
 }
-
 .smart-color-panel .color-input:focus {
-    border-color: var(--smart-outline);
+  border-color: var(--smart-outline);
 }
-
 .smart-color-panel .color-input::selection {
-    background: var(--smart-editor-selection);
-    color: var(--smart-editor-selection-color);
+  background: var(--smart-editor-selection);
+  color: var(--smart-editor-selection-color);
 }
-
 .smart-color-panel .grid-mode-container,
 .smart-color-panel .palette-mode-container {
-    width: 100%;
-    max-height: 100%;
-    position: relative;
+  width: 100%;
+  max-height: 100%;
+  position: relative;
 }
-
 .smart-color-panel .custom-color-selection .buttons-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-
 .smart-color-panel .gray-shades-box,
 .smart-color-panel .spectrum-box,
 .smart-color-panel .custom-colors-box,
 .smart-color-panel .grid-samples-container {
-    display: grid;
-    grid-template-columns: repeat(var(--smart-color-panel-grid-mode-column-count), auto);
+  display: grid;
+  grid-template-columns: repeat(var(--smart-color-panel-grid-mode-column-count), auto);
 }
-
 .smart-color-panel .hue-scale {
-    display: block;
-    max-width: 100px;
-    height: var(--smart-color-panel-palette-size);
-    background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
-    /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
-    width: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
-    position: relative;
-    padding: 1px;
-    border: var(--smart-border-width) solid var(--smart-border);
-    background-clip: content-box;
+  display: block;
+  max-width: 100px;
+  height: var(--smart-color-panel-palette-size);
+  background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+  /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
+  width: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  position: relative;
+  padding: 1px;
+  border: var(--smart-border-width) solid var(--smart-border);
+  background-clip: content-box;
+  -webkit-background-clip: content-box;
 }
-
 .smart-color-panel .hue-scale-thumb {
-    width: 100%;
-    height: 10px;
-    box-sizing: content-box;
-    border: 3px solid white;
-    border-left-width: 10px;
-    border-right-width: 10px;
-    position: absolute;
-    left: -10px;
-    top: -3px;
-    box-shadow: 0px 0px 5px #666, inset 0px 0px 2px 0px #999, inset 0px 0px 2px 0px #999;
-    opacity: 0.8;
-    cursor: pointer;
+  width: 100%;
+  height: 10px;
+  box-sizing: content-box;
+  border: 3px solid white;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  position: absolute;
+  left: -10px;
+  top: -3px;
+  box-shadow: 0px 0px 5px #666, inset 0px 0px 2px 0px #999, inset 0px 0px 2px 0px #999;
+  opacity: 0.8;
+  cursor: pointer;
 }
-
 .smart-color-panel .color-palette-thumb {
-    width: 0px;
-    height: 0px;
-    top: 0px;
-    position: absolute;
-    z-index: 10;
-    pointer-events: none;
+  width: 0px;
+  height: 0px;
+  top: 0px;
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
 }
-
 .smart-color-panel .color-palette-thumb:after {
-    content: " ";
-    position: absolute;
-    left: -14px;
-    top: -14px;
-    width: 16px;
-    height: 16px;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: var(--smart-elevation-2);
+  content: " ";
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 16px;
+  height: 16px;
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: var(--smart-elevation-2);
 }
-
 .smart-color-panel .color-palette {
-    width: var(--smart-color-panel-palette-size);
-    height: var(--smart-color-panel-palette-size);
-    background-color: red;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    cursor: crosshair;
-    padding: 1px;
-    border: 1px solid lightgray;
-    background-clip: content-box;
+  width: var(--smart-color-panel-palette-size);
+  height: var(--smart-color-panel-palette-size);
+  background-color: red;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+  padding: 1px;
+  border: 1px solid lightgray;
+  background-clip: content-box;
+  -webkit-background-clip: content-box;
 }
-
 .smart-color-panel .color-palette:before, .smart-color-panel .color-palette:after {
-    width: 100%;
-    height: 100%;
-    content: " ";
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 0;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
 }
-
 .smart-color-panel .color-palette:before {
-    background-image: linear-gradient(90deg, white, transparent);
+  background-image: linear-gradient(90deg, white, transparent);
 }
-
 .smart-color-panel .color-palette:after {
-    background-image: linear-gradient(transparent, black);
+  background-image: linear-gradient(transparent, black);
 }
-
 .smart-color-panel .color-controls-container {
-    display: block;
-    max-width: 100px;
-    overflow: hidden;
+  display: block;
+  max-width: 100px;
+  overflow: hidden;
 }
-
 .smart-color-panel .color-palette-container {
-    width: 100%;
-    height: var(--smart-color-panel-palette-size);
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  height: var(--smart-color-panel-palette-size);
+  display: flex;
+  flex-direction: row;
 }
-
 .smart-color-panel .preview-container {
-    width: 100%;
-    min-width: 100px;
-    /* or use variable thet defines the default width of the column*/
-    height: 100px;
-    background-color: white;
-    margin-bottom: 20px;
-    position: relative;
-    padding: 1px;
-    border: var(--smart-border-width) solid var(--smart-border);
-    background-clip: content-box;
+  width: 100%;
+  min-width: 100px;
+  /* or use variable thet defines the default width of the column*/
+  height: 100px;
+  background-color: white;
+  margin-bottom: 20px;
+  position: relative;
+  padding: 1px;
+  border: var(--smart-border-width) solid var(--smart-border);
+  background-clip: content-box;
+  -webkit-background-clip: content-box;
 }
-
 .smart-color-panel .preview-container-top,
 .smart-color-panel .preview-container-bottom {
-    width: 100%;
-    height: 50%;
-    display: block;
-    background-color: white;
+  width: 100%;
+  height: 50%;
+  display: block;
+  background-color: white;
 }
-
 .smart-color-panel .alpha-channel-container {
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    align-content: space-around;
-    margin-top: 5px;
-    display: none;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  align-content: space-around;
+  margin-top: 5px;
+  display: none;
 }
-
 .smart-color-panel .alpha-channel-container label {
-    width: 48px;
+  width: 48px;
 }
-
 .smart-color-panel .alpha-channel-scale {
-    width: var(--smart-color-panel-palette-size);
-    height: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    position: relative;
-    border: var(--smart-border-width) solid var(--smart-border);
-    margin-right: 20px;
+  width: var(--smart-color-panel-palette-size);
+  height: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  border: var(--smart-border-width) solid var(--smart-border);
+  margin-right: 20px;
 }
-
 .smart-color-panel .alpha-channel-scale:before, .smart-color-panel .alpha-channel-scale:after {
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: " ";
 }
-
 .smart-color-panel .alpha-channel-scale:before {
-    background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
-    background-position: 0px 6px, 8px 14px;
-    background-size: 16px 16px;
+  background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
+  background-position: 0px 6px, 8px 14px;
+  background-size: 16px 16px;
 }
-
 .smart-color-panel .alpha-channel-scale:after {
-    background-image: linear-gradient(90deg, var(--smart-color-panel-alpha-channel-color), transparent);
-    box-shadow: inset 1px -1px 0px 0px #ffffff, inset -1px 1px 0px 0px #ffffff;
+  background-image: linear-gradient(90deg, var(--smart-color-panel-alpha-channel-color), transparent);
+  box-shadow: inset 1px -1px 0px 0px #ffffff, inset -1px 1px 0px 0px #ffffff;
 }
-
 .smart-color-panel .alpha-channel-thumb {
-    width: 10px;
-    height: 100%;
-    box-sizing: content-box;
-    border: 3px solid white;
-    border-top-width: 10px;
-    border-bottom-width: 10px;
-    position: absolute;
-    left: -3px;
-    top: -10px;
-    opacity: 0.8;
-    box-shadow: 0px 0px 5px #666, inset 0px 0px 2px 0px #999, inset 0px 0px 2px 0px #999;
-    cursor: pointer;
-    z-index: 1;
+  width: 10px;
+  height: 100%;
+  box-sizing: content-box;
+  border: 3px solid white;
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  position: absolute;
+  left: -3px;
+  top: -10px;
+  opacity: 0.8;
+  box-shadow: 0px 0px 5px #666, inset 0px 0px 2px 0px #999, inset 0px 0px 2px 0px #999;
+  cursor: pointer;
+  z-index: 1;
 }
-
 .smart-color-panel .buttons-container {
-    display: none;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding: 10px 0 0 0;
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 10px 0 0 0;
 }
-
 .smart-color-panel .buttons-container smart-button {
-    width: 100px;
+  width: 100px;
 }
-
 .smart-color-panel .buttons-container smart-button:last-of-type {
-    margin-left: 20px;
+  margin-left: 20px;
 }
-
 .smart-color-panel .gradient-background {
-    background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
-    background-position: 0px 6px, 8px 14px;
-    background-size: 16px 16px;
+  background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
+  background-position: 0px 6px, 8px 14px;
+  background-size: 16px 16px;
 }
-
 .smart-color-panel .user-color-container {
-    width: var(--smart-color-panel-grid-mode-item-size);
-    height: var(--smart-color-panel-grid-mode-item-size);
-    background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
-    background-position: 0px 5px, 5px 10px;
-    background-size: 10px 10px;
+  width: var(--smart-color-panel-grid-mode-item-size);
+  height: var(--smart-color-panel-grid-mode-item-size);
+  background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
+  background-position: 0px 5px, 5px 10px;
+  background-size: 10px 10px;
 }
-
 .smart-color-panel .material-grid-samples-container {
-    display: grid;
-    grid-template-columns: 80px repeat(14, auto);
+  display: grid;
+  grid-template-columns: 80px repeat(14, auto);
 }
-
 .smart-color-panel .button-custom-color {
-    margin: 5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
 }
-
 .smart-color-panel .color-sample {
-    width: var(--smart-color-panel-grid-mode-item-size);
-    height: var(--smart-color-panel-grid-mode-item-size);
-    margin: var(--smart-color-panel-grid-mode-columns-gap);
-    box-sizing: border-box;
-    cursor: pointer;
-    border: var(--smart-border-width) solid rgba(0, 0, 0, 0.1);
-    background-clip: content-box;
-    text-overflow: ellipsis;
+  width: var(--smart-color-panel-grid-mode-item-size);
+  height: var(--smart-color-panel-grid-mode-item-size);
+  margin: var(--smart-color-panel-grid-mode-columns-gap);
+  box-sizing: border-box;
+  cursor: pointer;
+  border: var(--smart-border-width) solid rgba(0, 0, 0, 0.1);
+  background-clip: content-box;
+  -webkit-background-clip: content-box;
+  text-overflow: ellipsis;
 }
-
 .smart-color-panel .color-sample.user-color {
-    position: relative;
-    background-clip: padding-box;
+  position: relative;
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
 }
-
 .smart-color-panel .color-sample.user-color:before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
-    background-position: 0px 5px, 5px 10px;
-    background-size: 10px 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc), linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 74%, #cccccc 75%, #cccccc);
+  background-position: 0px 5px, 5px 10px;
+  background-size: 10px 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
-
 .smart-color-panel .color-sample.selected {
-    border: 2px solid var(--smart-ui-state-color-selected);
-    padding: 1px;
+  border: 2px solid var(--smart-ui-state-color-selected);
+  padding: 1px;
 }
-
 .smart-color-panel .color-sample.empty {
-    visibility: hidden;
+  visibility: hidden;
 }
-
 .smart-color-panel .color-sample.header, .smart-color-panel .color-sample.label-column {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    border-width: 0px;
-    pointer-events: none;
-    user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  border-width: 0px;
+  pointer-events: none;
+  user-select: none;
 }
-
 .smart-color-panel .color-sample.label-column {
-    width: 100%;
-    justify-content: flex-start;
+  width: 100%;
+  justify-content: flex-start;
 }
-
 .smart-color-panel .color-sample.color-sample-column, .smart-color-panel .color-sample.color-sample-row {
-    width: 16px;
-    /*to be calculated dinamically*/
-    height: 16px;
-    /*to be calculated dinamically*/
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    padding: 1px;
-    background: repeating-linear-gradient(-55deg, #fff, #fff 10px, #eee 10px, #eee 20px);
+  width: 16px;
+  /*to be calculated dinamically*/
+  height: 16px;
+  /*to be calculated dinamically*/
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 1px;
+  background: repeating-linear-gradient(-55deg, #fff, #fff 10px, #eee 10px, #eee 20px);
 }
-
 .smart-color-panel .color-sample[transparent] {
-    position: relative;
+  position: relative;
 }
-
 .smart-color-panel .color-sample[transparent]:after {
-    content: '';
-    border: 1px solid red;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    position: absolute;
-    width: 150%;
-    border-radius: 5px;
+  content: '';
+  border: 1px solid red;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  position: absolute;
+  width: 150%;
+  border-radius: 5px;
 }
-
 .smart-color-panel .user-color.empty {
-    background: repeating-linear-gradient(-55deg, #fff, #fff 10px, #eee 10px, #eee 20px);
-    background-origin: content-box;
-    border-color: lightgray;
+  background: repeating-linear-gradient(-55deg, #fff, #fff 10px, #eee 10px, #eee 20px);
+  background-origin: content-box;
+  border-color: lightgray;
 }
-
 .smart-color-panel .default-samples-container div {
-    display: grid;
-    grid-template-columns: repeat(10, auto);
-    justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  justify-items: center;
 }
-
 .smart-color-panel .default-samples-container .theme-shades-box {
-    margin-top: var(--smart-color-panel-default-mode-sections-gap);
-    margin-bottom: var(--smart-color-panel-default-mode-sections-gap);
+  margin-top: var(--smart-color-panel-default-mode-sections-gap);
+  margin-bottom: var(--smart-color-panel-default-mode-sections-gap);
 }
-
 .smart-color-panel .default-samples-container .theme-colors-label,
 .smart-color-panel .default-samples-container .standard-colors-label {
-    display: block;
-    font-weight: 600;
-    margin-left: 2px;
-    margin-top: var(--smart-color-panel-default-mode-sections-gap);
-    margin-bottom: var(--smart-color-panel-default-mode-sections-gap);
-    margin-bottom: calc(var(--smart-color-panel-default-mode-sections-gap) / 2);
+  display: block;
+  font-weight: 600;
+  margin-left: 2px;
+  margin-top: var(--smart-color-panel-default-mode-sections-gap);
+  margin-bottom: var(--smart-color-panel-default-mode-sections-gap);
+  margin-bottom: calc(var(--smart-color-panel-default-mode-sections-gap) / 2);
 }
-
 .smart-color-panel .hex-mode-resize-trigger {
-    visibility: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
-
 .smart-color-panel[edit-alpha-channel] .alpha-channel-container {
-    display: flex;
+  display: flex;
 }
-
 .smart-color-panel[enable-custom-colors] .button-custom-color,
 .smart-color-panel[enable-custom-colors] .user-samples-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
-
 .smart-color-panel[enable-custom-colors]:not([display-mode="palette"]):not([display-mdoe="radial"]) .custom-color-selection .palette-mode-container {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel:not([display-mode="radial"]) .canvas-radial {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="hexagonal"] .brightness-scale, .smart-color-panel[display-mode="radial"] .brightness-scale {
-    display: block;
-    max-width: 100px;
-    height: var(--smart-color-panel-palette-size);
-    background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
-    /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
-    width: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
-    position: relative;
-    padding: 1px;
-    border: var(--smart-border-width) solid var(--smart-border);
-    background-clip: content-box;
+  display: block;
+  max-width: 100px;
+  height: var(--smart-color-panel-palette-size);
+  background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+  /* reversed (#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000) */
+  width: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  position: relative;
+  padding: 1px;
+  border: var(--smart-border-width) solid var(--smart-border);
+  background-clip: content-box;
+  -webkit-background-clip: content-box;
 }
-
 .smart-color-panel[display-mode="hexagonal"] .brightness-scale-thumb, .smart-color-panel[display-mode="radial"] .brightness-scale-thumb {
-    width: 100%;
-    height: 10px;
-    box-sizing: content-box;
-    border: 3px solid white;
-    border-left-width: 10px;
-    border-right-width: 10px;
-    position: absolute;
-    left: -10px;
-    top: -3px;
-    box-shadow: 0px 0px 5px #666, inset 0px 0px 2px 0px #999, inset 0px 0px 2px 0px #999;
-    opacity: 0.8;
-    cursor: pointer;
+  width: 100%;
+  height: 10px;
+  box-sizing: content-box;
+  border: 3px solid white;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  position: absolute;
+  left: -10px;
+  top: -3px;
+  box-shadow: 0px 0px 5px #666, inset 0px 0px 2px 0px #999, inset 0px 0px 2px 0px #999;
+  opacity: 0.8;
+  cursor: pointer;
 }
-
 .smart-color-panel[display-mode="hexagonal"] .alpha-channel-scale {
-    width: var(--smart-color-panel-palette-width);
+  width: var(--smart-color-panel-palette-width);
 }
-
 .smart-color-panel[display-mode="hexagonal"] .brightness-scale {
-    display: block;
-    height: var(--smart-color-panel-palette-height);
-    background-image: linear-gradient(white, black);
+  display: block;
+  height: var(--smart-color-panel-palette-height);
+  background-image: linear-gradient(white, black);
 }
-
 .smart-color-panel[display-mode="hexagonal"] .selected {
-    stroke: white;
-    stroke-width: 4px;
+  stroke: white;
+  stroke-width: 4px;
 }
-
 .smart-color-panel[display-mode="hexagonal"] .color-palette-container {
-    height: var(--smart-color-panel-palette-height);
+  height: var(--smart-color-panel-palette-height);
 }
-
 .smart-color-panel[display-mode="hexagonal"] .palette-mode-container {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[display-mode="hexagonal"] .color-palette-hexagonal {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[display-mode="radial"] .hue-scale {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="radial"] .brightness-scale {
-    background-image: linear-gradient(white, black);
+  background-image: linear-gradient(white, black);
 }
-
 .smart-color-panel[display-mode="radial"] .color-palette-radial {
-    width: var(--smart-color-panel-palette-size);
-    height: var(--smart-color-panel-palette-size);
-    display: block;
-    position: relative;
-    overflow: hidden;
-    cursor: crosshair;
-    padding: 1px;
-    border: 1px solid lightgray;
-    background-clip: content-box;
-    background: conic-gradient(from 90deg, red, yellow, lime, aqua, blue, magenta, red) #ff005a;
-    border-radius: 50%;
+  width: var(--smart-color-panel-palette-size);
+  height: var(--smart-color-panel-palette-size);
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+  padding: 1px;
+  border: 1px solid lightgray;
+  background-clip: content-box;
+  -webkit-background-clip: content-box;
+  background: conic-gradient(from 90deg, red, yellow, lime, aqua, blue, magenta, red) #ff005a;
+  border-radius: 50%;
 }
-
 .smart-color-panel[display-mode="radial"] .color-palette-radial:after {
-    width: 100%;
-    height: 100%;
-    content: " ";
-    display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 0;
-    background: black;
-    opacity: var(--smart-color-panel-brightness);
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+  background: black;
+  opacity: var(--smart-color-panel-brightness);
+  border-radius: 50%;
 }
-
 .smart-color-panel[display-mode="radial"] .color-palette-radial-thumb {
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    z-index: 10;
-    pointer-events: none;
-    left: 50%;
-    top: 50%;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
 }
-
 .smart-color-panel[display-mode="radial"] .color-palette-radial-thumb:after {
-    content: " ";
-    position: absolute;
-    left: -14px;
-    top: -14px;
-    width: 16px;
-    height: 16px;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: var(--smart-elevation-2);
+  content: " ";
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 16px;
+  height: 16px;
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: var(--smart-elevation-2);
 }
-
 .smart-color-panel[display-mode="radial"] .white-radial-gradient {
-    z-index: 2;
-    width: var(--smart-color-panel-palette-size);
-    height: var(--smart-color-panel-palette-size);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background-image: radial-gradient(circle, white, transparent);
+  z-index: 2;
+  width: var(--smart-color-panel-palette-size);
+  height: var(--smart-color-panel-palette-size);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-image: radial-gradient(circle, white, transparent);
 }
-
 .smart-color-panel[display-mode="radial"] .palette-mode-container {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[display-mode="radial"] canvas {
-    transform: rotate(-180deg);
-    transform-origin: center;
+  transform: rotate(-180deg);
+  transform-origin: center;
 }
-
 .smart-color-panel[display-mode="radial"][inverted] .color-palette-radial:after {
-    background: white;
+  background: white;
 }
-
 .smart-color-panel[display-mode="radial"][inverted] .white-radial-gradient {
-    background: radial-gradient(black, transparent);
+  background: radial-gradient(black, transparent);
 }
-
 .smart-color-panel[display-mode="spectrumGrid"] .spectrum-grid-samples-container {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[display-mode="default"] .default-samples-container {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[display-mode="palette"] .palette-mode-container {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[display-mode="palette"] .color-palette {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[display-mode="materialGrid"] .color-palette {
-    display: block;
+  display: block;
 }
-
 .smart-color-panel[apply-value-mode="useButtons"] .buttons-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-
 .smart-color-panel[right-to-left] .grid-mode-container,
 .smart-color-panel[right-to-left] .color-palette-container,
 .smart-color-panel[right-to-left] .alpha-channel-container {
-    direction: rtl;
+  direction: rtl;
 }
-
 .smart-color-panel[right-to-left] .alpha-channel-scale {
-    margin: 0 0 0 20px;
+  margin: 0 0 0 20px;
 }
-
 .smart-color-panel[right-to-left] .alpha-channel-scale:after {
-    background-image: linear-gradient(90deg, transparent, var(--smart-color-panel-alpha-channel-color));
+  background-image: linear-gradient(90deg, transparent, var(--smart-color-panel-alpha-channel-color));
 }
-
 .smart-color-panel[right-to-left] .buttons-container {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
-
 .smart-color-panel[right-to-left] .buttons-container smart-button:last-of-type {
-    margin: 0 0 0 20px;
+  margin: 0 0 0 20px;
 }
 
 .smart-color-panel .palette-mode-container,
@@ -638,73 +558,61 @@ smart-color-panel[disabled] {
 .smart-color-panel .custom-color-selection .grid-mode-container,
 .smart-color-panel .button-custom-color,
 .smart-color-panel .user-samples-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="default"] .grid-samples-container,
 .smart-color-panel[display-mode="default"] .palette-mode-container,
 .smart-color-panel[display-mode="default"] .material-grid-samples-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="grid"] .palette-mode-container,
 .smart-color-panel[display-mode="grid"] .material-grid-samples-container,
 .smart-color-panel[display-mode="grid"] .default-samples-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="spectrumGrid"] .palette-mode-container,
 .smart-color-panel[display-mode="spectrumGrid"] .grid-samples-container,
 .smart-color-panel[display-mode="spectrumGrid"] .material-grid-samples-container,
 .smart-color-panel[display-mode="spectrumGrid"] .default-samples-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="materialGrid"] .palette-mode-container,
 .smart-color-panel[display-mode="materialGrid"] .grid-samples-container,
 .smart-color-panel[display-mode="materialGrid"] .default-samples-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="hexagonal"] .grid-samples-container,
 .smart-color-panel[display-mode="hexagonal"] .spectrum-grid-samples-container,
 .smart-color-panel[display-mode="hexagonal"] .color-palette,
 .smart-color-panel[display-mode="hexagonal"] .hue-scale,
 .smart-color-panel[display-mode="hexagonal"] .default-samples-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="palette"] .color-palette-radial,
 .smart-color-panel[display-mode="palette"] .grid-mode-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[display-mode="radial"] .color-palette,
 .smart-color-panel[display-mode="radial"] .grid-mode-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[enable-custom-colors][display-mode="hexagonal"] .button-custom-color,
 .smart-color-panel[enable-custom-colors][display-mode="hexagonal"] .user-samples-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[hide-preview-container] .preview-container {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[hide-alpha-editor] .a-channel {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[hide-r-g-b-editor] .r-channel,
 .smart-color-panel[hide-r-g-b-editor] .g-channel,
 .smart-color-panel[hide-r-g-b-editor] .b-channel {
-    display: none;
+  display: none;
 }
-
 .smart-color-panel[hide-h-e-x-editor] .hex {
-    display: none;
+  display: none;
 }
 
 /*# sourceMappingURL=smart.colorpanel.css.map */

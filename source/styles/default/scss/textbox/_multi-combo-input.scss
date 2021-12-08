@@ -12,7 +12,7 @@ smart-multi-combo-input {
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 
-  > .smart-container {
+  >.smart-container {
     display: flex;
   }
 
@@ -54,7 +54,7 @@ smart-multi-combo-input {
     overflow: visible;
   }
 
-  > .smart-container {
+  >.smart-container {
     min-height: var(--smart-editor-height);
   }
 
@@ -72,28 +72,38 @@ smart-multi-combo-input {
     text-overflow: ellipsis;
     cursor: pointer;
     user-select: none;
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
     align-items: center;
-    padding: 1px 2px 1px 6px;
+    padding: 1px 6px 1px 6px;
     border-radius: 20px;
     background-color: var(--smart-primary);
     color: var(--smart-primary-color);
     margin: var(--smart-editor-label-padding) 0 0 var(--smart-editor-label-padding);
+    height: 22px;
 
     .smart-drop-down-list-selection-label {
       text-overflow: ellipsis;
       overflow: hidden;
     }
 
-    &:last-of-type {
-      margin-bottom: var(--smart-editor-label-padding);
+    .smart-drop-down-list-selection-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-right: 4px;
     }
+
+    &:last-of-type {}
   }
 
   .smart-action-button {
     display: flex;
-    align-items: baseline;
     outline: 1px solid transparent;
     height: 100%;
     width: 100%;
@@ -108,7 +118,8 @@ smart-multi-combo-input {
 
   .smart-drop-down-list-unselect-button {
     position: relative;
-    margin: 0 0 0 5px;
+    margin-left: 2px;
+    margin-right: -2px;
 
     &:after {
       content: var(--smart-icon-close);
@@ -159,23 +170,10 @@ smart-multi-combo-input {
       visibility: hidden;
     }
 
-    .smart-action-button {
-      background: var(--smart-surface);
-      color: var(--smart-surface-color);
-    }
-
     &:hover {
       .smart-action-button {
         background: var(--smart-ui-state-hover);
         color: var(--smart-ui-state-color-hover);
-      }
-    }
-
-    &[open],
-    &:active {
-      .smart-action-button {
-        background: var(--smart-ui-state-active);
-        color: var(--smart-ui-state-color-active);
       }
     }
   }
@@ -223,9 +221,115 @@ smart-multi-combo-input {
   }
 
   &[right-to-left] {
-    > ul {
+    >ul {
       direction: rtl;
     }
   }
-}
 
+  ul {
+    li {
+      a {
+        display: flex;
+        align-items: center;
+
+        .smart-drop-down-list-selection-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 25px;
+          height: 25px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          margin-right: 4px;
+          border-radius: 50%;
+          border: 1px solid var(--smart-border);
+        }
+      }
+    }
+  }
+
+  &[single-select] {
+    ul li {
+      height: 36px;
+      margin-top: 1px;
+      cursor: pointer;
+
+      a {
+        padding: 0px;
+        padding-left: 6px;
+        height: 100%;
+      }
+
+      &::after {
+        display: none;
+      }
+
+      &:hover,
+      &.selected {
+        background: var(--smart-ui-state-hover);
+        border-color: var(--smart-ui-state-hover);
+        color: var(--smart-ui-state-color-hover);
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &[pills] {
+    ul {
+      li {
+        height: 30px;
+        margin-top: 1px;
+
+        &:before {
+          display: none;
+        }
+
+        &:after {
+          display: none;
+        }
+
+        a {
+          padding: 2px 10px;
+          color: inherit;
+          display: inline-flex;
+          align-items: center;
+          border-radius: 15px;
+          margin-top: 5px;
+          margin-left: 5px;
+          height: auto;
+          background: var(--smart-primary);
+          border-color: var(--smart-primary);
+          color: var(--smart-primary-color);
+
+          .smart-drop-down-list-selection-image {
+            height: 20px;
+            width: 20px;
+          }
+        }
+
+        &:hover,
+        &.selected {
+          background: var(--smart-ui-state-hover);
+          border-color: var(--smart-ui-state-hover);
+          color: var(--smart-ui-state-color-hover);
+
+          &:after {
+            display: none;
+          }
+        }
+
+        &.active {
+          &.selected {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

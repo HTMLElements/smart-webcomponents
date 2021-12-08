@@ -127,6 +127,11 @@ export interface DropDownButtonProperties {
    */
   placeholder?: string;
   /**
+   * Determines the element's placeholder template, displayed in the element's action button container. You can pass 'string', 'function' or HTMLTemplateElement as a value.
+   * Default value: null
+   */
+  placeholderTemplate?: any;
+  /**
    * Disables user interaction with the element.
    * Default value: false
    */

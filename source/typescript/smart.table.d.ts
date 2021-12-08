@@ -37,6 +37,11 @@ export interface TableProperties {
    */
   columnResize?: boolean;
   /**
+   * This property affects the table sizing, when the columnSizeMode is 'default'. When 'columnResizeNormalize' is false, the Table will add an additional TH element, if all table columns have the 'width' property set. This is done in order to maintain your width settings. Otherwise, when the property is set to true, the Table will auto-fill the remaining space similar to the layout of standard HTML Tables.
+   * Default value: false
+   */
+  columnResizeNormalize?: boolean;
+  /**
    * Sets or gets whether when resizing a column, a feedback showing the new column width in px will be displayed.
    * Default value: false
    */
@@ -152,10 +157,10 @@ export interface TableProperties {
    */
   groupFormatFunction?: { (settings: { value: any, row: string | number, column: string, template?: any }): void };
   /**
-   * Sets or gets the id of an HTML template element to be applied as additional column header(s).
-   * Default value: "null"
+   * Allows to customize the header of the element. The property accepts the id of an HTMLElement, HTMLTemplateElement, function or a string that will be parsed as HTML. When set to a function it contains one argument - the header element of the Table.
+   * Default value: null
    */
-  headerRow?: string;
+  headerRow?: string | HTMLElement | Function;
   /**
    * Sets or gets whether navigation with the keyboard is enabled in the Table.
    * Default value: false
@@ -384,6 +389,12 @@ export interface Table extends BaseElement, TableProperties {
    */
   onColumnClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when a column menu is closed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
+   *  dataField - The data field of the column.
+   */
+  onCloseColumnMenu?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a column has been resized via dragging or double-click.
 	* @param event. The custom event. Custom data event was created with: ev.detail(dataField, headerCellElement, width)
    *  dataField - The data field of the column.
@@ -407,6 +418,12 @@ export interface Table extends BaseElement, TableProperties {
    *  path - The group's path (only when collapsing/expanding). The path includes the path to the expanded/collapsed group starting from the root group. The indexes are joined with '.'. This parameter is available when the 'action' is 'expand' or 'collapse'.
    */
   onGroup?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column menu is opened.
+	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
+   *  dataField - The data field of the column.
+   */
+  onOpenColumnMenu?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a paging-related action is made.
 	* @param event. The custom event. Custom data event was created with: ev.detail(action)
@@ -702,6 +719,16 @@ export interface TableColumn {
    */
   allowSort?: boolean;
   /**
+   * Sets or gets whether the column may have a column menu when the 'columnMenu' property of the Table is enabled.
+   * Default value: true
+   */
+  allowMenu?: boolean;
+  /**
+   * Sets or gets whether the column may be hidden with the Table's column menu when the 'columnMenu' property of the Table is enabled.
+   * Default value: true
+   */
+  allowHide?: boolean;
+  /**
    * Sets or gets the column's column group. Has to correspond to the name field of a column group (TableColumnGroup).
    * Default value: "null"
    */
@@ -781,6 +808,11 @@ export interface TableColumn {
    * Default value: null
    */
   width?: string | number;
+  /**
+   * Sets the minimum width of the column. The width can be entered as a number.
+   * Default value: null
+   */
+  minWidth?: number;
 }
 
 export interface TableConditionalFormatting {
@@ -844,10 +876,15 @@ export interface TableDataSourceSettings {
    */
   root?: string;
   /**
-   * Sets or gets the XML binding root.
+   * Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags.
    * Default value: blackList
    */
   sanitizeHTML?: TableDataSourceSettingsSanitizeHTML;
+  /**
+   * Determines whether cell values will display the espaced values as text or html.
+   * Default value: text
+   */
+  sanitizeHTMLRender?: TableDataSourceSettingsSanitizeHTMLRender;
   /**
    * Sets or gets the XML binding record.
    * Default value: ""
@@ -940,8 +977,10 @@ export declare type TableConditionalFormattingFontFamily = 'The default fontFami
 export declare type TableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
 /**Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property. */
 export declare type TableColumnSizeMode = 'auto' | 'default';
-/**Sets or gets the XML binding root. */
+/**Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags. */
 export declare type TableDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
+/**Determines whether cell values will display the espaced values as text or html. */
+export declare type TableDataSourceSettingsSanitizeHTMLRender = 'text' | 'html';
 /**Sets the dataField type. */
 export declare type TableDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
 /**Sets or gets whether the data source type. */

@@ -175,6 +175,7 @@
   color: #495057;
   background-color: var(--smart-background);
   background-clip: padding-box;
+  -webkit-background-clip: padding-box;
   border: 1px solid var(--smart-border);
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 

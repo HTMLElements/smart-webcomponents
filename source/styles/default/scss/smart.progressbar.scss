@@ -6,12 +6,12 @@ smart-circular-progress-bar {
   &.smart-element {
     border: none;
 
-    &:focus > .smart-container {
+    &:focus>.smart-container {
       border-color: var(--smart-outline);
     }
   }
 
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-top-right-radius: var(--smart-border-top-right-radius);
@@ -67,7 +67,8 @@ smart-progress-bar {
   }
 
   //Colors
-  @each $name, $hex in $theme-colors {
+  @each $name,
+  $hex in $theme-colors {
     &.#{$name} {
       .smart-value {
         border: 1px solid var(--smart-#{$name});
@@ -135,6 +136,7 @@ smart-progress-bar {
 
   //Right To Left
   &[right-to-left] {
+
     &:not([orientation="vertical"]),
     &[orientation="horizontal"] {
       .smart-value {
@@ -164,7 +166,7 @@ smart-circular-progress-bar {
   width: var(--smart-circular-progress-bar-default-size);
   height: var(--smart-circular-progress-bar-default-size);
 
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     border-radius: 50%;
   }
@@ -218,7 +220,8 @@ smart-circular-progress-bar {
   }
 
   //Colors
-  @each $name, $hex in $theme-colors {
+  @each $name,
+  $hex in $theme-colors {
     &.#{$name} {
       .smart-value {
         stroke: var(--smart-#{$name});
@@ -333,15 +336,6 @@ smart-circular-progress-bar {
   100% {
     background-position: 60rem 0;
   }
-
-  /*Including the alternative for best browser support*/
-  From {
-    background-position: 0 0;
-  }
-
-  To {
-    background-position: 60rem 0;
-  }
 }
 
 @keyframes indeterminate {
@@ -442,103 +436,6 @@ smart-circular-progress-bar {
   }
 }
 
-@keyframes indeterminate-inverted {
-  0% {
-    right: -100%;
-    transform: scaleX(0.4);
-    transform-origin: right;
-  }
-
-  20% {
-    right: -40%;
-    transform: scaleX(0.3);
-    transform-origin: right;
-  }
-
-  35% {
-    right: 35%;
-    transform: scaleX(0.4);
-    transform-origin: right;
-  }
-
-  50% {
-    right: 75%;
-    transform: scaleX(0.6);
-    transform-origin: right;
-  }
-
-  55% {
-    right: 100%;
-    transform: scaleX(0.7);
-    transform-origin: right;
-  }
-
-  55.99% {
-    right: 100%;
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-
-  56% {
-    right: -100%;
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-
-  56.99% {
-    right: -100%;
-    transform: scaleX(0.6);
-    transform-origin: right;
-  }
-
-  75% {
-    right: -5%;
-    transform: scaleX(0.6);
-    transform-origin: right;
-  }
-
-  80% {
-    right: 30%;
-    transform: scaleX(0.5);
-    transform-origin: right;
-  }
-
-  85% {
-    right: 50%;
-    transform: scaleX(0.4);
-    transform-origin: right;
-  }
-
-  90% {
-    right: 75%;
-    transform: scaleX(0.3);
-    transform-origin: right;
-  }
-
-  95% {
-    right: 95%;
-    transform: scaleX(0.2);
-    transform-origin: right;
-  }
-
-  98% {
-    right: 100%;
-    transform: scaleX(0.2);
-    transform-origin: right;
-  }
-
-  99.99% {
-    right: 100%;
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-
-  100% {
-    right: -100%;
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-}
 
 @keyframes indeterminate-vertical {
   0% {
@@ -638,104 +535,6 @@ smart-circular-progress-bar {
   }
 }
 
-@keyframes indeterminate-vertical-inverted {
-  0% {
-    top: -100%;
-    transform: scaleY(0.4);
-    transform-origin: top;
-  }
-
-  20% {
-    top: -40%;
-    transform: scaleY(0.3);
-    transform-origin: top;
-  }
-
-  35% {
-    top: 35%;
-    transform: scaleY(0.4);
-    transform-origin: top;
-  }
-
-  50% {
-    top: 75%;
-    transform: scaleY(0.6);
-    transform-origin: top;
-  }
-
-  55% {
-    top: 100%;
-    transform: scaleY(0.7);
-    transform-origin: top;
-  }
-
-  55.99% {
-    top: 100%;
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-
-  56% {
-    top: -100%;
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-
-  56.99% {
-    top: -100%;
-    transform: scaleY(0.6);
-    transform-origin: top;
-  }
-
-  75% {
-    top: -5%;
-    transform: scaleY(0.6);
-    transform-origin: top;
-  }
-
-  80% {
-    top: 30%;
-    transform: scaleY(0.5);
-    transform-origin: top;
-  }
-
-  85% {
-    top: 50%;
-    transform: scaleY(0.4);
-    transform-origin: top;
-  }
-
-  90% {
-    top: 75%;
-    transform: scaleY(0.3);
-    transform-origin: top;
-  }
-
-  95% {
-    top: 95%;
-    transform: scaleY(0.2);
-    transform-origin: top;
-  }
-
-  98% {
-    top: 100%;
-    transform: scaleY(0.2);
-    transform-origin: top;
-  }
-
-  99.99% {
-    top: 100%;
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-
-  100% {
-    top: -100%;
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-}
-
 @keyframes circle {
   0% {
     stroke-dashoffset: 314;
@@ -793,6 +592,3 @@ smart-circular-progress-bar {
     transform: rotate(-360deg);
   }
 }
-
-
-

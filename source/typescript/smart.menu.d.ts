@@ -261,6 +261,11 @@ export interface Menu extends BaseElement, MenuProperties {
    */
   clear(): void;
   /**
+   * Clicks on an item programatically.
+   * @param {HTMLElement | string} item. smart-menu-item/smart-menu-items-group or its id or numeric path.
+   */
+  clickItem(item: HTMLElement | string): void;
+  /**
    * Closes the Menu when <strong>mode</strong> is <em>'dropDown'</em>.
    */
   close(): void;

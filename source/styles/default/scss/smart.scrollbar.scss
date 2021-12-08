@@ -87,6 +87,25 @@ smart-scroll-bar {
     }
   }
 
+  &[discrete] {
+    --smart-scroll-button-size: 0px;
+    --smart-scroll-bar-size: 15px;
+    --smart-scroll-bar-thumb-border-top-right-radius: 6px;
+    --smart-scroll-bar-thumb-border-top-left-radius: 6px;
+    --smart-scroll-bar-thumb-border-bottom-left-radius: 6px;
+    --smart-scroll-bar-thumb-border-bottom-right-radius: 6px;
+    --smart-scroll-bar-thumb-size: 100%;
+    --smart-scroll-bar-thumb-padding: 3px;
+    --smart-scroll-bar-default-width: var(--smart-editor-width);
+    --smart-scroll-bar-default-height: var(--smart-scroll-bar-size);
+
+    --smart-scroll-bar-background: #fafafa;
+    --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
+    --smart-scroll-bar-border: #F1F1F1;
+    --smart-scroll-bar-thumb-background: #C1C1C1;
+    --smart-scroll-bar-thumb-border: transparent;
+  }
+
   &[orientation="vertical"] {
     height: var(--smart-scroll-bar-default-width);
     width: var(--smart-scroll-bar-default-height);

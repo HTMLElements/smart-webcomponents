@@ -421,7 +421,7 @@ smart-file-upload {
 
     &:hover {
       cursor: pointer;
-      color: green;
+      color: var(--smart-success);
       transition: color 0.5s ease;
     }
   }

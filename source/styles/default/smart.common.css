@@ -134,8 +134,8 @@ smart-prompt-window[disabled],
 smart-card[disabled],
 smart-multiline-prompt-window[disabled],
 smart-splitter[disabled],
-smart-tree-item[disabled] > .smart-tree-item-label-container,
-smart-tree-items-group[disabled] > .smart-tree-item-label-container,
+smart-tree-item[disabled]>.smart-tree-item-label-container,
+smart-tree-items-group[disabled]>.smart-tree-item-label-container,
 smart-tree[disabled],
 smart-docking-layout[disabled],
 smart-filter-panel[disabled],
@@ -164,13 +164,16 @@ smart-date-time-picker[disabled],
 smart-layout[disabled],
 smart-path[disabled],
 smart-kanban[disabled],
+smart-gantt[disabled],
 smart-gantt-chart[disabled],
 smart-scheduler[disabled],
 smart-button-group[disabled],
 smart-table[disabled],
 smart-pivot-table[disabled],
 smart-notification-panel[disabled],
-smart-formatting-panel[disabled] {
+smart-formatting-panel[disabled],
+smart-color-input[disabled],
+smart-editor[disabled] {
     opacity: 0.55;
     cursor: default;
     pointer-events: none;

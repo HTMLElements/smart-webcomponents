@@ -22,10 +22,10 @@ export interface QueryBuilderProperties {
    */
   autoPrompt?: boolean;
   /**
-   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:label - label to be displayed in the operator box. Multiple operations with the same label can exist.name - unique name of the operationeditorTemplate - callback function that creates a custom value editorvalueTemplate - callback function that displays the value after the edior has been closedhandleValue - callback function that handles the value returned by the editor when it is closed. If the dataType is 'object' the expected result from the function should contain a 'label' and 'value' attributes. Where the label will be used for displaying purposes while 'value' will be used as the actual value. hideValue - a boolean condition that specifies whether the operation requires a value or notexpressionTemplate - a string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.expressionReaderCallback - a callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type Array[string]expressionBuilderCallback - a callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField). 
+   * Adds more operations that can be used to the query bilder's conditions structure. Each custom operation can have the following fields:
    * Default value: 
    */
-  customOperations?: any;
+  customOperations?: QueryBuilderCustomOperation[];
   /**
    * Enables or disables the element.
    * Default value: false
@@ -240,6 +240,64 @@ export interface QueryBuilder extends BaseElement, QueryBuilderProperties {
    * @returns {string}
    */
   getLinq(): string;
+}
+
+export interface QueryBuilderCustomOperation {
+  /**
+   * label to be displayed in the operator box. Multiple operations with the same label can exist
+   * Default value: ""
+   */
+  label?: string;
+  /**
+   * A unique name for the operation.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * A callback function that creates a custom value editor. Takes three arguemnts: fieldType - the type of the field for the operation.value - the value of the condition.fieldData - the field object.
+   * Default value: null
+   */
+  editorTemplate?: any;
+  /**
+   * A callback function that displays the value after the edior has been closed. Takes two argument: editor - the custom editor elementvalue - the condition value.
+   * Default value: null
+   */
+  valueTemplate?: any;
+  /**
+   * A callback function that handles the value returned by the editor when it is closed. The callback takes one arguemnt - the custom editor element. If the dataType is 'object' the expected result from the function should contain a 'label' and 'value' attributes. Where the label will be used for displaying purposes while 'value' will be used as the actual value.
+   * Default value: null
+   */
+  handleValue?: any;
+  /**
+   * A boolean condition that specifies whether the operation requires a value or not.
+   * Default value: false
+   */
+  hideValue?: boolean;
+  /**
+   * A callback that is executed when QueryBuilder validation is triggered. The callback takes one argument, the value of the condition. The function should return true or false to determine whether the conditon is valid or not.
+   * Default value: null
+   */
+  validateValue?: any;
+  /**
+   * A callback that is called when the custom editor is rendered, visible inside the DOM and ready to be opened. The callback has one parameter - the custom editor element.
+   * Default value: null
+   */
+  onEditorOpen?: any;
+  /**
+   * A string representing a custom Linq expression template. If the value of the element is a string it will be considered as a Linq expression and it will be checked against all expressionTemplates to find a match.
+   * Default value: "null"
+   */
+  expressionTemplate?: string;
+  /**
+   * A callback that is used to specify which arguments from the expression are used for the fieldName and value. Used when converting a Linq expression to QueryBuilder value. Takes two arguments: expression - the LinQ expression defined in the expressionTemplate of the customOperator. Type stringbindings - an array of expression parameters based on the expression template of the customOperator. Type string[]
+   * Default value: null
+   */
+  expressionReaderCallback?: any;
+  /**
+   * A callback function that is used to specify which arguments from the Linq expression are used for the fieldName and value when building the Linq expression from the current value of the element. Takes three arguments: name - the name of the dataField. Type string.operation - the name of the operation. Type stringvalue - the value of the operation. Type any( depends on the dataField).
+   * Default value: null
+   */
+  expressionBuilderCallback?: any;
 }
 
 export interface QueryBuilderField {

@@ -134,6 +134,11 @@ export interface FileUploadProperties {
    */
   unfocusable?: boolean;
   /**
+   * Gets the file upload value.
+   * Default value: null
+   */
+  value?: any;
+  /**
    * Callback used to validate the files immediatelly after their selection. Retuns a boolean value. If the returned value is false, the file is removed from list and a 'validationError is fired.
    * Default value: null
    */

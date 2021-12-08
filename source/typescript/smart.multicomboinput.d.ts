@@ -12,6 +12,16 @@ export interface MultiComboInputProperties {
    */
   autoCompleteDelay?: number;
   /**
+   * Enables or disables the close buttons when multiple items are selected.
+   * Default value: false
+   */
+  hideInputTagsCloseButton?: boolean;
+  /**
+   * Enables or disables whether when an item has a 'color' property set, the tag of that item will set automatically the background to that color.
+   * Default value: true
+   */
+  colorItems?: boolean;
+  /**
    * Determines the data source that will be loaded to the MutliInput. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
    * Default value: null
    */
@@ -94,6 +104,11 @@ export interface MultiComboInputProperties {
    */
   placeholder?: string;
   /**
+   * Enables or disables whether drop-down items are rendered as pills.
+   * Default value: false
+   */
+  pills?: boolean;
+  /**
    * Sets or gets the query that is used to filter the items. Query is used by the autoComplete operation. Empty string means that all items from the data source will be displayed and no filter query is applied.
    * Default value: 
    */
@@ -118,6 +133,11 @@ export interface MultiComboInputProperties {
    * Default value: ""
    */
   separator?: string;
+  /**
+   * Determines whether only a single item can be selected.
+   * Default value: false
+   */
+  singleSelect?: boolean;
   /**
    * Determines whether an additional item is displayed as the first item in the options list, which allows to select/unselect all items.
    * Default value: false

@@ -617,10 +617,6 @@ smart-scheduler {
     }
   }
 
-  &[disable-view-menu] .smart-scheduler-view-items-button {
-    transform: scale(0);
-  }
-
   &[hide-other-month-days] {
     .smart-scheduler-cell[other-month]>div {
       visibility: hidden;
@@ -1244,7 +1240,7 @@ smart-scheduler {
     transform: scale(0);
   }
 
-  .smart-toast-container-custom {
+  .smart-toast-container-custom.smart-toast-container {
     width: var(--smart-scheduler-toast-default-width);
     top: 0;
     right: 0;

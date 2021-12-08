@@ -177,6 +177,7 @@ smart-grid-row:not([selected]):not(:hover) {
 .smart-grid-dialog-editor,
 smart-grid-cell,
 smart-grid-column {
+
   &[checkbox][selected="indeterminate"],
   &[checkbox][checked="indeterminate"] {
     .smart-input {
@@ -192,10 +193,26 @@ smart-grid-column {
       }
     }
   }
+
+  div[checkbox] {
+    .smart-input[checked="indeterminate"] {
+      &:after {
+        margin: 14%;
+        width: 70% !important;
+        height: 70% !important;
+        content: '';
+        background-color: var(--smart-ui-state-color-active);
+        box-sizing: border-box;
+        top: 0px !important;
+        border-radius: 0px;
+      }
+    }
+  }
 }
 
 
 .smart-grid-cell-editor {
+
   &.smart-grid-text-area-cell-editor,
   &.smart-grid-number-input-cell-editor {
     .smart-input {
@@ -216,6 +233,7 @@ smart-grid-column {
 
       &[type=number] {
         -moz-appearance: textfield;
+        -webkit-appearance: textfield;
 
         &::-webkit-inner-spin-button {
           -webkit-appearance: none;
