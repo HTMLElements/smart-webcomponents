@@ -310,11 +310,11 @@ export interface PivotTable extends BaseElement, PivotTableProperties {
   /**
    * Exports the PivotTable's data.
    * @param {string} dataFormat. The file format to export to. Supported formats: 'csv', 'html', 'json', 'pdf', 'tsv', 'xlsx', 'xml'.
-   * @param {string} fileName?. The name of the file to export to
+   * @param {string} fileName. The name of the file to export to
    * @param {Function} callback?. A callback function to pass the exported data to (if fileName is not provided)
    * @returns {any}
    */
-  exportData(dataFormat: string, fileName?: string, callback?: Function): any;
+  exportData(dataFormat: string, fileName: string, callback?: Function): any;
   /**
    * Returns the current dynamic pivot columns.
    * @returns {any}

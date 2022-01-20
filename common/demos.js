@@ -862,9 +862,9 @@ window.addEventListener('load', function() {
 		'https://www.htmlelements.com/demos/styles/common.css'
 	];
 	let js_external = [
-		'../../common/webcomponents-lite.js',	
-		'https://www.htmlelements.com/demos/common/common.js',
-		'https://www.htmlelements.com/demos/common/data.js',
+		'../../scripts/webcomponents-lite.js',	
+		'https://www.htmlelements.com/demos/scripts/common.js',
+		'https://www.htmlelements.com/demos/scripts/data.js',
 		'https://www.htmlelements.com/demos/source/smart.element.js',
 		'https://www.htmlelements.com/demos/source/smart.elements.js'
 	];

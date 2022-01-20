@@ -494,6 +494,10 @@
     /* Code of Tasks icon */
     --smart-icon-phone: '\E83D';
     /* Code of Phone icon */
+    --smart-icon-kanban: '\F181';
+    /* Code of Kanban icon */
+    --smart-icon-table-alt: '\F0CE';
+    /* Code of Table icon */
     /* Accordion */
     --smart-accordion-animation-duration: 225ms;
     /* smartAccordion animation duration */
@@ -704,7 +708,7 @@
     /* DataView - Common for CardView and Kanban */
     --smart-data-view-padding: 10px;
     /* Padding of the CardView and Kanban */
-    --smart-data-view-customize-panel-width: 200px;
+    --smart-data-view-customize-panel-width: 320px;
     /* Width of the CardView and Kanban customize panel (drop down). */
     --smart-data-view-filter-panel-width: 550px;
     /* Width of the CardView and Kanban filter panel (drop down). */

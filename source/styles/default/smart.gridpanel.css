@@ -422,6 +422,10 @@ smart-group-panel {
 .smart-column-panel .smart-grid-panel-buttons-container .smart-grid-panel-apply-button {
   margin-left: 5px;
 }
+.smart-column-panel .smart-grid-panel-container-footer {
+  display: grid;
+  grid-template-columns: auto auto;
+}
 .smart-column-panel .toggle-visibility {
   width: 16px;
   height: 16px;
@@ -458,6 +462,21 @@ smart-group-panel {
   height: var(--smart-grid-panel-item-height);
   min-height: var(--smart-grid-panel-item-height);
   background-color: var(--smart-background);
+}
+.smart-column-panel .smart-grid-panel-item.group:before, .smart-column-panel .smart-grid-panel-item.group:after {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.smart-column-panel .smart-grid-panel-item.indent {
+  padding-left: 12px;
+}
+
+.smart-grid-panel-reset-button {
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .smart-grid-panel-cancel-button {
@@ -587,8 +606,8 @@ smart-group-panel {
   padding: 3px;
   position: relative;
   display: grid;
-  grid-template-areas: "customize filter sort format details delete . search";
-  grid-template-columns: minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
+  grid-template-areas: "views customize filter sort format details delete . search";
+  grid-template-columns: minmax(0px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
   grid-gap: 10px;
   grid-template-rows: 100%;
   background: var(--smart-surface);
@@ -798,18 +817,39 @@ smart-group-panel {
 }
 .smart-data-view-download-button:after {
   content: var(--smart-icon-arrow-down);
-  content: var(--smart-icon-arrow-down);
   position: initial;
   margin-left: 8px;
 }
 .smart-data-view-download-button:before {
-  content: var(--smart-icon-download-alt);
   font-family: var(--smart-font-family-icon);
   left: 8px;
   content: var(--smart-icon-download-alt);
   position: absolute;
 }
 .smart-data-view-download-button.formatted {
+  background-color: var(--smart-primary);
+  color: var(--smart-primary-color);
+}
+
+.smart-data-view-views-button {
+  grid-area: views;
+}
+.smart-data-view-views-button:after {
+  content: var(--smart-icon-arrow-down);
+  content: var(--smart-icon-arrow-down);
+  position: initial;
+  margin-left: 8px;
+}
+.smart-data-view-views-button:before {
+  font-family: var(--smart-font-family-icon);
+  left: 8px;
+  content: var(--smart-icon-table-alt);
+  position: absolute;
+}
+.smart-data-view-views-button.kanban:before {
+  content: var(--smart-icon-kanban);
+}
+.smart-data-view-views-button.formatted {
   background-color: var(--smart-primary);
   color: var(--smart-primary-color);
 }

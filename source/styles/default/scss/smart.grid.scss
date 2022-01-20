@@ -464,6 +464,14 @@ input[type=number] {
     content: var(--smart-icon-tasks);
   }
 
+  &.smart-icon-table-alt:before {
+    content: var(--smart-icon-table-alt);
+  }
+
+  &.smart-icon-kanban:before {
+    content: var(--smart-icon-kanban);
+  }
+
   &.smart-icon-card:before {
     content: var(--smart-icon-card);
   }
@@ -744,6 +752,7 @@ input[type=number] {
   min-height: 50px;
   justify-content: center;
   align-items: center;
+  background: var(--smart-background);
 }
 
 .smart-grid-content.auto-height {
@@ -987,6 +996,7 @@ input[type=number] {
   &.far {
     border-top: var(--smart-grid-freeze-splitter-size) solid var(--smart-border);
     box-sizing: content-box;
+    z-index: 11;
   }
 }
 
@@ -1050,6 +1060,43 @@ input[type=number] {
   background: var(--smart-surface) !important;
   color: var(--smart-surface-color) !important;
   border-color: var(--smart-border) !important;
+  opacity: 1 !important;
+
+  button {
+    display: none;
+  }
+
+  .summary-value {
+    font-size: 11px;
+    opacity: 0.75;
+    height: calc(100% - 2px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    .smart-arrow-down,
+    .placeholder {
+      display: none;
+    }
+
+    &.summary-chooser,
+    &:hover {
+
+      .smart-arrow-down,
+      .placeholder {
+        display: inherit;
+      }
+    }
+
+    .label {
+      margin-top: -3px;
+    }
+  }
+
+  &::before {
+    display: none;
+  }
 }
 
 .smart-grid-resize-mode {
@@ -1090,7 +1137,7 @@ input[type=number] {
   .smart-grid-dialog-boolean-field {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     .smart-grid-dialog-editor {
       margin-bottom: initial;
@@ -1437,6 +1484,27 @@ input[type=number] {
     &.smart-grid-dialog-add-column {
       transform: scaleY(0);
       transform-origin: top;
+
+      .smart-header-notes {
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      &.center {
+        transform: scale(0);
+        transform-origin: unset;
+      }
+    }
+
+    &.smart-grid-dialog-summary {
+      transform: scaleY(0);
+      transform-origin: bottom;
+      --smart-window-content-padding: 0px;
+      box-shadow: none;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+      border-top-left-radius: 0px;
     }
 
     &.smart-grid-dialog.disable-animation {
@@ -1444,7 +1512,7 @@ input[type=number] {
     }
 
     &.smart-grid-dialog-expand-row {
-      width: 700px !important;
+      width: 750px !important;
 
       .smart-grid-edit-dialog-column-info {
         display: grid;
@@ -1462,6 +1530,32 @@ input[type=number] {
           justify-content: space-between;
           font-weight: bold;
           font-size: calc(var(--smart-font-size) + 1px);
+        }
+      }
+
+      .tabs {
+        width: 100%;
+        height: 35px;
+        overflow: hidden;
+        background: var(--smart-background);
+        transition: all 0.2s ease-in-out;
+        display: flex;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--smart-border);
+
+        .tab {
+          padding: 8px 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-transform: uppercase;
+          color: var(--smart-background-color);
+          cursor: pointer;
+
+          &.active {
+            color: var(--smart-primary);
+            border-bottom: 2px solid var(--smart-primary);
+          }
         }
       }
 
@@ -1495,7 +1589,7 @@ input[type=number] {
 
       .smart-grid-edit-dialog-layout {
         display: grid;
-        grid-template-columns: 1fr 300px;
+        grid-template-columns: 1fr 350px;
         column-gap: 20px;
 
         .smart-grid-edit-dialog-editors-container {
@@ -1522,6 +1616,70 @@ input[type=number] {
             grid-template-rows: 40px 40px 40px 40px 40px 1fr;
           }
 
+          .history-row {
+            padding: 5px;
+          }
+
+          .history-layout {
+            max-height: 500px;
+            overflow: auto;
+          }
+
+          .history-user {
+            display: grid;
+            grid-template-columns: 35px 1fr 1fr;
+            align-items: center;
+          }
+
+          .history-action {
+            display: grid;
+            padding-left: 35px;
+            grid-template-columns: 50% 50%;
+            align-items: center;
+            opacity: 0.8;
+
+            .detail {
+              white-space: initial;
+            }
+          }
+
+          .smart-user {
+            position: relative;
+            top: 10px;
+            left: -3px;
+          }
+
+          .user-icon {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+
+            &.image:after {
+              content: '';
+            }
+
+            &:after {
+              content: var(--smart-icon-user);
+              font-family: var(--smart-font-family-icon);
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 24px;
+            }
+          }
+
+          .user-name {
+            font-weight: bold;
+          }
+
+          .time {
+            opacity: 0.8;
+          }
+
           .comments-header {
             white-space: nowrap;
           }
@@ -1543,37 +1701,6 @@ input[type=number] {
                 grid-template-columns: 1fr auto auto;
                 grid-column-gap: calc(var(--smart-data-view-padding) / 2);
                 margin-bottom: var(--smart-data-view-padding);
-              }
-
-              .user-icon {
-                width: 100%;
-                height: 30px;
-                border-radius: 50%;
-                background-size: cover;
-                background-position: center;
-
-                &.image:after {
-                  content: '';
-                }
-
-                &:after {
-                  content: var(--smart-icon-user);
-                  font-family: var(--smart-font-family-icon);
-                  width: 100%;
-                  height: 100%;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  font-size: 24px;
-                }
-              }
-
-              .user-name {
-                font-weight: bold;
-              }
-
-              .time {
-                opacity: 0.8;
               }
 
               .remove-button {
@@ -1599,8 +1726,8 @@ input[type=number] {
 
             .comments {
               overflow: auto;
-              min-height: 150px;
-              max-height: 300px;
+              min-height: 180px;
+              max-height: 350px;
             }
 
             .footer {
@@ -1633,6 +1760,7 @@ input[type=number] {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             padding: 5px;
+            width: 300px;
 
             &.font-group {
               grid-column-gap: 10px;
@@ -1691,7 +1819,7 @@ input[type=number] {
     }
 
     &.open {
-      transform: scale(1);
+      transform: scale(1) !important;
       opacity: 1;
     }
 
@@ -1777,7 +1905,7 @@ smart-grid {
     position: absolute;
     bottom: 0px;
     left: 0px;
-    z-index: 9;
+    z-index: 12;
     width: 30px;
     height: 30px;
     background: var(--smart-surface);
@@ -1815,6 +1943,12 @@ smart-grid {
           box-shadow: var(--smart-elevation-6);
         }
       }
+    }
+  }
+
+  &.smart-kanban-view {
+    .smart-grid-add-row-button {
+      display: none !important;
     }
   }
 
@@ -3205,7 +3339,8 @@ smart-grid-column {
   cursor: default;
   min-height: 30px;
 
-  &[selected] {
+  &[selected],
+  &[focus] {
     background: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover);
   }
@@ -3556,7 +3691,7 @@ smart-grid-cell {
       padding-left: 5px;
     }
 
-    .btn {
+    .arrowbtn {
       width: 15px;
       background: var(--smart-surface);
 
@@ -3703,6 +3838,7 @@ smart-grid-cell {
   &[has-toggle-button] {
     .smart-label {
       padding: 0px;
+      flex-direction: unset;
     }
 
     .row-status {

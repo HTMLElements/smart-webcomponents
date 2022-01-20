@@ -588,6 +588,9 @@ smart-password-input {
     border: none;
     text-overflow: ellipsis; }
 
+.smart-password-input input::-ms-reveal,
+.smart-password-input input::-ms-clear {
+  display: none; }
 .smart-password-input .smart-container {
   width: 100%;
   height: 100%;
@@ -595,6 +598,21 @@ smart-password-input {
   font-family: inherit;
   position: relative;
   overflow: visible; }
+.smart-password-input .smart-drop-down-button {
+  background: transparent;
+  border-color: transparent;
+  display: block;
+  border-left: none; }
+  .smart-password-input .smart-drop-down-button:hover, .smart-password-input .smart-drop-down-button:active, .smart-password-input .smart-drop-down-button[active] {
+    color: var(--smart-primary) !important;
+    background: transparent !important;
+    border-color: transparent !important; }
+  .smart-password-input .smart-drop-down-button .arrow:after {
+    color: var(--smart-background-color);
+    content: var(--smart-icon-visibility); }
+  .smart-password-input .smart-drop-down-button .arrow.off:after {
+    color: var(--smart-background-color);
+    content: var(--smart-icon-visibility-off); }
 
 smart-multi-input {
   --smart-outline: var(--smart-primary);
@@ -683,8 +701,10 @@ smart-multi-combo-input {
     border-color: var(--smart-outline); }
 
 .smart-multi-combo-input {
-  height: auto !important;
+  height: var(--smart-editor-height);
   min-height: var(--smart-editor-height); }
+  .smart-multi-combo-input:not([input-tags-mode="one"]) {
+    height: auto !important; }
   .smart-multi-combo-input .smart-container {
     width: 100%;
     height: 100%;
@@ -791,6 +811,31 @@ smart-multi-combo-input {
   padding: initial;
   min-height: inherit;
   border: initial; }
+.smart-multi-combo-input-drop-down-menu .close-button:after {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-close);
+  margin-left: 5px; }
+.smart-multi-combo-input-drop-down-menu .add-new-item {
+  display: grid;
+  grid-template-columns: 1fr var(--smart-text-box-default-height);
+  grid-column-gap: 5px;
+  margin-left: 7px;
+  margin-right: 7px;
+  height: 36px; }
+  .smart-multi-combo-input-drop-down-menu .add-new-item input {
+    height: 30px; }
+  .smart-multi-combo-input-drop-down-menu .add-new-item smart-button {
+    justify-content: center;
+    align-content: center;
+    height: 30px; }
+  .smart-multi-combo-input-drop-down-menu .add-new-item button {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .smart-multi-combo-input-drop-down-menu .add-new-item button:after {
+    font-family: var(--smart-font-family-icon);
+    content: var(--smart-icon-plus); }
 .smart-multi-combo-input-drop-down-menu .smart-select-all {
   height: auto;
   border-bottom: var(--smart-border-width) solid var(--smart-border); }

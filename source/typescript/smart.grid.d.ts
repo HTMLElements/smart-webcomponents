@@ -1196,6 +1196,11 @@ export interface GridAppearance {
    */
   showRowLines?: boolean;
   /**
+   * Shows column groups in the Hide columns panel. Column groups and columns are shown in a tree-like structure. When the property is set to false, the column groups are not displayed and the column labels contain the column group name.
+   * Default value: false
+   */
+  showColumnGroupsInColumnPanel?: boolean;
+  /**
    * Shows filtered column background, when filter is applied.
    * Default value: true
    */
@@ -2736,6 +2741,11 @@ export interface GridSummaryRow {
    * Default value: false
    */
   visible?: boolean;
+  /**
+   * Sets the summary row editor. When you point over a summary row cell, an editor is displayed and you will be able to dynamically change the summary type.
+   * Default value: false
+   */
+  editing?: boolean;
 }
 
 /**Describes the settings for the group header. */

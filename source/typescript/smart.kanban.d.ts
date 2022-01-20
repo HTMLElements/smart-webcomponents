@@ -17,10 +17,20 @@ export interface KanbanProperties {
    */
   allowColumnRemove?: boolean;
   /**
+   * Enables or disables column hiding. When this property is set to true, users will be able to dynamically hide a column through the column actions menu. the 'columnActions' property should be true.
+   * Default value: false
+   */
+  allowColumnHide?: boolean;
+  /**
    * Toggles the visibility of the column buttons for adding tasks. A particular button can be disabled by setting addNewButton in the column's definition to false.
    * Default value: false
    */
   addNewButton?: boolean;
+  /**
+   * Determines whether the add button is visible in the column header and/or after the tasks in the column.
+   * Default value: both
+   */
+  addNewButtonDisplayMode?: KanbanAddNewButtonDisplayMode;
   /**
    * Sets or gets whether a column with a button for adding new status columns to the Kanban will be displayed.
    * Default value: false
@@ -37,11 +47,6 @@ export interface KanbanProperties {
    */
   allowDrop?: boolean;
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
-  /**
    * Enables or disables auto load state from the browser's localStorage. Information about tasks and their position and selected state, filtering, sorting, collapsed columns, as well as the values of the properties taskActions, taskComments, taskDue, taskPriority, taskProgress, taskTags, and taskUserIcon is loaded.
    * Default value: true
    */
@@ -56,6 +61,11 @@ export interface KanbanProperties {
    * Default value: false
    */
   collapsible?: boolean;
+  /**
+   * Displays colors in the column header, when the column's color property is set.
+   * Default value: false
+   */
+  columnColors?: boolean;
   /**
    * Describes the columns properties.
    * Default value: 
@@ -142,6 +152,16 @@ export interface KanbanProperties {
    */
   selectionMode?: KanbanSelectionMode;
   /**
+   * Sets or gets whether the tasks history will be stored and displayed in the task dialog.
+   * Default value: false
+   */
+  storeHistory?: boolean;
+  /**
+   * Sets or gets the task history items that will be stored when storeHistory is enabled.
+   * Default value: 20
+   */
+  storeHistoryItems?: number;
+  /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
@@ -197,6 +217,26 @@ export interface KanbanProperties {
    */
   taskProgress?: boolean;
   /**
+   * Sets the task custom fields displayed in the card. Each array item should have 'dataField', 'label' 'dataType' and optionally 'visible' properties. The 'dataField' determines the value, the label is displayed as title, 'dataType' is used for formatting and 'visible' determines whether the field will be displayed.
+   * Default value: 
+   */
+  taskCustomFields?: any;
+  /**
+   * The task's background color depends on the task's color property. By default the color is rendered within the task's left border.
+   * Default value: false
+   */
+  taskColorEntireSurface?: boolean;
+  /**
+   * Displays an input in the task's card for adding dynamically a sub task. The 'taskSubTasks' property should be set to a value different than 'none'.
+   * Default value: true
+   */
+  taskSubTasksInput?: boolean;
+  /**
+   * Sets the rendering mode of sub tasks. 'none' - default value. Sub tasks are displayed only in the edit dialog. 'onePerRow' - all sub tasks are displayed in the task's card. 'onlyUnfinished' - only tasks which are not completed are displayed in the task's card.
+   * Default value: none
+   */
+  taskSubTasks?: KanbanTaskSubTasks;
+  /**
    * Toggles the visibility of task tags.
    * Default value: true
    */
@@ -216,6 +256,16 @@ export interface KanbanProperties {
    * Default value: ""
    */
   theme?: string;
+  /**
+   * Determines whether the priority list (as defined by the priority property) will be shown when clicking the priority icon. Only applicable if editable privileges are enabled.
+   * Default value: false
+   */
+  priorityList?: boolean;
+  /**
+   * Determines the priority Kanban tasks can be assigned to. Example: [{label: 'low', value: 'low'}, {label: 'high', value: 'high'}]
+   * Default value: 
+   */
+  priority?: KanbanPriority[];
   /**
    * Determines whether the user list (as defined by the users property) will be shown when clicking the user icon. Only applicable if editable privileges are enabled.
    * Default value: false
@@ -403,6 +453,11 @@ export interface Kanban extends BaseElement, KanbanProperties {
    */
   collapse(column: number | string): void;
   /**
+   * Hides a Kanban column.
+   * @param {number | string} column. The index or dataField of the column to hide
+   */
+  hide(column: number | string): void;
+  /**
    * Creates a copy of a task in the same column.
    * @param {number | string | HTMLElement} task. The task's id or corresponding HTMLElement
    */
@@ -492,6 +547,15 @@ export interface Kanban extends BaseElement, KanbanProperties {
    */
   saveState(): void;
   /**
+   * Shows a Kanban column.
+   * @param {number | string} column. The index or dataField of the column to show
+   */
+  show(column: number | string): void;
+  /**
+   * Shows all Kanban columns.
+   */
+  showAllColumns(): void;
+  /**
    * Updates a task.
    * @param {number | string | HTMLElement} task. The task's id or corresponding HTMLElement
    * @param {{}} newData. The new data to visualize in the task.
@@ -547,6 +611,11 @@ export interface KanbanColumn {
    */
   editable?: boolean;
   /**
+   * Sets or gets whether a column is visible.
+   * Default value: true
+   */
+  visible?: boolean;
+  /**
    * Sets or gets whether a column can be reordered.
    * Default value: true
    */
@@ -594,6 +663,16 @@ export interface KanbanDataSource {
    * Default value: null
    */
   dueDate?: Date;
+  /**
+   * Callback function which can be used for customizing the tasks rendering. The Kanban calls it with 2 arguments - task html element and task data.
+   * Default value: null
+   */
+  onTaskRender?: any;
+  /**
+   * Callback function which can be used for customizing the column header rendering. The Kanban calls it with 2 arguments - column header html element and column data.
+   * Default value: null
+   */
+  onColumnHeaderRender?: any;
   /**
    * The task's priority.
    * Default value: normal
@@ -654,6 +733,19 @@ export interface KanbanSwimlane {
   label?: string;
 }
 
+export interface KanbanPriority {
+  /**
+   * The priority label displayed.
+   * Default value: ""
+   */
+  label?: string;
+  /**
+   * The priority value.
+   * Default value: ""
+   */
+  value?: string;
+}
+
 export interface KanbanUser {
   /**
    * Sets whether the user has a privilege to add or copy tasks.
@@ -707,6 +799,8 @@ declare global {
     }
 }
 
+/**Determines whether the add button is visible in the column header and/or after the tasks in the column. */
+export declare type KanbanAddNewButtonDisplayMode = 'top' | 'bottom' | 'both';
 /**Sets or gets whether the tasks in the column flow vertically or horizontally. */
 export declare type KanbanColumnOrientation = 'vertical' | 'horizontal';
 /**Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options. */
@@ -721,3 +815,5 @@ export declare type KanbanHierarchy = 'columns' | 'tabs';
 export declare type KanbanSelectionMode = 'zeroOrOne' | 'zeroOrManyExtended';
 /**Sets or gets whether tasks can be shown in all levels of column hierarchy or only on leaf columns. */
 export declare type KanbanTaskPosition = 'all' | 'leaf';
+/**Sets the rendering mode of sub tasks. 'none' - default value. Sub tasks are displayed only in the edit dialog. 'onePerRow' - all sub tasks are displayed in the task's card. 'onlyUnfinished' - only tasks which are not completed are displayed in the task's card. */
+export declare type KanbanTaskSubTasks = 'none' | 'onePerRow' | 'onlyUnfinished';

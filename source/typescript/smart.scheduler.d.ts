@@ -272,6 +272,11 @@ export interface SchedulerProperties {
    */
   legendPosition?: SchedulerLegendPosition;
   /**
+   * Determines the mouse wheel step. When this property is set to a positive number, the scroll step with mouse wheel or trackpad will depend on the property value.
+   * Default value: -1
+   */
+  mouseWheelStep?: number;
+  /**
    * Determines weather or not horizontal scrollbar is shown.
    * Default value: auto
    */
@@ -770,6 +775,15 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   beginUpdate(): void;
   /**
+   * Creates an event and adds it to the Scheduler.
+   * @param {string} label. Event label.
+   * @param {string} value. Event value.
+   * @param {string} dateStart. Event date start.
+   * @param {string} dateEnd. Event date end.
+   * @param {boolean} allDay. Event all day. Set it to true to create all day event.
+   */
+  createEvent(label: string, value: string, dateStart: string, dateEnd: string, allDay: boolean): void;
+  /**
    * Ends the update operation. This method will resume the rendering and will refresh the element.
    */
   endUpdate(): void;
@@ -794,6 +808,20 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    * @returns {any}
    */
   getResources(): any;
+  /**
+   * Gets a date from coordinates
+   * @param {number} x. X coordinate.
+   * @param {number} y. Y coordinate.
+   * @returns {string}
+   */
+  getDateFromCoordinates(x: number, y: number): string;
+  /**
+   * Gets whether a cell is all day cell from coordinates
+   * @param {number} x. X coordinate.
+   * @param {number} y. Y coordinate.
+   * @returns {boolean}
+   */
+  getIsAllDayCellFromCoordinates(x: number, y: number): boolean;
   /**
    * Returns the current state of the Scheduler. Includes the current <b>dateCurernt</b>, <b>dataSource</b> and <b>timeZone</b> properties.
    * @returns {any}
@@ -878,8 +906,14 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    * Scrolls the Scheduler to a Date.
    * @param {Date} date. The date to scroll to.
    * @param {boolean} strictScroll?. Determines whether to scroll strictly to the date or not. This mean sthat the Scheduler wll scroll to the begining of the cell that corresponds to the target date.
+   * @param {boolean} autoScroll?. Calculates the scroll positions and element bounds, then adds an offset to scroll within the middle of the view.
    */
-  scrollToDate(date: Date, strictScroll?: boolean): void;
+  scrollToDate(date: Date, strictScroll?: boolean, autoScroll?: boolean): void;
+  /**
+   * Navigates the Scheduler to a Date.
+   * @param {Date} date. The date to navigate to.
+   */
+  navigateToDate(date: Date): void;
   /**
    * Scrolls the Scheduler to an event.
    * @param {any} index. The index of a Scheduler event or the actual event object to scroll to.

@@ -481,6 +481,13 @@ smart-group-panel {
     }
   }
 
+  .smart-grid-panel-container-footer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+
+
   .toggle-visibility {
     width: 16px;
     height: 16px;
@@ -503,6 +510,8 @@ smart-group-panel {
       pointer-events: none;
       opacity: 0.5;
     }
+
+
 
     &.hidden {
       &:after {
@@ -527,7 +536,28 @@ smart-group-panel {
     height: var(--smart-grid-panel-item-height);
     min-height: var(--smart-grid-panel-item-height);
     background-color: var(--smart-background);
+
+    &.group {
+
+      &:before,
+      &:after {
+        opacity: 0 !important;
+        pointer-events: none;
+      }
+    }
+
+    &.indent {
+      padding-left: 12px;
+    }
   }
+}
+
+.smart-grid-panel-reset-button {
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .smart-grid-panel-cancel-button {
@@ -703,8 +733,8 @@ smart-group-panel {
   padding: 3px;
   position: relative;
   display: grid;
-  grid-template-areas: "customize filter sort format details delete . search";
-  grid-template-columns: minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
+  grid-template-areas: "views customize filter sort format details delete . search";
+  grid-template-columns: minmax(0px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
   grid-gap: 10px;
   grid-template-rows: 100%;
   background: var(--smart-surface);
@@ -945,8 +975,32 @@ smart-group-panel {
   }
 }
 
+
 .smart-data-view-download-button {
   grid-area: download;
+
+  &:after {
+    content: var(--smart-icon-arrow-down);
+    position: initial;
+    margin-left: 8px;
+  }
+
+  &:before {
+    font-family: var(--smart-font-family-icon);
+    left: 8px;
+    content: var(--smart-icon-download-alt);
+    position: absolute;
+  }
+
+  &.formatted {
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+  }
+}
+
+
+.smart-data-view-views-button {
+  grid-area: views;
 
   &:after {
     content: var(--smart-icon-arrow-down);
@@ -956,11 +1010,14 @@ smart-group-panel {
   }
 
   &:before {
-    content: var(--smart-icon-download-alt);
     font-family: var(--smart-font-family-icon);
     left: 8px;
-    content: var(--smart-icon-download-alt);
+    content: var(--smart-icon-table-alt);
     position: absolute;
+  }
+
+  &.kanban:before {
+    content: var(--smart-icon-kanban);
   }
 
   &.formatted {
