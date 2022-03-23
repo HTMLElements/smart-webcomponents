@@ -81,7 +81,7 @@
       .smart-input:after {
         font-weight: 100;
         content: var(--smart-icon-check);
-		pointer-events: none;
+        pointer-events: none;
       }
     }
 
@@ -213,21 +213,6 @@
       cursor: pointer;
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-container,
-    .smart-hidden-input {
-      direction: rtl;
-    }
-
-    .smart-overlay {
-      left: initial;
-      right: 2px;
-    }
-
-    .smart-input {
-      margin: 0 8px 0 0;
-    }
-  }
 }
+
+@import 'rtl/_toggle';

@@ -252,6 +252,16 @@ smart-kanban.smart-element {
     overflow: visible;
 }
 
+.smart-disabled {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 /*
     Common code for Box Components with Content and Action buttons.
 */

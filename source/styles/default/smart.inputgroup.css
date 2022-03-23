@@ -1,4 +1,4 @@
-.input-group {
+.smart-input-group {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,112 +11,112 @@
   box-sizing: border-box;
   font-family: var(--smart-font-family);
 }
-.input-group smart-input .smart-drop-down-button {
+.smart-input-group smart-input .smart-drop-down-button {
   border-left: none;
 }
-.input-group smart-button[focus] {
+.smart-input-group smart-button[focus] {
   z-index: 3;
 }
-.input-group > .input-group-prepend > smart-button,
-.input-group > .input-group-prepend > .input-group-text {
+.smart-input-group > .smart-input-group-prepend > smart-button,
+.smart-input-group > .smart-input-group-prepend > .smart-input-group-text {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.input-group > .input-group-prepend:first-child > smart-button:not(:first-child),
-.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+.smart-input-group > .smart-input-group-prepend:first-child > smart-button:not(:first-child),
+.smart-input-group > .smart-input-group-prepend:first-child > .smart-input-group-text:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.input-group > .input-group-prepend:not(:first-child) > smart-button,
-.input-group > .input-group-prepend:not(:first-child) > .input-group-text {
+.smart-input-group > .smart-input-group-prepend:not(:first-child) > smart-button,
+.smart-input-group > .smart-input-group-prepend:not(:first-child) > .smart-input-group-text {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.input-group > .input-group-append > smart-button,
-.input-group > .input-group-append > .input-group-text {
+.smart-input-group > .smart-input-group-append > smart-button,
+.smart-input-group > .smart-input-group-append > .smart-input-group-text {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.input-group > .input-group-append:last-child > smart-button:not(:last-child):not(.dropdown-toggle),
-.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+.smart-input-group > .smart-input-group-append:last-child > smart-button:not(:last-child):not(.dropdown-toggle),
+.smart-input-group > .smart-input-group-append:last-child > .smart-input-group-text:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.input-group > .input-group-append:not(:last-child) > smart-button,
-.input-group > .input-group-append:not(:last-child) > .input-group-text {
+.smart-input-group > .smart-input-group-append:not(:last-child) > smart-button,
+.smart-input-group > .smart-input-group-append:not(:last-child) > .smart-input-group-text {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.input-group > .custom-file,
-.input-group > .custom-select,
-.input-group > .form-control {
+.smart-input-group > .custom-file,
+.smart-input-group > .custom-select,
+.smart-input-group > .form-control {
   position: relative;
   flex: 1 1 auto;
   width: 1%;
   margin-bottom: 0;
 }
-.input-group > .custom-file:focus,
-.input-group > .custom-select:focus,
-.input-group > .form-control:focus {
+.smart-input-group > .custom-file:focus,
+.smart-input-group > .custom-select:focus,
+.smart-input-group > .form-control:focus {
   z-index: 3;
 }
-.input-group > .custom-select:not(:first-child),
-.input-group > .form-control:not(:first-child) {
+.smart-input-group > .custom-select:not(:first-child),
+.smart-input-group > .form-control:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.input-group > .custom-select:not(:last-child),
-.input-group > .form-control:not(:last-child) {
+.smart-input-group > .custom-select:not(:last-child),
+.smart-input-group > .form-control:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.input-group > .form-control[focus] {
+.smart-input-group > .form-control[focus] {
   z-index: 3;
 }
-.input-group > .custom-file + .custom-file,
-.input-group > .custom-file + .custom-select,
-.input-group > .custom-file + .form-control,
-.input-group > .custom-select + .custom-file,
-.input-group > .custom-select + .custom-select,
-.input-group > .custom-select + .form-control,
-.input-group > .form-control + .custom-file,
-.input-group > .form-control + .custom-select,
-.input-group > .form-control + .form-control {
+.smart-input-group > .custom-file + .custom-file,
+.smart-input-group > .custom-file + .custom-select,
+.smart-input-group > .custom-file + .form-control,
+.smart-input-group > .custom-select + .custom-file,
+.smart-input-group > .custom-select + .custom-select,
+.smart-input-group > .custom-select + .form-control,
+.smart-input-group > .form-control + .custom-file,
+.smart-input-group > .form-control + .custom-select,
+.smart-input-group > .form-control + .form-control {
   margin-left: -1px;
 }
 
-.input-group-append,
-.input-group-prepend {
+.smart-input-group-append,
+.smart-input-group-prepend {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   height: auto;
 }
-.input-group-append > smart-button,
-.input-group-prepend > smart-button {
+.smart-input-group-append > smart-button,
+.smart-input-group-prepend > smart-button {
   height: 100%;
 }
-.input-group-append smart-button + smart-button,
-.input-group-append smart-button + .input-group-text,
-.input-group-append .input-group-text + smart-button,
-.input-group-append .input-group-text + .input-group-text,
-.input-group-prepend smart-button + smart-button,
-.input-group-prepend smart-button + .input-group-text,
-.input-group-prepend .input-group-text + smart-button,
-.input-group-prepend .input-group-text + .input-group-text {
+.smart-input-group-append smart-button + smart-button,
+.smart-input-group-append smart-button + .smart-input-group-text,
+.smart-input-group-append .smart-input-group-text + smart-button,
+.smart-input-group-append .smart-input-group-text + .smart-input-group-text,
+.smart-input-group-prepend smart-button + smart-button,
+.smart-input-group-prepend smart-button + .smart-input-group-text,
+.smart-input-group-prepend .smart-input-group-text + smart-button,
+.smart-input-group-prepend .smart-input-group-text + .smart-input-group-text {
   margin-left: -1px;
 }
 
-.input-group-prepend {
+.smart-input-group-prepend {
   margin-right: -1px;
 }
 
-.input-group-append {
+.smart-input-group-append {
   margin-left: -1px;
 }
 
-.input-group-text {
+.smart-input-group-text {
   border-radius: var(--smart-border-radius);
   display: flex;
   align-items: center;

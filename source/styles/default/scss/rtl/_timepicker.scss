@@ -1,0 +1,21 @@
+.smart-time-picker {
+
+    //Right To Left
+    &[right-to-left] {
+
+        .smart-header,
+        .smart-footer {
+            direction: rtl;
+        }
+
+        .smart-am-pm-container {
+            margin: 0 10px 0 0;
+        }
+
+        &[view="landscape"] {
+            >.smart-container {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}

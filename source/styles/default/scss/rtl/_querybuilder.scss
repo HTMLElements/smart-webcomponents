@@ -1,0 +1,72 @@
+//Right To Left
+.smart-query-builder-drag-feedback {
+    &[right-to-left] {
+        direction: rtl;
+    }
+}
+
+smart-query-builder {
+    &[right-to-left] {
+        .smart-filter-group {
+            direction: rtl;
+        }
+
+        .smart-filter-group-condition-container {
+            padding-left: initial;
+            padding-right: calc(var(--smart-filter-builder-group-condition-margin) * 6);
+            border-left: initial;
+            border-right: var(--smart-border-width) solid var(--smart-border);
+            margin-left: initial;
+            margin-right: calc(var(--smart-filter-builder-group-condition-margin) * 3 - var(--smart-filter-builder-group-container-border) / 2);
+        }
+
+        .smart-filter-nested-operator {
+            margin-left: initial;
+            margin-right: calc(-1 * var(--smart-filter-builder-item-margin));
+        }
+
+        .smart-filter-group-condition {
+
+            &:before,
+            &:after {
+                right: initial;
+                left: 100%;
+                margin: 0 0 0 6px;
+            }
+        }
+
+        .smart-filter-add-condition-btn {
+            padding-left: initial;
+            padding-right: calc(var(--smart-filter-builder-group-condition-margin) * 6);
+            border-left: initial;
+            border-right: calc(var(--smart-border-width) / 2.5) dashed var(--smart-border);
+            margin-left: initial;
+            margin-right: calc(calc(var(--smart-filter-builder-group-condition-margin) * 3) - var(--smart-border-width) / 5);
+
+            >div {
+                padding-left: initial;
+                padding-right: calc(var(--smart-filter-builder-item-margin) / 2);
+
+                &:before {
+                    right: initial;
+                    left: 100%;
+                }
+            }
+        }
+
+        .smart-filter-operation {
+            &:not([edited])::after {
+                left: -1px;
+                right: initial;
+            }
+        }
+
+        .drop-target.bottom,
+        .drop-target.top {
+            &:after {
+                left: initial;
+                right: 0;
+            }
+        }
+    }
+}

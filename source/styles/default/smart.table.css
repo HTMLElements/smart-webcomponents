@@ -760,66 +760,6 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table .outline-level-10.tree-leaf {
   padding-left: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
 }
-.smart-table[right-to-left] .outline-level-1 {
-  padding-right: var(--smart-table-indent);
-}
-.smart-table[right-to-left] .outline-level-1.tree-leaf {
-  padding-right: calc(var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-2 {
-  padding-right: calc(2 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-2.tree-leaf {
-  padding-right: calc(2 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-3 {
-  padding-right: calc(3 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-3.tree-leaf {
-  padding-right: calc(3 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-4 {
-  padding-right: calc(4 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-4.tree-leaf {
-  padding-right: calc(4 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-5 {
-  padding-right: calc(5 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-5.tree-leaf {
-  padding-right: calc(5 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-6 {
-  padding-right: calc(6 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-6.tree-leaf {
-  padding-right: calc(6 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-7 {
-  padding-right: calc(7 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-7.tree-leaf {
-  padding-right: calc(7 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-8 {
-  padding-right: calc(8 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-8.tree-leaf {
-  padding-right: calc(8 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-9 {
-  padding-right: calc(9 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-9.tree-leaf {
-  padding-right: calc(9 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
-.smart-table[right-to-left] .outline-level-10 {
-  padding-right: calc(10 * var(--smart-table-indent));
-}
-.smart-table[right-to-left] .outline-level-10.tree-leaf {
-  padding-right: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
-}
 .smart-table.thead-dark table th {
   color: #fff;
   background-color: #212529;
@@ -1474,10 +1414,6 @@ smart-table tr.expanded .hierarchy-arrow {
   .smart-table[column-groups][freeze-header] thead th {
     box-shadow: 0px 0px 0px 1px var(--smart-border);
   }
-  .smart-table[right-to-left] .freeze-near,
-  .smart-table[right-to-left] .freeze-far {
-    box-shadow: 0px 0px 0px 1px var(--smart-border);
-  }
 }
 .smart-table[hide-selection-column] th.smart-table-select-all {
   width: 0px;
@@ -1496,116 +1432,6 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[hide-selection-column] tr[aria-selected="true"] td {
   background: var(--smart-ui-state-selected);
   color: var(--smart-ui-state-color-selected);
-}
-.smart-table[right-to-left] > .smart-container {
-  direction: rtl;
-}
-.smart-table[right-to-left] thead th {
-  text-align: right;
-}
-.smart-table[right-to-left] thead th .sort-by:after {
-  left: unset;
-  right: 100%;
-}
-.smart-table[right-to-left] th.column-header {
-  text-align: center;
-}
-.smart-table[right-to-left] td {
-  text-align: initial;
-}
-.smart-table[right-to-left] .smart-table-container:focus td[focus]:after {
-  left: unset;
-  right: 1px;
-}
-.smart-table[right-to-left] .smart-table-header {
-  left: unset;
-  right: 0;
-}
-.smart-table[right-to-left] .smart-table-header .smart-table-toolbar-button.conditional-formatting {
-  border-left: none;
-  border-right: var(--smart-border-width) solid var(--smart-border);
-}
-.smart-table[right-to-left] .smart-table-header .smart-table-toolbar-button.conditional-formatting:before {
-  left: 0;
-  right: unset;
-}
-.smart-table[right-to-left] .freeze-far {
-  left: 0;
-  box-shadow: 1px 0px 0px 0px var(--smart-border);
-  right: unset;
-}
-.smart-table[right-to-left] .freeze-near {
-  right: 0;
-  box-shadow: -1px 0px 0px 0px var(--smart-border);
-  left: unset;
-}
-.smart-table[right-to-left] smart-pager .smart-container {
-  justify-content: flex-start;
-}
-.smart-table[right-to-left] smart-pager .smart-pager-far-buttons-container {
-  order: 0;
-}
-.smart-table[right-to-left] smart-pager .smart-pager-near-buttons-container {
-  order: 1;
-}
-.smart-table[right-to-left] smart-pager .smart-pager-summary-container.smart-pager-label {
-  order: 2;
-}
-.smart-table[right-to-left] smart-pager .smart-pager-size-selector-and-label-container {
-  order: 3;
-  flex-direction: row;
-}
-.smart-table[right-to-left] .tree-cell,
-.smart-table[right-to-left] .tree-leaf,
-.smart-table[right-to-left] .group-header {
-  padding-left: var(--smart-table-cell-padding);
-}
-.smart-table[right-to-left] .hierarchy-arrow {
-  margin-left: var(--smart-table-arrow-margin);
-  margin-right: unset;
-}
-.smart-table[right-to-left][freeze-header] thead th.freeze-far {
-  box-shadow: 1px 1px 0px 0px var(--smart-border);
-}
-.smart-table[right-to-left][freeze-header] thead th.freeze-near {
-  box-shadow: -1px 1px 0px 0px var(--smart-border);
-}
-.smart-table[right-to-left][freeze-footer] tfoot td.freeze-far {
-  box-shadow: 1px -1px 0px 0px var(--smart-border);
-}
-.smart-table[right-to-left][freeze-footer] tfoot td.freeze-near {
-  box-shadow: -1px -1px 0px 0px var(--smart-border);
-}
-.smart-table[right-to-left][conditional-formatting-button]:not([filtering]) .smart-table-header {
-  grid-template-columns: 1fr auto;
-  grid-template-areas: ". button";
-}
-.smart-table[right-to-left][filtering] .smart-table-header {
-  grid-template-columns: 1fr;
-}
-.smart-table[right-to-left][filtering][conditional-formatting-button] .smart-table-header {
-  grid-template-columns: 1fr auto;
-}
-.smart-table[right-to-left][column-resize] th[locked]:before {
-  content: none;
-}
-.smart-table[right-to-left][column-resize] th[locked] + th[data-field]:after {
-  content: none;
-}
-.smart-table[right-to-left][column-resize]:not([selection]) th[data-field]:first-child:after {
-  content: none;
-}
-.smart-table[right-to-left][column-resize]:not([selection]) th[data-field]:not([locked]):first-child:before {
-  content: '';
-}
-.smart-table[right-to-left][column-resize][selection] th[data-field]:nth-child(2):after {
-  content: none;
-}
-.smart-table[right-to-left][column-resize][selection] th[data-field]:not([locked]):nth-child(2):before {
-  content: '';
-}
-.smart-table[right-to-left][column-groups] th:not(:last-child) {
-  border-left: var(--smart-border-width) solid var(--smart-border);
 }
 
 .smart-pivot-table th.expanded .total-arrow {
@@ -1632,29 +1458,7 @@ smart-table tr.expanded .hierarchy-arrow {
   .smart-pivot-table[freeze-header] .smart-pivot-table-grouping-header:empty {
     box-shadow: -1px 0px 0px 0px var(--smart-border);
   }
-  .smart-pivot-table[right-to-left] thead th:not(:last-child),
-  .smart-pivot-table[right-to-left] thead th:last-child {
-    border: none;
-    box-shadow: 0px 0px 0px 1px var(--smart-border);
-  }
 }
-.smart-pivot-table[right-to-left] .smart-table-toolbar-button.fields {
-  border-left: none;
-  border-right: var(--smart-border-width) solid var(--smart-border);
-}
-.smart-pivot-table[right-to-left] .smart-table-toolbar-button.fields:before {
-  left: 0;
-  right: unset;
-}
-.smart-pivot-table[right-to-left][toolbar][designer] .smart-table-toolbar-button.conditional-formatting {
-  border-left: none;
-  border-right: var(--smart-border-width) solid var(--smart-border);
-}
-.smart-pivot-table[right-to-left][toolbar][designer] .smart-table-toolbar-button.conditional-formatting:before {
-  left: 0;
-  right: unset;
-}
-
 .smart-pivot-panel > .smart-container[modal] {
   position: relative;
   pointer-events: none;
@@ -1989,6 +1793,207 @@ smart-table tr.expanded .hierarchy-arrow {
   to {
     transform: scale(2.5);
   }
+}
+@-moz-document url-prefix() {
+  .smart-table[right-to-left] .freeze-near,
+  .smart-table[right-to-left] .freeze-far {
+    box-shadow: 0px 0px 0px 1px var(--smart-border);
+  }
+}
+.smart-table[right-to-left] > .smart-container {
+  direction: rtl;
+}
+.smart-table[right-to-left] thead th {
+  text-align: right;
+}
+.smart-table[right-to-left] thead th .sort-by:after {
+  left: unset;
+  right: 100%;
+}
+.smart-table[right-to-left] th.column-header {
+  text-align: center;
+}
+.smart-table[right-to-left] td {
+  text-align: initial;
+}
+.smart-table[right-to-left] .smart-table-container:focus td[focus]:after {
+  left: unset;
+  right: 1px;
+}
+.smart-table[right-to-left] .smart-table-header {
+  left: unset;
+  right: 0;
+}
+.smart-table[right-to-left] .smart-table-header .smart-table-toolbar-button.conditional-formatting {
+  border-left: none;
+  border-right: var(--smart-border-width) solid var(--smart-border);
+}
+.smart-table[right-to-left] .smart-table-header .smart-table-toolbar-button.conditional-formatting:before {
+  left: 0;
+  right: unset;
+}
+.smart-table[right-to-left] .freeze-far {
+  left: 0;
+  box-shadow: 1px 0px 0px 0px var(--smart-border);
+  right: unset;
+}
+.smart-table[right-to-left] .freeze-near {
+  right: 0;
+  box-shadow: -1px 0px 0px 0px var(--smart-border);
+  left: unset;
+}
+.smart-table[right-to-left] smart-pager .smart-container {
+  justify-content: flex-start;
+}
+.smart-table[right-to-left] smart-pager .smart-pager-far-buttons-container {
+  order: 0;
+}
+.smart-table[right-to-left] smart-pager .smart-pager-near-buttons-container {
+  order: 1;
+}
+.smart-table[right-to-left] smart-pager .smart-pager-summary-container.smart-pager-label {
+  order: 2;
+}
+.smart-table[right-to-left] smart-pager .smart-pager-size-selector-and-label-container {
+  order: 3;
+  flex-direction: row;
+}
+.smart-table[right-to-left] .tree-cell,
+.smart-table[right-to-left] .tree-leaf,
+.smart-table[right-to-left] .group-header {
+  padding-left: var(--smart-table-cell-padding);
+}
+.smart-table[right-to-left] .hierarchy-arrow {
+  margin-left: var(--smart-table-arrow-margin);
+  margin-right: unset;
+}
+.smart-table[right-to-left][freeze-header] thead th.freeze-far {
+  box-shadow: 1px 1px 0px 0px var(--smart-border);
+}
+.smart-table[right-to-left][freeze-header] thead th.freeze-near {
+  box-shadow: -1px 1px 0px 0px var(--smart-border);
+}
+.smart-table[right-to-left][freeze-footer] tfoot td.freeze-far {
+  box-shadow: 1px -1px 0px 0px var(--smart-border);
+}
+.smart-table[right-to-left][freeze-footer] tfoot td.freeze-near {
+  box-shadow: -1px -1px 0px 0px var(--smart-border);
+}
+.smart-table[right-to-left][conditional-formatting-button]:not([filtering]) .smart-table-header {
+  grid-template-columns: 1fr auto;
+  grid-template-areas: ". button";
+}
+.smart-table[right-to-left][filtering] .smart-table-header {
+  grid-template-columns: 1fr;
+}
+.smart-table[right-to-left][filtering][conditional-formatting-button] .smart-table-header {
+  grid-template-columns: 1fr auto;
+}
+.smart-table[right-to-left][column-resize] th[locked]:before {
+  content: none;
+}
+.smart-table[right-to-left][column-resize] th[locked] + th[data-field]:after {
+  content: none;
+}
+.smart-table[right-to-left][column-resize]:not([selection]) th[data-field]:first-child:after {
+  content: none;
+}
+.smart-table[right-to-left][column-resize]:not([selection]) th[data-field]:not([locked]):first-child:before {
+  content: '';
+}
+.smart-table[right-to-left][column-resize][selection] th[data-field]:nth-child(2):after {
+  content: none;
+}
+.smart-table[right-to-left][column-resize][selection] th[data-field]:not([locked]):nth-child(2):before {
+  content: '';
+}
+.smart-table[right-to-left][column-groups] th:not(:last-child) {
+  border-left: var(--smart-border-width) solid var(--smart-border);
+}
+
+@-moz-document url-prefix() {
+  .smart-pivot-table[right-to-left] thead th:not(:last-child),
+  .smart-pivot-table[right-to-left] thead th:last-child {
+    border: none;
+    box-shadow: 0px 0px 0px 1px var(--smart-border);
+  }
+}
+.smart-pivot-table[right-to-left] .smart-table-toolbar-button.fields {
+  border-left: none;
+  border-right: var(--smart-border-width) solid var(--smart-border);
+}
+.smart-pivot-table[right-to-left] .smart-table-toolbar-button.fields:before {
+  left: 0;
+  right: unset;
+}
+.smart-pivot-table[right-to-left][toolbar][designer] .smart-table-toolbar-button.conditional-formatting {
+  border-left: none;
+  border-right: var(--smart-border-width) solid var(--smart-border);
+}
+.smart-pivot-table[right-to-left][toolbar][designer] .smart-table-toolbar-button.conditional-formatting:before {
+  left: 0;
+  right: unset;
+}
+
+.smart-table[right-to-left] .outline-level-1 {
+  padding-right: var(--smart-table-indent);
+}
+.smart-table[right-to-left] .outline-level-1.tree-leaf {
+  padding-right: calc(var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-2 {
+  padding-right: calc(2 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-2.tree-leaf {
+  padding-right: calc(2 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-3 {
+  padding-right: calc(3 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-3.tree-leaf {
+  padding-right: calc(3 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-4 {
+  padding-right: calc(4 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-4.tree-leaf {
+  padding-right: calc(4 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-5 {
+  padding-right: calc(5 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-5.tree-leaf {
+  padding-right: calc(5 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-6 {
+  padding-right: calc(6 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-6.tree-leaf {
+  padding-right: calc(6 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-7 {
+  padding-right: calc(7 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-7.tree-leaf {
+  padding-right: calc(7 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-8 {
+  padding-right: calc(8 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-8.tree-leaf {
+  padding-right: calc(8 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-9 {
+  padding-right: calc(9 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-9.tree-leaf {
+  padding-right: calc(9 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+}
+.smart-table[right-to-left] .outline-level-10 {
+  padding-right: calc(10 * var(--smart-table-indent));
+}
+.smart-table[right-to-left] .outline-level-10.tree-leaf {
+  padding-right: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
 }
 
 /*# sourceMappingURL=smart.table.css.map */

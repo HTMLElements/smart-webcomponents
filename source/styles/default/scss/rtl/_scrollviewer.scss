@@ -1,0 +1,33 @@
+.smart-scroll-viewer {
+
+    //Right To Left
+    &[right-to-left] {
+        .smart-scroll-viewer-container {
+            direction: rtl;
+            text-align: initial;
+
+            &.vscroll {
+                left: var(--smart-scroll-bar-size);
+                right: 0;
+            }
+        }
+
+        smart-scroll-bar {
+            left: var(--smart-scroll-bar-size);
+            right: 0;
+
+            &:after {
+                left: -100%;
+            }
+
+            &[orientation="vertical"] {
+                left: 0;
+                right: initial;
+
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+}

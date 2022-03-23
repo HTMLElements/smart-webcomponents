@@ -84,7 +84,7 @@ smart-path {
     border-color: var(--smart-border);
   }
 
-  > .smart-container {
+  >.smart-container {
     display: flex;
     position: relative;
     align-items: center;
@@ -115,7 +115,8 @@ smart-path {
     font-size: inherit;
     font-family: inherit;
     background-color: inherit;
-    margin: 0; /* Safari */
+    margin: 0;
+    /* Safari */
     color: inherit;
     background: var(--smart-background);
     text-align: var(--smart-path-text-align);
@@ -133,7 +134,8 @@ smart-path {
       color: var(--smart-background-color);
     }
 
-    &::-webkit-input-placeholder, /* Edge */
+    &::-webkit-input-placeholder,
+    /* Edge */
     &::placeholder {
       color: var(--smart-disabled-color);
       font-style: italic;
@@ -154,7 +156,8 @@ smart-path {
     background: initial;
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: none; /* Firefox way of hidding the scrollbars */
+    scrollbar-width: none;
+    /* Firefox way of hidding the scrollbars */
 
     &:after {
       //content: var(--smart-icon-arrow-down);
@@ -343,7 +346,8 @@ smart-path {
     font-size: inherit;
     font-family: inherit;
     background-color: inherit;
-    margin: 0; /* Safari */
+    margin: 0;
+    /* Safari */
     color: inherit;
     background: var(--smart-background);
     text-align: var(--smart-path-text-align);
@@ -414,7 +418,7 @@ smart-path {
       background-color: initial;
     }
 
-    > .smart-container,
+    >.smart-container,
     .smart-drop-down-button,
     .smart-browse-button {
       cursor: default;
@@ -447,7 +451,7 @@ smart-path {
   }
 
   &[label][hint] {
-    > .smart-container {
+    >.smart-container {
       display: flex;
       position: relative;
       align-items: center;
@@ -455,7 +459,7 @@ smart-path {
   }
 
   &[label] {
-    > .smart-container {
+    >.smart-container {
       align-items: flex-end;
     }
 
@@ -479,7 +483,7 @@ smart-path {
   }
 
   &[hint] {
-    > .smart-container {
+    >.smart-container {
       align-items: flex-start;
     }
 
@@ -626,6 +630,7 @@ smart-path {
       }
 
       &:not([hover]) {
+
         .smart-drop-down-button,
         .smart-browse-button {
           background-color: transparent;
@@ -636,6 +641,7 @@ smart-path {
     }
 
     &:not([hover]) {
+
       .smart-drop-down-button,
       .smart-browse-button {
         &:focus {
@@ -663,6 +669,7 @@ smart-path {
     }
 
     &[focus] {
+
       .smart-drop-down-button,
       .smart-browse-button,
       .smart-path-input-container {
@@ -695,41 +702,5 @@ smart-path {
       }
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    > .smart-container {
-      direction: rtl;
-    }
-
-    .smart-browse-button {
-      border-top-left-radius: var(--smart-border-top-left-radius);
-      border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    .smart-drop-down-button {
-      border-top-right-radius: var(--smart-border-top-right-radius);
-      border-bottom-right-radius: var(--smart-border-bottom-left-radius);
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
-    &[indicator] {
-      .smart-path-input-container {
-        border-top-left-radius: var(--smart-border-top-left-radius);
-        border-top-right-radius: 0;
-        border-bottom-left-radius: var(--smart-border-bottom-left-radius);
-        border-bottom-right-radius: 0;
-      }
-    }
-  }
 }
-
-//Right To Left
-.smart-drop-down.smart-drop-down-repositioned {
-  &[right-to-left] {
-    direction: rtl;
-  }
-}
+@import 'rtl/_path';

@@ -1,0 +1,284 @@
+/* --- Right-To-Left --- */
+
+.smart-menu {
+    &[right-to-left] {
+        .smart-menu-main-container {
+            direction: rtl;
+        }
+
+        .smart-menu-minimized-items-container {
+            left: initial;
+            right: calc(-1 * var(--smart-border-width));
+
+            .smart-menu-item-shortcut {
+                margin-right: initial;
+                margin-left: initial;
+            }
+        }
+
+        .smart-menu-items-group-arrow.right.smart-arrow-right {
+            margin-left: initial;
+            margin-right: 50px;
+        }
+
+        .smart-menu-drop-down {
+            left: initial;
+            right: 100%;
+
+            &[level="2"] {
+                right: 0;
+            }
+        }
+
+        smart-menu-item {
+            .smart-menu-item-shortcut {
+                margin-left: initial;
+                margin-right: 100px;
+            }
+        }
+
+        smart-menu-items-group {
+            .smart-menu-items-group-arrow {
+                margin-right: initial;
+                margin-left: initial;
+            }
+
+            &[level="1"] {
+                >.smart-menu-item-label-container {
+                    >.smart-menu-items-group-arrow {
+                        /*margin-right: initial;*/
+                        margin-right: 10px;
+                        margin-left: initial;
+                    }
+                }
+            }
+        }
+
+        &:not([mode="tree"]) {
+            &[drop-down-position$="left"] {
+                smart-menu-item:not([level="1"]) {
+                    >.smart-menu-item-label-container {
+                        flex-direction: row;
+                    }
+                }
+            }
+        }
+
+        &[mode] {
+            &:not([mode="horizontal"]) {
+                &[drop-down-position$="left"] {
+                    .smart-menu-main-container smart-menu-items-group {
+                        >.smart-menu-item-label-container {
+                            flex-direction: row;
+                        }
+                    }
+                }
+
+                &:not([mode="tree"])[drop-down-position$="left"] {
+                    smart-menu-item {
+                        >.smart-menu-item-label-container {
+                            flex-direction: row;
+                        }
+                    }
+                }
+            }
+        }
+
+        &[mode="tree"] {
+            .smart-menu-minimized-items-container {
+                direction: rtl;
+            }
+        }
+
+        &[mode="dropDown"] {
+            left: initial;
+            right: 100%;
+
+            smart-menu-item[level="1"] {
+                .smart-menu-item-shortcut {
+                    margin-right: initial;
+                    margin-left: initial;
+                }
+            }
+        }
+
+        &[mode="vertical"] {
+            .smart-menu-drop-down[level="2"] {
+                left: initial;
+                right: 100%;
+            }
+        }
+
+        &[drop-down-position$="left"] {
+            smart-menu-items-group:not([level="1"]) {
+                >.smart-menu-item-label-container {
+                    flex-direction: row;
+                }
+            }
+        }
+
+        &[drop-down-position$="right"] {
+            .smart-menu-drop-down[level="2"] {
+                right: initial;
+                left: 0;
+            }
+        }
+
+        &[drop-down-position="overlay-right"] {
+            .smart-menu-main-container {
+                .smart-menu-drop-down:not([level="2"]) {
+                    right: initial;
+                    left: 0;
+                }
+            }
+        }
+
+        &[minimized] {
+            .smart-menu-minimized-items-container {
+                direction: rtl;
+            }
+
+            &[drop-down-position$="left"] {
+                >.smart-container {
+                    flex-direction: row;
+                }
+            }
+        }
+
+        &[checkboxes] {
+            .smart-menu-item-container[checkable] {
+
+                >smart-menu-item,
+                >smart-menu-items-group {
+                    >.smart-menu-item-label-container {
+                        padding-left: 10px;
+                        padding-right: 35px;
+                    }
+
+                    &[checked] {
+                        >.smart-menu-item-label-container:after {
+                            left: initial;
+                            right: 10px;
+                        }
+                    }
+                }
+            }
+
+            &[checkable] {
+
+                smart-menu-item[level="1"],
+                smart-menu-items-group[level="1"] {
+                    >.smart-menu-item-label-container {
+                        padding-left: 10px;
+                        padding-right: 35px;
+                    }
+
+                    &[checked] {
+                        >.smart-menu-item-label-container:after {
+                            left: initial;
+                            right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.smart-menu-drop-down.smart-drop-down-repositioned {
+    &[right-to-left] {
+        left: initial;
+        right: 100%;
+
+        &.smart-menu-minimized-items-container {
+            direction: rtl;
+        }
+
+        .smart-menu-item-container {
+            direction: rtl;
+        }
+
+        .smart-menu-items-group-arrow.right.smart-arrow-right {
+            margin-left: initial;
+            margin-right: 50px;
+        }
+
+        smart-menu-item {
+            .smart-menu-item-shortcut {
+                margin-left: initial;
+                margin-right: 100px;
+            }
+        }
+
+        &[drop-down-position$="left"][level="2"],
+        &[drop-down-position="overlay-right"]:not([level="2"]) {
+            right: initial;
+            left: 0;
+        }
+
+        &[level="2"] {
+            right: 0;
+        }
+
+        &[checkboxes] {
+            .smart-menu-item-container[checkable] {
+
+                >smart-menu-item,
+                >smart-menu-items-group {
+                    >.smart-menu-item-label-container {
+                        padding-left: 10px;
+                        padding-right: 35px;
+                    }
+
+                    &[checked] {
+                        >.smart-menu-item-label-container:after {
+                            left: initial;
+                            right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.smart-menu-minimized-items-container {
+    &[right-to-left] {
+        left: initial;
+        right: 100%;
+
+        .smart-menu-item-shortcut,
+        smart-menu-items-group .smart-menu-items-group-arrow {
+            margin-right: initial;
+            margin-left: initial;
+        }
+
+        &.smart-drop-down-repositioned {
+            left: initial;
+            right: calc(-1 * var(--smart-border-width));
+
+            .smart-menu-drop-down {
+                left: initial;
+                right: 100%;
+            }
+        }
+
+        &[checkboxes][checkable] {
+
+            >smart-menu-item,
+            >smart-menu-items-group {
+                >.smart-menu-item-label-container {
+                    padding-left: 10px;
+                    padding-right: 35px;
+                }
+
+                &[checked] {
+                    >.smart-menu-item-label-container:after {
+                        left: initial;
+                        right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

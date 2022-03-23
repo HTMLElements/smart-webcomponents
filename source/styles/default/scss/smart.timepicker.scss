@@ -6,7 +6,7 @@
   line-height: initial;
   min-width: 250px;
 
-  > .smart-container {
+  >.smart-container {
     width: 100%;
     height: 100%;
   }
@@ -103,6 +103,7 @@
 
   &[readonly],
   &[disabled] {
+
     .smart-hour-container,
     .smart-minute-container,
     .smart-am-container,
@@ -128,7 +129,7 @@
     height: var(--smart-time-picker-default-width);
     min-width: 400px;
 
-    > .smart-container {
+    >.smart-container {
       display: flex;
     }
 
@@ -148,23 +149,6 @@
     }
   }
 
-  //Right To Left
-  &[right-to-left] {
-    .smart-header,
-    .smart-footer {
-      direction: rtl;
-    }
-
-    .smart-am-pm-container {
-      margin: 0 10px 0 0;
-    }
-
-    &[view="landscape"] {
-      > .smart-container {
-        flex-direction: row-reverse;
-      }
-    }
-  }
 }
 
 @keyframes smart-time-picker-animation {
@@ -189,3 +173,4 @@
   }
 }
 
+@import 'rtl/_timepicker';

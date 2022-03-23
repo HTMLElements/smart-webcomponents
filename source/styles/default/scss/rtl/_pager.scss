@@ -1,0 +1,38 @@
+smart-pager {
+
+    //Right To Left
+    &[right-to-left] {
+
+        >.smart-container,
+        .smart-pager-middle-buttons-container,
+        .smart-pager-near-buttons-container,
+        .smart-pager-far-buttons-container,
+        .smart-pager-page-index-selectors-container,
+        .smart-pager-size-selector-and-label-container,
+        .smart-pager-input-and-label-container,
+        .smart-pager-label {
+            flex-direction: row-reverse;
+        }
+
+        .smart-arrow-left,
+        .smart-arrow-right,
+        .smart-arrow-left-first,
+        .smart-arrow-right-last {
+            &:after {
+                transform: rotate(180deg);
+                transform-origin: center;
+            }
+        }
+
+        .smart-pager-label>span,
+        .smart-first-button,
+        .smart-last-button,
+        .smart-next-page-button,
+        .smart-previous-page-button,
+        .smart-pager-page-index-selector,
+        .smart-pager-input,
+        .smart-pager-label {
+            direction: rtl;
+        }
+    }
+}

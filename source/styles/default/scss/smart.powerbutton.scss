@@ -122,12 +122,5 @@ smart-power-button {
   &.raised {
     box-shadow: var(--smart-elevation-2);
   }
-
-  &[right-to-left] {
-    > .smart-container {
-      > .smart-input {
-        direction: rtl;
-      }
-    }
-  }
 }
+@import 'rtl/_powerbutton';

@@ -405,42 +405,6 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     }
   }
 
-  &[right-to-left] {
-    .smart-editor-toolbar:not(.smart-tooltip) {
-      grid-template-areas:
-        'toggleButton primary'
-        'secondary secondary';
-      grid-template-columns: auto minmax(0, 1fr);
-
-      .smart-editor-toolbar-item {
-        margin-left: initial;
-        margin-right: var(--smart-editor-toolbar-item-margin);
-      }
-    }
-
-    .smart-editor-content-container,
-    .smart-editor-toolbar-items-primary,
-    .smart-editor-toolbar-items-secondary,
-    .smart-editor-toolbar-item[item-type="drop-down"],
-    .smart-editor-toolbar-item[item-type="color-input"] {
-      direction: rtl;
-    }
-
-    .smart-editor-resize-frame span {
-      transform: translate(50%, -50%);
-
-      &[position="top-left"],
-      &[position="bottom-right"] {
-        cursor: sw-resize;
-      }
-
-      &[position="top-right"],
-      &[position="bottom-left"] {
-        cursor: se-resize;
-      }
-    }
-  }
-
   //Toolbar Items that are disabled in 'markdown' mode
   &[edit-mode="markdown"] .smart-editor-toolbar-item {
 
@@ -1308,11 +1272,6 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
       }
     }
   }
-
-  &[right-to-left] li .editor-icon::before {
-    right: 0;
-    left: initial;
-  }
 }
 
 /* --- Editor Window --- */
@@ -1489,10 +1448,6 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
       margin-left: var(--smart-editor-toolbar-item-margin);
     }
 
-    &[right-to-left]:not(.smart-editor-drop-down-toolbar) .smart-editor-toolbar-item:not(:first-of-type) {
-      margin-left: initial;
-      margin-right: var(--smart-editor-toolbar-item-margin);
-    }
   }
 
   &.smart-editor-context-menu {
@@ -1622,23 +1577,6 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     display: block;
     background: transparent;
 
-    &[right-to-left] {
-      .smart-table-picker-grid {
-        direction: rtl;
-      }
-
-      .smart-table-picker-button>button.smart-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &::before {
-          margin-right: initial;
-          margin-left: 10px;
-        }
-      }
-    }
-
     .smart-table-picker-grid {
       width: 100%;
       display: flex;
@@ -1694,3 +1632,5 @@ $fonts: 'segueUi''"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     }
   }
 }
+
+@import 'rtl/_editor';

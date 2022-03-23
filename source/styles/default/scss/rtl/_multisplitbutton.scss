@@ -1,0 +1,17 @@
+/* smart-multi-split-button */
+smart-multi-split-button {
+
+    //Right to Left
+    &[right-to-left] {
+
+        .smart-content,
+        .smart-label,
+        .smart-hint {
+            direction: rtl;
+        }
+
+        .smart-drop-down {
+            direction: initial;
+        }
+    }
+}

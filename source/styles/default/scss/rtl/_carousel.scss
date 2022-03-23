@@ -1,0 +1,14 @@
+@import '_functions';
+
+/* smart-carousel */
+smart-carousel {
+
+    //Right-To-Left
+    &[right-to-left] {
+
+        .smart-carousel-item,
+        .smart-indicators-container {
+            direction: rtl;
+        }
+    }
+}

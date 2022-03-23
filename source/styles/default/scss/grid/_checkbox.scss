@@ -154,6 +154,8 @@ smart-grid-cell[checkbox] {
 
   &:not([readonly]) {
     .smart-input {
+
+      &:focus,
       &:hover {
         border-color: var(--smart-ui-state-border-hover);
         background-color: var(--smart-ui-state-hover);

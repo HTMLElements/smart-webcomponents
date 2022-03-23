@@ -309,10 +309,10 @@
   .smart-kanban-column-content-tasks {
     &:focus {
       outline: none;
+    }
 
-      .smart-kanban-task[focus] {
-        box-shadow: inset 0px 0px 1px 1px var(--smart-primary);
-      }
+    .smart-kanban-task[focus] {
+      box-shadow: inset 0px 0px 1px 1px var(--smart-primary);
     }
 
     >.smart-container>.smart-scroll-viewer-container>.smart-scroll-viewer-content-container {
@@ -832,45 +832,6 @@
       height: calc(100% - var(--smart-kanban-header-size) - var(--smart-data-view-padding));
     }
   }
-
-  &[right-to-left] {
-
-    .smart-kanban-body,
-    .smart-kanban-column-header-label,
-    .swimlane {
-      direction: rtl;
-    }
-
-    .smart-kanban-column.collapsed>.smart-kanban-column-header>.smart-kanban-column-header-label {
-      margin-bottom: auto;
-    }
-
-    .smart-kanban-column:not(.collapsed) .smart-kanban-column-header .smart-arrow {
-      transform: rotate(180deg);
-    }
-
-    .smart-kanban-list {
-      direction: rtl;
-
-      .icon {
-        margin-left: 10px;
-        margin-right: unset;
-      }
-
-      .item.selected {
-        border-left: unset;
-        border-right: var(--smart-kanban-color-band-width) solid var(--smart-primary);
-        padding-left: 10px;
-        padding-right: 7px;
-      }
-    }
-
-    &[add-new-button] {
-      .smart-kanban-column[add-new-button]>.smart-kanban-column-header>.smart-kanban-column-header-add::after {
-        padding: 0 0 10px 10px;
-      }
-    }
-  }
 }
 
 .smart-data-view-header {
@@ -1191,12 +1152,6 @@
     top: -10px;
     border-radius: 50%;
   }
-
-  &[right-to-left] {
-    .smart-kanban-task {
-      direction: rtl;
-    }
-  }
 }
 
 [task-progress] {
@@ -1266,22 +1221,6 @@
   }
 }
 
-[right-to-left] {
-  .smart-kanban-task {
-    border-left: var(--smart-border-width) solid var(--smart-border);
-    border-right: var(--smart-kanban-color-band-width) solid var(--smart-primary);
-    border-top-left-radius: var(--smart-border-top-right-radius);
-    border-bottom-left-radius: var(--smart-border-bottom-right-radius);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .smart-kanban-task-progress {
-    left: unset;
-    right: 0;
-  }
-}
-
 .smart-window.smart-kanban-window {
   max-height: 800px;
   width: auto !important;
@@ -1303,6 +1242,11 @@
       &.selected {
         color: var(--smart-primary);
         border-bottom: 2px solid var(--smart-primary);
+      }
+
+      &[focus] {
+        color: var(--smart-primary);
+        outline: none;
       }
     }
   }
@@ -1764,3 +1708,4 @@
     display: none;
   }
 }
+@import 'rtl/_kanban';

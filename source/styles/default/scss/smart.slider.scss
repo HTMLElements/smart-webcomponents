@@ -16,13 +16,6 @@ smart-slider {
   &.smart-element {
     overflow: visible;
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-tooltip-content {
-      direction: rtl;
-    }
-  }
 }
 
 .smart-slider {
@@ -94,7 +87,7 @@ smart-slider {
     display: none;
   }
 
-  .smart-thumb ~ .smart-thumb {
+  .smart-thumb~.smart-thumb {
     display: none;
   }
 
@@ -281,6 +274,7 @@ smart-slider {
 
   &[disabled],
   &[readonly] {
+
     .smart-thumb,
     .smart-spin-button,
     .smart-track,
@@ -360,7 +354,7 @@ smart-slider {
   }
 
   &[range-slider] {
-    .smart-thumb ~ .smart-thumb {
+    .smart-thumb~.smart-thumb {
       display: block;
     }
   }
@@ -458,7 +452,8 @@ smart-slider {
   }
 
   &[orientation="vertical"] {
-    > .smart-container,
+
+    >.smart-container,
     &.smart-container {
       display: flex;
       flex-flow: row;
@@ -631,30 +626,19 @@ smart-slider {
       }
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-label {
-      direction: rtl;
-    }
-
-    .smart-hint {
-      direction: rtl;
-    }
-
-    &:not([animation='none']) {
-      .smart-value.enable-animation {
-        transition: width .4s cubic-bezier(.25, .8, .25, 1), margin-left .4s cubic-bezier(.25, .8, .25, 1);
-      }
-    }
-  }
 }
 
 @keyframes slider-thumb-effect {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(3);
   }
+
   50% {
     transform: scale(2.75);
   }
 }
+
+
+@import 'rtl/_slider';

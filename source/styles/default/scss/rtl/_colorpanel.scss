@@ -1,0 +1,30 @@
+/* smart-color-panel */
+
+smart-color-panel {
+
+    //Right To Left
+    &[right-to-left] {
+
+        .grid-mode-container,
+        .color-palette-container,
+        .alpha-channel-container {
+            direction: rtl;
+        }
+
+        .alpha-channel-scale {
+            margin: 0 0 0 20px;
+
+            &:after {
+                background-image: linear-gradient(90deg, transparent, var(--smart-color-panel-alpha-channel-color));
+            }
+        }
+
+        .buttons-container {
+            flex-direction: row-reverse;
+
+            smart-button:last-of-type {
+                margin: 0 0 0 20px;
+            }
+        }
+    }
+}

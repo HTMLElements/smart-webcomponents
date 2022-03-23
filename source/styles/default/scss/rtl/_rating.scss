@@ -1,0 +1,12 @@
+.smart-rating {
+
+    // Right To Left
+    &[right-to-left] {
+        #ratingStars {
+            direction: rtl;
+            display: flex;
+        }
+    }
+}
+
+@import 'rtl/_rating';

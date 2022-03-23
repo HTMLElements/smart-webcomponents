@@ -9,13 +9,13 @@
     border-color: var(--smart-outline);
   }
 
-  > .smart-container {
+  >.smart-container {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
   }
 
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@
     border: initial;
     padding: 0px;
 
-    > .smart-calendar-body {
+    >.smart-calendar-body {
       position: relative;
       width: 96%;
       height: calc(100% - var(--smart-calendar-header-height));
@@ -77,6 +77,7 @@
       &:focus {
         .smart-calendar-date-view-container {
           .smart-calendar-cell {
+
             &[focus],
             &:focus {
               background-color: var(--smart-background);
@@ -87,7 +88,7 @@
         }
       }
 
-      > div {
+      >div {
         display: flex;
         flex-shrink: 0;
         flex-wrap: wrap;
@@ -212,7 +213,7 @@
       border-color: var(--smart-outline);
     }
 
-    > div {
+    >div {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -341,7 +342,7 @@
       transition: initial;
       box-shadow: initial;
 
-      > .smart-container {
+      >.smart-container {
         max-height: initial;
       }
 
@@ -580,7 +581,7 @@
     align-items: center;
     justify-content: space-around;
 
-    > smart-repeat-button {
+    >smart-repeat-button {
       height: 50%;
       width: 100%;
     }
@@ -769,6 +770,7 @@
       --smart-calendar-default-height: calc(12 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height)));
     }
   }
+
   //End of Multi Month Display
 
   &[view-sections*="footer"] {
@@ -777,7 +779,7 @@
 
   &[view-sections*="footer"][view-sections*="header"] {
     .smart-calendar-container {
-      > .smart-calendar-body {
+      >.smart-calendar-body {
         height: calc(100% - var(--smart-calendar-header-height) - var(--smart-calendar-footer-height));
       }
     }
@@ -805,7 +807,8 @@
       order: 2;
     }
 
-    .smart-calendar-date-element, {
+    .smart-calendar-date-element,
+      {
       order: 3;
     }
   }
@@ -831,7 +834,7 @@
     }
 
     .smart-calendar-container {
-      > .smart-calendar-body {
+      >.smart-calendar-body {
         flex-direction: column;
       }
     }
@@ -849,10 +852,11 @@
   }
 
   &[display-mode-view="list"] {
+
     &[display-mode="year"],
     &[display-mode="decade"] {
       .smart-calendar-container {
-        > .smart-calendar-body {
+        >.smart-calendar-body {
           touch-action: auto;
         }
       }
@@ -890,7 +894,8 @@
   }
 
   &[view="portrait"] {
-    > .smart-container,
+
+    >.smart-container,
     &.smart-container {
       display: flex;
       justify-content: center;
@@ -902,7 +907,7 @@
     --smart-calendar-default-width: calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
     --smart-calendar-default-height: calc(var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height));
 
-    > .smart-container,
+    >.smart-container,
     &.smart-container {
       flex-direction: row;
     }
@@ -926,39 +931,14 @@
   // IE11 FlexBox bug fix
   &[animation='none'] {
     .smart-calendar-body {
+
       .smart-calendar-month-separator,
       .smart-calendar-next-months-container {
         display: none;
       }
     }
   }
-
-  //Rgiht to Left
-  &[right-to-left] {
-    .smart-calendar-date-element > div,
-    .smart-calendar-date-view-container,
-    .smart-calendar-week-titles .smart-calendar-week-title,
-    .smart-calendar-date-view-container .smart-calendar-cell,
-    .smart-calendar-week .smart-calendar-cell,
-    .smart-calendar-week .smart-calendar-week-number,
-    .smart-calendar-title,
-    .smart-calendar-footer {
-      direction: rtl;
-    }
-
-    .smart-calendar-month-element {
-      direction: initial;
-    }
-
-    .smart-calendar-year-element {
-      margin-left: initial;
-      margin-right: 5%;
-    }
-
-    &[view="landscape"] {
-      > .smart-container {
-        flex-direction: row-reverse;
-      }
-    }
-  }
 }
+
+
+@import 'rtl/_calendar';

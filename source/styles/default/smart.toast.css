@@ -241,6 +241,7 @@ smart-toast .smart-toast-container {
 .smart-toast-item.time .smart-toast-item-icon:after {
   --smart-toast-item-icon: var(--smart-icon-clock);
 }
+
 .smart-toast-item[right-to-left] > .smart-container {
   direction: rtl;
 }

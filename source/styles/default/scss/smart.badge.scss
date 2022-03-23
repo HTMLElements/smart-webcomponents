@@ -24,9 +24,6 @@
   &.smart-badge-pill {
     border-radius: 10rem;
   }
-
-  // ======== Right to Left ========
-  &[right-to-left] {
-    direction: rtl;
-  }
 }
+
+@import 'rtl/_badge';

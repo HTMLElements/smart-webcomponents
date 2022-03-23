@@ -1,11 +1,11 @@
 @import '_functions';
 
 /* smart-carousel */
-smart-carousel{
+smart-carousel {
   width: var(--smart-carousel-default-width);
   height: var(--smart-carousel-default-height);
 
-  > .smart-container,
+  >.smart-container,
   &.smart-container {
     display: block;
     position: relative;
@@ -118,7 +118,7 @@ smart-carousel{
       opacity: 1;
     }
 
-    > .smart-button {
+    >.smart-button {
       border-width: 0px;
 
       &:active {
@@ -352,6 +352,7 @@ smart-carousel{
     }
 
     &:not([animation='none']) {
+
       //Carousel 3d horizontal stacked
       &.horizontal-stacked {
         .smart-carousel-item {
@@ -444,6 +445,7 @@ smart-carousel{
   //displayMode="multiple"
   &[display-mode="multiple"] {
     &:not([animation='none']) {
+
       &.smart-carousel-item.smart-out,
       &.smart-carousel-item.smart-active,
       &.smart-carousel-item.smart-animate-trigger.smart-out,
@@ -496,7 +498,7 @@ smart-carousel{
     transition: height 0.6s ease-out;
     margin: 0 auto 70px auto;
 
-    > .smart-container,
+    >.smart-container,
     &.smart-container {
       position: relative;
     }
@@ -549,14 +551,6 @@ smart-carousel{
       .smart-slide-wrapper {
         height: auto;
       }
-    }
-  }
-
-  //Right-To-Left
-  &[right-to-left] {
-    .smart-carousel-item,
-    .smart-indicators-container {
-      direction: rtl;
     }
   }
 }
@@ -685,3 +679,4 @@ smart-carousel{
     top: 100%;
   }
 }
+@import 'rtl/_carousel';

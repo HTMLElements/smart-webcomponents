@@ -25,9 +25,6 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar {
 smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   display: block;
 }
-smart-file-upload[right-to-left] > .smart-container {
-  direction: rtl;
-}
 
 .smart-file.smart-uploading-start:before {
   width: 100%;
@@ -137,9 +134,6 @@ smart-file-upload[right-to-left] > .smart-container {
 .smart-file smart-progress-bar .smart-value {
   background-color: orange;
 }
-.smart-file[right-to-left] {
-  direction: rtl;
-}
 
 .smart-file-upload .smart-file-upload-header,
 .smart-file-upload .smart-file-upload-container,
@@ -224,9 +218,6 @@ smart-file-upload[right-to-left] > .smart-container {
   border: dashed 3px var(--smart-background-border);
   transition: border 0.5s ease-out;
   animation: drop-zone 1s ease-in infinite;
-}
-.smart-drop-zone[right-to-left] {
-  direction: rtl;
 }
 
 [data-theme="modern"] {
@@ -494,6 +485,17 @@ smart-file-upload[right-to-left] > .smart-container {
   100% {
     opacity: 0;
   }
+}
+smart-file-upload[right-to-left] > .smart-container {
+  direction: rtl;
+}
+
+.smart-file[right-to-left] {
+  direction: rtl;
+}
+
+.smart-drop-zone[right-to-left] {
+  direction: rtl;
 }
 
 /*# sourceMappingURL=smart.fileupload.css.map */

@@ -1,0 +1,12 @@
+  .smart-filter-panel {
+      &[right-to-left] {
+          direction: rtl;
+
+          smart-tree.standard-excel {
+              smart-tree-item:not([level="1"])>.smart-tree-item-label-container {
+                  margin-right: -30px;
+                  margin-left: unset;
+              }
+          }
+      }
+  }

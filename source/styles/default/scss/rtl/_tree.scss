@@ -1,0 +1,250 @@
+/* smart-tree */
+
+
+.smart-tree {
+    smart-tree-items-group {
+        &[right-to-left] {
+
+            smart-tree-item .smart-tree-item-label-element,
+            smart-tree-items-group>.smart-tree-item-label-container>.smart-tree-item-label-element {
+                padding-left: initial;
+                padding-right: calc(var(--smart-tree-indent) + 10px);
+            }
+
+
+            smart-tree-item>.smart-tree-item-label-container:after {
+                margin-left: -5px;
+            }
+
+            smart-tree-items-group>.smart-tree-item-label-container:after {
+                margin-left: calc(0px - var(--smart-check-box-default-size) - 5px);
+            }
+
+            smart-tree-item,
+            smart-tree-items-group {
+                &[focus] {
+                    >.smart-tree-item-label-container:before {
+                        margin-left: -3px;
+                    }
+                }
+            }
+
+            &[toggle-element-position="far"] {
+
+                smart-tree-item[focus],
+                smart-tree-items-group[focus] {
+                    >.smart-tree-item-label-container:before {
+                        margin-left: 1px;
+                    }
+                }
+            }
+
+            &[show-lines] {
+                smart-tree-item[focus] {
+                    >.smart-tree-item-label-container {
+                        &:before {
+                            margin-left: 1px;
+                        }
+                    }
+                }
+
+                smart-tree-items-group[focus] {
+                    >.smart-tree-item-label-container {
+                        &:before {
+                            margin-left: calc(1px - var(--smart-check-box-default-size));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[toggle-element-position="far"] {
+
+
+        &[right-to-left] {
+            smart-tree-items-group {
+                >.smart-tree-item-label-container {
+                    >.smart-tree-item-label-element {
+                        margin-left: initial;
+                        margin-right: var(--smart-tree-indent);
+                    }
+                }
+            }
+        }
+    }
+
+    &:not([show-lines]) {
+
+        &[selection-mode="checkBox"],
+        &[selection-mode="radioButton"] {
+            &[toggle-element-position="far"][right-to-left] {
+
+                smart-tree-item .smart-tree-item-label-element,
+                smart-tree-items-group>.smart-tree-item-label-container>.smart-tree-item-label-element {
+                    padding-right: calc(var(--smart-tree-indent) + 4px);
+                }
+            }
+        }
+
+        &:not([toggle-element-position="far"]) {
+            &[right-to-left] {
+                smart-tree-items-group {
+                    >.smart-tree-item-label-container {
+                        >.smart-tree-item-label-element {
+                            margin-right: -4px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &[toggle-element-position="far"] {
+            &[right-to-left] {
+                smart-tree-items-group {
+                    >.smart-tree-item-label-container {
+                        >.smart-tree-item-label-element {
+                            margin-right: calc(var(--smart-tree-indent) - 4px);
+                        }
+                    }
+                }
+            }
+        }
+
+        &:not([selection-display-mode="label"]) {
+
+            &[right-to-left] {
+                smart-tree-items-group {
+                    >.smart-tree-item-label-container {
+                        >.smart-tree-item-label-element>span {
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[show-lines] {
+
+        &[right-to-left] {
+            smart-tree-item {
+                padding-left: 0px;
+                padding-right: var(--smart-tree-indent);
+
+                .smart-tree-item-label-element {
+                    &:before {
+                        right: calc(0px - var(--smart-tree-indent));
+                        left: initial;
+                    }
+
+                    &:after {
+                        right: calc(0px - var(--smart-tree-indent));
+                        left: initial;
+                    }
+                }
+            }
+
+            smart-tree-items-group {
+                >.smart-tree-item-label-container {
+                    >.smart-tree-item-label-element {
+                        &:before {
+                            right: calc(0px - var(--smart-tree-indent));
+                            left: initial;
+                        }
+
+                        &:after {
+                            right: calc(0px - var(--smart-tree-indent));
+                            left: initial;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    &[selection-display-mode="label"] {
+
+        &[selection-mode="checkBox"],
+        &[selection-mode="radioButton"] {
+            &:not([show-lines]) {
+                &[right-to-left] {
+                    &:not([toggle-element-position="far"]) {
+                        smart-tree-item {
+                            >.smart-tree-item-label-container>.smart-tree-item-label-element {
+                                padding-right: calc(var(--smart-tree-indent) + 15px);
+                            }
+                        }
+
+                        smart-tree-items-group {
+                            >.smart-tree-item-label-container>.smart-tree-item-label-element {
+                                padding-right: calc(var(--smart-tree-indent) + 3px);
+                            }
+                        }
+                    }
+
+                    &[toggle-element-position="far"] {
+
+                        smart-tree-item,
+                        smart-tree-items-group {
+                            >.smart-tree-item-label-container>.smart-tree-item-label-element {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &:not([show-lines]) {
+            &[right-to-left] {
+                smart-tree-item>.smart-tree-item-label-container>.smart-tree-item-label-element>span {
+                    margin: var(--smart-tree-item-padding);
+                    margin-left: 0;
+                    margin-top: var(--smart-tree-item-vertical-offset);
+                    margin-bottom: var(--smart-tree-item-vertical-offset);
+                }
+            }
+        }
+    }
+
+
+    //Right to Left
+    &[right-to-left] {
+        smart-tree-items-group {
+            .smart-tree-items-group-arrow {
+                right: calc(1px - var(--smart-tree-indent) / 2);
+                left: initial;
+            }
+        }
+
+        .smart-tree-filter-input-container {
+            &:after {
+                left: 0;
+            }
+        }
+
+        .smart-tree-item-label-container {
+            flex-direction: row-reverse;
+            position: relative;
+            overflow: visible;
+        }
+
+        .smart-filter-input {
+            direction: rtl;
+            padding-right: 1px;
+            padding-left: 25px;
+        }
+
+        .smart-tree-edit-input {
+            direction: rtl;
+        }
+
+        .smart-tree-item-label-element {
+            direction: rtl;
+            position: relative;
+            overflow: visible;
+        }
+    }
+}

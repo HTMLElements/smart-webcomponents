@@ -28,12 +28,4 @@
       }
     }
   }
-
-  // Right To Left
-  &[right-to-left] {
-    #ratingStars {
-      direction: rtl;
-      display: flex;
-    }
-  }
 }

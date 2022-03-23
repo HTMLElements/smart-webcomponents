@@ -1,0 +1,155 @@
+//Right To Left
+.smart-list-menu,
+.smart-list-menu-view-minimized {
+    &:not([animation='none']) {
+        &[right-to-left] {
+            .smart-menu-drop-down.smart-hidden {
+                left: -100%;
+            }
+
+            smart-menu-item.animate,
+            smart-menu-items-group.animate,
+            smart-menu-item.right,
+            smart-menu-items-group.right,
+            .smart-menu-item-label-container.animate,
+            .smart-list-menu-group-label.animate,
+            .smart-menu-item-label-container.right,
+            .smart-list-menu-group-label.right {
+                left: 100%;
+            }
+        }
+    }
+}
+
+.smart-list-menu,
+.smart-list-menu-view.smart-drop-down-repositioned {
+    &[right-to-left] {
+        .smart-filter-input {
+            direction: rtl;
+            padding-right: var(--smart-editor-label-padding);
+            padding-left: calc(var(--smart-editor-label-padding) + 25px);
+        }
+
+        .smart-list-menu-filter-input-container {
+            &:after {
+                left: 0;
+            }
+        }
+
+        .smart-header>smart-button {
+            left: initial;
+            right: 0;
+        }
+
+        smart-menu-items-group .smart-menu-items-group-arrow {
+            margin-left: initial;
+        }
+    }
+
+    &[checkboxes] {
+
+        &[checkable][right-to-left] smart-menu-item[level="1"],
+        &[checkable][right-to-left] smart-menu-items-group[level="1"],
+        &[right-to-left] .smart-menu-item-container[checkable]>smart-menu-item,
+        &[right-to-left] .smart-menu-item-container[checkable]>smart-menu-items-group {
+            >.smart-menu-item-label-container {
+                padding-left: initial;
+                padding-right: 35px;
+            }
+
+            &[checked] {
+                >.smart-menu-item-label-container:after {
+                    left: initial;
+                    right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.smart-list-menu {
+    &[right-to-left] {
+        smart-menu-items-group {
+            &[level="1"]>.smart-menu-item-label-container>.smart-menu-items-group-arrow {
+                margin-right: initial;
+            }
+        }
+
+        smart-menu-item {
+            .smart-menu-item-shortcut {
+                margin-left: initial;
+                margin-right: 100px;
+            }
+        }
+
+        .smart-menu-main-container {
+            direction: rtl;
+        }
+
+        .smart-menu-items-group-arrow {
+            &.right.smart-arrow-right {
+                margin-left: initial;
+                margin-right: 50px;
+            }
+        }
+
+        >.smart-container {
+            flex-direction: row-reverse;
+        }
+
+        .smart-list-menu-view {
+            &.smart-list-menu-view-minimized {
+                left: initial;
+                right: calc(-1 * var(--smart-border-width));
+            }
+        }
+
+        &[minimized],
+        &[mode="tree"] {
+            .smart-list-menu-view-minimized {
+                direction: rtl;
+            }
+        }
+
+        &[mode="dropDown"] smart-menu-item[level="1"] .smart-menu-item-shortcut,
+        smart-menu-items-group .smart-menu-items-group-arrow,
+        .smart-list-menu-view-minimized .smart-menu-item-shortcut {
+            margin-right: initial;
+        }
+    }
+}
+
+.smart-list-menu-view-minimized {
+    &[right-to-left] {
+
+        .smart-menu-item-shortcut,
+        smart-menu-items-group .smart-menu-items-group-arrow {
+            margin-right: initial;
+        }
+    }
+}
+
+.smart-menu-drop-down.smart-drop-down-repositioned {
+    &.smart-list-menu-view-minimized {
+        &[right-to-left] {
+            direction: rtl;
+        }
+    }
+
+    &[right-to-left] {
+        .smart-menu-items-group-arrow.right.smart-arrow-right {
+            margin-left: initial;
+            margin-right: 50px;
+        }
+
+        .smart-menu-item-container {
+            direction: rtl;
+        }
+
+        smart-menu-item .smart-menu-item-shortcut {
+            margin-left: initial;
+            margin-right: 100px;
+        }
+
+    }
+}

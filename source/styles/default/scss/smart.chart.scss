@@ -32,34 +32,21 @@ smart-chart {
   }
 
   &[theme="dark"] {
+
     .smart-chart-title-text,
     .smart-chart-title-description,
     .smart-chart-axis-text,
-    .smart-chart-axis-description
-    .smart-chart-label-text,
+    .smart-chart-axis-description .smart-chart-label-text,
     .smart-chart-legend-text,
     .smart-chart-annotation-text {
       fill: var(--smart-background-color);
       color: var(--smart-background-color);
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-chart-axis-text,
-    .smart-chart-axis-description,
-    .smart-chart-title-text,
-    .smart-chart-legend-text,
-    .smart-chart-annotation-text,
-    .smart-chart-label-text {
-      direction: rtl;
-      text-anchor: end;
-    }
-  }
 }
 
 .smart-chart-range-selector {
-  > smart-chart {
+  >smart-chart {
     width: 100%;
     height: 100%;
     touch-action: none;
@@ -125,17 +112,10 @@ smart-chart {
   &.smart-visibility-hidden {
     transform: scale(0);
   }
-
-  //Right to Left
-  &[right-to-left] {
-    .smart-chart-tooltip-text {
-      direction: rtl;
-      text-anchor: end;
-    }
-  }
 }
 
 [theme="dark"] {
+
   // smart-chart .smart-chart-title-text,
   // smart-chart .smart-chart-title-description,
   // smart-chart .smart-chart-axis-text,
@@ -151,4 +131,4 @@ smart-chart {
   }
 }
 
-
+@import 'rtl/_chart';

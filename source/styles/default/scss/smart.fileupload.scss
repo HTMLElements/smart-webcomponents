@@ -34,13 +34,6 @@ smart-file-upload {
       }
     }
   }
-
-  //Right-To-Left
-  &[right-to-left] {
-    > .smart-container {
-      direction: rtl;
-    }
-  }
 }
 
 .smart-file {
@@ -169,14 +162,10 @@ smart-file-upload {
       background-color: orange;
     }
   }
-
-  //Right-To-Left
-  &[right-to-left] {
-    direction: rtl;
-  }
 }
 
 .smart-file-upload {
+
   .smart-file-upload-header,
   .smart-file-upload-container,
   .smart-file-upload-footer {
@@ -282,11 +271,6 @@ smart-file-upload {
       transition: border 0.5s ease-out;
       animation: drop-zone 1s ease-in infinite;
     }
-  }
-
-  //Right-To-Left
-  &[right-to-left] {
-    direction: rtl;
   }
 }
 
@@ -607,3 +591,5 @@ smart-file-upload {
     opacity: 0;
   }
 }
+
+@import 'rtl/_fileupload';

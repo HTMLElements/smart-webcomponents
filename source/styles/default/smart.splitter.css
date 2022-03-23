@@ -305,6 +305,7 @@ smart-splitter-item > .smart-container {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+
 .smart-splitter[right-to-left] .smart-splitter > .smart-container {
   direction: initial; }
 .smart-splitter[right-to-left] smart-splitter-item > .smart-container > .smart-content {

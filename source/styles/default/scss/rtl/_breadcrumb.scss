@@ -1,0 +1,75 @@
+smart-breadcrumb {
+    &[right-to-left] {
+        >.smart-container {
+            direction: rtl;
+
+            .smart-template-container {
+                .smart-breadcrumb-items {
+                    >.afterTarget:first-child:after {
+                        position: absolute;
+                        content: '';
+                        width: 2px;
+                        height: 100%;
+                        top: 0;
+                        left: calc(100% + var(--smart-breadcrumb-horizontal-offset) / 2);
+                        background-color: var(--smart-success);
+                    }
+
+                    .smart-breadcrumb-item {
+                        >.smart-close-button {
+                            margin-left: 5px;
+                            margin-right: 10px;
+                        }
+
+                        &:not(:last-child):after {
+                            left: calc(-1 * var(--smart-breadcrumb-horizontal-offset));
+                        }
+                    }
+                }
+            }
+        }
+
+        &:not([minimized]) {
+            .smart-template-container {
+                .smart-breadcrumb-items {
+                    .smart-breadcrumb-item {
+                        margin-left: var(--smart-breadcrumb-horizontal-offset);
+                        margin-right: initial;
+                    }
+                }
+            }
+
+            &[add-new-item]:not([minimized]) {
+                .smart-breadcrumb-items {
+                    >smart-button {
+                        margin-left: var(--smart-breadcrumb-horizontal-offset);
+                        margin-right: initial;
+                    }
+                }
+            }
+        }
+
+        &[minimized] {
+            .smart-container {
+                .smart-template-container {
+                    right: calc(-1 * var(--smart-border-width));
+                    left: auto;
+                }
+            }
+        }
+    }
+}
+
+
+.smart-breadcrumb-feedback {
+    &[right-to-left] {
+        direction: rtl;
+        margin-left: var(--smart-breadcrumb-horizontal-offset);
+        margin-right: initial;
+
+        &:after {
+            margin-left: initial;
+            margin-right: var(--smart-breadcrumb-horizontal-offset);
+        }
+    }
+}

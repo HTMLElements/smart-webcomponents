@@ -1,0 +1,40 @@
+/* smart-path */
+.smart-path {
+
+    //Right To Left
+    &[right-to-left] {
+        >.smart-container {
+            direction: rtl;
+        }
+
+        .smart-browse-button {
+            border-top-left-radius: var(--smart-border-top-left-radius);
+            border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .smart-drop-down-button {
+            border-top-right-radius: var(--smart-border-top-right-radius);
+            border-bottom-right-radius: var(--smart-border-bottom-left-radius);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &[indicator] {
+            .smart-path-input-container {
+                border-top-left-radius: var(--smart-border-top-left-radius);
+                border-top-right-radius: 0;
+                border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+}
+
+//Right To Left
+.smart-drop-down.smart-drop-down-repositioned {
+    &[right-to-left] {
+        direction: rtl;
+    }
+}

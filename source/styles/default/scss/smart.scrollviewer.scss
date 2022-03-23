@@ -10,7 +10,7 @@ smart-scroll-viewer {
   max-height: var(--smart-scroll-viewer-max-height);
   padding: 3px;
 
-  > .smart-container {
+  >.smart-container {
     height: 100%;
     width: 100%;
     border: none;
@@ -28,13 +28,13 @@ smart-scroll-viewer {
     overflow: hidden;
   }
 
-  > .smart-container {
+  >.smart-container {
     max-height: inherit;
     min-height: inherit;
     max-width: inherit;
     min-width: inherit;
 
-    > .smart-scroll-viewer-container {
+    >.smart-scroll-viewer-container {
       max-height: inherit;
       min-height: inherit;
       max-width: inherit;
@@ -98,35 +98,6 @@ smart-scroll-viewer {
     position: relative;
     background-color: transparent;
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-scroll-viewer-container {
-      direction: rtl;
-      text-align: initial;
-
-      &.vscroll {
-        left: var(--smart-scroll-bar-size);
-        right: 0;
-      }
-    }
-
-    smart-scroll-bar {
-      left: var(--smart-scroll-bar-size);
-      right: 0;
-
-      &:after {
-        left: -100%;
-      }
-
-      &[orientation="vertical"] {
-        left: 0;
-        right: initial;
-
-        &:after {
-          content: none;
-        }
-      }
-    }
-  }
 }
+
+@import 'rtl/_scrollviewer';

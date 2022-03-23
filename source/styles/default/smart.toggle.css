@@ -136,13 +136,15 @@
       cursor: pointer; }
   .smart-toggle-box[check-mode="label"] .smart-label {
     cursor: pointer; }
-  .smart-toggle-box[right-to-left] .smart-container,
-  .smart-toggle-box[right-to-left] .smart-hidden-input {
-    direction: rtl; }
-  .smart-toggle-box[right-to-left] .smart-overlay {
-    left: initial;
-    right: 2px; }
-  .smart-toggle-box[right-to-left] .smart-input {
-    margin: 0 8px 0 0; }
+
+/* smart-check-box and smart-radio-button*/
+.smart-toggle-box[right-to-left] .smart-container,
+.smart-toggle-box[right-to-left] .smart-hidden-input {
+  direction: rtl; }
+.smart-toggle-box[right-to-left] .smart-overlay {
+  left: initial;
+  right: 2px; }
+.smart-toggle-box[right-to-left] .smart-input {
+  margin: 0 8px 0 0; }
 
 /*# sourceMappingURL=smart.toggle.css.map */

@@ -1,0 +1,21 @@
+/* smart-check-box */
+smart-check-box {
+
+    //Right To Left
+    &[right-to-left] {
+
+        .smart-container,
+        .smart-hidden-input {
+            direction: rtl;
+        }
+
+        .smart-overlay {
+            left: initial;
+            right: 2px;
+        }
+
+        .smart-input {
+            margin: 0 8px 0 0;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+/* smart-calendar */
+.smart-calendar {
+
+    //Rgiht to Left
+    &[right-to-left] {
+
+        .smart-calendar-date-element>div,
+        .smart-calendar-date-view-container,
+        .smart-calendar-week-titles .smart-calendar-week-title,
+        .smart-calendar-date-view-container .smart-calendar-cell,
+        .smart-calendar-week .smart-calendar-cell,
+        .smart-calendar-week .smart-calendar-week-number,
+        .smart-calendar-title,
+        .smart-calendar-footer {
+            direction: rtl;
+        }
+
+        .smart-calendar-month-element {
+            direction: initial;
+        }
+
+        .smart-calendar-year-element {
+            margin-left: initial;
+            margin-right: 5%;
+        }
+
+        &[view="landscape"] {
+            >.smart-container {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}

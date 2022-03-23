@@ -1,0 +1,9 @@
+  .smart-masked-text-box {
+
+      //Right To Left
+      &[right-to-left] {
+          .smart-container {
+              direction: rtl;
+          }
+      }
+  }

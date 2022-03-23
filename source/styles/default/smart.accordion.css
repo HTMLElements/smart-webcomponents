@@ -281,6 +281,8 @@ smart-accordion:not([animation='none']) smart-accordion-item[expanded].smart-tog
   animation-duration: inherit;
   animation-iteration-count: 1;
 }
+
+/* smart-accordion */
 smart-accordion[right-to-left] > .smart-container {
   direction: rtl;
 }

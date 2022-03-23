@@ -1,0 +1,71 @@
+.smart-card-view {
+    //Right To Left
+
+    &[right-to-left] {
+        .smart-card-view-label {
+            &.icon {
+                padding-left: 0;
+                padding-right: 30px;
+
+                &:after {
+                    left: initial;
+                    right: 0;
+                }
+            }
+        }
+
+        .smart-card-view-customize-top {
+            direction: rtl;
+        }
+
+        .smart-scroll-viewer-container.vscroll {
+            .smart-card-container {
+                padding-left: 3px;
+                padding-right: initial;
+            }
+        }
+    }
+}
+
+.smart-window {
+    &.smart-card-view-window {
+        &[right-to-left] {
+            .smart-card-view-label.icon {
+                padding-left: 0;
+                padding-right: 30px;
+
+                &:after {
+                    left: initial;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+.smart-card-view-drag-feedback {
+    &[right-to-left] {
+        direction: rtl;
+
+        &:nth-child(2) {
+            margin-right: 10px;
+            margin-left: initial;
+        }
+    }
+}
+
+.smart-sort-panel,
+.smart-group-panel,
+.smart-column-panel,
+.smart-multi-column-filter-panel {
+    &[right-to-left] {
+        .smart-grid-panel-container-footer {
+            flex-direction: row-reverse;
+        }
+
+        .smart-grid-panel-buttons-container .smart-grid-panel-apply-button {
+            margin-right: 15px;
+            margin-left: initial;
+        }
+    }
+}

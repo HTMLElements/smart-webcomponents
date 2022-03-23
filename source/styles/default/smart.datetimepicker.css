@@ -428,16 +428,6 @@ smart-date-time-picker > .smart-container > input,
   visibility: hidden;
   display: none !important;
 }
-.smart-date-time-picker[right-to-left] > .smart-container {
-  direction: initial;
-}
-.smart-date-time-picker[right-to-left] > .smart-container > .smart-label {
-  direction: rtl;
-}
-.smart-date-time-picker[right-to-left] .smart-input.smart-date-time-input,
-.smart-date-time-picker[right-to-left] .smart-hint {
-  direction: rtl;
-}
 
 .smart-drop-down.smart-date-time-drop-down {
   padding: 0px !important;
@@ -605,6 +595,18 @@ smart-date-time-picker > .smart-container > input,
   left: -9999px;
   top: -9999px;
   transition: none;
+}
+
+/* smart-date-time-picker */
+.smart-date-time-picker[right-to-left] > .smart-container {
+  direction: initial;
+}
+.smart-date-time-picker[right-to-left] > .smart-container > .smart-label {
+  direction: rtl;
+}
+.smart-date-time-picker[right-to-left] .smart-input.smart-date-time-input,
+.smart-date-time-picker[right-to-left] .smart-hint {
+  direction: rtl;
 }
 
 /*# sourceMappingURL=smart.datetimepicker.css.map */

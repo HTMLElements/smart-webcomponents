@@ -1,4 +1,4 @@
-.input-group {
+.smart-input-group {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21,10 +21,10 @@
     z-index: 3;
   }
 
-  >.input-group-prepend {
+  >.smart-input-group-prepend {
 
     >smart-button,
-    >.input-group-text {
+    >.smart-input-group-text {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -32,7 +32,7 @@
     &:first-child {
 
       >smart-button:not(:first-child),
-      >.input-group-text:not(:first-child) {
+      >.smart-input-group-text:not(:first-child) {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
@@ -41,17 +41,17 @@
     &:not(:first-child) {
 
       >smart-button,
-      >.input-group-text {
+      >.smart-input-group-text {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
     }
   }
 
-  >.input-group-append {
+  >.smart-input-group-append {
 
     >smart-button,
-    >.input-group-text {
+    >.smart-input-group-text {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
@@ -59,7 +59,7 @@
     &:last-child {
 
       >smart-button:not(:last-child):not(.dropdown-toggle),
-      >.input-group-text:not(:last-child) {
+      >.smart-input-group-text:not(:last-child) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
@@ -68,7 +68,7 @@
     &:not(:last-child) {
 
       >smart-button,
-      >.input-group-text {
+      >.smart-input-group-text {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
@@ -120,8 +120,8 @@
   }
 }
 
-.input-group-append,
-.input-group-prepend {
+.smart-input-group-append,
+.smart-input-group-prepend {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,22 +133,22 @@
   }
 
   smart-button+smart-button,
-  smart-button+.input-group-text,
-  .input-group-text+smart-button,
-  .input-group-text+.input-group-text {
+  smart-button+.smart-input-group-text,
+  .smart-input-group-text+smart-button,
+  .smart-input-group-text+.smart-input-group-text {
     margin-left: -1px;
   }
 }
 
-.input-group-prepend {
+.smart-input-group-prepend {
   margin-right: -1px;
 }
 
-.input-group-append {
+.smart-input-group-append {
   margin-left: -1px;
 }
 
-.input-group-text {
+.smart-input-group-text {
   border-radius: var(--smart-border-radius);
   display: flex;
   align-items: center;

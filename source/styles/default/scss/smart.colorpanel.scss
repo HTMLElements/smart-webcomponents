@@ -336,7 +336,7 @@ smart-color-panel {
       position: relative;
       background-clip: padding-box;
       -webkit-background-clip: padding-box;
-  
+
       &:before {
         position: absolute;
         content: '';
@@ -553,7 +553,7 @@ smart-color-panel {
       border: 1px solid lightgray;
       background-clip: content-box;
       -webkit-background-clip: content-box;
-  
+
       background: conic-gradient(from 90deg, red, yellow, lime, aqua, blue, magenta, red) rgb(255, 0, 90);
       border-radius: 50%;
 
@@ -661,32 +661,6 @@ smart-color-panel {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-    }
-  }
-
-  //Right To Left
-  &[right-to-left] {
-
-    .grid-mode-container,
-    .color-palette-container,
-    .alpha-channel-container {
-      direction: rtl;
-    }
-
-    .alpha-channel-scale {
-      margin: 0 0 0 20px;
-
-      &:after {
-        background-image: linear-gradient(90deg, transparent, var(--smart-color-panel-alpha-channel-color));
-      }
-    }
-
-    .buttons-container {
-      flex-direction: row-reverse;
-
-      smart-button:last-of-type {
-        margin: 0 0 0 20px;
-      }
     }
   }
 }
@@ -801,3 +775,5 @@ smart-color-panel {
     }
   }
 }
+
+@import 'rtl/_colorpanel';

@@ -2,11 +2,6 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface ComboBoxProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
-  /**
    * Used only when dropDownOpenMode is set to 'auto'. Determines the delay before the opened drop down closes if the pointer is not over the element.
    * Default value: 100
    */

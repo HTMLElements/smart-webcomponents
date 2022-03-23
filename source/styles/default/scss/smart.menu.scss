@@ -10,13 +10,14 @@ smart-menu {
     border-color: var(--smart-outline);
   }
 
-  > .smart-container {
+  >.smart-container {
     display: flex;
     position: relative;
   }
 
   smart-menu-item,
   smart-menu-items-group {
+
     &[level="1"][separator],
     &[separator][level]:last-child {
       border-bottom: none;
@@ -56,6 +57,7 @@ smart-menu {
   &[mode="dropDown"],
   &[mode="tree"],
   &[minimized] {
+
     smart-menu-item,
     smart-menu-items-group {
       &[level="1"][separator] {
@@ -158,7 +160,7 @@ smart-menu-items-group {
     &[level="1"] {
       height: 100%;
 
-      > .smart-menu-item-label-container {
+      >.smart-menu-item-label-container {
         height: 100%;
       }
     }
@@ -202,7 +204,7 @@ smart-menu-items-group {
     height: 100%;
     cursor: default;
 
-    > smart-menu-item[level="1"] {
+    >smart-menu-item[level="1"] {
       .smart-menu-item-shortcut {
         display: none;
       }
@@ -223,7 +225,7 @@ smart-menu-items-group {
     align-items: center;
     overflow: hidden;
 
-    > span {
+    >span {
       display: flex;
       align-items: center;
     }
@@ -286,16 +288,16 @@ smart-menu-items-group {
     }
 
     &.smart-close-button {
-      > .smart-hamburger-icon-line-top {
+      >.smart-hamburger-icon-line-top {
         width: 29px;
         transform: translateX(4px) rotate(45deg);
       }
 
-      > .smart-hamburger-icon-line-center {
+      >.smart-hamburger-icon-line-center {
         visibility: hidden;
       }
 
-      > .smart-hamburger-icon-line-bottom {
+      >.smart-hamburger-icon-line-bottom {
         width: 29px;
         transform: translateX(4px) rotate(-45deg);
       }
@@ -324,7 +326,7 @@ smart-menu-items-group {
 
   .smart-menu-minimized-items-container {
     .smart-menu-items-group-opened {
-      > .smart-menu-item-label-container {
+      >.smart-menu-item-label-container {
         padding-bottom: 0;
       }
     }
@@ -376,7 +378,7 @@ smart-menu-items-group {
       border-color: var(--smart-scroll-bar-button-border-active);
     }
 
-    > button {
+    >button {
       border: none;
     }
   }
@@ -391,6 +393,7 @@ smart-menu-items-group {
   }
 
   &:not([animation='none']) {
+
     .smart-menu-drop-down,
     .smart-menu-minimized-items-container {
       opacity: 1;
@@ -413,7 +416,7 @@ smart-menu-items-group {
       }
 
       .smart-menu-item-label-container {
-        > .smart-menu-items-group-arrow {
+        >.smart-menu-items-group-arrow {
           transition: transform 0.2s ease-in;
         }
       }
@@ -425,6 +428,7 @@ smart-menu-items-group {
   }
 
   &[animation='none'] {
+
     .smart-menu-drop-down,
     .smart-menu-minimized-items-container {
       &.smart-visibility-hidden {
@@ -484,6 +488,7 @@ smart-menu-items-group {
   }
 
   &[disabled] {
+
     smart-menu-item,
     smart-menu-items-group,
     .smart-hamburger-icon {
@@ -509,7 +514,7 @@ smart-menu-items-group {
     }
 
     &[drop-down-position$="left"] {
-      > .smart-container {
+      >.smart-container {
         flex-direction: row-reverse;
       }
 
@@ -531,9 +536,10 @@ smart-menu-items-group {
 
     &[checkboxes][checkable][drop-down-position$="left"] {
       .smart-menu-minimized-items-container {
-        > smart-menu-item,
-        > smart-menu-items-group {
-          > .smart-menu-item-label-container {
+
+        >smart-menu-item,
+        >smart-menu-items-group {
+          >.smart-menu-item-label-container {
             padding-left: 10px;
             padding-right: 35px;
 
@@ -570,7 +576,7 @@ smart-menu-items-group {
   &:not([mode="tree"]) {
     &[drop-down-position$="left"] {
       smart-menu-item:not([level="1"]) {
-        > .smart-menu-item-label-container {
+        >.smart-menu-item-label-container {
           flex-direction: row-reverse;
         }
       }
@@ -578,9 +584,10 @@ smart-menu-items-group {
 
     &[checkboxes][drop-down-position$="left"] {
       .smart-menu-item-container[checkable] {
-        > smart-menu-item,
-        > smart-menu-items-group {
-          > .smart-menu-item-label-container {
+
+        >smart-menu-item,
+        >smart-menu-items-group {
+          >.smart-menu-item-label-container {
             padding-left: 10px;
             padding-right: 35px;
 
@@ -596,10 +603,11 @@ smart-menu-items-group {
 
   &[mode] {
     &:not([mode="horizontal"]) {
+
       smart-menu-item,
       smart-menu-items-group {
         &[level="1"] {
-          > .smart-menu-item-label-container {
+          >.smart-menu-item-label-container {
             height: initial;
           }
         }
@@ -607,7 +615,7 @@ smart-menu-items-group {
 
       &:not([mode="tree"])[drop-down-position$="left"] {
         smart-menu-item {
-          > .smart-menu-item-label-container {
+          >.smart-menu-item-label-container {
             flex-direction: row-reverse;
           }
         }
@@ -616,10 +624,10 @@ smart-menu-items-group {
       &[drop-down-position$="left"] {
         .smart-menu-main-container {
           smart-menu-items-group {
-            > .smart-menu-item-label-container {
+            >.smart-menu-item-label-container {
               flex-direction: row-reverse;
 
-              > .smart-menu-items-group-arrow {
+              >.smart-menu-items-group-arrow {
                 margin-left: 0;
                 margin-right: 50px;
                 transform: rotate(180deg);
@@ -628,8 +636,8 @@ smart-menu-items-group {
           }
 
           smart-menu-item {
-            > .smart-menu-item-label-container {
-              > .smart-menu-item-shortcut {
+            >.smart-menu-item-label-container {
+              >.smart-menu-item-shortcut {
                 margin-left: 0;
                 margin-right: 100px;
               }
@@ -638,7 +646,7 @@ smart-menu-items-group {
         }
       }
 
-      &:not([minimized]) > .smart-container,
+      &:not([minimized])>.smart-container,
       &:not([minimized]).smart-container {
         display: block;
       }
@@ -672,7 +680,7 @@ smart-menu-items-group {
         width: 100%;
         height: auto;
 
-        > .smart-menu-item-label-element {
+        >.smart-menu-item-label-element {
           max-width: calc(100% - 10px);
         }
       }
@@ -713,9 +721,10 @@ smart-menu-items-group {
     }
 
     &[checkboxes][checkable][drop-down-position$="left"] {
+
       smart-menu-item[level="1"],
       smart-menu-items-group[level="1"] {
-        > .smart-menu-item-label-container {
+        >.smart-menu-item-label-container {
           padding-left: 10px;
           padding-right: 35px;
 
@@ -740,7 +749,7 @@ smart-menu-items-group {
     }
 
     .smart-menu-main-container {
-      > smart-menu-item[level="1"] {
+      >smart-menu-item[level="1"] {
         .smart-menu-item-shortcut {
           display: none;
         }
@@ -751,7 +760,7 @@ smart-menu-items-group {
   &[mode="dropDown"] {
     &[drop-down-position$="left"] {
       .smart-menu-main-container smart-menu-item[level="1"] {
-        > .smart-menu-item-label-container > .smart-menu-item-shortcut {
+        >.smart-menu-item-label-container>.smart-menu-item-shortcut {
           margin-right: initial;
         }
       }
@@ -816,16 +825,17 @@ smart-menu-items-group {
         top: 0;
       }
 
-      &[drop-down-position$="left"] smart-menu-items-group:not([level="1"]) > .smart-menu-item-label-container {
+      &[drop-down-position$="left"] smart-menu-items-group:not([level="1"])>.smart-menu-item-label-container {
         flex-direction: row;
       }
     }
 
     &[minimized][checkboxes][drop-down-position$="left"] {
       .smart-menu-item-container[checkable] {
-        > smart-menu-item,
-        > smart-menu-items-group {
-          > .smart-menu-item-label-container {
+
+        >smart-menu-item,
+        >smart-menu-items-group {
+          >.smart-menu-item-label-container {
             padding-left: 10px;
             padding-right: 35px;
 
@@ -853,6 +863,7 @@ smart-menu-items-group {
   }
 
   &[drop-down-position*="overlay"] {
+
     .smart-menu-drop-down,
     .smart-menu-drop-down[level="2"] {
       margin: unset;
@@ -894,6 +905,7 @@ smart-menu-items-group {
   }
 
   &[drop-down-position*="top"] {
+
     .smart-menu-drop-down,
     .smart-menu-drop-down[level="2"] {
       margin: calc(-1 * (var(--smart-editor-drop-down-vertical-offset) + 3px)) 0px;
@@ -964,8 +976,8 @@ smart-menu-items-group {
 
     .smart-menu-main-container {
       smart-menu-items-group:not([level="1"]) {
-        > .smart-menu-item-label-container {
-          > .smart-menu-items-group-arrow {
+        >.smart-menu-item-label-container {
+          >.smart-menu-items-group-arrow {
             margin-left: 0;
             margin-right: 50px;
             transform: rotate(180deg);
@@ -974,8 +986,8 @@ smart-menu-items-group {
       }
 
       smart-menu-item:not([level="1"]) {
-        > .smart-menu-item-label-container {
-          > .smart-menu-item-shortcut {
+        >.smart-menu-item-label-container {
+          >.smart-menu-item-shortcut {
             margin-left: 0;
             margin-right: 100px;
           }
@@ -984,7 +996,7 @@ smart-menu-items-group {
     }
 
     smart-menu-items-group:not([level="1"]) {
-      > .smart-menu-item-label-container {
+      >.smart-menu-item-label-container {
         flex-direction: row-reverse;
       }
     }
@@ -1007,14 +1019,15 @@ smart-menu-items-group {
   &[checkboxes] {
     .smart-menu-item-container {
       &[checkable] {
-        > smart-menu-item,
-        > smart-menu-items-group {
-          > .smart-menu-item-label-container {
+
+        >smart-menu-item,
+        >smart-menu-items-group {
+          >.smart-menu-item-label-container {
             padding-left: 35px;
           }
 
           &[checked] {
-            > .smart-menu-item-label-container:after {
+            >.smart-menu-item-label-container:after {
               position: absolute;
               left: 10px;
               top: 50%;
@@ -1025,11 +1038,11 @@ smart-menu-items-group {
           }
         }
 
-        &[check-mode="radioButton"] > smart-menu-item[checked],
-        &[check-mode="radioButton"] > smart-menu-items-group[checked],
-        > smart-menu-item[checked][check-type="radioButton"],
-        > smart-menu-items-group[checked][check-type="radioButton"] {
-          > .smart-menu-item-label-container:after {
+        &[check-mode="radioButton"]>smart-menu-item[checked],
+        &[check-mode="radioButton"]>smart-menu-items-group[checked],
+        >smart-menu-item[checked][check-type="radioButton"],
+        >smart-menu-items-group[checked][check-type="radioButton"] {
+          >.smart-menu-item-label-container:after {
             content: var(--smart-icon-radio);
           }
         }
@@ -1037,15 +1050,16 @@ smart-menu-items-group {
     }
 
     &[checkable] {
+
       smart-menu-item,
       smart-menu-items-group {
         &[level="1"] {
-          > .smart-menu-item-label-container {
+          >.smart-menu-item-label-container {
             padding-left: 35px;
           }
 
           &[checked] {
-            > .smart-menu-item-label-container:after {
+            >.smart-menu-item-label-container:after {
               position: absolute;
               left: 10px;
               top: 50%;
@@ -1055,7 +1069,7 @@ smart-menu-items-group {
             }
 
             &[check-type="radioButton"] {
-              > .smart-menu-item-label-container:after {
+              >.smart-menu-item-label-container:after {
                 content: var(--smart-icon-radio);
               }
             }
@@ -1064,9 +1078,10 @@ smart-menu-items-group {
       }
 
       &[check-mode="radioButton"] {
+
         smart-menu-item[level="1"][checked],
         smart-menu-items-group[level="1"][checked] {
-          > .smart-menu-item-label-container:after {
+          >.smart-menu-item-label-container:after {
             content: var(--smart-icon-radio);
           }
         }
@@ -1076,7 +1091,7 @@ smart-menu-items-group {
     &[mode="tree"] {
       .smart-menu-minimized-items-container {
         smart-menu-items-group.smart-menu-items-group-opened {
-          > .smart-menu-item-label-container:after {
+          >.smart-menu-item-label-container:after {
             top: calc(50% + 5px);
           }
         }
@@ -1094,8 +1109,8 @@ smart-menu-items-group {
   }
 
   &[level="1"] {
-    > .smart-menu-item-label-container {
-      > .smart-menu-items-group-arrow {
+    >.smart-menu-item-label-container {
+      >.smart-menu-items-group-arrow {
         margin-left: 10px;
       }
     }
@@ -1168,7 +1183,7 @@ smart-menu-items-group {
         border-color: var(--smart-scroll-bar-button-border-active);
       }
 
-      > button {
+      >button {
         border: none;
       }
     }
@@ -1187,7 +1202,7 @@ smart-menu-items-group {
       }
     }
 
-    > .smart-menu-item-container {
+    >.smart-menu-item-container {
       height: 100%;
       overflow: hidden;
 
@@ -1200,7 +1215,7 @@ smart-menu-items-group {
         }
       }
 
-      > smart-menu-items-group {
+      >smart-menu-items-group {
         position: static;
       }
     }
@@ -1261,14 +1276,15 @@ smart-menu-items-group {
 
     &[checkboxes] {
       .smart-menu-item-container[checkable] {
-        > smart-menu-item,
-        > smart-menu-items-group {
-          > .smart-menu-item-label-container {
+
+        >smart-menu-item,
+        >smart-menu-items-group {
+          >.smart-menu-item-label-container {
             padding-left: 35px;
           }
 
           &[checked] {
-            > .smart-menu-item-label-container:after {
+            >.smart-menu-item-label-container:after {
               position: absolute;
               left: 10px;
               top: 50%;
@@ -1279,11 +1295,11 @@ smart-menu-items-group {
           }
         }
 
-        &[check-mode="radioButton"] > smart-menu-item[checked],
-        &[check-mode="radioButton"] > smart-menu-items-group[checked],
-        > smart-menu-item[checked][check-type="radioButton"],
-        > smart-menu-items-group[checked][check-type="radioButton"] {
-          > .smart-menu-item-label-container:after {
+        &[check-mode="radioButton"]>smart-menu-item[checked],
+        &[check-mode="radioButton"]>smart-menu-items-group[checked],
+        >smart-menu-item[checked][check-type="radioButton"],
+        >smart-menu-items-group[checked][check-type="radioButton"] {
+          >.smart-menu-item-label-container:after {
             content: var(--smart-icon-radio);
           }
         }
@@ -1439,9 +1455,10 @@ smart-menu-items-group {
 
   &:not(.smart-list-menu-view-minimized).smart-drop-down-repositioned[checkboxes][drop-down-position$="left"] {
     .smart-menu-item-container[checkable] {
-      > smart-menu-item,
-      > smart-menu-items-group {
-        > .smart-menu-item-label-container {
+
+      >smart-menu-item,
+      >smart-menu-items-group {
+        >.smart-menu-item-label-container {
           padding-left: 10px;
           padding-right: 35px;
 
@@ -1504,7 +1521,7 @@ smart-menu-items-group {
     }
 
     &.drop-down-height-set {
-      > .smart-menu-item-container {
+      >.smart-menu-item-container {
         overflow: initial;
       }
     }
@@ -1514,7 +1531,7 @@ smart-menu-items-group {
     &.smart-drop-down-repositioned {
       &[drop-down-position$="left"] {
         .smart-menu-drop-down {
-          .smart-menu-item-label-container > .smart-menu-item-shortcut {
+          .smart-menu-item-label-container>.smart-menu-item-shortcut {
             margin-right: 0;
           }
         }
@@ -1552,12 +1569,12 @@ smart-menu-items-group {
   }
 
   .smart-menu-items-group-opened {
-    > .smart-menu-drop-down {
+    >.smart-menu-drop-down {
       margin-top: 10px;
     }
 
-    > .smart-menu-item-label-container {
-      > .smart-menu-items-group-arrow {
+    >.smart-menu-item-label-container {
+      >.smart-menu-items-group-arrow {
         transform: rotate(180deg);
       }
     }
@@ -1591,7 +1608,7 @@ smart-menu-items-group {
     }
 
     .smart-menu-items-group-opened {
-      > .smart-menu-item-label-container {
+      >.smart-menu-item-label-container {
         padding-bottom: 0;
       }
     }
@@ -1606,7 +1623,7 @@ smart-menu-items-group {
     }
 
     &[checkboxes] {
-      smart-menu-items-group.smart-menu-items-group-opened > .smart-menu-item-label-container:after {
+      smart-menu-items-group.smart-menu-items-group-opened>.smart-menu-item-label-container:after {
         top: calc(50% + 5px);
       }
     }
@@ -1626,7 +1643,7 @@ smart-menu-items-group {
     }
 
     .smart-menu-item-label-container {
-      > .smart-menu-items-group-arrow {
+      >.smart-menu-items-group-arrow {
         transition: transform 0.2s ease-in;
       }
     }
@@ -1686,14 +1703,15 @@ smart-menu-items-group {
   }
 
   &[checkboxes][checkable] {
-    > smart-menu-item,
-    > smart-menu-items-group {
-      > .smart-menu-item-label-container {
+
+    >smart-menu-item,
+    >smart-menu-items-group {
+      >.smart-menu-item-label-container {
         padding-left: 35px;
       }
 
       &[checked] {
-        > .smart-menu-item-label-container:after {
+        >.smart-menu-item-label-container:after {
           position: absolute;
           left: 10px;
           top: 50%;
@@ -1705,7 +1723,7 @@ smart-menu-items-group {
 
         &[check-type="radioButton"],
         &[check-type="radioButton"] {
-          > .smart-menu-item-label-container:after {
+          >.smart-menu-item-label-container:after {
             content: var(--smart-icon-radio);
           }
         }
@@ -1713,9 +1731,10 @@ smart-menu-items-group {
     }
 
     &[drop-down-position$="left"] {
-      > smart-menu-item,
-      > smart-menu-items-group {
-        > .smart-menu-item-label-container {
+
+      >smart-menu-item,
+      >smart-menu-items-group {
+        >.smart-menu-item-label-container {
           padding-left: 10px;
           padding-right: 35px;
 
@@ -1728,9 +1747,10 @@ smart-menu-items-group {
     }
 
     &[check-mode="radioButton"] {
-      > smart-menu-item[checked],
-      > smart-menu-items-group[checked] {
-        > .smart-menu-item-label-container:after {
+
+      >smart-menu-item[checked],
+      >smart-menu-items-group[checked] {
+        >.smart-menu-item-label-container:after {
           content: var(--smart-icon-radio);
         }
       }
@@ -1758,284 +1778,4 @@ smart-menu-items-group {
     font-family: var(--smart-font-family-icon);
   }
 }
-
-/* --- Right-To-Left --- */
-
-.smart-menu {
-  &[right-to-left] {
-    .smart-menu-main-container {
-      direction: rtl;
-    }
-
-    .smart-menu-minimized-items-container {
-      left: initial;
-      right: calc(-1 * var(--smart-border-width));
-
-      .smart-menu-item-shortcut {
-        margin-right: initial;
-        margin-left: initial;
-      }
-    }
-
-    .smart-menu-items-group-arrow.right.smart-arrow-right {
-      margin-left: initial;
-      margin-right: 50px;
-    }
-
-    .smart-menu-drop-down {
-      left: initial;
-      right: 100%;
-
-      &[level="2"] {
-        right: 0;
-      }
-    }
-
-    smart-menu-item {
-      .smart-menu-item-shortcut {
-        margin-left: initial;
-        margin-right: 100px;
-      }
-    }
-
-    smart-menu-items-group {
-      .smart-menu-items-group-arrow {
-        margin-right: initial;
-        margin-left: initial;
-      }
-
-      &[level="1"] {
-        > .smart-menu-item-label-container {
-          > .smart-menu-items-group-arrow {
-            /*margin-right: initial;*/
-            margin-right: 10px;
-            margin-left: initial;
-          }
-        }
-      }
-    }
-
-    &:not([mode="tree"]) {
-      &[drop-down-position$="left"] {
-        smart-menu-item:not([level="1"]) {
-          > .smart-menu-item-label-container {
-            flex-direction: row;
-          }
-        }
-      }
-    }
-
-    &[mode] {
-      &:not([mode="horizontal"]) {
-        &[drop-down-position$="left"] {
-          .smart-menu-main-container smart-menu-items-group {
-            > .smart-menu-item-label-container {
-              flex-direction: row;
-            }
-          }
-        }
-
-        &:not([mode="tree"])[drop-down-position$="left"] {
-          smart-menu-item {
-            > .smart-menu-item-label-container {
-              flex-direction: row;
-            }
-          }
-        }
-      }
-    }
-
-    &[mode="tree"] {
-      .smart-menu-minimized-items-container {
-        direction: rtl;
-      }
-    }
-
-    &[mode="dropDown"] {
-      left: initial;
-      right: 100%;
-
-      smart-menu-item[level="1"] {
-        .smart-menu-item-shortcut {
-          margin-right: initial;
-          margin-left: initial;
-        }
-      }
-    }
-
-    &[mode="vertical"] {
-      .smart-menu-drop-down[level="2"] {
-        left: initial;
-        right: 100%;
-      }
-    }
-
-    &[drop-down-position$="left"] {
-      smart-menu-items-group:not([level="1"]) {
-        > .smart-menu-item-label-container {
-          flex-direction: row;
-        }
-      }
-    }
-
-    &[drop-down-position$="right"] {
-      .smart-menu-drop-down[level="2"] {
-        right: initial;
-        left: 0;
-      }
-    }
-
-    &[drop-down-position="overlay-right"] {
-      .smart-menu-main-container {
-        .smart-menu-drop-down:not([level="2"]) {
-          right: initial;
-          left: 0;
-        }
-      }
-    }
-
-    &[minimized] {
-      .smart-menu-minimized-items-container {
-        direction: rtl;
-      }
-
-      &[drop-down-position$="left"] {
-        > .smart-container {
-          flex-direction: row;
-        }
-      }
-    }
-
-    &[checkboxes] {
-      .smart-menu-item-container[checkable] {
-        > smart-menu-item,
-        > smart-menu-items-group {
-          > .smart-menu-item-label-container {
-            padding-left: 10px;
-            padding-right: 35px;
-          }
-
-          &[checked] {
-            > .smart-menu-item-label-container:after {
-              left: initial;
-              right: 10px;
-            }
-          }
-        }
-      }
-
-      &[checkable] {
-        smart-menu-item[level="1"],
-        smart-menu-items-group[level="1"] {
-          > .smart-menu-item-label-container {
-            padding-left: 10px;
-            padding-right: 35px;
-          }
-
-          &[checked] {
-            > .smart-menu-item-label-container:after {
-              left: initial;
-              right: 10px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.smart-menu-drop-down.smart-drop-down-repositioned {
-  &[right-to-left] {
-    left: initial;
-    right: 100%;
-
-    &.smart-menu-minimized-items-container {
-      direction: rtl;
-    }
-
-    .smart-menu-item-container {
-      direction: rtl;
-    }
-
-    .smart-menu-items-group-arrow.right.smart-arrow-right {
-      margin-left: initial;
-      margin-right: 50px;
-    }
-
-    smart-menu-item {
-      .smart-menu-item-shortcut {
-        margin-left: initial;
-        margin-right: 100px;
-      }
-    }
-
-    &[drop-down-position$="left"][level="2"],
-    &[drop-down-position="overlay-right"]:not([level="2"]) {
-      right: initial;
-      left: 0;
-    }
-
-    &[level="2"] {
-      right: 0;
-    }
-
-    &[checkboxes] {
-      .smart-menu-item-container[checkable] {
-        > smart-menu-item,
-        > smart-menu-items-group {
-          > .smart-menu-item-label-container {
-            padding-left: 10px;
-            padding-right: 35px;
-          }
-
-          &[checked] {
-            > .smart-menu-item-label-container:after {
-              left: initial;
-              right: 10px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.smart-menu-minimized-items-container {
-  &[right-to-left] {
-    left: initial;
-    right: 100%;
-
-    .smart-menu-item-shortcut,
-    smart-menu-items-group .smart-menu-items-group-arrow {
-      margin-right: initial;
-      margin-left: initial;
-    }
-
-    &.smart-drop-down-repositioned {
-      left: initial;
-      right: calc(-1 * var(--smart-border-width));
-
-      .smart-menu-drop-down {
-        left: initial;
-        right: 100%;
-      }
-    }
-
-    &[checkboxes][checkable] {
-      > smart-menu-item,
-      > smart-menu-items-group {
-        > .smart-menu-item-label-container {
-          padding-left: 10px;
-          padding-right: 35px;
-        }
-
-        &[checked] {
-          > .smart-menu-item-label-container:after {
-            left: initial;
-            right: 10px;
-          }
-        }
-      }
-    }
-  }
-}
+@import 'rtl/_menu';

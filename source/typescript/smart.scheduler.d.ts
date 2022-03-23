@@ -608,6 +608,14 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
   /**
+   * This event is triggered when the user drops an item over a cell.
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, date, allDay)
+   *  target - The HTMLElement that corresponds to the event that is dragged.
+   *  date - The cell's date under the pointer.
+   *  allDay - Boolean value, which is true when the cell under the pointer is all day cell.
+   */
+  onDropoverCell?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when resizing of a task starts. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, itemDateRange, originalEvent)
    *  target - The HTMLElement that corresponds to the event that is going to be resized.

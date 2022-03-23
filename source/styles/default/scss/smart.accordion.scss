@@ -420,14 +420,9 @@ smart-accordion {
       }
     }
   }
-
-  &[right-to-left] {
-    >.smart-container {
-      direction: rtl;
-    }
-  }
 }
 
+@import 'rtl/_accordion';
 
 :host .smart-ripple {
   background-color: var(--smart-background-color);

@@ -33,13 +33,6 @@ smart-circular-progress-bar {
     text-align: center;
     color: var(--smart-background-color);
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-label {
-      direction: rtl;
-    }
-  }
 }
 
 smart-progress-bar {
@@ -131,33 +124,6 @@ smart-progress-bar {
       &.smart-value-animation {
         animation: indeterminate-vertical-inverted 3s infinite linear;
       }
-    }
-  }
-
-  //Right To Left
-  &[right-to-left] {
-
-    &:not([orientation="vertical"]),
-    &[orientation="horizontal"] {
-      .smart-value {
-        transform-origin: right;
-      }
-
-      &[inverted] {
-        .smart-value {
-          transform-origin: left;
-        }
-      }
-    }
-
-    &[orientation="horizontal"] .smart-value.smart-value-animation,
-    &:not([orientation="vertical"]) .smart-value.smart-value-animation {
-      animation: indeterminate-inverted 3s infinite linear;
-    }
-
-    &[inverted][orientation="horizontal"] .smart-value.smart-value-animation,
-    &[inverted]:not([orientation="vertical"]) .smart-value.smart-value-animation {
-      animation: indeterminate 3s infinite linear;
     }
   }
 }
@@ -262,37 +228,6 @@ smart-circular-progress-bar {
       }
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    &[inverted] {
-      svg {
-        &:first-of-type {
-          .smart-value.smart-value-animation {
-            animation: circle 2s infinite linear;
-          }
-        }
-      }
-    }
-
-    svg {
-      &:first-of-type {
-        .smart-value.smart-value-animation {
-          animation: circle-inverted 2s infinite linear;
-        }
-      }
-    }
-
-    &[indeterminate] svg:first-of-type,
-    &[value="null"] svg:first-of-type {
-      animation: rotate-circle-inverted 1s infinite linear;
-    }
-
-    &[indeterminate][inverted] svg:first-of-type,
-    &[value="null"][inverted] svg:first-of-type {
-      animation: rotate-circle 1s infinite linear;
-    }
-  }
 }
 
 /* Barber Shop */
@@ -309,19 +244,6 @@ smart-circular-progress-bar {
   &[orientation="vertical"] {
     .smart-value {
       animation-direction: reverse;
-    }
-  }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-value {
-      animation-direction: reverse;
-    }
-
-    &[inverted] {
-      .smart-value {
-        animation-direction: normal;
-      }
     }
   }
 }
@@ -592,3 +514,5 @@ smart-circular-progress-bar {
     transform: rotate(-360deg);
   }
 }
+
+@import 'rtl/_progressbar';

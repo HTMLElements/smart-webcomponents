@@ -1,0 +1,12 @@
+smart-card {
+
+    //Right To Left
+    &[right-to-left],
+    &[right-to-left] {
+
+        >.smart-container,
+        &.smart-container {
+            direction: rtl;
+        }
+    }
+}

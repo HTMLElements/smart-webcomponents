@@ -563,22 +563,6 @@ smart-date-time-picker>.smart-container,
       }
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    >.smart-container {
-      direction: initial;
-
-      >.smart-label {
-        direction: rtl;
-      }
-    }
-
-    .smart-input.smart-date-time-input,
-    .smart-hint {
-      direction: rtl;
-    }
-  }
 }
 
 .smart-drop-down.smart-date-time-drop-down {
@@ -784,3 +768,5 @@ smart-date-time-picker>.smart-container,
     transition: none;
   }
 }
+
+@import 'rtl/_datetimepicker';

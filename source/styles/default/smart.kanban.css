@@ -230,7 +230,7 @@
 .smart-kanban .smart-kanban-column-content-tasks:focus {
   outline: none;
 }
-.smart-kanban .smart-kanban-column-content-tasks:focus .smart-kanban-task[focus] {
+.smart-kanban .smart-kanban-column-content-tasks .smart-kanban-task[focus] {
   box-shadow: inset 0px 0px 1px 1px var(--smart-primary);
 }
 .smart-kanban .smart-kanban-column-content-tasks > .smart-container > .smart-scroll-viewer-container > .smart-scroll-viewer-content-container {
@@ -616,33 +616,6 @@
 .smart-kanban[header-position="bottom"] .smart-kanban-body {
   height: calc(100% - var(--smart-kanban-header-size) - var(--smart-data-view-padding));
 }
-.smart-kanban[right-to-left] .smart-kanban-body,
-.smart-kanban[right-to-left] .smart-kanban-column-header-label,
-.smart-kanban[right-to-left] .swimlane {
-  direction: rtl;
-}
-.smart-kanban[right-to-left] .smart-kanban-column.collapsed > .smart-kanban-column-header > .smart-kanban-column-header-label {
-  margin-bottom: auto;
-}
-.smart-kanban[right-to-left] .smart-kanban-column:not(.collapsed) .smart-kanban-column-header .smart-arrow {
-  transform: rotate(180deg);
-}
-.smart-kanban[right-to-left] .smart-kanban-list {
-  direction: rtl;
-}
-.smart-kanban[right-to-left] .smart-kanban-list .icon {
-  margin-left: 10px;
-  margin-right: unset;
-}
-.smart-kanban[right-to-left] .smart-kanban-list .item.selected {
-  border-left: unset;
-  border-right: var(--smart-kanban-color-band-width) solid var(--smart-primary);
-  padding-left: 10px;
-  padding-right: 7px;
-}
-.smart-kanban[right-to-left][add-new-button] .smart-kanban-column[add-new-button] > .smart-kanban-column-header > .smart-kanban-column-header-add::after {
-  padding: 0 0 10px 10px;
-}
 
 .smart-data-view-header {
   height: var(--smart-kanban-header-size);
@@ -922,9 +895,6 @@
   top: -10px;
   border-radius: 50%;
 }
-.smart-kanban-feedback[right-to-left] .smart-kanban-task {
-  direction: rtl;
-}
 
 [task-progress] .smart-kanban-task-progress-container {
   display: flex;
@@ -979,19 +949,6 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23AF0020'%3E%3Cpath d='M2.73804 17.9979C1.96611 19.3313 2.92823 21 4.46889 21H19.5311C21.0718 21 22.0339 19.3313 21.262 17.9979L13.7309 4.98965C12.9605 3.65908 11.0395 3.65908 10.2691 4.98965L2.73804 17.9979ZM13.5 17.5C13.5 18.3284 12.8284 19 12 19V19C11.1716 19 10.5 18.3284 10.5 17.5V17.5C10.5 16.6716 11.1716 16 12 16V16C12.8284 16 13.5 16.6716 13.5 17.5V17.5ZM13.5 13.5C13.5 14.3284 12.8284 15 12 15V15C11.1716 15 10.5 14.3284 10.5 13.5V9.5C10.5 8.67157 11.1716 8 12 8V8C12.8284 8 13.5 8.67157 13.5 9.5V13.5Z'/%3E%3C/svg%3E");
 }
 
-[right-to-left] .smart-kanban-task {
-  border-left: var(--smart-border-width) solid var(--smart-border);
-  border-right: var(--smart-kanban-color-band-width) solid var(--smart-primary);
-  border-top-left-radius: var(--smart-border-top-right-radius);
-  border-bottom-left-radius: var(--smart-border-bottom-right-radius);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-[right-to-left] .smart-kanban-task-progress {
-  left: unset;
-  right: 0;
-}
-
 .smart-window.smart-kanban-window {
   max-height: 800px;
   width: auto !important;
@@ -1013,6 +970,10 @@
 .smart-window.smart-kanban-window .smart-kanban-tab-strip .smart-kanban-tab.selected {
   color: var(--smart-primary);
   border-bottom: 2px solid var(--smart-primary);
+}
+.smart-window.smart-kanban-window .smart-kanban-tab-strip .smart-kanban-tab[focus] {
+  color: var(--smart-primary);
+  outline: none;
 }
 .smart-window.smart-kanban-window .details .layout {
   display: grid;
@@ -1411,6 +1372,51 @@
 }
 .smart-kanban-color-input .smart-drop-down-button {
   display: none;
+}
+
+.smart-kanban[right-to-left] .smart-kanban-body,
+.smart-kanban[right-to-left] .smart-kanban-column-header-label,
+.smart-kanban[right-to-left] .swimlane {
+  direction: rtl;
+}
+.smart-kanban[right-to-left] .smart-kanban-column.collapsed > .smart-kanban-column-header > .smart-kanban-column-header-label {
+  margin-bottom: auto;
+}
+.smart-kanban[right-to-left] .smart-kanban-column:not(.collapsed) .smart-kanban-column-header .smart-arrow {
+  transform: rotate(180deg);
+}
+.smart-kanban[right-to-left] .smart-kanban-list {
+  direction: rtl;
+}
+.smart-kanban[right-to-left] .smart-kanban-list .icon {
+  margin-left: 10px;
+  margin-right: unset;
+}
+.smart-kanban[right-to-left] .smart-kanban-list .item.selected {
+  border-left: unset;
+  border-right: var(--smart-kanban-color-band-width) solid var(--smart-primary);
+  padding-left: 10px;
+  padding-right: 7px;
+}
+.smart-kanban[right-to-left][add-new-button] .smart-kanban-column[add-new-button] > .smart-kanban-column-header > .smart-kanban-column-header-add::after {
+  padding: 0 0 10px 10px;
+}
+
+.smart-kanban-feedback[right-to-left] .smart-kanban-task {
+  direction: rtl;
+}
+
+[right-to-left] .smart-kanban-task {
+  border-left: var(--smart-border-width) solid var(--smart-border);
+  border-right: var(--smart-kanban-color-band-width) solid var(--smart-primary);
+  border-top-left-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-right-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+[right-to-left] .smart-kanban-task-progress {
+  left: unset;
+  right: 0;
 }
 
 /*# sourceMappingURL=smart.kanban.css.map */

@@ -23,7 +23,7 @@
       }
 
       .smart-content-container {
-        > .smart-content {
+        >.smart-content {
           width: 100%;
           padding: var(--smart-window-content-padding);
           justify-items: center;
@@ -58,7 +58,7 @@
     }
 
     .smart-content-container {
-      > .smart-content {
+      >.smart-content {
         padding: initial;
         align-items: flex-start;
       }
@@ -87,7 +87,7 @@
     }
   }
 
-  > .smart-container,
+  >.smart-container,
   .smart-content-container {
     max-height: inherit;
   }
@@ -106,7 +106,7 @@
   }
 
   .smart-content-container {
-    > .smart-footer {
+    >.smart-footer {
       display: flex;
       // grid-column-gap: 2%;
       // justify-content: center;
@@ -170,6 +170,26 @@
       grid-column-gap: initial;
     }
 
+    &[type="conference"] {
+      label::before {
+        content: var(--smart-icon-video-camera);
+        font-family: var(--smart-font-family-icon);
+        font-size: 14px;
+        margin-right: 5px;
+        position: relative;
+        top: -3px;
+      }
+    }
+
+    &[type="notifications"] {
+      label::before {
+        content: var(--smart-icon-bell);
+        font-family: var(--smart-font-family-icon);
+        font-size: 14px;
+        margin-right: 5px;
+      }
+    }
+
     &[multiple] {
       grid-template-columns: repeat(2, minmax(0, 1fr));
 
@@ -188,15 +208,15 @@
       margin: auto 10px;
     }
 
-    > b {
+    >b {
       text-align: center;
     }
 
-    > .smart-input {
+    >.smart-input {
       width: 100%
     }
 
-    > .smart-number-input {
+    >.smart-number-input {
       width: 100px;
     }
 

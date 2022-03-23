@@ -1,0 +1,13 @@
+  .smart-splitter {
+
+      //Right To Left
+      &[right-to-left] {
+          .smart-splitter>.smart-container {
+              direction: initial;
+          }
+
+          smart-splitter-item>.smart-container>.smart-content {
+              direction: rtl;
+          }
+      }
+  }

@@ -464,6 +464,10 @@
     /* Code of Cut icon */
     --smart-icon-video: '\f16a';
     /* Code of YouTube video icon */
+    --smart-icon-video-camera: '\e840';
+    /* Code of Bell  icon */
+    --smart-icon-bell: '\f0f3';
+    /* Code of video icon */
     --smart-icon-header: '\f1dc';
     /* Code of Table Header */
     --smart-icon-row: '\f0db';

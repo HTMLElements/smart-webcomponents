@@ -364,6 +364,11 @@ export interface EditorProperties {
    */
   showCharCount?: boolean;
   /**
+   * Determines whether the editor may be checked for spelling errors.
+   * Default value: true
+   */
+  spellCheck?: boolean;
+  /**
    * Determines the refresh interval for the Source Code/Preview Panel when Split Mode is enabled. 
    * Default value: 100
    */

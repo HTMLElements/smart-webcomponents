@@ -1253,74 +1253,6 @@ smart-tab-items-group {
     }
   }
 
-  //Right To Left
-  &[right-to-left] {
-    smart-tab-item {
-      >.smart-container {
-        direction: rtl;
-      }
-    }
-
-    .smart-tab-label-container,
-    .smart-tab-group-container {
-      direction: rtl;
-    }
-
-    &[tab-text-orientation="vertical"] {
-      .smart-tab-strip {
-        writing-mode: vertical-rl;
-      }
-    }
-
-    &:not([vertical]) {
-      .smart-tab-strip {
-        direction: rtl;
-        text-align: right;
-
-        >.smart-tab-label-container {
-          &:last-child {
-            margin-left: initial;
-            margin-right: var(--smart-tab-item-offset);
-          }
-
-          &:first-child {
-            margin-left: initial;
-            margin-right: initial;
-          }
-        }
-      }
-    }
-
-    &[tab-position="right"]:not([tab-text-orientation="vertical"]):not([vertical]) {
-      .smart-tab-group-container {
-        .smart-tab-label-text-container {
-          margin-right: 18px;
-          margin-left: 0;
-        }
-      }
-
-      .smart-tab-group-arrow {
-        right: 2px;
-        left: initial;
-      }
-    }
-
-    &:not([tab-text-orientation="vertical"]):not([vertical]) {
-
-      .smart-tab-label-text-container.smart-close-button-enabled,
-      .smart-tab-group-container .smart-tab-label-text-container {
-        margin-left: 18px;
-        margin-right: initial;
-      }
-
-
-      .smart-tab-close-button,
-      .smart-tab-group-arrow {
-        left: 2px;
-        right: initial;
-      }
-    }
-  }
 }
 
 .smart-tabs-selection-bar {
@@ -1330,3 +1262,5 @@ smart-tab-items-group {
   height: 2px;
   z-index: 10;
 }
+
+@import 'rtl/_tabs';

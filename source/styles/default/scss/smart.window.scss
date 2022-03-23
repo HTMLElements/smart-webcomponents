@@ -1246,48 +1246,4 @@ smart-docking-layout {
     opacity: 1;
   }
 }
-
-//RIGHT TO LEFT
-.smart-window {
-  &[right-to-left] {
-    .smart-content-container {
-
-      >.smart-header-section,
-      >.smart-content,
-      >.smart-footer {
-        direction: rtl;
-      }
-    }
-
-    &[header-position="left"],
-    &[header-position="right"] {
-      .smart-header-section {
-        >.smart-header {
-          writing-mode: vertical-rl;
-        }
-      }
-    }
-
-    &.smart-dialog-window,
-    &.smart-alert-window,
-    &.smart-prompt-window,
-    &.smart-multiline-prompt-window {
-      .smart-content-container {
-        >.smart-footer button:first-child {
-          margin-left: 10px;
-          margin-right: initial;
-        }
-      }
-    }
-  }
-}
-
-.smart-tabs-window {
-  &[right-to-left] {
-    .smart-content-container {
-      >.smart-content {
-        direction: initial;
-      }
-    }
-  }
-}
+@import 'rtl/_window';

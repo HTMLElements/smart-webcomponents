@@ -578,6 +578,133 @@ declare global {
 export declare type ArrayArrayIndexingMode = 'LabVIEW' | 'JavaScript';
 /**Sets or gets the data type and element widgets to be used in the Array. */
 export declare type ArrayType = 'none' | 'boolean' | 'numeric' | 'string' | 'custom';
+export interface BarCodeProperties {
+  /**
+   * Sets the background color of the barcode element.
+   * Default value: "white"
+   */
+  backgroundColor?: string;
+  /**
+   * Sets whether the barcode label is visible.
+   * Default value: true
+   */
+  disaplyLabel?: boolean;
+  /**
+   * Sets the color of the barcode label.
+   * Default value: "black"
+   */
+  labelCOlor?: string;
+  /**
+   * Sets the font family of the barcode label.
+   * Default value: "monospace"
+   */
+  labelFont?: string;
+  /**
+   * Sets the font size of the barcode label.
+   * Default value: 14
+   */
+  labelFontSize?: number;
+  /**
+   * Sets the bottom margin of the barcode label.
+   * Default value: 5
+   */
+  labelMarginBottom?: number;
+  /**
+   * Sets the top margin of the barcode label.
+   * Default value: 5
+   */
+  labelMarginTop?: number;
+  /**
+   * Sets the position of the barcode label.
+   * Default value: bottom
+   */
+  labelPosition?: BarCodeLabelPosition;
+  /**
+   * Sets the color of the barcode lines.
+   * Default value: "black"
+   */
+  lineColor?: string;
+  /**
+   * Sets the height of the barcode line.
+   * Default value: 50
+   */
+  lineHeight?: number;
+  /**
+   * Sets the width of the barcode line.
+   * Default value: 4
+   */
+  lineWidth?: number;
+  /**
+   * Sets the rendering mode of the barcode.
+   * Default value: svg
+   */
+  renderAs?: BarCodeRenderAs;
+  /**
+   * Sets the barcode type
+   * Default value: codabar
+   */
+  type?: BarCodeType;
+  /**
+   * Sets or gets the value of the barcode.
+   * Default value: ""
+   */
+  value?: string;
+}
+/**
+ Barcodes encodes text value in a specific pattern.
+*/
+export interface BarCode extends BaseElement, BarCodeProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when the value of the barcode is invalid. 
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, invalidCharacters)
+   *  value - the invalid value of the barcode.
+   *  invalidCharacters - An array indicating the invalid characters.
+   */
+  onInvalid?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Exports the barcode.
+   * @param {string} format. The format of the exported file - svg, png, jpg
+   * @param {string} fileName?. The name of the exported file
+   */
+  export(format: string, fileName?: string): void;
+  /**
+   * Gets the base64 string of the barcode
+   * @param {string} format. The dataURL format of the string - svg, png, jpg
+   * @returns {string}
+   */
+  getDataURL(format: string): string;
+  /**
+   * Gets the base64 string of the barcode
+   * @param {string} format. The dataURL format of the string - svg, png, jpg
+   * @returns {any}
+   */
+  getDataURLAsync(format: string): any;
+  /**
+   * Gets the validity of the barcode
+   * @returns {boolean}
+   */
+  isValid(): boolean;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-barcode"): BarCode;
+        querySelector(selectors: "smart-barcode"): BarCode | null;
+        querySelectorAll(selectors: "smart-barcode"): NodeListOf<BarCode>;
+        getElementsByTagName(qualifiedName: "smart-barcode"): HTMLCollectionOf<BarCode>;
+        getElementsByName(elementName: "smart-barcode"): NodeListOf<BarCode>;
+    }
+}
+
+/**Sets the position of the barcode label. */
+export declare type BarCodeLabelPosition = 'top' | 'bottom';
+/**Sets the rendering mode of the barcode. */
+export declare type BarCodeRenderAs = 'svg' | 'canvas';
+/**Sets the barcode type */
+export declare type BarCodeType = 'pharmacode' | 'codabar' | 'code128a' | 'code128b' | 'code128c' | 'msi' | 'msi10' | 'msi11' | 'msi1010' | 'msi1110' | 'ean13' | 'ean8' | 'code39' | 'code93';
 export interface BreadcrumbProperties {
   /**
    * Enables or disables the "Add new item" (+) button.
@@ -4207,6 +4334,11 @@ export interface CheckInputProperties {
    */
   selectAll?: boolean;
   /**
+   * Gets or sets an array of selected values.
+   * Default value: 
+   */
+  selectedValues?: any;
+  /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
    */
@@ -5391,11 +5523,6 @@ declare global {
 }
 
 export interface ComboBoxProperties {
-  /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
   /**
    * Used only when dropDownOpenMode is set to 'auto'. Determines the delay before the opened drop down closes if the pointer is not over the element.
    * Default value: 100
@@ -8783,6 +8910,11 @@ export interface EditorProperties {
    * Default value: false
    */
   showCharCount?: boolean;
+  /**
+   * Determines whether the editor may be checked for spelling errors.
+   * Default value: true
+   */
+  spellCheck?: boolean;
   /**
    * Determines the refresh interval for the Source Code/Preview Panel when Split Mode is enabled. 
    * Default value: 100
@@ -13674,7 +13806,7 @@ export interface GridProperties {
    * Callback function, which is called when a cell value will be updated. This function is useful if you want to make Ajax call to a server to validate the cell changes. If the changes are validated, invoke the confirm function.
    * Default value: null
    */
-  onCellUpdate?: {(cell: GridCell, oldValue: any, value: any, confirm: {(commit: boolean): void}): void};
+  onCellUpdate?: {(cells: GridCell[], oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void};
   /**
    * Callback function, which is called when a cell is rendered. This function is useful if you want to customize GridCell properties, before the cell is rendered.
    * Default value: null
@@ -13729,22 +13861,22 @@ export interface GridProperties {
    * Callback function which is called when a row has been inserted.
    * Default value: null
    */
-  onRowInserted?: {(index: number, row: GridRow): void};
+  onRowInserted?: {(index: number[], row: GridRow[]): void};
   /**
    * Callback function, which is called when a row has been removed.
    * Default value: null
    */
-  onRowRemoved?: {(index: number, row: GridRow): void};
+  onRowRemoved?: {(indexes: number[], rows: GridRow[]): void};
   /**
    * Callback function, which is called when row's cell values will be updated. This function is useful if you want to make Ajax call to a server to validate the edit changes. If the changes are validated, invoke the confirm function.
    * Default value: null
    */
-  onRowUpdate?: {(index: number, row: GridRow, oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void};
+  onRowUpdate?: {(index: number[], row: GridRow[], oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void};
   /**
    * Callback function, called when a row has been updated.
    * Default value: null
    */
-  onRowUpdated?: {(index: number, row: GridRow): void};
+  onRowUpdated?: {(index: number[], row: GridRow[]): void};
   /**
    * Callback function, which is called when a column has been initialized. This function can be used to customize the column settings.
    * Default value: null
@@ -13950,6 +14082,20 @@ export interface Grid extends BaseElement, GridProperties {
    */
   onColumnReorder?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered, when the user enters a comment in the row edit dialog.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, comment)
+   *  id - The row's id.
+   *  comment - The comment object. The comment object has 'text: string', 'id: string', 'userId: string | number', and 'time: date' fields. The 'text' is the comment's text. 'id' is the comment's unique id, 'userId' is the user's id who entered the comment and 'time' is a javascript date object.
+   */
+  onCommentAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user removes a comment in the row edit dialog.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, comment)
+   *  id - The row's id.
+   *  comment - The comment object. The comment object has 'text: string', 'id: string', 'userId: string | number', and 'time: date' fields. The 'text' is the comment's text. 'id' is the comment's unique id, 'userId' is the user's id who entered the comment and 'time' is a javascript date object.
+   */
+  onCommentRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user starts a row drag.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, id, index, originalEvent)
    *  row - The row.
@@ -14038,6 +14184,15 @@ export interface Grid extends BaseElement, GridProperties {
    */
   onRowResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered, when the user clicks on the row header's star.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent, id, value)
+   *  row - The clicked row.
+   *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
+   *  id - Gets the row id.
+   *  value - Gets whether the row is starred or not.
+   */
+  onRowStarred?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user clicks on a cell of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent, id, dataField, isRightClick, pageX, pageY)
    *  cell - The clicked cell.
@@ -14073,11 +14228,18 @@ export interface Grid extends BaseElement, GridProperties {
   onEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when a filter is added or removed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
+	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data, expressions)
    *  columns - Array of columns.
-   *  data - Array of {dataField: string, filter: string}. <em>dataField</em> is the column's data field. <em>filter</em> is a filter expression like 'startsWith B'
+   *  data - Array of {dataField: string, filter: object}. <em>dataField</em> is the column's data field. <em>filter</em> is a FilterGroup object.
+   *  expressions - Array of {dataField: string, filter: string}. <em>dataField</em> is the column's data field. <em>filter</em> is a filter expression like 'startsWith B'. In each array item, you will have an object with column's name and filter string. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']], [['firstName', 'EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']], [['lastName','CONTAINS' 'burke' or 'CONTAINS' 'peterson']]. Filter conditions used in the filter expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    */
   onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the rows grouping is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(groups)
+   *  groups - Array of column data fields.
+   */
+  onGroup?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the add new column dialog is opened.
 	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
@@ -14141,6 +14303,12 @@ export interface Grid extends BaseElement, GridProperties {
    */
   addNewRow(position?: string): boolean;
   /**
+   * Adds a new column.
+   * @param {any} column. A Grid column object. See 'columns' property.
+   * @returns {boolean}
+   */
+  addNewColumn(column: any): boolean;
+  /**
    * Adds a new unbound row to the top or bottom. Unbound rows are not part of the Grid's dataSource. They become part of the dataSource, after an unbound row is edited.
    * @param {number} count. The count of unbound rows.
    * @param {string} position?. 'near' or 'far'
@@ -14149,19 +14317,19 @@ export interface Grid extends BaseElement, GridProperties {
   addUnboundRow(count: number, position?: string): boolean;
   /**
    * Adds a filter to a column. This method will apply a filter to the Grid data.
-   * @param {string} dataField. column bound data field
-   * @param {string} filter. Filter expression like: 'startsWith B'
-   * @param {boolean} refreshFilters?. 
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @param {string} filter. Filter expression like: 'startsWith B'. Example 2: ['contains Andrew or contains Nancy'], Example 3:  ['quantity', '&lt;= 3 and &gt;= 8'].  Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   * @param {boolean} refreshFilters?. Set this to false, if you will use multiple 'addFilter' calls. By doing this, you will avoid unnecessary renders.
    */
   addFilter(dataField: string, filter: string, refreshFilters?: boolean): void;
   /**
    * Groups the Grid by a data field. This method will add a group to the Grid when grouping is enabled.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   addGroup(dataField: string): void;
   /**
    * Sorts the Grid by a data field. This method will add a sorting to the Grid when sorting is enabled.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} sortOrder. column's sort order. Use 'asc' or 'desc'.
    */
   addSort(dataField: string, sortOrder: string): void;
@@ -14185,7 +14353,7 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Begins row, cell or column. This method allows you to programmatically start a cell, row or column editing. After calling it, an editor HTMLElement will be created and displayed in the Grid.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField?. column bound data field
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   beginEdit(rowId: string | number, dataField?: string): void;
   /**
@@ -14249,7 +14417,7 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Scrolls to a row or cell. This method scrolls to a row or cell, when scrolling is necessary. If pagination is enabled, it will automatically change the page.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField?. column bound data field
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @returns {boolean}
    */
   ensureVisible(rowId: string | number, dataField?: string): boolean;
@@ -14375,13 +14543,13 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Gets a value of a cell.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @returns {any}
    */
   getCellValue(rowId: string | number, dataField: string): any;
   /**
    * Gets a value of a column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} propertyName. The property name.
    * @returns {any}
    */
@@ -14422,13 +14590,13 @@ export interface Grid extends BaseElement, GridProperties {
   hideDetail(rowId: string | number): void;
   /**
    * Highlights a column. Highlights a Grid column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   highlightColumn(dataField: string): void;
   /**
    * Highlights a cell. Calling the method a second time toggle the highlight state.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} className?. CSS Class Name
    */
   highlightCell(rowId: string | number, dataField: string, className?: string): void;
@@ -14439,8 +14607,15 @@ export interface Grid extends BaseElement, GridProperties {
    */
   highlightRow(rowId: string | number, className?: string): void;
   /**
+   * Inserts a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
+   * @param {any} data. row data matching the data source
+   * @param {number} index?. Determines the insert index. The default value is the last index.
+   * @param {any} callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
+   */
+  insertRow(data: any, index?: number, callback?: any): void;
+  /**
    * Opens a column drop-down menu.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   openMenu(dataField: string): void;
   /**
@@ -14461,18 +14636,18 @@ export interface Grid extends BaseElement, GridProperties {
   refreshView(): void;
   /**
    * Removes a column filter. 
-   * @param {string} dataField. column bound data field
-   * @param {boolean} refreshFilters?. 
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @param {boolean} refreshFilters?. Set this to false, if you need to make multiple removeFilter calls.
    */
   removeFilter(dataField: string, refreshFilters?: boolean): void;
   /**
    * Removes a group by data field. This method will remove a group to the Grid when grouping is enabled.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   removeGroup(dataField: string): void;
   /**
    * Removes a sorting by data field. This method will remove a sorting from a Grid column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   removeSort(dataField: string): void;
   /**
@@ -14492,7 +14667,7 @@ export interface Grid extends BaseElement, GridProperties {
   reorderColumns(dataField: string | number, referenceDataField: string | number, insertAfter?: boolean): void;
   /**
    * Sorts the Grid by a data field. This method will add or remove sorting, when sorting is enabled. To remove the sorting, use 'null' for the sortOrder parameter.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string | null} sortOrder. column's sort order. Use 'asc', 'desc' or null.
    */
   sortBy(dataField: string, sortOrder: string | null): void;
@@ -14543,13 +14718,13 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Sets a new value to a cell.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string | number | Date | boolean} value. New Cell value.
    */
   setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
   /**
    * Sets a property to a column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} propertyName. The column property's name.
    * @param {any} value. The new property value.
    */
@@ -14586,7 +14761,7 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Unselects a row, cell or column.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField?. column bound data field
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   unselect(rowId: string | number, dataField?: string): void;
   /**
@@ -14862,6 +15037,11 @@ export interface GridBehavior {
    */
   allowColumnReorder?: boolean;
   /**
+   * Determines whether column freeze with drag and drop is enabled. When other columns are frozen/pinned, drag the column to the existing frozen area. When no columns are pinned, drag the column to the edge of the grid and wait for approximately one second. The grid will then assume you want to freeze/pin and create a frozen/pinned area and place the column into it.
+   * Default value: false
+   */
+  allowColumnFreeze?: boolean;
+  /**
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
@@ -14880,6 +15060,11 @@ export interface GridLayout {
    * Default value: false
    */
   allowCellsWrap?: boolean;
+  /**
+   * Automatically sets width to any new Column which does not have its 'width' property set.
+   * Default value: false
+   */
+  autoSizeNewColumn?: boolean;
   /**
    * Sets the width of the auto-generated Grid columns.
    * Default value: null
@@ -15063,7 +15248,7 @@ export interface GridColumn {
    */
   freeze?: Position;
   /**
-   * Sets or gets the filter of the column.
+   * Sets or gets the filter of the column. Example: ['contains Andrew or contains Nancy']. Example with numeric filter ['quantity', '&lt;= 3 and &gt;= 8']. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - ['EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']. Example with a string filter applied to a string column - ['CONTAINS' 'burke' or 'CONTAINS' 'peterson']. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: ""
    */
   filter?: string;
@@ -15133,7 +15318,7 @@ export interface GridColumn {
    */
   width?: string | number;
   /**
-   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'radioButton', 'url', 'email', 'dropdownlist', 'list', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
+   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'radioButton', 'url', 'email', 'dropdownlist', 'list', 'progress', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
    * Default value: 
    */
   template?: any;
@@ -15618,6 +15803,11 @@ export interface GridEditing {
    */
   allowColumnHeaderEdit?: boolean;
   /**
+   * Automatically re-applies already applied column filters and sort orders, after editing.
+   * Default value: true
+   */
+  autoUpdateFilterAndSort?: boolean;
+  /**
    * Enables editing.
    * Default value: false
    */
@@ -15884,7 +16074,7 @@ export interface GridFiltering {
    */
   enabled?: boolean;
   /**
-   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]
+   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - [['firstName', 'EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']]. Example with a string filter applied to a string column - [['lastName','CONTAINS' 'burke' or 'CONTAINS' 'peterson']]. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: 
    */
   filter?: any[];
@@ -15994,6 +16184,11 @@ export interface GridGrouping {
    * Default value: false
    */
   autoExpandAll?: boolean;
+  /**
+   * Automatically hides all grouped columns.
+   * Default value: false
+   */
+  autoHideGroupColumn?: boolean;
   /**
    * Sets the group expand mode.
    * Default value: buttonClick
@@ -16945,17 +17140,12 @@ declare global {
 export declare type GroupPanelCloseButtonPosition = 'left' | 'right';
 export interface InputProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
-  /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
    */
   autoCompleteDelay?: number;
   /**
-   * Determines the data source that will be loaded to the Input. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Determines the data source that will be loaded to the Input. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described. The data source item object may have the following fields: 'label' - string, 'value' - string or number, 'selected' - boolean, 'prefix' - string, 'suffix' - string, 'title' - string. The 'prefix' and 'suffix' add html before and after the label.
    * Default value: null
    */
   dataSource?: any;
@@ -17072,6 +17262,16 @@ export interface InputProperties {
    */
   sortDirection?: string;
   /**
+   * Determines the selected index.
+   * Default value: -1
+   */
+  selectedIndex?: number;
+  /**
+   * Determines the selected value.
+   * Default value: 
+   */
+  selectedValue?: string | number;
+  /**
    * Determines the theme for the element. Themes define the look of the elements.
    * Default value: ""
    */
@@ -17116,6 +17316,14 @@ export interface Input extends BaseElement, InputProperties {
    */
   onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the popup is opened.
+	* @param event. The custom event.    */
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the popup is closed.
+	* @param event. The custom event.    */
+  onClose: ((this: any, ev: Event) => any) | null;
+  /**
    * This event is triggered when the user clicks on an item from the popup list.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
    *  item - The item that was clicked.
@@ -17136,9 +17344,26 @@ export interface Input extends BaseElement, InputProperties {
    */
   open(): void;
   /**
-   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   * Focuses and selects the text inside the input or if it is <b>readonly</b> then the element is focused.
    */
   select(): void;
+  /**
+   * Selects an item by value. For example, if your data source is ['Item 1', 'Item 2', 'Item 3'], you can use 'Item 1' as an argument. If your data source is an object with label and value, pass the value when you call selectItem.
+   * @param {string | number} value. The item's value when the item is an object or string when the item is a string item.
+   */
+  selectItem(value: string | number): void;
+  /**
+   * Gets an item by value. For example, if your data source is ['Item 1', 'Item 2', 'Item 3'], you can use 'Item 1' as an argument. If your data source is an object with label and value, pass the value when you call selectItem.
+   * @param {string | number} value. The item's value when the item is an object or string when the item is a string item.
+   * @returns {any}
+   */
+  getItem(value: string | number): any;
+  /**
+   * Gets the selected item. For example, if your data source is ['Item 1', 'Item 2', 'Item 3'] and the user selected the second item, the method returns 'Item 2'. If your data source is an object with label and value, the returned value would be the 'value'.
+   * @param {string | number} value. The item's value when the item is an object or string when the item is a string item.
+   * @returns {any}
+   */
+  getSelectedItem(value: string | number): any;
 }
 
 declare global {
@@ -17502,6 +17727,55 @@ export interface Kanban extends BaseElement, KanbanProperties {
    */
   onColumnDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when a column is shown by using the column's action menu or the Kanban's 'show' method.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField)
+   *  label - The column label.
+   *  dataField - The column data field.
+   */
+  onColumnShow?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column is hidden by using the column's action menu or the Kanban's 'hide' method.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField)
+   *  label - The column label.
+   *  dataField - The column data field.
+   */
+  onColumnHide?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column is collapsed  by using the column's action menu or the Kanban's 'collapse' method.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField)
+   *  label - The column label.
+   *  dataField - The column data field.
+   */
+  onColumnCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a column is expanded by using the column's action menu or the Kanban's 'expand' method.
+	* @param event. The custom event. Custom data event was created with: ev.detail(label, dataField)
+   *  label - The column label.
+   *  dataField - The column data field.
+   */
+  onColumnExpand?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a comment is added to the Kanban Task.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, value)
+   *  id - The task's id.
+   *  value - The comment object. It has 'text: string, time: Date and userId:number' properties.
+   */
+  onCommentAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a comment is removed from the Kanban Task.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, value)
+   *  id - The task's id.
+   *  value - The comment object. It has 'text: string, time: Date and userId:number' properties.
+   */
+  onCommentRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a comment is updated in the Kanban Task.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, value)
+   *  id - The task's id.
+   *  value - The comment object. It has 'text: string, time: Date and userId:number' properties.
+   */
+  onCommentUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when a task is dropped somewhere in the DOM. The dragging operation can be canceled by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
    *  container - the Kanban the dragged task(s) is dropped to
@@ -17555,16 +17829,40 @@ export interface Kanban extends BaseElement, KanbanProperties {
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a new task is added.
-	* @param event. The custom event. Custom data event was created with: ev.detail(value)
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
    *  value - The task data that is added to the Kanban.
+   *  id - The task data id.
    */
   onTaskAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a task is removed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(value)
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
    *  value - The task data that is removed from the Kanban.
+   *  id - The task data id.
    */
   onTaskRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a task is updated.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, oldValue, id)
+   *  value - The task data that is updated.
+   *  oldValue - The update task's old data.
+   *  id - The task data id.
+   */
+  onTaskUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a task is clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
+   *  value - The task data.
+   *  id - The task data id.
+   */
+  onTaskClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a task is double clicked.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
+   *  value - The task data.
+   *  id - The task data id.
+   */
+  onTaskDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Adds filtering
    * @param {string[]} filters. Filter information
@@ -17605,6 +17903,10 @@ export interface Kanban extends BaseElement, KanbanProperties {
    * @param {number | string} column. The index or dataField of the column to collapse
    */
   collapse(column: number | string): void;
+  /**
+   * Clears the Kanban's selection.
+   */
+  clearSelection(): void;
   /**
    * Hides a Kanban column.
    * @param {number | string} column. The index or dataField of the column to hide
@@ -17648,6 +17950,18 @@ export interface Kanban extends BaseElement, KanbanProperties {
    * @returns {any}
    */
   getColumn(dataField: string): any;
+  /**
+   * Gets the data of a task. The returned value is a JSON object with the following fields: 'checklist', 'id', 'color', 'comments', 'history', 'dueDate', 'startDate', 'priority', 'progress', 'status', 'swimlane', 'tags', 'text', 'description', 'userId', 'createdUserId', 'createdDate', 'updatedUserId', 'updatedDate'
+   * @param {number} id. The task's id
+   * @returns {any}
+   */
+  getTask(id: number): any;
+  /**
+   * Gets the selected ids. The returned value is an array. Each item in the array is the 'id' of a selected task.
+   * @param {number} id. The task's id
+   * @returns {any}
+   */
+  getSelectedTasks(id: number): any;
   /**
    * Gets the Kanban's state.
    * @returns 
@@ -17708,6 +18022,16 @@ export interface Kanban extends BaseElement, KanbanProperties {
    * Shows all Kanban columns.
    */
   showAllColumns(): void;
+  /**
+   * Selects a task.
+   * @param {number | string} task. The task's id.
+   */
+  selectTask(task: number | string): void;
+  /**
+   * Unselects a task.
+   * @param {number | string} task. The task's id.
+   */
+  unselectTask(task: number | string): void;
   /**
    * Updates a task.
    * @param {number | string | HTMLElement} task. The task's id or corresponding HTMLElement
@@ -20277,6 +20601,11 @@ export interface MultiComboInputProperties {
    */
   selectAll?: boolean;
   /**
+   * Gets or sets an array of selected values.
+   * Default value: 
+   */
+  selectedValues?: any;
+  /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
    */
@@ -20478,6 +20807,11 @@ export interface MultiInputProperties {
    * Default value: ","
    */
   separator?: string;
+  /**
+   * Gets or sets an array of selected values.
+   * Default value: 
+   */
+  selectedValues?: any;
   /**
    * Determines whether an additional item is displayed as the first item in the options list, which allows to select/unselect all items.
    * Default value: false
@@ -24439,6 +24773,14 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   onDragEnd: ((this: any, ev: Event) => any) | null;
   /**
+   * This event is triggered when the user drops an item over a cell.
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, date, allDay)
+   *  target - The HTMLElement that corresponds to the event that is dragged.
+   *  date - The cell's date under the pointer.
+   *  allDay - Boolean value, which is true when the cell under the pointer is all day cell.
+   */
+  onDropoverCell?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when resizing of a task starts. This event allows to cancel the operation by calling event.preventDefault() in the event handler function.
 	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, itemDateRange, originalEvent)
    *  target - The HTMLElement that corresponds to the event that is going to be resized.
@@ -26463,11 +26805,6 @@ declare global {
 export declare type TabLayoutItemOrientation = 'horizontal' | 'vertical';
 export interface TableProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
-  /**
    * Enables or disables auto load state from the browser's localStorage. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the stateSettings property.
    * Default value: false
    */
@@ -26517,6 +26854,11 @@ export interface TableProperties {
    * Default value: null
    */
   conditionalFormatting?: TableConditionalFormatting[];
+  /**
+   * Sets or gets the column menu. When you set this property to true, each column will have a column menu. From the column menu, you will be able to sort, filter, show or hide columns.
+   * Default value: false
+   */
+  columnMenu?: boolean;
   /**
    * Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property.
    * Default value: default
@@ -26583,6 +26925,11 @@ export interface TableProperties {
    */
   filterRow?: boolean;
   /**
+   * Sets or gets the Table's filter operator. It determines whether 'and' or 'or' is used when applying column filters - cellvalue1 && cellvalue2 vs cellvalue1 || cellvalue2
+   * Default value: and
+   */
+  filterOperator?: boolean;
+  /**
    * Sets or gets the id of an HTML template element to be applied as a custom filter template.
    * Default value: "null"
    */
@@ -26627,6 +26974,11 @@ export interface TableProperties {
    * Default value: false
    */
   keyboardNavigation?: boolean;
+  /**
+   * Sets or gets whether the checkboxes are displayed in the selection column.
+   * Default value: false
+   */
+  hideSelectionColumn?: boolean;
   /**
    * Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'.
    * Default value: implementationOnly

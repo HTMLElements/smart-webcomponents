@@ -1,0 +1,20 @@
+/* smart-date-time-picker */
+
+.smart-date-time-picker {
+
+    //Right To Left
+    &[right-to-left] {
+        >.smart-container {
+            direction: initial;
+
+            >.smart-label {
+                direction: rtl;
+            }
+        }
+
+        .smart-input.smart-date-time-input,
+        .smart-hint {
+            direction: rtl;
+        }
+    }
+}

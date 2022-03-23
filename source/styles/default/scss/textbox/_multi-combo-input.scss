@@ -338,7 +338,7 @@ smart-multi-combo-input {
           color: inherit;
           display: inline-flex;
           align-items: center;
-          border-radius: 15px;
+          border-radius: 15px !important;
           margin-top: 5px;
           margin-left: 5px;
           height: auto;
@@ -352,6 +352,15 @@ smart-multi-combo-input {
           }
         }
 
+        &.focused {
+          a {
+            background: var(--smart-primary) !important;
+            border-color: var(--smart-primary) !important;
+            color: var(--smart-primary-color) !important;
+          }
+        }
+
+        &.focused,
         &:hover,
         &.selected {
           background: var(--smart-ui-state-hover);

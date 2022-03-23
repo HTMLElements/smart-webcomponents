@@ -266,15 +266,9 @@ smart-toast {
       }
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    >.smart-container {
-      direction: rtl;
-    }
-  }
 }
 
+@import 'rtl/_toast';
 @keyframes blink {
   50% {
     opacity: 0.5;

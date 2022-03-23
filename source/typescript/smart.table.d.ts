@@ -2,11 +2,6 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface TableProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
-  /**
    * Enables or disables auto load state from the browser's localStorage. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is loaded, based on the value of the stateSettings property.
    * Default value: false
    */
@@ -56,6 +51,11 @@ export interface TableProperties {
    * Default value: null
    */
   conditionalFormatting?: TableConditionalFormatting[];
+  /**
+   * Sets or gets the column menu. When you set this property to true, each column will have a column menu. From the column menu, you will be able to sort, filter, show or hide columns.
+   * Default value: false
+   */
+  columnMenu?: boolean;
   /**
    * Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property.
    * Default value: default
@@ -122,6 +122,11 @@ export interface TableProperties {
    */
   filterRow?: boolean;
   /**
+   * Sets or gets the Table's filter operator. It determines whether 'and' or 'or' is used when applying column filters - cellvalue1 && cellvalue2 vs cellvalue1 || cellvalue2
+   * Default value: and
+   */
+  filterOperator?: boolean;
+  /**
    * Sets or gets the id of an HTML template element to be applied as a custom filter template.
    * Default value: "null"
    */
@@ -166,6 +171,11 @@ export interface TableProperties {
    * Default value: false
    */
   keyboardNavigation?: boolean;
+  /**
+   * Sets or gets whether the checkboxes are displayed in the selection column.
+   * Default value: false
+   */
+  hideSelectionColumn?: boolean;
   /**
    * Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'.
    * Default value: implementationOnly

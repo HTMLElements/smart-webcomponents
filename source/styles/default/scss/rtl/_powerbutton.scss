@@ -1,0 +1,10 @@
+/* .smart-power-button */
+smart-power-button {
+    &[right-to-left] {
+        >.smart-container {
+            >.smart-input {
+                direction: rtl;
+            }
+        }
+    }
+}

@@ -1,0 +1,187 @@
+/* --- Right-To-Left --- */
+.smart-column-panel[right-to-left] {
+    .smart-column-panel-find-container {
+        direction: rtl;
+    }
+
+    .smart-grid-panel-buttons-container {
+        flex-direction: row-reverse;
+    }
+
+    .smart-grid-panel-item {
+        right: var(--smart-sortable-handle-size);
+        justify-content: space-between;
+    }
+
+    .toggle-visibility {
+        order: 1;
+    }
+}
+
+.smart-group-panel[right-to-left] {
+
+    .smart-group-panel-expand-button,
+    .smart-group-panel-collapse-button,
+    .smart-group-panel-cancel-button,
+    .smart-group-panel-apply-button,
+    .smart-grid-panel-label-by,
+    .smart-grid-panel-from {
+        direction: rtl;
+    }
+
+    .smart-group-panel-expand-button {
+        margin-left: initial;
+        margin-right: 5px;
+    }
+
+    .smart-grid-panel-label-by {
+        order: 3;
+    }
+
+    .smart-grid-panel-field-container {
+        order: 2;
+    }
+
+    .smart-grid-panel-from {
+        order: 1;
+    }
+
+    .smart-grid-panel-direction {
+        flex-direction: row-reverse;
+    }
+
+    .smart-grid-panel-buttons-container {
+        flex-direction: row-reverse;
+    }
+
+    .smart-sortable {
+        .smart-sortable-items-parent {
+            direction: unset;
+        }
+    }
+
+    &[close-button-position="right"] {
+        .smart-grid-panel-item-close-button {
+            order: 4;
+        }
+    }
+}
+
+.smart-sort-panel[right-to-left] {
+
+    .smart-grid-panel-apply-button,
+    .smart-grid-panel-cancel-button {
+        direction: rtl;
+    }
+
+    .smart-grid-panel-label-by {
+        order: 3;
+    }
+
+    .smart-grid-panel-field-container {
+        order: 2;
+    }
+
+    .smart-grid-panel-from {
+        order: 1;
+    }
+
+    .smart-grid-panel-direction {
+        flex-direction: row-reverse;
+    }
+
+    .smart-grid-panel-buttons-container {
+        flex-direction: row-reverse;
+    }
+
+    .smart-sortable {
+        .smart-sortable-items-parent {
+            direction: unset;
+        }
+    }
+
+    &[close-button-position="right"] {
+        .smart-grid-panel-item-close-button {
+            order: 4;
+        }
+    }
+}
+
+.smart-multi-column-filter-panel[right-to-left] {
+
+    .smart-grid-panel-apply-button,
+    .smart-grid-panel-cancel-button,
+    .smart-filter-panel-add-filter-button,
+    .smart-grid-panel-item-close-button+div,
+    .smart-filter-panel-items-container:empty {
+        direction: rtl;
+    }
+
+    .smart-grid-panel-item {
+        >.smart-grid-panel-item-close-button+div {
+            order: 3;
+        }
+
+        >.smart-input:nth-of-type(1) {
+            order: 2;
+        }
+
+        >.smart-input:nth-of-type(2) {
+            order: 1;
+        }
+    }
+
+    .smart-grid-panel-buttons-container {
+        flex-direction: row-reverse;
+    }
+
+    &[close-button-position="right"] {
+        .smart-grid-panel-item-close-button {
+            order: 4;
+        }
+    }
+}
+
+[right-to-left] {
+    .smart-data-view-header-drop-down.search-panel {
+        .smart-data-view-search-box {
+            direction: rtl;
+        }
+    }
+
+    .smart-data-view-header {
+        grid-template-areas: "search . sort filter customize";
+        grid-template-columns: 24px 1fr minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content);
+    }
+
+    .smart-data-view-header-button {
+        &:not(.smart-data-view-search-button) {
+            direction: rtl;
+            padding-left: 5px;
+            padding-right: 25px;
+        }
+
+        &:after {
+            right: 5px;
+            left: initial;
+        }
+    }
+}
+
+/* smart-formatting-panel */
+.smart-formatting-panel {
+
+    //Right To Left
+    &[right-to-left] {
+        direction: rtl;
+
+        .smart-add-new-button {
+            left: calc(var(--smart-grid-panel-padding) - 5px);
+            right: unset;
+        }
+
+        &.scroll .smart-add-new-button {
+            left: calc(12px + var(--smart-grid-panel-padding));
+        }
+    }
+}

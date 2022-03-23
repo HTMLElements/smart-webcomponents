@@ -1,0 +1,17 @@
+.smart-multiline-text-box {
+    &[right-to-left] {
+        textarea {
+            float: right;
+        }
+
+        .smart-container.vscroll,
+        &.smart-container.vscroll {
+            smart-scroll-bar[orientation="vertical"] {
+                border-top-left-radius: var(--smart-border-top-right-radius);
+                border-bottom-left-radius: var(--smart-border-bottom-right-radius);
+                border-top-right-radius: initial;
+                border-bottom-right-radius: initial;
+            }
+        }
+    }
+}

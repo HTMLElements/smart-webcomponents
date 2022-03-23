@@ -1,0 +1,13 @@
+/* smart-gauge */
+smart-gauge {
+
+    //Right-To-Left
+    &[right-to-left] {
+
+        .smart-label,
+        .smart-label-middle {
+            direction: rtl;
+            text-anchor: end;
+        }
+    }
+}

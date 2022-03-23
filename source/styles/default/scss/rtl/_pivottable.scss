@@ -1,0 +1,120 @@
+/* PivotTable */
+.smart-pivot-table {
+
+    //Right To Left
+    &[right-to-left] {
+        thead {
+            th:not(:last-child) {
+                border-left: var(--smart-border-width) solid var(--smart-border);
+                border-right: none;
+            }
+        }
+
+        td {
+            &.sort-by.asc {
+                &:before {
+                    transform: rotate(270deg);
+                }
+            }
+        }
+
+        th {
+            &.expanded {
+                .total-arrow {
+                    transform: none;
+                }
+            }
+        }
+
+        smart-breadcrumb {
+            padding-left: var(--smart-breadcrumb-padding);
+            padding-right: calc(3 * var(--smart-breadcrumb-padding));
+
+            &:before {
+                left: unset;
+                right: 0;
+            }
+        }
+
+        .total-arrow {
+            transform: rotate(180deg);
+        }
+
+        .smart-pivot-table-pivot-breadcrumb {
+            border-left: none;
+            border-right: var(--smart-border-width) solid var(--smart-border);
+        }
+
+        &[selection] {
+            &:not([selection-mode="cell"]) {
+                thead th:first-child {
+                    border-left: none;
+                }
+            }
+        }
+
+        &:not([designer-position="near"]) {
+            .smart-pivot-panel {
+                border-left: none;
+                border-right: var(--smart-border-width) solid var(--smart-border);
+            }
+        }
+    }
+}
+
+
+.smart-table-window {
+    &[right-to-left] {
+        &.drill-down {
+            .smart-content strong {
+                margin-right: calc(var(--smart-pivot-panel-padding) / 3);
+                margin-left: var(--smart-pivot-panel-padding);
+            }
+        }
+
+        &.fields {
+
+            smart-pivot-panel .smart-pivot-panel-tabs,
+            smart-pivot-panel .smart-pivot-panel-tab-item {
+                flex-direction: row-reverse;
+            }
+
+            smart-pivot-panel .smart-pivot-panel-tab-item {
+                display: flex;
+            }
+
+            smart-pivot-panel .smart-pivot-panel-tab-item:first-child {
+                margin-left: var(--smart-pivot-panel-padding);
+                margin-right: 0;
+            }
+
+            smart-pivot-panel .smart-pivot-panel-tab-item .icon {
+                margin-left: 3px;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+
+/* PivotPanel */
+.smart-pivot-panel {
+
+    //Right to Left
+    &[right-to-left] {
+        direction: ltr;
+
+        >.smart-container>div:first-child,
+        .smart-pivot-panel-tab-item>span:nth-child(2) {
+            direction: rtl;
+        }
+
+
+        .smart-pivot-panel-label .icon,
+        smart-tree-item .settings-icon {
+            margin-left: calc(var(--smart-pivot-panel-padding) / 2);
+            margin-right: 0;
+        }
+
+    }
+}

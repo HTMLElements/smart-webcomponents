@@ -30,10 +30,6 @@ smart-circular-progress-bar .smart-label {
   text-align: center;
   color: var(--smart-background-color);
 }
-smart-progress-bar[right-to-left] .smart-label,
-smart-circular-progress-bar[right-to-left] .smart-label {
-  direction: rtl;
-}
 
 smart-progress-bar {
   width: var(--smart-progress-bar-default-width);
@@ -122,18 +118,6 @@ smart-progress-bar[orientation="vertical"] .smart-label {
 smart-progress-bar[inverted][orientation="vertical"] .smart-value.smart-value-animation {
   animation: indeterminate-vertical-inverted 3s infinite linear;
 }
-smart-progress-bar[right-to-left]:not([orientation="vertical"]) .smart-value, smart-progress-bar[right-to-left][orientation="horizontal"] .smart-value {
-  transform-origin: right;
-}
-smart-progress-bar[right-to-left]:not([orientation="vertical"])[inverted] .smart-value, smart-progress-bar[right-to-left][orientation="horizontal"][inverted] .smart-value {
-  transform-origin: left;
-}
-smart-progress-bar[right-to-left][orientation="horizontal"] .smart-value.smart-value-animation, smart-progress-bar[right-to-left]:not([orientation="vertical"]) .smart-value.smart-value-animation {
-  animation: indeterminate-inverted 3s infinite linear;
-}
-smart-progress-bar[right-to-left][inverted][orientation="horizontal"] .smart-value.smart-value-animation, smart-progress-bar[right-to-left][inverted]:not([orientation="vertical"]) .smart-value.smart-value-animation {
-  animation: indeterminate 3s infinite linear;
-}
 
 smart-circular-progress-bar {
   width: var(--smart-circular-progress-bar-default-size);
@@ -217,18 +201,6 @@ smart-circular-progress-bar[indeterminate][inverted] svg:first-of-type, smart-ci
 smart-circular-progress-bar[indeterminate] svg:first-of-type, smart-circular-progress-bar[value="null"] svg:first-of-type {
   animation: rotate-circle 1s infinite linear;
 }
-smart-circular-progress-bar[right-to-left][inverted] svg:first-of-type .smart-value.smart-value-animation {
-  animation: circle 2s infinite linear;
-}
-smart-circular-progress-bar[right-to-left] svg:first-of-type .smart-value.smart-value-animation {
-  animation: circle-inverted 2s infinite linear;
-}
-smart-circular-progress-bar[right-to-left][indeterminate] svg:first-of-type, smart-circular-progress-bar[right-to-left][value="null"] svg:first-of-type {
-  animation: rotate-circle-inverted 1s infinite linear;
-}
-smart-circular-progress-bar[right-to-left][indeterminate][inverted] svg:first-of-type, smart-circular-progress-bar[right-to-left][value="null"][inverted] svg:first-of-type {
-  animation: rotate-circle 1s infinite linear;
-}
 
 /* Barber Shop */
 .barber-shop-effect .smart-value {
@@ -240,12 +212,6 @@ smart-circular-progress-bar[right-to-left][indeterminate][inverted] svg:first-of
 }
 .barber-shop-effect[inverted] .smart-value, .barber-shop-effect[orientation="vertical"] .smart-value {
   animation-direction: reverse;
-}
-.barber-shop-effect[right-to-left] .smart-value {
-  animation-direction: reverse;
-}
-.barber-shop-effect[right-to-left][inverted] .smart-value {
-  animation-direction: normal;
 }
 
 /* ANIMATION - BarberShop style */
@@ -464,6 +430,45 @@ smart-circular-progress-bar[right-to-left][indeterminate][inverted] svg:first-of
   100% {
     transform: rotate(-360deg);
   }
+}
+/* smart-progress-bar */
+smart-progress-bar[right-to-left] .smart-label,
+smart-circular-progress-bar[right-to-left] .smart-label {
+  direction: rtl;
+}
+
+smart-progress-bar[right-to-left]:not([orientation="vertical"]) .smart-value, smart-progress-bar[right-to-left][orientation="horizontal"] .smart-value {
+  transform-origin: right;
+}
+smart-progress-bar[right-to-left]:not([orientation="vertical"])[inverted] .smart-value, smart-progress-bar[right-to-left][orientation="horizontal"][inverted] .smart-value {
+  transform-origin: left;
+}
+smart-progress-bar[right-to-left][orientation="horizontal"] .smart-value.smart-value-animation, smart-progress-bar[right-to-left]:not([orientation="vertical"]) .smart-value.smart-value-animation {
+  animation: indeterminate-inverted 3s infinite linear;
+}
+smart-progress-bar[right-to-left][inverted][orientation="horizontal"] .smart-value.smart-value-animation, smart-progress-bar[right-to-left][inverted]:not([orientation="vertical"]) .smart-value.smart-value-animation {
+  animation: indeterminate 3s infinite linear;
+}
+
+smart-circular-progress-bar[right-to-left][inverted] svg:first-of-type .smart-value.smart-value-animation {
+  animation: circle 2s infinite linear;
+}
+smart-circular-progress-bar[right-to-left] svg:first-of-type .smart-value.smart-value-animation {
+  animation: circle-inverted 2s infinite linear;
+}
+smart-circular-progress-bar[right-to-left][indeterminate] svg:first-of-type, smart-circular-progress-bar[right-to-left][value="null"] svg:first-of-type {
+  animation: rotate-circle-inverted 1s infinite linear;
+}
+smart-circular-progress-bar[right-to-left][indeterminate][inverted] svg:first-of-type, smart-circular-progress-bar[right-to-left][value="null"][inverted] svg:first-of-type {
+  animation: rotate-circle 1s infinite linear;
+}
+
+/* Barber Shop */
+.barber-shop-effect[right-to-left] .smart-value {
+  animation-direction: reverse;
+}
+.barber-shop-effect[right-to-left][inverted] .smart-value {
+  animation-direction: normal;
 }
 
 /*# sourceMappingURL=smart.progressbar.css.map */

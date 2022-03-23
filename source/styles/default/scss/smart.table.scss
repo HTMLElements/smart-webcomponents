@@ -1844,13 +1844,6 @@ smart-table {
       }
     }
 
-    &[right-to-left] {
-
-      .freeze-near,
-      .freeze-far {
-        box-shadow: 0px 0px 0px 1px var(--smart-border);
-      }
-    }
   }
 
   &[hide-selection-column] {
@@ -1878,204 +1871,7 @@ smart-table {
     }
   }
 
-  //Right To Left
-  &[right-to-left] {
-    >.smart-container {
-      direction: rtl;
-    }
 
-    thead {
-      th {
-        text-align: right;
-
-        .sort-by {
-          &:after {
-            left: unset;
-            right: 100%;
-          }
-        }
-      }
-    }
-
-    th {
-      &.column-header {
-        text-align: center;
-      }
-    }
-
-    td {
-      text-align: initial;
-    }
-
-    .smart-table-container {
-      &:focus {
-        td[focus] {
-          &:after {
-            left: unset;
-            right: 1px;
-          }
-        }
-      }
-    }
-
-    .smart-table-header {
-      left: unset;
-      right: 0;
-
-      .smart-table-toolbar-button {
-        &.conditional-formatting {
-          border-left: none;
-          border-right: var(--smart-border-width) solid var(--smart-border);
-
-          &:before {
-            left: 0;
-            right: unset;
-          }
-        }
-      }
-    }
-
-    .freeze-far {
-      left: 0;
-      box-shadow: 1px 0px 0px 0px var(--smart-border);
-      right: unset;
-    }
-
-    .freeze-near {
-      right: 0;
-      box-shadow: -1px 0px 0px 0px var(--smart-border);
-      left: unset;
-    }
-
-    smart-pager {
-      .smart-container {
-        justify-content: flex-start;
-      }
-
-      .smart-pager-far-buttons-container {
-        order: 0;
-      }
-
-      .smart-pager-near-buttons-container {
-        order: 1;
-      }
-
-      .smart-pager-summary-container {
-        &.smart-pager-label {
-          order: 2;
-        }
-      }
-
-      .smart-pager-size-selector-and-label-container {
-        order: 3;
-        flex-direction: row;
-      }
-    }
-
-    .tree-cell,
-    .tree-leaf,
-    .group-header {
-      padding-left: var(--smart-table-cell-padding);
-    }
-
-    .hierarchy-arrow {
-      margin-left: var(--smart-table-arrow-margin);
-      margin-right: unset;
-    }
-
-    &[freeze-header] {
-      thead {
-        th.freeze-far {
-          box-shadow: 1px 1px 0px 0px var(--smart-border);
-        }
-
-        th.freeze-near {
-          box-shadow: -1px 1px 0px 0px var(--smart-border);
-        }
-      }
-    }
-
-    &[freeze-footer] {
-      tfoot {
-        td.freeze-far {
-          box-shadow: 1px -1px 0px 0px var(--smart-border);
-        }
-
-        td.freeze-near {
-          box-shadow: -1px -1px 0px 0px var(--smart-border);
-        }
-      }
-    }
-
-    &[conditional-formatting-button] {
-      &:not([filtering]) {
-        .smart-table-header {
-          grid-template-columns: 1fr auto;
-          grid-template-areas: ". button";
-        }
-      }
-    }
-
-    &[filtering] {
-      .smart-table-header {
-        grid-template-columns: 1fr;
-      }
-
-      &[conditional-formatting-button] {
-        .smart-table-header {
-          grid-template-columns: 1fr auto;
-        }
-      }
-    }
-
-    &[column-resize] {
-      th[locked] {
-        &:before {
-          content: none;
-        }
-      }
-
-      th[locked]+th[data-field] {
-        &:after {
-          content: none;
-        }
-      }
-
-      &:not([selection]) {
-        th[data-field]:first-child {
-          &:after {
-            content: none;
-          }
-        }
-
-        th[data-field]:not([locked]):first-child {
-          &:before {
-            content: '';
-          }
-        }
-      }
-
-      &[selection] {
-        th[data-field]:nth-child(2) {
-          &:after {
-            content: none;
-          }
-        }
-
-        th[data-field]:not([locked]):nth-child(2) {
-          &:before {
-            content: '';
-          }
-        }
-      }
-    }
-
-    &[column-groups] {
-      th:not(:last-child) {
-        border-left: var(--smart-border-width) solid var(--smart-border);
-      }
-    }
-  }
 }
 
 .smart-pivot-table {
@@ -2124,43 +1920,6 @@ smart-table {
       }
     }
 
-    &[right-to-left] {
-
-      thead th:not(:last-child),
-      thead th:last-child {
-        border: none;
-        box-shadow: 0px 0px 0px 1px var(--smart-border);
-      }
-    }
-  }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-table-toolbar-button {
-      &.fields {
-        border-left: none;
-        border-right: var(--smart-border-width) solid var(--smart-border);
-
-        &:before {
-          left: 0;
-          right: unset;
-        }
-      }
-    }
-
-    &[toolbar][designer] {
-      .smart-table-toolbar-button {
-        &.conditional-formatting {
-          border-left: none;
-          border-right: var(--smart-border-width) solid var(--smart-border);
-
-          &:before {
-            left: 0;
-            right: unset;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -2485,3 +2244,5 @@ smart-table {
     transform: scale(2.5);
   }
 }
+
+@import "rtl/_table";

@@ -1,7 +1,9 @@
 @import '_functions';
 
 /* smart-button, smart-repeat-button, smart-toggle-button */
-smart-button, smart-toggle-button, smart-repeat-button {
+smart-button,
+smart-toggle-button,
+smart-repeat-button {
   --smart-button-flat-color: var(--smart-background-color);
   text-align: center;
   display: inline-flex;
@@ -246,15 +248,10 @@ smart-button, smart-toggle-button, smart-repeat-button {
       box-shadow: var(--smart-elevation-12);
     }
 
-    &[focus], &[focus]:not([checked]) {
+    &[focus],
+    &[focus]:not([checked]) {
       box-shadow: var(--smart-elevation-6);
     }
-  }
-
-  // ======== Right To Left ========
-
-  &[right-to-left] {
-    direction: rtl;
   }
 }
 
@@ -282,7 +279,8 @@ button.smart-button {
   }
 }
 
-smart-toggle-button, [smart-toggle-button] {
+smart-toggle-button,
+[smart-toggle-button] {
   .smart-container {
     font-weight: inherit;
     font-style: inherit;
@@ -345,3 +343,5 @@ button.smart-button[type]:not([disabled]):active {
   border-color: var(--smart-ui-state-border-active);
   background-color: var(--smart-ui-state-active);
 }
+
+@import 'rtl/_button';

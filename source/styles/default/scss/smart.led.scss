@@ -166,6 +166,7 @@ smart-led {
   }
 
   &[shape="square"] {
+
     .smart-input,
     .smart-false-content-container,
     .smart-true-content-container,
@@ -173,13 +174,5 @@ smart-led {
       border-radius: 0px;
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-false-content-container,
-    .smart-true-content-container,
-    .smart-indeterminate-content-container {
-      direction: rtl;
-    }
-  }
 }
+@import 'rtl/_led';

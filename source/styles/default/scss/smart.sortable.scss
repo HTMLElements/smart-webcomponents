@@ -190,13 +190,6 @@
       }
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-
-    .smart-sortable-items-parent,
-    .smart-column-panel-label {
-      direction: rtl;
-    }
-  }
 }
+
+@import 'rtl/_sortable';

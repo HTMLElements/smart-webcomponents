@@ -1,0 +1,10 @@
+/* .smart-tooltip */
+smart-tooltip {
+
+    //Right To Left
+    &[right-to-left] {
+        .smart-tooltip-content {
+            direction: rtl;
+        }
+    }
+}

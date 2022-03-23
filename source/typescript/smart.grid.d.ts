@@ -102,7 +102,7 @@ export interface GridProperties {
    * Callback function, which is called when a cell value will be updated. This function is useful if you want to make Ajax call to a server to validate the cell changes. If the changes are validated, invoke the confirm function.
    * Default value: null
    */
-  onCellUpdate?: {(cell: GridCell, oldValue: any, value: any, confirm: {(commit: boolean): void}): void};
+  onCellUpdate?: {(cells: GridCell[], oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void};
   /**
    * Callback function, which is called when a cell is rendered. This function is useful if you want to customize GridCell properties, before the cell is rendered.
    * Default value: null
@@ -157,22 +157,22 @@ export interface GridProperties {
    * Callback function which is called when a row has been inserted.
    * Default value: null
    */
-  onRowInserted?: {(index: number, row: GridRow): void};
+  onRowInserted?: {(index: number[], row: GridRow[]): void};
   /**
    * Callback function, which is called when a row has been removed.
    * Default value: null
    */
-  onRowRemoved?: {(index: number, row: GridRow): void};
+  onRowRemoved?: {(indexes: number[], rows: GridRow[]): void};
   /**
    * Callback function, which is called when row's cell values will be updated. This function is useful if you want to make Ajax call to a server to validate the edit changes. If the changes are validated, invoke the confirm function.
    * Default value: null
    */
-  onRowUpdate?: {(index: number, row: GridRow, oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void};
+  onRowUpdate?: {(index: number[], row: GridRow[], oldValues: any[], values: any[], confirm: {(commit: boolean): void}): void};
   /**
    * Callback function, called when a row has been updated.
    * Default value: null
    */
-  onRowUpdated?: {(index: number, row: GridRow): void};
+  onRowUpdated?: {(index: number[], row: GridRow[]): void};
   /**
    * Callback function, which is called when a column has been initialized. This function can be used to customize the column settings.
    * Default value: null
@@ -378,6 +378,20 @@ export interface Grid extends BaseElement, GridProperties {
    */
   onColumnReorder?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered, when the user enters a comment in the row edit dialog.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, comment)
+   *  id - The row's id.
+   *  comment - The comment object. The comment object has 'text: string', 'id: string', 'userId: string | number', and 'time: date' fields. The 'text' is the comment's text. 'id' is the comment's unique id, 'userId' is the user's id who entered the comment and 'time' is a javascript date object.
+   */
+  onCommentAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user removes a comment in the row edit dialog.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, comment)
+   *  id - The row's id.
+   *  comment - The comment object. The comment object has 'text: string', 'id: string', 'userId: string | number', and 'time: date' fields. The 'text' is the comment's text. 'id' is the comment's unique id, 'userId' is the user's id who entered the comment and 'time' is a javascript date object.
+   */
+  onCommentRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user starts a row drag.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, id, index, originalEvent)
    *  row - The row.
@@ -466,6 +480,15 @@ export interface Grid extends BaseElement, GridProperties {
    */
   onRowResize?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered, when the user clicks on the row header's star.
+	* @param event. The custom event. Custom data event was created with: ev.detail(row, originalEvent, id, value)
+   *  row - The clicked row.
+   *  originalEvent - The original event object, which is 'pointer', 'touch' or 'mouse' Event object, depending on the device type and web browser
+   *  id - Gets the row id.
+   *  value - Gets whether the row is starred or not.
+   */
+  onRowStarred?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered, when the user clicks on a cell of the grid.
 	* @param event. The custom event. Custom data event was created with: ev.detail(cell, originalEvent, id, dataField, isRightClick, pageX, pageY)
    *  cell - The clicked cell.
@@ -501,11 +524,18 @@ export interface Grid extends BaseElement, GridProperties {
   onEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when a filter is added or removed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
+	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data, expressions)
    *  columns - Array of columns.
-   *  data - Array of {dataField: string, filter: string}. <em>dataField</em> is the column's data field. <em>filter</em> is a filter expression like 'startsWith B'
+   *  data - Array of {dataField: string, filter: object}. <em>dataField</em> is the column's data field. <em>filter</em> is a FilterGroup object.
+   *  expressions - Array of {dataField: string, filter: string}. <em>dataField</em> is the column's data field. <em>filter</em> is a filter expression like 'startsWith B'. In each array item, you will have an object with column's name and filter string. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']], [['firstName', 'EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']], [['lastName','CONTAINS' 'burke' or 'CONTAINS' 'peterson']]. Filter conditions used in the filter expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    */
   onFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the rows grouping is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(groups)
+   *  groups - Array of column data fields.
+   */
+  onGroup?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the add new column dialog is opened.
 	* @param event. The custom event. Custom data event was created with: ev.detail(dataField)
@@ -569,6 +599,12 @@ export interface Grid extends BaseElement, GridProperties {
    */
   addNewRow(position?: string): boolean;
   /**
+   * Adds a new column.
+   * @param {any} column. A Grid column object. See 'columns' property.
+   * @returns {boolean}
+   */
+  addNewColumn(column: any): boolean;
+  /**
    * Adds a new unbound row to the top or bottom. Unbound rows are not part of the Grid's dataSource. They become part of the dataSource, after an unbound row is edited.
    * @param {number} count. The count of unbound rows.
    * @param {string} position?. 'near' or 'far'
@@ -577,19 +613,19 @@ export interface Grid extends BaseElement, GridProperties {
   addUnboundRow(count: number, position?: string): boolean;
   /**
    * Adds a filter to a column. This method will apply a filter to the Grid data.
-   * @param {string} dataField. column bound data field
-   * @param {string} filter. Filter expression like: 'startsWith B'
-   * @param {boolean} refreshFilters?. 
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @param {string} filter. Filter expression like: 'startsWith B'. Example 2: ['contains Andrew or contains Nancy'], Example 3:  ['quantity', '&lt;= 3 and &gt;= 8'].  Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   * @param {boolean} refreshFilters?. Set this to false, if you will use multiple 'addFilter' calls. By doing this, you will avoid unnecessary renders.
    */
   addFilter(dataField: string, filter: string, refreshFilters?: boolean): void;
   /**
    * Groups the Grid by a data field. This method will add a group to the Grid when grouping is enabled.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   addGroup(dataField: string): void;
   /**
    * Sorts the Grid by a data field. This method will add a sorting to the Grid when sorting is enabled.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} sortOrder. column's sort order. Use 'asc' or 'desc'.
    */
   addSort(dataField: string, sortOrder: string): void;
@@ -613,7 +649,7 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Begins row, cell or column. This method allows you to programmatically start a cell, row or column editing. After calling it, an editor HTMLElement will be created and displayed in the Grid.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField?. column bound data field
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   beginEdit(rowId: string | number, dataField?: string): void;
   /**
@@ -677,7 +713,7 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Scrolls to a row or cell. This method scrolls to a row or cell, when scrolling is necessary. If pagination is enabled, it will automatically change the page.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField?. column bound data field
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @returns {boolean}
    */
   ensureVisible(rowId: string | number, dataField?: string): boolean;
@@ -803,13 +839,13 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Gets a value of a cell.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @returns {any}
    */
   getCellValue(rowId: string | number, dataField: string): any;
   /**
    * Gets a value of a column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} propertyName. The property name.
    * @returns {any}
    */
@@ -850,13 +886,13 @@ export interface Grid extends BaseElement, GridProperties {
   hideDetail(rowId: string | number): void;
   /**
    * Highlights a column. Highlights a Grid column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   highlightColumn(dataField: string): void;
   /**
    * Highlights a cell. Calling the method a second time toggle the highlight state.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} className?. CSS Class Name
    */
   highlightCell(rowId: string | number, dataField: string, className?: string): void;
@@ -867,8 +903,15 @@ export interface Grid extends BaseElement, GridProperties {
    */
   highlightRow(rowId: string | number, className?: string): void;
   /**
+   * Inserts a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
+   * @param {any} data. row data matching the data source
+   * @param {number} index?. Determines the insert index. The default value is the last index.
+   * @param {any} callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
+   */
+  insertRow(data: any, index?: number, callback?: any): void;
+  /**
    * Opens a column drop-down menu.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   openMenu(dataField: string): void;
   /**
@@ -889,18 +932,18 @@ export interface Grid extends BaseElement, GridProperties {
   refreshView(): void;
   /**
    * Removes a column filter. 
-   * @param {string} dataField. column bound data field
-   * @param {boolean} refreshFilters?. 
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @param {boolean} refreshFilters?. Set this to false, if you need to make multiple removeFilter calls.
    */
   removeFilter(dataField: string, refreshFilters?: boolean): void;
   /**
    * Removes a group by data field. This method will remove a group to the Grid when grouping is enabled.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   removeGroup(dataField: string): void;
   /**
    * Removes a sorting by data field. This method will remove a sorting from a Grid column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   removeSort(dataField: string): void;
   /**
@@ -920,7 +963,7 @@ export interface Grid extends BaseElement, GridProperties {
   reorderColumns(dataField: string | number, referenceDataField: string | number, insertAfter?: boolean): void;
   /**
    * Sorts the Grid by a data field. This method will add or remove sorting, when sorting is enabled. To remove the sorting, use 'null' for the sortOrder parameter.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string | null} sortOrder. column's sort order. Use 'asc', 'desc' or null.
    */
   sortBy(dataField: string, sortOrder: string | null): void;
@@ -971,13 +1014,13 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Sets a new value to a cell.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string | number | Date | boolean} value. New Cell value.
    */
   setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
   /**
    * Sets a property to a column.
-   * @param {string} dataField. column bound data field
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} propertyName. The column property's name.
    * @param {any} value. The new property value.
    */
@@ -1014,7 +1057,7 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Unselects a row, cell or column.
    * @param {string | number} rowId. row bound id
-   * @param {string} dataField?. column bound data field
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   unselect(rowId: string | number, dataField?: string): void;
   /**
@@ -1290,6 +1333,11 @@ export interface GridBehavior {
    */
   allowColumnReorder?: boolean;
   /**
+   * Determines whether column freeze with drag and drop is enabled. When other columns are frozen/pinned, drag the column to the existing frozen area. When no columns are pinned, drag the column to the edge of the grid and wait for approximately one second. The grid will then assume you want to freeze/pin and create a frozen/pinned area and place the column into it.
+   * Default value: false
+   */
+  allowColumnFreeze?: boolean;
+  /**
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
@@ -1308,6 +1356,11 @@ export interface GridLayout {
    * Default value: false
    */
   allowCellsWrap?: boolean;
+  /**
+   * Automatically sets width to any new Column which does not have its 'width' property set.
+   * Default value: false
+   */
+  autoSizeNewColumn?: boolean;
   /**
    * Sets the width of the auto-generated Grid columns.
    * Default value: null
@@ -1491,7 +1544,7 @@ export interface GridColumn {
    */
   freeze?: Position;
   /**
-   * Sets or gets the filter of the column.
+   * Sets or gets the filter of the column. Example: ['contains Andrew or contains Nancy']. Example with numeric filter ['quantity', '&lt;= 3 and &gt;= 8']. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - ['EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']. Example with a string filter applied to a string column - ['CONTAINS' 'burke' or 'CONTAINS' 'peterson']. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: ""
    */
   filter?: string;
@@ -1561,7 +1614,7 @@ export interface GridColumn {
    */
   width?: string | number;
   /**
-   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'radioButton', 'url', 'email', 'dropdownlist', 'list', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
+   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'radioButton', 'url', 'email', 'dropdownlist', 'list', 'progress', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
    * Default value: 
    */
   template?: any;
@@ -2046,6 +2099,11 @@ export interface GridEditing {
    */
   allowColumnHeaderEdit?: boolean;
   /**
+   * Automatically re-applies already applied column filters and sort orders, after editing.
+   * Default value: true
+   */
+  autoUpdateFilterAndSort?: boolean;
+  /**
    * Enables editing.
    * Default value: false
    */
@@ -2312,7 +2370,7 @@ export interface GridFiltering {
    */
   enabled?: boolean;
   /**
-   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]
+   * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - [['firstName', 'EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']]. Example with a string filter applied to a string column - [['lastName','CONTAINS' 'burke' or 'CONTAINS' 'peterson']]. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: 
    */
   filter?: any[];
@@ -2422,6 +2480,11 @@ export interface GridGrouping {
    * Default value: false
    */
   autoExpandAll?: boolean;
+  /**
+   * Automatically hides all grouped columns.
+   * Default value: false
+   */
+  autoHideGroupColumn?: boolean;
   /**
    * Sets the group expand mode.
    * Default value: buttonClick

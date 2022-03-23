@@ -504,103 +504,6 @@ smart-group-panel {
 }
 
 /* --- Right-To-Left --- */
-.smart-column-panel[right-to-left] .smart-column-panel-find-container {
-  direction: rtl;
-}
-.smart-column-panel[right-to-left] .smart-grid-panel-buttons-container {
-  flex-direction: row-reverse;
-}
-.smart-column-panel[right-to-left] .smart-grid-panel-item {
-  right: var(--smart-sortable-handle-size);
-  justify-content: space-between;
-}
-.smart-column-panel[right-to-left] .toggle-visibility {
-  order: 1;
-}
-
-.smart-group-panel[right-to-left] .smart-group-panel-expand-button,
-.smart-group-panel[right-to-left] .smart-group-panel-collapse-button,
-.smart-group-panel[right-to-left] .smart-group-panel-cancel-button,
-.smart-group-panel[right-to-left] .smart-group-panel-apply-button,
-.smart-group-panel[right-to-left] .smart-grid-panel-label-by,
-.smart-group-panel[right-to-left] .smart-grid-panel-from {
-  direction: rtl;
-}
-.smart-group-panel[right-to-left] .smart-group-panel-expand-button {
-  margin-left: initial;
-  margin-right: 5px;
-}
-.smart-group-panel[right-to-left] .smart-grid-panel-label-by {
-  order: 3;
-}
-.smart-group-panel[right-to-left] .smart-grid-panel-field-container {
-  order: 2;
-}
-.smart-group-panel[right-to-left] .smart-grid-panel-from {
-  order: 1;
-}
-.smart-group-panel[right-to-left] .smart-grid-panel-direction {
-  flex-direction: row-reverse;
-}
-.smart-group-panel[right-to-left] .smart-grid-panel-buttons-container {
-  flex-direction: row-reverse;
-}
-.smart-group-panel[right-to-left] .smart-sortable .smart-sortable-items-parent {
-  direction: unset;
-}
-.smart-group-panel[right-to-left][close-button-position="right"] .smart-grid-panel-item-close-button {
-  order: 4;
-}
-
-.smart-sort-panel[right-to-left] .smart-grid-panel-apply-button,
-.smart-sort-panel[right-to-left] .smart-grid-panel-cancel-button {
-  direction: rtl;
-}
-.smart-sort-panel[right-to-left] .smart-grid-panel-label-by {
-  order: 3;
-}
-.smart-sort-panel[right-to-left] .smart-grid-panel-field-container {
-  order: 2;
-}
-.smart-sort-panel[right-to-left] .smart-grid-panel-from {
-  order: 1;
-}
-.smart-sort-panel[right-to-left] .smart-grid-panel-direction {
-  flex-direction: row-reverse;
-}
-.smart-sort-panel[right-to-left] .smart-grid-panel-buttons-container {
-  flex-direction: row-reverse;
-}
-.smart-sort-panel[right-to-left] .smart-sortable .smart-sortable-items-parent {
-  direction: unset;
-}
-.smart-sort-panel[right-to-left][close-button-position="right"] .smart-grid-panel-item-close-button {
-  order: 4;
-}
-
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-apply-button,
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-cancel-button,
-.smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-add-filter-button,
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item-close-button + div,
-.smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-items-container:empty {
-  direction: rtl;
-}
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-grid-panel-item-close-button + div {
-  order: 3;
-}
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(1) {
-  order: 2;
-}
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(2) {
-  order: 1;
-}
-.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-buttons-container {
-  flex-direction: row-reverse;
-}
-.smart-multi-column-filter-panel[right-to-left][close-button-position="right"] .smart-grid-panel-item-close-button {
-  order: 4;
-}
-
 /* DataView */
 .smart-data-view-header {
   padding: 3px;
@@ -876,6 +779,10 @@ smart-group-panel {
   margin-top: 0;
   height: 100%;
 }
+.smart-card-view .smart-data-view-header-button.smart-data-view-search-button,
+.smart-kanban .smart-data-view-header-button.smart-data-view-search-button {
+  min-width: 30px;
+}
 .smart-card-view:not([animation="none"]) .smart-data-view-header-drop-down,
 .smart-kanban:not([animation="none"]) .smart-data-view-header-drop-down {
   transition: height 0.2s ease-in, transform 0.2s ease-in, visibility 0.2s ease-in, opacity 0.2s ease-in;
@@ -956,23 +863,6 @@ smart-group-panel {
 
 [header-position="bottom"] .smart-data-view-header-drop-down {
   transform-origin: bottom;
-}
-
-[right-to-left] .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box {
-  direction: rtl;
-}
-[right-to-left] .smart-data-view-header {
-  grid-template-areas: "search . sort filter customize";
-  grid-template-columns: 24px 1fr minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content);
-}
-[right-to-left] .smart-data-view-header-button:not(.smart-data-view-search-button) {
-  direction: rtl;
-  padding-left: 5px;
-  padding-right: 25px;
-}
-[right-to-left] .smart-data-view-header-button:after {
-  right: 5px;
-  left: initial;
 }
 
 /* smart-formatting-panel */
@@ -1062,16 +952,6 @@ smart-group-panel {
 }
 .smart-formatting-panel:not([animation="none"]) .smart-add-new-button {
   transition: transform cubic-bezier(0.81, 0.27, 0, 0.93) 0.5s, opacity 0.2s ease-in;
-}
-.smart-formatting-panel[right-to-left] {
-  direction: rtl;
-}
-.smart-formatting-panel[right-to-left] .smart-add-new-button {
-  left: calc(var(--smart-grid-panel-padding) - 5px);
-  right: unset;
-}
-.smart-formatting-panel[right-to-left].scroll .smart-add-new-button {
-  left: calc(12px + var(--smart-grid-panel-padding));
 }
 
 .smart-formatting-panel-item {
@@ -1269,6 +1149,133 @@ smart-group-panel {
 .smart-formatting-panel-popup.smart-visibility-hidden {
   transform: scale(0);
   opacity: 0;
+}
+
+/* --- Right-To-Left --- */
+.smart-column-panel[right-to-left] .smart-column-panel-find-container {
+  direction: rtl;
+}
+.smart-column-panel[right-to-left] .smart-grid-panel-buttons-container {
+  flex-direction: row-reverse;
+}
+.smart-column-panel[right-to-left] .smart-grid-panel-item {
+  right: var(--smart-sortable-handle-size);
+  justify-content: space-between;
+}
+.smart-column-panel[right-to-left] .toggle-visibility {
+  order: 1;
+}
+
+.smart-group-panel[right-to-left] .smart-group-panel-expand-button,
+.smart-group-panel[right-to-left] .smart-group-panel-collapse-button,
+.smart-group-panel[right-to-left] .smart-group-panel-cancel-button,
+.smart-group-panel[right-to-left] .smart-group-panel-apply-button,
+.smart-group-panel[right-to-left] .smart-grid-panel-label-by,
+.smart-group-panel[right-to-left] .smart-grid-panel-from {
+  direction: rtl;
+}
+.smart-group-panel[right-to-left] .smart-group-panel-expand-button {
+  margin-left: initial;
+  margin-right: 5px;
+}
+.smart-group-panel[right-to-left] .smart-grid-panel-label-by {
+  order: 3;
+}
+.smart-group-panel[right-to-left] .smart-grid-panel-field-container {
+  order: 2;
+}
+.smart-group-panel[right-to-left] .smart-grid-panel-from {
+  order: 1;
+}
+.smart-group-panel[right-to-left] .smart-grid-panel-direction {
+  flex-direction: row-reverse;
+}
+.smart-group-panel[right-to-left] .smart-grid-panel-buttons-container {
+  flex-direction: row-reverse;
+}
+.smart-group-panel[right-to-left] .smart-sortable .smart-sortable-items-parent {
+  direction: unset;
+}
+.smart-group-panel[right-to-left][close-button-position="right"] .smart-grid-panel-item-close-button {
+  order: 4;
+}
+
+.smart-sort-panel[right-to-left] .smart-grid-panel-apply-button,
+.smart-sort-panel[right-to-left] .smart-grid-panel-cancel-button {
+  direction: rtl;
+}
+.smart-sort-panel[right-to-left] .smart-grid-panel-label-by {
+  order: 3;
+}
+.smart-sort-panel[right-to-left] .smart-grid-panel-field-container {
+  order: 2;
+}
+.smart-sort-panel[right-to-left] .smart-grid-panel-from {
+  order: 1;
+}
+.smart-sort-panel[right-to-left] .smart-grid-panel-direction {
+  flex-direction: row-reverse;
+}
+.smart-sort-panel[right-to-left] .smart-grid-panel-buttons-container {
+  flex-direction: row-reverse;
+}
+.smart-sort-panel[right-to-left] .smart-sortable .smart-sortable-items-parent {
+  direction: unset;
+}
+.smart-sort-panel[right-to-left][close-button-position="right"] .smart-grid-panel-item-close-button {
+  order: 4;
+}
+
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-apply-button,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-cancel-button,
+.smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-add-filter-button,
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item-close-button + div,
+.smart-multi-column-filter-panel[right-to-left] .smart-filter-panel-items-container:empty {
+  direction: rtl;
+}
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-grid-panel-item-close-button + div {
+  order: 3;
+}
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(1) {
+  order: 2;
+}
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-item > .smart-input:nth-of-type(2) {
+  order: 1;
+}
+.smart-multi-column-filter-panel[right-to-left] .smart-grid-panel-buttons-container {
+  flex-direction: row-reverse;
+}
+.smart-multi-column-filter-panel[right-to-left][close-button-position="right"] .smart-grid-panel-item-close-button {
+  order: 4;
+}
+
+[right-to-left] .smart-data-view-header-drop-down.search-panel .smart-data-view-search-box {
+  direction: rtl;
+}
+[right-to-left] .smart-data-view-header {
+  grid-template-areas: "search . sort filter customize";
+  grid-template-columns: 24px 1fr minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content);
+}
+[right-to-left] .smart-data-view-header-button:not(.smart-data-view-search-button) {
+  direction: rtl;
+  padding-left: 5px;
+  padding-right: 25px;
+}
+[right-to-left] .smart-data-view-header-button:after {
+  right: 5px;
+  left: initial;
+}
+
+/* smart-formatting-panel */
+.smart-formatting-panel[right-to-left] {
+  direction: rtl;
+}
+.smart-formatting-panel[right-to-left] .smart-add-new-button {
+  left: calc(var(--smart-grid-panel-padding) - 5px);
+  right: unset;
+}
+.smart-formatting-panel[right-to-left].scroll .smart-add-new-button {
+  left: calc(12px + var(--smart-grid-panel-padding));
 }
 
 /*# sourceMappingURL=smart.gridpanel.css.map */

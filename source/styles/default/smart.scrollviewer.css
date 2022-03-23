@@ -1,129 +1,92 @@
 /* smart-scroll-viewer */
 smart-scroll-viewer {
-    /*min-width: 100px;*/
-    display: block;
-    width: var(--smart-editor-width);
-    min-width: var(--smart-scroll-viewer-min-width);
-    max-width: var(--smart-scroll-viewer-max-width);
-    height: var(--smart-list-box-default-height);
-    min-height: var(--smart-scroll-viewer-min-height);
-    max-height: var(--smart-scroll-viewer-max-height);
-    padding: 3px;
-}
-
-smart-scroll-viewer > .smart-container {
+  /*min-width: 100px;*/
+  display: block;
+  width: var(--smart-editor-width);
+  min-width: var(--smart-scroll-viewer-min-width);
+  max-width: var(--smart-scroll-viewer-max-width);
+  height: var(--smart-list-box-default-height);
+  min-height: var(--smart-scroll-viewer-min-height);
+  max-height: var(--smart-scroll-viewer-max-height);
+  padding: 3px; }
+  smart-scroll-viewer > .smart-container {
     height: 100%;
     width: 100%;
     border: none;
     position: relative;
-    overflow: hidden;
-}
+    overflow: hidden; }
 
 .smart-scroll-viewer.smart-container {
-    height: 100%;
-    width: 100%;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
+  height: 100%;
+  width: 100%;
+  border: none;
+  position: relative;
+  overflow: hidden; }
 .smart-scroll-viewer > .smart-container {
+  max-height: inherit;
+  min-height: inherit;
+  max-width: inherit;
+  min-width: inherit; }
+  .smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container {
     max-height: inherit;
     min-height: inherit;
     max-width: inherit;
-    min-width: inherit;
-}
-
-.smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container {
-    max-height: inherit;
-    min-height: inherit;
-    max-width: inherit;
-    min-width: inherit;
-}
-
+    min-width: inherit; }
 .smart-scroll-viewer smart-scroll-bar {
-    overflow: visible;
-    position: absolute;
-    bottom: 0;
-    height: calc(var(--smart-scroll-bar-size));
-    width: 100%;
-}
-
-.smart-scroll-viewer smart-scroll-bar:before {
+  overflow: visible;
+  position: absolute;
+  bottom: 0;
+  height: calc(var(--smart-scroll-bar-size));
+  width: 100%; }
+  .smart-scroll-viewer smart-scroll-bar:before {
     position: absolute;
     content: '';
     width: 100%;
     height: var(--smart-scroll-bar-size);
     background-color: var(--smart-surface);
-    left: 100%;
-}
-
-.smart-scroll-viewer smart-scroll-bar.bottom-corner {
-    width: calc(100% - var(--smart-scroll-bar-size));
-}
-
-.smart-scroll-viewer smart-scroll-bar[orientation="vertical"] {
+    left: 100%; }
+  .smart-scroll-viewer smart-scroll-bar.bottom-corner {
+    width: calc(100% - var(--smart-scroll-bar-size)); }
+  .smart-scroll-viewer smart-scroll-bar[orientation="vertical"] {
     right: 0;
     top: 0;
     height: 100%;
-    width: calc(var(--smart-scroll-bar-size));
-}
-
-.smart-scroll-viewer smart-scroll-bar[orientation="vertical"].bottom-corner {
-    height: calc(100% - var(--smart-scroll-bar-size));
-}
-
+    width: calc(var(--smart-scroll-bar-size)); }
+    .smart-scroll-viewer smart-scroll-bar[orientation="vertical"].bottom-corner {
+      height: calc(100% - var(--smart-scroll-bar-size)); }
 .smart-scroll-viewer .smart-scroll-viewer-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    background-color: transparent;
-}
-
-.smart-scroll-viewer .smart-scroll-viewer-container.hscroll {
-    height: calc(100% - var(--smart-scroll-bar-size));
-}
-
-.smart-scroll-viewer .smart-scroll-viewer-container.vscroll {
-    width: calc(100% - var(--smart-scroll-bar-size));
-}
-
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent; }
+  .smart-scroll-viewer .smart-scroll-viewer-container.hscroll {
+    height: calc(100% - var(--smart-scroll-bar-size)); }
+  .smart-scroll-viewer .smart-scroll-viewer-container.vscroll {
+    width: calc(100% - var(--smart-scroll-bar-size)); }
 .smart-scroll-viewer .smart-scroll-viewer-content-container {
-    width: auto;
-    height: auto;
-    display: inline-block;
-    padding: 5px;
-    position: relative;
-    background-color: transparent;
-}
+  width: auto;
+  height: auto;
+  display: inline-block;
+  padding: 5px;
+  position: relative;
+  background-color: transparent; }
 
 .smart-scroll-viewer[right-to-left] .smart-scroll-viewer-container {
-    direction: rtl;
-    text-align: initial;
-}
-
-.smart-scroll-viewer[right-to-left] .smart-scroll-viewer-container.vscroll {
+  direction: rtl;
+  text-align: initial; }
+  .smart-scroll-viewer[right-to-left] .smart-scroll-viewer-container.vscroll {
     left: var(--smart-scroll-bar-size);
-    right: 0;
-}
-
+    right: 0; }
 .smart-scroll-viewer[right-to-left] smart-scroll-bar {
-    left: var(--smart-scroll-bar-size);
-    right: 0;
-}
-
-.smart-scroll-viewer[right-to-left] smart-scroll-bar:after {
-    left: -100%;
-}
-
-.smart-scroll-viewer[right-to-left] smart-scroll-bar[orientation="vertical"] {
+  left: var(--smart-scroll-bar-size);
+  right: 0; }
+  .smart-scroll-viewer[right-to-left] smart-scroll-bar:after {
+    left: -100%; }
+  .smart-scroll-viewer[right-to-left] smart-scroll-bar[orientation="vertical"] {
     left: 0;
-    right: initial;
-}
-
-.smart-scroll-viewer[right-to-left] smart-scroll-bar[orientation="vertical"]:after {
-    content: none;
-}
+    right: initial; }
+    .smart-scroll-viewer[right-to-left] smart-scroll-bar[orientation="vertical"]:after {
+      content: none; }
 
 /*# sourceMappingURL=smart.scrollviewer.css.map */

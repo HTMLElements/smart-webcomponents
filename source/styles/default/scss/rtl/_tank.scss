@@ -1,0 +1,56 @@
+//Right To Left
+smart-tank {
+    &[right-to-left] {
+
+        .smart-label,
+        .smart-tooltip-content {
+            direction: rtl;
+        }
+
+        &[show-thumb-label][orientation="horizontal"] {
+            .smart-thumb {
+                left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+                margin-left: initial;
+            }
+
+            &[inverted] {
+                .smart-thumb {
+                    left: 100%;
+                    margin-left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+                }
+            }
+
+            &[thumb-label-position="far"] {
+                .smart-thumb {
+                    left: calc(-1 * var(--smart-tank-thumb-width) / 2);
+                }
+
+                &[inverted] {
+                    .smart-thumb {
+                        top: calc(100% - var(--smart-tank-thumb-width) / 2);
+                    }
+
+                    &:focus {
+                        .smart-thumb {
+                            top: calc(100% + var(--smart-tank-thumb-height) / 2);
+                        }
+                    }
+                }
+            }
+
+            &[thumb-label-position="near"] {
+                &[inverted] {
+                    .smart-thumb {
+                        top: calc(-1 * var(--smart-tank-thumb-width) / 2);
+                    }
+
+                    &:focus {
+                        .smart-thumb {
+                            top: calc(-1 * var(--smart-tank-thumb-height) - var(--smart-tank-thumb-height) / 2 - 2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

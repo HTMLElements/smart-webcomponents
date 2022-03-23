@@ -1,0 +1,23 @@
+smart-file-upload {
+
+    //Right-To-Left
+    &[right-to-left] {
+        >.smart-container {
+            direction: rtl;
+        }
+    }
+}
+
+.smart-file {
+    &[right-to-left] {
+        direction: rtl;
+    }
+}
+
+.smart-drop-zone {
+
+    //Right-To-Left
+    &[right-to-left] {
+        direction: rtl;
+    }
+}

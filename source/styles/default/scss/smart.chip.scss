@@ -1,5 +1,6 @@
 /* smart-chip */
 smart-chip {
+
   &:hover,
   &:focus {
     box-shadow: var(--smart-elevation-2);
@@ -123,11 +124,6 @@ smart-chip {
       display: inline-block;
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    > .smart-container {
-      direction: rtl;
-    }
-  }
 }
+
+@import 'rtl/_chip';

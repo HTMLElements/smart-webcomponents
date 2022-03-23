@@ -119,6 +119,11 @@ export interface MultiInputProperties {
    */
   separator?: string;
   /**
+   * Gets or sets an array of selected values.
+   * Default value: 
+   */
+  selectedValues?: any;
+  /**
    * Determines whether an additional item is displayed as the first item in the options list, which allows to select/unselect all items.
    * Default value: false
    */

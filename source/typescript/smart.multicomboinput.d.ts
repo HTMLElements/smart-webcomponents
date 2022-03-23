@@ -144,6 +144,11 @@ export interface MultiComboInputProperties {
    */
   selectAll?: boolean;
   /**
+   * Gets or sets an array of selected values.
+   * Default value: 
+   */
+  selectedValues?: any;
+  /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
    */

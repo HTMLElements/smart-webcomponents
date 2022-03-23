@@ -1,0 +1,29 @@
+//Right To Left
+smart-numeric-text-box {
+    &[right-to-left] {
+        >.smart-container {
+            direction: initial;
+        }
+
+        input.smart-input,
+        .smart-numeric-text-box-drop-down,
+        .smart-numeric-text-box-radix-display,
+        .smart-label,
+        .smart-hint {
+            direction: rtl;
+        }
+
+        .smart-numeric-text-box-unit-display {
+            direction: rtl;
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.smart-numeric-text-box-drop-down {
+    &.smart-drop-down-repositioned {
+        &[right-to-left] {
+            direction: rtl;
+        }
+    }
+}

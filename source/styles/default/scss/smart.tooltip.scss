@@ -129,8 +129,8 @@ smart-tooltip {
     }
   }
 
+
   &:not([animation='none']) {
-    visibility: visible;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 
@@ -138,11 +138,7 @@ smart-tooltip {
       opacity: 1;
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-tooltip-content {
-      direction: rtl;
-    }
-  }
 }
+
+
+@import 'rtl/_tooltip';

@@ -107,6 +107,8 @@
   top: calc(-1 * var(--smart-sortable-handle-size));
   align-items: flex-end;
 }
+
+/* .smart-sortable */
 .smart-sortable[right-to-left] .smart-sortable-items-parent,
 .smart-sortable[right-to-left] .smart-column-panel-label {
   direction: rtl;

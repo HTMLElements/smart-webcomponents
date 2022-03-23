@@ -475,6 +475,12 @@ smart-input {
 .smart-input[right-to-left][readonly] .smart-input, .smart-input[right-to-left][readonly]:not(.underlined):not(.outlined) .smart-input {
   padding-left: initial;
   padding-right: var(--smart-editor-label-padding); }
+.smart-input[right-to-left][readonly] .smart-drop-down-button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; }
+.smart-input[right-to-left][drop-down-button-position="right"] .smart-input {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px; }
 
 .smart-input-drop-down-menu[right-to-left] ul.scroll {
   width: 100%; }
@@ -884,7 +890,7 @@ smart-multi-combo-input {
     color: inherit;
     display: inline-flex;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 15px !important;
     margin-top: 5px;
     margin-left: 5px;
     height: auto;
@@ -894,11 +900,15 @@ smart-multi-combo-input {
     .smart-multi-combo-input-drop-down-menu[pills] ul li a .smart-drop-down-list-selection-image {
       height: 20px;
       width: 20px; }
-  .smart-multi-combo-input-drop-down-menu[pills] ul li:hover, .smart-multi-combo-input-drop-down-menu[pills] ul li.selected {
+  .smart-multi-combo-input-drop-down-menu[pills] ul li.focused a {
+    background: var(--smart-primary) !important;
+    border-color: var(--smart-primary) !important;
+    color: var(--smart-primary-color) !important; }
+  .smart-multi-combo-input-drop-down-menu[pills] ul li.focused, .smart-multi-combo-input-drop-down-menu[pills] ul li:hover, .smart-multi-combo-input-drop-down-menu[pills] ul li.selected {
     background: var(--smart-ui-state-hover);
     border-color: var(--smart-ui-state-hover);
     color: var(--smart-ui-state-color-hover); }
-    .smart-multi-combo-input-drop-down-menu[pills] ul li:hover:after, .smart-multi-combo-input-drop-down-menu[pills] ul li.selected:after {
+    .smart-multi-combo-input-drop-down-menu[pills] ul li.focused:after, .smart-multi-combo-input-drop-down-menu[pills] ul li:hover:after, .smart-multi-combo-input-drop-down-menu[pills] ul li.selected:after {
       display: none; }
   .smart-multi-combo-input-drop-down-menu[pills] ul li.active.selected:before {
     display: none; }
@@ -1027,6 +1037,8 @@ smart-check-input {
 .smart-check-input-drop-down-menu[right-to-left] ul li.active.selected:before {
   margin-left: initial;
   margin-right: 4px; }
+.smart-check-input-drop-down-menu[right-to-left][pills] ul li a {
+  padding-right: initial; }
 
 smart-color-input {
   --smart-outline: var(--smart-primary);

@@ -26,6 +26,7 @@ smart-gauge {
 
 .smart-gauge {
   &:focus {
+
     .smart-needle,
     .smart-needle-central-circle {
       fill: var(--smart-primary);
@@ -39,7 +40,7 @@ smart-gauge {
   }
 
   .drawContainer {
-    > svg {
+    >svg {
       fill: var(--smart-gauge-label-fill-state);
       stroke: var(--smart-gauge-label-stroke);
     }
@@ -190,13 +191,6 @@ smart-gauge {
       transform: translate(-50%, -50%);
     }
   }
-
-  //Right-To-Left
-  &[right-to-left] {
-    .smart-label,
-    .smart-label-middle {
-      direction: rtl;
-      text-anchor: end;
-    }
-  }
 }
+
+@import 'rtl/_gauge';

@@ -1,0 +1,28 @@
+/* smart-chart */
+smart-chart {
+
+    //Right To Left
+    &[right-to-left] {
+
+        .smart-chart-axis-text,
+        .smart-chart-axis-description,
+        .smart-chart-title-text,
+        .smart-chart-legend-text,
+        .smart-chart-annotation-text,
+        .smart-chart-label-text {
+            direction: rtl;
+            text-anchor: end;
+        }
+    }
+}
+
+.smart-chart-tooltip {
+
+    //Right to Left
+    &[right-to-left] {
+        .smart-chart-tooltip-text {
+            direction: rtl;
+            text-anchor: end;
+        }
+    }
+}

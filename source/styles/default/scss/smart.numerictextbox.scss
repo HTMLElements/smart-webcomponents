@@ -161,6 +161,7 @@ smart-numeric-text-box {
 
 
   .smart-numeric-text-box-radix-display {
+
     &.smart-numeric-text-box-pressed-component,
     &.smart-numeric-text-box-pressed-component[hover] {
       background-color: var(--smart-ui-state-active);
@@ -292,6 +293,7 @@ smart-numeric-text-box {
   }
 
   &[radix-display-position="right"] {
+
     &:not([spin-buttons]),
     &[spin-buttons][spin-buttons-position="left"] {
       .smart-numeric-text-box-radix-display {
@@ -674,33 +676,4 @@ smart-numeric-text-box {
   color: var(--smart-ui-state-color-active);
   border-color: var(--smart-ui-state-border-active);
 }
-
-//Right To Left
-smart-numeric-text-box {
-  &[right-to-left] {
-    > .smart-container {
-      direction: initial;
-    }
-
-    input.smart-input,
-    .smart-numeric-text-box-drop-down,
-    .smart-numeric-text-box-radix-display,
-    .smart-label,
-    .smart-hint {
-      direction: rtl;
-    }
-
-    .smart-numeric-text-box-unit-display {
-      direction: rtl;
-      flex-direction: row-reverse;
-    }
-  }
-}
-
-.smart-numeric-text-box-drop-down {
-  &.smart-drop-down-repositioned {
-    &[right-to-left] {
-      direction: rtl;
-    }
-  }
-}
+@import 'rtl/_numerictextbox';

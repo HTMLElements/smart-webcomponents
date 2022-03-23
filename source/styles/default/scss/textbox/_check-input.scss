@@ -12,7 +12,7 @@ smart-check-input {
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 
-  > .smart-container {
+  >.smart-container {
     display: flex;
   }
 
@@ -220,5 +220,16 @@ smart-check-input {
         }
       }
     }
+
+    &[pills] {
+      ul {
+        li {
+          a {
+            padding-right: initial;
+          }
+        }
+      }
+    }
   }
+
 }

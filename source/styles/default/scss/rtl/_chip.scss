@@ -1,0 +1,10 @@
+/* smart-chip */
+smart-chip {
+
+    //Right To Left
+    &[right-to-left] {
+        >.smart-container {
+            direction: rtl;
+        }
+    }
+}

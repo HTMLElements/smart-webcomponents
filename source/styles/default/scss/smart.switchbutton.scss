@@ -413,47 +413,6 @@ smart-switch-button {
       }
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    &[checked] {
-      &:not([orientation="vertical"]) {
-        .smart-inner-container {
-          left: 0;
-        }
-      }
-    }
-
-    &[inverted] {
-      &:not([orientation="vertical"]) {
-        .smart-inner-container {
-          left: 0;
-        }
-      }
-    }
-
-    &[checked][inverted] {
-      &:not([orientation="vertical"]) {
-        .smart-inner-container {
-          left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
-        }
-      }
-    }
-
-    &:not([orientation="vertical"]) {
-      .smart-inner-container {
-        left: calc(-1 * (100% - var(--smart-switch-button-thumb-size)));
-      }
-    }
-
-    &[checked="null"] {
-      &:not([orientation="vertical"]) {
-        .smart-inner-container {
-          left: calc(-1 * 100% / 2 + var(--smart-switch-button-thumb-size) / 2);
-        }
-      }
-    }
-  }
 }
 
 @keyframes button-wave-effect {
@@ -469,3 +428,5 @@ smart-switch-button {
     transform: scale(1) translate(-50%, -50%);
   }
 }
+
+@import 'rtl/_switchbutton';

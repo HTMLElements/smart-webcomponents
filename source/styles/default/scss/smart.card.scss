@@ -54,13 +54,6 @@ smart-card {
     width: auto;
     margin: 0;
   }
-
-  //Right To Left
-  &[right-to-left],
-  &[right-to-left] {
-    > .smart-container,
-    &.smart-container {
-      direction: rtl;
-    }
-  }
 }
+
+@import 'rtl/_card';

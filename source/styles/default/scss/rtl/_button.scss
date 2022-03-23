@@ -1,0 +1,10 @@
+/* smart-button, smart-repeat-button, smart-toggle-button */
+smart-button,
+smart-toggle-button,
+smart-repeat-button {
+    // ======== Right To Left ========
+
+    &[right-to-left] {
+        direction: rtl;
+    }
+}

@@ -2,17 +2,12 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface InputProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
-  /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
    */
   autoCompleteDelay?: number;
   /**
-   * Determines the data source that will be loaded to the Input. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Determines the data source that will be loaded to the Input. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described. The data source item object may have the following fields: 'label' - string, 'value' - string or number, 'selected' - boolean, 'prefix' - string, 'suffix' - string, 'title' - string. The 'prefix' and 'suffix' add html before and after the label.
    * Default value: null
    */
   dataSource?: any;
@@ -129,6 +124,16 @@ export interface InputProperties {
    */
   sortDirection?: string;
   /**
+   * Determines the selected index.
+   * Default value: -1
+   */
+  selectedIndex?: number;
+  /**
+   * Determines the selected value.
+   * Default value: 
+   */
+  selectedValue?: string | number;
+  /**
    * Determines the theme for the element. Themes define the look of the elements.
    * Default value: ""
    */
@@ -173,6 +178,14 @@ export interface Input extends BaseElement, InputProperties {
    */
   onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the popup is opened.
+	* @param event. The custom event.    */
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the popup is closed.
+	* @param event. The custom event.    */
+  onClose: ((this: any, ev: Event) => any) | null;
+  /**
    * This event is triggered when the user clicks on an item from the popup list.
 	* @param event. The custom event. Custom data event was created with: ev.detail(item, label, value)
    *  item - The item that was clicked.
@@ -193,9 +206,26 @@ export interface Input extends BaseElement, InputProperties {
    */
   open(): void;
   /**
-   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   * Focuses and selects the text inside the input or if it is <b>readonly</b> then the element is focused.
    */
   select(): void;
+  /**
+   * Selects an item by value. For example, if your data source is ['Item 1', 'Item 2', 'Item 3'], you can use 'Item 1' as an argument. If your data source is an object with label and value, pass the value when you call selectItem.
+   * @param {string | number} value. The item's value when the item is an object or string when the item is a string item.
+   */
+  selectItem(value: string | number): void;
+  /**
+   * Gets an item by value. For example, if your data source is ['Item 1', 'Item 2', 'Item 3'], you can use 'Item 1' as an argument. If your data source is an object with label and value, pass the value when you call selectItem.
+   * @param {string | number} value. The item's value when the item is an object or string when the item is a string item.
+   * @returns {any}
+   */
+  getItem(value: string | number): any;
+  /**
+   * Gets the selected item. For example, if your data source is ['Item 1', 'Item 2', 'Item 3'] and the user selected the second item, the method returns 'Item 2'. If your data source is an object with label and value, the returned value would be the 'value'.
+   * @param {string | number} value. The item's value when the item is an object or string when the item is a string item.
+   * @returns {any}
+   */
+  getSelectedItem(value: string | number): any;
 }
 
 declare global {

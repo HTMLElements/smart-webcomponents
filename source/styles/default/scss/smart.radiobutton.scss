@@ -157,26 +157,6 @@ smart-radio-button {
       overflow: visible;
     }
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-container {
-      justify-content: flex-end;
-    }
-
-    .smart-label {
-      direction: rtl;
-      order: 2;
-    }
-
-    .smart-input {
-      order: 3;
-      margin: 0 8px 0 0;
-    }
-
-    .smart-overlay {
-      left: initial;
-      right: 2px;
-    }
-  }
 }
+
+@import 'rtl/_radiobutton';

@@ -74,7 +74,7 @@
         margin: initial;
       }
 
-      > div {
+      >div {
         padding-left: var(--smart-scheduler-shortcut-size);
         padding-right: initial;
       }
@@ -104,7 +104,7 @@
       }
     }
 
-    > div {
+    >div {
       position: relative;
       align-items: center;
       overflow: hidden;
@@ -187,7 +187,23 @@
       align-items: flex-start;
       overflow: hidden;
 
-      > div {
+      .meeting {
+        font-size: 12px;
+        color: var(--smart-primary);
+
+        a {
+          color: var(--smart-primary);
+        }
+
+        &::before {
+          content: var(--smart-icon-video-camera);
+          font-family: var(--smart-font-family-icon);
+          font-size: 12px;
+          margin-right: 5px;
+        }
+      }
+
+      >div {
         max-width: 100%;
         max-height: 100%;
         overflow: hidden;
@@ -361,7 +377,7 @@
         margin: 0 10px 0 6px;
       }
 
-      > div {
+      >div {
         padding: 10px 12px 10px var(--smart-scheduler-shortcut-size);
       }
     }

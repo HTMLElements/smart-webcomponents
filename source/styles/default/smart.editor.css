@@ -223,30 +223,6 @@
 .smart-editor:not([animation="none"]) .smart-editor-toolbar-toggle-button::before {
   transition: transform 0.2s ease-in-out;
 }
-.smart-editor[right-to-left] .smart-editor-toolbar:not(.smart-tooltip) {
-  grid-template-areas: 'toggleButton primary' 'secondary secondary';
-  grid-template-columns: auto minmax(0, 1fr);
-}
-.smart-editor[right-to-left] .smart-editor-toolbar:not(.smart-tooltip) .smart-editor-toolbar-item {
-  margin-left: initial;
-  margin-right: var(--smart-editor-toolbar-item-margin);
-}
-.smart-editor[right-to-left] .smart-editor-content-container,
-.smart-editor[right-to-left] .smart-editor-toolbar-items-primary,
-.smart-editor[right-to-left] .smart-editor-toolbar-items-secondary,
-.smart-editor[right-to-left] .smart-editor-toolbar-item[item-type="drop-down"],
-.smart-editor[right-to-left] .smart-editor-toolbar-item[item-type="color-input"] {
-  direction: rtl;
-}
-.smart-editor[right-to-left] .smart-editor-resize-frame span {
-  transform: translate(50%, -50%);
-}
-.smart-editor[right-to-left] .smart-editor-resize-frame span[position="top-left"], .smart-editor[right-to-left] .smart-editor-resize-frame span[position="bottom-right"] {
-  cursor: sw-resize;
-}
-.smart-editor[right-to-left] .smart-editor-resize-frame span[position="top-right"], .smart-editor[right-to-left] .smart-editor-resize-frame span[position="bottom-left"] {
-  cursor: se-resize;
-}
 .smart-editor[edit-mode="markdown"] .smart-editor-toolbar-item[item-name="alignment"], .smart-editor[edit-mode="markdown"] .smart-editor-toolbar-item[item-name="indent"], .smart-editor[edit-mode="markdown"] .smart-editor-toolbar-item[item-name="outdent"], .smart-editor[edit-mode="markdown"] .smart-editor-toolbar-item[item-name="lowercase"], .smart-editor[edit-mode="markdown"] .smart-editor-toolbar-item[item-name="uppercase"], .smart-editor[edit-mode="markdown"] .smart-editor-toolbar-item[item-name="removelink"] {
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1128,10 +1104,6 @@
 .smart-editor-input li[value="verdana"] a {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.smart-editor-input[right-to-left] li .editor-icon::before {
-  right: 0;
-  left: initial;
-}
 
 /* --- Editor Window --- */
 .smart-editor-window {
@@ -1269,10 +1241,6 @@
 }
 .smart-tooltip.smart-editor-toolbar:not(.smart-editor-drop-down-toolbar) .smart-editor-toolbar-item:not(:first-of-type) {
   margin-left: var(--smart-editor-toolbar-item-margin);
-}
-.smart-tooltip.smart-editor-toolbar[right-to-left]:not(.smart-editor-drop-down-toolbar) .smart-editor-toolbar-item:not(:first-of-type) {
-  margin-left: initial;
-  margin-right: var(--smart-editor-toolbar-item-margin);
 }
 .smart-tooltip.smart-editor-context-menu {
   opacity: 0.2;
@@ -1439,18 +1407,6 @@
   display: block;
   background: transparent;
 }
-.smart-editor-drop-down-toolbar .smart-table-picker[right-to-left] .smart-table-picker-grid {
-  direction: rtl;
-}
-.smart-editor-drop-down-toolbar .smart-table-picker[right-to-left] .smart-table-picker-button > button.smart-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.smart-editor-drop-down-toolbar .smart-table-picker[right-to-left] .smart-table-picker-button > button.smart-button::before {
-  margin-right: initial;
-  margin-left: 10px;
-}
 .smart-editor-drop-down-toolbar .smart-table-picker .smart-table-picker-grid {
   width: 100%;
   display: flex;
@@ -1497,6 +1453,57 @@
   content: var(--smart-icon-table);
   margin-right: 10px;
   box-sizing: border-box;
+}
+
+/* .smart-editor */
+.smart-editor[right-to-left] .smart-editor-toolbar:not(.smart-tooltip) {
+  grid-template-areas: 'toggleButton primary' 'secondary secondary';
+  grid-template-columns: auto minmax(0, 1fr);
+}
+.smart-editor[right-to-left] .smart-editor-toolbar:not(.smart-tooltip) .smart-editor-toolbar-item {
+  margin-left: initial;
+  margin-right: var(--smart-editor-toolbar-item-margin);
+}
+.smart-editor[right-to-left] .smart-editor-content-container,
+.smart-editor[right-to-left] .smart-editor-toolbar-items-primary,
+.smart-editor[right-to-left] .smart-editor-toolbar-items-secondary,
+.smart-editor[right-to-left] .smart-editor-toolbar-item[item-type="drop-down"],
+.smart-editor[right-to-left] .smart-editor-toolbar-item[item-type="color-input"] {
+  direction: rtl;
+}
+.smart-editor[right-to-left] .smart-editor-resize-frame span {
+  transform: translate(50%, -50%);
+}
+.smart-editor[right-to-left] .smart-editor-resize-frame span[position="top-left"], .smart-editor[right-to-left] .smart-editor-resize-frame span[position="bottom-right"] {
+  cursor: sw-resize;
+}
+.smart-editor[right-to-left] .smart-editor-resize-frame span[position="top-right"], .smart-editor[right-to-left] .smart-editor-resize-frame span[position="bottom-left"] {
+  cursor: se-resize;
+}
+
+/* --- Editor Input Drop Down --- */
+.smart-editor-input[right-to-left] li .editor-icon::before {
+  right: 0;
+  left: initial;
+}
+
+/* --- Editor Tooltip --- */
+.smart-tooltip.smart-editor-toolbar[right-to-left]:not(.smart-editor-drop-down-toolbar) .smart-editor-toolbar-item:not(:first-of-type) {
+  margin-left: initial;
+  margin-right: var(--smart-editor-toolbar-item-margin);
+}
+
+.smart-editor-drop-down-toolbar .smart-table-picker[right-to-left] .smart-table-picker-grid {
+  direction: rtl;
+}
+.smart-editor-drop-down-toolbar .smart-table-picker[right-to-left] .smart-table-picker-button > button.smart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.smart-editor-drop-down-toolbar .smart-table-picker[right-to-left] .smart-table-picker-button > button.smart-button::before {
+  margin-right: initial;
+  margin-left: 10px;
 }
 
 /*# sourceMappingURL=smart.editor.css.map */

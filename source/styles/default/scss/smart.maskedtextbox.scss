@@ -12,7 +12,7 @@ smart-masked-text-box {
 }
 
 .smart-masked-text-box {
-  > .smart-container {
+  >.smart-container {
     position: relative;
   }
 
@@ -25,11 +25,7 @@ smart-masked-text-box {
     overflow: hidden;
     outline: none;
   }
-
-  //Right To Left
-  &[right-to-left] {
-    .smart-container {
-      direction: rtl;
-    }
-  }
 }
+
+
+@import 'rtl/_maskedtextbox';

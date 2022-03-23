@@ -1,0 +1,79 @@
+.outline-level-1 {
+    padding-right: var(--smart-table-indent);
+
+    &.tree-leaf {
+        padding-right: calc(var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-2 {
+    padding-right: calc(2 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(2 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-3 {
+    padding-right: calc(3 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(3 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-4 {
+    padding-right: calc(4 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(4 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-5 {
+    padding-right: calc(5 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(5 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-6 {
+    padding-right: calc(6 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(6 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-7 {
+    padding-right: calc(7 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(7 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-8 {
+    padding-right: calc(8 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(8 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-9 {
+    padding-right: calc(9 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(9 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
+
+.outline-level-10 {
+    padding-right: calc(10 * var(--smart-table-indent));
+
+    &.tree-leaf {
+        padding-right: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
+    }
+}
