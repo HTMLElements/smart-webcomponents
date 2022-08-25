@@ -1,4 +1,4 @@
-body[theme="dark-red"], .smart-ui-component[theme="dark-red"] {
+body[theme="dark-red"], .smart-element[theme="dark-red"], .smart-ui-component[theme="dark-red"] {
  	--smart-primary-rgb: 221, 44, 0;
     --smart-primary: rgba(var(--smart-primary-rgb), 1);
     --smart-background: #242424; /* The theme background color. The background color appears behind scrollable content.*/

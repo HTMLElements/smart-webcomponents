@@ -155,7 +155,8 @@ smart-accordion smart-accordion-item[expanded] .smart-accordion-item-header > .s
   transform: rotate(0deg);
   transform-origin: center;
 }
-smart-accordion smart-accordion-item[expanded] .smart-accordion-item-content {
+smart-accordion smart-accordion-item[expanded] > .smart-container >
+.smart-accordion-item-content {
   display: block;
 }
 smart-accordion smart-accordion-item[hover] .smart-accordion-item-header {

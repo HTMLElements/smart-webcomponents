@@ -11,6 +11,10 @@ smart-input {
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 
+  >option {
+    display: none;
+  }
+
   >.smart-container {
     display: flex;
   }

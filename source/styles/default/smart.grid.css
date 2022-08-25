@@ -1,11 +1,3 @@
-header.smart-grid-pager {
-  border-bottom: var(--smart-border-width) solid var(--smart-border);
-}
-
-footer.smart-grid-pager {
-  border-top: var(--smart-border-width) solid var(--smart-border);
-}
-
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -849,18 +841,18 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
 }
 .smart-grid-summary-row-cell .summary-value .smart-arrow-down,
-.smart-grid-summary-row-cell .summary-value .placeholder {
+.smart-grid-summary-row-cell .summary-value .smart-summary-placeholder {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 .smart-grid-summary-row-cell .summary-value[has-summary] .smart-arrow-down,
-.smart-grid-summary-row-cell .summary-value[has-summary] .placeholder {
+.smart-grid-summary-row-cell .summary-value[has-summary] .smart-summary-placeholder {
   display: inherit;
   opacity: 0.7;
 }
 .smart-grid-summary-row-cell .summary-value.summary-chooser .smart-arrow-down,
-.smart-grid-summary-row-cell .summary-value.summary-chooser .placeholder, .smart-grid-summary-row-cell .summary-value:hover .smart-arrow-down,
-.smart-grid-summary-row-cell .summary-value:hover .placeholder {
+.smart-grid-summary-row-cell .summary-value.summary-chooser .smart-summary-placeholder, .smart-grid-summary-row-cell .summary-value:hover .smart-arrow-down,
+.smart-grid-summary-row-cell .summary-value:hover .smart-summary-placeholder {
   opacity: 1;
 }
 .smart-grid-summary-row-cell .summary-value .label {
@@ -907,6 +899,12 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right: 10px;
 }
 
+.smart-grid-dialog-editor[template="colorInput"] {
+  border: none !important;
+}
+.smart-grid-dialog-editor[template="colorInput"] smart-color-input {
+  border: 1px solid var(--smart-border);
+}
 .smart-grid-dialog-editor .images {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -1255,8 +1253,12 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: var(--smart-font-size);
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-description, .smart-window.smart-grid-dialog.smart-grid-dialog-add-column {
-  transform: scaleY(0);
-  transform-origin: top;
+  transform: scaleY(0) !important;
+  transform-origin: top !important;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-description.view, .smart-window.smart-grid-dialog.smart-grid-dialog-add-column.view {
+  transform-origin: unset !important;
+  transform: scale(0) !important;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-description .smart-header-notes, .smart-window.smart-grid-dialog.smart-grid-dialog-add-column .smart-header-notes {
   margin-bottom: 10px;
@@ -1285,7 +1287,8 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-column-info {
   display: grid;
   grid-template-columns: 25px 1fr 25px;
-  padding: 10px 0px;
+  padding: 5px 0px;
+  line-height: normal;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-column-info.format {
   grid-template-columns: 25px 1fr;
@@ -1358,7 +1361,7 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container > div {
   height: 100%;
 }
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .row {
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .smart-grid-edit-dialog-row {
   height: 100%;
   display: grid;
   grid-template-rows: 40px 40px 40px 40px 40px 1fr;
@@ -1537,7 +1540,7 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-window.smart-grid-dialog > .smart-container .smart-header-section {
   cursor: default;
 }
-.smart-window.smart-grid-dialog.open {
+.smart-window.smart-grid-dialog.open, .smart-window.smart-grid-dialog.view.open {
   transform: scale(1) !important;
   opacity: 1;
 }
@@ -1596,7 +1599,7 @@ smart-grid {
 }
 smart-grid .smart-grid-cell-loading {
   height: 10px;
-  position: relative;
+  position: absolute;
   top: calc(50% - 5px);
   background: var(--smart-surface);
   width: 80%;
@@ -1650,6 +1653,9 @@ smart-grid .smart-grid-add-row-button.show:active.float,
 smart-grid .smart-grid-add-row-button.show:hover.float {
   transform: scale(1.2);
   box-shadow: var(--smart-elevation-6);
+}
+smart-grid.smart-kanban-view {
+  background: #fafafa;
 }
 smart-grid.smart-kanban-view .smart-grid-add-row-button {
   display: none !important;
@@ -1723,12 +1729,16 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
   height: var(--smart-pager-default-height);
   overflow: hidden;
   z-index: 99;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: inherit;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--smart-border);
   width: 100%;
   background: var(--smart-surface);
   color: var(--smart-surface-color);
+}
+.smart-grid > .smart-container .smart-grid-pager[top], .smart-grid.smart-container .smart-grid-pager[top] {
+  border-top-color: transparent;
+  border-bottom: 1px solid var(--smart-border);
 }
 .smart-grid > .smart-container .smart-grid-content, .smart-grid.smart-container .smart-grid-content {
   width: 100%;
@@ -2088,6 +2098,29 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
   color: var(--smart-ui-state-color-hover);
   cursor: default;
 }
+.smart-grid[appearance_show-column-header-drag-icon][behavior_allow-column-reorder] smart-grid-column:not([auto-generated]) .smart-drag-handle {
+  transition: opacity ease-in-out 0.2s;
+  overflow: hidden;
+  opacity: 0;
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  left: 1px;
+  z-index: 9;
+  font-family: var(--smart-font-family-icon);
+  cursor: move;
+}
+.smart-grid[appearance_show-column-header-drag-icon][behavior_allow-column-reorder] smart-grid-column:not([auto-generated]) .smart-drag-handle:before {
+  position: relative;
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-ellipsis);
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+}
+.smart-grid[appearance_show-column-header-drag-icon][behavior_allow-column-reorder] smart-grid-column:not([auto-generated]) .smart-drag-handle:hover {
+  opacity: 1;
+}
 .smart-grid[appearance_show-row-header-drag-icon] smart-grid-row smart-grid-cell[header]:not([detail]) > .smart-label {
   height: 100%;
   font-family: var(--smart-font-family-icon);
@@ -2424,27 +2457,27 @@ smart-grid-row[alternation-index="0"] smart-grid-cell[editor]:not([selected]):no
   left: 1px;
   user-select: none;
 }
-smart-grid-row[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+smart-grid-row[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
   background-color: var(--smart-background);
   color: var(--smart-background-color);
   border-color: var(--smart-border);
 }
-smart-grid-row[alternation-index="1"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+smart-grid-row[alternation-index="1"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
   background-color: var(--smart-alternation-index0-background);
   color: var(--smart-alternation-index0-color);
   border-color: var(--smart-alternation-index0-border);
 }
-smart-grid-row[alternation-index="2"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+smart-grid-row[alternation-index="2"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
   background-color: var(--smart-alternation-index1-background);
   color: var(--smart-alternation-index1-color);
   border-color: var(--smart-alternation-index1-border);
 }
-smart-grid-row[alternation-index="3"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+smart-grid-row[alternation-index="3"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
   background-color: var(--smart-alternation-index2-background);
   color: var(--smart-alternation-index2-color);
   border-color: var(--smart-alternation-index2-border);
 }
-smart-grid-row[alternation-index="4"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+smart-grid-row[alternation-index="4"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
   background-color: var(--smart-alternation-index3-background);
   color: var(--smart-alternation-index3-color);
   border-color: var(--smart-alternation-index3-border);
@@ -2656,6 +2689,10 @@ smart-grid-column:not(.smart-grid-column-border-collapse):before {
   background: var(--smart-grid-column-vertical-border, var(--smart-border));
 }
 
+smart-grid-row[error] smart-grid-cell.smart-add-new-column.smart-add-new-column .smart-label {
+  background: #E2E2E2 !important;
+}
+
 smart-grid-cell {
   display: block;
   color: var(--smart-surface-color);
@@ -2704,6 +2741,10 @@ smart-grid-cell.smart-add-new-row[selected]::before, smart-grid-cell.smart-add-n
 }
 smart-grid-cell.smart-add-new-row:not([header]) {
   z-index: 7;
+  background: var(--smart-surface) !important;
+}
+smart-grid-cell.smart-add-new-row:not([header]) .smart-label {
+  background: var(--smart-surface) !important;
 }
 smart-grid-cell.smart-add-new-row:not([header]):before {
   opacity: 0;
@@ -2964,6 +3005,13 @@ smart-grid-cell[has-toggle-button] button[toggle-button] {
 smart-grid-cell[has-toggle-button] button[toggle-button]:after {
   content: var(--smart-icon-arrow-down);
 }
+smart-grid-cell[has-toggle-button] button[toggle-button][load]::after {
+  background-image: url("../images/load.gif") !important;
+  background-repeat: no-repeat !important;
+  content: '';
+  width: 16px;
+  height: 16px;
+}
 smart-grid-cell[has-toggle-button] button[toggle-button].row-detail.row-comments > div {
   font-size: 11px;
   color: var(--smart-primary);
@@ -3139,10 +3187,14 @@ smart-grid-cell[addNewRow]:after {
   visibility: hidden;
 }
 smart-grid-cell[colspan], smart-grid-cell[rowspan] {
-  background: var(--smart-secondary);
-  color: var(--smart-secondary-color);
+  background: var(--smart-background);
+  color: var(--smart-background-color);
   z-index: 5;
   padding: 0px;
+}
+smart-grid-cell[colspan][selected]:not([editor]), smart-grid-cell[rowspan][selected]:not([editor]) {
+  background: var(--smart-primary) !important;
+  color: var(--smart-primary-color) !important;
 }
 smart-grid-cell[error] {
   overflow: visible;
@@ -3164,7 +3216,15 @@ smart-grid-cell[sort] {
   background: var(--smart-grid-cell-background-sort);
   color: var(--smart-grid-cell-color-sort);
 }
+smart-grid-cell[sort]:not([selected]) .smart-label {
+  background: var(--smart-grid-cell-background-sort);
+  color: var(--smart-grid-cell-color-sort);
+}
 smart-grid-cell[filter] {
+  background: var(--smart-grid-cell-background-filter);
+  color: var(--smart-grid-cell-color-filter);
+}
+smart-grid-cell[filter]:not([selected]) .smart-label {
   background: var(--smart-grid-cell-background-filter);
   color: var(--smart-grid-cell-color-filter);
 }
@@ -3349,6 +3409,25 @@ smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item
 smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item[level="1"][checked] .smart-menu-item-label-container:after {
   left: initial;
   right: 10px;
+}
+
+@keyframes fadeAnimation {
+  0% {
+    background-color: inherit;
+  }
+  20% {
+    background-color: #99FF99;
+  }
+  50% {
+    background-color: #99FF99;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+.smart-flash-cell .smart-label {
+  background-image: none !important;
+  animation: fadeAnimation 2s ease-in-out;
 }
 
 [editor="checkBox"] .smart-label,

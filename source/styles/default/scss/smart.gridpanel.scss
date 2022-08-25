@@ -100,6 +100,37 @@ smart-group-panel {
   }
 }
 
+.smart-sort-panel {
+  .smart-grid-panel-maintain-sort {
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+
+  .smart-grid-panel-buttons-container {
+    align-items: flex-start !important;
+  }
+
+ .smart-grid-panel-maintain-sort-button {
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    
+    &::before {
+      font-family: var(--smart-font-family-icon);
+      content: var(--smart-icon-check-empty);
+      margin-right: 5px;
+    } 
+
+    &[active] {
+        color: var(--smart-primary);
+
+        &::before {
+          font-family: var(--smart-font-family-icon);
+          content: var(--smart-icon-check-squared);
+        }  
+      }
+  }
+}
+
 .smart-sort-panel,
 .smart-group-panel,
 .smart-multi-column-filter-panel {
@@ -802,8 +833,8 @@ smart-group-panel {
   }
 
   &.sorted {
-    background-color: var(--smart-primary);
-    color: var(--smart-primary-color);
+    background-color: #FDE1A8;
+    color: var(--smart-surface-color);
   }
 }
 

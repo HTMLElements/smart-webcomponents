@@ -1,4 +1,4 @@
-body[theme="pink"], .smart-ui-component[theme="pink"] {
+body[theme="pink"], .smart-element[theme="pink"], .smart-ui-component[theme="pink"] {
 	--smart-primary-rgb: 255, 51, 153;
     --smart-primary: rgba(var(--smart-primary-rgb), 1);
     --smart-disabled: #535353; /* The theme primary color in disabled state. */

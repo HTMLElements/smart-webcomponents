@@ -46,6 +46,24 @@ smart-table {
       border-bottom: var(--smart-border-width) solid var(--smart-border);
       text-align: left;
       font-weight: 500;
+      &[filter]::before {
+        content: var(--smart-icon-filter);
+        font-family: var(--smart-font-family-icon);
+        font-style: normal;
+        font-weight: normal;
+        font-size: var(--smart-arrow-size);
+        color: inherit;
+        text-decoration: inherit;
+        font-variant: normal;
+        text-transform: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2px;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 10px;
+      }
 
       .sort-by {
         display: none;
@@ -1153,7 +1171,7 @@ smart-table {
       }
     }
 
-    &:not([filter-row]) {
+    &:not([filter-row]):not([column-menu]) {
       .smart-table-container {
         height: calc(100% - var(--smart-table-header-footer-height));
       }
@@ -1466,7 +1484,7 @@ smart-table {
       }
     }
 
-    &[filtering]:not([filter-row]),
+    &[filtering]:not([filter-row]):not([column-menu]),
     &[conditional-formatting-button] {
       thead {
         th {
@@ -1540,7 +1558,7 @@ smart-table {
       }
     }
 
-    &[filtering]:not([filter-row]),
+    &[filtering]:not([filter-row]):not([column-menu]),
     &[conditional-formatting-button] {
       thead {
         th {
@@ -1775,7 +1793,7 @@ smart-table {
         height: 100%;
       }
 
-      &[filtering]:not([filter-row]),
+      &[filtering]:not([filter-row]):not([column-menu]),
       &[conditional-formatting-button] {
         .smart-table-container {
           height: 100%;
@@ -1785,7 +1803,7 @@ smart-table {
 
     &[freeze-header] {
 
-      &[filtering]:not([filter-row]),
+      &[filtering]:not([filter-row]):not([column-menu]),
       &[conditional-formatting-button] {
         thead th {
           top: 0;

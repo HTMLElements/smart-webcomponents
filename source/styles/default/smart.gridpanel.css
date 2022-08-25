@@ -98,6 +98,30 @@ smart-group-panel {
   color: var(--smart-primary-color);
 }
 
+.smart-sort-panel .smart-grid-panel-maintain-sort {
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+.smart-sort-panel .smart-grid-panel-buttons-container {
+  align-items: flex-start !important;
+}
+.smart-sort-panel .smart-grid-panel-maintain-sort-button {
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+}
+.smart-sort-panel .smart-grid-panel-maintain-sort-button::before {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-check-empty);
+  margin-right: 5px;
+}
+.smart-sort-panel .smart-grid-panel-maintain-sort-button[active] {
+  color: var(--smart-primary);
+}
+.smart-sort-panel .smart-grid-panel-maintain-sort-button[active]::before {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-check-squared);
+}
+
 .smart-sort-panel .smart-grid-panel-item-close-button,
 .smart-group-panel .smart-grid-panel-item-close-button,
 .smart-multi-column-filter-panel .smart-grid-panel-item-close-button {
@@ -689,8 +713,8 @@ smart-group-panel {
   content: var(--smart-icon-sort);
 }
 .smart-data-view-sort-button.sorted {
-  background-color: var(--smart-primary);
-  color: var(--smart-primary-color);
+  background-color: #FDE1A8;
+  color: var(--smart-surface-color);
 }
 
 .smart-data-view-group-button {

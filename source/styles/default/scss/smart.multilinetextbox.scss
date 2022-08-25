@@ -25,19 +25,19 @@ smart-multiline-text-box {
     border-color: var(--smart-outline);
   }
 
-  >.smart-resize-trigger-container {
+  > .smart-resize-trigger-container {
     margin-bottom: -1px;
   }
 
   .smart-container,
   .smart-inner-container {
-    >.smart-resize-trigger-container {
+    > .smart-resize-trigger-container {
       margin-bottom: -1px;
     }
   }
 
-  &.smart-drop-down-box>.smart-container,
-  &.smart-drop-down-box[label][hint]>.smart-container,
+  &.smart-drop-down-box > .smart-container,
+  &.smart-drop-down-box[label][hint] > .smart-container,
   &.smart-drop-down-box.smart-container {
     overflow: visible;
     display: block;
@@ -64,6 +64,11 @@ smart-multiline-text-box {
     overflow: hidden;
     resize: none;
     float: left;
+
+    border-top-left-radius: var(--smart-border-top-left-radius);
+    border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 
     &:not(.smart-text-box-hidden) {
       max-height: inherit;
@@ -255,4 +260,5 @@ smart-multiline-text-box {
     }
   }
 }
+
 @import 'rtl/_multilinetextbox';

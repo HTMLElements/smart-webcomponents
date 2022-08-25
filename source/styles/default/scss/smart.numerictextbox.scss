@@ -503,14 +503,21 @@ smart-numeric-text-box {
   &.outlined {
     height: auto;
     min-height: 0;
+
+    //input.smart-input {
     border-radius: var(--smart-border-radius);
-    border: 1px solid var(--smart-border);
+    //border: 1px solid var(--smart-border);
     background: var(--smart-background);
 
+    //}
     input {
-      border: 0;
+      transition: border-color 0.2s;
+      border: 1px solid var(--smart-border);
       display: block;
-      padding: 14px 0px;
+      //border: 0;
+      outline: unset;
+      display: block;
+      padding: 13px 13px;
     }
 
     .smart-spin-button,
@@ -547,7 +554,8 @@ smart-numeric-text-box {
       cursor: text;
       padding: 0;
       margin-top: -6px;
-      transition: color 0.2s, font-size 0.2s, opacity 0.1s, font-size 0.2s, line-height 0.2s;
+      transition: color 0.2s, z-index 0.2s, font-size 0.2s, opacity 0.3s, font-size 0.2s, line-height 0.2s;
+
 
       &:before,
       &:after {
@@ -587,8 +595,12 @@ smart-numeric-text-box {
     }
 
     &[focus] {
-      border-color: var(--smart-primary);
-      border-top-color: transparent !important;
+      --smart-border: var(--smart-primary);
+
+      .smart-input {
+        border: 1px solid var(--smart-border);
+        border-top-color: transparent !important;
+      }
 
       .smart-drop-down-button {
         color: var(--smart-primary);
@@ -676,4 +688,5 @@ smart-numeric-text-box {
   color: var(--smart-ui-state-color-active);
   border-color: var(--smart-ui-state-border-active);
 }
+
 @import 'rtl/_numerictextbox';

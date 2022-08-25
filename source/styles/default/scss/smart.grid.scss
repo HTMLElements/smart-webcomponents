@@ -1,16 +1,5 @@
 @import '_functions';
 
-header {
-  &.smart-grid-pager {
-    border-bottom: var(--smart-border-width) solid var(--smart-border);
-  }
-}
-
-footer {
-  &.smart-grid-pager {
-    border-top: var(--smart-border-width) solid var(--smart-border);
-  }
-}
 
 input[type=number] {
   &::-webkit-outer-spin-button {
@@ -1060,7 +1049,7 @@ input[type=number] {
     width: 100%;
 
     .smart-arrow-down,
-    .placeholder {
+    .smart-summary-placeholder {
       opacity: 0;
       transition: opacity 0.2s ease-in-out;
     }
@@ -1068,7 +1057,7 @@ input[type=number] {
     &[has-summary] {
 
       .smart-arrow-down,
-      .placeholder {
+      .smart-summary-placeholder {
         display: inherit;
         opacity: 0.7;
       }
@@ -1078,7 +1067,7 @@ input[type=number] {
     &:hover {
 
       .smart-arrow-down,
-      .placeholder {
+      .smart-summary-placeholder {
         opacity: 1;
       }
     }
@@ -1141,6 +1130,13 @@ input[type=number] {
 }
 
 .smart-grid-dialog-editor {
+  &[template="colorInput"] {
+    border: none !important;
+    smart-color-input {
+      border: 1px solid var(--smart-border)
+    }
+  }
+
   .images {
     display: grid;
     grid-template-columns: 1fr auto auto;
@@ -1526,8 +1522,13 @@ input[type=number] {
 
     &.smart-grid-dialog-description,
     &.smart-grid-dialog-add-column {
-      transform: scaleY(0);
-      transform-origin: top;
+      transform: scaleY(0) !important;
+      transform-origin: top !important;
+
+      &.view {
+        transform-origin: unset !important;
+        transform: scale(0) !important;
+      }
 
       .smart-header-notes {
         margin-bottom: 10px;
@@ -1561,7 +1562,8 @@ input[type=number] {
       .smart-grid-edit-dialog-column-info {
         display: grid;
         grid-template-columns: 25px 1fr 25px;
-        padding: 10px 0px;
+        padding: 5px 0px;
+        line-height: normal;
 
         &.format {
           grid-template-columns: 25px 1fr;
@@ -1868,7 +1870,7 @@ input[type=number] {
       cursor: default;
     }
 
-    &.open {
+    &.open, &.view.open {
       transform: scale(1) !important;
       opacity: 1;
     }
@@ -1941,7 +1943,7 @@ smart-grid {
 
   .smart-grid-cell-loading {
     height: 10px;
-    position: relative;
+    position: absolute;
     top: calc(50% - 5px);
     background: var(--smart-surface);
     width: 80%;
@@ -1998,6 +2000,8 @@ smart-grid {
   }
 
   &.smart-kanban-view {
+    background: #fafafa;
+
     .smart-grid-add-row-button {
       display: none !important;
     }
@@ -2113,12 +2117,17 @@ smart-grid {
       height: var(--smart-pager-default-height);
       overflow: hidden;
       z-index: 99;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      border-bottom-color: inherit;
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: var(--smart-border);
       width: 100%;
       background: var(--smart-surface);
       color: var(--smart-surface-color);
+
+      &[top] {
+        border-top-color: transparent;
+        border-bottom: 1px solid var(--smart-border);
+      }
     }
 
     .smart-grid-content {
@@ -2599,6 +2608,37 @@ smart-grid {
     }
   }
 
+  &[appearance_show-column-header-drag-icon] {
+      &[behavior_allow-column-reorder] {
+        smart-grid-column:not([auto-generated]) {
+          .smart-drag-handle {
+            transition: opacity ease-in-out 0.2s;
+            overflow: hidden;
+            opacity: 0;
+            width: 5px;
+            height: 100%;
+            position: absolute;
+            left: 1px;
+            z-index: 9;
+            font-family: var(--smart-font-family-icon);
+            cursor: move;
+            &:before {
+              position: relative;
+              font-family: var(--smart-font-family-icon);
+              content: var(--smart-icon-ellipsis);
+              transform: rotate(90deg);
+              display: flex;
+              justify-content: center;     
+            }
+
+            &:hover {
+              opacity: 1;
+            }
+        }
+      }
+    }
+  }
+
   &[appearance_show-row-header-drag-icon] {
     smart-grid-row smart-grid-cell[header]:not([detail]) {
       >.smart-label {
@@ -3062,31 +3102,31 @@ smart-grid-row {
     }
   }
 
-  &[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+  &[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
     background-color: var(--smart-background);
     color: var(--smart-background-color);
     border-color: var(--smart-border);
   }
 
-  &[alternation-index="1"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+  &[alternation-index="1"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
     background-color: var(--smart-alternation-index0-background);
     color: var(--smart-alternation-index0-color);
     border-color: var(--smart-alternation-index0-border);
   }
 
-  &[alternation-index="2"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+  &[alternation-index="2"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
     background-color: var(--smart-alternation-index1-background);
     color: var(--smart-alternation-index1-color);
     border-color: var(--smart-alternation-index1-border);
   }
 
-  &[alternation-index="3"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+  &[alternation-index="3"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
     background-color: var(--smart-alternation-index2-background);
     color: var(--smart-alternation-index2-color);
     border-color: var(--smart-alternation-index2-border);
   }
 
-  &[alternation-index="4"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]) .smart-label {
+  &[alternation-index="4"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
     background-color: var(--smart-alternation-index3-background);
     color: var(--smart-alternation-index3-color);
     border-color: var(--smart-alternation-index3-border);
@@ -3368,6 +3408,17 @@ smart-grid-column {
   }
 }
 
+smart-grid-row[error] {
+  smart-grid-cell {
+  &.smart-add-new-column {
+
+    &.smart-add-new-column .smart-label {
+      background: #E2E2E2 !important;
+    }
+  }
+}
+}
+
 smart-grid-cell {
   display: block;
   color: var(--smart-surface-color);
@@ -3424,6 +3475,11 @@ smart-grid-cell {
 
     &:not([header]) {
       z-index: 7;
+      background: var(--smart-surface) !important;
+
+      .smart-label {
+        background: var(--smart-surface) !important;
+      }
 
       &:before {
         opacity: 0;
@@ -3747,6 +3803,14 @@ smart-grid-cell {
         content: var(--smart-icon-arrow-down);
       }
 
+      &[load]::after {
+        background-image: url('../images/load.gif') !important;
+        background-repeat: no-repeat !important;
+        content: '';
+        width: 16px;
+        height: 16px;
+      }
+
       &.row-detail {
         &.row-comments {
           >div {
@@ -4005,10 +4069,15 @@ smart-grid-cell {
 
   &[colspan],
   &[rowspan] {
-    background: var(--smart-secondary);
-    color: var(--smart-secondary-color);
+    background: var(--smart-background);
+    color: var(--smart-background-color);
     z-index: 5;
     padding: 0px;
+
+    &[selected]:not([editor]) {
+      background: var(--smart-primary) !important;
+      color: var(--smart-primary-color) !important;
+    }
   }
 
   &[error] {
@@ -4034,11 +4103,25 @@ smart-grid-cell {
   &[sort] {
     background: var(--smart-grid-cell-background-sort);
     color: var(--smart-grid-cell-color-sort);
+
+    &:not([selected]) {
+      .smart-label {
+        background: var(--smart-grid-cell-background-sort);
+        color: var(--smart-grid-cell-color-sort);
+      }
+    }
   }
 
   &[filter] {
     background: var(--smart-grid-cell-background-filter);
     color: var(--smart-grid-cell-color-filter);
+
+    &:not([selected]) {
+      .smart-label {
+        background: var(--smart-grid-cell-background-filter);
+        color: var(--smart-grid-cell-color-filter);
+      }
+    }
   }
 
   &[update] {
@@ -4253,6 +4336,19 @@ smart-menu {
       }
     }
   }
+}
+
+
+@keyframes fadeAnimation {
+  0% { background-color: inherit; }
+  20% { background-color: #99FF99; }
+  50% { background-color: #99FF99; }
+  100% { background-color: inherit; }
+}
+
+.smart-flash-cell .smart-label {
+    background-image: none !important;
+    animation: fadeAnimation 2s ease-in-out;
 }
 
 @import 'grid/_checkbox';

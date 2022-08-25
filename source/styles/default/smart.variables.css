@@ -502,6 +502,14 @@
     /* Code of Kanban icon */
     --smart-icon-table-alt: '\F0CE';
     /* Code of Table icon */
+    --smart-icon-zoom-in: '\E841';
+    /* Code of Zoom In icon */
+    --smart-icon-zoom-out: '\E842';
+    /* Code of Zoom Out icon */
+    --smart-icon-move: '\F047';
+    /* Code of Move icon */
+    --smart-icon-home: '\E843';
+    /* Code of Home icon */
     /* Accordion */
     --smart-accordion-animation-duration: 225ms;
     /* smartAccordion animation duration */
@@ -716,7 +724,7 @@
     /* Width of the CardView and Kanban customize panel (drop down). */
     --smart-data-view-filter-panel-width: 550px;
     /* Width of the CardView and Kanban filter panel (drop down). */
-    --smart-data-view-sort-panel-width: 450px;
+    --smart-data-view-sort-panel-width: 470px;
     /* Width of the CardView and Kanban sort panel (drop down). */
     --smart-data-view-search-panel-width: 250px;
     /* Width of the CardView and Kanban search panel (drop down). */
@@ -1105,11 +1113,11 @@
     /* Sets background color of cells, when row is unbound. */
     --smart-grid-cell-color-sort: var(--smart-surface-color);
     /* Sets text color of cells, when column is sorted. */
-    --smart-grid-cell-background-sort: var(--smart-surface);
+    --smart-grid-cell-background-sort: #FEF3dd;
     /* Sets background color of cells, when column is sorted. */
     --smart-grid-cell-color-filter: var(--smart-surface-color);
     /* Sets text color of cells, when column is filtered. */
-    --smart-grid-cell-background-filter: var(--smart-surface);
+    --smart-grid-cell-background-filter: #E8F2DB;
     /* Sets background color of cells, when column is filtered. */
     --smart-grid-group-row-vertical-offset: 5;
     /* Sets grouped rows vertical offset. */
@@ -1172,11 +1180,11 @@
     /* Kanban user icon size */
     --smart-kanban-user-list-width: 150px;
     /* Kanban user list width */
-    --smart-kanban-user-list-max-height: 400px;
+    --smart-kanban-user-list-max-height: 500px;
     /* Kanban user list max height */
     --smart-kanban-comments-list-width: 350px;
     /* Kanban comments list width */
-    --smart-kanban-comments-list-height: 400px;
+    --smart-kanban-comments-list-height: auto;
     /* Kanban comments list height */
     --smart-kanban-new-comment-height: 50px;
     /* Height of new comment section */

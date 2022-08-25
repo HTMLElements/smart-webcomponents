@@ -276,8 +276,8 @@ smart-time-input {
           border-top-color: var(--smart-border);
         }
 
-        >input:not(:focus),
-        >textarea:not(:focus) {
+        > input:not(:focus),
+        > textarea:not(:focus) {
           &:placeholder-shown {
             border-color: var(--smart-border);
           }
@@ -313,7 +313,7 @@ smart-time-input {
     }
 
     &:not([focus]):not([value]).smart-multi-combo-input[hint] .smart-hint,
-    &[hint] .smart-input:not(:focus):placeholder-shown+.smart-hint,
+    &[hint] .smart-input:not(:focus):placeholder-shown + .smart-hint,
     &[hint]:not([focus]) .smart-hint {
       font-size: var(--smart-font-size);
       line-height: 60px;
@@ -360,7 +360,7 @@ smart-time-input {
   &.smart-text-area {
     &[hint] {
 
-      .smart-input:not(:focus):placeholder-shown+.smart-hint,
+      .smart-input:not(:focus):placeholder-shown + .smart-hint,
       &:not([focus]) .smart-hint {
         font-size: var(--smart-font-size);
         line-height: var(--smart-editor-height);
@@ -391,6 +391,61 @@ smart-time-input {
     &[drop-down-button-position="left"] {
       .smart-drop-down-button {
         padding: 0;
+      }
+    }
+  }
+
+  &.smart-element.smart-material {
+    &.smart-valid {
+      --smart-border: #28a745;
+    }
+
+    &.smart-invalid {
+      --smart-border: #dc3545;
+    }
+
+    .smart-hint {
+      opacity: 1 !important;
+      transition: color .2s, opacity .1s, font-size .2s, line-height .2s, margin-top .2s, top .2s !important;
+      z-index: 7 !important;
+    }
+
+    &[focus][hover],
+    &[focus],
+    &[value]:not([value=""]),
+    &.has-value {
+      border-color: var(--smart-primary);
+      border-top-color: transparent !important;
+      //box-shadow: inset 1px 0 var(--smart-material-safari-helper1), inset -1px 0 var(--smart-material-safari-helper1), inset 0 -1px var(--smart-material-safari-helper1);
+      outline: none;
+
+      .smart-input {
+        //border-color: var(--smart-primary) !important;
+        border-top-color: var(--smart-background) !important;
+      }
+
+      .smart-hint {
+        color: var(--smart-primary) !important;
+        opacity: 1 !important;
+        font-size: 75% !important;
+        line-height: 15px;
+        z-index: 7;
+        transition: color 0.2s, z-index 0.2s, font-size 0.2s, opacity 0.3s, font-size 0.2s, line-height 0.2s;
+      }
+
+      .smart-container {
+        .smart-content {
+          border-top-color: transparent !important;
+        }
+      }
+    }
+  }
+
+  &.smart-drop-down-box {
+    > .smart-container {
+      //z-index: 7 !important;
+      > .smart-content {
+        z-index: 7 !important;
       }
     }
   }

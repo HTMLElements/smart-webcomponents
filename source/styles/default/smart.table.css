@@ -36,6 +36,24 @@ smart-table tr.expanded .hierarchy-arrow {
   text-align: left;
   font-weight: 500;
 }
+.smart-table thead th[filter]::before {
+  content: var(--smart-icon-filter);
+  font-family: var(--smart-font-family-icon);
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--smart-arrow-size);
+  color: inherit;
+  text-decoration: inherit;
+  font-variant: normal;
+  text-transform: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+}
 .smart-table thead th .sort-by {
   display: none;
   position: relative;
@@ -946,10 +964,10 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[filtering] .smart-table-header .smart-table-filter-template-container {
   display: block;
 }
-.smart-table[filtering]:not([filter-row]) .smart-table-container {
+.smart-table[filtering]:not([filter-row]):not([column-menu]) .smart-table-container {
   height: calc(100% - var(--smart-table-header-footer-height));
 }
-.smart-table[filtering]:not([filter-row]) .smart-table-virtualization-container {
+.smart-table[filtering]:not([filter-row]):not([column-menu]) .smart-table-virtualization-container {
   height: calc(100% - var(--smart-table-header-footer-height));
 }
 .smart-table[filtering][filter-row][conditional-formatting-button] .smart-table-header .smart-input {
@@ -1118,19 +1136,19 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[freeze-header]:not([virtualization]) thead tr:nth-child(5) > th {
   top: calc(4 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]):not([column-menu]) thead th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead th {
   top: var(--smart-table-header-footer-height);
 }
-.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(2) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(2) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(2) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(2) > th {
   top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(3) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(3) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(3) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(3) > th {
   top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(4) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(4) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(4) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(4) > th {
   top: calc(var(--smart-table-header-footer-height) + 3 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]) thead tr:nth-child(5) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(5) > th {
+.smart-table[freeze-header]:not([virtualization])[filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(5) > th, .smart-table[freeze-header]:not([virtualization])[conditional-formatting-button] thead tr:nth-child(5) > th {
   top: calc(var(--smart-table-header-footer-height) + 4 * var(--smart-table-column-header-height));
 }
 .smart-table[freeze-header][virtualization] thead {
@@ -1170,19 +1188,19 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[freeze-header][virtualization] thead tr:nth-child(5) > th {
   top: calc(4 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead th {
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]):not([column-menu]) thead th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead th {
   top: var(--smart-table-header-footer-height);
 }
-.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(2) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(2) > th {
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(2) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(2) > th {
   top: calc(var(--smart-table-header-footer-height) + var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(3) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(3) > th {
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(3) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(3) > th {
   top: calc(var(--smart-table-header-footer-height) + 2 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(4) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(4) > th {
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(4) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(4) > th {
   top: calc(var(--smart-table-header-footer-height) + 3 * var(--smart-table-column-header-height));
 }
-.smart-table[freeze-header][virtualization][filtering]:not([filter-row]) thead tr:nth-child(5) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(5) > th {
+.smart-table[freeze-header][virtualization][filtering]:not([filter-row]):not([column-menu]) thead tr:nth-child(5) > th, .smart-table[freeze-header][virtualization][conditional-formatting-button] thead tr:nth-child(5) > th {
   top: calc(var(--smart-table-header-footer-height) + 4 * var(--smart-table-column-header-height));
 }
 .smart-table[freeze-footer] tfoot td {
@@ -1308,10 +1326,10 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[virtualization][paging] .smart-table-container {
   height: 100%;
 }
-.smart-table[virtualization][paging][filtering]:not([filter-row]) .smart-table-container, .smart-table[virtualization][paging][conditional-formatting-button] .smart-table-container {
+.smart-table[virtualization][paging][filtering]:not([filter-row]):not([column-menu]) .smart-table-container, .smart-table[virtualization][paging][conditional-formatting-button] .smart-table-container {
   height: 100%;
 }
-.smart-table[virtualization][freeze-header][filtering]:not([filter-row]) thead th, .smart-table[virtualization][freeze-header][conditional-formatting-button] thead th {
+.smart-table[virtualization][freeze-header][filtering]:not([filter-row]):not([column-menu]) thead th, .smart-table[virtualization][freeze-header][conditional-formatting-button] thead th {
   top: 0;
 }
 @media (max-width: 575.98px) {
