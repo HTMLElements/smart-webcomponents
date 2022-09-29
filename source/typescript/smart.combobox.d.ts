@@ -10,7 +10,7 @@ export interface ComboBoxProperties {
    * Determines the autocomplete mode. Auto complete modes filter the items from the dataSource and show only those that match the input.
    * Default value: none
    */
-  autoComplete?: AutoComplete;
+  autoComplete?: AutoComplete | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -50,7 +50,7 @@ export interface ComboBoxProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -80,7 +80,7 @@ export interface ComboBoxProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document. The purpose of the overlay is to make sure that clicking anywhere outside the popup will will target the overlay and not the DOM.
    * Default value: false
@@ -95,7 +95,7 @@ export interface ComboBoxProperties {
    * Determines the position of the drop down when opened.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -105,7 +105,7 @@ export interface ComboBoxProperties {
    * Determines the behavior of the element when Escape key is pressed.
    * Default value: null
    */
-  escKeyMode?: ComboBoxEscKeyMode;
+  escKeyMode?: ComboBoxEscKeyMode | string;
   /**
    * Determines whether filtering is enabled.
    * Default value: false
@@ -120,7 +120,7 @@ export interface ComboBoxProperties {
    * Determines the filtering mode of the Combo box.
    * Default value: startsWithIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * If enabled, the items will be grouped by their first letter. Can't be applied if the dataSource already contains groups.
    * Default value: false
@@ -140,7 +140,7 @@ export interface ComboBoxProperties {
    * Determines the visibility of the horizontal Scroll bar inside the drop down.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Represents the property name of a List item. Determines the value of the input when a ListItem is selected. Usefull in cases where the user wants to display for example the value of an item instead of it's label. By default the label is displayed in the input.
    * Default value: ""
@@ -160,7 +160,7 @@ export interface ComboBoxProperties {
    * Sets ot gets the mode of the incremental search mode. Incremental search is enabled by default. Typing while the drop down is focused starts the incremental search.
    * Default value: startsWithIgnoreCase
    */
-  incrementalSearchMode?: SearchMode;
+  incrementalSearchMode?: SearchMode | string;
   /**
    * Sets the height for all list items. Used only when virtualization is enabled.
    * Default value: null
@@ -170,7 +170,7 @@ export interface ComboBoxProperties {
    * Determines the item width measuring algorithm.
    * Default value: auto
    */
-  itemMeasureMode?: ListItemMeasureMode;
+  itemMeasureMode?: ListItemMeasureMode | string;
   /**
    * A getter that returns an array of all List items inside the drop down.
    * Default value: 
@@ -195,7 +195,7 @@ export interface ComboBoxProperties {
    * Determines the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -228,6 +228,11 @@ export interface ComboBoxProperties {
    * Default value: 2
    */
   minLength?: number;
+  /**
+   * Determines the maximum number of characters inside the input.
+   * Default value: -1
+   */
+  maxLength?: number;
   /**
    * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
    * Default value: ""
@@ -262,12 +267,12 @@ export interface ComboBoxProperties {
    * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
    * Default value: null
    */
-  resizeMode?: ResizeMode;
+  resizeMode?: ResizeMode | string;
   /**
    * Determines what will be displayed in the input.
    * Default value: plain
    */
-  selectionDisplayMode?: SelectionDisplayMode;
+  selectionDisplayMode?: SelectionDisplayMode | string;
   /**
    * Sets or gets the selected indexes. Selected indexes represents an array of the indexes of the items that should be selected.
    * Default value: 
@@ -282,7 +287,7 @@ export interface ComboBoxProperties {
    * Determines how many items can be selected.
    * Default value: zeroAndOne
    */
-  selectionMode?: ListSelectionMode;
+  selectionMode?: ListSelectionMode | string;
   /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
@@ -322,7 +327,7 @@ export interface ComboBoxProperties {
    * Determines the visibility of the vertical scroll bar.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines weather or not Virtualization is used for the Combo box. Virtualization allows a huge amount of items to be loaded to the List box while preserving the performance. For example a milion items can be loaded to the list box.
    * Default value: false
@@ -526,7 +531,7 @@ export interface ListItemProperties {
    * 
    * Default value: plain
    */
-  displayMode?: ListItemDisplayMode;
+  displayMode?: ListItemDisplayMode | string;
   /**
    * 
    * Default value: false

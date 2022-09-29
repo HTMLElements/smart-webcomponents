@@ -1,0 +1,23 @@
+.validation {
+    .validation-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    p {
+        opacity: 0.9;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+    }
+
+    .smart-form {
+        width: 100%;
+    }
+}

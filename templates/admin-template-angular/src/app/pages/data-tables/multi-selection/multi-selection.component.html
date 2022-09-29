@@ -1,0 +1,17 @@
+<div class="container multi-selection">
+    <div class="custom-row">
+        <div class="multi-selection-header custom-col">
+            <h4>Table With Multi Selection</h4>
+        </div>
+    </div>
+
+    <div class="custom-card">
+        <div class="card-body">
+            <smart-table #multiSelectionTable id="multi-selection" [dataSource]="multiSelectionTableSettings.dataSource"
+                [paging]="multiSelectionTableSettings.paging" [sortMode]="multiSelectionTableSettings.sortMode"
+                [tooltip]="multiSelectionTableSettings.tooltip" [onInit]="multiSelectionTableSettings.onInit"
+                [columns]="multiSelectionTableSettings.columns" [selection]="multiSelectionTableSettings.selection">
+            </smart-table>
+        </div>
+    </div>
+</div>

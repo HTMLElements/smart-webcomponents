@@ -1,0 +1,34 @@
+$link-color: $primary;
+$pagination-color: $link-color;
+
+@if $dark-theme {
+  $body-bg: #1c1c2b;
+  $card-bg: $body-bg;
+  $pagination-color: $white;
+}
+
+//Breakpoints
+$media-xs-breakpoint: 575px;
+$media-sm-breakpoint: 767px;
+$media-md-breakpoint: 991px;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1440px
+);
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
+);
+
+// Custom
+$textDark: $dark;
+$textLight: $light;
+$rounded-xl: 12px !important;

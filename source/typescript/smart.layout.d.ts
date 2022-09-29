@@ -5,7 +5,7 @@ export interface LayoutProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the options that will be available for selection inside the context menu.
    * Default value: delete
@@ -49,7 +49,7 @@ export interface LayoutProperties {
    * Sets or gets Layout's main orientation. The orientation is applied to all Splitters inside the Layout unless they have their orientation explicitly set in the dataSource.
    * Default value: vertical
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -191,7 +191,7 @@ export interface LayoutGroupProperties {
    * Determines the group orientation.
    * Default value: vertical
    */
-  orientation?: LayoutGroupOrientation;
+  orientation?: LayoutGroupOrientation | string;
   /**
    * Determines the size of the item.
    * Default value: null
@@ -300,12 +300,12 @@ export interface TabLayoutGroupProperties {
    * Determines the group orientation.
    * Default value: vertical
    */
-  orientation?: TabLayoutGroupOrientation;
+  orientation?: TabLayoutGroupOrientation | string;
   /**
    * Determines the position of the tab items group.
    * Default value: top
    */
-  position?: TabLayoutGroupPosition;
+  position?: TabLayoutGroupPosition | string;
   /**
    * Determines the size of the item.
    * Default value: null
@@ -365,7 +365,7 @@ export interface TabLayoutItemProperties {
    * Determines the group orientation.
    * Default value: vertical
    */
-  orientation?: TabLayoutItemOrientation;
+  orientation?: TabLayoutItemOrientation | string;
   /**
    * Determines the size of the item.
    * Default value: null

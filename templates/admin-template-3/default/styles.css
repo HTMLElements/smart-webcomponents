@@ -1,0 +1,15 @@
+#calendar:not([display-mode="year"]):not([display-mode="decade"]) .smart-calendar-body {
+    display: block;
+}
+
+.jvectormap-zoomin,
+.jvectormap-zoomout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout, .jvectormap-goback {
+    right: 10px;
+    left: auto;
+}

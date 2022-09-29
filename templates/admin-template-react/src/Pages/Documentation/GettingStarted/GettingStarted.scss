@@ -1,0 +1,35 @@
+.getting-started-page {
+    pre {
+        border: 1px solid var(--smart-border);
+        border-radius: 3px;
+        padding: 10px;
+        background-color: var(--smart-surface);
+    }
+
+    .browser-icon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        background-image: url("https://www.htmlelements.com/demos/images/browsers.png");
+    }
+
+    #chrome {
+        background-position: -10px -10px;
+    }
+
+    #firefox {
+        background-position: -10px -78px;
+    }
+
+    #safari {
+        background-position: -146px -10px;
+    }
+
+    #edge {
+        background-position: -78px -10px;
+    }
+
+    #opera {
+        background-position: -78px -78px;
+    }
+}

@@ -5,7 +5,7 @@ export interface TimePickerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets whether after selecting hours, the element will automatically switch to minute selection.
    * Default value: false
@@ -30,7 +30,7 @@ export interface TimePickerProperties {
    * Determines the hour selection format.
    * Default value: 12-hour
    */
-  format?: TimePickerFormat;
+  format?: TimePickerFormat | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -81,7 +81,7 @@ export interface TimePickerProperties {
    * Determines the view that is currently being shown. By default the hours view is visible.
    * Default value: hour
    */
-  selection?: TimePickerSelection;
+  selection?: TimePickerSelection | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -101,7 +101,7 @@ export interface TimePickerProperties {
    * Determines whether the element is in landscape or portrait mode.
    * Default value: portrait
    */
-  view?: ViewLayout;
+  view?: ViewLayout | string;
 }
 /**
  Time Picker component allows the user to select time from spinners.

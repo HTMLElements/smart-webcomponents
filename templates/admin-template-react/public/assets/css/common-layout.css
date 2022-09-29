@@ -1,0 +1,130 @@
+#todayMenu {
+    width: 150px;
+    height: auto;
+}
+
+#todayMenu [template-applied] {
+    font-size: 10px;
+}
+
+.small-table {
+    --smart-table-column-header-height: 30px;
+    --smart-table-row-height: 20px;
+    --smart-table-cell-padding: 8px;
+}
+
+.small-table [data-field="revenue"],
+.small-table [data-field="value"],
+.small-table [data-field="amount"] {
+    text-align: right;
+}
+
+.small-table [data-field="revenue"] .wrapper,
+.small-table [data-field="value"] .wrapper,
+.small-table [data-field="amount"] .wrapper {
+    justify-content: flex-end;
+}
+
+.color-box-container {
+    display: flex;
+    align-items: center;
+}
+
+.color-box {
+    margin-right: 5px !important;
+    width: 10px;
+    min-width: 10px;
+    height: 10px;
+}
+
+.color-box.direct {
+    background-color: #16736F;
+}
+
+.color-box.partner {
+    background-color: #A2D56A;
+}
+
+.color-box.online {
+    background-color: #1C515C;
+}
+
+.color-box.facebook {
+    background-color: #1877f2;
+}
+
+.color-box.google {
+    background-color: #DB4437;
+}
+
+.color-box.other {
+    background-color: #62B773;
+}
+
+.positive {
+    color: forestgreen;
+}
+
+.negative {
+    color: orangered;
+}
+
+#appointmentContainer {
+    height: calc(100% - 60px);
+    overflow: auto;
+}
+
+#loadMore {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.small-button {
+    --smart-button-padding: 5px;
+    font-size: 12px !important;
+    text-transform: none;
+}
+
+.small-button .material-icons {
+    margin-right: 5px;
+    font-size: inherit;
+}
+
+.small-button>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smart-badge.sale,
+.smart-badge.done {
+    background-color: forestgreen;
+    color: #fff;
+}
+
+.smart-badge.in-progress {
+    background-color: orange;
+    color: #fff;
+}
+
+.smart-badge.tax,
+.smart-badge.cancelled {
+    background-color: crimson;
+    color: #fff;
+}
+
+.smart-badge.extended,
+.smart-badge.unassigned {
+    background-color: deepskyblue;
+    color: #fff;
+}
+
+.main>.sidebar .tree-holder #tree .smart-tree-items-group.smart-tree-items-group-expanded>.smart-tree-item-label-container {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+}
+
+.main>.sidebar .tree-holder #tree .smart-tree-items-group.smart-tree-items-group-expanded .smart-tree-item-label-container {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+}

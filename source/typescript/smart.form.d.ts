@@ -25,7 +25,7 @@ export interface FormProperties {
    * Sets or Gets the labels position.
    * Default value: left
    */
-  labelPosition?: FormLabelPosition;
+  labelPosition?: FormLabelPosition | string;
   /**
    * Makes the form readonly.
    * Default value: false
@@ -51,6 +51,11 @@ export interface FormProperties {
    * Default value: null
    */
   value?: any;
+  /**
+   * Automatically validates the form when it is created.
+   * Default value: false
+   */
+  validateOnLoad?: boolean;
 }
 /**
  Reactive Form Component with Advanced Validation
@@ -111,7 +116,7 @@ export interface Control {
    * The type of the control.
    * Default value: input
    */
-  controlType?: ControlControlType;
+  controlType?: ControlControlType | string;
   /**
    * Sets the Form Group columns.
    * Default value: 1
@@ -161,7 +166,7 @@ export interface Control {
    * Gets or Sets the Form control's label position.
    * Default value: left
    */
-  labelPosition?: ControlLabelPosition;
+  labelPosition?: ControlLabelPosition | string;
   /**
    * Gets or Sets the offset between the label and the control.
    * Default value: 10
@@ -226,7 +231,7 @@ export interface Control {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
    */
-  viewMode?: ControlViewMode;
+  viewMode?: ControlViewMode | string;
 }
 
 declare global {
@@ -252,12 +257,12 @@ export interface FormControlProperties {
    * Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit'
    * Default value: 
    */
-  action?: FormControlAction;
+  action?: FormControlAction | string;
   /**
    * Sets or Gets the alignment of the FormControl
    * Default value: left
    */
-  align?: FormControlAlign;
+  align?: FormControlAlign | string;
   /**
    * HTML Content displayed after the Form Control
    * Default value: 
@@ -272,7 +277,7 @@ export interface FormControlProperties {
    * The type of the control.
    * Default value: input
    */
-  controlType?: FormControlControlType;
+  controlType?: FormControlControlType | string;
   /**
    * Sets the Form Group columns.
    * Default value: 1
@@ -317,7 +322,7 @@ export interface FormControlProperties {
    * Gets or Sets the Form control's label position.
    * Default value: left
    */
-  labelPosition?: FormControlLabelPosition;
+  labelPosition?: FormControlLabelPosition | string;
   /**
    * Gets or Sets the offset between the label and the control.
    * Default value: 10
@@ -327,7 +332,7 @@ export interface FormControlProperties {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set.
    * Default value: left
    */
-  labelAlign?: FormControlAlign;
+  labelAlign?: FormControlAlign | string;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the next button label.
    * Default value: "Next"
@@ -392,7 +397,7 @@ export interface FormControlProperties {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
    */
-  viewMode?: FormControlViewMode;
+  viewMode?: FormControlViewMode | string;
 }
 /**
  Form Control
@@ -448,7 +453,7 @@ export interface FormGroupProperties {
    * Sets or Gets the labels position.
    * Default value: left
    */
-  labelPosition?: FormGroupLabelPosition;
+  labelPosition?: FormGroupLabelPosition | string;
   /**
    * Makes the form readonly.
    * Default value: false
@@ -516,7 +521,7 @@ export interface Control {
    * The type of the control.
    * Default value: input
    */
-  controlType?: ControlControlType;
+  controlType?: ControlControlType | string;
   /**
    * Sets the Form Group columns.
    * Default value: 1
@@ -561,7 +566,7 @@ export interface Control {
    * Gets or Sets the Form control's label position.
    * Default value: left
    */
-  labelPosition?: ControlLabelPosition;
+  labelPosition?: ControlLabelPosition | string;
   /**
    * Gets or Sets the offset between the label and the control.
    * Default value: 10
@@ -626,7 +631,7 @@ export interface Control {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
    */
-  viewMode?: ControlViewMode;
+  viewMode?: ControlViewMode | string;
 }
 
 declare global {

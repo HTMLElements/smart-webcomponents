@@ -1,0 +1,15 @@
+#settingsListBox {
+    --smart-list-item-height: 50px;
+    border: none;
+    width: 100%;
+    height: auto;
+}
+
+#mainCol {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+#mainCol.changing {
+    opacity: 0;
+}

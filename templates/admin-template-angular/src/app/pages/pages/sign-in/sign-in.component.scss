@@ -1,0 +1,58 @@
+.sign-in {
+    .sign-in-header {
+        margin: 1.5rem 0;
+        text-align: center;
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .sign-in-body {
+        .card-wrapper {
+            margin-left: auto;
+            margin-right: auto;
+
+            .card-shadow {
+                box-shadow: 0 0 26px rgb(0 0 0 / 10%);
+                border: 0;
+                background: var(--white);
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+                word-wrap: break-word;
+
+                .img-as-background {
+                    display: block;
+                    width: 125px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 1rem;
+                    border-radius: 50%;
+                }
+
+                .form-group {
+                    margin-bottom: 1rem;
+
+                    label {
+                        display: block;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    smart-input,
+                    smart-password-text-box {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .card-wrapper {
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
+    }
+}

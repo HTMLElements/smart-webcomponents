@@ -5,7 +5,7 @@ export interface RadioButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -15,12 +15,12 @@ export interface RadioButtonProperties {
    * Sets or gets the part that toggles the element.
    * Default value: both
    */
-  checkMode?: CheckMode;
+  checkMode?: CheckMode | string;
   /**
    * Sets the click mode of the radio button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the ratio button.
    * Default value: false

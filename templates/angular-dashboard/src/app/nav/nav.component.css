@@ -1,0 +1,17 @@
+#logoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#logo {
+    width: 230px;
+    height: 90px;
+    background: url(https://www.htmlelements.com/wp-content/design/assets/images/csssprites.png) -480px -400px;
+    filter: invert(0.8);
+}
+
+smart-list-box {
+    width: 100%;
+    border: none;
+}

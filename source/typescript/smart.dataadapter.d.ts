@@ -43,7 +43,7 @@ export interface DataAdapter {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: DataAdapterDataSourceType;
+  dataSourceType?: DataAdapterDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -63,7 +63,7 @@ export interface DataAdapter {
    * Sets or gets whether the request type.
    * Default value: GET
    */
-  method?: DataAdapterMethod;
+  method?: DataAdapterMethod | string;
   /**
    * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
    * Default value: ""
@@ -252,7 +252,7 @@ export interface DataAdapterVirtualDataSourceOnExpandDetails {
    * Request action type
    * Default value: undefined
    */
-  action?: DataAdapterVirtualDataSourceOnExpandDetailsAction;
+  action?: DataAdapterVirtualDataSourceOnExpandDetailsAction | string;
 }
 
 /**Sorting information. */
@@ -261,7 +261,7 @@ export interface DataAdapterVirtualDataSourceOnExpandDetailsSorting {
    * Sort order.
    * Default value: asc
    */
-  sortOrder?: DataAdapterVirtualDataSourceOnExpandDetailsSortingSortOrder;
+  sortOrder?: DataAdapterVirtualDataSourceOnExpandDetailsSortingSortOrder | string;
   /**
    * Sort index.
    * Default value: -1
@@ -325,7 +325,7 @@ export interface DataAdapterVirtualDataSourceDetails {
    * Request action type
    * Default value: undefined
    */
-  action?: DataAdapterVirtualDataSourceDetailsAction;
+  action?: DataAdapterVirtualDataSourceDetailsAction | string;
   /**
    * Expanded Row when data is loaded on demand in Tree Hierarchy scenarios.
    * Default value: undefined

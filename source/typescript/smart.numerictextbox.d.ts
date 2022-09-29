@@ -5,7 +5,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the char to use as the decimal separator in numeric values. 
    * Default value: "."
@@ -40,7 +40,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the input format of the widget. Setting this property dynamically can lead to precision loss. 
    * Default value: integer
    */
-  inputFormat?: NumericTextBoxInputFormat;
+  inputFormat?: NumericTextBoxInputFormat | string;
   /**
    * Sets a label above the element. 
    * Default value: ""
@@ -128,7 +128,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the radix of the jqxNumericTextBox. The radix specifies the numeral system in which to display the widget's value. Applicable only when inputFormat is 'integer'. 
    * Default value: 10
    */
-  radix?: NumericTextBoxRadix;
+  radix?: NumericTextBoxRadix | string;
   /**
    * Enables or disables the radix display button of the jqxNumericTextBox. Applicable only when inputFormat is 'integer'. 
    * Default value: false
@@ -138,7 +138,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the position of the radix display button of the jqxNumericTextBox. 
    * Default value: left
    */
-  radixDisplayPosition?: NumericTextBoxDisplayPosition;
+  radixDisplayPosition?: NumericTextBoxDisplayPosition | string;
   /**
    * Sets or gets the readonly state of the jqxNumericTextBox. 
    * Default value: false
@@ -188,7 +188,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the position of the spin buttons of the jqxNumericTextBox. 
    * Default value: right
    */
-  spinButtonsPosition?: NumericTextBoxDisplayPosition;
+  spinButtonsPosition?: NumericTextBoxDisplayPosition | string;
   /**
    * Sets or gets the increase/decrease step. 
    * Default value: 1
@@ -213,7 +213,7 @@ export interface NumericTextBoxProperties {
    * Sets the value's validation by min/max. If 'strict' is applied, the value is always validated by min and max. If 'interaction' is applied, programmatic value changes are not coerced to min/max and if min/max are changed, resulting in the current value being out of range, the value is not coerced, and no change event is fired.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value of the jqxNumericTextBox widget. 
    * Default value: 0
@@ -223,7 +223,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the word length. Applicable only when inputFormat is 'integer'. If min and/or max are not set by default, they will be set automatically based on the specified word length. 
    * Default value: int32
    */
-  wordLength?: WordLength;
+  wordLength?: WordLength | string;
 }
 /**
  input field for entering a number. Includes number formatting for Engineers and Scientists.

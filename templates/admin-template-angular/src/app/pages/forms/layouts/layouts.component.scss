@@ -1,0 +1,30 @@
+.forms-layouts {
+    .forms-layouts-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .forms-layouts-entity-with-margin {
+        margin-bottom: 1.5rem;
+    }
+
+    .smart-form {
+        width: 100%;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 992px) {
+        .forms-layouts-entity-lg-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Smart HTML Elements | Admin & Dashboard Template With Bootstrap</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css"
+        integrity="sha512-pkOzvsY+X67Lfs6Yr/dbx+utt/C90MITnkwx8X5fyKkBorWHJLlR3TmgNJs83URAR0GdejZZnjZdgYjzL/mtcQ=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" type="text/css" href="./common-layout.css" />
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="../../source/modules/smart.chart.js"></script>
+    <script type="module" src="../../source/modules/smart.input.js"></script>
+    <script type="module" src="../../source/modules/smart.datetimepicker.js"></script>
+    <script type="module" src="../../source/modules/smart.router.js"></script>
+    <script type="module" src="../../source/modules/smart.table.js"></script>
+    <script type="module" src="../../source/modules/smart.tree.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./routing.js"></script>
+</head>
+
+<body>
+    <div id="primaryContainer">
+        <div id="sideBar">
+            <div id="logoContainer">
+                <img src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg">
+            </div>
+            <div id="treeContainer">
+                <smart-tree id="tree" expand-mode="single" selected-indexes='["1.0"]' selection-mode="one"
+                    selection-target="leaf" toggle-element-position="far" toggle-mode="click">
+                    <smart-tree-item id="pagesLabel" label="pagesTemplate"></smart-tree-item>
+                    <smart-tree-item>
+                        <span class="material-icons">room</span>
+                        <a href="./">Regional Sales</a>
+                    </smart-tree-item>
+                    <smart-tree-item>
+                        <span class="material-icons">flag</span>
+                        <a href="./countries">Countries & GDP</a>
+                    </smart-tree-item>
+                    <smart-tree-item>
+                        <span class="material-icons">group</span>
+                        <a href="./team">Team Efficiency</a>
+                    </smart-tree-item>
+                    <smart-tree-item>
+                        <span class="material-icons">help_outline</span>
+                        <a href="./about">About</a>
+                    </smart-tree-item>
+                </smart-tree>
+            </div>
+        </div>
+        <div id="secondaryContainer">
+            <div id="header">
+                <div id="toggleButton"></div>
+                <smart-input placeholder="Search projects..."></smart-input>
+
+                <smart-date-time-picker id="startDate" calendar-button format-string="d" auto-close="true">
+                </smart-date-time-picker>
+                <smart-date-time-picker id="endDate" calendar-button format-string="d" auto-close="true">
+                </smart-date-time-picker>
+            </div>
+            <div id="content"></div>
+            <div id="footer">
+                <a href="https://www.htmlelements.com/forums/" target="_blank" class="styled">Support</a>
+                <a href="https://www.htmlelements.com/faq/" target="_blank" class="styled">Help Center</a>
+                <a href="https://www.htmlelements.com/privacy-policy/" target="_blank" class="styled">Privacy</a>
+                <a href="https://www.htmlelements.com/terms-of-use/" target="_blank" class="styled">Terms of Service</a>
+                <div>© 2021 - <a href="https://www.htmlelements.com/" target="_blank" class="styled">jQWidgets</a></div>
+            </div>
+        </div>
+        <div id="settingsButton"></div>
+    </div>
+
+    <div id="settingsPanel" class="smart-hiddedn">
+        <div id="settingsLabel"><span>Settings</span><span id="settingsCloseButton"></span></div>
+        <div id="settingsContent">
+            <div class="label">LAYOUTS</div>
+            <smart-check-box id="toggleStickySidebar">Sticky Sidebar</smart-check-box>
+            <smart-check-box id="toggleCollapsedSidebar">Collapsed Sidebar</smart-check-box>
+            <smart-check-box id="toggleBoxedLayout">Boxed Layout</smart-check-box>
+            <div class="label">THEMES</div>
+            <img id="lightThemePreview" class="theme-preview" src="../../images/theme-light.png" />
+            <div class="theme-label">Light</div>
+            <img id="darkThemePreview" class="theme-preview" src="../../images/theme-dark.png" />
+            <div class="theme-label">Dark</div>
+            <smart-button id="buy" class="primary"><span class="material-icons">shopping_cart</span>Buy Smart
+            </smart-button>
+        </div>
+    </div>
+
+    <smart-menu id="messagesMenu" class="special-menu" mode="dropDown">
+        <smart-menu-item label="newMessages" class="menu-header"></smart-menu-item>
+        <smart-menu-item>
+            <img src="../../images/phonebook/michael.png" />
+            <div class="name">Frederick Murphy</div>
+            <div class="content">Lorem ipsum dolor sit amet.</div>
+            <div class="time">7 min ago</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <img src="../../images/phonebook/maya.png" />
+            <div class="name">Eva Hayes</div>
+            <div class="content">Nulla porta, risus in suscipit tincidunt.</div>
+            <div class="time">1 hour ago</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <img src="../../images/phonebook/maria.png" />
+            <div class="name">Joyce Scott</div>
+            <div class="content">Maecenas eleifend, nunc eu convallis mollis, ante lacus euismod elit, iaculis tempor ex
+                sapien quis est.</div>
+            <div class="time">Yesterday</div>
+        </smart-menu-item>
+        <smart-menu-item label="showAllMessages" class="menu-footer"></smart-menu-item>
+    </smart-menu>
+
+    <smart-menu id="notificationsMenu" class="special-menu" mode="dropDown">
+        <smart-menu-item label="newNotifications" class="menu-header"></smart-menu-item>
+        <smart-menu-item>
+            <span class="material-icons">stay_current_portrait</span>
+            <div class="name">New device detected</div>
+            <div class="content">Login from a new device has been detected.</div>
+            <div class="time">2 hours ago</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <span class="material-icons">person_add</span>
+            <div class="name">Friend request</div>
+            <div class="content">Joyce Scott has been added as a friend.</div>
+            <div class="time">3 hours ago</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <span class="material-icons">healing</span>
+            <div class="name">Downtime</div>
+            <div class="content">Our servers will undertake maintenance tomorrow.</div>
+            <div class="time">Yesterday</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <span class="material-icons">person_add</span>
+            <div class="name">Friend request</div>
+            <div class="content">Nathan Hoffman has been added as a friend.</div>
+            <div class="time">3 days ago</div>
+        </smart-menu-item>
+        <smart-menu-item label="showAllNotifications" class="menu-footer"></smart-menu-item>
+    </smart-menu>
+
+    <smart-menu id="languageMenu" mode="dropDown">
+        <smart-menu-item><img src="https://img.icons8.com/office/30/000000/usa.png" /> English</smart-menu-item>
+        <smart-menu-item><img src="https://img.icons8.com/office/30/000000/china.png" /> Chinese</smart-menu-item>
+        <smart-menu-item><img src="https://img.icons8.com/office/30/000000/spain.png" /> Spanish</smart-menu-item>
+        <smart-menu-item><img src="https://img.icons8.com/office/30/000000/india.png" /> Hindi</smart-menu-item>
+        <smart-menu-item><img src="https://img.icons8.com/office/30/000000/russian-federation.png" /> Russian
+        </smart-menu-item>
+    </smart-menu>
+
+    <smart-menu id="profileMenu" mode="dropDown">
+        <smart-menu-item><span class="material-icons">supervised_user_circle</span>Profile</smart-menu-item>
+        <smart-menu-item separator><span class="material-icons">pie_chart</span>Analytics</smart-menu-item>
+        <smart-menu-item>Settings & Privacy</smart-menu-item>
+        <smart-menu-item>Help</smart-menu-item>
+        <smart-menu-item>Sign out</smart-menu-item>
+    </smart-menu>
+
+    <template id="pagesTemplate">PAGES</template>
+    <template id="toolsTemplate">TOOLS & COMPONENTS</template>
+    <template id="pluginTemplate">PLUGIN & ADDONS</template>
+
+    <template id="newMessages"><strong>3 New Messages</strong></template>
+    <template id="showAllMessages">Show all messages</template>
+    <template id="newNotifications"><strong>4 New Notifications</strong></template>
+    <template id="showAllNotifications">Show all notifications</template>
+
+    <template id="analytics">Analytics</template>
+</body>
+
+</html>

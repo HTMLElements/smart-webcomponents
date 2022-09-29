@@ -1,0 +1,404 @@
+<div class="container project-detail">
+    <div class="custom-row">
+        <div class="custom-col project-detail-header">
+            <h4>Project Detail</h4>
+        </div>
+    </div>
+
+    <div class="custom-row cards-row">
+        <div class="custom-col col-entity-md-3 cards-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h6 class="font-weight-bold mb-0">Income</h6>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <!--<span class="smart-badge smart-badge-success">Today</span>-->
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h5 class="mb-0">$53.305</h5>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <span>91%</span>
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity-12">
+                            <smart-progress-bar [value]="91" class="success"></smart-progress-bar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col col-entity-md-3 cards-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h6 class="font-weight-bold mb-0">Orders</h6>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <!--<span class="smart-badge smart-badge-warning">Annaul</span>-->
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h5 class="mb-0">9.809</h5>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <span>23%</span>
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity-12">
+                            <smart-progress-bar [value]="23" class="warning"></smart-progress-bar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col col-entity-md-3 cards-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h6 class="font-weight-bold mb-0">Activity</h6>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <!--<span class="smart-badge smart-badge-primary">Monthly</span>-->
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h5 class="mb-0">17.380</h5>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <span>50%</span>
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity-12">
+                            <smart-progress-bar [value]="50" class="primary"></smart-progress-bar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col col-entity-md-3 cards-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h6 class="font-weight-bold mb-0">Revenue</h6>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <!--<span class="smart-badge smart-badge-info">Yearly</span>-->
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity">
+                            <h5 class="mb-0">$28.940</h5>
+                        </div>
+                        <div class="custom-col col-entity text-right">
+                            <span>41%</span>
+                        </div>
+                    </div>
+
+                    <div class="custom-row card-content-row">
+                        <div class="custom-col col-entity-12">
+                            <smart-progress-bar [value]="41" class="info"></smart-progress-bar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-row comments-info-earnings-row">
+        <div class="custom-col col-entity-lg-8">
+            <div id="project-detail-card1" class="custom-card">
+                <div class="card-header">
+                    <h4 class="label">Red beryl</h4>
+                    <div class="settings-button" #redBerylButton (click)="toggleMenu(redBerylButton)"
+                        (pointerup)="stopPropagation($event)">…</div>
+                </div>
+                <div class="card-body">
+                    <span class="smart-badge smart-badge-warning smart-badge-pill">In progress</span>
+                    <h6 class="font-weight-bold project-description">Description</h6>
+
+                    <p>Vivamus convallis scelerisque finibus. Mauris at nulla lacinia sapien fringilla aliquam
+                        quis vel nisl. Nullam rutrum neque nibh, vel tempor massa tincidunt vitae. Vivamus
+                        aliquet malesuada nisl rhoncus porttitor. Donec sollicitudin, dolor placerat mollis
+                        dictum, tortor lectus convallis est, dictum bibendum sapien elit at orci. Sed quis
+                        gravida nulla.
+                    </p>
+
+                    <h6 class="font-weight-bold project-asignees">Asignees</h6>
+                    <div class="d-flex flex-wrap">
+                        <div class="img-as-background">
+                            <img src="assets/images/phonebook/johnny.png">
+                        </div>
+                        <div class="img-as-background">
+                            <img src="assets/images/phonebook/monica.png">
+                        </div>
+                        <div class="img-as-background">
+                            <img src="assets/images/phonebook/margaret.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-card comments-card">
+                <div class="card-header">
+                    <h4 class="label">Comments <span
+                            class="smart-badge smart-badge-primary smart-badge-pill ml-2">2</span></h4>
+                    <div class="settings-button" #commentsButton (click)="toggleMenu(commentsButton)"
+                        (pointerup)="stopPropagation($event)">…</div>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="comment-wrapper">
+                        <div class="avatar-holder">
+                            <div class="img-as-background square rounded-circle w-60px border">
+                                <img src="../../../../../assets/images/phonebook/monica.png" />
+                            </div>
+                        </div>
+
+                        <div class="comment-content">
+                            <div class="custom-row name-row">
+                                <div class="custom-col col-entity">
+                                    <h6 class="font-weight-bold">Sarah Little</h6>
+                                </div>
+                                <div class="custom-col col-entity text-right">
+                                    <small class="text-muted">Now</small>
+                                </div>
+                            </div>
+
+                            <div class="content-row">
+                                Vivamus in ante at sapien faucibus convallis in volutpat ante. Pellentesque tempus
+                                ultrices ex, quis sagittis odio varius eget. In luctus risus tellus, at egestas libero
+                                pretium eu. Duis porttitor pulvinar laoreet.
+                            </div>
+
+                            <div class="meta">
+                                <small class="text-muted">Today, 11:30 pm</small>
+                            </div>
+
+                            <div class="comments">
+                                <h6 class="font-weight-bold">Replies:</h6>
+                                <div class="comment">
+                                    <div class="avatar-holder">
+                                        <div class="img-as-background square rounded-circle w-30px border">
+                                            <img src="../../../../../assets/images/phonebook/johnny.png" />
+                                        </div>
+                                    </div>
+
+                                    <div class="content"><strong>Zack Turner:</strong> In luctus!</div>
+                                </div>
+
+                                <div class="comment">
+                                    <div class="avatar-holder">
+                                        <div class="img-as-background square rounded-circle w-30px border">
+                                            <img src="../../../../../assets/images/phonebook/maya.png" />
+                                        </div>
+                                    </div>
+
+                                    <div class="content"><strong>Eva Hayes:</strong> Thanks for your opinion.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment-wrapper">
+                        <div class="avatar-holder">
+                            <div class="img-as-background square rounded-circle w-65px border">
+                                <img src="../../../../../assets/images/phonebook/margaret.png" />
+                            </div>
+                        </div>
+                        <div class="comment-content">
+                            <div class="custom-row name-row">
+                                <div class="custom-col col-entity">
+                                    <h6 class="font-weight-bold">Eva Hayes</h6>
+                                </div>
+                                <div class="custom-col col-entity text-right">
+                                    <small class="text-muted">7m ago</small>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                Nulla rutrum justo vel ex gravida tincidunt sit amet quis diam. Morbi eu hendrerit
+                                ipsum, at semper lacus. Morbi condimentum sollicitudin ipsum, in euismod elit facilisis
+                                varius?
+                                <br />
+                                <br />
+                                <pre><code>console.log("Hello, world!")</code></pre>
+                            </div>
+                            <div class="meta">
+                                <small class="text-muted">Today, 11:23 am</small>
+                            </div>
+                            <div class="comments">
+                                <h6 class="font-weight-bold">Comments:</h6>
+                                <div class="comment">
+                                    <div class="avatar-holder">
+                                        <div class="img-as-background square rounded-circle w-30px border">
+                                            <img src="../../../../../assets/images/phonebook/monica.png" />
+                                        </div>
+                                    </div>
+
+                                    <div class="content "><strong>Sarah Little:</strong>
+                                        <pre><code>alert('Hello, world!');</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col col-entity-lg-4">
+            <div class="custom-card">
+                <div class="card-header">
+                    <h4 class="label">Information</h4>
+                    <div class="settings-button" #infoButton (click)="toggleMenu(infoButton)"
+                        (pointerup)="stopPropagation($event)">…</div>
+                </div>
+
+                <div class="card-body">
+                    <div class="info-row">
+                        <div class="custom-row align-items-center">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Assignees</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <div class="d-flex flex-wrap">
+                                    <div class="img-as-background">
+                                        <img src="../../../../../assets/images/phonebook/johnny.png">
+                                    </div>
+                                    <div class="img-as-background">
+                                        <img src="../../../../../assets/images/phonebook/monica.png">
+                                    </div>
+                                    <div class="img-as-background">
+                                        <img src="../../../../../assets/images/phonebook/margaret.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="custom-row align-items-center">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Supervisor</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <div class="d-flex flex-wrap">
+                                    <div class="img-as-background">
+                                        <img src="../../../../../assets/images/phonebook/laura.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-row created-started-ended-row">
+                        <div class="custom-row align-items-center">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Created</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <span>7 November 2019</span>
+                            </div>
+                        </div>
+
+                        <div class="custom-row justify-content-between">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Started</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <span>8 January 2020</span>
+                            </div>
+                        </div>
+
+                        <div class="custom-row justify-content-between">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Ended</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <span>21 February 2022</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-row budget-row">
+                        <div class="custom-row align-items-center">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Budget</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <span>$302,059</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-row progress-logged-estimated-row">
+                        <div class="custom-row align-items-center">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Status</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <span class="smart-badge smart-badge-warning smart-badge-pill">In progress</span>
+                            </div>
+                        </div>
+
+                        <div class="custom-row align-items-center">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Logged</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <span>192 h</span>
+                            </div>
+                        </div>
+
+                        <div class="custom-row justify-content-between">
+                            <div class="custom-col custom-col-5">
+                                <h6 class="font-weight-bold mb-0">Estimated</h6>
+                            </div>
+                            <div class="custom-col custom-col-7">
+                                <span>1110 h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-card">
+                <div class="card-header">
+                    <h4 class="label">Earnings</h4>
+                    <div class="settings-button" #chartButton (click)="toggleMenu(chartButton)"
+                        (pointerup)="stopPropagation($event)">…</div>
+                </div>
+                <div class="card-body">
+                    <smart-chart #earningsChart class="projects-detail-earnings-chart h-100 w-100"
+                        [animation]="earningsChartData.animation" [theme]="earningsChartData.theme!"
+                        [caption]="earningsChartData.caption" [description]="earningsChartData.description"
+                        [showLegend]="earningsChartData.showLegend" [showBorderLine]="earningsChartData.showBorderLine"
+                        [padding]="earningsChartData.padding" [dataSource]="earningsChartData.dataSource"
+                        [seriesGroups]="earningsChartData.seriesGroups" [colorScheme]="earningsChartData.colorScheme">
+                    </smart-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

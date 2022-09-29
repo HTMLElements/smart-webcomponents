@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Smart HTML Elements | Landing Page Template With Bootstrap</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" href="./favicon.ico"/>
+
+    <link href="./assets/css/main.css" rel="stylesheet"/>
+    <link href="./assets/plugins/ui/assets/ui/plugins/css/plugins.min.css" rel="stylesheet"/>
+
+    <!--If you wish to compile your preferred scripts as one file please read ReadMe.md file-->
+    <link href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet"/>
+
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="navigation-sticky">
+<div class="js-ajax-loading">
+    <div class="w-100">
+        <a href="#"><img src="assets/images/logo-jqwidgets.svg"/></a>
+    </div>
+</div>
+
+<div class="main">
+    <div class="navigation-holder">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white header-style-2">
+            <div class="container">
+                <div class="order-1 order-lg-1 d-flex justify-content-between flex-row-reverse d-lg-block flex-sm-row">
+                    <div class="d-flex align-items-center">
+                        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+
+                    <div class="w-auto d-inline-block">
+                        <a href="#"><img src="assets/images/logo-jqwidgets.svg" style="max-width: 230px;"/></a>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse w-auto order-3 order-lg-2" id="navbarSupportedContent">
+                    <div class="nav-holder mx-auto">
+                        <smart-menu id="tree">
+                            <ul>
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#services">Services</a></li>
+                                <li><a href="#about">About us</a></li>
+                                <li><a href="#team">Our team</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                                <li><a href="#contacts">Contacts</a></li>
+                            </ul>
+                        </smart-menu>
+                    </div>
+                </div>
+
+                <ul class="nav nav-navbar align-items-center justify-content-end mw-200 order-2 order-lg-3">
+                    <li class="nav-item dropdown btn-phone pl-3"><span class="text-primary font-weight-bold">CALL US <i class="mdi mdi-cellphone-android"></i> 0700 123 45</span></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div id="home">
+            <smart-carousel id="carousel" class="slide slider-style-full-screen" slide-show loop item-template="itemTemplate"></smart-carousel>
+
+            <template id="itemTemplate">
+                <div class="smart-slide-wrapper" style="background-image: url('{{image}}');">
+                    <div class="content-holder">
+                        <h1 class="header">{{label}}</h1>
+                        <p class="content">{{content}}</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div data-aos="fade-up">
+            <section class="section pt-8 pb-7" id="services">
+                <div class="container" style="max-width:750px;">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h2 class="hr">Build a Professional Website</h2>
+                            <p class="lead-2">Our components allows you to create a professional dynamic websites. Try our free version to learn more about the benefits of our smart components.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="layout-1 py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-12 col-xl-12 mx-auto">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-4 my-2">
+                                    <smart-card class="">
+                                        <div class="card shadow-4 hover-shadow-8">
+                                            <div class="stamp"><i class="mdi mdi-owl"></i></div>
+
+                                            <div>
+                                                <h4 class="mb-3">Smart Components</h4>
+                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when.</p>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 my-2">
+                                    <smart-card class="">
+                                        <div class="card shadow-4 hover-shadow-8">
+                                            <div class="stamp"><i class="mdi mdi-pencil-ruler"></i></div>
+
+                                            <div>
+                                                <h4 class="mb-3">Dynamic Websites</h4>
+                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when.</p>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+
+                                <div class="col-sm-12 col-lg-4 my-2">
+                                    <smart-card class="">
+                                        <div class="card shadow-4 hover-shadow-8">
+                                            <div class="stamp"><i class="mdi mdi-monitor-cellphone"></i></div>
+
+                                            <div>
+                                                <h4 class="mb-3">Easy Interfaces</h4>
+                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when.</p>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="section pt-9 pb-7" id="about" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="hr">Create a Smart Website with jQWidgets</h2>
+                        <div class="m-auto" style="max-width: 800px;">
+                            <p class="lead">Includes all enterprise standards, such as accessibility, i18n, theming, rtl, localization, etc.<br> Web Components built with Vanilla JS, CSS and HTML.<br> IntelliSense support and compile time type-checking with Typescript</p>
+                        </div>
+                        <div class="mt-5">
+                            <a href="#" class="btn btn-primary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="layout-3" data-aos="fade-right">
+            <div class="container-fluid">
+                <div class="row flexbox-container">
+                    <div class="col-12 col-lg-6 col-xl-5 img-holder" style="background-image: url('assets/images/layouts/img-1.jpg');"></div>
+
+                    <div class="col-12 col-lg-6 col-xl-7 right-side text-center text-lg-left">
+                        <div class="info-holder shadow-4 hover-shadow-8">
+                            <h2 class="mb-4">Outstanding Performance</h2>
+                            <p class="lead">Carefully optimized to deliver great performance on a wide range of devices and browsers. Small in size, highly modular and responsive web components.</p>
+
+                            <br>
+                            <a href="#" class="btn btn-primary">More about this</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="layout-2" data-aos="fade-left">
+            <div class="container-fluid">
+                <div class="row flexbox-container">
+                    <div class="col-12 col-lg-6 col-xl-7 left-side text-center text-lg-left">
+                        <div class="info-holder shadow-4 hover-shadow-8">
+                            <h2 class="mb-4">Across Devices & Browsers</h2>
+                            <p class="lead">Smart is new, modern, easy, platform independent, cross-browser compatible, Responsive and adjusts for the best user experience across devices. Implements Google's Material Design.</p>
+                            <br>
+                            <a href="#" class="btn btn-primary">More about this</a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-xl-5 img-holder" style="background-image: url('assets/images/layouts/img-2.png');"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="layout-4 pt-8 pb-3" id="team" data-aos="fade-right">
+            <div class="d-flex w-100">
+                <div class="container align-self-centerx">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-8 text-center mb-6 mx-auto">
+                            <h2 class="mb-3">Our Team</h2>
+                            <p class="lead-2">It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout. </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-12 col-xl-12 mx-auto">
+                            <div class="row text-center text-white">
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <smart-card class="w-100">
+                                        <div class="background-image-holder" style="background-image: url('assets/images/team/people-1.jpg');">
+                                            <div class="square">
+                                                <div class="content">
+                                                    <h5>Charley Doe</h5>
+                                                    <p class="mb-3">Charley is a senior developer in our company. He is doing great code and software solutions. Educated in Sofia, Bulgaria.</p>
+
+                                                    <div class="socials-holder">
+                                                        <ul class="socials">
+                                                            <li><a href="//facebook.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="mdi mdi-facebook"></i></a></li>
+                                                            <li><a href="//twitter.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="mdi mdi-twitter"></i></a></li>
+                                                            <li><a href="//pinterest.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="mdi mdi-pinterest"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <smart-card class="w-100">
+                                        <div class="background-image-holder" style="background-image: url('assets/images/team/people-2.jpg');">
+                                            <div class="square">
+                                                <div class="content">
+                                                    <h5>John Doe</h5>
+                                                    <p class="mb-3">John is a senior developer in our company. He is doing great code and software solutions. Educated in Sofia, Bulgaria.</p>
+
+                                                    <div class="socials-holder">
+                                                        <ul class="socials">
+                                                            <li><a href="//facebook.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="mdi mdi-facebook"></i></a></li>
+                                                            <li><a href="//twitter.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="mdi mdi-twitter"></i></a></li>
+                                                            <li><a href="//pinterest.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="mdi mdi-pinterest"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <smart-card class="w-100">
+                                        <div class="background-image-holder" style="background-image: url('assets/images/team/people-3.jpg');">
+                                            <div class="square">
+                                                <div class="content">
+                                                    <h5>Peter Smith</h5>
+                                                    <p class="mb-3">Peter is a senior developer in our company. He is doing great code and software solutions. Educated in Sofia, Bulgaria.</p>
+
+                                                    <div class="socials-holder">
+                                                        <ul class="socials">
+                                                            <li><a href="//facebook.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="mdi mdi-facebook"></i></a></li>
+                                                            <li><a href="//twitter.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="mdi mdi-twitter"></i></a></li>
+                                                            <li><a href="//pinterest.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="mdi mdi-pinterest"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <smart-card class="w-100">
+                                        <div class="background-image-holder" style="background-image: url('assets/images/team/people-4.jpg');">
+                                            <div class="square">
+                                                <div class="content">
+                                                    <h5>Trisha Doe</h5>
+                                                    <p class="mb-3">Trisha is a senior developer in our company. He is doing great code and software solutions. Educated in Sofia, Bulgaria.</p>
+
+                                                    <div class="socials-holder">
+                                                        <ul class="socials">
+                                                            <li><a href="//facebook.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="mdi mdi-facebook"></i></a></li>
+                                                            <li><a href="//twitter.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="mdi mdi-twitter"></i></a></li>
+                                                            <li><a href="//pinterest.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="mdi mdi-pinterest"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <smart-card class="w-100">
+                                        <div class="background-image-holder" style="background-image: url('assets/images/team/people-5.jpg');">
+                                            <div class="square">
+                                                <div class="content">
+                                                    <h5>Lucas Doe</h5>
+                                                    <p class="mb-3">Lucas is a senior developer in our company. He is doing great code and software solutions. Educated in Sofia, Bulgaria.</p>
+
+                                                    <div class="socials-holder">
+                                                        <ul class="socials">
+                                                            <li><a href="//facebook.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="mdi mdi-facebook"></i></a></li>
+                                                            <li><a href="//twitter.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="mdi mdi-twitter"></i></a></li>
+                                                            <li><a href="//pinterest.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="mdi mdi-pinterest"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <smart-card class="w-100">
+                                        <div class="background-image-holder" style="background-image: url('assets/images/team/people-6.jpg');">
+                                            <div class="square">
+                                                <div class="content">
+                                                    <h5>Jena Doe</h5>
+                                                    <p class="mb-3">Jena is a senior developer in our company. He is doing great code and software solutions. Educated in Sofia, Bulgaria.</p>
+
+                                                    <div class="socials-holder">
+                                                        <ul class="socials">
+                                                            <li><a href="//facebook.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="mdi mdi-facebook"></i></a></li>
+                                                            <li><a href="//twitter.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="mdi mdi-twitter"></i></a></li>
+                                                            <li><a href="//pinterest.com/" target="_blank" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="mdi mdi-pinterest"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-card>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq" data-aos="fade-down">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-10 mx-auto text-center mb-4">
+                        <h2 class="mb-3">FAQ</h2>
+                        <p class="lead-2">Read our frequently asked questions before contact us.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8 mx-auto">
+                        <smart-accordion class="w-100 mx-auto">
+                            <smart-accordion-item label="What technology is Smart HTML Elements built on?">
+                                Smart HTML Elements is a 100% pure javascript library framework for building modern responsive web sites and mobile web applications that work on any device and any modern web browser. All Web components in the suite are built from scratch using only HTML, CSS and Javascript(ES6) and are based on our own Core framework. The suite does not have any dependencies on any frameworks.
+                            </smart-accordion-item>
+                            <smart-accordion-item label="Can I use Smart HTML Elements with PHP, ASP .NET, ASP .NET MVC, Angular, React, Bootstrap?">
+                                Smart HTML Elements is a 100% pure javascript library framework for building modern responsive web sites and mobile web applications that work on any device. As it does not have any framework dependencies, you can use it in any Web or Mobile project.
+                            </smart-accordion-item>
+                            <smart-accordion-item label="How is Smart HTML Elements licensed?">
+                                Smart HTML Elements is shipped in two versions: Community and Professional. The Community version is licensed under the permissive Apache v2 license. The Professional version is licensed under a commercial license. The commercial licenses are perpetual and include one year of support, maintenance and upgrades. You can purchase a commercial license from our website: Pricing
+                            </smart-accordion-item>
+                            <smart-accordion-item label="How do you define a developer?">
+                                Each person who directly or indirectly develops an application, website or other product that uses Smart HTML Elements is considered a developer.
+                            </smart-accordion-item>
+                        </smart-accordion>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contacts" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-10 mx-auto text-center mb-4">
+                        <h2 class="mb-3">Need more help?</h2>
+                        <p class="lead-2">Send us an email with your questions.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-7 mx-auto">
+                        <div class="alert alert-success mb-5" style="display: none;">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong>Thank You!</strong> Your message successfully sent!
+                        </div>
+
+                        <form id="contactForm" class="form w-100">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <smart-input placeholder="Your Name" class="form-control" form-control-name="name"></smart-input>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <smart-input placeholder="E-mail Address" class="form-control" form-control-name="email"></smart-input>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <smart-masked-text-box class="form-control" form-control-name="phone" mask="+1 (###) ###-####"></smart-masked-text-box>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <smart-date-time-picker placeholder="Make an appointment" class="form-control" form-control-name="appointment" calendar-button enable-mouse-wheel-action drop-down-position="center-bottom" spin-buttons spin-buttons-position="left"></smart-date-time-picker>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <smart-text-area class="form-control" form-control-name="message" placeholder="Message"></smart-text-area>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div id="log" class="mb-3 p-3" style="border: 1px dashed silver;"></div>
+                                </div>
+
+                                <div class="col-12 text-center submit">
+                                    <smart-button class="primary" form-control-name="submit" type="button">Submit</smart-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <footer class="footer bg-white mb-5">
+        <div class="container">
+            <div class="row gap-y align-items-center">
+                <div class="col-md-auto text-center text-md-left my-3">
+                    <a href="#" class=""><img src="assets/images/logo-jqwidgets.svg" style="max-width: 200px;"/></a>
+                </div>
+
+                <div class="col-md text-center my-3"></div>
+
+                <div class="col-md-auto text-center text-md-right my-3">
+                    <p class="m-0">All Rights Reserved © <?php date('Y'); ?> - jqWidgets.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<button id="to-top" class="btn btn-primary btn-square" style="display: block;"><i class="mdi mdi-arrow-up mdi-18px lh-1 m-0"></i></button>
+
+<!--jQuery and Plugins-->
+<script src="./assets/plugins/ui/assets/ui/plugins/js/plugins.js"></script>
+
+<!--Smart Elements-->
+<script type="module" src="../../source/modules/smart.input.js"></script>
+<script type="module" src="../../source/modules/smart.table.js"></script>
+<script type="module" src="../../source/modules/smart.tree.js"></script>
+<script type="module" src="../../source/modules/smart.menu.js"></script>
+<script type="module" src="../../source/modules/smart.carousel.js"></script>
+<script type="module" src="../../source/modules/smart.card.js"></script>
+<script type="module" src="../../source/modules/smart.form.js"></script>
+<script type="module" src="../../source/modules/smart.input.js"></script>
+<script type="module" src="../../source/modules/smart.button.js"></script>
+<script type="module" src="../../source/modules/smart.radiobutton.js"></script>
+<script type="module" src="../../source/modules/smart.validator.js"></script>
+<script type="module" src="../../source/modules/smart.datetimepicker.js"></script>
+<script type="module" src="../../source/modules/smart.numerictextbox.js"></script>
+<script type="module" src="../../source/modules/smart.textbox.js"></script>
+<script type="module" src="../../source/modules/smart.accordion.js"></script>
+<script type="module" src="../../source/modules/smart.tooltip.js"></script>
+
+<script type="text/javascript" src="./index.js"></script>
+
+<!--Then Template Scripts-->
+<script src="./assets/js/main.js"></script>
+</body>
+</html>

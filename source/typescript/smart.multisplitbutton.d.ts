@@ -15,7 +15,7 @@ export interface ListItemProperties {
    * 
    * Default value: plain
    */
-  displayMode?: ListItemDisplayMode;
+  displayMode?: ListItemDisplayMode | string;
   /**
    * 
    * Default value: false
@@ -109,7 +109,7 @@ export interface MultiSplitButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines a data source used to generate element's permanently visible buttons.
    * Default value: 
@@ -144,12 +144,12 @@ export interface MultiSplitButtonProperties {
    * Determines position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Defines how element's drop down behaves. In 'none' mode drop down never opens. In 'dropDownButton' mode drop down is opened only via elelent's drop down button. In 'auto' mode drop down is opened on click on the whole top section.
    * Default value: dropDownButton
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document.
    * Default value: false
@@ -159,7 +159,7 @@ export interface MultiSplitButtonProperties {
    * Determines the vertical position of the dropDown list. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Determines whether the Filtering is enabled.
    * Default value: false
@@ -169,7 +169,7 @@ export interface MultiSplitButtonProperties {
    * Determines the filtering for the drop down list mode.
    * Default value: startsWithIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * Determines the placeholder for the drop down list filter input field.
    * Default value: ""
@@ -194,7 +194,7 @@ export interface MultiSplitButtonProperties {
    * Sets ot gets the mode of the incremental search mode.
    * Default value: startsWithIgnoreCase
    */
-  incrementalSearchMode?: SearchMode;
+  incrementalSearchMode?: SearchMode | string;
   /**
    * Determines the height of the items.
    * Default value: null
@@ -214,7 +214,7 @@ export interface MultiSplitButtonProperties {
    * The position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -266,7 +266,7 @@ export interface MultiSplitButtonProperties {
    * Determines how many items can be selected.
    * Default value: one
    */
-  selectionMode?: MultiSplitButtonSelectionMode;
+  selectionMode?: MultiSplitButtonSelectionMode | string;
   /**
    * Determines whether the items in the dropDown are sorted alphabetically or not
    * Default value: false

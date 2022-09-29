@@ -1,0 +1,129 @@
+.analytics {
+    .analytics-languages-table smart-progress-bar {
+        width: 100%;
+    }
+
+    .header-menu {
+        display: grid;
+        grid-template-columns: 1fr 35px 35px;
+        grid-template-rows: 35px 35px;
+        grid-template-areas: "welcome welcome welcome" "today filter refresh";
+        gap: 5px;
+        justify-content: start;
+        margin-bottom: 20px;
+
+        .welcome {
+            font-size: 1.5rem;
+            font-weight: bold;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            grid-area: welcome;
+        }
+
+        .today-button {
+            margin-left: auto;
+            width: 133px;
+            grid-area: today;
+
+            button {
+                display: flex;
+                align-items: center;
+            }
+
+            button > * {
+                margin: 0 5px;
+            }
+        }
+
+        smart-button {
+            --smart-button-padding: 5px;
+        }
+
+        .smart-button:last-child {
+            grid-area: refresh;
+        }
+
+        .smart-button:nth-last-child(2) {
+            grid-area: filter;
+        }
+    }
+
+    .cards-row,
+    .langs-mobileDesktop-Interests-row {
+        margin-bottom: 1.5rem;
+    }
+
+    .cards-row {
+        .custom-row {
+            margin-left: -10px;
+            margin-right: -10px;
+
+            .custom-col {
+                padding-left: 10px;
+                padding-right: 10px;
+
+                .custom-row {
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .custom-row:not(:last-child) {
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+
+        .card-col {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body > .custom-row {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .analytics-languages-table-wrapper {
+        max-height: 300px;
+    }
+
+    .source-traffic-row {
+        .analytics-sourceChart {
+            height: auto;
+            padding: 0;
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .traffic-table-wrapper {
+        max-height: 350px;
+    }
+
+    @media (min-width: 768px) {
+        .header-menu {
+            grid-template-columns: 1fr auto 35px 35px;
+            grid-template-rows: 35px;
+            grid-template-areas: "welcome today filter refresh";
+        }
+
+        .col-entity-md-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+
+        .col-entity-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .col-entity-md-8 {
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
+        .cards-row {
+            .custom-col {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

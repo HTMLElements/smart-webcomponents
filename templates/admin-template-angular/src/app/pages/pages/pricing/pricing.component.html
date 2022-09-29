@@ -1,0 +1,129 @@
+<div class="container pricing">
+
+    <div class="pricing-header">
+        <h3>Plans for Business or Individual Customers</h3>
+        <div class="pricing-header-trial">Now with a 7-day free trial!</div>
+        <smart-button-group #buttongroup id="buttonGroup" data-source='["Monthly billing", "Annual billing"]'
+            (onChange)="setPrice()"></smart-button-group>
+    </div>
+
+    <div class="pricing-plans custom-row">
+        <div class="pricing-plan custom-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="pricing-info">
+                            <h6 class="font-weight-bold">Community</h6>
+                            <span class="display-3">$0</span>
+                            <p class="font-weight-bold pricing-includes">Includes:</p>
+                            <p>Free</p>
+                            <p>Use in unlimited Web applications, SaaS projects, intranets and websites.</p>
+                            <p>Perpetual and royalty free</p>
+                            <p>Source code</p>
+                        </div>
+                        <div class="pricing-sign-up">
+                            <smart-button class="primary outlined">Sign up</smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-plan custom-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="pricing-info">
+                            <h6 class="font-weight-bold">Developer</h6>
+                            <span class="display-3">${{developerPrice}}</span>
+                            <p class="font-weight-bold pricing-includes">Includes:</p>
+                            <p>1 Developer</p>
+                            <p>Use in unlimited Web applications, SaaS projects, intranets and websites.</p>
+                            <p>Perpetual and royalty free</p>
+                            <p>Source code</p>
+                            <p>Premium Support</p>
+                        </div>
+                        <div class="pricing-sign-up">
+                            <smart-button class="primary">Sign up</smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-plan custom-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="pricing-info">
+                            <h6 class="font-weight-bold">Team</h6>
+                            <span class="display-3">${{teamPrice}}</span>
+                            <p class="font-weight-bold pricing-includes">Includes:</p>
+                            <p>5 Developers</p>
+                            <p>Use in unlimited Web applications, SaaS projects, intranets and websites.</p>
+                            <p>Perpetual and royalty free</p>
+                            <p>Limited access to Source Code</p>
+                            <p>Community Support</p>
+                        </div>
+                        <div class="pricing-sign-up">
+                            <smart-button class="primary outlined">Sign up</smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-spacer">
+        <div class="border-bottom"></div>
+    </div>
+
+    <div class="pricing-frequently-questions-upper custom-row">
+        <div class="pricing-frequently-questions-upper-header custom-col">
+            <h5 class="font-weight-bold">Frequently asked questions (FAQ)</h5>
+        </div>
+
+        <div class="pricing-frequently-question custom-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <p class="font-weight-bold">Duis arcu turpis, pulvinar?</p>
+                    <p>Ut finibus ipsum nulla, at tincidunt lacus elementum ullamcorper. Duis arcu turpis, pulvinar ut
+                        orci sit amet, accumsan gravida felis. Nulla facilisi. Aenean ut sollicitudin erat. Suspendisse
+                        arcu erat, scelerisque vel enim ut, finibus malesuada dui. Proin ac lectus ac nisi mollis
+                        lobortis a nec nulla.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-frequently-question custom-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <p class="font-weight-bold">Sed laoreet et?</p>
+                    <p>Mauris accumsan metus libero, nec tristique mi venenatis at.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-frequently-questions-lower custom-row">
+        <div class="pricing-frequently-question custom-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <p class="font-weight-bold">Fusce pellentesque lacus vitae sem rutrum faucibus?</p>
+                    <p>Aliquam quis scelerisque risus, vel posuere orci. Etiam convallis fermentum massa eget laoreet.
+                        Curabitur mattis, lectus ut imperdiet fringilla, diam nibh facilisis nisi.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-frequently-question custom-col">
+            <div class="custom-card h-100">
+                <div class="card-body">
+                    <p class="font-weight-bold">Class aptent taciti sociosqu?</p>
+                    <p>In mi ex, dignissim eu sodales sed, elementum ac justo. Integer felis sem, ornare sit amet dui
+                        commodo, porta malesuada ex. Suspendisse ut porttitor magna.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

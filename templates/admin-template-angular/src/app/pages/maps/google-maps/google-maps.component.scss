@@ -1,0 +1,28 @@
+.google-maps {
+
+    .custom-col {
+        margin-bottom: 1.5rem;
+    }
+
+    .google-maps-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    iframe {
+        height: 300px;
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        .custom-col {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}

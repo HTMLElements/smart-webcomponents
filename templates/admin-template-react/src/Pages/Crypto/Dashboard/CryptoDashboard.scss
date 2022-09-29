@@ -1,0 +1,24 @@
+.crypto-dashboard {
+    .crypto-table {
+        --smart-table-column-header-height: 40px;
+        --smart-table-row-height: 25px;
+        --smart-table-cell-padding: 10px;
+        height: auto;
+    }
+
+    #currencyTable [data-field="price"],
+    #currencyTable [data-field="volume"],
+    #currencyTable [data-field="change"],
+    #sellTable [data-field],
+    #buyTable [data-field] {
+        text-align: right;
+    }
+
+    #currencyTable [data-field="price"] .wrapper,
+    #currencyTable [data-field="volume"] .wrapper,
+    #currencyTable [data-field="change"] .wrapper,
+    #sellTable [data-field] .wrapper,
+    #buyTable [data-field] .wrapper {
+        justify-content: flex-end;
+    }
+}

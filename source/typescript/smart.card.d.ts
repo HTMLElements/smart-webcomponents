@@ -5,7 +5,7 @@ export interface CardProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * A callback function, used to add event handlers and other custom logic related to the content inside the card element.
    * Default value: null

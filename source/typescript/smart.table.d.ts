@@ -60,7 +60,7 @@ export interface TableProperties {
    * Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property.
    * Default value: default
    */
-  columnSizeMode?: TableColumnSizeMode;
+  columnSizeMode?: TableColumnSizeMode | string;
   /**
    * Sets or gets whether the "Conditional Formatting" button appears in the Table's header (toolbar). Clicking this button opens a dialog with formatting options.
    * Default value: false
@@ -105,7 +105,7 @@ export interface TableProperties {
    * Sets or gets the edit mode.
    * Default value: cell
    */
-  editMode?: TableEditMode;
+  editMode?: TableEditMode | string;
   /**
    * Sets or gets whether Row hierarchies are expanded by default, when created. Use this property when you want your groups to be expanded by default, when the Table is grouped or when you use the Table in tree mode.
    * Default value: false
@@ -180,7 +180,7 @@ export interface TableProperties {
    * Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'.
    * Default value: implementationOnly
    */
-  loadColumnStateBehavior?: TableLoadColumnStateBehavior;
+  loadColumnStateBehavior?: TableLoadColumnStateBehavior | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -262,10 +262,20 @@ export interface TableProperties {
    */
   onInit?: { (): void };
   /**
+   * A callback function executed after the Table is being initialized.
+   * Default value: null
+   */
+  onLoad?: { (): void };
+  /**
+   * A callback function executed when the Table's update is finished in the endUpdate method.
+   * Default value: null
+   */
+  onUpdateComplete?: { (): void };
+  /**
    * Sets or gets the page size (when paging is enabled).
    * Default value: 10
    */
-  pageSize?: TablePageSize;
+  pageSize?: TablePageSize | string;
   /**
    * Sets or gets the current (zero-based) page index (when paging is enabled).
    * Default value: 0
@@ -300,7 +310,7 @@ export interface TableProperties {
    * Sets or gets the selection mode. Only applicable when selection is enabled.
    * Default value: many
    */
-  selectionMode?: TableSelectionMode;
+  selectionMode?: TableSelectionMode | string;
   /**
    * Sets or gets whether row selection (via checkboxes) is hierarchical. When a parent row is selected, all sub rows are selected, too.
    * Default value: true
@@ -315,7 +325,7 @@ export interface TableProperties {
    * Determines the sorting mode of the Table.
    * Default value: none
    */
-  sortMode?: TableSortMode;
+  sortMode?: TableSortMode | string;
   /**
    * Sets or gets what settings of the Table's state can be saved (by autoSaveState or saveState) or loaded (by autoLoadState or loadState).
    * Default value: columns,expanded,filtered,grouped,selected,sorted
@@ -472,7 +482,7 @@ export interface Table extends BaseElement, TableProperties {
   /**
    * Adds a filter to a specific column.
    * @param {string} dataField. The column's data field.
-   * @param {any} filter. FilterGroup object.
+   * @param {any} filter. FilterGroup object or a Filter expression. Filter expression like: 'startsWith B'. Example 2: ['contains Andrew or contains Nancy'], Example 3:  ['quantity', '&lt;= 3 and &gt;= 8'].  Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    */
   addFilter(dataField: string, filter: any): void;
   /**
@@ -752,7 +762,7 @@ export interface TableColumn {
    * Sets or gets the data type of the column's cells.
    * Default value: string
    */
-  dataType?: TableColumnDataType;
+  dataType?: TableColumnDataType | string;
   /**
    * An object setting up a custom editor. Available fields: template - a string to be parsed into HTML and be used as custom cell editor.onInit - a callback function called once when the editor is initialized.onRender - a callback function called each time a cell enters edit mode.getValue - a callback function called when editing is complete; used to return the editor's value to the Table's data source.
    * Default value: null
@@ -762,7 +772,7 @@ export interface TableColumn {
    * Sets or gets whether the column is sticky/frozen. true and 'near' designate freezing on the left side, 'far' - on the right side.
    * Default value: null
    */
-  freeze?: TableColumnFreeze;
+  freeze?: TableColumnFreeze | string;
   /**
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
@@ -835,7 +845,7 @@ export interface TableConditionalFormatting {
    * The formatting condition.
    * Default value: lessThan
    */
-  condition?: TableConditionalFormattingCondition;
+  condition?: TableConditionalFormattingCondition | string;
   /**
    * The value to compare by. When condition is 'between', this is the start (from) value.
    * Default value: 0
@@ -845,12 +855,12 @@ export interface TableConditionalFormatting {
    * The fontFamily to apply to formatted cells.
    * Default value: The default fontFamily as set in CSS
    */
-  fontFamily?: TableConditionalFormattingFontFamily;
+  fontFamily?: TableConditionalFormattingFontFamily | string;
   /**
    * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
    * Default value: 14px
    */
-  fontSize?: TableConditionalFormattingFontSize;
+  fontSize?: TableConditionalFormattingFontSize | string;
   /**
    * The background color to apply to formatted cells.
    * Default value: "The default backgroundColor as set in CSS"
@@ -889,12 +899,12 @@ export interface TableDataSourceSettings {
    * Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags.
    * Default value: blackList
    */
-  sanitizeHTML?: TableDataSourceSettingsSanitizeHTML;
+  sanitizeHTML?: TableDataSourceSettingsSanitizeHTML | string;
   /**
    * Determines whether cell values will display the espaced values as text or html.
    * Default value: text
    */
-  sanitizeHTMLRender?: TableDataSourceSettingsSanitizeHTMLRender;
+  sanitizeHTMLRender?: TableDataSourceSettingsSanitizeHTMLRender | string;
   /**
    * Sets or gets the XML binding record.
    * Default value: ""
@@ -914,7 +924,7 @@ export interface TableDataSourceSettings {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: TableDataSourceSettingsDataSourceType;
+  dataSourceType?: TableDataSourceSettingsDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -962,7 +972,7 @@ export interface TableDataSourceSettingsDataField {
    * Sets the dataField type.
    * Default value: string
    */
-  dataType?: TableDataSourceSettingsDataFieldDataType;
+  dataType?: TableDataSourceSettingsDataFieldDataType | string;
 }
 
 declare global {

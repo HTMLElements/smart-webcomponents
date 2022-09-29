@@ -5,7 +5,7 @@ export interface MaskedTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether promptChar can be entered as valid input by the user.
    * Default value: false
@@ -30,7 +30,7 @@ export interface MaskedTextBoxProperties {
    * Determines whether literals and prompt characters are copied to the clipboard on cut/copy operations.
    * Default value: excludePromptAndLiterals
    */
-  cutCopyMaskFormat?: MaskedTextBoxCutCopyMaskFormat;
+  cutCopyMaskFormat?: MaskedTextBoxCutCopyMaskFormat | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -40,7 +40,7 @@ export interface MaskedTextBoxProperties {
    * Specifies the behavior on "Enter" key press. Default mode is "submit".
    * Default value: submit
    */
-  enterKeyBehavior?: EnterKeyBehavior;
+  enterKeyBehavior?: EnterKeyBehavior | string;
   /**
    * Determines whether the prompt character in the input mask is hidden when the masked text box isn't focused anymore.
    * Default value: false
@@ -162,7 +162,7 @@ export interface MaskedTextBoxProperties {
    * Determines whether the value of the input should contain or not the prompt/literals of the mask.
    * Default value: excludePromptAndLiterals
    */
-  textMaskFormat?: MaskedTextBoxTextMaskFormat;
+  textMaskFormat?: MaskedTextBoxTextMaskFormat | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""

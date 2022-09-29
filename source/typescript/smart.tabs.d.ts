@@ -102,12 +102,12 @@ export interface TabsProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the close button mode.
    * Default value: default
    */
-  closeButtonMode?: TabsCloseButtonMode;
+  closeButtonMode?: TabsCloseButtonMode | string;
   /**
    * Sets or gets whether close buttons are displayed.
    * Default value: false
@@ -178,7 +178,7 @@ export interface TabsProperties {
    * Sets or gets the Tabs scroll buttons behavior. Applicable only when tabLayout is 'scroll'.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * Disables user interaction with the element.
    * Default value: false
@@ -203,12 +203,12 @@ export interface TabsProperties {
    * Sets or gets the position of the scroll buttons.
    * Default value: both
    */
-  scrollButtonsPosition?: LayoutPosition;
+  scrollButtonsPosition?: LayoutPosition | string;
   /**
    * Sets or gets the behavior when scrolling the tab strip via the scroll buttons.
    * Default value: paging
    */
-  scrollMode?: TabsScrollMode;
+  scrollMode?: TabsScrollMode | string;
   /**
    * Sets or gets which tab is selected.
    * Default value: null
@@ -218,22 +218,22 @@ export interface TabsProperties {
    * Determines the way the user can switch between tabs.
    * Default value: click
    */
-  selectionMode?: TabSelectionMode;
+  selectionMode?: TabSelectionMode | string;
   /**
    * Applies one of four behaviors when the element is not wide enough to display all tab labels.
    * Default value: scroll
    */
-  tabLayout?: TabsTabLayout;
+  tabLayout?: TabsTabLayout | string;
   /**
    * Sets or gets where the tab strip is positioned.
    * Default value: top
    */
-  tabPosition?: TabPosition;
+  tabPosition?: TabPosition | string;
   /**
    * Sets or gets the orientation of the text in the tabs.
    * Default value: horizontal
    */
-  tabTextOrientation?: Orientation;
+  tabTextOrientation?: Orientation | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""

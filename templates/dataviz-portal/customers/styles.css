@@ -1,0 +1,36 @@
+#map-chart {
+    width: 100%;
+    height: 310px;
+}
+
+.charts {
+    height: 330px;
+}
+
+.second-content {
+    padding-top: 25px; 
+}
+
+.second, .third {
+    background-color: var(--primary-background);
+}
+
+#customers-table {
+    height: auto;
+}
+
+#channels-bars-chart {
+    height: 100%;
+}
+
+@media (max-width: 1175px) {
+    .second .charts {
+       flex-direction: column; 
+       height: auto;
+    }
+
+    #channels-bars-chart {
+        width: 100%;
+        height: 220px;
+    }
+}

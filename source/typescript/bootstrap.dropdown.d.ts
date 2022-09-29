@@ -10,7 +10,7 @@ export interface BootstrapDropDownProperties {
    * Sets or gets the drop down position of the element. 
    * Default value: false
    */
-  dropDownPosition?: BootstrapDropDownDropDownPosition;
+  dropDownPosition?: BootstrapDropDownDropDownPosition | string;
   /**
    * Sets or gets the Label of the element.
    * Default value: """"
@@ -20,7 +20,7 @@ export interface BootstrapDropDownProperties {
    * Sets or gets the Label type of the element.
    * Default value: ""
    */
-  labelType?: BootstrapDropDownLabelType;
+  labelType?: BootstrapDropDownLabelType | string;
   /**
    * Sets or gets the Href of the element.
    * Default value: "#"
@@ -45,7 +45,7 @@ export interface BootstrapDropDownProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapDropDownStyleMode;
+  styleMode?: BootstrapDropDownStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""

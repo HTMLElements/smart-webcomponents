@@ -1,0 +1,15 @@
+<div class="container plugins">
+    <div class="custom-row">
+        <div class="plugins-header custom-col">
+            <h4>Plugins</h4>
+        </div>
+    </div>
+
+    <div class="custom-card">
+        <div class="card-body">
+            <p>The following free plugins are sometimes used in Smart HTML Elements demos:</p>
+            <smart-table #pluginsTable class="plugins-table no-border" [dataSource]="projectsTableData.dataSource"
+                [columns]="projectsTableData.columns"></smart-table>
+        </div>
+    </div>
+</div>

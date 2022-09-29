@@ -7,6 +7,11 @@ export interface SchedulerProperties {
    */
   autoScrollStep?: number;
   /**
+   * Determines whether the all day cells in Day and Week views automatically change their height depending on the events count in these cells. 
+   * Default value: false
+   */
+  autoHeightAllDayCells?: boolean;
+  /**
    * Determines the color scheme for the event background selector in the event window editor. 
    * Default value: #D50000,#E67C73,#F4511E,#F6BF26,#33B679,#0B8043,#039BE5,#3F51B5,#7986CB,#8E24AA,#616161,
    */
@@ -45,7 +50,7 @@ export interface SchedulerProperties {
    *  Determines how the events inside the Scheduler are rendered.classic - the events are arranged next to each other and try to fit inside the cells.modern - the events obey the CSS property that determines their size and if there's not enough space inside the cell for all events to appear, an event collector is created to hold the rest of the events. On mobile phones only collectors are created.
    * Default value: modern
    */
-  eventRenderMode?: SchedulerEventRenderMode;
+  eventRenderMode?: SchedulerEventRenderMode | string;
   /**
    * Allows to customize the content of the event menu items (tooltip). When clicked on an event element an event menu with details opens. It can be an HTMLTemplateElement that will be applied to all events or it's id as a string or a function that will be called for each event with the following parameters: eventContent - the content holder for the event,eventObj - the event object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
@@ -80,7 +85,7 @@ export interface SchedulerProperties {
    * Determines the day format of the dates in the timeline.
    * Default value: short
    */
-  dayFormat?: SchedulerDayFormat;
+  dayFormat?: SchedulerDayFormat | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -160,7 +165,7 @@ export interface SchedulerProperties {
    * Determines the filter mode.
    * Default value: equals
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * A getter that returns  an array of all Scheduler events.
    * Default value: 
@@ -185,7 +190,7 @@ export interface SchedulerProperties {
    * Determines the grouping orientation.
    * Default value: horizontal
    */
-  groupOrientation?: SchedulerGroupOrientation;
+  groupOrientation?: SchedulerGroupOrientation | string;
   /**
    * Allows to customize the content of the group cells that are visible inside the header. It can be an HTMLTemplateElement that will be applied to all cells or it's id as a string or a function that will be called for each group cell with the following parameters: cellContent - the content holder for the group cell.cellObj - the group cell object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
@@ -210,7 +215,7 @@ export interface SchedulerProperties {
    * Determines the formatting of hours inside the element.
    * Default value: numeric
    */
-  hourFormat?: SchedulerHourFormat;
+  hourFormat?: SchedulerHourFormat | string;
   /**
    * Allows to customize the header of the Scheduler. It can be an HTMLTemplateElement, it's id as a string or a function with the following parameters: headerContent - the header container..
    * Default value: null
@@ -220,17 +225,17 @@ export interface SchedulerProperties {
    *  Determines the position of the Date selector inside the Header of the element.
    * Default value: near
    */
-  headerDatePosition?: SchedulerHeaderDatePosition;
+  headerDatePosition?: SchedulerHeaderDatePosition | string;
   /**
    *  Determines the styling of the Header navigation controls.
    * Default value: flat
    */
-  headerNavigationStyle?: SchedulerHeaderNavigationStyle;
+  headerNavigationStyle?: SchedulerHeaderNavigationStyle | string;
   /**
    *  Determines the position of the view selector control inside the Header of the element.
    * Default value: far
    */
-  headerViewPosition?: SchedulerHeaderViewPosition;
+  headerViewPosition?: SchedulerHeaderViewPosition | string;
   /**
    * Determines whether the 'All Day' container with the all day events is hidden or not.
    * Default value: false
@@ -265,22 +270,22 @@ export interface SchedulerProperties {
    * Determines the location of the legend inside the Scheduler. By default the location is inside the footer but it can also reside in the header.
    * Default value: footer
    */
-  legendLocation?: SchedulerLegendLocation;
+  legendLocation?: SchedulerLegendLocation | string;
   /**
    * Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that.
    * Default value: near
    */
-  legendPosition?: SchedulerLegendPosition;
+  legendPosition?: SchedulerLegendPosition | string;
   /**
    * Determines the mouse wheel step. When this property is set to a positive number, the scroll step with mouse wheel or trackpad will depend on the property value.
-   * Default value: -1
+   * Default value: 50
    */
   mouseWheelStep?: number;
   /**
    * Determines weather or not horizontal scrollbar is shown.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    *  Determines the language of the Scheduler. 
    * Default value: "en"
@@ -310,12 +315,12 @@ export interface SchedulerProperties {
    * Determines the minute formatting inside the Scheduler.
    * Default value: 2-digit
    */
-  minuteFormat?: MinuteFormat;
+  minuteFormat?: MinuteFormat | string;
   /**
    * Determines the month name formatting inside the Scheduler.
    * Default value: long
    */
-  monthFormat?: MonthFormat;
+  monthFormat?: MonthFormat | string;
   /**
    * Determines the nonworking days of the week from 0 to 6, where 0 is the first day of the week and 6 is the last day. Nonworking days will be colored differently inside the Timeline. The color is determined by a CSS variable.
    * Default value: 
@@ -335,7 +340,7 @@ export interface SchedulerProperties {
    * Determines the visibility of the resize handles.
    * Default value: auto
    */
-  resizeHandlesVisibility?: ResizeHandlesVisibility;
+  resizeHandlesVisibility?: ResizeHandlesVisibility | string;
   /**
    * Determines the rate at which the element will refresh it's content on element resize. By default it's refresh immediately. This property is used for element resize throttling
    * Default value: 0
@@ -365,7 +370,7 @@ export interface SchedulerProperties {
    *  Determines the position of the date navigation navigation buttons inside the header of the element.
    * Default value: near
    */
-  scrollButtonsPosition?: SchedulerScrollButtonsPosition;
+  scrollButtonsPosition?: SchedulerScrollButtonsPosition | string;
   /**
    * Enables/Disables the current time shader. If enabled all cells that represent past time will be shaded.
    * Default value: false
@@ -390,7 +395,7 @@ export interface SchedulerProperties {
    * Determines the sorting order of the resource data items. When set to custom, a custom sorting function has to be defined for the sortFunction property. The asc stands for 'ascending' while desc means 'descending' sorting order.
    * Default value: asc
    */
-  sortOrder?: SchedulerSortOrder;
+  sortOrder?: SchedulerSortOrder | string;
   /**
    * Determines the repeating delay of the repeat buttons inside the header of the element. Such buttons are the Date navigation buttons and the view scroll buttons.
    * Default value: 80
@@ -420,7 +425,7 @@ export interface SchedulerProperties {
    * Determines the date scale for the timeline cells.
    * Default value: hour
    */
-  timelineDayScale?: SchedulerTimelineDayScale;
+  timelineDayScale?: SchedulerTimelineDayScale | string;
   /**
    * Enables/Disables the tick marks next to the time cells in the vertical header of the element. Time header appears in 'day' and 'week' views.
    * Default value: false
@@ -428,9 +433,9 @@ export interface SchedulerProperties {
   timeRulerTicks?: boolean;
   /**
    * Determines the timeZone for the element. By default if the local time zone is used if the property is not set.
-   * Default value: 
+   * Default value: Local
    */
-  timeZone?: SchedulerTimeZone;
+  timeZone?: SchedulerTimeZone | string;
   /**
    * Allows to display additional timeZones at once along with the default that is set via the timeZone property. Accepts an array values that represent the ids of valid time zones. The possbile time zones can be viewed in the timeZone property description. By default the local time zone is displayed.
    * Default value: 
@@ -450,7 +455,7 @@ export interface SchedulerProperties {
    * Determines weather or not vertical scrollbar is shown.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines the current view. The property accepts view values that are defined in the views property. Custom views should contain a valid value that will be set as the current view.
    * Default value: "day"
@@ -460,27 +465,32 @@ export interface SchedulerProperties {
    * Indicates the current Scheduler viewType. Custom views must contain a valid type property that corresponds to one of the view types. This property should not be set.
    * Default value: day
    */
-  viewType?: SchedulerViewType;
+  viewType?: SchedulerViewType | string;
   /**
    * Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.hideHours - an Optional property applicable only to timelineWeek view that allows to hide the hour cells and only show the day cells.
    * Default value: day,week,month
    */
-  views?: SchedulerViews;
+  views?: SchedulerViews | string;
   /**
    * Determines type of the view selector located in the header of the element.
    * Default value: menu
    */
-  viewSelectorType?: SchedulerViewSelectorType;
+  viewSelectorType?: SchedulerViewSelectorType | string;
+  /**
+   * Determines the Start Date rule. The Week and TimelineWeek views start by default from the current date taking into account the firstDayOfWeek property. When this property is set to 'dateCurrent', these views will start from the value of the 'dateCurrent'.
+   * Default value: firstDayOfWeek
+   */
+  viewStartDay?: SchedulerViewStartDay | string;
   /**
    * Determines the format of the week days inside the element. 
    * Default value: short
    */
-  weekdayFormat?: WeekDayFormat;
+  weekdayFormat?: WeekDayFormat | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent years.
    * Default value: numeric
    */
-  yearFormat?: YearFormat;
+  yearFormat?: YearFormat | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -779,6 +789,16 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   addEvent(eventObj: any): void;
   /**
+   * Adds a new view. Example: scheduler.addView('week', 'My View', 'myView', false, false, 10); scheduler.setView('myView');
+   * @param {string} type. The view type.
+   * @param {string} label. The view's label displayed in the header.
+   * @param {string} value. The view's value used to identify the view.
+   * @param {boolean} hideWeekend. Determines whether to hide the weekend.
+   * @param {boolean} hideNonworkingWeekdays. Determines whether to hide the non working days.
+   * @param {number} additionalDays. Determines whether to add additional days to the view.
+   */
+  addView(type: string, label: string, value: string, hideWeekend: boolean, hideNonworkingWeekdays: boolean, additionalDays: number): void;
+  /**
    * Starts an update operation. This is appropriate when calling multiple methods or set multiple properties at once.
    */
   beginUpdate(): void;
@@ -795,6 +815,11 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    * Ends the update operation. This method will resume the rendering and will refresh the element.
    */
   endUpdate(): void;
+  /**
+   * Returns an array of the start and end view dates.
+   * @returns {Date[]}
+   */
+  getViewDates(): Date[];
   /**
    * Refereshes the Scheduler by recalculating the Scrollbars. 
    * @param {boolean} fullRefresh?. If set the Scheduler will be re-rendered completely.
@@ -849,6 +874,11 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    * @param {any[]} state?. An Array containing a valid structure of Scheduler events.
    */
   saveState(state?: any[]): void;
+  /**
+   * Sets the Scheduler's view. Example: scheduler.addView('week', 'My View', 'myView', false, false, 10); scheduler.setView('myView');
+   * @param {string} view?. The view's value. For example: 'day'. 
+   */
+  setView(view?: string): void;
   /**
    * Checks whether the Scheduler contains the event.
    * @param {any} eventObj. A Scheduler event object.
@@ -1137,7 +1167,7 @@ export interface SchedulerEventRepeat {
    * Determines the repeating frequency. The event can repeat hourly, daily, weekly, monthly or yearly.
    * Default value: hourly
    */
-  repeatFreq?: SchedulerRepeatFreq;
+  repeatFreq?: SchedulerRepeatFreq | string;
   /**
    * Determines the repeating interval.
    * Default value: 1
@@ -1170,7 +1200,7 @@ export interface SchedulerNotification {
    * The type of the interval for the notification.
    * Default value: days
    */
-  type?: SchedulerNotificationType;
+  type?: SchedulerNotificationType | string;
   /**
    * An array that represents the time when the notification should appear before the event starts. The array should have the following format: [hours: number, minutes:number]
    * Default value: 
@@ -1218,7 +1248,7 @@ export interface SchedulerResource {
    * Determines the sorting order. When set to custom, a custom sorting function has to be defined for the sortFunction property. The asc stands for 'ascending' while desc means 'descending' sorting order.
    * Default value: asc
    */
-  sortOrder?: SchedulerResourceSortOrder;
+  sortOrder?: SchedulerResourceSortOrder | string;
 }
 
 export interface SchedulerStatuse {
@@ -1292,17 +1322,12 @@ export declare type SchedulerTimeZone = 'Local' | 'Dateline Standard Time' | 'UT
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 /**Indicates the current Scheduler viewType. Custom views must contain a valid <b>type</b> property that corresponds to one of the view types. This property should not be set. */
 export declare type SchedulerViewType = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
-/**Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: <b>label</b> - the label for the view.
-<b>value</b> - the value for the view. The value is the unique identifier for the view.
-<b>type</b> - the type of view. The type should be one of the default allowed values for a view.
-<b>hideWeekend</b> - an Optional property that allows to hide the weekend only for this specific view.
-<b>hideNonworkingWeekdays</b> - an Optional property that allows to hide the nonwrking weekdays for this specific view.
-<b>shortcutKey</b> - an Optional property that allows to set a custom shortcut key for the view.
-<b>hideHours</b> - an Optional property applicable only to <b>timelineWeek</b> view that allows to hide the hour cells and only show the day cells.
- */
-export declare type SchedulerViews = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
+
+export declare type SchedulerViews = SchedulerViewType[] | object[] | string[];
 /**Determines type of the view selector located in the header of the element. */
 export declare type SchedulerViewSelectorType = 'auto' | 'tabs' | 'menu';
+/**Determines the Start Date rule. The Week and TimelineWeek views start by default from the current date taking into account the firstDayOfWeek property. When this property is set to 'dateCurrent', these views will start from the value of the 'dateCurrent'. */
+export declare type SchedulerViewStartDay = 'firstDayOfWeek' | 'dateCurrent';
 /**Determines the format of the week days inside the element.  */
 export declare type WeekDayFormat = 'short' | 'long' | 'narrow';
 /**Determines the format of the dates inside the timeline header when they represent years. */

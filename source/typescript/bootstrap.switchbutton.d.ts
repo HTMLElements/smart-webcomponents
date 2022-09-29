@@ -35,7 +35,7 @@ export interface BootstrapSwitchButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapSwitchButtonStyleMode;
+  styleMode?: BootstrapSwitchButtonStyleMode | string;
 }
 /**
  Defines a Switch Button component, which includes Material and Bootstrap styles

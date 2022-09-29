@@ -1,0 +1,35 @@
+.e-commerce-checkout {
+    #checkoutForm {
+        width: 100%;
+    }
+
+    .smart-tab-strip .smart-unselectable:not(.smart-tab-selected):not(.unreached) {
+        opacity: 0.7;
+    }
+
+    .smart-tab-strip .unreached .text-primary {
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .smart-tab-strip .unreached .btn-primary {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .smart-tabs smart-button {
+        text-transform: unset;
+    }
+}
+
+body[theme="dark"] .e-commerce-checkout {
+    .smart-tab-strip .unreached .text-primary {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+}
+
+body[theme="dark"] .e-commerce-checkout {
+    .smart-tab-strip .unreached .btn-primary {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+}

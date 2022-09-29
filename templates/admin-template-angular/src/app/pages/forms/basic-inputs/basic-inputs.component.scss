@@ -1,0 +1,35 @@
+.basic-inputs {
+    .basic-inputs-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .custom-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .basic-input {
+        width: 100%;
+    }
+
+    .basic-input + .basic-input {
+        margin-top: 10px;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (min-width: 992px) {
+        .custom-col {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}

@@ -5,7 +5,7 @@ export interface DockingLayoutProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * A getter that returns an array of all DockingLayout items that are auto hidden inside the element.
    * Default value: 
@@ -112,7 +112,7 @@ export interface DockingLayoutProperties {
    * Determines the snap mode. Two modes are available:   simple - allows dragging of a single tab item inside or outside the layout. A semi-transparent highlighter is used to indicate the possible locations where the dragged item can be dropped. The user has to drop the dragged item inside one of the possible drop zones indicated by the highlighter. advanced - allows dragging of a whole TabsWindow with items or a single tab item. Uses a Visual Studio style feedback that indicates the possible drop locations. The user has to drop the target over one of the icons inside the feedback.   The feedback/highlighter is displayed when the dragging of an item begins. 
    * Default value: advanced
    */
-  snapMode?: DockingLayoutSnapMode;
+  snapMode?: DockingLayoutSnapMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -270,6 +270,13 @@ export interface DockingLayout extends BaseElement, DockingLayoutProperties {
    * @param {any} tabsWindow. An instance of a TabsWindow or an Object with the fields "label", "items" and other additional.
    */
   insertOutsideTargetGroupRight(index: number | HTMLElement | string, tabsWindow: any): void;
+  /**
+   * Inserts a new TabsWindow. The window is in floating mode and is undocked.
+   * @param {any} item. An instance of a TabsWindow or an Object with the fields "label", "items" and other additional.
+   * @param {number | string} left?. The left position of the new window. You can use number, px or %. For example: '10px'.
+   * @param {number | string} top?. The top position of the new window. You can use number, px or %. For example: '10px'.
+   */
+  insertFloatingWindow(item: any, left?: number | string, top?: number | string): void;
   /**
    * The method returns an array of all autohidden items.
    * @param {string} orientation?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.

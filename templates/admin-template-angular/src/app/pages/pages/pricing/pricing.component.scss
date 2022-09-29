@@ -1,0 +1,101 @@
+.pricing {
+    .pricing-header {
+        margin: 1.5rem 0;
+        text-align: center;
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        .pricing-header-trial {
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .pricing-plans {
+        .pricing-plan {
+            margin-bottom: 1.5rem;
+        }
+
+        .custom-card {
+            box-shadow: 0 0 12px rgb(0 0 0 / 10%);
+        }
+
+        .card-content {
+            height: 100%;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .pricing-info {
+                margin-bottom: 1.5em;
+                text-align: center;
+
+                .pricing-includes {
+                    margin-top: 1rem;
+                }
+            }
+
+            .pricing-sign-up {
+                margin-top: auto;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .custom-card:hover .smart-element.smart-button {
+            border-color: var(--white);
+            color: var(--white);
+        }
+        .custom-card:hover {
+            background-color: var(--primary) !important;
+        }
+
+        .custom-card:hover {
+            color: var(--light) !important;
+        }
+    }
+
+    .pricing-spacer {
+        margin-bottom: 1.5rem;
+    }
+
+    .pricing-frequently-questions-upper-header {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .pricing-frequently-question {
+        margin-bottom: 1.5rem;
+
+        .custom-card {
+            box-shadow: 0 0 12px rgb(0 0 0 / 10%);
+            border: 1px solid var(--smart-border-color) !important;
+
+            p {
+                opacity: 0.9;
+            }
+        }
+
+        .custom-card:hover {
+            box-shadow: 0 0 26px rgb(0 0 0 / 10%);
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .pricing-plan {
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
+    }
+
+    .pricing-frequently-questions-upper-header {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .pricing-frequently-question {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}

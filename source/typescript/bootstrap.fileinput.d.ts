@@ -20,7 +20,7 @@ export interface BootstrapFileInputProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapFileInputStyleMode;
+  styleMode?: BootstrapFileInputStyleMode | string;
   /**
    * Gets or sets the value of the element. 
    * Default value: "false"

@@ -5,7 +5,7 @@ export interface BootstrapTabsProperties {
    * Sets the tabs alignment
    * Default value: 
    */
-  alignment?: BootstrapTabsAlignment;
+  alignment?: BootstrapTabsAlignment | string;
   /**
    * Enables or disables the tabs. 
    * Default value: false
@@ -25,12 +25,12 @@ export interface BootstrapTabsProperties {
    * Sets or gets the tab type.
    * Default value: ul
    */
-  listType?: BootstrapTabsListType;
+  listType?: BootstrapTabsListType | string;
   /**
    * Sets or gets the style mode of the tabs.
    * Default value: primary
    */
-  styleMode?: BootstrapTabsStyleMode;
+  styleMode?: BootstrapTabsStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""
@@ -40,7 +40,7 @@ export interface BootstrapTabsProperties {
    * Sets or gets the tab type .
    * Default value: tabs
    */
-  tabType?: BootstrapTabsTabType;
+  tabType?: BootstrapTabsTabType | string;
 }
 /**
  Defines a Tabs component, which includes Material and Bootstrap styles

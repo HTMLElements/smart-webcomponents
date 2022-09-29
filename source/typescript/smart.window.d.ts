@@ -10,12 +10,12 @@ export interface WindowProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether and how the value should be automatically capitalized as it is entered/edited by the user. Applicable only to MultilinePromptWindow.
    * Default value: none
    */
-  autoCapitalize?: WindowAutoCapitalize;
+  autoCapitalize?: WindowAutoCapitalize | string;
   /**
    * Determines whether element will auto expand when the input overflows vertically. Applicable only to MultilinePromptWindow.
    * Default value: false
@@ -62,15 +62,25 @@ export interface WindowProperties {
    */
   disableSnap?: boolean;
   /**
+   * By default the window is closing after the 'Escape' key is pressed. Set this property to true, if you want to disable that.
+   * Default value: false
+   */
+  disableEscape?: boolean;
+  /**
+   * By default the window is handling keyboard keys like 'Arrows', 'Escape', etc. Set this property to true, if you want to disable that.
+   * Default value: false
+   */
+  disableKeyboard?: boolean;
+  /**
    * Determines how the characters are displayed inside the input. Applicable to Prompt Window.
    * Default value: default
    */
-  displayMode?: WindowDisplayMode;
+  displayMode?: WindowDisplayMode | string;
   /**
    * Applicable to TabsWindow when docked inside a DockingLayout Custom Element.  Determines where the window(it's tab items as well) can be dropped inside the DockingLayout.  The property is an array that accepts multiple positions. Note: Positions with prefix 'layout-' are applied to the Tab item children of the TabsWidnow owner that is being dragged. The rest of the positions indicate the allowed drop position inside the hovered target(TabsWindow). Used only by jqxDockingLayout custom elements. Determines the possible drop position inside the DockingLayout. The following values are allowed.
    * Default value: 
    */
-  dropPosition?: WindowDropPosition;
+  dropPosition?: WindowDropPosition | string;
   /**
    * A callback function defining the new format for the label of the Progress Bar. Applicable only to ProgressWindow.
    * Default value: null
@@ -80,7 +90,7 @@ export interface WindowProperties {
    * Determines the position of the footer of the window element.
    * Default value: top
    */
-  footerPosition?: WindowFooterPosition;
+  footerPosition?: WindowFooterPosition | string;
   /**
    * Determines the template for the Dialog section of the window. By default footerTemplate is null.
    * Default value: null
@@ -100,7 +110,7 @@ export interface WindowProperties {
    * Determines the position of the header of the window element.
    * Default value: top
    */
-  headerPosition?: TabPosition;
+  headerPosition?: TabPosition | string;
   /**
    * Sets additional helper text below the text box. The hint is visible only when the text box is focued. Applicable to Prompt Window.
    * Default value: null
@@ -231,7 +241,7 @@ export interface WindowProperties {
    * Determines the resizing mode of the window.  Several modes are available:   none - resizing is disabled.  vertical - vertical resizing is allowed.  horizontal - horizontal resizing is allowed. both - horizontal and vertical resizing is allowed. top - the window can only be resized from the top side. bottom - the window is resizable only from the bottom side. left - the window can be resized only from the left side. right - the window can be resized only from the right side. 
    * Default value: none
    */
-  resizeMode?: WindowResizeMode;
+  resizeMode?: WindowResizeMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -261,7 +271,7 @@ export interface WindowProperties {
    * Determines the way the user can switch between tabs. Applicable only to TabsWindow.
    * Default value: click
    */
-  selectionMode?: TabSelectionMode;
+  selectionMode?: TabSelectionMode | string;
   /**
    * Indicates the index of the last character in the current selection. Applicable only to MultilinePromptWindow.
    * Default value: 0
@@ -301,27 +311,27 @@ export interface WindowProperties {
    * Determines if the close button is visible on select or always. Applicable only to TabsWindow.
    * Default value: default
    */
-  tabCloseButtonMode?: WindowTabCloseButtonMode;
+  tabCloseButtonMode?: WindowTabCloseButtonMode | string;
   /**
    * Sets or gets the Tabs scroll buttons behavior. Applicable only when tabLayout is 'scroll'. Applicable only to TabsWindow.
    * Default value: auto
    */
-  tabOverflow?: Overflow;
+  tabOverflow?: Overflow | string;
   /**
    * Detetmines Tab Strip is positioned of the TabsWindow. Applicable only to TabsWindow.
    * Default value: top
    */
-  tabPosition?: TabPosition;
+  tabPosition?: TabPosition | string;
   /**
    * Sets or gets the position of the scroll buttons inside the Tab header of the TabsWindow. Applicable only to TabsWindow.
    * Default value: both
    */
-  tabScrollButtonsPosition?: LayoutPosition;
+  tabScrollButtonsPosition?: LayoutPosition | string;
   /**
    * Sets or gets the orientation of the text in the tabs labels of the TabsWindow. Applicable only to TabsWindow.
    * Default value: horizontal
    */
-  tabTextOrientation?: Orientation;
+  tabTextOrientation?: Orientation | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -346,7 +356,7 @@ export interface WindowProperties {
    * Indicates how the input wraps text. Applicable only to MultilinePromptWindow.
    * Default value: soft
    */
-  wrap?: WindowWrap;
+  wrap?: WindowWrap | string;
 }
 /**
  Window or Dialog displays the interactive custom confirmations, message boxes, alerts, warnings, errors, and modal dialogs.
@@ -454,16 +464,11 @@ export interface Window extends BaseElement, WindowProperties {
    */
   insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null): T;
   /**
-   * Removes a tab and its associated content section. <strong>Applicable only to TabsWindow.</strong>
-   * @param {number} index. The index of the tab to remove.
+   * Moves the window to a new position
+   * @param {string | number} left. Left position. For example: '100px'. 
+   * @param {string | number} top. Top position. For example: '100px'. 
    */
-  removeAt(index: number): void;
-  /**
-   * Removes a child "smart-tab-item" node. <strong>Applicable only to TabsWindow.</strong>
-   * @param {Node} node. The "smart-tab-item" node to remove.
-   * @returns {Node}
-   */
-  removeChild<T extends Node>(node: Node): T;
+  move(left: string | number, top: string | number): void;
   /**
    * Maximizes the window to fill the area.
    */
@@ -481,6 +486,17 @@ export interface Window extends BaseElement, WindowProperties {
    */
   pin(): void;
   /**
+   * Removes a tab and its associated content section. <strong>Applicable only to TabsWindow.</strong>
+   * @param {number} index. The index of the tab to remove.
+   */
+  removeAt(index: number): void;
+  /**
+   * Removes a child "smart-tab-item" node. <strong>Applicable only to TabsWindow.</strong>
+   * @param {Node} node. The "smart-tab-item" node to remove.
+   * @returns {Node}
+   */
+  removeChild<T extends Node>(node: Node): T;
+  /**
    * Restores the window to it's previous size before maximization/minimization.
    */
   restore(): void;
@@ -494,7 +510,17 @@ export interface Window extends BaseElement, WindowProperties {
    */
   unpin(): void;
   /**
-   * Updates a tab and its associated content section. <strong> Applicalbe only to TabsWindow elements.</strong>
+   * Updates the header label.
+   * @param {string} label. The new label of the Header.
+   */
+  updateLabel(label: string): void;
+  /**
+   * Updates the content.
+   * @param {string | HTMLElement} content. The new content of the window.
+   */
+  updateContent(content: string | HTMLElement): void;
+  /**
+   * Updates a TAB in TAB Window and its associated content section. <strong> Applies only to TabsWindow elements.</strong>
    * @param {number} index. The index of the tab to update.
    * @param {string} label. The new label of the tab. The value can be the id of an HTMLTemplateElement
    * @param {string | HTMLElement} content. The new content of the tab.

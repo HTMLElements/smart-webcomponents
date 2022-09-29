@@ -1,0 +1,14 @@
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.col>h1 {
+    font-size: 96px;
+}
+
+.col>h1,
+.col>h2 {
+    margin: 10px 0;
+}

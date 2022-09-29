@@ -5,7 +5,7 @@ export interface ChartProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'.
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the animation duration in milliseconds. The value must be between 0 and 5000. If it is outside of this range jqxChart will reset it to the default value.
    * Default value: 300
@@ -45,7 +45,7 @@ export interface ChartProperties {
    * Sets the chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'.
    * Default value: scheme01
    */
-  colorScheme?: ChartColorScheme;
+  colorScheme?: ChartColorScheme | string;
   /**
    * Enables or disables overlapping of the column series.
    * Default value: false
@@ -135,7 +135,7 @@ export interface ChartProperties {
    * Determines the rendering engine used to display the chart. When the property is set to an empty string, jqxChart will automatically select an optimal rendering engine depending on the browser capabilities.
    * Default value: 
    */
-  renderEngine?: ChartRenderEngine;
+  renderEngine?: ChartRenderEngine | string;
   /**
    * Sets or gets a value indicating whether the Chart's layout is mirrored.
    * Default value: false
@@ -514,7 +514,7 @@ export interface ChartSeriesGroup {
    * Determines how line and area series are unselected based on mouse and touch events. If the value is set to 'click', once a line or area serie is selected, it will remain selected until the user clicks or moves the cursor outside the chart. In default mode, the serie will be unselected immediatelly after the cursor moves over another serie or outside the chart.
    * Default value: default
    */
-  linesUnselectMode?: ChartUnselectMode;
+  linesUnselectMode?: ChartUnselectMode | string;
   /**
    * Horizontal position of the center of the polar coordinate system. Applicable to polar and spider charts only.
    * Default value: null
@@ -529,7 +529,7 @@ export interface ChartSeriesGroup {
    * Specifies the orientation of the series group.
    * Default value: vertical
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * Specifies the summary of the series group.
    * Default value: ""
@@ -579,7 +579,7 @@ export interface ChartSeriesGroup {
    * Sets the chart type. jqxChart supports several common chart types. You can easily plot series of different types on a common chart. A type must be specified for each series group. Currently, jqxChart supports the following series types:'column' - simple column series'stackedcolumn' - stacked column series'stackedcolumn100' - percentage stacked columns'rangecolumn' - floating column between two values'waterfall' - waterfall series'stackedwaterfall' - stacked waterfall series'line' - simple straight lines connecting the value points'stackedline' - stacked lines'stackedline100' - percentage stacked lines'spline' - smooth lines connecting the value points'stackedspline' - smooth stacked lines'stackedspline100' - percentage stacked smooth lines'stepline' - step line'stackedstepline' - stacked step line'stackedstepline100' - percentage stacked step line'area' - area connecting the value points with straight lines'stackedarea' - stacked area with straight lines between the points'stackedarea100' - percentage stacked area with straight lines between the points'rangearea' - floating area between pairs of value points'splinearea' - smooth area connecting the value points'stackedsplinearea' - stacked smooth area connecting the value points'stackedsplinearea100' - percentage stacked smooth area'splinerangearea' - smooth floating area between pairs of value points'steprangearea' - step area between pairs of value points'stackedsplineara' - smooth stacked area'steparea' - step area connecting the value points'stackedsteparea' - step stacked area'stackedsteparea100' - percentage stacked step area'pie' - circular chart divided into sectors, illustrating proportion'donut' - chart divided into circular sectors with different inner and outer radius'scatter' - data is displayed as a collection of points'stackedscatter' - data is displayed as a collection of points and the values are stacked'stackedscatter100' - data is displayed as a collection of points and the values are percentage stacked'bubble' - data is displayed as a collection of bubbles'stackedbubble' - data is displayed as a collection of bubbles and the values are stacked'stackedbubble100' - data is displayed as a collection of bubbles and the values are percentage stacked'candlestick' - display candlestick series using open, high, low, close data points'ohlc' - display OHLC series using open, high, low, close data points
    * Default value: column
    */
-  type?: ChartType;
+  type?: ChartType | string;
   /**
    * Object describing the format settings of series tooltips.
    * Default value: [object Object]
@@ -647,7 +647,7 @@ export interface ChartAnnotation {
    * Shape type of the annotation.
    * Default value: null
    */
-  type?: ChartAnnotationType;
+  type?: ChartAnnotationType | string;
   /**
    * Width of the annotation.
    * Default value: null
@@ -710,7 +710,7 @@ export interface ChartAnnotationText {
    * Horizontal text alignment.
    * Default value: center
    */
-  horizontalAlignment?: HorizontalAlignment;
+  horizontalAlignment?: HorizontalAlignment | string;
   /**
    * Outer text color (stroke).
    * Default value: null
@@ -725,7 +725,7 @@ export interface ChartAnnotationText {
    * Position to rotate the text around.
    * Default value: centermiddle
    */
-  rotationPoint?: ChartRotationPoint;
+  rotationPoint?: ChartRotationPoint | string;
   /**
    * Text of the annotation.
    * Default value: null
@@ -735,7 +735,7 @@ export interface ChartAnnotationText {
    * Vertical text alignment.
    * Default value: center
    */
-  verticalAlignment?: VerticalAlignment;
+  verticalAlignment?: VerticalAlignment | string;
 }
 
 export interface ChartBand {
@@ -830,7 +830,7 @@ export interface ChartSeriesGroupSerie {
    * Color palette to use when rendering the serie.
    * Default value: scheme01
    */
-  colorScheme?: ChartColorScheme;
+  colorScheme?: ChartColorScheme | string;
   /**
    * Name of the field in the data source.
    * Default value: "null"
@@ -900,7 +900,7 @@ export interface ChartSeriesGroupSerie {
    * Determines how to display value gaps in line series.
    * Default value: skip
    */
-  emptyPointsDisplay?: ChartSeriesGroupSerieEmptyPointsDisplay;
+  emptyPointsDisplay?: ChartSeriesGroupSerieEmptyPointsDisplay | string;
   /**
    * Determines whether the serie is selectable.
    * Default value: true
@@ -1040,7 +1040,7 @@ export interface ChartSeriesGroupSerie {
    * Determines how line and area series are unselected based on mouse and touch events. If the value is set to 'click', once a line or area serie is selected, it will remain selected until the user clicks or moves the cursor outside the chart. In default mode, the serie will be unselected immediatelly after the cursor moves over another serie or outside the chart.
    * Default value: default
    */
-  linesUnselectMode?: ChartUnselectMode;
+  linesUnselectMode?: ChartUnselectMode | string;
   /**
    * Determines the line tickness of the items in this serie.
    * Default value: null
@@ -1095,7 +1095,7 @@ export interface ChartSeriesGroupSerie {
    * Determines the symbol type displayed for the data points in the serie. This parameter is applicable to line, area, scatter and bubble series only.
    * Default value: none
    */
-  symbolType?: ChartSymbolType;
+  symbolType?: ChartSymbolType | string;
   /**
    * Determines the tooltip's background.
    * Default value: null
@@ -1184,7 +1184,7 @@ export interface ChartLabels {
    * Horizontal labels alignment.
    * Default value: center
    */
-  horizontalAlignment?: HorizontalAlignment;
+  horizontalAlignment?: HorizontalAlignment | string;
   /**
    * Determines whether to use direct lines for the labels in pie/donut series.
    * Default value: true
@@ -1214,7 +1214,7 @@ export interface ChartLabels {
    * Position to rotate the text around.
    * Default value: auto
    */
-  rotationPoint?: ChartRotationPoint;
+  rotationPoint?: ChartRotationPoint | string;
   /**
    * Interval steps between label placements (multiples of the axis unit interval).
    * Default value: null
@@ -1229,7 +1229,7 @@ export interface ChartLabels {
    * Vertical labels alignment.
    * Default value: center
    */
-  verticalAlignment?: VerticalAlignment;
+  verticalAlignment?: VerticalAlignment | string;
   /**
    * Possible values: true, false, 'custom'.Determines the visibility of labels. When 'custom' is set, displays only custom values/offsets from the labels.custom array.
    * Default value: true
@@ -1343,7 +1343,7 @@ export interface ChartValueAxis {
    * Sets the axis position. The values 'left' and 'right' are available in the default case. If the valueAxis is horizontal, only 'top' and 'bottom' are available.
    * Default value: left
    */
-  position?: AxisPosition;
+  position?: AxisPosition | string;
   /**
    * Text rotation angle.
    * Default value: null
@@ -1358,7 +1358,7 @@ export interface ChartValueAxis {
    * Position to rotate the text around.
    * Default value: auto
    */
-  textRotationPoint?: ChartRotationPoint;
+  textRotationPoint?: ChartRotationPoint | string;
   /**
    * Object describing the tick marks properties of the valueAxis.
    * Default value: [object Object]
@@ -1465,7 +1465,7 @@ export interface ChartTitle {
    * Horizontal alignment.
    * Default value: center
    */
-  horizontalAlignment?: HorizontalAlignment;
+  horizontalAlignment?: HorizontalAlignment | string;
   /**
    * Text of the title.
    * Default value: ""
@@ -1475,7 +1475,7 @@ export interface ChartTitle {
    * Vertical alignment.
    * Default value: center
    */
-  verticalAlignment?: VerticalAlignment;
+  verticalAlignment?: VerticalAlignment | string;
   /**
    * boolean determining the visibility of the title.
    * Default value: true
@@ -1514,7 +1514,7 @@ export interface ChartXAxis {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit | null;
+  baseUnit?: ChartBaseUnit | null | string;
   /**
    * boolean determining whether to draw the axis or the user will use APIs to draw it.
    * Default value: false
@@ -1594,7 +1594,7 @@ export interface ChartXAxis {
    * Sets the axis position. The values 'bottom' and 'top' are available in the default case. If the xAxis is vertical, only 'left' and 'right' are available.
    * Default value: bottom
    */
-  position?: AxisPosition;
+  position?: AxisPosition | string;
   /**
    * Definition of a range selector on the xAxis. The range selector itself is also an instance of smart-chart.
    * Default value: [object Object]
@@ -1614,7 +1614,7 @@ export interface ChartXAxis {
    * Position to rotate the text around.
    * Default value: auto
    */
-  textRotationPoint?: ChartRotationPoint;
+  textRotationPoint?: ChartRotationPoint | string;
   /**
    * Object describing the tick marks properties of the xAxis.
    * Default value: [object Object]
@@ -1639,7 +1639,7 @@ export interface ChartXAxis {
    * The type of the axis. 'auto' - automatically detects and switches to 'basic', 'linear' or 'date'.'date' - when displaying dates.'basic' - displays all data points sequentially.'linear' - linear arrangement by the value of the xAxis data field.
    * Default value: auto
    */
-  type?: ChartXAxisType;
+  type?: ChartXAxisType | string;
   /**
    * Sets the interval between the units.
    * Default value: null
@@ -1673,7 +1673,7 @@ export interface ChartRangeSelector {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit | null;
+  baseUnit?: ChartBaseUnit | null | string;
   /**
    * Sets the range selector chart's border color.
    * Default value: null
@@ -1693,7 +1693,7 @@ export interface ChartRangeSelector {
    * Sets the range selector chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'.
    * Default value: scheme01
    */
-  colorScheme?: ChartColorScheme;
+  colorScheme?: ChartColorScheme | string;
   /**
    * Enables or disables overlapping of the column series.
    * Default value: false
@@ -1758,7 +1758,7 @@ export interface ChartRangeSelector {
    * Sets the range selector chart position.
    * Default value: left
    */
-  position?: AxisPosition;
+  position?: AxisPosition | string;
   /**
    * An HTML element outside the chart to render the range selector chart to.
    * Default value: null
@@ -1783,7 +1783,7 @@ export interface ChartRangeSelector {
    * Sets the range selector chart type. jqxChart supports several common chart types. You can easily plot series of different types on a common chart. A type must be specified for each series group. Currently, jqxChart supports the following series types:'column' - simple column series'stackedcolumn' - stacked column series'stackedcolumn100' - percentage stacked columns'rangecolumn' - floating column between two values'waterfall' - waterfall series'stackedwaterfall' - stacked waterfall series'line' - simple straight lines connecting the value points'stackedline' - stacked lines'stackedline100' - percentage stacked lines'spline' - smooth lines connecting the value points'stackedspline' - smooth stacked lines'stackedspline100' - percentage stacked smooth lines'stepline' - step line'stackedstepline' - stacked step line'stackedstepline100' - percentage stacked step line'area' - area connecting the value points with straight lines'stackedarea' - stacked area with straight lines between the points'stackedarea100' - percentage stacked area with straight lines between the points'rangearea' - floating area between pairs of value points'splinearea' - smooth area connecting the value points'stackedsplinearea' - stacked smooth area connecting the value points'stackedsplinearea100' - percentage stacked smooth area'splinerangearea' - smooth floating area between pairs of value points'steprangearea' - step area between pairs of value points'stackedsplineara' - smooth stacked area'steparea' - step area connecting the value points'stackedsteparea' - step stacked area'stackedsteparea100' - percentage stacked step area'pie' - circular chart divided into sectors, illustrating proportion'donut' - chart divided into circular sectors with different inner and outer radius'scatter' - data is displayed as a collection of points'stackedscatter' - data is displayed as a collection of points and the values are stacked'stackedscatter100' - data is displayed as a collection of points and the values are percentage stacked'bubble' - data is displayed as a collection of bubbles'stackedbubble' - data is displayed as a collection of bubbles and the values are stacked'stackedbubble100' - data is displayed as a collection of bubbles and the values are percentage stacked'candlestick' - display candlestick series using open, high, low, close data points'ohlc' - display OHLC series using open, high, low, close data points
    * Default value: area
    */
-  serieType?: ChartType;
+  serieType?: ChartType | string;
   /**
    * Determines whether to display the range selector chart's border line.
    * Default value: false

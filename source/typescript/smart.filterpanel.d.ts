@@ -5,7 +5,7 @@ export interface FilterPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Defines which operation buttons will be shown in the filter panel
    * Default value: cancel,clear,filter
@@ -40,7 +40,7 @@ export interface FilterPanelProperties {
    * Defines which filter type is used.
    * Default value: string
    */
-  filterType?: FilterPanelFilterType;
+  filterType?: FilterPanelFilterType | string;
   /**
    * Format string used in filterType 'Date'.
    * Default value: "d"
@@ -107,7 +107,7 @@ export interface FilterPanelProperties {
    * Desfines filter panel's  mode
    * Default value: default
    */
-  mode?: FilterPanelMode;
+  mode?: FilterPanelMode | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false

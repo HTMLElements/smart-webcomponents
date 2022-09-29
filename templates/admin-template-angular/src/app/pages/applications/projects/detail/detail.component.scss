@@ -1,0 +1,198 @@
+.project-detail {
+    .project-detail-header {
+        margin-bottom: 0.75rem;
+    }
+
+    .col-entity {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    .col-entity-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    smart-progress-bar {
+        width: 100%;
+    }
+
+    .cards-row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .cards-col {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-content-row {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .card-content-row:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+
+    .comments-info-earnings-row {
+        .custom-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-description {
+            margin-top: 1rem;
+        }
+
+        p {
+            opacity: 0.9;
+        }
+
+        .project-asignees {
+            margin-top: 0.75rem;
+        }
+
+        #project-detail-card1 {
+            .img-as-background {
+                width: 35px;
+                margin-bottom: 0.75rem;
+                margin-right: 0.75rem;
+                border-radius: 50%;
+                border: 1px solid var(--smart-border-color);
+            }
+        }
+
+        .comments-card {
+            .card-header {
+                .label {
+                    span {
+                        margin-left: 0.5rem;
+                    }
+                }
+            }
+
+            .avatar-holder {
+                .img-as-background {
+                    width: 60px;
+                    border-radius: 50%;
+                    border: 1px solid var(--smart-border-color);
+                }
+            }
+
+            .comment-wrapper {
+                padding: 0.75rem 0;
+
+                .w-65px {
+                    width: 65px;
+                }
+
+                .content-row {
+                    margin-bottom: 1.5rem;
+                }
+
+                .meta {
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                }
+
+                .comments {
+                    .comment {
+                        display: flex;
+                        margin-bottom: 0.75rem;
+
+                        .avatar-holder {
+                            .img-as-background {
+                                width: 30px;
+                            }
+                        }
+
+                        .content {
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .name-row {
+            justify-content: space-between;
+            padding-top: 0.75rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .comment-wrapper:first-child {
+            border-bottom: 1px solid var(--smart-border-color);
+        }
+
+        .info-row {
+            padding-bottom: 0.5rem;
+
+            .img-as-background {
+                width: 35px;
+                margin-bottom: 0.75rem;
+                margin-right: 0.75rem;
+                border-radius: 50%;
+                border: 1px solid var(--smart-border-color);
+            }
+        }
+
+        .info-row:not(:last-child) {
+            border-bottom: 1px solid var(--smart-border-color);
+        }
+
+        .created-started-ended-row,
+        .progress-logged-estimated-row,
+        .budget-row {
+            .custom-row {
+                padding-top: 0.75rem;
+            }
+        }
+    }
+
+    .custom-col-5 {
+        flex: 0 0 41.6666666667%;
+        max-width: 41.6666666667%;
+    }
+
+    .custom-col-7 {
+        flex: 0 0 58.3333333333%;
+        max-width: 58.3333333333%;
+    }
+
+    @media (min-width: 768px) {
+        .col-entity-md-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        .comment-wrapper {
+            display: flex !important;
+
+            .comment-content {
+                margin-left: 1rem;
+            }
+
+            .name-row {
+                padding-top: 1.5rem;
+                padding-bottom: 0.75rem;
+            }
+        }
+    }
+
+    @media (min-width: 992px) {
+        .col-entity-lg-8 {
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
+
+        .col-entity-lg-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+    }
+}

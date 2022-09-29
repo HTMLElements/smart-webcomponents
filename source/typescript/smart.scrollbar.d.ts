@@ -5,7 +5,7 @@ export interface ScrollBarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -35,7 +35,7 @@ export interface ScrollBarProperties {
    * Sets or gets the type of used mechanical action. The mechanical action defines in which moment the value of the element will be updated.
    * Default value: switchWhileDragging
    */
-  mechanicalAction?: DragMechanicalAction;
+  mechanicalAction?: DragMechanicalAction | string;
   /**
    * Sets an object with string values, related to the different states of passwords strength.
    * Default value:    * {
@@ -61,7 +61,7 @@ export interface ScrollBarProperties {
    * Sets or gets the scrollbar's orientation
    * Default value: horizontal
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false

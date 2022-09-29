@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Album page layout</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="description" content="A page which shows Albums and Card Layout Template with our UI Components"/>
+ 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css" />
+    
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+	
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
+    <script type="text/javascript" src="../../source/smart.element.js"></script>
+    <script type="text/javascript" src="../../source/smart.button.js"></script>
+    <script type="text/javascript" src="../../source/smart.card.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="material-icons">camera_alt</i> Album layout</div>
+    </header>
+    <section class="user">
+        <div class="container">
+            <h1 class="headline">Album layout</h1>
+            <p class="content">
+                Something short and leading about the collection below—its
+                contents, the creator, etc. Make it short and sweet, but not too
+                short so folks don't simply skip over it entirely.
+            </p>
+            <div class="buttons">
+                <smart-button tabindex="0" class="primary">Main call to action</smart-button>
+                <smart-button tabindex="0" class="outlined primary">Secondary action</smart-button>
+            </div>
+        </div>
+    </section>
+    <section class="articles">
+        <div class="container" id="album">
+            <template id="cardTemplate">
+                <div class="thumb-section">Thumbnail</div>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <p>
+                        This is a media card. You can use this section to describe the content.
+                    </p>
+                </div>
+                <div>
+                    <smart-button class="flat primary">VIEW</smart-button>
+                    <smart-button class="flat primary">EDIT</smart-button>
+                </div>
+            </template>
+        </div>
+    </section>
+    <footer>
+        <h4>Footer</h4>
+        <p>Something here to give the footer a purpose!</p>
+    </footer>
+</body>
+</html>

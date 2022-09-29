@@ -15,7 +15,7 @@ export interface ListItemProperties {
    * 
    * Default value: plain
    */
-  displayMode?: ListItemDisplayMode;
+  displayMode?: ListItemDisplayMode | string;
   /**
    * 
    * Default value: false
@@ -109,7 +109,7 @@ export interface TextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether the text box will be focused on page load or not.
    * Default value: false
@@ -119,7 +119,7 @@ export interface TextBoxProperties {
    * Determines the autocomplete mode. Auto complete modes filter the items from the dataSource and show only those that match the input.
    * Default value: manual
    */
-  autoComplete?: AutoComplete;
+  autoComplete?: AutoComplete | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation.
    * Default value: 100
@@ -149,7 +149,7 @@ export interface TextBoxProperties {
    * Determines how the characters are displayed inside the input.
    * Default value: default
    */
-  displayMode?: TextBoxDisplayMode;
+  displayMode?: TextBoxDisplayMode | string;
   /**
    * Determines the drop down parent. The drop down can be removed from the body of the element and continue to work in another container. This is usefull when one of the parents of the element doesn't allow overflowing, by settings this property to 'body' the drop down will be appended to the DOM and the drop down will open/close as usual. dropDownAppendTo can be a string representing the id of an HTML element on the page or a direct reference to that element. Reseting it back to null will take the drop down back to it's original place.
    * Default value: null
@@ -184,7 +184,7 @@ export interface TextBoxProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document. The purpose of the overlay is to make sure that clicking anywhere outside the drop down will will target the overlay and not the DOM.
    * Default value: false
@@ -199,7 +199,7 @@ export interface TextBoxProperties {
    * Determines the position of the drop down when opened.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -209,12 +209,12 @@ export interface TextBoxProperties {
    * Determines the behavior of the element when Escape key is pressed.
    * Default value: none
    */
-  escKeyMode?: EscKeyMode;
+  escKeyMode?: EscKeyMode | string;
   /**
    * Specifies the behavior of "Enter" key.
    * Default value: submit
    */
-  enterKeyBehavior?: EnterKeyBehavior;
+  enterKeyBehavior?: EnterKeyBehavior | string;
   /**
    * The form element that the element is associated with (its "form owner"). The value of the attribute must be the ID of a form element in the same document.
    * Default value: ""
@@ -229,7 +229,7 @@ export interface TextBoxProperties {
    * Determines the visibility of the horizontal Scroll bar thats inside the drop down.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Represents the property name of a List item. Determines the value of the input when a ListItem is selected. Usefull in cases where the user wants to display for example the value of an item instead of it's label. By default the label is displayed in the input.
    * Default value: ""
@@ -249,7 +249,7 @@ export interface TextBoxProperties {
    * Determines the item width measuring algorithm.
    * Default value: auto
    */
-  itemMeasureMode?: ListItemMeasureMode;
+  itemMeasureMode?: ListItemMeasureMode | string;
   /**
    * A getter that returns an array of all List items inside the drop down.
    * Default value: 
@@ -274,7 +274,7 @@ export interface TextBoxProperties {
    * Determines the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -376,7 +376,7 @@ export interface TextBoxProperties {
    * Determines the visibility of the vertical scroll bar that's inside the drop down.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
 }
 /**
  TextBox is an input field with auto-suggest options.

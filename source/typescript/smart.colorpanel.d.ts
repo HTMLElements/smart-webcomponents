@@ -5,12 +5,12 @@ export interface ColorPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Specifies how the value is applied.
    * Default value: instantly
    */
-  applyValueMode?: ColorApplyValueMode;
+  applyValueMode?: ColorApplyValueMode | string;
   /**
    * Defines the number of columns for the colors in displayModes 'grid', 'hexagonal' and 'spectrumGrid'.
    * Default value: 8
@@ -25,7 +25,7 @@ export interface ColorPanelProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorDisplayMode;
+  displayMode?: ColorDisplayMode | string;
   /**
    * By default clicking on color panel's preview container returns the color value to it's previous state. 'disableUndo' prevents this functionality.
    * Default value: false
@@ -133,7 +133,7 @@ export interface ColorPanelProperties {
    * Determines what colors will be displayed in 'spectrumGrid', 'grid' and 'hexagonal' displayModes.
    * Default value: default
    */
-  palette?: ColorPalette;
+  palette?: ColorPalette | string;
   /**
    * Defines an array of colors that form a custom palette. This palette can be used in displayModes 'grid' and 'spectrum grid' if the palette property is set to custom. The value of the property can be an array of strings or objects that contain valid colors ( HEX, RGBA, etc).
    * Default value: null
@@ -163,7 +163,7 @@ export interface ColorPanelProperties {
    * Determines how the tooltip displays the value of the color that is being hovered.
    * Default value: hex
    */
-  tooltipDisplayMode?: ColorTooltipDisplayMode;
+  tooltipDisplayMode?: ColorTooltipDisplayMode | string;
   /**
    * Represents the value of the selected color.
    * Default value: "null"
@@ -173,7 +173,7 @@ export interface ColorPanelProperties {
    * Determines the format of the color. Whether it's in HEX, RGB or RGBA. By default it shows the color depending on the displayMode.
    * Default value: default
    */
-  valueFormat?: ColorValueFormat;
+  valueFormat?: ColorValueFormat | string;
   /**
    * Determines the value member for the color when the paletteColors consists of objects. Usefull in cases where the colors are loaded as objects in an array and the attribute that holds the color key is not named 'value'.
    * Default value: "null"

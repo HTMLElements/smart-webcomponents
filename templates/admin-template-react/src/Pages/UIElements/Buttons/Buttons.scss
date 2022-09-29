@@ -1,0 +1,49 @@
+.buttons-page {
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button-container:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    smart-button:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    smart-button.icon > button {
+        display: flex;
+        align-items: center;
+    }
+
+    .icon-text:nth-child(3) {
+        margin-bottom: 30px;
+    }
+
+    .icon-text smart-button.icon > button > .material-icons,
+    .icon-text smart-button.icon > button > img {
+        margin-right: 5px;
+    }
+
+    smart-button.icon > button > img {
+        filter: invert(1);
+    }
+
+    .twitter {
+        --smart-primary: #1da1f2;
+    }
+
+    .reddit {
+        --smart-primary: tomato;
+    }
+
+    .youtube {
+        --smart-primary: red;
+    }
+
+    .instagram {
+        --smart-primary: #a13091;
+    }
+}

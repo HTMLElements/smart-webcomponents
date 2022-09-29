@@ -1,0 +1,174 @@
+.wizard-page {
+    .smart-tabs + .smart-tabs {
+        margin-top: 20px;
+    }
+
+    .smart-tabs.success {
+        --smart-primary-rgb: 139, 195, 74;
+        --smart-primary: var(--smart-success);
+        --smart-ui-state-color-selected: var(--smart-success);
+        --smart-button-outlined-color: var(--smart-success);
+    }
+
+    .smart-tabs.success .smart-button {
+        --smart-ui-state-hover: var(--smart-success);
+        --smart-ui-state-border-hover: var(--smart-success);
+        --smart-ui-state-active: var(--smart-success);
+        --smart-ui-state-border-active: var(--smart-success);
+        --smart-ui-state-focus: var(--smart-success);
+        --smart-ui-state-border-focus: var(--smart-success);
+    }
+
+    .smart-tabs.error {
+        --smart-primary-rgb: var(--smart-error-rgb);
+        --smart-primary: var(--smart-error);
+        --smart-ui-state-color-selected: var(--smart-error);
+    }
+
+    .smart-tabs.error .smart-button {
+        --smart-ui-state-hover: var(--smart-error);
+        --smart-ui-state-border-hover: var(--smart-error);
+        --smart-ui-state-active: var(--smart-error);
+        --smart-ui-state-border-active: var(--smart-error);
+        --smart-ui-state-focus: var(--smart-error);
+        --smart-ui-state-border-focus: var(--smart-error);
+    }
+
+    .smart-tabs.fancy {
+        --smart-tab-item-initial-offset: 0;
+        --smart-tab-item-offset: 0;
+        --smart-ui-state-color-focus: var(--smart-primary);
+    }
+
+    .smart-tabs.fancy .smart-header .smart-tab-strip {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .smart-tabs.fancy .smart-header .smart-tab-label-container {
+        margin: 0 !important;
+        border: 0 !important;
+    }
+
+    .smart-tabs.fancy .smart-tab-label-container.unreached {
+        pointer-events: none;
+        opacity: 0.5;
+        border-bottom: 0 !important;
+    }
+
+    .smart-tabs.fancy .smart-header .smart-tab-label-container.smart-tab-selected .smart-tab-label-text-wrapper {
+        color: var(--smart-primary-color);
+    }
+
+    .smart-tabs.fancy .smart-header .smart-tab-label-container.smart-tab-selected {
+        background: var(--smart-primary);
+        color: var(--smart-primary-color);
+        border: 0;
+    }
+
+    .smart-tabs.fancy .smart-tab-label-text-container {
+        padding-left: 15px;
+    }
+
+    .smart-tabs.fancy .smart-tabs-selection-bar {
+        display: none;
+    }
+
+    .smart-tabs.fancy .smart-tab-label-container {
+        --smart-ui-state-color-focus: var(--smart-primary-color);
+        border-radius: 0;
+        background-color: var(--smart-primary);
+        color: var(--smart-primary-color);
+    }
+
+    .smart-tabs.fancy[horizontal] .smart-tab-label-container:not(.unreached):not([selected]) {
+        /*color: rgba(var(--smart-primary-rgb), 0.8);*/
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: var(--light);
+        color: var(--smart-primary-color);
+    }
+
+    .smart-tabs.fancy[horizontal] .smart-tab-label-container:not(.unreached):not([selected])::after {
+        border-color: transparent transparent transparent var(--light);
+    }
+
+    .smart-tabs.fancy[horizontal].success .smart-tab-label-container:not(.unreached):not([selected]) {
+        background-color: #b5d78e;
+    }
+
+    .smart-tabs.fancy[horizontal].success .smart-tab-label-container:not(.unreached):not([selected])::after {
+        border-color: transparent transparent transparent #b5d78e;
+    }
+
+    .smart-tabs.fancy[horizontal].error .smart-tab-label-container:not(.unreached):not([selected]) {
+        background-color: #cc6275;
+    }
+
+    .smart-tabs.fancy[horizontal].error .smart-tab-label-container:not(.unreached):not([selected])::after {
+        border-color: transparent transparent transparent #cc6275;
+    }
+
+    .smart-tabs.fancy .smart-tab-label-container::before,
+    .smart-tabs.fancy .smart-tab-label-container::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 19px 0 19px 19px;
+        border-color: transparent transparent transparent var(--smart-primary);
+        left: 100%;
+        top: 0;
+        z-index: 2;
+    }
+
+    .smart-tabs.fancy .smart-tab-label-container::before {
+        border-color: transparent transparent transparent black;
+        z-index: 1;
+    }
+
+    .smart-tabs.fancy .smart-tab-label-container.unreached {
+        background-color: var(--smart-surface);
+        color: var(--smart-surface-color);
+        opacity: 1;
+    }
+
+    .smart-tabs.fancy .smart-tab-label-container.unreached::after {
+        border-color: transparent transparent transparent var(--smart-surface);
+    }
+
+    #checkoutForm {
+        width: 100%;
+        padding: 10px;
+        overflow: auto;
+    }
+
+    #checkoutForm table {
+        width: 100%;
+        table-layout: fixed;
+        padding: 15px;
+    }
+
+    #checkoutForm h2 {
+        margin-left: 20px;
+    }
+
+    #checkoutForm h2,
+    #checkoutForm table th {
+        font-size: 20px;
+        color: var(--smart-primary);
+        padding: 10px;
+        white-space: nowrap;
+    }
+
+    #checkoutForm .smart-form-tab-label .circle {
+        padding: 10px;
+        color: #fff;
+    }
+}
+
+body[theme="dark"] .wizard-page {
+    .smart-tabs.fancy .smart-tab-label-container::before {
+        border-color: transparent transparent transparent white;
+    }
+}

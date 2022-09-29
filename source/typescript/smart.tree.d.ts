@@ -15,7 +15,7 @@ export interface TreeProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Automatically hides the tree's toggle element (arrow) on mouseleave and shows it on mouseenter.
    * Default value: false
@@ -75,12 +75,17 @@ export interface TreeProperties {
    * Determines the expand behavior of TreeItemsGroups in the Tree.
    * Default value: multiple
    */
-  expandMode?: TreeExpandMode;
+  expandMode?: TreeExpandMode | string;
   /**
    * Enables or disables filtering. Shows or hides filter input.
    * Default value: false
    */
   filterable?: boolean;
+  /**
+   * Applies a filter only after the 'Enter' key is pressed.
+   * Default value: false
+   */
+  filterOnEnter?: boolean;
   /**
    * Sets custom text for placeholder in the filter input.
    * Default value: ""
@@ -95,7 +100,7 @@ export interface TreeProperties {
    * Sets filter mode.
    * Default value: containsIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * Sets or gets whether the tree checkboxes have three states - checked, unchecked and indeterminate. Whorks on selectionMode: 'checkBox'
    * Default value: false
@@ -115,7 +120,7 @@ export interface TreeProperties {
    * Sets the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages.
    * Default value: "en"
@@ -147,7 +152,7 @@ export interface TreeProperties {
    * Specifies what should happen with the scrollbar (or scroll buttons in scrollMode: 'scrollButtons') if content overflows the element's box.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -162,7 +167,7 @@ export interface TreeProperties {
    * Determines whether to use scrollbar or scrollButtons when content overflows an element's box.
    * Default value: scrollbar
    */
-  scrollMode?: TreeScrollMode;
+  scrollMode?: TreeScrollMode | string;
   /**
    * An array with indexes (paths) of the selected items.
    * Default value: 
@@ -172,17 +177,17 @@ export interface TreeProperties {
    * Determines the way selected items are highlighted.
    * Default value: row
    */
-  selectionDisplayMode?: TreeSelectionDisplayMode;
+  selectionDisplayMode?: TreeSelectionDisplayMode | string;
   /**
    * Determines selection mode.
    * Default value: one
    */
-  selectionMode?: TreeSelectionMode;
+  selectionMode?: TreeSelectionMode | string;
   /**
    * Determines whether smart-tree-items-groups can be selected.
    * Default value: all
    */
-  selectionTarget?: TreeSelectionTarget;
+  selectionTarget?: TreeSelectionTarget | string;
   /**
    * Shows or hides lines, displaying the relation between elements in group.
    * Default value: false
@@ -202,7 +207,7 @@ export interface TreeProperties {
    * Determines sort direction - ascending or descending.
    * Default value: asc
    */
-  sortDirection?: TreeSortDirection;
+  sortDirection?: TreeSortDirection | string;
   /**
    * Enables or disables sorting.
    * Default value: false
@@ -217,12 +222,12 @@ export interface TreeProperties {
    * Determines togle element (arrow) position.
    * Default value: near
    */
-  toggleElementPosition?: Position;
+  toggleElementPosition?: Position | string;
   /**
    * Determines the way to toggle smart-tree-items-groups.
    * Default value: dblclick
    */
-  toggleMode?: TreeToggleMode;
+  toggleMode?: TreeToggleMode | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -398,6 +403,11 @@ export interface Tree extends BaseElement, TreeProperties {
    */
   getItem(id: string): HTMLElement;
   /**
+   * Gets the selected values. If value is not defined, returns the selected labels.
+   * @returns {string[]}
+   */
+  getSelectedValues(): string[];
+  /**
    * Returns SmartTree's state
    * @returns {any}
    */
@@ -434,15 +444,25 @@ export interface Tree extends BaseElement, TreeProperties {
    */
   saveState(): any;
   /**
-   * Selects an item.
+   * Selects an item by its index or by HTMLElement id.
    * @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
    */
   select(item: HTMLElement | string): void;
   /**
-   * Unselects an item.
+   * Selects an item or items by values.
+   * @param {string | string[]} items. The smart-tree-item/smart-tree-items-group values or labels, if values are not defined.
+   */
+  setSelectedValues(items: string | string[]): void;
+  /**
+   * Unselects an item by its index or by HTMLElement id.
    * @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
    */
   unselect(item: HTMLElement | string): void;
+  /**
+   * Unselects an item or items by values.
+   * @param {string | string[]} items. The smart-tree-item/smart-tree-items-group values or labels, if values are not defined.
+   */
+  unselectValues(items: string | string[]): void;
   /**
    * Updates an item.
    * @param {HTMLElement | string} item. smart-tree-item/smart-tree-items-group (or its id or numeric path).

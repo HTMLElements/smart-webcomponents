@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/common-layout.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+  <title>Smart HTML Elements | Admin & Dashboard Template With Bootstrap</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <template id="eCommerceDetailsCarousel">
+    <div class="slides-holder">
+      <div class="item bg-secondary-opacity-1 border">
+        <div>
+          <h5>{{label1}}</h5>
+          <p>by {{brand1}}</p>
+        </div>
+
+        <div class="image">
+          <img class="image" src="{{image1}}" />
+        </div>
+        <br />
+        <h6 class="text-primary">{{price1}}</h6>
+      </div>
+      <div class="item bg-secondary-opacity-1 border">
+        <div>
+          <h5>{{label2}}</h5>
+          <p>by {{brand2}}</p>
+        </div>
+
+        <div class="image">
+          <img class="image" src="{{image2}}" />
+        </div>
+        <br />
+        <h6 class="text-primary">{{price2}}</h6>
+      </div>
+      <div class="item bg-secondary-opacity-1 border">
+        <div>
+          <h5>{{label3}}</h5>
+          <p>by {{brand3}}</p>
+        </div>
+
+        <div class="image">
+          <img class="image" src="{{image3}}" />
+        </div>
+        <br />
+        <h6 class="text-primary">{{price3}}</h6>
+      </div>
+    </div>
+  </template>
+
+  <template id="contactTemplate">
+    <div class="item-structure">
+      <div class="avatar"></div>
+      <div>
+        <div>{{label}}</div>
+        <div class="online-indicator"></div>
+      </div>
+    </div>
+  </template>
+
+  <template id="toastTemplate">
+    <div class="header">
+      <h6 class="text-success"><i class="fas fa-check-circle" style="font-size: 18px; margin-right: 0.25rem;"></i>
+        Congratulations!</h6>
+    </div>
+    <div class="content">
+      {{content}}
+    </div>
+  </template>
+
+  <template id="pagesTemplate">PAGES</template>
+  <template id="toolsTemplate">TOOLS & COMPONENTS</template>
+  <template id="pluginTemplate">PLUGIN & ADDONS</template>
+
+  <template id="newMessages"><strong>3 New Messages</strong></template>
+  <template id="showAllMessages">Show all messages</template>
+  <template id="newNotifications"><strong>4 New Notifications</strong></template>
+  <template id="showAllNotifications">Show all notifications</template>
+
+  <template id="analytics">Analytics</template>
+
+  <template id="settingsTemplate">SETTINGS</template>
+
+  <template id="itemTemplateMultiItems">
+    <div class="slides-holder">
+      <div class="item bg-secondary-opacity-1 border">
+        <div>
+          <h5>{{label1}}</h5>
+          <p>by {{brand1}}</p>
+        </div>
+
+        <div class="image">
+          <img class="image" src="{{image1}}" />
+        </div>
+        <br />
+        <h6 class="text-primary">{{price1}}</h6>
+      </div>
+      <div class="item bg-secondary-opacity-1 border">
+        <div>
+          <h5>{{label2}}</h5>
+          <p>by {{brand2}}</p>
+        </div>
+
+        <div class="image">
+          <img class="image" src="{{image2}}" />
+        </div>
+        <br />
+        <h6 class="text-primary">{{price2}}</h6>
+      </div>
+      <div class="item bg-secondary-opacity-1 border">
+        <div>
+          <h5>{{label3}}</h5>
+          <p>by {{brand3}}</p>
+        </div>
+
+        <div class="image">
+          <img class="image" src="{{image3}}" />
+        </div>
+        <br />
+        <h6 class="text-primary">{{price3}}</h6>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<div class="first">
+    <div class="content">
+        <h3>Revenue by sales channels</h3>
+        <div class="charts">
+            <div id="daily-summary">
+                <div class="chart-header">
+                    <div class="daily-sales-title title">DAILY SUMMARY</div>
+                    <div id="daily-stats">
+                        <div class="row">
+                            <div class="name">Direct</div>
+                            <div class="value">$361,600</div>
+                        </div>
+                        <div class="row">
+                            <div class="name">VARs</div>
+                            <div class="value">$345,500</div>
+                        </div>
+                        <div class="row">
+                            <div class="name">Consultants</div>
+                            <div class="value">$255,030</div>
+                        </div>
+                        <div class="row">
+                            <div class="name">Resellers</div>
+                            <div class="value">$221,570</div>
+                        </div>
+                        <div class="row">
+                            <div class="name">Retail</div>
+                            <div class="value">$117,070</div>
+                        </div>
+                        <div class="row total">
+                            <div class="name">Total</div>
+                            <div class="value">$1,300,770</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="daily-sales-performance">
+                <div class="chart-header">
+                    <div class="options">
+                        <div class="daily-sales-title title">DAILY SALES PERFORMANCE</div>
+                        <div class="day-switcher">
+                            <span class="material-icons left">arrow_left</span>
+                            <span id="date">Oct <span id="day"></span>, 2021</span>
+                            <span class="material-icons right">arrow_right</span>
+                        </div>
+                    </div>
+                </div>
+                <smart-chart id="channels-chart"></smart-chart>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="second">
+    <div class="content">
+        <div class="charts">
+            <smart-chart id="donut-chart"></smart-chart>
+            <div>
+                <div class='chart-header'>
+                    <div>2021</div>
+                    <div>PRODUCT SALES BY RANGE</div>
+                </div>
+                <smart-chart id="bars-chart"></smart-chart>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="third">
+    <div class="content">
+        <div id="rangeSelector"></div>
+        <smart-chart id="dates-chart"></smart-chart>
+    </div>
+</div>

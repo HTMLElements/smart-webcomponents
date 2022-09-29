@@ -5,7 +5,7 @@ export interface LedProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -15,7 +15,7 @@ export interface LedProperties {
    * Determines when the element fires a click event.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the LED.
    * Default value: false
@@ -91,7 +91,7 @@ export interface LedProperties {
    * Sets the shape of LED.
    * Default value: round
    */
-  shape?: LedShape;
+  shape?: LedShape | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""

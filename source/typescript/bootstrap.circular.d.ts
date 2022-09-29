@@ -30,7 +30,7 @@ export interface BootstrapCircularProperties {
    * Sets or gets the style mode of the button.
    * Default value: primary
    */
-  styleMode?: BootstrapCircularStyleMode;
+  styleMode?: BootstrapCircularStyleMode | string;
   /**
    * Sets or gets the value
    * Default value: 5

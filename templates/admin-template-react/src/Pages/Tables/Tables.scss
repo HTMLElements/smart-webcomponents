@@ -1,0 +1,33 @@
+.tables-page {
+    .actions-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .actions-container .material-icons {
+        cursor: pointer;
+    }
+
+    .actions-container .material-icons:hover {
+        color: var(--smart-primary);
+    }
+
+    #coloredTable tr[row-id="2"] {
+        background-color: var(--smart-primary);
+        color: var(--smart-primary-color);
+    }
+
+    #coloredTable tr[row-id="4"] {
+        background-color: var(--smart-success);
+        color: var(--smart-success-color);
+    }
+
+    #spreadsheetTable {
+        height: 300px;
+    }
+
+    #spreadsheetTable thead th,
+    #spreadsheetTable tbody td {
+        border-right: var(--smart-border-width) solid var(--smart-border);
+    }
+}

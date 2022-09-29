@@ -1,0 +1,18 @@
+.ajax-data-page {
+    .country-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .skill-container > img {
+        width: 24px;
+    }
+
+    .smart-progress-bar {
+        width: 100%;
+    }
+
+    .smart-progress-bar .smart-value {
+        border: none;
+    }
+}

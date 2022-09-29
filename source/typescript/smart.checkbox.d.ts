@@ -5,7 +5,7 @@ export interface CheckBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the checked state. 
    * Default value: false
@@ -15,12 +15,12 @@ export interface CheckBoxProperties {
    * Determines which part of the element can be used to toggle it.
    * Default value: both
    */
-  checkMode?: CheckMode;
+  checkMode?: CheckMode | string;
   /**
    * Sets the click mode of the checkbox.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the checkbox. 
    * Default value: false

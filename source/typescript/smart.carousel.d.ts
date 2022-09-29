@@ -5,7 +5,7 @@ export interface CarouselProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * The items switch automatically if set to true or to a custom number(representing the timeout in milliseconds). This property works if slideShow property is enabled.
    * Default value: false
@@ -35,7 +35,7 @@ export interface CarouselProperties {
    * Determines the display mode.
    * Default value: default
    */
-  displayMode?: CarouselDisplayMode;
+  displayMode?: CarouselDisplayMode | string;
   /**
    * Hides the navigation buttons.
    * Default value: false

@@ -1,0 +1,136 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="header-menu">
+                <div class="welcome">Welcome back, Elijah!</div>
+                <smart-button class="today-button settings-button"><span
+                        class="material-icons">calendar_today</span>Today<span
+                        class="material-icons">keyboard_arrow_down</span></smart-button>
+                <smart-button class="primary"><span class="material-icons">filter_alt</span></smart-button>
+                <smart-button class="primary"><span class="material-icons">refresh</span></smart-button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card progress today">
+                <div class="data">Income</div>
+                <div class="pill">Today</div>
+                <div class="value">$53.305</div>
+                <div class="percentage">91%</div>
+                <div class="progressbar">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card progress annual">
+                <div class="data">Orders</div>
+                <div class="pill">Annual</div>
+                <div class="value">9.809</div>
+                <div class="percentage">23%</div>
+                <div class="progressbar">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card progress monthly">
+                <div class="data">Activity</div>
+                <div class="pill">Monthly</div>
+                <div class="value">17.380</div>
+                <div class="percentage">50%</div>
+                <div class="progressbar">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card progress yearly">
+                <div class="data">Revenue</div>
+                <div class="pill">Yearly</div>
+                <div class="value">$28.940</div>
+                <div class="percentage">41%</div>
+                <div class="progressbar">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="large-card">
+                <div class="card-header">
+                    <div class="label">Sales Locations</div>
+                    <div class="settings-button">…</div>
+                </div>
+                <div id="salesMap"></div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="large-card">
+                <div class="card-header">
+                    <div class="label">Total Revenue</div>
+                    <div class="settings-button">…</div>
+                </div>
+                <div id="revenueChart"></div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="large-card">
+                <div class="card-header">
+                    <div class="label">Order Activity</div>
+                    <div class="settings-button">…</div>
+                </div>
+                <div id="appointmentContainer">
+                    <div class="appointment">
+                        <div class="label"><strong>Delivered</strong></div>
+                        <div>30 minutes ago</div>
+                    </div>
+                    <div class="appointment">
+                        <div class="label"><strong>In transit</strong></div>
+                        <div>3 hours ago</div>
+                    </div>
+                    <div class="appointment">
+                        <div class="label"><strong>Shipped</strong></div>
+                        <div>1 day ago</div>
+                    </div>
+                    <div class="appointment">
+                        <div class="label"><strong>Received</strong></div>
+                        <div>2 days ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="large-card">
+                <div class="card-header">
+                    <div class="label">Real-Time</div>
+                    <div class="settings-button">…</div>
+                </div>
+                <div id="bestSellingTable" class="table-striped no-border"></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="large-card">
+                <div class="card-header">
+                    <div class="label">Sales Comparison</div>
+                    <div class="settings-button">…</div>
+                </div>
+                <div id="salesComparisonChart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<smart-menu id="todayMenu" mode="dropDown">
+    <smart-menu-item label="settingsTemplate"></smart-menu-item>
+    <smart-menu-item>First action</smart-menu-item>
+    <smart-menu-item>Second action</smart-menu-item>
+    <smart-menu-item separator>Third action</smart-menu-item>
+    <smart-menu-item>Additional action</smart-menu-item>
+</smart-menu>
+
+<template id="settingsTemplate">SETTINGS</template>

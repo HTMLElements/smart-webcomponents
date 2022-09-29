@@ -5,7 +5,7 @@ export interface ColorPickerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * This property allows editting of colors via the input inside the element's action section. Accepts values in all supported types. This property works when 'valueDisplayMode' is set to default or colorCode.
    * Default value: false
@@ -20,7 +20,7 @@ export interface ColorPickerProperties {
    * Specifies how the user applies the selected value. In 'instantly' mode the value is applied immediately when color is selected. In 'useButtons' mode are shown 'Ok' and 'Cancel' buttons at the botom of the colorpicker's drop down. Only click on 'OK' button applies the value.
    * Default value: instantly
    */
-  applyValueMode?: ColorApplyValueMode;
+  applyValueMode?: ColorApplyValueMode | string;
   /**
    * Defines the number of columns for the colors in displayModes 'grid', 'hexagonal' and 'spectrumGrid'.
    * Default value: 8
@@ -30,7 +30,7 @@ export interface ColorPickerProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorDisplayMode;
+  displayMode?: ColorDisplayMode | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -50,17 +50,17 @@ export interface ColorPickerProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Determines the vertical position of the dropDown. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the height of the drop down. Default value of null means that CSS variables are used. This property should be used when the browser doesn not support CSS variables.
    * Default value: "auto"
@@ -193,7 +193,7 @@ export interface ColorPickerProperties {
    * Determines what colors will be displayed in 'spectrumGrid', 'grid' and 'hexagonal' displayModes.
    * Default value: default
    */
-  palette?: ColorPalette;
+  palette?: ColorPalette | string;
   /**
    * Defines an array of colors that form a custom palette. This palette can be used in displayModes 'grid' and 'spectrum grid' if the palette property is set to custom. The value of the property can be an array of strings or objects that contain valid colors ( HEX, RGBA, etc).
    * Default value: null
@@ -223,7 +223,7 @@ export interface ColorPickerProperties {
    * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
    * Default value: null
    */
-  resizeMode?: ResizeMode;
+  resizeMode?: ResizeMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -238,7 +238,7 @@ export interface ColorPickerProperties {
    * Determines how the tooltip displays the value of the color that is being hovered.
    * Default value: hex
    */
-  tooltipDisplayMode?: ColorTooltipDisplayMode;
+  tooltipDisplayMode?: ColorTooltipDisplayMode | string;
   /**
    * If is set to true, the element cannot be focused.
    * Default value: false
@@ -253,12 +253,12 @@ export interface ColorPickerProperties {
    * Determines the format of the color. Whether it's in HEX, RGB or RGBA. By default it shows the color depending on the displayMode.
    * Default value: default
    */
-  valueFormat?: ColorValueFormat;
+  valueFormat?: ColorValueFormat | string;
   /**
    * Determines which elements will be displayed in color picker's action section.
    * Default value: default
    */
-  valueDisplayMode?: ColorValueDisplayMode;
+  valueDisplayMode?: ColorValueDisplayMode | string;
 }
 /**
  ColorPicker is an advanced color picking component with Pallete, Spectrum Grid, Radial Palette and Excel-like options. Users can input colors either by a dropdown or input field.

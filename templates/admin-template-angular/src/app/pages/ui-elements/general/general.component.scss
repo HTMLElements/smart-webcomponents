@@ -1,0 +1,111 @@
+.general {
+    .general-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .custom-card {
+        margin-bottom: 1.5rem;
+    }
+
+    smart-accordion {
+        width: 100%;
+        height: auto;
+        border: 0;
+
+        .smart-container {
+            overflow: auto;
+            padding: 0;
+        }
+    }
+
+    .smart-accordion .smart-accordion-item[expanded]:not(:last-child) {
+        margin: 0 !important;
+    }
+
+    .smart-accordion .smart-accordion-item .smart-accordion-item-header,
+    .smart-accordion .smart-accordion-item .smart-accordion-item-content {
+        height: auto;
+        padding: 0.75rem 1.25rem;
+    }
+
+    smart-breadcrumb {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .general-breadcrumb-item {
+        color: var(--smart-primary);
+        cursor: pointer;
+    }
+
+    smart-progress-bar {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .general-circular-progress-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    smart-circular-progress-bar {
+        width: 150px;
+        height: 150px;
+    }
+
+    .general-upper-badges-wrapper {
+        margin-bottom: 1.5rem;
+    }
+
+    .general-listboxes-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+
+        .general-listbox {
+            margin-bottom: 1.5rem;
+            flex: 0 0 50%;
+            max-width: 50%;
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    }
+
+    .general-pagers-wrapper {
+        smart-pager:not(:last-child) {
+            margin-bottom: 1.5rem !important;
+        }
+
+        smart-pager:last-child {
+            width: 100% !important;
+        }
+
+        .far {
+            font-family: inherit;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .general-entity {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}
+
+body[theme="dark"] {
+    .general {
+        .smart-accordion .smart-accordion-item:not(:last-of-type) .smart-container {
+            border-bottom: 0 !important;
+        }
+    }
+}

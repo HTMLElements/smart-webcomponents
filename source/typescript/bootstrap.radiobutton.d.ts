@@ -30,7 +30,7 @@ export interface BootstrapRadioButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapRadioButtonStyleMode;
+  styleMode?: BootstrapRadioButtonStyleMode | string;
 }
 /**
  Defines a Radio Button component, which includes Material and Bootstrap styles

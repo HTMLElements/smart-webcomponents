@@ -1,0 +1,14 @@
+.standalone-header {
+    margin-bottom: 15px;
+}
+
+#kanban {
+    border: none;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+}
+
+#kanban .smart-kanban-column-header {
+    --smart-border: var(--smart-outline);
+}

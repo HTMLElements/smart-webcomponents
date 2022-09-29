@@ -1,0 +1,62 @@
+#cardsView .card-auto-height {
+    padding: 0;
+    background-color: unset;
+    box-shadow: unset;
+}
+
+#cardsView smart-card {
+    width: 98%;
+    padding: 2%;
+}
+
+#cardsView smart-card img {
+    width: 100%;
+}
+
+#cardsView a {
+    color: var(--smart-primary);
+}
+
+#cardsView a:last-child {
+    margin-left: 20px;
+}
+
+.list>div {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--smart-border);
+    height: 30px;
+    padding: 10px;
+}
+
+.list>div:first-child {
+    border-top: none;
+}
+
+smart-tabs {
+    width: 100%;
+    height: 200px;
+}
+
+#pills .smart-tabs-selection-bar {
+    visibility: hidden;
+}
+
+#pills .smart-tab-label-container[selected] {
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+#pills .smart-header {
+    border: none;
+}
+
+#pills .smart-tabs-content-section {
+    border: none;
+}
+
+@media only screen and (max-width : 768px) {
+    smart-card {
+        margin: 1%;
+    }
+}

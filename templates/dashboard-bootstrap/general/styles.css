@@ -1,0 +1,38 @@
+smart-accordion,
+smart-breadcrumb,
+#listBoxesContainer smart-list-box,
+smart-progress-bar,
+smart-pager {
+    width: 100%;
+}
+
+#firstBadgesContainer,
+smart-breadcrumb:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#listBoxesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+}
+
+#listBoxesContainer smart-list-box {
+    height: auto;
+}
+
+#pagersContainer smart-pager:not(:last-child),
+smart-progress-bar {
+    margin-bottom: 10px;
+}
+
+smart-circular-progress-bar {
+    width: 150px;
+    height: 150px;
+}
+
+#circularProgressBarsContainer {
+    display: flex;
+    justify-content: space-between;
+}

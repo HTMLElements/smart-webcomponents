@@ -1,0 +1,227 @@
+.chat-page {
+    .chat-holder {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    #listBox {
+        --smart-list-item-height: 50px;
+        border: none;
+        width: 100%;
+        height: auto;
+    }
+
+    #listBox .item-structure {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+        position: relative;
+    }
+
+    #listBox smart-list-item[missed]::after {
+        content: attr(missed);
+        position: absolute;
+        right: 10px;
+        border-radius: 3px;
+        padding: 1px 7px;
+        background-color: var(--smart-primary);
+        color: var(--smart-primary-color);
+    }
+
+    #listBox smart-list-item[missed]::after {
+        content: attr(missed);
+        position: absolute;
+        right: 10px;
+        border-radius: 3px;
+        padding: 1px 7px;
+        background-color: var(--smart-primary);
+        color: var(--smart-primary-color);
+    }
+
+    #listBox .online-indicator {
+        position: relative;
+        margin-top: 3px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    #listBox .online-indicator::after {
+        position: absolute;
+        left: 15px;
+        font-size: 11px;
+    }
+
+    #listBox .online .online-indicator {
+        background-color: yellowgreen;
+    }
+
+    #listBox .online .online-indicator::after {
+        content: "Online";
+    }
+
+    #listBox .offline .online-indicator {
+        background-color: tomato;
+    }
+
+    #listBox .offline .online-indicator::after {
+        content: "Offline";
+    }
+
+    #listBox smart-list-item:first-child .avatar {
+        background-image: url("../../../public/assets/images/phonebook/maya.png");
+    }
+
+    #listBox smart-list-item:nth-child(2) .avatar {
+        background-image: url("../../../public/assets/images/phonebook/maria.png");
+    }
+
+    #listBox smart-list-item:nth-child(3) .avatar {
+        background-image: url("../../../public/assets/images/phonebook/monica.png");
+    }
+
+    #listBox smart-list-item:nth-child(4) .avatar {
+        background-image: url("../../../public/assets/images/phonebook/michael.png");
+    }
+
+    #listBox smart-list-item:nth-child(5) .avatar {
+        background-image: url("../../../public/assets/images/phonebook/johnny.png");
+    }
+
+    .smart-list-box .smart-list-box-filter-input-container {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    #mainChatView {
+        display: grid;
+        grid-template-rows: 50px 1fr 50px;
+        border-left: 1px solid var(--smart-border);
+        height: 800px;
+        padding: 10px 0 20px 0;
+    }
+
+    .chat-header {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto auto;
+        grid-template-rows: 100%;
+        gap: 10px;
+        border-bottom: 1px solid var(--smart-border);
+        padding: 0 10px 10px 10px;
+    }
+
+    .chat-header > :nth-child(2) > :nth-child(2) {
+        font-size: 12px;
+    }
+
+    .chat-header > smart-button {
+        width: 30px;
+        --smart-button-padding: 0;
+    }
+
+    .chat-header > smart-button > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chat-header > smart-button .material-icons {
+        font-size: 16px;
+    }
+
+    .chat-body {
+        padding: 20px;
+        overflow: auto;
+    }
+
+    .chat-body .message {
+        display: grid;
+        grid-template-columns: max-content minmax(100px, max-content);
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "image text"
+            "timestamp text";
+        gap: 10px;
+    }
+
+    .chat-body .message:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    .chat-body .message.me {
+        grid-template-columns: minmax(100px, max-content) max-content;
+        grid-template-areas:
+            "text image"
+            "text timestamp";
+        justify-content: end;
+    }
+
+    .chat-body .message > * {
+        min-width: 0;
+        max-width: unset;
+    }
+
+    .chat-body .message .avatar {
+        grid-area: image;
+        align-self: end;
+        justify-self: center;
+    }
+
+    .avatar-recipient,
+    .chat-body .message .avatar {
+        background-image: url("../../../public/assets/images/phonebook/monica.png");
+    }
+
+    .chat-body .message.me .avatar {
+        background-image: url("../../../public/assets/images/phonebook/mark.png");
+    }
+
+    .chat-body .message .timestamp {
+        grid-area: timestamp;
+        font-size: 12px;
+        opacity: 0.8;
+    }
+
+    .chat-body .message .text {
+        grid-area: text;
+        background-color: var(--smart-surface);
+        padding: 10px;
+    }
+
+    .chat-body .message .text > div:first-child {
+        padding-bottom: 5px;
+        font-weight: bold;
+    }
+
+    #chatFooter {
+        border-top: 1px solid var(--smart-border);
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+
+    #chatFooter > * {
+        width: 100%;
+        height: 100%;
+    }
+
+    #chatFooter > smart-input {
+        --smart-border-top-right-radius: 0;
+        --smart-border-bottom-right-radius: 0;
+    }
+
+    #chatFooter > smart-button {
+        --smart-border-top-left-radius: 0;
+        --smart-border-bottom-left-radius: 0;
+        --smart-button-padding: 5px;
+    }
+
+    .avatar {
+        border-radius: 50%;
+        border: 1px solid var(--smart-border);
+        width: 32px;
+        height: 32px;
+        background-position: center;
+        background-size: cover;
+    }
+}

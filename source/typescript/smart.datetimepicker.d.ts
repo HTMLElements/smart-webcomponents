@@ -5,7 +5,7 @@ export interface DateTimePickerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Applies new animation settings to the calendar pop-up when it is enabled. Properties:startSpeed - Determines the initial speed of the animation.easeThreshold - Determines the point at which the animation starts to slow down - the "ease effect".step - Determines the step ( scrolling interval ) at which the animation will run. stepEaseSize - Coefficient that is used to calculated the new step once the threshold has been passed. resetThreshold - Determines the threshold for animation reset. When it's reached the animation will start over.
    * Default value: null
@@ -30,17 +30,17 @@ export interface DateTimePickerProperties {
    * Determines the position of the calendar button.
    * Default value: right
    */
-  calendarButtonPosition?: DropDownButtonPosition;
+  calendarButtonPosition?: DropDownButtonPosition | string;
   /**
    * Determines the header mode of the calendar pop-up.
    * Default value: default
    */
-  calendarMode?: CalendarMode;
+  calendarMode?: CalendarMode | string;
   /**
    * Sets or gets the format of calendar pop-up's day names.
    * Default value: firstTwoLetters
    */
-  dayNameFormat?: DayFormat;
+  dayNameFormat?: DayFormat | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -55,12 +55,12 @@ export interface DateTimePickerProperties {
    * Determines the time zone to display the value in.
    * Default value: unspecified
    */
-  displayKind?: DateTimePickerDisplayKind;
+  displayKind?: DateTimePickerDisplayKind | string;
   /**
    * Determines the type of the month/year view in the calendar pop-up when calendarMode is set to Default.
    * Default value: table
    */
-  displayModeView?: CalendarDisplayModeView;
+  displayModeView?: CalendarDisplayModeView | string;
   /**
    * Sets custom container to append the pop-up to. By default, it is in the DateTimePicker. The value of the property can be an HTML element or the id of an HTML element.
    * Default value: "null"
@@ -70,7 +70,7 @@ export interface DateTimePickerProperties {
    * Sets or gets the pop-up display mode (what components appear in it, and its behaviour).
    * Default value: default
    */
-  dropDownDisplayMode?: DateTimePickerDropDownDisplayMode;
+  dropDownDisplayMode?: DateTimePickerDropDownDisplayMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document.
    * Default value: false
@@ -80,12 +80,12 @@ export interface DateTimePickerProperties {
    * Determines the pop-up position when opened.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Determines how the the value can be edited inside the input.
    * Default value: default
    */
-  editMode?: DateTimePickerEditMode;
+  editMode?: DateTimePickerEditMode | string;
   /**
    * Determines whether the value can be incremented/decremented with the mouse wheel when the mouse is over the input.
    * Default value: false
@@ -107,7 +107,7 @@ export interface DateTimePickerProperties {
    */
   footer?: boolean;
   /**
-   * Determines the pattern that is used to display the value in.
+   * Determines the pattern that is used to display the value in. Built-in Date formats:// short date pattern'd' - 'M/d/yyyy',// long date pattern'D' - 'dddd, MMMM dd, yyyy',// short time pattern't' - 'h:mm tt',// long time pattern'T' - 'h:mm:ss tt',// long date, short time pattern'f' - 'dddd, MMMM dd, yyyy h:mm tt',// long date, long time pattern'F' - 'dddd, MMMM dd, yyyy h:mm:ss tt',// month/day pattern'M' - 'MMMM dd',// month/year pattern'Y' - 'yyyy MMMM',// S is a sortable format that does not vary by culture'S' - 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'Date format strings:'d'-the day of the month;'dd'-the day of the month'ddd'-the abbreviated name of the day of the week'dddd'- the full name of the day of the week'h'-the hour, using a 12-hour clock from 1 to 12'hh'-the hour, using a 12-hour clock from 01 to 12'H'-the hour, using a 24-hour clock from 0 to 23'HH'- the hour, using a 24-hour clock from 00 to 23'm'-the minute, from 0 through 59'mm'-the minutes,from 00 though59'M'- the month, from 1 through 12'MM'- the month, from 01 through 12'MMM'-the abbreviated name of the month'MMMM'-the full name of the month's'-the second, from 0 through 59'ss'-the second, from 00 through 59't'- the first character of the AM/PM designator'tt'-the AM/PM designator'y'- the year, from 0 to 99'yy'- the year, from 00 to 99'yyy'-the year, with a minimum of three digits'yyyy'-the year as a four-digit number;'yyyyy'-the year as a four-digit number.
    * Default value: "dd-MMM-yy HH:mm:ss.fff"
    */
   formatString?: string;
@@ -249,7 +249,7 @@ export interface DateTimePickerProperties {
    * Sets or gets the position of the spin buttons.
    * Default value: right
    */
-  spinButtonsPosition?: DateTimePickerSpinButtonsPosition;
+  spinButtonsPosition?: DateTimePickerSpinButtonsPosition | string;
   /**
    * Sets or gets the element's visual theme. 
    * Default value: ""
@@ -269,7 +269,7 @@ export interface DateTimePickerProperties {
    * Sets the position of the tooltip in the calendar pop-up.
    * Default value: top
    */
-  tooltipPosition?: TooltipPosition;
+  tooltipPosition?: TooltipPosition | string;
   /**
    * Sets a template for the content of the calendar pop-up's tooltip. Accepts the id of or a reference to an HTMLTemplateElement.
    * Default value: null
@@ -284,7 +284,7 @@ export interface DateTimePickerProperties {
    * Determines the validation mechanism for the value by min/max.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value. The value represents the current date/time that is set to the element as a DateTime object.
    * Default value: new JQX.Utilities.DateTime()
@@ -352,6 +352,16 @@ export interface DateTimePicker extends BaseElement, DateTimePickerProperties {
    * Selects the text inside the input.
    */
   select(): void;
+  /**
+   * Gets a Date object.
+   * @returns {Date}
+   */
+  getDate(): Date;
+  /**
+   * Sets the date of the DateTimePicker.
+   * @param {Date} date. The date object to be set.
+   */
+  setDate(date: Date): void;
 }
 
 declare global {

@@ -5,12 +5,12 @@ export interface ArrayProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the indexing mode of the Array.
    * Default value: LabVIEW
    */
-  arrayIndexingMode?: ArrayArrayIndexingMode;
+  arrayIndexingMode?: ArrayArrayIndexingMode | string;
   /**
    * A callback function that is called when the width, height or disabled properties of an inner element need to be updated. Applicable only when type is 'custom'.
    * Default value: null
@@ -137,7 +137,7 @@ export interface ArrayProperties {
    * Sets or gets the data type and element widgets to be used in the Array.
    * Default value: none
    */
-  type?: ArrayType;
+  type?: ArrayType | string;
   /**
    * If is set to true, the element cannot be focused.
    * Default value: false

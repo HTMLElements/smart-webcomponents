@@ -3,7 +3,7 @@ export interface ElementProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the accordion. Disabled elements can not be interacted with.
    * Default value: false
@@ -79,7 +79,7 @@ export interface ElementProperties {
    * Determines whether the element is automatically rendered or is rendered after calling the render method.
    * Default value: auto
    */
-  renderMode?: ElementRenderMode;
+  renderMode?: ElementRenderMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false

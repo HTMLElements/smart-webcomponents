@@ -1,0 +1,36 @@
+:root,
+body[theme="dark"] {
+  /* Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* Custom */
+  --sidebar-background: #fff;
+  --sidebar-background-active: #f3f6f9;
+  --mobile-menu-background: var(--primary);
+  --header-height: 56px;
+  --subheader-height: 56px;
+  --menu-width: 265px;
+  --menu-width-closed: 70px;
+  --content-background: var(--white);
+
+  --primary: var(--smart-primary);
+  --secondary: var(--smart-secondary);
+  --success: var(--smart-success);
+  --info: var(--smart-info);
+  --warning: var(--smart-warning);
+  --danger: var(--smart-error);
+
+  --black: #{$black};
+  --black-color: #{$black};
+  --white: #{$white};
+  --white-color: #{$white};
+  --dark: #{$dark};
+  --dark-color: #{$dark};
+  --light: #{$light};
+  --light-color: #{$light};
+}
+

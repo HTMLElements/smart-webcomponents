@@ -34,6 +34,11 @@ export interface GridProperties {
    */
   columns?: {label: string, dataField: string}[] | string[] | number | GridColumn[];
   /**
+   * Context Menu is the drop-down menu displayed after right-clicking a Grid row. It allows you to delete row, edit cell or row depending on the edit mode. The 'contextMenuItemCustom' dataSource option allows you to add custom menu item to the context menu. You can replace the context menu by using the 'selector' property and setting it to ID of a Smart.Menu component.
+   * Default value: [object Object]
+   */
+  contextMenu?: GridContextMenu;
+  /**
    * Column Menu is the drop-down menu displayed after clicking the column header's drop-down button, which is displayed when you hover the column header. It allows you to customize column settings. For example: Sort, Filter or Group the Grid by the current column.
    * Default value: [object Object]
    */
@@ -134,6 +139,11 @@ export interface GridProperties {
    */
   onRender?: any;
   /**
+   * Callback function() called when the grid has been rendered for first time and bindings are completed. The component is ready.
+   * Default value: null
+   */
+  onLoad?: any;
+  /**
    * Callback function(event: KeyboardEvent) called when the grid is on focus and a keyboard key is pressed.
    * Default value: null
    */
@@ -153,6 +163,16 @@ export interface GridProperties {
    * Default value: null
    */
   onRowDetailUpdated?: {(index: number, row: GridRow, details: HTMLElement): void};
+  /**
+   * Callback function which is called when a row history is updated. The row history for edits is recorded when the 'storeHistory' property is enabled.
+   * Default value: null
+   */
+  onRowHistory?: {(index: number, row: GridRow, history: any[]): void};
+  /**
+   * Callback function which is called when a row style is updated. The row style can be changed by using the row dialog or the 'setRowStyle' method.
+   * Default value: null
+   */
+  onRowStyle?: {(index: number, row: GridRow, history: any[]): void};
   /**
    * Callback function which is called when a row has been inserted.
    * Default value: null
@@ -174,6 +194,16 @@ export interface GridProperties {
    */
   onRowUpdated?: {(index: number[], row: GridRow[]): void};
   /**
+   * Callback function called by the Grid when defined. It is used to get the CSS class applied to a row.
+   * Default value: null
+   */
+  onRowClass?: {(index: number, data: any, row: GridRow[]): void};
+  /**
+   * Callback function called by the Grid when defined. It is used to get the CSS class applied to a cell.
+   * Default value: null
+   */
+  onCellClass?: {(index: number, dataField: string, cellValue: any, data: any, row: GridRow[]): void};
+  /**
    * Callback function, which is called when a column has been initialized. This function can be used to customize the column settings.
    * Default value: null
    */
@@ -194,10 +224,20 @@ export interface GridProperties {
    */
   onColumnUpdated?: {(index: number, column: GridColumn): void};
   /**
+   * Callback function, which is called when a column has been cloned.
+   * Default value: null
+   */
+  onColumnClone?: {(dataField: string, cloneColumnDataField: string, index: number, duplicateCells: boolean): void};
+  /**
    * Callback function, which is called when a command is executed. The name argument is the command's name. The command argument is the command's function. details are built in command arguments passed by the Grid. The handled parameter allows you to cancel built-in command, because when you set it to true the Grid will not execute the default command's behavior.
    * Default value: null
    */
   onCommand?: {(name: string, command: any, details: GridCell, event: Event | KeyboardEvent | PointerEvent, handled: boolean): void};
+  /**
+   * Sets or gets the rows  CSS class rules. Different CSS class names are conditionally applied. Example: rowCSSRules: { 'cell-class-1': settings =&gt; settings.data.quantity === 5, 'cell-class-2': settings =&gt; settings.data.quantity &lt; 5, 'cell-class-3': settings =&gt; settings.data.quantity &gt; 5 }.  The settings object contains the following properties: index, data, row, api.
+   * Default value: null
+   */
+  rowCSSRules?: any;
   /**
    * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
    * Default value: 
@@ -208,6 +248,11 @@ export interface GridProperties {
    * Default value: []
    */
   users?: any[];
+  /**
+   * Sets the grid's image upload settings for the image columns.
+   * Default value: [object Object]
+   */
+  uploadSettings?: GridUploadSettings;
   /**
    * Describes the paging settings.
    * Default value: [object Object]
@@ -227,7 +272,7 @@ export interface GridProperties {
    * Sets the scroll mode settings.
    * Default value: physical
    */
-  scrolling?: Scrolling;
+  scrolling?: Scrolling | string;
   /**
    * Describes the column header settings.
    * Default value: [object Object]
@@ -282,13 +327,15 @@ export interface Grid extends BaseElement, GridProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered, when the edit begins.
-	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell)
+   * This event is triggered, when the edit begins. After the event occurs, editing starts. If you need to prevent the editing for specific cells, rows or columns, you can call event.preventDefault();.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell, data, value)
    *  id - The edited row id.
    *  dataField - The edited column data field.
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
+   *  data - The edited row's data.
+   *  value - The edited cell's value.
    */
   onBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -391,6 +438,14 @@ export interface Grid extends BaseElement, GridProperties {
    *  comment - The comment object. The comment object has 'text: string', 'id: string', 'userId: string | number', and 'time: date' fields. The 'text' is the comment's text. 'id' is the comment's unique id, 'userId' is the user's id who entered the comment and 'time' is a javascript date object.
    */
   onCommentRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user clicks on a context menu item.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, command)
+   *  id - The row's id.
+   *  dataField - The column's data field.
+   *  command - Command function.
+   */
+  onContextMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the user starts a row drag.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, id, index, originalEvent)
@@ -514,12 +569,14 @@ export interface Grid extends BaseElement, GridProperties {
   onCellDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the edit ends.
-	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell, data, value)
    *  id - The edited row id.
    *  dataField - The edited column data field.
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
+   *  data - The edited row's data.
+   *  value - The edited cell's value.
    */
   onEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -572,9 +629,13 @@ export interface Grid extends BaseElement, GridProperties {
   onPage?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when a sorting column is added or removed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
+	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data, sortDataFields, sortDataTypes, sortOrders, sortIndexes)
    *  columns - Array of columns.
    *  data - Array of {dataField: string, sortOrder: string, sortIndex: number}. <em>dataField</em> is the column's data field. <em>sortOrder</em> is 'asc' or 'desc', <em>sortIndex</em> is the index of the column in multi column sorting.
+   *  sortDataFields - Array of column data fields.
+   *  sortDataTypes - Array of column data types. The values in the array would be 'string', 'date', 'boolean' or 'number'.
+   *  sortOrders - Array of column orders. The values in the array would be 'asc' or 'desc'.
+   *  sortIndexes - Array of column sort indexes. When multiple sorting is applied the sort index is an important parameter as it specifies the priority of sorting.
    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -589,9 +650,9 @@ export interface Grid extends BaseElement, GridProperties {
    * Adds a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {any} data. row data matching the data source
    * @param {boolean} insertAtBottom?. Determines whether to add the new row to the bottom or top of the collection. The default value is 'true'
-   * @param {any} callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
+   * @param  callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
    */
-  addRow(data: any, insertAtBottom?: boolean, callback?: any): void;
+  addRow(data: any, insertAtBottom?: boolean, callback?: {(row: GridRow): void}): void;
   /**
    * Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string} position?. 'near' or 'far'
@@ -612,7 +673,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   addUnboundRow(count: number, position?: string): boolean;
   /**
-   * Adds a filter to a column. This method will apply a filter to the Grid data.
+   * Adds a filter to a column. This method will apply a filter to the Grid data. Example for adding multiple filters to a column: grid.addFilter('lastName', ['CONTAINS "burke"', 'or', 'CONTAINS "peterson"']). Example for adding single filter to a column: grid.addFilter('lastName', 'CONTAINS "burke"'). Example for adding numeric filter:  grid.addFilter('quantity', '&lt;= 5')
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} filter. Filter expression like: 'startsWith B'. Example 2: ['contains Andrew or contains Nancy'], Example 3:  ['quantity', '&lt;= 3 and &gt;= 8'].  Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * @param {boolean} refreshFilters?. Set this to false, if you will use multiple 'addFilter' calls. By doing this, you will avoid unnecessary renders.
@@ -637,6 +698,11 @@ export interface Grid extends BaseElement, GridProperties {
    * Auto-sizes grid columns. This method will update the <em>width</em> of all Grid columns.
    */
   autoSizeColumns(): void;
+  /**
+   * Auto-sizes grid column. This method will update the <em>width</em> of a Grid column by measuring the cells and column header label width.
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   */
+  autoSizeColumn(dataField?: string): void;
   /**
    * This method returns true, if all rows in the Grid are selected.
    * @returns {boolean}
@@ -707,9 +773,9 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Delete a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string | number} rowId. row bound id
-   * @param {any} callback?. Sets a callback function, which is called after the row is deleted. The callback's argument is the deleted row.
+   * @param  callback?. Sets a callback function, which is called after the row is deleted. The callback's argument is the deleted row.
    */
-  deleteRow(rowId: string | number, callback?: any): void;
+  deleteRow(rowId: string | number, callback?: {(row: GridRow): void}): void;
   /**
    * Scrolls to a row or cell. This method scrolls to a row or cell, when scrolling is necessary. If pagination is enabled, it will automatically change the page.
    * @param {string | number} rowId. row bound id
@@ -727,10 +793,15 @@ export interface Grid extends BaseElement, GridProperties {
    */
   endUpdate(refresh?: boolean): void;
   /**
-   * Expands a TreeGrid or Grouping row.
+   * Expands a TreeGrid or Grouping row. For example, if you want to expand the first group, then its second sub grup, then the first sub sub group, you can use: grid.expandRow('0.1.0');
    * @param {string | number} rowId. row bound id
    */
   expandRow(rowId: string | number): void;
+  /**
+   * Expands rows to a given group level. For example 'grid.expandRowsToGroupLevel(1);' means that all groups at the root level will be expanded.
+   * @param {number} level. row group level
+   */
+  expandRowsToGroupLevel(level: number): void;
   /**
    * Expands all TreeGrid or Grouping rows.
    */
@@ -740,6 +811,20 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {string} Dataformat. 'xlsx', 'pdf', 'json', 'xml', 'csv', 'tsv', 'html', 'png', 'jpeg'.
    */
   exportData(Dataformat: string): void;
+  /**
+   * Finds entries by using a query and returns an array of row ids. Example: const rows = grid.find('nancy'); returns all rows that have 'nancy' value. Example 2: const rows = grid.find('nancy, davolio'); returns all rows that have 'nancy' and 'davolio' values in the same row. Example 3: const rows = grid.find(5, 'quantity', '>'); returns all rows where the value of the 'quantity' field is > 5. 
+   * @param {string} query. Search query
+   * @param {string} dataField?. Column data field.
+   * @param {string} condition?. Conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   * @returns {any[]}
+   */
+  find(query: string, dataField?: string, condition?: string): any[];
+  /**
+   * Finds entries by using a query and returns an array of cells. Each cell in the array is also an array in this format: [id, dataField, value]. Example: const cells = grid.findCells('nancy'); returns all cells that have 'nancy' value. Example 2: const cells = grid.findCells('nancy, davolio'); returns all cells that have 'nancy' and 'davolio' values.
+   * @param {string} query. Search query. You can enter multiple search strings, by using ','. Example: 'nancy, davolio'
+   * @returns {any[]}
+   */
+  findCells(query: string): any[];
   /**
    * Navigates to a page, when paging is enabled.
    * @param {number} index. page index
@@ -761,6 +846,22 @@ export interface Grid extends BaseElement, GridProperties {
    * Navigates to the last page, when grid paging is enabled.
    */
   lastPage(): void;
+  /**
+   * Focuses and selects a cell or row. The keyboard navigation starts from the focused cell or row. Any previously applied selection will be cleared after calling this method.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField?. column bound data field
+   */
+  focusAndSelect(rowId: string | number, dataField?: string): void;
+  /**
+   * Iterates through each row in the grid and calls the callback for each row. This is similar to the forEach method on a JavaScript array. This is called for each row, ignoring grouping, filtering or sorting applied in the Grid.
+   * @param {any} rowCallback. Callback function with a row object as parameter. Example: grid.forEachRow((row) => { console.log(row.id) });
+   */
+  forEachRow(rowCallback: any): void;
+  /**
+   * Similar to forEachRow. Iterates through each row in the grid and calls the callback for each row. This method takes into account filtering and sorting applied to the Grid.
+   * @param {any} rowCallback. Callback function with a row object as parameter. Example: grid.forEachRow((row) => { console.log(row.id) });
+   */
+  forEachRowAfterFilterAndSort(rowCallback: any): void;
   /**
    * Gets the maximum position of the vertical scrollbar. You can use this method in combination with the setVerticalScrollValue to apply a new scroll position.
    * @returns {number}
@@ -787,6 +888,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getColumns(): any;
   /**
+   * Gets the editing cell(s), when the grid is editing.
+   * @returns {any[]}
+   */
+  getEditCells(): any[];
+  /**
    * Gets the groups array.
    * @returns {any[]}
    */
@@ -802,10 +908,20 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getSelection(): any;
   /**
-   * Gets the selected row ids.
+   * Gets an Array where each item is an Array of row id and row data. If the Grid is used in virtual mode, the row data parameter is empty object, because the data is loaded on demand.
    * @returns {any[]}
    */
   getSelectedRows(): any[];
+  /**
+   * Gets the selected row ids.
+   * @returns {any[]}
+   */
+  getSelectedRowIds(): any[];
+  /**
+   * Gets the selected row indexes.
+   * @returns {any[]}
+   */
+  getSelectedRowIndexes(): any[];
   /**
    * Gets the selected cells. The method returns an array of cell. Each cell is an array with row id, column data field and cell value.
    * @returns {any[]}
@@ -844,6 +960,12 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getCellValue(rowId: string | number, dataField: string): any;
   /**
+   * Gets a column. Returns a Grid column object.
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @returns {GridColumn}
+   */
+  getColumn(dataField: string): GridColumn;
+  /**
    * Gets a value of a column.
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} propertyName. The property name.
@@ -858,17 +980,29 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getRowProperty(rowId: string | number, propertyName: string): any;
   /**
+   * Gets a row. Returns a Grid row object.
+   * @param {string | number} rowId. row bound id
+   * @returns {GridRow}
+   */
+  getRow(rowId: string | number): GridRow;
+  /**
+   * Gets a row by its index. Returns a Grid row object.
+   * @param {number} rowIndex. row bound index
+   * @returns {GridRow}
+   */
+  getRowByIndex(rowIndex: number): GridRow;
+  /**
    * Gets the Data source data associated to the row.
    * @param {string | number} rowId. row bound id
    * @returns {any}
    */
   getRowData(rowId: string | number): any;
   /**
-   * Gets the Row's id.
+   * Gets the Row's id by a row index.
    * @param {number} rowIndex. row index
-   * @returns {any}
+   * @returns {string | number}
    */
-  getRowId(rowIndex: number): any;
+  getRowId(rowIndex: number): string | number;
   /**
    * Gets whether a column's drop-down menu is opened.
    * @returns {boolean}
@@ -906,14 +1040,20 @@ export interface Grid extends BaseElement, GridProperties {
    * Inserts a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {any} data. row data matching the data source
    * @param {number} index?. Determines the insert index. The default value is the last index.
-   * @param {any} callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
+   * @param  callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
    */
-  insertRow(data: any, index?: number, callback?: any): void;
+  insertRow(data: any, index?: number, callback?: {(row: GridRow): void}): void;
   /**
    * Opens a column drop-down menu.
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   openMenu(dataField: string): void;
+  /**
+   * Opens a context menu. Note that context menu should be enabled.
+   * @param {number} left. Left Position.
+   * @param {number} top. Top Position.
+   */
+  openContextMenu(left: number, top: number): void;
   /**
    * Prints the Grid data. The method uses the options of the <em>dataExport</em> property. When printed, the Grid will not display any scrollbars so all rows and columns will be displayed. The grid will auto resize width and height to fit all contents. To customize the printing options, you can use  the <em>dataExport</em> property.
    */
@@ -1012,12 +1152,35 @@ export interface Grid extends BaseElement, GridProperties {
    */
   selectRowsByIndex(rowIndex: number[]): void;
   /**
+   * Selects rows by using a query. Example: grid.selectRowsByQuery('nancy'); selects all rows that have 'nancy' value. Example 2: grid.selectRowsByQuery('nancy, davolio'); selects all rows that have 'nancy' and 'davolio' values in the same row. Example 3: grid.selectRowsByQuery(5, 'quantity', '>'); selects all rows where the value of the 'quantity' field is > 5. 
+   * @param {string} query. Search query
+   * @param {string} dataField?. Column data field.
+   * @param {string} condition?. Conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   */
+  selectRowsByQuery(query: string, dataField?: string, condition?: string): void;
+  /**
+   * Selects multiple cells by their ids and dataFields. Example: grid.selectCells([0, 1, 2], ['firstName', 'quantity', 'date']); - selects the 'firstName', 'quantity' and 'date' cells from the first, second and third rows.
+   * @param {(string | number)[]} rowIds. Array of row ids
+   * @param {string[]} dataFields. Array of data fields.
+   */
+  selectCells(rowIds: (string | number)[], dataFields: string[]): void;
+  /**
+   * Selects cells by using a query. Example: grid.selectCellsByQuery('nancy'); selects all cells that have 'nancy' value. Example 2: grid.selectCellsByQuery('nancy, davolio'); selects all cells that have 'nancy' and 'davolio' values in the same row. 
+   * @param {string} query. Search query
+   */
+  selectCellsByQuery(query: string): void;
+  /**
    * Sets a new value to a cell.
    * @param {string | number} rowId. row bound id
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string | number | Date | boolean} value. New Cell value.
    */
   setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
+  /**
+   * Sets new columns to the Grid. The grid will redraw all the column headers, and then redraw all of the rows. By using 'setColumns', the grid will compare the new columns passed as argument to the method with existing columns. The Grid will automatically create new columns, keep old columns if they already exist and remove columns which are not in the 'setColumns' method argument. The benefit of that is that the state of the column like(sort, filter, width or other) will be kept, if the column exsits after the new columns are applied.
+   * @param {GridColumn[]} columns. Columns array.
+   */
+  setColumns(columns: GridColumn[]): void;
   /**
    * Sets a property to a column.
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
@@ -1032,6 +1195,19 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {any} value. The new property value.
    */
   setRowProperty(rowId: string | number, propertyName: string, value: any): void;
+  /**
+   * Sets a style to a row.
+   * @param {string | number} rowId. row bound id
+   * @param  rowStyle. The row style object. The object may have one or all of the following properties: 'background', 'color', 'fontSize', 'fontFamily', 'textDecoration', 'fontStyle', 'fontWeight'.
+   */
+  setRowStyle(rowId: string | number, rowStyle: {background?: string, color?: string, fontSize?: string, fontFamily?: string, textDecoration?: string, fontStyle?: string, fontWeight?: string}): void;
+  /**
+   * Sets a style to a row.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. Column bound field name.
+   * @param  rowStyle. The cell style object. The object may have one or all of the following properties: 'background', 'color', 'fontSize', 'fontFamily', 'textDecoration', 'fontStyle', 'fontWeight'.
+   */
+  setCellStyle(rowId: string | number, dataField: string, rowStyle: {background?: string, color?: string, fontSize?: string, fontFamily?: string, textDecoration?: string, fontStyle?: string, fontWeight?: string}): void;
   /**
    * Sets the position of the vertical scrollbar. You can use this method in combination with the getVerticalScrollValue and getVerticalScrollMax.
    * @param {number} value. The new scroll position
@@ -1051,9 +1227,9 @@ export interface Grid extends BaseElement, GridProperties {
    * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string | number} rowId. row bound id
    * @param {any} data. row data matching the data source
-   * @param {any} callback?. Sets a callback function, which is called after the row is updated. The callback's argument is the updated row.
+   * @param  callback?. Sets a callback function, which is called after the row is updated. The callback's argument is the updated row.
    */
-  updateRow(rowId: string | number, data: any, callback?: any): void;
+  updateRow(rowId: string | number, data: any, callback?: {(row: GridRow): void}): void;
   /**
    * Unselects a row, cell or column.
    * @param {string | number} rowId. row bound id
@@ -1167,12 +1343,12 @@ export interface GridAppearance {
    * Generates labels as 'numbers' or 'letters'. This property affects the rendering of the row header.
    * Default value: number
    */
-  autoGenerateRowLabelMode?: GridAppearanceAutoGenerateRowLabelMode;
+  autoGenerateRowLabelMode?: GridAppearanceAutoGenerateRowLabelMode | string;
   /**
    * Generates labels as 'numbers' or 'letters.  This property affects the rendering of the column header.
    * Default value: letter
    */
-  autoGenerateColumnLabelMode?: GridAppearanceAutoGenerateColumnLabelMode;
+  autoGenerateColumnLabelMode?: GridAppearanceAutoGenerateColumnLabelMode | string;
   /**
    * Sets the visibility of the loading indicator. This is the Loading... image displayed in the Grid while loading data.
    * Default value: false
@@ -1198,6 +1374,11 @@ export interface GridAppearance {
    * Default value: false
    */
   showRowHeader?: boolean;
+  /**
+   * Shows or hides Row headers. In TreeGrid, the non-leaf tree items are displayed as normal rows. If this property is set to true, they are displayed as headers similar to the grouping rendering.
+   * Default value: false
+   */
+  showTreeRowHeader?: boolean;
   /**
    * Shows row indexes in the row header. The showRowHeader property should be true
    * Default value: false
@@ -1229,6 +1410,11 @@ export interface GridAppearance {
    */
   showColumnHeaderLines?: boolean;
   /**
+   * Shows drag icon on the column header when drag is enabled. The icon is displayed when you move the mouse cursor to the column header's left edge.
+   * Default value: false
+   */
+  showColumnHeaderDragIcon?: boolean;
+  /**
    * Shows column lines.
    * Default value: true
    */
@@ -1245,12 +1431,12 @@ export interface GridAppearance {
   showColumnGroupsInColumnPanel?: boolean;
   /**
    * Shows filtered column background, when filter is applied.
-   * Default value: true
+   * Default value: false
    */
   showFilterColumnBackground?: boolean;
   /**
    * Shows sorted column background, when sorting is applied.
-   * Default value: true
+   * Default value: false
    */
   showSortColumnBackground?: boolean;
   /**
@@ -1308,6 +1494,11 @@ export interface GridAppearance {
    * Default value: false
    */
   showVerticalScrollBarOnFixedColumns?: boolean;
+  /**
+   * Shows the today's date as 'Today' vs '7/8/2022'. When the property is set to false, it will display the date.
+   * Default value: true
+   */
+  showTodayDateAsString?: boolean;
 }
 
 /**An object containing settings related to the grid's behavior. */
@@ -1341,12 +1532,12 @@ export interface GridBehavior {
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
-  columnResizeMode?: GridResizeMode;
+  columnResizeMode?: GridResizeMode | string;
   /**
    * Sets the row resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
-  rowResizeMode?: GridResizeMode;
+  rowResizeMode?: GridResizeMode | string;
 }
 
 /**An object containing settings related to the grid's layout. */
@@ -1404,12 +1595,12 @@ export interface GridClipboard {
    * Sets or gets whether the copy-pasted values will be auto-filled by using automatic pattern detection. This is used in the Drag&Drop Multiple Cells selection. none does nothing. copy just copies the cells. 'fillSeries' detects and automatically fills the values. For example, if the selection has '1, 2' and the possible positions are more, the pasted values would be '1, 2, 3, 4, etc.
    * Default value: fillSeries
    */
-  autoFillMode?: GridClipboardAutoFillMode;
+  autoFillMode?: GridClipboardAutoFillMode | string;
   /**
    * Sets or gets a callback on paste.
    * Default value: null
    */
-  onPasteValue?: any;
+  onPasteValue?: {(args: {value: any, oldValue: any, dataField: string, id: string | number}): void};
 }
 
 export interface GridColumn {
@@ -1417,7 +1608,7 @@ export interface GridColumn {
    * Sets or gets the column's header alignment. Accepts: 'left', 'right', 'center'
    * Default value: left
    */
-  align?: HorizontalAlignment;
+  align?: HorizontalAlignment | string;
   /**
    * Sets or gets whether the column can be exported.
    * Default value: true
@@ -1482,7 +1673,7 @@ export interface GridColumn {
    * Sets or gets the column's cells alignment. Accepts: 'left', 'right' and 'center'
    * Default value: left
    */
-  cellsAlign?: HorizontalAlignment;
+  cellsAlign?: HorizontalAlignment | string;
   /**
    * Sets or gets the column's cells wrapping. Accepts: true or false.
    * Default value: false
@@ -1492,17 +1683,22 @@ export interface GridColumn {
    * Sets or gets the column's cells vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
    */
-  cellsVerticalAlign?: VerticalAlignment;
+  cellsVerticalAlign?: VerticalAlignment | string;
   /**
-   * Sets or gets the column's header CSS class name.
+   * Sets or gets the column's header CSS class name. You can apply multiple CSS class names by separating them with space.
    * Default value: ""
    */
   className?: string;
   /**
-   * Sets or gets the column's cells CSS class name.
-   * Default value: ""
+   * Sets or gets the column's cells CSS class name(s). The property can be used with string and function. You can apply multiple CSS class names by separating them with space or you can return a CSS class name(s) when you use it as a function. The function gets called with the following parameters: index - row's index, dataField - column's data field, cellValue - current cell's value, rowData - current row's data, row - GridRow object. Ex: cellsClassName: (index, dataField, value, rowData, row) => { if (index === 0) { return 'cell-class-1' } }
+   * Default value: 
    */
-  cellsClassName?: string;
+  cellsClassName?: any;
+  /**
+   * Sets or gets the column's cells CSS class rules. Different CSS class names are conditionally applied. Example: label: 'Quantity', dataField: 'quantity', editor: 'numberInput', cellsClassRules: { 'one': settings => settings.value > 5, 'two': settings => settings.value &lt;5, 'three': settings => settings.value === 3 }.  The settings object contains the following properties: index, value, dataField, row, api.
+   * Default value: null
+   */
+  cellsCSSRules?: any;
   /**
    * Sets the name of the column group.
    * Default value: ""
@@ -1534,7 +1730,7 @@ export interface GridColumn {
    */
   element?: HTMLElement;
   /**
-   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'comboBox', 'dropDownList', 'image', 'numberInput', 'checkBox', 'multiInput', 'multiComboInput', 'checkInput', 'slider', 'dateTimePicker', 'timeInput', 'dateInput', 'dateRangeInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): object', 'onRender(int row, string column, object editor, object rowData): object', 'setValue(object value): void' and 'getValue(object value): object' callback functions.
+   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'comboBox', 'dropDownList', 'image', 'numberInput', 'checkBox', 'multiInput', 'multiComboInput', 'checkInput', 'slider', 'dateTimePicker', 'timeInput', 'dateInput', 'dateRangeInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): void', 'onRender(int row, string column, object editor, object rowData): void', 'setValue(object value): void' and 'getValue(object value): any' callback functions.
    * Default value: null
    */
   editor?: any;
@@ -1542,7 +1738,7 @@ export interface GridColumn {
    * Sets or gets the Freeze mode. Accepts: 'near', 'far', true and false. Freezes/Pins the column to left(near) or right(far).
    * Default value: false
    */
-  freeze?: Position;
+  freeze?: Position | string;
   /**
    * Sets or gets the filter of the column. Example: ['contains Andrew or contains Nancy']. Example with numeric filter ['quantity', '&lt;= 3 and &gt;= 8']. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - ['EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']. Example with a string filter applied to a string column - ['CONTAINS' 'burke' or 'CONTAINS' 'peterson']. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: ""
@@ -1552,12 +1748,12 @@ export interface GridColumn {
    * Sets or gets the filter menu mode of the column. In 'basic' mode, a single input is displayed in the filter menu. In 'default' mode, two input options are available for more precise filtering. In 'excel' mode, checked list with unique values is displayed.
    * Default value: default
    */
-  filterMenuMode?: GridColumnFilterMenuMode;
+  filterMenuMode?: GridColumnFilterMenuMode | string;
   /**
    * Sets or gets the column's format function.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: {(formatObject: {row?: GridRow, column?: GridColumn, cell?: GridCell, oldValue?: any, value?: any, template?: any}): void};
   /**
    * Sets or gets the column's format settings. You can use any of the build in formatting options or to NumberFormat object like that: 'Intl: {  NumberFormat: {  style: \'currency\', currency: \'EUR\' }}' or DateTimeFormat object like that: 'Intl: {  DateTimeFormat: {  dateStyle: \'full\' }}''
    * Default value: [object Object]
@@ -1569,6 +1765,16 @@ export interface GridColumn {
    */
   group?: string;
   /**
+   * This function allows you to provide custom cell values, which will be displayed in the column's cells. The grid passes 3 arguments to the function - row id, column's dataField and row's data.
+   * Default value: null
+   */
+  getCellValue?: any;
+  /**
+   * Gets the column's filter panel. The function should return HTMLElement which will represent the filter UI panel displayed in the filter menu.  The function works in combination with updateFilterPanel
+   * Default value: null
+   */
+  getFilterPanel?: any;
+  /**
    * Sets or gets the column's icon. Expects CSS class name.
    * Default value: ""
    */
@@ -1579,20 +1785,35 @@ export interface GridColumn {
    */
   label?: string;
   /**
+   * Sets or gets the column header's template. The property expects the 'id' of HTMLTemplateElement, HTML string or function which returns html string.
+   * Default value: 
+   */
+  labelTemplate?: string | HTMLTemplateElement | HTMLElement | {(label: string): string};
+  /**
    * Sets or gets the minimum width.
    * Default value: 30
    */
   minWidth?: number;
   /**
+   * Sets or gets the column's rowSpan function. Allows you to dynamically span cells.
+   * Default value: null
+   */
+  rowSpan?: {(cellValue: any, rowIndex: number, data: any): number};
+  /**
    * Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null.
    * Default value: null
    */
-  sortOrder?: GridColumnSortOrder | null;
+  sortOrder?: GridColumnSortOrder | null | string;
   /**
    * Sets or gets the sort index of the column. Accepts an integer value. This property can be used to get or set the column's sort index when sorting mode is 'many'.
    * Default value: null
    */
   sortIndex?: number;
+  /**
+   * Sets or gets a custom 'sortComparator' function. It can be used for implementing custom sorting. Ex: sortComparator: (value1, value2) =&gt; { if (value1 === value2) return 0; return value1 &lt;value2; }
+   * Default value: null
+   */
+  sortComparator?: any;
   /**
    * Sets or gets whether the column's header action drop-down button is displayed. This button opens the column's menu.
    * Default value: true
@@ -1627,17 +1848,99 @@ export interface GridColumn {
    * Sets or gets the column's header vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
    */
-  verticalAlign?: VerticalAlignment;
+  verticalAlign?: VerticalAlignment | string;
   /**
    * Sets or gets the column summary. The property should be set to an array with the following possible values: 'sum', 'min', 'max', 'avg', 'count', 'median', 'stdev', 'stdevp', 'var', 'varp'.
    * Default value: 
    */
   summary?: string[];
   /**
+   * Updates the column's filter panel. The function works in combination with getFilterPanel
+   * Default value: null
+   */
+  updateFilterPanel?: any;
+  /**
    * Sets or gets whether the column is visible. Set the property to 'false' to hide the column.
    * Default value: true
    */
   visible?: boolean;
+}
+
+/**Context Menu is the drop-down menu displayed after right-clicking a Grid row. It allows you to delete row, edit cell or row depending on the edit mode. The 'contextMenuItemCustom' dataSource option allows you to add custom menu item to the context menu. You can replace the context menu by using the 'selector' property and setting it to ID of a Smart.Menu component. */
+export interface GridContextMenu {
+  /**
+   * Sets or gets whether the context menu is enabled. If the value is false, the context menu will not be displayed, when user right clicks on a row.
+   * Default value: false
+   */
+  enabled?: boolean;
+  /**
+   * Sets the data sources to the context menu.
+   * Default value: [object Object]
+   */
+  dataSource?: GridContextMenuDataSource;
+  /**
+   * Sets the ID or CSS Class of a Smart.Menu component to be used as a context menu for the Grid.
+   * Default value: ""
+   */
+  selector?: string;
+  /**
+   * Sets the width of the context menu.
+   * Default value: 250
+   */
+  width?: number;
+  /**
+   * Sets the height of the context menu.
+   * Default value: null
+   */
+  height?: number | null;
+}
+
+/**Sets the data sources to the context menu. */
+export interface GridContextMenuDataSource {
+  /**
+   * Describes the delete item.
+   * Default value: [object Object]
+   */
+  contextMenuItemDelete?: GridCommand;
+  /**
+   * Describes the edit item.
+   * Default value: [object Object]
+   */
+  contextMenuItemEdit?: GridCommand;
+  /**
+   * Describes the custom item.
+   * Default value: [object Object]
+   */
+  contextMenuItemCustom?: GridCommand;
+}
+
+/**Describes the delete item. */
+export interface GridCommand {
+  /**
+   * Sets the command of the context menu item.
+   * Default value: "contextMenuItemDeleteCommand"
+   */
+  command?: string;
+  /**
+   * Enables the context menu item.
+   * Default value: true
+   */
+  enabled?: boolean;
+  /**
+   * Sets the visibility of the context menu item.
+   * Default value: true
+   */
+  visible?: boolean;
+  /**
+   * Sets the icon of the context menu item.
+   * Default value: "jqx-icon-delete"
+   */
+  icon?: string;
+  /**
+   * Sets the label of the context menu item.
+   * Default value: ""
+   */
+  label?: string;
 }
 
 /**Column Menu is the drop-down menu displayed after clicking the column header's drop-down button, which is displayed when you hover the column header. It allows you to customize column settings. For example: Sort, Filter or Group the Grid by the current column. */
@@ -1695,7 +1998,7 @@ export interface GridColumnMenuDataSource {
    * Describes the settings of the column menu item duplicate.
    * Default value: [object Object]
    */
-  columnMenuItemDuplicate?: GridCommand;
+  columnMenuItemClone?: GridCommand;
   /**
    * Describes the settings of the column menu item insert left.
    * Default value: [object Object]
@@ -1716,6 +2019,11 @@ export interface GridColumnMenuDataSource {
    * Default value: [object Object]
    */
   columnMenuItemSortDesc?: GridCommand;
+  /**
+   * Describes the settings of the column menu item to add sorting.
+   * Default value: [object Object]
+   */
+  columnMenuItemSort?: GridCommand;
   /**
    * Describes the settings of the column menu item remove sort.
    * Default value: [object Object]
@@ -1753,35 +2061,6 @@ export interface GridColumnMenuDataSource {
   columnMenuItemDelete?: GridCommand;
 }
 
-/**Describes the settings of the column menu customize type */
-export interface GridCommand {
-  /**
-   * Sets the command of the column menu customize type.
-   * Default value: "customizeTypeCommand"
-   */
-  command?: string;
-  /**
-   * Enables the column menu customize type.
-   * Default value: true
-   */
-  enabled?: boolean;
-  /**
-   * Sets the visibility of the column menu customize type.
-   * Default value: false
-   */
-  visible?: boolean;
-  /**
-   * Sets the icon of the column menu customize type.
-   * Default value: "jqx-icon-customize"
-   */
-  icon?: string;
-  /**
-   * Sets the label of the column menu customize type.
-   * Default value: ""
-   */
-  label?: string;
-}
-
 export interface GridColumnGroup {
   /**
    * Sets the label.
@@ -1789,10 +2068,15 @@ export interface GridColumnGroup {
    */
   label?: string;
   /**
+   * Sets or gets the column header's template. The property expects the 'id' of HTMLTemplateElement, HTML string or function which returns html string.
+   * Default value: 
+   */
+  labelTemplate?: string | HTMLTemplateElement | HTMLElement | {(label: string): string};
+  /**
    * Sets the align.
    * Default value: center
    */
-  align?: HorizontalAlignment;
+  align?: HorizontalAlignment | string;
   /**
    * Sets the name of the column group.
    * Default value: ""
@@ -1807,7 +2091,7 @@ export interface GridColumnGroup {
    * Sets the vertical align.
    * Default value: center
    */
-  verticalAlign?: VerticalAlignment;
+  verticalAlign?: VerticalAlignment | string;
 }
 
 export interface GridConditionalFormatting {
@@ -1820,7 +2104,7 @@ export interface GridConditionalFormatting {
    * The formatting condition.
    * Default value: lessThan
    */
-  condition?: GridConditionalFormattingCondition;
+  condition?: GridConditionalFormattingCondition | string;
   /**
    * The value to compare by. When condition is 'between', this is the start (from) value.
    * Default value: 0
@@ -1869,7 +2153,7 @@ export interface GridCharting {
    * Sets or gets the chart's container.
    * Default value: null
    */
-  appendTo?: any;
+  appendTo?: string | HTMLElement;
   /**
    * Sets or gets the charting dialog.
    * Default value: [object Object]
@@ -1961,7 +2245,7 @@ export interface GridDataExport {
    * Sets the page orientation, when exporting to PDF.
    * Default value: portrait
    */
-  pageOrientation?: GridDataExportPageOrientation;
+  pageOrientation?: GridDataExportPageOrientation | string;
   /**
    * Sets the expand char displayed when the Grid with row hierarchy(TreeGrid / Grouped) is exported.
    * Default value: "+"
@@ -2010,7 +2294,7 @@ export interface GridDataSourceSettings {
    * Sets or gets the XML binding root.
    * Default value: blackList
    */
-  sanitizeHTML?: GridDataSourceSettingsSanitizeHTML;
+  sanitizeHTML?: GridDataSourceSettingsSanitizeHTML | string;
   /**
    * Sets or gets the XML binding root.
    * Default value: ""
@@ -2035,7 +2319,7 @@ export interface GridDataSourceSettings {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: GridDataSourceSettingsDataSourceType;
+  dataSourceType?: GridDataSourceSettingsDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -2057,12 +2341,12 @@ export interface GridDataSourceSettings {
    */
   mapChar?: string;
   /**
-   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Sets the virtual data source function which is called each time the Grid requests data. Example for calling the callback function with the new data set: resultCallbackFunction({dataSource: data}); Demos using 'virtualDataSource' are available on the Grid demos page. Example: https://www.htmlelements.com/demos/grid/virtualscroll/
    * Default value: null
    */
-  virtualDataSource?: any;
+  virtualDataSource?: {(resultCallbackFunction: any, details: DataAdapterVirtualDataSourceDetails): void};
   /**
-   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too. Example: https://www.htmlelements.com/demos/grid/virtual-tree-grid/
    * Default value: null
    */
   virtualDataSourceOnExpand?: any;
@@ -2083,7 +2367,7 @@ export interface GridDataSourceSettingsDataField {
    * Sets the dataField type.
    * Default value: string
    */
-  dataType?: GridDataSourceSettingsDataFieldDataType;
+  dataType?: GridDataSourceSettingsDataFieldDataType | string;
 }
 
 /**Describes the grid's editing settings. */
@@ -2117,7 +2401,7 @@ export interface GridEditing {
    * Determines the way editing is initiated.
    * Default value: click
    */
-  action?: GridEditingAction;
+  action?: GridEditingAction | string;
   /**
    * Describes command keys.
    * Default value: [object Object]
@@ -2137,7 +2421,7 @@ export interface GridEditing {
    * Sets the grid's edit mode.
    * Default value: cell
    */
-  mode?: GridEditingMode;
+  mode?: GridEditingMode | string;
   /**
    * Describes the settings of the 'Add New Row' UI element which enables the quick adding of rows to the Grid with a single click.
    * Default value: [object Object]
@@ -2209,12 +2493,12 @@ export interface GridEditingCommandBar {
    * Sets the command bar's position.
    * Default value: near
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Sets what is to be displayed in command bar buttons.
    * Default value: labelAndIcon
    */
-  displayMode?: GridCommandDisplayMode;
+  displayMode?: GridCommandDisplayMode | string;
   /**
    * Sets the command bar's data source.
    * Default value: [object Object]
@@ -2262,12 +2546,12 @@ export interface GridEditingCommandColumn {
    * Sets the command column's position.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets what is to be displayed in command column buttons.
    * Default value: icon
    */
-  displayMode?: GridCommandDisplayMode;
+  displayMode?: GridCommandDisplayMode | string;
   /**
    * Sets the command column's data source.
    * Default value: [object Object]
@@ -2335,12 +2619,12 @@ export interface GridEditingAddNewRow {
    * Sets the position of the 'Add New Row' UI element.
    * Default value: both
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Sets or gets the display mode of the new row action. It could be either 'row' or 'button'.
    * Default value: row
    */
-  displayMode?: GridEditingAddNewRowDisplayMode;
+  displayMode?: GridEditingAddNewRowDisplayMode | string;
   /**
    * Makes the 'Add New Row' UI element visible.
    * Default value: false
@@ -2369,6 +2653,11 @@ export interface GridFiltering {
    * Default value: false
    */
   enabled?: boolean;
+  /**
+   * Determines the filtering operator used in the Grid. By default filters are applied with 'and' operator i.e returns a set of rows matching the filter expressions of columnA AND columnB. The other option is to return a set of rows matching the filter expressions of columnA OR columnB. For example: grid.filtering.operator = 'or'; grid.addFilter('lastName', 'contains "davolio"') grid.addFilter('firstName', 'contains "Antoni"'); - that code will apply two filters to the Grid and will return all rows where firstName is 'Antoni' or the lastName is 'Davolio'
+   * Default value: "and"
+   */
+  operator?: string;
   /**
    * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - [['firstName', 'EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']]. Example with a string filter applied to a string column - [['lastName','CONTAINS' 'burke' or 'CONTAINS' 'peterson']]. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: 
@@ -2407,7 +2696,7 @@ export interface GridFilteringFilterRow {
    * Sets the way filtering through the filter row is applied.
    * Default value: auto
    */
-  applyMode?: GridFilteringFilterRowApplyMode;
+  applyMode?: GridFilteringFilterRowApplyMode | string;
   /**
    * Sets the delay (in milliseconds) before applying filtering (when filtering.filterRow.applyMode is 'auto').
    * Default value: 300
@@ -2431,7 +2720,7 @@ export interface GridFilteringFilterMenu {
    * Sets the filter menu mode.
    * Default value: default
    */
-  mode?: GridFilteringFilterMenuMode;
+  mode?: GridFilteringFilterMenuMode | string;
   /**
    * Sets the filter menu datasource.
    * Default value: null
@@ -2481,6 +2770,11 @@ export interface GridGrouping {
    */
   autoExpandAll?: boolean;
   /**
+   * Automatically expands all groups to a given level.
+   * Default value: 0
+   */
+  autoExpandToLevel?: number;
+  /**
    * Automatically hides all grouped columns.
    * Default value: false
    */
@@ -2489,22 +2783,22 @@ export interface GridGrouping {
    * Sets the group expand mode.
    * Default value: buttonClick
    */
-  expandMode?: GridGroupingExpandMode;
+  expandMode?: GridGroupingExpandMode | string;
   /**
-   * Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level.
-   * Default value: advanced
+   * Sets or gets the column's format function.
+   * Default value: null
    */
-  renderMode?: GridGroupingRenderMode;
+  formatFunction?: {(formatObject: {row?: GridRow, column?: GridColumn, cell?: GridCell, value?: any, template?: any}): void};
   /**
    * Sets the group row height.
    * Default value: 50
    */
   groupRowHeight?: string | number;
   /**
-   * Sets the indent of the group toggle button.
-   * Default value: 16
+   * Sets or gets the data fields to group by.
+   * Default value: []
    */
-  toggleButtonIndent?: number;
+  groupBy?: string[];
   /**
    * Sets the indent of the group.
    * Default value: 16
@@ -2515,6 +2809,21 @@ export interface GridGrouping {
    * Default value: [object Object]
    */
   groupBar?: GridGroupingGroupBar;
+  /**
+   * Expands a group in the first grid render. Example: onGroupDefaultExpanded: (dataItem) =&gt;{ return dataItem.label === 'Peppermint Mocha Twist' }
+   * Default value: null
+   */
+  onGroupDefaultExpanded?: any;
+  /**
+   * Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. In 'multipleColumns' mode, each group is displayed in its column.
+   * Default value: advanced
+   */
+  renderMode?: GridGroupingRenderMode | string;
+  /**
+   * Sets the indent of the group toggle button.
+   * Default value: 16
+   */
+  toggleButtonIndent?: number;
   /**
    * Describes the group summary row's settings.
    * Default value: [object Object]
@@ -2555,6 +2864,35 @@ export interface GridGroupingSummaryRow {
   visible?: boolean;
 }
 
+/**Sets the grid's image upload settings for the image columns. */
+export interface GridUploadSettings {
+  /**
+   * Sets or image upload url.
+   * Default value: ""
+   */
+  url?: string;
+  /**
+   * Sets or gets the upload field name. In the backend, you can use this name to access the images data. For example in expressJS, you can use something like that: const images = req['files']['userfile[]'];
+   * Default value: "userfile[]"
+   */
+  name?: string;
+  /**
+   * Additional data to pass to the server. The format should be a JSON string.
+   * Default value: ""
+   */
+  data?: string;
+  /**
+   * Function called when the upload is completed. JSON object with 'files', 'status', 'fileURL' and 'serverResponse' are passed as parameters when the function is called by the Grid.
+   * Default value: 
+   */
+  onUploadCompleted?: any;
+  /**
+   * Function called when the upload has failed. JSON object with 'files', 'status' and 'serverResponse' are passed as parameters when the function is called by the Grid.
+   * Default value: 
+   */
+  onUploadError?: any;
+}
+
 /**Describes the paging settings. */
 export interface GridPaging {
   /**
@@ -2572,6 +2910,11 @@ export interface GridPaging {
    * Default value: 10
    */
   pageSize?: number;
+  /**
+   * Sets the number of hierarchical rows per page. For example, displays 2 root groups per page, when grouping is enabled.
+   * Default value: 2
+   */
+  pageHierarchySize?: number;
   /**
    * Sets the start page.
    * Default value: 0
@@ -2599,12 +2942,12 @@ export interface GridPager {
    * Sets the ellipsis display mode.
    * Default value: both
    */
-  autoEllipsis?: GridPagerAutoEllipsis;
+  autoEllipsis?: GridPagerAutoEllipsis | string;
   /**
    * Sets the position of pager.
    * Default value: far
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Sets a template for the pager.
    * Default value: 
@@ -2658,7 +3001,7 @@ export interface GridPagerPageSizeSelector {
    * Sets the position of the 'rows per page' option.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
 }
 
 /**Describes the summary settings. */
@@ -2667,7 +3010,7 @@ export interface GridPagerSummary {
    * Sets the position of the summary.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets the visibility of the summary.
    * Default value: false
@@ -2681,7 +3024,7 @@ export interface GridPagerNavigationButtons {
    * Sets the navigation buttons position.
    * Default value: both
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Describes the settings about buttons 'previous page' and 'next page'.
    * Default value: [object Object]
@@ -2732,7 +3075,7 @@ export interface GridPagerNavigationInput {
    * Sets the position of navigation input option.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets the visibility of navigation input option.
    * Default value: false
@@ -2770,12 +3113,12 @@ export interface GridRowDetail {
    * Sets the position of the Column which allows you to dynamically expand/collapse the row details.
    * Default value: near
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets the template of the row details.
    * Default value: 
    */
-  template?: any;
+  template?: string | HTMLTemplateElement;
   /**
    * Sets the visibility of the Column which allows you to dynamically expand/collapse the row details.
    * Default value: true
@@ -2836,12 +3179,12 @@ export interface GridHeader {
    * Sets a template for the header.
    * Default value: 
    */
-  template?: string | HTMLTemplateElement;
+  template?: string | HTMLTemplateElement | {(element: HTMLElement): void};
   /**
    * This callback function can be used for customization of the Header toolbar. The Toolbar HTML Element is passed as an argument.
    * Default value: null
    */
-  onInit?: any;
+  onInit?: {(element: HTMLElement): void};
   /**
    * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
    * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
@@ -2860,7 +3203,7 @@ export interface GridFooter {
    * Sets a template for the footer.
    * Default value: 
    */
-  template?: string | HTMLTemplateElement;
+  template?: string | HTMLTemplateElement | {(element: HTMLElement): void};
 }
 
 export interface GridRow {
@@ -2963,7 +3306,7 @@ export interface GridRow {
    * Sets or gets the Freeze mode. Accepts: 'near', 'far', true and false. Freezes/Pins the row to top(near) or bottom(far).
    * Default value: false
    */
-  freeze?: Position;
+  freeze?: Position | string;
   /**
    * Sets or gets whether the row is selected.
    * Default value: false
@@ -3180,12 +3523,12 @@ export interface GridSelection {
    * Sets or gets whether the selection allows you to select 'one', 'many' or a variation of 'many' called 'extended'. 'one' allows you to have only single cell or row selected. 'many' 
    * Default value: many
    */
-  mode?: GridSelectionMode;
+  mode?: GridSelectionMode | string;
   /**
    * Sets or gets whether the selection happens on 'click' or 'doubleClick'. 'none' means that selection can happen only through API.
    * Default value: click
    */
-  action?: GridSelectionAction;
+  action?: GridSelectionAction | string;
   /**
    * 
    * Default value: [object Object]
@@ -3213,17 +3556,17 @@ export interface GridSelectionCheckBoxes {
    * Sets or gets whether the selection happens on 'click' or 'doubleClick'. 'none' means that selection can happen only through API.
    * Default value: click
    */
-  action?: GridSelectionAction;
+  action?: GridSelectionAction | string;
   /**
    * Sets or gets whether the checkbox selection selects all rows in the current page or all rows. The 'none' setting disables the header checkbox.
    * Default value: page
    */
-  selectAllMode?: GridSelectionCheckBoxesSelectAllMode;
+  selectAllMode?: GridSelectionCheckBoxesSelectAllMode | string;
   /**
    * Sets or gets whether the position of the checkbox selection column.
    * Default value: near
    */
-  position?: Position;
+  position?: Position | string;
 }
 
 /**Describes sorting settings. */
@@ -3239,15 +3582,35 @@ export interface GridSorting {
    */
   sort?: string[];
   /**
+   * Maintains sorting when user edits data in the sorted column. The feature is useful when you want to apply sort just once and you set the property to false.
+   * Default value: true
+   */
+  maintainSort?: boolean;
+  /**
    * Sets the count of allowed sorting columns. When the property value is set to 'many', users can sort data by multiple columns.
    * Default value: one
    */
-  mode?: GridSortingMode;
+  mode?: GridSortingMode | string;
+  /**
+   * Sets the command key. The property is used in the multi-column sorting. If commandKey='Control', users will be able to sort by multiple columns only while holding the 'Control' key.
+   * Default value: Default
+   */
+  commandKey?: GridSortingCommandKey | string;
   /**
    * Enables switching between the three sort states: ascending, descending and not sorted.
    * Default value: true
    */
   sortToggleThreeStates?: boolean;
+  /**
+   * Enables switching between the sort states on column click. This is the default behavior.
+   * Default value: true
+   */
+  sortToggleOnClick?: boolean;
+  /**
+   * Enables switching between the sort states on column click and holding down the command key.
+   * Default value: false
+   */
+  sortToggleOnClickAndCommandKey?: boolean;
 }
 
 declare global {
@@ -3304,8 +3667,8 @@ export declare type GridFilteringFilterRowApplyMode = 'auto' | 'click';
 export declare type GridFilteringFilterMenuMode = 'default' | 'excel';
 /**Sets the group expand mode. */
 export declare type GridGroupingExpandMode = 'buttonClick' | 'rowClick';
-/**Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. */
-export declare type GridGroupingRenderMode = 'basic' | 'compact' | 'advanced';
+/**Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. In 'multipleColumns' mode, each group is displayed in its column. */
+export declare type GridGroupingRenderMode = 'basic' | 'compact' | 'advanced' | 'multipleColumns';
 /**Sets the ellipsis display mode. */
 export declare type GridPagerAutoEllipsis = 'none' | 'before' | 'after' | 'both';
 /**Sets the scroll mode settings. */
@@ -3318,3 +3681,5 @@ export declare type GridSelectionAction = 'none' | 'click' | 'doubleClick';
 export declare type GridSelectionCheckBoxesSelectAllMode = 'none' | 'page' | 'all';
 /**Sets the count of allowed sorting columns. When the property value is set to 'many', users can sort data by multiple columns. */
 export declare type GridSortingMode = 'one' | 'many';
+/**Sets the command key. The property is used in the multi-column sorting. If commandKey='Control', users will be able to sort by multiple columns only while holding the 'Control' key. */
+export declare type GridSortingCommandKey = 'Default' | 'Alt' | 'Control' | 'Shift';

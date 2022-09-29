@@ -1,0 +1,242 @@
+.dashboard3 {
+    .cards-row {
+        margin-left: -10px;
+        margin-right: -10px;
+
+        .custom-col {
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body {
+            display: flex;
+            align-items: center;
+
+            span {
+                font-size: 36px;
+                margin-right: 0.75rem;
+            }
+        }
+    }
+
+    .orders-trafic-row {
+        .custom-col {
+            margin-bottom: 1.5rem;
+        }
+
+        .orders-col {
+            .card-header {
+                padding-top: 1rem;
+                display: block;
+
+                h4 {
+                    margin-bottom: 0;
+                    font-size: 1.5rem !important;
+                }
+
+                .nav {
+                    margin-top: 0.75rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding-left: 0;
+                    margin-bottom: 0;
+                    list-style: none;
+
+                    .nav-link {
+                        padding: 0.25rem 0.75rem;
+                        display: block;
+                        text-decoration: none;
+                        background-color: transparent;
+                        color: var(--smart-primary);
+                        border-radius: 0.25rem;
+                    }
+
+                    .nav-link.active {
+                        color: var(--white);
+                        background-color: var(--smart-primary);
+                    }
+                }
+            }
+
+            .orders-table {
+                tr:last-child {
+                    td {
+                        border-bottom: 0;
+                    }
+                }
+
+                th {
+                    vertical-align: bottom;
+                    border-bottom: 2px solid var(--smart-border-color);
+                    border-top: 1px solid var(--smart-border-color);
+                }
+
+                .mw-200 {
+                    min-width: 200px;
+                }
+
+                .mw-125 {
+                    min-width: 125px;
+                }
+
+                td.pl-0 {
+                    padding-left: 0;
+                }
+
+                td.pr-0 {
+                    padding-right: 0;
+                }
+
+                td {
+                    vertical-align: middle;
+                    padding: 0.75rem;
+                    border-top: 1px solid var(--smart-border-color);
+                }
+
+                .text-right {
+                    text-align: right;
+                }
+
+                .align-middle {
+                    vertical-align: middle;
+                }
+
+                .font-weight-500 {
+                    font-weight: 500;
+                }
+
+                td:last-child a:last-child {
+                    margin: 0 0.75rem;
+                }
+            }
+        }
+    }
+
+    .dashboard3-traffic-chart {
+        height: auto;
+        width: 100%;
+    }
+
+    .dashboard3-traffic-table {
+        border: 0;
+        height: auto;
+    }
+
+    .dashboard3-messages-table {
+        td:last-child a:last-child {
+            margin: 0 0.75rem;
+        }
+    }
+
+    #hoverableTable thead tr th:last-child div {
+        text-align: center;
+        width: 100%;
+    }
+
+    .messages-products-row {
+        .feeds {
+            .custom-row {
+                margin-left: -5px;
+                margin-right: -5px;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--smart-border-color);
+
+                .custom-col-auto {
+                    flex: 0 0 auto;
+                    width: auto;
+                    max-width: 100%;
+                }
+
+                .custom-col {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+
+                .custom-col:not(.custom-col-auto) {
+                    flex-basis: 0;
+                    flex-grow: 1;
+                    max-width: 100%;
+                }
+
+                .img-as-background {
+                    width: 50px;
+                    border-radius: 50%;
+                    border: 1px solid var(--smart-border-color);
+                }
+
+                .img-as-background:after {
+                    content: "";
+                    display: block;
+                    padding-bottom: 100%;
+                }
+            }
+        }
+    }
+
+    .messages-products-row > .custom-col {
+        margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 576px) {
+        .col-entity-md-4,
+        .col-entity-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .orders-trafic-row {
+            .card-header {
+                display: flex !important;
+
+                .label {
+                    display: block;
+                }
+
+                .nav {
+                    margin-top: 0 !important;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 576px) {
+    }
+
+    @media (min-width: 768px) {
+        .col-entity-md-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+
+        .col-entity-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .col-entity-md-4,
+        .col-entity-md-6 {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+
+        .col-entity-lg-8 {
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
+
+        .col-entity-lg-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+    }
+}
+
+body[theme="dark"] {
+    .dashboard3 .orders-trafic-row .orders-col .orders-table td {
+        border-bottom-width: 0;
+    }
+}

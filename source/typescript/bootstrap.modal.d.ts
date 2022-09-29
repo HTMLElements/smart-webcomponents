@@ -5,7 +5,7 @@ export interface BootstrapModalProperties {
    * Clicking on the modal “backdrop” will automatically close the modal. 
    * Default value: default
    */
-  backdrop?: BootstrapModalBackdrop;
+  backdrop?: BootstrapModalBackdrop | string;
   /**
    * Sets or gets whether the modal is centered. 
    * Default value: false
@@ -30,7 +30,7 @@ export interface BootstrapModalProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapModalStyleMode;
+  styleMode?: BootstrapModalStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""

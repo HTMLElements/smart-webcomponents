@@ -1634,6 +1634,38 @@ input[type=number] {
         max-width: initial;
       }
 
+      &.disable-edit {
+        .smart-grid-edit-dialog-layout {
+          display: block;
+          .smart-grid-edit-dialog-activity-container, .smart-drop-down-button {
+            display: none !important;
+          }
+          .smart-grid-dialog-editor {
+            background:var(--smart-surface);
+            pointer-events: none;
+          }
+          .smart-grid-dialog-editor[template="image"]{
+            pointer-events: initial;
+            height: 100px;
+            border: none;
+            background: initial;
+            
+            .smart-grid-cell-editor > div {
+              display: block !important;
+            }
+
+            img {
+              width: 95px;
+              height: 95px;
+            }
+            .smart-drop-image, 
+            .smart-grid-icon.smart-icon-plus {
+              display: none !important;
+            }
+          }
+        }
+      }
+
       .smart-grid-edit-dialog-layout {
         display: grid;
         grid-template-columns: 1fr 350px;
@@ -3462,6 +3494,10 @@ smart-grid-cell {
     background-color: var(--smart-surface);
     font-style: italic;
 
+    >div {
+      display: block !important;
+    }
+
     &[selected] {
       background: var(--smart-background) !important;
       color: var(--smart-background-color) !important;
@@ -4028,10 +4064,17 @@ smart-grid-cell {
 
     &[readonly] {
       .smart-label {
-        cursor: default;
+        cursor: default !important;
 
-        &:after {
-          cursor: default;
+        &:hover {
+          .smart-input {
+            --smart-ui-state-hover: var(--smart-background);
+          }
+        }
+
+        &:after,
+        .smart-input:after {
+          cursor: default !important;
         }
       }
     }

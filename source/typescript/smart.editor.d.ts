@@ -5,7 +5,7 @@ export interface EditorProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Automatically loads the last saved state of the editor (from local storage) on element initialization. An id must be provided in order to load a previously saved state.
    * Default value: false
@@ -35,7 +35,7 @@ export interface EditorProperties {
    * Determines the context menu for the Editor. The context menu is triggered when the user right clicks on the content area of the Editor.
    * Default value: default
    */
-  contextMenu?: EditorContextMenu;
+  contextMenu?: EditorContextMenu | string;
   /**
    * Allows to customize default the context menu of the Editor. The property accepts an array of items which can be strings that represent the value of the item, or objects of the following format: { label: string, value: string }, where the label will be displayed and the value will be action value for the item. The property also accepts a function that must return an array of items with the following format function (target: HTMLElement, type: string, defaultItems: string[]) { return defaultItems } and the following arguments: target - the element that is the target of the context menu.type - the type of context menu ( whether it's a table, image, link or other)defaultItems - an array of strings which represent the default items for the context menu.
    * Default value: null
@@ -65,7 +65,7 @@ export interface EditorProperties {
    * Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode.
    * Default value: html
    */
-  editMode?: EditMode;
+  editMode?: EditMode | string;
   /**
    * Determines whether the value returned from getHTML method and Source Code view are encoded or not.
    * Default value: false
@@ -95,7 +95,7 @@ export interface EditorProperties {
    * Determines the file format of the image/video that are uploaded from local storage. By default images/videos are stroed as base64.
    * Default value: base64
    */
-  imageFormat?: EditorImageFormat;
+  imageFormat?: EditorImageFormat | string;
   /**
    * Sets the content of the Editor as HTML. Allows to insert text and HTML.
    * Default value: "en"
@@ -332,7 +332,7 @@ export interface EditorProperties {
    * Determines the format of the content that will be pasted inside the Editor.
    * Default value: keepFormat
    */
-  pasteFormat?: PasteFormat;
+  pasteFormat?: PasteFormat | string;
   /**
    * Determines the placeholder that will be shown when there's no content inside the Editor.
    * Default value: ""
@@ -387,7 +387,7 @@ export interface EditorProperties {
    * Determines the toolbar mode of the Editor. The main toolbar of the Editor can appear as a Ribbon or as a Menu.
    * Default value: menu
    */
-  toolbarMode?: ToolbarMode;
+  toolbarMode?: ToolbarMode | string;
   /**
    * Allows to configure the SingleLineRibbon appearance by changing the order and items of the groups.
    * Default value: [{"name":"homeTab","groups":[{"name":"undoGroup","items":["undo","redo"]},{"name":"clipboardGroup","items":["cut","copy","paste"]},{"name":"fontGroup","items":["fontName","fontSize","backgroundColor","fontColor","clearFormat","formats","bold","italic","underline","strikethrough","superscript","subscript"]},{"name":"paragraphGroup","items":["orderedList","unorderedList","indent","outdent","alignment"]},{"name":"editingGroup","items":["findAndReplace"]}]},{"name":"insertTab","groups":[{"name":"tableGroup","items":["table"]},{"name":"imageGroup","items":["image"]}{"name":"videoGroup","items":["video"]},{"name":"linkGroup","items":["createLink","removeLink"]}]},{"name":"viewTab","groups":[{"name":"viewsGroup","items":["fullScreen","sourceCode","splitMode"]}]},{"name":"layoutTab","hidden":true,"groups":[{"name":"deleteGroup","items":["delete"]},{"name":"tableGroup","items":["table","tableHeader","tableRows","tableColumns","tableVAlign","tableStyle",""]},{"name":"imageGroup","items":["image","caption"]},{"name":"videoGroup","items":["video","caption"]}]}]
@@ -397,7 +397,7 @@ export interface EditorProperties {
    * Determines the format of the content that will be pasted inside the Editor.
    * Default value: toggle
    */
-  toolbarViewMode?: ToolbarViewMode;
+  toolbarViewMode?: ToolbarViewMode | string;
   /**
    * Sticks the Toolbar to the top of the window and stays there while scrolling.
    * Default value: false
@@ -577,7 +577,7 @@ export interface Editor extends BaseElement, EditorProperties {
   onDialogClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the uploading of an image/video is successful.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status, serverResponse)
    *  target - The file upload element that is the target of the operation.
    *  item - The toolbar item that is the target of the operation.
    *  filename - The name of the uploaded file.
@@ -585,11 +585,12 @@ export interface Editor extends BaseElement, EditorProperties {
    *  size - The size of the uploaded file.
    *  index - The index of the uploaded file.
    *  status - The status of the uploaded file. Whether there was an error or success.
+   *  serverResponse - The response of the remote server.
    */
   onImageUploadSuccess?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the uploading of an image/video is unsuccessful.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status, serverResponse)
    *  target - The file upload element that is the target of the operation.
    *  item - The toolbar item that is the target of the operation.
    *  filename - The name of the canceled file.
@@ -597,6 +598,7 @@ export interface Editor extends BaseElement, EditorProperties {
    *  size - The size of the canceled file.
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
+   *  serverResponse - The response of the remote server.
    */
   onImageUploadFailed?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -764,7 +766,7 @@ export interface EditorContentFiltering {
    * Determines whether to allow (whiteList) or remove (blackList) the specified attributes.
    * Default value: blackList
    */
-  attributeFilterMode?: EditorContentFilteringAttributeFilterMode;
+  attributeFilterMode?: EditorContentFilteringAttributeFilterMode | string;
   /**
    * Determines which element tags to filter.
    * Default value: null
@@ -774,7 +776,7 @@ export interface EditorContentFiltering {
    * Determines whether to allow (whiteList) or remove (blackList) the specified tags.
    * Default value: blackList
    */
-  tagFilterMode?: EditorContentFilteringTagFilterMode;
+  tagFilterMode?: EditorContentFilteringTagFilterMode | string;
   /**
    * Determines which style attributes to filter.
    * Default value: null
@@ -784,7 +786,7 @@ export interface EditorContentFiltering {
    * Determines whether to allow (whiteList) or remove (blackList) the specified style attributes.
    * Default value: blackList
    */
-  styleAttributeFilterMode?: EditorContentFilteringStyleAttributeFilterMode;
+  styleAttributeFilterMode?: EditorContentFilteringStyleAttributeFilterMode | string;
 }
 
 /**Sets the Editor's Data Export options. */

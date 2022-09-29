@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-3"><h4>Modals</h4></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Default modal (smart-window)</h4>
+                </div>
+                <div class="card-body">
+                    <smart-button id="openPrimaryModal" class="small-button primary mb-3 mr-3">Open primary modal</smart-button>
+                    <smart-button id="openSuccessModal" class="small-button success mb-3 mr-3">Open success modal</smart-button>
+                    <smart-button id="openErrorModal" class="small-button error mb-3">Open error modal</smart-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Colored modal</h4>
+                </div>
+                <div class="card-body">
+                    <smart-button id="openPrimaryCModal" class="small-button primary mb-3 mr-3">Open primary colored modal</smart-button>
+                    <smart-button id="openSuccessCModal" class="small-button success mb-3 mr-3">Open success colored modal</smart-button>
+                    <smart-button id="openErrorCModal" class="small-button error mb-3">Open error colored modal</smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Modal sizes</h4>
+                </div>
+                <div class="card-body">
+                    <smart-button id="openSmallModal" class="small-button primary mb-3 mr-3">Open small modal</smart-button>
+                    <smart-button id="openMediumModal" class="small-button primary mb-3 mr-3">Open medium modal</smart-button>
+                    <smart-button id="openLargeModal" class="small-button primary mb-3">Open large modal</smart-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Modal types</h4>
+                </div>
+                <div class="card-body">
+                    <smart-button id="openAlertModal" class="small-button secondary mb-3 mr-3">Open alert modal</smart-button>
+                    <smart-button id="openDialogModal" class="small-button secondary mb-3 mr-3">Open dialog modal</smart-button>
+                    <smart-button id="openMultilineModal" class="small-button secondary mb-3">Open multiline modal</smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<smart-window id="primary" label="Primary modal" modal>
+    This is a modal with the primary color.
+    <smart-button class="primary outlined smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="success" label="Success modal" modal>
+    This is a modal with the success color.
+    <smart-button class="success outlined smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="error" label="Error modal" modal>
+    This is a modal with the error color.
+    <smart-button class="error outlined smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="primaryc" label="Primary-colored modal" modal>
+    This is a modal with the primary color.
+    <smart-button class="smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="successc" label="Success-colored modal" modal>
+    This is a modal with the success color.
+    <smart-button class="smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="errorc" label="Error-colored modal" modal>
+    This is a modal with the error color.
+    <smart-button class="smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="primary" label="Primary modal" modal>
+    This is a modal with the primary color.
+    <smart-button class="primary outlined smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="success" label="Success modal" modal>
+    This is a modal with the success color.
+    <smart-button class="success outlined smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="error" label="Error modal" modal>
+    This is a modal with the error color.
+    <smart-button class="error outlined smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="small" label="Small modal" modal>
+    This is a small modal.
+    <smart-button class="primary smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="medium" label="Medium modal" modal>
+    This is a medium modal.
+    <smart-button class="primary smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-window id="large" label="Large modal" modal>
+    This is a large modal.
+    <smart-button class="primary smart-close mt-5">Close</smart-button>
+</smart-window>
+
+<smart-alert-window id="alert" label="Alert modal" modal>
+    This is an alert modal!
+</smart-alert-window>
+
+<smart-dialog-window id="dialog" label="Dialog modal" modal>
+    Proin venenatis dignissim tortor vel mattis. Mauris vel justo consectetur quam iaculis volutpat ac a libero. Ut in
+    facilisis orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+    Vivamus a ex turpis. In dignissim consectetur metus, iaculis volutpat urna scelerisque id. Aliquam vel dictum orci,
+    nec tempor metus?
+</smart-dialog-window>
+
+<smart-multiline-prompt-window id="multiline" label="Multiline modal" modal prompt-label="Enter your address:"></smart-multiline-prompt-window>

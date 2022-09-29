@@ -1,0 +1,194 @@
+:root,
+body[theme="dark"] {
+  //Smart UI
+  --smart-primary-rgb: #{hexToRGB($primary)};
+  /* The r, g, and b components of the theme primary color */
+  --smart-primary: #{$primary};
+  /* The theme primary color */
+  --smart-primary-color: #{$white};
+  /* Text color on top of a primary background */
+
+  --smart-secondary-rgb: #{hexToRGB($secondary)};
+  /* The r, g, and b components of the theme secondary color */
+  --smart-secondary: #{$secondary};
+  /* The theme secondary color */
+  --smart-secondary-color: #{$white};
+  /* Text color on top of a secondary background */
+
+  --smart-error-rgb: #{hexToRGB($danger)};
+  /* The r, g, and b components of the theme error color */
+  --smart-error: #{$danger};
+  /* The theme error color */
+  --smart-error-color: #{$white};
+  /* Text color on top of a error background */
+
+  --smart-success-rgb: #{hexToRGB($success)};
+  /* The r, g, and b components of the theme success color */
+  --smart-success: #{$success};
+  /* The theme success color */
+  --smart-success-color: #{$white};
+  /* Text color on top of a success background */
+
+  --smart-info-rgb: #{hexToRGB($info)};
+  /* The r, g, and b components of the theme info color */
+  --smart-info: #{$info};
+  /* The theme info color */
+  --smart-info-color: #{$white};
+  /* Text color on top of a info background */
+
+  --smart-warning-rgb: #{hexToRGB($warning)};
+  /* The r, g, and b components of the theme warning color */
+  --smart-warning: #{$warning};
+  /* The theme warning color */
+  --smart-warning-color: #{$black};
+  /* Text color on top of a warning background */
+
+  --smart-light-rgb: #{hexToRGB($light)};
+  /* The r, g, and b components of the theme light color */
+  --smart-light: #{$light};
+  /* The theme light color */
+  --smart-light-color: #{$dark};
+  /* Text color on top of a light background */
+
+  --smart-dark-rgb: #{hexToRGB($dark)};
+  /* The r, g, and b components of the theme dark color */
+  --smart-dark: #{$dark};
+  /* The theme dark color */
+  --smart-dark-color: #{$light};
+  /* Text color on top of a dark background */
+
+  --smart-white-rgb: #{hexToRGB($white)};
+  /* The r, g, and b components of the theme white color */
+  --smart-white: #{$white};
+  /* The theme white color */
+  --smart-white-color: #{$black};
+  /* Text color on top of a white background */
+
+  --smart-black-rgb: #{hexToRGB($black)};
+  /* The r, g, and b components of the theme black color */
+  --smart-black: #{$black};
+  /* The theme black color */
+  --smart-black-color: #{$black};
+  /* Text color on top of a black background */
+
+  --smart-surface: #{$body-bg};
+  --smart-surface-color: #{$body-color};
+
+  --smart-background: #{$body-bg};
+  /* The theme background color. The background color appears behind scrollable content.*/
+  --smart-background-color: #{$body-color};
+  /* Text color on top of a background background */
+
+  --smart-font-size: #{$font-size-base};
+  /* Theme font-size */
+  --smart-font-weight: #{$font-weight-normal};
+  /* Theme font-weight */
+  --smart-font-family: #{$font-family-sans-serif};
+  /* Theme font-family */
+  --smart-border-width: #{$border-width};
+  /* Theme border-width */
+  --smart-border-radius: #{$border-radius};
+  /* Theme border-radius */
+
+  --smart-editor-height: 38px;
+  /* Default height for editors */
+  --smart-editor-label-padding: 10px;
+  /* Default padding for inputs */
+
+  /* Button - Default */
+  --smart-button-text-transform: inherit;
+  /* Controls the capitalization of button's text. Could be set as uppercase/lowercase/capitalize. */
+  --smart-button-padding: #{$input-btn-padding-y} #{$input-btn-padding-x};
+  /* Sets button's paddings. */
+  --smart-button-large-padding: #{$input-btn-padding-y-lg} #{$input-btn-padding-x-lg};
+  /* Sets large button's paddings. */
+  --smart-button-large-font-size: #{$input-btn-font-size-lg};
+  /* Sets large button's font size. */
+
+  --smart-button-small-padding: #{$input-btn-padding-y-sm} #{$input-btn-padding-x-sm};
+  /* Sets small button's paddings. */
+  --smart-button-small-font-size: #{$input-btn-font-size-sm};
+  /* Sets small button's font size. */
+
+  --smart-button-very-small-padding: 1px 5px;
+  /* Sets very small button's paddings. */
+  --smart-button-very-small-font-size: 12px;
+  /* Sets very small button's font size. */
+
+  --smart-button-group-default-height: var(--smart-editor-height);
+
+  --smart-check-box-default-size: 16px;
+  /* Default size for the check box used in smartCheckBox and smartListItem. */
+  --smart-color-panel-grid-mode-item-size: 20px;
+  /* smartColorPanel item size */
+
+  --smart-progress-bar-default-height: 7px;
+  /* smartProgressBar default height */
+  --smart-circular-progress-bar-fill-size: 20%;
+
+  --smart-radio-button-default-size: 16px;
+  /* Default size for the radio button. */
+
+  --smart-slider-thumb-border-top-left-radimobile-menu-activatedus: 15px;
+  /* Top-left border radius of smartSlider thumb */
+
+  --smart-toast-info-background: #5bc0de;
+  /* Background color for type info */
+  --smart-toast-info-color: #fff;
+  /* Text color for type info */
+  --smart-toast-warning-background: #FFA800;
+  /* Background color for type warning */
+  --smart-toast-warning-color: #fff;
+  /* Text color for type warning */
+  --smart-scheduler-context-menu-max-height: calc(3 * var(--smart-scheduler-event-item-size));
+  /* Context menu max-height */
+
+  --smart-grid-cell-background-update: rgba(var(--smart-success-rgb), .3);
+
+  --smart-scroll-bar-thumb-padding: 0px;
+
+  --smart-pager-page-size-selector-width: 65px;
+  --smart-accordion-item-expanded-offset: 0px;
+}
+
+
+body:not([theme="dark"]) {
+  --smart-scroll-bar-thumb-background: #{$gray-400};
+  --smart-scroll-bar-thumb-background-hover: #{$gray-600};
+  --smart-scroll-bar-thumb-background-active: #{$gray-500};
+  --smart-scroll-bar-track-background: #{$gray-200};
+  --smart-scroll-bar-button-background: #{$gray-200};
+  --smart-scroll-bar-background: #{$gray-200};
+  --smart-scroll-bar-button-background-hover: #{$gray-300};
+  --smart-scroll-bar-button-background-active: #{$gray-500};
+  --smart-scroll-bar-button-border-active: #{$gray-500};
+  --smart-alternation-index0-color: #333;
+  /* Alternation color for index0 */
+  --smart-alternation-index0-border: #DEE2E6;
+  /* Alternation border color for index0 */
+  --smart-alternation-index0-background: #F2F2F2;
+  /* Alternation background color for index0 */
+}
+
+body[theme="dark"] {
+  --smart-scroll-bar-background: #3E3E42;
+  --smart-scroll-bar-border: #1E1E1E;
+  --smart-scroll-bar-thumb-background: #686868;
+  --smart-scroll-bar-thumb-border: #3E3E42;
+  --smart-scroll-bar-thumb-background-hover: #9E9E9E;
+  --smart-scroll-bar-thumb-border-hover: #9E9E9E;
+  --smart-scroll-bar-thumb-background-active: #{$gray-400};
+  --smart-scroll-bar-thumb-border-active: #{$gray-400};
+  --smart-scroll-bar-button-color-hover: #333;
+  --smart-scroll-bar-button-background-hover: #9E9E9E;
+  --smart-scroll-bar-button-border-hover: #9E9E9E;
+  --smart-scroll-bar-button-color-active: #333;
+  --smart-scroll-bar-button-background-active: #{$gray-400};
+  --smart-scroll-bar-button-border-active: #{$gray-400};
+  --smart-alternation-index0-color: #fff;
+  /* Alternation color for index0 */
+  --smart-alternation-index0-border: #1E1E1E;
+  /* Alternation border color for index0 */
+  --smart-alternation-index0-background: #3E3E42;
+  /* Alternation background color for index0 */
+}

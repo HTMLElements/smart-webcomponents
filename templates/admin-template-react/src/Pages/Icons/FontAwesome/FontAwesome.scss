@@ -1,0 +1,16 @@
+.font-awesome-page {
+    #iconsContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    #iconsContainer > div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    #iconsContainer > div > span {
+        margin-left: 10px;
+    }
+}

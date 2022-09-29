@@ -5,7 +5,7 @@ export interface ListMenuProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether the element becomes focused on hover or not.
    * Default value: false
@@ -25,7 +25,7 @@ export interface ListMenuProperties {
    * Sets the check mode of top-level ListMenu items(groups).
    * Default value: checkbox
    */
-  checkMode?: MenuCheckMode;
+  checkMode?: MenuCheckMode | string;
   /**
    * Determines the data source that will be loaded to the ListMenu. The data source represents an array of objects with the following properties: label - a string representing the text content of the item.value - the value of the item.shortcut - a string representing a shortuct for the item. It will be displayed inside the item.items - allows to define an array of sub menu items.
    * Default value: null
@@ -60,7 +60,7 @@ export interface ListMenuProperties {
    * Sets or gets the opening direction of the ListMenu minimized dropdown.
    * Default value: auto
    */
-  dropDownPosition?: MenuDropDownPosition;
+  dropDownPosition?: MenuDropDownPosition | string;
   /**
    * Enables or disables scrolling using the mouse wheel through overflowing menu items.
    * Default value: false
@@ -85,7 +85,7 @@ export interface ListMenuProperties {
    * Determines the filtering mode.
    * Default value: containsIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * If enabled, the items will be grouped by their first letter and sorted.
    * Default value: false
@@ -105,7 +105,7 @@ export interface ListMenuProperties {
    * Determines the position of the loading indicator inside the element.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -146,7 +146,7 @@ export interface ListMenuProperties {
    * Sets or gets the ListMenu's scroll buttons behavior.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -161,7 +161,7 @@ export interface ListMenuProperties {
    * Determines whether to use scrollbar or scrollButtons when content overflows an element's box.
    * Default value: scrollbar
    */
-  scrollMode?: ListMenuScrollMode;
+  scrollMode?: ListMenuScrollMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -364,7 +364,7 @@ export interface MenuItemsGroupProperties {
    * 
    * Default value: checkbox
    */
-  checkMode?: MenuCheckMode;
+  checkMode?: MenuCheckMode | string;
   /**
    * Enables or disables element.
    * Default value: false

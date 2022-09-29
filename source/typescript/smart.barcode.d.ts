@@ -1,6 +1,6 @@
 import  {BaseElement, Animation} from "./smart.element"
 
-export interface BarCodeProperties {
+export interface BarcodeProperties {
   /**
    * Sets the background color of the barcode element.
    * Default value: "white"
@@ -10,12 +10,12 @@ export interface BarCodeProperties {
    * Sets whether the barcode label is visible.
    * Default value: true
    */
-  disaplyLabel?: boolean;
+  displayLabel?: boolean;
   /**
    * Sets the color of the barcode label.
    * Default value: "black"
    */
-  labelCOlor?: string;
+  labelColor?: string;
   /**
    * Sets the font family of the barcode label.
    * Default value: "monospace"
@@ -40,7 +40,7 @@ export interface BarCodeProperties {
    * Sets the position of the barcode label.
    * Default value: bottom
    */
-  labelPosition?: BarCodeLabelPosition;
+  labelPosition?: BarcodeLabelPosition | string;
   /**
    * Sets the color of the barcode lines.
    * Default value: "black"
@@ -60,12 +60,12 @@ export interface BarCodeProperties {
    * Sets the rendering mode of the barcode.
    * Default value: svg
    */
-  renderAs?: BarCodeRenderAs;
+  renderAs?: BarcodeRenderAs | string;
   /**
    * Sets the barcode type
    * Default value: codabar
    */
-  type?: BarCodeType;
+  type?: BarcodeType | string;
   /**
    * Sets or gets the value of the barcode.
    * Default value: ""
@@ -75,15 +75,17 @@ export interface BarCodeProperties {
 /**
  Barcodes encodes text value in a specific pattern.
 */
-export interface BarCode extends BaseElement, BarCodeProperties {
+export interface Barcode extends BaseElement, BarcodeProperties {
 
   /* Get a member by its name */
   [name: string]: any;
   /**
    * This event is triggered when the value of the barcode is invalid. 
-	* @param event. The custom event. Custom data event was created with: ev.detail(value, invalidCharacters)
-   *  value - the invalid value of the barcode.
+	* @param event. The custom event. Custom data event was created with: ev.detail(invalidCharacters, lengthValidity, patternValidity, value)
    *  invalidCharacters - An array indicating the invalid characters.
+   *  lengthValidity - A boolean indicating the length validity.
+   *  patternValidity - A boolean indicating the pattern validity.
+   *  value - the invalid value of the barcode.
    */
   onInvalid?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -113,17 +115,17 @@ export interface BarCode extends BaseElement, BarCodeProperties {
 
 declare global {
     interface Document {
-        createElement(tagName: "smart-barcode"): BarCode;
-        querySelector(selectors: "smart-barcode"): BarCode | null;
-        querySelectorAll(selectors: "smart-barcode"): NodeListOf<BarCode>;
-        getElementsByTagName(qualifiedName: "smart-barcode"): HTMLCollectionOf<BarCode>;
-        getElementsByName(elementName: "smart-barcode"): NodeListOf<BarCode>;
+        createElement(tagName: "smart-barcode"): Barcode;
+        querySelector(selectors: "smart-barcode"): Barcode | null;
+        querySelectorAll(selectors: "smart-barcode"): NodeListOf<Barcode>;
+        getElementsByTagName(qualifiedName: "smart-barcode"): HTMLCollectionOf<Barcode>;
+        getElementsByName(elementName: "smart-barcode"): NodeListOf<Barcode>;
     }
 }
 
 /**Sets the position of the barcode label. */
-export declare type BarCodeLabelPosition = 'top' | 'bottom';
+export declare type BarcodeLabelPosition = 'top' | 'bottom';
 /**Sets the rendering mode of the barcode. */
-export declare type BarCodeRenderAs = 'svg' | 'canvas';
+export declare type BarcodeRenderAs = 'svg' | 'canvas';
 /**Sets the barcode type */
-export declare type BarCodeType = 'pharmacode' | 'codabar' | 'code128a' | 'code128b' | 'code128c' | 'msi' | 'msi10' | 'msi11' | 'msi1010' | 'msi1110' | 'ean13' | 'ean8' | 'code39' | 'code93';
+export declare type BarcodeType = 'pharmacode' | 'codabar' | 'code128a' | 'code128b' | 'code128c' | 'msi' | 'msi10' | 'msi11' | 'msi1010' | 'msi1110' | 'ean13' | 'ean8' | 'code39' | 'code93';

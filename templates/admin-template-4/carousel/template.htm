@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-3"><h4>Carousel</h4></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Slides only</h4>
+                </div>
+                <div class="card-body">
+                    <smart-carousel auto-play data-source='[{ "image": "../../images/travel/4.jpg" }, { "image": "../../images/travel/5.jpg" }, { "image": "../../images/travel/6.jpg" }]' hide-arrows hide-indicators interval="2000" loop slide-show></smart-carousel>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">With controls</h4>
+                </div>
+                <div class="card-body">
+                    <smart-carousel auto-play data-source='[{ "image": "../../images/travel/4.jpg" }, { "image": "../../images/travel/5.jpg" }, { "image": "../../images/travel/6.jpg" }]' hide-indicators interval="5000" loop slide-show></smart-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">With indicators</h4>
+                </div>
+                <div class="card-body">
+                    <smart-carousel auto-play data-source='[{ "image": "../../images/travel/4.jpg" }, { "image": "../../images/travel/5.jpg" }, { "image": "../../images/travel/6.jpg" }]' interval="5000" loop slide-show></smart-carousel>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">With captions</h4>
+                </div>
+                <div class="card-body">
+                    <smart-carousel id="carouselWithCaptions" auto-play data-source='[{ "image": "../../images/travel/4.jpg", "label": "Photo 1" }, { "image": "../../images/travel/5.jpg", "label": "Photo 2" }, { "image": "../../images/travel/6.jpg", "label": "Photo 3" }]' interval="5000" loop slide-show></smart-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Slide animation</h4>
+                </div>
+                <div class="card-body">
+                    <smart-carousel class="slide" auto-play
+                                    data-source='[{ "image": "../../images/travel/4.jpg" }, { "image": "../../images/travel/5.jpg" }, { "image": "../../images/travel/6.jpg" }]'
+                                    hide-indicators interval="5000" loop slide-show></smart-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

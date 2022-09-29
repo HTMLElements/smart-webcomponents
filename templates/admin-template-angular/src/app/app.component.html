@@ -1,0 +1,72 @@
+<ng-container>
+  <div class="preloader">
+    <div class="w-100">
+      <img src="assets/images/logo-htmlelements.svg" />
+    </div>
+  </div>
+  <div id="content-container">
+    <div id="primary-container" class="main">
+      <sm-sidebar (getTreeComponent)="setSideBarTree($event)" (onToggle)="sidebarService.toggleSidebar($event)"
+        [isSidebarExpanded]="this.sidebarState.isExpanded">
+      </sm-sidebar>
+      <div class="secondaryContainer" [class.secondary-container-sidebar-not-expanded]="!this.sidebarState.isExpanded">
+        <sm-header [isSidebarExpanded]="this.sidebarState.isExpanded" (onToggle)="sidebarService.toggleSidebar($event)">
+        </sm-header>
+        <sm-sub-header [isSidebarExpanded]="this.sidebarState.isExpanded"></sm-sub-header>
+        <div id="content" [@routeAnimations]="getRouteAnimationData()">
+          <router-outlet></router-outlet>
+        </div>
+        <sm-footer></sm-footer>
+      </div>
+    </div>
+    <div id="settingsButton" (click)="toggleSettingsPanel()"><span class="material-icons">settings</span></div>
+
+    <div id="settingsPanel">
+      <div id="settingsLabel"><span>Settings</span><span id="settingsCloseButton"></span></div>
+      <div id="settingsContent" style="padding-top: 1rem;">
+        <div class="label">LAYOUTS</div>
+        <smart-check-box id="toggleCollapsedSidebar" [checked]="!sidebarState.isExpanded" (click)="sidebarService.toggleSidebar({
+            expansionPreference: !sidebarState.isExpanded,
+            forMobile: sidebarState.isExpandedMobile
+          })">Collapsed Sidebar</smart-check-box>
+        <smart-check-box id="toggleBoxedLayout" [checked]="isBoxedLayoutEnabled" (click)="toggleBoxedLayout()">Boxed
+          Layout</smart-check-box>
+
+        <div class="label">COLOR SCHEMES</div>
+
+        <div class="colors">
+          <button (click)="setThemeColor('')" type="button" class="js-change-color-scheme"
+            style="background-color: #007bff;" data-scheme=""></button>&nbsp;<button (click)="setThemeColor('blue')"
+            type="button" class="js-change-color-scheme" style="background-color: #005C99;"
+            data-scheme="blue"></button>&nbsp;<button (click)="setThemeColor('red')" type="button"
+            class="js-change-color-scheme" style="background-color: #DD2C00;" data-scheme="red"></button>&nbsp;<button
+            (click)="setThemeColor('green')" type="button" class="js-change-color-scheme"
+            style="background-color: #43A047;" data-scheme="green"></button>&nbsp;<button
+            (click)="setThemeColor('purple')" type="button" class="js-change-color-scheme"
+            style="background-color: #6200EE;" data-scheme="purple"></button>&nbsp;<button (click)="setThemeColor('pink')"
+            type="button" class="js-change-color-scheme" style="background-color: #FF3399;"
+            data-scheme="pink"></button>&nbsp;<button (click)="setThemeColor('turquoise')" type="button"
+            class="js-change-color-scheme" style="background-color: #00CED1;"
+            data-scheme="turquoise"></button>&nbsp;<button (click)="setThemeColor('orange')" type="button"
+            class="js-change-color-scheme" style="background-color: #F0651A;" data-scheme="orange"></button>
+        </div>
+
+        <div class="label">THEME</div>
+        <img (click)="setIsThemeDark(false)" id="lightThemePreview" class="theme-preview" src="assets/images/theme-light2.png" />
+        <div class="theme-label">Light Content</div>
+        <img (click)="setIsThemeDark(true)" id="darkThemePreview" class="theme-preview" src="assets/images/theme-dark2.png" />
+        <div class="theme-label">Dark Content</div>
+
+        <smart-button id="buy" class="primary"><span class="material-icons">shopping_cart</span>Buy Smart</smart-button>
+      </div>
+    </div>
+    <sm-initial-notification></sm-initial-notification>
+  </div>
+  <smart-menu #menu id="todayMenu" mode="dropDown" animation="simple">
+    <smart-menu-item label="SETTINGS" class="dasboard-menu-label"></smart-menu-item>
+    <smart-menu-item>First action</smart-menu-item>
+    <smart-menu-item>Second action</smart-menu-item>
+    <smart-menu-item [separator]="true">Third action</smart-menu-item>
+    <smart-menu-item>Additional action</smart-menu-item>
+  </smart-menu>
+</ng-container>

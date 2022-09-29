@@ -1,0 +1,10 @@
+.notifications-page {
+    .d-flex.flex-column > label,
+    .d-flex.flex-column > smart-input {
+        margin-bottom: 10px;
+    }
+
+    .d-flex.flex-column > smart-input {
+        width: 100%;
+    }
+}

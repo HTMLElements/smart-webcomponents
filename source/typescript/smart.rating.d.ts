@@ -5,7 +5,7 @@ export interface RatingProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Disables the interaction with the element.
    * Default value: false

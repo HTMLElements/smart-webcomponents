@@ -5,7 +5,7 @@ export interface PivotTableProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets whether the reordering of columns is enabled.
    * Default value: false
@@ -25,7 +25,7 @@ export interface PivotTableProperties {
    * Sets or gets the position of total columns (shown when columnTotals is enabled).
    * Default value: near
    */
-  columnTotalsPosition?: PivotTableColumnTotalsPosition;
+  columnTotalsPosition?: PivotTableColumnTotalsPosition | string;
   /**
    * Sets or gets details about conditional formatting to be applied to the PivotTable's cells.
    * Default value: null
@@ -50,7 +50,7 @@ export interface PivotTableProperties {
    * Sets or gets the position of the PivotTable's designer (shown when designer is enabled).
    * Default value: far
    */
-  designerPosition?: PivotTableDesignerPosition;
+  designerPosition?: PivotTableDesignerPosition | string;
   /**
    * Disables the interaction with the element.
    * Default value: false
@@ -65,7 +65,7 @@ export interface PivotTableProperties {
    * If set, shows an export button in the drill down dialog.
    * Default value: 
    */
-  drillDownDataExport?: PivotTableDrillDownDataExport;
+  drillDownDataExport?: PivotTableDrillDownDataExport | string;
   /**
    * Sets or gets the drill down table export file name.
    * Default value: ""
@@ -105,7 +105,7 @@ export interface PivotTableProperties {
    * Sets or gets the way row nesting (based on rowGroup columns) is displayed.
    * Default value: default
    */
-  groupLayout?: PivotTableGroupLayout;
+  groupLayout?: PivotTableGroupLayout | string;
   /**
    * Sets or gets whether to hide the tooltip that displays details when multiple summary cells with non-null values are selected.
    * Default value: false
@@ -175,7 +175,7 @@ export interface PivotTableProperties {
    * Sets or gets the position of row total columns (shown when rowTotals is enabled).
    * Default value: near
    */
-  rowTotalsPosition?: PivotTableRowTotalsPosition;
+  rowTotalsPosition?: PivotTableRowTotalsPosition | string;
   /**
    * Sets or gets whether row selection (via checkboxes) is enabled.
    * Default value: false
@@ -185,12 +185,12 @@ export interface PivotTableProperties {
    * Sets or gets the selection mode. Only applicable when selection is enabled.
    * Default value: many
    */
-  selectionMode?: PivotTableSelectionMode;
+  selectionMode?: PivotTableSelectionMode | string;
   /**
    * Determines the sorting mode of the PivotTable.
    * Default value: none
    */
-  sortMode?: PivotTableSortMode;
+  sortMode?: PivotTableSortMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -359,7 +359,7 @@ export interface PivotTableColumn {
    * Sets or gets the header cell alignment for pivot and summary columns and cell alignment for row group columns.
    * Default value: left
    */
-  align?: PivotTableColumnAlign;
+  align?: PivotTableColumnAlign | string;
   /**
    * Sets or gets whether the column can be filtered.
    * Default value: true
@@ -389,7 +389,7 @@ export interface PivotTableColumn {
    * Sets or gets the data type of the column's cells.
    * Default value: string
    */
-  dataType?: PivotTableColumnDataType;
+  dataType?: PivotTableColumnDataType | string;
   /**
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
@@ -414,7 +414,7 @@ export interface PivotTableColumn {
    * Sets or gets the summary function to aggregate the column's data by and produce dynamic summary columns for each unique pivot data point. There must always be at least one summary column for the PivotTable to make sense. When columnTotals is enabled, all summary columns must have the same summary function set.
    * Default value: sum
    */
-  summary?: PivotTableColumnSummary;
+  summary?: PivotTableColumnSummary | string;
   /**
    * Sets or gets an object with settings for cells in summary columns. These settings are not applied if column formatFunction is also implemented.
    * Default value: [object Object]
@@ -432,7 +432,7 @@ export interface PivotTableConditionalFormatting {
    * The formatting condition.
    * Default value: lessThan
    */
-  condition?: PivotTableConditionalFormattingCondition;
+  condition?: PivotTableConditionalFormattingCondition | string;
   /**
    * The value to compare by. When condition is 'between', this is the start (from) value.
    * Default value: 0
@@ -442,12 +442,12 @@ export interface PivotTableConditionalFormatting {
    * The fontFamily to apply to formatted cells.
    * Default value: The default fontFamily as set in CSS
    */
-  fontFamily?: PivotTableConditionalFormattingFontFamily;
+  fontFamily?: PivotTableConditionalFormattingFontFamily | string;
   /**
    * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
    * Default value: 14px
    */
-  fontSize?: PivotTableConditionalFormattingFontSize;
+  fontSize?: PivotTableConditionalFormattingFontSize | string;
   /**
    * The background color to apply to formatted cells.
    * Default value: "The default backgroundColor as set in CSS"

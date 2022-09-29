@@ -25,7 +25,7 @@ export interface BootstrapButtonProperties {
    * Sets or gets the style mode of the button.
    * Default value: primary
    */
-  styleMode?: BootstrapButtonStyleMode;
+  styleMode?: BootstrapButtonStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""

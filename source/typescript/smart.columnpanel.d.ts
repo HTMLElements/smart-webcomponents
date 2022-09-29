@@ -5,7 +5,7 @@ export interface ColumnPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the data source that will be loaded to the column panel.
    * Default value: null

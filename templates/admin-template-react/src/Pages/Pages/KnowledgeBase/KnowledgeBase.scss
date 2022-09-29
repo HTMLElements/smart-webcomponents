@@ -1,0 +1,17 @@
+.knowledge-base {
+    smart-card img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    smart-card p {
+        line-height: 1.5;
+    }
+
+    .no-result {
+        display: none;
+    }
+    .no-result.no-items {
+        display: block;
+    }
+}

@@ -1,0 +1,20 @@
+.responsive-table {
+    .responsive-table-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    p {
+        opacity: 0.9;
+    }
+
+    smart-table {
+        width: 100%;
+        height: auto;
+    }
+}

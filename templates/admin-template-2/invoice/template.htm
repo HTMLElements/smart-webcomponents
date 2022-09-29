@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-3"><h4>Invoice Preview</h4></div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="invoice">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="">Invoice #0000045</h5>
+                            <h6>Order #56</h6>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <address>
+                                    <strong>Billed To:</strong><br>
+                                    John Smith<br>
+                                    1234 Main<br>
+                                    Apt. 4B<br>
+                                    Springfield, ST 54321
+                                </address>
+                            </div>
+                            <div class="col-6 text-right">
+                                <address>
+                                    <strong>Shipped To:</strong><br>
+                                    Jane Smith<br>
+                                    1234 Main<br>
+                                    Apt. 4B<br>
+                                    Springfield, ST 54321
+                                </address>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <address>
+                                    <strong>Payment Method:</strong><br>
+                                    Visa ending **** 4242<br>
+                                    jsmith@email.com
+                                </address>
+                            </div>
+                            <div class="col-6 text-right">
+                                <address>
+                                    <strong>Order Date:</strong><br>
+                                    March 7, 2014<br><br>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <h5 class="">Order summary</h5>
+
+                        <div class="table-responsive">
+                            <div id="invoiceTable" class="table table-condensed no-border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="printContainer" class="mt-3">
+        <smart-button class="primary">Print invoice</smart-button>
+    </div>
+</div>

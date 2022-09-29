@@ -1,0 +1,3 @@
+window.initSocial = function () {
+    addTodayMenuOpenHandlers();
+}

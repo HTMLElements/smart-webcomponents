@@ -20,7 +20,7 @@ export interface BreadcrumbProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Show/Hide the close button of breadcrumb items.
    * Default value: false

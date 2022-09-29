@@ -5,7 +5,7 @@ export interface DropDownButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the opened drop down closes when dropDownOpenMode is set to 'auto'.
    * Default value: 100
@@ -25,7 +25,7 @@ export interface DropDownButtonProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. Default value of empty string means that CSS variables are used. This property should be used when the browser doesn't support CSS variables.
    * Default value: 
@@ -55,7 +55,7 @@ export interface DropDownButtonProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document.
    * Default value: false
@@ -70,7 +70,7 @@ export interface DropDownButtonProperties {
    * Determines the vertical position of the dropDown. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. Default value of empty string means that CSS variables are used. This property should be used when the browser doesn't support CSS variables.
    * Default value: 
@@ -85,7 +85,7 @@ export interface DropDownButtonProperties {
    * Determines the visibility of the horizontal Scroll bar inside the drop down.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Sets a label above the element. The label is always visible.
    * Default value: ""
@@ -145,7 +145,7 @@ export interface DropDownButtonProperties {
    * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
    * Default value: null
    */
-  resizeMode?: ResizeMode;
+  resizeMode?: ResizeMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -165,7 +165,7 @@ export interface DropDownButtonProperties {
    * Determines the visibility of the vertical scroll bar.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
 }
 /**
  DropDownButton displays any type of content like components, text, images, etc in a DropDown.

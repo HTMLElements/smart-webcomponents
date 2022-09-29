@@ -5,7 +5,7 @@ export interface AccordionProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the data source that will be loaded to the Accordion.
    * Default value: null
@@ -25,7 +25,7 @@ export interface AccordionProperties {
    * Sets or gets the expand mode. Expand mode determines how the items will expand or collapse.
    * Default value: singleFitHeight
    */
-  expandMode?: AccordionExpandMode;
+  expandMode?: AccordionExpandMode | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -190,7 +190,7 @@ export interface AccordionItemProperties {
    * Sets or gets header's arrow position. If the value is 'none' the arrow is not shown.
    * Default value: left
    */
-  arrow?: AccordionItemArrow;
+  arrow?: AccordionItemArrow | string;
   /**
    * Sets or gets the content if the item.
    * Default value: ''

@@ -1,0 +1,109 @@
+.cards {
+    .cards-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .cards-with-images-wrapper,
+    .cards-with-links-buttons-wrapper,
+    .cards-with-tabs-wrapper {
+        .cars-card-image-link-button {
+            margin-bottom: 1.5rem;
+        }
+
+        smart-card {
+            height: 100%;
+            width: 100%;
+            box-shadow: unset;
+            display: inline-block;
+
+            .custom-card {
+                box-shadow: 0 0 12px rgb(0 0 0 / 10%);
+
+                .img-as-background {
+                    height: 200px;
+                    margin-bottom: 0.75rem;
+                }
+
+                .cards-card-header {
+                    font-size: 1.5rem;
+
+                    span.font-size-16px {
+                        font-size: 16px;
+                    }
+                }
+
+                .cards-card-content {
+                    opacity: 0.9;
+                    line-height: 1.5;
+                }
+
+                a {
+                    line-height: 1.5;
+                }
+
+                ul {
+                    padding-inline-start: 40px;
+
+                    li {
+                        line-height: 1.5;
+                    }
+                }
+
+                .cards-card-with-button-button-wrapper {
+                    width: 100%;
+                    margin-top: auto;
+
+                    smart-button {
+                        width: 100%;
+                    }
+                }
+
+                .content-holder-wrapper {
+                    height: 100%;
+                    flex-direction: column;
+                    display: flex;
+                }
+            }
+
+            .custom-card:hover {
+                box-shadow: 0 0 36px rgb(0 0 0 / 10%);
+            }
+        }
+    }
+
+    .card-with-tab {
+        margin-bottom: 1.5rem;
+
+        smart-tabs {
+            margin: 0;
+            width: 100%;
+            padding: 2px;
+        }
+
+        .smart-tabs[tab-layout="scroll"] .smart-tab-strip {
+            overflow: visible;
+        }
+
+        .cards-card-content {
+            line-height: 1 !important;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .cars-card-image-link-button {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+
+        .card-with-tab {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}

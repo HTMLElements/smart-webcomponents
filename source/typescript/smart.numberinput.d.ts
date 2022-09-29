@@ -5,7 +5,7 @@ export interface NumberInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -119,12 +119,14 @@ export interface NumberInput extends BaseElement, NumberInputProperties {
    * Returns the value in the desired format.
    * @param {string | number} value. The value to be formatted by the method. 
    * @param {any} format?. The object that contains the formatting properties. The argument should contain Intl.NumberFormat valid properties. For example, { style: 'currency', currency: 'EUR' }
+   * @returns {string}
    */
-  getFormattedValue(value: string | number, format?: any): void;
+  getFormattedValue(value: string | number, format?: any): string;
   /**
    * Returns the number of the input.
+   * @returns {number}
    */
-  getValue(): void;
+  getValue(): number;
   /**
    * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
    */

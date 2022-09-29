@@ -1,0 +1,25 @@
+.kanban-tasks-1 {
+    .header-col {
+        margin-bottom: 0.75rem;
+    }
+
+    .col-entity-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    #kanban-tasks-1 {
+        border: none;
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+    }
+
+    #kanban-tasks-1 .smart-kanban-column-header {
+        --smart-border: var(--smart-outline);
+    }
+
+    #kanban-tasks-1 .smart-kanban-task {
+        background-color: var(--light);
+    }
+}

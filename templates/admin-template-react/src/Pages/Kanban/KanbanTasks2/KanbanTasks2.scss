@@ -1,0 +1,57 @@
+.kanban-tasks2 {
+    #kanban {
+        border: none;
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+    }
+    
+    #kanban .smart-kanban-column-header {
+        --smart-border: var(--smart-outline);
+    }
+    
+    #kanban .smart-kanban-task {
+        background-color: var(--light);
+    }
+    
+    #kanban .smart-kanban-task {
+        display: flex;
+        flex-flow: column;
+        border: 1px solid var(--smart-border);
+        border-radius: var(--smart-border-radius);
+    }
+    
+    #kanban .smart-kanban-task-footer {
+        order: 1;
+    }
+    
+    #kanban .smart-kanban-task-tag {
+        padding: 0.25em 0.4em;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 1;
+        border-radius: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #kanban .smart-kanban-task-text {
+        order: 2;
+        width: 100%;
+        text-align: left;
+    }
+    
+    #kanban .smart-kanban-task-content {
+        order: 3;
+        display: flex;
+        flex-flow: column;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+    
+    #kanban .smart-kanban-column-header {
+        --smart-border: transparent;
+        background: transparent;
+    }
+}

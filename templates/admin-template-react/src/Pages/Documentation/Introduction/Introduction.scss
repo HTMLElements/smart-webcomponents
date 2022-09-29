@@ -1,0 +1,13 @@
+.introduction-page {
+    .file-structure-entry {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        height: 16px;
+    }
+
+    .file-structure-entry .material-icons {
+        font-size: 20px;
+    }
+}

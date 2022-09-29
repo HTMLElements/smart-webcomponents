@@ -30,12 +30,17 @@ export interface KanbanProperties {
    * Determines whether the add button is visible in the column header and/or after the tasks in the column.
    * Default value: both
    */
-  addNewButtonDisplayMode?: KanbanAddNewButtonDisplayMode;
+  addNewButtonDisplayMode?: KanbanAddNewButtonDisplayMode | string;
   /**
    * Sets or gets whether a column with a button for adding new status columns to the Kanban will be displayed.
    * Default value: false
    */
   addNewColumn?: boolean;
+  /**
+   * Sets the width of the add new column. The property is used, if the 'columnWidth' property is set, too. It specifies the width of the dynamic new column.
+   * Default value: null
+   */
+  addNewColumnWidth?: number | null;
   /**
    * Allows the dragging of tasks.
    * Default value: true
@@ -47,6 +52,11 @@ export interface KanbanProperties {
    */
   allowDrop?: boolean;
   /**
+   * This property changes the visual appeal of the Kanban columns and tasks. When set to true and the Kanban columns have their 'color' property set, the color is also applied to the tasks and edit dialog.
+   * Default value: false
+   */
+  applyColumnColorToTasks?: boolean;
+  /**
    * Enables or disables auto load state from the browser's localStorage. Information about tasks and their position and selected state, filtering, sorting, collapsed columns, as well as the values of the properties taskActions, taskComments, taskDue, taskPriority, taskProgress, taskTags, and taskUserIcon is loaded.
    * Default value: true
    */
@@ -57,6 +67,11 @@ export interface KanbanProperties {
    */
   autoSaveState?: boolean;
   /**
+   * Automatically updates the columns height depending on the tasks inside the column. The effect of this property is observed when 'columnColorEntireSurface' is true.
+   * Default value: false
+   */
+  autoColumnHeight?: boolean;
+  /**
    * Allows collapsing the card content.
    * Default value: false
    */
@@ -66,6 +81,21 @@ export interface KanbanProperties {
    * Default value: false
    */
   columnColors?: boolean;
+  /**
+   * Sets the Kanban columns width. When this property is set, the kanban columns width is set and a horizontal scrollbar may appear.
+   * Default value: null
+   */
+  columnWidth?: number | null;
+  /**
+   * Displays background in the Kanban column.
+   * Default value: false
+   */
+  columnColorEntireSurface?: boolean;
+  /**
+   * Displays a column footer which shows the summary of the column.
+   * Default value: false
+   */
+  columnFooter?: boolean;
   /**
    * Describes the columns properties.
    * Default value: 
@@ -90,12 +120,27 @@ export interface KanbanProperties {
    * Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options.
    * Default value: headerAndMenu
    */
-  columnEditMode?: KanbanColumnEditMode;
+  columnEditMode?: KanbanColumnEditMode | string;
   /**
    * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
    * Default value: 
    */
   currentUser?: string | number;
+  /**
+   * Sets or gets whether the default dialog for adding/removing tasks or comments is disabled.
+   * Default value: false
+   */
+  disableDialog?: boolean;
+  /**
+   * Sets or gets a customization function for the dialog. This function can be used to customize the dialog look or to replace it. The Kanban calls this function with 5 arguments - 'dialog', 'taskOrComment', 'editors', 'purpose' and 'type'. The dialog is the 'smart-window' instance used as a default Kanban dialog. 'taskOrComment' is object which could be Kanban task or comment. 'purpose' could be 'add' or 'edit' and 'type' could be 'task' or 'column' depending on the action.
+   * Default value: null
+   */
+  dialogCustomizationFunction?: any;
+  /**
+   * Sets or gets a function called when the dialog is rendered. The Kanban calls this function with 6 arguments - 'dialog', 'editors', 'labels', 'tabs', 'layout', 'taskOrComment'. The dialog is the 'smart-window' instance used as a default Kanban dialog. 'taskOrComment' is object which could be Kanban task or comment. 'editors', 'labels', 'tabs' and 'layout' are JSON objects with key which describes the element type and value which is HTML Element.
+   * Default value: null
+   */
+  dialogRendered?: any;
   /**
    * Determines the data source to be visualized in the kanban board.
    * Default value: null
@@ -130,12 +175,12 @@ export interface KanbanProperties {
    * Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons.
    * Default value: none
    */
-  headerPosition?: KanbanHeaderPosition;
+  headerPosition?: KanbanHeaderPosition | string;
   /**
    * Sets or gets the way column hierarchy is represented.
    * Default value: columns
    */
-  hierarchy?: KanbanHierarchy;
+  hierarchy?: KanbanHierarchy | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages.
    * Default value: "en"
@@ -147,10 +192,35 @@ export interface KanbanProperties {
    */
   messages?: any;
   /**
+   * Callback function which can be used for customizing the tasks rendering. The Kanban calls it with 2 arguments - task html element and task data.
+   * Default value: null
+   */
+  onTaskRender?: any;
+  /**
+   * Callback function which can be used for customizing the filter items. The function is called with 1 argument - Array of items which will be displayed in the filter drop down. You can modify that array to remove or update items to filter by.
+   * Default value: null
+   */
+  onFilterPrepare?: any;
+  /**
+   * Callback function which can be used for customizing the sort items. The function is called with 1 argument - Array of items which will be displayed in the sort drop down. You can modify that array to remove or update items to sort by.
+   * Default value: null
+   */
+  onSortPrepare?: any;
+  /**
+   * Callback function which can be used for customizing the column header rendering. The Kanban calls it with 3 arguments - column header html element and column data and column data field.
+   * Default value: null
+   */
+  onColumnHeaderRender?: any;
+  /**
+   * Callback function which can be used for customizing the column footer rendering. The Kanban calls it with 3 arguments - column header html element and column data and column data field.
+   * Default value: null
+   */
+  onColumnFooterRender?: any;
+  /**
    * Determines selection mode.
    * Default value: zeroOrOne
    */
-  selectionMode?: KanbanSelectionMode;
+  selectionMode?: KanbanSelectionMode | string;
   /**
    * Sets or gets whether the tasks history will be stored and displayed in the task dialog.
    * Default value: false
@@ -166,6 +236,11 @@ export interface KanbanProperties {
    * Default value: false
    */
   rightToLeft?: boolean;
+  /**
+   * Sets or gets whether the edit dialog is displayed in readonly mode. In that mode it shows only the task details, but the editing is disabled. However, if comments are enabled, you will be able to add comments in the dialog.
+   * Default value: false
+   */
+  readonly?: boolean;
   /**
    * Describes the swimlanes in the kanban board. Sub-columns are not applicable when swimlanes are present.
    * Default value: 
@@ -192,6 +267,11 @@ export interface KanbanProperties {
    */
   taskActions?: boolean;
   /**
+   * Represents a callback function which is called when the task actions menu is created. The task actions element is passed as parameter and allows you to customize the menu. Example: (list) => { list.innerHTML = 'Custom Item'; list.onclick = () => { alert('clicked'); }}
+   * Default value: null
+   */
+  taskActionsRendered?: any;
+  /**
    * Toggles the visibility of the task comments icon.
    * Default value: false
    */
@@ -205,7 +285,7 @@ export interface KanbanProperties {
    * Sets or gets whether tasks can be shown in all levels of column hierarchy or only on leaf columns.
    * Default value: false
    */
-  taskPosition?: KanbanTaskPosition;
+  taskPosition?: KanbanTaskPosition | string;
   /**
    * Toggles the visibility of the task priority icon (shown when priority is low or high).
    * Default value: true
@@ -217,7 +297,7 @@ export interface KanbanProperties {
    */
   taskProgress?: boolean;
   /**
-   * Sets the task custom fields displayed in the card. Each array item should have 'dataField', 'label' 'dataType' and optionally 'visible' properties. The 'dataField' determines the value, the label is displayed as title, 'dataType' is used for formatting and 'visible' determines whether the field will be displayed.
+   * Sets the task custom fields displayed in the card. Each array item should have 'dataField', 'label' 'dataType' and optionally 'visible', 'image' and 'cover' properties. The 'dataField' determines the value, the label is displayed as title, 'dataType' is used for formatting and 'visible' determines whether the field will be displayed. If your string represents an image either URL or Base64, set image: true. If you want to display that image as a cover image, set cover:true, too.
    * Default value: 
    */
   taskCustomFields?: any;
@@ -235,7 +315,7 @@ export interface KanbanProperties {
    * Sets the rendering mode of sub tasks. 'none' - default value. Sub tasks are displayed only in the edit dialog. 'onePerRow' - all sub tasks are displayed in the task's card. 'onlyUnfinished' - only tasks which are not completed are displayed in the task's card.
    * Default value: none
    */
-  taskSubTasks?: KanbanTaskSubTasks;
+  taskSubTasks?: KanbanTaskSubTasks | string;
   /**
    * Toggles the visibility of task tags.
    * Default value: true
@@ -438,7 +518,7 @@ export interface Kanban extends BaseElement, KanbanProperties {
 	* @param event. The custom event.    */
   onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the edit/prompt dialog is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
+   * This event is triggered when the edit/prompt dialog is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function. If you want to cancel the default Kanban dialog, call event.preventDefault();
 	* @param event. The custom event. Custom data event was created with: ev.detail(comment, purpose, task)
    *  comment - The comment that is about to be removed (if applicable).
    *  purpose - The purpose of the dialog to be opened - <em>'edit'</em> or <em>'prompt'</em>.
@@ -450,7 +530,14 @@ export interface Kanban extends BaseElement, KanbanProperties {
 	* @param event. The custom event.    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when a new task is added.
+   * This event is triggered before a new task is added. You can use the event.detail.value and event.detail.id to customize the new Task before adding it to the Kanban. Example: kanban.onTaskBeforeAdd = (event) => { const data = event.detail.value; const id = event.detail.id; event.detail.id = 'BG12';}
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
+   *  value - The task data that is added to the Kanban.
+   *  id - The task data id.
+   */
+  onTaskBeforeAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a new task is added. Example: kanban.onTaskAdd = (event) => { const data = event.detail.value; const id = event.detail.id; }
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
    *  value - The task data that is added to the Kanban.
    *  id - The task data id.
@@ -486,15 +573,15 @@ export interface Kanban extends BaseElement, KanbanProperties {
    */
   onTaskDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Adds filtering
-   * @param {string[]} filters. Filter information
-   * @param {string} operator?. Logical operator between the filters of different fields
+   * Adds filtering. Example: const filterGroup = new Smart.FilterGroup(); const filterObject = filterGroup.createFilter('string', 'Italy', 'contains'); filterGroup.addFilter('and', filterObject); kanban.addFilter([['Country', filterGroup]]);
+   * @param {any} filters. Filter information. Example: kanban.addFilter([['Country', filterGroup]]);. Each array item is a sub array with two items - 'dataField' and 'filterGroup' object. The 'dataField' is any valid data field from the data source bound to the Kanban like 'dueDate', 'startDate' or custom fields like 'Country'. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   * @param {string} operator?. Logical operator between the filters of different fields. Possible values are: 'and', 'or'. 
    */
-  addFilter(filters: string[], operator?: string): void;
+  addFilter(filters: any, operator?: string): void;
   /**
-   * Adds sorting
+   * Adds sorting. Example: kanban.addSort(['Country'], 'ascending');
    * @param {[] | string} dataFields. The data field(s) to sort by
-   * @param {[] | string} orderBy. The sort direction(s) to sort the data field(s) by
+   * @param {[] | string} orderBy. The sort direction(s) to sort the data field(s) by. Possible values are: 'ascending' and 'descending'.
    */
   addSort(dataFields: [] | string, orderBy: [] | string): void;
   /**
@@ -723,7 +810,7 @@ export interface KanbanColumn {
    * Sets or gets whether the tasks in the column flow vertically or horizontally.
    * Default value: vertical
    */
-  orientation?: KanbanColumnOrientation;
+  orientation?: KanbanColumnOrientation | string;
   /**
    * Sets or gets whether the column is selected. Only applicable to sub-columns when hierarchy is 'tabs'.
    * Default value: false
@@ -734,6 +821,11 @@ export interface KanbanColumn {
    * Default value: null
    */
   headerTemplate?: any;
+  /**
+   * Sets the Kanban column width. When this property is set, the kanban column width is set and a horizontal scrollbar may appear.
+   * Default value: null
+   */
+  width?: number | null;
 }
 
 export interface KanbanDataSource {
@@ -763,20 +855,10 @@ export interface KanbanDataSource {
    */
   dueDate?: Date;
   /**
-   * Callback function which can be used for customizing the tasks rendering. The Kanban calls it with 2 arguments - task html element and task data.
-   * Default value: null
-   */
-  onTaskRender?: any;
-  /**
-   * Callback function which can be used for customizing the column header rendering. The Kanban calls it with 2 arguments - column header html element and column data.
-   * Default value: null
-   */
-  onColumnHeaderRender?: any;
-  /**
    * The task's priority.
-   * Default value: normal
+   * Default value: "normal"
    */
-  priority?: KanbanDataSourcePriority;
+  priority?: string;
   /**
    * The task's progress in percentages - a number from 0 to 100.
    * Default value: null
@@ -904,8 +986,6 @@ export declare type KanbanAddNewButtonDisplayMode = 'top' | 'bottom' | 'both';
 export declare type KanbanColumnOrientation = 'vertical' | 'horizontal';
 /**Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options. */
 export declare type KanbanColumnEditMode = 'header' | 'menu' | 'headerAndMenu';
-/**The task's priority. */
-export declare type KanbanDataSourcePriority = 'low' | 'normal' | 'high';
 /**Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons. */
 export declare type KanbanHeaderPosition = 'none' | 'top' | 'bottom';
 /**Sets or gets the way column hierarchy is represented. */

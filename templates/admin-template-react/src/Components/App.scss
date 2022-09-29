@@ -1,0 +1,13 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/tooltip';
+@import 'node_modules/bootstrap/scss/dropdown';
+@import 'node_modules/bootstrap/scss/button-group';
+@import 'node_modules/bootstrap/scss/buttons';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

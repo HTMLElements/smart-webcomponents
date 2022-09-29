@@ -3,7 +3,7 @@ export interface AccordionProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the data source that will be loaded to the Accordion.
    * Default value: null
@@ -23,7 +23,7 @@ export interface AccordionProperties {
    * Sets or gets the expand mode. Expand mode determines how the items will expand or collapse.
    * Default value: singleFitHeight
    */
-  expandMode?: AccordionExpandMode;
+  expandMode?: AccordionExpandMode | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -190,7 +190,7 @@ export interface AccordionItemProperties {
    * Sets or gets header's arrow position. If the value is 'none' the arrow is not shown.
    * Default value: left
    */
-  arrow?: AccordionItemArrow;
+  arrow?: AccordionItemArrow | string;
   /**
    * Sets or gets the content if the item.
    * Default value: ''
@@ -246,12 +246,12 @@ export interface ArrayProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the indexing mode of the Array.
    * Default value: LabVIEW
    */
-  arrayIndexingMode?: ArrayArrayIndexingMode;
+  arrayIndexingMode?: ArrayArrayIndexingMode | string;
   /**
    * A callback function that is called when the width, height or disabled properties of an inner element need to be updated. Applicable only when type is 'custom'.
    * Default value: null
@@ -378,7 +378,7 @@ export interface ArrayProperties {
    * Sets or gets the data type and element widgets to be used in the Array.
    * Default value: none
    */
-  type?: ArrayType;
+  type?: ArrayType | string;
   /**
    * If is set to true, the element cannot be focused.
    * Default value: false
@@ -578,7 +578,7 @@ declare global {
 export declare type ArrayArrayIndexingMode = 'LabVIEW' | 'JavaScript';
 /**Sets or gets the data type and element widgets to be used in the Array. */
 export declare type ArrayType = 'none' | 'boolean' | 'numeric' | 'string' | 'custom';
-export interface BarCodeProperties {
+export interface BarcodeProperties {
   /**
    * Sets the background color of the barcode element.
    * Default value: "white"
@@ -588,12 +588,12 @@ export interface BarCodeProperties {
    * Sets whether the barcode label is visible.
    * Default value: true
    */
-  disaplyLabel?: boolean;
+  displayLabel?: boolean;
   /**
    * Sets the color of the barcode label.
    * Default value: "black"
    */
-  labelCOlor?: string;
+  labelColor?: string;
   /**
    * Sets the font family of the barcode label.
    * Default value: "monospace"
@@ -618,7 +618,7 @@ export interface BarCodeProperties {
    * Sets the position of the barcode label.
    * Default value: bottom
    */
-  labelPosition?: BarCodeLabelPosition;
+  labelPosition?: BarcodeLabelPosition | string;
   /**
    * Sets the color of the barcode lines.
    * Default value: "black"
@@ -638,12 +638,12 @@ export interface BarCodeProperties {
    * Sets the rendering mode of the barcode.
    * Default value: svg
    */
-  renderAs?: BarCodeRenderAs;
+  renderAs?: BarcodeRenderAs | string;
   /**
    * Sets the barcode type
    * Default value: codabar
    */
-  type?: BarCodeType;
+  type?: BarcodeType | string;
   /**
    * Sets or gets the value of the barcode.
    * Default value: ""
@@ -653,15 +653,17 @@ export interface BarCodeProperties {
 /**
  Barcodes encodes text value in a specific pattern.
 */
-export interface BarCode extends BaseElement, BarCodeProperties {
+export interface Barcode extends BaseElement, BarcodeProperties {
 
   /* Get a member by its name */
   [name: string]: any;
   /**
    * This event is triggered when the value of the barcode is invalid. 
-	* @param event. The custom event. Custom data event was created with: ev.detail(value, invalidCharacters)
-   *  value - the invalid value of the barcode.
+	* @param event. The custom event. Custom data event was created with: ev.detail(invalidCharacters, lengthValidity, patternValidity, value)
    *  invalidCharacters - An array indicating the invalid characters.
+   *  lengthValidity - A boolean indicating the length validity.
+   *  patternValidity - A boolean indicating the pattern validity.
+   *  value - the invalid value of the barcode.
    */
   onInvalid?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -691,20 +693,20 @@ export interface BarCode extends BaseElement, BarCodeProperties {
 
 declare global {
     interface Document {
-        createElement(tagName: "smart-barcode"): BarCode;
-        querySelector(selectors: "smart-barcode"): BarCode | null;
-        querySelectorAll(selectors: "smart-barcode"): NodeListOf<BarCode>;
-        getElementsByTagName(qualifiedName: "smart-barcode"): HTMLCollectionOf<BarCode>;
-        getElementsByName(elementName: "smart-barcode"): NodeListOf<BarCode>;
+        createElement(tagName: "smart-barcode"): Barcode;
+        querySelector(selectors: "smart-barcode"): Barcode | null;
+        querySelectorAll(selectors: "smart-barcode"): NodeListOf<Barcode>;
+        getElementsByTagName(qualifiedName: "smart-barcode"): HTMLCollectionOf<Barcode>;
+        getElementsByName(elementName: "smart-barcode"): NodeListOf<Barcode>;
     }
 }
 
 /**Sets the position of the barcode label. */
-export declare type BarCodeLabelPosition = 'top' | 'bottom';
+export declare type BarcodeLabelPosition = 'top' | 'bottom';
 /**Sets the rendering mode of the barcode. */
-export declare type BarCodeRenderAs = 'svg' | 'canvas';
+export declare type BarcodeRenderAs = 'svg' | 'canvas';
 /**Sets the barcode type */
-export declare type BarCodeType = 'pharmacode' | 'codabar' | 'code128a' | 'code128b' | 'code128c' | 'msi' | 'msi10' | 'msi11' | 'msi1010' | 'msi1110' | 'ean13' | 'ean8' | 'code39' | 'code93';
+export declare type BarcodeType = 'pharmacode' | 'codabar' | 'code128a' | 'code128b' | 'code128c' | 'msi' | 'msi10' | 'msi11' | 'msi1010' | 'msi1110' | 'ean13' | 'ean8' | 'code39' | 'code93';
 export interface BreadcrumbProperties {
   /**
    * Enables or disables the "Add new item" (+) button.
@@ -725,7 +727,7 @@ export interface BreadcrumbProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Show/Hide the close button of breadcrumb items.
    * Default value: false
@@ -848,12 +850,12 @@ export interface ButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the click mode for the element.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Sets the content of the element.
    * Default value: ""
@@ -961,7 +963,7 @@ export interface ButtonGroupProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the buttons configuration. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
    * Default value: []
@@ -971,7 +973,7 @@ export interface ButtonGroupProperties {
    * Determines the selection mode for the element.
    * Default value: one
    */
-  selectionMode?: ButtonGroupSelectionMode;
+  selectionMode?: ButtonGroupSelectionMode | string;
   /**
    * Enables or disables the element. 
    * Default value: false
@@ -1074,7 +1076,7 @@ export interface CalendarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Applies new animation settings when it is enabled. Properties:startSpeed - Determines the initial speed of the animation.easeThreshold - Determines the point at which the animation starts to slow down - the "ease effect".step - Determines the step ( scrolling interval ) at which the animation will run. stepEaseSize - Coefficient that is used to calculated the new step once the threshold has been passed. resetThreshold - Determines the threshold for animation reset. When it's reached the animation will start over.
    * Default value: null
@@ -1084,12 +1086,12 @@ export interface CalendarProperties {
    * Determines the date controls inside the header of the Calendar.
    * Default value: default
    */
-  calendarMode?: CalendarMode;
+  calendarMode?: CalendarMode | string;
   /**
    * Determines the format of the day names located above the days inside the calendar.
    * Default value: firstTwoLetters
    */
-  dayNameFormat?: DayFormat;
+  dayNameFormat?: DayFormat | string;
   /**
    *  A callback that can be used to customize the format of the month name when calendarMode is set to 'default'.
    * Default value: null
@@ -1109,12 +1111,12 @@ export interface CalendarProperties {
    * Determines the date view of the calendar when calendarMode is set to 'default'
    * Default value: month
    */
-  displayMode?: CalendarDisplayMode;
+  displayMode?: CalendarDisplayMode | string;
   /**
    * Determines the type of the month/year view when calendarMode is set to Default.
    * Default value: table
    */
-  displayModeView?: CalendarDisplayModeView;
+  displayModeView?: CalendarDisplayModeView | string;
   /**
    * Determines the height of the month's drop down inside the Calendar.
    * Default value: 200
@@ -1210,7 +1212,7 @@ export interface CalendarProperties {
    * Determines the format of the month names in the header when DisplayMode is set to Default or when Months property is greater than 1. 
    * Default value: long
    */
-  monthNameFormat?: MonthFormat;
+  monthNameFormat?: MonthFormat | string;
   /**
    * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
    * Default value: ""
@@ -1235,12 +1237,12 @@ export interface CalendarProperties {
    *  Determines the direction of the navigation buttons located in the header and the animation.
    * Default value: landscape
    */
-  scrollButtonsNavigationMode?: ViewLayout;
+  scrollButtonsNavigationMode?: ViewLayout | string;
   /**
    *  Determines the position of the navigation buttons located inside the header. 
    * Default value: both
    */
-  scrollButtonsPosition?: LayoutPosition;
+  scrollButtonsPosition?: LayoutPosition | string;
   /**
    * Sets the dates that will be selected. Selected dates are styled differently than the rest. The dates can be Date objects or strings in a valid date format.
    * Default value: 
@@ -1250,7 +1252,7 @@ export interface CalendarProperties {
    * Determines the date selection mode.
    * Default value: default
    */
-  selectionMode?: CalendarSelectionMode;
+  selectionMode?: CalendarSelectionMode | string;
   /**
    * Sets the delay between clicks of the date navigation buttons located in the header of the Calendar. 
    * Default value: 80
@@ -1295,7 +1297,7 @@ export interface CalendarProperties {
    * Sets the position of the tooltip.
    * Default value: top
    */
-  tooltipPosition?: TooltipPosition;
+  tooltipPosition?: TooltipPosition | string;
   /**
    * Sets a template for the tooltip's content. Accepts the id of an HTMLTEmplate element inside the DOM or it's reference.
    * Default value: null
@@ -1310,7 +1312,7 @@ export interface CalendarProperties {
    * Determines the orientation of the Calendar.
    * Default value: portrait
    */
-  view?: ViewLayout;
+  view?: ViewLayout | string;
   /**
    * Determines the visible sections of the Calendar. The view sections are : title, header, footer. Multiple sections can be applied at the same time. By default only the 'header' section is visible.
    * Default value: header
@@ -1330,7 +1332,7 @@ export interface CalendarProperties {
    * Determines the year format in the header when DisplayMode is set to Default or when Months property is greater than 1.
    * Default value: numeric
    */
-  yearFormat?: YearFormat;
+  yearFormat?: YearFormat | string;
 }
 /**
  Calendar allows user to easily select one or more dates. This control supports multi-calendar view, special dates, holidays, weekends, decade views.
@@ -1441,7 +1443,7 @@ export interface CardProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * A callback function, used to add event handlers and other custom logic related to the content inside the card element.
    * Default value: null
@@ -1554,7 +1556,7 @@ export interface CardViewProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Describes the height for each card.
    * Default value: null
@@ -1564,7 +1566,7 @@ export interface CardViewProperties {
    * Describes the orientation of the card cells.
    * Default value: vertical
    */
-  cellOrientation?: Orientation;
+  cellOrientation?: Orientation | string;
   /**
    * Allows collapsing the card content.
    * Default value: false
@@ -1584,7 +1586,7 @@ export interface CardViewProperties {
    * Describes the cover image fit property.
    * Default value: crop
    */
-  coverMode?: CardViewCoverMode;
+  coverMode?: CardViewCoverMode | string;
   /**
    * Determines the data source for the item that will be displayed inside the card.
    * Default value: null
@@ -1604,7 +1606,7 @@ export interface CardViewProperties {
    * Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons.
    * Default value: none
    */
-  headerPosition?: CardViewHeaderPosition;
+  headerPosition?: CardViewHeaderPosition | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages.
    * Default value: "en"
@@ -1700,7 +1702,7 @@ export interface CardViewProperties {
    * Describes the scrolling behavior of the element.
    * Default value: physical
    */
-  scrolling?: Scrolling;
+  scrolling?: Scrolling | string;
   /**
    * Describes which data field to be set as title.
    * Default value: ""
@@ -1834,7 +1836,7 @@ export interface CardViewColumn {
    * Sets or gets the column's data type.
    * Default value: string
    */
-  dataType?: CardViewColumnDataType;
+  dataType?: CardViewColumnDataType | string;
   /**
    * Sets or gets the column's icon. Expects CSS class name.
    * Default value: 
@@ -1888,7 +1890,7 @@ export interface DataSourceSettings {
    * Sets or gets the XML binding root.
    * Default value: blackList
    */
-  sanitizeHTML?: DataSourceSettingsSanitizeHTML;
+  sanitizeHTML?: DataSourceSettingsSanitizeHTML | string;
   /**
    * Sets or gets the XML binding record.
    * Default value: ""
@@ -1908,7 +1910,7 @@ export interface DataSourceSettings {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: DataSourceSettingsDataSourceType;
+  dataSourceType?: DataSourceSettingsDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -1956,7 +1958,7 @@ export interface DataSourceSettingsDataField {
    * Sets the dataField type.
    * Default value: string
    */
-  dataType?: DataSourceSettingsDataFieldDataType;
+  dataType?: DataSourceSettingsDataFieldDataType | string;
 }
 
 declare global {
@@ -1990,7 +1992,7 @@ export interface CarouselProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * The items switch automatically if set to true or to a custom number(representing the timeout in milliseconds). This property works if slideShow property is enabled.
    * Default value: false
@@ -2020,7 +2022,7 @@ export interface CarouselProperties {
    * Determines the display mode.
    * Default value: default
    */
-  displayMode?: CarouselDisplayMode;
+  displayMode?: CarouselDisplayMode | string;
   /**
    * Hides the navigation buttons.
    * Default value: false
@@ -2187,7 +2189,7 @@ export interface ChartProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'.
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the animation duration in milliseconds. The value must be between 0 and 5000. If it is outside of this range jqxChart will reset it to the default value.
    * Default value: 300
@@ -2227,7 +2229,7 @@ export interface ChartProperties {
    * Sets the chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'.
    * Default value: scheme01
    */
-  colorScheme?: ChartColorScheme;
+  colorScheme?: ChartColorScheme | string;
   /**
    * Enables or disables overlapping of the column series.
    * Default value: false
@@ -2317,7 +2319,7 @@ export interface ChartProperties {
    * Determines the rendering engine used to display the chart. When the property is set to an empty string, jqxChart will automatically select an optimal rendering engine depending on the browser capabilities.
    * Default value: 
    */
-  renderEngine?: ChartRenderEngine;
+  renderEngine?: ChartRenderEngine | string;
   /**
    * Sets or gets a value indicating whether the Chart's layout is mirrored.
    * Default value: false
@@ -2696,7 +2698,7 @@ export interface ChartSeriesGroup {
    * Determines how line and area series are unselected based on mouse and touch events. If the value is set to 'click', once a line or area serie is selected, it will remain selected until the user clicks or moves the cursor outside the chart. In default mode, the serie will be unselected immediatelly after the cursor moves over another serie or outside the chart.
    * Default value: default
    */
-  linesUnselectMode?: ChartUnselectMode;
+  linesUnselectMode?: ChartUnselectMode | string;
   /**
    * Horizontal position of the center of the polar coordinate system. Applicable to polar and spider charts only.
    * Default value: null
@@ -2711,7 +2713,7 @@ export interface ChartSeriesGroup {
    * Specifies the orientation of the series group.
    * Default value: vertical
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * Specifies the summary of the series group.
    * Default value: ""
@@ -2761,7 +2763,7 @@ export interface ChartSeriesGroup {
    * Sets the chart type. jqxChart supports several common chart types. You can easily plot series of different types on a common chart. A type must be specified for each series group. Currently, jqxChart supports the following series types:'column' - simple column series'stackedcolumn' - stacked column series'stackedcolumn100' - percentage stacked columns'rangecolumn' - floating column between two values'waterfall' - waterfall series'stackedwaterfall' - stacked waterfall series'line' - simple straight lines connecting the value points'stackedline' - stacked lines'stackedline100' - percentage stacked lines'spline' - smooth lines connecting the value points'stackedspline' - smooth stacked lines'stackedspline100' - percentage stacked smooth lines'stepline' - step line'stackedstepline' - stacked step line'stackedstepline100' - percentage stacked step line'area' - area connecting the value points with straight lines'stackedarea' - stacked area with straight lines between the points'stackedarea100' - percentage stacked area with straight lines between the points'rangearea' - floating area between pairs of value points'splinearea' - smooth area connecting the value points'stackedsplinearea' - stacked smooth area connecting the value points'stackedsplinearea100' - percentage stacked smooth area'splinerangearea' - smooth floating area between pairs of value points'steprangearea' - step area between pairs of value points'stackedsplineara' - smooth stacked area'steparea' - step area connecting the value points'stackedsteparea' - step stacked area'stackedsteparea100' - percentage stacked step area'pie' - circular chart divided into sectors, illustrating proportion'donut' - chart divided into circular sectors with different inner and outer radius'scatter' - data is displayed as a collection of points'stackedscatter' - data is displayed as a collection of points and the values are stacked'stackedscatter100' - data is displayed as a collection of points and the values are percentage stacked'bubble' - data is displayed as a collection of bubbles'stackedbubble' - data is displayed as a collection of bubbles and the values are stacked'stackedbubble100' - data is displayed as a collection of bubbles and the values are percentage stacked'candlestick' - display candlestick series using open, high, low, close data points'ohlc' - display OHLC series using open, high, low, close data points
    * Default value: column
    */
-  type?: ChartType;
+  type?: ChartType | string;
   /**
    * Object describing the format settings of series tooltips.
    * Default value: [object Object]
@@ -2829,7 +2831,7 @@ export interface ChartAnnotation {
    * Shape type of the annotation.
    * Default value: null
    */
-  type?: ChartAnnotationType;
+  type?: ChartAnnotationType | string;
   /**
    * Width of the annotation.
    * Default value: null
@@ -2892,7 +2894,7 @@ export interface ChartAnnotationText {
    * Horizontal text alignment.
    * Default value: center
    */
-  horizontalAlignment?: HorizontalAlignment;
+  horizontalAlignment?: HorizontalAlignment | string;
   /**
    * Outer text color (stroke).
    * Default value: null
@@ -2907,7 +2909,7 @@ export interface ChartAnnotationText {
    * Position to rotate the text around.
    * Default value: centermiddle
    */
-  rotationPoint?: ChartRotationPoint;
+  rotationPoint?: ChartRotationPoint | string;
   /**
    * Text of the annotation.
    * Default value: null
@@ -2917,7 +2919,7 @@ export interface ChartAnnotationText {
    * Vertical text alignment.
    * Default value: center
    */
-  verticalAlignment?: VerticalAlignment;
+  verticalAlignment?: VerticalAlignment | string;
 }
 
 export interface ChartBand {
@@ -3012,7 +3014,7 @@ export interface ChartSeriesGroupSerie {
    * Color palette to use when rendering the serie.
    * Default value: scheme01
    */
-  colorScheme?: ChartColorScheme;
+  colorScheme?: ChartColorScheme | string;
   /**
    * Name of the field in the data source.
    * Default value: "null"
@@ -3082,7 +3084,7 @@ export interface ChartSeriesGroupSerie {
    * Determines how to display value gaps in line series.
    * Default value: skip
    */
-  emptyPointsDisplay?: ChartSeriesGroupSerieEmptyPointsDisplay;
+  emptyPointsDisplay?: ChartSeriesGroupSerieEmptyPointsDisplay | string;
   /**
    * Determines whether the serie is selectable.
    * Default value: true
@@ -3222,7 +3224,7 @@ export interface ChartSeriesGroupSerie {
    * Determines how line and area series are unselected based on mouse and touch events. If the value is set to 'click', once a line or area serie is selected, it will remain selected until the user clicks or moves the cursor outside the chart. In default mode, the serie will be unselected immediatelly after the cursor moves over another serie or outside the chart.
    * Default value: default
    */
-  linesUnselectMode?: ChartUnselectMode;
+  linesUnselectMode?: ChartUnselectMode | string;
   /**
    * Determines the line tickness of the items in this serie.
    * Default value: null
@@ -3277,7 +3279,7 @@ export interface ChartSeriesGroupSerie {
    * Determines the symbol type displayed for the data points in the serie. This parameter is applicable to line, area, scatter and bubble series only.
    * Default value: none
    */
-  symbolType?: ChartSymbolType;
+  symbolType?: ChartSymbolType | string;
   /**
    * Determines the tooltip's background.
    * Default value: null
@@ -3366,7 +3368,7 @@ export interface ChartLabels {
    * Horizontal labels alignment.
    * Default value: center
    */
-  horizontalAlignment?: HorizontalAlignment;
+  horizontalAlignment?: HorizontalAlignment | string;
   /**
    * Determines whether to use direct lines for the labels in pie/donut series.
    * Default value: true
@@ -3396,7 +3398,7 @@ export interface ChartLabels {
    * Position to rotate the text around.
    * Default value: auto
    */
-  rotationPoint?: ChartRotationPoint;
+  rotationPoint?: ChartRotationPoint | string;
   /**
    * Interval steps between label placements (multiples of the axis unit interval).
    * Default value: null
@@ -3411,7 +3413,7 @@ export interface ChartLabels {
    * Vertical labels alignment.
    * Default value: center
    */
-  verticalAlignment?: VerticalAlignment;
+  verticalAlignment?: VerticalAlignment | string;
   /**
    * Possible values: true, false, 'custom'.Determines the visibility of labels. When 'custom' is set, displays only custom values/offsets from the labels.custom array.
    * Default value: true
@@ -3525,7 +3527,7 @@ export interface ChartValueAxis {
    * Sets the axis position. The values 'left' and 'right' are available in the default case. If the valueAxis is horizontal, only 'top' and 'bottom' are available.
    * Default value: left
    */
-  position?: AxisPosition;
+  position?: AxisPosition | string;
   /**
    * Text rotation angle.
    * Default value: null
@@ -3540,7 +3542,7 @@ export interface ChartValueAxis {
    * Position to rotate the text around.
    * Default value: auto
    */
-  textRotationPoint?: ChartRotationPoint;
+  textRotationPoint?: ChartRotationPoint | string;
   /**
    * Object describing the tick marks properties of the valueAxis.
    * Default value: [object Object]
@@ -3647,7 +3649,7 @@ export interface ChartTitle {
    * Horizontal alignment.
    * Default value: center
    */
-  horizontalAlignment?: HorizontalAlignment;
+  horizontalAlignment?: HorizontalAlignment | string;
   /**
    * Text of the title.
    * Default value: ""
@@ -3657,7 +3659,7 @@ export interface ChartTitle {
    * Vertical alignment.
    * Default value: center
    */
-  verticalAlignment?: VerticalAlignment;
+  verticalAlignment?: VerticalAlignment | string;
   /**
    * boolean determining the visibility of the title.
    * Default value: true
@@ -3696,7 +3698,7 @@ export interface ChartXAxis {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit | null;
+  baseUnit?: ChartBaseUnit | null | string;
   /**
    * boolean determining whether to draw the axis or the user will use APIs to draw it.
    * Default value: false
@@ -3776,7 +3778,7 @@ export interface ChartXAxis {
    * Sets the axis position. The values 'bottom' and 'top' are available in the default case. If the xAxis is vertical, only 'left' and 'right' are available.
    * Default value: bottom
    */
-  position?: AxisPosition;
+  position?: AxisPosition | string;
   /**
    * Definition of a range selector on the xAxis. The range selector itself is also an instance of smart-chart.
    * Default value: [object Object]
@@ -3796,7 +3798,7 @@ export interface ChartXAxis {
    * Position to rotate the text around.
    * Default value: auto
    */
-  textRotationPoint?: ChartRotationPoint;
+  textRotationPoint?: ChartRotationPoint | string;
   /**
    * Object describing the tick marks properties of the xAxis.
    * Default value: [object Object]
@@ -3821,7 +3823,7 @@ export interface ChartXAxis {
    * The type of the axis. 'auto' - automatically detects and switches to 'basic', 'linear' or 'date'.'date' - when displaying dates.'basic' - displays all data points sequentially.'linear' - linear arrangement by the value of the xAxis data field.
    * Default value: auto
    */
-  type?: ChartXAxisType;
+  type?: ChartXAxisType | string;
   /**
    * Sets the interval between the units.
    * Default value: null
@@ -3855,7 +3857,7 @@ export interface ChartRangeSelector {
    * The base unit when used with 'date' axis.
    * Default value: null
    */
-  baseUnit?: ChartBaseUnit | null;
+  baseUnit?: ChartBaseUnit | null | string;
   /**
    * Sets the range selector chart's border color.
    * Default value: null
@@ -3875,7 +3877,7 @@ export interface ChartRangeSelector {
    * Sets the range selector chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'.
    * Default value: scheme01
    */
-  colorScheme?: ChartColorScheme;
+  colorScheme?: ChartColorScheme | string;
   /**
    * Enables or disables overlapping of the column series.
    * Default value: false
@@ -3940,7 +3942,7 @@ export interface ChartRangeSelector {
    * Sets the range selector chart position.
    * Default value: left
    */
-  position?: AxisPosition;
+  position?: AxisPosition | string;
   /**
    * An HTML element outside the chart to render the range selector chart to.
    * Default value: null
@@ -3965,7 +3967,7 @@ export interface ChartRangeSelector {
    * Sets the range selector chart type. jqxChart supports several common chart types. You can easily plot series of different types on a common chart. A type must be specified for each series group. Currently, jqxChart supports the following series types:'column' - simple column series'stackedcolumn' - stacked column series'stackedcolumn100' - percentage stacked columns'rangecolumn' - floating column between two values'waterfall' - waterfall series'stackedwaterfall' - stacked waterfall series'line' - simple straight lines connecting the value points'stackedline' - stacked lines'stackedline100' - percentage stacked lines'spline' - smooth lines connecting the value points'stackedspline' - smooth stacked lines'stackedspline100' - percentage stacked smooth lines'stepline' - step line'stackedstepline' - stacked step line'stackedstepline100' - percentage stacked step line'area' - area connecting the value points with straight lines'stackedarea' - stacked area with straight lines between the points'stackedarea100' - percentage stacked area with straight lines between the points'rangearea' - floating area between pairs of value points'splinearea' - smooth area connecting the value points'stackedsplinearea' - stacked smooth area connecting the value points'stackedsplinearea100' - percentage stacked smooth area'splinerangearea' - smooth floating area between pairs of value points'steprangearea' - step area between pairs of value points'stackedsplineara' - smooth stacked area'steparea' - step area connecting the value points'stackedsteparea' - step stacked area'stackedsteparea100' - percentage stacked step area'pie' - circular chart divided into sectors, illustrating proportion'donut' - chart divided into circular sectors with different inner and outer radius'scatter' - data is displayed as a collection of points'stackedscatter' - data is displayed as a collection of points and the values are stacked'stackedscatter100' - data is displayed as a collection of points and the values are percentage stacked'bubble' - data is displayed as a collection of bubbles'stackedbubble' - data is displayed as a collection of bubbles and the values are stacked'stackedbubble100' - data is displayed as a collection of bubbles and the values are percentage stacked'candlestick' - display candlestick series using open, high, low, close data points'ohlc' - display OHLC series using open, high, low, close data points
    * Default value: area
    */
-  serieType?: ChartType;
+  serieType?: ChartType | string;
   /**
    * Determines whether to display the range selector chart's border line.
    * Default value: false
@@ -4086,7 +4088,7 @@ export interface CheckBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the checked state. 
    * Default value: false
@@ -4096,12 +4098,12 @@ export interface CheckBoxProperties {
    * Determines which part of the element can be used to toggle it.
    * Default value: both
    */
-  checkMode?: CheckMode;
+  checkMode?: CheckMode | string;
   /**
    * Sets the click mode of the checkbox.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the checkbox. 
    * Default value: false
@@ -4215,7 +4217,7 @@ export interface CheckInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -4235,7 +4237,7 @@ export interface CheckInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -4312,7 +4314,7 @@ export interface CheckInputProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: CheckInputQueryMode;
+  queryMode?: CheckInputQueryMode | string;
   /**
    * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -4422,7 +4424,7 @@ export interface ChipProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets a custom avatar that is positioned on the left side of the chip. The avatar can be an image(if the value is a url to an image), plain text or HTML.
    * Default value: null
@@ -4518,7 +4520,7 @@ export interface CircularProgressBarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element. 
    * Default value: false
@@ -4629,7 +4631,7 @@ export interface ColorInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -4649,12 +4651,12 @@ export interface ColorInputProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorInputDisplayMode;
+  displayMode?: ColorInputDisplayMode | string;
   /**
    * Determines the position of the drop down button.
    * Default value: none
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -4731,7 +4733,7 @@ export interface ColorInputProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: ColorQueryMode;
+  queryMode?: ColorQueryMode | string;
   /**
    * Determines whether the user can enter text inside the input or not. Determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -4761,12 +4763,12 @@ export interface ColorInputProperties {
    * Determines what will be displayed inside the color picker's action section.
    * Default value: default
    */
-  valueDisplayMode?: ColorValueDisplayMode;
+  valueDisplayMode?: ColorValueDisplayMode | string;
   /**
    * Determines the format of the color. Whether it's in HEX, RGB or RGBA. By default it shows the color depending on the displayMode.
    * Default value: default
    */
-  valueFormat?: ColorValueFormat;
+  valueFormat?: ColorValueFormat | string;
 }
 /**
  ColorInput is an input field with colors displayed in a DropDown grid like in Excel.
@@ -4821,12 +4823,12 @@ export interface ColorPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Specifies how the value is applied.
    * Default value: instantly
    */
-  applyValueMode?: ColorApplyValueMode;
+  applyValueMode?: ColorApplyValueMode | string;
   /**
    * Defines the number of columns for the colors in displayModes 'grid', 'hexagonal' and 'spectrumGrid'.
    * Default value: 8
@@ -4841,7 +4843,7 @@ export interface ColorPanelProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorDisplayMode;
+  displayMode?: ColorDisplayMode | string;
   /**
    * By default clicking on color panel's preview container returns the color value to it's previous state. 'disableUndo' prevents this functionality.
    * Default value: false
@@ -4949,7 +4951,7 @@ export interface ColorPanelProperties {
    * Determines what colors will be displayed in 'spectrumGrid', 'grid' and 'hexagonal' displayModes.
    * Default value: default
    */
-  palette?: ColorPalette;
+  palette?: ColorPalette | string;
   /**
    * Defines an array of colors that form a custom palette. This palette can be used in displayModes 'grid' and 'spectrum grid' if the palette property is set to custom. The value of the property can be an array of strings or objects that contain valid colors ( HEX, RGBA, etc).
    * Default value: null
@@ -4979,7 +4981,7 @@ export interface ColorPanelProperties {
    * Determines how the tooltip displays the value of the color that is being hovered.
    * Default value: hex
    */
-  tooltipDisplayMode?: ColorTooltipDisplayMode;
+  tooltipDisplayMode?: ColorTooltipDisplayMode | string;
   /**
    * Represents the value of the selected color.
    * Default value: "null"
@@ -4989,7 +4991,7 @@ export interface ColorPanelProperties {
    * Determines the format of the color. Whether it's in HEX, RGB or RGBA. By default it shows the color depending on the displayMode.
    * Default value: default
    */
-  valueFormat?: ColorValueFormat;
+  valueFormat?: ColorValueFormat | string;
   /**
    * Determines the value member for the color when the paletteColors consists of objects. Usefull in cases where the colors are loaded as objects in an array and the attribute that holds the color key is not named 'value'.
    * Default value: "null"
@@ -5054,7 +5056,7 @@ export interface ColorPickerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * This property allows editting of colors via the input inside the element's action section. Accepts values in all supported types. This property works when 'valueDisplayMode' is set to default or colorCode.
    * Default value: false
@@ -5069,7 +5071,7 @@ export interface ColorPickerProperties {
    * Specifies how the user applies the selected value. In 'instantly' mode the value is applied immediately when color is selected. In 'useButtons' mode are shown 'Ok' and 'Cancel' buttons at the botom of the colorpicker's drop down. Only click on 'OK' button applies the value.
    * Default value: instantly
    */
-  applyValueMode?: ColorApplyValueMode;
+  applyValueMode?: ColorApplyValueMode | string;
   /**
    * Defines the number of columns for the colors in displayModes 'grid', 'hexagonal' and 'spectrumGrid'.
    * Default value: 8
@@ -5079,7 +5081,7 @@ export interface ColorPickerProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorDisplayMode;
+  displayMode?: ColorDisplayMode | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -5099,17 +5101,17 @@ export interface ColorPickerProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Determines the vertical position of the dropDown. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the height of the drop down. Default value of null means that CSS variables are used. This property should be used when the browser doesn not support CSS variables.
    * Default value: "auto"
@@ -5242,7 +5244,7 @@ export interface ColorPickerProperties {
    * Determines what colors will be displayed in 'spectrumGrid', 'grid' and 'hexagonal' displayModes.
    * Default value: default
    */
-  palette?: ColorPalette;
+  palette?: ColorPalette | string;
   /**
    * Defines an array of colors that form a custom palette. This palette can be used in displayModes 'grid' and 'spectrum grid' if the palette property is set to custom. The value of the property can be an array of strings or objects that contain valid colors ( HEX, RGBA, etc).
    * Default value: null
@@ -5272,7 +5274,7 @@ export interface ColorPickerProperties {
    * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
    * Default value: null
    */
-  resizeMode?: ResizeMode;
+  resizeMode?: ResizeMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -5287,7 +5289,7 @@ export interface ColorPickerProperties {
    * Determines how the tooltip displays the value of the color that is being hovered.
    * Default value: hex
    */
-  tooltipDisplayMode?: ColorTooltipDisplayMode;
+  tooltipDisplayMode?: ColorTooltipDisplayMode | string;
   /**
    * If is set to true, the element cannot be focused.
    * Default value: false
@@ -5302,12 +5304,12 @@ export interface ColorPickerProperties {
    * Determines the format of the color. Whether it's in HEX, RGB or RGBA. By default it shows the color depending on the displayMode.
    * Default value: default
    */
-  valueFormat?: ColorValueFormat;
+  valueFormat?: ColorValueFormat | string;
   /**
    * Determines which elements will be displayed in color picker's action section.
    * Default value: default
    */
-  valueDisplayMode?: ColorValueDisplayMode;
+  valueDisplayMode?: ColorValueDisplayMode | string;
 }
 /**
  ColorPicker is an advanced color picking component with Pallete, Spectrum Grid, Radial Palette and Excel-like options. Users can input colors either by a dropdown or input field.
@@ -5404,7 +5406,7 @@ export interface ColumnPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the data source that will be loaded to the column panel.
    * Default value: null
@@ -5532,7 +5534,7 @@ export interface ComboBoxProperties {
    * Determines the autocomplete mode. Auto complete modes filter the items from the dataSource and show only those that match the input.
    * Default value: none
    */
-  autoComplete?: AutoComplete;
+  autoComplete?: AutoComplete | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -5572,7 +5574,7 @@ export interface ComboBoxProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -5602,7 +5604,7 @@ export interface ComboBoxProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document. The purpose of the overlay is to make sure that clicking anywhere outside the popup will will target the overlay and not the DOM.
    * Default value: false
@@ -5617,7 +5619,7 @@ export interface ComboBoxProperties {
    * Determines the position of the drop down when opened.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -5627,7 +5629,7 @@ export interface ComboBoxProperties {
    * Determines the behavior of the element when Escape key is pressed.
    * Default value: null
    */
-  escKeyMode?: ComboBoxEscKeyMode;
+  escKeyMode?: ComboBoxEscKeyMode | string;
   /**
    * Determines whether filtering is enabled.
    * Default value: false
@@ -5642,7 +5644,7 @@ export interface ComboBoxProperties {
    * Determines the filtering mode of the Combo box.
    * Default value: startsWithIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * If enabled, the items will be grouped by their first letter. Can't be applied if the dataSource already contains groups.
    * Default value: false
@@ -5662,7 +5664,7 @@ export interface ComboBoxProperties {
    * Determines the visibility of the horizontal Scroll bar inside the drop down.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Represents the property name of a List item. Determines the value of the input when a ListItem is selected. Usefull in cases where the user wants to display for example the value of an item instead of it's label. By default the label is displayed in the input.
    * Default value: ""
@@ -5682,7 +5684,7 @@ export interface ComboBoxProperties {
    * Sets ot gets the mode of the incremental search mode. Incremental search is enabled by default. Typing while the drop down is focused starts the incremental search.
    * Default value: startsWithIgnoreCase
    */
-  incrementalSearchMode?: SearchMode;
+  incrementalSearchMode?: SearchMode | string;
   /**
    * Sets the height for all list items. Used only when virtualization is enabled.
    * Default value: null
@@ -5692,7 +5694,7 @@ export interface ComboBoxProperties {
    * Determines the item width measuring algorithm.
    * Default value: auto
    */
-  itemMeasureMode?: ListItemMeasureMode;
+  itemMeasureMode?: ListItemMeasureMode | string;
   /**
    * A getter that returns an array of all List items inside the drop down.
    * Default value: 
@@ -5717,7 +5719,7 @@ export interface ComboBoxProperties {
    * Determines the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -5750,6 +5752,11 @@ export interface ComboBoxProperties {
    * Default value: 2
    */
   minLength?: number;
+  /**
+   * Determines the maximum number of characters inside the input.
+   * Default value: -1
+   */
+  maxLength?: number;
   /**
    * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
    * Default value: ""
@@ -5784,12 +5791,12 @@ export interface ComboBoxProperties {
    * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
    * Default value: null
    */
-  resizeMode?: ResizeMode;
+  resizeMode?: ResizeMode | string;
   /**
    * Determines what will be displayed in the input.
    * Default value: plain
    */
-  selectionDisplayMode?: SelectionDisplayMode;
+  selectionDisplayMode?: SelectionDisplayMode | string;
   /**
    * Sets or gets the selected indexes. Selected indexes represents an array of the indexes of the items that should be selected.
    * Default value: 
@@ -5804,7 +5811,7 @@ export interface ComboBoxProperties {
    * Determines how many items can be selected.
    * Default value: zeroAndOne
    */
-  selectionMode?: ListSelectionMode;
+  selectionMode?: ListSelectionMode | string;
   /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
@@ -5844,7 +5851,7 @@ export interface ComboBoxProperties {
    * Determines the visibility of the vertical scroll bar.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines weather or not Virtualization is used for the Combo box. Virtualization allows a huge amount of items to be loaded to the List box while preserving the performance. For example a milion items can be loaded to the list box.
    * Default value: false
@@ -6038,7 +6045,7 @@ export interface CountryInputProperties {
    * Determines the position of the drop down button.
    * Default value: none
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -6159,7 +6166,7 @@ export interface CustomizationDialogProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Array with filtered fields and their settings.
    * Default value: null
@@ -6376,7 +6383,7 @@ export interface DataAdapter {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: DataAdapterDataSourceType;
+  dataSourceType?: DataAdapterDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -6396,7 +6403,7 @@ export interface DataAdapter {
    * Sets or gets whether the request type.
    * Default value: GET
    */
-  method?: DataAdapterMethod;
+  method?: DataAdapterMethod | string;
   /**
    * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
    * Default value: ""
@@ -6585,7 +6592,7 @@ export interface DataAdapterVirtualDataSourceOnExpandDetails {
    * Request action type
    * Default value: undefined
    */
-  action?: DataAdapterVirtualDataSourceOnExpandDetailsAction;
+  action?: DataAdapterVirtualDataSourceOnExpandDetailsAction | string;
 }
 
 /**Sorting information. */
@@ -6594,7 +6601,7 @@ export interface DataAdapterVirtualDataSourceOnExpandDetailsSorting {
    * Sort order.
    * Default value: asc
    */
-  sortOrder?: DataAdapterVirtualDataSourceOnExpandDetailsSortingSortOrder;
+  sortOrder?: DataAdapterVirtualDataSourceOnExpandDetailsSortingSortOrder | string;
   /**
    * Sort index.
    * Default value: -1
@@ -6658,7 +6665,7 @@ export interface DataAdapterVirtualDataSourceDetails {
    * Request action type
    * Default value: undefined
    */
-  action?: DataAdapterVirtualDataSourceDetailsAction;
+  action?: DataAdapterVirtualDataSourceDetailsAction | string;
   /**
    * Expanded Row when data is loaded on demand in Tree Hierarchy scenarios.
    * Default value: undefined
@@ -6677,11 +6684,6 @@ export declare type DataAdapterVirtualDataSourceOnExpandDetailsAction = 'sort' |
 export declare type DataAdapterVirtualDataSourceDetailsAction = 'sort' | 'filter' | 'dataBind' | 'scroll' | 'group' | 'expand' | 'pageIndexChange' | 'pageSizeChange';
 export interface DateInputProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation;
-  /**
    * Determines whether the calendar button pop-up will be closed automatically when date or time is selected through it.
    * Default value: false
    */
@@ -6695,7 +6697,7 @@ export interface DateInputProperties {
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
-  dateTimeFormat?: DateTimeFormat;
+  dateTimeFormat?: any;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -6705,7 +6707,7 @@ export interface DateInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to 'auto'.
    * Default value: auto
@@ -6716,6 +6718,11 @@ export interface DateInputProperties {
    * Default value: 
    */
   dropDownWidth?: string | number;
+  /**
+   * Sets the format string. When this property is set, the dateTimeFormat property will be disabled and the formatting will use the value of the formatString. Built-in Date formats:// short date pattern'd' - 'M/d/yyyy',// long date pattern'D' - 'dddd, MMMM dd, yyyy',// short time pattern't' - 'h:mm tt',// long time pattern'T' - 'h:mm:ss tt',// long date, short time pattern'f' - 'dddd, MMMM dd, yyyy h:mm tt',// long date, long time pattern'F' - 'dddd, MMMM dd, yyyy h:mm:ss tt',// month/day pattern'M' - 'MMMM dd',// month/year pattern'Y' - 'yyyy MMMM',// S is a sortable format that does not vary by culture'S' - 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'Date format strings:'d'-the day of the month;'dd'-the day of the month'ddd'-the abbreviated name of the day of the week'dddd'- the full name of the day of the week'h'-the hour, using a 12-hour clock from 1 to 12'hh'-the hour, using a 12-hour clock from 01 to 12'H'-the hour, using a 24-hour clock from 0 to 23'HH'- the hour, using a 24-hour clock from 00 to 23'm'-the minute, from 0 through 59'mm'-the minutes,from 00 though59'M'- the month, from 1 through 12'MM'- the month, from 01 through 12'MMM'-the abbreviated name of the month'MMMM'-the full name of the month's'-the second, from 0 through 59'ss'-the second, from 00 through 59't'- the first character of the AM/PM designator'tt'-the AM/PM designator'y'- the year, from 0 to 99'yy'- the year, from 00 to 99'yyy'-the year, with a minimum of three digits'yyyy'-the year as a four-digit number;'yyyyy'-the year as a four-digit number.
+   * Default value: ""
+   */
+  formatString?: string;
   /**
    * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
    * Default value: "off"
@@ -6844,25 +6851,6 @@ export interface DateInput extends BaseElement, DateInputProperties {
   setValue(value: string | Date): void;
 }
 
-/**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' } */
-export interface DateTimeFormat {
-  /**
-   * Day format.
-   * Default value: numeric
-   */
-  day?: DateTimeFormatDay;
-  /**
-   * Month format.
-   * Default value: numeric
-   */
-  month?: DateTimeFormatMonth;
-  /**
-   * Year format.
-   * Default value: numeric
-   */
-  year?: DateTimeFormatYear;
-}
-
 declare global {
     interface Document {
         createElement(tagName: "smart-date-input"): DateInput;
@@ -6873,18 +6861,12 @@ declare global {
     }
 }
 
-/**Day format. */
-export declare type DateTimeFormatDay = 'numeric' | '2-digit';
-/**Month format. */
-export declare type DateTimeFormatMonth = 'numeric' | '2-digit' | 'narrow' | 'short' | 'long';
-/**Year format. */
-export declare type DateTimeFormatYear = 'numeric' | '2-digit';
 export interface DateRangeInputProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. Intl.DateTimeFormat is used to format date strings in JavaScript
    * Default value: {"day": "numeric", "month": "numeric", "year": "numeric" }
@@ -6899,7 +6881,7 @@ export interface DateRangeInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -7021,7 +7003,7 @@ export interface DateRangeInputProperties {
    * Determines the value type returned from the `value` property.
    * Default value: string
    */
-  valueType?: DateRangeInputValueType;
+  valueType?: DateRangeInputValueType | string;
 }
 /**
  DateRangeInput specifies an input field where the user can enter a date range ( from date - to date ). It also has a popup with a Calendar that allows to select a date range. Time selection is an additional feature that can be enabled which allows to specify time for the date range.
@@ -7059,17 +7041,17 @@ export interface DateRangeFormat {
    * Day format.
    * Default value: numeric
    */
-  day?: DateRangeFormatDay;
+  day?: DateRangeFormatDay | string;
   /**
    * Month format.
    * Default value: numeric
    */
-  month?: DateRangeFormatMonth;
+  month?: DateRangeFormatMonth | string;
   /**
    * Year format.
    * Default value: numeric
    */
-  year?: DateRangeFormatYear;
+  year?: DateRangeFormatYear | string;
 }
 
 /**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
@@ -7078,12 +7060,12 @@ export interface TimeRangeFormat {
    * Hour format.
    * Default value: 2-digit
    */
-  hour?: TimeRangeFormatHour;
+  hour?: TimeRangeFormatHour | string;
   /**
    * Minute format.
    * Default value: 2-digit
    */
-  minute?: TimeRangeFormatMinute;
+  minute?: TimeRangeFormatMinute | string;
 }
 
 declare global {
@@ -7113,7 +7095,7 @@ export interface DateTimePickerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Applies new animation settings to the calendar pop-up when it is enabled. Properties:startSpeed - Determines the initial speed of the animation.easeThreshold - Determines the point at which the animation starts to slow down - the "ease effect".step - Determines the step ( scrolling interval ) at which the animation will run. stepEaseSize - Coefficient that is used to calculated the new step once the threshold has been passed. resetThreshold - Determines the threshold for animation reset. When it's reached the animation will start over.
    * Default value: null
@@ -7138,17 +7120,17 @@ export interface DateTimePickerProperties {
    * Determines the position of the calendar button.
    * Default value: right
    */
-  calendarButtonPosition?: DropDownButtonPosition;
+  calendarButtonPosition?: DropDownButtonPosition | string;
   /**
    * Determines the header mode of the calendar pop-up.
    * Default value: default
    */
-  calendarMode?: CalendarMode;
+  calendarMode?: CalendarMode | string;
   /**
    * Sets or gets the format of calendar pop-up's day names.
    * Default value: firstTwoLetters
    */
-  dayNameFormat?: DayFormat;
+  dayNameFormat?: DayFormat | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -7163,12 +7145,12 @@ export interface DateTimePickerProperties {
    * Determines the time zone to display the value in.
    * Default value: unspecified
    */
-  displayKind?: DateTimePickerDisplayKind;
+  displayKind?: DateTimePickerDisplayKind | string;
   /**
    * Determines the type of the month/year view in the calendar pop-up when calendarMode is set to Default.
    * Default value: table
    */
-  displayModeView?: CalendarDisplayModeView;
+  displayModeView?: CalendarDisplayModeView | string;
   /**
    * Sets custom container to append the pop-up to. By default, it is in the DateTimePicker. The value of the property can be an HTML element or the id of an HTML element.
    * Default value: "null"
@@ -7178,7 +7160,7 @@ export interface DateTimePickerProperties {
    * Sets or gets the pop-up display mode (what components appear in it, and its behaviour).
    * Default value: default
    */
-  dropDownDisplayMode?: DateTimePickerDropDownDisplayMode;
+  dropDownDisplayMode?: DateTimePickerDropDownDisplayMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document.
    * Default value: false
@@ -7188,12 +7170,12 @@ export interface DateTimePickerProperties {
    * Determines the pop-up position when opened.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Determines how the the value can be edited inside the input.
    * Default value: default
    */
-  editMode?: DateTimePickerEditMode;
+  editMode?: DateTimePickerEditMode | string;
   /**
    * Determines whether the value can be incremented/decremented with the mouse wheel when the mouse is over the input.
    * Default value: false
@@ -7215,7 +7197,7 @@ export interface DateTimePickerProperties {
    */
   footer?: boolean;
   /**
-   * Determines the pattern that is used to display the value in.
+   * Determines the pattern that is used to display the value in. Built-in Date formats:// short date pattern'd' - 'M/d/yyyy',// long date pattern'D' - 'dddd, MMMM dd, yyyy',// short time pattern't' - 'h:mm tt',// long time pattern'T' - 'h:mm:ss tt',// long date, short time pattern'f' - 'dddd, MMMM dd, yyyy h:mm tt',// long date, long time pattern'F' - 'dddd, MMMM dd, yyyy h:mm:ss tt',// month/day pattern'M' - 'MMMM dd',// month/year pattern'Y' - 'yyyy MMMM',// S is a sortable format that does not vary by culture'S' - 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'Date format strings:'d'-the day of the month;'dd'-the day of the month'ddd'-the abbreviated name of the day of the week'dddd'- the full name of the day of the week'h'-the hour, using a 12-hour clock from 1 to 12'hh'-the hour, using a 12-hour clock from 01 to 12'H'-the hour, using a 24-hour clock from 0 to 23'HH'- the hour, using a 24-hour clock from 00 to 23'm'-the minute, from 0 through 59'mm'-the minutes,from 00 though59'M'- the month, from 1 through 12'MM'- the month, from 01 through 12'MMM'-the abbreviated name of the month'MMMM'-the full name of the month's'-the second, from 0 through 59'ss'-the second, from 00 through 59't'- the first character of the AM/PM designator'tt'-the AM/PM designator'y'- the year, from 0 to 99'yy'- the year, from 00 to 99'yyy'-the year, with a minimum of three digits'yyyy'-the year as a four-digit number;'yyyyy'-the year as a four-digit number.
    * Default value: "dd-MMM-yy HH:mm:ss.fff"
    */
   formatString?: string;
@@ -7357,7 +7339,7 @@ export interface DateTimePickerProperties {
    * Sets or gets the position of the spin buttons.
    * Default value: right
    */
-  spinButtonsPosition?: DateTimePickerSpinButtonsPosition;
+  spinButtonsPosition?: DateTimePickerSpinButtonsPosition | string;
   /**
    * Sets or gets the element's visual theme. 
    * Default value: ""
@@ -7377,7 +7359,7 @@ export interface DateTimePickerProperties {
    * Sets the position of the tooltip in the calendar pop-up.
    * Default value: top
    */
-  tooltipPosition?: TooltipPosition;
+  tooltipPosition?: TooltipPosition | string;
   /**
    * Sets a template for the content of the calendar pop-up's tooltip. Accepts the id of or a reference to an HTMLTemplateElement.
    * Default value: null
@@ -7392,7 +7374,7 @@ export interface DateTimePickerProperties {
    * Determines the validation mechanism for the value by min/max.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value. The value represents the current date/time that is set to the element as a DateTime object.
    * Default value: new JQX.Utilities.DateTime()
@@ -7460,6 +7442,16 @@ export interface DateTimePicker extends BaseElement, DateTimePickerProperties {
    * Selects the text inside the input.
    */
   select(): void;
+  /**
+   * Gets a Date object.
+   * @returns {Date}
+   */
+  getDate(): Date;
+  /**
+   * Sets the date of the DateTimePicker.
+   * @param {Date} date. The date object to be set.
+   */
+  setDate(date: Date): void;
 }
 
 declare global {
@@ -7487,7 +7479,7 @@ export interface DockingLayoutProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * A getter that returns an array of all DockingLayout items that are auto hidden inside the element.
    * Default value: 
@@ -7594,7 +7586,7 @@ export interface DockingLayoutProperties {
    * Determines the snap mode. Two modes are available:   simple - allows dragging of a single tab item inside or outside the layout. A semi-transparent highlighter is used to indicate the possible locations where the dragged item can be dropped. The user has to drop the dragged item inside one of the possible drop zones indicated by the highlighter. advanced - allows dragging of a whole TabsWindow with items or a single tab item. Uses a Visual Studio style feedback that indicates the possible drop locations. The user has to drop the target over one of the icons inside the feedback.   The feedback/highlighter is displayed when the dragging of an item begins. 
    * Default value: advanced
    */
-  snapMode?: DockingLayoutSnapMode;
+  snapMode?: DockingLayoutSnapMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -7753,6 +7745,13 @@ export interface DockingLayout extends BaseElement, DockingLayoutProperties {
    */
   insertOutsideTargetGroupRight(index: number | HTMLElement | string, tabsWindow: any): void;
   /**
+   * Inserts a new TabsWindow. The window is in floating mode and is undocked.
+   * @param {any} item. An instance of a TabsWindow or an Object with the fields "label", "items" and other additional.
+   * @param {number | string} left?. The left position of the new window. You can use number, px or %. For example: '10px'.
+   * @param {number | string} top?. The top position of the new window. You can use number, px or %. For example: '10px'.
+   */
+  insertFloatingWindow(item: any, left?: number | string, top?: number | string): void;
+  /**
    * The method returns an array of all autohidden items.
    * @param {string} orientation?. Determines which auto hidden items to return ( vertical or horizontal ). If not set the method will return all autohidden items. Possible values: 'vertical', 'horizontal'.
    * @returns {any[]}
@@ -7837,7 +7836,7 @@ export interface DropDownButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the opened drop down closes when dropDownOpenMode is set to 'auto'.
    * Default value: 100
@@ -7857,7 +7856,7 @@ export interface DropDownButtonProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. Default value of empty string means that CSS variables are used. This property should be used when the browser doesn't support CSS variables.
    * Default value: 
@@ -7887,7 +7886,7 @@ export interface DropDownButtonProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document.
    * Default value: false
@@ -7902,7 +7901,7 @@ export interface DropDownButtonProperties {
    * Determines the vertical position of the dropDown. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. Default value of empty string means that CSS variables are used. This property should be used when the browser doesn't support CSS variables.
    * Default value: 
@@ -7917,7 +7916,7 @@ export interface DropDownButtonProperties {
    * Determines the visibility of the horizontal Scroll bar inside the drop down.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Sets a label above the element. The label is always visible.
    * Default value: ""
@@ -7977,7 +7976,7 @@ export interface DropDownButtonProperties {
    * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
    * Default value: null
    */
-  resizeMode?: ResizeMode;
+  resizeMode?: ResizeMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -7997,7 +7996,7 @@ export interface DropDownButtonProperties {
    * Determines the visibility of the vertical scroll bar.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
 }
 /**
  DropDownButton displays any type of content like components, text, images, etc in a DropDown.
@@ -8090,7 +8089,7 @@ export interface DropDownListProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Used only when dropDownOpenMode is set to 'auto'. Determines the delay before the opened drop down closes if the pointer is not over the element.
    * Default value: 100
@@ -8125,7 +8124,7 @@ export interface DropDownListProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -8155,7 +8154,7 @@ export interface DropDownListProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document. The purpose of the overlay is to make sure that clicking anywhere outside the popup will will target the overlay and not the DOM.
    * Default value: false
@@ -8170,7 +8169,7 @@ export interface DropDownListProperties {
    * Determines the position of the drop down when opened.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -8190,7 +8189,7 @@ export interface DropDownListProperties {
    * Determines the filtering mode of the drop down list.
    * Default value: startsWithIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * If enabled, the items will be grouped by their first letter. Can't be applied if the dataSource already contains groups.
    * Default value: false
@@ -8210,7 +8209,7 @@ export interface DropDownListProperties {
    * Determines the visibility of the horizontal Scroll bar inside the drop down.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Represents the property name of a List item. Determines the value of the input when a ListItem is selected. Usefull in cases where the user wants to display for example the value of an item instead of it's label. By default the label is displayed in the input.
    * Default value: ""
@@ -8225,7 +8224,7 @@ export interface DropDownListProperties {
    * Sets ot gets the mode of the incremental search mode. Incremental search is enabled by default. Typing while the drop down is focused starts the incremental search.
    * Default value: startsWithIgnoreCase
    */
-  incrementalSearchMode?: SearchMode;
+  incrementalSearchMode?: SearchMode | string;
   /**
    * Sets the height for all list items. Used only when virtualization is enabled.
    * Default value: null
@@ -8235,7 +8234,7 @@ export interface DropDownListProperties {
    * Determines the item width measuring algorithm.
    * Default value: auto
    */
-  itemMeasureMode?: ListItemMeasureMode;
+  itemMeasureMode?: ListItemMeasureMode | string;
   /**
    * A getter that returns an array of all List items inside the drop down.
    * Default value: 
@@ -8260,7 +8259,7 @@ export interface DropDownListProperties {
    * Determines the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -8322,12 +8321,12 @@ export interface DropDownListProperties {
    * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
    * Default value: none
    */
-  resizeMode?: ResizeMode;
+  resizeMode?: ResizeMode | string;
   /**
    * Determines what will be displayed in the dropDown selection field.
    * Default value: plain
    */
-  selectionDisplayMode?: SelectionDisplayMode;
+  selectionDisplayMode?: SelectionDisplayMode | string;
   /**
    * Sets or gets the selected indexes. Selected indexes represents an array of the indexes of the items that should be selected.
    * Default value: 
@@ -8342,7 +8341,7 @@ export interface DropDownListProperties {
    * Determines how many items can be selected.
    * Default value: zeroAndOne
    */
-  selectionMode?: ListSelectionMode;
+  selectionMode?: ListSelectionMode | string;
   /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
@@ -8382,7 +8381,7 @@ export interface DropDownListProperties {
    * Determines the visibility of the vertical scroll bar.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines weather or not Virtualization is used. Virtualization allows a huge amount of items to be loaded to the drop down while preserving the performance. For example a milion items can be loaded.
    * Default value: false
@@ -8552,7 +8551,7 @@ export interface EditorProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Automatically loads the last saved state of the editor (from local storage) on element initialization. An id must be provided in order to load a previously saved state.
    * Default value: false
@@ -8582,7 +8581,7 @@ export interface EditorProperties {
    * Determines the context menu for the Editor. The context menu is triggered when the user right clicks on the content area of the Editor.
    * Default value: default
    */
-  contextMenu?: EditorContextMenu;
+  contextMenu?: EditorContextMenu | string;
   /**
    * Allows to customize default the context menu of the Editor. The property accepts an array of items which can be strings that represent the value of the item, or objects of the following format: { label: string, value: string }, where the label will be displayed and the value will be action value for the item. The property also accepts a function that must return an array of items with the following format function (target: HTMLElement, type: string, defaultItems: string[]) { return defaultItems } and the following arguments: target - the element that is the target of the context menu.type - the type of context menu ( whether it's a table, image, link or other)defaultItems - an array of strings which represent the default items for the context menu.
    * Default value: null
@@ -8612,7 +8611,7 @@ export interface EditorProperties {
    * Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode.
    * Default value: html
    */
-  editMode?: EditMode;
+  editMode?: EditMode | string;
   /**
    * Determines whether the value returned from getHTML method and Source Code view are encoded or not.
    * Default value: false
@@ -8642,7 +8641,7 @@ export interface EditorProperties {
    * Determines the file format of the image/video that are uploaded from local storage. By default images/videos are stroed as base64.
    * Default value: base64
    */
-  imageFormat?: EditorImageFormat;
+  imageFormat?: EditorImageFormat | string;
   /**
    * Sets the content of the Editor as HTML. Allows to insert text and HTML.
    * Default value: "en"
@@ -8879,7 +8878,7 @@ export interface EditorProperties {
    * Determines the format of the content that will be pasted inside the Editor.
    * Default value: keepFormat
    */
-  pasteFormat?: PasteFormat;
+  pasteFormat?: PasteFormat | string;
   /**
    * Determines the placeholder that will be shown when there's no content inside the Editor.
    * Default value: ""
@@ -8934,7 +8933,7 @@ export interface EditorProperties {
    * Determines the toolbar mode of the Editor. The main toolbar of the Editor can appear as a Ribbon or as a Menu.
    * Default value: menu
    */
-  toolbarMode?: ToolbarMode;
+  toolbarMode?: ToolbarMode | string;
   /**
    * Allows to configure the SingleLineRibbon appearance by changing the order and items of the groups.
    * Default value: [{"name":"homeTab","groups":[{"name":"undoGroup","items":["undo","redo"]},{"name":"clipboardGroup","items":["cut","copy","paste"]},{"name":"fontGroup","items":["fontName","fontSize","backgroundColor","fontColor","clearFormat","formats","bold","italic","underline","strikethrough","superscript","subscript"]},{"name":"paragraphGroup","items":["orderedList","unorderedList","indent","outdent","alignment"]},{"name":"editingGroup","items":["findAndReplace"]}]},{"name":"insertTab","groups":[{"name":"tableGroup","items":["table"]},{"name":"imageGroup","items":["image"]}{"name":"videoGroup","items":["video"]},{"name":"linkGroup","items":["createLink","removeLink"]}]},{"name":"viewTab","groups":[{"name":"viewsGroup","items":["fullScreen","sourceCode","splitMode"]}]},{"name":"layoutTab","hidden":true,"groups":[{"name":"deleteGroup","items":["delete"]},{"name":"tableGroup","items":["table","tableHeader","tableRows","tableColumns","tableVAlign","tableStyle",""]},{"name":"imageGroup","items":["image","caption"]},{"name":"videoGroup","items":["video","caption"]}]}]
@@ -8944,7 +8943,7 @@ export interface EditorProperties {
    * Determines the format of the content that will be pasted inside the Editor.
    * Default value: toggle
    */
-  toolbarViewMode?: ToolbarViewMode;
+  toolbarViewMode?: ToolbarViewMode | string;
   /**
    * Sticks the Toolbar to the top of the window and stays there while scrolling.
    * Default value: false
@@ -9124,7 +9123,7 @@ export interface Editor extends BaseElement, EditorProperties {
   onDialogClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the uploading of an image/video is successful.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status, serverResponse)
    *  target - The file upload element that is the target of the operation.
    *  item - The toolbar item that is the target of the operation.
    *  filename - The name of the uploaded file.
@@ -9132,11 +9131,12 @@ export interface Editor extends BaseElement, EditorProperties {
    *  size - The size of the uploaded file.
    *  index - The index of the uploaded file.
    *  status - The status of the uploaded file. Whether there was an error or success.
+   *  serverResponse - The response of the remote server.
    */
   onImageUploadSuccess?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when the uploading of an image/video is unsuccessful.
-	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status)
+	* @param event. The custom event. Custom data event was created with: ev.detail(target, item, filename, type, size, index, status, serverResponse)
    *  target - The file upload element that is the target of the operation.
    *  item - The toolbar item that is the target of the operation.
    *  filename - The name of the canceled file.
@@ -9144,6 +9144,7 @@ export interface Editor extends BaseElement, EditorProperties {
    *  size - The size of the canceled file.
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
+   *  serverResponse - The response of the remote server.
    */
   onImageUploadFailed?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -9311,7 +9312,7 @@ export interface EditorContentFiltering {
    * Determines whether to allow (whiteList) or remove (blackList) the specified attributes.
    * Default value: blackList
    */
-  attributeFilterMode?: EditorContentFilteringAttributeFilterMode;
+  attributeFilterMode?: EditorContentFilteringAttributeFilterMode | string;
   /**
    * Determines which element tags to filter.
    * Default value: null
@@ -9321,7 +9322,7 @@ export interface EditorContentFiltering {
    * Determines whether to allow (whiteList) or remove (blackList) the specified tags.
    * Default value: blackList
    */
-  tagFilterMode?: EditorContentFilteringTagFilterMode;
+  tagFilterMode?: EditorContentFilteringTagFilterMode | string;
   /**
    * Determines which style attributes to filter.
    * Default value: null
@@ -9331,7 +9332,7 @@ export interface EditorContentFiltering {
    * Determines whether to allow (whiteList) or remove (blackList) the specified style attributes.
    * Default value: blackList
    */
-  styleAttributeFilterMode?: EditorContentFilteringStyleAttributeFilterMode;
+  styleAttributeFilterMode?: EditorContentFilteringStyleAttributeFilterMode | string;
 }
 
 /**Sets the Editor's Data Export options. */
@@ -9547,7 +9548,7 @@ export interface ElementProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the accordion. Disabled elements can not be interacted with.
    * Default value: false
@@ -9623,7 +9624,7 @@ export interface ElementProperties {
    * Determines whether the element is automatically rendered or is rendered after calling the render method.
    * Default value: auto
    */
-  renderMode?: ElementRenderMode;
+  renderMode?: ElementRenderMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -9705,7 +9706,7 @@ export interface FileUploadProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Appends the list with selected files to a new custom container specified by the user. If the value of the property is a string it must represent a valid id of an HTML element inside the DOM that will be used as the new container for the uploaded files list.
    * Default value: "null"
@@ -9866,12 +9867,13 @@ export interface FileUpload extends BaseElement, FileUploadProperties {
   onUploadCanceled?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a file upload operation is completed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status)
+	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status, serverResponse)
    *  filename - The name of the canceled file.
    *  type - The type of the canceled file.
    *  size - The size of the canceled file.
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
+   *  serverResponse - The response of the remote server.
    */
   onUploadCompleted?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -9958,7 +9960,7 @@ export interface FilterBuilderProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Adds more operations, that can be used in the filter bilder's conditions structure.
    * Default value: 
@@ -11141,7 +11143,7 @@ export interface FilterPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Defines which operation buttons will be shown in the filter panel
    * Default value: cancel,clear,filter
@@ -11176,7 +11178,7 @@ export interface FilterPanelProperties {
    * Defines which filter type is used.
    * Default value: string
    */
-  filterType?: FilterPanelFilterType;
+  filterType?: FilterPanelFilterType | string;
   /**
    * Format string used in filterType 'Date'.
    * Default value: "d"
@@ -11243,7 +11245,7 @@ export interface FilterPanelProperties {
    * Desfines filter panel's  mode
    * Default value: default
    */
-  mode?: FilterPanelMode;
+  mode?: FilterPanelMode | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -11347,7 +11349,7 @@ export interface FormProperties {
    * Sets or Gets the labels position.
    * Default value: left
    */
-  labelPosition?: FormLabelPosition;
+  labelPosition?: FormLabelPosition | string;
   /**
    * Makes the form readonly.
    * Default value: false
@@ -11373,6 +11375,11 @@ export interface FormProperties {
    * Default value: null
    */
   value?: any;
+  /**
+   * Automatically validates the form when it is created.
+   * Default value: false
+   */
+  validateOnLoad?: boolean;
 }
 /**
  Reactive Form Component with Advanced Validation
@@ -11433,7 +11440,7 @@ export interface Control {
    * The type of the control.
    * Default value: input
    */
-  controlType?: ControlControlType;
+  controlType?: ControlControlType | string;
   /**
    * Sets the Form Group columns.
    * Default value: 1
@@ -11483,7 +11490,7 @@ export interface Control {
    * Gets or Sets the Form control's label position.
    * Default value: left
    */
-  labelPosition?: ControlLabelPosition;
+  labelPosition?: ControlLabelPosition | string;
   /**
    * Gets or Sets the offset between the label and the control.
    * Default value: 10
@@ -11548,7 +11555,7 @@ export interface Control {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
    */
-  viewMode?: ControlViewMode;
+  viewMode?: ControlViewMode | string;
 }
 
 declare global {
@@ -11574,12 +11581,12 @@ export interface FormControlProperties {
    * Gets or Sets the FormControl Action. This property is used when the 'controlType' is 'button' or 'submit'
    * Default value: 
    */
-  action?: FormControlAction;
+  action?: FormControlAction | string;
   /**
    * Sets or Gets the alignment of the FormControl
    * Default value: left
    */
-  align?: FormControlAlign;
+  align?: FormControlAlign | string;
   /**
    * HTML Content displayed after the Form Control
    * Default value: 
@@ -11594,7 +11601,7 @@ export interface FormControlProperties {
    * The type of the control.
    * Default value: input
    */
-  controlType?: FormControlControlType;
+  controlType?: FormControlControlType | string;
   /**
    * Sets the Form Group columns.
    * Default value: 1
@@ -11639,7 +11646,7 @@ export interface FormControlProperties {
    * Gets or Sets the Form control's label position.
    * Default value: left
    */
-  labelPosition?: FormControlLabelPosition;
+  labelPosition?: FormControlLabelPosition | string;
   /**
    * Gets or Sets the offset between the label and the control.
    * Default value: 10
@@ -11649,7 +11656,7 @@ export interface FormControlProperties {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets whether the navigation buttons are displayed. The property has effect when the viewMode property is set.
    * Default value: left
    */
-  labelAlign?: FormControlAlign;
+  labelAlign?: FormControlAlign | string;
   /**
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the next button label.
    * Default value: "Next"
@@ -11714,7 +11721,7 @@ export interface FormControlProperties {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
    */
-  viewMode?: FormControlViewMode;
+  viewMode?: FormControlViewMode | string;
 }
 /**
  Form Control
@@ -11770,7 +11777,7 @@ export interface FormGroupProperties {
    * Sets or Gets the labels position.
    * Default value: left
    */
-  labelPosition?: FormGroupLabelPosition;
+  labelPosition?: FormGroupLabelPosition | string;
   /**
    * Makes the form readonly.
    * Default value: false
@@ -11838,7 +11845,7 @@ export interface Control {
    * The type of the control.
    * Default value: input
    */
-  controlType?: ControlControlType;
+  controlType?: ControlControlType | string;
   /**
    * Sets the Form Group columns.
    * Default value: 1
@@ -11883,7 +11890,7 @@ export interface Control {
    * Gets or Sets the Form control's label position.
    * Default value: left
    */
-  labelPosition?: ControlLabelPosition;
+  labelPosition?: ControlLabelPosition | string;
   /**
    * Gets or Sets the offset between the label and the control.
    * Default value: 10
@@ -11948,7 +11955,7 @@ export interface Control {
    * FormGroup only(when controlType is set to 'group'). Gets or Sets the form'group view mode.
    * Default value: 
    */
-  viewMode?: ControlViewMode;
+  viewMode?: ControlViewMode | string;
 }
 
 declare global {
@@ -12023,7 +12030,7 @@ export interface GanttChartProperties {
    * Determines the format of the dates in the timeline header when they represent days.
    * Default value: short
    */
-  dayFormat?: GanttDayFormat;
+  dayFormat?: GanttDayFormat | string;
   /**
    * Determines a specific end date for the Timeline. Usefull when the user wants custom ending date for the Timeline. If no date is set the end date of the timeline is automatically determined from the tasks.
    * Default value: 
@@ -12088,7 +12095,7 @@ export interface GanttChartProperties {
    * Determines in what unit is task duration property measured.
    * Default value: milisecond
    */
-  durationUnit?: Duration;
+  durationUnit?: Duration | string;
   /**
    * Determines whether a dedicated filter row is used for Table filtering instead of the default filter input. This property has no effect if filtering is not enabled.
    * Default value: false
@@ -12128,12 +12135,12 @@ export interface GanttChartProperties {
    * Determines weather or not horizontal scrollbar is shown.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent hours.
    * Default value: numeric
    */
-  hourFormat?: HourFormat;
+  hourFormat?: HourFormat | string;
   /**
    * When enabled, scrolling to the end of the horizotal timeline, triggers the creation of additional to extend the time range. The number of cells to be added when the scrollbar reaches the end position is determined by the infiniteTimelineStep.
    * Default value: false
@@ -12178,7 +12185,7 @@ export interface GanttChartProperties {
    * Determines the format of the dates the timeline header when they represent months.
    * Default value: short
    */
-  monthFormat?: MonthFormat;
+  monthFormat?: MonthFormat | string;
   /**
    * Determines the nonworking days of the week from 0 to 6, where 0 is the first day of the week and 6 is the last day. Nonworking days will be displayed with colored cells inside the timeline and will not affect the dateEnd of the tasks unless the adjustToNonworkingTime property is enabled.
    * Default value: 
@@ -12253,12 +12260,12 @@ export interface GanttChartProperties {
    * Determines how the capacity of the resources will be visualized inside the resource timeline. By default, the capacity is measured in hours depending on the view property of the element.
    * Default value: diagram
    */
-  resourceTimelineMode?: GanttChartResourceTimelineMode;
+  resourceTimelineMode?: GanttChartResourceTimelineMode | string;
   /**
    * Determines how the resources will be displayed inside the resource Timeline.
    * Default value: hours
    */
-  resourceTimelineView?: GanttChartResourceTimelineView;
+  resourceTimelineView?: GanttChartResourceTimelineView | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -12303,7 +12310,7 @@ export interface GanttChartProperties {
    * Determines whether the GanttChart can be sorted by one, more then one or no columns.
    * Default value: none
    */
-  sortMode?: GanttChartSortMode;
+  sortMode?: GanttChartSortMode | string;
   /**
    * A getter that returns a flat structure as an array of all tasks inside the element.
    * Default value: 
@@ -12358,22 +12365,22 @@ export interface GanttChartProperties {
    * Determines weather or not vertical scrollbar is shown.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines the viewing date range of the timeline. Possible values: day - The timeline show the hours of the day.week - the timeline shows the days of the week.month - the timeline shows the days of the month.year - the timeline shows the months of the year.resource - displays the current tasks by grouping them according to the resources they have assigned. The unassigned tasks will be placed in a separate group called 'Unassigned'.  The timeline has a header section that contains the labels of each cell according to the date inside them. The header is splitted in two sections in order to give a more detailed information of the dates.
    * Default value: year
    */
-  view?: GanttChartView;
+  view?: GanttChartView | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent years.
    * Default value: numeric
    */
-  yearFormat?: YearFormat;
+  yearFormat?: YearFormat | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent weeks. 
    * Default value: long
    */
-  weekFormat?: WeekFormat;
+  weekFormat?: WeekFormat | string;
   /**
    * Sets or gets the element's visual theme. 
    * Default value: ""
@@ -12923,7 +12930,7 @@ export interface GanttChartDataExport {
    * Determines the type of items that is going to be exported. 
    * Default value: task
    */
-  itemType?: GanttChartDataExportItemType;
+  itemType?: GanttChartDataExportItemType | string;
 }
 
 export interface GanttChartDateMarker {
@@ -13180,7 +13187,7 @@ export interface GanttChartTask {
    * Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task'
    * Default value: task
    */
-  type?: GanttChartTaskType;
+  type?: GanttChartTaskType | string;
   /**
    * Project, Task or Milestone value.
    * Default value: 
@@ -13395,12 +13402,12 @@ export interface GaugeProperties {
    * Determines the type of gauge's indicator.
    * Default value: needle
    */
-  analogDisplayType?: GaugeAnalogDisplayType;
+  analogDisplayType?: GaugeAnalogDisplayType | string;
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets gauge's animation duration. Applicable only when animation is not 'none'.
    * Default value: 300
@@ -13440,7 +13447,7 @@ export interface GaugeProperties {
    * Sets the position of the digital display inside the element.
    * Default value: bottom
    */
-  digitalDisplayPosition?: GaugeDigitalDisplayPosition;
+  digitalDisplayPosition?: GaugeDigitalDisplayPosition | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -13475,7 +13482,7 @@ export interface GaugeProperties {
    * Determines the visibility of the labels inside the element.
    * Default value: all
    */
-  labelsVisibility?: LabelsVisibility;
+  labelsVisibility?: LabelsVisibility | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -13500,7 +13507,7 @@ export interface GaugeProperties {
    * Determines when the value of the element is updated.
    * Default value: switchWhileDragging
    */
-  mechanicalAction?: DragMechanicalAction;
+  mechanicalAction?: DragMechanicalAction | string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -13529,7 +13536,7 @@ export interface GaugeProperties {
    * Determines whether the element works with numbers or dates.
    * Default value: numeric
    */
-  mode?: ScaleMode;
+  mode?: ScaleMode | string;
   /**
    * Sets or gets the element's name, which is used as a reference when the data is submitted.
    * Default value: ""
@@ -13539,7 +13546,7 @@ export interface GaugeProperties {
    * Determines the position of the needle when analogDisplayType is 'needle'. 
    * Default value: center
    */
-  needlePosition?: GaugeNeedlePosition;
+  needlePosition?: GaugeNeedlePosition | string;
   /**
    * Determines the number of digits after the decimal point. Applicable only when scaleType is 'floatingPoint'.
    * Default value: null
@@ -13564,12 +13571,12 @@ export interface GaugeProperties {
    * Determines the position of the scale in the element. 
    * Default value: inside
    */
-  scalePosition?: GaugeScalePosition;
+  scalePosition?: GaugeScalePosition | string;
   /**
    * Determines the type of the gauge's value and scale. 
    * Default value: floatingPoint
    */
-  scaleType?: ScaleType;
+  scaleType?: ScaleType | string;
   /**
    * Enables or disables scientific notation.
    * Default value: false
@@ -13594,7 +13601,7 @@ export interface GaugeProperties {
    * Determines how the Gauge will size.
    * Default value: circle
    */
-  sizeMode?: GaugeSizeMode;
+  sizeMode?: GaugeSizeMode | string;
   /**
    * Sets or gets gauge's start angle. This property specifies the beggining of the gauge's scale and is measured in degrees.
    * Default value: -30
@@ -13609,12 +13616,12 @@ export interface GaugeProperties {
    * Determines the position of the ticks in the Gauge.
    * Default value: scale
    */
-  ticksPosition?: TicksPosition;
+  ticksPosition?: TicksPosition | string;
   /**
    * Determines the visibility of the ticks.
    * Default value: minor
    */
-  ticksVisibility?: TicksVisibility;
+  ticksVisibility?: TicksVisibility | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -13629,7 +13636,7 @@ export interface GaugeProperties {
    * Sets the value's validation by min/max.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value of the element. The value can be a date only when scaleType is 'date'.
    * Default value: 0
@@ -13639,7 +13646,7 @@ export interface GaugeProperties {
    * Sets or gets the word length. Applicable only when scaleType is 'integer'.
    * Default value: int32
    */
-  wordLength?: WordLength;
+  wordLength?: WordLength | string;
 }
 /**
  Gauge displays an indicator within a range of values.
@@ -13737,6 +13744,11 @@ export interface GridProperties {
    * Default value: []
    */
   columns?: {label: string, dataField: string}[] | string[] | number | GridColumn[];
+  /**
+   * Context Menu is the drop-down menu displayed after right-clicking a Grid row. It allows you to delete row, edit cell or row depending on the edit mode. The 'contextMenuItemCustom' dataSource option allows you to add custom menu item to the context menu. You can replace the context menu by using the 'selector' property and setting it to ID of a Smart.Menu component.
+   * Default value: [object Object]
+   */
+  contextMenu?: GridContextMenu;
   /**
    * Column Menu is the drop-down menu displayed after clicking the column header's drop-down button, which is displayed when you hover the column header. It allows you to customize column settings. For example: Sort, Filter or Group the Grid by the current column.
    * Default value: [object Object]
@@ -13838,6 +13850,11 @@ export interface GridProperties {
    */
   onRender?: any;
   /**
+   * Callback function() called when the grid has been rendered for first time and bindings are completed. The component is ready.
+   * Default value: null
+   */
+  onLoad?: any;
+  /**
    * Callback function(event: KeyboardEvent) called when the grid is on focus and a keyboard key is pressed.
    * Default value: null
    */
@@ -13857,6 +13874,16 @@ export interface GridProperties {
    * Default value: null
    */
   onRowDetailUpdated?: {(index: number, row: GridRow, details: HTMLElement): void};
+  /**
+   * Callback function which is called when a row history is updated. The row history for edits is recorded when the 'storeHistory' property is enabled.
+   * Default value: null
+   */
+  onRowHistory?: {(index: number, row: GridRow, history: any[]): void};
+  /**
+   * Callback function which is called when a row style is updated. The row style can be changed by using the row dialog or the 'setRowStyle' method.
+   * Default value: null
+   */
+  onRowStyle?: {(index: number, row: GridRow, history: any[]): void};
   /**
    * Callback function which is called when a row has been inserted.
    * Default value: null
@@ -13878,6 +13905,16 @@ export interface GridProperties {
    */
   onRowUpdated?: {(index: number[], row: GridRow[]): void};
   /**
+   * Callback function called by the Grid when defined. It is used to get the CSS class applied to a row.
+   * Default value: null
+   */
+  onRowClass?: {(index: number, data: any, row: GridRow[]): void};
+  /**
+   * Callback function called by the Grid when defined. It is used to get the CSS class applied to a cell.
+   * Default value: null
+   */
+  onCellClass?: {(index: number, dataField: string, cellValue: any, data: any, row: GridRow[]): void};
+  /**
    * Callback function, which is called when a column has been initialized. This function can be used to customize the column settings.
    * Default value: null
    */
@@ -13898,10 +13935,20 @@ export interface GridProperties {
    */
   onColumnUpdated?: {(index: number, column: GridColumn): void};
   /**
+   * Callback function, which is called when a column has been cloned.
+   * Default value: null
+   */
+  onColumnClone?: {(dataField: string, cloneColumnDataField: string, index: number, duplicateCells: boolean): void};
+  /**
    * Callback function, which is called when a command is executed. The name argument is the command's name. The command argument is the command's function. details are built in command arguments passed by the Grid. The handled parameter allows you to cancel built-in command, because when you set it to true the Grid will not execute the default command's behavior.
    * Default value: null
    */
   onCommand?: {(name: string, command: any, details: GridCell, event: Event | KeyboardEvent | PointerEvent, handled: boolean): void};
+  /**
+   * Sets or gets the rows  CSS class rules. Different CSS class names are conditionally applied. Example: rowCSSRules: { 'cell-class-1': settings =&gt; settings.data.quantity === 5, 'cell-class-2': settings =&gt; settings.data.quantity &lt; 5, 'cell-class-3': settings =&gt; settings.data.quantity &gt; 5 }.  The settings object contains the following properties: index, data, row, api.
+   * Default value: null
+   */
+  rowCSSRules?: any;
   /**
    * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
    * Default value: 
@@ -13912,6 +13959,11 @@ export interface GridProperties {
    * Default value: []
    */
   users?: any[];
+  /**
+   * Sets the grid's image upload settings for the image columns.
+   * Default value: [object Object]
+   */
+  uploadSettings?: GridUploadSettings;
   /**
    * Describes the paging settings.
    * Default value: [object Object]
@@ -13931,7 +13983,7 @@ export interface GridProperties {
    * Sets the scroll mode settings.
    * Default value: physical
    */
-  scrolling?: Scrolling;
+  scrolling?: Scrolling | string;
   /**
    * Describes the column header settings.
    * Default value: [object Object]
@@ -13986,13 +14038,15 @@ export interface Grid extends BaseElement, GridProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered, when the edit begins.
-	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell)
+   * This event is triggered, when the edit begins. After the event occurs, editing starts. If you need to prevent the editing for specific cells, rows or columns, you can call event.preventDefault();.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell, data, value)
    *  id - The edited row id.
    *  dataField - The edited column data field.
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
+   *  data - The edited row's data.
+   *  value - The edited cell's value.
    */
   onBeginEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -14095,6 +14149,14 @@ export interface Grid extends BaseElement, GridProperties {
    *  comment - The comment object. The comment object has 'text: string', 'id: string', 'userId: string | number', and 'time: date' fields. The 'text' is the comment's text. 'id' is the comment's unique id, 'userId' is the user's id who entered the comment and 'time' is a javascript date object.
    */
   onCommentRemove?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered, when the user clicks on a context menu item.
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, command)
+   *  id - The row's id.
+   *  dataField - The column's data field.
+   *  command - Command function.
+   */
+  onContextMenuItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the user starts a row drag.
 	* @param event. The custom event. Custom data event was created with: ev.detail(row, id, index, originalEvent)
@@ -14218,12 +14280,14 @@ export interface Grid extends BaseElement, GridProperties {
   onCellDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when the edit ends.
-	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell)
+	* @param event. The custom event. Custom data event was created with: ev.detail(id, dataField, row, column, cell, data, value)
    *  id - The edited row id.
    *  dataField - The edited column data field.
    *  row - The edited row.
    *  column - The edited column.
    *  cell - The edited cell.
+   *  data - The edited row's data.
+   *  value - The edited cell's value.
    */
   onEndEdit?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -14276,9 +14340,13 @@ export interface Grid extends BaseElement, GridProperties {
   onPage?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered, when a sorting column is added or removed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data)
+	* @param event. The custom event. Custom data event was created with: ev.detail(columns, data, sortDataFields, sortDataTypes, sortOrders, sortIndexes)
    *  columns - Array of columns.
    *  data - Array of {dataField: string, sortOrder: string, sortIndex: number}. <em>dataField</em> is the column's data field. <em>sortOrder</em> is 'asc' or 'desc', <em>sortIndex</em> is the index of the column in multi column sorting.
+   *  sortDataFields - Array of column data fields.
+   *  sortDataTypes - Array of column data types. The values in the array would be 'string', 'date', 'boolean' or 'number'.
+   *  sortOrders - Array of column orders. The values in the array would be 'asc' or 'desc'.
+   *  sortIndexes - Array of column sort indexes. When multiple sorting is applied the sort index is an important parameter as it specifies the priority of sorting.
    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
@@ -14293,9 +14361,9 @@ export interface Grid extends BaseElement, GridProperties {
    * Adds a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {any} data. row data matching the data source
    * @param {boolean} insertAtBottom?. Determines whether to add the new row to the bottom or top of the collection. The default value is 'true'
-   * @param {any} callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
+   * @param  callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
    */
-  addRow(data: any, insertAtBottom?: boolean, callback?: any): void;
+  addRow(data: any, insertAtBottom?: boolean, callback?: {(row: GridRow): void}): void;
   /**
    * Adds a new row and puts it into edit mode. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string} position?. 'near' or 'far'
@@ -14316,7 +14384,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   addUnboundRow(count: number, position?: string): boolean;
   /**
-   * Adds a filter to a column. This method will apply a filter to the Grid data.
+   * Adds a filter to a column. This method will apply a filter to the Grid data. Example for adding multiple filters to a column: grid.addFilter('lastName', ['CONTAINS "burke"', 'or', 'CONTAINS "peterson"']). Example for adding single filter to a column: grid.addFilter('lastName', 'CONTAINS "burke"'). Example for adding numeric filter:  grid.addFilter('quantity', '&lt;= 5')
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} filter. Filter expression like: 'startsWith B'. Example 2: ['contains Andrew or contains Nancy'], Example 3:  ['quantity', '&lt;= 3 and &gt;= 8'].  Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * @param {boolean} refreshFilters?. Set this to false, if you will use multiple 'addFilter' calls. By doing this, you will avoid unnecessary renders.
@@ -14341,6 +14409,11 @@ export interface Grid extends BaseElement, GridProperties {
    * Auto-sizes grid columns. This method will update the <em>width</em> of all Grid columns.
    */
   autoSizeColumns(): void;
+  /**
+   * Auto-sizes grid column. This method will update the <em>width</em> of a Grid column by measuring the cells and column header label width.
+   * @param {string} dataField?. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   */
+  autoSizeColumn(dataField?: string): void;
   /**
    * This method returns true, if all rows in the Grid are selected.
    * @returns {boolean}
@@ -14411,9 +14484,9 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Delete a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string | number} rowId. row bound id
-   * @param {any} callback?. Sets a callback function, which is called after the row is deleted. The callback's argument is the deleted row.
+   * @param  callback?. Sets a callback function, which is called after the row is deleted. The callback's argument is the deleted row.
    */
-  deleteRow(rowId: string | number, callback?: any): void;
+  deleteRow(rowId: string | number, callback?: {(row: GridRow): void}): void;
   /**
    * Scrolls to a row or cell. This method scrolls to a row or cell, when scrolling is necessary. If pagination is enabled, it will automatically change the page.
    * @param {string | number} rowId. row bound id
@@ -14431,10 +14504,15 @@ export interface Grid extends BaseElement, GridProperties {
    */
   endUpdate(refresh?: boolean): void;
   /**
-   * Expands a TreeGrid or Grouping row.
+   * Expands a TreeGrid or Grouping row. For example, if you want to expand the first group, then its second sub grup, then the first sub sub group, you can use: grid.expandRow('0.1.0');
    * @param {string | number} rowId. row bound id
    */
   expandRow(rowId: string | number): void;
+  /**
+   * Expands rows to a given group level. For example 'grid.expandRowsToGroupLevel(1);' means that all groups at the root level will be expanded.
+   * @param {number} level. row group level
+   */
+  expandRowsToGroupLevel(level: number): void;
   /**
    * Expands all TreeGrid or Grouping rows.
    */
@@ -14444,6 +14522,20 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {string} Dataformat. 'xlsx', 'pdf', 'json', 'xml', 'csv', 'tsv', 'html', 'png', 'jpeg'.
    */
   exportData(Dataformat: string): void;
+  /**
+   * Finds entries by using a query and returns an array of row ids. Example: const rows = grid.find('nancy'); returns all rows that have 'nancy' value. Example 2: const rows = grid.find('nancy, davolio'); returns all rows that have 'nancy' and 'davolio' values in the same row. Example 3: const rows = grid.find(5, 'quantity', '>'); returns all rows where the value of the 'quantity' field is > 5. 
+   * @param {string} query. Search query
+   * @param {string} dataField?. Column data field.
+   * @param {string} condition?. Conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   * @returns {any[]}
+   */
+  find(query: string, dataField?: string, condition?: string): any[];
+  /**
+   * Finds entries by using a query and returns an array of cells. Each cell in the array is also an array in this format: [id, dataField, value]. Example: const cells = grid.findCells('nancy'); returns all cells that have 'nancy' value. Example 2: const cells = grid.findCells('nancy, davolio'); returns all cells that have 'nancy' and 'davolio' values.
+   * @param {string} query. Search query. You can enter multiple search strings, by using ','. Example: 'nancy, davolio'
+   * @returns {any[]}
+   */
+  findCells(query: string): any[];
   /**
    * Navigates to a page, when paging is enabled.
    * @param {number} index. page index
@@ -14465,6 +14557,22 @@ export interface Grid extends BaseElement, GridProperties {
    * Navigates to the last page, when grid paging is enabled.
    */
   lastPage(): void;
+  /**
+   * Focuses and selects a cell or row. The keyboard navigation starts from the focused cell or row. Any previously applied selection will be cleared after calling this method.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField?. column bound data field
+   */
+  focusAndSelect(rowId: string | number, dataField?: string): void;
+  /**
+   * Iterates through each row in the grid and calls the callback for each row. This is similar to the forEach method on a JavaScript array. This is called for each row, ignoring grouping, filtering or sorting applied in the Grid.
+   * @param {any} rowCallback. Callback function with a row object as parameter. Example: grid.forEachRow((row) => { console.log(row.id) });
+   */
+  forEachRow(rowCallback: any): void;
+  /**
+   * Similar to forEachRow. Iterates through each row in the grid and calls the callback for each row. This method takes into account filtering and sorting applied to the Grid.
+   * @param {any} rowCallback. Callback function with a row object as parameter. Example: grid.forEachRow((row) => { console.log(row.id) });
+   */
+  forEachRowAfterFilterAndSort(rowCallback: any): void;
   /**
    * Gets the maximum position of the vertical scrollbar. You can use this method in combination with the setVerticalScrollValue to apply a new scroll position.
    * @returns {number}
@@ -14491,6 +14599,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getColumns(): any;
   /**
+   * Gets the editing cell(s), when the grid is editing.
+   * @returns {any[]}
+   */
+  getEditCells(): any[];
+  /**
    * Gets the groups array.
    * @returns {any[]}
    */
@@ -14506,10 +14619,20 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getSelection(): any;
   /**
-   * Gets the selected row ids.
+   * Gets an Array where each item is an Array of row id and row data. If the Grid is used in virtual mode, the row data parameter is empty object, because the data is loaded on demand.
    * @returns {any[]}
    */
   getSelectedRows(): any[];
+  /**
+   * Gets the selected row ids.
+   * @returns {any[]}
+   */
+  getSelectedRowIds(): any[];
+  /**
+   * Gets the selected row indexes.
+   * @returns {any[]}
+   */
+  getSelectedRowIndexes(): any[];
   /**
    * Gets the selected cells. The method returns an array of cell. Each cell is an array with row id, column data field and cell value.
    * @returns {any[]}
@@ -14548,6 +14671,12 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getCellValue(rowId: string | number, dataField: string): any;
   /**
+   * Gets a column. Returns a Grid column object.
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @returns {GridColumn}
+   */
+  getColumn(dataField: string): GridColumn;
+  /**
    * Gets a value of a column.
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} propertyName. The property name.
@@ -14562,17 +14691,29 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getRowProperty(rowId: string | number, propertyName: string): any;
   /**
+   * Gets a row. Returns a Grid row object.
+   * @param {string | number} rowId. row bound id
+   * @returns {GridRow}
+   */
+  getRow(rowId: string | number): GridRow;
+  /**
+   * Gets a row by its index. Returns a Grid row object.
+   * @param {number} rowIndex. row bound index
+   * @returns {GridRow}
+   */
+  getRowByIndex(rowIndex: number): GridRow;
+  /**
    * Gets the Data source data associated to the row.
    * @param {string | number} rowId. row bound id
    * @returns {any}
    */
   getRowData(rowId: string | number): any;
   /**
-   * Gets the Row's id.
+   * Gets the Row's id by a row index.
    * @param {number} rowIndex. row index
-   * @returns {any}
+   * @returns {string | number}
    */
-  getRowId(rowIndex: number): any;
+  getRowId(rowIndex: number): string | number;
   /**
    * Gets whether a column's drop-down menu is opened.
    * @returns {boolean}
@@ -14610,14 +14751,20 @@ export interface Grid extends BaseElement, GridProperties {
    * Inserts a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {any} data. row data matching the data source
    * @param {number} index?. Determines the insert index. The default value is the last index.
-   * @param {any} callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
+   * @param  callback?. Sets a callback function, which is called after the new row is added. The callback's argument is the new row.
    */
-  insertRow(data: any, index?: number, callback?: any): void;
+  insertRow(data: any, index?: number, callback?: {(row: GridRow): void}): void;
   /**
    * Opens a column drop-down menu.
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    */
   openMenu(dataField: string): void;
+  /**
+   * Opens a context menu. Note that context menu should be enabled.
+   * @param {number} left. Left Position.
+   * @param {number} top. Top Position.
+   */
+  openContextMenu(left: number, top: number): void;
   /**
    * Prints the Grid data. The method uses the options of the <em>dataExport</em> property. When printed, the Grid will not display any scrollbars so all rows and columns will be displayed. The grid will auto resize width and height to fit all contents. To customize the printing options, you can use  the <em>dataExport</em> property.
    */
@@ -14716,12 +14863,35 @@ export interface Grid extends BaseElement, GridProperties {
    */
   selectRowsByIndex(rowIndex: number[]): void;
   /**
+   * Selects rows by using a query. Example: grid.selectRowsByQuery('nancy'); selects all rows that have 'nancy' value. Example 2: grid.selectRowsByQuery('nancy, davolio'); selects all rows that have 'nancy' and 'davolio' values in the same row. Example 3: grid.selectRowsByQuery(5, 'quantity', '>'); selects all rows where the value of the 'quantity' field is > 5. 
+   * @param {string} query. Search query
+   * @param {string} dataField?. Column data field.
+   * @param {string} condition?. Conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   */
+  selectRowsByQuery(query: string, dataField?: string, condition?: string): void;
+  /**
+   * Selects multiple cells by their ids and dataFields. Example: grid.selectCells([0, 1, 2], ['firstName', 'quantity', 'date']); - selects the 'firstName', 'quantity' and 'date' cells from the first, second and third rows.
+   * @param {(string | number)[]} rowIds. Array of row ids
+   * @param {string[]} dataFields. Array of data fields.
+   */
+  selectCells(rowIds: (string | number)[], dataFields: string[]): void;
+  /**
+   * Selects cells by using a query. Example: grid.selectCellsByQuery('nancy'); selects all cells that have 'nancy' value. Example 2: grid.selectCellsByQuery('nancy, davolio'); selects all cells that have 'nancy' and 'davolio' values in the same row. 
+   * @param {string} query. Search query
+   */
+  selectCellsByQuery(query: string): void;
+  /**
    * Sets a new value to a cell.
    * @param {string | number} rowId. row bound id
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string | number | Date | boolean} value. New Cell value.
    */
   setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
+  /**
+   * Sets new columns to the Grid. The grid will redraw all the column headers, and then redraw all of the rows. By using 'setColumns', the grid will compare the new columns passed as argument to the method with existing columns. The Grid will automatically create new columns, keep old columns if they already exist and remove columns which are not in the 'setColumns' method argument. The benefit of that is that the state of the column like(sort, filter, width or other) will be kept, if the column exsits after the new columns are applied.
+   * @param {GridColumn[]} columns. Columns array.
+   */
+  setColumns(columns: GridColumn[]): void;
   /**
    * Sets a property to a column.
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
@@ -14736,6 +14906,19 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {any} value. The new property value.
    */
   setRowProperty(rowId: string | number, propertyName: string, value: any): void;
+  /**
+   * Sets a style to a row.
+   * @param {string | number} rowId. row bound id
+   * @param  rowStyle. The row style object. The object may have one or all of the following properties: 'background', 'color', 'fontSize', 'fontFamily', 'textDecoration', 'fontStyle', 'fontWeight'.
+   */
+  setRowStyle(rowId: string | number, rowStyle: {background?: string, color?: string, fontSize?: string, fontFamily?: string, textDecoration?: string, fontStyle?: string, fontWeight?: string}): void;
+  /**
+   * Sets a style to a row.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. Column bound field name.
+   * @param  rowStyle. The cell style object. The object may have one or all of the following properties: 'background', 'color', 'fontSize', 'fontFamily', 'textDecoration', 'fontStyle', 'fontWeight'.
+   */
+  setCellStyle(rowId: string | number, dataField: string, rowStyle: {background?: string, color?: string, fontSize?: string, fontFamily?: string, textDecoration?: string, fontStyle?: string, fontWeight?: string}): void;
   /**
    * Sets the position of the vertical scrollbar. You can use this method in combination with the getVerticalScrollValue and getVerticalScrollMax.
    * @param {number} value. The new scroll position
@@ -14755,9 +14938,9 @@ export interface Grid extends BaseElement, GridProperties {
    * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string | number} rowId. row bound id
    * @param {any} data. row data matching the data source
-   * @param {any} callback?. Sets a callback function, which is called after the row is updated. The callback's argument is the updated row.
+   * @param  callback?. Sets a callback function, which is called after the row is updated. The callback's argument is the updated row.
    */
-  updateRow(rowId: string | number, data: any, callback?: any): void;
+  updateRow(rowId: string | number, data: any, callback?: {(row: GridRow): void}): void;
   /**
    * Unselects a row, cell or column.
    * @param {string | number} rowId. row bound id
@@ -14871,12 +15054,12 @@ export interface GridAppearance {
    * Generates labels as 'numbers' or 'letters'. This property affects the rendering of the row header.
    * Default value: number
    */
-  autoGenerateRowLabelMode?: GridAppearanceAutoGenerateRowLabelMode;
+  autoGenerateRowLabelMode?: GridAppearanceAutoGenerateRowLabelMode | string;
   /**
    * Generates labels as 'numbers' or 'letters.  This property affects the rendering of the column header.
    * Default value: letter
    */
-  autoGenerateColumnLabelMode?: GridAppearanceAutoGenerateColumnLabelMode;
+  autoGenerateColumnLabelMode?: GridAppearanceAutoGenerateColumnLabelMode | string;
   /**
    * Sets the visibility of the loading indicator. This is the Loading... image displayed in the Grid while loading data.
    * Default value: false
@@ -14902,6 +15085,11 @@ export interface GridAppearance {
    * Default value: false
    */
   showRowHeader?: boolean;
+  /**
+   * Shows or hides Row headers. In TreeGrid, the non-leaf tree items are displayed as normal rows. If this property is set to true, they are displayed as headers similar to the grouping rendering.
+   * Default value: false
+   */
+  showTreeRowHeader?: boolean;
   /**
    * Shows row indexes in the row header. The showRowHeader property should be true
    * Default value: false
@@ -14933,6 +15121,11 @@ export interface GridAppearance {
    */
   showColumnHeaderLines?: boolean;
   /**
+   * Shows drag icon on the column header when drag is enabled. The icon is displayed when you move the mouse cursor to the column header's left edge.
+   * Default value: false
+   */
+  showColumnHeaderDragIcon?: boolean;
+  /**
    * Shows column lines.
    * Default value: true
    */
@@ -14949,12 +15142,12 @@ export interface GridAppearance {
   showColumnGroupsInColumnPanel?: boolean;
   /**
    * Shows filtered column background, when filter is applied.
-   * Default value: true
+   * Default value: false
    */
   showFilterColumnBackground?: boolean;
   /**
    * Shows sorted column background, when sorting is applied.
-   * Default value: true
+   * Default value: false
    */
   showSortColumnBackground?: boolean;
   /**
@@ -15012,6 +15205,11 @@ export interface GridAppearance {
    * Default value: false
    */
   showVerticalScrollBarOnFixedColumns?: boolean;
+  /**
+   * Shows the today's date as 'Today' vs '7/8/2022'. When the property is set to false, it will display the date.
+   * Default value: true
+   */
+  showTodayDateAsString?: boolean;
 }
 
 /**An object containing settings related to the grid's behavior. */
@@ -15045,12 +15243,12 @@ export interface GridBehavior {
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
-  columnResizeMode?: GridResizeMode;
+  columnResizeMode?: GridResizeMode | string;
   /**
    * Sets the row resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
-  rowResizeMode?: GridResizeMode;
+  rowResizeMode?: GridResizeMode | string;
 }
 
 /**An object containing settings related to the grid's layout. */
@@ -15108,12 +15306,12 @@ export interface GridClipboard {
    * Sets or gets whether the copy-pasted values will be auto-filled by using automatic pattern detection. This is used in the Drag&Drop Multiple Cells selection. none does nothing. copy just copies the cells. 'fillSeries' detects and automatically fills the values. For example, if the selection has '1, 2' and the possible positions are more, the pasted values would be '1, 2, 3, 4, etc.
    * Default value: fillSeries
    */
-  autoFillMode?: GridClipboardAutoFillMode;
+  autoFillMode?: GridClipboardAutoFillMode | string;
   /**
    * Sets or gets a callback on paste.
    * Default value: null
    */
-  onPasteValue?: any;
+  onPasteValue?: {(args: {value: any, oldValue: any, dataField: string, id: string | number}): void};
 }
 
 export interface GridColumn {
@@ -15121,7 +15319,7 @@ export interface GridColumn {
    * Sets or gets the column's header alignment. Accepts: 'left', 'right', 'center'
    * Default value: left
    */
-  align?: HorizontalAlignment;
+  align?: HorizontalAlignment | string;
   /**
    * Sets or gets whether the column can be exported.
    * Default value: true
@@ -15186,7 +15384,7 @@ export interface GridColumn {
    * Sets or gets the column's cells alignment. Accepts: 'left', 'right' and 'center'
    * Default value: left
    */
-  cellsAlign?: HorizontalAlignment;
+  cellsAlign?: HorizontalAlignment | string;
   /**
    * Sets or gets the column's cells wrapping. Accepts: true or false.
    * Default value: false
@@ -15196,17 +15394,22 @@ export interface GridColumn {
    * Sets or gets the column's cells vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
    */
-  cellsVerticalAlign?: VerticalAlignment;
+  cellsVerticalAlign?: VerticalAlignment | string;
   /**
-   * Sets or gets the column's header CSS class name.
+   * Sets or gets the column's header CSS class name. You can apply multiple CSS class names by separating them with space.
    * Default value: ""
    */
   className?: string;
   /**
-   * Sets or gets the column's cells CSS class name.
-   * Default value: ""
+   * Sets or gets the column's cells CSS class name(s). The property can be used with string and function. You can apply multiple CSS class names by separating them with space or you can return a CSS class name(s) when you use it as a function. The function gets called with the following parameters: index - row's index, dataField - column's data field, cellValue - current cell's value, rowData - current row's data, row - GridRow object. Ex: cellsClassName: (index, dataField, value, rowData, row) => { if (index === 0) { return 'cell-class-1' } }
+   * Default value: 
    */
-  cellsClassName?: string;
+  cellsClassName?: any;
+  /**
+   * Sets or gets the column's cells CSS class rules. Different CSS class names are conditionally applied. Example: label: 'Quantity', dataField: 'quantity', editor: 'numberInput', cellsClassRules: { 'one': settings => settings.value > 5, 'two': settings => settings.value &lt;5, 'three': settings => settings.value === 3 }.  The settings object contains the following properties: index, value, dataField, row, api.
+   * Default value: null
+   */
+  cellsCSSRules?: any;
   /**
    * Sets the name of the column group.
    * Default value: ""
@@ -15238,7 +15441,7 @@ export interface GridColumn {
    */
   element?: HTMLElement;
   /**
-   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'comboBox', 'dropDownList', 'image', 'numberInput', 'checkBox', 'multiInput', 'multiComboInput', 'checkInput', 'slider', 'dateTimePicker', 'timeInput', 'dateInput', 'dateRangeInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): object', 'onRender(int row, string column, object editor, object rowData): object', 'setValue(object value): void' and 'getValue(object value): object' callback functions.
+   * Sets or gets the column's editor. The property expects 'input', 'autoComplete', 'comboBox', 'dropDownList', 'image', 'numberInput', 'checkBox', 'multiInput', 'multiComboInput', 'checkInput', 'slider', 'dateTimePicker', 'timeInput', 'dateInput', 'dateRangeInput', 'maskedTextBox', 'textArea' or a custom object with 'template' property which defines the editor type, 'settings' property which defines the custom editor's properties, 'onInit(int row, string column, object editor, object rowData): void', 'onRender(int row, string column, object editor, object rowData): void', 'setValue(object value): void' and 'getValue(object value): any' callback functions.
    * Default value: null
    */
   editor?: any;
@@ -15246,7 +15449,7 @@ export interface GridColumn {
    * Sets or gets the Freeze mode. Accepts: 'near', 'far', true and false. Freezes/Pins the column to left(near) or right(far).
    * Default value: false
    */
-  freeze?: Position;
+  freeze?: Position | string;
   /**
    * Sets or gets the filter of the column. Example: ['contains Andrew or contains Nancy']. Example with numeric filter ['quantity', '&lt;= 3 and &gt;= 8']. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - ['EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']. Example with a string filter applied to a string column - ['CONTAINS' 'burke' or 'CONTAINS' 'peterson']. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: ""
@@ -15256,12 +15459,12 @@ export interface GridColumn {
    * Sets or gets the filter menu mode of the column. In 'basic' mode, a single input is displayed in the filter menu. In 'default' mode, two input options are available for more precise filtering. In 'excel' mode, checked list with unique values is displayed.
    * Default value: default
    */
-  filterMenuMode?: GridColumnFilterMenuMode;
+  filterMenuMode?: GridColumnFilterMenuMode | string;
   /**
    * Sets or gets the column's format function.
    * Default value: null
    */
-  formatFunction?: any;
+  formatFunction?: {(formatObject: {row?: GridRow, column?: GridColumn, cell?: GridCell, oldValue?: any, value?: any, template?: any}): void};
   /**
    * Sets or gets the column's format settings. You can use any of the build in formatting options or to NumberFormat object like that: 'Intl: {  NumberFormat: {  style: \'currency\', currency: \'EUR\' }}' or DateTimeFormat object like that: 'Intl: {  DateTimeFormat: {  dateStyle: \'full\' }}''
    * Default value: [object Object]
@@ -15273,6 +15476,16 @@ export interface GridColumn {
    */
   group?: string;
   /**
+   * This function allows you to provide custom cell values, which will be displayed in the column's cells. The grid passes 3 arguments to the function - row id, column's dataField and row's data.
+   * Default value: null
+   */
+  getCellValue?: any;
+  /**
+   * Gets the column's filter panel. The function should return HTMLElement which will represent the filter UI panel displayed in the filter menu.  The function works in combination with updateFilterPanel
+   * Default value: null
+   */
+  getFilterPanel?: any;
+  /**
    * Sets or gets the column's icon. Expects CSS class name.
    * Default value: ""
    */
@@ -15283,20 +15496,35 @@ export interface GridColumn {
    */
   label?: string;
   /**
+   * Sets or gets the column header's template. The property expects the 'id' of HTMLTemplateElement, HTML string or function which returns html string.
+   * Default value: 
+   */
+  labelTemplate?: string | HTMLTemplateElement | HTMLElement | {(label: string): string};
+  /**
    * Sets or gets the minimum width.
    * Default value: 30
    */
   minWidth?: number;
   /**
+   * Sets or gets the column's rowSpan function. Allows you to dynamically span cells.
+   * Default value: null
+   */
+  rowSpan?: {(cellValue: any, rowIndex: number, data: any): number};
+  /**
    * Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null.
    * Default value: null
    */
-  sortOrder?: GridColumnSortOrder | null;
+  sortOrder?: GridColumnSortOrder | null | string;
   /**
    * Sets or gets the sort index of the column. Accepts an integer value. This property can be used to get or set the column's sort index when sorting mode is 'many'.
    * Default value: null
    */
   sortIndex?: number;
+  /**
+   * Sets or gets a custom 'sortComparator' function. It can be used for implementing custom sorting. Ex: sortComparator: (value1, value2) =&gt; { if (value1 === value2) return 0; return value1 &lt;value2; }
+   * Default value: null
+   */
+  sortComparator?: any;
   /**
    * Sets or gets whether the column's header action drop-down button is displayed. This button opens the column's menu.
    * Default value: true
@@ -15331,17 +15559,99 @@ export interface GridColumn {
    * Sets or gets the column's header vertical alignment. Accepts: 'top', 'bottom' and 'center'
    * Default value: center
    */
-  verticalAlign?: VerticalAlignment;
+  verticalAlign?: VerticalAlignment | string;
   /**
    * Sets or gets the column summary. The property should be set to an array with the following possible values: 'sum', 'min', 'max', 'avg', 'count', 'median', 'stdev', 'stdevp', 'var', 'varp'.
    * Default value: 
    */
   summary?: string[];
   /**
+   * Updates the column's filter panel. The function works in combination with getFilterPanel
+   * Default value: null
+   */
+  updateFilterPanel?: any;
+  /**
    * Sets or gets whether the column is visible. Set the property to 'false' to hide the column.
    * Default value: true
    */
   visible?: boolean;
+}
+
+/**Context Menu is the drop-down menu displayed after right-clicking a Grid row. It allows you to delete row, edit cell or row depending on the edit mode. The 'contextMenuItemCustom' dataSource option allows you to add custom menu item to the context menu. You can replace the context menu by using the 'selector' property and setting it to ID of a Smart.Menu component. */
+export interface GridContextMenu {
+  /**
+   * Sets or gets whether the context menu is enabled. If the value is false, the context menu will not be displayed, when user right clicks on a row.
+   * Default value: false
+   */
+  enabled?: boolean;
+  /**
+   * Sets the data sources to the context menu.
+   * Default value: [object Object]
+   */
+  dataSource?: GridContextMenuDataSource;
+  /**
+   * Sets the ID or CSS Class of a Smart.Menu component to be used as a context menu for the Grid.
+   * Default value: ""
+   */
+  selector?: string;
+  /**
+   * Sets the width of the context menu.
+   * Default value: 250
+   */
+  width?: number;
+  /**
+   * Sets the height of the context menu.
+   * Default value: null
+   */
+  height?: number | null;
+}
+
+/**Sets the data sources to the context menu. */
+export interface GridContextMenuDataSource {
+  /**
+   * Describes the delete item.
+   * Default value: [object Object]
+   */
+  contextMenuItemDelete?: GridCommand;
+  /**
+   * Describes the edit item.
+   * Default value: [object Object]
+   */
+  contextMenuItemEdit?: GridCommand;
+  /**
+   * Describes the custom item.
+   * Default value: [object Object]
+   */
+  contextMenuItemCustom?: GridCommand;
+}
+
+/**Describes the delete item. */
+export interface GridCommand {
+  /**
+   * Sets the command of the context menu item.
+   * Default value: "contextMenuItemDeleteCommand"
+   */
+  command?: string;
+  /**
+   * Enables the context menu item.
+   * Default value: true
+   */
+  enabled?: boolean;
+  /**
+   * Sets the visibility of the context menu item.
+   * Default value: true
+   */
+  visible?: boolean;
+  /**
+   * Sets the icon of the context menu item.
+   * Default value: "jqx-icon-delete"
+   */
+  icon?: string;
+  /**
+   * Sets the label of the context menu item.
+   * Default value: ""
+   */
+  label?: string;
 }
 
 /**Column Menu is the drop-down menu displayed after clicking the column header's drop-down button, which is displayed when you hover the column header. It allows you to customize column settings. For example: Sort, Filter or Group the Grid by the current column. */
@@ -15399,7 +15709,7 @@ export interface GridColumnMenuDataSource {
    * Describes the settings of the column menu item duplicate.
    * Default value: [object Object]
    */
-  columnMenuItemDuplicate?: GridCommand;
+  columnMenuItemClone?: GridCommand;
   /**
    * Describes the settings of the column menu item insert left.
    * Default value: [object Object]
@@ -15420,6 +15730,11 @@ export interface GridColumnMenuDataSource {
    * Default value: [object Object]
    */
   columnMenuItemSortDesc?: GridCommand;
+  /**
+   * Describes the settings of the column menu item to add sorting.
+   * Default value: [object Object]
+   */
+  columnMenuItemSort?: GridCommand;
   /**
    * Describes the settings of the column menu item remove sort.
    * Default value: [object Object]
@@ -15457,35 +15772,6 @@ export interface GridColumnMenuDataSource {
   columnMenuItemDelete?: GridCommand;
 }
 
-/**Describes the settings of the column menu customize type */
-export interface GridCommand {
-  /**
-   * Sets the command of the column menu customize type.
-   * Default value: "customizeTypeCommand"
-   */
-  command?: string;
-  /**
-   * Enables the column menu customize type.
-   * Default value: true
-   */
-  enabled?: boolean;
-  /**
-   * Sets the visibility of the column menu customize type.
-   * Default value: false
-   */
-  visible?: boolean;
-  /**
-   * Sets the icon of the column menu customize type.
-   * Default value: "jqx-icon-customize"
-   */
-  icon?: string;
-  /**
-   * Sets the label of the column menu customize type.
-   * Default value: ""
-   */
-  label?: string;
-}
-
 export interface GridColumnGroup {
   /**
    * Sets the label.
@@ -15493,10 +15779,15 @@ export interface GridColumnGroup {
    */
   label?: string;
   /**
+   * Sets or gets the column header's template. The property expects the 'id' of HTMLTemplateElement, HTML string or function which returns html string.
+   * Default value: 
+   */
+  labelTemplate?: string | HTMLTemplateElement | HTMLElement | {(label: string): string};
+  /**
    * Sets the align.
    * Default value: center
    */
-  align?: HorizontalAlignment;
+  align?: HorizontalAlignment | string;
   /**
    * Sets the name of the column group.
    * Default value: ""
@@ -15511,7 +15802,7 @@ export interface GridColumnGroup {
    * Sets the vertical align.
    * Default value: center
    */
-  verticalAlign?: VerticalAlignment;
+  verticalAlign?: VerticalAlignment | string;
 }
 
 export interface GridConditionalFormatting {
@@ -15524,7 +15815,7 @@ export interface GridConditionalFormatting {
    * The formatting condition.
    * Default value: lessThan
    */
-  condition?: GridConditionalFormattingCondition;
+  condition?: GridConditionalFormattingCondition | string;
   /**
    * The value to compare by. When condition is 'between', this is the start (from) value.
    * Default value: 0
@@ -15573,7 +15864,7 @@ export interface GridCharting {
    * Sets or gets the chart's container.
    * Default value: null
    */
-  appendTo?: any;
+  appendTo?: string | HTMLElement;
   /**
    * Sets or gets the charting dialog.
    * Default value: [object Object]
@@ -15665,7 +15956,7 @@ export interface GridDataExport {
    * Sets the page orientation, when exporting to PDF.
    * Default value: portrait
    */
-  pageOrientation?: GridDataExportPageOrientation;
+  pageOrientation?: GridDataExportPageOrientation | string;
   /**
    * Sets the expand char displayed when the Grid with row hierarchy(TreeGrid / Grouped) is exported.
    * Default value: "+"
@@ -15714,7 +16005,7 @@ export interface GridDataSourceSettings {
    * Sets or gets the XML binding root.
    * Default value: blackList
    */
-  sanitizeHTML?: GridDataSourceSettingsSanitizeHTML;
+  sanitizeHTML?: GridDataSourceSettingsSanitizeHTML | string;
   /**
    * Sets or gets the XML binding root.
    * Default value: ""
@@ -15739,7 +16030,7 @@ export interface GridDataSourceSettings {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: GridDataSourceSettingsDataSourceType;
+  dataSourceType?: GridDataSourceSettingsDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -15761,12 +16052,12 @@ export interface GridDataSourceSettings {
    */
   mapChar?: string;
   /**
-   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Sets the virtual data source function which is called each time the Grid requests data. Example for calling the callback function with the new data set: resultCallbackFunction({dataSource: data}); Demos using 'virtualDataSource' are available on the Grid demos page. Example: https://www.htmlelements.com/demos/grid/virtualscroll/
    * Default value: null
    */
-  virtualDataSource?: any;
+  virtualDataSource?: {(resultCallbackFunction: any, details: DataAdapterVirtualDataSourceDetails): void};
   /**
-   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too. Example: https://www.htmlelements.com/demos/grid/virtual-tree-grid/
    * Default value: null
    */
   virtualDataSourceOnExpand?: any;
@@ -15787,7 +16078,7 @@ export interface GridDataSourceSettingsDataField {
    * Sets the dataField type.
    * Default value: string
    */
-  dataType?: GridDataSourceSettingsDataFieldDataType;
+  dataType?: GridDataSourceSettingsDataFieldDataType | string;
 }
 
 /**Describes the grid's editing settings. */
@@ -15821,7 +16112,7 @@ export interface GridEditing {
    * Determines the way editing is initiated.
    * Default value: click
    */
-  action?: GridEditingAction;
+  action?: GridEditingAction | string;
   /**
    * Describes command keys.
    * Default value: [object Object]
@@ -15841,7 +16132,7 @@ export interface GridEditing {
    * Sets the grid's edit mode.
    * Default value: cell
    */
-  mode?: GridEditingMode;
+  mode?: GridEditingMode | string;
   /**
    * Describes the settings of the 'Add New Row' UI element which enables the quick adding of rows to the Grid with a single click.
    * Default value: [object Object]
@@ -15913,12 +16204,12 @@ export interface GridEditingCommandBar {
    * Sets the command bar's position.
    * Default value: near
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Sets what is to be displayed in command bar buttons.
    * Default value: labelAndIcon
    */
-  displayMode?: GridCommandDisplayMode;
+  displayMode?: GridCommandDisplayMode | string;
   /**
    * Sets the command bar's data source.
    * Default value: [object Object]
@@ -15966,12 +16257,12 @@ export interface GridEditingCommandColumn {
    * Sets the command column's position.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets what is to be displayed in command column buttons.
    * Default value: icon
    */
-  displayMode?: GridCommandDisplayMode;
+  displayMode?: GridCommandDisplayMode | string;
   /**
    * Sets the command column's data source.
    * Default value: [object Object]
@@ -16039,12 +16330,12 @@ export interface GridEditingAddNewRow {
    * Sets the position of the 'Add New Row' UI element.
    * Default value: both
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Sets or gets the display mode of the new row action. It could be either 'row' or 'button'.
    * Default value: row
    */
-  displayMode?: GridEditingAddNewRowDisplayMode;
+  displayMode?: GridEditingAddNewRowDisplayMode | string;
   /**
    * Makes the 'Add New Row' UI element visible.
    * Default value: false
@@ -16073,6 +16364,11 @@ export interface GridFiltering {
    * Default value: false
    */
   enabled?: boolean;
+  /**
+   * Determines the filtering operator used in the Grid. By default filters are applied with 'and' operator i.e returns a set of rows matching the filter expressions of columnA AND columnB. The other option is to return a set of rows matching the filter expressions of columnA OR columnB. For example: grid.filtering.operator = 'or'; grid.addFilter('lastName', 'contains "davolio"') grid.addFilter('firstName', 'contains "Antoni"'); - that code will apply two filters to the Grid and will return all rows where firstName is 'Antoni' or the lastName is 'Davolio'
+   * Default value: "and"
+   */
+  operator?: string;
   /**
    * An array of filtering conditions to apply to the DataGrid. Each member of the filter array is an array with two members. The first one is the column dataField to apply the filter to. The second one is the filtering condition. Example: [['firstName', 'contains Andrew or contains Nancy'], ['quantity', '&lt;= 3 and &gt;= 8']]. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - [['firstName', 'EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']]. Example with a string filter applied to a string column - [['lastName','CONTAINS' 'burke' or 'CONTAINS' 'peterson']]. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    * Default value: 
@@ -16111,7 +16407,7 @@ export interface GridFilteringFilterRow {
    * Sets the way filtering through the filter row is applied.
    * Default value: auto
    */
-  applyMode?: GridFilteringFilterRowApplyMode;
+  applyMode?: GridFilteringFilterRowApplyMode | string;
   /**
    * Sets the delay (in milliseconds) before applying filtering (when filtering.filterRow.applyMode is 'auto').
    * Default value: 300
@@ -16135,7 +16431,7 @@ export interface GridFilteringFilterMenu {
    * Sets the filter menu mode.
    * Default value: default
    */
-  mode?: GridFilteringFilterMenuMode;
+  mode?: GridFilteringFilterMenuMode | string;
   /**
    * Sets the filter menu datasource.
    * Default value: null
@@ -16185,6 +16481,11 @@ export interface GridGrouping {
    */
   autoExpandAll?: boolean;
   /**
+   * Automatically expands all groups to a given level.
+   * Default value: 0
+   */
+  autoExpandToLevel?: number;
+  /**
    * Automatically hides all grouped columns.
    * Default value: false
    */
@@ -16193,22 +16494,22 @@ export interface GridGrouping {
    * Sets the group expand mode.
    * Default value: buttonClick
    */
-  expandMode?: GridGroupingExpandMode;
+  expandMode?: GridGroupingExpandMode | string;
   /**
-   * Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level.
-   * Default value: advanced
+   * Sets or gets the column's format function.
+   * Default value: null
    */
-  renderMode?: GridGroupingRenderMode;
+  formatFunction?: {(formatObject: {row?: GridRow, column?: GridColumn, cell?: GridCell, value?: any, template?: any}): void};
   /**
    * Sets the group row height.
    * Default value: 50
    */
   groupRowHeight?: string | number;
   /**
-   * Sets the indent of the group toggle button.
-   * Default value: 16
+   * Sets or gets the data fields to group by.
+   * Default value: []
    */
-  toggleButtonIndent?: number;
+  groupBy?: string[];
   /**
    * Sets the indent of the group.
    * Default value: 16
@@ -16219,6 +16520,21 @@ export interface GridGrouping {
    * Default value: [object Object]
    */
   groupBar?: GridGroupingGroupBar;
+  /**
+   * Expands a group in the first grid render. Example: onGroupDefaultExpanded: (dataItem) =&gt;{ return dataItem.label === 'Peppermint Mocha Twist' }
+   * Default value: null
+   */
+  onGroupDefaultExpanded?: any;
+  /**
+   * Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. In 'multipleColumns' mode, each group is displayed in its column.
+   * Default value: advanced
+   */
+  renderMode?: GridGroupingRenderMode | string;
+  /**
+   * Sets the indent of the group toggle button.
+   * Default value: 16
+   */
+  toggleButtonIndent?: number;
   /**
    * Describes the group summary row's settings.
    * Default value: [object Object]
@@ -16259,6 +16575,35 @@ export interface GridGroupingSummaryRow {
   visible?: boolean;
 }
 
+/**Sets the grid's image upload settings for the image columns. */
+export interface GridUploadSettings {
+  /**
+   * Sets or image upload url.
+   * Default value: ""
+   */
+  url?: string;
+  /**
+   * Sets or gets the upload field name. In the backend, you can use this name to access the images data. For example in expressJS, you can use something like that: const images = req['files']['userfile[]'];
+   * Default value: "userfile[]"
+   */
+  name?: string;
+  /**
+   * Additional data to pass to the server. The format should be a JSON string.
+   * Default value: ""
+   */
+  data?: string;
+  /**
+   * Function called when the upload is completed. JSON object with 'files', 'status', 'fileURL' and 'serverResponse' are passed as parameters when the function is called by the Grid.
+   * Default value: 
+   */
+  onUploadCompleted?: any;
+  /**
+   * Function called when the upload has failed. JSON object with 'files', 'status' and 'serverResponse' are passed as parameters when the function is called by the Grid.
+   * Default value: 
+   */
+  onUploadError?: any;
+}
+
 /**Describes the paging settings. */
 export interface GridPaging {
   /**
@@ -16276,6 +16621,11 @@ export interface GridPaging {
    * Default value: 10
    */
   pageSize?: number;
+  /**
+   * Sets the number of hierarchical rows per page. For example, displays 2 root groups per page, when grouping is enabled.
+   * Default value: 2
+   */
+  pageHierarchySize?: number;
   /**
    * Sets the start page.
    * Default value: 0
@@ -16303,12 +16653,12 @@ export interface GridPager {
    * Sets the ellipsis display mode.
    * Default value: both
    */
-  autoEllipsis?: GridPagerAutoEllipsis;
+  autoEllipsis?: GridPagerAutoEllipsis | string;
   /**
    * Sets the position of pager.
    * Default value: far
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Sets a template for the pager.
    * Default value: 
@@ -16362,7 +16712,7 @@ export interface GridPagerPageSizeSelector {
    * Sets the position of the 'rows per page' option.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
 }
 
 /**Describes the summary settings. */
@@ -16371,7 +16721,7 @@ export interface GridPagerSummary {
    * Sets the position of the summary.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets the visibility of the summary.
    * Default value: false
@@ -16385,7 +16735,7 @@ export interface GridPagerNavigationButtons {
    * Sets the navigation buttons position.
    * Default value: both
    */
-  position?: LayoutPosition;
+  position?: LayoutPosition | string;
   /**
    * Describes the settings about buttons 'previous page' and 'next page'.
    * Default value: [object Object]
@@ -16436,7 +16786,7 @@ export interface GridPagerNavigationInput {
    * Sets the position of navigation input option.
    * Default value: far
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets the visibility of navigation input option.
    * Default value: false
@@ -16474,12 +16824,12 @@ export interface GridRowDetail {
    * Sets the position of the Column which allows you to dynamically expand/collapse the row details.
    * Default value: near
    */
-  position?: Position;
+  position?: Position | string;
   /**
    * Sets the template of the row details.
    * Default value: 
    */
-  template?: any;
+  template?: string | HTMLTemplateElement;
   /**
    * Sets the visibility of the Column which allows you to dynamically expand/collapse the row details.
    * Default value: true
@@ -16540,12 +16890,12 @@ export interface GridHeader {
    * Sets a template for the header.
    * Default value: 
    */
-  template?: string | HTMLTemplateElement;
+  template?: string | HTMLTemplateElement | {(element: HTMLElement): void};
   /**
    * This callback function can be used for customization of the Header toolbar. The Toolbar HTML Element is passed as an argument.
    * Default value: null
    */
-  onInit?: any;
+  onInit?: {(element: HTMLElement): void};
   /**
    * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
    * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
@@ -16564,7 +16914,7 @@ export interface GridFooter {
    * Sets a template for the footer.
    * Default value: 
    */
-  template?: string | HTMLTemplateElement;
+  template?: string | HTMLTemplateElement | {(element: HTMLElement): void};
 }
 
 export interface GridRow {
@@ -16667,7 +17017,7 @@ export interface GridRow {
    * Sets or gets the Freeze mode. Accepts: 'near', 'far', true and false. Freezes/Pins the row to top(near) or bottom(far).
    * Default value: false
    */
-  freeze?: Position;
+  freeze?: Position | string;
   /**
    * Sets or gets whether the row is selected.
    * Default value: false
@@ -16884,12 +17234,12 @@ export interface GridSelection {
    * Sets or gets whether the selection allows you to select 'one', 'many' or a variation of 'many' called 'extended'. 'one' allows you to have only single cell or row selected. 'many' 
    * Default value: many
    */
-  mode?: GridSelectionMode;
+  mode?: GridSelectionMode | string;
   /**
    * Sets or gets whether the selection happens on 'click' or 'doubleClick'. 'none' means that selection can happen only through API.
    * Default value: click
    */
-  action?: GridSelectionAction;
+  action?: GridSelectionAction | string;
   /**
    * 
    * Default value: [object Object]
@@ -16917,17 +17267,17 @@ export interface GridSelectionCheckBoxes {
    * Sets or gets whether the selection happens on 'click' or 'doubleClick'. 'none' means that selection can happen only through API.
    * Default value: click
    */
-  action?: GridSelectionAction;
+  action?: GridSelectionAction | string;
   /**
    * Sets or gets whether the checkbox selection selects all rows in the current page or all rows. The 'none' setting disables the header checkbox.
    * Default value: page
    */
-  selectAllMode?: GridSelectionCheckBoxesSelectAllMode;
+  selectAllMode?: GridSelectionCheckBoxesSelectAllMode | string;
   /**
    * Sets or gets whether the position of the checkbox selection column.
    * Default value: near
    */
-  position?: Position;
+  position?: Position | string;
 }
 
 /**Describes sorting settings. */
@@ -16943,15 +17293,35 @@ export interface GridSorting {
    */
   sort?: string[];
   /**
+   * Maintains sorting when user edits data in the sorted column. The feature is useful when you want to apply sort just once and you set the property to false.
+   * Default value: true
+   */
+  maintainSort?: boolean;
+  /**
    * Sets the count of allowed sorting columns. When the property value is set to 'many', users can sort data by multiple columns.
    * Default value: one
    */
-  mode?: GridSortingMode;
+  mode?: GridSortingMode | string;
+  /**
+   * Sets the command key. The property is used in the multi-column sorting. If commandKey='Control', users will be able to sort by multiple columns only while holding the 'Control' key.
+   * Default value: Default
+   */
+  commandKey?: GridSortingCommandKey | string;
   /**
    * Enables switching between the three sort states: ascending, descending and not sorted.
    * Default value: true
    */
   sortToggleThreeStates?: boolean;
+  /**
+   * Enables switching between the sort states on column click. This is the default behavior.
+   * Default value: true
+   */
+  sortToggleOnClick?: boolean;
+  /**
+   * Enables switching between the sort states on column click and holding down the command key.
+   * Default value: false
+   */
+  sortToggleOnClickAndCommandKey?: boolean;
 }
 
 declare global {
@@ -17002,8 +17372,8 @@ export declare type GridFilteringFilterRowApplyMode = 'auto' | 'click';
 export declare type GridFilteringFilterMenuMode = 'default' | 'excel';
 /**Sets the group expand mode. */
 export declare type GridGroupingExpandMode = 'buttonClick' | 'rowClick';
-/**Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. */
-export declare type GridGroupingRenderMode = 'basic' | 'compact' | 'advanced';
+/**Sets the group render mode. 'basic' mode renders the group headers without taking into account the indent, groupRowHeight and column label properties. 'compact' mode is the same as basic, but also renders the column labels in the group headers. The default mode is 'advanced', which adds indents to groups that depend on the group level. In 'multipleColumns' mode, each group is displayed in its column. */
+export declare type GridGroupingRenderMode = 'basic' | 'compact' | 'advanced' | 'multipleColumns';
 /**Sets the ellipsis display mode. */
 export declare type GridPagerAutoEllipsis = 'none' | 'before' | 'after' | 'both';
 /**Sets or gets whether the selection allows you to select 'one', 'many' or a variation of 'many' called 'extended'. 'one' allows you to have only single cell or row selected. 'many'  */
@@ -17014,17 +17384,19 @@ export declare type GridSelectionAction = 'none' | 'click' | 'doubleClick';
 export declare type GridSelectionCheckBoxesSelectAllMode = 'none' | 'page' | 'all';
 /**Sets the count of allowed sorting columns. When the property value is set to 'many', users can sort data by multiple columns. */
 export declare type GridSortingMode = 'one' | 'many';
+/**Sets the command key. The property is used in the multi-column sorting. If commandKey='Control', users will be able to sort by multiple columns only while holding the 'Control' key. */
+export declare type GridSortingCommandKey = 'Default' | 'Alt' | 'Control' | 'Shift';
 export interface GroupPanelProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the the position of the close button of group panel items.
    * Default value: left
    */
-  closeButtonPosition?: GroupPanelCloseButtonPosition;
+  closeButtonPosition?: GroupPanelCloseButtonPosition | string;
   /**
    * Determines the data source that will be loaded to the group panel.Each member of the dataSource array is an object with the following fields:dataField - the dataField of the column to be grouped.dataType - the data type of the column to be grouped.groupIndex - the group order of columns. If this value is -1, the grouping will not be applied by this column initially.label - the column label to be displayed in the column selection input.icon - a specific class to be applied to the respective item in the column selection input.sortDirection - the sort direction to be applied when grouping. Possible values: 'ascending' and 'descending'.
    * Default value: null
@@ -17163,7 +17535,7 @@ export interface InputProperties {
    * Determines the position of the drop down button.
    * Default value: none
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -17240,7 +17612,7 @@ export interface InputProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: InputQueryMode;
+  queryMode?: InputQueryMode | string;
   /**
    * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -17408,12 +17780,17 @@ export interface KanbanProperties {
    * Determines whether the add button is visible in the column header and/or after the tasks in the column.
    * Default value: both
    */
-  addNewButtonDisplayMode?: KanbanAddNewButtonDisplayMode;
+  addNewButtonDisplayMode?: KanbanAddNewButtonDisplayMode | string;
   /**
    * Sets or gets whether a column with a button for adding new status columns to the Kanban will be displayed.
    * Default value: false
    */
   addNewColumn?: boolean;
+  /**
+   * Sets the width of the add new column. The property is used, if the 'columnWidth' property is set, too. It specifies the width of the dynamic new column.
+   * Default value: null
+   */
+  addNewColumnWidth?: number | null;
   /**
    * Allows the dragging of tasks.
    * Default value: true
@@ -17425,6 +17802,11 @@ export interface KanbanProperties {
    */
   allowDrop?: boolean;
   /**
+   * This property changes the visual appeal of the Kanban columns and tasks. When set to true and the Kanban columns have their 'color' property set, the color is also applied to the tasks and edit dialog.
+   * Default value: false
+   */
+  applyColumnColorToTasks?: boolean;
+  /**
    * Enables or disables auto load state from the browser's localStorage. Information about tasks and their position and selected state, filtering, sorting, collapsed columns, as well as the values of the properties taskActions, taskComments, taskDue, taskPriority, taskProgress, taskTags, and taskUserIcon is loaded.
    * Default value: true
    */
@@ -17435,6 +17817,11 @@ export interface KanbanProperties {
    */
   autoSaveState?: boolean;
   /**
+   * Automatically updates the columns height depending on the tasks inside the column. The effect of this property is observed when 'columnColorEntireSurface' is true.
+   * Default value: false
+   */
+  autoColumnHeight?: boolean;
+  /**
    * Allows collapsing the card content.
    * Default value: false
    */
@@ -17444,6 +17831,21 @@ export interface KanbanProperties {
    * Default value: false
    */
   columnColors?: boolean;
+  /**
+   * Sets the Kanban columns width. When this property is set, the kanban columns width is set and a horizontal scrollbar may appear.
+   * Default value: null
+   */
+  columnWidth?: number | null;
+  /**
+   * Displays background in the Kanban column.
+   * Default value: false
+   */
+  columnColorEntireSurface?: boolean;
+  /**
+   * Displays a column footer which shows the summary of the column.
+   * Default value: false
+   */
+  columnFooter?: boolean;
   /**
    * Describes the columns properties.
    * Default value: 
@@ -17468,12 +17870,27 @@ export interface KanbanProperties {
    * Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options.
    * Default value: headerAndMenu
    */
-  columnEditMode?: KanbanColumnEditMode;
+  columnEditMode?: KanbanColumnEditMode | string;
   /**
    * Sets or gets the id of the current user. Has to correspond to the id of an item from the users property/array. Depending on the current user, different privileges are enabled. If no current user is set, privileges depend on the element's properties.
    * Default value: 
    */
   currentUser?: string | number;
+  /**
+   * Sets or gets whether the default dialog for adding/removing tasks or comments is disabled.
+   * Default value: false
+   */
+  disableDialog?: boolean;
+  /**
+   * Sets or gets a customization function for the dialog. This function can be used to customize the dialog look or to replace it. The Kanban calls this function with 5 arguments - 'dialog', 'taskOrComment', 'editors', 'purpose' and 'type'. The dialog is the 'smart-window' instance used as a default Kanban dialog. 'taskOrComment' is object which could be Kanban task or comment. 'purpose' could be 'add' or 'edit' and 'type' could be 'task' or 'column' depending on the action.
+   * Default value: null
+   */
+  dialogCustomizationFunction?: any;
+  /**
+   * Sets or gets a function called when the dialog is rendered. The Kanban calls this function with 6 arguments - 'dialog', 'editors', 'labels', 'tabs', 'layout', 'taskOrComment'. The dialog is the 'smart-window' instance used as a default Kanban dialog. 'taskOrComment' is object which could be Kanban task or comment. 'editors', 'labels', 'tabs' and 'layout' are JSON objects with key which describes the element type and value which is HTML Element.
+   * Default value: null
+   */
+  dialogRendered?: any;
   /**
    * Determines the data source to be visualized in the kanban board.
    * Default value: null
@@ -17508,12 +17925,12 @@ export interface KanbanProperties {
    * Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons.
    * Default value: none
    */
-  headerPosition?: KanbanHeaderPosition;
+  headerPosition?: KanbanHeaderPosition | string;
   /**
    * Sets or gets the way column hierarchy is represented.
    * Default value: columns
    */
-  hierarchy?: KanbanHierarchy;
+  hierarchy?: KanbanHierarchy | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages.
    * Default value: "en"
@@ -17525,10 +17942,35 @@ export interface KanbanProperties {
    */
   messages?: any;
   /**
+   * Callback function which can be used for customizing the tasks rendering. The Kanban calls it with 2 arguments - task html element and task data.
+   * Default value: null
+   */
+  onTaskRender?: any;
+  /**
+   * Callback function which can be used for customizing the filter items. The function is called with 1 argument - Array of items which will be displayed in the filter drop down. You can modify that array to remove or update items to filter by.
+   * Default value: null
+   */
+  onFilterPrepare?: any;
+  /**
+   * Callback function which can be used for customizing the sort items. The function is called with 1 argument - Array of items which will be displayed in the sort drop down. You can modify that array to remove or update items to sort by.
+   * Default value: null
+   */
+  onSortPrepare?: any;
+  /**
+   * Callback function which can be used for customizing the column header rendering. The Kanban calls it with 3 arguments - column header html element and column data and column data field.
+   * Default value: null
+   */
+  onColumnHeaderRender?: any;
+  /**
+   * Callback function which can be used for customizing the column footer rendering. The Kanban calls it with 3 arguments - column header html element and column data and column data field.
+   * Default value: null
+   */
+  onColumnFooterRender?: any;
+  /**
    * Determines selection mode.
    * Default value: zeroOrOne
    */
-  selectionMode?: KanbanSelectionMode;
+  selectionMode?: KanbanSelectionMode | string;
   /**
    * Sets or gets whether the tasks history will be stored and displayed in the task dialog.
    * Default value: false
@@ -17544,6 +17986,11 @@ export interface KanbanProperties {
    * Default value: false
    */
   rightToLeft?: boolean;
+  /**
+   * Sets or gets whether the edit dialog is displayed in readonly mode. In that mode it shows only the task details, but the editing is disabled. However, if comments are enabled, you will be able to add comments in the dialog.
+   * Default value: false
+   */
+  readonly?: boolean;
   /**
    * Describes the swimlanes in the kanban board. Sub-columns are not applicable when swimlanes are present.
    * Default value: 
@@ -17570,6 +18017,11 @@ export interface KanbanProperties {
    */
   taskActions?: boolean;
   /**
+   * Represents a callback function which is called when the task actions menu is created. The task actions element is passed as parameter and allows you to customize the menu. Example: (list) => { list.innerHTML = 'Custom Item'; list.onclick = () => { alert('clicked'); }}
+   * Default value: null
+   */
+  taskActionsRendered?: any;
+  /**
    * Toggles the visibility of the task comments icon.
    * Default value: false
    */
@@ -17583,7 +18035,7 @@ export interface KanbanProperties {
    * Sets or gets whether tasks can be shown in all levels of column hierarchy or only on leaf columns.
    * Default value: false
    */
-  taskPosition?: KanbanTaskPosition;
+  taskPosition?: KanbanTaskPosition | string;
   /**
    * Toggles the visibility of the task priority icon (shown when priority is low or high).
    * Default value: true
@@ -17595,7 +18047,7 @@ export interface KanbanProperties {
    */
   taskProgress?: boolean;
   /**
-   * Sets the task custom fields displayed in the card. Each array item should have 'dataField', 'label' 'dataType' and optionally 'visible' properties. The 'dataField' determines the value, the label is displayed as title, 'dataType' is used for formatting and 'visible' determines whether the field will be displayed.
+   * Sets the task custom fields displayed in the card. Each array item should have 'dataField', 'label' 'dataType' and optionally 'visible', 'image' and 'cover' properties. The 'dataField' determines the value, the label is displayed as title, 'dataType' is used for formatting and 'visible' determines whether the field will be displayed. If your string represents an image either URL or Base64, set image: true. If you want to display that image as a cover image, set cover:true, too.
    * Default value: 
    */
   taskCustomFields?: any;
@@ -17613,7 +18065,7 @@ export interface KanbanProperties {
    * Sets the rendering mode of sub tasks. 'none' - default value. Sub tasks are displayed only in the edit dialog. 'onePerRow' - all sub tasks are displayed in the task's card. 'onlyUnfinished' - only tasks which are not completed are displayed in the task's card.
    * Default value: none
    */
-  taskSubTasks?: KanbanTaskSubTasks;
+  taskSubTasks?: KanbanTaskSubTasks | string;
   /**
    * Toggles the visibility of task tags.
    * Default value: true
@@ -17816,7 +18268,7 @@ export interface Kanban extends BaseElement, KanbanProperties {
 	* @param event. The custom event.    */
   onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the edit/prompt dialog is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function.
+   * This event is triggered when the edit/prompt dialog is about to be opened. The opening operation can be canceled by calling event.preventDefault() in the event handler function. If you want to cancel the default Kanban dialog, call event.preventDefault();
 	* @param event. The custom event. Custom data event was created with: ev.detail(comment, purpose, task)
    *  comment - The comment that is about to be removed (if applicable).
    *  purpose - The purpose of the dialog to be opened - <em>'edit'</em> or <em>'prompt'</em>.
@@ -17828,7 +18280,14 @@ export interface Kanban extends BaseElement, KanbanProperties {
 	* @param event. The custom event.    */
   onSort?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when a new task is added.
+   * This event is triggered before a new task is added. You can use the event.detail.value and event.detail.id to customize the new Task before adding it to the Kanban. Example: kanban.onTaskBeforeAdd = (event) => { const data = event.detail.value; const id = event.detail.id; event.detail.id = 'BG12';}
+	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
+   *  value - The task data that is added to the Kanban.
+   *  id - The task data id.
+   */
+  onTaskBeforeAdd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when a new task is added. Example: kanban.onTaskAdd = (event) => { const data = event.detail.value; const id = event.detail.id; }
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, id)
    *  value - The task data that is added to the Kanban.
    *  id - The task data id.
@@ -17864,15 +18323,15 @@ export interface Kanban extends BaseElement, KanbanProperties {
    */
   onTaskDoubleClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Adds filtering
-   * @param {string[]} filters. Filter information
-   * @param {string} operator?. Logical operator between the filters of different fields
+   * Adds filtering. Example: const filterGroup = new Smart.FilterGroup(); const filterObject = filterGroup.createFilter('string', 'Italy', 'contains'); filterGroup.addFilter('and', filterObject); kanban.addFilter([['Country', filterGroup]]);
+   * @param {any} filters. Filter information. Example: kanban.addFilter([['Country', filterGroup]]);. Each array item is a sub array with two items - 'dataField' and 'filterGroup' object. The 'dataField' is any valid data field from the data source bound to the Kanban like 'dueDate', 'startDate' or custom fields like 'Country'. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
+   * @param {string} operator?. Logical operator between the filters of different fields. Possible values are: 'and', 'or'. 
    */
-  addFilter(filters: string[], operator?: string): void;
+  addFilter(filters: any, operator?: string): void;
   /**
-   * Adds sorting
+   * Adds sorting. Example: kanban.addSort(['Country'], 'ascending');
    * @param {[] | string} dataFields. The data field(s) to sort by
-   * @param {[] | string} orderBy. The sort direction(s) to sort the data field(s) by
+   * @param {[] | string} orderBy. The sort direction(s) to sort the data field(s) by. Possible values are: 'ascending' and 'descending'.
    */
   addSort(dataFields: [] | string, orderBy: [] | string): void;
   /**
@@ -18101,7 +18560,7 @@ export interface KanbanColumn {
    * Sets or gets whether the tasks in the column flow vertically or horizontally.
    * Default value: vertical
    */
-  orientation?: KanbanColumnOrientation;
+  orientation?: KanbanColumnOrientation | string;
   /**
    * Sets or gets whether the column is selected. Only applicable to sub-columns when hierarchy is 'tabs'.
    * Default value: false
@@ -18112,6 +18571,11 @@ export interface KanbanColumn {
    * Default value: null
    */
   headerTemplate?: any;
+  /**
+   * Sets the Kanban column width. When this property is set, the kanban column width is set and a horizontal scrollbar may appear.
+   * Default value: null
+   */
+  width?: number | null;
 }
 
 export interface KanbanDataSource {
@@ -18141,20 +18605,10 @@ export interface KanbanDataSource {
    */
   dueDate?: Date;
   /**
-   * Callback function which can be used for customizing the tasks rendering. The Kanban calls it with 2 arguments - task html element and task data.
-   * Default value: null
-   */
-  onTaskRender?: any;
-  /**
-   * Callback function which can be used for customizing the column header rendering. The Kanban calls it with 2 arguments - column header html element and column data.
-   * Default value: null
-   */
-  onColumnHeaderRender?: any;
-  /**
    * The task's priority.
-   * Default value: normal
+   * Default value: "normal"
    */
-  priority?: KanbanDataSourcePriority;
+  priority?: string;
   /**
    * The task's progress in percentages - a number from 0 to 100.
    * Default value: null
@@ -18282,8 +18736,6 @@ export declare type KanbanAddNewButtonDisplayMode = 'top' | 'bottom' | 'both';
 export declare type KanbanColumnOrientation = 'vertical' | 'horizontal';
 /**Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options. */
 export declare type KanbanColumnEditMode = 'header' | 'menu' | 'headerAndMenu';
-/**The task's priority. */
-export declare type KanbanDataSourcePriority = 'low' | 'normal' | 'high';
 /**Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons. */
 export declare type KanbanHeaderPosition = 'none' | 'top' | 'bottom';
 /**Sets or gets the way column hierarchy is represented. */
@@ -18299,7 +18751,7 @@ export interface LayoutProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the options that will be available for selection inside the context menu.
    * Default value: delete
@@ -18343,7 +18795,7 @@ export interface LayoutProperties {
    * Sets or gets Layout's main orientation. The orientation is applied to all Splitters inside the Layout unless they have their orientation explicitly set in the dataSource.
    * Default value: vertical
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -18483,7 +18935,7 @@ export interface LayoutGroupProperties {
    * Determines the group orientation.
    * Default value: vertical
    */
-  orientation?: LayoutGroupOrientation;
+  orientation?: LayoutGroupOrientation | string;
   /**
    * Determines the size of the item.
    * Default value: null
@@ -18572,7 +19024,7 @@ export interface LedProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -18582,7 +19034,7 @@ export interface LedProperties {
    * Determines when the element fires a click event.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the LED.
    * Default value: false
@@ -18658,7 +19110,7 @@ export interface LedProperties {
    * Sets the shape of LED.
    * Default value: round
    */
-  shape?: LedShape;
+  shape?: LedShape | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -18743,7 +19195,7 @@ export interface ListBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables auto sorting. If sorted is enabled, but autoSort is false, the element will not be re-sorted automatically.
    * Default value: true
@@ -18783,7 +19235,7 @@ export interface ListBoxProperties {
    * Determines what happens when an item is dropped.
    * Default value: move
    */
-  dropAction?: ListBoxDropAction;
+  dropAction?: ListBoxDropAction | string;
   /**
    * Determines if list items can be edited or not. If enabled, items can be edited by double clicking on a target item ( that is not disabled ) or pressing the F2 key on the keyboard.
    * Default value: false
@@ -18803,7 +19255,7 @@ export interface ListBoxProperties {
    * Determines the filtering mode.
    * Default value: containsIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * Determines the placeholder for the filter input field.
    * Default value: ""
@@ -18823,7 +19275,7 @@ export interface ListBoxProperties {
    * Determines the visibility of the horizontal Scroll bar.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * IncrementalSearchDelay property specifies the time-interval in milliseconds until the previous search query is cleared. The timer starts when the user stops typing. A new query can be started only when the delay has passed.
    * Default value: 700
@@ -18833,7 +19285,7 @@ export interface ListBoxProperties {
    * Sets ot gets the mode of the incremental search mode. Incremental search is enabled by default. Typing while the List box is focused starts the incremental search.
    * Default value: startsWithIgnoreCase
    */
-  incrementalSearchMode?: SearchMode;
+  incrementalSearchMode?: SearchMode | string;
   /**
    * Sets the height for all list box items. Used only when virtualization is enabled.
    * Default value: null
@@ -18843,7 +19295,7 @@ export interface ListBoxProperties {
    * Determines the item width measuring algorithm.
    * Default value: auto
    */
-  itemMeasureMode?: ListItemMeasureMode;
+  itemMeasureMode?: ListItemMeasureMode | string;
   /**
    * A getter that returns an array of all ListBox items.
    * Default value: 
@@ -18863,7 +19315,7 @@ export interface ListBoxProperties {
    * Determines the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -18929,12 +19381,12 @@ export interface ListBoxProperties {
    * Determines how many items can be selected depending on the selection mode.
    * Default value: oneOrManyExtended
    */
-  selectionMode?: ListSelectionMode;
+  selectionMode?: ListSelectionMode | string;
   /**
    * Determines when listbox selection is achieved - on 'press' or 'release'.
    * Default value: release
    */
-  selectionChangeAction?: ListBoxSelectionChangeAction;
+  selectionChangeAction?: ListBoxSelectionChangeAction | string;
   /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
@@ -18974,7 +19426,7 @@ export interface ListBoxProperties {
    * Determines the visibility of the vertical scroll bar.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines weather or not Virtualization is used for the ListBox. Virtualization allows a huge amount of items to be loaded to the List box while preserving the performance. For example a milion items can be loaded to the list box.
    * Default value: false
@@ -19184,7 +19636,7 @@ export interface ListItemProperties {
    * 
    * Default value: plain
    */
-  displayMode?: ListItemDisplayMode;
+  displayMode?: ListItemDisplayMode | string;
   /**
    * 
    * Default value: false
@@ -19278,7 +19730,7 @@ export interface ListMenuProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether the element becomes focused on hover or not.
    * Default value: false
@@ -19298,7 +19750,7 @@ export interface ListMenuProperties {
    * Sets the check mode of top-level ListMenu items(groups).
    * Default value: checkbox
    */
-  checkMode?: MenuCheckMode;
+  checkMode?: MenuCheckMode | string;
   /**
    * Determines the data source that will be loaded to the ListMenu. The data source represents an array of objects with the following properties: label - a string representing the text content of the item.value - the value of the item.shortcut - a string representing a shortuct for the item. It will be displayed inside the item.items - allows to define an array of sub menu items.
    * Default value: null
@@ -19333,7 +19785,7 @@ export interface ListMenuProperties {
    * Sets or gets the opening direction of the ListMenu minimized dropdown.
    * Default value: auto
    */
-  dropDownPosition?: MenuDropDownPosition;
+  dropDownPosition?: MenuDropDownPosition | string;
   /**
    * Enables or disables scrolling using the mouse wheel through overflowing menu items.
    * Default value: false
@@ -19358,7 +19810,7 @@ export interface ListMenuProperties {
    * Determines the filtering mode.
    * Default value: containsIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * If enabled, the items will be grouped by their first letter and sorted.
    * Default value: false
@@ -19378,7 +19830,7 @@ export interface ListMenuProperties {
    * Determines the position of the loading indicator inside the element.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -19419,7 +19871,7 @@ export interface ListMenuProperties {
    * Sets or gets the ListMenu's scroll buttons behavior.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -19434,7 +19886,7 @@ export interface ListMenuProperties {
    * Determines whether to use scrollbar or scrollButtons when content overflows an element's box.
    * Default value: scrollbar
    */
-  scrollMode?: ListMenuScrollMode;
+  scrollMode?: ListMenuScrollMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -19623,7 +20075,7 @@ export interface MaskedTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether promptChar can be entered as valid input by the user.
    * Default value: false
@@ -19648,7 +20100,7 @@ export interface MaskedTextBoxProperties {
    * Determines whether literals and prompt characters are copied to the clipboard on cut/copy operations.
    * Default value: excludePromptAndLiterals
    */
-  cutCopyMaskFormat?: MaskedTextBoxCutCopyMaskFormat;
+  cutCopyMaskFormat?: MaskedTextBoxCutCopyMaskFormat | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -19658,7 +20110,7 @@ export interface MaskedTextBoxProperties {
    * Specifies the behavior on "Enter" key press. Default mode is "submit".
    * Default value: submit
    */
-  enterKeyBehavior?: EnterKeyBehavior;
+  enterKeyBehavior?: EnterKeyBehavior | string;
   /**
    * Determines whether the prompt character in the input mask is hidden when the masked text box isn't focused anymore.
    * Default value: false
@@ -19780,7 +20232,7 @@ export interface MaskedTextBoxProperties {
    * Determines whether the value of the input should contain or not the prompt/literals of the mask.
    * Default value: excludePromptAndLiterals
    */
-  textMaskFormat?: MaskedTextBoxTextMaskFormat;
+  textMaskFormat?: MaskedTextBoxTextMaskFormat | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -19860,7 +20312,7 @@ export interface MenuProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines delay (in milliseconds) before a Menu dropdown is closed when leaving the Menu with the mouse. Applicable only when selectionMode is 'mouseenter'.
    * Default value: 100
@@ -19885,12 +20337,12 @@ export interface MenuProperties {
    * Sets the check mode of top-level Menu items (immediate children of the Menu). checkMode can be set to 'checkbox', 'radioButton', or a comma-separated list containing 'checkbox', 'radioButton', or 'none' (e.g. 'checkbox, radioButton, none, checkbox'). When set to a list, each value in the list is applied to groups of Menu items separated by an item with separator (item after the one with separator is the start of a new checkMode context). Sublevels are controlled by setting checkMode to the respective smart-menu-items-group.
    * Default value: checkbox
    */
-  checkMode?: MenuCheckMode;
+  checkMode?: MenuCheckMode | string;
   /**
    * Sets the document event which closes any open Menu drop downs (or the Menu itself when mode is 'dropDown').
    * Default value: up
    */
-  closeAction?: MenuCloseAction;
+  closeAction?: MenuCloseAction | string;
   /**
    * Determines the data source that will be loaded to the Menu. The data source represents an array of objects with the following properties: label - a string representing the text content of the item.value - the value of the item.shortcut - a string representing a shortuct for the item. It will be displayed inside the item.items - allows to define an array of sub menu items.
    * Default value: null
@@ -19920,7 +20372,7 @@ export interface MenuProperties {
    * Determines the opening direction of Menu dropdowns.
    * Default value: auto
    */
-  dropDownPosition?: MenuDropDownPosition;
+  dropDownPosition?: MenuDropDownPosition | string;
   /**
    * A getter that returns an array of all Menu items.
    * Default value: 
@@ -19971,7 +20423,7 @@ export interface MenuProperties {
    * Determines the menu's display mode.
    * Default value: horizontal
    */
-  mode?: MenuMode;
+  mode?: MenuMode | string;
   /**
    * Opens or closes thte menu when it's in 'dropDown' mode.
    * Default value: false
@@ -19981,7 +20433,7 @@ export interface MenuProperties {
    * Sets or gets the menu's scroll buttons behavior. Applicable only when dropDownAppendTo is not null.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * If set to true, prevents the closing of the Menu or its dropdowns when Menu items are checked/unchecked.
    * Default value: false
@@ -20001,7 +20453,7 @@ export interface MenuProperties {
    * Determines the menu's selection mode.
    * Default value: click
    */
-  selectionMode?: MenuSelectionMode;
+  selectionMode?: MenuSelectionMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -20255,7 +20707,7 @@ export interface MenuItemsGroupProperties {
    * 
    * Default value: checkbox
    */
-  checkMode?: MenuCheckMode;
+  checkMode?: MenuCheckMode | string;
   /**
    * Enables or disables element.
    * Default value: false
@@ -20316,12 +20768,12 @@ export interface MultiColumnFilterPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the position of the close button of multi column filter panel items.
    * Default value: left
    */
-  closeButtonPosition?: MultiColumnFilterPanelCloseButtonPosition;
+  closeButtonPosition?: MultiColumnFilterPanelCloseButtonPosition | string;
   /**
    * Determines the data source that will be loaded to the multi column filter panel.Each member of the dataSource array is an object with the following fields:dataField - the dataField of the column to be grouped.dataType - the data type of the column to be grouped.groupIndex - the group order of columns. If this value is -1, the grouping will not be applied by this column initially.label - the column label to be displayed in the column selection input.icon - a specific class to be applied to the respective item in the column selection input.sortDirection - the sort direction to be applied when grouping. Possible values: 'ascending' and 'descending'.
    * Default value: null
@@ -20396,7 +20848,7 @@ export interface MultiColumnFilterPanelProperties {
    * Determines the logical operator between the items.
    * Default value: false
    */
-  operator?: MultiColumnFilterPanelOperator;
+  operator?: MultiColumnFilterPanelOperator | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -20462,7 +20914,7 @@ export interface MultiComboInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -20492,7 +20944,7 @@ export interface MultiComboInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -20574,7 +21026,7 @@ export interface MultiComboInputProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: MultiComboInputQueryMode;
+  queryMode?: MultiComboInputQueryMode | string;
   /**
    * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -20619,7 +21071,7 @@ export interface MultiComboInputProperties {
    * Determines whether the input field will contain tags for each selected item from the popup or just one that shows the number of selected items.
    * Default value: many
    */
-  inputTagsMode?: MultiComboInputInputTagsMode;
+  inputTagsMode?: MultiComboInputInputTagsMode | string;
   /**
    * Determines the theme for the element. Themes define the look of the elements.
    * Default value: ""
@@ -20694,7 +21146,7 @@ export interface MultiInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -20714,7 +21166,7 @@ export interface MultiInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -20791,7 +21243,7 @@ export interface MultiInputProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: MultiInputQueryMode;
+  queryMode?: MultiInputQueryMode | string;
   /**
    * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -20899,17 +21351,17 @@ export interface MultilineTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether and how the value should be automatically capitalized as it is entered/edited by the user.
    * Default value: none
    */
-  autoCapitalize?: MultilineTextBoxAutoCapitalize;
+  autoCapitalize?: MultilineTextBoxAutoCapitalize | string;
   /**
    * Determines whether the value of the control can be automatically completed by the browser.
    * Default value: off
    */
-  autoComplete?: MultiLineTextBoxAutoComplete;
+  autoComplete?: MultiLineTextBoxAutoComplete | string;
   /**
    * Determines whether element will auto expand when the input overflows vertically.
    * Default value: false
@@ -20934,12 +21386,12 @@ export interface MultilineTextBoxProperties {
    * Specifies how the characters are displayed inside the input.
    * Default value: default
    */
-  displayMode?: TextBoxDisplayMode;
+  displayMode?: TextBoxDisplayMode | string;
   /**
    * Determines the behavior on "Enter" key.
    * Default value: newLine
    */
-  enterKeyBehavior?: MultilineTextBoxEnterKeyBehavior;
+  enterKeyBehavior?: MultilineTextBoxEnterKeyBehavior | string;
   /**
    * The form element that the element is associated with (its "form owner"). The value of the attribute must be the ID of a form element in the same document.
    * Default value: ""
@@ -20954,7 +21406,7 @@ export interface MultilineTextBoxProperties {
    * Controls horizontal scrollbar's visibility. 
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
    * Default value: "off"
@@ -21076,12 +21528,12 @@ export interface MultilineTextBoxProperties {
    * Controls vertical scrollbar's visibility. 
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Indicates how the control wraps text.
    * Default value: soft
    */
-  wrap?: MultilineTextBoxWrap;
+  wrap?: MultilineTextBoxWrap | string;
 }
 /**
  Defines a multi-line text input control. MultilineTextBox can hold an unlimited number of characters, and the text renders in a fixed-width font
@@ -21145,7 +21597,7 @@ export interface MultiSplitButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines a data source used to generate element's permanently visible buttons.
    * Default value: 
@@ -21180,12 +21632,12 @@ export interface MultiSplitButtonProperties {
    * Determines position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Defines how element's drop down behaves. In 'none' mode drop down never opens. In 'dropDownButton' mode drop down is opened only via elelent's drop down button. In 'auto' mode drop down is opened on click on the whole top section.
    * Default value: dropDownButton
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document.
    * Default value: false
@@ -21195,7 +21647,7 @@ export interface MultiSplitButtonProperties {
    * Determines the vertical position of the dropDown list. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Determines whether the Filtering is enabled.
    * Default value: false
@@ -21205,7 +21657,7 @@ export interface MultiSplitButtonProperties {
    * Determines the filtering for the drop down list mode.
    * Default value: startsWithIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * Determines the placeholder for the drop down list filter input field.
    * Default value: ""
@@ -21230,7 +21682,7 @@ export interface MultiSplitButtonProperties {
    * Sets ot gets the mode of the incremental search mode.
    * Default value: startsWithIgnoreCase
    */
-  incrementalSearchMode?: SearchMode;
+  incrementalSearchMode?: SearchMode | string;
   /**
    * Determines the height of the items.
    * Default value: null
@@ -21250,7 +21702,7 @@ export interface MultiSplitButtonProperties {
    * The position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -21302,7 +21754,7 @@ export interface MultiSplitButtonProperties {
    * Determines how many items can be selected.
    * Default value: one
    */
-  selectionMode?: MultiSplitButtonSelectionMode;
+  selectionMode?: MultiSplitButtonSelectionMode | string;
   /**
    * Determines whether the items in the dropDown are sorted alphabetically or not
    * Default value: false
@@ -21441,7 +21893,7 @@ export interface NumberInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -21555,12 +22007,14 @@ export interface NumberInput extends BaseElement, NumberInputProperties {
    * Returns the value in the desired format.
    * @param {string | number} value. The value to be formatted by the method. 
    * @param {any} format?. The object that contains the formatting properties. The argument should contain Intl.NumberFormat valid properties. For example, { style: 'currency', currency: 'EUR' }
+   * @returns {string}
    */
-  getFormattedValue(value: string | number, format?: any): void;
+  getFormattedValue(value: string | number, format?: any): string;
   /**
    * Returns the number of the input.
+   * @returns {number}
    */
-  getValue(): void;
+  getValue(): number;
   /**
    * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
    */
@@ -21587,7 +22041,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the char to use as the decimal separator in numeric values. 
    * Default value: "."
@@ -21622,7 +22076,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the input format of the widget. Setting this property dynamically can lead to precision loss. 
    * Default value: integer
    */
-  inputFormat?: NumericTextBoxInputFormat;
+  inputFormat?: NumericTextBoxInputFormat | string;
   /**
    * Sets a label above the element. 
    * Default value: ""
@@ -21710,7 +22164,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the radix of the jqxNumericTextBox. The radix specifies the numeral system in which to display the widget's value. Applicable only when inputFormat is 'integer'. 
    * Default value: 10
    */
-  radix?: NumericTextBoxRadix;
+  radix?: NumericTextBoxRadix | string;
   /**
    * Enables or disables the radix display button of the jqxNumericTextBox. Applicable only when inputFormat is 'integer'. 
    * Default value: false
@@ -21720,7 +22174,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the position of the radix display button of the jqxNumericTextBox. 
    * Default value: left
    */
-  radixDisplayPosition?: NumericTextBoxDisplayPosition;
+  radixDisplayPosition?: NumericTextBoxDisplayPosition | string;
   /**
    * Sets or gets the readonly state of the jqxNumericTextBox. 
    * Default value: false
@@ -21770,7 +22224,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the position of the spin buttons of the jqxNumericTextBox. 
    * Default value: right
    */
-  spinButtonsPosition?: NumericTextBoxDisplayPosition;
+  spinButtonsPosition?: NumericTextBoxDisplayPosition | string;
   /**
    * Sets or gets the increase/decrease step. 
    * Default value: 1
@@ -21795,7 +22249,7 @@ export interface NumericTextBoxProperties {
    * Sets the value's validation by min/max. If 'strict' is applied, the value is always validated by min and max. If 'interaction' is applied, programmatic value changes are not coerced to min/max and if min/max are changed, resulting in the current value being out of range, the value is not coerced, and no change event is fired.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value of the jqxNumericTextBox widget. 
    * Default value: 0
@@ -21805,7 +22259,7 @@ export interface NumericTextBoxProperties {
    * Sets or gets the word length. Applicable only when inputFormat is 'integer'. If min and/or max are not set by default, they will be set automatically based on the specified word length. 
    * Default value: int32
    */
-  wordLength?: WordLength;
+  wordLength?: WordLength | string;
 }
 /**
  input field for entering a number. Includes number formatting for Engineers and Scientists.
@@ -21876,12 +22330,12 @@ export interface PagerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Handles pager's elipsis. Ellipsis buttons are displayed as indicators and additional help to navigate between pages.
    * Default value: none
    */
-  autoEllipsis?: PagerAutoEllipsis;
+  autoEllipsis?: PagerAutoEllipsis | string;
   /**
    * Enables or disables the pager.
    * Default value: false
@@ -21928,7 +22382,7 @@ export interface PagerProperties {
    * Handles the position of the navigation buttons.
    * Default value: near
    */
-  navigationButtonsPosition?: LayoutPosition;
+  navigationButtonsPosition?: LayoutPosition | string;
   /**
    * Gets/sets current page index.
    * Default value: 0
@@ -22176,7 +22630,7 @@ export interface PasswordTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Specifies that the element should be focused when the page is loaded.
    * Default value: false
@@ -22191,7 +22645,7 @@ export interface PasswordTextBoxProperties {
    * Specifies the behavior on "Enter" key press. Default mode is "submit".
    * Default value: submit
    */
-  enterKeyBehavior?: EnterKeyBehavior;
+  enterKeyBehavior?: EnterKeyBehavior | string;
   /**
    * The form that the element is associated with (its "form owner"). The value of the attribute must be the ID of a form element in the same document.
    * Default value: ""
@@ -22310,7 +22764,7 @@ export interface PasswordTextBoxProperties {
    * Determines the position of the tooltip.
    * Default value: top
    */
-  tooltipPosition?: PasswordTextBoxTooltipPosition;
+  tooltipPosition?: PasswordTextBoxTooltipPosition | string;
   /**
    * Sets a custom template for the content of the tooltip.
    * Default value: "null"
@@ -22375,7 +22829,7 @@ export interface PathProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the data source for the item that will be displayed inside the drop down.
    * Default value: null
@@ -22430,7 +22884,7 @@ export interface PathProperties {
    * Determines the vertical position of the dropDown. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. Default value of empty string means that CSS variables are used. This property should be used when the browser doesn't support CSS variables.
    * Default value: 
@@ -22495,7 +22949,7 @@ export interface PathProperties {
    * Determines the format of the path. Follows specific operation system criteria by changing the drive,folder separators. 
    * Default value: windows
    */
-  pathFormat?: PathFormat;
+  pathFormat?: PathFormat | string;
   /**
    * Disables user interaction with the element.
    * Default value: false
@@ -22616,7 +23070,7 @@ export interface PhoneInputProperties {
    * Determines the position of the drop down button.
    * Default value: none
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -22773,7 +23227,7 @@ export interface PivotTableProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets whether the reordering of columns is enabled.
    * Default value: false
@@ -22793,7 +23247,7 @@ export interface PivotTableProperties {
    * Sets or gets the position of total columns (shown when columnTotals is enabled).
    * Default value: near
    */
-  columnTotalsPosition?: PivotTableColumnTotalsPosition;
+  columnTotalsPosition?: PivotTableColumnTotalsPosition | string;
   /**
    * Sets or gets details about conditional formatting to be applied to the PivotTable's cells.
    * Default value: null
@@ -22818,7 +23272,7 @@ export interface PivotTableProperties {
    * Sets or gets the position of the PivotTable's designer (shown when designer is enabled).
    * Default value: far
    */
-  designerPosition?: PivotTableDesignerPosition;
+  designerPosition?: PivotTableDesignerPosition | string;
   /**
    * Disables the interaction with the element.
    * Default value: false
@@ -22833,7 +23287,7 @@ export interface PivotTableProperties {
    * If set, shows an export button in the drill down dialog.
    * Default value: 
    */
-  drillDownDataExport?: PivotTableDrillDownDataExport;
+  drillDownDataExport?: PivotTableDrillDownDataExport | string;
   /**
    * Sets or gets the drill down table export file name.
    * Default value: ""
@@ -22873,7 +23327,7 @@ export interface PivotTableProperties {
    * Sets or gets the way row nesting (based on rowGroup columns) is displayed.
    * Default value: default
    */
-  groupLayout?: PivotTableGroupLayout;
+  groupLayout?: PivotTableGroupLayout | string;
   /**
    * Sets or gets whether to hide the tooltip that displays details when multiple summary cells with non-null values are selected.
    * Default value: false
@@ -22943,7 +23397,7 @@ export interface PivotTableProperties {
    * Sets or gets the position of row total columns (shown when rowTotals is enabled).
    * Default value: near
    */
-  rowTotalsPosition?: PivotTableRowTotalsPosition;
+  rowTotalsPosition?: PivotTableRowTotalsPosition | string;
   /**
    * Sets or gets whether row selection (via checkboxes) is enabled.
    * Default value: false
@@ -22953,12 +23407,12 @@ export interface PivotTableProperties {
    * Sets or gets the selection mode. Only applicable when selection is enabled.
    * Default value: many
    */
-  selectionMode?: PivotTableSelectionMode;
+  selectionMode?: PivotTableSelectionMode | string;
   /**
    * Determines the sorting mode of the PivotTable.
    * Default value: none
    */
-  sortMode?: PivotTableSortMode;
+  sortMode?: PivotTableSortMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -23127,7 +23581,7 @@ export interface PivotTableColumn {
    * Sets or gets the header cell alignment for pivot and summary columns and cell alignment for row group columns.
    * Default value: left
    */
-  align?: PivotTableColumnAlign;
+  align?: PivotTableColumnAlign | string;
   /**
    * Sets or gets whether the column can be filtered.
    * Default value: true
@@ -23157,7 +23611,7 @@ export interface PivotTableColumn {
    * Sets or gets the data type of the column's cells.
    * Default value: string
    */
-  dataType?: PivotTableColumnDataType;
+  dataType?: PivotTableColumnDataType | string;
   /**
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
@@ -23182,7 +23636,7 @@ export interface PivotTableColumn {
    * Sets or gets the summary function to aggregate the column's data by and produce dynamic summary columns for each unique pivot data point. There must always be at least one summary column for the PivotTable to make sense. When columnTotals is enabled, all summary columns must have the same summary function set.
    * Default value: sum
    */
-  summary?: PivotTableColumnSummary;
+  summary?: PivotTableColumnSummary | string;
   /**
    * Sets or gets an object with settings for cells in summary columns. These settings are not applied if column formatFunction is also implemented.
    * Default value: [object Object]
@@ -23200,7 +23654,7 @@ export interface PivotTableConditionalFormatting {
    * The formatting condition.
    * Default value: lessThan
    */
-  condition?: PivotTableConditionalFormattingCondition;
+  condition?: PivotTableConditionalFormattingCondition | string;
   /**
    * The value to compare by. When condition is 'between', this is the start (from) value.
    * Default value: 0
@@ -23210,12 +23664,12 @@ export interface PivotTableConditionalFormatting {
    * The fontFamily to apply to formatted cells.
    * Default value: The default fontFamily as set in CSS
    */
-  fontFamily?: PivotTableConditionalFormattingFontFamily;
+  fontFamily?: PivotTableConditionalFormattingFontFamily | string;
   /**
    * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
    * Default value: 14px
    */
-  fontSize?: PivotTableConditionalFormattingFontSize;
+  fontSize?: PivotTableConditionalFormattingFontSize | string;
   /**
    * The background color to apply to formatted cells.
    * Default value: "The default backgroundColor as set in CSS"
@@ -23274,7 +23728,7 @@ export interface PowerButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -23284,7 +23738,7 @@ export interface PowerButtonProperties {
    * Sets the click mode of the button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the power button.
    * Default value: false
@@ -23370,7 +23824,7 @@ export interface ProgressBarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element. 
    * Default value: false
@@ -23431,7 +23885,7 @@ export interface ProgressBarProperties {
    * Sets the orientation of the progress bar
    * Default value: horizontal
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -23481,6 +23935,143 @@ declare global {
     }
 }
 
+export interface QRcodeProperties {
+  /**
+   * Sets the background color of the QR Code element.
+   * Default value: "white"
+   */
+  backgroundColor?: string;
+  /**
+   * Sets whether the QR Code label is visible.
+   * Default value: false
+   */
+  displayLabel?: boolean;
+  /**
+   * Sets an embedded image.
+   * Default value: ""
+   */
+  embedImage?: string;
+  /**
+   * Sets the error correction level.
+   * Default value: "H"
+   */
+  errorLevel?: string;
+  /**
+   * Sets the height of the embedded image.
+   * Default value: 15
+   */
+  imageHeight?: number;
+  /**
+   * Sets the width of the embedded image.
+   * Default value: 15
+   */
+  imageWidth?: number;
+  /**
+   * Sets the color of the QR Code label.
+   * Default value: "black"
+   */
+  labelColor?: string;
+  /**
+   * Sets the font family of the QR Code label.
+   * Default value: "monospace"
+   */
+  labelFont?: string;
+  /**
+   * Sets the font size of the QR Code label.
+   * Default value: 14
+   */
+  labelFontSize?: number;
+  /**
+   * Sets the bottom margin of the QR Code label.
+   * Default value: 5
+   */
+  labelMarginBottom?: number;
+  /**
+   * Sets the top margin of the QR Code label.
+   * Default value: 5
+   */
+  labelMarginTop?: number;
+  /**
+   * Sets the position of the QR Code label.
+   * Default value: bottom
+   */
+  labelPosition?: QRcodeLabelPosition | string;
+  /**
+   * Sets the color of the QR Code lines.
+   * Default value: "black"
+   */
+  lineColor?: string;
+  /**
+   * Sets the width of the QR Code square.
+   * Default value: 7
+   */
+  squareWidth?: number;
+  /**
+   * Sets the rendering mode of the QR Code.
+   * Default value: svg
+   */
+  renderAs?: QRcodeRenderAs | string;
+  /**
+   * Sets or gets the value of the QR Code.
+   * Default value: ""
+   */
+  value?: string;
+}
+/**
+ QR Codes encode text values in a two-dimensional pattern.
+*/
+export interface QRcode extends BaseElement, QRcodeProperties {
+
+  /* Get a member by its name */
+  [name: string]: any;
+  /**
+   * This event is triggered when the value of the QR Code is invalid. 
+	* @param event. The custom event. Custom data event was created with: ev.detail(invalidCharacters, lengthValidity, patternValidity, value)
+   *  invalidCharacters - An array indicating the invalid characters.
+   *  lengthValidity - A boolean indicating the length validity.
+   *  patternValidity - A boolean indicating the pattern validity.
+   *  value - the invalid value of the QR Code.
+   */
+  onInvalid?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * Exports the QR Code.
+   * @param {string} format. The format of the exported file - svg, png, jpg
+   * @param {string} fileName?. The name of the exported file
+   */
+  export(format: string, fileName?: string): void;
+  /**
+   * Gets the base64 string of the QR Code
+   * @param {string} format. The dataURL format of the string - svg, png, jpg
+   * @returns {string}
+   */
+  getDataURL(format: string): string;
+  /**
+   * Gets the base64 string of the QR Code
+   * @param {string} format. The dataURL format of the string - svg, png, jpg
+   * @returns {any}
+   */
+  getDataURLAsync(format: string): any;
+  /**
+   * Gets the validity of the QR Code
+   * @returns {boolean}
+   */
+  isValid(): boolean;
+}
+
+declare global {
+    interface Document {
+        createElement(tagName: "smart-qrcode"): QRcode;
+        querySelector(selectors: "smart-qrcode"): QRcode | null;
+        querySelectorAll(selectors: "smart-qrcode"): NodeListOf<QRcode>;
+        getElementsByTagName(qualifiedName: "smart-qrcode"): HTMLCollectionOf<QRcode>;
+        getElementsByName(elementName: "smart-qrcode"): NodeListOf<QRcode>;
+    }
+}
+
+/**Sets the position of the QR Code label. */
+export declare type QRcodeLabelPosition = 'top' | 'bottom';
+/**Sets the rendering mode of the QR Code. */
+export declare type QRcodeRenderAs = 'svg' | 'canvas';
 export interface QueryBuilderProperties {
   /**
    * Enables the dragging of conditions inside a group or between groups.
@@ -23491,12 +24082,17 @@ export interface QueryBuilderProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines when the value of the element is updated with the new changes.
    * Default value: change
    */
-  applyMode?: QueryBuilderApplyMode;
+  applyMode?: QueryBuilderApplyMode | string;
+  /**
+   * When 'applyMode' is set to 'immediately', the default value is applied to the editor's value and the QueryBuilder's value is updated automatically.
+   * Default value: false
+   */
+  autoApplyValue?: boolean;
   /**
    * Determines whether QueryBuilder will automatically prompt the user to enter a condition value when a new condition is created. When 'applyMode' is set to 'immediately', the operation field is automatically populated if empty when the selected condition operator is changed. The input field prompts the user when the operation or operator of the condition is changed.
    * Default value: false
@@ -23526,7 +24122,7 @@ export interface QueryBuilderProperties {
    * Determines whether new fields can be dynamically added by typing in the field (property) box.
    * Default value: dynamic
    */
-  fieldsMode?: QueryBuilderFieldsMode;
+  fieldsMode?: QueryBuilderFieldsMode | string;
   /**
    * Sets or gets the format string of the editor of fields with type 'date'.
    * Default value: "dd-MMM-yy"
@@ -23717,6 +24313,13 @@ export interface QueryBuilder extends BaseElement, QueryBuilderProperties {
    */
   onPropertySelected?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the component validates the input values. This happens when you input a new value and focus another component.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, newValue)
+   *  oldValue - Old validation status.
+   *  newValue - New validation status.
+   */
+  onValidationChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Converts the current value of the element to DynamicLINQ expression.
    * @returns {string}
    */
@@ -23828,7 +24431,7 @@ export interface RadioButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -23838,12 +24441,12 @@ export interface RadioButtonProperties {
    * Sets or gets the part that toggles the element.
    * Default value: both
    */
-  checkMode?: CheckMode;
+  checkMode?: CheckMode | string;
   /**
    * Sets the click mode of the radio button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the ratio button.
    * Default value: false
@@ -23960,7 +24563,7 @@ export interface RatingProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Disables the interaction with the element.
    * Default value: false
@@ -24064,12 +24667,12 @@ export interface RepeatButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets the click mode of the button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Sets the delay between repeats in miliseconds.
    * Default value: 50
@@ -24172,6 +24775,11 @@ export interface SchedulerProperties {
    */
   autoScrollStep?: number;
   /**
+   * Determines whether the all day cells in Day and Week views automatically change their height depending on the events count in these cells. 
+   * Default value: false
+   */
+  autoHeightAllDayCells?: boolean;
+  /**
    * Determines the color scheme for the event background selector in the event window editor. 
    * Default value: #D50000,#E67C73,#F4511E,#F6BF26,#33B679,#0B8043,#039BE5,#3F51B5,#7986CB,#8E24AA,#616161,
    */
@@ -24210,7 +24818,7 @@ export interface SchedulerProperties {
    *  Determines how the events inside the Scheduler are rendered.classic - the events are arranged next to each other and try to fit inside the cells.modern - the events obey the CSS property that determines their size and if there's not enough space inside the cell for all events to appear, an event collector is created to hold the rest of the events. On mobile phones only collectors are created.
    * Default value: modern
    */
-  eventRenderMode?: SchedulerEventRenderMode;
+  eventRenderMode?: SchedulerEventRenderMode | string;
   /**
    * Allows to customize the content of the event menu items (tooltip). When clicked on an event element an event menu with details opens. It can be an HTMLTemplateElement that will be applied to all events or it's id as a string or a function that will be called for each event with the following parameters: eventContent - the content holder for the event,eventObj - the event object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
@@ -24245,7 +24853,7 @@ export interface SchedulerProperties {
    * Determines the day format of the dates in the timeline.
    * Default value: short
    */
-  dayFormat?: SchedulerDayFormat;
+  dayFormat?: SchedulerDayFormat | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -24325,7 +24933,7 @@ export interface SchedulerProperties {
    * Determines the filter mode.
    * Default value: equals
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * A getter that returns  an array of all Scheduler events.
    * Default value: 
@@ -24350,7 +24958,7 @@ export interface SchedulerProperties {
    * Determines the grouping orientation.
    * Default value: horizontal
    */
-  groupOrientation?: SchedulerGroupOrientation;
+  groupOrientation?: SchedulerGroupOrientation | string;
   /**
    * Allows to customize the content of the group cells that are visible inside the header. It can be an HTMLTemplateElement that will be applied to all cells or it's id as a string or a function that will be called for each group cell with the following parameters: cellContent - the content holder for the group cell.cellObj - the group cell object.. When using an HTMLTemplateElement it's possible to add property bindings inside the template that will be mapped to the corresponding object properties.
    * Default value: null
@@ -24375,7 +24983,7 @@ export interface SchedulerProperties {
    * Determines the formatting of hours inside the element.
    * Default value: numeric
    */
-  hourFormat?: SchedulerHourFormat;
+  hourFormat?: SchedulerHourFormat | string;
   /**
    * Allows to customize the header of the Scheduler. It can be an HTMLTemplateElement, it's id as a string or a function with the following parameters: headerContent - the header container..
    * Default value: null
@@ -24385,17 +24993,17 @@ export interface SchedulerProperties {
    *  Determines the position of the Date selector inside the Header of the element.
    * Default value: near
    */
-  headerDatePosition?: SchedulerHeaderDatePosition;
+  headerDatePosition?: SchedulerHeaderDatePosition | string;
   /**
    *  Determines the styling of the Header navigation controls.
    * Default value: flat
    */
-  headerNavigationStyle?: SchedulerHeaderNavigationStyle;
+  headerNavigationStyle?: SchedulerHeaderNavigationStyle | string;
   /**
    *  Determines the position of the view selector control inside the Header of the element.
    * Default value: far
    */
-  headerViewPosition?: SchedulerHeaderViewPosition;
+  headerViewPosition?: SchedulerHeaderViewPosition | string;
   /**
    * Determines whether the 'All Day' container with the all day events is hidden or not.
    * Default value: false
@@ -24430,22 +25038,22 @@ export interface SchedulerProperties {
    * Determines the location of the legend inside the Scheduler. By default the location is inside the footer but it can also reside in the header.
    * Default value: footer
    */
-  legendLocation?: SchedulerLegendLocation;
+  legendLocation?: SchedulerLegendLocation | string;
   /**
    * Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that.
    * Default value: near
    */
-  legendPosition?: SchedulerLegendPosition;
+  legendPosition?: SchedulerLegendPosition | string;
   /**
    * Determines the mouse wheel step. When this property is set to a positive number, the scroll step with mouse wheel or trackpad will depend on the property value.
-   * Default value: -1
+   * Default value: 50
    */
   mouseWheelStep?: number;
   /**
    * Determines weather or not horizontal scrollbar is shown.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    *  Determines the language of the Scheduler. 
    * Default value: "en"
@@ -24475,12 +25083,12 @@ export interface SchedulerProperties {
    * Determines the minute formatting inside the Scheduler.
    * Default value: 2-digit
    */
-  minuteFormat?: MinuteFormat;
+  minuteFormat?: MinuteFormat | string;
   /**
    * Determines the month name formatting inside the Scheduler.
    * Default value: long
    */
-  monthFormat?: MonthFormat;
+  monthFormat?: MonthFormat | string;
   /**
    * Determines the nonworking days of the week from 0 to 6, where 0 is the first day of the week and 6 is the last day. Nonworking days will be colored differently inside the Timeline. The color is determined by a CSS variable.
    * Default value: 
@@ -24500,7 +25108,7 @@ export interface SchedulerProperties {
    * Determines the visibility of the resize handles.
    * Default value: auto
    */
-  resizeHandlesVisibility?: ResizeHandlesVisibility;
+  resizeHandlesVisibility?: ResizeHandlesVisibility | string;
   /**
    * Determines the rate at which the element will refresh it's content on element resize. By default it's refresh immediately. This property is used for element resize throttling
    * Default value: 0
@@ -24530,7 +25138,7 @@ export interface SchedulerProperties {
    *  Determines the position of the date navigation navigation buttons inside the header of the element.
    * Default value: near
    */
-  scrollButtonsPosition?: SchedulerScrollButtonsPosition;
+  scrollButtonsPosition?: SchedulerScrollButtonsPosition | string;
   /**
    * Enables/Disables the current time shader. If enabled all cells that represent past time will be shaded.
    * Default value: false
@@ -24555,7 +25163,7 @@ export interface SchedulerProperties {
    * Determines the sorting order of the resource data items. When set to custom, a custom sorting function has to be defined for the sortFunction property. The asc stands for 'ascending' while desc means 'descending' sorting order.
    * Default value: asc
    */
-  sortOrder?: SchedulerSortOrder;
+  sortOrder?: SchedulerSortOrder | string;
   /**
    * Determines the repeating delay of the repeat buttons inside the header of the element. Such buttons are the Date navigation buttons and the view scroll buttons.
    * Default value: 80
@@ -24585,7 +25193,7 @@ export interface SchedulerProperties {
    * Determines the date scale for the timeline cells.
    * Default value: hour
    */
-  timelineDayScale?: SchedulerTimelineDayScale;
+  timelineDayScale?: SchedulerTimelineDayScale | string;
   /**
    * Enables/Disables the tick marks next to the time cells in the vertical header of the element. Time header appears in 'day' and 'week' views.
    * Default value: false
@@ -24593,9 +25201,9 @@ export interface SchedulerProperties {
   timeRulerTicks?: boolean;
   /**
    * Determines the timeZone for the element. By default if the local time zone is used if the property is not set.
-   * Default value: 
+   * Default value: Local
    */
-  timeZone?: SchedulerTimeZone;
+  timeZone?: SchedulerTimeZone | string;
   /**
    * Allows to display additional timeZones at once along with the default that is set via the timeZone property. Accepts an array values that represent the ids of valid time zones. The possbile time zones can be viewed in the timeZone property description. By default the local time zone is displayed.
    * Default value: 
@@ -24615,7 +25223,7 @@ export interface SchedulerProperties {
    * Determines weather or not vertical scrollbar is shown.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines the current view. The property accepts view values that are defined in the views property. Custom views should contain a valid value that will be set as the current view.
    * Default value: "day"
@@ -24625,27 +25233,32 @@ export interface SchedulerProperties {
    * Indicates the current Scheduler viewType. Custom views must contain a valid type property that corresponds to one of the view types. This property should not be set.
    * Default value: day
    */
-  viewType?: SchedulerViewType;
+  viewType?: SchedulerViewType | string;
   /**
    * Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: label - the label for the view.value - the value for the view. The value is the unique identifier for the view.type - the type of view. The type should be one of the default allowed values for a view.hideWeekend - an Optional property that allows to hide the weekend only for this specific view.hideNonworkingWeekdays - an Optional property that allows to hide the nonwrking weekdays for this specific view.shortcutKey - an Optional property that allows to set a custom shortcut key for the view.hideHours - an Optional property applicable only to timelineWeek view that allows to hide the hour cells and only show the day cells.
    * Default value: day,week,month
    */
-  views?: SchedulerViews;
+  views?: SchedulerViews | string;
   /**
    * Determines type of the view selector located in the header of the element.
    * Default value: menu
    */
-  viewSelectorType?: SchedulerViewSelectorType;
+  viewSelectorType?: SchedulerViewSelectorType | string;
+  /**
+   * Determines the Start Date rule. The Week and TimelineWeek views start by default from the current date taking into account the firstDayOfWeek property. When this property is set to 'dateCurrent', these views will start from the value of the 'dateCurrent'.
+   * Default value: firstDayOfWeek
+   */
+  viewStartDay?: SchedulerViewStartDay | string;
   /**
    * Determines the format of the week days inside the element. 
    * Default value: short
    */
-  weekdayFormat?: WeekDayFormat;
+  weekdayFormat?: WeekDayFormat | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent years.
    * Default value: numeric
    */
-  yearFormat?: YearFormat;
+  yearFormat?: YearFormat | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -24944,6 +25557,16 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    */
   addEvent(eventObj: any): void;
   /**
+   * Adds a new view. Example: scheduler.addView('week', 'My View', 'myView', false, false, 10); scheduler.setView('myView');
+   * @param {string} type. The view type.
+   * @param {string} label. The view's label displayed in the header.
+   * @param {string} value. The view's value used to identify the view.
+   * @param {boolean} hideWeekend. Determines whether to hide the weekend.
+   * @param {boolean} hideNonworkingWeekdays. Determines whether to hide the non working days.
+   * @param {number} additionalDays. Determines whether to add additional days to the view.
+   */
+  addView(type: string, label: string, value: string, hideWeekend: boolean, hideNonworkingWeekdays: boolean, additionalDays: number): void;
+  /**
    * Starts an update operation. This is appropriate when calling multiple methods or set multiple properties at once.
    */
   beginUpdate(): void;
@@ -24960,6 +25583,11 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    * Ends the update operation. This method will resume the rendering and will refresh the element.
    */
   endUpdate(): void;
+  /**
+   * Returns an array of the start and end view dates.
+   * @returns {Date[]}
+   */
+  getViewDates(): Date[];
   /**
    * Refereshes the Scheduler by recalculating the Scrollbars. 
    * @param {boolean} fullRefresh?. If set the Scheduler will be re-rendered completely.
@@ -25014,6 +25642,11 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
    * @param {any[]} state?. An Array containing a valid structure of Scheduler events.
    */
   saveState(state?: any[]): void;
+  /**
+   * Sets the Scheduler's view. Example: scheduler.addView('week', 'My View', 'myView', false, false, 10); scheduler.setView('myView');
+   * @param {string} view?. The view's value. For example: 'day'. 
+   */
+  setView(view?: string): void;
   /**
    * Checks whether the Scheduler contains the event.
    * @param {any} eventObj. A Scheduler event object.
@@ -25302,7 +25935,7 @@ export interface SchedulerEventRepeat {
    * Determines the repeating frequency. The event can repeat hourly, daily, weekly, monthly or yearly.
    * Default value: hourly
    */
-  repeatFreq?: SchedulerRepeatFreq;
+  repeatFreq?: SchedulerRepeatFreq | string;
   /**
    * Determines the repeating interval.
    * Default value: 1
@@ -25335,7 +25968,7 @@ export interface SchedulerNotification {
    * The type of the interval for the notification.
    * Default value: days
    */
-  type?: SchedulerNotificationType;
+  type?: SchedulerNotificationType | string;
   /**
    * An array that represents the time when the notification should appear before the event starts. The array should have the following format: [hours: number, minutes:number]
    * Default value: 
@@ -25383,7 +26016,7 @@ export interface SchedulerResource {
    * Determines the sorting order. When set to custom, a custom sorting function has to be defined for the sortFunction property. The asc stands for 'ascending' while desc means 'descending' sorting order.
    * Default value: asc
    */
-  sortOrder?: SchedulerResourceSortOrder;
+  sortOrder?: SchedulerResourceSortOrder | string;
 }
 
 export interface SchedulerStatuse {
@@ -25449,17 +26082,12 @@ export declare type SchedulerTimelineDayScale = 'hour' | 'halfHour' | 'quarterHo
 export declare type SchedulerTimeZone = 'Local' | 'Dateline Standard Time' | 'UTC-11' | 'Hawaiteratoran Standard Time' | 'Alaskan Standard Time' | 'Pacific Standard Time (Mexico)' | 'Pacific Standard Time' | 'US Mountain Standard Time' | 'Mountain Standard Time (Mexico)' | 'Mountain Standard Time' | 'Central Standard Time' | 'Central America Standard Time' | 'Canada Central Standard Time' | 'Central Standard Time (Mexico)' | 'SA Pacific Standard Time' | 'Eastern Standard Time' | 'US Eastern Standard Time' | 'Venezuela Standard Time' | 'Atlantic Standard Time' | 'Paraguay Standard Time' | 'Central Brazilian Standard Time' | 'Pacific SA Standard Time' | 'SA Western Standard Time' | 'Newfoundland Standard Time' | 'SA Eastern Standard Time' | 'Argentina Standard Time' | 'E. South America Standard Time' | 'Bahia Standard Time' | 'Montevideo Standard Time' | 'Greenland Standard Time' | 'UTC-02' | 'Mid-Atlantic Standard Time' | 'Azores Standard Time' | 'Cape Verde Standard Time' | 'Morocco Standard Time' | 'UTC' | 'GMT Standard Time' | 'Greenwich Standard Time' | 'Central European Standard Time' | 'Namibia Standard Time' | 'W. Central Africa Standard Time' | 'W. Europe Standard Time' | 'Central Europe Standard Time' | 'Romance Standard Time' | 'FLE Standard Time' | 'South Africa Standard Time' | 'Turkey Standard Time' | 'GTB Standard Time' | 'Libya Standard Time' | 'E. Europe Standard Time' | 'Jordan Standard Time' | 'Middle East Standard Time' | 'Egypt Standard Time' | 'Syria Standard Time' | 'Israel Standard Time' | 'Arab Standard Time' | 'E. Africa Standard Time' | 'Arabic Standard Time' | 'Kaliningrad Standard Time' | 'Iran Standard Time' | 'Mauritius Standard Time' | 'Georgian Standard Time' | 'Caucasus Standard Time' | 'Arabian Standard Time' | 'Azerbaijan Standard Time' | 'Russian Standard Time' | 'Afghanistan Standard Time' | 'Pakistan Standard Time' | 'West Asia Standard Time' | 'India Standard Time' | 'Sri Lanka Standard Time' | 'Nepal Standard Time' | 'Central Asia Standard Time' | 'Bangladesh Standard Time' | 'Ekaterinburg Standard Time' | 'Myanmar Standard Time' | 'SE Asia Standard Time' | 'N. Central Asia Standard Time' | 'Ulaanbaatar Standard Time' | 'China Standard Time' | 'Singapore Standard Time' | 'North Asia Standard Time' | 'Taipei Standard Time' | 'W. Australia Standard Time' | 'Korea Standard Time' | 'North Asia East Standard Time' | 'Tokyo Standard Time' | 'AUS Central Standard Time' | 'Cen. Australia Standard Time' | 'West Pacific Standard Time' | 'Tasmania Standard Time' | 'E. Australia Standard Time' | 'AUS Eastern Standard Time' | 'Yakutsk Standard Time' | 'Vladivostok Standard Time' | 'Central Pacific Standard Time' | 'Magadan Standard Time' | 'Kamchatka Standard Time' | 'Fiji Standard Time' | 'New Zealand Standard Time' | 'UTC+12' | 'Tonga Standard Time' | 'Samoa Standard Time';
 /**Indicates the current Scheduler viewType. Custom views must contain a valid <b>type</b> property that corresponds to one of the view types. This property should not be set. */
 export declare type SchedulerViewType = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
-/**Determines the viewing date range of the timeline. The property should be set to an array of strings or view objects. When you set it to a string, you should use any of the following: 'day', 'week', 'month', 'agenda', 'timelineDay', 'timelineWeek', 'timelineMonth'. Custom views can be defined as objects instead of strings. The view object should contain the following properties: <b>label</b> - the label for the view.
-<b>value</b> - the value for the view. The value is the unique identifier for the view.
-<b>type</b> - the type of view. The type should be one of the default allowed values for a view.
-<b>hideWeekend</b> - an Optional property that allows to hide the weekend only for this specific view.
-<b>hideNonworkingWeekdays</b> - an Optional property that allows to hide the nonwrking weekdays for this specific view.
-<b>shortcutKey</b> - an Optional property that allows to set a custom shortcut key for the view.
-<b>hideHours</b> - an Optional property applicable only to <b>timelineWeek</b> view that allows to hide the hour cells and only show the day cells.
- */
-export declare type SchedulerViews = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
+
+export declare type SchedulerViews = SchedulerViewType[] | object[] | string[];
 /**Determines type of the view selector located in the header of the element. */
 export declare type SchedulerViewSelectorType = 'auto' | 'tabs' | 'menu';
+/**Determines the Start Date rule. The Week and TimelineWeek views start by default from the current date taking into account the firstDayOfWeek property. When this property is set to 'dateCurrent', these views will start from the value of the 'dateCurrent'. */
+export declare type SchedulerViewStartDay = 'firstDayOfWeek' | 'dateCurrent';
 /**Determines the format of the week days inside the element.  */
 export declare type WeekDayFormat = 'short' | 'long' | 'narrow';
 export interface ScrollBarProperties {
@@ -25467,7 +26095,7 @@ export interface ScrollBarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -25497,7 +26125,7 @@ export interface ScrollBarProperties {
    * Sets or gets the type of used mechanical action. The mechanical action defines in which moment the value of the element will be updated.
    * Default value: switchWhileDragging
    */
-  mechanicalAction?: DragMechanicalAction;
+  mechanicalAction?: DragMechanicalAction | string;
   /**
    * Sets an object with string values, related to the different states of passwords strength.
    * Default value:    * {
@@ -25523,7 +26151,7 @@ export interface ScrollBarProperties {
    * Sets or gets the scrollbar's orientation
    * Default value: horizontal
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -25597,7 +26225,7 @@ export interface SliderProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * With the coerce property true and clicking the track, the thumb and value are moved and set to the nearest value allowed by the interval property. 
    * Default value: false
@@ -25652,7 +26280,7 @@ export interface SliderProperties {
    * Sets or gets the widget's label visibility. 
    * Default value: all
    */
-  labelsVisibility?: LabelsVisibility;
+  labelsVisibility?: LabelsVisibility | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -25677,7 +26305,7 @@ export interface SliderProperties {
    * Sets or gets the type of used mechanical action. 
    * Default value: switchWhileDragging
    */
-  mechanicalAction?: DragMechanicalAction;
+  mechanicalAction?: DragMechanicalAction | string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -25706,7 +26334,7 @@ export interface SliderProperties {
    * Sets or gets whether the widget works with numbers or dates.
    * Default value: numeric
    */
-  mode?: ScaleMode;
+  mode?: ScaleMode | string;
   /**
    * Sets or gets the element's name, which is used as a reference when the data is submitted.
    * Default value: ""
@@ -25716,7 +26344,7 @@ export interface SliderProperties {
    * Sets the orientation of the widget. 
    * Default value: horizontal
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * Determines the number of digits after the decimal point. Applicable only when scaleType is 'integer'. 
    * Default value: null
@@ -25741,12 +26369,12 @@ export interface SliderProperties {
    * Sets the position of the widget's scales. 
    * Default value: near
    */
-  scalePosition?: ScalePosition;
+  scalePosition?: ScalePosition | string;
   /**
    * Sets the type of the slider's scale. 
    * Default value: floatingPoint
    */
-  scaleType?: ScaleType;
+  scaleType?: ScaleType | string;
   /**
    * Enables or disables scientific notation.
    * Default value: false
@@ -25786,22 +26414,22 @@ export interface SliderProperties {
    * Sets or gets the position of the thumb label.
    * Default value: near
    */
-  thumbLabelPosition?: Position;
+  thumbLabelPosition?: Position | string;
   /**
    * Sets or gets the position of the ticks in jqxSlider widget.
    * Default value: scale
    */
-  ticksPosition?: TicksPosition;
+  ticksPosition?: TicksPosition | string;
   /**
    * Sets or gets the visibility of the ticks.
    * Default value: minor
    */
-  ticksVisibility?: TicksVisibility;
+  ticksVisibility?: TicksVisibility | string;
   /**
    * Sets or gets the position of the tooltip in jqxSlider widget. 
    * Default value: near
    */
-  tooltipPosition?: Position;
+  tooltipPosition?: Position | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -25816,7 +26444,7 @@ export interface SliderProperties {
    * Sets the value's validation by min/max. If 'strict' is applied, the value is always validated by min and max. If 'interaction' is applied, programmatic value changes are not coerced to min/max and if min/max are changed, resulting in the current value being out of range, the value is not coerced, and no change event is fired.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value of the jqxSlider widget. The property is used when the rangeSlider property is set to false.
    * Default value: 0
@@ -25831,7 +26459,7 @@ export interface SliderProperties {
    * Sets or gets the word length. Applicable only when scaleType is 'integer'. 
    * Default value: int32
    */
-  wordLength?: WordLength;
+  wordLength?: WordLength | string;
 }
 /**
  Sliders allow users to make selections from a range of values.
@@ -25881,7 +26509,7 @@ export interface SortableProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables sorting.
    * Default value: false
@@ -25891,17 +26519,17 @@ export interface SortableProperties {
    * Sets or gets the way a sortable item can be dragged - by dragging the item itself ('item') or by dragging a handle that appears next to the item ('handle').
    * Default value: item
    */
-  dragMode?: SortableDragMode;
+  dragMode?: SortableDragMode | string;
   /**
    * Sets or gets the the position of the drag handle relative to its respective sortable item. Applicable only when dragMode is 'handle'.
    * Default value: right
    */
-  handlePosition?: SortableHandlePosition;
+  handlePosition?: SortableHandlePosition | string;
   /**
    * Sets or gets whether a sortable item's drag handle is always visible or is shown when the item is hovered. Applicable only when dragMode is 'handle'.
    * Default value: hover
    */
-  handleVisibility?: SortableHandleVisibility;
+  handleVisibility?: SortableHandleVisibility | string;
   /**
    * Sets or gets a selector to determine the sortable items by. By default, sortable items are all children of the smart-sortable custom element.
    * Default value: null
@@ -25940,7 +26568,7 @@ export interface SortableProperties {
    * Sets or gets the direction sortable items are stacked and can be dragged.
    * Default value: vertical
    */
-  mode?: Orientation;
+  mode?: Orientation | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -25991,12 +26619,12 @@ export interface SortPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the the position of the close button of sort panel items.
    * Default value: left
    */
-  closeButtonPosition?: SortPanelCloseButtonPosition;
+  closeButtonPosition?: SortPanelCloseButtonPosition | string;
   /**
    * Determines the data source that will be loaded to the sort panel.Each member of the dataSource array is an object with the following fields:dataField - the dataField of the column to be sorted.dataType - the data type of the column to be sorted.label - the column label to be displayed in the column selection input.icon - a specific class to be applied to the respective item in the column selection input.sortDirection - the sort direction to be applied. Possible values: 'ascending' and 'descending'.sortIndex - the sort order of columns. If this value is -1, the column will not be initially sorted.
    * Default value: null
@@ -26095,12 +26723,12 @@ export interface SplitterProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines how the items are arranged inside the Splitter. Possible values:   end - all items will fit the size of the Splitter. When inserting a new item the space required for the item to fit will be deducted from it's neighbour. proportional - all items will fit the size of the Splitter. When inserting a new item the space required for it to fit will be the result from the proportional deduction of the size from the rest of the items inside the element. overflow - the items inside the Splitter will not fit it's size. Instead they overflow by taking the exact amount of space they need and a scrollbar is displayed in order to view the content.
    * Default value: proportional
    */
-  autoFitMode?: SplitterAutoFitMode;
+  autoFitMode?: SplitterAutoFitMode | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -26156,7 +26784,7 @@ export interface SplitterProperties {
    * Sets or gets splitter's orientation.
    * Default value: vertical
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -26166,7 +26794,7 @@ export interface SplitterProperties {
    * Determines the resize mode of the splitter. Possible values are:  - None - resizing is disabled.  - Adjacent - only the two adjacent items between the target splitter bar are being affected. This is the default behavior.  - End - only the first item( left or top according to the orientation) of the target Splitter bar and the last item are affected.  Proportional - all of the items positioned in the direction to which the splitter bar is dragged will be affected. For example, when a splitter bar is dragged to the right all the items positioned on it's the right side will be affected. The items will obtain a proportional size corresponding to their current size.
    * Default value: adjacent
    */
-  resizeMode?: SplitterResizeMode;
+  resizeMode?: SplitterResizeMode | string;
   /**
    * Determines the resize step during reisizing
    * Default value: 5
@@ -26440,12 +27068,12 @@ export interface SwitchButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets the click mode of the switch button. This property is active only when switchMode is 'click'. press - the state of the switch is changed on mousedownrelease - the state of the switch is changed on mouseuppressAndRelease - the state of the switch is changed on mousedown and reverted to the original on mouseup.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -26511,7 +27139,7 @@ export interface SwitchButtonProperties {
    * Sets the orientation of the switch
    * Default value: horizontal
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * If the custom element is readonly, it cannot be interacted with.
    * Default value: false
@@ -26531,7 +27159,7 @@ export interface SwitchButtonProperties {
    * Sets the switchMode of the element. default - dragging the thumb or clicking inside the track can change the state of the element. click - clicking inside the track changes the state of the element. drag - dragging the thumb changes the state of the element.none - the state of the element can only be changed via the API
    * Default value: default
    */
-  switchMode?: SwitchButtonSwitchMode;
+  switchMode?: SwitchButtonSwitchMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -26705,12 +27333,12 @@ export interface TabLayoutGroupProperties {
    * Determines the group orientation.
    * Default value: vertical
    */
-  orientation?: TabLayoutGroupOrientation;
+  orientation?: TabLayoutGroupOrientation | string;
   /**
    * Determines the position of the tab items group.
    * Default value: top
    */
-  position?: TabLayoutGroupPosition;
+  position?: TabLayoutGroupPosition | string;
   /**
    * Determines the size of the item.
    * Default value: null
@@ -26770,7 +27398,7 @@ export interface TabLayoutItemProperties {
    * Determines the group orientation.
    * Default value: vertical
    */
-  orientation?: TabLayoutItemOrientation;
+  orientation?: TabLayoutItemOrientation | string;
   /**
    * Determines the size of the item.
    * Default value: null
@@ -26863,7 +27491,7 @@ export interface TableProperties {
    * Sets or gets the column sizing behavior. In 'auto' mode Columns are automatically sized based on their content and the value of the columnMinWidth property, unless there is not enough space in the Table, in which case ellipses are shown. User-set static column width is still respected. In 'default' mode Columns are sized according to the rules of the standard HTML table element's table-layout: fixed. Custom width can also be applied to columns in this case by setting the column width property.
    * Default value: default
    */
-  columnSizeMode?: TableColumnSizeMode;
+  columnSizeMode?: TableColumnSizeMode | string;
   /**
    * Sets or gets whether the "Conditional Formatting" button appears in the Table's header (toolbar). Clicking this button opens a dialog with formatting options.
    * Default value: false
@@ -26908,7 +27536,7 @@ export interface TableProperties {
    * Sets or gets the edit mode.
    * Default value: cell
    */
-  editMode?: TableEditMode;
+  editMode?: TableEditMode | string;
   /**
    * Sets or gets whether Row hierarchies are expanded by default, when created. Use this property when you want your groups to be expanded by default, when the Table is grouped or when you use the Table in tree mode.
    * Default value: false
@@ -26983,7 +27611,7 @@ export interface TableProperties {
    * Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'.
    * Default value: implementationOnly
    */
-  loadColumnStateBehavior?: TableLoadColumnStateBehavior;
+  loadColumnStateBehavior?: TableLoadColumnStateBehavior | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -27065,10 +27693,20 @@ export interface TableProperties {
    */
   onInit?: { (): void };
   /**
+   * A callback function executed after the Table is being initialized.
+   * Default value: null
+   */
+  onLoad?: { (): void };
+  /**
+   * A callback function executed when the Table's update is finished in the endUpdate method.
+   * Default value: null
+   */
+  onUpdateComplete?: { (): void };
+  /**
    * Sets or gets the page size (when paging is enabled).
    * Default value: 10
    */
-  pageSize?: TablePageSize;
+  pageSize?: TablePageSize | string;
   /**
    * Sets or gets the current (zero-based) page index (when paging is enabled).
    * Default value: 0
@@ -27103,7 +27741,7 @@ export interface TableProperties {
    * Sets or gets the selection mode. Only applicable when selection is enabled.
    * Default value: many
    */
-  selectionMode?: TableSelectionMode;
+  selectionMode?: TableSelectionMode | string;
   /**
    * Sets or gets whether row selection (via checkboxes) is hierarchical. When a parent row is selected, all sub rows are selected, too.
    * Default value: true
@@ -27118,7 +27756,7 @@ export interface TableProperties {
    * Determines the sorting mode of the Table.
    * Default value: none
    */
-  sortMode?: TableSortMode;
+  sortMode?: TableSortMode | string;
   /**
    * Sets or gets what settings of the Table's state can be saved (by autoSaveState or saveState) or loaded (by autoLoadState or loadState).
    * Default value: columns,expanded,filtered,grouped,selected,sorted
@@ -27275,7 +27913,7 @@ export interface Table extends BaseElement, TableProperties {
   /**
    * Adds a filter to a specific column.
    * @param {string} dataField. The column's data field.
-   * @param {any} filter. FilterGroup object.
+   * @param {any} filter. FilterGroup object or a Filter expression. Filter expression like: 'startsWith B'. Example 2: ['contains Andrew or contains Nancy'], Example 3:  ['quantity', '&lt;= 3 and &gt;= 8'].  Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
    */
   addFilter(dataField: string, filter: any): void;
   /**
@@ -27555,7 +28193,7 @@ export interface TableColumn {
    * Sets or gets the data type of the column's cells.
    * Default value: string
    */
-  dataType?: TableColumnDataType;
+  dataType?: TableColumnDataType | string;
   /**
    * An object setting up a custom editor. Available fields: template - a string to be parsed into HTML and be used as custom cell editor.onInit - a callback function called once when the editor is initialized.onRender - a callback function called each time a cell enters edit mode.getValue - a callback function called when editing is complete; used to return the editor's value to the Table's data source.
    * Default value: null
@@ -27565,7 +28203,7 @@ export interface TableColumn {
    * Sets or gets whether the column is sticky/frozen. true and 'near' designate freezing on the left side, 'far' - on the right side.
    * Default value: null
    */
-  freeze?: TableColumnFreeze;
+  freeze?: TableColumnFreeze | string;
   /**
    * A callback function that can be used to modify the contents of a cell and the cell itself.
    * Default value: null
@@ -27638,7 +28276,7 @@ export interface TableConditionalFormatting {
    * The formatting condition.
    * Default value: lessThan
    */
-  condition?: TableConditionalFormattingCondition;
+  condition?: TableConditionalFormattingCondition | string;
   /**
    * The value to compare by. When condition is 'between', this is the start (from) value.
    * Default value: 0
@@ -27648,12 +28286,12 @@ export interface TableConditionalFormatting {
    * The fontFamily to apply to formatted cells.
    * Default value: The default fontFamily as set in CSS
    */
-  fontFamily?: TableConditionalFormattingFontFamily;
+  fontFamily?: TableConditionalFormattingFontFamily | string;
   /**
    * The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default.
    * Default value: 14px
    */
-  fontSize?: TableConditionalFormattingFontSize;
+  fontSize?: TableConditionalFormattingFontSize | string;
   /**
    * The background color to apply to formatted cells.
    * Default value: "The default backgroundColor as set in CSS"
@@ -27692,12 +28330,12 @@ export interface TableDataSourceSettings {
    * Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags.
    * Default value: blackList
    */
-  sanitizeHTML?: TableDataSourceSettingsSanitizeHTML;
+  sanitizeHTML?: TableDataSourceSettingsSanitizeHTML | string;
   /**
    * Determines whether cell values will display the espaced values as text or html.
    * Default value: text
    */
-  sanitizeHTMLRender?: TableDataSourceSettingsSanitizeHTMLRender;
+  sanitizeHTMLRender?: TableDataSourceSettingsSanitizeHTMLRender | string;
   /**
    * Sets or gets the XML binding record.
    * Default value: ""
@@ -27717,7 +28355,7 @@ export interface TableDataSourceSettings {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: TableDataSourceSettingsDataSourceType;
+  dataSourceType?: TableDataSourceSettingsDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -27765,7 +28403,7 @@ export interface TableDataSourceSettingsDataField {
    * Sets the dataField type.
    * Default value: string
    */
-  dataType?: TableDataSourceSettingsDataFieldDataType;
+  dataType?: TableDataSourceSettingsDataFieldDataType | string;
 }
 
 declare global {
@@ -27823,12 +28461,12 @@ export interface TabsProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the close button mode.
    * Default value: default
    */
-  closeButtonMode?: TabsCloseButtonMode;
+  closeButtonMode?: TabsCloseButtonMode | string;
   /**
    * Sets or gets whether close buttons are displayed.
    * Default value: false
@@ -27899,7 +28537,7 @@ export interface TabsProperties {
    * Sets or gets the Tabs scroll buttons behavior. Applicable only when tabLayout is 'scroll'.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * Disables user interaction with the element.
    * Default value: false
@@ -27924,12 +28562,12 @@ export interface TabsProperties {
    * Sets or gets the position of the scroll buttons.
    * Default value: both
    */
-  scrollButtonsPosition?: LayoutPosition;
+  scrollButtonsPosition?: LayoutPosition | string;
   /**
    * Sets or gets the behavior when scrolling the tab strip via the scroll buttons.
    * Default value: paging
    */
-  scrollMode?: TabsScrollMode;
+  scrollMode?: TabsScrollMode | string;
   /**
    * Sets or gets which tab is selected.
    * Default value: null
@@ -27939,22 +28577,22 @@ export interface TabsProperties {
    * Determines the way the user can switch between tabs.
    * Default value: click
    */
-  selectionMode?: TabSelectionMode;
+  selectionMode?: TabSelectionMode | string;
   /**
    * Applies one of four behaviors when the element is not wide enough to display all tab labels.
    * Default value: scroll
    */
-  tabLayout?: TabsTabLayout;
+  tabLayout?: TabsTabLayout | string;
   /**
    * Sets or gets where the tab strip is positioned.
    * Default value: top
    */
-  tabPosition?: TabPosition;
+  tabPosition?: TabPosition | string;
   /**
    * Sets or gets the orientation of the text in the tabs.
    * Default value: horizontal
    */
-  tabTextOrientation?: Orientation;
+  tabTextOrientation?: Orientation | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -28111,7 +28749,7 @@ export interface TankProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * If is set to true all values coerce to the interval, set in the interval property.
    * Default value: false
@@ -28161,7 +28799,7 @@ export interface TankProperties {
    * Sets or gets the widget's label visibility
    * Default value: all
    */
-  labelsVisibility?: LabelsVisibility;
+  labelsVisibility?: LabelsVisibility | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -28186,7 +28824,7 @@ export interface TankProperties {
    * Sets or gets the type of used mechanical action.
    * Default value: switchWhileDragging
    */
-  mechanicalAction?: DragMechanicalAction;
+  mechanicalAction?: DragMechanicalAction | string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -28215,7 +28853,7 @@ export interface TankProperties {
    * Sets or gets whether the widget works with numbers or dates.
    * Default value: numeric
    */
-  mode?: ScaleMode;
+  mode?: ScaleMode | string;
   /**
    * Sets or gets the element's name, which is used as a reference when the data is submitted.
    * Default value: ""
@@ -28225,7 +28863,7 @@ export interface TankProperties {
    * Sets the orientation of the widget
    * Default value: vertical
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * Determines the number of digits after the decimal point. Applicable only when scaleType is 'integer'.
    * Default value: null
@@ -28245,12 +28883,12 @@ export interface TankProperties {
    * Sets the position of the widget's scales. 
    * Default value: near
    */
-  scalePosition?: ScalePosition;
+  scalePosition?: ScalePosition | string;
   /**
    * Sets the type of the tank's scale. 
    * Default value: floatingPoint
    */
-  scaleType?: ScaleType;
+  scaleType?: ScaleType | string;
   /**
    * Enables or disables scientific notation.
    * Default value: false
@@ -28285,22 +28923,22 @@ export interface TankProperties {
    * Sets or gets the position of the thumb label.
    * Default value: near
    */
-  thumbLabelPosition?: Position;
+  thumbLabelPosition?: Position | string;
   /**
    * Sets or gets the position of the ticks in jqxTank widget.
    * Default value: scale
    */
-  ticksPosition?: TicksPosition;
+  ticksPosition?: TicksPosition | string;
   /**
    * Sets or gets the visibility of the ticks.
    * Default value: minor
    */
-  ticksVisibility?: TicksVisibility;
+  ticksVisibility?: TicksVisibility | string;
   /**
    * Sets or gets the position of the tooltip in jqxTank widget.
    * Default value: near
    */
-  tooltipPosition?: Position;
+  tooltipPosition?: Position | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -28315,7 +28953,7 @@ export interface TankProperties {
    * Sets the value's validation by min/max. If 'strict' is applied, the value is always validated by min and max. If 'interaction' is applied, programmatic value changes are not coerced to min/max and if min/max are changed, resulting in the current value being out of range, the value is not coerced, and no change event is fired.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value of the jqxTank widget. 
    * Default value: 0
@@ -28325,7 +28963,7 @@ export interface TankProperties {
    * Sets or gets the word length. Applicable only when scaleType is 'integer'.
    * Default value: int32
    */
-  wordLength?: WordLength;
+  wordLength?: WordLength | string;
 }
 /**
  Tank is a UI Component used in Engineering and Scientific applications. It is broadly used to display the fluid levels.
@@ -28370,7 +29008,7 @@ export interface TextAreaProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -28390,7 +29028,7 @@ export interface TextAreaProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -28467,7 +29105,7 @@ export interface TextAreaProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: TextAreaQueryMode;
+  queryMode?: TextAreaQueryMode | string;
   /**
    * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -28567,7 +29205,7 @@ export interface TextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether the text box will be focused on page load or not.
    * Default value: false
@@ -28577,7 +29215,7 @@ export interface TextBoxProperties {
    * Determines the autocomplete mode. Auto complete modes filter the items from the dataSource and show only those that match the input.
    * Default value: manual
    */
-  autoComplete?: AutoComplete;
+  autoComplete?: AutoComplete | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation.
    * Default value: 100
@@ -28607,7 +29245,7 @@ export interface TextBoxProperties {
    * Determines how the characters are displayed inside the input.
    * Default value: default
    */
-  displayMode?: TextBoxDisplayMode;
+  displayMode?: TextBoxDisplayMode | string;
   /**
    * Determines the drop down parent. The drop down can be removed from the body of the element and continue to work in another container. This is usefull when one of the parents of the element doesn't allow overflowing, by settings this property to 'body' the drop down will be appended to the DOM and the drop down will open/close as usual. dropDownAppendTo can be a string representing the id of an HTML element on the page or a direct reference to that element. Reseting it back to null will take the drop down back to it's original place.
    * Default value: null
@@ -28642,7 +29280,7 @@ export interface TextBoxProperties {
    * Determines how the drop down is going to open.
    * Default value: default
    */
-  dropDownOpenMode?: DropDownOpenMode;
+  dropDownOpenMode?: DropDownOpenMode | string;
   /**
    * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document. The purpose of the overlay is to make sure that clicking anywhere outside the drop down will will target the overlay and not the DOM.
    * Default value: false
@@ -28657,7 +29295,7 @@ export interface TextBoxProperties {
    * Determines the position of the drop down when opened.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -28667,12 +29305,12 @@ export interface TextBoxProperties {
    * Determines the behavior of the element when Escape key is pressed.
    * Default value: none
    */
-  escKeyMode?: EscKeyMode;
+  escKeyMode?: EscKeyMode | string;
   /**
    * Specifies the behavior of "Enter" key.
    * Default value: submit
    */
-  enterKeyBehavior?: EnterKeyBehavior;
+  enterKeyBehavior?: EnterKeyBehavior | string;
   /**
    * The form element that the element is associated with (its "form owner"). The value of the attribute must be the ID of a form element in the same document.
    * Default value: ""
@@ -28687,7 +29325,7 @@ export interface TextBoxProperties {
    * Determines the visibility of the horizontal Scroll bar thats inside the drop down.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Represents the property name of a List item. Determines the value of the input when a ListItem is selected. Usefull in cases where the user wants to display for example the value of an item instead of it's label. By default the label is displayed in the input.
    * Default value: ""
@@ -28707,7 +29345,7 @@ export interface TextBoxProperties {
    * Determines the item width measuring algorithm.
    * Default value: auto
    */
-  itemMeasureMode?: ListItemMeasureMode;
+  itemMeasureMode?: ListItemMeasureMode | string;
   /**
    * A getter that returns an array of all List items inside the drop down.
    * Default value: 
@@ -28732,7 +29370,7 @@ export interface TextBoxProperties {
    * Determines the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -28834,7 +29472,7 @@ export interface TextBoxProperties {
    * Determines the visibility of the vertical scroll bar that's inside the drop down.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
 }
 /**
  TextBox is an input field with auto-suggest options.
@@ -28889,7 +29527,7 @@ export interface TimeInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
    * Default value: { hour: 'numeric', minute: 'numeric' }
@@ -28904,7 +29542,7 @@ export interface TimeInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to 'auto'.
    * Default value: auto
@@ -29037,12 +29675,12 @@ export interface TimeFormat {
    * Hour format.
    * Default value: 2-digit
    */
-  hour?: TimeFormatHour;
+  hour?: TimeFormatHour | string;
   /**
    * Minute format.
    * Default value: 2-digit
    */
-  minute?: TimeFormatMinute;
+  minute?: TimeFormatMinute | string;
 }
 
 declare global {
@@ -29064,7 +29702,7 @@ export interface TimePickerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets whether after selecting hours, the element will automatically switch to minute selection.
    * Default value: false
@@ -29089,7 +29727,7 @@ export interface TimePickerProperties {
    * Determines the hour selection format.
    * Default value: 12-hour
    */
-  format?: TimePickerFormat;
+  format?: TimePickerFormat | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -29140,7 +29778,7 @@ export interface TimePickerProperties {
    * Determines the view that is currently being shown. By default the hours view is visible.
    * Default value: hour
    */
-  selection?: TimePickerSelection;
+  selection?: TimePickerSelection | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -29160,7 +29798,7 @@ export interface TimePickerProperties {
    * Determines whether the element is in landscape or portrait mode.
    * Default value: portrait
    */
-  view?: ViewLayout;
+  view?: ViewLayout | string;
 }
 /**
  Time Picker component allows the user to select time from spinners.
@@ -29207,7 +29845,7 @@ export interface ToastProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Specifies the container where new openned toast items will be displayed. The value can be an HTMLElement or element's id. This property is in relation with modal(lower priority than modal) and position(higher priority than position) properties.
    * Default value: "null"
@@ -29283,7 +29921,7 @@ export interface ToastProperties {
    * Sets the part of the browser window where the toast will be positioned. The position property is disregarded if appendTo or modal are set.
    * Default value: top-right
    */
-  position?: ToastPosition;
+  position?: ToastPosition | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -29308,7 +29946,7 @@ export interface ToastProperties {
    * Sets speciffic CSS settings and icon to the toast items.
    * Default value: info
    */
-  type?: ToastType | null;
+  type?: ToastType | null | string;
   /**
    * If is set to true, the element cannot be focused.
    * Default value: false
@@ -29396,7 +30034,7 @@ export interface ToggleButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets the state of the element.
    * Default value: false
@@ -29406,7 +30044,7 @@ export interface ToggleButtonProperties {
    * Sets the click mode of the button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the ratio button.
    * Default value: false
@@ -29513,7 +30151,7 @@ export interface TooltipProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines how to align the tooltip.
    * Default value: "center"
@@ -29528,7 +30166,7 @@ export interface TooltipProperties {
    * Sets the position of the arrow.
    * Default value: bottom
    */
-  arrowDirection?: TooltipArrowDirection;
+  arrowDirection?: TooltipArrowDirection | string;
   /**
    * Gets or sets whether a tooltip's arrow will be shown.
    * Default value: 0
@@ -29576,12 +30214,12 @@ export interface TooltipProperties {
    * Sets or gets the way of triggering the tooltip.
    * Default value: hover
    */
-  openMode?: TooltipOpenMode;
+  openMode?: TooltipOpenMode | string;
   /**
    * Gets or sets the position of the tooltip.
    * Default value: top
    */
-  position?: TooltipPosition;
+  position?: TooltipPosition | string;
   /**
    * Sets the element which triggers the tooltip.
    * Default value: null
@@ -29683,7 +30321,7 @@ export interface TreeProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Automatically hides the tree's toggle element (arrow) on mouseleave and shows it on mouseenter.
    * Default value: false
@@ -29743,12 +30381,17 @@ export interface TreeProperties {
    * Determines the expand behavior of TreeItemsGroups in the Tree.
    * Default value: multiple
    */
-  expandMode?: TreeExpandMode;
+  expandMode?: TreeExpandMode | string;
   /**
    * Enables or disables filtering. Shows or hides filter input.
    * Default value: false
    */
   filterable?: boolean;
+  /**
+   * Applies a filter only after the 'Enter' key is pressed.
+   * Default value: false
+   */
+  filterOnEnter?: boolean;
   /**
    * Sets custom text for placeholder in the filter input.
    * Default value: ""
@@ -29763,7 +30406,7 @@ export interface TreeProperties {
    * Sets filter mode.
    * Default value: containsIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * Sets or gets whether the tree checkboxes have three states - checked, unchecked and indeterminate. Whorks on selectionMode: 'checkBox'
    * Default value: false
@@ -29783,7 +30426,7 @@ export interface TreeProperties {
    * Sets the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages.
    * Default value: "en"
@@ -29815,7 +30458,7 @@ export interface TreeProperties {
    * Specifies what should happen with the scrollbar (or scroll buttons in scrollMode: 'scrollButtons') if content overflows the element's box.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -29830,7 +30473,7 @@ export interface TreeProperties {
    * Determines whether to use scrollbar or scrollButtons when content overflows an element's box.
    * Default value: scrollbar
    */
-  scrollMode?: TreeScrollMode;
+  scrollMode?: TreeScrollMode | string;
   /**
    * An array with indexes (paths) of the selected items.
    * Default value: 
@@ -29840,17 +30483,17 @@ export interface TreeProperties {
    * Determines the way selected items are highlighted.
    * Default value: row
    */
-  selectionDisplayMode?: TreeSelectionDisplayMode;
+  selectionDisplayMode?: TreeSelectionDisplayMode | string;
   /**
    * Determines selection mode.
    * Default value: one
    */
-  selectionMode?: TreeSelectionMode;
+  selectionMode?: TreeSelectionMode | string;
   /**
    * Determines whether smart-tree-items-groups can be selected.
    * Default value: all
    */
-  selectionTarget?: TreeSelectionTarget;
+  selectionTarget?: TreeSelectionTarget | string;
   /**
    * Shows or hides lines, displaying the relation between elements in group.
    * Default value: false
@@ -29870,7 +30513,7 @@ export interface TreeProperties {
    * Determines sort direction - ascending or descending.
    * Default value: asc
    */
-  sortDirection?: TreeSortDirection;
+  sortDirection?: TreeSortDirection | string;
   /**
    * Enables or disables sorting.
    * Default value: false
@@ -29885,12 +30528,12 @@ export interface TreeProperties {
    * Determines togle element (arrow) position.
    * Default value: near
    */
-  toggleElementPosition?: Position;
+  toggleElementPosition?: Position | string;
   /**
    * Determines the way to toggle smart-tree-items-groups.
    * Default value: dblclick
    */
-  toggleMode?: TreeToggleMode;
+  toggleMode?: TreeToggleMode | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -30066,6 +30709,11 @@ export interface Tree extends BaseElement, TreeProperties {
    */
   getItem(id: string): HTMLElement;
   /**
+   * Gets the selected values. If value is not defined, returns the selected labels.
+   * @returns {string[]}
+   */
+  getSelectedValues(): string[];
+  /**
    * Returns SmartTree's state
    * @returns {any}
    */
@@ -30102,15 +30750,25 @@ export interface Tree extends BaseElement, TreeProperties {
    */
   saveState(): any;
   /**
-   * Selects an item.
+   * Selects an item by its index or by HTMLElement id.
    * @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
    */
   select(item: HTMLElement | string): void;
   /**
-   * Unselects an item.
+   * Selects an item or items by values.
+   * @param {string | string[]} items. The smart-tree-item/smart-tree-items-group values or labels, if values are not defined.
+   */
+  setSelectedValues(items: string | string[]): void;
+  /**
+   * Unselects an item by its index or by HTMLElement id.
    * @param {HTMLElement | string} item. The smart-tree-item/smart-tree-items-group (or its id or numeric path) to remove.
    */
   unselect(item: HTMLElement | string): void;
+  /**
+   * Unselects an item or items by values.
+   * @param {string | string[]} items. The smart-tree-item/smart-tree-items-group values or labels, if values are not defined.
+   */
+  unselectValues(items: string | string[]): void;
   /**
    * Updates an item.
    * @param {HTMLElement | string} item. smart-tree-item/smart-tree-items-group (or its id or numeric path).
@@ -30340,7 +30998,7 @@ export interface ValidatorRule {
    * The type of validation the rule makes.
    * Default value: required
    */
-  type?: ValidatorRuleType;
+  type?: ValidatorRuleType | string;
   /**
    * A callback function to validate the input's value by when the rule's type is 'custom'.
    * Default value: 
@@ -30370,12 +31028,12 @@ export interface WindowProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether and how the value should be automatically capitalized as it is entered/edited by the user. Applicable only to MultilinePromptWindow.
    * Default value: none
    */
-  autoCapitalize?: WindowAutoCapitalize;
+  autoCapitalize?: WindowAutoCapitalize | string;
   /**
    * Determines whether element will auto expand when the input overflows vertically. Applicable only to MultilinePromptWindow.
    * Default value: false
@@ -30422,15 +31080,25 @@ export interface WindowProperties {
    */
   disableSnap?: boolean;
   /**
+   * By default the window is closing after the 'Escape' key is pressed. Set this property to true, if you want to disable that.
+   * Default value: false
+   */
+  disableEscape?: boolean;
+  /**
+   * By default the window is handling keyboard keys like 'Arrows', 'Escape', etc. Set this property to true, if you want to disable that.
+   * Default value: false
+   */
+  disableKeyboard?: boolean;
+  /**
    * Determines how the characters are displayed inside the input. Applicable to Prompt Window.
    * Default value: default
    */
-  displayMode?: WindowDisplayMode;
+  displayMode?: WindowDisplayMode | string;
   /**
    * Applicable to TabsWindow when docked inside a DockingLayout Custom Element.  Determines where the window(it's tab items as well) can be dropped inside the DockingLayout.  The property is an array that accepts multiple positions. Note: Positions with prefix 'layout-' are applied to the Tab item children of the TabsWidnow owner that is being dragged. The rest of the positions indicate the allowed drop position inside the hovered target(TabsWindow). Used only by jqxDockingLayout custom elements. Determines the possible drop position inside the DockingLayout. The following values are allowed.
    * Default value: 
    */
-  dropPosition?: WindowDropPosition;
+  dropPosition?: WindowDropPosition | string;
   /**
    * A callback function defining the new format for the label of the Progress Bar. Applicable only to ProgressWindow.
    * Default value: null
@@ -30440,7 +31108,7 @@ export interface WindowProperties {
    * Determines the position of the footer of the window element.
    * Default value: top
    */
-  footerPosition?: WindowFooterPosition;
+  footerPosition?: WindowFooterPosition | string;
   /**
    * Determines the template for the Dialog section of the window. By default footerTemplate is null.
    * Default value: null
@@ -30460,7 +31128,7 @@ export interface WindowProperties {
    * Determines the position of the header of the window element.
    * Default value: top
    */
-  headerPosition?: TabPosition;
+  headerPosition?: TabPosition | string;
   /**
    * Sets additional helper text below the text box. The hint is visible only when the text box is focued. Applicable to Prompt Window.
    * Default value: null
@@ -30591,7 +31259,7 @@ export interface WindowProperties {
    * Determines the resizing mode of the window.  Several modes are available:   none - resizing is disabled.  vertical - vertical resizing is allowed.  horizontal - horizontal resizing is allowed. both - horizontal and vertical resizing is allowed. top - the window can only be resized from the top side. bottom - the window is resizable only from the bottom side. left - the window can be resized only from the left side. right - the window can be resized only from the right side. 
    * Default value: none
    */
-  resizeMode?: WindowResizeMode;
+  resizeMode?: WindowResizeMode | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -30621,7 +31289,7 @@ export interface WindowProperties {
    * Determines the way the user can switch between tabs. Applicable only to TabsWindow.
    * Default value: click
    */
-  selectionMode?: TabSelectionMode;
+  selectionMode?: TabSelectionMode | string;
   /**
    * Indicates the index of the last character in the current selection. Applicable only to MultilinePromptWindow.
    * Default value: 0
@@ -30661,27 +31329,27 @@ export interface WindowProperties {
    * Determines if the close button is visible on select or always. Applicable only to TabsWindow.
    * Default value: default
    */
-  tabCloseButtonMode?: WindowTabCloseButtonMode;
+  tabCloseButtonMode?: WindowTabCloseButtonMode | string;
   /**
    * Sets or gets the Tabs scroll buttons behavior. Applicable only when tabLayout is 'scroll'. Applicable only to TabsWindow.
    * Default value: auto
    */
-  tabOverflow?: Overflow;
+  tabOverflow?: Overflow | string;
   /**
    * Detetmines Tab Strip is positioned of the TabsWindow. Applicable only to TabsWindow.
    * Default value: top
    */
-  tabPosition?: TabPosition;
+  tabPosition?: TabPosition | string;
   /**
    * Sets or gets the position of the scroll buttons inside the Tab header of the TabsWindow. Applicable only to TabsWindow.
    * Default value: both
    */
-  tabScrollButtonsPosition?: LayoutPosition;
+  tabScrollButtonsPosition?: LayoutPosition | string;
   /**
    * Sets or gets the orientation of the text in the tabs labels of the TabsWindow. Applicable only to TabsWindow.
    * Default value: horizontal
    */
-  tabTextOrientation?: Orientation;
+  tabTextOrientation?: Orientation | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -30706,7 +31374,7 @@ export interface WindowProperties {
    * Indicates how the input wraps text. Applicable only to MultilinePromptWindow.
    * Default value: soft
    */
-  wrap?: WindowWrap;
+  wrap?: WindowWrap | string;
 }
 /**
  Window or Dialog displays the interactive custom confirmations, message boxes, alerts, warnings, errors, and modal dialogs.
@@ -30814,16 +31482,11 @@ export interface Window extends BaseElement, WindowProperties {
    */
   insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null): T;
   /**
-   * Removes a tab and its associated content section. <strong>Applicable only to TabsWindow.</strong>
-   * @param {number} index. The index of the tab to remove.
+   * Moves the window to a new position
+   * @param {string | number} left. Left position. For example: '100px'. 
+   * @param {string | number} top. Top position. For example: '100px'. 
    */
-  removeAt(index: number): void;
-  /**
-   * Removes a child "smart-tab-item" node. <strong>Applicable only to TabsWindow.</strong>
-   * @param {Node} node. The "smart-tab-item" node to remove.
-   * @returns {Node}
-   */
-  removeChild<T extends Node>(node: Node): T;
+  move(left: string | number, top: string | number): void;
   /**
    * Maximizes the window to fill the area.
    */
@@ -30841,6 +31504,17 @@ export interface Window extends BaseElement, WindowProperties {
    */
   pin(): void;
   /**
+   * Removes a tab and its associated content section. <strong>Applicable only to TabsWindow.</strong>
+   * @param {number} index. The index of the tab to remove.
+   */
+  removeAt(index: number): void;
+  /**
+   * Removes a child "smart-tab-item" node. <strong>Applicable only to TabsWindow.</strong>
+   * @param {Node} node. The "smart-tab-item" node to remove.
+   * @returns {Node}
+   */
+  removeChild<T extends Node>(node: Node): T;
+  /**
    * Restores the window to it's previous size before maximization/minimization.
    */
   restore(): void;
@@ -30854,7 +31528,17 @@ export interface Window extends BaseElement, WindowProperties {
    */
   unpin(): void;
   /**
-   * Updates a tab and its associated content section. <strong> Applicalbe only to TabsWindow elements.</strong>
+   * Updates the header label.
+   * @param {string} label. The new label of the Header.
+   */
+  updateLabel(label: string): void;
+  /**
+   * Updates the content.
+   * @param {string | HTMLElement} content. The new content of the window.
+   */
+  updateContent(content: string | HTMLElement): void;
+  /**
+   * Updates a TAB in TAB Window and its associated content section. <strong> Applies only to TabsWindow elements.</strong>
    * @param {number} index. The index of the tab to update.
    * @param {string} label. The new label of the tab. The value can be the id of an HTMLTemplateElement
    * @param {string | HTMLElement} content. The new content of the tab.
@@ -30957,7 +31641,7 @@ export interface BootstrapButtonProperties {
    * Sets or gets the style mode of the button.
    * Default value: primary
    */
-  styleMode?: BootstrapButtonStyleMode;
+  styleMode?: BootstrapButtonStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""
@@ -31034,7 +31718,7 @@ export interface BootstrapCheckBoxProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapCheckBoxStyleMode;
+  styleMode?: BootstrapCheckBoxStyleMode | string;
 }
 /**
  Defines a CheckBox component, which includes Material and Bootstrap styles
@@ -31095,7 +31779,7 @@ export interface BootstrapCircularProperties {
    * Sets or gets the style mode of the button.
    * Default value: primary
    */
-  styleMode?: BootstrapCircularStyleMode;
+  styleMode?: BootstrapCircularStyleMode | string;
   /**
    * Sets or gets the value
    * Default value: 5
@@ -31137,7 +31821,7 @@ export interface BootstrapDropDownProperties {
    * Sets or gets the drop down position of the element. 
    * Default value: false
    */
-  dropDownPosition?: BootstrapDropDownDropDownPosition;
+  dropDownPosition?: BootstrapDropDownDropDownPosition | string;
   /**
    * Sets or gets the Label of the element.
    * Default value: """"
@@ -31147,7 +31831,7 @@ export interface BootstrapDropDownProperties {
    * Sets or gets the Label type of the element.
    * Default value: ""
    */
-  labelType?: BootstrapDropDownLabelType;
+  labelType?: BootstrapDropDownLabelType | string;
   /**
    * Sets or gets the Href of the element.
    * Default value: "#"
@@ -31172,7 +31856,7 @@ export interface BootstrapDropDownProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapDropDownStyleMode;
+  styleMode?: BootstrapDropDownStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""
@@ -31252,7 +31936,7 @@ export interface BootstrapFileInputProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapFileInputStyleMode;
+  styleMode?: BootstrapFileInputStyleMode | string;
   /**
    * Gets or sets the value of the element. 
    * Default value: "false"
@@ -31319,7 +32003,7 @@ export interface BootstrapInputProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapInputStyleMode;
+  styleMode?: BootstrapInputStyleMode | string;
   /**
    * Gets or sets the value of the element. 
    * Default value: "false"
@@ -31381,7 +32065,7 @@ export interface BootstrapInputGroupProperties {
    * Sets or gets the style mode of the input group.
    * Default value: primary
    */
-  styleMode?: BootstrapInputGroupStyleMode;
+  styleMode?: BootstrapInputGroupStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""
@@ -31433,7 +32117,7 @@ export interface BootstrapModalProperties {
    * Clicking on the modal “backdrop” will automatically close the modal. 
    * Default value: default
    */
-  backdrop?: BootstrapModalBackdrop;
+  backdrop?: BootstrapModalBackdrop | string;
   /**
    * Sets or gets whether the modal is centered. 
    * Default value: false
@@ -31458,7 +32142,7 @@ export interface BootstrapModalProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapModalStyleMode;
+  styleMode?: BootstrapModalStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""
@@ -31538,7 +32222,7 @@ export interface BootstrapProgressBarProperties {
    * Sets or gets the style mode of the button.
    * Default value: primary
    */
-  styleMode?: BootstrapProgressBarStyleMode;
+  styleMode?: BootstrapProgressBarStyleMode | string;
   /**
    * Sets or gets the value
    * Default value: 5
@@ -31600,7 +32284,7 @@ export interface BootstrapRadioButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapRadioButtonStyleMode;
+  styleMode?: BootstrapRadioButtonStyleMode | string;
 }
 /**
  Defines a Radio Button component, which includes Material and Bootstrap styles
@@ -31691,7 +32375,7 @@ export interface BootstrapSplitButtonProperties {
    * Sets or gets the drop down position of the element. 
    * Default value: false
    */
-  dropDownPosition?: BootstrapSplitButtonDropDownPosition;
+  dropDownPosition?: BootstrapSplitButtonDropDownPosition | string;
   /**
    * Sets or gets the Label of the element.
    * Default value: """"
@@ -31701,7 +32385,7 @@ export interface BootstrapSplitButtonProperties {
    * Sets or gets the Label type of the element.
    * Default value: ""
    */
-  labelType?: BootstrapSplitButtonLabelType;
+  labelType?: BootstrapSplitButtonLabelType | string;
   /**
    * Sets or gets the Href of the element.
    * Default value: "#"
@@ -31726,7 +32410,7 @@ export interface BootstrapSplitButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapSplitButtonStyleMode;
+  styleMode?: BootstrapSplitButtonStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""
@@ -31821,7 +32505,7 @@ export interface BootstrapSwitchButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapSwitchButtonStyleMode;
+  styleMode?: BootstrapSwitchButtonStyleMode | string;
 }
 /**
  Defines a Switch Button component, which includes Material and Bootstrap styles
@@ -31857,7 +32541,7 @@ export interface BootstrapTabsProperties {
    * Sets the tabs alignment
    * Default value: 
    */
-  alignment?: BootstrapTabsAlignment;
+  alignment?: BootstrapTabsAlignment | string;
   /**
    * Enables or disables the tabs. 
    * Default value: false
@@ -31877,12 +32561,12 @@ export interface BootstrapTabsProperties {
    * Sets or gets the tab type.
    * Default value: ul
    */
-  listType?: BootstrapTabsListType;
+  listType?: BootstrapTabsListType | string;
   /**
    * Sets or gets the style mode of the tabs.
    * Default value: primary
    */
-  styleMode?: BootstrapTabsStyleMode;
+  styleMode?: BootstrapTabsStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""
@@ -31892,7 +32576,7 @@ export interface BootstrapTabsProperties {
    * Sets or gets the tab type .
    * Default value: tabs
    */
-  tabType?: BootstrapTabsTabType;
+  tabType?: BootstrapTabsTabType | string;
 }
 /**
  Defines a Tabs component, which includes Material and Bootstrap styles
@@ -31965,7 +32649,7 @@ export interface BootstrapTextareaProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapTextareaStyleMode;
+  styleMode?: BootstrapTextareaStyleMode | string;
   /**
    * Gets or sets the value of the element. 
    * Default value: "false"
@@ -32027,7 +32711,7 @@ export interface BootstrapToggleButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapToggleButtonStyleMode;
+  styleMode?: BootstrapToggleButtonStyleMode | string;
 }
 /**
  Defines a Toggle Button component, which includes Material and Bootstrap styles

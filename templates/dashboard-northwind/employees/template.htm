@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col standalone-header">
+        Employees
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div>
+            <smart-button id="addBtn" class="primary">
+                <span class="material-icons">add_circle_outline</span>Add
+            </smart-button>
+        </div>
+        <div id="employeesTable" table-striped></div>
+    </div>
+</div>
+<smart-window id="addWindow" label="Add Employee" header-buttons="['close']" window-parent="content">
+    <form id="addForm" />
+</smart-window> 

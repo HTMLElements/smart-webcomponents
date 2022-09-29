@@ -1,0 +1,40 @@
+#skillsList ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+#skillsList li {
+    list-style-type: none;
+    margin: 2px;
+    border-radius: 15px;
+    padding: 7px;
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+#infoCard a {
+    margin-left: 0.5ch;
+    color: var(--smart-primary);
+}
+
+#infoCard .card-header:not(:first-child) {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-top: 1px solid var(--smart-border);
+    padding-top: 20px;
+}
+
+.personal-info>div {
+    display: flex;
+    align-items: center;
+}
+
+.personal-info .material-icons {
+    margin-right: 5px;
+}
+
+body[theme="dark"] .personal-info img {
+    filter: invert(1);
+}

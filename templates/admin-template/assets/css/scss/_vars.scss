@@ -1,0 +1,992 @@
+/****************************
+           GENERAL
+*****************************/
+//@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+$white: #fff;
+$gray-100: #fafafa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #cfcfcf;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #2b2b2b;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #2b2b2b;
+
+$primary: #3699FF;
+$secondary: #E4E6EF;
+$success: #1BC5BD;
+$info: #8950FC;
+$warning: #FFA800;
+$danger: #F64E60;
+$light: #F3F6F9;
+$dark: #6c7293;
+
+$body-bg: $white;
+$body-color: #3f4254;
+
+//$font-size-base: 1rem;
+$font-size-base: 0.875rem;
+
+$small-font-size: 12px;
+
+//$font-family-sans-serif: 'IBM Plex Sans', sans-serif;
+//$font-family-monospace: 'IBM Plex Sans', sans-serif;
+$font-family-sans-serif: Poppins, Helvetica, sans-serif;
+$font-family-monospace: Poppins, Helvetica, sans-serif;
+
+$font-family-base: $font-family-sans-serif;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+// Buttons + Forms
+$input-btn-padding-y: .75rem;
+$input-btn-padding-x: .75rem;
+
+$input-btn-padding-y-sm: .5rem;
+$input-btn-padding-x-sm: .5rem;
+
+$input-btn-padding-y-lg: 0.969rem;
+$input-btn-padding-x-lg: 1rem;
+
+$input-height: 2.5rem;
+$input-height-sm: 1.875rem;
+$input-height-lg: 3.125rem;
+
+$border-width: 1px;
+
+$border-radius: 5px;
+$border-radius-lg: 5px;
+$border-radius-sm: 5px;
+
+$input-btn-border-width: $border-width;
+
+$input-color: $gray-700;
+$input-border-color: $gray-400;
+$input-border-width: $input-btn-border-width;
+$input-box-shadow: inset 0 1px 1px rgba($black, .075);
+
+$input-border-radius: $border-radius;
+$input-border-radius-lg: $border-radius-lg;
+$input-border-radius-sm: $border-radius-sm;
+
+$input-placeholder-color: $gray-600;
+$input-plaintext-color: $body-color;
+
+$input-height-border: $input-border-width * 2;
+
+$form-text-margin-top: .25rem;
+
+$form-check-input-gutter: 1.25rem;
+$form-check-input-margin-y: .3rem;
+$form-check-input-margin-x: .25rem;
+
+$form-check-inline-margin-x: .75rem;
+$form-check-inline-input-margin-x: .3125rem;
+
+$form-grid-gutter-width: 10px;
+$form-group-margin-bottom: 1rem;
+
+$custom-control-indicator-size: 1.25rem;
+
+// Badges
+$badge-font-size: 85%;
+
+$badge-padding-y: 0.438rem;
+$badge-padding-x: 1.075em;
+$badge-border-radius: $border-radius;
+
+$badge-pill-padding-x: 1.075em;
+
+$input-focus-color: $dark;
+
+
+// Custom
+$textDark: $dark;
+$textLight: $light;
+$rounded-xl: 12px !important;
+
+//Breakpoints
+$media-xs-breakpoint: 575px;
+$media-sm-breakpoint: 767px;
+$media-md-breakpoint: 991px;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1440px
+);
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
+);
+
+:root {
+  /* Custom */
+  --sidebar-background: #1e1e2d;
+  --sidebar-background-active: #1b1b28;
+  --mobile-menu-background: #1a1a27;
+  --header-height: 70px;
+  --subheader-height: 42px;
+  --menu-width: 265px;
+  --menu-width-closed: 70px;
+  --content-background: #eef0f8;
+
+  --primary: var(--smart-primary);
+  --secondary: var(--smart-secondary);
+  --success: var(--smart-success);
+  --info: var(--smart-info);
+  --warning: var(--smart-warning);
+  --danger: var(--smart-error);
+
+  --black: #{$black};
+  --black-color: #{$black};
+  --white: #{$white};
+  --white-color: #{$white};
+  --dark: #{$dark};
+  --dark-color: #{$dark};
+  --light: #{$light};
+  --light-color: #{$light};
+
+  /* Smart UI */
+  --smart-primary-rgb: red($primary), green($primary), blue($primary); /* The r, g, and b components of the theme primary color */
+  --smart-primary: #{$primary}; /* The theme primary color */
+  --smart-primary-color: #ffffff; /* Text color on top of a primary background */
+  --smart-secondary: #{$secondary}; /* The theme secondary color */
+  --smart-secondary-color: #{$dark}; /* Text color on top of a secondary background */
+  --smart-error-rgb: red($danger), green($danger), blue($danger); /* The theme error color */
+  --smart-error: #{$danger}; /* The theme error color */
+  --smart-error-color: #ffffff; /* Text color on top of a error background */
+  --smart-success: #{$success}; /* The theme success color */
+  --smart-success-color: #ffffff; /* Text color on top of a success background */
+  --smart-info: #{$info}; /* The theme info color */
+  --smart-info-color: #fff; /* Text color on top of a info background */
+  --smart-warning: #{$warning}; /* The theme warning color */
+  --smart-warning-color: #fff; /* Text color on top of a warning background */
+  --smart-background: #{$body-bg}; /* The theme background color. The background color appears behind scrollable content.*/
+  --smart-background-color: #{$body-color}; /* Text color on top of a background background */
+
+  --smart-surface: #F5F5F5; /* The theme surface color. Surface colors affect surfaces of components, such as cards, sheets, and menus. */
+  --smart-surface-color: #323232; /* Text color on top of a surface surface */
+  --smart-disabled: #CCCCCC; /* The theme primary color in disabled state. */
+  --smart-disabled-color: #555; /* Text color on top of a theme background in disabled state */
+  --smart-ui-state-hover: #ebebeb; /* Hover state background. */
+  --smart-ui-state-color-hover: #333; /* Text color, when UI Element's state is 'hover'. */
+  --smart-ui-state-border-hover: var(--smart-ui-state-hover); /* Border color, when UI Element's state is 'hover'. */
+  --smart-ui-state-active: var(--smart-primary); /* Active state background. */
+  --smart-ui-state-color-active: var(--smart-primary-color); /* Text color, when UI Element's state is 'active'. */
+  --smart-ui-state-border-active: var(--smart-primary); /* Border color, when UI Element's state is 'active'. */
+  --smart-ui-state-focus: #e2e0e0; /* Focus state background. */
+  --smart-ui-state-color-focus: #333; /* Text color, when UI Element's state is 'focus'. */
+  --smart-ui-state-border-focus: var(--smart-ui-state-focus); /* Border color, when UI Element's state is 'focus'. */
+  --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1); /* Selected state background. */
+  --smart-ui-state-color-selected: var(--smart-primary); /* Text color, when UI Element's state is 'selected'. */
+  --smart-ui-state-border-selected: rgba(var(--smart-primary-rgb), .1); /* Border color, when UI Element's state is 'selected'. */
+  --smart-item-border-width: 1px; /* Theme border-width */
+  --smart-item-border-radius: var(--smart-border-radius); /* Border radius of items. */
+  --smart-item-border-top-left-radius: var(--smart-border-radius); /* Border top-left radius of items. */
+  --smart-item-border-top-right-radius: var(--smart-border-radius); /* Border top-right radius of items. */
+  --smart-item-border-bottom-left-radius: var(--smart-border-radius); /* Border bottom-left radius of items. */
+  --smart-item-border-bottom-right-radius: var(--smart-border-radius); /* Border bottom-right radius of items. */
+  --smart-font-size: 14px; /* Theme font-size */
+  --smart-font-weight: 400; /* Theme font-weight */
+  --smart-font-family: Poppins, Helvetica, sans-serif; /* Theme font-family */
+  //--smart-font-family-icon: jqx-icons; /* Theme icons font-family. */
+  //--smart-font-family-icon-src: local('../font/jqx-icons'), url('../font/jqx-icons.woff2') format('woff2'), url('../font/jqx-icons.woff') format('woff'), url('../font/jqx-icons.ttf') format('truetype'), url('../font/jqx-icons.eot') format('embedded-opentype'); /* The source of the theme icons font-family */
+  --smart-border-width: 1px; /* Theme border-width */
+  --smart-border-radius: 4px; /* Theme border-radius */
+  --smart-border-top-left-radius: var(--smart-border-radius); /* Theme border-radius */
+  --smart-border-top-right-radius: var(--smart-border-radius); /* Theme border-radius */
+  --smart-border-bottom-left-radius: var(--smart-border-radius); /* Theme border-radius */
+  --smart-border-bottom-right-radius: var(--smart-border-radius); /* Theme border-radius */
+  --smart-border: #E0E0E0; /* The theme background border color */
+  --smart-border-rgb: 244, 224, 224; /* The theme background border color */
+  --smart-outline: #b2b2b2; /* The theme active element outline color */
+  --smart-editor-selection: var(--smart-primary); /* Background color of the selected text. */
+  --smart-editor-selection-color: var(--smart-primary-color); /* Color of the selected text. */
+  --smart-alternation-index0-color: var(--smart-surface-color); /* Alternation color for index0 */
+  --smart-alternation-index0-border: var(--smart-surface); /* Alternation border color for index0 */
+  --smart-alternation-index0-background: var(--smart-surface); /* Alternation background color for index0 */
+  --smart-alternation-index1-color: #111; /*Alternation color for index1 */
+  --smart-alternation-index1-border: #9BBB59; /* Alternation border color for index1 */
+  --smart-alternation-index1-background: #9BBB59; /* Alternation background color for index1 */
+  --smart-alternation-index2-color: #fff; /*Alternation color for index2 */
+  --smart-alternation-index2-border: #FC3752; /* Alternation border color for index2 */
+  --smart-alternation-index2-background: #FC3752; /* Alternation background color for index2 */
+  --smart-tick-color: var(--smart-border); /* Default tick color for jqxTank, jqxSlider and jqxGauge */
+  --smart-tick-label-color: var(--smart-background-color); /* Default tick label color for jqxTank, jqxSlider and jqxGauge */
+  --smart-box-height: 450px; /* Default height for Dialog, Gauge, Accordion, Tabs, Tree, Array */
+  --smart-box-width: 450px; /* Default width for  Dialog, Gauge, Accordion, Tabs, Tree, Array */
+  --smart-bar-height: 48px; /* Default height for headers and footers */
+  --smart-bar-width: 400px; /* Default width for headers and footers */
+  --smart-editor-height: 38px; /* Default height for editors */
+  --smart-editor-width: 250px; /* Default width for editors */
+  --smart-editor-drop-down-width: 300px; /* Default width for editors drop-down */
+  --smart-editor-drop-down-height: 400px; /* Default height for editors drop-down */
+  --smart-editor-drop-down-padding-size: 3px; /* jqxDropDownList, jqxComboBox drop down default height */
+  --smart-editor-drop-down-max-width: 800px; /* jqxDropDownList, jqxComboBox, jqxTextBox popup max width */
+  --smart-editor-drop-down-min-width: 100px; /* jqxDropDownList, jqxComboBox, jqxTextBox popup min width */
+  --smart-editor-drop-down-max-height: 400px; /* jqxDropDownList, jqxComboBox, jqxTextBox popup max height */
+  --smart-editor-drop-down-min-height: 50px; /* jqxDropDownList, jqxComboBox, jqxTextBox popup min height */
+  --smart-editor-drop-down-resize-bar-height: 15px; /* jqxDropDownList, jqxComboBox, jqxTextBox popup resize bar default height */
+  --smart-editor-drop-down-vertical-offset: 5px; /* Vertical offset of editor drop downs */
+  --smart-editor-drop-down-z-index: 9999; /* z-index of editor drop downs */
+  --smart-editor-label-padding: 10px; /* Default padding for inputs */
+  --smart-editor-addon-width: 27px; /* Default width for spin buttons, dropdown buttons. */
+  --smart-column-icon-size: 30px; /* Default size of column icons */
+  /* Accordion */
+  --smart-accordion-animation-duration: 225ms; /* jqxAccordion animation duration */
+  --smart-accordion-default-width: var(--smart-box-width); /* jqxAccordion default width */
+  --smart-accordion-default-height: var(--smart-box-height); /* jqxAccordion default height */
+  --smart-accordion-expanded-content-height: 0px; /* Determines expanded content's height */
+  --smart-accordion-expanded-content-local-height: 0px; /* The height of an expanded item content part. Calculated dynamically for each item. Used in all modes except 'singleFitHeight'. */
+  --smart-accordion-item-header-height: var(--smart-bar-height); /* Element's header height. Used in several calcilations related to items height. */
+  --smart-accordion-item-expanded-offset: 20px; /* An offset below each expanded accordion item. */
+  /* Array */
+  --smart-array-default-width: var(--smart-box-width); /* jqxArray default width */
+  --smart-array-default-height: var(--smart-box-height); /* jqxArray default height */
+  --smart-array-element-gap: 3px; /* jqxArray element gap size */
+  /* Breadcrumb */
+  --smart-breadcrumb-default-width: 400px; /* jqxBreadcrumb default width */
+  --smart-breadcrumb-default-height: auto; /* jqxBreadcrumb default height */
+  --smart-breadcrumb-padding: 10px; /* Padding of jqx-breadcrumb and vertical offset between jqxBreadcrumb items */
+  --smart-breadcrumb-drop-down-width: var(--smart-editor-drop-down-width); /* Width of jqxBreadcrumb dropdown in minimized mode */
+  --smart-breadcrumb-item-height: 40px; /* Height of jqxBreadcrumb items */
+  --smart-breadcrumb-horizontal-offset: 10px; /* Horizontal offset between jqxBreadcrumb items */
+  /* Button - Default */
+  --smart-button-text-transform: uppercase; /* Controls the capitalization of button's text. Could be set as uppercase/lowercase/capitalize. */
+  --smart-button-padding: 8px 16px; /* Sets button's paddings. */
+  --smart-button-large-padding: 10px 16px; /* Sets large button's paddings. */
+  --smart-button-large-font-size: 18px; /* Sets large button's font size. */
+  --smart-button-small-padding: 5px 10px; /* Sets small button's paddings. */
+  --smart-button-small-font-size: 12px; /* Sets small button's font size. */
+  --smart-button-very-small-padding: 1px 5px; /* Sets very small button's paddings. */
+  --smart-button-very-small-font-size: 12px; /* Sets very small button's font size. */
+  /* Button - Flat */
+  --smart-button-flat-color: var(--smart-background-color); /* The color of the flat button. */
+  /* Button - Outlined */
+  --smart-button-outlined-color: var(--smart-background-color); /* The color of the outlined button. */
+  --smart-button-outlined-border: var(--smart-border); /* The border of the outlined button. */
+  /* Button Group */
+  --smart-button-group-default-width: auto;
+  --smart-button-group-default-height: var(--smart-editor-height);
+  /* Calendar */
+  --smart-calendar-header-height: calc(0.75 * var(--smart-bar-height)); /* Default height for jqxCalendar's header section */
+  --smart-calendar-footer-height: calc(0.75 * var(--smart-bar-height)); /* Default height for jqxCalendar's footer section */
+  --smart-calendar-title-height: calc(1.25 * var(--smart-bar-height)); /* Default height for calendar's title. */
+  --smart-calendar-cell-size: 30px; /* Default size of calendar's cell. */
+  --smart-calendar-cell-spacing: 4px; /* Defines calendar's cell spacing. */
+  --smart-calendar-default-width: calc(50px + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size))); /* jqxCalendar default width */
+  --smart-calendar-default-height: calc(var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height)); /* jqxCalendar default height */
+  --smart-calendar-title-text-transform: initial; /* Controls the capitalization of the title text. */
+  --smart-calendar-week-title-text-transform: uppercase; /* Controls the capitalization of the week title. */
+  --smart-calendar-header-text-transform: uppercase; /* Controls the capitalization of the header text. */
+  --smart-calendar-footer-text-transform: uppercase; /* Controls the capitalization of the footer text. */
+  --smart-calendar-cell-border-top-right-radius: 15px; /* Defines cell's top-right border radius. */
+  --smart-calendar-cell-border-top-left-radius: 15px; /* Defines cell's top-left border radius. */
+  --smart-calendar-cell-border-bottom-left-radius: 15px; /* Defines cell's bottom-left border radius. */
+  --smart-calendar-cell-border-bottom-right-radius: 15px; /* Defines cell's bottom-right border radius. */
+  --smart-calendar-title-padding: 10px; /* Defines title's padding */
+  --smart-calendar-important-date-background: var(--smart-ui-state-hover); /* Defines title's padding */
+  --smart-calendar-important-date-color: var(--smart-ui-state-color-hover); /* Defines title's padding */
+  --smart-calendar-important-date-border-color: var(--smart-ui-state-border-hover); /* Defines title's padding */
+  --smart-calendar-navigation-button-size: 30px; /* Sets the size for the navigation buttons */
+  /* CardView */
+  --smart-card-view-default-width: 1200px; /* Default width of CardView. */
+  --smart-card-view-default-height: 800px; /* Default height of CardView. */
+  --smart-card-view-header-height: 30px; /* Height of the CardView header */
+  --smart-card-view-cover-height: var(--smart-carousel-default-height); /* Height of CardView cover (carousel). */
+  --smart-card-view-vertical-offset: 15px; /* Vertical offset of CardView. */
+  --smart-card-view-column-min-width: 250px; /* Min width of CardView visual columns. */
+  --smart-card-view-gap: 10px; /* Gap between CardView cards. */
+  --smart-card-view-add-new-button-size: 60px; /* Size of the 'Add new record' (+) button. */
+  /* Carousel */
+  --smart-carousel-default-width: 600px; /* default width of the element */
+  --smart-carousel-default-height: 200px; /* default height of the element */
+  --smart-carousel-3d-mode-slide-width: 400px; /* default width of a slide in 3d mode */
+  --smart-carousel-3d-mode-slide-height: 400px; /* default height of a slide in 3d mode */
+  --smart-carousel-multiple-mode-slide-width: 200px; /* default width of a slide in multiple mode*/
+  /* Chart */
+  --smart-chart-default-width: 850px; /* default width of the element */
+  --smart-chart-default-height: 500px; /* default height of the element */
+  /* Check Box */
+  --smart-check-box-default-size: calc(1px + 1 / 2 * var(--smart-editor-height)); /* Default size for the check box used in jqxCheckBox and jqxListItem. */
+  /* ColorPanel*/
+  --smart-color-panel-default-width: auto; /* jqxColorPanel default width ; was 450px*/
+  --smart-color-panel-default-height: auto; /* jqxColorPanel default height ; was 370px */
+  --smart-color-panel-palette-size: 300px; /* jqxColorPanel palette size */
+  --smart-color-panel-grid-mode-item-size: 20px; /* jqxColorPanel item size */
+  /*was 40px*/
+  --smart-color-panel-grid-mode-column-count: 8; /* jqxColorPanel column count */
+  --smart-color-panel-grid-mode-columns-gap: 1px; /* jqxColorPanel column gap size */
+  --smart-color-panel-brightness: 0; /* jqxColorPanel brightness */
+  --smart-color-panel-default-mode-sections-gap: 8px; /* jqxColorPanel gap size in default mode */
+  --smart-color-panel-palette-width: var(--smart-color-panel-palette-size); /* jqxColorPanel palette width */
+  --smart-color-panel-palette-height: var(--smart-color-panel-palette-size); /* jqxColorPanel palette height */
+  --smart-color-panel-alpha-channel-color: white; /* Used as a default color for the Alpha Scale */
+  /* ColorPicker*/
+  --smart-color-picker-default-width: var(--smart-editor-width); /* jqxColorPicker default width */
+  --smart-color-picker-default-height: var(--smart-editor-height); /* jqxColorPicker default height */
+  --smart-color-picker-drop-down-width: auto; /* jqxColorPicker default width */
+  --smart-color-picker-drop-down-height: auto; /* jqxColorPicker default height */
+  /* ComboBox */
+  --smart-combo-box-default-width: var(--smart-editor-width); /* jqxComboBox default width */
+  --smart-combo-box-default-height: var(--smart-editor-height); /* jqxComboBox default height */
+  --smart-combo-box-drop-down-width: auto; /* jqxComboBox default width */
+  --smart-combo-box-drop-down-height: auto; /* jqxComboBox default height */
+  /* Chip */
+  --smart-chip-default-height: var(--smart-editor-height); /* Default chips height */
+  --smart-chip-avatar-background: var(--smart-secondary); /* Default avatar background color */
+  /* Currency format panel */
+  --smart-currency-format-panel-currency-holder-width: 1fr;
+  --smart-currency-format-panel-apply-button-width: 125px;
+  --smart-currency-format-panel-header-holder-offset: 2%;
+  --smart-currency-format-panel-currency-holder-input-width: 1fr;
+  --smart-currency-format-panel-currency-holder-dropdown-width: 165px;
+  --smart-currency-format-panel-currency-holder-dropdown-button-width: 95%;
+  --smart-currency-format-panel-border-size: 1px;
+  --smart-currency-format-panel-border-color: #ccc;
+  --smart-currency-format-panel-border-radius: 4px;
+  --smart-currency-format-panel-currencies-margin-top: 15px;
+  --smart-currency-format-panel-currencies-max-height: 400px;
+  --smart-currency-format-panel-currencies-item-padding: 12px;
+  --smart-currency-format-panel-currency-holder-padding-left: 5px;
+  --smart-currency-format-panel-currency-holder-padding-top: 3px;
+  --smart-currency-format-panel-currency-holder-padding-bottom: 3px;
+  --smart-currency-format-panel-currency-input-width: 100%;
+  --smart-currency-format-panel-currencies-left-padding: 10px;
+  --smart-currency-format-panel-currencies-hover-background: #f1f1f1;
+  --smart-currency-format-panel-currencies-example-format-color: #777;
+  /* DataView - Common for CardView and Kanban */
+  --smart-data-view-padding: 10px; /* Padding of the CardView and Kanban */
+  --smart-data-view-customize-panel-width: 200px; /* Width of the CardView and Kanban customize panel (drop down). */
+  --smart-data-view-filter-panel-width: 550px; /* Width of the CardView and Kanban filter panel (drop down). */
+  --smart-data-view-sort-panel-width: 450px; /* Width of the CardView and Kanban sort panel (drop down). */
+  --smart-data-view-search-panel-width: 250px; /* Width of the CardView and Kanban search panel (drop down). */
+  /* Date Format Panel */
+  --smart-date-format-panel-main-container-width: 960px; /* Main container */
+  --smart-date-format-panel-main-container-padding: 15px;
+  --smart-date-format-panel-border-radius: 4px; /* Default styles */
+  --smart-date-format-panel-border-size: 1px;
+  --smart-date-format-panel-border-color: #ccc;
+  --smart-date-format-panel-jqx-inputs-container-width: 1fr; /* Input and add format holder */
+  --smart-date-format-panel-apply-container-width: 150px;
+  --smart-date-format-panel-jqx-input-buttons-column-gap: 2%;
+  --smart-date-format-panel-jqx-inputs-holder-width: 94%; /* Input and add format holder child */
+  --smart-date-format-panel-add-format-holder-width: 6%;
+  --smart-date-format-panel-jqx-inputs-list-holder-offset: 2px;
+  --smart-date-format-panel-jqx-input-format-width: 150px; /* Jqx inputs */
+  --smart-date-format-panel-jqx-input-sign-width: 80px;
+  --smart-date-format-panel-jqx-input-height: 25px;
+  --smart-date-format-panel-each-jqx-input-offset: 4px;
+  --smart-date-format-panel-all-format-holders-width: 255px;
+  --smart-date-format-panel-add-format-holder-button: 120px;
+  --smart-date-format-panel-each-add-format-holder-width: 120px; /* Add new format */
+  --smart-date-format-panel-add-new-format-dropdown-offset: 5px;
+  --smart-date-format-panel-date-time-format-list-offset-top: 15px; /* Format list */
+  --smart-date-format-panel-date-time-format-list-max-height: 400px;
+  --smart-date-format-panel-each-date-time-format-offset: 12px;
+  /* Date Time Picker */
+  --smart-date-time-picker-default-width: var(--smart-editor-width); /* jqxDateTimePicker default width */
+  --smart-date-time-picker-default-height: var(--smart-editor-height); /* jqxDateTimePicker default height */
+  --smart-date-time-picker-header-opacity: 0.8; /* Opacity of header elements */
+  --smart-date-time-picker-header-opacity-active: 1; /* Opacity of header elements when selected */
+  --smart-date-time-picker-drop-down-width: var(--smart-editor-drop-down-height); /* jqxDropDownList drop down width */
+  --smart-date-time-picker-drop-down-height: auto; /* jqxDropDownList drop down height */
+  /*DockingLayout*/
+  --smart-docking-layout-default-width: 1000px; /* jqxDropDownList, jqxComboBox default width */
+  --smart-docking-layout-default-height: 800px; /* jqxDropDownList, jqxComboBox default height */
+  --smart-docking-layout-feedback-background-secondary-size: 7px; /* The size of the arrows of the advanced snapping highlighters that show possible drop position of the dragged item. */
+  /*DropDownList*/
+  --smart-drop-down-list-default-width: var(--smart-editor-width); /* jqxDropDownList, jqxComboBox default width */
+  --smart-drop-down-list-default-height: var(--smart-editor-height); /* jqxDropDownList, jqxComboBox default height */
+  --smart-drop-down-list-drop-down-width: initial; /* jqxDropDownList drop down width */
+  --smart-drop-down-list-drop-down-height: auto; /* jqxDropDownList drop down height */
+  /* DropDownButton */
+  --smart-drop-down-button-default-width: auto; /* jqxDropDownButton default width */
+  --smart-drop-down-button-default-height: var(--smart-editor-height); /* jqxDropDownButton default height */
+  --smart-drop-down-button-drop-down-width: var(--smart-editor-drop-down-width); /* jqxDropDownButton drop down width */
+  --smart-drop-down-button-drop-down-height: var(--smart-editor-drop-down-height); /* jqxDropDownButton drop down height */
+  /* Filter Builder */
+  --smart-filter-builder-default-width: var(--smart-box-width); /* Default width of the jqxFilterBuilder*/
+  --smart-filter-builder-default-height: var(--smart-box-height); /* Default height of the jqxFilterBuilder*/
+  --smart-filter-builder-row-height: var(--smart-editor-height); /* Default height of the jqxFilterBuilder's rows*/
+  --smart-filter-builder-item-width: var(--smart-editor-width); /* Default width of the jqxFilterBuilder's button items*/
+  --smart-filter-builder-group-container-border: 4px;
+  --smart-filter-builder-item-margin: 20px;
+  --smart-filter-builder-group-condition-margin: 5px;
+  --smart-filter-builder-group-margin: 15px;
+  /* Filter Panel */
+  --smart-filter-panel-default-width: 300px; /* Default width of the jqxFilterPanel */
+  --smart-filter-panel-default-height: auto; /* Default height of the jqxFilterPanel */
+  --smart-filter-panel-padding: 10px; /* padding of the jqxFilterPanel */
+  --smart-filter-panel-border-top-right-radius: var(--smart-border-radius); /* jqxFilterPanel top-right border radius */
+  --smart-filter-panel-border-top-left-radius: var(--smart-border-radius); /* jqxFilterPanel top-left border radius */
+  --smart-filter-panel-border-bottom-left-radius: var(--smart-border-radius); /* jqxFilterPanel bottom-left border radius */
+  --smart-filter-panel-border-bottom-right-radius: var(--smart-border-radius); /* jqxFilterPanel bottom-right border radius */
+  --smart-filter-panel-border-width: var(--smart-border-width); /* jqxFilterPanel border width */
+  --smart-filter-panel-border: var(--smart-border); /* jqxFilterPanel border color */
+  --smart-filter-panel-background: var(--smart-background); /* jqxFilterPanel background color */
+  --smart-filter-panel-color: var(--smart-background-color); /* jqxFilterPanel text color */
+  --smart-filter-panel-vertical-offset: 10px; /* Vertical offset between jqxFilterPanel sub-elements */
+  --smart-filter-panel-main-element-height: 400px; /* height of the jqxTree inside the jqxFilterPanel */
+  /* File Upload */
+  --smart-file-upload-default-width: var(--smart-editor-width); /* Default width of the jqxFileUpload*/
+  --smart-file-upload-browse-button-width: auto; /* Default width of the browse button*/
+  --smart-file-upload-browse-button-height: auto; /* Default height of the browse button*/
+  --smart-file-upload-footer-button-width: auto; /* Default height of the jqxFileUpload's footer buttons*/
+  --smart-file-upload-footer-button-height: auto; /* Default height of the jqxFileUpload's footer buttons*/
+  --smart-file-upload-text-content-uploading-start: "Connecting ..."; /* Default text content of the pseudo element shown when upload starts. */
+  --smart-file-upload-text-content-uploading: "Uploading ..."; /* Default text content of the pseudo element shown during the upload. */
+  --smart-file-upload-text-content-error: "Upload error!"; /* Default text content of the pseudo element shown on error. */
+  --smart-file-upload-text-content-pause: "Upload paused!"; /* Default text content of the pseudo element shown when upload is paused. */
+  --smart-file-upload-text-content-drop-zone: "Drag files here"; /* Default text content of the pseudo element shown where is the drop zone. */
+  --smart-file-upload-text-content-drop-zone-over: "Drop here \e824"; /* Default text content of the pseudo element shown when dragged files are over the drop zone. */
+  --smart-file-upload-container-min-height: 60px; /* Sets minimmum height of the drop zone and file zone containers. */
+  --smart-file-upload-total-files-min-height: 20px; /* Sets min height of the container where total numbers of items is displayed. */
+  /* Gantt Chart */
+  --smart-gantt-chart-splitter-bar-fit-size: calc(var(--smart-gantt-chart-task-timeline-content-height) + 2 * var(--smart-gantt-chart-task-default-height)); /* The fit size of all Splitter bars inside the element*/
+  --smart-gantt-chart-task-tree-splitter-bar-fit-size: var(--smart-gantt-chart-splitter-bar-fit-size); /* The fit size of the Splitter Bars that are inside the Task Tree Splitter */
+  --smart-gantt-chart-resource-tree-splitter-bar-fit-size: calc(var(--smart-gantt-chart-resource-timeline-content-height) + var(--smart-gantt-chart-task-default-height)); /* The fit size of the Splitter Bars that are inside the Resource Tree Splitter */
+  --smart-gantt-chart-task-default-height: 30px; /* The height of a Task inside the Timeline */
+  --smart-gantt-chart-header-height: var(--smart-gantt-chart-task-default-height); /* The height of the header of the Task and Resource Panels */
+  --smart-gantt-chart-task-bar-fill-padding: 5px; /* The padding of the Fill of the Task Bar */
+  --smart-gantt-chart-task-label-padding: var(--smart-gantt-chart-task-bar-fill-padding); /* */
+  --smart-gantt-chart-task-thumb-color: rgba(0, 0, 0, .55); /* The color of the thumb */
+  --smart-gantt-chart-task-progress-color: rgba(0, 0, 0, .15); /* #2d75f5 */
+  /* The default color of the progress fill of all Tasks inside the Timeline */
+  --smart-gantt-chart-project-color: #ffa558; /* #38a238*/
+  /* The defaut color for all Project tasks */
+  --smart-gantt-chart-project-label-color: #333; /* Determines the label color of the project tasks inside the Timeline. */
+  --smart-gantt-chart-project-label-color-selected: #000; /* Determines the label color of the project tasks inside the Timeline when selected. */
+  --smart-gantt-chart-project-progress-color: var(--smart-gantt-chart-task-progress-color); /* #008000 */
+  /* The default color of the progress fill for all Project tasks */
+  --smart-gantt-chart-task-color: rgb(43, 195, 190); /* #6495ed */
+  /* The default color of a Task inside the Timeline */
+  --smart-gantt-chart-milestone-color: #800080; /* The default color for all Milestones */
+  --smart-gantt-chart-timeline-task-background-color: transparent; /* Determines the background color of the tasks(rows) inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-feedback-color: #e6510a; /* orange */
+  /* Determines the default color of the feedback that is shows when creating a connection between tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-feedback-width: 1px; /* Determines the default width of the feedback that is shows when creating a connection between tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-feedback-style: dashed; /* Determines the style of the feedback that is shows when creating a connection between tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-color: var(--smart-gantt-chart-timeline-task-connection-feedback-color); /* Determines the color of the connections between Tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-color-hover: var(--smart-gantt-chart-timeline-task-connection-color); /* Determines the color on hover of the connections between Tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-width: var(--smart-gantt-chart-timeline-task-connection-feedback-width); /* Determines the width of the connections between the tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-style: solid; /* Determines the style of the connections between the tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-arrow-type: solid; /* Determines the border type of the arrow of the connections between Tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-connection-arrow-width: 5px; /* Determines the width of the arrow of the connections between Tasks inside the Timeline. */
+  --smart-gantt-chart-timeline-task-resize-indicator-width: 4px; /* Determines the defualt width of the resize indicator of the Task bars inside the Timeline. */
+  --smart-gantt-chart-timeline-task-resize-indicator-color: #fff; /* Determines the background-color of the resize indicators of the Task bars insinde the Timeline. */
+  --smart-gantt-chart-timeline-task-resize-indicator-border-color: #333; /* Determines the border-color of the resize indicator of the Task bars inside the Timeline. */
+  --smart-gantt-chart-timeline-task-progress-thumb-size: 10px; /* Determines the size of the thumb controlling the progress of a Task inside the Timeline. */
+  --smart-gantt-chart-timeline-cell-size: auto; /* Determines the default width of the cells inside the Timeline. */
+  --smart-gantt-chart-timeline-cell-min-size: 70px; /* Determines the default min-width of the cells inside the Timeline. */
+  --smart-gantt-chart-timeline-task-min-width: 5px; /* Determines the default min-width of the Tasks insinde the Timeline. Not applicable to Milestone tasks. */
+  --smart-gantt-chart-timeline-weekend-color: #EFF5FD; /* Determines the default background color of the 'weekend' cells insinde the Timeline. */
+  --smart-gantt-chart-timeline-nonworking-color: #F5F5F5; /* Determines the default background-color of the nonworking days/hours inside the Timeline. */
+  --smart-gantt-chart-default-width: auto; /* Determines the default width of the element. */
+  --smart-gantt-chart-default-height: 600px; /* Determines the height of the element. */
+  --smart-gantt-chart-task-popup-window-default-width: 500px; /* Determines the width of the task editing popup windows of the element. */
+  --smart-gantt-chart-connection-popup-window-default-width: 300px; /* Determines the width of the connection editing popup windows of the element. */
+  --smart-gantt-chart-confirm-popup-window-default-width: var(--smart-gantt-chart-connection-popup-default-width); /* Determines the width of the confirm popup window of the element. */
+  --smart-gantt-chart-popup-window-header-height: 35px; /* Determines the height of the header of the popup windows inside the element. */
+  --smart-gantt-chart-popup-window-footer-height: 50px; /* Determines the height of the footer of the popup windows insinde the element. */
+  --smart-gantt-chart-header-placeholder: ' - '; /* Placeholder for thea Header sections when there're no items */
+  --smart-gantt-chart-progress-label-padding: 0 10px 0 10px; /* Task progress label padding */
+  --smart-gantt-chart-header-box-shadow: initial; /* Sets a box shadow to the Task Timeline header */
+  /* Gauge */
+  --smart-gauge-default-width: var(--smart-box-width); /* jqxGauge default width */
+  --smart-gauge-default-height: var(--smart-box-height); /* jqxgauge default height */
+  --smart-gauge-track-border: var(--smart-border); /* Track's border color */
+  --smart-gauge-track-background: var(--smart-background); /* Track's background color */
+  --smart-gauge-needle-background: var(--smart-primary); /* Needle's background color */
+  --smart-gauge-label-fill-state: initial; /* Fill color of labels */
+  --smart-gauge-label-stroke: initial; /* Stroke color of labels */
+  /* Grid */
+  --smart-grid-default-width: 800px; /* Used to set the default width. */
+  --smart-grid-default-height: 400px; /* Used to set the default height. */
+  --smart-grid-footer-height: var(--smart-bar-height); /* Sets footer height. */
+  --smart-grid-header-height: var(--smart-bar-height); /* Sets header height. */
+  --smart-grid-group-header-height: var(--smart-bar-height); /* Sets group header height. */
+  --smart-grid-row-height: 30px; /* Sets rows height. */
+  --smart-grid-column-header-height: var(--smart-bar-height); /* Sets columns height. */
+  --smart-grid-filter-footer-height: var(--smart-bar-height); /* Sets filter row height. */
+  --smart-grid-aggregate-footer-height: var(--smart-bar-height); /* Sets aggregates height. */
+  --smart-grid-header-background-freeze: var(--smart-surface); /* Sets row/column header background, when row/column is frozen. */
+  --smart-grid-header-color-freeze: var(--smart-surface-color); /* Sets row/column header text color, when row/column is frozen. */
+  --smart-grid-column-menu-width: 200px; /* Sets column menu's width. */
+  --smart-grid-column-menu-height: auto; /* Sets column menu's height. */
+  --smart-grid-column-buttons-width: 23px; /* Sets column buttons width. */
+  --smart-grid-cell-color-freeze: var(--smart-surface-color); /* Sets text color of cells, when row/column is frozen. */
+  --smart-grid-cell-background-freeze: var(--smart-surface); /* Sets background color of cells, when row/column is frozen */
+  --smart-grid-cell-color-delete: #333; /* Sets text color of cells, when row is deleted. */
+  --smart-grid-cell-background-delete: #FFDCDC; /* Sets background color of cells, when row is deleted. */
+  --smart-grid-cell-color-update: #333; /* Sets text color of cells, when cell is updated.. */
+  --smart-grid-cell-background-update: #D7F9C7; /* Sets background color of cells, when cell is updated.. */
+  --smart-grid-cell-color-add: #333; /* Sets text color of cells, when row is added.. */
+  --smart-grid-cell-background-add: #FED59B; /* Sets background color of cells, when row is deleted.. */
+  --smart-grid-cell-color-unbound: var(--smart-surface-color); /* Sets text color of cells, when row is unbound. */
+  --smart-grid-cell-background-unbound: var(--smart-surface); /* Sets background color of cells, when row is unbound. */
+  --smart-grid-cell-color-sort: var(--smart-surface-color); /* Sets text color of cells, when column is sorted. */
+  --smart-grid-cell-background-sort: var(--smart-surface); /* Sets background color of cells, when column is sorted. */
+  --smart-grid-cell-color-filter: var(--smart-surface-color); /* Sets text color of cells, when column is filtered. */
+  --smart-grid-cell-background-filter: var(--smart-surface); /* Sets background color of cells, when column is filtered. */
+  --smart-grid-group-row-vertical-offset: 5; /* Sets grouped rows vertical offset. */
+  --smart-grid-group-row-horizontal-offset: 1; /* Sets grouped rows horizontal offset. */
+  --smart-grid-template-columns: none; /* Sets Template columns. */
+  --smart-grid-column-gap: 0px; /* Sets the element's grid-column-gap (related to CSS Grid) */
+  --smart-grid-row-gap: 0px; /* Sets the element's grid-row-gap (related to CSS Grid) */
+  --smart-grid-freeze-splitter-size: 1px; /* Sets frozen split bar size. */
+  --smart-grid-resize-line-size: 1px; /* Sets resize line size. */
+  /* Grid Layout */
+  --smart-grid-layout-col-gap: 10px;
+  --smart-grid-layout-row-gap: 10px;
+  --smart-grid-layout-width: 100%;
+  --smart-grid-layout-rows: none;
+  /* Group Panel, Sort Panel, Column Panel, Multi Column Filter Panel, Formatting Panel */
+  --smart-grid-panel-default-width: 450px; /* Default width of the jqxGroupPanel/jqxSortPanel/jqxColumnPanel/jqxMultiColumnFilterPanel */
+  --smart-grid-panel-default-height: auto; /* Default height of the jqxGroupPanel/jqxSortPanel/jqxColumnPanel/jqxMultiColumnFilterPanel */
+  --smart-grid-panel-padding: 10px; /* padding of the jqxGroupPanel/jqxSortPanel/jqxColumnPanel/jqxMultiColumnFilterPanel */
+  --smart-grid-panel-vertical-offset: 10px; /* Vertical offset between jqxGroupPanel/jqxSortPanel/jqxColumnPanel/jqxMultiColumnFilterPanel items */
+  --smart-grid-panel-item-height: 30px; /* height of jqxGroupPanel/jqxSortPanel/jqxColumnPanel/jqxMultiColumnFilterPanel items */
+  --smart-multi-column-filter-panel-template-columns: 15px 60px 2fr 3fr 3fr; /* jqxMultiColumnFilterPanel grid-template-columns */
+  --smart-formatting-panel-default-width: 600px; /* Default width of the jqxFormattingPanel */
+  --smart-formatting-panel-row-height: 30px; /* Height of rows in jqxFormattingPanel */
+  --smart-formatting-panel-add-new-button-size: 40px; /* Size of "Add new" (+) button in jqxFormattingPanel */
+  --smart-formatting-panel-popup-width: 300px; /* Width of jqxFormattingPanel's pop-up */
+  --smart-formatting-panel-color-box-height: 20px; /* Height of color boxes in jqxFormattingPanel's pop-up */
+  /* Kanban */
+  --smart-kanban-default-width: 1200px; /* Default width of Kanban */
+  --smart-kanban-default-height: 500px; /* Default height of Kanban */
+  --smart-kanban-header-size: 35px; /* Header size of Kanban (applies to header and column headers) */
+  --smart-kanban-task-min-width: 150px; /* Min width for Kanban tasks in columns with horizontal orientation */
+  --smart-kanban-task-min-height: 80px; /* Kanban task min height */
+  --smart-kanban-text-max-height: 200px; /* Kanban task text part max height */
+  --smart-kanban-user-icon-size: 30px; /* Kanban user icon size */
+  --smart-kanban-user-list-width: 150px; /* Kanban user list width */
+  --smart-kanban-user-list-max-height: 400px; /* Kanban user list max height */
+  --smart-kanban-comments-list-width: 350px; /* Kanban comments list width */
+  --smart-kanban-comments-list-height: 400px; /* Kanban comments list height */
+  --smart-kanban-new-comment-height: 50px; /* Height of new comment section */
+  --smart-kanban-new-comment-height-expanded: 175px; /* Expanded height of new comment section */
+  --smart-kanban-send-button-height: 30px; /* Height of Send button in new comment section */
+  --smart-kanban-color-band-width: 3px; /* Kanban color band width (i.e. left border of tasks) */
+  --smart-kanban-add-new-column-width: 1fr; /* Kanban "+ New status" column width */
+  /* ListBox */
+  --smart-list-box-default-width: var(--smart-editor-width); /* jqxListBox default width */
+  --smart-list-box-default-height: var(--smart-editor-width); /* jqxListBox default height */
+  --smart-list-item-group-header-text-transform: uppercase; /* jqxListBox item group header text transform */
+  --smart-list-item-horizontal-offset: 3px; /* Defines list item's horizontal offset. */
+  --smart-list-item-vertical-offset: 3px; /* Defines list item's vertical offset. */
+  --smart-list-item-height: 36px; /* jqxListBox item height */
+  --smart-list-item-check-box-radius: 2px; /* jqxListBox checkbox radius */
+  --smart-list-item-label-padding: 0; /* jqxListBox item label padding */
+  --smart-list-item-label-border-radius: 0; /* jqxListBox item label border radius */
+  --smart-list-item-padding: 9px 12px; /* jqxListBox item padding */
+  /* Loader */
+  --smart-loader-size: var(--smart-editor-height); /* jqxListBox loader size(width=height) */
+  /* LED */
+  --smart-led-default-width: var(--smart-editor-height); /* jqxLed default width */
+  --smart-led-default-height: var(--smart-editor-height); /* jqxLed default height */
+  /* List Menu */
+  --smart-list-menu-default-width: var(--smart-box-width); /* jqxListMenu default width */
+  --smart-list-menu-default-height: var(--smart-box-height); /* jqxListMenu default height */
+  --smart-list-menu-filter-input-vertical-offset: 5px; /* Defines vertical offset of the ListMenu's filter input. */
+  --smart-list-menu-filter-input-horizontal-offset: 5px; /* Defines horizontal offset of the ListMenu's filter input. */
+  /*Masked Text Box*/
+  --smart-masked-text-box-default-width: var(--smart-editor-width); /* jqxMasked default width */
+  --smart-masked-text-box-default-height: var(--smart-editor-height); /* jqxMasked default height */
+  /* Menu */
+  --smart-menu-default-width: var(--smart-bar-width); /* jqxMenu default width */
+  --smart-menu-default-height: var(--smart-bar-height); /* jqxMenu default height */
+  --smart-menu-vertical-default-width: calc(var(--smart-bar-width) / 2); /* vertical and context jqxMenu default width */
+  --smart-menu-vertical-default-height: var(--smart-bar-width); /* vertical and context jqxMenu default height */
+  --smart-menu-scroll-button-size: calc(var(--smart-bar-height) / 1.5); /* jqxMenu scroll buttons size. Horizontal Menu scroll buttons width = Vertical Menu scroll buttons height. */
+  /* Multiline Text Box */
+  --smart-multiline-text-box-default-width: var(--smart-editor-width); /* Default width of the element. */
+  --smart-multiline-text-box-default-height: calc(10 * var(--smart-editor-height)); /* Default height of the element. */
+  /* Multi Split Button*/
+  --smart-multi-split-button-default-width: var(--smart-editor-width); /* Element's default width. */
+  --smart-multi-split-button-default-height: var(--smart-editor-height); /* Element's default height. */
+  /* Number format Panel */
+  --smart-number-format-panel-selected-format-width: 1fr;
+  --smart-number-format-panel-apply-button-width: 125px;
+  --smart-number-format-panel-header-holder-offset: 10px;
+  --smart-number-format-panel-border-size: 1px;
+  --smart-number-format-panel-border-color: #ccc;
+  --smart-number-format-panel-border-radius: 4px;
+  --smart-number-format-panel-sample-container-vertical-offset: 15px;
+  --smart-number-format-panel-sample-container-horizontal-offset: 5px;
+  --smart-number-format-panel-formats-list-margin-top: 15px;
+  --smart-number-format-panel-formats-list-max-height: 400px;
+  --smart-number-format-panel-formats-item-padding: 12px;
+  --smart-number-format-panel-selected-format-padding-left: 5px;
+  --smart-number-format-panel-selected-format-padding-top: 3px;
+  --smart-number-format-panel-selected-format-padding-bottom: 3px;
+  --smart-number-format-panel-header-input-width: 100%;
+  --smart-number-format-panel-formats-item-left-padding: 10px;
+  --smart-number-format-panel-formats-item-hover-background: #f1f1f1;
+  --smart-number-format-panel-formats-item-example-format-color: #777;
+  /* Numeric Text Box */
+  --smart-numeric-text-box-default-width: var(--smart-editor-width); /* jqxNumericTextBox default width */
+  --smart-numeric-text-box-default-height: var(--smart-editor-height); /* jqxNumericTextBox default height */
+  --smart-numeric-text-box-default-radix-display-width: 12%; /* jqxNumericTextBox default radix display button width*/
+  --smart-numeric-text-box-default-unit-display-width: var(--smart-editor-addon-width); /* jqxNumericTextBox default unit display width*/
+  --smart-numeric-text-box-text-align: right; /* jqxNumericTextBox input text align */
+  /* Path */
+  --smart-path-default-width: var(--smart-editor-width); /* jqxPath default width */
+  --smart-path-default-height: var(--smart-editor-height); /* jqxPath default height */
+  --smart-path-drop-down-width: auto; /* jqxPath drop down width */
+  --smart-path-drop-down-height: auto; /* jqxPath drop down height */
+  --smart-path-button-gap: 5px; /* jqxPath button gap */
+  --smart-path-text-align: start; /* jqxPath text align */
+  /* Power Button */
+  --smart-power-button-default-width: var(--smart-editor-height); /* jqxPowerButton default width */
+  --smart-power-button-default-height: var(--smart-editor-height); /* jqxPowerButton default height */
+  /* Progress Bar */
+  --smart-progress-bar-default-width: var(--smart-editor-width); /* jqxProgressBar default width */
+  --smart-progress-bar-default-height: 13px; /* jqxProgressBar default height */
+  --smart-circular-progress-bar-default-size: 13px; /* jqxCircularProgressBar default size (width = height) */
+  --smart-circular-progress-bar-fill-size: 20%; /* jqxCircularProgressBar ui-state size. The width of the ui-state. The middle container's width is calculated defaultd on this value. */
+  /* Query Builder */
+  --smart-query-builder-default-width: auto; /* Default width of QueryBuilder. */
+  --smart-query-builder-default-height: auto; /* Default height of QueryBuilder. */
+  --smart-query-builder-min-width: 100px; /* Minimum width of QueryBuilder. */
+  --smart-query-builder-content-padding: 5px; /* Padding of QueryBuilder. */
+  --smart-query-builder-editor-width: 125px; /* Width of editors in QueryBuilder. */
+  /* Radio Button */
+  --smart-radio-button-default-size: calc(1px + 1 / 2 * var(--smart-editor-height)); /* Default size for the radio button. */
+  /* Sortable */
+  --smart-sortable-handle-size: 25px; /* jqxSortable handle size */
+  /* Splitter */
+  --smart-splitter-default-width: var(--smart-box-width); /* jqxSplitter default width */
+  --smart-splitter-default-height: var(--smart-box-height); /* jqxSplitter default height */
+  --smart-splitter-bar-size: 10px; /* The width of the scrollbar when vertical and the height of the scrollbar when horizontal*/
+  --smart-splitter-bar-fit-size: 100%; /* The size of the splitter according to the orientation of the Splitter. By 'default' a SplitterBar fits the size of the Splitter. */
+  --smart-splitter-item-padding: 0; /* Splitter item padding */
+  --smart-splitter-item-content-padding: 0; /* Splitter item content padding */
+  --smart-splitter-item-size: auto; /* The default size of the Splitter Items */
+  /* Switch Button */
+  --smart-switch-button-default-width: calc(var(--smart-editor-height) + 10px); /* Default width of the SwitchButton. */
+  --smart-switch-button-default-height: var(--smart-editor-height); /* jqxSwitchButton default height */
+  --smart-switch-button-thumb-size: calc(var(--smart-switch-button-default-height) - 8px); /* jqxSwitchButton thumb size */
+  /* Slider */
+  --smart-slider-default-width: var(--smart-editor-width); /* jqxSlider default width */
+  --smart-slider-default-height: 35px; /* jqxSlider default height*/
+  --smart-slider-track-size: 1px; /* jqxSlider track size. Horizontal track height = Vertical track width */
+  --smart-slider-thumb-width: 20px; /* jqxSlider thumb width*/
+  --smart-slider-thumb-height: 20px; /* jqxSlider thumb height*/
+  --smart-slider-tooltip-width: 60px; /* jqxSlider tooltip width */
+  --smart-slider-tooltip-height: 30px; /* jqxSlider tooltip height*/
+  --smart-slider-spin-button-width: 30px; /* jqxSlider spin buttons width*/
+  --smart-slider-spin-button-height: 30px; /* jqxSlider spin buttons height*/
+  --smart-slider-tick-size: 10px; /* jqxSlider tick size. Horizontal Slider tick height = Vertical Slider tick width.*/
+  --smart-slider-minor-tick-size: 5px; /* jqxSlider minor tick size. Horizontal Slider minor tick height = Vertical Slider minor tick width.*/
+  --smart-slider-thumb-border-top-right-radius: 15px; /* Top-right border radius of jqxSlider thumb */
+  --smart-slider-thumb-border-top-left-radimobile-menu-activatedus: 15px; /* Top-left border radius of jqxSlider thumb */
+  --smart-slider-thumb-border-bottom-left-radius: 15px; /* Bottom-left border radius of jqxSlider thumb */
+  --smart-slider-thumb-border-bottom-right-radius: 15px; /* Bottom-right border radius of jqxSlider thumb */
+  /* ScrollBar */
+  --smart-scroll-button-size: 16px; /* smartScrollBar buttons size. Horizontal ScrollBar button width = Vertical ScrollBar button height. ScrollBar track is calculated defaultd on this value. */
+  --smart-scroll-bar-size: 18px; /* Default scrollbar size */
+  --smart-scroll-bar-default-width: var(--smart-editor-width); /* ScrollBar's default width. */
+  --smart-scroll-bar-default-height: var(--smart-scroll-bar-size); /* ScrollBar's default height. */
+  --smart-scroll-bar-background: #F1F1F1; /* Default ScrollBar's background color. */
+  --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
+  --smart-scroll-bar-border: #F1F1F1; /* The border color of the ScrollBar */
+  --smart-scroll-bar-thumb-border-top-right-radius: 0px; /* Default ScrollBar's top-right border radius. */
+  --smart-scroll-bar-thumb-border-top-left-radius: 0px; /* Default ScrollBar's top-left border radius. */
+  --smart-scroll-bar-thumb-border-bottom-left-radius: 0px; /* Default ScrollBar's bottom-left border radius. */
+  --smart-scroll-bar-thumb-border-bottom-right-radius: 0px; /* Default ScrollBar's bottom-right border radius. */
+  --smart-scroll-bar-thumb-background: #C1C1C1; /* The color of the ScrollBar's thumb. */
+  --smart-scroll-bar-thumb-border: transparent; /* The color of the ScrollBar's thumb border. */
+  --smart-scroll-bar-thumb-size: 100%; /* The size of the ScrollBar's thumb. */
+  --smart-scroll-bar-thumb-padding: 1px; /* The padding of the ScrollBar's thumb. */
+  --smart-scroll-bar-thumb-background-hover: #A8A8A8; /* The background color of the ScrollBar's thumb in hover state. */
+  --smart-scroll-bar-thumb-border-hover: transparent; /* The border color of the ScrollBar's thumb in hover state. */
+  --smart-scroll-bar-thumb-background-active: #787878; /* The background color of the ScrollBar's thumb in active state. */
+  --smart-scroll-bar-thumb-border-active: transparent; /* The border color of the ScrollBar's thumb in active state. */
+  --smart-scroll-bar-button-background: #F1F1F1; /* The background color of ScrollBar's navigation buttons. */
+  --smart-scroll-bar-button-border: #F1F1F1; /* The border color of ScrollBar's navigation buttons. */
+  --smart-scroll-bar-button-color: #505050; /* The color of ScrollBar's navigation buttons. */
+  --smart-scroll-bar-button-background-hover: #D2D2D2; /* The background color of the hovered ScrollBar's buttons. */
+  --smart-scroll-bar-button-border-hover: #F1F1F1; /* The border color of the hovered ScrollBar's buttons. */
+  --smart-scroll-bar-button-color-hover: #505050; /* The color of the hovered ScrollBar's buttons. */
+  --smart-scroll-bar-button-background-active: #787878; /* The background color of the ScrollBar's buttons in active state. */
+  --smart-scroll-bar-button-border-active: #F1F1F1; /* The border color of the ScrollBar's buttons in active state. */
+  --smart-scroll-bar-button-color-active: #fff; /* The color of the ScrollBar's buttons in active state. */
+  /* Table and PivotTable */
+  --smart-table-default-width: 100%; /* jqxTable default width */
+  --smart-table-default-height: auto; /* jqxTable default height */
+  --smart-table-header-footer-height: 56px; /* jqxTable height of header and footer */
+  --smart-table-column-header-height: var(--smart-table-header-footer-height); /* jqxTable height of column header */
+  --smart-table-row-height: 48px; /* jqxTable height of rows */
+  --smart-table-cell-padding: 12px; /* jqxTable cell padding */
+  --smart-table-row-detail-height: var(--smart-table-row-height); /* jqxTable row detail height */
+  --smart-table-indent: 30px; /* jqxTable hierarchical cell indent */
+  --smart-table-arrow-size: 16px; /* jqxTable arrow size */
+  --smart-table-arrow-margin: 5px; /* jqxTable arrow margin */
+  --smart-table-group-name-display: unset; /* jqxTable group header name display */
+  --smart-table-group-count-display: unset; /* jqxTable group header leaf count display */
+  --smart-pivot-table-cell-width: 200px; /* jqxPivotTable cell width */
+  --smart-pivot-table-secondary-group-width: calc(1.25 * var(--smart-pivot-table-cell-width)); /* jqxPivotTable row group width */
+  --smart-pivot-panel-width: 300px; /* jqxPivotTable designer (jqxPivotPanel) width */
+  --smart-pivot-panel-default-height: 800px; /* Standalone jqxPivotPanel default height */
+  --smart-pivot-panel-tab-item-height: 150px; /* jqxPivotTable designer (jqxPivotPanel) tab item height */
+  --smart-pivot-panel-padding: 10px; /* jqxPivotTable designer (jqxPivotPanel) padding */
+  /* Tank */
+  --smart-tank-default-width: var(--smart-editor-width); /* jqxTank default width */
+  --smart-tank-default-height: calc(10 * var(--smart-editor-height)); /* jqxTank default height*/
+  --smart-tank-scale-size: 105px; /* jqxTank scale size*/
+  --smart-tank-thumb-width: 25px; /* jqxTank thumb width*/
+  --smart-tank-thumb-height: var(--smart-tank-thumb-width); /* jqxTank thumb height*/
+  --smart-tank-tooltip-width: 80px; /* jqxTank tooltip width*/
+  --smart-tank-tooltip-height: 30px; /* jqxTank thumb height*/
+  --smart-tank-tick-size: 10px; /* jqxTank tick size. Horizontal Tank tick height = Vertical Tank tick width. */
+  --smart-tank-minor-tick-size: 5px; /* jqxTank minor tick size. */
+  --smart-tank-minimum-track-size: 6px; /* jqxTank horizontal track min-height, vertical track min-width */
+  /* Tabs */
+  --smart-tabs-header-button-size: 20px; /* jqxTabs header buttons size. Horizontal Tabs header buttons width = Vertical Tab header buttons height. */
+  --smart-tabs-animation-duration: 0.5s; /* jqxTabs animation duration */
+  --smart-tabs-default-width: var(--smart-box-width); /* jqxTabs default width */
+  --smart-tabs-default-height: var(--smart-box-height); /* jqxTabs default height */
+  --smart-tabs-header-padding: 0px; /* Defines Tabs header padding. */
+  --smart-tabs-header-offset: 0px; /* Defines Tabs header offset. */
+  --smart-tab-item-padding: 12px 16px; /* Defines vertical and horizontal padding of tab items. */
+  --smart-tab-item-offset: 5px; /* Default tab item offset. */
+  --smart-tab-item-initial-offset: 5px; /* Initial tab item offset. */
+  --smart-tab-item-text-transform: uppercase; /* Tab item text capitalization. */
+  /* Time Picker */
+  --smart-time-picker-default-width: var(--smart-editor-width); /* jqxTimePicker default width */
+  --smart-time-picker-default-height: calc(12 * var(--smart-editor-height)); /* jqxTimePicker default height */
+  /* Tooltip */
+  --smart-tooltip-arrow-width: 6px; /* Default jqxTooltip arrow width */
+  --smart-tooltip-arrow-color: var(--smart-secondary); /* jqxTooltip arrow color */
+  --smart-tooltip-arrow-translate: 0; /* jqxTooltip arrow translation (transformation) */
+  --smart-tooltip-padding: 4px 8px; /* jqxTooltip padding */
+  --smart-tooltip-content-shadow: none; /* jqxTooltip content box-shadow */
+  /* Toast */
+  --smart-toast-item-icon: ''; /* Code of toast item icon */
+  --smart-toast-container-default-width: var(--smart-bar-width); /* Default width of the jqxToast's containers, positioned top-left, top-right, bottom-left, bottom-right */
+  --smart-toast-header-height: 20px; /* jqxToast header height */
+  --smart-toast-info-background: #5bc0de; /* Background color for type info */
+  --smart-toast-info-color: #fff; /* Text color for type info */
+  --smart-toast-warning-background: #FFA800; /* Background color for type warning */
+  --smart-toast-warning-color: #fff; /* Text color for type warning */
+  --smart-toast-error-background: var(--smart-error); /* Background color for type error */
+  --smart-toast-error-color: var(--smart-error-color); /* Text color for type error */
+  --smart-toast-success-background: var(--smart-success); /* Background color for type success */
+  --smart-toast-success-color: var(--smart-success-color); /* Text color for type success */
+  /* Tree */
+  --smart-tree-default-width: var(--smart-box-width); /* jqxTree default width */
+  --smart-tree-default-height: var(--smart-box-height); /* jqxTree default height */
+  --smart-tree-scroll-button-size: 20px; /* jqxTree scroll buttons size */
+  --smart-tree-lines-style: dashed; /* Default style of the connecting tree lines. */
+  --smart-tree-indent: 16px; /* Defines the indent(hierarchy offset) size of the tree items. */
+  --smart-tree-lines-color: var(--smart-border); /* Defines the color of the connecting lines. */
+  --smart-tree-lines-width: 1px; /* Defines the width of the connecting lines. */
+  --smart-tree-item-label-height: 36px; /* Defines the height of tree item labels. */
+  --smart-tree-item-padding: 9px 12px; /* Defines the padding of the tree items. */
+  --smart-tree-item-vertical-offset: 3px; /* Defines the vertical offset of the tree items. */
+  --smart-tree-item-horizontal-offset: 3px; /* Defines the horizontal offset of the tree items. */
+  /* Text Box */
+  --smart-text-box-default-width: var(--smart-editor-width); /* Text Box default width. */
+  --smart-text-box-default-height: var(--smart-editor-height); /* Text Box default height. */
+  /* Validation panel */
+  --smart-validation-panel-description-width: 20%;
+  --smart-validation-panel-content-width: 80%;
+  /* Validation panel - appearance */
+  --smart-validation-panel-appearance-vertical-offset: 10px;
+  --smart-validation-panel-appearance-reset-button-left-offset: 5px;
+  --smart-validation-panel-appearance-textbox-vertical-offset: 5px;
+  --smart-validation-panel-appearance-reset-button-color: var(--smart-primary);
+  /* Validation panel - Criteria container */
+  --smart-validation-panel-criteria-row-margin-top: 10px;
+  --smart-validation-panel-criteria-container-vertical-offset: 10px;
+  --smart-validation-panel-criteria-container-input-width: 180px;
+  --smart-validation-panel-criteria-container-input-horizontal-offset: 2px;
+  --smart-validation-panel-criteria-container-textbox-width: 80px;
+  --smart-validation-panel-criteria-container-textbox-horizontal-offset: 2px;
+  --smart-validation-panel-criteria-container-text-between-inputs-offset: 5px;
+  /* Validation panel - Invalid data */
+  --smart-validation-panel-invalid-data-vertical-offset: 10px;
+  /* Validation panel - Footer */
+  --smart-validation-panel-footer-button-color: #188038;
+  --smart-validation-panel-footer-button-background: white;
+  --smart-validation-panel-footer-vertical-offset: 20px;
+  --smart-validation-panel-footer-button-horizontal-offset: 5px;
+  --smart-validation-panel-footer-remove-validation-button-color: var(--smart-validation-panel-footer-button-color);
+  --smart-validation-panel-footer-cancel-button-color: var(--smart-validation-panel-footer-button-color);
+  --smart-validation-panel-footer-save-button-color: var(--smart-validation-panel-footer-button-background);
+  --smart-validation-panel-footer-save-button-background: var(--smart-validation-panel-footer-button-color);
+  /*Password Text Box*/
+  --smart-password-text-box-default-width: var(--smart-editor-width); /* jqxPasswordTextBox default width */
+  --smart-password-text-box-default-height: var(--smart-editor-height); /* jqxPasswordTextBox default height */
+  /* Pager */
+  --smart-pager-default-width: var(--smart-bar-width); /* default pager width */
+  --smart-pager-default-height: var(--smart-bar-height); /* default pager height */
+  --smart-pager-button-width: 'auto'; /* default pager button width */
+  --smart-pager-button-height: 32px; /* default pager button height */
+  --smart-pager-page-size-selector-width: 60px; /* Default page size selector width. */
+  --smart-pager-page-index-selector-width: 32px; /* default pager item width */
+  --smart-pager-page-index-selector-height: 32px; /* default pager item height */
+  --smart-pager-page-index-ellipsis-selector-width: 32px; /* default pager ellipsis width */
+  --smart-pager-page-index-ellipsis-selector-height: 32px; /* default pager ellipsis width */
+  --smart-pager-page-index-selector-horizontal-offset: 8px; /* default pager ellipsis width */
+  --smart-pager-padding: 2px; /* Default padding. */
+  --smart-pager-input-width: 50px; /* Default width of the pager input. */
+  /*ScrollViewer*/
+  --smart-scroll-viewer-min-width: none;
+  --smart-scroll-viewer-max-width: none;
+  --smart-scroll-viewer-min-height: none;
+  --smart-scroll-viewer-max-height: none;
+  /*Scheduler*/
+  --smart-scheduler-default-height: auto; /* Sets the default height of the jqxScheduler */
+  --smart-scheduler-default-width: auto; /* Sets the default width of the jqxScheduler */
+  --smart-scheduler-item-size: auto; /* Sets the default size of the view selection items insinde the Timeline Header */
+  --smart-scheduler-timeline-cell-width: auto; /* Sets the default width of the cells inside the Timeline  */
+  --smart-scheduler-timeline-cell-height: 50px; /* Sets the default height of the cells inside the Timeline  */
+  --smart-scheduler-timeline-cell-min-width: 70px; /* Sets the default min-width of the cells inside the Timeline */
+  --smart-scheduler-timeline-cell-min-height: 35px; /* Sets the min-height of the cells inside the Timeline */
+  --smart-scheduler-header-height: 50px; /* Sets the height of the header */
+  --smart-scheduler-header-today-button-size: 70px; /* Scheduler header Today Button width */
+  --smart-scheduler-header-date-button-max-size: auto; /* Sets the size of the Header Date Selection Button*/
+  --smart-scheduler-header-navigation-button-size: 30px; /* Sets the size of the header buttons */
+  --smart-scheduler-footer-height: var(--smart-scheduler-header-height); /* The height of the footer */
+  --smart-scheduler-header-box-shadow: initial; /* Sets a Box shadow to the Timeline header */
+  --smart-scheduler-header-padding: 10px; /* Sets a the padding for the header/footer */
+  --smart-scheduler-timeline-header-cell-padding: 5px; /* Sets a the padding for the header/footer cells */
+  --smart-scheduler-header-menu-button-size: auto; /* Sets the size for the Header menu button */
+  --smart-scheduler-timeline-weekend-color: var(--smart-background); /* Sets the background color for the weekend cells */
+  --smart-scheduler-timeline-nonworking-color: var(--smart-gantt-chart-timeline-nonworking-color); /* Sets the background color for nonworking days/hours cells */
+  --smart-scheduler-timeline-all-day-label-font-weight: 600; /* Sets a the font-weight of the All day label */
+  --smart-scheduler-timeline-header-horizontal-cells-size: 40px; /* Sets a the horizontal header cells size */
+  --smart-scheduler-timeline-header-horizontal-label-padding: initial; /* Sets a the horizontal header cells label padding */
+  --smart-scheduler-timeline-header-horizontal-details-size: var(--smart-scheduler-timeline-header-horizontal-cells-size); /* Sets the size of the Horizontal Details Header */
+  --smart-scheduler-timeline-header-horizontal-group-size: var(--smart-scheduler-timeline-header-horizontal-cells-size); /* Sets the size of the Horizontal Group Header */
+  --smart-scheduler-timeline-header-vertical-cells-size: 100px; /* Sets the vertical header cell size */
+  --smart-scheduler-timeline-header-vertical-label-padding: initial; /* Sets the vertical header cells padding */
+  --smart-scheduler-timeline-header-vertical-details-size: var(--smart-scheduler-timeline-header-vertical-cells-size); /* Sets the size of the Vertical Details Header */
+  --smart-scheduler-timeline-header-vertical-group-size: var(--smart-scheduler-timeline-header-vertical-cells-size); /* Sets the size of the Vertical Group Header  */
+  --smart-scheduler-timeline-header-all-day-cells-size: 75px; /* Sets the All Day View height */
+  --smart-scheduler-timeline-group-separator-background: var(--smart-outline); /* Sets the color for the group separator */
+  --smart-scheduler-timeline-group-separator-size: var(--smart-border-width); /* Sets the group cell separator size */
+  --smart-scheduler-timeline-group-white-space: nowrap; /* Sets the white-space property for the Header Group cells */
+  --smart-scheduler-timeline-group-header-offset: calc(-50% - var(--smart-scheduler-timeline-header-cell-padding)); /* Sets the label offset for the header cells when groupByDate is enabled */
+  --smart-scheduler-current-time-indicator-background: var(--smart-primary); /* Current Time Indicator background-color*/
+  --smart-scheduler-current-time-indicator-size: 1px; /* Current Time Indicator size(width/height depending on the view orientation) */
+  --smart-scheduler-current-time-indicator-header-size: 2px; /* Current Time Indicator size(width/height) inside the Headers */
+  --smart-scheduler-current-time-indicator-arrow-size: 7px; /* Current Time Indicator arrow size */
+  --smart-scheduler-shader-background: rgba(var(--smart-border-rgb), .5); /* Shade Until Current Time background */
+  --smart-scheduler-view-line-size: var(--smart-border-width); /* Timeline lines size */
+  --smart-scheduler-view-horizontal-line-color: var(--smart-border); /* Horizontal timeline line color */
+  --smart-scheduler-view-vertical-line-color: var(--smart-border); /* Vertical timeline line color */
+  --smart-scheduler-day-week-view-vertical-line-size: var(--smart-scheduler-view-line-size); /* Vertical line size in 'day' and 'week' views */
+  --smart-scheduler-day-week-view-vertical-line-color: var(--smart-border); /* Vertical timeline color in 'day' and 'week' views */
+  --smart-scheduler-day-week-view-hour-size: var(--smart-scheduler-view-line-size); /* Horizontal line size for 'day', 'week'. Only the hour lines (excluding minutes) */
+  --smart-scheduler-day-week-view-hour-color: var(--smart-border); /* Horizontal line color for 'day', 'week' views. Only the hour lines ( excluding the minutes) */
+  --smart-scheduler-time-ruler-tick-size: 10px; /* Time ruler tick size. Applicable only to day/week views */
+  --smart-scheduler-event-background-rgb: 52, 121, 186; /* Event background RGB */
+  --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1); /* Event background color */
+  --smart-scheduler-event-color: var(--smart-primary-color); /* Event color */
+  --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9); /* Event focus background color */
+  --smart-scheduler-event-color-focus: var(--smart-scheduler-event-color); /* Event focus color */
+  --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8); /* Event hover background color */
+  --smart-scheduler-event-color-hover: var(--smart-scheduler-event-color); /* Event hover color */
+  --smart-scheduler-event-padding-agenda: 5px; /* Event padding in 'agenda' view only */
+  --smart-scheduler-event-padding-basic: 2px; /* Event padding in all basic views */
+  --smart-scheduler-event-padding-timeline: 2px; /* Event padding in all timeline views */
+  --smart-scheduler-event-padding-all-day: 2px; /* Event padding for events inside AllDay container */
+  --smart-scheduler-event-content-padding: 5px; /* Event content padding */
+  --smart-scheduler-event-label-font-size: var(--smart-font-size); /* Event label font size */
+  --smart-scheduler-event-time-font-size: calc(var(--smart-font-size) - 3px); /* Event time label font size */
+  --smart-scheduler-event-time-font-size-agenda: var(--smart-font-size); /* Event time font size for 'agenda' view */
+  --smart-scheduler-event-time-font-weight-agenda: 600; /* Event time label font weight for 'agenda' view */
+  --smart-scheduler-event-time-opacity-agenda: 1; /* Event time label opacity for 'agenda' view */
+  --smart-scheduler-event-time-opacity: 0.7; /* Event time label opacity */
+  --smart-scheduler-event-icon-size: 30px; /* Event icon (repeating, exception icon) size */
+  --smart-scheduler-event-size: 30px; /* Sets the size of the timeline events in all views. Main variable. Used this variable to change the size of the events. Used by the Scheduler internally !*/
+  --smart-scheduler-event-size-basic: var(--smart-scheduler-event-size); /* Sets the size of the events only in Basic views */
+  --smart-scheduler-event-size-timeline: 60px; /* Sests the size of the events only in Timeline views. Should only be in pixels. Do not use calc()! */
+  --smart-scheduler-event-collector-size: 24px; /* Event collector size */
+  --smart-scheduler-event-collector-mobile-size: 28px; /* Event collector size on mobile */
+  --smart-scheduler-event-collector-background: rgba(var(--smart-primary-rgb), 1); /* Event collector background color */
+  --smart-scheduler-event-collector-color: var(--smart-primary-color); /* Event collector color */
+  --smart-scheduler-event-collector-focus: rgba(var(--smart-primary-rgb), .9); /* Event collector background color on focus */
+  --smart-scheduler-event-collector-color-focus: var(--smart-scheduler-event-collector-color); /* Event collector color on focus */
+  --smart-scheduler-event-collector-hover: rgba(var(--smart-primary-rgb), .8); /* Event collector background colot on hover */
+  --smart-scheduler-event-collector-color-hover: var(--smart-scheduler-event-collector-color); /* Event collector color on hover */
+  --smart-scheduler-month-view-number-size: 24px; /* The size of the day number in month view */
+  --smart-scheduler-status-size: 7px; /* The size of the day number in month view */
+  --smart-scheduler-status-padding: 5px; /* The paddng between the content of the event and the satus strip */
+  --smart-scheduler-status-background: transparent; /* The size of the day number in month view */
+  --smart-scheduler-status-free-background: white; /* Event Status 'free' background color */
+  --smart-scheduler-status-tentative-background: 0 -244rem / 5rem 5rem linear-gradient(45deg, #fd7e14 25%, rgba(0, 0, 0, .2) 25%, rgba(0, 0, 0, .2) 50%, #fd7e14 50%, #fd7e14 75%, rgba(0, 0, 0, .2) 75%, rgba(0, 0, 0, .2)); /* Event status 'tentative' background color */
+  --smart-scheduler-status-busy-background: #dc3545; /* Event status 'busy' background color */
+  --smart-scheduler-status-out-of-office-background: #00a9e6; /* Event status 'out-of-office' background color */
+  --smart-scheduler-cell-feedback-background: transparent; /* Cell feedback background color on event drop  */
+  --smart-scheduler-event-resize-indicator-size: var(--smart-gantt-chart-timeline-task-resize-indicator-width); /* Event resize indicator size */
+  --smart-scheduler-event-resize-indicator-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color); /* Event resize indicator color */
+  --smart-scheduler-event-resize-indicator-border-color: var(--smart-gantt-chart-timeline-task-resize-indicator-border-color); /* Event resize indicator border color */
+  --smart-scheduler-restricted-background: 0 -245rem / 12px 12px linear-gradient(135deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent); /* Restricted cells background color */
+  --smart-scheduler-event-item-size: 50px; /* Event menu item size(height) */
+  --smart-scheduler-event-button-size: 30px; /* Event menu item button size(delete button) */
+  --smart-scheduler-event-border-radius: initial; /* Event border radius */
+  --smart-scheduler-event-collector-border-radius: 20px; /* Event collector border radius */
+  --smart-scheduler-context-menu-max-height: calc(3 * var(--smart-scheduler-event-item-size)); /* Context menu max-height */
+  --smart-scheduler-context-menu-max-width: 300px; /* Context menu max-width */
+  --smart-scheduler-window-header-height: var(--smart-gantt-chart-popup-window-header-height); /* Window editor header height */
+  --smart-scheduler-window-footer-height: var(--smart-gantt-chart-popup-window-footer-height); /* Window editor footer height */
+  --smart-scheduler-event-label-font-weight: 300; /* Event label font weight */
+  --smart-scheduler-event-time-font-weight: 300; /* Event time label font weight */
+  --smart-scheduler-event-item-label-font-weight: 600; /* Event menu item label font-weight */
+  --smart-scheduler-toast-default-width: 400px; /* Toast(notifications) default width */
+  --smart-scheduler-toast-default-height: 50px; /* Toast(notifications) default height */
+  --smart-scheduler-shortcut-size: 28px; /* The width of the shortuct of the view items when placed inside a drop down */
+  /*Window*/
+  --smart-window-default-height: var(--smart-box-height); /* jqxWindow default height */
+  --smart-window-default-width: var(--smart-box-width); /* jqxWindow default width */
+  --smart-window-header-height: var(--smart-bar-height); /* jqxWindow header height */
+  --smart-window-footer-height: var(--smart-bar-height); /* jqxWindow footer height */
+  --smart-window-min-width: 250px; /* jqxWindow header width */
+  --smart-window-header-padding: 10px; /* jqxWindow header and footer padding */
+  --smart-window-footer-padding: 6.5px; /* jqxWindow header and footer padding */
+  --smart-window-header-button-size: 24px; /* Sets the size of the header buttons */
+  --smart-window-header-icon-size: var(--smart-font-size); /* Sets the size of the header button icons */
+  --smart-window-header-background: var(--smart-surface); /* Sets the background of the header section */
+  --smart-window-footer-background: var(--smart-surface); /* Sets the size of the background of the footer section */
+  --smart-window-footer-button-width: 100px; /* Sets the width of the footer buttons */
+  --smart-window-content-padding: 10px; /* Sets the content section padding */
+  /*Elevations*/
+  --smart-elevation-24: 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px 0 rgba(0, 0, 0, .2);
+  --smart-elevation-16: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px 0 rgba(0, 0, 0, .2);
+  --smart-elevation-12: 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12), 0 7px 8px 0 rgba(0, 0, 0, .2);
+  --smart-elevation-8: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 3px rgba(0, 0, 0, .12), 0 4px 15px 0 rgba(0, 0, 0, .2);
+  --smart-elevation-6: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px 0 rgba(0, 0, 0, .2);
+  --smart-elevation-4: 0 2px 4px 0 rgba(0, 0, 0, .14), 0 4px 5px 0 rgba(0, 0, 0, .12), 0 1px 10px 0 rgba(0, 0, 0, .2);
+  --smart-elevation-2: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  --smart-elevation-1: 0 0 2px 0 rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .12), 0 1px 3px 0 rgba(0, 0, 0, .2);
+  --smart-elevation-0: none;
+  /* Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  /*Misc*/
+  --pseudo-element-height: 0;
+}

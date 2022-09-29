@@ -5,7 +5,7 @@ export interface PathProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the data source for the item that will be displayed inside the drop down.
    * Default value: null
@@ -60,7 +60,7 @@ export interface PathProperties {
    * Determines the vertical position of the dropDown. 'Auto' means its automatically determined depending on the viewport size.
    * Default value: auto
    */
-  dropDownPosition?: DropDownPosition;
+  dropDownPosition?: DropDownPosition | string;
   /**
    * Sets the width of the drop down. Default value of empty string means that CSS variables are used. This property should be used when the browser doesn't support CSS variables.
    * Default value: 
@@ -125,7 +125,7 @@ export interface PathProperties {
    * Determines the format of the path. Follows specific operation system criteria by changing the drive,folder separators. 
    * Default value: windows
    */
-  pathFormat?: PathFormat;
+  pathFormat?: PathFormat | string;
   /**
    * Disables user interaction with the element.
    * Default value: false

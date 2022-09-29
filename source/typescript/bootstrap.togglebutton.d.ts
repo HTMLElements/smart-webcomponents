@@ -30,7 +30,7 @@ export interface BootstrapToggleButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapToggleButtonStyleMode;
+  styleMode?: BootstrapToggleButtonStyleMode | string;
 }
 /**
  Defines a Toggle Button component, which includes Material and Bootstrap styles

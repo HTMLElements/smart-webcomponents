@@ -10,7 +10,7 @@ export interface FileUploadProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Appends the list with selected files to a new custom container specified by the user. If the value of the property is a string it must represent a valid id of an HTML element inside the DOM that will be used as the new container for the uploaded files list.
    * Default value: "null"
@@ -171,12 +171,13 @@ export interface FileUpload extends BaseElement, FileUploadProperties {
   onUploadCanceled?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a file upload operation is completed.
-	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status)
+	* @param event. The custom event. Custom data event was created with: ev.detail(filename, type, size, index, status, serverResponse)
    *  filename - The name of the canceled file.
    *  type - The type of the canceled file.
    *  size - The size of the canceled file.
    *  index - The index of the canceled file.
    *  status - The status of the uploaded file. Whether there was an error or success.
+   *  serverResponse - The response of the remote server.
    */
   onUploadCompleted?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**

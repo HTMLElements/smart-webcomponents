@@ -1,0 +1,6 @@
+#gridLayoutShowcase .card-auto-height {
+    border: 1px solid var(--smart-border);
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    text-align: center;
+}

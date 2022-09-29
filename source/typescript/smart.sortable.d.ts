@@ -5,7 +5,7 @@ export interface SortableProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables sorting.
    * Default value: false
@@ -15,17 +15,17 @@ export interface SortableProperties {
    * Sets or gets the way a sortable item can be dragged - by dragging the item itself ('item') or by dragging a handle that appears next to the item ('handle').
    * Default value: item
    */
-  dragMode?: SortableDragMode;
+  dragMode?: SortableDragMode | string;
   /**
    * Sets or gets the the position of the drag handle relative to its respective sortable item. Applicable only when dragMode is 'handle'.
    * Default value: right
    */
-  handlePosition?: SortableHandlePosition;
+  handlePosition?: SortableHandlePosition | string;
   /**
    * Sets or gets whether a sortable item's drag handle is always visible or is shown when the item is hovered. Applicable only when dragMode is 'handle'.
    * Default value: hover
    */
-  handleVisibility?: SortableHandleVisibility;
+  handleVisibility?: SortableHandleVisibility | string;
   /**
    * Sets or gets a selector to determine the sortable items by. By default, sortable items are all children of the smart-sortable custom element.
    * Default value: null
@@ -64,7 +64,7 @@ export interface SortableProperties {
    * Sets or gets the direction sortable items are stacked and can be dragged.
    * Default value: vertical
    */
-  mode?: Orientation;
+  mode?: Orientation | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false

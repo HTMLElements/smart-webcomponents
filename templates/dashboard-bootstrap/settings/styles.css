@@ -1,0 +1,190 @@
+#settingsListBox {
+    --smart-list-item-height: 50px;
+    border: none;
+    width: 100%;
+    height: auto;
+}
+
+#mainCol {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+#mainCol.changing {
+    opacity: 0;
+}
+
+#publicInfoContainer {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: repeat(4, auto) 60px;
+    grid-template-areas:
+        "userNameLabel image"
+        "userNameInput image"
+        "biographyLabel image"
+        "biographyInput uploadButton"
+        "saveButton uploadLabel";
+    gap: 10px;
+}
+
+#userNameLabel {
+    grid-area: userNameLabel;
+}
+
+#userNameInput {
+    grid-area: userNameInput;
+    width: 100%;
+}
+
+#biographyLabel {
+    grid-area: biographyLabel;
+}
+
+#biographyInput {
+    grid-area: biographyInput;
+    width: 100%;
+}
+
+.save-button {
+    width: 100px;
+    height: 30px;
+    align-self: end;
+}
+
+#publicInfoContainer .save-button,
+#privateInfoContainer .save-button {
+    grid-area: saveButton;
+}
+
+#publicInfoContainer img {
+    grid-area: image;
+    justify-self: center;
+    border: 1px solid var(--smart-border);
+    border-radius: 50%;
+}
+
+#uploadButton {
+    grid-area: uploadButton;
+    justify-self: center;
+    height: 30px;
+}
+
+#uploadLabel {
+    grid-area: uploadLabel;
+    justify-self: center;
+    font-size: 12px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.card-header {
+    margin-bottom: 20px;
+}
+
+#privateInfoContainer {
+    display: grid;
+    grid-template-columns: 50% 30% 20%;
+    grid-template-rows: repeat(10, auto) 60px;
+    grid-template-areas:
+        "firstNameLabel lastNameLabel lastNameLabel"
+        "firstNameInput lastNameInput lastNameInput"
+        "emailLabel emailLabel emailLabel"
+        "emailInput emailInput emailInput"
+        "addressLabel addressLabel addressLabel"
+        "addressInput addressInput addressInput"
+        "address2Label address2Label address2Label"
+        "address2Input address2Input address2Input"
+        "cityLabel stateLabel zipLabel"
+        "cityInput stateInput zipInput"
+        "saveButton saveButton saveButton";
+    gap: 10px;
+}
+
+#firstNameLabel {
+    grid-area: firstNameLabel;
+}
+
+#firstNameInput {
+    grid-area: firstNameInput;
+    width: 100%;
+}
+
+#lastNameLabel {
+    grid-area: lastNameLabel;
+}
+
+#lastNameInput {
+    grid-area: lastNameInput;
+    width: 100%;
+}
+
+#emailLabel {
+    grid-area: emailLabel;
+}
+
+#emailInput {
+    grid-area: emailInput;
+    width: 100%;
+}
+
+#addressLabel {
+    grid-area: addressLabel;
+}
+
+#addressInput {
+    grid-area: addressInput;
+    width: 100%;
+}
+
+#address2Label {
+    grid-area: address2Label;
+}
+
+#address2Input {
+    grid-area: address2Input;
+    width: 100%;
+}
+
+#cityLabel {
+    grid-area: cityLabel;
+}
+
+#cityInput {
+    grid-area: cityInput;
+    width: 100%;
+}
+
+#stateLabel {
+    grid-area: stateLabel;
+}
+
+#stateInput {
+    grid-area: stateInput;
+    width: 100%;
+}
+
+#zipLabel {
+    grid-area: zipLabel;
+}
+
+#zipInput {
+    grid-area: zipInput;
+    width: 100%;
+}
+
+#passwordInfoContainer {
+    display: grid;
+    grid-template-rows: repeat(6, auto) 60px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+#passwordInfoContainer>smart-input {
+    width: 100%;
+}
+
+a.forgot {
+    margin-bottom: 10px;
+    color: var(--smart-primary);
+    font-size: 12px;
+}

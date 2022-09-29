@@ -10,7 +10,7 @@ export interface BootstrapSplitButtonProperties {
    * Sets or gets the drop down position of the element. 
    * Default value: false
    */
-  dropDownPosition?: BootstrapSplitButtonDropDownPosition;
+  dropDownPosition?: BootstrapSplitButtonDropDownPosition | string;
   /**
    * Sets or gets the Label of the element.
    * Default value: """"
@@ -20,7 +20,7 @@ export interface BootstrapSplitButtonProperties {
    * Sets or gets the Label type of the element.
    * Default value: ""
    */
-  labelType?: BootstrapSplitButtonLabelType;
+  labelType?: BootstrapSplitButtonLabelType | string;
   /**
    * Sets or gets the Href of the element.
    * Default value: "#"
@@ -45,7 +45,7 @@ export interface BootstrapSplitButtonProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapSplitButtonStyleMode;
+  styleMode?: BootstrapSplitButtonStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""

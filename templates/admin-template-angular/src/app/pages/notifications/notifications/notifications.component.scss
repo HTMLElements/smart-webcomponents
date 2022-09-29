@@ -1,0 +1,40 @@
+.notifications {
+    .notifications-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    p {
+        opacity: 0.9;
+    }
+
+    .notifications-entity-lg-6 > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .notifications-entity-lg-6 > div > label,
+    .notifications-entity-lg-6 > div > smart-input {
+        margin-bottom: 10px;
+    }
+
+    .notifications-entity-lg-6 > div > smart-input {
+        width: 100%;
+    }
+
+    .notifications-buttons-wrapper {
+        margin-top: 1.5rem;
+    }
+
+    @media (min-width: 992px) {
+        .notifications-entity-lg-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}

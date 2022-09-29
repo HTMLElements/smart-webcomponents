@@ -5,7 +5,7 @@ export interface TankProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * If is set to true all values coerce to the interval, set in the interval property.
    * Default value: false
@@ -55,7 +55,7 @@ export interface TankProperties {
    * Sets or gets the widget's label visibility
    * Default value: all
    */
-  labelsVisibility?: LabelsVisibility;
+  labelsVisibility?: LabelsVisibility | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -80,7 +80,7 @@ export interface TankProperties {
    * Sets or gets the type of used mechanical action.
    * Default value: switchWhileDragging
    */
-  mechanicalAction?: DragMechanicalAction;
+  mechanicalAction?: DragMechanicalAction | string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -109,7 +109,7 @@ export interface TankProperties {
    * Sets or gets whether the widget works with numbers or dates.
    * Default value: numeric
    */
-  mode?: ScaleMode;
+  mode?: ScaleMode | string;
   /**
    * Sets or gets the element's name, which is used as a reference when the data is submitted.
    * Default value: ""
@@ -119,7 +119,7 @@ export interface TankProperties {
    * Sets the orientation of the widget
    * Default value: vertical
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * Determines the number of digits after the decimal point. Applicable only when scaleType is 'integer'.
    * Default value: null
@@ -139,12 +139,12 @@ export interface TankProperties {
    * Sets the position of the widget's scales. 
    * Default value: near
    */
-  scalePosition?: ScalePosition;
+  scalePosition?: ScalePosition | string;
   /**
    * Sets the type of the tank's scale. 
    * Default value: floatingPoint
    */
-  scaleType?: ScaleType;
+  scaleType?: ScaleType | string;
   /**
    * Enables or disables scientific notation.
    * Default value: false
@@ -179,22 +179,22 @@ export interface TankProperties {
    * Sets or gets the position of the thumb label.
    * Default value: near
    */
-  thumbLabelPosition?: Position;
+  thumbLabelPosition?: Position | string;
   /**
    * Sets or gets the position of the ticks in jqxTank widget.
    * Default value: scale
    */
-  ticksPosition?: TicksPosition;
+  ticksPosition?: TicksPosition | string;
   /**
    * Sets or gets the visibility of the ticks.
    * Default value: minor
    */
-  ticksVisibility?: TicksVisibility;
+  ticksVisibility?: TicksVisibility | string;
   /**
    * Sets or gets the position of the tooltip in jqxTank widget.
    * Default value: near
    */
-  tooltipPosition?: Position;
+  tooltipPosition?: Position | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -209,7 +209,7 @@ export interface TankProperties {
    * Sets the value's validation by min/max. If 'strict' is applied, the value is always validated by min and max. If 'interaction' is applied, programmatic value changes are not coerced to min/max and if min/max are changed, resulting in the current value being out of range, the value is not coerced, and no change event is fired.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value of the jqxTank widget. 
    * Default value: 0
@@ -219,7 +219,7 @@ export interface TankProperties {
    * Sets or gets the word length. Applicable only when scaleType is 'integer'.
    * Default value: int32
    */
-  wordLength?: WordLength;
+  wordLength?: WordLength | string;
 }
 /**
  Tank is a UI Component used in Engineering and Scientific applications. It is broadly used to display the fluid levels.

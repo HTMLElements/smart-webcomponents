@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sign-in page layout example</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="description" content="A page which shows Sign-in Template with our UI Components"/>
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css" />
+    
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
+    <script type="text/javascript" src="../../source/smart.element.js"></script>
+    <script type="text/javascript" src="../../source/smart.button.js"></script>
+    <script type="text/javascript" src="../../source/smart.checkbox.js"></script>
+    <script type="text/javascript" src="../../source/smart.tooltip.js"></script>
+    <script type="text/javascript" src="../../source/smart.card.js"></script>
+    <script type="text/javascript" src="../../source/smart.scrollbar.js"></script>
+    <script type="text/javascript" src="../../source/smart.listbox.js"></script>
+    <script type="text/javascript" src="../../source/smart.dropdownlist.js"></script>
+    <script type="text/javascript" src="../../source/smart.combobox.js"></script>
+    <script type="text/javascript" src="../../source/smart.textbox.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <smart-card>
+        <i class="material-icons">lock</i>
+        <h1>Sign in</h1>
+        <form id="submitForm" method="get">
+            <smart-text-box id="email" label="Email Address*" name="email"></smart-text-box>
+            <smart-text-box id="password" label="Password*" name="password"></smart-text-box>
+            <smart-check-box enable-container-click>Remember me</smart-check-box>
+            <smart-button id="signIn" class="primary" type="submit">Sign In</smart-button>
+        </form>
+    </smart-card>
+
+    <smart-tooltip id="tooltip" position="bottom" arrow disabled><span class="note"> ! </span>Please fill out this field.</smart-tooltip>
+</body>
+</html>

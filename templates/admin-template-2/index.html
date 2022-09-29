@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Smart HTML Elements | Admin & Dashboard Template With Bootstrap 2</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <!--    If you wish to compile your preferred scripts as one file please read ReadMe.md file-->
+    <link href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css"/>
+    <link href="./assets/css/main.css" rel="stylesheet"/>
+    <link href="./assets/plugins/ui/assets/ui/plugins/css/plugins.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="./common-layout.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+    <script type="module" src="../../source/modules/smart.chart.js"></script>
+    <script type="module" src="../../source/modules/smart.input.js"></script>
+    <script type="module" src="../../source/modules/smart.colorinput.js"></script>
+    <script type="module" src="../../source/modules/smart.router.js"></script>
+    <script type="module" src="../../source/modules/smart.table.js"></script>
+    <script type="module" src="../../source/modules/smart.tree.js"></script>
+    <script type="module" src="../../source/modules/smart.tooltip.js"></script>
+
+    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./routing.js"></script>
+</head>
+
+<body class="">
+
+<div class="preloader">
+    <div class="w-100">
+        <img src="assets/images/logo-htmlelements.svg"/>
+    </div>
+</div>
+
+<div class="">
+    <div id="primaryContainer" class="main">
+        <aside id="sideBar" class="sidebar">
+            <div class="logo-holder">
+                <div class="spacer w-auto"></div>
+                <div class="logo">
+                    <a href="./">
+                        <img src="assets/images/logo-htmlelements.svg"/>
+                    </a>
+                </div>
+
+                <div id="toggleButton" class="toggle-button">
+                    <img src="./assets/images/sidebar-toggle.svg" class="svg"/>
+                </div>
+            </div>
+
+            <div class="tree-holder">
+                <smart-tree id="tree" expand-mode="single" selected-indexes='["1.0"]' selection-mode="one" selection-target="leaf" toggle-element-position="far" toggle-mode="click">
+                    <smart-tree-item><span class="material-icons">layers</span> <a href="./"><span class="label-name">Dashboard</span></a></smart-tree-item>
+
+                    <smart-tree-item id="pagesLabel" label="pagesTemplate" class="group-label"></smart-tree-item>
+                    <smart-tree-items-group>
+                        <span class="material-icons">dashboard</span> <span class="label-name">Applications</span>
+
+                        <smart-tree-items-group>Dashboards
+                            <smart-tree-item><a href="./dashboard-1">Dashboard 1</a></smart-tree-item>
+                            <smart-tree-item><a href="./dashboard-2">Dashboard 2</a> <span class="smart-badge smart-badge-danger">New</span></smart-tree-item>
+                        </smart-tree-items-group>
+
+                        <smart-tree-items-group>E-commerce
+                            <smart-tree-item><a href="./e-commerce">Dashboard</a></smart-tree-item>
+                            <smart-tree-item><a href="./clients">Clients</a></smart-tree-item>
+                        </smart-tree-items-group>
+
+                        <smart-tree-items-group>Analytics
+                            <smart-tree-item><a href="./analytics">Dashboard</a></smart-tree-item>
+                        </smart-tree-items-group>
+
+                        <smart-tree-items-group>Projects
+                            <smart-tree-item><a href="./projects-list-1">List 1</a></smart-tree-item>
+                            <smart-tree-item><a href="./projects-list-2">List 2</a> <span class="smart-badge smart-badge-danger">New</span></smart-tree-item>
+                            <smart-tree-item><a href="./detail">Detail</a></smart-tree-item>
+                        </smart-tree-items-group>
+
+                        <smart-tree-items-group>Crypto
+                            <smart-tree-item><a href="./crypto">Dashboard</a></smart-tree-item>
+                        </smart-tree-items-group>
+
+                        <smart-tree-items-group>Profile
+                            <smart-tree-item><a href="./profile-1">Overview 1</a></smart-tree-item>
+                            <smart-tree-item><a href="./profile-2">Overview 2</a> <span class="smart-badge smart-badge-danger">New</span></smart-tree-item>
+                            <smart-tree-item><a href="./users-list">Users</a> <span class="smart-badge smart-badge-danger">New</span></smart-tree-item>
+                            <smart-tree-item><a href="./social">Social Page</a></smart-tree-item>
+                            <smart-tree-item><a href="./settings">Account Settings</a></smart-tree-item>
+                        </smart-tree-items-group>
+
+                        <smart-tree-item><a href="./tasks">Tasks</a></smart-tree-item>
+                        <smart-tree-item><a href="./chat">Chat</a></smart-tree-item>
+                        <smart-tree-item><a href="./inbox">Inbox</a> <span class="smart-badge smart-badge-danger">New</span></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">contact_page</span> <span class="label-name">Pages</span>
+                        <smart-tree-item><a href="./sign-in">Sign In</a></smart-tree-item>
+                        <smart-tree-item><a href="./sign-up">Sign Up</a></smart-tree-item>
+                        <smart-tree-item><a href="./reset-password">Reset Password</a></smart-tree-item>
+
+                        <smart-tree-item><a href="./invoice">Invoice</a></smart-tree-item>
+                        <smart-tree-item><a href="./pricing">Pricing</a></smart-tree-item>
+
+                        <smart-tree-item><a href="./404">404 Page</a></smart-tree-item>
+                        <smart-tree-item><a href="./500">500 Page</a></smart-tree-item>
+
+                        <smart-tree-item><a href="./blank">Blank Page</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">library_books</span> <span class="label-name">Documentation</span>
+                        <smart-tree-item><a href="./introduction">Introduction</a></smart-tree-item>
+                        <smart-tree-item><a href="./getting-started">Getting Started</a></smart-tree-item>
+                        <smart-tree-item><a href="./plugins">Plugins</a></smart-tree-item>
+                        <smart-tree-item><a href="./changelog">Changelog</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-item id="toolsLabel" label="toolsTemplate" class="group-label"></smart-tree-item>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">grid_on</span> <span class="label-name">UI Elements</span>
+                        <smart-tree-item><a href="./toasts">Toasts</a></smart-tree-item>
+                        <smart-tree-item><a href="./buttons">Buttons</a></smart-tree-item>
+                        <smart-tree-item><a href="./cards">Cards</a></smart-tree-item>
+                        <smart-tree-item><a href="./carousel">Carousel</a></smart-tree-item>
+                        <smart-tree-item><a href="./embed-video">Embed Video</a></smart-tree-item>
+                        <smart-tree-item><a href="./general">General</a></smart-tree-item>
+                        <smart-tree-item><a href="./grid-layout">Grid Layout</a></smart-tree-item>
+                        <smart-tree-item><a href="./modals">Modals</a></smart-tree-item>
+                        <smart-tree-item><a href="./tabs">Tabs</a></smart-tree-item>
+                        <smart-tree-item><a href="./typography">Typography</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">favorite</span> <span class="label-name">Icons</span>
+                        <smart-tree-item><a href="./feather">Feather</a></smart-tree-item>
+                        <smart-tree-item><a href="./font-awesome">Font Awesome</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">fact_check</span> <span class="label-name">Forms</span>
+                        <smart-tree-item><a href="./layouts">Layouts</a></smart-tree-item>
+                        <smart-tree-item><a href="./basic-inputs">Basic Inputs</a></smart-tree-item>
+                        <smart-tree-item><a href="./input-groups">Input Groups</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-item>
+                        <span class="material-icons">table_chart</span><a href="./tables"><span class="label-name">Tables</span></a>
+                    </smart-tree-item>
+
+                    <smart-tree-item id="pluginLabel" label="pluginTemplate" class="group-label"></smart-tree-item>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">fact_check</span> <span class="label-name">Form Plugins</span>
+                        <smart-tree-item><a href="./advanced-inputs">Advanced Inputs</a></smart-tree-item>
+                        <smart-tree-item><a href="./editor">Editor</a></smart-tree-item>
+                        <smart-tree-item><a href="./validation">Validation</a></smart-tree-item>
+                        <smart-tree-item><a href="./wizard">Wizard</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">table_chart</span> <span class="label-name">Data Tables</span>
+                        <smart-tree-item><a href="./responsive-table">Responsive Table</a></smart-tree-item>
+                        <smart-tree-item><a href="./table-with-buttons">Table with Buttons</a></smart-tree-item>
+                        <smart-tree-item><a href="./column-search">Column Search</a></smart-tree-item>
+                        <smart-tree-item><a href="./multi-selection">Multi Selection</a></smart-tree-item>
+                        <smart-tree-item><a href="./ajax-data">Ajax Sourced Data</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-item>
+                        <span class="material-icons">pie_chart</span><a href="./charts"><span class="label-name">Charts</span></a>
+                    </smart-tree-item>
+
+                    <smart-tree-item>
+                        <span class="material-icons">alarm</span><a href="./notifications"><span class="label-name">Notifications</span></a>
+                    </smart-tree-item>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">place</span> <span class="label-name">Maps</span>
+                        <smart-tree-item><a href="./google-maps">Google Maps</a></smart-tree-item>
+                        <smart-tree-item><a href="./vector-maps">Vector Maps</a></smart-tree-item>
+                    </smart-tree-items-group>
+
+                    <smart-tree-item>
+                        <span class="material-icons">calendar_today</span><a href="./scheduler"><span class="label-name">Scheduler</span></a>
+                    </smart-tree-item>
+
+                    <smart-tree-items-group>
+                        <span class="material-icons">share</span> <span class="label-name">Multi Level</span>
+                        <smart-tree-items-group>Two Levels
+                            <smart-tree-item>Item 1</smart-tree-item>
+                            <smart-tree-item>Item 2</smart-tree-item>
+                        </smart-tree-items-group>
+                        <smart-tree-items-group>Three Levels
+                            <smart-tree-items-group>Item 1
+                                <smart-tree-item>Item 1</smart-tree-item>
+                                <smart-tree-item>Item 2</smart-tree-item>
+                            </smart-tree-items-group>
+                            <smart-tree-item>Item 2</smart-tree-item>
+                        </smart-tree-items-group>
+                    </smart-tree-items-group>
+                </smart-tree>
+            </div>
+        </aside>
+
+        <div id="secondaryContainer" class="content">
+            <div class="header">
+                <div class="navigation-mobile js-mobile-menu">
+                    <div class="logo">
+                        <a href="./"><img src="assets/images/logo-htmlelements.svg"/></a>
+                    </div>
+
+                    <ul class="nav">
+                        <li class="nav-item px-1 px-sm-3 js-menu-account">
+                            <span class="material-icons">person</span>
+                        </li>
+
+                        <li class="nav-item px-1 px-sm-3 js-menu-additional">
+                            <span class="material-icons">more_horiz</span>
+                        </li>
+
+                        <li class="nav-item px-1 px-sm-3 js-main-menu">
+                            <span class="material-icons">menu</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="nav navigation-left">
+                    <li class="nav-item">
+                        <a href="./" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="javascript:;" class="nav-link">Pages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:;" class="nav-link">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:;" class="nav-link">App</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navigation-right">
+                    <li class="nav-item px-3 messages" id="messages">
+                        <span class="position-relative">
+                            <span class="material-icons">message</span>
+                            <span class="cnt">3</span>
+                        </span>
+                    </li>
+                    <li class="nav-item px-3 notifications" id="notifications">
+                        <span class="material-icons">notifications_off</span>
+                    </li>
+                    <li class="nav-item px-3" id="language">
+                        <img src="https://img.icons8.com/office/30/000000/usa.png"/>
+                    </li>
+                    <li class="nav-item px-3 search" id="search">
+                        <span class="material-icons">search</span>
+                    </li>
+
+                    <li class="nav-item px-3 profile" id="profile">
+                        <div class="holder">
+                            <div class="avatar rounded-circle" style="background-image: url('../../images/phonebook/mark.png');"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="subheader d-md-flex align-items-center justify-content-between px-3 px-sm-5">
+                <div class="d-flex flex-column flex-sm-row align-items-baseline align-items-sm-center flex-wrap h-100 py-3">
+                    <h6 class="text-dark font-weight-bold mt-1 mb-0 mb-sm-1 mr-5" id="breadcrumb-title">Profile 1</h6>
+                    <ul class="breadcrumb p-0" id="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;" class="text-muted">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="./" class="text-muted">Default</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center flex-wrap py-3">
+                    <div class="dropdown" data-toggle="tooltip" data-placement="top" title="Quick actions">
+                        <button type="button" class="btn btn-icon dropdown-toggle btn-primary font-weight-bold px-5 mr-3 my-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">person_add</i> Add Member
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown" data-toggle="tooltip" data-placement="top" title="Quick actions">
+                        <button type="button" class="btn btn-icon dropdown-toggle btn-primary font-weight-bold px-5 my-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">article</i> New Report
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="content" class="p-5"></div>
+            <div class="footer">
+                <div class="nav">
+                    <a href="https://www.htmlelements.com/forums/" target="_blank">Support</a>
+                    <a href="https://www.htmlelements.com/faq/" target="_blank">Help Center</a>
+                    <a href="https://www.htmlelements.com/privacy-policy/" target="_blank">Privacy</a>
+                    <a href="https://www.htmlelements.com/terms-of-use/" target="_blank">Terms of Service</a>
+                </div>
+                <div>© 2021 - <a href="https://www.htmlelements.com/" target="_blank">jQWidgets LTD</a></div>
+            </div>
+        </div>
+
+        <smart-tooltip id="usageTooltipNormal" selector="toggleButton" position="right" class="animation"><span class="show">Open Sidebar</span><span class="hide">Close Sidebar</span></smart-tooltip>
+    </div>
+
+    <div id="settingsButton"><span class="material-icons">settings</span></div>
+
+    <div id="settingsPanel">
+        <div id="settingsLabel"><span>Settings</span><span id="settingsCloseButton"></span></div>
+        <div id="settingsContent" class="pt-4">
+            <div class="label">LAYOUTS</div>
+            <smart-check-box id="toggleCollapsedSidebar">Collapsed Sidebar</smart-check-box>
+            <smart-check-box id="toggleBoxedLayout">Boxed Layout</smart-check-box>
+
+            <div class="label">COLOR SCHEMES</div>
+
+            <div class="colors">
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #0bb783;" data-scheme="#0bb783"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #f64e60;" data-scheme="#f64e60"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #E67C73;" data-scheme="#E67C73"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #F4511E;" data-scheme="#F4511E"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #F6BF26;" data-scheme="#F6BF26"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #33B679;" data-scheme="#33B679"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #0B8043;" data-scheme="#0B8043"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #3699ff;" data-scheme="#3699ff"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #3F51B5;" data-scheme="#3F51B5"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #7986CB;" data-scheme="#7986CB"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #8E24AA;" data-scheme="#8E24AA"></button>
+                <button type="button" class="js-change-color-scheme w-25px square" style="background-color: #616161;" data-scheme="#616161"></button>
+            </div>
+
+            <div class="label">THEME</div>
+            <img id="lightThemePreview" class="theme-preview" src="assets/images/theme-light.png"/>
+            <div class="theme-label">Light Content</div>
+            <img id="darkThemePreview" class="theme-preview" src="assets/images/theme-dark.png"/>
+            <div class="theme-label">Dark Content</div>
+
+            <smart-button id="buy" class="primary"><span class="material-icons">shopping_cart</span>Buy Smart</smart-button>
+        </div>
+    </div>
+
+    <smart-menu id="messagesMenu" class="smart-custom-dropdown-menu" mode="dropDown">
+        <smart-menu-item label="newMessages" class="menu-header"></smart-menu-item>
+
+        <smart-menu-item>
+            <div class="row row-mx-10 align-items-center">
+                <div class="col-auto col-px-10">
+                    <div class="square img-as-background w-25px d-inline-block mr-2 rounded-circle">
+                        <img src="../../images/phonebook/michael.png"/>
+                    </div>
+                </div>
+                <div class="col col-px-10">
+                    <div class="name font-weight-bold">Frederick Murphy</div>
+                    <div class="content text-break-line-2">Lorem ipsum dolor sit amet.</div>
+                    <small class="time text-muted">7 min ago</small>
+                </div>
+            </div>
+        </smart-menu-item>
+
+        <smart-menu-item>
+            <div class="row row-mx-10 align-items-center">
+                <div class="col-auto col-px-10">
+                    <div class="square img-as-background w-25px d-inline-block mr-2 rounded-circle">
+                        <img src="../../images/phonebook/maya.png"/>
+                    </div>
+                </div>
+                <div class="col col-px-10">
+                    <div class="name font-weight-bold">Eva Hayes</div>
+                    <div class="content text-break-line-2">Nulla porta, risus in suscipit tincidunt.</div>
+                    <small class="time text-muted">15 min ago</small>
+                </div>
+            </div>
+        </smart-menu-item>
+
+        <smart-menu-item>
+            <div class="row row-mx-10 align-items-center">
+                <div class="col-auto col-px-10">
+                    <div class="square img-as-background w-25px d-inline-block mr-2 rounded-circle">
+                        <img src="../../images/phonebook/maria.png"/>
+                    </div>
+                </div>
+                <div class="col col-px-10">
+                    <div class="name font-weight-bold">Joyce Scott</div>
+                    <div class="content text-break-line-2">Maecenas eleifend, nunc eu convallis mollis, ante lacus euismod elit, iaculis tempor ex
+                        sapien quis est.
+                    </div>
+                    <small class="time text-muted">Yesterday</small>
+                </div>
+            </div>
+        </smart-menu-item>
+
+        <smart-menu-item label="showAllMessages" class="menu-footer"></smart-menu-item>
+    </smart-menu>
+
+    <smart-menu id="notificationsMenu" class="smart-custom-dropdown-menu" mode="dropDown">
+        <smart-menu-item label="newNotifications" class="menu-header"></smart-menu-item>
+        <smart-menu-item>
+            <div class="row row-mx-10 align-items-center">
+                <div class="col-auto col-px-10">
+                    <span class="material-icons text-warning ml-3">stay_current_portrait</span>
+                </div>
+
+                <div class="col col-px-10">
+                    <div class="name font-weight-bold">New device detected</div>
+                    <div class="content text-break-line-2">Login from a new device has been detected.</div>
+                    <small class="time text-muted">2 hours ago</small>
+                </div>
+            </div>
+        </smart-menu-item>
+
+        <smart-menu-item>
+            <div class="row row-mx-10 align-items-center">
+                <div class="col-auto col-px-10">
+                    <span class="material-icons text-primary ml-3">person_add</span>
+                </div>
+
+                <div class="col col-px-10">
+                    <div class="name font-weight-bold">Friend request</div>
+                    <div class="content text-break-line-2">Joyce Scott has been added as a friend.</div>
+                    <small class="time text-muted">3 hours ago</small>
+                </div>
+            </div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <div class="row row-mx-10 align-items-center">
+                <div class="col-auto col-px-10">
+                    <span class="material-icons text-danger ml-3">healing</span>
+                </div>
+
+                <div class="col col-px-10">
+                    <div class="name font-weight-bold">Downtime</div>
+                    <div class="content text-break-line-2">Our servers will undertake maintenance tomorrow.</div>
+                    <small class="time text-muted">Yesterday</small>
+                </div>
+            </div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <div class="row row-mx-10 align-items-center">
+                <div class="col-auto col-px-10">
+                    <span class="material-icons text-primary ml-3">person_add</span>
+                </div>
+
+                <div class="col col-px-10">
+                    <div class="name font-weight-bold">Friend request</div>
+                    <div class="content text-break-line-2">Nathan Hoffman has been added as a friend.</div>
+                    <small class="time text-muted">3 days ago</small>
+                </div>
+            </div>
+        </smart-menu-item>
+        <smart-menu-item label="showAllNotifications" class="menu-footer"></smart-menu-item>
+    </smart-menu>
+
+    <smart-menu id="languageMenu" class="smart-custom-dropdown-menu" mode="dropDown">
+        <smart-menu-item>
+            <div class="pl-2 pr-3"><img src="https://img.icons8.com/office/30/000000/usa.png" class="mr-3"/> English</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <div class="pl-2 pr-3"><img src="https://img.icons8.com/office/30/000000/china.png" class="mr-3"/> Chinese</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <div class="pl-2 pr-3"><img src="https://img.icons8.com/office/30/000000/spain.png" class="mr-3"/> Spanish</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <div class="pl-2 pr-3"><img src="https://img.icons8.com/office/30/000000/india.png" class="mr-3"/> Hindi</div>
+        </smart-menu-item>
+        <smart-menu-item>
+            <div class="pl-2 pr-3"><img src="https://img.icons8.com/office/30/000000/russian-federation.png" class="mr-3"/> Russian</div>
+        </smart-menu-item>
+    </smart-menu>
+
+    <smart-menu id="searchMenu" class="smart-custom-dropdown-menu" mode="dropDown">
+        <smart-menu-item>
+            <span class="material-icons">search</span>
+            <smart-input placeholder="Search something..." autofocus="true"></smart-input>
+        </smart-menu-item>
+    </smart-menu>
+
+    <smart-menu id="profileMenu" class="smart-custom-dropdown-menu" mode="dropDown">
+        <smart-menu-item><span class="material-icons mr-3">supervised_user_circle</span> Profile</smart-menu-item>
+        <smart-menu-item separator><span class="material-icons mr-3">pie_chart</span>Analytics</smart-menu-item>
+        <smart-menu-item>Settings & Privacy</smart-menu-item>
+        <smart-menu-item>Help</smart-menu-item>
+        <smart-menu-item>Sign out</smart-menu-item>
+    </smart-menu>
+
+    <template id="pagesTemplate">PAGES</template>
+    <template id="toolsTemplate">TOOLS & COMPONENTS</template>
+    <template id="pluginTemplate">PLUGIN & ADDONS</template>
+
+    <template id="newMessages"><strong>3 New Messages</strong></template>
+    <template id="showAllMessages">Show all messages</template>
+    <template id="newNotifications"><strong>4 New Notifications</strong></template>
+    <template id="showAllNotifications">Show all notifications</template>
+
+    <template id="analytics">Analytics</template>
+</div>
+
+<!--jQuery and Plugins-->
+<script src="./assets/plugins/ui/assets/ui/plugins/js/plugins.js"></script>
+
+
+<!--Then Template Scripts-->
+<script src="./assets/js/main.js"></script>
+</body>
+
+</html>

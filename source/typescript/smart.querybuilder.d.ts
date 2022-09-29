@@ -10,12 +10,17 @@ export interface QueryBuilderProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines when the value of the element is updated with the new changes.
    * Default value: change
    */
-  applyMode?: QueryBuilderApplyMode;
+  applyMode?: QueryBuilderApplyMode | string;
+  /**
+   * When 'applyMode' is set to 'immediately', the default value is applied to the editor's value and the QueryBuilder's value is updated automatically.
+   * Default value: false
+   */
+  autoApplyValue?: boolean;
   /**
    * Determines whether QueryBuilder will automatically prompt the user to enter a condition value when a new condition is created. When 'applyMode' is set to 'immediately', the operation field is automatically populated if empty when the selected condition operator is changed. The input field prompts the user when the operation or operator of the condition is changed.
    * Default value: false
@@ -45,7 +50,7 @@ export interface QueryBuilderProperties {
    * Determines whether new fields can be dynamically added by typing in the field (property) box.
    * Default value: dynamic
    */
-  fieldsMode?: QueryBuilderFieldsMode;
+  fieldsMode?: QueryBuilderFieldsMode | string;
   /**
    * Sets or gets the format string of the editor of fields with type 'date'.
    * Default value: "dd-MMM-yy"
@@ -235,6 +240,13 @@ export interface QueryBuilder extends BaseElement, QueryBuilderProperties {
    *  value - The value of the selected property.
    */
   onPropertySelected?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the component validates the input values. This happens when you input a new value and focus another component.
+	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, newValue)
+   *  oldValue - Old validation status.
+   *  newValue - New validation status.
+   */
+  onValidationChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * Converts the current value of the element to DynamicLINQ expression.
    * @returns {string}

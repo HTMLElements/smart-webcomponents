@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Pricing page layout example</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="description" content="A page which shows Pricing Layout Template with our UI Components"/>
+ 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css" />
+    
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+	
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
+    <script type="text/javascript" src="../../source/smart.element.js"></script>
+    <script type="text/javascript" src="../../source/smart.button.js"></script>
+    <script type="text/javascript" src="../../source/smart.card.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Company name</div>
+        <div class="button-group">
+            <smart-button class="flat">FEATURES</smart-button>
+            <smart-button class="flat">ENTERPRICE</smart-button>
+            <smart-button class="flat">SUPPORT</smart-button>
+            <smart-button id="login" class="primary outlined">LOGIN</smart-button>
+        </div>
+    </header>
+
+    <section class="user">
+        <div class="container">
+            <h1 class="headline">Pricing</h1>
+            <p class="content">
+                Quickly build an effective pricing table for your potential 
+                customers with this layout. It's built with default Material-UI 
+                components with little customization.
+            </p>
+        </div>
+    </section>
+
+    <section class="articles">
+        <div class="container">
+                <smart-card id="free">
+                    <div class="thumb-section">
+                        <h2>Free</h2>
+                    </div>
+                    <div class="content">
+                        <h3>$0<sub>/mo</sub></h3>
+                        <p>10 users included</p>
+                        <p>2 GB of storage</p>
+                        <p>Help center access</p>
+                        <p>Email support</p>
+
+                        <smart-button class="primary outlined">SIGN UP FOR FREE</smart-button>
+                    </div>
+                </smart-card>
+
+                <smart-card class="popular" id="pro">
+                    <div class="thumb-section">
+                        <h2>Pro</h2>
+                        <p class="subheadline">Most popular</p>
+                    </div>
+                    <div class="content">
+                        <h3>$15<sub>/mo</sub></h3>
+                        <p>20 users included</p>
+                        <p>10 GB of storage</p>
+                        <p>Help center access</p>
+                        <p>Priority email support</p>
+
+                        <smart-button class="primary">GET STARTED</smart-button>
+                    </div>
+                </smart-card>
+
+                <smart-card id="enterprice">
+                    <div class="thumb-section">
+                        <h2>Enterprise</h2>
+                    </div>
+                    <div class="content">
+                        <h3>$30<sub>/mo</sub></h3>
+                        <p>50 users included</p>
+                        <p>30 GB of storage</p>
+                        <p>Help center access</p>
+                        <p>Phone & email support</p>
+
+                        <smart-button class="primary outlined">CONTACT US</smart-button>
+                    </div>
+                </smart-card>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <ul>
+                Company
+                <li>Team</li>
+                <li>History</li>
+                <li>Contact us</li>
+                <li>Locations</li>
+            </ul>
+
+            <ul>
+                Features
+                <li>Cool stuff</li>
+                <li>Random feature</li>
+                <li>Team feature</li>
+                <li>Developer stuff</li>
+                <li>Another one</li>
+            </ul>
+
+            <ul>
+                Resources
+                <li>Resource</li>
+                <li>Resource name</li>
+                <li>Another resource</li>
+                <li>Final resource</li>
+            </ul>
+
+            <ul>
+                Legal
+                <li>Privacy policy</li>
+                <li>Terms of use</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

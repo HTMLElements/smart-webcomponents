@@ -30,7 +30,7 @@ export interface BootstrapProgressBarProperties {
    * Sets or gets the style mode of the button.
    * Default value: primary
    */
-  styleMode?: BootstrapProgressBarStyleMode;
+  styleMode?: BootstrapProgressBarStyleMode | string;
   /**
    * Sets or gets the value
    * Default value: 5

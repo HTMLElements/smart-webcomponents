@@ -5,12 +5,12 @@ export interface GaugeProperties {
    * Determines the type of gauge's indicator.
    * Default value: needle
    */
-  analogDisplayType?: GaugeAnalogDisplayType;
+  analogDisplayType?: GaugeAnalogDisplayType | string;
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets gauge's animation duration. Applicable only when animation is not 'none'.
    * Default value: 300
@@ -50,7 +50,7 @@ export interface GaugeProperties {
    * Sets the position of the digital display inside the element.
    * Default value: bottom
    */
-  digitalDisplayPosition?: GaugeDigitalDisplayPosition;
+  digitalDisplayPosition?: GaugeDigitalDisplayPosition | string;
   /**
    * Enables or disables the element.
    * Default value: false
@@ -85,7 +85,7 @@ export interface GaugeProperties {
    * Determines the visibility of the labels inside the element.
    * Default value: all
    */
-  labelsVisibility?: LabelsVisibility;
+  labelsVisibility?: LabelsVisibility | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -110,7 +110,7 @@ export interface GaugeProperties {
    * Determines when the value of the element is updated.
    * Default value: switchWhileDragging
    */
-  mechanicalAction?: DragMechanicalAction;
+  mechanicalAction?: DragMechanicalAction | string;
   /**
    * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
    * Default value:    * {
@@ -139,7 +139,7 @@ export interface GaugeProperties {
    * Determines whether the element works with numbers or dates.
    * Default value: numeric
    */
-  mode?: ScaleMode;
+  mode?: ScaleMode | string;
   /**
    * Sets or gets the element's name, which is used as a reference when the data is submitted.
    * Default value: ""
@@ -149,7 +149,7 @@ export interface GaugeProperties {
    * Determines the position of the needle when analogDisplayType is 'needle'. 
    * Default value: center
    */
-  needlePosition?: GaugeNeedlePosition;
+  needlePosition?: GaugeNeedlePosition | string;
   /**
    * Determines the number of digits after the decimal point. Applicable only when scaleType is 'floatingPoint'.
    * Default value: null
@@ -174,12 +174,12 @@ export interface GaugeProperties {
    * Determines the position of the scale in the element. 
    * Default value: inside
    */
-  scalePosition?: GaugeScalePosition;
+  scalePosition?: GaugeScalePosition | string;
   /**
    * Determines the type of the gauge's value and scale. 
    * Default value: floatingPoint
    */
-  scaleType?: ScaleType;
+  scaleType?: ScaleType | string;
   /**
    * Enables or disables scientific notation.
    * Default value: false
@@ -204,7 +204,7 @@ export interface GaugeProperties {
    * Determines how the Gauge will size.
    * Default value: circle
    */
-  sizeMode?: GaugeSizeMode;
+  sizeMode?: GaugeSizeMode | string;
   /**
    * Sets or gets gauge's start angle. This property specifies the beggining of the gauge's scale and is measured in degrees.
    * Default value: -30
@@ -219,12 +219,12 @@ export interface GaugeProperties {
    * Determines the position of the ticks in the Gauge.
    * Default value: scale
    */
-  ticksPosition?: TicksPosition;
+  ticksPosition?: TicksPosition | string;
   /**
    * Determines the visibility of the ticks.
    * Default value: minor
    */
-  ticksVisibility?: TicksVisibility;
+  ticksVisibility?: TicksVisibility | string;
   /**
    * Sets or gets if the element can be focused.
    * Default value: false
@@ -239,7 +239,7 @@ export interface GaugeProperties {
    * Sets the value's validation by min/max.
    * Default value: strict
    */
-  validation?: Validation;
+  validation?: Validation | string;
   /**
    * Sets or gets the value of the element. The value can be a date only when scaleType is 'date'.
    * Default value: 0
@@ -249,7 +249,7 @@ export interface GaugeProperties {
    * Sets or gets the word length. Applicable only when scaleType is 'integer'.
    * Default value: int32
    */
-  wordLength?: WordLength;
+  wordLength?: WordLength | string;
 }
 /**
  Gauge displays an indicator within a range of values.

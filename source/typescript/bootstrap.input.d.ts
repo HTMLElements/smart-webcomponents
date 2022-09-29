@@ -35,7 +35,7 @@ export interface BootstrapInputProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapInputStyleMode;
+  styleMode?: BootstrapInputStyleMode | string;
   /**
    * Gets or sets the value of the element. 
    * Default value: "false"

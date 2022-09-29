@@ -1,0 +1,8 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="-10 10 110 110">
+  <g class="heart-loader__group" transform = "rotate(-45 50 50)" translate="-200 200" fill="rosybrown">
+    <path class="heart-loader__square" stroke-width="1" fill="none" d="M0,30 0,90 60,90 60,30z"/>
+    <path class="heart-loader__circle m--left" stroke-width="1" fill="none" d="M60,60 a30,30 0 0,1 -60,0 a30,30 0 0,1 60,0"/>
+    <path class="heart-loader__circle m--right" stroke-width="1" fill="none" d="M60,60 a30,30 0 0,1 -60,0 a30,30 0 0,1 60,0"/>
+    <path class="heart-loader__heartPath" stroke-width="2" d="M60,30 a30,30 0 0,1 0,60 L0,90 0,30 a30,30 0 0,1 60,0" />
+  </g>
+</svg>

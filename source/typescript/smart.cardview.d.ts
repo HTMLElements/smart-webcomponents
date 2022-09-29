@@ -15,7 +15,7 @@ export interface CardViewProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Describes the height for each card.
    * Default value: null
@@ -25,7 +25,7 @@ export interface CardViewProperties {
    * Describes the orientation of the card cells.
    * Default value: vertical
    */
-  cellOrientation?: Orientation;
+  cellOrientation?: Orientation | string;
   /**
    * Allows collapsing the card content.
    * Default value: false
@@ -45,7 +45,7 @@ export interface CardViewProperties {
    * Describes the cover image fit property.
    * Default value: crop
    */
-  coverMode?: CardViewCoverMode;
+  coverMode?: CardViewCoverMode | string;
   /**
    * Determines the data source for the item that will be displayed inside the card.
    * Default value: null
@@ -65,7 +65,7 @@ export interface CardViewProperties {
    * Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons.
    * Default value: none
    */
-  headerPosition?: CardViewHeaderPosition;
+  headerPosition?: CardViewHeaderPosition | string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages.
    * Default value: "en"
@@ -161,7 +161,7 @@ export interface CardViewProperties {
    * Describes the scrolling behavior of the element.
    * Default value: physical
    */
-  scrolling?: Scrolling;
+  scrolling?: Scrolling | string;
   /**
    * Describes which data field to be set as title.
    * Default value: ""
@@ -295,7 +295,7 @@ export interface CardViewColumn {
    * Sets or gets the column's data type.
    * Default value: string
    */
-  dataType?: CardViewColumnDataType;
+  dataType?: CardViewColumnDataType | string;
   /**
    * Sets or gets the column's icon. Expects CSS class name.
    * Default value: 
@@ -349,7 +349,7 @@ export interface DataSourceSettings {
    * Sets or gets the XML binding root.
    * Default value: blackList
    */
-  sanitizeHTML?: DataSourceSettingsSanitizeHTML;
+  sanitizeHTML?: DataSourceSettingsSanitizeHTML | string;
   /**
    * Sets or gets the XML binding record.
    * Default value: ""
@@ -369,7 +369,7 @@ export interface DataSourceSettings {
    * Sets or gets whether the data source type.
    * Default value: array
    */
-  dataSourceType?: DataSourceSettingsDataSourceType;
+  dataSourceType?: DataSourceSettingsDataSourceType | string;
   /**
    * Sets or gets the dataAdapter's id
    * Default value: ""
@@ -417,7 +417,7 @@ export interface DataSourceSettingsDataField {
    * Sets the dataField type.
    * Default value: string
    */
-  dataType?: DataSourceSettingsDataFieldDataType;
+  dataType?: DataSourceSettingsDataFieldDataType | string;
 }
 
 declare global {

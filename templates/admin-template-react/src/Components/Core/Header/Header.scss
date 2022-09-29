@@ -1,0 +1,12 @@
+.header {
+    .profile-image {
+        background-image: url("../../../../public/assets/images/phonebook/mark.png");
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .main > .content .header .navigation-left,
+    .main > .content .header .navigation-right {
+        background: var(--dark) !important;
+    }
+}

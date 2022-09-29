@@ -1,0 +1,11 @@
+#clientsTable .active {
+    background-color: forestgreen;
+}
+
+#clientsTable .inactive {
+    background-color: orange;
+}
+
+#clientsTable .finished {
+    background-color: indigo;
+}

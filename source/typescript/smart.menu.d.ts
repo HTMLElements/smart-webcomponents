@@ -5,7 +5,7 @@ export interface MenuProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines delay (in milliseconds) before a Menu dropdown is closed when leaving the Menu with the mouse. Applicable only when selectionMode is 'mouseenter'.
    * Default value: 100
@@ -30,12 +30,12 @@ export interface MenuProperties {
    * Sets the check mode of top-level Menu items (immediate children of the Menu). checkMode can be set to 'checkbox', 'radioButton', or a comma-separated list containing 'checkbox', 'radioButton', or 'none' (e.g. 'checkbox, radioButton, none, checkbox'). When set to a list, each value in the list is applied to groups of Menu items separated by an item with separator (item after the one with separator is the start of a new checkMode context). Sublevels are controlled by setting checkMode to the respective smart-menu-items-group.
    * Default value: checkbox
    */
-  checkMode?: MenuCheckMode;
+  checkMode?: MenuCheckMode | string;
   /**
    * Sets the document event which closes any open Menu drop downs (or the Menu itself when mode is 'dropDown').
    * Default value: up
    */
-  closeAction?: MenuCloseAction;
+  closeAction?: MenuCloseAction | string;
   /**
    * Determines the data source that will be loaded to the Menu. The data source represents an array of objects with the following properties: label - a string representing the text content of the item.value - the value of the item.shortcut - a string representing a shortuct for the item. It will be displayed inside the item.items - allows to define an array of sub menu items.
    * Default value: null
@@ -65,7 +65,7 @@ export interface MenuProperties {
    * Determines the opening direction of Menu dropdowns.
    * Default value: auto
    */
-  dropDownPosition?: MenuDropDownPosition;
+  dropDownPosition?: MenuDropDownPosition | string;
   /**
    * A getter that returns an array of all Menu items.
    * Default value: 
@@ -116,7 +116,7 @@ export interface MenuProperties {
    * Determines the menu's display mode.
    * Default value: horizontal
    */
-  mode?: MenuMode;
+  mode?: MenuMode | string;
   /**
    * Opens or closes thte menu when it's in 'dropDown' mode.
    * Default value: false
@@ -126,7 +126,7 @@ export interface MenuProperties {
    * Sets or gets the menu's scroll buttons behavior. Applicable only when dropDownAppendTo is not null.
    * Default value: auto
    */
-  overflow?: Overflow;
+  overflow?: Overflow | string;
   /**
    * If set to true, prevents the closing of the Menu or its dropdowns when Menu items are checked/unchecked.
    * Default value: false
@@ -146,7 +146,7 @@ export interface MenuProperties {
    * Determines the menu's selection mode.
    * Default value: click
    */
-  selectionMode?: MenuSelectionMode;
+  selectionMode?: MenuSelectionMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""
@@ -406,7 +406,7 @@ export interface MenuItemsGroupProperties {
    * 
    * Default value: checkbox
    */
-  checkMode?: MenuCheckMode;
+  checkMode?: MenuCheckMode | string;
   /**
    * Enables or disables element.
    * Default value: false

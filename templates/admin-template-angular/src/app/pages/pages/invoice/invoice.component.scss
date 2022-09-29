@@ -1,0 +1,109 @@
+.invoice {
+    .invoice-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .invoice-info-wrapper {
+        .invoice-info {
+            flex: 0 0 100%;
+            max-width: 100%;
+
+            .invoice-info-header {
+                justify-content: space-between;
+                display: flex;
+            }
+
+            hr {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                border-top: 1px solid rgba(52, 58, 64, 0.1);
+                height: 0;
+                overflow: visible;
+            }
+
+            .invoice-info-row {
+
+                .custom-col {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+
+                .custom-col:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .invoice-summary-wrapper {
+        margin-top: 1.5rem;
+
+        .table-responsive {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .invoice-table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+
+        tr th:hover:not(:first-of-type) {
+            text-transform: none !important;
+            line-height: 1.5;
+        }
+
+        tr th:first-of-type {
+            width: 70%;
+        }
+
+        tr th:last-of-type,
+        tr td:last-of-type {
+            text-align: right;
+        }
+
+        tr th:last-of-type * {
+            justify-content: flex-end;
+        }
+
+        thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid var(--smart-border-color);
+            font-weight: bold !important;
+            font-size: 14px !important;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid var(--smart-border-color);
+        }
+
+        td:first-child {
+            width: 200px;
+        }
+    }
+}
+
+.printContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.75rem;
+}
+
+body[theme="dark"] {
+    .invoice {
+        .invoice-table {
+            color: #ffffff;
+        }
+    }
+}

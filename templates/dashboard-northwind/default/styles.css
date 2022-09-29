@@ -1,0 +1,122 @@
+.card .material-icons {
+    margin-right: 15px;
+    font-size: 35px;
+}
+
+.card .info {
+    font-size: 14px;
+}
+
+#sales .material-icons {
+    color: darkcyan;
+}
+
+#visitors .material-icons {
+    color: orange;
+}
+
+#earnings .material-icons {
+    color: limegreen;
+}
+
+#orders .material-icons {
+    color: coral;
+}
+
+#revenue .material-icons {
+    color: var(--smart-primary);
+}
+
+#revenueChart {
+    border: none;
+    width: 100%;
+}
+
+#feed {
+    overflow: auto;
+}
+
+#calendar {
+    --smart-calendar-default-width: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+#calendar:not([display-mode="year"]):not([display-mode="decade"]) .smart-calendar-body {
+    display: block;
+}
+
+
+.card {
+    display: block;
+    height: 145px;
+    padding: 10px 15px;
+}
+
+#downloads {
+    padding-top: 2px;
+    padding-bottom: 0px;
+}
+.card .header, .card .footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .center {
+    display: flex;
+    justify-content: center;
+}
+.card .label {
+    font-weight: 600;
+}
+.card .value {
+    color: #005c99;
+}
+
+#newCustomers .value {
+    color: #a9e8ab;
+}
+
+smart-progress-bar {
+    width: 100%;
+    height: 10px; 
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+smart-gauge {
+    width: 50% !important;
+    height: 70px !important;
+}
+
+#newCustomersChart {
+    width: 100%;
+    height: 80px;
+}
+
+.large-card {
+    height: 445px;
+}
+#employee .center {
+    margin-top: 15px;
+}
+#employee img {
+    border-radius: 50%;
+}
+#employee span {
+    margin-top: 30px;
+} 
+span.material-icons {
+    vertical-align: middle;
+}
+.employee-image {
+    height: 50px;
+    border-radius: 50%;
+}
+td[data-field="Employee"] {
+    padding: 0 12px;
+}
+#employeesTable {
+    height: auto;
+    margin-top: 15px;
+}

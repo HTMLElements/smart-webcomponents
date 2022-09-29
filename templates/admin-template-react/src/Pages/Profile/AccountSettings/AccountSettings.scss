@@ -1,0 +1,12 @@
+.account-settings {
+    #settingsListBox {
+        --smart-list-item-height: 50px;
+        border: none;
+        width: 100%;
+        height: auto;
+    }
+
+    #biographyInput {
+        height: calc(1.5 * 38px);
+    }
+}

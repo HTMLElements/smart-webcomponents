@@ -1,0 +1,3 @@
+window.initProfile = function () {
+    addTodayMenuOpenHandlers();
+}

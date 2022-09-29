@@ -5,7 +5,7 @@ export interface TooltipProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines how to align the tooltip.
    * Default value: "center"
@@ -20,7 +20,7 @@ export interface TooltipProperties {
    * Sets the position of the arrow.
    * Default value: bottom
    */
-  arrowDirection?: TooltipArrowDirection;
+  arrowDirection?: TooltipArrowDirection | string;
   /**
    * Gets or sets whether a tooltip's arrow will be shown.
    * Default value: 0
@@ -68,12 +68,12 @@ export interface TooltipProperties {
    * Sets or gets the way of triggering the tooltip.
    * Default value: hover
    */
-  openMode?: TooltipOpenMode;
+  openMode?: TooltipOpenMode | string;
   /**
    * Gets or sets the position of the tooltip.
    * Default value: top
    */
-  position?: TooltipPosition;
+  position?: TooltipPosition | string;
   /**
    * Sets the element which triggers the tooltip.
    * Default value: null

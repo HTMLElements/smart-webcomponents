@@ -1,0 +1,117 @@
+﻿/* Second-container */
+.second-container {
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 600px;
+    text-align: center;
+}
+
+    .second-container img.dashboard {
+        width: 80%;
+        border-radius: 20px;
+        margin: 0 auto;
+    }
+
+    .second-container .container-title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 48px;
+        font-weight: bold;
+    }
+
+smart-menu {
+    font-weight: 400 !important;
+}
+
+.second-container .container-description {
+    font-size: 21px;
+}
+/* Second-container ^ */
+
+/* Portfolio + */
+section.portfolio {
+    background: white;
+}
+
+    section.portfolio smart-tabs {
+        --smart-background: white;
+    }
+/* Portfolio ^ */
+
+/* Subscription + */
+section.subscription {
+    background: white;
+}
+
+.subscription smart-input {
+    --smart-background: white;
+}
+/* Subscription */
+
+/* Testimonials + */
+.testimonials smart-carousel {
+    --smart-background: #fafafa;
+}
+/* Testimonials ^ */
+
+/* Brands + */
+section.brands smart-carousel {
+    background: white;
+    --smart-background: white;
+}
+/* Brands ^ */
+
+/* Footer + */
+section.footer {
+    background: white;
+}
+/* Footer ^ */
+
+/* Advantages */
+section.advantages {
+    margin-top: 80px;
+}
+
+div.advantage {
+    width: 65%;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+    div.advantage .left-advantage,
+    div.advantage .right-advantage {
+        display: grid;
+        grid-template-columns: 150px calc(100% - 150px);
+    }
+
+    div.advantage .info-title {
+        font-weight: bold;
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+section.advantages .image-container img {
+    width: 100px;
+}
+/* Advantages ^ */
+
+
+@media only screen and (max-width: 850px) {
+    div.advantage .left-advantage,
+    div.advantage .right-advantage {
+        grid-template-columns: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.advantage {
+        grid-template-columns: none;
+    }
+
+        div.advantage > div {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+}

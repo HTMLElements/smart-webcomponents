@@ -1,0 +1,608 @@
+@import "_vars";
+
+/* *******************************************
+ **************** Styles *************** *
+ ******************************************* */
+
+body,
+p {
+    line-height: 1.5;
+}
+
+div:not([class*="text-"]) {
+    > p {
+        opacity: 0.9;
+    }
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 500;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+.main-content {
+    overflow: hidden;
+}
+
+/* *******************************************
+ **************** Section *************** *
+ ******************************************* */
+
+section.section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: $white;
+}
+
+/* *******************************************
+ ************** Footer ********************* *
+ ******************************************* */
+footer {
+    .logo {
+        img {
+            max-width: 100px;
+        }
+    }
+
+    ul {
+        li {
+            display: inline-flex;
+            margin: 0 5px;
+        }
+    }
+}
+
+/* *******************************************
+ **************** Elements *************** *
+ ******************************************* */
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+
+    img {
+        width: inherit;
+    }
+
+    .gmnoprint {
+        width: 200px;
+    }
+}
+
+/* To Top */
+#to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    opacity: .4;
+    z-index: 99;
+}
+
+#to-top:hover {
+    opacity: 1;
+}
+
+
+//----------------------------------------------------/
+// Material Design Icons
+//----------------------------------------------------/
+$icons-sizes-list: 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88;
+@each $value in $icons-sizes-list {
+    div.icon-size-#{$value}px {
+        pointer-events: none;
+
+        * {
+            pointer-events: none;
+        }
+
+        h1, h2, h3, h4, h5, h6, i, span, p {
+            pointer-events: all;
+        }
+
+        i.fa:before,
+        i.fas:before,
+        i.far:before,
+        i.fab:before,
+        i.mdi:before {
+            font-size: #{$value}px !important;
+        }
+    }
+
+    i.icon-size-#{$value}px {
+        //pointer-events: none;
+
+        &:before {
+            font-size: #{$value}px !important;
+        }
+    }
+
+    .mdi.mdi-#{$value}px:before {
+        font-size: #{$value}px !important;
+    }
+}
+
+
+.slick-slide {
+    outline: 0 !important;
+}
+
+.slick-slider:not(.slick-vertical) .slick-list,
+.slick-slider:not(.slick-vertical) .slick-track {
+    height: 100% !important;
+}
+
+.slick-slider {
+    .slick-dots {
+        text-align: center;
+        margin-top: 0px;
+        bottom: 35px;
+
+        li {
+            display: inline-block;
+            font-size: 0px;
+            margin: 0 5px;
+            width: auto;
+
+            button {
+                border: 0;
+                height: 8px;
+                width: 8px;
+                -webkit-border-radius: 14px;
+                -moz-border-radius: 14px;
+                border-radius: 14px;
+                background: $gray-400;
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            &.slick-active button {
+                background: $primary;
+                height: 12px;
+                width: 12px;
+            }
+        }
+
+        @media screen and (max-width: 1199px) {
+            .slide.slick-center {
+                margin-top: 0px;
+            }
+
+            margin-top: 30px;
+        }
+    }
+}
+
+.slickSlider-skin-1,
+.slickSlider-skin-3 {
+    .slick-arrow {
+        z-index: 9;
+        width: 50px;
+        height: 50px;
+        background: $white;
+        //background: rgba(red($white), green($white), blue($white), 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+
+        &:hover {
+            background: $white;
+            opacity: 1;
+        }
+
+        &:before {
+            display: inline-block;
+            font: normal normal normal 24px/1 "Material Design Icons";
+            text-rendering: auto;
+            line-height: inherit;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 30px;
+            color: $primary;
+        }
+    }
+
+    .slick-arrow.slick-next {
+        right: 0;
+
+        &:before {
+            content: "\F0054";
+        }
+    }
+
+    .slick-arrow.slick-prev {
+        left: 0;
+
+        &:before {
+            content: "\F004D";
+        }
+    }
+}
+
+.slick-dots-relative .slick-dots {
+    position: relative !important;
+    bottom: 0 !important;
+}
+
+.slick-arrows-1 {
+    .slick-arrow {
+        z-index: 9;
+        width: 50px;
+        height: 50px;
+        background: $secondary;
+        //background: rgba(red($white), green($white), blue($white), 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+        border-radius: 100%;
+
+        &:hover {
+            background: $secondary;
+            opacity: 1;
+        }
+
+        &:before {
+            display: inline-block;
+            font: normal normal normal 24px/1 "Material Design Icons";
+            text-rendering: auto;
+            line-height: inherit;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 30px;
+            color: $silver;
+        }
+    }
+
+    .slick-arrow.slick-next {
+        right: 0;
+
+        &:before {
+            content: "\F0142";
+        }
+    }
+
+    .slick-arrow.slick-prev {
+        left: 0;
+
+        &:before {
+            content: "\F0141";
+        }
+    }
+}
+
+.slick-arrows-2 {
+    .slick-arrow {
+        z-index: 9;
+        width: 50px;
+        height: 50px;
+        background: $white;
+        //background: rgba(red($white), green($white), blue($white), 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+        border-radius: 100%;
+
+        &:hover {
+            background: $white;
+            opacity: 1;
+        }
+
+        &:before {
+            display: inline-block;
+            font: normal normal normal 24px/1 "Material Design Icons";
+            text-rendering: auto;
+            line-height: inherit;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 30px;
+            color: $silver;
+        }
+    }
+
+    .slick-arrow.slick-next {
+        right: 0;
+
+        &:before {
+            content: "\F0142";
+        }
+    }
+
+    .slick-arrow.slick-prev {
+        left: 0;
+
+        &:before {
+            content: "\F0141";
+        }
+    }
+}
+
+
+.bx-wrapper {
+    border: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+
+    .bx-pager {
+        bottom: 30px !important;
+
+        .bx-pager-item a {
+            border: 1px solid $primary !important;
+            height: 14px !important;
+            width: 14px !important;
+            -webkit-border-radius: 24px !important;
+            -moz-border-radius: 24px !important;
+            border-radius: 24px !important;
+            background: transparent !important;
+            margin: 0 10px !important;
+        }
+
+        .bx-pager-item a.active {
+            background: $primary !important;
+        }
+    }
+}
+
+.bxSlider-skin-1 {
+    .bx-wrapper {
+        .bx-pager {
+            .bx-pager-item a {
+                height: 24px !important;
+                width: 24px !important;
+                margin: 0 10px !important;
+            }
+        }
+    }
+}
+
+.bxSlider-skin-3,
+.bxSlider-skin-4 {
+    .bx-wrapper {
+        .bx-pager {
+            bottom: 50px;
+        }
+
+        .bx-pager a {
+            margin: 0 5px !important;
+            border: 0 !important;
+            height: 4px !important;
+            width: 16px !important;
+            -webkit-border-radius: 0px !important;
+            -moz-border-radius: 0px !important;
+            border-radius: 0px !important;
+            background: $white !important;
+        }
+
+        .bx-pager a.active {
+            background: $primary !important;
+        }
+
+        .bx-controls-direction {
+            a {
+                background: none;
+                font-size: 0;
+                text-indent: 0 !important;
+                text-decoration: none !important;
+                background: $white;
+                border-radius: 100%;
+                width: 58px;
+                height: 58px;
+                display: inline-flex;
+                align-content: center;
+                justify-content: center;
+            }
+
+            a:before {
+                font: normal normal normal 58px/1 "Material Design Icons";
+                color: $dark;
+                font-size: 36px;
+                text-shadow: none;
+                display: inline-flex;
+                align-content: center;
+                justify-content: center;
+                line-height: 1.6;
+                opacity: .5;
+            }
+
+            a.bx-next {
+                right: 5%;
+            }
+
+            a.bx-next:before {
+                content: "\F0142";
+            }
+
+            a.bx-prev {
+                left: 5%;
+                text-align: right;
+            }
+
+            a.bx-prev:before {
+                content: "\F0141";
+            }
+        }
+    }
+}
+
+
+.mw-live-edit .module.module-btn {
+    display: inline-block;
+}
+
+.skip-edit {
+    pointer-events: none;
+}
+
+.skip-edit > * {
+    pointer-events: all;
+}
+
+
+.show-on-hover {
+    visibility: hidden !important;
+}
+
+.show-on-hover-root:hover .show-on-hover {
+    visibility: visible !important;
+}
+
+
+/* Faces */
+.testimonials-faces-wrapper {
+    .mwt-faces {
+        display: block;
+        text-align: center;
+        position: relative;
+    }
+
+    .mwt-face {
+        display: inline-block;
+        position: relative;
+        border-radius: 100px;
+        border: 2px solid #fff;
+        background-position: center top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        transition: all 0.5s;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        cursor: pointer;
+    }
+
+    .subactive > .mwt-face {
+        width: 40px;
+        height: 40px;
+        opacity: 1
+    }
+
+    .active > .mwt-face {
+        width: 80px;
+        height: 80px;
+        opacity: 1;
+        margin: 0 10px;
+    }
+
+    .mw-testimonials-item-faces {
+        outline: none
+    }
+
+    .mw-testimonials-faces {
+        .slick-dots {
+            list-style: none;
+            text-align: center;
+            font-size: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+    }
+
+    .mwt-face-name {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        font-size: 21px;
+        margin-top: 31px;
+        color: white;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        opacity: 0
+    }
+
+    .active > .mwt-face-name {
+        opacity: 1;
+    }
+}
+
+.navbar-collapse {
+    width: 100%;
+}
+
+.form-control-secondary {
+    .form-control {
+        background: #F3F3F3;
+        border-color: #F3F3F3;
+    }
+}
+
+.form-control-outline-dark {
+    .form-control {
+        border-color: $dark;
+    }
+}
+
+.form-control-transparent-5 {
+    .form-control {
+        opacity: .5;
+    }
+}
+
+.form-control-rounded {
+    .form-control {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+}
+
+
+/* Ajax Loading */
+
+.js-ajax-loading {
+    transition: .2s;
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #fff;
+    z-index: 999;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        -webkit-animation: pulse 1s infinite cubic-bezier(.21, .53, .56, .8);
+        animation: pulse 1s infinite cubic-bezier(.21, .53, .56, .8);
+    }
+}
+
+body.page-loaded .js-ajax-loading {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        -webkit-transform: scale(.8);
+        transform: scale(.8);
+    }
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

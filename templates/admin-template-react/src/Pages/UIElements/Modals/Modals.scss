@@ -1,0 +1,66 @@
+.modals-page {
+    .view-content {
+        height: 100%;
+    }
+
+    #primary,
+    #success,
+    #error,
+    #primaryc,
+    #successc,
+    #errorc,
+    #small,
+    #alert,
+    #dialog {
+        --smart-window-default-height: auto;
+    }
+
+    #success,
+    #successc {
+        --smart-primary: var(--smart-success);
+    }
+
+    #error,
+    #errorc {
+        --smart-primary: var(--smart-error);
+    }
+
+    #primaryc .smart-header-section,
+    #successc .smart-header-section,
+    #errorc .smart-header-section {
+        border-bottom: 1px solid var(--smart-border);
+    }
+
+    #primaryc {
+        --smart-background: var(--smart-primary);
+        --smart-background-color: var(--smart-primary-color);
+    }
+
+    #successc {
+        --smart-background: var(--smart-success);
+        --smart-background-color: var(--smart-success-color);
+    }
+
+    #errorc {
+        --smart-background: var(--smart-error);
+        --smart-background-color: var(--smart-error-color);
+    }
+
+    #small {
+        --smart-window-default-width: 300px;
+    }
+
+    #medium,
+    #multiline {
+        --smart-window-default-height: 250px;
+    }
+
+    #large {
+        --smart-window-default-width: 600px;
+    }
+
+    #multiline {
+        --smart-multiline-text-box-default-height: 250px;
+        --smart-window-default-height: 430px;
+    }
+}

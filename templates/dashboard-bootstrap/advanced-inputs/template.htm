@@ -1,0 +1,135 @@
+<div class="container">
+    <div class="row">
+        <div class="col standalone-header">
+            Advanced Inputs
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-auto-height">
+                <h4>DropDownList</h4>
+                <p>Smart.DropDownList and Smart.ComboBox - alternatives of HTML select boxes.</p>
+                <smart-drop-down-list drop-down-append-to="body" filterable placeholder="Please select...">
+                    <smart-list-items-group label="Cats">
+                        <smart-list-item>Lion</smart-list-item>
+                        <smart-list-item>Tiger</smart-list-item>
+                        <smart-list-item disabled>Jaguar</smart-list-item>
+                        <smart-list-item>Domestic cat</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="Dogs">
+                        <smart-list-item>Wolf</smart-list-item>
+                        <smart-list-item>Domestic dog</smart-list-item>
+                        <smart-list-item disabled>Coyote</smart-list-item>
+                        <smart-list-item>Jackal</smart-list-item>
+                        <smart-list-item>Fox</smart-list-item>
+                    </smart-list-items-group>
+                </smart-drop-down-list>
+
+                <smart-combo-box drop-down-append-to="body" placeholder="Please select...">
+                    <smart-list-items-group label="Cats">
+                        <smart-list-item>Lion</smart-list-item>
+                        <smart-list-item>Tiger</smart-list-item>
+                        <smart-list-item disabled>Jaguar</smart-list-item>
+                        <smart-list-item>Domestic cat</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="Dogs">
+                        <smart-list-item>Wolf</smart-list-item>
+                        <smart-list-item>Domestic dog</smart-list-item>
+                        <smart-list-item disabled>Coyote</smart-list-item>
+                        <smart-list-item>Jackal</smart-list-item>
+                        <smart-list-item>Fox</smart-list-item>
+                    </smart-list-items-group>
+                </smart-combo-box>
+
+                <smart-combo-box drop-down-append-to="body" placeholder="Please select..." selection-display-mode="tokens"
+                    selection-mode="zeroOrMany">
+                    <smart-list-items-group label="Cats">
+                        <smart-list-item>Lion</smart-list-item>
+                        <smart-list-item>Tiger</smart-list-item>
+                        <smart-list-item disabled>Jaguar</smart-list-item>
+                        <smart-list-item>Domestic cat</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="Dogs">
+                        <smart-list-item>Wolf</smart-list-item>
+                        <smart-list-item>Domestic dog</smart-list-item>
+                        <smart-list-item disabled>Coyote</smart-list-item>
+                        <smart-list-item>Jackal</smart-list-item>
+                        <smart-list-item>Fox</smart-list-item>
+                    </smart-list-items-group>
+                </smart-combo-box>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-auto-height">
+                <h4>DateRangeInput</h4>
+                <p>Smart.DateRangeInput is an input that allows to select a Date/Date range from a Calendar drop down.
+                </p>
+                <h5>Date range</h5>
+                <smart-date-range-input placeholder="Please select..." drop-down-button-position="right">
+                </smart-date-range-input>
+                <h5>DateTime range</h5>
+                <smart-date-range-input placeholder="Please select..." drop-down-button-position="right" timepicker>
+                </smart-date-range-input>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card-auto-height">
+                <h4>DateTimePicker</h4>
+                <p></p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5>Default</h5>
+                        <smart-date-time-picker calendar-button drop-down-append-to="body"></smart-date-time-picker>
+                        <h5>Time only</h5>
+                        <smart-date-time-picker calendar-button drop-down-append-to="body"
+                            drop-down-display-mode="timePicker" format-string="t"></smart-date-time-picker>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5>Date only</h5>
+                        <smart-date-time-picker calendar-button drop-down-append-to="body"
+                            drop-down-display-mode="calendar" format-string="d"></smart-date-time-picker>
+                        <h5>With spin buttons</h5>
+                        <smart-date-time-picker calendar-button drop-down-append-to="body" spin-buttons>
+                        </smart-date-time-picker>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card-auto-height">
+                <h4>MaskedTextBox</h4>
+                <p>Masked Text fields use a mask to distinguish between proper and improper user input.</p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>Date</p>
+                        <smart-masked-text-box mask="##/##/####"></smart-masked-text-box>
+                        <p>Time</p>
+                        <smart-masked-text-box mask="##:##:##"></smart-masked-text-box>
+                        <p>Date and Time</p>
+                        <smart-masked-text-box mask="##/##/#### ##:##:##"></smart-masked-text-box>
+                        <p>ZIP Code</p>
+                        <smart-masked-text-box mask="#####-###"></smart-masked-text-box>
+                        <p>Money</p>
+                        <smart-masked-text-box mask="###.###,##"></smart-masked-text-box>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>Phone Number</p>
+                        <smart-masked-text-box mask="####-####"></smart-masked-text-box>
+                        <p>Phone Number with Area Code</p>
+                        <smart-masked-text-box mask="(##) ####-####"></smart-masked-text-box>
+                        <p>US Phone Number</p>
+                        <smart-masked-text-box mask="+1 (###) ###-####"></smart-masked-text-box>
+                        <p>IPv4</p>
+                        <smart-masked-text-box mask="###.###.###.###"></smart-masked-text-box>
+                        <p>IPv6</p>
+                        <smart-masked-text-box mask="zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz"></smart-masked-text-box>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

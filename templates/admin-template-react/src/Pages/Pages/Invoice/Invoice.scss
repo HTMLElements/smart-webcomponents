@@ -1,0 +1,37 @@
+.invoice-page {
+    #printContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    table > tbody > tr > .no-line {
+        border-top: none;
+    }
+
+    table tr th:first-of-type {
+        width: 70%;
+    }
+
+    table tr th:last-of-type * {
+        justify-content: flex-end;
+    }
+
+    table tr th {
+        font-weight: bold !important;
+        font-size: 14px !important;
+        text-transform: uppercase;
+    }
+
+    table tr th:last-of-type,
+    table tr td:last-of-type {
+        text-align: right;
+    }
+
+    table > thead > tr > .no-line {
+        border-bottom: none;
+    }
+
+    table > tbody > tr > .thick-line {
+        border-top: 2px solid;
+    }
+}

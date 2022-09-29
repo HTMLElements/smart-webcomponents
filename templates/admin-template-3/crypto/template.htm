@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xl-3 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="font-weight-bold mb-0">BTC/USDT</h4>
+                        <span class="text-danger">-0.37%</span>
+                    </div>
+                    <p class=" mb-0">10688.27</p>
+                    <p class="mb-0">Volume: 240611229</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="font-weight-bold mb-0">BCH/USDT</h4>
+                        <span class="text-warning">0.4%</span>
+                    </div>
+                    <p class=" mb-0">227.30</p>
+                    <p class="mb-0">Volume: 21193756</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="font-weight-bold mb-0">LTC/BTC</h4>
+                        <span class="text-success">1.18%</span>
+                    </div>
+                    <p class=" mb-0">0.0042867</p>
+                    <p class="mb-0">Volume: 9359876</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="font-weight-bold mb-0">ETH/BTC</h4>
+                        <span class="text-success">0.22%</span>
+                    </div>
+                    <p class=" mb-0">0.033165</p>
+                    <p class="mb-0">Volume: 8546909</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Markets</h4>
+                    <div class="settings-button material-icons">expand_more</div>
+                </div>
+                <div class="card-body">
+                    <div id="currencyTable" class="crypto-table no-border table-striped maxh-350"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">BTC/USDT</h4>
+                    <div class="settings-button material-icons">expand_more</div>
+                </div>
+                <div class="card-body">
+                    <div id="exchangeChart" class="w-100 h-100 maxh-350"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Sell Orders</h4>
+                    <div class="settings-button material-icons">expand_more</div>
+                </div>
+                <div class="card-body">
+                    <div id="sellTable" class="crypto-table no-border table-striped maxh-350"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-5">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="label">Buy Orders</h4>
+                    <div class="settings-button material-icons">expand_more</div>
+                </div>
+                <div class="card-body">
+                    <div id="buyTable" class="crypto-table no-border table-striped maxh-350"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<smart-menu id="todayMenu" mode="dropDown">
+    <smart-menu-item label="settingsTemplate"></smart-menu-item>
+    <smart-menu-item>First action</smart-menu-item>
+    <smart-menu-item>Second action</smart-menu-item>
+    <smart-menu-item separator>Third action</smart-menu-item>
+    <smart-menu-item>Additional action</smart-menu-item>
+</smart-menu>
+
+<template id="settingsTemplate">SETTINGS</template>

@@ -1,0 +1,26 @@
+.projects-list1 {
+    .standalone-header {
+        margin-bottom: 15px;
+    }
+
+    #cardView {
+        --smart-card-view-gap: 30px;
+        border: none;
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+    }
+
+    #cardView .smart-card-view-cell[data-field="assignees"] .smart-card-view-value {
+        display: flex;
+    }
+
+    #cardView .smart-card-view-cell[data-field="info"] .smart-card-view-value {
+        height: 65px;
+    }
+
+    #cardView smart-progress-bar {
+        width: 100%;
+        height: 15px;
+    }
+}

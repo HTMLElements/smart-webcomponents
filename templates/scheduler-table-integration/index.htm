@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Scheduler Showcase</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body class="viewport">
+    <smart-splitter id="outherSplitter" orientation="horizontal">
+        <smart-splitter-item size="525px">
+            <smart-splitter id="innerSplitter">
+                <smart-splitter-item size="250px" collapsible>
+                    <smart-list-box id="listBox"></smart-list-box>
+                </smart-splitter-item>
+                <smart-splitter-item>
+                    <smart-scheduler id="scheduler"></smart-scheduler>
+                </smart-splitter-item>
+            </smart-splitter>
+        </smart-splitter-item>
+        <smart-splitter-item collapsible>
+            <smart-table virtualization id="table"></smart-table>
+        </smart-splitter-item>
+    </smart-splitter>
+
+    <!-- scripts -->
+    <script type="module" src="../../source/modules/smart.scheduler.js"></script>
+    <script type="module" src="../../source/modules/smart.splitter.js"></script>
+    <script type="module" src="../../source/modules/smart.table.js"></script>
+    <script type="module" src="index.js"></script>
+
+</body>
+
+</html>

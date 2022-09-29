@@ -5,7 +5,7 @@ export interface CustomizationDialogProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Array with filtered fields and their settings.
    * Default value: null

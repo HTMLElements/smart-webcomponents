@@ -15,7 +15,7 @@ export interface PhoneInputProperties {
    * Determines the position of the drop down button.
    * Default value: none
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 

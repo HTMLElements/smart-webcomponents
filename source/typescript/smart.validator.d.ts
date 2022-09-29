@@ -75,7 +75,7 @@ export interface ValidatorRule {
    * The type of validation the rule makes.
    * Default value: required
    */
-  type?: ValidatorRuleType;
+  type?: ValidatorRuleType | string;
   /**
    * A callback function to validate the input's value by when the rule's type is 'custom'.
    * Default value: 

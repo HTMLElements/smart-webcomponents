@@ -60,7 +60,7 @@ export interface GanttChartProperties {
    * Determines the format of the dates in the timeline header when they represent days.
    * Default value: short
    */
-  dayFormat?: GanttDayFormat;
+  dayFormat?: GanttDayFormat | string;
   /**
    * Determines a specific end date for the Timeline. Usefull when the user wants custom ending date for the Timeline. If no date is set the end date of the timeline is automatically determined from the tasks.
    * Default value: 
@@ -125,7 +125,7 @@ export interface GanttChartProperties {
    * Determines in what unit is task duration property measured.
    * Default value: milisecond
    */
-  durationUnit?: Duration;
+  durationUnit?: Duration | string;
   /**
    * Determines whether a dedicated filter row is used for Table filtering instead of the default filter input. This property has no effect if filtering is not enabled.
    * Default value: false
@@ -165,12 +165,12 @@ export interface GanttChartProperties {
    * Determines weather or not horizontal scrollbar is shown.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent hours.
    * Default value: numeric
    */
-  hourFormat?: HourFormat;
+  hourFormat?: HourFormat | string;
   /**
    * When enabled, scrolling to the end of the horizotal timeline, triggers the creation of additional to extend the time range. The number of cells to be added when the scrollbar reaches the end position is determined by the infiniteTimelineStep.
    * Default value: false
@@ -215,7 +215,7 @@ export interface GanttChartProperties {
    * Determines the format of the dates the timeline header when they represent months.
    * Default value: short
    */
-  monthFormat?: MonthFormat;
+  monthFormat?: MonthFormat | string;
   /**
    * Determines the nonworking days of the week from 0 to 6, where 0 is the first day of the week and 6 is the last day. Nonworking days will be displayed with colored cells inside the timeline and will not affect the dateEnd of the tasks unless the adjustToNonworkingTime property is enabled.
    * Default value: 
@@ -290,12 +290,12 @@ export interface GanttChartProperties {
    * Determines how the capacity of the resources will be visualized inside the resource timeline. By default, the capacity is measured in hours depending on the view property of the element.
    * Default value: diagram
    */
-  resourceTimelineMode?: GanttChartResourceTimelineMode;
+  resourceTimelineMode?: GanttChartResourceTimelineMode | string;
   /**
    * Determines how the resources will be displayed inside the resource Timeline.
    * Default value: hours
    */
-  resourceTimelineView?: GanttChartResourceTimelineView;
+  resourceTimelineView?: GanttChartResourceTimelineView | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -340,7 +340,7 @@ export interface GanttChartProperties {
    * Determines whether the GanttChart can be sorted by one, more then one or no columns.
    * Default value: none
    */
-  sortMode?: GanttChartSortMode;
+  sortMode?: GanttChartSortMode | string;
   /**
    * A getter that returns a flat structure as an array of all tasks inside the element.
    * Default value: 
@@ -395,22 +395,22 @@ export interface GanttChartProperties {
    * Determines weather or not vertical scrollbar is shown.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines the viewing date range of the timeline. Possible values: day - The timeline show the hours of the day.week - the timeline shows the days of the week.month - the timeline shows the days of the month.year - the timeline shows the months of the year.resource - displays the current tasks by grouping them according to the resources they have assigned. The unassigned tasks will be placed in a separate group called 'Unassigned'.  The timeline has a header section that contains the labels of each cell according to the date inside them. The header is splitted in two sections in order to give a more detailed information of the dates.
    * Default value: year
    */
-  view?: GanttChartView;
+  view?: GanttChartView | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent years.
    * Default value: numeric
    */
-  yearFormat?: YearFormat;
+  yearFormat?: YearFormat | string;
   /**
    * Determines the format of the dates inside the timeline header when they represent weeks. 
    * Default value: long
    */
-  weekFormat?: WeekFormat;
+  weekFormat?: WeekFormat | string;
   /**
    * Sets or gets the element's visual theme. 
    * Default value: ""
@@ -960,7 +960,7 @@ export interface GanttChartDataExport {
    * Determines the type of items that is going to be exported. 
    * Default value: task
    */
-  itemType?: GanttChartDataExportItemType;
+  itemType?: GanttChartDataExportItemType | string;
 }
 
 export interface GanttChartDateMarker {
@@ -1217,7 +1217,7 @@ export interface GanttChartTask {
    * Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task'
    * Default value: task
    */
-  type?: GanttChartTaskType;
+  type?: GanttChartTaskType | string;
   /**
    * Project, Task or Milestone value.
    * Default value: 

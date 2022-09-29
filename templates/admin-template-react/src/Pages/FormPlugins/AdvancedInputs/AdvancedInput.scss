@@ -1,0 +1,17 @@
+.advanced-inputs-page {
+    smart-drop-down-list,
+    smart-combo-box,
+    smart-date-range-input,
+    smart-date-time-picker,
+    smart-masked-text-box {
+        width: 100%;
+    }
+
+    smart-drop-down-list,
+    smart-combo-box,
+    label + smart-masked-text-box,
+    label + smart-date-range-input,
+    label + smart-date-time-picker {
+        margin-bottom: 10px;
+    }
+}

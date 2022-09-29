@@ -30,7 +30,7 @@ export interface BootstrapInputGroupProperties {
    * Sets or gets the style mode of the input group.
    * Default value: primary
    */
-  styleMode?: BootstrapInputGroupStyleMode;
+  styleMode?: BootstrapInputGroupStyleMode | string;
   /**
    * Sets or gets the size mode of the element.
    * Default value: ""

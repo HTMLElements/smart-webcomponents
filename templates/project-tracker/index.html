@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Project Tracker with Web Components</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto">
+
+    <link rel="stylesheet" type="text/css" href="../../source/styles/smart.default.css" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
+
+    <script type="module" src="../../source/modules/smart.tabs.js">
+    </script>
+    <script type="module" src="../../source/modules/smart.grid.js">
+    </script>
+    <script type="module" src="../../source/modules/smart.checkbox.js">
+    </script>
+    <script type="module" src="./index.js">
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <h1 id="title">Project Tracker</h1>
+        <p>
+            Managing a lot of projects at the same time is a difficult task. You should track all requirements, progress, deadlines,
+            communication with stakeholders. Here is an example of a template of a project tracker. It is useful for project
+            managers, freelancers, small companies and others for managing their projects easily.
+        </p>
+
+        <p>
+            This template could be used for all types of project, no matter of their size. You could track either small projects
+            with few requirements or big ones with a lot of team members, tasks and deadlines.
+        </p>
+
+        <p>
+            This project tracker template can collect all your work in one place and gives the ability to create different views
+            of your project management workflow. So all team members, as well as the managers could stay up to date with
+            their individual tasks and also the overal project's status.
+        </p>
+
+        <smart-tabs id="tabs" scroll-buttons-position="far">
+            <smart-tab-item label="Design projects">
+                <smart-grid id="tab1Grid"></smart-grid>
+            </smart-tab-item>
+            <smart-tab-item label="Tasks">
+                <smart-grid id="tab2Grid"></smart-grid>
+            </smart-tab-item>
+            <smart-tab-item label="Clients">
+                <smart-grid id="tab3Grid"></smart-grid>
+            </smart-tab-item>
+        </smart-tabs>
+
+        <template id="footerTemplate">
+            <div id="footer">
+                <span id="count"></span> records
+                <div id="buttons">
+                    <smart-button class="print-button">Print</smart-button>
+                    <smart-button class="export-button">Export</smart-button>
+                </div>
+            </div>
+        </template>
+    </div>
+</body>
+
+</html>

@@ -5,7 +5,7 @@ export interface ToastProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Specifies the container where new openned toast items will be displayed. The value can be an HTMLElement or element's id. This property is in relation with modal(lower priority than modal) and position(higher priority than position) properties.
    * Default value: "null"
@@ -81,7 +81,7 @@ export interface ToastProperties {
    * Sets the part of the browser window where the toast will be positioned. The position property is disregarded if appendTo or modal are set.
    * Default value: top-right
    */
-  position?: ToastPosition;
+  position?: ToastPosition | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false
@@ -106,7 +106,7 @@ export interface ToastProperties {
    * Sets speciffic CSS settings and icon to the toast items.
    * Default value: info
    */
-  type?: ToastType | null;
+  type?: ToastType | null | string;
   /**
    * If is set to true, the element cannot be focused.
    * Default value: false

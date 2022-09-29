@@ -5,7 +5,7 @@ export interface PasswordTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Specifies that the element should be focused when the page is loaded.
    * Default value: false
@@ -20,7 +20,7 @@ export interface PasswordTextBoxProperties {
    * Specifies the behavior on "Enter" key press. Default mode is "submit".
    * Default value: submit
    */
-  enterKeyBehavior?: EnterKeyBehavior;
+  enterKeyBehavior?: EnterKeyBehavior | string;
   /**
    * The form that the element is associated with (its "form owner"). The value of the attribute must be the ID of a form element in the same document.
    * Default value: ""
@@ -139,7 +139,7 @@ export interface PasswordTextBoxProperties {
    * Determines the position of the tooltip.
    * Default value: top
    */
-  tooltipPosition?: PasswordTextBoxTooltipPosition;
+  tooltipPosition?: PasswordTextBoxTooltipPosition | string;
   /**
    * Sets a custom template for the content of the tooltip.
    * Default value: "null"

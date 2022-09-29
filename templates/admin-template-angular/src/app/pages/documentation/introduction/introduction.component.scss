@@ -1,0 +1,37 @@
+.introduction {
+    .introduction-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .custom-card {
+        margin-bottom: 1.5rem;
+
+        .introduction-card-header {
+            font-size: 1.5rem;
+        }
+
+        p {
+            opacity: 0.9;
+        }
+    }
+
+    .introduction-card-download-package {
+        .file-structure-entry {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            height: 16px;
+
+            .material-icons {
+                font-size: 20px;
+            }
+        }
+    }
+}

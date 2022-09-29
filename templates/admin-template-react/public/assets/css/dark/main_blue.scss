@@ -1,0 +1,26 @@
+//Smart Components - Bootstrap-Theme Dark or Light
+$dark-theme: true;
+
+//Smart Components - Bootstrap-Theme Variables
+@import "../smart-styles/bootstrap_vars";
+
+//Admin Template - Bootstrap Variables Overwrite
+$primary: #005c99;
+@import "../scss/_bootstrap_vars_overwrite";
+
+//Smart Components - Bootstrap-Theme Styles
+@import "../smart-styles/_mixins";
+@import "../smart-styles/_vars";
+@import "../smart-styles/_styles";
+
+//Smart UI Variables
+@import "../scss/_vars";
+
+//Bootstrap 5
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+//Admin Template - Styles
+@import "../scss/_styles";
+@import "../scss/_jqwidgets";
+@import "../scss/_color_schemes";
+@import "../scss/_bootstrap_extend";

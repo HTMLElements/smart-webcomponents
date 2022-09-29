@@ -1,5 +1,5 @@
 
-/* Smart UI v14.2.0 (2022-July) 
+/* Smart UI v14.4.0 (2022-Sep) 
 Copyright (c) 2011-2022 jQWidgets. 
 License: https://htmlelements.com/license/ */
 
@@ -87,7 +87,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var _smart_formulaparser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3381);
 /* harmony import */ var _smart_formulaparser_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_smart_formulaparser_js__WEBPACK_IMPORTED_MODULE_1__);
 
-/* Smart UI v14.2.66 (2022-08-24) 
+/* Smart UI v14.4.4 (2022-09-29) 
 Copyright (c) 2011-2022 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 

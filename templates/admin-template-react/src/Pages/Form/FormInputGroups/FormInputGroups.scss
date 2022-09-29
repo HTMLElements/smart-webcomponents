@@ -1,0 +1,25 @@
+.input-groups-page {
+    .input-group {
+        width: 100%;
+    }
+    
+    .input-group + .input-group,
+    .input-group-container + .input-group {
+        margin-top: 10px;
+    }
+    
+    .input-group-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .input-group-container .input-group {
+        width: 45%;
+        margin-top: 0;
+    }
+    
+    .input-group smart-multi-split-button {
+        width: 100%;
+        height: 100%;
+    }
+}

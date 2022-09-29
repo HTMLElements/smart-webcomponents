@@ -1,0 +1,153 @@
+.users-list {
+    .card-row {
+        margin-bottom: 2rem;
+
+        p {
+            opacity: 0.9;
+        }
+
+        .image-col {
+            margin-right: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .card-image {
+            width: 125px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card-name {
+            margin-right: 0.75rem;
+
+            i {
+                font-size: 18px;
+            }
+        }
+
+        .card-buttons {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .meta-wrapper {
+            margin-bottom: 1rem;
+        }
+
+        .meta-info {
+            margin-right: 0.75rem;
+            margin-bottom: 0.5rem;
+
+            i {
+                font-size: 18px;
+                margin-right: 0.5rem;
+            }
+        }
+
+        .card-progress {
+            margin-left: 0.75rem;
+            margin-right: 0.75rem;
+        }
+    }
+
+    .cards-wrapper {
+        margin-top: 1.5rem;
+
+        .card-wrapper:not(:last-child) {
+            margin-right: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-wrapper:last-child {
+            margin-bottom: 0.5rem;
+            float: left;
+        }
+
+        .card-icon {
+            margin-right: 1rem;
+
+            i {
+                font-size: 32px;
+            }
+        }
+
+        .font-weight-500 {
+            font-weight: 500 !important;
+        }
+
+        .members {
+            .member-image-wrapper {
+                width: 30px;
+                border: 2px solid var(--white);
+            }
+        }
+    }
+
+    @media (min-width: 576px) {
+        .card-image {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .col-entity-md-auto {
+            flex: 0 0 auto;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .col-entity-md {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .image-col {
+            margin-top: 0 !important;
+        }
+
+        .card-buttons {
+            margin-bottom: 0 !important;
+            margin-top: 0 !important;
+        }
+
+        .col-entity-lg-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .col-entity-lg-8 {
+            flex: 0 0 auto;
+            width: 66.66666667%;
+        }
+
+        .col-entity-lg-4 {
+            flex: 0 0 auto;
+            width: 33.33333333%;
+        }
+
+        .card-wrapper {
+            flex: 1 1 auto !important;
+        }
+
+        .meta-info {
+            margin-right: 1rem !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .col-entity-xl-8 {
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
+
+        .col-entity-xl-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+    }
+}

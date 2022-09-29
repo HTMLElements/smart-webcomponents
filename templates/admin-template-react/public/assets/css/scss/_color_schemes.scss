@@ -1,0 +1,117 @@
+body[theme="dark"] {
+  --sidebar-background: #1c1c2b;
+  --sidebar-background-active: var(--white);
+  --mobile-menu-background: #1a1a27;
+  --content-background: #21232d;
+
+  --black: #{$white};
+  --black-color: #{$black};
+  --white: #12141d;
+  --white-color: #{$white};
+  --dark: #{$light};
+  --dark-color: #{$dark};
+  --light: #42475b;
+  --light-color: #{$light};
+
+  --smart-primary-rgb: inherit;
+  --smart-primary: inherit;
+  --smart-primary-color: inherit;
+
+  --smart-scroll-bar-track-background: var(--content-background);
+
+
+  background-color: $body-bg !important;
+  color: var(--white-color) !important;
+
+  .preloader {
+    img {
+      filter: invert(0);
+    }
+  }
+
+  .main {
+    > .sidebar {
+      .logo-holder {
+        background: #1c1c2b;
+
+        .logo {
+          img {
+            filter: invert(0);
+          }
+        }
+
+        .toggle-button {
+
+          color: var(--white-color);
+
+          path {
+            fill: var(--white-color);
+          }
+        }
+      }
+    }
+
+    > .content {
+      .header {
+        .nav {
+          li {
+            &.active,
+            &:hover {
+              background: rgba(red($secondary), green($secondary), blue($secondary), .1);
+            }
+          }
+        }
+      }
+
+      .smart-form {
+        background: inherit;
+      }
+
+      .footer {
+        a {
+          color: var(--light-color);
+        }
+      }
+    }
+  }
+
+  pre {
+    color: inherit !important;
+  }
+
+  .smart-element {
+    &.smart-table,
+    &.smart-calendar,
+    &.smart-chart {
+      background: transparent !important;
+    }
+
+    rect {
+      fill: transparent !important;
+    }
+  }
+
+  .smart-progress-bar {
+    .smart-label {
+      color: $white;
+    }
+  }
+
+  .btn-light {
+    background-color: var(--light);
+    border-color: var(--light);
+    color: var(--light-color);
+
+    &.text-muted {
+      color: var(--light-color);
+    }
+  }
+
+  .border-bottom {
+    border-bottom: var(--smart-border-width) solid var(--smart-border) !important;
+  }
+
+  .border-top {
+    border-top: var(--smart-border-width) solid var(--smart-border) !important;
+  }
+}

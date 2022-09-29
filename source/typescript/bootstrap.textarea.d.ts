@@ -35,7 +35,7 @@ export interface BootstrapTextareaProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapTextareaStyleMode;
+  styleMode?: BootstrapTextareaStyleMode | string;
   /**
    * Gets or sets the value of the element. 
    * Default value: "false"

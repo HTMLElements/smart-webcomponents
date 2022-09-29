@@ -1,0 +1,10 @@
+.card-auto-height {
+    padding-top: 5%;
+}
+
+.version {
+    border-radius: 5px;
+    padding: 4px;
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}

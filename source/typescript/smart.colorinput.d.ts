@@ -5,7 +5,7 @@ export interface ColorInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -25,12 +25,12 @@ export interface ColorInputProperties {
    * Determines the colors that will be displayed and their layout.
    * Default value: default
    */
-  displayMode?: ColorInputDisplayMode;
+  displayMode?: ColorInputDisplayMode | string;
   /**
    * Determines the position of the drop down button.
    * Default value: none
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -107,7 +107,7 @@ export interface ColorInputProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: ColorQueryMode;
+  queryMode?: ColorQueryMode | string;
   /**
    * Determines whether the user can enter text inside the input or not. Determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -137,12 +137,12 @@ export interface ColorInputProperties {
    * Determines what will be displayed inside the color picker's action section.
    * Default value: default
    */
-  valueDisplayMode?: ColorValueDisplayMode;
+  valueDisplayMode?: ColorValueDisplayMode | string;
   /**
    * Determines the format of the color. Whether it's in HEX, RGB or RGBA. By default it shows the color depending on the displayMode.
    * Default value: default
    */
-  valueFormat?: ColorValueFormat;
+  valueFormat?: ColorValueFormat | string;
 }
 /**
  ColorInput is an input field with colors displayed in a DropDown grid like in Excel.

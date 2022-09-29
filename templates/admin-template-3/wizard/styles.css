@@ -1,0 +1,140 @@
+.smart-tabs {
+    --smart-ui-state-color-focus: var(--smart-primary);
+}
+
+
+.smart-tabs .smart-tab-label-container.unreached {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.smart-tabs[horizontal] .smart-tab-label-container:not(.unreached):not([selected]) {
+    color: rgba(var(--smart-primary-rgb), 0.8);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.smart-tabs + .smart-tabs {
+    margin-top: 20px;
+}
+
+.smart-tabs.success {
+    --smart-primary-rgb: 139, 195, 74;
+    --smart-primary: var(--smart-success);
+    --smart-ui-state-color-selected: var(--smart-success);
+}
+
+.smart-tabs.error {
+    --smart-primary-rgb: var(--smart-error-rgb);
+    --smart-primary: var(--smart-error);
+    --smart-ui-state-color-selected: var(--smart-error);
+}
+
+.smart-tabs.fancy {
+    --smart-tab-item-initial-offset: 0;
+    --smart-tab-item-offset: 0;
+}
+
+.smart-tabs.fancy .smart-tab-label-text-container {
+    padding-left: 15px;
+}
+
+.smart-tabs.fancy .smart-tabs-selection-bar {
+    display: none;
+}
+
+.smart-tabs.fancy .smart-tab-label-container {
+    --smart-ui-state-color-focus: var(--smart-primary-color);
+    border-radius: 0;
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+.smart-tabs[horizontal].fancy .smart-tab-label-container:not(.unreached):not([selected]) {
+    background-color: #6299BE;
+    color: var(--smart-primary-color);
+}
+
+.smart-tabs[horizontal].fancy .smart-tab-label-container:not(.unreached):not([selected])::after {
+    border-color: transparent transparent transparent #6299BE;
+}
+
+.smart-tabs[horizontal].fancy.success .smart-tab-label-container:not(.unreached):not([selected]) {
+    background-color: #B5D78E;
+}
+
+.smart-tabs[horizontal].fancy.success .smart-tab-label-container:not(.unreached):not([selected])::after {
+    border-color: transparent transparent transparent #B5D78E;
+}
+
+.smart-tabs[horizontal].fancy.error .smart-tab-label-container:not(.unreached):not([selected]) {
+    background-color: #CC6275;
+}
+
+.smart-tabs[horizontal].fancy.error .smart-tab-label-container:not(.unreached):not([selected])::after {
+    border-color: transparent transparent transparent #CC6275;
+}
+
+.smart-tabs.fancy .smart-tab-label-container::before,
+.smart-tabs.fancy .smart-tab-label-container::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 25px 0 20px 20px;
+    border-color: transparent transparent transparent var(--smart-primary);
+    left: 100%;
+    top: 0;
+    z-index: 2;
+}
+
+.smart-tabs.fancy .smart-tab-label-container::before {
+    border-color: transparent transparent transparent black;
+    left: 100%;
+    top: -1px;
+    z-index: 1;
+    border-width: 26px 0 21px 21px;
+}
+
+.smart-tabs.fancy .smart-tab-label-container.unreached {
+    background-color: var(--smart-surface);
+    color: var(--smart-surface-color);
+    opacity: 1;
+}
+
+.smart-tabs.fancy .smart-tab-label-container.unreached::after {
+    border-color: transparent transparent transparent var(--smart-surface);
+}
+
+body[theme="dark"] .smart-tabs.fancy .smart-tab-label-container::before {
+    border-color: transparent transparent transparent white;
+}
+
+#checkoutForm {
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+}
+
+#checkoutForm table {
+    width: 100%;
+    table-layout: fixed;
+    padding: 15px;
+}
+
+#checkoutForm h2 {
+    margin-left: 20px;
+}
+
+#checkoutForm h2,
+#checkoutForm table th {
+    font-size: 20px;
+    color: var(--smart-primary);
+    padding: 10px;
+    white-space: nowrap;
+}
+
+#checkoutForm .smart-form-tab-label .circle {
+    padding: 10px;
+}

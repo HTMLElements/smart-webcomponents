@@ -15,7 +15,7 @@ export interface ListItemProperties {
    * 
    * Default value: plain
    */
-  displayMode?: ListItemDisplayMode;
+  displayMode?: ListItemDisplayMode | string;
   /**
    * 
    * Default value: false
@@ -109,17 +109,17 @@ export interface MultilineTextBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines whether and how the value should be automatically capitalized as it is entered/edited by the user.
    * Default value: none
    */
-  autoCapitalize?: MultilineTextBoxAutoCapitalize;
+  autoCapitalize?: MultilineTextBoxAutoCapitalize | string;
   /**
    * Determines whether the value of the control can be automatically completed by the browser.
    * Default value: off
    */
-  autoComplete?: MultiLineTextBoxAutoComplete;
+  autoComplete?: MultiLineTextBoxAutoComplete | string;
   /**
    * Determines whether element will auto expand when the input overflows vertically.
    * Default value: false
@@ -144,12 +144,12 @@ export interface MultilineTextBoxProperties {
    * Specifies how the characters are displayed inside the input.
    * Default value: default
    */
-  displayMode?: TextBoxDisplayMode;
+  displayMode?: TextBoxDisplayMode | string;
   /**
    * Determines the behavior on "Enter" key.
    * Default value: newLine
    */
-  enterKeyBehavior?: MultilineTextBoxEnterKeyBehavior;
+  enterKeyBehavior?: MultilineTextBoxEnterKeyBehavior | string;
   /**
    * The form element that the element is associated with (its "form owner"). The value of the attribute must be the ID of a form element in the same document.
    * Default value: ""
@@ -164,7 +164,7 @@ export interface MultilineTextBoxProperties {
    * Controls horizontal scrollbar's visibility. 
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
    * Default value: "off"
@@ -286,12 +286,12 @@ export interface MultilineTextBoxProperties {
    * Controls vertical scrollbar's visibility. 
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Indicates how the control wraps text.
    * Default value: soft
    */
-  wrap?: MultilineTextBoxWrap;
+  wrap?: MultilineTextBoxWrap | string;
 }
 /**
  Defines a multi-line text input control. MultilineTextBox can hold an unlimited number of characters, and the text renders in a fixed-width font

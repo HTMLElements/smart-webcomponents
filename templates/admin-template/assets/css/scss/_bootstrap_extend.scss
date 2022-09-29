@@ -1,0 +1,730 @@
+@import "_vars";
+
+/* *******************************************
+ **************** Bootstrap Extend *************** *
+ ******************************************* */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1340px;
+  }
+}
+
+//----------------------------------------------------/
+// Spacings
+//----------------------------------------------------/
+// stylelint-disable declaration-no-important
+
+// Margin and Padding
+
+$spacer: 1rem;
+$spacers: (
+        0: 0,
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: ($spacer * .75),
+        4: ($spacer * 1),
+        5: ($spacer * 1.5),
+        6: ($spacer * 2),
+        7: ($spacer * 3),
+        8: ($spacer * 5),
+        9: ($spacer * 7),
+        10: ($spacer * 9),
+        11: ($spacer * 11),
+        12: ($spacer * 13),
+        13: ($spacer * 16)
+);
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $length !important;
+        }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $length in $spacers {
+      @if $size != 0 {
+        .m#{$infix}-n#{$size} {
+          margin: -$length !important;
+        }
+        .mt#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-top: -$length !important;
+        }
+        .mr#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-right: -$length !important;
+        }
+        .mb#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-bottom: -$length !important;
+        }
+        .ml#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-left: -$length !important;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .m#{$infix}-auto {
+      margin: auto !important;
+    }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
+    }
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}
+
+//----------------------------------------------------/
+// Element size
+//----------------------------------------------------/
+$element-sizes-list: 125 150 175 200 250 300 350 400 450 500 550 600 650 700 750 800 850 900;
+@each $value in $element-sizes-list {
+  .w-#{$value} {
+    width: #{$value}px !important;
+  }
+
+  .h-#{$value} {
+    height: #{$value}px !important;
+  }
+
+  .mw-#{$value} {
+    min-width: #{$value}px !important;
+  }
+  .maxw-#{$value} {
+    max-width: #{$value}px !important;
+  }
+
+  .mh-#{$value} {
+    min-height: #{$value}px !important;
+  }
+
+  .maxh-#{$value} {
+    max-height: #{$value}px !important;
+  }
+}
+
+//----------------------------------------------------/
+// Fixed Width and Height by i x 5px; For example: .w-5px, .w-10px, .w-15px to .w-100px
+//----------------------------------------------------/
+@for $i from 1 through 20 {
+  .w-#{$i*5}px {
+    width: #{$i*5}px !important;
+  }
+
+  .h-#{$i*5}px {
+    height: #{$i*5}px !important;
+  }
+}
+
+//----------------------------------------------------/
+// Extra
+//----------------------------------------------------/
+.h-auto {
+  height: auto;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.w-fullscreen, .w-100vw {
+  width: 100vw !important;
+}
+
+.h-fullscreen, .h-100vh {
+  height: 100vh !important;
+}
+
+.h-50vh {
+  height: 50vh !important;
+}
+
+.mw-fullscreen, .mw-100vw {
+  min-width: 100vw !important;
+}
+
+.mh-fullscreen, .mh-100vh {
+  min-height: 100vh !important;
+}
+
+.mh-50vh {
+  min-height: 50vh !important;
+}
+
+// In small screen devices, 100vh might not be enough
+@media (max-height: 640px) {
+  .h-fullscreen {
+    height: auto !important;
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    // Common values
+    @each $position in $positions {
+      .position#{$infix}-#{$position} {
+        position: $position !important;
+      }
+    }
+  }
+}
+
+
+//----------------------------------------------------/
+// Main Colors Vars
+//----------------------------------------------------/
+$main-colors-list: primary secondary success danger info warning light dark white black;
+
+//----------------------------------------------------/
+// Changing the color of text on hover
+//----------------------------------------------------/
+@each $value in $main-colors-list {
+  a.hover-text-#{$value}:hover,
+  .hover-text-#{$value}:hover {
+    color: var(--#{$value}) !important;
+  }
+}
+
+//----------------------------------------------------/
+// Changing the color of text
+//----------------------------------------------------/
+@each $value in $main-colors-list {
+  a.text-#{$value},
+  .text-#{$value} {
+    color: var(--#{$value}) !important;
+  }
+}
+
+//----------------------------------------------------/
+// Border color
+//----------------------------------------------------/
+@each $value in $main-colors-list {
+  .border-color-#{$value} {
+    border-color: var(--#{$value}) !important;
+  }
+}
+
+@each $value in $main-colors-list {
+  .hover-border-color-#{$value}:hover {
+    border-color: var(--#{$value}) !important;
+  }
+}
+
+//----------------------------------------------------/
+// Changing the background on hover
+//----------------------------------------------------/
+@each $value in $main-colors-list {
+  .hover-bg-#{$value}:hover {
+    background-color: var(--#{$value}) !important;
+  }
+}
+
+.hover-bg-primary {
+  &.hover-text-light {
+    &:hover {
+      .text-primary {
+        color: var(--light) !important;
+      }
+    }
+  }
+
+  &.hover-text-dark {
+    &:hover {
+      .text-primary {
+        color: var(--dark) !important;
+      }
+    }
+  }
+}
+
+.hover-bg-secondary:hover {
+  &.hover-text-light {
+    &:hover {
+      .text-primary {
+        color: var(--light) !important;
+      }
+    }
+  }
+
+  &.hover-text-dark {
+    &:hover {
+      .text-primary {
+        color: var(--dark) !important;
+      }
+    }
+  }
+}
+
+//----------------------------------------------------/
+// Opacity on Backgrounds
+//----------------------------------------------------/
+
+@for $i from 1 through 9 {
+  .bg-primary-opacity-#{$i} {
+    background: rgba(red($primary), green($primary), blue($primary), $i/10);
+  }
+  .bg-secondary-opacity-#{$i} {
+    background: rgba(red($secondary), green($secondary), blue($secondary), $i/10);
+  }
+  .bg-success-opacity-#{$i} {
+    background: rgba(red($success), green($success), blue($success), $i/10);
+  }
+  .bg-danger-opacity-#{$i} {
+    background: rgba(red($danger), green($danger), blue($danger), $i/10);
+  }
+  .bg-info-opacity-#{$i} {
+    background: rgba(red($info), green($info), blue($info), $i/10);
+  }
+  .bg-warning-opacity-#{$i} {
+    background: rgba(red($warning), green($warning), blue($warning), $i/10);
+  }
+  .bg-white-opacity-#{$i} {
+    background: rgba(red($white), green($white), blue($white), $i/10);
+  }
+  .bg-dark-opacity-#{$i} {
+    background: rgba(red($dark), green($dark), blue($dark), $i/10);
+  }
+}
+
+//----------------------------------------------------/
+// Opacity on Texts
+//----------------------------------------------------/
+
+@for $i from 1 through 9 {
+  .text-opacity-#{$i} {
+    opacity: $i/10;
+  }
+}
+
+//----------------------------------------------------/
+// Text Line Breaks
+//----------------------------------------------------/
+
+@for $i from 1 through 3 {
+  .text-break-line-#{$i} {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: #{$i};
+    -webkit-box-orient: vertical;
+    padding: 1px 0px;
+    text-align: left;
+  }
+}
+
+//----------------------------------------------------/
+// Font Sizes
+//----------------------------------------------------/
+@for $i from 12 through 64 {
+  .font-size-#{$i}px {
+    font-size: #{$i}px;
+  }
+}
+
+$font-weight-list: 100 200 300 400 500 600 700 800 900;
+
+//----------------------------------------------------/
+// Font Weights
+//----------------------------------------------------/
+@each $value in $font-weight-list {
+  .font-weight-#{$value} {
+    font-weight: #{$value} !important;
+  }
+}
+
+
+//----------------------------------------------------/
+// Overylay
+//----------------------------------------------------/
+
+/* Background */
+.background-image-holder {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: static;
+
+  > div {
+    z-index: 3;
+  }
+}
+
+.background-video-holder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+
+  > div {
+    z-index: 3;
+  }
+
+  .video {
+    padding: 56.34% 0 0 0;
+    position: relative;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .placeholder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+[data-bg-contain] .background-image-holder {
+  background-size: contain;
+}
+
+[data-parallax] .background-image-holder {
+  background-attachment: fixed;
+}
+
+@media screen and (max-width: 767px) {
+  [data-parallax] .background-image-holder {
+    background-attachment: scroll;
+  }
+}
+
+[data-background-position="center top"] .background-image-holder {
+  background-position: center top;
+}
+
+[data-background-position="center bottom"] .background-image-holder {
+  background-position: center bottom;
+}
+
+[background-position="center center"] .background-image-holder {
+  background-position: center center;
+}
+
+[background-position="right center"] .background-image-holder {
+  background-position: right center;
+}
+
+[background-position="left center"] .background-image-holder {
+  background-position: left center;
+}
+
+[data-overlay] {
+  position: relative;
+}
+
+[data-overlay] .background-image-holder:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary);
+  opacity: 0.5;
+  z-index: 2;
+  pointer-events: none;
+}
+
+[data-overlay] .background-image-holder.rounded-xl:after {
+  border-radius: $rounded-xl;
+}
+
+[data-overlay] .background-video-holder:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary);
+  opacity: 0.5;
+  z-index: 9;
+  pointer-events: none;
+}
+
+[data-overlay-black] .background-image-holder:after,
+[data-overlay-black] .background-video-holder:after {
+  background-color: var(--black);
+}
+
+[data-overlay-primary] .background-image-holder:after,
+[data-overlay-primary] .background-video-holder:after {
+  background-color: var(--primary);
+}
+
+@for $i from 1 through 10 {
+  [data-overlay="#{$i}"] .background-image-holder:after,
+  [data-overlay="#{$i}"] .background-video-holder:after {
+    opacity: $i/10;
+  }
+}
+
+
+//----------------------------------------------------/
+// Box shadow
+//----------------------------------------------------/
+.shadow-0, .hover-shadow-0:hover {
+  box-shadow: none;
+}
+
+.shadow-1, .hover-shadow-1:hover {
+  box-shadow: 0 0 4px rgba(#000, 0.1);
+}
+
+.shadow-2, .hover-shadow-2:hover {
+  box-shadow: 0 0 8px rgba(#000, 0.1);
+}
+
+.shadow-3, .hover-shadow-3:hover {
+  box-shadow: 0 0 12px rgba(#000, 0.1);
+}
+
+.shadow-4, .hover-shadow-4:hover {
+  box-shadow: 0 0 18px rgba(#000, 0.1);
+}
+
+.shadow-5, .hover-shadow-5:hover {
+  box-shadow: 0 0 26px rgba(#000, 0.1);
+}
+
+.shadow-6, .hover-shadow-6:hover {
+  box-shadow: 0 0 36px rgba(#000, 0.1);
+}
+
+.shadow-7, .hover-shadow-7:hover {
+  box-shadow: 0 0 48px rgba(#000, 0.1);
+}
+
+.shadow-8, .hover-shadow-8:hover {
+  box-shadow: 0 0 60px rgba(#000, 0.1);
+}
+
+.shadow-9, .hover-shadow-9:hover {
+  box-shadow: 0 0 74px rgba(#000, 0.1);
+}
+
+//----------------------------------------------------/
+// Other helper classes
+//----------------------------------------------------/
+
+/* Square */
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.square-75:after {
+  content: "";
+  display: block;
+  padding-bottom: 75%;
+}
+
+.square-50:after {
+  content: "";
+  display: block;
+  padding-bottom: 50%;
+}
+
+/* Image as background */
+.img-as-background {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    position: absolute;
+    left: -1px;
+    right: 0;
+    z-index: 0;
+    margin: 0 auto;
+    top: 0;
+    bottom: 0;
+    min-width: calc(100% + 2px);
+    min-height: 100%;
+    max-width: 105%;
+  }
+}
+
+/* Borders */
+.border-width-1 {
+  border-width: 1px !important;
+}
+
+.border-width-2 {
+  border-width: 2px !important;
+}
+
+.border-width-3 {
+  border-width: 3px !important;
+}
+
+.border-width-4 {
+  border-width: 4px !important;
+}
+
+.border-left-1 {
+  border-left-width: 1px !important;
+}
+
+.border-left-2 {
+  border-left-width: 2px !important;
+}
+
+.border-left-3 {
+  border-left-width: 3px !important;
+}
+
+.border-left-4 {
+  border-left-width: 4px !important;
+}
+
+.border-left-5 {
+  border-left-width: 5px !important;
+}
+
+/* Reset positions of elements */
+.top-0 {
+  top: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+/* HR line */
+hr {
+  border-color: rgba(red($dark), green($dark), blue($dark), .1);
+}
+
+.element-hr {
+  display: block;
+  content: '';
+  min-width: 65px;
+  width: 10%;
+  height: 4px;
+  background-color: var(--primary);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.element-hr-underlined {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  width: 100%;
+  display: block;
+  clear: both;
+
+  &:before {
+    display: block;
+    content: '';
+    width: 65px;
+    height: 4px;
+    background-color: var(--primary);
+    position: absolute;
+  }
+
+  &:after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: rgba(red($dark), green($dark), blue($dark), .1);
+
+  }
+}
+
+
+/* Lead */
+.lead,
+.lead-1 {
+  font-size: 1.15rem;
+}
+
+.lead-2 {
+  font-size: $h5-font-size;
+}
+
+.lead-3 {
+  font-size: $h4-font-size;
+}
+
+.container-fluid-right-col-in-container {
+  padding-right: calc((100vw - 1140px) / 2);
+}
+
+
+.text-decoration-no {
+  text-decoration: none !important;
+}
+
+.btn-rounded {
+  border-radius: 30px;
+}
+
+.rounded-xl {
+  border-radius: $rounded-xl;
+}

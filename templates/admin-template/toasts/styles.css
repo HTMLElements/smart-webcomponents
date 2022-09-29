@@ -1,0 +1,37 @@
+.card .smart-toast-container-bottom-left,
+.card .smart-toast-container-bottom-right,
+.card .smart-toast-container-custom,
+.card .smart-toast-container-top-left,
+.card .smart-toast-container-top-right {
+    position: relative !important;
+}
+
+#toastWithNoIconContainer .smart-toast-item-icon,
+#toastWithLargeContentContainer .smart-toast-item-icon,
+#toastWithButtonsContainer .smart-toast-item-icon {
+    display: none;
+}
+
+
+.toast-container {
+    padding: 10px;
+}
+
+.smart-toast-item {
+    margin-bottom: 10px;
+}
+
+#toastWithNoIconContainer .smart-toast-item {
+    height: 55px;
+}
+
+#toastWithNoIconContainer .smart-toast-item-container {
+    justify-content: center;
+}
+
+#toastWithLargeContentContainer .smart-toast-item-content,
+#toastWithButtonsContainer .smart-toast-item-content {
+    text-align: left;
+}
+
+

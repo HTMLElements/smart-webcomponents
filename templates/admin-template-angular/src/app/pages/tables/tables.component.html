@@ -1,0 +1,111 @@
+<div class="container tables">
+    <div class="custom-row">
+        <div class="tables-header custom-col">
+            <h4>Tables</h4>
+        </div>
+    </div>
+
+    <div class="custom-row">
+        <div class="tables-entity custom-col">
+            <div class="custom-card h-100">
+                <div class="card-header">
+                    <h4 class="label">Basic Table</h4>
+                </div>
+                <div class="card-body">
+                    <smart-table #basicTable id="basicTable" [dataSource]="commonSettings.dataSource"
+                        [tooltip]="commonSettings.tooltip" [columns]="commonSettings.columns">
+                    </smart-table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tables-entity custom-col">
+            <div class="custom-card h-100">
+                <div class="card-header">
+                    <h4 class="label">Striped Rows</h4>
+                </div>
+                <div class="card-body">
+                    <smart-table #stripedTable id="stripedTable" class="table-striped"
+                        [dataSource]="commonSettings.dataSource" [tooltip]="commonSettings.tooltip"
+                        [columns]="commonSettings.columns">
+                    </smart-table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-row">
+        <div class="tables-entity custom-col">
+            <div class="custom-card h-100">
+                <div class="card-header">
+                    <h4 class="label">Condensed Table</h4>
+                </div>
+                <div class="card-body">
+                    <smart-table #condensedTable id="condensedTable" class="small-table table-striped"
+                        [dataSource]="condensedTableSetting.dataSource" [columns]="condensedTableSetting.columns">
+                    </smart-table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tables-entity custom-col">
+            <div class="custom-card h-100">
+                <div class="card-header">
+                    <h4 class="label">Hoverable Rows</h4>
+                </div>
+                <div class="card-body">
+                    <div id="hoverableTable" class="table-hover"></div>
+                    <smart-table #hoverableTable id="hoverableTable" class="table-hover"
+                        [dataSource]="hoverableTableSettings.dataSource" [columns]="hoverableTableSettings.columns"
+                        [tooltip]="hoverableTableSettings.tooltip">
+                    </smart-table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-row">
+        <div class="tables-entity custom-col">
+            <div class="custom-card h-100">
+                <div class="card-header">
+                    <h4 class="label">Bordered Table</h4>
+                </div>
+                <div class="card-body">
+                    <smart-table #borderedTable id="borderedTable" class="table-bordered"
+                        [dataSource]="commonSettings.dataSource" [tooltip]="commonSettings.tooltip"
+                        [columns]="commonSettings.columns">
+                    </smart-table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tables-entity custom-col">
+            <div class="custom-card h-100">
+                <div class="card-header">
+                    <h4 class="label">Contextual Row Colors</h4>
+                </div>
+                <div class="card-body">
+                    <smart-table #coloredTable id="coloredTable" [dataSource]="commonSettings.dataSource"
+                        [tooltip]="commonSettings.tooltip" [columns]="commonSettings.columns">
+                    </smart-table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tables-entity-full custom-col">
+            <div class="custom-card h-100">
+                <div class="card-header">
+                    <h4 class="label">Spreadsheet Table</h4>
+                </div>
+                <div class="card-body">
+                    <smart-table #spreadsheetTable id="spreadsheetTable"
+                        [dataSource]="spreadSheetTableSettings.dataSource"
+                        [freezeHeader]="spreadSheetTableSettings.freezeHeader"
+                        [keyboardNavigation]="spreadSheetTableSettings.keyboardNavigation"
+                        [columns]="spreadSheetTableSettings.columns">
+                    </smart-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,219 @@
+//----------------------------------------------------/
+// Overwrite Smart Elements Design
+//----------------------------------------------------/
+
+/* Fix buttons on mobile safari */
+button, [type="button"], [type="reset"], [type="submit"] {
+  &.smart-button {
+    -webkit-appearance: unset !important;
+  }
+}
+
+/* Smart Scrollbars */
+.sidebar {
+  --smart-scroll-bar-size: 5px; /* Default scrollbar size */
+
+  .smart-scroll-viewer {
+    .smart-scroll-bar {
+      .smart-container {
+        .smart-track {
+          height: 100% !important;
+          background: var(--sidebar-background);
+
+          .smart-thumb {
+            background: var(--dark);
+            opacity: 0.1;
+          }
+        }
+
+        .smart-scroll-button {
+          display: none !important;
+        }
+      }
+    }
+
+    &:hover {
+      .smart-thumb {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/* Smart ProgressBar */
+.smart-progress-bar,
+smart-progress-bar {
+  .smart-label {
+    font-size: 75%;
+  }
+}
+
+.smart-circular-progress-bar,
+smart-circular-progress-bar {
+  .smart-label {
+    font-size: 30px !important;
+  }
+}
+
+/* Smart Menu */
+.smart-menu-item,
+.smart-menu-items-group {
+  white-space: unset;
+}
+
+.smart-menu.smart-custom-dropdown-menu {
+  transform-origin: top right;
+
+  &[mode="dropDown"] {
+    transform-origin: top right;
+    max-width: 300px;
+    width: auto;
+    height: auto !important;
+  }
+
+  .menu-footer:hover {
+    cursor: pointer;
+  }
+
+  .menu-header .smart-menu-item-label-element > span,
+  .menu-footer .smart-menu-item-label-element > span {
+    justify-content: center;
+  }
+}
+
+/* Tabs */
+smart-tabs.auto-height {
+  smart-tab-item:not(.smart-visibility-hidden) {
+    position: relative;
+  }
+}
+
+/* Hover Texts */
+.hover-text-primary:hover {
+  color: var(--smart-primary) !important;
+
+  .smart-element.smart-button {
+    border-color: var(--smart-primary);
+    color: var(--smart-primary);
+  }
+}
+
+.hover-text-secondary:hover {
+  .smart-element.smart-button {
+    border-color: var(--smart-secondary);
+    color: var(--smart-secondary);
+  }
+}
+
+.hover-text-success:hover {
+  .smart-element.smart-button {
+    border-color: var(--smart-success);
+    color: var(--smart-success);
+  }
+}
+
+.hover-text-danger:hover {
+  .smart-element.smart-button {
+    border-color: var(--smart-error);
+    color: var(--smart-error);
+  }
+}
+
+.hover-text-warning:hover {
+  .smart-element.smart-button {
+    border-color: var(--smart-warning);
+    color: var(--smart-warning);
+  }
+}
+
+.hover-text-info:hover {
+  .smart-element.smart-button {
+    border-color: var(--smart-info);
+    color: var(--smart-info);
+  }
+}
+
+.hover-text-light:hover {
+  .smart-element.smart-button {
+    border-color: var(--white);
+    color: var(--white);
+  }
+}
+
+.hover-text-dark:hover {
+  .smart-element.smart-button {
+    border-color: var(--smart-dark);
+    color: var(--smart-dark);
+  }
+}
+
+/* Other */
+.smart-form {
+  background: var(--smart-background);
+}
+
+.smart-element {
+  .smart-button,
+  &.smart-button {
+    outline: unset;
+  }
+
+  &.close {
+    font-size: inherit;
+    opacity: inherit;
+    text-shadow: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    float: inherit;
+    color: inherit;
+  }
+}
+
+smart-button button.smart-button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+smart-button.very-small,
+.btn-sm {
+  i {
+    font-size: 20px;
+  }
+}
+
+.smart-element-transparent {
+  .smart-element {
+    &.smart-table,
+    &.smart-calendar,
+    &.smart-chart {
+      background: transparent !important;
+    }
+
+    rect {
+      fill: transparent !important;
+    }
+  }
+}
+
+
+smart-switch-button {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.smart-table thead th .sort-by:after {
+  padding: 8px;
+  font-size: 10px;
+}
+
+.smart-pager.smart-element .smart-pager-button,
+.smart-pager.smart-element .smart-pager-page-index-selector{
+  padding: 0.375rem 1.25rem;
+}
+
+.smart-pager .smart-pager-summary-container{
+  margin-left: 5px !important;
+}

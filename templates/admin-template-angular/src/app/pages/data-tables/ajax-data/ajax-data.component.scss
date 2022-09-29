@@ -1,0 +1,28 @@
+.ajax-data {
+    .ajax-data-header {
+        margin-bottom: 0.75rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+    
+    .country-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .skill-container > img {
+        width: 24px;
+    }
+
+    .smart-progress-bar {
+        width: 100%;
+    }
+
+    .smart-progress-bar .smart-value {
+        border: none;
+    }
+}

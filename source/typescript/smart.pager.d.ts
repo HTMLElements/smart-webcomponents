@@ -5,12 +5,12 @@ export interface PagerProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Handles pager's elipsis. Ellipsis buttons are displayed as indicators and additional help to navigate between pages.
    * Default value: none
    */
-  autoEllipsis?: PagerAutoEllipsis;
+  autoEllipsis?: PagerAutoEllipsis | string;
   /**
    * Enables or disables the pager.
    * Default value: false
@@ -57,7 +57,7 @@ export interface PagerProperties {
    * Handles the position of the navigation buttons.
    * Default value: near
    */
-  navigationButtonsPosition?: LayoutPosition;
+  navigationButtonsPosition?: LayoutPosition | string;
   /**
    * Gets/sets current page index.
    * Default value: 0

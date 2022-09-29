@@ -1,0 +1,20 @@
+.dashboard {
+    @media screen and (max-width: 991px) {
+        .border-right {
+            border-right: 0 !important;
+        }
+    }
+
+    .feeds .feed .feed-borders-negative-margin {
+        margin-left: -25px !important;
+        padding-top: 25px !important;
+    }
+
+    .feeds .feed:first-of-type .feed-borders-negative-margin {
+        padding-top: 0px !important;
+    }
+
+    .feeds .feed:last-of-type .border-bottom {
+        border-bottom: 0px !important;
+    }
+}

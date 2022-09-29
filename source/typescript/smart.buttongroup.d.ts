@@ -5,7 +5,7 @@ export interface ButtonGroupProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the buttons configuration. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
    * Default value: []
@@ -15,7 +15,7 @@ export interface ButtonGroupProperties {
    * Determines the selection mode for the element.
    * Default value: one
    */
-  selectionMode?: ButtonGroupSelectionMode;
+  selectionMode?: ButtonGroupSelectionMode | string;
   /**
    * Enables or disables the element. 
    * Default value: false

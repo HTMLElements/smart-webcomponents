@@ -5,12 +5,12 @@ export interface ButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the click mode for the element.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Sets the content of the element.
    * Default value: ""
@@ -118,7 +118,7 @@ export interface PowerButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -128,7 +128,7 @@ export interface PowerButtonProperties {
    * Sets the click mode of the button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the power button.
    * Default value: false
@@ -214,12 +214,12 @@ export interface RepeatButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets the click mode of the button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Sets the delay between repeats in miliseconds.
    * Default value: 50
@@ -320,7 +320,7 @@ export interface ToggleButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets the state of the element.
    * Default value: false
@@ -330,7 +330,7 @@ export interface ToggleButtonProperties {
    * Sets the click mode of the button.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Enables or disables the ratio button.
    * Default value: false

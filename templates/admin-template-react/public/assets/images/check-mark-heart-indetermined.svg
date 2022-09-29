@@ -1,0 +1,8 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="-30 -10 150 150">
+  <g transform = "rotate(-45 50 50)" translate="-200 200" style="fill:lightgray;">
+    <path stroke-width="1" fill="none" d="M0,30 0,90 60,90 60,30z"/>
+    <path stroke-width="1" fill="none" d="M60,60 a30,30 0 0,1 -60,0 a30,30 0 0,1 60,0"/>
+    <path stroke-width="1" fill="none" d="M60,60 a30,30 0 0,1 -60,0 a30,30 0 0,1 60,0"/>
+    <path stroke-width="2" d="M60,30 a30,30 0 0,1 0,60 L0,90 0,30 a30,30 0 0,1 60,0" />
+  </g>
+</svg>

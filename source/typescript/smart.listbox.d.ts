@@ -30,7 +30,7 @@ export interface ListBoxProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables auto sorting. If sorted is enabled, but autoSort is false, the element will not be re-sorted automatically.
    * Default value: true
@@ -70,7 +70,7 @@ export interface ListBoxProperties {
    * Determines what happens when an item is dropped.
    * Default value: move
    */
-  dropAction?: ListBoxDropAction;
+  dropAction?: ListBoxDropAction | string;
   /**
    * Determines if list items can be edited or not. If enabled, items can be edited by double clicking on a target item ( that is not disabled ) or pressing the F2 key on the keyboard.
    * Default value: false
@@ -90,7 +90,7 @@ export interface ListBoxProperties {
    * Determines the filtering mode.
    * Default value: containsIgnoreCase
    */
-  filterMode?: FilterMode;
+  filterMode?: FilterMode | string;
   /**
    * Determines the placeholder for the filter input field.
    * Default value: ""
@@ -110,7 +110,7 @@ export interface ListBoxProperties {
    * Determines the visibility of the horizontal Scroll bar.
    * Default value: auto
    */
-  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility;
+  horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
    * IncrementalSearchDelay property specifies the time-interval in milliseconds until the previous search query is cleared. The timer starts when the user stops typing. A new query can be started only when the delay has passed.
    * Default value: 700
@@ -120,7 +120,7 @@ export interface ListBoxProperties {
    * Sets ot gets the mode of the incremental search mode. Incremental search is enabled by default. Typing while the List box is focused starts the incremental search.
    * Default value: startsWithIgnoreCase
    */
-  incrementalSearchMode?: SearchMode;
+  incrementalSearchMode?: SearchMode | string;
   /**
    * Sets the height for all list box items. Used only when virtualization is enabled.
    * Default value: null
@@ -130,7 +130,7 @@ export interface ListBoxProperties {
    * Determines the item width measuring algorithm.
    * Default value: auto
    */
-  itemMeasureMode?: ListItemMeasureMode;
+  itemMeasureMode?: ListItemMeasureMode | string;
   /**
    * A getter that returns an array of all ListBox items.
    * Default value: 
@@ -150,7 +150,7 @@ export interface ListBoxProperties {
    * Determines the position of the loading indicator.
    * Default value: center
    */
-  loadingIndicatorPosition?: VerticalAlignment;
+  loadingIndicatorPosition?: VerticalAlignment | string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -216,12 +216,12 @@ export interface ListBoxProperties {
    * Determines how many items can be selected depending on the selection mode.
    * Default value: oneOrManyExtended
    */
-  selectionMode?: ListSelectionMode;
+  selectionMode?: ListSelectionMode | string;
   /**
    * Determines when listbox selection is achieved - on 'press' or 'release'.
    * Default value: release
    */
-  selectionChangeAction?: ListBoxSelectionChangeAction;
+  selectionChangeAction?: ListBoxSelectionChangeAction | string;
   /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
@@ -261,7 +261,7 @@ export interface ListBoxProperties {
    * Determines the visibility of the vertical scroll bar.
    * Default value: auto
    */
-  verticalScrollBarVisibility?: VerticalScrollBarVisibility;
+  verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
    * Determines weather or not Virtualization is used for the ListBox. Virtualization allows a huge amount of items to be loaded to the List box while preserving the performance. For example a milion items can be loaded to the list box.
    * Default value: false
@@ -485,7 +485,7 @@ export interface ListItemProperties {
    * 
    * Default value: plain
    */
-  displayMode?: ListItemDisplayMode;
+  displayMode?: ListItemDisplayMode | string;
   /**
    * 
    * Default value: false

@@ -5,7 +5,7 @@ export interface TimeInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the format of the time displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is 'numeric'.
    * Default value: { hour: 'numeric', minute: 'numeric' }
@@ -20,7 +20,7 @@ export interface TimeInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to 'auto'.
    * Default value: auto
@@ -153,12 +153,12 @@ export interface TimeFormat {
    * Hour format.
    * Default value: 2-digit
    */
-  hour?: TimeFormatHour;
+  hour?: TimeFormatHour | string;
   /**
    * Minute format.
    * Default value: 2-digit
    */
-  minute?: TimeFormatMinute;
+  minute?: TimeFormatMinute | string;
 }
 
 declare global {

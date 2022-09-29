@@ -35,7 +35,7 @@ export interface BootstrapCheckBoxProperties {
    * Sets or gets the style mode of the element.
    * Default value: primary
    */
-  styleMode?: BootstrapCheckBoxStyleMode;
+  styleMode?: BootstrapCheckBoxStyleMode | string;
 }
 /**
  Defines a CheckBox component, which includes Material and Bootstrap styles

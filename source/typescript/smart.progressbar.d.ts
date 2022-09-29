@@ -5,7 +5,7 @@ export interface CircularProgressBarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element. 
    * Default value: false
@@ -116,7 +116,7 @@ export interface ProgressBarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Enables or disables the element. 
    * Default value: false
@@ -177,7 +177,7 @@ export interface ProgressBarProperties {
    * Sets the orientation of the progress bar
    * Default value: horizontal
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false

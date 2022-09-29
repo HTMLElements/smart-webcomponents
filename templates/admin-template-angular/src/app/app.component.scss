@@ -1,0 +1,235 @@
+.main {
+    display: flex;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.secondaryContainer {
+    min-height: 100vh;
+    width: calc(100% - var(--menu-width));
+    margin-left: var(--menu-width);
+    background-color: var(--content-background);
+    padding-top: var(--header-height);
+}
+
+.secondary-container-sidebar-not-expanded {
+    width: calc(100% - var(--menu-width-closed));
+    margin-left: var(--menu-width-closed);
+}
+
+#content {
+    min-height: calc(100vh - var(--header-height) - var(--subheader-height) - 50px);
+    padding: 1.5rem;
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#settingsButton {
+    position: fixed;
+    right: 0;
+    top: 200px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--smart-background-color);
+    color: var(--smart-background);
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    transition: width 0.2s ease-in;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#settingsButton:hover {
+    width: 55px;
+}
+
+#settingsPanel {
+    background-color: var(--smart-background);
+    color: var(--smart-background-color);
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    padding: 15px;
+    transition: right 0.2s ease-in;
+    z-index: 999;
+}
+#settingsPanel #settingsLabel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#settingsPanel #settingsLabel > span:first-child {
+    font-size: 20px;
+    font-weight: bold;
+}
+#settingsPanel #settingsLabel #settingsCloseButton {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+#settingsPanel #settingsLabel #settingsCloseButton:hover {
+    color: var(--smart-primary);
+}
+#settingsPanel #settingsLabel #settingsCloseButton:after {
+    font-family: var(--smart-font-family-icon);
+    content: var(--smart-icon-close);
+    font-size: 16px;
+}
+#settingsPanel #settingsContent {
+    overflow: hidden;
+}
+#settingsPanel #settingsContent .theme-preview {
+    border: 2px solid var(--smart-border);
+    border-radius: 0px;
+    margin: 10px 3%;
+    width: 94%;
+    transition: transform 0.2s ease-in;
+    cursor: pointer;
+}
+#settingsPanel #settingsContent .theme-preview:hover {
+    transform: scale(1.05);
+    transform-origin: center;
+}
+#settingsPanel #settingsContent .js-change-color-scheme {
+    border: 0;
+    padding: 0;
+    margin-top: 3px;
+    margin-right: 3px;
+    display: inline-block;
+    position: relative;
+    outline: unset;
+    border: 1px solid var(--white);
+}
+#settingsPanel #settingsContent .js-change-color-scheme:before {
+    width: 100%;
+    font-family: var(--smart-font-family-icon);
+    content: var(--smart-icon-check);
+    color: var(--white-color);
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+#settingsPanel #settingsContent .theme-label {
+    display: flex;
+    justify-content: center;
+}
+#settingsPanel #settingsContent #buy {
+    margin-top: 15px;
+    width: 100%;
+    height: auto;
+}
+#settingsPanel #settingsContent #buy > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+}
+#settingsPanel .label {
+    margin-top: 15px;
+    font-size: 12px;
+}
+#settingsPanel .label:first-child {
+    margin-top: 0;
+}
+
+body.settings-panel-shown:after {
+    content: "";
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+body.settings-panel-shown #settingsPanel {
+    right: 0;
+    box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.js-change-color-scheme {
+    width: 20px;
+}
+
+.js-change-color-scheme::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    body.boxed .main {
+        width: 80%;
+        margin: 0 auto;
+        border-left: 2px solid var(--smart-border);
+        border-right: 2px solid var(--smart-border);
+        overflow: hidden;
+    }
+    body.boxed .main .header-sidebar-not-expanded {
+        width: calc(80% - var(--menu-width-closed) - 2px);
+    }
+    body.boxed .main .subheader-sidebar-not-expanded {
+        width: calc(80% - var(--menu-width-closed) - 2px);
+    }
+    body.boxed .main .header-sidebar-not-expanded,
+    body.boxed .main .subheader-sidebar-not-expanded {
+        width: calc(80% - 2px - var(--menu-width-closed)) !important;
+    }
+    body.boxed .main .header-header {
+        width: calc(80% - 2px - var(--menu-width));
+        right: auto;
+        left: auto;
+        border-left: 2px solid var(--smart-border);
+        border-right: 2px solid var(--smart-border);
+    }
+    body.boxed .main .subheader {
+        width: calc(80% - var(--menu-width) - 2px);
+        border-left: 2px solid var(--smart-border);
+        border-right: 2px solid var(--smart-border);
+    }
+    body.boxed .main > .sidebar:hover .subheader {
+        width: calc(80% - var(--menu-width) - 2px);
+    }
+    body.boxed .main .sidebar {
+        grid-template-rows: var(--header-height) minmax(calc(100% - var(--header-height)), auto);
+    }
+    body.boxed .main .sidebar .footer {
+        display: none;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1340px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .secondaryContainer {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #content {
+        padding: 1.5rem 0 !important;
+    }
+}

@@ -1,0 +1,14 @@
+.basic-inputs-page {
+    .basic-input {
+        width: 100%;
+    }
+
+    .basic-input + .basic-input {
+        margin-top: 10px;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+    }
+}

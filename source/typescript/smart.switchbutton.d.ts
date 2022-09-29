@@ -5,12 +5,12 @@ export interface SwitchButtonProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets the click mode of the switch button. This property is active only when switchMode is 'click'. press - the state of the switch is changed on mousedownrelease - the state of the switch is changed on mouseuppressAndRelease - the state of the switch is changed on mousedown and reverted to the original on mouseup.
    * Default value: release
    */
-  clickMode?: ClickMode;
+  clickMode?: ClickMode | string;
   /**
    * Sets or gets the check state.
    * Default value: false
@@ -76,7 +76,7 @@ export interface SwitchButtonProperties {
    * Sets the orientation of the switch
    * Default value: horizontal
    */
-  orientation?: Orientation;
+  orientation?: Orientation | string;
   /**
    * If the custom element is readonly, it cannot be interacted with.
    * Default value: false
@@ -96,7 +96,7 @@ export interface SwitchButtonProperties {
    * Sets the switchMode of the element. default - dragging the thumb or clicking inside the track can change the state of the element. click - clicking inside the track changes the state of the element. drag - dragging the thumb changes the state of the element.none - the state of the element can only be changed via the API
    * Default value: default
    */
-  switchMode?: SwitchButtonSwitchMode;
+  switchMode?: SwitchButtonSwitchMode | string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""

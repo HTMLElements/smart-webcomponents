@@ -5,7 +5,7 @@ export interface CalendarProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Applies new animation settings when it is enabled. Properties:startSpeed - Determines the initial speed of the animation.easeThreshold - Determines the point at which the animation starts to slow down - the "ease effect".step - Determines the step ( scrolling interval ) at which the animation will run. stepEaseSize - Coefficient that is used to calculated the new step once the threshold has been passed. resetThreshold - Determines the threshold for animation reset. When it's reached the animation will start over.
    * Default value: null
@@ -15,12 +15,12 @@ export interface CalendarProperties {
    * Determines the date controls inside the header of the Calendar.
    * Default value: default
    */
-  calendarMode?: CalendarMode;
+  calendarMode?: CalendarMode | string;
   /**
    * Determines the format of the day names located above the days inside the calendar.
    * Default value: firstTwoLetters
    */
-  dayNameFormat?: DayFormat;
+  dayNameFormat?: DayFormat | string;
   /**
    *  A callback that can be used to customize the format of the month name when calendarMode is set to 'default'.
    * Default value: null
@@ -40,12 +40,12 @@ export interface CalendarProperties {
    * Determines the date view of the calendar when calendarMode is set to 'default'
    * Default value: month
    */
-  displayMode?: CalendarDisplayMode;
+  displayMode?: CalendarDisplayMode | string;
   /**
    * Determines the type of the month/year view when calendarMode is set to Default.
    * Default value: table
    */
-  displayModeView?: CalendarDisplayModeView;
+  displayModeView?: CalendarDisplayModeView | string;
   /**
    * Determines the height of the month's drop down inside the Calendar.
    * Default value: 200
@@ -141,7 +141,7 @@ export interface CalendarProperties {
    * Determines the format of the month names in the header when DisplayMode is set to Default or when Months property is greater than 1. 
    * Default value: long
    */
-  monthNameFormat?: MonthFormat;
+  monthNameFormat?: MonthFormat | string;
   /**
    * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
    * Default value: ""
@@ -166,12 +166,12 @@ export interface CalendarProperties {
    *  Determines the direction of the navigation buttons located in the header and the animation.
    * Default value: landscape
    */
-  scrollButtonsNavigationMode?: ViewLayout;
+  scrollButtonsNavigationMode?: ViewLayout | string;
   /**
    *  Determines the position of the navigation buttons located inside the header. 
    * Default value: both
    */
-  scrollButtonsPosition?: LayoutPosition;
+  scrollButtonsPosition?: LayoutPosition | string;
   /**
    * Sets the dates that will be selected. Selected dates are styled differently than the rest. The dates can be Date objects or strings in a valid date format.
    * Default value: 
@@ -181,7 +181,7 @@ export interface CalendarProperties {
    * Determines the date selection mode.
    * Default value: default
    */
-  selectionMode?: CalendarSelectionMode;
+  selectionMode?: CalendarSelectionMode | string;
   /**
    * Sets the delay between clicks of the date navigation buttons located in the header of the Calendar. 
    * Default value: 80
@@ -226,7 +226,7 @@ export interface CalendarProperties {
    * Sets the position of the tooltip.
    * Default value: top
    */
-  tooltipPosition?: TooltipPosition;
+  tooltipPosition?: TooltipPosition | string;
   /**
    * Sets a template for the tooltip's content. Accepts the id of an HTMLTEmplate element inside the DOM or it's reference.
    * Default value: null
@@ -241,7 +241,7 @@ export interface CalendarProperties {
    * Determines the orientation of the Calendar.
    * Default value: portrait
    */
-  view?: ViewLayout;
+  view?: ViewLayout | string;
   /**
    * Determines the visible sections of the Calendar. The view sections are : title, header, footer. Multiple sections can be applied at the same time. By default only the 'header' section is visible.
    * Default value: header
@@ -261,7 +261,7 @@ export interface CalendarProperties {
    * Determines the year format in the header when DisplayMode is set to Default or when Months property is greater than 1.
    * Default value: numeric
    */
-  yearFormat?: YearFormat;
+  yearFormat?: YearFormat | string;
 }
 /**
  Calendar allows user to easily select one or more dates. This control supports multi-calendar view, special dates, holidays, weekends, decade views.

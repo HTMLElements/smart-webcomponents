@@ -1,0 +1,127 @@
+.account-settings {
+    #settingsListBox {
+        --smart-list-item-height: 50px;
+        border: none;
+        width: 100%;
+        height: auto;
+    }
+
+    #mainCol {
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+        margin-bottom: 1.5rem;
+    }
+
+    #mainCol.changing {
+        opacity: 0;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+    }
+
+    #accountTemplate {
+        .custom-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .order-1 {
+            order: 1;
+        }
+
+        .order-2 {
+            order: 2;
+        }
+
+        .avatar-holder {
+            margin-bottom: 0.75rem;
+
+            .img-as-background {
+                width: 80px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .upload-btn-wrapper {
+            margin-bottom: 0.75rem;
+        }
+
+        #privateInfoContainer {
+            .custom-col {
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        #privateInfoContainer > .custom-row {
+            margin-bottom: 0.75rem;
+        }
+    }
+    #passwordTemplate {
+        display: none;
+
+        .custom-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .current-pass, .new-pass {
+            margin-bottom: 0.75rem;
+        }
+
+        .re-pass {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .col-entity-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    @media (min-width: 576px) {
+        .col-entity-sm-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+
+        .col-entity-sm-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .col-entity-sm-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    @media (min-width: 768px) {
+        .col-entity-md-8 {
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
+
+        .col-entity-md-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+
+        .order-md-1 {
+            order: 1 !important;
+        }
+
+        .order-md-2 {
+            order: 2 !important;
+        }
+    }
+    @media (min-width: 992px) {
+        .col-entity-lg-4 {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+        }
+
+        .col-entity-lg-8 {
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
+    }
+}

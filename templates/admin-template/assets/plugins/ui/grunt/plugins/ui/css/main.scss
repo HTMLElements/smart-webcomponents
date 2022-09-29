@@ -1,0 +1,15 @@
+//Bootswatch variables
+//@import 'bootswatch/_variables';
+//@import 'bootswatch/light/_variables.scss';
+
+@import '_margins';
+
+//UI Variables
+@import 'bootstrap_variables';
+
+//Bootstrap
+@import '../../bootstrap/scss/bootstrap';
+
+//Bootswatch structure
+//@import 'bootswatch/bootswatch';
+//@import 'bootswatch/light/_bootswatch.scss';

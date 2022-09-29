@@ -1,0 +1,160 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-3"><h4>Settings</h4></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 mb-5">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="label">Profile Settings</h4>
+                </div>
+
+                <div class="card-body">
+                    <smart-list-box id="settingsListBox">
+                        <smart-list-item selected>Account</smart-list-item>
+                        <smart-list-item>Password</smart-list-item>
+                        <smart-list-item>Privacy and safety</smart-list-item>
+                        <smart-list-item>Email notifications</smart-list-item>
+                        <smart-list-item>Web notifications</smart-list-item>
+                        <smart-list-item>Widgets</smart-list-item>
+                        <smart-list-item>Your data</smart-list-item>
+                        <smart-list-item>Delete account</smart-list-item>
+                    </smart-list-box>
+                </div>
+            </div>
+        </div>
+
+        <div id="mainCol" class="col-lg-8 mb-5">
+
+        </div>
+    </div>
+</div>
+
+<smart-menu id="todayMenu" mode="dropDown">
+    <smart-menu-item label="settingsTemplate"></smart-menu-item>
+    <smart-menu-item>First action</smart-menu-item>
+    <smart-menu-item>Second action</smart-menu-item>
+    <smart-menu-item separator>Third action</smart-menu-item>
+    <smart-menu-item>Additional action</smart-menu-item>
+</smart-menu>
+
+<template id="settingsTemplate">SETTINGS</template>
+
+<template id="accountTemplate">
+    <div class="card mb-5">
+        <div class="card-header">
+            <h4 class="label">Public info</h4>
+            <div class="settings-button material-icons">expand_more</div>
+        </div>
+
+        <div class="card-body">
+            <div id="publicInfoContainer" class="row d-flex">
+                <div class="col-md-8 order-2 order-md-1">
+                    <div class="mb-3">
+                        <label id="userNameLabel">Username</label>
+                        <smart-input id="userNameInput" class="w-100" placeholder="Username"></smart-input>
+                    </div>
+
+                    <div class="mb-4">
+                        <label id="biographyLabel">Biography</label>
+                        <smart-text-area id="biographyInput" class="w-100" placeholder="Share something here..."></smart-text-area>
+                    </div>
+
+                    <smart-button class="primary">Save changes</smart-button>
+                </div>
+
+                <div class="col-md-4 order-1 order-md-2 text-center">
+                    <div class="avatar-holder mb-3">
+                        <div class="img-as-background w-80px square rounded-circle mx-auto">
+                            <img src="../../images/phonebook/mark.png"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <smart-button id="uploadButton" class="small-button primary"><span class="material-icons">cloud_upload</span> Upload</smart-button>
+                    </div>
+
+                    <small>Choose an image no <br/>larger than 3MB</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-5">
+        <div class="card-header">
+            <h4 class="label">Private info</h4>
+            <div class="settings-button material-icons">expand_more</div>
+        </div>
+
+        <div class="card-body">
+            <div id="privateInfoContainer">
+                <div class="row mb-3">
+                    <div class="mb-3 col-sm-6">
+                        <label id="firstNameLabel">First name</label>
+                        <smart-input id="firstNameInput" class="w-100" placeholder="First name"></smart-input>
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label id="lastNameLabel">Last name</label>
+                        <smart-input id="lastNameInput" class="w-100" placeholder="Last name"></smart-input>
+                    </div>
+                    <div class="mb-3 col-sm-12">
+                        <label id="emailLabel">Email</label>
+                        <smart-input id="emailInput" class="w-100" placeholder="Email"></smart-input>
+                    </div>
+                    <div class="mb-3 col-sm-12">
+                        <label id="addressLabel">Address</label>
+                        <smart-input id="addressInput" class="w-100" placeholder="9581 Lovers Ln"></smart-input>
+                    </div>
+                    <div class="mb-3 col-sm-12">
+                        <label id="address2Label">Address 2</label>
+                        <smart-input id="address2Input" class="w-100" placeholder="7118 Spring St"></smart-input>
+                    </div>
+                    <div class="mb-3 col-sm-4">
+                        <label id="cityLabel">City</label>
+                        <smart-input id="cityInput" class="w-100"></smart-input>
+                    </div>
+                    <div class="mb-3 col-sm-4">
+                        <label id="stateLabel">State</label>
+                        <smart-input id="stateInput" class="w-100" placeholder="Select a state..." drop-down-button-position="right" data-source='["Andhra Pradesh", "Manipur", "Tamil Nadu"]'></smart-input>
+                    </div>
+                    <div class="mb-3 col-sm-4">
+                        <label id="zipLabel">ZIP</label>
+                        <smart-input id="zipInput" class="w-100"></smart-input>
+                    </div>
+                </div>
+
+                <smart-button class="primary">Save changes</smart-button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="passwordTemplate">
+    <div class="card mb-5">
+        <div class="card-header">
+            <h4 class="label">Password</h4>
+        </div>
+        <div class="card-body">
+            <div id="passwordInfoContainer">
+                <div class="mb-3">
+                    <label>Current password</label>
+                    <smart-input class="w-100"></smart-input>
+                    <a href="#" class="styled forgot">Forgot your password?</a>
+                </div>
+
+                <div class="mb-3">
+                    <label>New password</label>
+                    <smart-input class="w-100"></smart-input>
+                </div>
+
+                <div class="mb-5">
+                    <label>Verify password</label>
+                    <smart-input class="w-100"></smart-input>
+                </div>
+
+                <smart-button class="primary">Save changes</smart-button>
+            </div>
+        </div>
+    </div>
+</template>

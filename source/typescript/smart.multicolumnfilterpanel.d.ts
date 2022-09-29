@@ -5,12 +5,12 @@ export interface MultiColumnFilterPanelProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Sets or gets the position of the close button of multi column filter panel items.
    * Default value: left
    */
-  closeButtonPosition?: MultiColumnFilterPanelCloseButtonPosition;
+  closeButtonPosition?: MultiColumnFilterPanelCloseButtonPosition | string;
   /**
    * Determines the data source that will be loaded to the multi column filter panel.Each member of the dataSource array is an object with the following fields:dataField - the dataField of the column to be grouped.dataType - the data type of the column to be grouped.groupIndex - the group order of columns. If this value is -1, the grouping will not be applied by this column initially.label - the column label to be displayed in the column selection input.icon - a specific class to be applied to the respective item in the column selection input.sortDirection - the sort direction to be applied when grouping. Possible values: 'ascending' and 'descending'.
    * Default value: null
@@ -85,7 +85,7 @@ export interface MultiColumnFilterPanelProperties {
    * Determines the logical operator between the items.
    * Default value: false
    */
-  operator?: MultiColumnFilterPanelOperator;
+  operator?: MultiColumnFilterPanelOperator | string;
   /**
    * If the element is readonly, users cannot interact with it.
    * Default value: false

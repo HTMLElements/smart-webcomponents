@@ -5,7 +5,7 @@ export interface DateRangeInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date format is determined by the 'locale' property. Intl.DateTimeFormat is used to format date strings in JavaScript
    * Default value: {"day": "numeric", "month": "numeric", "year": "numeric" }
@@ -20,7 +20,7 @@ export interface DateRangeInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -142,7 +142,7 @@ export interface DateRangeInputProperties {
    * Determines the value type returned from the `value` property.
    * Default value: string
    */
-  valueType?: DateRangeInputValueType;
+  valueType?: DateRangeInputValueType | string;
 }
 /**
  DateRangeInput specifies an input field where the user can enter a date range ( from date - to date ). It also has a popup with a Calendar that allows to select a date range. Time selection is an additional feature that can be enabled which allows to specify time for the date range.
@@ -180,17 +180,17 @@ export interface DateRangeFormat {
    * Day format.
    * Default value: numeric
    */
-  day?: DateRangeFormatDay;
+  day?: DateRangeFormatDay | string;
   /**
    * Month format.
    * Default value: numeric
    */
-  month?: DateRangeFormatMonth;
+  month?: DateRangeFormatMonth | string;
   /**
    * Year format.
    * Default value: numeric
    */
-  year?: DateRangeFormatYear;
+  year?: DateRangeFormatYear | string;
 }
 
 /**Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. By default the date foramt is determined by the 'locale' property. */
@@ -199,12 +199,12 @@ export interface TimeRangeFormat {
    * Hour format.
    * Default value: 2-digit
    */
-  hour?: TimeRangeFormatHour;
+  hour?: TimeRangeFormatHour | string;
   /**
    * Minute format.
    * Default value: 2-digit
    */
-  minute?: TimeRangeFormatMinute;
+  minute?: TimeRangeFormatMinute | string;
 }
 
 declare global {

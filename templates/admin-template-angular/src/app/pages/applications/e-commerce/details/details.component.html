@@ -1,0 +1,109 @@
+<div class="container e-commerce-details">
+    <div class="custom-row">
+        <div class="custom-col e-commerce-details-header">
+            <h4>Product Details</h4>
+        </div>
+    </div>
+
+    <div class="custom-card product-details">
+        <div class="card-body">
+            <div class="row my-2">
+                <div class="custom-col col-entity-12 col-entity-md-5 image-col">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="assets/images/products/1.png" class="product-image img-fluid" alt="product image" />
+                    </div>
+                </div>
+
+                <div class="custom-col col-entity-12 col-entity-md-7 info-col">
+                    <h4>Apple Watch Series 5</h4>
+                    <span class="item-company">By <a href="#" class="text-primary">Apple</a></span>
+                    <div class="d-flex flex-wrap mt-1">
+                        <h4 class="text-primary mr-1">$499.99</h4>
+                    </div>
+
+                    <p>Available - <span class="text-success">In stock</span></p>
+
+                    <p>
+                        GPS, Always-On Retina display, 30% larger screen, Swimproof, ECG app, Electrical and optical
+                        heart sensors,
+                        Built-in compass, Elevation, Emergency SOS, Fall Detection, S5 SiP with up to 2x faster 64-bit
+                        dual-core
+                        processor, watchOS 6 with Activity trends, cycle tracking, hearing health innovations, and the
+                        App Store on
+                        your wrist
+                    </p>
+
+                    <ul class="product-features list-unstyled">
+                        <li>
+                            <i class="fas fa-shopping-basket"></i>
+                            <span>Free Shipping</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-money-bill-alt"></i>
+                            <span>Cash on delivery</span>
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <div>
+                        <h6>Colors</h6>
+
+                        <div>
+                            <smart-radio-button class="purple" [checked]="true"></smart-radio-button>&nbsp;<smart-radio-button class="green"></smart-radio-button>&nbsp;<smart-radio-button
+                                class="red"></smart-radio-button>&nbsp;<smart-radio-button class="orange">
+                            </smart-radio-button>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="info-buttons">
+                        <a href="#" class="btn btn-primary mr-0">
+                            <i class="fas fa-shopping-basket mr-2"></i>
+                            <span>Add to cart</span>
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary">
+                            <i class="fas fa-heart mr-2"></i>
+                            <span>Wishlist</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-row e-commerce-details-features">
+        <div class="custom-col custom-col-12 col-entity-md-4">
+            <div class="feature-info-wrapper">
+                <i class="fas fa-medal text-primary font-size-40px"></i>
+                <h4>100% Original</h4>
+                <p class="card-text">Chocolate bar candy canes ice cream toffee. Croissant pie cookie halvah.</p>
+            </div>
+        </div>
+
+        <div class="custom-col custom-col-12 col-entity-md-4">
+            <div class="feature-info-wrapper">
+                <i class="fas fa-clock text-primary font-size-40px"></i>
+                <h4>10 Day Replacement</h4>
+                <p class="card-text">Marshmallow biscuit donut dragée fruitcake. Jujubes wafer cupcake.</p>
+            </div>
+        </div>
+        <div class="custom-col custom-col-12 col-entity-md-4">
+            <div class="feature-info-wrapper">
+                <i class="fas fa-shield-alt text-primary font-size-40px"></i>
+                <h4>1 Year Warranty</h4>
+                <p class="card-text">Cotton candy gingerbread cake I love sugar plum I love sweet croissant.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-card">
+        <div class="card-body">
+            <h4 class="text-center e-commerce-details-carousel-heading">Related products</h4>
+            <smart-carousel id="e-commerce-details-carousel"
+                class="related-products-carousel slide slider-style-adaptive-height multi-items" adaptive-height
+                [slideShow]="true" [loop]="true" [itemTemplate]="'eCommerceDetailsCarousel'"
+                [dataSource]="carouselDataSource">
+            </smart-carousel>
+        </div>
+    </div>
+</div>

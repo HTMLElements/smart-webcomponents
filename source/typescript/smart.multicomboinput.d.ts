@@ -5,7 +5,7 @@ export interface MultiComboInputProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
    * Default value: 100
@@ -35,7 +35,7 @@ export interface MultiComboInputProperties {
    * Determines the position of the drop down button.
    * Default value: right
    */
-  dropDownButtonPosition?: DropDownButtonPosition;
+  dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
@@ -117,7 +117,7 @@ export interface MultiComboInputProperties {
    * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
    * Default value: containsIgnoreCase
    */
-  queryMode?: MultiComboInputQueryMode;
+  queryMode?: MultiComboInputQueryMode | string;
   /**
    * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
    * Default value: false
@@ -162,7 +162,7 @@ export interface MultiComboInputProperties {
    * Determines whether the input field will contain tags for each selected item from the popup or just one that shows the number of selected items.
    * Default value: many
    */
-  inputTagsMode?: MultiComboInputInputTagsMode;
+  inputTagsMode?: MultiComboInputInputTagsMode | string;
   /**
    * Determines the theme for the element. Themes define the look of the elements.
    * Default value: ""

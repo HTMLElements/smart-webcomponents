@@ -5,7 +5,7 @@ export interface FilterBuilderProperties {
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
-  animation?: Animation;
+  animation?: Animation | string;
   /**
    * Adds more operations, that can be used in the filter bilder's conditions structure.
    * Default value: 
