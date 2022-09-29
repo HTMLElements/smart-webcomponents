@@ -1,4 +1,7 @@
 # Smart UI
+
+UI Component Library. Includes Grid, Pivot Grid, Scheduler, Gantt, Kanban, Rich Text Editor and many more UI Components. Material & Bootstrap themes are available with different color schemes. Theme Builder application for custom themes building is available, too.
+
 Web Components, Anguiar, React, Vue and Blazor UI for Professional Web Development
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core)
@@ -9,9 +12,9 @@ What is Smart UI?
 ----------------------------
 
 Smart UI is a Framework for building  Web Components and Custom Elements. Smart is similar to Stencil and LitElement. It supports two-way data-binding, templates, property change notifications, Typescript-like type-checking and validation.
-Smart does not have third-party dependencies. It is pure Javascript code. 
-80+ UI Components are built with Smart including Grid, Chart, Scheduler, Editor, Kanban, Gantt, Table, Tabs, Accordion, Gauge, DateTimePicker and others. Some of the UI Components built with the library are commercial. Others are open-source.
-Smart UI components are available in Javascript, Angular and React. Typescript definitions are included.
+Smart does not have third-party dependencies. It is pure Javascript ES6 code. 
+80+ UI Components are built with Smart including Grid, Chart, Scheduler, Editor, Kanban, Gantt, Table, Tabs, Accordion, Gauge, DateTimePicker and others. 
+Smart UI components are available in Javascript, Angular, React, VueJS and Blazor.
 
 Works across devices and browsers
 ---------------------------------
@@ -78,7 +81,7 @@ UI Components
 Download and Installation
 -------------------------
 
-[Download Smart HTML Elements](https://www.htmlelements.com/download/)
+[Download Smart UI](https://www.htmlelements.com/download/)
 
     
 [Live Demo ↗](https://htmlelements.com/demos//)
