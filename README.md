@@ -2,7 +2,7 @@
 
 UI Component Library. Includes Grid, Pivot Grid, Scheduler, Gantt, Kanban, Rich Text Editor and many more UI Components. Material & Bootstrap themes are available with different color schemes. Theme Builder application for custom themes building is available, too.
 
-Web Components, Anguiar, React, Vue and Blazor UI for Professional Web Development
+Web Components, Angular, React, Vue and Blazor UI for Professional Web Development
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core)
 Build responsive, mobile-first projects on the Web with the most advanced front-end component library
