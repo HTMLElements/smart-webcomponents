@@ -1,0 +1,78 @@
+.demo-container {
+    max-width: 750px;
+    margin-left: 10px
+}
+
+.fieldset {
+    font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif;
+}
+
+.fieldset-header {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.field {
+    margin-left: 10px;
+    min-height: 36px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.field .field-label {
+    float: left;
+    width: 30%;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.field .field-value {
+    width: 70%;
+    float: right;
+}
+
+.field .field-value > :first-child:not(.error-holder) {
+    width: 100%;
+}
+
+.checkbox-validator {
+    margin-top: 10px;
+}
+
+.fieldset #submitFormButton {
+    width: 100%;
+}
+
+.fieldset #attachFormButton {
+    width: 48%;
+    float: left;
+}
+
+.fieldset #resetFormButton {
+    width: 48%;
+    float: right;
+}
+
+.fieldset #detachFormButton {
+    width: 48%;
+    float: right;
+}
+
+.buttons-container {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#validationsummary {
+    clear: both;
+    padding-top: 10px;
+}
+
+#validationsummary span {
+    display: block;
+    color: #d9534f;
+}

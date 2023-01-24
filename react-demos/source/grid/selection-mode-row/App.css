@@ -1,0 +1,10 @@
+@media only screen and (max-width: 400px) {
+    smart-grid {
+        width: 100%;
+    }
+}
+
+smart-grid {
+    width: 60%;
+    max-width: 600px;
+}

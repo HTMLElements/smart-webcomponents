@@ -1,0 +1,27 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [hourStart]="hourStart"
+    [hourEnd]="hourEnd" [firstDayOfWeek]="firstDayOfWeek"></smart-scheduler>
+<div class="options">
+    <div class="description">
+        <h4>Description</h4>
+        <p><b>headerNavigationStyle</b> determines the layout style of the header
+            controls.</p>
+        <p>Choose a style:</p>
+    </div>
+    <div class="option">
+        <smart-radio-button #radiobutton [checked]="true">flat</smart-radio-button>
+        <smart-radio-button>raised</smart-radio-button>
+    </div>
+    <div class="option">
+        <h4>Additional settings:</h4>
+        <smart-check-box #checkbox id="hideTodayButton">Hide Today Button</smart-check-box>
+        <smart-check-box #checkbox2 id="hideViewMenuCheckableItems">Hide View Menu Checkable Item</smart-check-box>
+        <smart-check-box #checkbox3 id="disableDateMenu">Disable Date Menu</smart-check-box>
+        <smart-check-box #checkbox4 id="disableViewMenu">Disable View Menu</smart-check-box>
+        <smart-check-box #checkbox5 id="disableContextMenu">Disable Context Menu</smart-check-box>
+        <smart-check-box #checkbox6 id="disableEventMenu">Disable Event Menu</smart-check-box>
+        <smart-check-box #checkbox7 id="disableWindowEditor">Disable Window Editor</smart-check-box>
+        <smart-check-box #checkbox8 id="disableDrag">Disable Event Drag</smart-check-box>
+        <smart-check-box #checkbox9 id="disableDrop">Disable Event Drop</smart-check-box>
+        <smart-check-box #checkbox10 id="disableResize">Disable Event Resize</smart-check-box>
+    </div>
+</div>

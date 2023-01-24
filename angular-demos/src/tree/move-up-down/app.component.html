@@ -1,0 +1,26 @@
+<smart-tree #tree id="tree" class="animation" [showLines]="true" [showRootLines]="true">
+    <smart-tree-items-group id="numbers" [expanded]="true">Numbers
+        <smart-tree-item>3</smart-tree-item>
+        <smart-tree-item>2</smart-tree-item>
+        <smart-tree-item id="one">1</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group id="letters" [expanded]="true">Letters
+        <smart-tree-item>A</smart-tree-item>
+        <smart-tree-item>C</smart-tree-item>
+        <smart-tree-item>Z</smart-tree-item>
+        <smart-tree-item>B</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group id="greekLetters" [expanded]="true">Greek letters
+        <smart-tree-item>β</smart-tree-item>
+        <smart-tree-item>δ</smart-tree-item>
+        <smart-tree-item>α</smart-tree-item>
+        <smart-tree-item>γ</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="moveUp" title="Move selected item up">Up</smart-button>
+        <smart-button #button2 id="moveDown" title="Move selected item down">Down</smart-button>
+    </div>
+</div>

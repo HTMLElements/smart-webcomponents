@@ -1,0 +1,50 @@
+smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-task-default-height: 34px;
+    --smart-gantt-chart-task-fill-border-radius: 2.5px;
+    --smart-gantt-chart-project-color: linear-gradient(-45deg, #3E5151, #DECBA4);
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-task-label-color-selected: white;
+    --smart-gantt-chart-task-color: linear-gradient(-45deg, #1f4037, #99f2c8);
+    --smart-gantt-chart-project-label-color: white;
+    --smart-gantt-chart-project-label-color-selected: white;
+    --smart-gantt-chart-task-tree-splitter-bar-fit-size: var(--smart-gantt-chart-task-default-height);
+}
+
+smart-menu {
+    --smart-menu-vertical-default-width: 100px;
+    --smart-menu-vertical-default-height: auto;
+}
+
+.smart-menu .smart-menu-item-label-container {
+    padding: 10px 20px 10px 20px;
+}
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    margin-right: 10px;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+/* ------------ */

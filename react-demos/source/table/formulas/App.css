@@ -1,0 +1,12 @@
+.smart-table {
+    width: 800px;
+}
+
+.smart-table thead th:not(:last-child),
+.smart-table tbody td:not(:last-child) {
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-table th>.wrapper {
+    justify-content: center;
+}

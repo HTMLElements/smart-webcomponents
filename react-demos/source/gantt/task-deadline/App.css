@@ -1,0 +1,9 @@
+.smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-project-color: linear-gradient(to right, rgb(0, 0, 70), rgb(28, 181, 224));
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(30, 19, 12), rgb(154, 132, 120));
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-project-label-color: white;
+    --smart-gantt-chart-task-label-color-selected: rgb(192, 248, 87);
+    --smart-gantt-chart-project-label-color-selected: rgb(192, 248, 87);
+}

@@ -1,0 +1,100 @@
+﻿.card-content {
+    padding-top: 10px;
+}
+
+section {
+    color: rgba(0, 0, 0, 0.87);
+    padding-bottom: 50px;
+}
+
+section .headline {
+    font-size: 40px;
+}
+
+section .container {
+    text-align: center;
+}
+
+.icon-white {
+    color: white;
+}
+
+div.timeline-data {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+div.timeline-data.red i,
+div.timeline-data.red .card-title {
+    background: #fd5d93;
+}
+
+div.timeline-data.green i,
+div.timeline-data.green .card-title {
+    background: #00bf9a;
+}
+
+div.timeline-data.blue i,
+div.timeline-data.blue .card-title {
+    background: #1d8cf8;
+}
+
+div.timeline-data.orange i,
+div.timeline-data.orange .card-title {
+    background: #ff8d72;
+}
+
+div.timeline-data .card-title {
+    width: fit-content;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 13px;
+    margin-top: 0;
+    color: white;
+}
+
+div.timeline-data .card-content p {
+    font-size: 15px;
+    text-align: initial;
+}
+
+div.timeline-data .card-action {
+    text-align: initial;
+    cursor: pointer;
+    width: auto;
+    padding-left: 20px;
+}
+
+div.timeline-data i {
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+div.timeline-data smart-card.basic-card {
+    width: 80%;
+    margin: 0 auto;
+}
+
+div.timeline-data i {
+    align-self: center;
+    position: relative;
+}
+
+div.timeline-card-holder:nth-child(2n) {
+    box-shadow: -1px 0 #ccc;
+}
+
+div.timeline-card-holder:nth-child(2n+1) {
+    box-shadow: inset -1px 0px #ccc;
+}
+
+div.timeline-data i:nth-child(2n+1) {
+    justify-self: end;
+    left: 30px;
+}
+
+div.timeline-data i:nth-child(2n) {
+    justify-self: start;
+    left: -30px;
+}

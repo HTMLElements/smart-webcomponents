@@ -1,0 +1,13 @@
+html, body {
+    background-color: #F2F2F2;
+}
+
+smart-slider {
+    width: 500px;
+    height: 70px;
+}
+
+smart-gauge {
+    width: 200px;
+    height: 200px;
+}

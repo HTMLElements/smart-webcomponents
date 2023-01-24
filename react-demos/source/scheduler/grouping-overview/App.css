@@ -1,0 +1,142 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+    --smart-scheduler-event-size-basic: 35px;
+    --smart-scheduler-timeline-cell-width: 50px;
+    --smart-scheduler-timeline-cell-min-width: 50px;
+    --smart-scheduler-timeline-header-horizontal-group-size: 125px;
+    --smart-scheduler-timeline-all-day-label-font-weight: 300;
+    --smart-scheduler-timeline-header-cell-padding: 1px;
+    /* Client variables */
+    --employee-1-rgb-color: 59, 7, 72;
+    --employee-2-rgb-color: 95, 54, 141;
+    --employee-3-rgb-color: 5, 22, 61
+}
+
+.smart-scheduler [clientId="1"],
+.smart-scheduler [clientId="1"][other-month] {
+    --smart-scheduler-timeline-weekend-color: rgba(var(--employee-1-rgb-color), 0.2);
+    --employee-rgb-color: var(--employee-1-rgb-color);
+    --smart-scheduler-event-background-rgb: var(--employee-1-rgb-color);
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.smart-scheduler [clientId="2"],
+.smart-scheduler [clientId="2"][other-month] {
+    --smart-scheduler-timeline-weekend-color: rgba(var(--employee-2-rgb-color), 0.2);
+    --employee-rgb-color: var(--employee-2-rgb-color);
+    --smart-scheduler-event-background-rgb: var(--employee-2-rgb-color);
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.smart-scheduler [clientId="3"],
+.smart-scheduler [clientId="3"][other-month] {
+    --smart-scheduler-timeline-weekend-color: rgba(var(--employee-3-rgb-color), 0.2);
+    --employee-rgb-color: var(--employee-3-rgb-color);
+    --smart-scheduler-event-background-rgb: var(--employee-3-rgb-color);
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+/* CellTemplate styles */
+
+.smart-scheduler .gym {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2.5px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+/* GroupTemplate Styles */
+
+.smart-scheduler .resource-content {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--employee-rgb-color), 1);
+}
+
+.smart-scheduler .resource-content .avatar {
+    padding: 0 10px 0 10px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.smart-scheduler .resource-content .avatar::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border-radius: 0px;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 3px 3px inset rgba(var(--employee-rgb-color), 1);
+}
+
+.smart-scheduler [clientId="1"] .resource-content .avatar::before {
+    background-image: url('./images/people/andrew.png');
+}
+
+.smart-scheduler [clientId="2"] .resource-content .avatar::before {
+    background-image: url('./images/people/nancy.png');
+}
+
+.smart-scheduler [clientId="3"] .resource-content .avatar::before {
+    background-image: url('./images/people/anne.png');
+}
+
+.smart-scheduler .resource-content>div,
+.smart-scheduler .resource-content .info,
+.smart-scheduler .resource-content .name {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.smart-scheduler .resource-content>div {
+    padding: 0 10px 0 10px;
+}
+
+.smart-scheduler .resource-content .info,
+.smart-scheduler .resource-content .name {
+    align-items: flex-start;
+}
+
+.smart-scheduler .resource-content .info {
+    color: white;
+}
+
+.smart-scheduler .resource-content .name {
+    color: white;
+    font-weight: 400;
+    font-size: 28px;
+}

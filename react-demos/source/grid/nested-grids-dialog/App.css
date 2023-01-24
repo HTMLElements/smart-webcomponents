@@ -1,0 +1,16 @@
+html, body {
+	height: 1200px;
+}
+smart-grid {
+   height: auto;
+   max-height: 700px;
+   width: 100%;
+}
+
+smart-grid .smart-grid-row-detail smart-grid {
+	margin-left: 20px;
+	margin-top: 20px;
+	line-height: initial;
+	height: auto;
+	width: calc(100% - 40px);
+}

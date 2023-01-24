@@ -1,0 +1,67 @@
+#tabs {
+    border-color: #878787;
+    width: 100%;
+    height: 350px;
+    outline: none;
+}
+
+    #tabs .smart-tab-strip {
+        background-color: #E0E0E0;
+    }
+
+    #tabs .smart-tab-label-container {
+        border-top-width: 2px;
+        border-top-style: solid;
+        border-top-color: transparent;
+    }
+
+        #tabs .smart-tab-label-container.smart-tab-selected {
+            background-color: #F2F2F2;
+        }
+
+        #tabs .smart-tab-label-container.smart-tab-hovered {
+            background-color: #E5E5E5;
+            color: black;
+        }
+
+        #tabs .smart-tab-label-container:nth-child(1).smart-tab-selected {
+            border-color: #5cb85c;
+        }
+
+        #tabs .smart-tab-label-container:nth-child(1).smart-tab-hovered {
+            border-color: #7DD17D;
+        }
+
+        #tabs .smart-tab-label-container:nth-child(2).smart-tab-selected {
+            border-color: #5bc0de;
+        }
+
+        #tabs .smart-tab-label-container:nth-child(2).smart-tab-hovered {
+            border-color: #7EDDF7;
+        }
+
+        #tabs .smart-tab-label-container:nth-child(3).smart-tab-selected {
+            border-color: #d9534f;
+        }
+
+        #tabs .smart-tab-label-container:nth-child(3).smart-tab-hovered {
+            border-color: #F27371;
+        }
+
+.mailList {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.smart-list-item-container {
+    width: 100%;
+}
+
+.date {
+    float: right;
+}
+
+.smart-list-box .smart-content-label {
+    width: 100%;
+}

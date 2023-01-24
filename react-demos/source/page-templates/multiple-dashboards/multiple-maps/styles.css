@@ -1,0 +1,26 @@
+﻿#gmap1 {
+    height: 100%;
+    width: 95%;
+}
+
+#gmap2 {
+    height: 100%;
+    width: 95%;
+}
+
+#gmap3 {
+    width: 97%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    height: 400px;
+}
+
+.grid-container {
+    display: grid;
+    height: 400px;
+    grid-template-columns: 50% 50%;
+}
+
+.grid-container > div {
+    justify-self: center;
+}

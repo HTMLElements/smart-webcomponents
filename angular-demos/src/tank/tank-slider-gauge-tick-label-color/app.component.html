@@ -1,0 +1,23 @@
+<smart-slider #slider id="slider" [showTooltip]="true" [orientation]="'horizontal'" [min]="0" [max]="100" [value]="30" [scalePosition]="'both'"></smart-slider>
+<smart-tank #tank id="tank" [showTooltip]="true" [min]="0" [max]="100" [value]="30" [scalePosition]="'both'"></smart-tank>
+<smart-gauge #gauge id="gauge" [analogDisplayType]="'fill'" [digitalDisplay]="true" [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="0"></smart-gauge>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="redTicks">
+            tick color to <span style="color: red;">red</span>
+        </smart-button>
+        <smart-button #button2 id="blueTicks">
+            tick color to <span style="color: blue;">blue</span>
+        </smart-button>
+        <br />
+        <smart-button #button3 id="redLabels">
+            label color to <span style="color: red;">red</span>
+        </smart-button>
+        <smart-button #button4 id="blueLabels">
+            label color to <span style="color: blue;">blue</span>
+        </smart-button>
+        <br />
+        <smart-button #button5 id="resize">Resize elements</smart-button>
+    </div>
+</div>

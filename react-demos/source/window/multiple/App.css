@@ -1,0 +1,26 @@
+smart-window > .smart-container > .smart-content {
+    /*overflow-y: auto;*/
+    flex-direction: column;
+}
+
+smart-window #article {
+    overflow-y: auto;
+}
+
+#window1 {
+    top: 100px;
+    left: calc(50% - var(--smart-window-default-width));
+}
+
+#window2 {
+    top: 150px;
+    left: calc(50% - var(--smart-window-default-width) / 1.5);
+}
+
+#window3 {
+    top: 200px;
+    left: calc(50% - var(--smart-window-default-width) / 3);
+}
+#root>div {
+	min-height: inherit;
+}

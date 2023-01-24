@@ -1,0 +1,192 @@
+body,
+html
+{
+    width: 100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+    font-family: "Roboto",sans-serif;
+    font-weight: 300;
+    color: #212529;
+}
+p{
+    line-height: 1.5rem;
+    color: #343a40;
+}
+.button-with-icons-text smart-button{
+    margin-right: auto;
+    margin-left: auto;
+}
+i.material-icons{
+    font-size: 2rem;
+    color:white;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.header{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    flex:0 0 70%;
+}
+.map-within-form{
+    display: flex;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.map-within-form::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.demo-form legend{
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    box-shadow: 1px 1px 5px 3px lightgray;
+    padding: 1rem 3rem;
+    color: white;
+    background-color:#82b1ff;
+    display: flex;
+    align-items: center;
+    border: thin lightgrey;
+    font-size: 1.75rem; 
+}
+.demo-form legend h3{
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 400;
+    margin-left: .125rem;
+}
+.demo-form,
+.demo-form fieldset{
+    border: none;
+}
+.demo-form fieldset, 
+.map-container iframe{
+    box-shadow: 2px 2px 5px 4px lightgrey;
+}
+.row{
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.row i.material-icons{
+    font-size: 2rem;
+    color: grey;
+    margin-right: 0.5rem;
+}
+smart-input.underlined,
+.row>smart-multiline-text-box.underlined{
+    width: 100%;
+}
+.demo-form smart-button{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    border: none;
+   
+    color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    padding: .54rem 1.14rem;
+    font-size: .81rem;
+    --smart-background:#82b1ff; 
+    --smart-button-color: white;
+    --smart-ui-state-color-hover: white;
+    --smart-ui-state-hover: #82b1ff;
+    --smart-ui-state-color-focus : white;
+    --smart-ui-state-focus: #82b1ff;
+}
+
+.buttons-with-icons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.map-container{
+    width:60%;
+    margin-top: 2.2rem;
+    padding-bottom: 7rem;
+    margin-left: 1rem;
+}
+.button-with-icons-text smart-button.floating,
+.button-with-icons-text smart-button.floating button{
+    width: 50px;
+    padding: 0px;
+    --smart-background:#82b1ff; 
+   
+    --smart-ui-state-color-hover: white;
+    --smart-ui-state-hover: #82b1ff;
+    --smart-ui-state-color-focus : white;
+    --smart-ui-state-focus: #82b1ff; 
+}
+.button-with-icons-text smart-button{
+   
+    border: none;
+    display: block;
+    text-align: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    align-content: center;
+}
+.button-with-icons-text smart-button span i{
+    font-size: 30px;
+    margin-top:.125rem;
+}
+#phone-icon{
+    margin-left: .6rem;
+}
+@media only screen and (max-width: 768px){
+    .demo-contact-form,
+    .map-container{
+        width: 100%;
+    }
+    .button-with-icons-text,
+    .buttons-with-icons,
+    .map-within-form{
+        width: 90%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto
+    }
+    .map-container{
+        height: 40%;
+        margin: 0;
+        margin-top: 1rem;
+    }
+    .demo-form legend h3{
+        font-size: 1.5rem;
+    }
+    .container .header{
+        flex: none;
+        width: 90%;
+    }
+}
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}

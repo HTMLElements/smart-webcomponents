@@ -1,0 +1,27 @@
+smart-window > .smart-container > .smart-content {
+    align-items: initial;
+}
+
+smart-window {
+    --smart-window-default-height: 250px;
+}
+
+     .smart-window:nth-of-type(1) {
+        left: calc(25% - var(--smart-window-default-width) / 2);
+    } 
+    
+.smart-window #article {
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+
+#root>div {
+	min-height: inherit;
+}

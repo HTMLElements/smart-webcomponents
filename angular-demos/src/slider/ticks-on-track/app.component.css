@@ -1,0 +1,8 @@
+:root {
+    --smart-slider-track-size: 15px;
+    --smart-slider-thumb-width: 10px;
+    --smart-slider-thumb-height: 20px;
+}
+smart-slider {
+	height: 100px;
+}

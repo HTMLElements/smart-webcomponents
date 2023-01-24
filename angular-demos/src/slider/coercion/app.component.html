@@ -1,0 +1,16 @@
+<smart-slider #slider [showTooltip]="true" id="horizontalSlider" [min]="0" [max]="100"
+              [value]="77" [scalePosition]="'both'" [coerce]="true" [interval]="5"></smart-slider>
+<br />
+<div class="options">
+    <div class="caption">Set coercion interval</div>
+    <div class="option">
+        <smart-numeric-text-box #numerictextbox id="interval" [spinButtons]="true" [inputFormat]="'integer'"
+                                [value]="5"></smart-numeric-text-box>
+    </div>
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleCoercion" [checked]="true">Toggle coercion</smart-toggle-button>
+    </div>
+    <div class="option">
+        <smart-button #button id="setValue">Set value to 99</smart-button>
+    </div>
+</div>

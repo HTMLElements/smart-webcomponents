@@ -1,0 +1,49 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+smart-filter-builder {
+    width: 99vw;
+    height: 99vh;
+}
+
+#filterQueryBox {
+    position: absolute;
+    padding: 16px;
+    box-sizing: border-box;
+    right: 20px;
+    top: 2%;
+    width: 500px;
+    height: 95%;
+    border: dashed lightgray 1px;
+    color: gray;
+    font-size: 20px;
+}
+
+hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#addPosition,
+#addGroupRule,
+#addGroupButton,
+#updateGroupButton,
+#removeGroupButton {
+    width: 300px;
+}
+
+#addConditionField,
+#addConditionRule,
+#addConditionField,
+#addConditionButton,
+#updateConditionButton,
+#removeConditionButton,
+#toStringButton {
+    width: 300px;
+}
+
+#toStringButton {
+    margin-top: 50px;
+}

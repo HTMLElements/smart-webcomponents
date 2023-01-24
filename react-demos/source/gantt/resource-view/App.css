@@ -1,0 +1,31 @@
+smart-gantt-chart {
+    width: calc(100% - 300px);
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-task-color: #517eb5;
+    --smart-gantt-chart-project-color: #45af50;
+    --smart-gantt-chart-project-label-color: var(--smart-gantt-chart-task-label-color);
+    --smart-gantt-chart-project-label-color-selected: var(--smart-gantt-chart-project-label-color);
+    --smart-gantt-chart-task-label-color-selected: var(--smart-gantt-chart-task-label-color);
+}
+
+    smart-gantt-chart .smart-task-item[group] > .smart-task-label-container,
+    smart-gantt-chart .smart-tree-items-group > .smart-tree-item-label-container {
+        font-weight: bold;
+    }
+
+    smart-gantt-chart .gantt-chart-task-assignee {
+        border-radius: 50%;
+        color: white;
+        background: linear-gradient(45deg, #13547a, #80d0c7);
+        width: calc(var(--smart-gantt-chart-task-default-height) - 10px);
+        height: calc(var(--smart-gantt-chart-task-default-height) - 10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 2px 0px grey;
+        margin-right: 5px;
+    }
+
+    smart-gantt-chart .unassigned {
+        background: red;
+    }

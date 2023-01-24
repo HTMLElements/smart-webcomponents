@@ -1,0 +1,29 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#horizontalSplitter #item0 {
+    width: 500px;
+    height: 250px;
+}
+
+#horizontalSplitter #item4 {
+    width: 500px;
+    height: 250px;
+}
+
+#horizontalSplitter #item5 {
+    width: 150px;
+    height: 150px;
+}
+
+#horizontalSplitter {
+    width: 100%;
+    height: 100%;
+}
+
+#verticalSplitter {
+    --smart-splitter-item-size: 32.5%;
+}

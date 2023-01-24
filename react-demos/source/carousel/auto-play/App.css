@@ -1,0 +1,13 @@
+smart-carousel,
+smart-carousel .smart-arrow:after {
+    color: white;
+}
+
+    smart-carousel .smart-indicator {
+        border-color: white;
+    }
+@media screen and (max-width: 700px) {
+	smart-carousel {
+		width: 100%;
+	}
+}

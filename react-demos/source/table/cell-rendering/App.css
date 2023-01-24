@@ -1,0 +1,32 @@
+.smart-table {
+    height: 800px;
+}
+
+.country-container {
+    display: flex;
+    align-items: center;
+}
+
+.skill-container>img {
+    width: 24px;
+}
+
+.smart-progress-bar {
+    width: 100%;
+}
+
+.smart-progress-bar .smart-value {
+    border: none;
+}
+
+.smart-progress-bar.high .smart-value {
+    background-color: #79D13A;
+}
+
+.smart-progress-bar.mid .smart-value {
+    background-color: #F4B300;
+}
+
+.smart-progress-bar.low .smart-value {
+    background-color: #F55D69;
+}

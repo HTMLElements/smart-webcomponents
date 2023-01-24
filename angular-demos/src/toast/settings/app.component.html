@@ -1,0 +1,36 @@
+<smart-toast #toast [position]="'top-left'" [autoOpen]="true" [showCloseButton]="true" [type]="null">Toast !
+</smart-toast>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="openButton" (onClick)="openButtonClickHandler($event)">Open</smart-button>
+        <br />
+        <smart-button #button2 id="closeLastButton" (onClick)="closeLastButtonClickHandler($event)">CloseLast
+        </smart-button>
+        <br />
+        <smart-button #button3 id="closeAllButton" (onClick)="closeAllButtonClickHandler($event)">CloseAll
+        </smart-button>
+        <br />
+        <br />Position:
+        <br />
+        <smart-radio-button #radiobutton id="toastTopLeft" [groupName]="'toastPosition'" [checked]="true">
+            Top-left</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 id="toastTopRight" [groupName]="'toastPosition'">Top-right
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 id="toastBottomLeft" [groupName]="'toastPosition'">
+            Bottom-left</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton4 id="toastBottomRight" [groupName]="'toastPosition'">
+            Bottom-right</smart-radio-button>
+        <hr />Type:
+        <br />
+        <smart-drop-down-list #dropdownlist id="type"
+            [dataSource]='["info", "warning", "success", "error", "mail", "time", "null"]'></smart-drop-down-list>
+        <hr />
+        <smart-check-box #checkbox id="autoClose">Auto close</smart-check-box>
+        <br />
+        <smart-check-box #checkbox2 id="blink">Blink</smart-check-box>
+    </div>
+</div>

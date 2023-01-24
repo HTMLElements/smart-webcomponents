@@ -1,0 +1,8 @@
+#chooseLocaleContainer {
+    margin-top: 250px;
+}
+@media only screen and (max-width: 500px) {  
+	.smart-drop-down.smart-date-time-drop-down {
+		left: 70%;
+	}
+}

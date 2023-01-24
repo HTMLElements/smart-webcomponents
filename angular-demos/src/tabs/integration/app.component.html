@@ -1,0 +1,36 @@
+<smart-tabs #tabs [selectedIndex]="1">
+    <smart-tab-item [label]="'Gauge'">
+        <smart-gauge #gauge [analogDisplayType]="'fill'" [digitalDisplay]="true" [startAngle]="-30" [endAngle]="210"
+            [min]="0" [max]="100" [value]="30"></smart-gauge>
+    </smart-tab-item>
+    <smart-tab-item [label]="'ListBox'">
+        <smart-list-box #listbox id="listBox">
+            <smart-list-items-group [label]="'Swedish Cars'">
+                <smart-list-item [selected]="true" [value]="'volvo'">Volvo</smart-list-item>
+                <smart-list-item [value]="'saab'">Saab</smart-list-item>
+                <smart-list-item [value]="'scania'">Scania</smart-list-item>
+            </smart-list-items-group>
+            <smart-list-items-group [label]="'German Cars'">
+                <smart-list-item [value]="'mercedes'">Mercedes</smart-list-item>
+                <smart-list-item [value]="'vw'">VW</smart-list-item>
+                <smart-list-item [value]="'audi'">Audi</smart-list-item>
+                <smart-list-item [value]="'porsche'">Porsche</smart-list-item>
+            </smart-list-items-group>
+            <smart-list-items-group [label]="'Japanese Cars'">
+                <smart-list-item [value]="'mazda'">Mazda</smart-list-item>
+                <smart-list-item [value]="'honda'">Honda</smart-list-item>
+                <smart-list-item [value]="'infinity'">Infinity</smart-list-item>
+                <smart-list-item [value]="'mitsubishi'">Mitsubishi</smart-list-item>
+                <smart-list-item [value]="'toyota'">Toyota</smart-list-item>
+            </smart-list-items-group>
+        </smart-list-box>
+    </smart-tab-item>
+    <smart-tab-item [label]="'Tank'">
+        <smart-tank #tank id="tank" [orientation]="'vertical'" [value]="90"></smart-tank>
+    </smart-tab-item>
+    <smart-tab-item [label]="'SwitchButton'">
+        <smart-switch-button #switchbutton [checked]="true"></smart-switch-button>
+        <br />
+        <smart-switch-button></smart-switch-button>
+    </smart-tab-item>
+</smart-tabs>

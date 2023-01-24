@@ -1,0 +1,36 @@
+smart-gantt-chart {
+    width: 60%;
+    height: auto;
+    --smart-gantt-chart-timeline-cell-size: 200px;
+}
+
+@media (max-width: 700px) {
+    smart-gantt-chart {
+        width: 95%;
+        margin-left: 2%;
+    }
+}
+
+smart-gantt-chart .product-team {
+    --smart-gantt-chart-task-default-color: rgb(94, 99, 181);
+}
+
+smart-gantt-chart .marketing-team {
+    --smart-gantt-chart-task-default-color: rgb(43, 195, 190);
+}
+
+smart-gantt-chart .dev-team {
+    --smart-gantt-chart-task-default-color: rgb(242, 115, 112);
+}
+
+smart-gantt-chart .design-team {
+    --smart-gantt-chart-task-default-color: rgb(255, 197, 53);
+}
+
+smart-gantt-chart .qa-team {
+    --smart-gantt-chart-task-default-color: rgb(99, 181, 144);
+}
+
+smart-gantt-chart .release-team {
+    --smart-gantt-chart-task-default-color: rgb(188, 150, 223);
+}

@@ -1,0 +1,20 @@
+<smart-scheduler #scheduler id="scheduler" [view]="view" [views]="views" [hourStart]="hourStart" [hourEnd]="hourEnd"
+    [firstDayOfWeek]="firstDayOfWeek"></smart-scheduler>
+<div class="options">
+    <div class="option"> <b>Save State</b> Button saves the current state of the Scheduler to LocalStorage. <b>Load
+            State</b> Button
+        reloads a previously saved state. <b>Reset</b> Button will erase any cache
+        and will restore the Scheduler to it's initial state.
+        <p>Previously saved states of the element are pre-loade on page refresh.</p>
+        <p>Notice that the element must have an 'id' in order to save/load it's state.</p>
+    </div>
+    <div class="option">
+        <smart-button #button id="saveState" (onClick)="saveState()">Save State</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="loadState" (onClick)="loadState()">Load State</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="clearState" (onClick)="clearState()">Reset</smart-button>
+    </div>
+</div>

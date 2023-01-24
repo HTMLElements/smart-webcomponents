@@ -1,0 +1,30 @@
+ smart-tree {
+	 width: 300px;
+  }
+  
+@media only screen and (max-width: 700px) {
+  smart-tree {
+	 width: 100%;
+  }
+}
+
+.tree-input {
+	height: 30px;
+	width: 200px;
+	outline: none;
+}
+
+.btn {
+	width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: 12px;
+}
+
+smart-button {
+	border:none;
+    font-family: 'smart-icons';
+}

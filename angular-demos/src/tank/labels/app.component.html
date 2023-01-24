@@ -1,0 +1,24 @@
+<smart-tank #tank id="horizontalTank" [orientation]="'horizontal'" [min]="0"
+            [max]="10" [value]="5" [inverted]="true" [scalePosition]="'both'"></smart-tank>
+<br />
+<br />
+<smart-tank #tank2 id="verticalTank" [orientation]="'vertical'" [inverted]="true" [min]="-100"
+            [max]="0" [value]="-50" [scalePosition]="'both'"></smart-tank>
+<div class="options">
+    <div class="option">
+        <p>Labels</p>
+        <smart-radio-button #radiobutton [checked]="true" [groupName]="'labelsVisibility'">All</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 [groupName]="'labelsVisibility'">Endpoints</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 [groupName]="'labelsVisibility'">None</smart-radio-button>
+    </div>
+    <div class="option">
+        <p>Tick Marks</p>
+        <smart-radio-button #radiobutton4 [groupName]="'ticksVisibility'">Major</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5 [checked]="true" [groupName]="'ticksVisibility'">Minor</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6 [groupName]="'ticksVisibility'">None</smart-radio-button>
+    </div>
+</div>

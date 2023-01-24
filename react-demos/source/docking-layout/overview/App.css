@@ -1,0 +1,21 @@
+smart-docking-layout {
+    width: 100%;
+    height: 500px;
+    background-color: #EEEDF3;
+}
+
+    smart-docking-layout .smart-items-container smart-splitter-item.smart-element,
+    smart-docking-layout .smart-items-container > .smart-container > smart-splitter-item.smart-element {
+        width: 50%;
+        height: 50%;
+    }
+
+    smart-docking-layout smart-tabs-window smart-slider.smart-element,
+    smart-docking-layout smart-tabs-window smart-multiline-text-box.smart-element {
+        height: 100%;
+        width: 100%;
+    }
+
+    smart-docking-layout smart-tabs-window smart-multiline-text-box.smart-element {
+        display: block;
+    }

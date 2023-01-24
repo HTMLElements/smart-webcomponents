@@ -1,0 +1,34 @@
+<smart-window #window [opened]="true" [label]="'Window 1'">
+    <section>
+        <h3>What is Lorem Ipsum?</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type and scrambled it to
+            make a type specimen book. It has survived not only five centuries, but
+            also the leap into electronic typesetting, remaining essentially unchanged.
+            It was popularised in the 1960s with the release of Letraset sheets containing
+            Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </section>
+</smart-window>
+<div class="options">
+    <div class="caoption">Methods:</div>
+    <div class="option">
+        <smart-button #button id="open" (onClick)="onButtonClick($event)">Open/Close</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="max" (onClick)="onButton2Click($event)">Maximize/Restore</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="min" (onClick)="onButton3Click($event)">Minimize/Restore</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="pin" (onClick)="onButton4Click($event)">Pin/Unpin</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button5 id="collapse" (onClick)="onButton5Click($event)">Collapse/Expand</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button6 id="disable" (onClick)="onButton6Click($event)">Disable/Enable</smart-button>
+    </div>
+</div>

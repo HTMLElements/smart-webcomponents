@@ -1,0 +1,33 @@
+.smart-grid-layout .row div {
+   border-right: 1px solid #444;
+   border-bottom: 1px solid #444;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.smart-grid-layout .row div:first-child{
+   border-left: 1px solid #444;
+   border-bottom: 1px solid #fff;
+   background: #444;
+   color: #fff;
+}
+
+.smart-grid-layout .row:first-child div {
+  border-top: 1px solid #444;
+}
+
+.smart-grid-layout {
+	height:700px;
+	--smart-grid-layout-row-gap: 0px;
+}
+
+@media (max-width: 576px) {
+	.smart-grid-layout .row {
+		border:none;
+	}
+	
+	.smart-grid-layout .row div {
+		border: none !important;
+		border-top: 1px solid #444 !important;	
+	}
+}

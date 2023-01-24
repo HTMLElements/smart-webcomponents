@@ -249,7 +249,7 @@ export interface GridProperties {
    */
   users?: any[];
   /**
-   * Sets the grid's image upload settings for the image columns.
+   * Sets the grid's image and filter upload settings for the image and attachment columns.
    * Default value: [object Object]
    */
   uploadSettings?: GridUploadSettings;
@@ -283,6 +283,11 @@ export interface GridProperties {
    * Default value: [object Object]
    */
   summaryRow?: GridSummaryRow;
+  /**
+   * Sets the grid's state settings.
+   * Default value: [object Object]
+   */
+  stateSettings?: GridStateSettings;
   /**
    * Describes the settings for the group header.
    * Default value: [object Object]
@@ -943,10 +948,26 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getViewRows(): any;
   /**
-   * Gets a JSON object with the following fields: 'sort', 'filter', 'groups', 'paging', 'selectedCells', 'selectedrows'.
+   * Gets a JSON object with the following fields: 'sort', 'columns', 'expandedRows', 'filter', 'groups', 'paging', 'selectedCells', 'selectedrows'. The 'sort' represents an object which contains the sorted columns. Each key in that json object is the column's dataField item which has sortOrder: string and sortIndex: int properties. The sortOrder could be either 'asc' or 'desc'. Similarly, the filter object contains the filtered columns. Each key in that object is a column data field and each value has 'filters' array property with the applied filters to the column. The 'columns' property contains an array of columns with saved properties such as visible, width and freeze. The 'expandedRows' property contains the indexes of the expanded rows. The 'groups' property contains the grouped column data fields and the selectedCells and selectedRows include information about the cells or rows selection. These depend on the selection mode used in the Grid. The 'paging' object includes the sub-properties 'count', 'index' and 'size' which determine the count of pages, the current page's index and the page size.
    * @returns {any}
    */
   getState(): any;
+  /**
+   * Saves the Grid state and returns a JSON object with the following fields: 'sort', 'columns', 'expandedRows', 'filter', 'groups', 'paging', 'selectedCells', 'selectedrows'. The 'sort' represents an object which contains the sorted columns. Each key in that json object is the column's dataField item which has sortOrder: string and sortIndex: int properties. The sortOrder could be either 'asc' or 'desc'. Similarly, the filter object contains the filtered columns. Each key in that object is a column data field and each value has 'filters' array property with the applied filters to the column. The 'columns' property contains an array of columns with saved properties such as visible, width and freeze. The 'expandedRows' property contains the indexes of the expanded rows. The 'groups' property contains the grouped column data fields and the selectedCells and selectedRows include information about the cells or rows selection. These depend on the selection mode used in the Grid. The 'paging' object includes the sub-properties 'count', 'index' and 'size' which determine the count of pages, the current page's index and the page size.
+   * @param {string} name?. state name
+   * @returns {any}
+   */
+  saveState(name?: string): any;
+  /**
+   * Loads a previously saved Grid state. You can pass a state name when there is a state which was previously saved with the saveState(stateName) method call or a state object returned by the saveState or getState method calls. The state object is required to be a JSON object with the following fields: 'sort', 'columns', 'expandedRows', 'filter', 'groups', 'paging', 'selectedCells', 'selectedrows'. The 'sort' represents an object which contains the sorted columns. Each key in that json object is the column's dataField item which has sortOrder: string and sortIndex: int properties. The sortOrder could be either 'asc' or 'desc'. Similarly, the filter object contains the filtered columns. Each key in that object is a column data field and each value has 'filters' array property with the applied filters to the column. The 'columns' property contains an array of columns with saved properties such as visible, width and freeze. The 'expandedRows' property contains the indexes of the expanded rows. The 'groups' property contains the grouped column data fields and the selectedCells and selectedRows include information about the cells or rows selection. These depend on the selection mode used in the Grid. The 'paging' object includes the sub-properties 'count', 'index' and 'size' which determine the count of pages, the current page's index and the page size.
+   * @param {any} state. state name or state object
+   * @returns {any}
+   */
+  loadState(state: any): any;
+  /**
+   * Resets the Grid state.
+   */
+  resetState(): void;
   /**
    * Gets the changes from the batch edit.
    * @returns 
@@ -2864,13 +2885,18 @@ export interface GridGroupingSummaryRow {
   visible?: boolean;
 }
 
-/**Sets the grid's image upload settings for the image columns. */
+/**Sets the grid's image and filter upload settings for the image and attachment columns. */
 export interface GridUploadSettings {
   /**
-   * Sets or image upload url.
+   * Sets or file/image upload url.
    * Default value: ""
    */
   url?: string;
+  /**
+   * Sets or file/image remove url.
+   * Default value: ""
+   */
+  removeUrl?: string;
   /**
    * Sets or gets the upload field name. In the backend, you can use this name to access the images data. For example in expressJS, you can use something like that: const images = req['files']['userfile[]'];
    * Default value: "userfile[]"
@@ -3152,6 +3178,40 @@ export interface GridSummaryRow {
    * Default value: false
    */
   editing?: boolean;
+}
+
+/**Sets the grid's state settings. */
+export interface GridStateSettings {
+  /**
+   * Enables or disables auto-save of the Grid's state
+   * Default value: false
+   */
+  autoSave?: boolean;
+  /**
+   * Enables or disables save/load of the grid state.
+   * Default value: true
+   */
+  enabled?: boolean;
+  /**
+   * Sets or gets the current state.
+   * Default value: ""
+   */
+  current?: string;
+  /**
+   * Container which is auto-filled with state objects when you call the saveState method or enable the autoSave of states. Each object has a key which is the state's name and value which is a json with the state's properties.
+   * Default value: null
+   */
+  storage?: any;
+  /**
+   * Function called when the state is changed.
+   * Default value: 
+   */
+  onStateChange?: any;
+  /**
+   * Array with state options such as 'sort', 'filter', 'expandedRows', 'paging', 'selectedCells', 'selectedRows', 'group', 'columns'. This property determines which parts of the state would be saved or loaded.
+   * Default value: 
+   */
+  options?: string[];
 }
 
 /**Describes the settings for the group header. */

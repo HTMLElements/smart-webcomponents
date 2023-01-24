@@ -1,0 +1,11 @@
+<div class="demo-description">This demo showcases how to export the data of smart-table.</div>
+<smart-table #table id="table" [dataSource]="dataSource" [columns]="columns" ></smart-table>
+    <div class="options">
+        <smart-button #button (onClick)="handleClick($event, 'csv')" id="csv">Export to CSV</smart-button>
+        <smart-button #button2 (onClick)="handleClick($event, 'html')" id="html">Export to HTML</smart-button>
+        <smart-button #button3 (onClick)="handleClick($event, 'json')" id="json">Export to JSON</smart-button>
+        <smart-button #button4 (onClick)="handleClick($event, 'pdf')" id="pdf">Export to PDF</smart-button>
+        <smart-button #button5 (onClick)="handleClick($event, 'tsv')" id="tsv">Export to TSV</smart-button>
+        <smart-button #button6 (onClick)="handleClick($event, 'xlsx')" id="xlsx">Export to XLSX</smart-button>
+        <smart-button #button7 (onClick)="handleClick($event, 'xml')" id="xml">Export to XML</smart-button>
+    </div>

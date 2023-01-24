@@ -1,0 +1,65 @@
+smart-tabs {
+	width: 100%;
+	height:300px;	
+}
+
+@media only screen and (max-width: 700px) {
+	smart-tabs {
+		width: 100%;
+	}
+}
+.smart-tabs-selection-bar {
+	background: transparent;
+}
+.styleOneTabs .smart-tab-strip {
+    background-color: #3E3E3E;
+}
+
+.styleOneTabs .smart-tab-label-container {
+    color: #F2F2F2;
+}
+
+    .styleOneTabs .smart-tab-label-container.smart-tab-selected {
+        background-color: #F2F2F2;
+        color: black;
+    }
+
+    .styleOneTabs .smart-tab-label-container.smart-tab-hovered {
+        background-color: #5E5E5E;
+        color: #F2F2F2;
+    }
+
+
+#styleTwoTab {
+    border-color: #4384B7;
+}
+
+    #styleTwoTab .smart-tab-strip {
+        background-color: #4384B7;
+    }
+
+    #styleTwoTab .smart-tab-label-container {
+        border-width: 3px;
+        border-style: solid;
+        border-color: transparent transparent #4384B7 transparent;
+        color: #F2F2F2;
+    }
+
+        #styleTwoTab .smart-tab-label-container.smart-tab-selected,
+        #styleTwoTab .smart-tab-label-container.smart-tab-hovered {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        #styleTwoTab .smart-tab-label-container.smart-tab-selected {
+            border-color: #4384B7 #4384B7 #F2F2F2 #4384B7;
+            background-color: #F2F2F2;
+            color: black;
+        }
+
+        #styleTwoTab .smart-tab-label-container.smart-tab-hovered {
+            border-bottom-color: transparent;
+            background-color: #366D93;
+            color: #F2F2F2;
+        }
+

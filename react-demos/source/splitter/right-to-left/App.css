@@ -1,0 +1,27 @@
+smart-splitter {
+    width: 800px;
+    max-width: 100%;
+    height: auto;
+}
+
+smart-splitter-item > .smart-container {
+    padding: 10px;
+}
+
+smart-splitter smart-splitter-item {
+    border: lightgray solid 1px;
+    background-color: white;
+}
+
+#item0 {
+    width: 200px;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,15 @@
+<smart-tabs #tabs id="horizontalTabs1" class="demoTabs" [selectedIndex]="1" [reorder]="true" [closeButtons]="true">
+    <smart-tab-item [label]="'TAB 1'">Content 1</smart-tab-item>
+    <smart-tab-item [label]="'TAB 2'">Content 2</smart-tab-item>
+    <smart-tab-item [label]="'TAB 3'">Content 3</smart-tab-item>
+    <smart-tab-item [label]="'TAB 4'">Content 4</smart-tab-item>
+</smart-tabs>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="reorder">Position TAB 4 <br />at index 0</smart-button>
+    </div>
+    <div class="option">
+        <div #log id="log"></div>
+    </div>
+</div>

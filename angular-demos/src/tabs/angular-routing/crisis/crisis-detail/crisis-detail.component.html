@@ -1,0 +1,13 @@
+<div *ngIf="crisis">
+  <h3>"{{ editName }}"</h3>
+  <div>
+    <label>Id: </label>{{ crisis.id }}</div>
+  <div class="component-container">
+    <label>Name: </label>
+    <smart-text-box [(ngModel)]="editName" [placeholder]="'Name'" ></smart-text-box>
+  </div>
+  <p>
+    <smart-button (onClick)="save($event)">Save</smart-button>
+    <smart-button (onClick)="cancel($event)">Cancel</smart-button>
+  </p>
+</div>

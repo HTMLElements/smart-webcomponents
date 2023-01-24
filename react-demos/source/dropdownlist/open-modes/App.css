@@ -1,0 +1,8 @@
+html, body {
+	min-height:600px;
+}
+smart-drop-down-list {
+	min-height: 35px;
+	height: auto;
+	width: 300px;
+}

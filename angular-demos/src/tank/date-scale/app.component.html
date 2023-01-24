@@ -1,0 +1,28 @@
+<smart-tank #tank id="tank1" [interval]="5" [scalePosition]="'near'" [showTooltip]="true"
+            [tooltipPosition]="'far'" [mode]="'date'" [dateLabelFormatString]="'d'" [min]="'new Date(2000, 0, 1)'"
+            [max]="'new Date(2020, 0, 1)'" [value]="'new Date(2008, 10, 1)'"></smart-tank>
+<br />
+<p>Date Scale
+<p>
+    <br />
+    <br />
+    <br />
+    <smart-tank #tank2 id="tank2" [labelFormatFunction]="tank2LabelFormatFunction"
+                [scalePosition]="'near'" [showTooltip]="true" [tooltipPosition]="'far'" [mode]="'date'" [dateLabelFormatString]="'MMM d, yyyy'"
+                [min]="'new Date(2017, 0, 1)'" [max]="'new Date(2019, 0, 1)'" [value]="'new Date(2018, 0, 1)'"
+                [customInterval]="true" [customTicks]='["new Date(2017, 0, 1)", "new Date(2018, 0, 1)", "new Date(2018, 4, 17)", "new Date(2019, 0, 1)"]'></smart-tank>
+    <br />
+<p>Date Scale with Custom Interval
+<p>
+    <br />
+    <br />
+    <br />
+    <smart-tank #tank3 id="tank3" [interval]="5" [inverted]="true" [scalePosition]="'near'"
+                [showTooltip]="true" [showUnit]="true" [tooltipPosition]="'far'" [unit]="'μs'" [mode]="'date'" [dateLabelFormatString]="'uu'"
+                [min]="'new smartUtilities.DateTime(2018, 3, 19, 2, 12, 35, 133, 45)'" [max]="'new smartUtilities.DateTime(2018, 3, 19, 2, 12, 35, 133, 347)'"
+                [value]="'new smartUtilities.DateTime(2018, 3, 19, 2, 12, 35, 133, 300)'"></smart-tank>
+<p>Date Scale with Scientific precision
+<p>
+    <br />
+    <br />
+    <br />

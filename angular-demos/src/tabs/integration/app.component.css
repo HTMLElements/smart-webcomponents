@@ -1,0 +1,11 @@
+smart-tabs {
+    width: 100%;
+    height: 400px;
+}
+
+smart-gauge,
+smart-list-box,
+smart-tank {
+    width: 100%;
+    height: 100%;
+}

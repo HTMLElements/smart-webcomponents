@@ -1,0 +1,109 @@
+body {
+    background: #000;
+    color: black;
+}
+
+.button-demo {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.button-demo label {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: auto;
+}
+
+.demo-buttons-group {
+    margin-top: 20px;
+}
+
+
+/* Bootstrap buttons */
+form {
+    display: block;
+    width: 100%;
+}
+
+smart-button {
+    height: 48px;
+    --smart-button-opacity-focus: initial;
+    --smart-button-opacity-hover: initial;
+    --smart-button-opacity-active: initial;
+}
+
+
+smart-button.submit.primary {
+    color: #007bff;
+    border-color: #007bff;
+    background: transparent;
+}
+
+smart-button.submit.primary:hover {
+    color: white;
+    border-color: #007bff;
+    transition: background 0.5s;
+    background: #007bff;
+    --smart-button-opacity-focus: initial;
+    --smart-button-opacity-hover: initial;
+    --smart-button-opacity-active: initial;
+}
+
+smart-button.submit.success {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+smart-button.submit.success:hover {
+    --smart-button-opacity-focus: initial;
+    --smart-button-opacity-hover: initial;
+    --smart-button-opacity-active: initial;
+    transition: background 0.5s;
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+button {
+    position: relative;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+    animation: 0.8s linear infinite rotate;
+}
+
+.sending button {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.sending button::before {
+    transition-delay: 0.5s;
+    transition-duration: 1s;
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

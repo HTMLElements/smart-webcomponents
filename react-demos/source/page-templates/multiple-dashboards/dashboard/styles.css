@@ -1,0 +1,116 @@
+﻿:root {
+    --smart-primary: #e14eca;
+    --smart-progress-bar-border-active: transparent;
+    --smart-progress-bar-background: #e9ecef;
+    --smart-progress-bar-default-height: 10px;
+    --smart-progress-bar-default-width: calc(100% - 50px);
+}
+
+[theme="dark"] .card-title {
+    color: #ccc;
+}
+
+smart-chart {
+    width: auto;
+    height: 200px;
+    --smart-background: transparent;
+}
+
+smart-chart[theme="dark"] {
+    --smart-background: transparent;
+}
+
+.performanceTabs smart-chart {
+    height: 100%;
+}
+
+/* Performance card */
+.performance-card-with-charts {
+    width: 100%;
+}
+
+smart-tabs, smart-tabs[theme="dark"] {
+    width: 100%;
+    --smart-surface: white;
+    --smart-ui-state-color-selected: #f9234e;
+    --smart-ui-state-color-focus: #f9234e;
+    --smart-primary: #f9234e;
+    --smart-border-width: 0;
+    --smart-tab-item-text-transform: none;
+    --smart-background: transparent;
+}
+
+smart-tabs[theme="dark"] {
+    --smart-surface: rgb(46, 46, 46);
+    --smart-background: transparent;
+}
+
+/* Numbers, Followers, Users, Errors - Cards */
+.right-icon-holder {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: white;
+}
+
+smart-card.number-card .right-icon-holder {
+    background-image: linear-gradient(to bottom left,#ff8d72,#ff6491,#ff8d72);
+}
+
+smart-card.followers-card .right-icon-holder {
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+}
+
+smart-card.users-card .right-icon-holder {
+    background-image: linear-gradient(to bottom left,#00f2c3,#0098f0,#00f2c3);
+}
+
+smart-card.errors-card .right-icon-holder {
+    background-image: linear-gradient(to bottom left,#fd5d93,#ec250d,#fd5d93);
+}
+
+smart-drop-down-button.smart-element {
+    display: block;
+}
+
+smart-drop-down-button smart-button {
+    width: 100%;
+    display: block;
+}
+
+smart-grid {
+    width: 100%;
+    height: 100%;
+}
+
+#gridManagementTable img.user-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+    vertical-align: middle;
+}
+
+/*Management table*/
+#gridManagementTable .refresh-icon {
+    color: #00f2c3;
+}
+
+#gridManagementTable .close-icon {
+    color: #fd5d93
+}
+
+#shippedProds {
+    width: 35%;
+}
+
+#map {
+    width: 60%;
+}

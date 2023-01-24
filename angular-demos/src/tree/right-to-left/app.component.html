@@ -1,0 +1,63 @@
+<smart-check-box #checkbox id="showLines" [checked]="true">הצג שורות</smart-check-box>
+<smart-check-box #checkbox2 id="showRootLines" [checked]="true">הצג קווי שורש</smart-check-box>
+<br />
+<smart-tree #tree id="tree" [filterable]="true" [filterInputPlaceholder]="'סנן שאילתה ...'"
+    [filterMode]="'containsIgnoreCase'" [rightToLeft]="true" [showLines]="true" [showRootLines]="true">
+    <smart-tree-item>בית</smart-tree-item>
+    <smart-tree-items-group>פתרונות
+        <smart-tree-item>חינוך</smart-tree-item>
+        <smart-tree-item>שירותים פיננסיים</smart-tree-item>
+        <smart-tree-item>ממשלה</smart-tree-item>
+        <smart-tree-item>ייצור</smart-tree-item>
+        <smart-tree-items-group>פתרונות
+            <smart-tree-item>צילום ווידאו לצרכן</smart-tree-item>
+            <smart-tree-item>נייד</smart-tree-item>
+            <smart-tree-item>יישומי אינטרנט עשירים</smart-tree-item>
+            <smart-tree-item>תקשורת טכנית</smart-tree-item>
+            <smart-tree-item>הדרכה ולמידה אלקטרונית</smart-tree-item>
+            <smart-tree-item>ועידת רשת</smart-tree-item>
+        </smart-tree-items-group>
+        <smart-tree-item>כל הענפים והפתרונות</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>מוצרים
+        <smart-tree-item>מוצרי מחשב</smart-tree-item>
+        <smart-tree-item>מוצרים ניידים</smart-tree-item>
+        <smart-tree-item>כל המוצרים</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>תמיכה
+        <smart-tree-item>תמיכה בבית</smart-tree-item>
+        <smart-tree-item>שירות לקוחות</smart-tree-item>
+        <smart-tree-item>בסיס ידע</smart-tree-item>
+        <smart-tree-item>ספרים</smart-tree-item>
+        <smart-tree-item>הכשרה והסמכה</smart-tree-item>
+        <smart-tree-item>תוכניות תמיכה</smart-tree-item>
+        <smart-tree-item>פורומים</smart-tree-item>
+        <smart-tree-item>תיעוד</smart-tree-item>
+        <smart-tree-item>עדכונים</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>קהילות
+        <smart-tree-item>מעצבים</smart-tree-item>
+        <smart-tree-item>מפתחים</smart-tree-item>
+        <smart-tree-item>מחנכים ותלמידים</smart-tree-item>
+        <smart-tree-item>שותפים</smart-tree-item>
+        <smart-tree-items-group>לפי משאב
+            <smart-tree-item>מעבדות</smart-tree-item>
+            <smart-tree-item>טלוויזיה</smart-tree-item>
+            <smart-tree-item>פורומים</smart-tree-item>
+            <smart-tree-item>חליפין</smart-tree-item>
+            <smart-tree-item>בלוגים</smart-tree-item>
+            <smart-tree-item>התנסות בעיצוב</smart-tree-item>
+        </smart-tree-items-group>
+    </smart-tree-items-group>
+    <smart-tree-items-group>החברה
+        <smart-tree-item>עלינו</smart-tree-item>
+        <smart-tree-item>ללחוץ</smart-tree-item>
+        <smart-tree-item>קשרי משקיעים</smart-tree-item>
+        <smart-tree-item>ענייני חברה</smart-tree-item>
+        <smart-tree-item>קריירה</smart-tree-item>
+        <smart-tree-item>חלון ראווה</smart-tree-item>
+        <smart-tree-item>אירועים</smart-tree-item>
+        <smart-tree-item>תיצור איתנו קשר</smart-tree-item>
+        <smart-tree-item>להיות שותף</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>

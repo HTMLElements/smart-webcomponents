@@ -1,0 +1,41 @@
+smart-grid-row {
+	height: 40px;
+	font-size: 16px;
+}
+
+smart-grid-column {
+	font-size: 14px;
+}
+
+smart-grid-column .smart-icon {
+	font-family: 'FontAwesome' !important;
+	font-size: 16px;
+}
+
+smart-grid-cell smart-button {
+	margin-left: 7px;
+	width: 28px;
+	height: 28px;
+	color: #fff;
+	border-radius: 10px;
+	border: none;
+	margin-top: -1px;
+	font-family: 'FontAwesome' !important;	
+}
+smart-grid-cell smart-button:last-child {
+	margin-right: 7px;
+	margin-left: 2px;
+}
+
+smart-grid-cell smart-button .smart-button {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding: 0px;
+	display: flex;
+	justify-content: center;
+}
+@media only screen and (max-width: 700px) {
+	smart-grid {
+		width: 100%;
+	}
+}

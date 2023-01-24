@@ -1,0 +1,22 @@
+code > span {
+    text-decoration: dotted underline;
+    cursor: help;
+}
+
+#alternative {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+#fp, #ft, #pp, #pt, #custom {
+    margin-left: 25px;
+    font-family: Consolas;
+    background-color: black;
+    color: white;
+}
+
+smart-button {
+    width: auto;
+    height: auto;
+    margin-right: 10px;
+}

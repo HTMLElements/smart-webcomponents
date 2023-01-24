@@ -1,0 +1,35 @@
+smart-query-builder,
+#log {
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#log {
+    max-width: 50%;
+}
+
+#linqValue {
+    top: 8px;
+    white-space: pre;
+    border: 1px dashed;
+    padding: 10px;
+    overflow: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.custom-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+#linqSelector {
+    margin: 20px 0 0 20px
+}

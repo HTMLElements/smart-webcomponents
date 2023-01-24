@@ -1,0 +1,142 @@
+.smart-window #article {
+	overflow: auto;
+}
+
+.smart-multiline-prompt-window.smart-window .smart-content-container > .smart-content {
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+.smart-dialog-window.smart-window .smart-content-container > .smart-content {
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.smart-dialog-window.smart-window .smart-dialog-icon,
+.smart-dialog-window.smart-window .smart-icon-dialog-icon {
+    position: relative;
+    font-family: "smart-icons";
+    /*margin-right: 10%;*/
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-right: 5px;
+}
+
+    .smart-dialog-window.smart-window .smart-dialog-icon:empty {
+        margin: initial;
+    }
+
+#controlTable {
+    border: 1px solid black;
+    padding: 20px;
+    width: 450px;
+}
+
+    #controlTable table {
+        width: 100%;
+        height: 100%;
+    }
+
+    #controlTable smart-drop-down-list {
+        width: 120px;
+    }
+
+    #controlTable table smart-button {
+        height: 30px;
+        width: 100%;
+    }
+
+    #controlTable > div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+        #controlTable > div:last-of-type {
+            justify-content: space-between;
+        }
+
+            #controlTable > div:last-of-type smart-button {
+                height: 30px;
+                width: 150px;
+            }
+
+
+    #controlTable smart-check-box {
+        margin-left: 10px;
+    }
+
+    #controlTable > div {
+        margin-top: 20px;
+    }
+
+.smart-dialog-window.smart-window.smart-theme-warning .glyphicon {
+    color: #ffd800;
+}
+
+.smart-dialog-window.smart-window.smart-theme-error .glyphicon {
+    color: #ff0000;
+}
+
+.smart-dialog-window.smart-window.smart-theme-information .glyphicon {
+    color: #0094ff;
+}
+
+.smart-alert-window.smart-window,
+.smart-prompt-window.smart-window {
+    height: 160px;
+}
+
+.smart-alert-window.smart-window .smart-content-container > .smart-content {
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;    
+}
+
+.smart-progress-window.smart-window {
+    height: 150px;
+}
+
+.smart-multiline-prompt-window.smart-window {
+    height: 250px;
+}
+
+.smart-multiline-prompt-window.smart-window smart-multiline-text-box {
+    height: 100%;
+}
+
+.smart-wait-window.smart-window {
+    height: 75px;
+}
+
+.smart-wait-window.smart-window smart-progress-bar {
+    height: 100%;
+}
+
+.smart-window button,
+.smart-dialog-window.smart-window .smart-button.material,
+.smart-progress-window.smart-window .smart-button.material,
+.smart-alert-window.smart-window .smart-button.material,
+.smart-prompt-window.smart-window .smart-button.material,
+.smart-multiline-prompt-window.smart-window .smart-button.material {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.smart-multiline-prompt-window.smart-window.material smart-multiline-text-box {
+    width: 100%;
+}
+
+#root>div {
+	min-height: inherit;
+}

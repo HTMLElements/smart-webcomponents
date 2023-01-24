@@ -1,0 +1,21 @@
+<smart-slider #slider id="slider1" [orientation]="'horizontal'" [min]="100"
+              [max]="10000" [value]="1000" [coerce]="true" [customInterval]="true" [customTicks]='[200, 1000, 8000]'></smart-slider>
+<p>Slider with floating point scale:</p>
+<br />
+<smart-slider #slider2 id="slider2" [orientation]="'horizontal'" [scaleType]="'integer'"
+              [wordLength]="'int64'" [min]="-9223372036854775808" [max]="9223372036854775807"
+              [value]="1000" [coerce]="true" [customInterval]="true" [customTicks]='[-9e18, 0, 1e18, 5e18]'></smart-slider>
+<p>Slider with integer scale:</p>
+<br />
+<smart-slider #slider3 id="slider3" [orientation]="'horizontal'" [min]="100"
+              [max]="10000" [logarithmicScale]="true" [value]="1000" [coerce]="true" [customInterval]="true" [customTicks]='[100, 200, 1000, 8000, 10000]'></smart-slider>
+<p>Slider with logarithmic scale:</p>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #checkbox id="toggleCustomInterval" [checked]="true">Custom interval</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox2 id="toggleCoerce" [checked]="true">Coerce</smart-check-box>
+    </div>
+</div>

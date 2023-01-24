@@ -1,0 +1,131 @@
+<section>
+    <div>
+        <h2>Scrollbars let users to select values by moving the scrollbar thumb.</h2>
+        <div class="module">
+            <p>Scrollbars are ideal components for adjusting settings that reflect intensity
+                levels, such as volume, brightness, or color saturation.</p>
+        </div>
+    </div>
+</section>
+<section id="continuousSliders">
+    <h2>Continuous scrollbar</h2>
+    <div class="module">
+        <p>Use continuous scrollbars for subjective settings that do not require
+            a specific value for the user to make meaningful adjustments.</p>
+    </div>
+    <div class="module continuousSliderLight">
+        <table>
+            <tr>
+                <td>
+                    <p>Normal</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <smart-scroll-bar #scrollbar [rightToLeft]="true"></smart-scroll-bar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <smart-scroll-bar #scrollbar2 [rightToLeft]="true" [max]="100" [value]="50"></smart-scroll-bar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <smart-scroll-bar #scrollbar3 [rightToLeft]="true" [max]="100" [value]="100"></smart-scroll-bar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Disabled</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <smart-scroll-bar #scrollbar4 [rightToLeft]="true" [disabled]="true" [max]="100"></smart-scroll-bar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <smart-scroll-bar #scrollbar5 [rightToLeft]="true" [disabled]="true" [max]="100" [value]="50">
+                    </smart-scroll-bar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <smart-scroll-bar #scrollbar6 [rightToLeft]="true" [disabled]="true" [max]="100" [value]="100">
+                    </smart-scroll-bar>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="verticalSliders">
+    <h2>Orientation</h2>
+    <div class="module">
+        <p>smartScrollBar can be horizontal or vertical depending on the orientation
+            property.</p>
+    </div>
+    <div class="module">
+        <div>
+            <smart-scroll-bar #scrollbar7 [rightToLeft]="true" [max]="100" [value]="50"></smart-scroll-bar>
+            <br />
+            <br />
+            <smart-scroll-bar #scrollbar8 [rightToLeft]="true" [orientation]="'vertical'" [max]="100" [value]="75">
+            </smart-scroll-bar>
+        </div>
+        <br />
+        <p>Vertical scrollbars</p>
+    </div>
+</section>
+<section id="demoSliders">
+    <h2>Demo</h2>
+    <div class="module">
+        <p>ScrollBars are controls that are used for adjusting values precisely.</p>
+    </div>
+    <div class="module media-controls">
+        <div>
+            <h2>Volumes</h2>
+            <div>
+                <h3>Media volume</h3>
+                <div id="mediaControl" class="controls"> <i class="material-icons">&#xE04D;</i>
+                    <smart-scroll-bar #scrollbar9 [rightToLeft]="true" id="mediaSlider" [max]="100" [value]="25">
+                    </smart-scroll-bar>
+                </div>
+            </div>
+            <div>
+                <h3>Alarm volume</h3>
+                <div id="alarmControl" class="controls"> <i class="material-icons">&#xE855;</i>
+                    <smart-scroll-bar #scrollbar10 [rightToLeft]="true" id="alarmSlider" [max]="100" [value]="50">
+                    </smart-scroll-bar>
+                </div>
+            </div>
+            <div>
+                <h3>Ring volume</h3>
+                <div id="ringControl" class="controls"> <i class="material-icons">&#xE7F4;</i>
+                    <smart-scroll-bar #scrollbar11 [rightToLeft]="true" id="volumeSlider" [max]="100" [value]="75">
+                    </smart-scroll-bar>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module power-controls">
+        <div>
+            <h2>Battery Saver Mode</h2>
+            <div>
+                <h3>Low battery alert on <b #lowBatteryAlert id="lowBatteryAlert">15</b> %</h3>
+                <div id="mediaControl" class="controls"> <i class="material-icons">&#xE8B2;</i>
+                    <smart-scroll-bar #scrollbar12 [rightToLeft]="true" id="lowBatterySlider" [max]="100" [value]="15">
+                    </smart-scroll-bar>
+                </div>
+            </div>
+            <div>
+                <h3>Power saver mode active on <b #powerSaver id="powerSaver">50</b>%</h3>
+                <div id="alarmControl" class="controls"> <i class="material-icons">&#xE19C;</i>
+                    <smart-scroll-bar #scrollbar13 [rightToLeft]="true" id="powerSaverSlider" [max]="100" [value]="50">
+                    </smart-scroll-bar>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

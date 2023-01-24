@@ -1,0 +1,12 @@
+body {
+	height: 1000px;
+}
+
+smart-grid {
+
+}
+@media only screen and (max-width: 700px) {
+	smart-grid {
+		width: 100%;
+	}
+}

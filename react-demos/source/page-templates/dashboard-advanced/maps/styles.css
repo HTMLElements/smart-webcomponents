@@ -1,0 +1,5 @@
+﻿#gmap {
+    height: 87%; /* The height is 400 pixels */
+    width: 97%; /* The width is the width of the web page */
+    position: absolute;
+}

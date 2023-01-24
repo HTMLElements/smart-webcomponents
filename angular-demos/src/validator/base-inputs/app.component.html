@@ -1,0 +1,45 @@
+<div class="demo-container">
+    <form action="./">
+        <label>Register</label>
+        <br />
+        <br />
+        <div class="input-holder">
+            <input placeholder="Username" type="text" id="userInput" class="smart-input" />
+            <br />
+            <br />
+            <input placeholder="Password, Try: 123" type="password" id="accessPassword" class="smart-input" />
+            <br />
+            <br />
+            <input placeholder="Age" type="text" id="ageInput" class="smart-input" />
+            <br />
+            <br />
+            <input placeholder="Even number" type="text" id="evenInput" class="smart-input" />
+            <br />
+            <br />
+            <input placeholder="1 + 1 = ?" type="text" id="calcInput" class="smart-input" />
+            <br />
+            <br />
+            <input type="checkbox" id="terms" />
+            <label for="terms">Terms!</label>
+            <br />
+            <br />
+            <label>Choose gender:</label>
+            <br />
+            <input type="radio" name="genderRadioGroup" id="maleRadio" value="male" class="genderRadio" #maleRadio>
+            <label for="maleRadio">Male</label>
+            <br />
+            <input type="radio" name="genderRadioGroup" id="femaleRadio" value="female" class="genderRadio"
+                #femaleRadio>
+            <label for="femaleRadio">Female</label>
+            <br />
+            <input type="radio" name="genderRadioGroup" id="alienRadio" value="alien" class="genderRadio" #alienRadio>
+            <label for="alienRadio">Alien</label>
+            <br />
+            <br />
+            <input type="button" value="Send" id="register" class="button-input smart-button"
+                (click)="registerOnClick()" />
+            <input type="button" value="Reset" id="reset" class="button-input smart-button" (click)="resetOnClick()" />
+        </div>
+    </form>
+    <div id="validationsummary"></div>
+</div>

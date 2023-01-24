@@ -1,0 +1,28 @@
+<div id="mainContainer">
+    <div id="filterContainer">
+        <div>
+            <div id="label">Users</div>
+            <div id="numberOfAppliedFiltersContainer">
+                <div #numberofappliedfilters id="numberOfAppliedFilters" class="smart-visibility-hidden"></div>
+            </div>
+            <div>
+                <smart-button #button id="filterIcon" (onClick)="handleFilterIconClick($event)"><span class="material-icons">filter_list</span>
+                </smart-button>
+            </div>
+        </div>
+        <div #filterowscontainer id="filterRowsContainer"></div>
+    </div>
+    <smart-table #table id="table" [dataSource]="dataSource" [paging]="paging" [sortMode]="sortMode"
+        [columns]="columns"></smart-table>
+</div>
+<smart-menu #menu id="filterMenu" [checkboxes]="true" [checkable]="true" [checkMode]="'checkbox, none'"
+    [mode]="'dropDown'" (onItemCheckChange)="handleItemCheckChange($event)">
+    <smart-menu-item [value]="'name'"><span class="material-icons">filter_alt</span>Name</smart-menu-item>
+    <smart-menu-item [value]="'email'"><span class="material-icons">filter_alt</span>Email</smart-menu-item>
+    <smart-menu-item [separator]="true" [value]="'permission'"><span class="material-icons">filter_alt</span>Permission
+    </smart-menu-item>
+    <smart-menu-item (onClick)="handleClearFilters($event)" id="clearFilters" [value]="'clearFilters'" label="clearFiltersTemplate"></smart-menu-item>
+</smart-menu>
+<smart-menu #menu2 id="removeMenu" [mode]="'dropDown'" (onItemClick)="handleItemClick($event)">
+    <smart-menu-item>Remove access</smart-menu-item>
+</smart-menu>

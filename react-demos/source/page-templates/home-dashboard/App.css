@@ -1,0 +1,250 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#dashboard {
+    width: 100%;
+    height: 100%;
+    background-color: #5D727B;
+}
+
+.dashboard-header {
+    background-color: #5D727B;
+    height: 60px;
+    padding: 10px;
+}
+
+.smart-logo {
+    width: 165px;
+    margin-top: 5px;
+}
+
+#expandBtn, #collapseBtn {
+    background-color: #5D727B;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+}
+
+#collapseBtn {
+    display: none;
+}
+
+#dashboard[expanded] #collapseBtn {
+    display: block;
+    float: right;    
+}
+
+#dashboard[expanded] #expandBtn {
+    display: none;
+}
+
+.dashboard-menu-container smart-button.flat[focus]{
+    border: none;
+    background-color: #435963;
+    color: #fff;
+}
+
+#expandBtn .smart-button {
+    padding-left: 0;
+}
+
+#leftPanel .smart-content {
+    overflow: hidden;
+}
+
+smart-button.flat {
+    display: flex;
+    color: #fff;
+    text-transform: none;
+} 
+
+smart-button.flat .smart-button {
+    text-align: left;
+}
+
+smart-button.flat .smart-button {
+    display: flex;
+    align-items: center;
+}
+
+smart-button.flat .smart-button .material-icons {
+    margin-right: 15px;
+}
+
+#rightPanel {
+    background-color: #39474D;
+}
+
+smart-card .icon-holder {    
+    color: #fff;
+    border-radius: 5px;
+    padding: 30px 20px 15px 20px;
+}
+
+smart-card .card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+smart-card .value {
+    align-self: flex-end;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.revenue .icon-holder {
+    background-color: #69D5C8;
+}
+.revenue .value{
+    color: #69D5C8;
+}
+.opportunities .icon-holder {
+    background-color: #F9777F;
+}
+.opportunities .value{
+    color: #F9777F;
+}
+.balance .icon-holder {
+    background-color: #FF6D41;
+}
+.balance .value{
+    color: #FF6D41;
+}
+.win-rate .icon-holder {
+    background-color: #489CC8;
+}
+.win-rate .value{
+    color: #489CC8;
+}
+
+smart-card .material-icons {
+    font-size: 30px;
+}
+
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#cards-container > div {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 20px;
+    margin-bottom: 0;
+}
+
+smart-card {
+    width: 100%;
+    height: 100px;  
+    overflow: hidden;
+    min-width: 225px; 
+}
+
+smart-card .smart-container {
+    background-color: #5D727B;
+    padding: 20px;
+}
+
+smart-card .titles {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+smart-card .card-title {    
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+smart-card .card-subtitle {  
+    color: #AAB5B9;
+    text-align: end;
+}
+
+#charts-container {
+    display: flex;
+}
+
+#charts-container smart-chart {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 20px;
+    margin-bottom: 0;
+}
+
+smart-chart {
+    height: 300px;
+}
+
+
+.smart-chart-title-text {
+    fill: #fff;
+}
+
+smart-chart .smart-chart-axis-text {
+    fill: #AAB5B9;
+}
+
+.smart-element  { /* .smart-chart*/
+    background-color: #5D727B;
+}
+
+#grids-container {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#grids-container > div {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 20px;
+    margin-bottom: 0;
+    background-color: #5D727B;
+    padding: 10px;
+    height: fit-content;
+}
+
+#grids-container h3 {
+    color: #fff;
+}
+
+#grids-container smart-grid {
+    width: 100%;
+    height: auto;
+}
+
+smart-grid-column {
+    background-color: #38454B;
+    color: #88979B;
+}
+
+smart-grid-row[alternation-index="0"] smart-grid-cell:not([selected]):not([header]) .smart-label {
+    background-color: #5D727B;
+    color: #fff;
+}
+
+smart-grid-row[alternation-index="1"] smart-grid-cell:not([selected]):not([header]) .smart-label {
+    background-color: #586D75;
+    color: #fff;
+}
+
+smart-grid {
+    --smart-border: #4C5F66; 
+    --smart-ui-state-hover: #38454B;
+    --smart-ui-state-color-hover: #88979B;
+    --smart-ui-state-selected: #005c99;
+    --smart-ui-state-color-selected: #fff;
+}
+
+smart-grid-row[selected] smart-grid-cell[selected]:not([selected="indeterminate"]):not([header]):not(.smart-grid-column-border)::after {
+    background: var(--smart-ui-state-selected);
+}
+
+smart-grid-cell[data-field="employee"] .align-left {
+    padding-left: 0;
+}

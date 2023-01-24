@@ -1,0 +1,1083 @@
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#root>div {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background-color: #fafafa;
+    font-weight: 100;
+}
+
+smart-menu {
+    margin-right: 10px;
+    --smart-menu-default-width: 100%;
+    --smart-surface: transparent;
+    --smart-surface-color: white;
+    --smart-border: transparent;
+    --smart-background: #0067b8;
+    --smart-border-width: 0;
+    --smart-elevation-4: none;
+    /* box-shadow.. */
+}
+
+.smart-menu .smart-hamburger-icon-line {
+    background: white;
+}
+
+smart-menu-item[hover], smart-menu-items-group[hover] {
+    --smart-ui-state-hover: transparent;
+    --smart-ui-state-border-hover: white;
+    --smart-ui-state-color-hover: #ccc;
+}
+
+smart-menu-item.active-item {
+    color: #ccc;
+    border-bottom: 2px solid #ccc;
+}
+
+.smart-menu .smart-menu-main-container {
+    direction: rtl;
+}
+
+div.smart-menu-minimized-items-container {
+    width: 50vw;
+    color: white;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+smart-menu .smart-header {
+    --smart-surface-color: white;
+    color: white;
+}
+
+smart-carousel {
+    --smart-carousel-default-width: 100%;
+    --smart-carousel-default-height: 500px;
+}
+
+smart-tabs {
+    --smart-tabs-default-width: 100%;
+    --smart-tabs-default-height: 950px;
+}
+
+.container {
+    max-width: 100%;
+}
+
+/* Header */
+
+header {
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    width: 100%;
+    height: 38px;
+    padding: 24px;
+    font-weight: bold;
+    background: #0067b8;
+}
+
+.header-container {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+header smart-button {
+    font-weight: bold;
+    text-transform: none;
+    --smart-button-outlined-color: white;
+    --smart-button-outlined-border: transparent;
+}
+
+header smart-button[focus] {
+    --smart-ui-state-focus: transparent;
+}
+
+header .header-link {
+    text-decoration: none;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Header ^ */
+
+/* Buttons */
+
+smart-button {
+    width: auto;
+    height: auto;
+}
+
+.btn-success.outlined {
+    --smart-button-outlined-color: white;
+    --smart-button-outlined-border: white;
+}
+
+.btn-success {
+    background: top right/210% 210% #00f2c3;
+    background-image: linear-gradient(to bottom left, #0067b8, #0098f0, #0067b8);
+    -webkit-transition: all .15s ease;
+    -moz-transition: all .15s ease;
+    -o-transition: all .15s ease;
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-right {
+    float: right;
+}
+
+/* Buttons ^ */
+
+/* Main container */
+
+section.main-container {
+    height: 75vh;
+    min-height: 450px;
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./images/desk-3139127_1920.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.main-container-holder {
+    max-width: 450px;
+    margin: 0 auto;
+    padding-top: 200px;
+}
+
+section.main-container smart-button {
+    max-width: 180px;
+    width: 90%;
+    height: 50px;
+    border-radius: 30px;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}
+
+section.main-container .main-text {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+section.main-container .main-description {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #ccc;
+}
+
+/* Main container ^ */
+
+/* Pricing */
+
+.pricing {
+    padding: 50px;
+    text-align: center;
+}
+
+.blog .row>div, .pricing .row>div {
+    padding: 0;
+}
+
+.pricing .title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.pricing .description {
+    margin-bottom: 40px;
+}
+
+.pricing .container {
+    width: 65%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.pricing smart-card {
+    width: 100%;
+    position: relative;
+}
+
+.pricing .popular::after {
+    content: 'star_border';
+    font-family: 'Material Icons';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 26px;
+}
+
+.pricing smart-card .thumb-section {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.pricing smart-card .thumb-section h2 {
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 33px;
+}
+
+.pricing smart-card .text-on-front {
+    padding-top: 30px;
+}
+
+.pricing smart-card .text-on-back {
+    font-size: 121px;
+    margin-top: -96px;
+    margin-bottom: 10px;
+}
+
+.pricing smart-button.get-started, .pricing smart-button.get-started:hover, .pricing smart-button.get-started:active, .pricing smart-button.get-started:focus {
+    border-radius: 30px;
+    height: 40px;
+    width: auto;
+    --smart-primary-color: white;
+    border: none;
+    outline: none;
+}
+
+#pro .text-on-back {
+    color: rgba(225, 78, 202, .1);
+}
+
+#pro smart-button.get-started {
+    background: top right/210% 210% #e14eca;
+    background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
+}
+
+#basic smart-button.get-started {
+    background-color: #0098f0;
+    background-image: linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3);
+}
+
+#mid smart-button.get-started {
+    background-color: #ff6491;
+    background-image: linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
+}
+
+#trial smart-button.get-started {
+    background-color: #ec250d;
+    background-image: linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93);
+}
+
+#basic .text-on-back {
+    color: rgba(0, 242, 195, .1);
+}
+
+#mid .text-on-back {
+    color: rgba(255, 141, 114, .1);
+}
+
+#trial .text-on-back {
+    color: rgba(253, 93, 147, .1);
+}
+
+#pro .thumb-section {
+    background-position: -497px -333px;
+}
+
+#basic .thumb-section {
+    background-position: -294px -683px;
+}
+
+#mid .thumb-section {
+    background-position: -523px -657px;
+}
+
+#trial .thumb-section {
+    background-position: -142px -333px;
+}
+
+#pro .thumb-section, #basic .thumb-section, #mid .thumb-section, #trial .thumb-section {
+    background-repeat: no-repeat;
+    background-image: url(./images/line-1174799_960_720.jpg);
+    background-size: 1000px 1000px;
+}
+
+.pricing smart-card.active {
+    background: #27293d;
+}
+
+.pricing smart-card.active div, .pricing smart-card.active h3 {
+    color: white;
+}
+
+.pricing smart-card h2 {
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+}
+
+.pricing smart-card .subheadline {
+    font-family: cursive;
+    font-size: 16px;
+    opacity: 0.7;
+    margin: 0px;
+}
+
+.pricing smart-card h3 {
+    font-weight: 100;
+    font-size: 48px;
+    margin: 0px;
+}
+
+.pricing smart-card .content {
+    margin: 20px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.pricing smart-card .content sub {
+    display: block;
+}
+
+.pricing smart-card smart-button {
+    margin-top: 20px;
+}
+
+/* Pricing ^ */
+
+/* Portfolio */
+
+section.portfolio {
+    padding-top: 60px;
+    background: white;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+section.portfolio smart-tabs {
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    --smart-tabs-default-width: 70%;
+    --smart-ui-state-selected: transparent;
+    --smart-ui-state-focus: transparent;
+    --smart-background: #fafafa;
+}
+
+section.portfolio .title {
+    font-size: 40px;
+    margin-bottom: 10px
+}
+
+section.portfolio .description {
+    width: 30%;
+    margin: 0 auto;
+    font-size: 17px;
+    margin-bottom: 50px
+}
+
+section.portfolio smart-tabs smart-card.portfolio-card {
+    width: 100%;
+    background: white;
+}
+
+section.portfolio smart-tabs smart-card.portfolio-card img {
+    width: 100%;
+}
+
+section.portfolio smart-tabs smart-card.portfolio-card .card-description {
+    font-size: 15px;
+    padding-bottom: 25px;
+}
+
+.smart-tabs .smart-tabs-content-section {
+    --smart-border-width: 0;
+}
+
+smart-tabs smart-tab-item:not(.smart-visibility-hidden) {
+    position: relative;
+}
+
+.smart-tabs .smart-header {
+    --smart-surface: transparent;
+    --smart-border-width: 0;
+}
+
+/* Portfolio ^ */
+
+/* Subscription */
+
+.subscription {
+    display: grid;
+    grid-template-columns: 42% 16% 42%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.subscription smart-input {
+    --smart-text-box-default-height: 38px;
+    --smart-text-box-default-width: 100%;
+    --smart-background: #fafafa;
+    max-width: 250px;
+}
+
+.subscription smart-button {
+    height: 36px;
+}
+
+.subscription .subscription-text .title {
+    font-size: 37px;
+    margin-bottom: 20px;
+}
+
+.subscription .subscription-text {
+    padding-left: 20px;
+    justify-self: end;
+}
+
+.subscription .subscription-input {
+    --smart-text-box-default-width: 180px;
+    align-self: center;
+}
+
+.subscription .subscription-input smart-button {
+    border: none;
+}
+
+/* Subscription ^ */
+
+/* Testimonial */
+
+.testimonials {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.testimonials smart-carousel {
+    --smart-background: white;
+}
+
+.testimonials .title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.testimonials .description {
+    margin-bottom: 40px;
+}
+
+smart-carousel[display-mode="3d"] .smart-carousel-item {
+    border: none !important;
+    /* no variable */
+}
+
+section.testimonials smart-card.testimonial-card {
+    width: 300px;
+}
+
+section.testimonials smart-card.testimonial-card img {
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+}
+
+section.testimonials smart-card.testimonial-card .card-description {
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section.testimonials smart-card.testimonial-card .card-name {
+    border-top: 1px solid #ccc;
+    font-size: 17px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+section.testimonials smart-card.testimonial-card .card-position {
+    font-size: 14px;
+    padding-bottom: 15px;
+    color: #888;
+}
+
+/* Testimonial ^ */
+
+/* Brands */
+
+.brands .smart-carousel {
+    --smart-carousel-default-height: 300px;
+    --smart-background: #fafafa;
+}
+
+.brands .smart-carousel-item {
+    --smart-carousel-3d-mode-slide-width: 100px;
+    --smart-carousel-3d-mode-slide-height: 100px;
+}
+
+/* Brands ^ */
+
+/* Blogs */
+
+section.blog {
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+section.blog .section-title {
+    text-align: center;
+    font-size: 40px;
+}
+
+section.blog .section-description {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+section.blog smart-card {
+    width: 100%;
+}
+
+section.blog .blog-image {
+    width: 100%;
+}
+
+section.blog smart-card .card-content {
+    padding: 10px;
+    padding-top: 0;
+}
+
+section.blog .blog-link-footer {
+    text-decoration: none;
+    color: #0067b8;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+span.date i, span.comments i {
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+span.comments {
+    margin-left: 10px;
+}
+
+section.blog .card-description {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    color: black;
+}
+
+/* Blogs ^ */
+
+/* Get in touch */
+
+.get-in-touch {
+    width: 60%;
+    margin: 0 auto;
+    padding: 40px;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+.get-in-touch .title {
+    font-size: 40px;
+    text-align: center;
+}
+
+.get-in-touch .description {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    color: #888;
+    text-align: center;
+}
+
+.get-in-touch .container {
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: 50% 50%;
+}
+
+.get-in-touch .left-container .subtitle {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.get-in-touch .left-container .subdescription {
+    padding-right: 20px;
+}
+
+.get-in-touch .left-container .links {
+    color: #555;
+    margin-top: 30px;
+}
+
+.get-in-touch .left-container .links .link {
+    margin-bottom: 10px;
+}
+
+.get-in-touch .left-container .links i {
+    vertical-align: sub;
+    font-size: 18px;
+}
+
+.get-in-touch .right-container smart-text-box {
+    margin-bottom: 20px;
+    display: block;
+    --smart-text-box-default-width: 100%;
+    --smart-editor-height: 40px;
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+}
+
+.get-in-touch smart-button {
+    border-radius: 20px;
+    padding: 3px;
+    color: white;
+}
+
+/* Get in touch ^ */
+
+.footer {
+    margin: 0 auto;
+    font-size: 15px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    padding-left: 17%;
+    padding-right: 17%;
+}
+
+.footer .column-title {
+    font-weight: bold;
+}
+
+.footer a.footer-link {
+    color: black;
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    -webkit-transition: color .1s ease-out;
+    -moz-transition: color .1s ease-out;
+    -o-transition: color .1s ease-out;
+    transition: color .1s ease-out;
+}
+
+.footer a.footer-link:hover {
+    color: #0067b8;
+}
+
+.footer .footer-info .footer-text {
+    cursor: pointer;
+    color: black;
+    margin-top: 30px;
+    -webkit-transition: color .1s ease-out;
+    -moz-transition: color .1s ease-out;
+    -o-transition: color .1s ease-out;
+    transition: color .1s ease-out;
+}
+
+.footer .footer-info .footer-text:hover {
+    color: #0067b8;
+}
+
+/* Media */
+
+@media only screen and (max-width: 1000px) {
+    .header-container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header-container {
+        width: 90%;
+    }
+    .pricing .container {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .pricing smart-card {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .header-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .menu-mobile {
+        display: block;
+    }
+    .header-container {
+        width: 100%;
+    }
+    .get-in-touch .container {
+        grid-template-columns: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .pricing .container {
+        width: 100%;
+    }
+    .subscription {
+        grid-template-columns: none;
+    }
+    .subscription>div {
+        margin: 0 auto;
+    }
+    .subscription>div:last-child {
+        margin-top: 20px;
+    }
+    section.services .description {
+        width: 90% !important;
+        /* with */
+    }
+    section.portfolio .description {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    section.main-container smart-button {
+        width: 130px;
+    }
+}
+
+/*  End of common.js */
+
+:root {
+    --smart-primary: #41B883;
+}
+
+header {
+    background: #27293D;
+}
+
+body {
+    background: #1E1E2B;
+    color: white;
+    --smart-background: #27293D;
+    --smart-border: #27293D;
+    --smart-background-color: whtie;
+    --smart-ui-state-border-hover: #41B883;
+    --smart-ui-state-border-active: #41B883;
+    --smart-ui-state-border-focus: #41B883;
+    --smart-outline: #41B883;
+}
+
+smart-menu {
+    --smart-background: #27293D;
+    --smart-border: #27293D;
+    --smart-background-color: whtie;
+}
+
+smart-menu-item {
+    font-weight: 400 !important;
+}
+
+smart-menu-item[hover] {
+    --smart-ui-state-color-hover: #41B883;
+}
+
+smart-menu-item.active-item {
+    border-color: #41B883;
+    color: #41B883;
+}
+
+.subscription-input smart-input {
+    border-color: transparent;
+}
+
+.btn-success.outlined[hover] {
+    background: transparent;
+    color: #41B883 !important;
+    border-color: #41B883;
+}
+
+.testimonials smart-carousel, .brands .smart-carousel {
+    --smart-background: #27293D;
+    --smart-background-color: white;
+}
+
+section.blog .blog-link-footer {
+    color: white;
+}
+
+section.blog .card-description {
+    color: #fafafa;
+}
+
+/* Service container */
+
+section.service-container {
+    background-color: #1E1E2B;
+}
+
+.footer .footer-info .footer-text:hover, .get-in-touch smart-button[hover], .get-in-touch smart-button[focus] {
+    color: black;
+}
+
+section.service-second-container {
+    padding-bottom: 50px;
+    background: #1E1E2B;
+}
+
+.btn-success {
+    background: #41B883;
+    border-color: #41B883;
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+section.service-container, section.service-second-container {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+section.service-container>div, section.service-second-container>div {
+    text-align: center;
+}
+
+.service-container>div:last-child {
+    text-align: left;
+}
+
+section.service-second-container>div:first-child {
+    text-align: right;
+}
+
+section.service-container .subtitle, section.service-second-container .subtitle {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+section.service-container .title, section.service-second-container .title {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+section.service-container .description, section.service-second-container .description {
+    margin-top: 20px;
+    color: #757575;
+}
+
+section.service-container>div, section.service-second-container>div {
+    align-self: center;
+}
+
+section.service-container img, section.service-second-container img {
+    width: 80%;
+}
+
+/* Service container ^ */
+
+/* Services */
+
+section.services {
+    padding-top: 60px;
+    text-align: center;
+    background-color: #1E1E2B;
+}
+
+section.services .title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+section.services .description {
+    width: 30%;
+    margin: 0 auto;
+    font-size: 17px;
+    margin-bottom: 50px;
+}
+
+section.services .smart-card-holder {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+section.services smart-card.service-card, section.services smart-card.service-card i, section.services smart-card.service-card .services-title, section .services smart-card.service-card .text {
+    -webkit-transition: background-color 200ms ease-out;
+    -moz-transition: background-color 200ms ease-out;
+    -o-transition: background-color 200ms ease-out;
+    transition: background-color 200ms ease-out;
+}
+
+section.services smart-card.service-card {
+    width: 100%;
+}
+
+section.services smart-card.service-card .services-icon {
+    color: #41B883;
+    margin-top: 20px;
+}
+
+section.services smart-card.service-card .services-icon i {
+    font-size: 40px;
+}
+
+section.services smart-card.service-card .services-content {
+    padding: 20px;
+    padding-top: 10px;
+}
+
+section.services smart-card.service-card .services-content .services-title a {
+    color: #fafafa;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+section.services smart-card.service-card:hover {
+    background: #41B883;
+    color: #dedede;
+    cursor: pointer;
+}
+
+section.services smart-card.service-card:hover .services-title a, section.services smart-card.service-card:hover .services-icon i {
+    color: white;
+}
+
+/* Services ^ */
+
+/* Pricing + */
+
+.pricing smart-card .subheadline {
+    font-size: 30px;
+}
+
+.pricing smart-card .content {
+    color: #fafafa;
+}
+
+section.pricing {
+    background: #1E1E2B;
+}
+
+/* Pricing ^ */
+
+/* Testimonials + */
+
+.testimonials {
+    background: #1E1E2B;
+}
+
+/* Testimonials ^ */
+
+/* Blog + */
+
+section.blog {
+    background: #1E1E2B;
+    ;
+}
+
+/* Blog ^ */
+
+/* Subscription */
+
+.subscription {
+    background: rgb(0, 133, 184);
+    background: linear-gradient(90deg, rgba(0, 133, 184, 1) 0%, rgba(0, 189, 224, 1) 100%);
+    color: white;
+}
+
+/* Subscription ^ */
+
+.footer {
+    color: white;
+    background: #3B9F6F;
+}
+
+.footer a.footer-link {
+    color: white;
+}
+
+.footer .footer-info .footer-text {
+    color: white;
+}
+
+.footer a.footer-link:hover {
+    color: black;
+}
+
+@media only screen and (max-width: 700px) {
+    section.service-container, section.service-second-container {
+        grid-template-columns: none;
+    }
+    .service-container>div:last-child, section.service-second-container>div:first-child {
+        text-align: center;
+    }
+    .service-container>div:last-child {
+        margin-top: 20px;
+    }
+    section.service-second-container>div:first-child {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,9 @@
+smart-gantt-chart {
+    width: calc(100% - 300px);
+    height: auto;
+}
+
+.log {
+    overflow: auto;
+    height: 70vh;
+}

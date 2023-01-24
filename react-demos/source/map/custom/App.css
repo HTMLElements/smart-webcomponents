@@ -1,0 +1,18 @@
+body,
+html
+{
+    width: 100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+}
+.demo-description{
+    margin-bottom: 3rem;
+}
+.smart-map .smart-container{
+    height: 500px;
+}
+smart-map {
+    width: 100%;
+    height: 600px;
+}

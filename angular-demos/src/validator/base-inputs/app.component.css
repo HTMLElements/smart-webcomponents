@@ -1,0 +1,27 @@
+h3 {
+    display: inline-block;
+    margin: 0px;
+}
+
+.text-input {
+    height: 30px;
+    width: 250px;
+}
+
+.button-input {
+    width: 60px;
+    height: 28px;
+}
+
+.input-holder {
+    margin-left: 10px;
+}
+
+#validationsummary {
+    margin-top: 10px;
+}
+
+#validationsummary span {
+    display: block;
+    color: #d9534f;
+}

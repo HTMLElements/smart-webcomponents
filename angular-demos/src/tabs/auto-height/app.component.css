@@ -1,0 +1,11 @@
+smart-tabs.auto-height {
+    width: 100%;
+    height: auto;
+    min-height: initial;
+}
+
+
+
+    smart-tabs.auto-height smart-tab-item:not(.smart-visibility-hidden) {
+        position: relative;
+    }

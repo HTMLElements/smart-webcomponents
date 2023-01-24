@@ -1,0 +1,46 @@
+.smart-window #article {
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+smart-window {
+    --smart-window-header-height: 50px;
+}
+
+smart-window section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+smart-window > .smart-container > .smart-content {
+    overflow-y: auto;
+}
+
+smart-window smart-gauge {
+    height: 100%;
+    width: 100%;
+}
+
+smart-window .smart-header,
+smart-window .smart-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    smart-window .smart-header label {
+        margin-left: 5px;
+    }
+
+    #root>div {
+        min-height: inherit;
+    }
+    

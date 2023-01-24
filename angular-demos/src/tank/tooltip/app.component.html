@@ -1,0 +1,11 @@
+<smart-tank #tank id="tank" [tooltipPosition]="'far'" [showTooltip]="true" [orientation]="'vertical'"
+            [min]="0" [max]="10" [value]="5" [scalePosition]="'both'"></smart-tank>
+<br />
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #checkbox [checked]="true" id="checkboxEnableTooltip">Enable tooltip</smart-check-box>
+        <br />
+        <smart-check-box #checkbox2 [checked]="true" id="checkboxFarTooltip">Set tooltipPosition 'far'</smart-check-box>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<smart-splitter #splitter id="horizontalSplitter" [resizeMode]="'adjacent'">
+    <smart-splitter-item [size]="'25%'">Item 1</smart-splitter-item>
+    <smart-splitter-item>Item 2</smart-splitter-item>
+    <smart-splitter-item [size]="'25%'">Item 3</smart-splitter-item>
+</smart-splitter>
+<div class="options">
+    <div class="caption">Resize Mode</div>
+    <div class="option">
+        <smart-radio-button #radiobutton>none</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 [checked]="true">adjacent</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3>end</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton4>proportional</smart-radio-button>
+        <br/>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+body {
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.smart-grid-layout {
+    --smart-grid-layout-rows: 10% 80% 10%;
+    --smart-grid-layout-row-gap: 0;
+    --smart-grid-layout-col-gap: 0;
+    height: 100%;
+}
+
+    .smart-grid-layout .row {
+        /*background: #36434F;*/
+    }
+
+    .smart-grid-layout .col-sm-2 {
+        padding: 0;
+    }
+
+    .smart-grid-layout .col-sm-8 {
+        background: #ebedf0;
+    }
+
+smart-layout,
+smart-tree,
+smart-list-box {
+    width: 100%;
+    height: 100%;
+}

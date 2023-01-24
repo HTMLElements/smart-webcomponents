@@ -1,0 +1,13 @@
+#index { 
+	border: 1px solid #ddd;
+	height: 30px;
+	width: 60px;
+}
+smart-tabs {
+	width: 60%;	
+}
+@media only screen and (max-width: 600px) {
+	smart-tabs {
+		width: 100%;
+	}
+}

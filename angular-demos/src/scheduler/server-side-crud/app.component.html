@@ -1,0 +1,23 @@
+<smart-scheduler #scheduler id="scheduler" [view]="view" [dateCurrent]="dateCurrent" (onDragEnd)="handleDragEnd($event)"
+    (onResizeEnd)="handleResizeEnd($event)" (onItemUpdate)="handleItemUpdate($event)"
+    (onItemRemove)="handleItemRemove($event)" (onItemInsert)="handleItemInsert($event)"></smart-scheduler>
+<h4>Data Base Data</h4>
+<smart-table #table id="table" [columns]="columns" [keyboardNavigation]="keyboardNavigation"></smart-table>
+<div class="options">
+    <div class="description">
+        <h2>Server-Side CRUD operations</h2>
+        When a new Scheduler event is added, removed or updated a request with
+        CRUD data object is made to the Server-Side Database. The server uses the
+        SQL query sent by the Server-Side Datasource to get the events. The type
+        of query is stored in the request's action property.
+        <br />
+        <br />This example uses a demo server with AlaSQL that generates SQL to show
+        how a real server might use the requests sent by the Scheduler. The Server-Side
+        Scheduler usage does not have any restrictions on the server-side technologies
+        used.
+    </div>
+    <div class="option">
+        <h4>SQL Query</h4>
+        <div id="query"></div>
+    </div>
+</div>

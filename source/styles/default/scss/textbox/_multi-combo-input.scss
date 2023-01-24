@@ -122,6 +122,7 @@ smart-multi-combo-input {
     border-top-left-radius: var(--smart-border-top-left-radius);
     border-bottom-left-radius: var(--smart-border-bottom-left-radius);
     min-height: var(--smart-editor-height);
+    align-items: center;
   }
 
   .smart-drop-down-list-unselect-button {
@@ -176,6 +177,19 @@ smart-multi-combo-input {
   &[readonly] {
     .smart-input {
       visibility: hidden;
+    }
+
+    .smart-action-button {
+      background: var(--smart-surface);
+      color: var(--smart-surface-color);
+    }
+
+    &[open] {
+      .smart-action-button,
+      .smart-drop-down-button {
+        background: var(--smart-ui-state-hover) !important;
+        color: var(--smart-ui-state-color-hover) !important;
+      }
     }
 
     &:hover {

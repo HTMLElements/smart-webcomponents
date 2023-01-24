@@ -1,0 +1,11 @@
+smart-progress-bar {
+    position: absolute;
+    top: 25%;
+    left: 15%;
+}
+
+smart-circular-progress-bar {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+}

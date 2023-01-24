@@ -1,0 +1,226 @@
+smart-grid {
+    --smart-background: transparent;
+}
+
+smart-grid-column, .smart-grid-column-group {
+    --smart-grid-column-font-weight: bold;
+}
+
+.smart-drop-down-box {
+    --smart-editor-height: 40px;
+}
+
+.checkout-container {
+    margin-top: 120px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.smart-drop-down-box {
+    --smart-surface: white;
+}
+
+smart-button.place-order {
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+}
+
+.subtitle {
+    font-weight: bold;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background-color: #fafafa;
+    font-weight: 100;
+}
+
+smart-menu {
+    margin-right: 10px;
+    --smart-menu-default-width: 100%;
+    --smart-surface: transparent;
+    --smart-surface-color: white;
+    --smart-border: transparent;
+    --smart-background: #0067b8;
+    --smart-border-width: 0;
+    --smart-elevation-4: none; /* box-shadow.. */
+}
+
+smart-menu-item[hover], smart-menu-items-group[hover] {
+    --smart-ui-state-hover: transparent;
+    --smart-ui-state-color-hover: white;
+}
+
+smart-menu-item[focus], smart-menu-items-group[focus] {
+    --smart-ui-state-focus: transparent;
+    --smart-ui-state-color-focus: white;
+}
+
+smart-grid {
+    --smart-border: transparent;
+    --smart-grid-cell-horizontal-border: #ebebeb;
+    --smart-grid-default-width: 100%;
+    --smart-grid-default-height: auto;
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+smart-input, smart-drop-down-list {
+    width: 100%;
+    --smart-border-top-left-radius: 0px;
+    --smart-border-top-right-radius: 0px;
+    --smart-border-bottom-left-radius: 0px;
+    --smart-border-bottom-right-radius: 0px;
+    --smart-text-box-default-height: 40px;
+}
+
+smart-button {
+    border-radius: 0;
+    height: 40px;
+}
+
+/* Header */
+header {
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    width: 100%;
+    height: 38px;
+    padding: 24px;
+    font-weight: bold;
+    background: #605682;
+}
+
+.header-container {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+header smart-button {
+    font-weight: bold;
+    text-transform: none;
+    --smart-button-outlined-color: white;
+    --smart-button-outlined-border: transparent;
+}
+
+    header smart-button[focus] {
+        --smart-ui-state-focus: transparent;
+    }
+
+.logo {
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+/* Header ^ */
+
+/* Menu */
+.smart-menu .smart-hamburger-icon-line {
+    background: white;
+}
+
+smart-menu-item[hover], smart-menu-items-group[hover] {
+    --smart-ui-state-hover: transparent;
+    --smart-ui-state-border-hover: white;
+    --smart-ui-state-color-hover: #ccc;
+}
+
+smart-menu-item.active-item {
+    color: #ccc;
+    border-bottom: 2px solid #ccc;
+}
+
+.smart-menu .smart-menu-main-container {
+    direction: rtl;
+}
+
+div.smart-menu-minimized-items-container {
+    width: 50vw;
+    color: white;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+smart-menu .smart-header {
+    --smart-surface-color: white;
+    color: white;
+}
+
+smart-menu .smart-menu-drop-down {
+    width: 300px;
+    background: white;
+    --smart-background: white;
+}
+
+smart-menu-items-group[hover] smart-menu-item[hover] {
+    --smart-ui-state-color-hover: rgb(90, 90, 90);
+}
+/* Menu ^ */
+
+/* Media */
+@media only screen and (max-width: 1000px) {
+    .header-container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header-container {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .header-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .menu-mobile {
+        display: block;
+    }
+
+    .header-container {
+        width: 100%;
+    }
+}

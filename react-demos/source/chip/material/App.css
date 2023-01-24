@@ -1,0 +1,223 @@
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#container {
+    font-family: var(--smart-material-font-family);
+    line-height: 24px;
+    font-size: 13px;
+    background-color: #fafafa;
+    padding: 25px;
+    margin-left: 0;
+    padding: 200px;
+    padding-top: 50px;
+}
+
+    #container section h1 {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 40px;
+        margin-bottom: 30px;
+        color: #3949ab;
+    }
+
+    #container section:first-of-type h1 {
+        font-size: 34px;
+        border-top: initial;
+    }
+
+    #container section:first-of-type div h1 {
+        font-size: 20px;
+    }
+
+    #container section {
+        margin-top: 80px;
+    }
+
+        #container section:first-of-type {
+            margin-top: 0;
+        }
+
+        #container section div h1 {
+            color: #212121;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 32px;
+            margin-bottom: 20px;
+            max-width: 940px;
+        }
+
+    #container nav {
+        display: block;
+        border-left: 5px #3949ab solid;
+        padding-left: 20px;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        -webkit-font-smoothing: antialiased;
+        font: inherit;
+        margin-top: 60px;
+    }
+
+        #container nav ul {
+            list-style: none;
+            margin-top: 0;
+            padding-left: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+            display: block;
+            list-style-type: disc;
+        }
+
+        #container nav li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            font-size: 20px;
+            line-height: 40px;
+        }
+
+            #container nav li a {
+                text-decoration: none;
+            }
+
+        #container nav h1 {
+            font-size: 15px;
+            line-height: 16px;
+            padding-bottom: 12px;
+            font-weight: 400;
+            color: #757575;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+        }
+
+.module {
+    width: calc(100% / 4);
+    display: inline-block;
+    font: inherit;
+    margin-right: 40px;
+    min-width: 365px;
+    vertical-align: top;
+    position: relative;
+}
+
+    .module h3 {
+        margin-top: 30px;
+    }
+
+    .module p {
+        margin-bottom: 20px;
+    }
+
+    .module img {
+        width: 100%;
+    }
+
+.module-large {
+    width: calc(100% / 2);
+}
+
+.light, .dark {
+    background-color: #EEE;
+    padding: 70px 0px 70px 100px;
+}
+
+.dark {
+    background-color: #333;
+}
+
+.module-large .light {
+    padding: 70px 50px 70px 50px;
+}
+
+.usage-mobile-view-1 {
+    width: 360px;
+    height: 640px;
+    background-size: 100% auto;
+    background-image: url('https://www.htmlelements.com/demos/images/components-mobile-view-1.png');
+}
+
+.viewport {
+    margin-top: 82px;
+    height: 517px;
+    overflow: hidden;
+}
+
+.chips {
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 15px gray;
+    padding: 10px;
+}
+
+.left-container,
+.edit-container,
+.right-container,
+.left-container > *,
+.right-container > * {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 30px;
+    color: gray;
+}
+
+.left-container {
+    width: 50px;
+    user-select: none;
+}
+
+.edit-container {
+    width: calc(100% - 170px);
+    outline: none;
+}
+
+.right-container > * {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+    .right-container > *:last-child {
+        padding-right: 0px;
+    }
+
+.small {
+    font-size: 14px;
+}

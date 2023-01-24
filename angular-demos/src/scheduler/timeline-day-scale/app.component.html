@@ -1,0 +1,14 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [views]="views"></smart-scheduler>
+<div class="options">
+    <div class="description">
+        <h4>Description</h4>
+        <b>timelineDayScale</b> determines the scale of a day cell. By default
+        a day cell represents one day, but it can be splitted into half am hour,
+        quarter hour, ten minutes or five minutes.
+    </div>
+    <div class="option">
+        <h4>Select Timeline Day Scale:</h4>
+        <smart-input #input id="input" [readonly]="true" [dropDownButtonPosition]="'right'" [value]="'hour'"
+            [dataSource]="inputDataSource" (onChange)="handleChange($event)"></smart-input>
+    </div>
+</div>

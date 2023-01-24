@@ -1,0 +1,59 @@
+<div class="options">
+    <div class="option">
+        <smart-button #button id="openAlertButton">Alert Window</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="openDialogButton">Dialog Window</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="openProgressButton">Progress Window</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="openWaitButton">Wait Window</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button5 id="openPromptButton">Prompt Window</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button6 id="openMultilinePromptButton">Multiline Window</smart-button>
+    </div>
+    <div class="option">
+        <label>Hide on mask click:</label>
+        <smart-check-box #checkbox></smart-check-box>
+    </div>
+    <div class="caption">
+        <label>Choose icon:</label>
+    </div>
+    <div class="option">
+        <smart-drop-down-list #dropDownList>
+            <smart-list-item [value]="'remove-sign'">Error</smart-list-item>
+            <smart-list-item [value]="'info-sign'">Information</smart-list-item>
+            <smart-list-item [value]="'question-sign'">Question</smart-list-item>
+            <smart-list-item [value]="'exclamation-sign'">Warning</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+    <div class="option">
+        <smart-button #button7 id="openIconDialogButton">Icon Dialog Window</smart-button>
+    </div>
+    <div class="caption">Log:</div>
+    <div class="option"> <span id="log" #log></span>
+    </div>
+</div>
+<smart-dialog-window #dialogWindow2 id="iconDialogWindow" [label]="'Icon Dialog Window'" class="material">
+    <div class="smart-icon-dialog-icon"></div>
+    <div class="smart-icon-dialog-content">Continue ?</div>
+</smart-dialog-window>
+
+<smart-dialog-window #dialogWindow [label]="'Dialog Window'" class="material">
+    <div class="smart-dialog-icon"></div>
+    <div class="smart-dialog-content"></div>
+</smart-dialog-window>
+<smart-alert-window #alertWindow [label]="'Alert Window'" class="material">Operation Successful !</smart-alert-window>
+<smart-progress-window #progressWindow [label]="'Progress Window'" [max]="50" class="material">Loading...
+</smart-progress-window>
+<smart-wait-window #waitWindow [label]="'Wait Window'" class="material"></smart-wait-window>
+<smart-prompt-window #promptWindow [label]="'Prompt Window'" [promptLabel]="'Enter your name:'" class="material">
+</smart-prompt-window>
+<smart-multiline-prompt-window #multilinePromptWindow [label]="'Prompt Window'" [promptLabel]="'Enter your address:'"
+    class="material">
+</smart-multiline-prompt-window>

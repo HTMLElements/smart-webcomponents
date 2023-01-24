@@ -1,0 +1,64 @@
+  <h3>Smart Editor Context Menu</h3>
+
+        <p>Context menus allow to execute quick actions. A different set of actions will appear in the Context menu
+            depending on the current selection. The Context menu is customized for the this demo with additional actions
+            depending on the click target.
+        </p>
+
+        <p>To open the context menu simply set the <b>contextMenu</b> property to enable and right click via the mouse
+            somewhere inside the Editor. A different menu options list will appear depending on the click target.</p>
+
+        <p>
+            The context menu is available for the following type of elements:
+        </p>
+        <ul>
+            <li>
+                <h4>Text</h4>
+
+                <p>Right click on text anywhere inside the Editor's content to trigger the context menu:</p>
+
+                You can also click on this text here to invode the Context menu.
+            </li>
+            <li>
+                <h4>Images</h4>
+
+                <p>Right click on the image below to open the context menu for images:</p>
+
+                <img src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg"
+                    class="logo" />
+            </li>
+            <li>
+                <h4>Tables</h4>
+
+                <p>Right click on a table to open the context menu for tables:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td style="text-align: center; background-color: rgb(230, 124, 115); color: white;">Column 1
+                            </td>
+                            <td style="text-align: center; background-color: rgb(230, 124, 115); color: white;">Column 2
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <h4>Hyperlinks</h4>
+
+                <p>Right click on the link below in order to open the context menu for hyperlinks:</p>
+
+                <a href="https://www.htmlelements.com/demos/">A link to right click on in order to open the Context menu
+                    for hyperlinks.</a>
+            </li>
+        </ul>

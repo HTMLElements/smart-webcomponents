@@ -1,0 +1,50 @@
+#messageContainer {
+    position: fixed;
+    bottom: 50px;
+    left: 10px;
+    width: 400px;
+    height: 700px;
+    max-height: 90vh;
+    box-sizing: border-box;
+    border: dashed 1px lightgray;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+#messageWindowJ,
+#messageWindowS {
+    height: auto;
+	width:200px;
+	left: 10px;
+	top: 10px;
+}
+
+#messageWindowS {
+	top: 50px;
+}
+
+#messageBoxJ,
+#messageBoxS {
+    border: none;
+    margin: 20px;
+    width: 100%;
+}
+
+#startChat {
+    width: 200px;
+    height: 30px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+smart-chip .smart-avatar {
+    vertical-align: top;
+}
+
+smart-chip[avatar="J"] .smart-avatar {
+    background-color: brown;
+}

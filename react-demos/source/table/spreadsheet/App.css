@@ -1,0 +1,22 @@
+.smart-table {
+    height: 800px;
+}
+
+.smart-table thead th,
+.smart-table tbody td {
+    border-right: var(--smart-border-width) solid var(--smart-border);
+}
+
+.smart-table thead th,
+.smart-table tbody td[row-header] {
+    text-align: center;
+}
+
+.smart-table td.header-cell {
+    font-weight: bold;
+    text-align: center;
+}
+
+.smart-table td.numeric-cell {
+    text-align: right;
+}

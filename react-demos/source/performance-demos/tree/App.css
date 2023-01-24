@@ -1,0 +1,9 @@
+html, body {
+    background-color: #F2F2F2;
+}
+
+smart-tree {
+    width: 200px;
+    height: 200px;
+    float: left;
+}

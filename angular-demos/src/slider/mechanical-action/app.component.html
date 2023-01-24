@@ -1,0 +1,13 @@
+mechanicalAction: 'switchWhileDragging' <em>(default)</em>
+<smart-slider #slider id="smartSlider3" [showTooltip]="true" [orientation]="'horizontal'" [min]="0"
+              [max]="100" [value]="10" [scalePosition]="'none'" [mechanicalAction]="'switchWhileDragging'"></smart-slider>Value: <span id="smartSlider3Value" #smartSlider3Value>10.00</span>
+<br />
+<br />mechanicalAction: 'switchUntilReleased'
+<smart-slider #slider2 id="smartSlider1"
+              [showTooltip]="true" [orientation]="'horizontal'" [min]="0" [max]="100" [value]="20" [scalePosition]="'none'"
+              [mechanicalAction]="'switchUntilReleased'"></smart-slider>Value: <span id="smartSlider1Value" #smartSlider1Value>20.00</span>
+<br />
+<br />mechanicalAction: 'switchWhenReleased'
+<smart-slider #slider3 id="smartSlider2"
+              [showTooltip]="true" [orientation]="'horizontal'" [min]="0" [max]="100" [value]="30" [scalePosition]="'none'"
+              [mechanicalAction]="'switchWhenReleased'"></smart-slider>Value: <span id="smartSlider2Value" #smartSlider2Value>30.00</span>

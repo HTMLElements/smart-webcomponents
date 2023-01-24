@@ -27,6 +27,11 @@ export interface EditorProperties {
    */
   charCountFormatFunction?: any;
   /**
+   * Sets or gets whether files will be automatically uploaded after selection.
+   * Default value: false
+   */
+  autoUpload?: boolean;
+  /**
    * Determines the content filtering settings.
    * Default value: [object Object]
    */
@@ -373,6 +378,16 @@ export interface EditorProperties {
    * Default value: 100
    */
   splitModeRefreshTimeout?: number;
+  /**
+   * Sets or gets the upload URL. This property corresponds to the upload form's action attribute. For example, the uploadUrl property can point to a PHP file, which handles the upload operation on the server-side.
+   * Default value: ""
+   */
+  uploadUrl?: string;
+  /**
+   * Sets or gets the remove URL. This property corresponds to the form's action attribute. For example, the removeUrl property can point to a PHP file, which handles the remove operation on the server-side.
+   * Default value: ""
+   */
+  removeUrl?: string;
   /**
    * Determines the theme. Theme defines the look of the element
    * Default value: ""

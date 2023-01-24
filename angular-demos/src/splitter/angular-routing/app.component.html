@@ -1,0 +1,14 @@
+<h1>Angular Router with Splitter</h1>
+
+<smart-splitter #splitter>
+  <smart-splitter-item [collapsible]="true" [size]="'50%'">
+    <div [@routeAnimation]="getAnimationData(routerOutletAux)">
+      <router-outlet #routerOutletAux="outlet" name="crisis"></router-outlet>
+    </div>
+    </smart-splitter-item>
+    <smart-splitter-item [collapsible]="true" [size]="'50%'">
+      <div [@routeAnimation]="getAnimationData(routerOutlet)">
+        <router-outlet #routerOutlet="outlet"></router-outlet>
+      </div>
+    </smart-splitter-item>
+</smart-splitter>

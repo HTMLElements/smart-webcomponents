@@ -1,0 +1,47 @@
+smart-list-box {
+	width: 300px;
+	height: 500px;
+}
+@media only screen and (max-width: 700px) {
+  body, html {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin:0px;
+	overflow: hidden;
+  }
+  
+  smart-list-box {
+	width: 100%;
+	height: 100%;	
+  }
+}
+
+
+/* Glyph Icons */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('./images/glyphicons-halflings-regular.eot');
+    src: url('./images/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+    url('./images/glyphicons-halflings-regular.woff2') format('woff2'), 
+    url('./images/glyphicons-halflings-regular.woff') format('woff'), 
+    url('./images/glyphicons-halflings-regular.ttf') format('truetype'), 
+    url('./images/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-ok:before {
+    content: "\e013";
+}

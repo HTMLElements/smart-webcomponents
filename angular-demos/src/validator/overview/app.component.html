@@ -1,0 +1,94 @@
+<div class="demo-container">
+    <form id="testForm" action="./">
+        <div class="fieldset">
+            <div class="fieldset-header">Credentials</div>
+            <div class="field">
+                <div class="field-label">Email</div>
+                <div class="field-value">
+                    <smart-text-box #textbox select-all-on-focus placeholder="Email" id="email-validation"></smart-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Password</div>
+                <div class="field-value">
+                    <smart-password-text-box #passwordtextbox select-all-on-focus placeholder="Password"
+                    id="password-validation"></smart-password-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Confirm Password</div>
+                <div class="field-value">
+                    <smart-password-text-box #passwordtextbox2 select-all-on-focus placeholder="Confirm Password"
+                    id="confirm-password-validation"></smart-password-text-box>
+                </div>
+            </div>
+        </div>
+        <div class="fieldset clear">
+            <div class="fieldset-header">Personal Data</div>
+            <div class="field">
+                <div class="field-label">Name</div>
+                <div class="field-value">
+                    <smart-text-box #textbox2 select-all-on-focus placeholder="Name" id="name-validation"></smart-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Date of birth</div>
+                <div class="field-value">
+                    <smart-date-time-picker #datetimepicker format-string="dddd, MMM dd, yyyy"
+                    calendar-button enable-mouse-wheel-action drop-down-position="bottom" id="date-validation"
+                    spin-buttons spin-buttons-position="left"></smart-date-time-picker>
+                </div>
+            </div>
+        </div>
+        <div class="fieldset">
+            <div class="fieldset-header">Billing address</div>
+            <div class="field">
+                <div class="field-label">Country</div>
+                <div class="field-value">
+                    <smart-drop-down-list #dropdownlist id="country-validation">
+                        <smart-list-item value="Australia">Australia</smart-list-item>
+                        <smart-list-item value="Bulgaria">Bulgaria</smart-list-item>
+                        <smart-list-item value="Canada">Canada</smart-list-item>
+                    </smart-drop-down-list>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">City</div>
+                <div class="field-value">
+                    <smart-text-box #textbox3 select-all-on-focus placeholder="City" id="city-validation"></smart-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Address</div>
+                <div class="field-value">
+                    <smart-text-box #textbox4 select-all-on-focus placeholder="Address" id="address-validation"></smart-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Phone (optional)</div>
+                <div class="field-value">
+                    <smart-masked-text-box #maskedtextbox class="material" hint="" mask="+1 (###) ###-####"
+                    id="phone-validation"></smart-masked-text-box>
+                </div>
+            </div>
+            <div class="field clear">
+                <div class="field-label">Post code (optional)</div>
+                <div class="field-value">
+                    <smart-numeric-text-box #numerictextbox id="post-code-validation" input-format="integer"
+                    min="0" spin-buttons spin-buttons-position="right" spin-buttons-step="1"
+                    enable-mouse-wheel-action></smart-numeric-text-box>
+                </div>
+            </div>
+            <div id="check" class="checkbox-validator clear">
+                <smart-check-box #checkbox click-mode="press" id="termsInput">Accept terms</smart-check-box>
+                <br />
+            </div>
+        </div>
+        <div class="fieldset">
+            <div id="registerButton" class="submit-button">
+                <smart-button #button id="register" type="button" class="success">Register</smart-button>
+            </div>
+        </div>
+    </form>
+    <div id="validationsummary"></div>
+</div>

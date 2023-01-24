@@ -1,0 +1,30 @@
+smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-task-default-height: 50px;
+    --smart-gantt-chart-selection: rgba(0,199,181,.2);
+    --smart-gantt-chart-selection-color: black;
+    --smart-gantt-chart-hover: rgba(0,199,181,.2);
+    --smart-gantt-chart-hover-color: black;
+    --smart-gantt-chart-timeline-nonworking-color: repeating-linear-gradient( 45deg, #FFADAF, #FFADAF 10px, #FF8181 10px, #FF8181 20px);
+    --smart-gantt-chart-task-default-label-color: white;
+}
+
+    smart-gantt-chart .john {
+        --smart-gantt-chart-task-default-color: rgb(124, 175, 199);
+    }
+
+    smart-gantt-chart .jane {
+        --smart-gantt-chart-task-default-color: rgb(124, 130, 199);
+    }
+
+    smart-gantt-chart .peter {
+        --smart-gantt-chart-task-default-color: rgb(163, 124, 199);
+    }
+
+    smart-gantt-chart .melania {
+        --smart-gantt-chart-task-default-color: rgb(199, 124, 190);
+    }
+
+    smart-gantt-chart .donald {
+        --smart-gantt-chart-task-default-color: rgb(199, 124, 145);
+    }

@@ -1,0 +1,4 @@
+smart-window > .smart-container > .smart-content {
+    overflow-y: auto;
+    flex-direction: column;
+}

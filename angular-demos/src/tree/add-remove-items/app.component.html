@@ -1,0 +1,44 @@
+<smart-tree #tree id="tree" [filterable]="true" [filterInputPlaceholder]="'Filter query...'" [filterMode]="'contains'"
+    [showLines]="true" [showRootLines]="true" [toggleElementPosition]="'near'">
+    <smart-tree-items-group id="numbers" [expanded]="true">Numbers
+        <smart-tree-item id="three">3</smart-tree-item>
+        <smart-tree-item>2</smart-tree-item>
+        <smart-tree-item id="one">1</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group id="letters" [expanded]="true">Letters
+        <smart-tree-item>A</smart-tree-item>
+        <smart-tree-item>C</smart-tree-item>
+        <smart-tree-item id="zed">Z</smart-tree-item>
+        <smart-tree-item>B</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group id="greekLetters" [expanded]="true">Greek letters
+        <smart-tree-item>β</smart-tree-item>
+        <smart-tree-item>δ</smart-tree-item>
+        <smart-tree-item>α</smart-tree-item>
+        <smart-tree-item>γ</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>
+<div class="options">
+    <div class="caption">Settings</div>
+    <smart-button #button id="addBefore" class="demoButton">Add before "Z"</smart-button>
+    <br />
+    <br />
+    <smart-button #button2 id="addAfter" class="demoButton">Add after "3"</smart-button>
+    <br />
+    <br />
+    <smart-button #button3 id="addTo" class="demoButton">Add to "Letters"</smart-button>
+    <br />
+    <br />
+    <smart-button #button4 id="addGroupTo" class="demoButton">Add to
+        <br />"Greek letters"</smart-button>
+    <br />
+    <br />
+    <smart-button #button5 id="removeItem" class="demoButton">Remove "1"</smart-button>
+    <br />
+    <br />
+    <smart-check-box #checkbox id="sorted">Sorted</smart-check-box>
+    <br />
+    <br />
+    <smart-check-box #checkbox2 id="autoSort" [checked]="true">Auto sort</smart-check-box>
+    <br /> <em>Note: Items can also be removed by swiping left or right.</em>
+</div>

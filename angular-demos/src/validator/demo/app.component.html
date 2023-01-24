@@ -1,0 +1,95 @@
+<div class="demo-container">
+    <form id="testForm" action="./">
+        <div class="fieldset">
+            <div class="fieldset-header">Register</div>
+            <div class="field">
+                <div class="field-label">User name</div>
+                <div class="field-value">
+                    <smart-text-box #textbox [selectAllOnFocus]="true" [placeholder]="'User name'" id="userInput">
+                    </smart-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Your password</div>
+                <div class="field-value">
+                    <smart-password-text-box #passwordtextbox [selectAllOnFocus]="true" [placeholder]="'Your password'"
+                        id="passwordInput"></smart-password-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Confirm password</div>
+                <div class="field-value">
+                    <smart-password-text-box #passwordtextbox2 [selectAllOnFocus]="true"
+                        [placeholder]="'Confirm password'" id="passwordConfirmInput"></smart-password-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Real name</div>
+                <div class="field-value">
+                    <smart-text-box #textbox2 [selectAllOnFocus]="true" [placeholder]="'Real name'" id="realNameInput">
+                    </smart-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Date of birth</div>
+                <div class="field-value">
+                    <smart-date-time-picker #datetimepicker [formatString]="'dddd, MMM dd, yyyy'"
+                        [calendarButton]="true" [enableMouseWheelAction]="true" [dropDownPosition]="'bottom'"
+                        id="birthInput" [spinButtons]="true" [spinButtonsPosition]="'left'"></smart-date-time-picker>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Email</div>
+                <div class="field-value">
+                    <smart-text-box #textbox3 [selectAllOnFocus]="true" [placeholder]="'Email'" id="emailInput">
+                    </smart-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">SSN</div>
+                <div class="field-value">
+                    <smart-masked-text-box #maskedtextbox class="material" [hint]="''" [mask]="'###-##-####'"
+                        id="ssnInput">
+                    </smart-masked-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Phone number</div>
+                <div class="field-value">
+                    <smart-masked-text-box #maskedtextbox2 class="material" [hint]="''" [mask]="'(###)###-####'"
+                        id="phoneInput"></smart-masked-text-box>
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">Zip code</div>
+                <div class="field-value">
+                    <smart-masked-text-box #maskedtextbox3 class="material" [hint]="''" [mask]="'#####-####'"
+                        id="zipInput">
+                    </smart-masked-text-box>
+                </div>
+            </div>
+        </div>
+        <div class="fieldset">
+            <div class="field-label">Choose gender</div>
+            <div class="field-value genderRadioHolder">
+                <smart-radio-button #radiobutton id="maleRadioButton" [name]="'genderRadioGroup'" [value]="'male'"
+                    class="genderRadio">Male</smart-radio-button>
+                <smart-radio-button #radiobutton2 id="femaleRadioButton" [name]="'genderRadioGroup'" [value]="'female'"
+                    class="genderRadio">Female</smart-radio-button>
+                <smart-radio-button #radiobutton3 id="otherRadioButton" [name]="'genderRadioGroup'" [value]="'alien'"
+                    class="genderRadio">Alien</smart-radio-button>
+            </div>
+        </div>
+        <div id="check" class="checkbox-validator">
+            <smart-check-box #checkbox [clickMode]="'press'" id="terms">Accept terms</smart-check-box>
+            <br />
+        </div>
+        <div class="fieldset">
+            <div id="registerButton" class="submit-button">
+                <smart-button #button id="submitFormButton" [type]="'button'" class="success"
+                    (onClick)="submitOnClick()">Send</smart-button>
+            </div>
+        </div>
+    </form>
+    <div id="validationsummary"></div>
+</div>

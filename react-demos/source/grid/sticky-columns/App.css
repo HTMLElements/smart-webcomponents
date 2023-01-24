@@ -1,0 +1,13 @@
+html,
+body {
+    height: 500px !important;
+}
+
+smart-grid {
+    width: 60%;
+    height: auto;
+}
+
+h1 {
+    margin-top: 0;
+}

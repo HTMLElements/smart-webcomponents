@@ -1,0 +1,89 @@
+﻿:root {
+    --smart-primary: #e14eca;
+}
+
+smart-progress-bar {
+    --smart-ui-state-active: #e14eca;
+    --smart-ui-state-border-active: #e14eca;
+    --smart-progress-bar-default-height: 5px;
+    --smart-progress-bar-default-width: calc(100% - 50px);
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+smart-card {
+    overflow: inherit;
+    margin-bottom: 20px;
+}
+
+smart-card smart-grid {
+    width: 100%;
+}
+
+#gridPageVisits {
+    height: 500px;
+}
+
+#gridPageVisits div.icon img {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#gridPageVisits div.images {
+    left: calc(50% - 85px);
+    position: relative;
+}
+
+#gridPageVisits div.images img:hover {
+    z-index: 123;
+    cursor: pointer;
+}
+
+#gridPageVisits div.images img {
+    position: absolute;
+    height: 40px;
+    top: 17px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0px 0px 2px 0px black;
+}
+
+#gridPageVisits div.images img:nth-child(1) {
+    left: 5px;
+}
+
+#gridPageVisits div.images img:nth-child(2) {
+    left: 35px;
+}
+
+#gridPageVisits div.images img:nth-child(3) {
+    left: 65px;
+}
+
+#gridPageVisits div.images img:nth-child(4) {
+    left: 95px;
+}
+
+#gridPageVisits div.images img:nth-child(5) {
+    left: 125px;
+}
+
+#gridPageVisits .status {
+    margin-left: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+smart-card.basic-card smart-drop-down-button.visits {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+smart-card {
+    padding: 0;
+}

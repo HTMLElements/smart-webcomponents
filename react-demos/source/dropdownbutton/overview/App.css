@@ -1,0 +1,17 @@
+smart-drop-down-button {
+    --smart-drop-down-element-max-height: 300px;
+	width: 200px;
+}
+
+    smart-drop-down-button smart-calendar,
+    smart-drop-down-button smart-calendar:focus {
+        border: none;
+    }
+
+    smart-drop-down-button smart-list-menu {
+        border: none;
+        height: 200px;
+    }
+smart-list-menu {
+	width: 300px;
+}

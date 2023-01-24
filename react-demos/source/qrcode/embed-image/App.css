@@ -1,0 +1,7 @@
+.qrcode-container{
+  display: flex;
+  justify-content: space-around;
+  max-width: 400px;
+  flex-wrap: wrap;
+  text-align: center;
+}

@@ -1,0 +1,396 @@
+<div class="smart-demo-container">
+  <template id="headerTemplate">
+    <div class="headerTemplateContainer">
+      <i class="material-icons">&#xE8B8;</i> Window with an Icon inside the
+      Header
+    </div>
+  </template>
+  <template id="footerTemplate">
+    <div class="footerTemplateContainer">
+      <smart-button #button class="flat">Cancel</smart-button>
+      <smart-button #button2 class="flat">Ok</smart-button>
+    </div>
+  </template>
+  <template id="footerTemplateLight">
+    <div class="footerTemplateContainer">
+      <smart-button #button3 class="flat">CANCEL</smart-button>
+      <smart-button #button4 class="flat">DISCARD</smart-button>
+    </div>
+  </template>
+  <template id="footerTemplateAgreenment">
+    <div class="footerTemplateContainer">
+      <smart-button #button5 class="flat">DISAGREE</smart-button>
+      <smart-button #button6 class="flat">AGREE</smart-button>
+    </div>
+  </template>
+  <div id="materialWindowContainer">
+    <section>
+      <div>
+        <h2>
+          Windows inform users about a specific task and may contain critical
+          information, require decisions, or involve multiple tasks.
+        </h2>
+        <div class="module">
+          <p>
+            Windows contain text and UI controls. They retain focus until
+            dismissed or a required action has been taken. Use windows sparingly
+            because they are interruptive.
+          </p>
+          <p>Some windows types include:</p>
+          <ul>
+            <li>
+              <strong>Alerts </strong>are urgent interruptions that inform about
+              a situation and require acknowledgement.
+            </li>
+            <li>
+              <strong>Progress</strong> windows inform about a specific task
+              completion.
+            </li>
+            <li>
+              <strong>Dialogs</strong> require users to explicitly confirm a
+              choice.
+            </li>
+          </ul>
+        </div>
+        <div class="module">
+          <h3>Behavior</h3>
+          <p>
+            Windows should never be obscured, either by other elements or the
+            screen edge. Dialogs are dismissed when a required action has been
+            taken.
+          </p>
+          <h3>Full-screen dialogs</h3>
+          <p>
+            Full-screen dialogs are best suited to complex tasks, or require an
+            input method editor, as they group a series of tasks together before
+            they can be saved.
+          </p>
+        </div>
+        <div class="module"></div>
+      </div>
+    </section>
+    <section id="appearance">
+      <h2>Appearance</h2>
+      <div class="module">
+        <p>
+          Windows consist of three main sections: Header, Content and Footer.
+        </p>
+      </div>
+      <div class="module">
+        <p>Window sections</p>
+      </div>
+      <div class="module">
+        <p>
+          <strong>Header</strong> section is optional. It can contain an
+          arbitrary text or other Custom Elements.
+        </p>
+        <p>
+          By default, the header section contains the lable of the Window. The
+          label can be changed by setting the <strong>label</strong> property.
+        </p>
+        <p>
+          The content of the Header section can be completely replaced using an
+          HTMLTemplate. In order to do that the user has to apply the id of an
+          HTML Template to the <strong>headerTempalte</strong> property.
+        </p>
+      </div>
+      <div class="module">
+        <smart-window
+          #window
+          [opened]="true"
+          [pinned]="true"
+          header-template="headerTemplate"
+          >No Content Added</smart-window
+        >
+        <p>Window with a material icon inside the Header</p>
+      </div>
+      <div class="module">
+        <p>
+          <strong>Content</strong> section holds the main information presented
+          to the user. It can contain any HTML.
+        </p>
+        <p>
+          When the window is collapsed the content is hidden. The only visible
+          section if the Header.
+        </p>
+      </div>
+      <div class="module">
+        <smart-window
+          #window2
+          class="content-window"
+          [opened]="true"
+          [pinned]="true"
+          label="Window with Content"
+        >
+          <smart-list-box>
+            <smart-list-item>Item 1</smart-list-item>
+            <smart-list-item>Item 2</smart-list-item>
+            <smart-list-item>Item 3</smart-list-item>
+            <smart-list-item>Item 4</smart-list-item>
+          </smart-list-box>
+        </smart-window>
+        <p>Window with a ListBox inside.</p>
+      </div>
+      <div class="module">
+        <p>
+          <strong>Footer</strong> section is optional. It can contain an
+          arbitrary text or other Custom Elements.
+        </p>
+        <p>Usualy used to hold the Dialog interaction controls.</p>
+      </div>
+      <div class="module confirmation-window2">
+        <smart-window
+          #window3
+          class="content-window animation"
+          [opened]="true"
+          [pinned]="true"
+          label="Permissions"
+          footer-template="footerTemplate"
+        >
+          <smart-list-box #listbox selection-mode="radioButton">
+            <smart-list-item>Danish scrollable list item</smart-list-item>
+            <smart-list-item>Eggs scrollable list item</smart-list-item>
+          </smart-list-box>
+        </smart-window>
+        <p>Permissions</p>
+      </div>
+      <div class="module confirmation-window">
+        <smart-window
+          #window4
+          class="content-window animation"
+          [opened]="true"
+          [pinned]="true"
+          label="Phone ringtone"
+          footer-template="footerTemplate"
+        >
+          <smart-list-box #listbox2 selection-mode="radioButton">
+            <smart-list-item>None</smart-list-item>
+            <smart-list-item>Callisto</smart-list-item>
+            <smart-list-item>Dione</smart-list-item>
+            <smart-list-item>Ganymede</smart-list-item>
+            <smart-list-item>Hangouts Call</smart-list-item>
+            <smart-list-item>Luna</smart-list-item>
+            <smart-list-item>Oberon</smart-list-item>
+            <smart-list-item>Phobos</smart-list-item>
+            <smart-list-item>Natural</smart-list-item>
+            <smart-list-item>Onward</smart-list-item>
+            <smart-list-item>Organic</smart-list-item>
+            <smart-list-item>Orion</smart-list-item>
+            <smart-list-item>Pegasus</smart-list-item>
+            <smart-list-item>Titania</smart-list-item>
+            <smart-list-item>Pyxis</smart-list-item>
+            <smart-list-item>Luna</smart-list-item>
+          </smart-list-box>
+        </smart-window>
+        <p>Ringtone selection window</p>
+      </div>
+      <div class="module window-themes">
+        <h2>Themes</h2>
+        <br />
+        <h3>Windows without header bars</h3>
+        <p>Most windows don't need headers.</p>
+        <p>They summarize a decision in a sentence or two by either:</p>
+        <ul>
+          <li>Asking a question (e.g. "Delete this conversation?")</li>
+          <li>Making a statement related to the action buttons</li>
+        </ul>
+      </div>
+      <div class="module window-themes window-themes1">
+        <smart-window
+          #window5
+          class="content-window animation"
+          [opened]="true"
+          [pinned]="true"
+          footer-template="footerTemplateLight"
+        >
+          <p>Discard draft ?</p>
+        </smart-window>
+      </div>
+      <div class="module window-themes">
+        <h3>Windows width header bars</h3>
+        <p>
+          Use header bar windows only for high-risk situations, such as the
+          potential loss of connectivity. Users should be able to understand the
+          choices based on the header and button text alone.
+        </p>
+        <p>If a header is required:</p>
+        <ul>
+          <li>
+            Use a clear question or statement with an explanation in the content
+            area, such as "Erase USB storage?"
+          </li>
+          <li>
+            Avoid apologies, ambiguity, or questions, such as “Warning!” or “Are
+            you sure?”
+          </li>
+        </ul>
+      </div>
+      <div class="module window-themes window-with-header-themes2">
+        <smart-window
+          #window6
+          class="content-window animation"
+          [opened]="true"
+          [pinned]="true"
+          label="Use Google's location service?"
+          footer-template="footerTemplateAgreenment"
+        >
+          <p>
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, event when no apps are running.
+          </p>
+        </smart-window>
+      </div>
+    </section>
+    <section id="behavior">
+      <h2>Behavior</h2>
+      <div class="module">
+        <h2>Modal</h2>
+        <p>
+          Windows can be modal by setting the <strong>modal</strong> property.
+        </p>
+        <p>Modal windows disable background intereaction whilte opened.</p>
+      </div>
+      <div class="module window-themes window-modal">
+        <smart-window
+          #window7
+          class="content-window animation"
+          [opened]="true"
+          [pinned]="true"
+          [modal]="true"
+          footer-template="footerTemplateLight"
+        >
+          <p>Discard draft ?</p>
+        </smart-window>
+      </div>
+      <div class="module"></div>
+      <div class="module">
+        <h2>Pinned</h2>
+        <p>
+          Pinned Windows can't be dragged. They are used for alerts or dialogs.
+          By default <strong>pinned</strong> property is not applied. The Header
+          section of the element is the window's draggable area.
+        </p>
+      </div>
+      <div class="module window-themes window-modal unpinned">
+        <smart-window
+          #window8
+          class="content-window animation"
+          [opened]="true"
+          label="Hi"
+          footer-template="footerTemplateLight"
+        >
+          <p>What's your favourite animal ?</p>
+          <input />
+        </smart-window>
+      </div>
+      <div class="module"></div>
+      <div class="module">
+        <h2>Resizable</h2>
+        <p>
+          Resizable Windows can be resized from any direction. By default
+          <strong>resizeMode</strong> property is not set.
+        </p>
+        <p>Several modes are available:</p>
+        <ul>
+          <li>none</li>
+          <li>horizontal</li>
+          <li>vertical</li>
+          <li>both</li>
+        </ul>
+      </div>
+      <div class="module window-themes window-modal scrollable-content">
+        <smart-window
+          #window9
+          class="content-window animation"
+          [opened]="true"
+          resize-mode="both"
+          label="Resizable Window"
+        >
+          <div>
+            <h4>Scrollable content exception</h4>
+            <p>
+              Some dialog content requires scrolling, such as lists of
+              ringtones.
+            </p>
+            <ul>
+              <li>
+                For scrollable lists of options, the dialog title remains pinned
+                to the top. This ensures that a selected item remains visible
+                with the title, regardless of the item’s position in the list.
+              </li>
+              <li>
+                Otherwise, the title scrolls off with the content. Actions
+                always remain in place when content scrolls.
+              </li>
+            </ul>
+            <p>
+              Dialogs are separate from the underlying parent material and do
+              not scroll with it.
+            </p>
+            <h4>Displaying additional content</h4>
+            <p>
+              To disclose additional content in a dialog, do so using inline
+              expansion within the content area. Or consider alternative
+              components that are optimized for large amounts of content.
+            </p>
+            <h4>Dismissing dialogs</h4>
+            <p>
+              Dialogs may be dismissed either by tapping outside of the dialog,
+              or tapping the system back button (on Android). Alternatively, the
+              user’s ability to dismiss a dialog may be disabled, so that one of
+              the actions must be chosen before proceeding.
+            </p>
+          </div>
+        </smart-window>
+      </div>
+      <div class="module">
+        <h2>Header Controls</h2>
+        <p>
+          The header section of the Window element contains the control buttons
+          used to do operations like maximizing, minimizing, closing, collapsing
+          and etc.
+        </p>
+        <p>
+          Those operations can be executed programatically as well by calling
+          the appropriate method.
+        </p>
+      </div>
+      <div class="module window-themes window-modal header-controls">
+        <smart-button #button7 class="open-window-button">Open</smart-button>
+        <smart-window
+          #window10
+          class="content-window animation"
+          [opened]="true"
+          label="Albums"
+        >
+          <img src="../../../images/albums_pop.png" />
+        </smart-window>
+      </div>
+      <div class="module window-themes window-modal header-controls dark">
+        <smart-button #button8 class="open-window-button">Open</smart-button>
+        <smart-window
+          #window11
+          class="content-window animation"
+          [opened]="true"
+          [maximized]="true"
+          label="Albums"
+        >
+          <smart-tabs #tabs class="animation padding">
+            <smart-tab-item label="Pop">
+              <img src="../../../images/albums_pop.png" />
+            </smart-tab-item>
+            <smart-tab-item label="Alternative">
+              <img src="../../../images/albums_alternative.png" />
+            </smart-tab-item>
+            <smart-tab-item label="Rock">
+              <img src="../../../images/albums_rock.png" />
+            </smart-tab-item>
+            <smart-tab-item label="R & B">
+              <img src="../../../images/albums_rnb.png" />
+            </smart-tab-item>
+          </smart-tabs>
+        </smart-window>
+      </div>
+    </section>
+  </div>
+</div>

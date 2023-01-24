@@ -1,0 +1,24 @@
+#resizeSlider {
+    width: 500px;
+    height: 50px;
+}
+
+#horizontalSliderContainer {
+    width: 200px;
+    height: 50px;
+}
+
+#horizontalSlider {
+    width: 100%;
+    height: 100%;
+}
+
+#verticalSliderContainer {
+    width: 80px;
+    height: 200px;
+}
+
+#verticalSlider {
+    width: 100%;
+    height: 100%;
+}

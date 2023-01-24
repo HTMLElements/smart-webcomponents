@@ -1,0 +1,10 @@
+<div class="options">
+    <div class="option">
+        <smart-button (onClick)="onButtonClick($event)">Open/Close</smart-button>
+    </div>
+</div>
+<div id="windowContainer">
+    <smart-window #window [opened]="true" label="Nested Window" [windowParent]="'windowContainer'" [resizeMode]="'both'">
+        <div>This is a window inside a container</div>
+    </smart-window>
+</div>

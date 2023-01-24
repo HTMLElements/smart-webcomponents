@@ -1,0 +1,20 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views"></smart-scheduler>
+<div class="options">
+    <div class="description">
+         <h4>ViewSelectorType</h4> determines presentation and navigation of the view tabs inside the header.
+        <ul>
+            <li><b>auto</b> - When the tab labels overflow the container, a drop down button
+                appears that allows to open a drop down to select a view.</li>
+            <li><b>tabs</b> - when the tab labels overflow the container, two navigation
+                buttons are displayed on each end that allo to scroll through the tabs.</li>
+            <li><b>menu</b> - Default behavior. A drop down button is always present in
+                the tab selection area in the header. When clicked a popup appears to display
+                the views available.</li>
+        </ul>
+    </div>
+    <div class="option">
+        <smart-radio-button>auto</smart-radio-button>
+        <smart-radio-button>tabs</smart-radio-button>
+        <smart-radio-button #radiobutton [checked]="true">menu</smart-radio-button>
+    </div>
+</div>

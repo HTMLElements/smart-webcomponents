@@ -1,0 +1,101 @@
+#mainContainer {
+    width: 1000px;
+    height: 800px;
+    box-shadow: var(--smart-elevation-4);
+    font-family: var(--smart-font-family);
+}
+
+#header,
+#footer {
+    background-color: #F2F2F4;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    color: var(--smart-background-color);
+}
+
+#title {
+    margin-left: 10px;
+    font-size: 40px;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    color: #428BCA;
+}
+
+#footer>.material-icons {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+#footer>* {
+    cursor: pointer;
+}
+
+.smart-table {
+    margin-bottom: 0;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    width: 100%;
+    height: calc(100% - 150px);
+}
+
+.smart-table td[data-field="actions"]>.material-icons {
+    color: #428BCA;
+    cursor: pointer;
+}
+
+.smart-table .icons-container {
+    display: flex;
+    align-items: center;
+}
+
+.smart-table .material-icons.info {
+    margin-left: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.smart-table .material-icons.status {
+    margin-right: 3px;
+}
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v52/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  }
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}

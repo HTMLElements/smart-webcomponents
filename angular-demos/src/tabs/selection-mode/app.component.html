@@ -1,0 +1,47 @@
+<p>selectionMode: 'none'; Click the button to select another tab.</p>
+<smart-tabs #tabs class="demoTabsShort" id="fourthTabs" [selectionMode]="'none'" [selectedIndex]="3">
+    <smart-tab-item [label]="'TAB 1'">Content 1</smart-tab-item>
+    <smart-tab-item [label]="'TAB 2'">Content 2</smart-tab-item>
+    <smart-tab-item [label]="'TAB 3'">Content 3</smart-tab-item>
+    <smart-tab-item [label]="'TAB 4'">Content 4</smart-tab-item>
+</smart-tabs>
+<br />
+<br />
+<br />
+<p>selectionMode: 'click'</p>
+<smart-tabs #tabs2 class="demoTabsShort" [selectionMode]="'click'" [selectedIndex]="0">
+    <smart-tab-item [label]="'TAB 1'">Content 1</smart-tab-item>
+    <smart-tab-item [label]="'TAB 2'">Content 2</smart-tab-item>
+    <smart-tab-item [label]="'TAB 3'">Content 3</smart-tab-item>
+    <smart-tab-item [label]="'TAB 4'">Content 4</smart-tab-item>
+</smart-tabs>
+<br />
+<br />
+<br />
+<p>selectionMode: 'dblclick'</p>
+<smart-tabs #tabs3 class="demoTabsShort" [selectionMode]="'dblclick'" [selectedIndex]="1">
+    <smart-tab-item [label]="'TAB 1'">Content 1</smart-tab-item>
+    <smart-tab-item [label]="'TAB 2'">Content 2</smart-tab-item>
+    <smart-tab-item [label]="'TAB 3'">Content 3</smart-tab-item>
+    <smart-tab-item [label]="'TAB 4'">Content 4</smart-tab-item>
+</smart-tabs>
+<br />
+<br />
+<br />
+<p>selectionMode: 'mouseenter'</p>
+<smart-tabs #tabs4 class="demoTabsShort" [selectionMode]="'mouseenter'" [selectedIndex]="2">
+    <smart-tab-item [label]="'TAB 1'">Content 1</smart-tab-item>
+    <smart-tab-item [label]="'TAB 2'">Content 2</smart-tab-item>
+    <smart-tab-item [label]="'TAB 3'">Content 3</smart-tab-item>
+    <smart-tab-item [label]="'TAB 4'">Content 4</smart-tab-item>
+</smart-tabs>
+<br />
+<br />
+<br />
+<br />
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="selectFirstTab" class="demoButton">Select first tab</smart-button>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="options">
+    <div class="caption">smartWindow Resizing Modes:</div>
+    <div class="option">
+        <smart-radio-button #radiobutton [checked]="true">none</smart-radio-button>
+        <smart-radio-button #radiobutton2>Horizontal</smart-radio-button>
+        <smart-radio-button #radiobutton3>Vertical</smart-radio-button>
+        <smart-radio-button #radiobutton4>Both</smart-radio-button>
+        <smart-radio-button #radiobutton5>Top</smart-radio-button>
+        <smart-radio-button #radiobutton6>Bottom</smart-radio-button>
+        <smart-radio-button #radiobutton7>Left</smart-radio-button>
+        <smart-radio-button #radiobutton8>Right</smart-radio-button>
+    </div>
+    <div class="caption">Resize indicator:</div>
+    <div class="option">
+        <smart-radio-button #radiobutton9 [checked]="true">Off</smart-radio-button>
+        <smart-radio-button #radiobutton10>On</smart-radio-button>
+    </div>
+    <div class="caption">Live Resize:</div>
+    <div class="option">
+        <smart-radio-button #radiobutton11 [checked]="true">Off</smart-radio-button>
+        <smart-radio-button #radiobutton12>On</smart-radio-button>
+    </div>
+</div>
+<smart-window #window [opened]="true" [label]="'Window 1'">
+    <section>
+         <h3>What is Lorem Ipsum?</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type and scrambled it to
+            make a type specimen book. It has survived not only five centuries, but
+            also the leap into electronic typesetting, remaining essentially unchanged.
+            It was popularised in the 1960s with the release of Letraset sheets containing
+            Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </section>
+</smart-window>

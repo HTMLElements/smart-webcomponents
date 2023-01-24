@@ -1,0 +1,386 @@
+body {
+    margin: 0px;
+    height: 100vh;
+}
+
+smart-splitter {
+    width: 100%;
+    border-radius: 0;
+    height: calc(100% - 60px);
+    --smart-splitter-border-width: 0;
+    --smart-splitter-item-content-padding: 10px;
+}
+
+smart-grid smart-check-box {
+    width: 35px;
+    line-height: initial; /* important */
+    vertical-align: middle;
+}
+
+#dashboardHeader {
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background: linear-gradient(#1e1e2f,#1e1e24);
+}
+
+smart-card .material-icons {
+    vertical-align: middle;
+}
+
+.smart-logo {
+    width: 150px;
+    margin-top: 6px;
+    float: right;
+}
+
+.dashboard-menu {
+    padding: 0.7rem;
+    --smart-tree-default-width: 100%;
+    --smart-tree-default-height: 100%;
+    --smart-border: transparent;
+    --smart-background: linear-gradient(0deg,#ec250d 0,#fd5d93 100%);
+    --smart-background-color: rgba(255,255,255,.8);
+    --smart-ui-state-color-hover: #fff;
+    --smart-ui-state-hover: transparent;
+    --smart-ui-state-color-focus: var(--smart-ui-state-color-hover);
+    --smart-ui-state-border-focus: var(--smart-ui-state-hover);
+    --smart-ui-state-focus: var(--smart-ui-state-hover);
+    --smart-ui-state-selected: var(--smart-ui-state-hover);
+    --smart-ui-state-color-selected: var(--smart-ui-state-color-hover);
+    --smart-ui-state-border-selected: var(--smart-ui-state-hover);
+    --smart-ui-state-border-hover: var(--smart-ui-state-hover);
+    --smart-scroll-bar-size: 10px;
+    --smart-tree-scroll-button-size: 30px;
+    --smart-scroll-bar-button-background: var(--smart-background-color);
+}
+
+.dashboard-menu smart-tree-item,
+.dashboard-menu smart-tree-items-group {
+    --smart-background: transparent;
+}
+
+.dashboard-menu smart-tree-item[separator]:after {
+    background-color: rgba(255,255,255,.5);
+}
+
+.dashboard-menu smart-tree-item[selected] > .smart-tree-item-label-container::after {
+    content: '\B7';
+    top: 0;
+    display: block;
+    height: 100%;
+    position: absolute;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-menu smart-tree-item[selected][level="2"] > .smart-tree-item-label-container::after {
+    left: 20px;
+}
+
+#dashboardHeader smart-button {
+    float: right;
+}
+
+#dashboardHeader smart-button {
+    width: 46px;
+    height: 46px;
+}
+
+#menu-btn {
+    float: left;
+    margin-right: 10px;
+    color: rgb(85,85,85);
+}
+
+[theme="dark"] h1 {
+    color: #ccc;
+}
+
+
+#dashboardHeader smart-button {
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: transparent;
+    color: white;
+    border-width: 0px;
+    position: relative;
+}
+
+#notifficationBtn::after {
+    content: '4';
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 17px;
+    height: 17px;
+    font-size: 11px;
+    background-color: #E10050;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#dashboardHeader smart-button .material-icons {
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+}
+
+smart-card {
+    display: block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    padding: 20px;
+    border-radius: 5px;
+    background: #fdfdfd;
+    overflow: inherit;
+    margin: 0;
+}
+
+smart-card[theme="dark"] {
+    background: rgb(46, 46, 46);
+    color: white;
+}
+
+smart-card[theme="dark"] .card-action {
+    border-color: #666;
+}
+
+smart-card .card-title {
+    font-size: .9rem;
+    padding: 0 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #887;
+}
+
+smart-card.basic-card {
+    width: 100%;
+}
+
+smart-card.basic-card.with-chart .percentage {
+    color: #4caf50;
+}
+
+smart-card.basic-card.with-chart .percentage i {
+    font-size: 21px;
+    vertical-align: sub;
+}
+
+smart-card.basic-card.with-chart .card-title {
+    display: block;
+    float: none;
+    padding-top: 10px;
+    color: #444;
+    font-size: 19px;
+}
+
+.card-content {
+    padding: 20px 20px 0 20px;
+    font-weight: 300;
+    font-size: 1.437499875rem;
+}
+
+smart-card.global-sales .card-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+smart-card.basic-card.with-chart .card-content smart-chart {
+    margin-top: -40px;
+}
+
+smart-card.basic-card.with-chart .card-content smart-chart svg {
+    border-radius: 10px;
+}
+
+smart-card.basic-card.with-chart .card-content p {
+    font-size: 17px;
+    margin: 0;
+    color: #aaa;
+    text-align: left;
+    margin-top: 7px;
+}
+
+smart-card.basic-card .card-content .icon-holder {
+    padding: 30px;
+    padding-top: 55px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(255, 152, 0,.4);
+}
+
+.card-content-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.437499875rem;
+}
+
+.progress-bar-holder smart-progress-bar {
+    --smart-progress-bar-border-active: transparent;
+    --smart-progress-bar-background: #e9ecef;
+    --smart-progress-bar-default-height: 5px;
+    --smart-progress-bar-default-width: calc(100% - 50px);
+    margin: 0 auto;
+    margin-top: 28px;
+}
+
+.card-action {
+    padding: 15px 0 15px 0;
+    border-top: 1px solid #ddd;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.card-action a {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: none;
+    text-decoration: none;
+    transition: all .1s ease-in;
+    color: #555;
+}
+
+.card-action a:hover {
+    text-decoration: underline;
+}
+
+smart-card[theme="dark"] .card-action a {
+    color: #bbb;
+}
+
+smart-card .material-icons.single-card-icon {
+    color: white;
+    background-color: var(--smart-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 100;
+}
+
+h6 {
+    padding-top: 20px;
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+    width: 240px;
+    font-weight: 200;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+h3.title {
+    font-size: 24px;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.dblock {
+    display: block;
+}
+
+.top7 {
+    top: 7px;
+}
+
+.top10 {
+    top: 10px;
+}
+
+.f-size20 {
+    font-size: 20px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.mtop0 {
+    margin-top: 0;
+}
+
+.mtop-10 {
+    margin-top: 10px;
+}
+
+.mtop-20 {
+    margin-top: 20px;
+}
+
+.mtop-30 {
+    margin-top: 30px;
+}
+
+.mtop-50 {
+    margin-top: 50px;
+}
+
+.mbottom-10 {
+    margin-bottom: 10px;
+}
+
+.mbottom-20 {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}

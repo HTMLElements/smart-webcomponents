@@ -1,0 +1,32 @@
+<div>Horizontal tank</div>Value: <span id="horizontalTankValue">50000</span>
+<smart-tank #tank id="horizontalTank" [orientation]="'horizontal'" [min]="0" [max]="100000"
+            [value]="50000" [scalePosition]="'both'"></smart-tank>
+<br />
+<br />
+<br />
+<div>Inverted horizontal tank</div>Value: <span id="invertedHorizontalTankValue">50000</span>
+<smart-tank #tank2 id="invertedHorizontalTank" orientation="horizontal" [inverted]="true" [min]="0"
+            [max]="100000" [value]="50000" [scalePosition]="'both'"></smart-tank>
+<br />
+<br />
+<br />
+<div>Vertical Tank</div>Value: <span id="verticalTankValue">50000</span>
+<smart-tank #tank3 id="verticalTank" [orientation]="'vertical'" [min]="0" [max]="100000" [value]="50000"
+            [scalePosition]="'both'"></smart-tank>
+<br />
+<br />
+<br />
+<div>Inverted vertical Tank</div>Value: <span id="invertedVerticalTankValue">50000</span>
+<smart-tank #tank4 id="invertedVerticalTank" [orientation]="'vertical'" [min]="0" [max]="100000"
+            [inverted]="true" [value]="50000" [scalePosition]="'both'"></smart-tank>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <h3>Set Tanks value:</h3>
+        <smart-numeric-text-box #numerictextbox id="numericTextBox1" [spinButtons]="true" [spinButtonsStep]="10000" [value]="50000" [inputFormat]="'floatingPoint'"></smart-numeric-text-box>
+        <br />
+        <br />
+        <smart-check-box #checkbox id="checkboxShowUnit">Show unit</smart-check-box>
+        <br />
+    </div>
+</div>

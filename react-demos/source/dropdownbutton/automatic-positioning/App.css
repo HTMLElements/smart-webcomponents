@@ -1,0 +1,21 @@
+.dropDownButtonAbsolute {
+    position: absolute;
+}
+
+.dropDownButtonAbsolute:nth-last-of-type(1) {
+    top: 20px;
+}
+
+    .dropDownButtonAbsolute:nth-last-of-type(2) {
+        top: 20px;
+        left: calc(100% - 50px);
+    }
+
+    .dropDownButtonAbsolute:nth-last-of-type(3) {
+        top: calc(100% - 50px);
+    }
+
+.dropDownButtonAbsolute:nth-last-of-type(4) {
+    top: calc(100% - 50px);
+    left: calc(100% - 50px);
+}

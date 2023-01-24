@@ -1,0 +1,28 @@
+<div>
+    <smart-time-picker #timepicker id="timePicker" [format]="'24-hour'"></smart-time-picker>
+</div>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <div class="container">
+            <p>Selection</p>
+            <smart-radio-button #radiobutton [checked]="true" [groupName]="'selection'">Hours</smart-radio-button>
+            <smart-radio-button #radiobutton2 [groupName]="'selection'">Minutes</smart-radio-button>
+        </div>
+        <div class="container">
+            <p>Minute interval</p>
+            <smart-radio-button #radiobutton3 [checked]="true" [groupName]="'minuteInterval'">1</smart-radio-button>
+            <smart-radio-button #radiobutton4 [groupName]="'minuteInterval'">5</smart-radio-button>
+            <smart-radio-button #radiobutton5 [groupName]="'minuteInterval'">15</smart-radio-button>
+        </div>
+        <br />
+        <smart-button #button id="setHours" class="demoButton">Set hours to 20</smart-button>
+        <smart-button #button2 id="setMinutes" class="demoButton">Set minutes to 12</smart-button>
+        <smart-button #button3 id="setNow" class="demoButton">Set to now</smart-button>
+        <br />
+        <br />
+        <div>
+            Current value: <strong id="valueLog" #valueLog></strong>
+        </div>
+    </div>
+</div>

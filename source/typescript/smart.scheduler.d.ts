@@ -12,6 +12,11 @@ export interface SchedulerProperties {
    */
   autoHeightAllDayCells?: boolean;
   /**
+   * Defines an array of objects with start and end fields, where start and end are Date objects. For example: [{  'start': '2022-10-25T12:00.000Z', 'end': '2022-10-25T13:00.000Z' }]. 
+   * Default value: 
+   */
+  available?: any;
+  /**
    * Determines the color scheme for the event background selector in the event window editor. 
    * Default value: #D50000,#E67C73,#F4511E,#F6BF26,#33B679,#0B8043,#039BE5,#3F51B5,#7986CB,#8E24AA,#616161,
    */
@@ -277,6 +282,16 @@ export interface SchedulerProperties {
    */
   legendPosition?: SchedulerLegendPosition | string;
   /**
+   * Determines the layout of the legend items.
+   * Default value: auto
+   */
+  legendLayout?: SchedulerLegendLayout | string;
+  /**
+   * Determines the number of items when the legend switches automatically from horizontal list to menu.
+   * Default value: 10
+   */
+  legendLayoutMenuBreakpoint?: number;
+  /**
    * Determines the mouse wheel step. When this property is set to a positive number, the scroll step with mouse wheel or trackpad will depend on the property value.
    * Default value: 50
    */
@@ -361,6 +376,11 @@ export interface SchedulerProperties {
    * Default value: 
    */
   restrictedHours?: any;
+  /**
+   * Defines an array of dates and hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed. Each array item is an Object and requires 2 fields - date and hours. For example: { date: new Date(2022, 10, 1), hours: [[0, 6], 12, [20, 23]] }. The hours define a range of restricted hours similartly to the restricted hours property, the date defines a date where the restricted hours will be applied.
+   * Default value: 
+   */
+  restricted?: any;
   /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
@@ -1300,6 +1320,8 @@ export declare type SchedulerHeaderViewPosition = 'far' | 'near';
 export declare type SchedulerLegendLocation = 'footer' | 'header';
 /**Determines the position of the legend. By default it's positioned to the near side but setting it to 'far' will change that. */
 export declare type SchedulerLegendPosition = 'near' | 'far';
+/**Determines the layout of the legend items. */
+export declare type SchedulerLegendLayout = null | 'auto' | 'menu';
 /**Determines weather or not horizontal scrollbar is shown. */
 export declare type HorizontalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 /**Determines the minute formatting inside the Scheduler. */

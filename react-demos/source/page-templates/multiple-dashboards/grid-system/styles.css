@@ -1,0 +1,62 @@
+﻿smart-card.grid-system {
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+smart-card.grid-system {
+    border-radius: 5px;
+    background: #fdfdfd;
+}
+
+smart-card[theme="dark"].grid-system {
+    background: #27293d;
+}
+
+.grid-group-name {
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.grid-group-name:first-child {
+    margin-top: 0;
+}
+
+smart-card.grid-system .row > div {
+    border-radius: 5px;
+    background: #eee;
+}
+
+smart-card.grid-system .row > div > h3 {
+    font-size: 18px;
+}
+
+smart-card.grid-system .smart-grid-layout.card-no-background .row > div {
+    background: transparent;
+}
+
+smart-card.grid-system .smart-grid-layout.centered .row > div {
+    text-align: center;
+}
+
+smart-card.grid-system[theme="dark"] .row > div > p {
+    color: #ddd;
+}
+
+smart-card.grid-system .row > div > span {
+    padding: 30px;
+    display: block;
+    color: #ff2957;
+}
+
+smart-card.grid-system[theme="dark"] .row > div > span {
+    color: #f3a4b5;
+}
+
+smart-card.grid-system[theme="dark"] .row > div {
+    background: rgb(30, 30, 47);
+}

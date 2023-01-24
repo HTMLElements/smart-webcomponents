@@ -1,0 +1,15 @@
+<smart-slider #slider id="horizontalSlider" [showTooltip]="true" [min]="0" [max]="100"
+              [coerce]="true" [interval]="10" [scalePosition]="'both'" [rangeSlider]="true" [values]="[10, 30]"></smart-slider>
+<br />
+<br />
+<br />
+<smart-slider #slider2 id="verticalSlider" [showTooltip]="true" [tooltipPosition]="'far'"
+              [orientation]="'vertical'" [inverted]="true" [min]="0" [max]="100" [coerce]="true" [interval]="0.5"
+              [scalePosition]="'both'" [rangeSlider]="true" [values]="[10, 30]"></smart-slider>
+<br />
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="setValues">Set <strong>values</strong> to [55, 100]</smart-button>
+    </div>
+</div>

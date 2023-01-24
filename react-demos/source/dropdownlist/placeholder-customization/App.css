@@ -1,0 +1,10 @@
+smart-drop-down-list .smart-action-button {
+    background: url(./images/magnifier.png) no-repeat 98% 50%;
+    background-size: 5%;
+    padding-right: 8%;
+}
+smart-drop-down-list {
+	min-height: 35px;
+	height: auto;
+	width: 300px;
+}

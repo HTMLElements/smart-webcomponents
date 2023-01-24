@@ -1,0 +1,14 @@
+#filterQueryValue {
+    position: absolute;
+    width: 20%;
+    right: 8px;
+    top: 8px;
+    white-space: pre;
+    border: 1px dashed;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}

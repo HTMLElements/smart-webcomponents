@@ -1273,6 +1273,28 @@ smart-scheduler {
     grid-column-gap: 10px;
     grid-area: legend;
 
+    .smart-scheduler-legend-list {
+      width: 30px;
+      background: transparent;
+      border: none;
+      font-family: var(--smart-font-family-icon);
+
+        input {
+          display: none;
+        }
+
+      .smart-container::before {
+        content: var(--smart-icon-menu);
+        background: var(--smart-surface);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: calc(50% - 8px);
+        top: calc(50% - 8px);
+      }
+    }
+
+
     .smart-scheduler-legend-item {
       display: flex;
       flex-direction: column;

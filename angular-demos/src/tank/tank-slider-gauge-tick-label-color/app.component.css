@@ -1,0 +1,17 @@
+
+
+#slider {
+    width: 300px;
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+#tank {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+#gauge {
+    width: 300px;
+}

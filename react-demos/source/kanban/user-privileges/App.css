@@ -1,0 +1,81 @@
+html,
+body,
+#root > div {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+}
+
+#loginInfo,
+#loginAgain {
+    margin-right: 20px;
+}
+
+#loginAgain {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#pic {
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#kanban {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+    #kanban .smart-kanban-list .item[data-id="6"] {
+        display: none;
+    }
+
+#prompt {
+    --smart-window-default-height: 320px;
+    --smart-window-footer-height: 70px;
+}
+
+    #prompt .smart-content {
+        display: block;
+        align-items: unset;
+    }
+
+    #prompt smart-input,
+    #prompt smart-password-text-box {
+        width: 100%;
+    }
+
+    #prompt .smart-footer {
+        border: 2px solid transparent;
+    }
+
+        #prompt .smart-footer.blink {
+            animation: blink .5s step-end infinite alternate;
+        }
+
+@keyframes blink {
+    50% {
+        border-color: red;
+    }
+}

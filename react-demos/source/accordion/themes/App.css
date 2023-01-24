@@ -1,0 +1,44 @@
+body, body.metro-light {
+    background-color: #F2F2F2;
+}
+
+    body.metro-blue {
+        background-color: #1B1464;
+    }
+
+    body.metro-red {
+        background-color: #FF1D25;
+    }
+
+    body.metro-dark {
+        background-color: #1A1A1A;
+    }
+
+        body.metro-blue h3,
+        body.metro-dark h3,
+        body.metro-blue smart-radio-button .smart-label,
+        body.metro-dark smart-radio-button .smart-label,
+        body.metro-red smart-radio-button .smart-label,
+        body.metro-blue smart-accordion-item .smart-arrow:after,
+        body.metro-dark smart-accordion-item .smart-arrow:after,
+        body.metro-blue smart-accordion-item .smart-accordion-item-header,
+        body.metro-dark smart-accordion-item .smart-accordion-item-header,
+        body.metro-blue smart-accordion-item .smart-accordion-item-content,
+        body.metro-dark smart-accordion-item .smart-accordion-item-content {
+            color: white;
+        }
+
+        body.metro-blue smart-accordion-item.hovered .smart-accordion-item-header,
+        body.metro-dark smart-accordion-item.hovered .smart-accordion-item-header {
+            color: #FFBB00;
+        }
+
+        body.metro-blue smart-accordion-item .smart-container,
+        body.metro-dark smart-accordion-item .smart-container {
+            border-color: white;
+        }
+
+smart-accordion {
+    width: 250px;
+    height: 350px;
+}

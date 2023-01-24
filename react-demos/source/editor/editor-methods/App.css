@@ -1,0 +1,108 @@
+html,
+body,
+#root>div {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-editor {
+    width: calc(100% - 300px);
+    height: 100%;
+}
+
+@media (max-width: 750px) {
+    .smart-editor {
+        width: 100%;
+    }
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px;
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}
+
+.options smart-button {
+    width: 100%;
+}
+
+table.browserref {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.browserref tr:nth-child(even) {
+    background-color: #F1F1F1;
+}
+
+table.browserref tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table.browserref tr.fixzebra {
+    background-color: #F1F1F1;
+}
+
+table.browserref th {
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px solid #d4d4d4;
+    background-color: #ffffff;
+    font-weight: normal;
+    color: #555555;
+    padding: 11px 5px 11px 5px;
+    vertical-align: middle;
+}
+
+table.browserref th div {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+}
+
+table.browserref td {
+    border: 1px solid #d4d4d4;
+    text-align: center;
+    padding: 8px;
+    vertical-align: top;
+}
+
+table.browserref th:first-child,
+table.browserref td:first-child {
+    padding-left: 16px
+}
+
+
+table.browserref .bsEdge {
+    background: url(https://www.htmlelements.com/demos/images/browsers.png) -78px -10px;
+}
+
+table.browserref .bsFirefox {
+    background: url(https://www.htmlelements.com/demos/images/browsers.png) -10px -78px;
+}
+
+table.browserref .bsChrome {
+    background: url(https://www.htmlelements.com/demos/images/browsers.png) -10px -10px;
+}
+
+table.browserref .bsSafari {
+    background: url(https://www.htmlelements.com/demos/images/browsers.png) -146px -10px;
+}
+
+table.browserref .bsOpera {
+    background: url(https://www.htmlelements.com/demos/images/browsers.png) -78px -78px;
+}

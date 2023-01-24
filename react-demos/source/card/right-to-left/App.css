@@ -1,0 +1,31 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+smart-card.basic-card .card-content,
+smart-card.basic-card .card-action {
+    box-sizing: border-box;
+    padding: 20px;
+    color: white;
+    background-color: #546E7A;
+    border-bottom: 1px solid rgba(160,160,160,0.2);
+    border-radius: 2px 2px 2px 2px;
+}
+
+smart-card.basic-card .card-title {
+    font-size: 18px;
+}
+
+smart-card.basic-card a {
+    color: #ffab40;
+    transition: color .3s ease;
+    text-transform: uppercase;
+    border-bottom: none;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+    smart-card.basic-card a:hover {
+        color: #ffd8a6;
+    }

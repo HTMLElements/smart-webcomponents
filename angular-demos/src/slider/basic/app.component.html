@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="underlined">Horizontal slider</div>Value: <span id="horizontalSlider[value]" #horizontalSliderValue>30.00</span>
+    <smart-slider #slider id="horizontalSlider" [showTooltip]="true" [orientation]="'horizontal'" [min]="0"
+                  [max]="100" [value]="30" [scalePosition]="'none'"></smart-slider>
+    <br />
+    <div class="underlined">Vertical slider</div>Value: <span id="verticalSlider[value]" #verticalSliderValue>30.00</span>
+    <smart-slider #slider2 id="verticalSlider" [showTooltip]="true" [tooltipPosition]="'far'" [orientation]="'vertical'"
+                  [min]="0" [max]="100" [value]="30" [scalePosition]="'none'"></smart-slider>
+</div>
+<div class="container">
+    <div class="underlined">Inverted horizontal slider</div>Value: <span id="invertedHorizontalSlider[value]" #invertedHorizontalSliderValue>30.00</span>
+    <smart-slider #slider3 id="invertedHorizontalSlider" [showTooltip]="true" [orientation]="'horizontal'"
+                  [inverted]="true" [min]="0" [max]="100" [value]="30" [scalePosition]="'none'"></smart-slider>
+    <br />
+    <div class="underlined">Inverted vertical slider</div>Value: <span id="invertedVerticalSlider[value]" #invertedVerticalSliderValue>30.00</span>
+    <smart-slider #slider4 id="invertedVerticalSlider" [showTooltip]="true" [tooltipPosition]="'far'"
+                  [orientation]="'vertical'" [inverted]="true" [min]="0" [max]="100" [value]="30" [scalePosition]="'none'"></smart-slider>
+</div>

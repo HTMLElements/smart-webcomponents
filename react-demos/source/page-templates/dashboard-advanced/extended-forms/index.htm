@@ -1,0 +1,88 @@
+﻿<div className="extended-forms-page smart-visibility-hidden">
+    <div className="header-forms mbottom-20">
+        <smart-card className="header-forms-left">
+            <div className="card-sub-title">Date Picker</div>
+            <div className="card-content">
+                <div className="smart-grid-layout">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <smart-date-time-picker id="extendedFormDatePicker" calendar-button drop-down-position="bottom" drop-down-display-mode="calendar" className="w100" drop-down-append-to="body"></smart-date-time-picker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-card>
+        <smart-card className="header-forms-middle">
+            <div className="card-sub-title">Range Picker</div>
+            <div className="card-content">
+                <div className="smart-grid-layout">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="range-calendars-holder">
+                                <smart-date-time-picker calendar-button drop-down-position="bottom" drop-down-display-mode="calendar" selection-mode="many"></smart-date-time-picker>
+                                <smart-date-time-picker calendar-button drop-down-position="bottom" drop-down-display-mode="calendar" selection-mode="many"></smart-date-time-picker>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-card>
+        <smart-card className="header-forms-right">
+            <div className="card-sub-title">Time Picker</div>
+            <div className="card-content">
+                <div className="smart-grid-layout">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <smart-date-time-picker calendar-button drop-down-position="bottom" drop-down-display-mode="timePicker" className="w100"></smart-date-time-picker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-card>
+    </div>
+    <div className="input-variants">
+        <smart-card className="input-elements-card">
+            <div className="grid-container">
+                <div className="left-panel">
+                    <div className="card-sub-title no-left-padding">Toggle Buttons</div>
+                    <smart-switch-button checked></smart-switch-button>
+                    <smart-switch-button></smart-switch-button>
+                    <div className="card-sub-title no-left-padding">Tags</div>
+                    <div className="mbottom-20">
+                        <smart-chip avatar="./../../../src/images/phonebook/mark.jpeg" value="Steven Buchanan" close-button></smart-chip>
+                        <smart-chip avatar="./../../../src/images/phonebook/anne.png" value="Steven Buchanan" close-button></smart-chip>
+                        <smart-chip avatar="./../../../src/images/phonebook/janet.png" value="Laura Marano" close-button></smart-chip>
+                    </div>
+                    <div className="card-sub-title no-left-padding">Progress Bars</div>
+                    <div className="progressbar-label">DEFAULT</div>
+                    <div className="mbottom-20">
+                        <smart-progress-bar id="progressbar1" value="25" className="progress-bar-blue"></smart-progress-bar>
+                    </div>
+                    <div className="progressbar-label">PRIMARY</div>
+                    <smart-progress-bar id="progressbar1" value="60" className="progress-bar-orange"></smart-progress-bar>
+                </div>
+                <div className="right-panel">
+                    <div className="mbottom-20">
+                        <div className="card-sub-title no-left-padding">Customisable Select</div>
+                        <smart-drop-down-list drop-down-position="bottom" placeholder="Text">
+                            <smart-list-item selected>Home</smart-list-item>
+                            <smart-list-item>Mobile</smart-list-item>
+                            <smart-list-item>Work</smart-list-item>
+                            <smart-list-item>Business</smart-list-item>
+                            <smart-list-item>Personal</smart-list-item>
+                        </smart-drop-down-list>
+                    </div>
+                    <div className="card-sub-title no-left-padding">Dropdown</div>
+                    <smart-drop-down-button placeholder="Text">
+                        <smart-button className="flat menu-btn">Actions</smart-button>
+                        <smart-button className="flat menu-btn">Another actions</smart-button>
+                        <smart-button className="flat menu-btn">Something else here</smart-button>
+                    </smart-drop-down-button>
+                    <div className="card-sub-title no-left-padding">Sliders</div>
+                    <smart-slider id="horizontalSlider" show-tooltip orientation="horizontal" min="0" max="100" value="30" scale-position="none"></smart-slider>
+                    <smart-slider id="horizontalSliderTwo" show-tooltip min="0" max="100" coerce interval="10" scale-position="far" range-slider values="[10, 30]"></smart-slider>
+                </div>
+            </div>
+        </smart-card>
+    </div>
+</div>

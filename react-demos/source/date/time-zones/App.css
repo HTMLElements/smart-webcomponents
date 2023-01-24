@@ -1,0 +1,16 @@
+code {
+    border: 1px solid #CCCCCC;
+    padding: 3px;
+}
+
+#alternative {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+#result1, #result2, #result3, #result4, #result5 {
+    margin-left: 25px;
+    font-family: Consolas;
+    background-color: black;
+    color: white;
+}

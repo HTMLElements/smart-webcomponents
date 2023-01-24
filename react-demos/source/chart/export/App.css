@@ -1,0 +1,11 @@
+smart-button {
+    width: auto;
+}
+smart-chart {
+	width: 65%;
+}
+
+smart-check-box {
+    position: relative;
+    top: 11px;
+}

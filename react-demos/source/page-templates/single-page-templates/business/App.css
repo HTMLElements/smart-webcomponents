@@ -1,0 +1,1142 @@
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#root>div {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background-color: #fafafa;
+    font-weight: 100;
+}
+
+smart-menu {
+    margin-right: 10px;
+    --smart-menu-default-width: 100%;
+    --smart-surface: transparent;
+    --smart-surface-color: white;
+    --smart-border: transparent;
+    --smart-background: #0067b8;
+    --smart-border-width: 0;
+    --smart-elevation-4: none; /* box-shadow.. */
+}
+
+.smart-menu .smart-hamburger-icon-line {
+    background: white;
+}
+
+smart-menu-item[hover], smart-menu-items-group[hover] {
+    --smart-ui-state-hover: transparent;
+    --smart-ui-state-border-hover: white;
+    --smart-ui-state-color-hover: #ccc;
+}
+
+smart-menu-item.active-item {
+    color: #ccc;
+    border-bottom: 2px solid #ccc;
+}
+
+.smart-menu .smart-menu-main-container {
+    direction: rtl;
+}
+
+div.smart-menu-minimized-items-container {
+    width: 50vw;
+    color: white;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+smart-menu .smart-header {
+    --smart-surface-color: white;
+    color: white;
+}
+
+smart-carousel {
+    --smart-carousel-default-width: 100%;
+    --smart-carousel-default-height: 500px;
+}
+
+smart-tabs {
+    --smart-tabs-default-width: 100%;
+    --smart-tabs-default-height: 950px;
+}
+
+.container {
+    max-width: 100%;
+}
+
+/* Header */
+header {
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    width: 100%;
+    height: 38px;
+    padding: 24px;
+    font-weight: bold;
+    background: #0067b8;
+}
+
+.header-container {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+header smart-button {
+    font-weight: bold;
+    text-transform: none;
+    --smart-button-outlined-color: white;
+    --smart-button-outlined-border: transparent;
+}
+
+header smart-button[focus] {
+    --smart-ui-state-focus: transparent;
+}
+
+header .header-link {
+    text-decoration: none;
+}
+
+.logo img {
+    height: 40px;
+}
+/* Header ^ */
+
+/* Buttons */
+smart-button {
+    width: auto;
+    height: auto;
+}
+
+.btn-success.outlined {
+    --smart-button-outlined-color: white;
+    --smart-button-outlined-border: white;
+}
+
+.btn-success {
+    background: top right/210% 210% #00f2c3;
+    background-image: linear-gradient(to bottom left,#0067b8,#0098f0,#0067b8);
+    -webkit-transition: all .15s ease;
+    -moz-transition: all .15s ease;
+    -o-transition: all .15s ease;
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-right {
+    float: right;
+}
+/* Buttons ^ */
+
+/* Main container */
+section.main-container {
+    height: 75vh;
+    min-height: 450px;
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(./images/desk-3139127_1920.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.main-container-holder {
+    max-width: 450px;
+    margin: 0 auto;
+    padding-top: 200px;
+}
+
+section.main-container smart-button {
+    max-width: 180px;
+    width: 90%;
+    height: 50px;
+    border-radius: 30px;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}
+
+section.main-container .main-text {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+section.main-container .main-description {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #ccc;
+}
+/* Main container ^ */
+
+/* Pricing */
+.pricing {
+    padding: 50px;
+    text-align: center;
+}
+
+.blog .row > div,
+.pricing .row > div {
+    padding: 0;
+}
+
+.pricing .title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.pricing .description {
+    margin-bottom: 40px;
+}
+
+.pricing .container {
+    width: 65%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.pricing smart-card {
+    width: 100%;
+    position: relative;
+}
+
+.pricing .popular::after {
+    content: 'star_border';
+    font-family: 'Material Icons';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 26px;
+}
+
+.pricing smart-card .thumb-section {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.pricing smart-card .thumb-section h2 {
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 33px;
+}
+
+.pricing smart-card .text-on-front {
+    padding-top: 30px;
+}
+
+.pricing smart-card .text-on-back {
+    font-size: 121px;
+    margin-top: -96px;
+    margin-bottom: 10px;
+}
+
+.pricing smart-button.get-started,
+.pricing smart-button.get-started:hover,
+.pricing smart-button.get-started:active,
+.pricing smart-button.get-started:focus {
+    border-radius: 30px;
+    height: 40px;
+    width: auto;
+    --smart-primary-color: white;
+    border: none;
+    outline: none;
+}
+
+#pro .text-on-back {
+    color: rgba(225,78,202,.1);
+}
+
+#pro smart-button.get-started {
+    background: top right/210% 210% #e14eca;
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+}
+
+#basic smart-button.get-started {
+    background-color: #0098f0;
+    background-image: linear-gradient(to bottom left,#00f2c3,#0098f0,#00f2c3);
+}
+
+#mid smart-button.get-started {
+    background-color: #ff6491;
+    background-image: linear-gradient(to bottom left,#ff8d72,#ff6491,#ff8d72);
+}
+
+#trial smart-button.get-started {
+    background-color: #ec250d;
+    background-image: linear-gradient(to bottom left,#fd5d93,#ec250d,#fd5d93);
+}
+
+#basic .text-on-back {
+    color: rgba(0,242,195,.1);
+}
+
+#mid .text-on-back {
+    color: rgba(255,141,114,.1);
+}
+
+#trial .text-on-back {
+    color: rgba(253,93,147,.1);
+}
+
+#pro .thumb-section {
+    background-position: -497px -333px;
+}
+
+#basic .thumb-section {
+    background-position: -294px -683px;
+}
+
+#mid .thumb-section {
+    background-position: -523px -657px;
+}
+
+#trial .thumb-section {
+    background-position: -142px -333px;
+}
+
+#pro .thumb-section,
+#basic .thumb-section,
+#mid .thumb-section,
+#trial .thumb-section {
+    background-repeat: no-repeat;
+    background-image: url(./images/line-1174799_960_720.jpg);
+    background-size: 1000px 1000px;
+}
+
+.pricing smart-card.active {
+    background: #27293d;
+}
+
+.pricing smart-card.active div,
+.pricing smart-card.active h3 {
+    color: white;
+}
+
+.pricing smart-card h2 {
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+}
+
+.pricing smart-card .subheadline {
+    font-family: cursive;
+    font-size: 16px;
+    opacity: 0.7;
+    margin: 0px;
+}
+
+.pricing smart-card h3 {
+    font-weight: 100;
+    font-size: 48px;
+    margin: 0px;
+}
+
+.pricing smart-card .content {
+    margin: 20px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.pricing smart-card .content sub {
+    display: block;
+}
+
+.pricing smart-card smart-button {
+    margin-top: 20px;
+}
+
+/* Pricing ^ */
+
+/* Portfolio */
+section.portfolio {
+    padding-top: 60px;
+    background: white;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+section.portfolio smart-tabs {
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    --smart-tabs-default-width: 70%;
+    --smart-ui-state-selected: transparent;
+    --smart-ui-state-focus: transparent;
+    --smart-background: #fafafa;
+}
+
+section.portfolio .title {
+    font-size: 40px;
+    margin-bottom: 10px
+}
+
+section.portfolio .description {
+    width: 30%;
+    margin: 0 auto;
+    font-size: 17px;
+    margin-bottom: 50px
+}
+
+section.portfolio smart-tabs smart-card.portfolio-card {
+    width: 100%;
+    background: white;
+}
+
+section.portfolio smart-tabs smart-card.portfolio-card img {
+    width: 100%;
+}
+
+section.portfolio smart-tabs smart-card.portfolio-card .card-description {
+    font-size: 15px;
+    padding-bottom: 25px;
+}
+
+.smart-tabs .smart-tabs-content-section {
+    --smart-border-width: 0;
+}
+
+smart-tabs smart-tab-item:not(.smart-visibility-hidden) {
+    position: relative;
+}
+
+.smart-tabs .smart-header {
+    --smart-surface: transparent;
+    --smart-border-width: 0;
+}
+/* Portfolio ^ */
+
+/* Subscription */
+.subscription {
+    display: grid;
+    grid-template-columns: 42% 16% 42%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.subscription smart-input {
+    --smart-text-box-default-height: 38px;
+    --smart-text-box-default-width: 100%;
+    --smart-background: #fafafa;
+    max-width: 250px;
+}
+
+.subscription smart-button {
+    height: 36px;
+}
+
+.subscription .subscription-text .title {
+    font-size: 37px;
+    margin-bottom: 20px;
+}
+
+.subscription .subscription-text {
+    padding-left: 20px;
+    justify-self: end;
+}
+
+.subscription .subscription-input {
+    --smart-text-box-default-width: 180px;
+    align-self: center;
+}
+
+.subscription .subscription-input smart-button {
+    border: none;
+}
+/* Subscription ^ */
+
+
+/* Testimonial */
+.testimonials {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.testimonials smart-carousel {
+    --smart-background: white;
+}
+
+.testimonials .title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.testimonials .description {
+    margin-bottom: 40px;
+}
+
+smart-carousel[display-mode="3d"] .smart-carousel-item {
+    border: none !important; /* no variable */
+}
+
+section.testimonials smart-card.testimonial-card {
+    width: 300px;
+}
+
+section.testimonials smart-card.testimonial-card img {
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+}
+
+section.testimonials smart-card.testimonial-card .card-description {
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section.testimonials smart-card.testimonial-card .card-name {
+    border-top: 1px solid #ccc;
+    font-size: 17px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+section.testimonials smart-card.testimonial-card .card-position {
+    font-size: 14px;
+    padding-bottom: 15px;
+    color: #888;
+}
+/* Testimonial ^ */
+
+/* Brands */
+.brands .smart-carousel {
+    --smart-carousel-default-height: 300px;
+    --smart-background: #fafafa;
+}
+
+.brands .smart-carousel-item {
+    --smart-carousel-3d-mode-slide-width: 100px;
+    --smart-carousel-3d-mode-slide-height: 100px;
+}
+/* Brands ^ */
+
+/* Blogs */
+section.blog {
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+section.blog .section-title {
+    text-align: center;
+    font-size: 40px;
+}
+
+section.blog .section-description {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+section.blog smart-card {
+    width: 100%;
+}
+
+section.blog .blog-image {
+    width: 100%;
+}
+
+section.blog smart-card .card-content {
+    padding: 10px;
+    padding-top: 0;
+}
+
+section.blog .blog-link-footer {
+    text-decoration: none;
+    color: #0067b8;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+span.date i,
+span.comments i {
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+span.comments {
+    margin-left: 10px;
+}
+
+section.blog .card-description {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    color: black;
+}
+/* Blogs ^ */
+
+/* Get in touch */
+.get-in-touch {
+    width: 60%;
+    margin: 0 auto;
+    padding: 40px;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+.get-in-touch .title {
+    font-size: 40px;
+    text-align: center;
+}
+
+.get-in-touch .description {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    color: #888;
+    text-align: center;
+}
+
+.get-in-touch .container {
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: 50% 50%;
+}
+
+.get-in-touch .left-container .subtitle {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.get-in-touch .left-container .subdescription {
+    padding-right: 20px;
+}
+
+.get-in-touch .left-container .links {
+    color: #555;
+    margin-top: 30px;
+}
+
+.get-in-touch .left-container .links .link {
+    margin-bottom: 10px;
+}
+
+.get-in-touch .left-container .links i {
+    vertical-align: sub;
+    font-size: 18px;
+}
+
+.get-in-touch .right-container smart-text-box {
+    margin-bottom: 20px;
+    display: block;
+    --smart-text-box-default-width: 100%;
+    --smart-editor-height: 40px;
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+}
+
+.get-in-touch smart-button {
+    border-radius: 20px;
+    padding: 3px;
+    color: white;
+}
+/* Get in touch ^ */
+
+.footer {
+    margin: 0 auto;
+    font-size: 15px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    padding-left: 17%;
+    padding-right: 17%;
+}
+
+.footer .column-title {
+    font-weight: bold;
+}
+
+.footer a.footer-link {
+    color: black;
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    -webkit-transition: color .1s ease-out;
+    -moz-transition: color .1s ease-out;
+    -o-transition: color .1s ease-out;
+    transition: color .1s ease-out;
+}
+
+.footer a.footer-link:hover {
+    color: #0067b8;
+}
+
+.footer .footer-info .footer-text {
+    cursor: pointer;
+    color: black;
+    margin-top: 30px;
+    -webkit-transition: color .1s ease-out;
+    -moz-transition: color .1s ease-out;
+    -o-transition: color .1s ease-out;
+    transition: color .1s ease-out;
+}
+
+.footer .footer-info .footer-text:hover {
+    color: #0067b8;
+}
+
+/* Media */
+@media only screen and (max-width: 1000px) {
+    .header-container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header-container {
+        width: 90%;
+    }
+
+    .pricing .container {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .pricing smart-card {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .header-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .menu-mobile {
+        display: block;
+    }
+
+    .header-container {
+        width: 100%;
+    }
+
+    .get-in-touch .container {
+        grid-template-columns: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .pricing .container {
+        width: 100%;
+    }
+
+    .subscription {
+        grid-template-columns: none;
+    }
+
+    .subscription > div {
+        margin: 0 auto;
+    }
+
+    .subscription > div:last-child {
+        margin-top: 20px;
+    }
+
+    section.services .description {
+        width: 90% !important; /* with */
+    }
+
+    section.portfolio .description {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    section.main-container smart-button {
+        width: 130px;
+    }
+}
+
+smart-tabs {
+    --smart-tabs-default-height: 950px;
+}
+
+header {
+    background: rgba(0,0,0, 0.5);
+}
+
+.smart-menu[minimized] .smart-minimized-header {
+	background: transparent;
+}
+
+smart-menu {
+	background: transparent !important;
+    --smart-background: rgba(0,0,0, 0.9);
+    --smart-border: rgba(0,0,0, 0.9);
+	--smart-background-color: black;
+}
+
+#map {
+    display: block;
+    position: relative;
+    width: 95%;
+    height: 100%;
+}
+
+/* Main container */
+.header-shape {
+    width: 100%;
+    bottom: -5px;
+    position: absolute;
+    overflow: hidden;
+}
+
+    .header-shape img {
+        width: 105%; /* img bugfix */
+    }
+/* Main container ^ */
+
+/* Service-container */
+.service-container {
+    padding-left: 30%;
+    padding-right: 30%;
+    background: white;
+    text-align: center;
+    margin: 0;
+}
+
+    .service-container .container-title {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .service-container .container-description {
+        font-size: 21px;
+    }
+/* service-container ^ */
+
+/* Pricing + */
+section.pricing {
+    background: white;
+}
+/* Pricing ^ */
+
+/* Testimonials + */
+.testimonials {
+    background: white;
+}
+/* Testimonials ^ */
+
+/* Blog + */
+section.blog {
+    background: white;
+}
+/* Blog ^ */
+
+/* Footer */
+section.footer {
+    background: white;
+}
+/* Footer ^ */
+
+/* Advantages */
+section.advantages {
+    background: white;
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+    section.advantages .advantages-holder,
+    section.advantages .image-holder {
+        align-self: center;
+    }
+
+div.advantage {
+    width: 70%;
+    float: right;
+    margin-right: 50px;
+    margin-bottom: 35px;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 50% 50%;
+}
+
+    div.advantage .left-advantage,
+    div.advantage .right-advantage {
+        display: grid;
+        grid-template-columns: 110px calc(100% - 110px);
+    }
+
+    div.advantage .info-title {
+        font-weight: bold;
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+section.advantages .image-container img {
+    width: 100px;
+}
+
+section.advantages img.dashboard {
+    max-width: 500px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+/* Advantages ^ */
+
+/* Contacts */
+.contacts {
+    padding: 40px;
+    padding-bottom: 80px;
+    background: #fafafa;
+}
+
+    .contacts .contacts-main-container {
+        width: 63%;
+        margin: 0 auto;
+    }
+
+    .contacts .contact-blocks {
+        display: grid;
+        grid-template-columns: 33% 34% 33%;
+        margin-top: 40px;
+    }
+
+        .contacts .contact-blocks > div {
+            width: 95%;
+            padding-top: 20px;
+            text-align: center;
+            background: #f5f5f5;
+            border-radius: 3px;
+            padding-bottom: 20px;
+        }
+
+        .contacts .contact-blocks .callus-block {
+            margin: 0 auto;
+        }
+
+        .contacts .contact-blocks .address-block {
+            justify-self: end;
+        }
+
+        .contacts .contact-blocks > div .block-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .contacts .contact-blocks > div .block-description {
+            font-size: 15px;
+        }
+
+        .contacts .contact-blocks .material-icons {
+            color: #0067b8;
+            font-size: 40px;
+        }
+
+    .contacts .title {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .contacts .description {
+        margin-top: 20px;
+        color: #888;
+        text-align: center;
+    }
+
+    .contacts .container {
+        display: grid;
+        margin-top: 40px;
+        grid-template-columns: 50% 50%;
+    }
+
+    .contacts .left-container .subtitle {
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    .contacts .left-container .subdescription {
+        padding-right: 20px;
+    }
+
+    .contacts .left-container .links {
+        color: #555;
+        margin-top: 30px;
+    }
+
+        .contacts .left-container .links .link {
+            margin-bottom: 10px;
+        }
+
+        .contacts .left-container .links i {
+            vertical-align: sub;
+            font-size: 18px;
+        }
+
+    .contacts .right-container smart-text-box {
+        margin-bottom: 20px;
+        display: block;
+        --smart-text-box-default-width: 100%;
+        --smart-editor-height: 40px;
+        --smart-border-top-left-radius: 0;
+        --smart-border-top-right-radius: 0;
+        --smart-border-bottom-left-radius: 0;
+        --smart-border-bottom-right-radius: 0;
+    }
+
+    .contacts smart-button {
+        border-radius: 20px;
+        padding: 3px;
+        color: white;
+    }
+/* Contacts ^ */
+
+@media only screen and (max-width: 1200px) {
+    div.advantage {
+        float: initial;
+        margin: 0 auto;
+    }
+
+    section.advantages {
+        grid-template-columns: none;
+    }
+
+        section.advantages .image-holder {
+            justify-self: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+}
+
+@media only screen and (max-width: 1000px) {
+    div .advantage .left-advantage, div.advantage .right-advantage {
+        grid-template-columns: none;
+    }
+
+        div.advantage .left-advantage .image-container,
+        div.advantage .right-advantage .image-container {
+            justify-self: center;
+        }
+
+        div.advantage .left-advantage .info-container,
+        div .advantage .right-advantage .info-container {
+            text-align: center;
+        }
+}
+
+@media only screen and (max-width: 800px) {
+    #map {
+        width: 100%;
+    }
+
+    .contacts .contact-blocks,
+    .contacts .container {
+        grid-template-columns: none;
+        grid-template-rows: 33% 33% 33%;
+    }
+
+        .contacts .contact-blocks > div {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .contacts .contact-blocks .callus-block {
+            margin: 10px 0 0 0;
+        }
+}
+
+@media only screen and (max-width: 700px) {
+    .contacts .container {
+        grid-template-columns: none;
+    }
+
+    div.advantage {
+        grid-template-columns: none;
+    }
+
+        div.advantage .left-advantage,
+        div.advantage .right-advantage {
+            margin-bottom: 20px;
+        }
+
+    section.advantages img.dashboard {
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    section.advantages img.dashboard {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    section.main-container .main-text {
+        font-size: 30px;
+    }
+
+    .main-container-holder {
+        padding-top: 150px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .main-container-holder {
+        padding-top: 100px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .service-container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}

@@ -1,0 +1,9 @@
+@media only screen and (max-width: 500px) {
+	smart-calendar[months] .smart-calendar-month {
+		width: 100%;
+	}
+	smart-calendar {
+		width: 300px !important;
+		height: 600px !important;
+	}
+}

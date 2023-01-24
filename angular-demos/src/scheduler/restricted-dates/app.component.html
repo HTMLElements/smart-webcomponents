@@ -1,0 +1,6 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views"
+    [hourStart]="hourStart" [hourEnd]="hourEnd" [firstDayOfWeek]="firstDayOfWeek" [restrictedDates]="restrictedDates"
+    (onResizeEnd)="notifyForRestrictions($event)" (onDragEnd)="notifyForRestrictions($event)"
+    (onEditDialogOpen)="setEventEditDetails($event)" (onEditDialogClose)="clearEventEdit()"
+    (onItemUpdate)="checkEventEdit()">
+</smart-scheduler>

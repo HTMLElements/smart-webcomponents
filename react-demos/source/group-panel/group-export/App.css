@@ -1,0 +1,16 @@
+.firstname:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/user.png");
+}
+
+.lastname:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/autograph.png");
+}
+
+.quantity:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/negative-dynamic.png");
+}
+
+smart-button {
+    width: 200px;
+    height: 40px;
+}

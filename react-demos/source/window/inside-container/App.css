@@ -1,0 +1,33 @@
+#windowContainer {
+    height: 500px;
+    width: 300px;
+    border: 1px solid #ddd;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: #F2F2F2;
+}
+
+    #windowContainer > smart-button {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+smart-window {
+    --smart-window-default-width: 250px;
+    --smart-window-default-height: 150px;
+}
+.smart-window #article {
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+
+#root>div {
+	min-height: inherit;
+}

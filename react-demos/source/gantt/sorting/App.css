@@ -1,0 +1,10 @@
+.smart-gantt-chart {
+    width: calc(100% - 300px);
+    height: 450px;
+}
+@media only screen and (max-width: 600px) {
+	 .smart-gantt-chart {
+		width: 100%;
+		height: auto;
+	}
+}

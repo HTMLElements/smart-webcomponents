@@ -1,0 +1,10 @@
+<div id="toastContainer"></div>
+<smart-toast #toast [position]="'top-left'" [autoOpen]="true" [autoClose]="true" [showCloseButton]="true"
+    [appendTo]="'toastContainer'" class="blink"><b>Toast !</b>
+</smart-toast>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="openButton" (onClick)="buttonClickHandler($event)">Open Toast</smart-button>
+    </div>
+</div>

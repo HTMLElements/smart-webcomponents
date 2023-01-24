@@ -1,0 +1,11 @@
+body {
+    width: 100vw;
+    height: 99vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+smart-accordion {
+    width: 100%;
+    height: 100%;
+}

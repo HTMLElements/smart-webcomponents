@@ -1,0 +1,15 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views"
+    [timelineDayScale]="timelineDayScale" [hourStart]="hourStart" [hourEnd]="hourEnd" [firstDayOfWeek]="firstDayOfWeek" [resources]="resources">
+</smart-scheduler>
+<div class="options">
+    <div class="description">
+        <h4>Description</h4>
+        Resources can have a specific background color that is applied to the
+        events that use it.
+    </div>
+    <div class="option">
+        <h4>Select Resource Priority:</h4>
+        <smart-radio-button #radiobutton [value]="'priorityId'" [checked]="true">Priority</smart-radio-button>
+        <smart-radio-button #radiobutton2 [value]="'employeeId'">Employee</smart-radio-button>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<smart-slider #slider id="slider1" [interval]="5" [orientation]="'vertical'"
+              [scalePosition]="'near'" [showTooltip]="true" [tooltipPosition]="'far'" [mode]="'date'" [dateLabelFormatString]="'d'"
+              [min]="'new Date(2000, 0, 1)'" [max]="'new Date(2020, 0, 1)'" [value]="'new Date(2008, 10, 1)'"></smart-slider>
+<br />
+<smart-slider #slider2 id="slider2" [labelFormatFunction]="slider2LabelFormatFunction"
+              [scalePosition]="'near'" [showTooltip]="true" [tooltipPosition]="'far'" [mode]="'date'" [dateLabelFormatString]="'MMM d, yyyy'"
+              [min]="'new Date(2017, 0, 1)'" [max]="'new Date(2019, 0, 1)'" [value]="'new Date(2018, 0, 1)'"
+              [customInterval]="true" [customTicks]='["new Date(2017, 0, 1)", "new Date(2018, 0, 1)", "new Date(2018, 4, 17)", "new Date(2019, 0, 1)"]'></smart-slider>
+<br />
+<smart-slider #slider3 id="slider3" [interval]="5" [inverted]="true" [orientation]="'vertical'"
+              [scalePosition]="'near'" [showTooltip]="true" [showUnit]="true" [tooltipPosition]="'far'" [unit]="'μs'"
+              [mode]="'date'" [dateLabelFormatString]="'uu'" [min]="'new smartUtilities.DateTime(2018, 3, 19, 2, 12, 35, 133, 45)'"
+              [max]="'new smartUtilities.DateTime(2018, 3, 19, 2, 12, 35, 133, 347)'" [value]="'new smartUtilities.DateTime(2018, 3, 19, 2, 12, 35, 133, 300)'"></smart-slider>
+<br />
+<smart-slider #slider4 id="slider4" [rangeSlider]="true" [coerce]="true" [interval]="1" [scalePosition]="'far'"
+              [showTooltip]="true" [mode]="'date'" [dateLabelFormatString]="'MMM, yy'" [min]="'new Date(2018, 0, 1)'"
+              [max]="'new Date(2018, 11, 1)'" [values]='["new Date(2018, 1, 1)", "new Date(2018, 5, 1)"]'></smart-slider>

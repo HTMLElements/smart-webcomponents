@@ -1,0 +1,32 @@
+html, body {
+    background-color: #F2F2F2;
+}
+
+smart-slider {
+    width: 500px;
+    height: 70px;
+}
+
+#menu {
+    width: 1000px;
+}
+
+#customIcon {
+    width: 40px;
+    height: 100%;
+    background-image: url('../../images/sun.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.2s ease-in;
+}
+
+.smart-hamburger-icon.smart-close-button #customIcon {
+    background-image: url('../../images/moon.png');
+}
+
+#textIcon {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    user-select: none;
+}

@@ -1,0 +1,18 @@
+<p>Tank with floating point scale:</p>
+<smart-tank #tank id="tank1" [orientation]="'horizontal'"
+            [min]="100" [max]="10000" [value]="1000" [coerce]="true" [customInterval]="true" [customTicks]='[100, 200, 1000, 8000, 10000]'></smart-tank>
+<p>Tank with integer scale:</p>
+<smart-tank #tank2 id="tank2" [orientation]="'horizontal'"
+            [scaleType]="'integer'" [wordLength]="'int64'" [min]="'-9223372036854775808'" [max]="'9223372036854775807'"
+            [value]="1000" [coerce]="true" [customInterval] [customTicks]='[-9e18, 0, 1e18, 5e18]'></smart-tank>
+<p>Tank with logarithmic scale:</p>
+<smart-tank #tank3 id="tank3" [orientation]="'horizontal'"
+            [min]="100" [max]="10000" [logarithmicScale]="true" [value]="1000" [coerce]="true" [customInterval]="true"
+            [customTicks]='[100, 200, 1000, 8000, 10000]'></smart-tank>
+<div class="options">
+    <div class="option">
+        <p>Settings</p>
+        <smart-check-box #checkbox id="toggleCustomInterval" [checked]="true">Custom interval</smart-check-box>
+        <smart-check-box #checkbox2 id="toggleCoerce" [checked]="true">Coerce</smart-check-box>
+    </div>
+</div>

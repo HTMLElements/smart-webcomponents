@@ -1,0 +1,27 @@
+<div class="demo-header" #demoHeader>
+    <div class="demo-header-label">Smart Scheduler Team</div>
+    <div class="demo-content">
+        <div class="person-a">
+            <smart-check-box #checkbox id="steven" [checked]="true"></smart-check-box>
+        </div>
+        <div class="person-b">
+            <smart-check-box #checkbox2 id="mark" [checked]="true"></smart-check-box>
+        </div>
+        <div class="person-c">
+            <smart-check-box #checkbox3 id="janet" [checked]="true"></smart-check-box>
+        </div>
+    </div>
+</div>
+<smart-scheduler #scheduler id="scheduler" [view]="view" [hourStart]="hourStart"
+    [viewSelectorType]="viewSelectorType" [views]="views" [locale]="locale" [messages]="messages"></smart-scheduler>
+<div class="options">
+    <div class="option">
+        <h4>Choose Language</h4>
+        <smart-input #input id="input" [readonly]="true" [value]="value" [dataSource]="inputDataSource"
+            [dropDownButtonPosition]="dropDownButtonPosition" (onChange)="handleChange($event)"></smart-input>
+    </div>
+    <div class="option">
+        <p></p>
+        <smart-check-box #checkbox4 [checked]="true" id="checkbox" (onChange)="handleWorkingHours($event)">Show Working Hours</smart-check-box>
+    </div>
+</div>

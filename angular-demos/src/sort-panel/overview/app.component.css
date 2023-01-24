@@ -1,0 +1,19 @@
+.country:after {
+    background-image: url("https://img.icons8.com/material/16/000000/flag.png");
+}
+
+.area:after {
+    background-image: url("https://img.icons8.com/material/16/000000/waypoint-map.png");
+}
+
+.rural:after {
+    background-image: url("https://img.icons8.com/material/16/000000/house-with-a-garden.png");
+}
+
+.total:after {
+    background-image: url("https://img.icons8.com/material/16/000000/sigma.png");
+}
+
+.gdp:after {
+    background-image: url("https://img.icons8.com/material/16/000000/money-bag-euro.png");
+}

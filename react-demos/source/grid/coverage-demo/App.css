@@ -1,0 +1,121 @@
+:root {
+    --smart-grid-column-header-background: transparent;
+    --smart-grid-column-header-background-hover: transparent;
+    --smart-grid-row-height: 37px;
+    --smart-grid-column-header-border: #bbb;
+    --smart-grid-row-border: #bbb;
+    --smart-grid-cell-color: rgb(51, 51, 51);
+    /* Progress Bar */
+    --smart-progress-bar-border-top-left-radius: 0;
+    --smart-progress-bar-border-top-right-radius: 0;
+    --smart-progress-bar-border-bottom-left-radius: 0;
+    --smart-progress-bar-border-bottom-right-radius: 0;
+}
+
+body {
+    font-family: Helvetica Neue, Helvetica, Arial;
+    font-size: 14px;
+}
+
+div.path {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+div.path .home {
+    color: #0074D9;
+    cursor: pointer;
+}
+
+smart-grid-cell[data-field="Statements_number"] .align-right {
+    display: grid;
+}
+
+.status-line {
+    background: #f9cd0b;
+    width: 100%;
+    height: 10px;
+}
+
+.coverage-info {
+    margin-bottom: 17px;
+}
+
+.coverage-info > div {
+    display: inline-block;
+}
+
+.coverage-info > div .percantage {
+    font-weight: bold;
+}
+
+.coverage-info > div .text {
+    color: rgba(0,0,0,0.5);
+}
+
+.coverage-info > div .overview {
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    background: #E8E8E8;
+    font-size: 10px;
+    color: #555;
+    padding: 4px 5px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.coverage-info > div:not(.statements) {
+    margin-left: 20px;
+}
+
+smart-grid {
+    width: 100%;
+}
+
+smart-grid .filename {
+    color: #0074D9;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+/* Progress Bar */
+.statement-progress-bar {
+    width: 90%;
+    height: 13px;
+    margin: 0 auto;
+}
+
+smart-progress-bar .smart-value {
+    border: none;
+}
+
+smart-progress-bar .smart-container {
+    display: table;
+    background: white;
+}
+
+/* Progress Bar Background */
+smart-progress-bar.bkg-red .smart-container {
+    border-color: #C21F39;
+}
+
+smart-progress-bar.bkg-yellow .smart-container {
+    border-color: #f9cd0b;
+}
+
+smart-progress-bar.bkg-green .smart-container {
+    border-color: rgb(77,146,33);
+}
+
+smart-progress-bar.bkg-red .smart-value {
+    background: #C21F39;
+}
+
+smart-progress-bar.bkg-yellow .smart-value {
+    background: #f9cd0b;
+}
+
+smart-progress-bar.bkg-green .smart-value {
+    background: rgb(77,146,33);
+}

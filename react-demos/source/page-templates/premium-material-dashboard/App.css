@@ -1,0 +1,978 @@
+:root {
+    --smart-splitter-border-width: 0;
+    /*--smart-chart-default-width: 500px;*/
+    --smart-chart-default-width: auto;
+    --smart-chart-default-height: 430px;
+    /* Tabs */
+    --smart-tab-item-color-active: white;
+    --smart-tab-item-color-hover: white;
+    --smart-tabs-header-background: linear-gradient(60deg, #ab47bc, #8e24aa);
+    --smart-tabs-header-color: rgba(255, 255, 255, 0.7);
+    --smart-tabs-selection-bar-background: white;
+    /* Grid */
+    --smart-grid-layout-row-gap: 0;
+    --smart-grid-cell-background-selected: linear-gradient(60deg, #bf78ff, #b461ff);
+    --smart-check-box-border-active: #2dce89;
+    --smart-check-box-background-active: #2dce89;
+    --smart-check-box-border-focus: #2dce89;
+    --smart-check-box-background-focus: #2dce89;
+    --smart-grid-column-border-width: none;
+}
+
+#rightPanel {
+    background-color: #f2f3fa;
+}
+
+/**/
+
+#search-input {
+    --smart-text-box-default-width: 300px;
+    --smart-text-box-default-height: 45px;
+    --smart-text-box-background: rgba(23, 43, 77, .8);
+    --smart-text-box-color: white;
+    color: white;
+    -webkit-transition: width .25s;
+    /* Safari prior 6.1 */
+    transition: width .25s;
+}
+
+#search-input input {
+    --smart-text-box-background: transparent;
+}
+
+#search-input[focus] {
+    --smart-text-box-default-width: 400px;
+}
+
+#search-input[focus] input::placeholder {
+    color: rgba(255, 255, 255, .8);
+}
+
+smart-text-box#search-input {
+    margin-top: -30px;
+}
+
+#search-input, #search-input input {
+    border-radius: 54px;
+}
+
+.search-holder .search-icon {
+    z-index: 10;
+    color: white;
+    display: inline;
+    position: relative;
+    vertical-align: middle;
+    top: 4px;
+    padding-left: 6px;
+}
+
+#search-input input::placeholder {
+    color: rgba(255, 255, 255, .6);
+}
+
+#search-input input {
+    position: absolute;
+    padding-left: 30px;
+    color: white;
+    left: 0;
+}
+
+.main-title, .breadcrumb {
+    display: inline;
+}
+
+.main-title {
+    color: black;
+    font-size: 24px;
+}
+
+/* Breadcrumb */
+
+.breadcrumb {
+    padding-left: 20px;
+}
+
+.breadcrumb .icon {
+    vertical-align: sub;
+}
+
+.breadcrumb .icon .material-icons {
+    font-size: 20px;
+}
+
+.breadcrumb .link {
+    color: #5e72e4;
+    cursor: pointer;
+}
+
+.right-filters {
+    float: right;
+    margin-right: 20px;
+}
+
+.right-filters smart-button {
+    width: 65px;
+    color: #5e72e4;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: none;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    margin: 5px;
+}
+
+/* Cards */
+
+.cards-with-progressbar smart-card.tasks-completed {
+    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+}
+
+.cards-with-progressbar smart-card.contacts {
+    background: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;
+}
+
+.cards-with-progressbar smart-card.items-sold {
+    background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
+}
+
+.cards-with-progressbar smart-card.notifications {
+    background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+}
+
+.cards-with-progressbar .smart-card.basic-card .card-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: #e2e2e2;
+}
+
+.cards-with-progressbar smart-card {
+    margin-bottom: 0px !important;
+}
+
+.cards-with-progressbar smart-card.basic-card .card-content, .cards-with-progressbar smart-card.basic-card .card-action {
+    box-sizing: border-box;
+    color: #e8e8e8;
+    padding: 20px;
+    border-radius: 5px
+}
+
+.cards-with-progressbar smart-card.basic-card .card-content {
+    padding-bottom: 0;
+}
+
+.cards-with-progressbar smart-card.basic-card .card-action {
+    padding-top: 0;
+}
+
+.cards-with-progressbar smart-card.basic-card .card-content p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: white;
+    clear: both;
+}
+
+.cards-with-progressbar smart-card.basic-card .card-action a {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.cards-with-progressbar smart-card.basic-card .card-action a:hover {
+    color: #ccc;
+}
+
+.cards-with-progressbar smart-card.basic-card smart-progress-bar {
+    --smart-progress-bar-background-active: #2dce89;
+    --smart-progress-bar-border-active: transparent;
+    --smart-progress-bar-background: #e9ecef;
+    --smart-progress-bar-default-height: 5px;
+    --smart-progress-bar-default-width: calc(100% - 50px);
+    margin-top: 15px;
+}
+
+smart-card.basic-card p smart-drop-down-button.first-card-item {
+    position: absolute;
+    right: 30px;
+    top: 43px;
+}
+
+smart-card.basic-card p smart-drop-down-button.visits {
+    margin-top: 20px;
+}
+
+smart-card.basic-card smart-drop-down-button smart-button {
+    width: 100% !important;
+    text-transform: none;
+}
+
+.cards-with-chart smart-chart {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+}
+
+.cards-with-chart smart-card {
+    border-radius: 5px;
+}
+
+.cards-with-chart .card-content {
+    padding: 20px;
+}
+
+.cards-with-chart .card-content .card-title {
+    color: #888;
+}
+
+.cards-with-chart .card-content p {
+    font-size: 26px;
+    margin: 10px 0;
+    color: black;
+}
+
+.cards-with-chart smart-card.tasks .card-content p smart-button {
+    width: 80px;
+    color: #5e72e4;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: none;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    float: right;
+    margin-top: -20px;
+}
+
+smart-card.basic-card.sales, smart-card.basic-card.performance, .cards-with-chart smart-card.basic-card.tasks {
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15);
+    background: white;
+}
+
+smart-card.sales .card-title, smart-card.performance .card-title, .cards-with-chart smart-card.tasks .card-title {
+    color: rgb(136, 152, 170);
+    font-size: 12px;
+}
+
+smart-card.sales .card-content p, smart-card.performance .card-content p, .cards-with-chart smart-card.tasks .card-content p {
+    /*color: rgb(136, 152, 170);*/
+    font-size: 20px;
+    border-bottom: 1px solid rgb(233, 236, 239);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+smart-card.tasks {
+    background: white;
+}
+
+smart-card.tasks .card-content {
+    background: white;
+    padding-bottom: 20px;
+}
+
+smart-card.tasks .card-content p {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+smart-card.real-time .card-content p {
+    margin-top: 0;
+    padding-top: 11px;
+}
+
+smart-card.real-time .card-content span.card-title {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+smart-card.page-visits .card-content p {
+    margin-top: 0;
+    padding-top: 11px;
+}
+
+smart-card.page-visits .card-content span.card-title {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+smart-card.tasks .progress-item {
+    padding: 20px;
+    padding-bottom: 15px;
+}
+
+div.grid-members-holder smart-card.tasks .progress-item {
+    padding: 8px;
+    padding-left: 15px;
+    padding-bottom: 13px;
+}
+
+div.grid-members-holder smart-card.tasks .progress-item:first-child {
+    padding-left: 10px;
+}
+
+div.grid-members-holder smart-card.tasks .progress-item:last-child {
+    padding-bottom: 20px;
+}
+
+/* Hide labels on checkboxes */
+
+div.grid-members-holder smart-card.tasks .card-action {
+    margin-top: -10px;
+}
+
+.grid-members-holder .smart-check-box-element .smart-label {
+    display: none;
+}
+
+smart-grid#todo-list-grid smart-check-box {
+    width: 35px;
+}
+
+smart-card.tasks .progress-item:last-child {
+    padding-bottom: 30px;
+}
+
+smart-card.tasks .progress-item:nth-child(1) {
+    padding-top: 0px;
+    padding-left: 15px;
+}
+
+smart-card.tasks .progress-item .icon {
+    float: left;
+    padding-top: 25px;
+    margin-right: 20px;
+}
+
+smart-card.tasks .progressbar-right-side {
+    padding-top: 25px;
+    border-top: 1px solid rgb(233, 236, 239);
+}
+
+smart-card.tasks .progress-item.bootstrap-design-system .progressbar-right-side {
+    padding-top: 0px;
+    border-top: 0px solid rgb(233, 236, 239);
+}
+
+smart-card.tasks .progress-item.bootstrap-design-system.progress-item .icon {
+    padding-top: 0px;
+}
+
+smart-card.tasks .progress-item .progressbar-right-side smart-progress-bar {
+    width: 80%;
+    --smart-progress-bar-border-active: transparent;
+    --smart-progress-bar-background: #e9ecef;
+    --smart-progress-bar-default-height: 5px;
+    --smart-progress-bar-default-width: calc(100% - 50px);
+    margin-top: 15px;
+}
+
+smart-card.tasks .progress-item.bootstrap-design-system .progressbar-right-side smart-progress-bar {
+    --smart-progress-bar-background-active: #fb6340 !important;
+}
+
+smart-card.tasks .progress-item.angular .progressbar-right-side smart-progress-bar {
+    --smart-progress-bar-background-active: #2dce89 !important;
+}
+
+smart-card.tasks .progress-item.black-dshb .progressbar-right-side smart-progress-bar {
+    --smart-progress-bar-background-active: #f5365c !important;
+}
+
+smart-card.tasks .progress-item.react .progressbar-right-side smart-progress-bar {
+    --smart-progress-bar-background-active: #11cdef !important;
+}
+
+smart-card.tasks .progress-item.vuejs .progressbar-right-side smart-progress-bar {
+    --smart-progress-bar-background-active: #2dce89 !important
+}
+
+.grid-sitemap-holder #grid-page-visits {
+    width: 100%;
+    /*--smart-grid-default-height: 500px; /**/
+    /*--smart-grid-default-width: 500px;*/
+    height: 500px;
+    max-height: 600px;
+}
+
+.grid-sitemap-holder #map {
+    width: 100%;
+    height: 290px;
+}
+
+.grid-sitemap-holder #real-time-grid {
+    --smart-grid-default-height: auto;
+    --smart-grid-default-width: auto;
+    width: auto;
+    height: auto;
+}
+
+/* Team members */
+
+.grid-members-holder {
+    height: auto;
+    width: auto;
+    display: contents;
+}
+
+.grid-members-holder smart-card.team-members {
+    background: white;
+}
+
+.grid-members-holder smart-card.team-members .card-content {
+    padding-top: 20px;
+}
+
+.grid-members-holder smart-card.team-members .card-title {
+    color: #32325d;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.grid-members-holder smart-card.team-members #team-members-grid {
+    background: white;
+    width: 100%;
+    height: auto;
+}
+
+.grid-members-holder smart-card.team-members .status {
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.grid-members-holder smart-card.team-members smart-button.add {
+    background-color: rgb(94, 114, 228);
+    float: right;
+    color: white;
+    font-size: 12px;
+    width: 58px;
+    height: auto;
+    margin-right: 15px;
+    /*margin-bottom: 10px;*/
+    margin-top: 20px;
+}
+
+/* Team members ^ */
+
+/* Todo list */
+
+.grid-members-holder smart-card.todo-list {
+    background: white;
+}
+
+.grid-members-holder smart-card.todo-list .card-content {
+    padding-top: 20px;
+}
+
+.grid-members-holder smart-card.todo-list .card-title {
+    color: #32325d;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.grid-members-holder smart-card.todo-list #todo-list-grid {
+    background: white;
+    width: auto;
+    height: auto;
+}
+
+/* Todo list ^ */
+
+/* Progress track */
+
+.grid-members-holder smart-card.tasks p {
+    color: #32325d;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+/* Progress track ^ */
+
+.grid-sitemap-holder smart-card.page-visits, .grid-sitemap-holder smart-card.real-time {
+    background: white;
+}
+
+.grid-sitemap-holder smart-card.page-visits .card-title, .grid-sitemap-holder smart-card.real-time .card-title {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(50, 50, 93);
+    margin-left: 20px;
+    padding: 5px;
+    padding-top: 8px;
+}
+
+.grid-sitemap-holder smart-card.page-visits smart-button.see-all {
+    background-color: rgb(94, 114, 228);
+    float: right;
+    color: white;
+    font-size: 12px;
+    width: 85px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.grid-sitemap-holder smart-card.real-time smart-button.action {
+    background-color: white;
+    float: right;
+    color: rgb(94, 114, 228);
+    font-size: 12px;
+    width: 85px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.icon img {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.images img:hover {
+    z-index: 123;
+    cursor: pointer;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.images img {
+    position: absolute;
+    height: 40px;
+    top: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0px 0px 2px 0px black;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.images img:nth-child(1) {
+    left: 5px;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.images img:nth-child(2) {
+    left: 35px;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.images img:nth-child(3) {
+    left: 65px;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.images img:nth-child(4) {
+    left: 95px;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits div.images img:nth-child(5) {
+    left: 125px;
+}
+
+.grid-sitemap-holder smart-card.page-visits #grid-page-visits .status {
+    /*margin-left: 20%;*/
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.completion-progress-bar smart-progress-bar {
+    width: 90% !important;
+    --smart-progress-bar-border-active: transparent;
+    --smart-progress-bar-background: #e9ecef;
+    --smart-progress-bar-default-height: 5px;
+    --smart-progress-bar-default-width: calc(100% - 50px);
+    margin: 0 auto;
+    margin-top: 35px;
+}
+
+.completion-progress-bar smart-progress-bar.bootstrap {
+    --smart-progress-bar-background-active: #fb6340 !important;
+}
+
+.completion-progress-bar smart-progress-bar.angular {
+    --smart-progress-bar-background-active: #2dce89 !important;
+}
+
+.completion-progress-bar smart-progress-bar.sketch {
+    --smart-progress-bar-background-active: #f5365c !important;
+}
+
+.completion-progress-bar smart-progress-bar.react {
+    --smart-progress-bar-background-active: #11cdef !important;
+}
+
+.completion-progress-bar smart-progress-bar.vuejs {
+    --smart-progress-bar-background-active: #2dce89 !important;
+}
+
+/* - - - */
+
+smart-card {
+    overflow: inherit;
+    margin-bottom: 20px;
+}
+
+.grid-holder {
+    --smart-grid-column-header-color: rgb(255, 152, 0);
+    --smart-grid-column-header-color-hover: rgb(255, 152, 0);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+
+smart-splitter {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-header {
+    box-shadow: -3px 1px 9px #6e6464;
+    padding: 10px;
+    color: rgb(85, 85, 85);
+    font-size: 20px;
+    height: 65px;
+}
+
+#rightPanel .dashboard-header {
+    padding-left: 20px;
+}
+
+.smart-logo {
+    width: 165px;
+    margin-top: 5px;
+}
+
+#leftPanel {
+    /*background-color: #c5c5c5ad;*/
+    background-image: linear-gradient(to right, #acacac, #bdbdbf, #cfcfd2, #e0e1e6, #f2f3fa);
+}
+
+#leftPanel * {
+    color: #444 !important;
+}
+
+#leftPanel smart-button {
+    color: white !important;
+}
+
+#rightPanel .dashboard-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-header smart-button {
+    width: 46px;
+    height: 46px;
+}
+
+#dashboard #leftPanel .dashboard-header {
+    box-shadow: 3px 1px 9px #6e6464;
+}
+
+#dashboard[expanded] #leftPanel .dashboard-header {
+    /*box-shadow: none;*/
+}
+
+smart-splitter smart-splitter-item#leftPanel>.smart-container>.smart-content {
+    overflow: hidden;
+}
+
+smart-splitter smart-splitter-item#rightPanel>.smart-container>.smart-content {
+    overflow: auto;
+}
+
+.dashboard-menu-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+#leftPanel .menu-btn {
+    width: 240px;
+    height: 46px;
+}
+
+#leftPanel .menu-btn .material-icons {
+    margin-right: 30px;
+}
+
+.menu-btn .smart-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu-btn .smart-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu-btn {
+    width: 240px;
+}
+
+h1 {
+    margin-top: 40px;
+    margin-left: calc(1% + 10px);
+}
+
+h6 {
+    padding-top: 20px;
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+    width: 240px;
+    font-weight: 200;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#borderedBtn:hover {
+    color: white;
+}
+
+div.floating smart-button {
+    border-radius: 50% !important;
+    margin-left: 5px;
+}
+
+#expandBtn, #collapseBtn, #notifficationBtn, #header-person-btn, #header-dashboard-btn {
+    opacity: 1;
+    background-color: transparent;
+    color: white;
+    border-width: 0px;
+    position: relative;
+    font-size: 22px;
+    box-shadow: none;
+}
+
+#borderedBtn {
+    opacity: 1;
+    color: white;
+    border-width: 0px;
+    position: relative;
+    font-size: 22px;
+    box-shadow: none;
+}
+
+#expandBtn[hover], #collapseBtn[hover], #notifficationBtn[hover], #borderedBtn[hover], #header-person-btn[hover], #header-dashboard-btn[hover] {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#notifficationBtn::after {
+    content: '4';
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 17px;
+    height: 17px;
+    font-size: 11px;
+    background-color: #E10050;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#header-person-btn::after, #header-dashboard-btn::after, #borderedBtn::after {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 17px;
+    height: 17px;
+    font-size: 11px;
+    background-color: #E10050;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#expandBtn .smart-button, #collapseBtn .smart-button, #notifficationBtn .smart-button, #borderedBtn .smart-button, #header-person-btn.smart-button, #header-dashboard-btn.smart-button {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#expandBtn, #collapseBtn, #notifficationBtn, #borderedBtn, #header-person-btn, #header-dashboard-btn {
+    float: right;
+    color: rgb(85, 85, 85);
+}
+
+#expandBtn .material-icons, #collapseBtn .material-icons, #notifficationBtn .material-icons, #header-person-btn .material-icons, #header-dashboard-btn .material-icons {
+    font-size: 22px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#collapseBtn {
+    color: gray;
+    display: none;
+}
+
+#dashboard[expanded] #collapseBtn {
+    display: block;
+}
+
+#dashboard[expanded] #expandBtn {
+    display: none;
+}
+
+table {
+    width: 98%;
+    text-align: right;
+    padding: 0px;
+    box-shadow: 1px 3px 7px 0px #afafaf;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr {
+    margin: 0px;
+    padding: 0px;
+    height: 60px;
+}
+
+table th, table td {
+    margin: 0px;
+    padding: 15px;
+    font-size: 12px;
+    border-bottom: 1px solid lightgray;
+}
+
+table th:first-child, table td:first-child {
+    text-align: left;
+}
+
+smart-card.basic-card {
+    width: 100%;
+    /*width: 350px;*/
+    /*min-width: 300px;*/
+}
+
+smart-card.basic-card.with-chart {
+    /*width: 550px;*/
+}
+
+smart-card.basic-card.with-chart .percentage {
+    color: #4caf50;
+}
+
+smart-card.basic-card.with-chart .percentage i {
+    font-size: 21px;
+    vertical-align: sub;
+}
+
+smart-card.basic-card.with-chart .card-title {
+    display: block;
+    float: none;
+    padding-top: 10px;
+    color: #444;
+    font-size: 19px;
+}
+
+smart-card.basic-card.with-chart .card-content smart-chart {
+    margin-top: -40px;
+    /*width: auto;*/
+}
+
+smart-card.basic-card.with-chart .card-content smart-chart svg {
+    border-radius: 10px;
+}
+
+smart-card.basic-card.with-chart .card-content p {
+    /*font-size: 25px;*/
+    font-size: 17px;
+    margin: 0;
+    color: #aaa;
+    text-align: left;
+    margin-top: 7px;
+    /*text-align: right*/
+}
+
+smart-card.basic-card.with-chart {
+    /*width: 550px;*/
+}
+
+smart-card.basic-card .card-content .icon-holder {
+    /*background: #fc960f;*/
+    padding: 30px;
+    padding-top: 55px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(255, 152, 0, .4);
+}
+
+smart-card.basic-card:not(.with-chart) .card-content .material-icons {
+    font-size: 40px !important;
+}
+
+smart-card.basic-card a {
+    transition: color .3s ease;
+    text-transform: uppercase;
+    border-bottom: none;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+smart-card.basic-card #grid-page-visits smart-grid-column:first-child .align-left {
+    padding-left: 15px;
+}
+
+smart-card .card-action .material-icons {
+    vertical-align: sub;
+}
+
+smart-card .card-action a {
+    font-size: 14px;
+}
+
+smart-card .card-action i.material-icons {
+    font-size: 18px;
+}
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}

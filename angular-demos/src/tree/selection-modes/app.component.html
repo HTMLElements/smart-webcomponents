@@ -1,0 +1,73 @@
+<smart-tree #tree id="tree" [selectionMode]="'zeroOrMany'" [selectedIndexes]='["0", "4"]'>
+    <smart-tree-item>Home</smart-tree-item>
+    <smart-tree-item [selected]="true">Education</smart-tree-item>
+    <smart-tree-item>Financial services</smart-tree-item>
+    <smart-tree-item>Government</smart-tree-item>
+    <smart-tree-item [disabled]="true">Manufacturing</smart-tree-item>
+    <smart-tree-items-group>Solutions
+        <smart-tree-item>Education</smart-tree-item>
+        <smart-tree-item>Financial services</smart-tree-item>
+        <smart-tree-item>Government</smart-tree-item>
+        <smart-tree-item>Manufacturing</smart-tree-item>
+        <smart-tree-items-group>Solutions
+            <smart-tree-item>Consumer photo and video</smart-tree-item>
+            <smart-tree-item>Mobile</smart-tree-item>
+            <smart-tree-item>Rich Internet applications</smart-tree-item>
+            <smart-tree-item>Technical communication</smart-tree-item>
+            <smart-tree-item>Training and eLearning</smart-tree-item>
+            <smart-tree-item>Web conferencing</smart-tree-item>
+        </smart-tree-items-group>
+        <smart-tree-item>All industries and solutions</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [disabled]="true">Products
+        <smart-tree-item>PC products</smart-tree-item>
+        <smart-tree-item>Mobile products</smart-tree-item>
+        <smart-tree-item>All products</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>Communities
+        <smart-tree-item>Designers</smart-tree-item>
+        <smart-tree-item>Developers</smart-tree-item>
+        <smart-tree-item>Educators and students</smart-tree-item>
+        <smart-tree-item>Partners</smart-tree-item>
+        <smart-tree-items-group>By resource
+            <smart-tree-item>Labs</smart-tree-item>
+            <smart-tree-item>TV</smart-tree-item>
+            <smart-tree-item>Forums</smart-tree-item>
+            <smart-tree-item>Exchange</smart-tree-item>
+            <smart-tree-item>Blogs</smart-tree-item>
+            <smart-tree-item>Experience Design</smart-tree-item>
+        </smart-tree-items-group>
+    </smart-tree-items-group>
+</smart-tree>
+<div class="options">
+    <div class="caption"></div>
+    <div class="option">
+        <div>
+            <p>Selection mode:</p>
+            <smart-radio-button #radiobutton id="none">None</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton2 id="one">One</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton3 id="zeroOrOne">Zero or one</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton4 id="zeroOrMany" [checked]="true">Zero or many</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton5 id="oneOrMany">One or many</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton6 id="oneOrManyExtended">One or many extended</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton7 id="checkBox">Checkbox</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton8 id="radioButton">Radio button</smart-radio-button>
+        </div>
+        <br />
+        <div>
+            <p>Toggle mode:</p>
+            <smart-radio-button #radiobutton9 id="dblclick" [checked]="true">Item double click</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton10 id="click">Item click</smart-radio-button>
+            <br />
+            <smart-radio-button #radiobutton11 id="arrow">Item arrow click</smart-radio-button>
+        </div>
+    </div>
+</div>

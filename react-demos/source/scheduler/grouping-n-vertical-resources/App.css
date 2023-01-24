@@ -1,0 +1,17 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-scheduler {
+    height: 100%;
+    --smart-scheduler-timeline-cell-width: 100px;
+    --smart-scheduler-timeline-header-vertical-group-size: 250px;
+    --smart-scheduler-timeline-group-white-space: normal;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,16 @@
+mechanicalAction: 'switchUntilReleased'
+<smart-tank #tank id="smartTank1"
+            [orientation]="'vertical'" [min]="0" [max]="100" [value]="10" [mechanicalAction]="'switchUntilReleased'"></smart-tank>
+Value: <span id="smartTank1Value" #smartTank1Value>10.00</span>
+<br />
+<br />
+mechanicalAction: 'switchWhenReleased'
+<smart-tank #tank2 id="smartTank2"
+            [orientation]="'vertical'" [min]="0" [max]="100" [value]="20" [mechanicalAction]="'switchWhenReleased'"></smart-tank>
+Value: <span id="smartTank2Value" #smartTank2Value>20.00</span>
+<br />
+<br />
+mechanicalAction: 'switchWhileDragging'
+<smart-tank #tank3 id="smartTank3"
+            [orientation]="'vertical'" [min]="0" [max]="100" [value]="30" [mechanicalAction]="'switchWhileDragging'"></smart-tank>
+Value: <span id="smartTank3Value" #smartTank3Value>30.00</span>

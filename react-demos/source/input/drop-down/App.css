@@ -1,0 +1,83 @@
+.smart-input-drop-down-menu li {
+    height: 35px;
+}
+
+.smart-input-drop-down-menu li[value] a::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0rem;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+li[value="Andrew Watson"] a::before {
+    background: url('./images/phonebook/andrew.png');
+}
+
+li[value="Anne Kean"] a::before {
+    background: url('./images/phonebook/anne.png');
+}
+
+li[value="Avril Janin"] a::before {
+    background: url('./images/phonebook/avril.png');
+}
+
+li[value="Janet Pattenson"] a::before {
+    background: url('./images/phonebook/janet.png');
+}
+
+li[value="Johanna Svensson"] a::before {
+    background: url('./images/phonebook/johanna.png');
+}
+
+li[value="Johnny Abana"] a::before {
+    background: url('./images/phonebook/johnny.png');
+}
+
+li[value="Laura Thene"] a::before {
+    background: url('./images/phonebook/laura.png');
+}
+
+li[value="Margaret Vetton"] a::before {
+    background: url('./images/phonebook/margaret.png');
+}
+
+li[value="Maria Sevrano"] a::before {
+    background: url('./images/phonebook/maria.png');
+}
+
+li[value="Mark Yemen"] a::before {
+    background: url('./images/phonebook/mark.png');
+}
+
+li[value="Maya Verdara"] a::before {
+    background: url('./images/phonebook/maya.png');
+}
+
+li[value="Michael Barton"] a::before {
+    background: url('./images/phonebook/michael.png');
+}
+
+li[value="Monica Oghini"] a::before {
+    background: url('./images/phonebook/monica.png');
+}
+
+li[value="Nancy Queens"] a::before {
+    background: url('./images/phonebook/nancy.png');
+}
+
+li[value="Robert Drawny"] a::before {
+    background: url('./images/phonebook/robert.png');
+}
+
+li[value="Steven Fedrichy"] a::before {
+    background: url('./images/phonebook/steven.png');
+}
+
+li[value="Toni Versachi"] a::before {
+    background: url('./images/phonebook/toni.png');
+}

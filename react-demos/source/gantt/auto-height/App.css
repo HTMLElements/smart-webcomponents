@@ -1,0 +1,24 @@
+smart-gantt-chart {
+    height: auto;
+}
+
+    smart-gantt-chart[theme="dark"] {
+        --smart-gantt-chart-task-label-color: black;
+        --smart-gantt-chart-task-thumb-color: white;
+    }
+
+    smart-gantt-chart .morning-shift {
+        --smart-gantt-chart-task-color: rgb(56, 181, 216);
+    }
+
+    smart-gantt-chart .half-day {
+        --smart-gantt-chart-task-color: rgb(245, 174, 0);
+    }
+
+    smart-gantt-chart .early-morning-support {
+        --smart-gantt-chart-task-color: rgb(255, 144, 166);
+    }
+
+    smart-gantt-chart .afternoon-shift {
+        --smart-gantt-chart-task-color: rgb(34, 177, 141);
+    }

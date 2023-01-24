@@ -1,0 +1,17 @@
+<p>Move the slider thumbs to see the tooltips.</p>
+<smart-slider #slider id="horizontalSlider"
+              [showTooltip]="true" [tooltipPosition]="'near'" [orientation]="'horizontal'" [min]="0" [max]="100"
+              [value]="95" [scalePosition]="'none'"></smart-slider>
+<br />
+<smart-slider #slider2 id="verticalSlider" [showTooltip]="true" [tooltipPosition]="'near'"
+              [orientation]="'vertical'" [min]="0" [max]="100" [value]="33" [scalePosition]="'none'"></smart-slider>
+<br />
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="toggleTooltipPositionButton">Flip Tooltip</smart-button>
+        <br />
+        <br />
+        <smart-button #button2 id="disableTooltipsButton">Disable Tooltip</smart-button>
+    </div>
+</div>

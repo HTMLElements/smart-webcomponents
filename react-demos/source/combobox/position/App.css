@@ -1,0 +1,30 @@
+smart-combo-box {
+    position: relative;
+    top: 260px;
+}
+smart-combo-box  .smart-drop-down {
+	--smart-drop-down-element-max-height: 250px;
+}
+
+html, body {
+	min-height: 900px;
+}
+
+
+.options {
+	padding: 20px;
+	background-color: rgba(191, 191, 191, .15);
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 260px;
+}
+
+.options .caption {
+	color: #333;
+}
+
+.options .option {
+	margin-top: 10px;
+}

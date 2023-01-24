@@ -1,0 +1,21 @@
+.smart-window #article {
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+
+app-root {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    margin: 0 auto;
+}

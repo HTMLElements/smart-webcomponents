@@ -1,0 +1,27 @@
+html, body {
+	height: 700px;
+}
+smart-date-time-picker {
+ 	top: 350px;
+	left: 25%;
+	position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+	html, body {
+		height: initial;
+	}
+	
+	.options {
+		display: none;
+	}
+	smart-date-time-picker  {
+		top: 0px;
+		left: 0px;
+	}
+}
+@media only screen and (max-width: 500px) {  
+	.smart-drop-down.smart-date-time-drop-down {
+		left: 125%;
+	}
+}

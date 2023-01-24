@@ -1,0 +1,16 @@
+smart-sortable {
+    width: 300px;
+}
+
+ol {
+    background-color: rgba(var(--smart-primary-rgb), 0.6);
+    padding: 30px;
+}
+
+    ol li {
+        margin: 5px;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: var(--smart-primary-color);
+        font-family: var(--smart-font-family);
+        font-size: 20px;
+    }

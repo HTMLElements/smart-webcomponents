@@ -1,0 +1,15 @@
+#map-canvas-0,
+#map-canvas-1,
+#map-canvas-2,
+#map-canvas-3 {
+    width: 100%;
+    height: 100%;
+}
+smart-tabs {
+	width: 60%;	
+}
+@media only screen and (max-width: 600px) {
+	smart-tabs {
+		width: 100%;
+	}
+}

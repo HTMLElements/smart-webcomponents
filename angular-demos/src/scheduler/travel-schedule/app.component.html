@@ -1,0 +1,13 @@
+<smart-scheduler #scheduler id="scheduler" [view]="view" [dataSource]="dataSource" [views]="views"
+    [disableWindowEditor]="disableWindowEditor" [disableDrag]="disableDrag" [disableResize]="disableResize"
+    [eventTemplate]="eventTemplate" [headerTemplate]="headerTemplate" [cellTemplate]="cellTemplate" [filterable]="filterable" [filter]="filter">
+</smart-scheduler>
+
+<div class="options">
+    <div class="option">
+        <h4>Filter Airways:</h4>
+        <smart-check-box #checkbox [checked]="true">Airways 1</smart-check-box>
+        <smart-check-box #checkbox2 [checked]="true">Airways 2</smart-check-box>
+        <smart-check-box #checkbox3 [checked]="true">Airways 3</smart-check-box>
+    </div>
+</div>

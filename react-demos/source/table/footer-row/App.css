@@ -1,0 +1,12 @@
+.smart-table {
+    width: 800px;
+}
+
+.smart-table tfoot td {
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+#totalLabel {
+    text-align: right;
+}

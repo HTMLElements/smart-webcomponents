@@ -1,0 +1,100 @@
+body {
+    background: #000;
+}
+
+.button-demo {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.button-demo label {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: auto;
+    color: black;
+}
+
+.demo-buttons-group {
+    margin-top: 20px;
+}
+
+/* Button change */
+.button-change .wrapper {
+    position: relative;
+}
+
+.button-change .link_wrapper {
+    width: 250px;
+    position: relative;
+}
+
+.button-change a smart-button {
+    background: #333;
+    color: #fff;
+    border: none;
+    width: 250px;
+    height: 50px;
+    font: inherit;
+    border: 3px solid #333;
+    border-radius: 0;
+    --smart-button-opacity-focus: initial;
+    --smart-button-opacity-hover: initial;
+    --smart-button-opacity-active: initial;
+}
+
+.button-change a smart-button button {
+    outline: none;
+}
+
+.button-change a:hover {
+    text-decoration: none;
+}
+
+.button-change a {
+    display: block;
+    line-height: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all .35s;
+}
+
+.button-change .icon {
+    margin-top: 2px; 
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    position: absolute;
+    transform: rotate(45deg);
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: all .35s;
+}
+
+.button-change .icon svg {
+    width: 30px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    transform: rotate(-45deg);
+    fill: #2ecc71;
+    transition: all .35s;
+}
+
+.button-change a:hover {
+    transform: scaleX(0.9);
+}
+
+.button-change a:hover smart-button {
+    color: #2ecc71;
+    background: transparent;
+    border: 3px solid #2ecc71;
+}
+
+.button-change a:hover + .icon {
+    border: 3px solid #2ecc71;    
+    right: -15%;
+}

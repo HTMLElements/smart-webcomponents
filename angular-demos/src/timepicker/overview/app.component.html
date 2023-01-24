@@ -1,0 +1,48 @@
+<div class="smart-demo-container">
+  <template id="templateWithButtons">
+    <smart-button #button class="flat">CANCEL</smart-button>
+    <smart-button #button2 class="flat">OK</smart-button>
+  </template>
+  <div id="materialPicker">
+    <section id="timePickers">
+      <h1>Time pickers</h1>
+      <div class="module">
+        <p>A time picker adjusts to a user’s preferred time setting, i.e. the 12-hour
+          or 24-hour format.</p>
+        <p>A dialog picker is used to select a single time (hours:minutes) on mobile.</p>
+        <p>The selected time is indicated by the filled circle at the end of the
+          clock hand.</p>
+        <p>Tap between the hour and minute label in the title bar to switch between
+          the hour or minute view. Additionally, tap on the AM/PM label in the title
+          bar to switch between AM or PM (in 12-hour clock mode).</p>
+      </div>
+      <div class="module">
+        <div>
+          <smart-time-picker #timepicker [footer]="true" footer-template="templateWithButtons"></smart-time-picker>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="module">
+        <div>
+          <smart-time-picker #timepicker2 [footer]="true" footer-template="templateWithButtons" selection="minute">
+          </smart-time-picker>
+        </div>
+      </div>
+      <div class="module">
+        <br/>
+        <p>The picker has a landscape view as well to suite the different screen
+          orientations.</p>
+      </div>
+      <div class="module">
+        <smart-time-picker #timepicker3 view="landscape" [footer]="true" footer-template="templateWithButtons">
+        </smart-time-picker>
+      </div>
+      <br/>
+      <br/>
+      <div class="module">
+        <smart-time-picker #timepicker4 view="landscape" [footer]="true" footer-template="templateWithButtons"
+          selection="minute"></smart-time-picker>
+      </div>
+    </section>
+  </div>

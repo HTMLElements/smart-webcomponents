@@ -1,0 +1,45 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+    --smart-scheduler-timeline-header-horizontal-group-size: 100px;
+    --smart-scheduler-timeline-header-horizontal-cells-size: 50px;
+    --smart-scheduler-timeline-cell-height: 40px;
+}
+
+.smart-scheduler .custom-group-content {
+    display: flex;
+    align-items: center;
+    grid-column-gap: 10px;
+}
+
+.smart-scheduler .custom-group-content .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    grid-row-gap: 5px;
+}
+
+.smart-scheduler .custom-group-content .details .name {
+    font-size: 18px;
+}
+
+.smart-scheduler .custom-group-content .details .speciality {
+   font-weight: 400;
+}
+
+.smart-scheduler .header-day-number {
+    font-size: 18px;
+}

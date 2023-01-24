@@ -1,0 +1,50 @@
+<smart-tabs #tabs id="tabs" class="demoTabs" [selectedIndex]="3" [tabPosition]="'left'" [selectionMode]="'click'"
+    [tabTextOrientation]="'vertical'">
+    <smart-tab-item [label]="'New York'">
+        The City of New York, usually known as either New York City (NYC), or simply New York (NY), is the most populous
+        city in the United States.
+    </smart-tab-item>
+    <smart-tab-item [label]="'Hong Kong'">
+        Hong Kong, officially the Hong Kong Special Administrative Region of the People's Republic of China (HKSAR), is
+        a city and special administrative region of China in the eastern Pearl River Delta by the South China Sea.
+    </smart-tab-item>
+    <smart-tab-item [label]="'Troyan'">
+        Troyan is a town remembering the name of Roman Emperor Trajan, in Lovech Province in central Bulgaria.
+    </smart-tab-item>
+    <smart-tab-item [label]="'Bali'">
+        Bali is a province of Indonesia and the westernmost of the Lesser Sunda Islands.
+    </smart-tab-item>
+</smart-tabs>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <p>Tab position</p>
+        <smart-radio-button #radiobutton id="top" [groupName]="'tabPosition'">top</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 id="bottom" [groupName]="'tabPosition'">bottom</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 id="left" [groupName]="'tabPosition'" [checked]="true">left
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton4 id="right" [groupName]="'tabPosition'">right</smart-radio-button>
+    </div>
+    <div class="option">
+        <p>Tab text orientation</p>
+        <smart-radio-button #radiobutton5 id="horizontal" [groupName]="'tabTextOrientation'">horizontal
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6 id="vertical" [groupName]="'tabTextOrientation'" [checked]="true">vertical
+        </smart-radio-button>
+    </div>
+    <div class="option">
+        <p>Selection mode</p>
+        <smart-radio-button #radiobutton7 id="click" [groupName]="'selectionMode'" [checked]="true">click
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton8 id="dblclick" [groupName]="'selectionMode'">dblclick</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton9 id="mouseenter" [groupName]="'selectionMode'">mouseenter</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton10 id="none" [groupName]="'selectionMode'">none</smart-radio-button>
+    </div>
+</div>

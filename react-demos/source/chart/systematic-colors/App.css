@@ -1,0 +1,39 @@
+#root>div {
+    display: flex;
+}
+
+#colorsContainer {
+    position: relative;
+    top: 63px;
+    width: 200px;
+}
+
+#colorsContainer>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 9.6px;
+    height: 66px;
+    color: white;
+    font-family: var(--smart-font-family);
+}
+
+#colorsContainer>div:first-child,
+#colorsContainer>div:nth-child(2),
+#colorsContainer>div:nth-child(3),
+#colorsContainer>div:nth-child(4) {
+    color: black;
+}
+
+#chart {
+    width: 840px;
+    height: 820px;
+}
+
+#chart .smart-chart-axis-description {
+    font-size: 20px;
+}
+
+#chart .smart-chart-axis-text {
+    font-size: 15px;
+}

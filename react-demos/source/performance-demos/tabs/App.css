@@ -1,0 +1,15 @@
+smart-accordion {
+    float: left;
+    width: 150px;
+    margin: 0px 10px 10px 0px;
+    border: lightgray dotted 1px;
+}
+
+smart-accordion-item[expanded] .smart-accordion-item-header {
+    background-color: #f2f2f2;
+    border-bottom: gray dashed 1px;
+}
+
+smart-accordion-item[expanded] .smart-accordion-item-content {
+    background-color: #f2f2f2;
+}

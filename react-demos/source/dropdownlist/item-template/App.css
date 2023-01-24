@@ -1,0 +1,34 @@
+smart-drop-down-list {
+	min-height: 35px;
+	height: auto;
+	width: 300px;
+}
+
+
+/* Glyph Icons */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('./images/glyphicons-halflings-regular.eot');
+    src: url('./images/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+    url('./images/glyphicons-halflings-regular.woff2') format('woff2'), 
+    url('./images/glyphicons-halflings-regular.woff') format('woff'), 
+    url('./images/glyphicons-halflings-regular.ttf') format('truetype'), 
+    url('./images/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-ok:before {
+    content: "\e013";
+}

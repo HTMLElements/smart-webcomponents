@@ -1,0 +1,14 @@
+smart-menu {
+    margin-left: 5%;
+}
+
+#helpIcon,
+.planetIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.planetIcon {
+    background-image: url("https://www.htmlelements.com/demos/images/earth.png");
+    background-position: center;
+}

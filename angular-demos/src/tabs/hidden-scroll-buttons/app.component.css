@@ -1,0 +1,9 @@
+smart-tabs {
+    width: 100%;
+	height:200px;
+}
+@media only screen and (max-width: 600px) {
+	smart-tabs {
+		width: 100%;
+	}
+}

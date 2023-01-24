@@ -1,0 +1,11 @@
+smart-gantt-chart {
+    --smart-gantt-chart-timeline-cell-size: 100px;
+}
+
+@media (max-width: 700px)
+{
+	smart-gantt-chart {
+		width: 95%;
+		margin-left:2%;
+	}
+}

@@ -1,0 +1,19 @@
+<em>Note: Sub-items can be removed by swiping left or right and can be edited by double-clicking or pressing F2.</em>
+<br />
+<br />
+<smart-tree #tree id="tree" [editable]="true" [showLines]="true" [showRootLines]="true"
+    [toggleElementPosition]="'near'">
+    <smart-tree-items-group [expanded]="true">Groceries
+        <smart-tree-item>Bread</smart-tree-item>
+        <smart-tree-item>Milk</smart-tree-item>
+        <smart-tree-item>Potatoes</smart-tree-item>
+        <smart-tree-item [label]="'editorTemplate'"></smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [expanded]="true">To do
+        <smart-tree-item>Check car</smart-tree-item>
+        <smart-tree-item>Attend board meeting</smart-tree-item>
+        <smart-tree-item>Take kids from school</smart-tree-item>
+        <smart-tree-item>Change light bulb</smart-tree-item>
+        <smart-tree-item [label]="'editorTemplate'"></smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>

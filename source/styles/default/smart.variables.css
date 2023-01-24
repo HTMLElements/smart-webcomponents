@@ -388,6 +388,20 @@
     /* Code of window pin icon */
     --smart-icon-docs: '\f0c5';
     /* Code of docs icon */
+    --smart-icon-pdf: '\f1c1';
+    /* Code of pdf icon */
+    --smart-icon-excel: '\f1C3';
+    /* Code of excel icon */
+    --smart-icon-word: '\f1C2';
+     /* Code of word icon */
+     --smart-icon-archive: '\f1C6';
+      /* Code of zip icon */
+     --smart-icon-file: '\e845';
+      /* Code of file icon */
+     --smart-icon-powerpoint: '\f1c4';
+     /* Code of powerpoint icon */
+     --smart-icon-text: '\f0f6';
+    /* Code of text icon */
     --smart-icon-math: '\f01a';
     /* Code of math icon */
     --smart-icon-spin: '\e80b';

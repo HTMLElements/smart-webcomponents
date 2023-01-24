@@ -1,0 +1,9 @@
+#horizontalSlider {
+    width: 500px;
+    height: 40px;
+}
+
+smart-switch-button {
+    --smart-switch-button-width: 50px;
+    --smart-switch-button-height: 50px;
+}

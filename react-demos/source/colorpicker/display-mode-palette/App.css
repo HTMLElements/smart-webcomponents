@@ -1,0 +1,26 @@
+smart-slider {
+    width: 100%;
+}
+
+smart-check-box {
+    display: block;
+}
+
+#controlsBox {
+    position: absolute;
+    padding: 16px;
+    box-sizing: border-box;
+    right: 20px;
+    top: 2%;
+    width: 550px;
+    height: 95%;
+    border: dashed lightgray 1px;
+    color: gray;
+    font-size: 20px;
+    overflow-y: auto;
+}
+
+.smart-drop-down-color-picker {
+    --smart-drop-down-element-max-height: initial;
+    --smart-drop-down-element-max-width: initial;
+}

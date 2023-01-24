@@ -1,0 +1,7 @@
+smart-tank[orientation=horizontal] {
+    height: 200px;
+}
+
+#powerSaverTank {
+    --smart-primary: #0C9F59;
+}

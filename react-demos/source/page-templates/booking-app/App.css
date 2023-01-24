@@ -1,0 +1,220 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+@media (max-width: 769px) {
+    html, body {
+        overflow-y: auto;
+    }
+}
+
+body {
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background-color: #fafafa;
+    font-weight: 100;
+}
+
+/* Header */
+header {
+    top: 0;
+    height: 25px;
+    padding: 15px;
+    font-weight: bold;
+    background: white;
+    border-bottom: 1px solid #ccc;
+    color: #475466;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-icon-container {
+    margin-top: -8px;
+}
+
+    .header-icon-container i {
+        margin-right: 5px;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+        .header-icon-container i:hover {
+            background: #ebebeb;
+            border-radius: 50%;
+        }
+/* Header ^ */
+
+/* Left panel */
+smart-input, smart-drop-down-list {
+    width: 100%;
+    --smart-border-top-left-radius: 0px;
+    --smart-border-top-right-radius: 0px;
+    --smart-border-bottom-left-radius: 0px;
+    --smart-border-bottom-right-radius: 0px;
+    --smart-editor-height: 32px;
+}
+
+.search-container .row-separator {
+    margin-bottom: 15px;
+}
+
+.search-container label {
+    text-align: right;
+    line-height: 32px;
+    width: 80px;
+    display: block;
+    float: left;
+    clear: both;
+}
+
+.page-container {
+    height: calc(100% - 60px);
+}
+
+.search-container .filter-content {
+    margin-left: 90px;
+}
+
+    .search-container .filter-content .row > div,
+    .page-container .row > div {
+        padding: 0;
+    }
+
+.search-container smart-numeric-text-box {
+    --smart-numeric-text-box-default-width: 100px;
+}
+
+.search-container smart-button.search-now-btn {
+    width: 100%;
+}
+
+smart-date-time-picker {
+    --smart-date-time-picker-default-width: 100%;
+}
+
+smart-password-text-box {
+    --smart-text-box-default-width: 100%;
+    --smart-text-box-default-height: 34px;
+}
+
+smart-date-time-picker,
+input.smart-input {
+    --smart-border-top-left-radius: 0;
+    --smart-border-top-right-radius: 0;
+    --smart-border-bottom-left-radius: 0;
+    --smart-border-bottom-right-radius: 0;
+}
+
+smart-accordion {
+    height: 100%;
+    width: 100%;
+    min-height: 800px;
+    --smart-accordion-expanded-content-height: auto !important;
+}
+
+
+smart-button {
+    border-radius: 0;
+    height: 35px;
+}
+/* Left panel */
+
+
+.flights-card {
+    width: 99%;
+    margin: 0;
+    margin-top: 1%;
+}
+
+    .flights-card .title {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+/* Grid */
+smart-grid {
+    --smart-border: transparent;
+    --smart-grid-cell-horizontal-border: #ebebeb;
+    --smart-grid-default-width: 100%;
+    --smart-grid-default-height: auto;
+    overflow-y: auto;
+}
+
+.right-time-arrow {
+    vertical-align: middle;
+    padding-bottom: 3px;
+}
+
+.last-details-status {
+    color: #FF5C4C;
+}
+
+.open-status {
+    color: #41ad7c;
+}
+
+.available-soon-status {
+    color: #1CA1C1;
+}
+
+.landed-status {
+    color: #f3a601;
+}
+
+.on-time-status {
+    color: #1CA1C1;
+}
+/* Grid */
+
+
+/* Tabs */
+smart-tabs {
+    --smart-tabs-default-width: 100%;
+    --smart-tabs-default-height: calc(100vh - 170px);
+    --smart-border-width: 0;
+    margin-top: -38px;
+}
+
+.smart-tabs .smart-header {
+    --smart-border-width: 0;
+    --smart-surface: transparent;
+}
+
+smart-tabs .smart-tab-strip {
+    text-align: right;
+}
+
+smart-tab-item.smart-element {
+    background: #fafafa;
+}
+/* Tabs */
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,14 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views"
+    [nonworkingDays]="nonworkingDays" (onViewChange)="handleViewChange($event)"></smart-scheduler>
+<div class="options">
+    <div class="description">Tuesday and Thursday have been set as nonworking days.</div>
+    <div class="option">
+        <smart-check-box #checkbox id="hideNonworkingWeekdays">Hide Nonworking weekdays</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox2 id="hideWeekend">Hide Weekend</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox3 id="hideAllDay">Hide All day</smart-check-box>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+.avatar {
+    border-radius: 50%;
+}
+
+.smart-token > span:first-of-type {
+    padding-left: initial;
+}
+
+.smart-token > span {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+smart-combo-box[selection-display-mode="tokens"] .smart-selection-field > .smart-token {
+    box-shadow: initial;
+}
+smart-combo-box{
+	width: 300px;
+}

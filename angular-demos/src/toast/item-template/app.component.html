@@ -1,0 +1,10 @@
+<smart-toast #toast position="top-left" [showCloseButton]="true" [itemTemplate]="'template'" [modal]="true">Toast with
+    custom template!
+</smart-toast>
+
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="openButton" (onClick)="buttonClickHandler($event)">Open Toast</smart-button>
+    </div>
+</div>

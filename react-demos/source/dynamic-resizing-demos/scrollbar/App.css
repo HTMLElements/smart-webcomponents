@@ -1,0 +1,24 @@
+#resizeSlider {
+    width: 500px;
+    height: 50px;
+}
+
+#horizontalScrollBarContainer {
+    width: 200px;
+    height: 50px;
+}
+
+#horizontalScrollBar {
+    width: 100%;
+    height: 45%;
+}
+
+#verticalScrollBarContainer {
+    width: 80px;
+    height: 200px;
+}
+
+#verticalScrollBar {
+    width: 25%;
+    height: 100%;
+}

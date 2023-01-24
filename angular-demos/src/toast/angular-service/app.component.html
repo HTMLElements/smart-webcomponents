@@ -1,0 +1,10 @@
+<smart-toast #toast [position]="'top-left'">Toast!</smart-toast>
+
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="openButton" (onClick)="open($event)">Open Toast</smart-button>
+        <smart-button #button2 id="openButton" (onClick)="closeLast($event)">Close Last Toast</smart-button>
+        <smart-button #button3 id="openButton" (onClick)="closeAll($event)">Close All Toasts</smart-button>
+    </div>
+</div>

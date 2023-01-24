@@ -1,0 +1,60 @@
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+.smart-window #article {
+	overflow: auto;
+}
+#formWindow > .smart-container > .smart-content {
+    flex-direction: column;
+}
+
+#formWindow {
+    --smart-window-default-width: 50%;
+    --smart-window-default-height: 75%;
+    --smart-window-footer-height: 50px;
+}
+
+#modal {
+    --smart-window-default-width: 35%;
+    --smart-window-default-height: 35%;
+    --smart-window-footer-height: 50px;
+}
+
+    #modal > .smart-container > .smart-content {
+        justify-content: center;
+    }
+
+
+#formWindow #article {
+    overflow-y: auto;
+    width: 100%;
+}
+
+smart-window > .smart-container > .smart-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    smart-window > .smart-container > .smart-footer smart-button {
+        width: 100px;
+        height: 100%;
+        margin-left: 10px;
+    }
+
+#modal > .smart-container > .smart-footer {
+    justify-content: center;
+}
+
+#contentHolder {
+    width: 100%;
+    height: 100%;
+}
+
+#root>div {
+	min-height: inherit;
+}

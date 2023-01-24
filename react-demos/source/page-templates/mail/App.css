@@ -1,0 +1,139 @@
+body {
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background-color: #fafafa;
+    font-weight: 100;
+}
+
+.page-container .row > div {
+    padding: 0;
+}
+
+/* Header */
+header {
+    position: sticky;
+    z-index: 11;
+    top: 0;
+    height: 25px;
+    padding: 18px;
+    font-weight: bold;
+    background: #222222;
+    border-bottom: 1px solid #ccc;
+    color: white;
+}
+
+header .apps-icon {
+    display: inline-block;
+    background: #0078d7;
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 29px;
+}
+
+header .header-title-container {
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+header .header-title {
+    vertical-align: top;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-icon-container {
+    margin-top: -8px;
+}
+
+.header-icon-container i {
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.header-icon-container i:hover {
+    background: #ebebeb;
+    border-radius: 50%;
+}
+/* Header ^ */
+
+/* Tree */
+.smart-tree {
+    --smart-tree-default-width: 100%;
+}
+
+.smart-tree span.unread-messages {
+    position: fixed;
+    right: 0;
+    margin-top: -25px;
+    padding-right: 10px;
+}
+
+/* Tree */
+
+.mails-container .mail-row {
+    position: relative;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.mails-container .mail-row.unread {
+    border-left: 2px solid #3b97e0;
+}
+
+/* Mails container */
+.mails-container .name {
+    font-size: 19px;
+}
+.mails-container .title {
+    font-size: 15px;
+}
+
+.mails-container .description {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.mails-container .date {
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+/* Mails container ^ */
+
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#root > div {
+    width:100%;
+    height: 100%;
+}

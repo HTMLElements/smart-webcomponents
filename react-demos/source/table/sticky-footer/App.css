@@ -1,0 +1,13 @@
+.smart-table {
+    width: 800px;
+    height: 600px;
+}
+
+.smart-table[freeze-footer] tfoot td {
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+}
+
+#totalLabel {
+    text-align: right;
+}

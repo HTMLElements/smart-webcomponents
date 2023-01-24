@@ -113,6 +113,10 @@ smart-check-input {
           border-color: var(--smart-primary);
           color: var(--smart-primary-color);
         }
+
+        &.color:after {
+          content: '';
+        }
       }
 
       &.active {

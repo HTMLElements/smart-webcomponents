@@ -1,0 +1,202 @@
+body {
+    color: black;
+}
+
+.button-demo {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.button-demo label {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: auto;
+}
+
+.demo-buttons-group {
+    margin-top: 20px;
+}
+
+/* Icon buttons */
+smart-button.btn {
+    margin: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    --smart-button-opacity-focus: initial;
+    --smart-button-opacity-hover: initial;
+    --smart-button-opacity-active: initial;
+}
+
+smart-button.btn button.smart-button {
+    padding: 25px 60px 25px 120px;
+    outline: none;
+}
+
+/* General button style */
+smart-button.btn {
+    border: none;
+    font-family: 'Lato';
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+smart-button.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/* Pseudo elements for icons */
+smart-button.btn:before {
+    font-family: 'FontAwesome';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    pointer-events: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Icon separator */
+smart-button.btn-sep:before {
+    background: rgba(0,0,0,0.15);
+}
+
+/* Button 1 */
+smart-button.btn-1 {
+    background: #3498db;
+    color: #fff;
+}
+
+smart-button.btn-1:hover {
+    background: #2980b9;
+}
+
+smart-button.btn-1:active {
+    background: #2980b9;
+    top: 2px;
+}
+
+smart-button.btn-1:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+}
+
+/* Button 2 */
+smart-button.btn-2 {
+    background: #2ecc71;
+    color: #fff;
+}
+
+smart-button.btn-2:hover {
+    background: #27ae60;
+}
+
+smart-button.btn-2:active {
+    background: #27ae60;
+    top: 2px;
+}
+
+smart-button.btn-2:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+}
+
+/* Button 3 */
+smart-button.btn-3 {
+    background: #e74c3c;
+    color: #fff;
+}
+
+smart-button.btn-3:hover {
+    background: #c0392b;
+}
+
+smart-button.btn-3:active {
+    background: #c0392b;
+    top: 2px;
+}
+
+smart-button.btn-3:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+}
+
+/* Button 4 */
+smart-button.btn-4 {
+    background: #34495e;
+    color: #fff;
+}
+
+smart-button.btn-4:hover {
+    background: #2c3e50;
+}
+
+smart-button.btn-4:active {
+    background: #2c3e50;
+    top: 2px;
+}
+
+smart-button.btn-4:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+}
+
+/* Icons */
+.icon-cart:before {
+    content: "\f07a";
+    z-index: 1;
+}
+
+.icon-heart:before {
+    content: "❤";
+    z-index: 1;
+}
+
+.icon-info:before {
+    content: "\f05a";
+    z-index: 1;
+}
+
+.icon-send:before {
+    content: "\f1d8";
+    z-index: 1;
+}

@@ -1,0 +1,9 @@
+#horizontalSlider {
+    width: 570px;
+    height: 100px;
+}
+
+#verticalSlider {
+    width: 150px;
+    height: 570px;
+}

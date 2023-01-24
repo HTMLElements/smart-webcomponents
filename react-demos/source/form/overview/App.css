@@ -1,0 +1,17 @@
+form {
+  width: 350px;
+}
+
+input {
+	height: 35px;
+}
+
+.smart-form-row .smart-form-label {
+  width: 100px;
+}
+
+.smart-form-row.submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

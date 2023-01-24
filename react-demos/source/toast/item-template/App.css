@@ -1,0 +1,33 @@
+.smart-toast-item[show-close-button] .smart-toast-item-close-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.smart-toast-item {
+    width: auto;
+    position: relative;
+    display: inline-block;
+}
+
+.content {
+    padding: 30px 10px 10px 10px;
+    display: block;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+    .buttons smart-button {
+        background-color: rgba(255,255,255,0.2);
+        margin-bottom: 10px;
+        border-radius: 3px;
+    }
+
+        .buttons smart-button button {
+            border-radius: 3px;
+            border-color: white;
+            color: white;
+        }

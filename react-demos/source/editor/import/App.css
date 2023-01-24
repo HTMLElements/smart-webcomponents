@@ -1,0 +1,45 @@
+html,
+.viewport {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-editor {
+    width: calc(100% - 300px);
+    height: 100%;
+}
+
+@media (max-width: 750px) {
+    .smart-editor {
+        width: 100%;
+    }
+}
+
+.smart-editor .logo {
+    background: linear-gradient(135deg, rgb(12, 61, 120) 0px, rgb(252, 55, 82) 100%);
+    padding: 20px;
+}
+
+.smart-editor table td {
+    height: 50px;
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px;
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

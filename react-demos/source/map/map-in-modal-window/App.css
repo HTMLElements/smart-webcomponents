@@ -1,0 +1,94 @@
+body,
+html
+{
+    width: 100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+    font-family: "Roboto",sans-serif;
+    font-weight: 300;
+    color: #212529;
+   
+}
+*{
+    box-sizing: border-box
+}
+.modal-buttons{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.open-modal-buttons{
+    text-align: center;
+}
+.open-modal-buttons smart-button{
+    margin-left: 1.5rem;
+}
+#regular-modal-map,
+#satellite-modal-map,
+#custom-modal-map{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-items: center;
+    opacity: 0;
+   
+}
+
+
+smart-window section{
+    width: 100%;
+    height: 100%;
+}
+smart-window section smart-button{
+     margin-left: 0.5rem;
+     margin-top: 0.5rem;
+}
+.mapWindow{
+    height: 30rem;
+    width: 30rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    --smart-window-footer-height: 5rem;
+    --smart-window-default-height:40rem;
+    --smart-window-default-width:50rem;
+    --smart-window-footer-padding: 1rem 2rem;
+    --smart-window-content-padding:0
+}
+
+#footerTemplate{
+    justify-content: space-between;
+}
+
+#footerTemplate smart-button{
+    margin-top: 3rem;
+    margin-left: 1rem;
+}
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-size: 20px;
+    vertical-align: middle;
+}

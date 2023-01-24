@@ -1,0 +1,23 @@
+smart-grid {
+  height: auto;
+  width: 100%;
+}
+smart-grid-row {
+	height: 40px;
+	font-size: 16px;
+}
+
+smart-grid-column {
+	font-size: 14px;
+}
+
+smart-grid-column .smart-icon {
+	font-family: 'FontAwesome';
+	font-size: 16px;
+}
+
+smart-grid-cell .custom-icon {
+	margin-left: 4px;
+	margin-right: 4px;
+	font-family: 'FontAwesome';	
+}

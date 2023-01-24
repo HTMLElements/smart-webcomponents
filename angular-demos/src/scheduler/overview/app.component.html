@@ -1,0 +1,36 @@
+<div id="primaryContainer" #primaryContainer>
+    <div id="header">
+        <smart-button #button id="toggleButton" (onClick)="handleToggle()"></smart-button>
+        <div id="title">Scheduler</div>
+        <smart-button #button2 id="addNew" class="floating" (onClick)="addNew()"><span>Create</span>
+        </smart-button>
+    </div>
+    <div class="content">
+        <section id="sideA">
+            <div class="button-container">
+                <div id="logo"></div>
+            </div>
+            <div class="controls-container">
+                <smart-calendar #calendar id="calendar" [scrollButtonsPosition]="scrollButtonsPosition" (onChange)="handleCalendarChange($event)">
+                </smart-calendar>
+                <smart-input #input id="searchBar" class="underlined" [placeholder]="'Search for people'"></smart-input>
+                <smart-tree #tree id="tree" [selectionMode]="'checkBox'" [toggleElementPosition]="'far'"
+                    (onChange)="handleTreeChange($event)">
+                    <smart-tree-items-group [expanded]="true">My calendars
+                        <smart-tree-item [value]="'birthday'" [selected]="true">Birthdays</smart-tree-item>
+                        <smart-tree-item [value]="'holiday'" [selected]="true">Holidays</smart-tree-item>
+                        <smart-tree-item [value]="'event'" [selected]="true">Events</smart-tree-item>
+                    </smart-tree-items-group>
+                </smart-tree>
+            </div>
+        </section>
+        <section id="sideB">
+            <smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views"
+                [nonworkingDays]="nonworkingDays" [dataSource]="dataSource" [firstDayOfWeek]="firstDayOfWeek"
+                [disableDateMenu]="disableDateMenu" [currentTimeIndicator]="currentTimeIndicator"
+                (onDragEnd)="updateData($event)" (onResizeEnd)="updateData($event)" (onItemUpdate)="updateData($event)"
+                (onItemRemove)="updateData($event)" (onDateChange)="handleDateChange($event)">
+            </smart-scheduler>
+        </section>
+    </div>
+</div>

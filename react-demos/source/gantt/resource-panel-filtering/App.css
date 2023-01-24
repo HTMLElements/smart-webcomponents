@@ -1,0 +1,41 @@
+smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-task-default-height: 35px;
+}
+
+.custom-resource-panel-header {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 20px 2px 20px;
+}
+
+    .custom-resource-panel-header .treeHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .custom-resource-panel-header .timelineHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .custom-resource-panel-header smart-drop-down-list {
+        height: 100%;
+        width: 150px;
+        margin-left: 10px;
+    }
+
+    .custom-resource-panel-header smart-radio-button {
+        height: 100%;
+        --smart-background: transparent;
+    }
+
+    @media (max-width: 700px) {
+        smart-gantt-chart {
+		width: 95%;
+		margin-left:2%;
+	}
+}

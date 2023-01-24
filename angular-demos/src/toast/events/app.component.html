@@ -1,0 +1,11 @@
+<smart-toast #toast position="top-left" [autoOpen]="true" [autoClose]="true" [showCloseButton]="true"
+    [autoCloseDelay]="5000">Toast!
+</smart-toast>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="openButton" (onClick)="buttonClickHandler($event)">Open Toast</smart-button>
+        <h2>Events log:</h2>
+        <div #log id="log"></div>
+    </div>
+</div>

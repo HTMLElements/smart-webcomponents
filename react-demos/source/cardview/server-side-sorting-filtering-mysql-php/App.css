@@ -1,0 +1,19 @@
+.ContactName:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/user-filled.png");
+}
+
+.ContactTitle:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/signature-filled.png");
+}
+
+.Address:after {
+    background-image: url("https://img.icons8.com/ios-filled/16/000000/address--v1.png");
+}
+
+.City:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/city-buildings.png");
+}
+
+.Country:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/country-filled.png");
+}

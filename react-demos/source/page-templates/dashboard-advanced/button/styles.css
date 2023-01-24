@@ -1,0 +1,121 @@
+﻿.button-page smart-card.buttons {
+    width: 100%;
+}
+
+.button-page .button-group-name {
+    font-size: 25px;
+    margin-top: 40px;
+    margin-left: 0;
+}
+
+.button-group-name:first-child {
+    margin-top: 0;
+}
+
+.button-page smart-pager {
+    min-width: auto;
+    width: fit-content;
+    --smart-border-width: 0;
+    text-transform: uppercase;
+}
+
+.button-page smart-button {
+    width: auto;
+    height: auto;
+    --smart-border-top-left-radius: 7px;
+    --smart-border-top-right-radius: 7px;
+    --smart-border-bottom-left-radius: 7px;
+    --smart-border-bottom-right-radius: 7px;
+    --smart-button-opacity-focus: 0.9;
+    --smart-button-opacity-hover: 0.9;
+    --smart-button-padding: 10px;
+    --smart-ui-state-hover: var(--smart-border);
+    --smart-ui-state-focus: var(--smart-border);
+    --smart-ui-state-color-hover: var(--smart-background-color);
+    --smart-ui-state-color-focus: var(--smart-background-color);
+    transition: all .15s ease;
+}
+
+.button-page .btn-info.btn-regular {
+    --smart-background-color: #555;
+}
+
+.button-page [theme="dark"] .btn-info.btn-regular {
+    --smart-background-color: #fff;
+}
+
+.button-page .btn-round {
+    background: top right/210% 210% #1d8cf8;
+    background-image: linear-gradient(to bottom left,#1d8cf8,#3358f4,#1d8cf8);
+    border-color: transparent;
+    border-radius: 20px;
+}
+
+.button-page .btn-default {
+    background-image: linear-gradient(to bottom left,#344675,#263148,#344675);
+    --smart-background-color: white;
+}
+
+.button-page smart-button.btn-primary:not(.outlined) {
+    background: top right/210% 210% #e14eca;
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+    --smart-border: #e14eca;
+    --smart-background-color: #fff;
+}
+
+.button-page a.link {
+    background: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0;
+}
+
+.button-page a.link {
+    color: #e14eca;
+    padding: 10px;
+}
+
+.button-page a.link:hover {
+    color: #d300b3;
+}
+
+.button-page [theme="dark"] a.link:hover {
+    color: white;
+}
+
+.button-page .btn-success {
+    --smart-background: linear-gradient(to bottom left,#00f2c3,#0098f0,#00f2c3);
+    --smart-background-color: #fff;
+    --smart-border: #00f2c3;
+}
+
+.button-page .btn-warning {
+    --smart-background: linear-gradient(to bottom left,#ff8d72,#ff6491,#ff8d72);
+    --smart-background-color: #fff;
+    --smart-border: #ff8d72;
+}
+
+.button-page .btn-danger {
+    --smart-background: linear-gradient(to bottom left,#fd5d93,#ec250d,#fd5d93);
+    --smart-background-color: #fff;
+    --smart-border: #fd5d93;
+}
+
+.button-page .btn-primary.outlined {
+    --smart-border: #e14eca;
+    --smart-background-color: var(--smart-border);
+    --smart-button-outlined-color: var(--smart-border);
+    --smart-button-outlined-border: var(--smart-border);
+}
+
+.button-page .btn-small {
+    --smart-button-padding: 5px 15px;
+}
+
+.button-page .btn-large {
+    --smart-button-padding: 15px 48px;
+}
+
+.icon-buttons {
+    margin-right: 5px;
+}

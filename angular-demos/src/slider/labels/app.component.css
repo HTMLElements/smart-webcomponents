@@ -1,0 +1,15 @@
+.container {
+    float: left;
+    width: 300px;
+}
+
+#horizontalSlider {
+    width: 570px;
+    height: 100px;
+}
+
+#verticalSlider {
+    width: 120px;
+    height: 500px;
+    margin-left: 40px;
+}

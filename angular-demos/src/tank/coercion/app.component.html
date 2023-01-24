@@ -1,0 +1,9 @@
+<smart-tank #tank id="tank" [coerce]="true" [interval]="10" [min]="0" [max]="100" [value]="50"
+            [scalePosition]="'both'" [scaleType]="'integer'"></smart-tank>
+<div class="options">
+    <div class="option">
+        <p>Set coercion interval:</p>
+        <smart-numeric-text-box #numerictextbox id="numericTextBox"
+                                [value]="10" [min]="1" [max]="100" [inputFormat]="'integer'" [spinButtons]="true"></smart-numeric-text-box>
+    </div>
+</div>

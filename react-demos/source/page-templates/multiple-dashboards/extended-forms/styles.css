@@ -1,0 +1,96 @@
+﻿:root {
+    --smart-primary: #e14eca;
+    --smart-progress-bar-border-active: transparent;
+    --smart-progress-bar-background: #e9ecef;
+    --smart-progress-bar-default-height: 10px;
+    --smart-progress-bar-default-width: calc(100% - 50px);
+}
+
+smart-slider {
+    --smart-disabled: #ccc;
+}
+
+.header-forms smart-card {
+    overflow: inherit;
+    margin: 0 auto;
+    width: 97%;
+}
+
+smart-card.input-elements-card {
+    width: 99%;
+    margin: 0 auto;
+}
+
+.header-forms smart-card .card-content {
+    padding: 0;
+}
+
+.card-sub-title {
+    font-size: 20px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+smart-card smart-drop-down-button {
+    color: #e14eca;
+}
+
+smart-card smart-drop-down-button smart-button.menu-btn {
+    width: 100%;
+}
+
+.input-variants .smart-drop-down smart-button button {
+    display: block;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid-container .left-panel,
+.grid-container .right-panel {
+    padding: 20px;
+}
+
+.progressbar-label {
+    font-size: 12px;
+}
+
+smart-drop-down-list {
+    --smart-editor-drop-down-min-width: 300px;
+}
+
+smart-drop-down-button {
+    --smart-drop-down-button-default-width: 300px;
+}
+
+.range-calendars-holder {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.range-calendars-holder smart-date-time-picker {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header-forms {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.no-left-padding {
+    padding-left: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .header-forms {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: none;
+        grid-gap: 20px;
+    }
+}

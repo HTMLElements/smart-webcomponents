@@ -1,0 +1,17 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+
+smart-grid-column .smart-filter-button.smart-grid-icon {
+	font-family: 'FontAwesome';
+  color: var(--smart-primary);
+  font-size:16px;
+}
+
+smart-grid-column .smart-filter-button.smart-icon-filter:before {
+	content: "\f0b0";
+}
+
+@media only screen and (max-width: 700px) {
+	smart-grid {
+		width: 100%;
+	}
+}

@@ -1,0 +1,574 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+	overflow-x: hidden;
+}
+.smart-window .smart-container .smart-content {
+	align-items:center !important;
+}
+smart-splitter {
+    width: 100%;
+    height: 100%;
+	border:none;
+}
+
+.dashboard-header {
+    box-shadow: -3px 1px 9px #6e6464;
+    background-color: #333;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--smart-primary);
+}
+.smart-splitter smart-splitter-bar.smart-element {
+	--smart-surface: #444;
+	--smart-surface-color: #fefefe;
+}
+
+.company-logo-holder {
+    display: flex;
+    align-items: center;
+}
+
+smart-button#collapseBtn,
+smart-button#expandBtn {
+    min-width: 46px;
+}
+
+smart-button#expandBtn {
+    margin-right: 10px;
+}
+
+.company-logo-holder span.brand {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* #rightPanel {
+    background-color: #FAFAFA;
+} */
+
+#rightPanel .dashboard-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #888;
+    font-size: 15px;
+}
+
+.dashboard-header smart-button {
+    width: 46px;
+    height: 46px;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+}
+#dashboard[expanded] #leftPanel .dashboard-header {
+    box-shadow: none;
+    background-color: #333;
+	
+}
+
+.dashboard-menu-container {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid lightgray;
+    padding-top: 5px;
+}
+
+.dashboard-menu-container smart-button {
+    text-transform: none;
+}
+
+#leftPanel .menu-btn {
+    width: 240px;
+    height: 46px;
+}
+
+#leftPanel .menu-btn .material-icons {
+    margin-right: 10px;
+    margin-left: 2px;
+}
+
+.menu-btn .smart-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu-btn .smart-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu-btn {
+    width: 240px;
+}
+
+[theme="dark"] .menu-btn {
+    color: #fff;
+}
+
+h1 {
+    margin-top: 40px;
+    margin-left: calc(1% + 10px);
+}
+
+h6 {
+    padding-top: 20px;
+    border-top: 1px solid lightgray;
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+    width: 240px;
+    font-weight: 200;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#expandBtn,
+#collapseBtn,
+#notifficationBtn,
+#notifficationSearchBtn {
+    opacity: 1;
+    background-color: transparent;
+    color: #888;
+    border-width: 0px;
+    position: relative;
+    font-size: 22px;
+    box-shadow: none;
+}
+
+#expandBtn[hover],
+#collapseBtn[hover],
+#notifficationBtn[hover],
+#notifficationSearchBtn[hover] {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#notifficationBtn::after,
+#notifficationSearchBtn::after {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 17px;
+    height: 17px;
+    font-size: 11px;
+    background-color: #E10050;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#notifficationBtn::after {
+    content: '4';
+}
+
+#expandBtn .smart-button,
+#collapseBtn .smart-button,
+#notifficationBtn .smart-button,
+#notifficationSearchBtn .smart-button {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#expandBtn,
+#collapseBtn,
+#notifficationBtn,
+#notifficationSearchBtn {
+    float: right;
+}
+
+#expandBtn .material-icons,
+#collapseBtn .material-icons,
+#notifficationBtn .material-icons,
+#notifficationSearchBtn .material-icons {
+    font-size: 22px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#collapseBtn {
+    color: gray;
+    display: none;
+}
+
+#dashboard[expanded] #collapseBtn {
+    display: block;
+}
+
+#dashboard[expanded] #expandBtn {
+    display: none;
+}
+
+table {
+    width: 98%;
+    text-align: right;
+    padding: 0px;
+    box-shadow: 1px 3px 7px 0px #afafaf;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr {
+    margin: 0px;
+    padding: 0px;
+    height: 60px;
+}
+
+table th,
+table td {
+    margin: 0px;
+    padding: 15px;
+    font-size: 12px;
+    border-bottom: 1px solid lightgray;
+}
+
+table th:first-child,
+table td:first-child {
+    text-align: left;
+}
+
+smart-grid-cell .material-icons,
+.header-logo,
+i.more-horiz,
+i.filter {
+    cursor: pointer;
+}
+
+.dashboard-header i {
+    color: white;
+}
+.dashboard-header span.icon-holder i {
+    color: white;
+}
+
+.dashboard-header span.icon-holder {
+    display: flex;
+}
+
+.dashboard-header span.icon-holder smart-button {
+    border-radius: 50%;
+}
+
+.dashboard-header .breadcrumb-header {
+    min-width: 130px;
+    color: white;
+}
+
+.main-company-name {
+    float: left;
+}
+
+.subtitles-holder {
+    clear: both;
+}
+
+.subtitles-holder smart-button {
+    background: transparent;
+    border: none;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* Chart css styles */
+smart-chart {
+    width: 98%;
+}
+
+/* Filter windows css styles */
+.smart-window .smart-container .smart-content {
+    align-items: flex-start;
+}
+
+.smart-window .smart-container .smart-content .label {
+    margin: 20px 0;
+}
+
+.smart-drop-down.smart-date-time-drop-down, .smart-drop-down-container {
+    z-index: 999999;
+}
+
+/* Context menu css styles */
+#gridContextMenu {
+    height: auto;
+	width: 150px;
+}
+
+/* Grid css styles */
+:root {
+    --smart-grid-border: none;
+    --smart-grid-column-border-width: none;
+    --smart-grid-row-border: none;
+}
+
+smart-grid {
+    width: 96%;
+    margin: 0 auto;
+}
+
+smart-grid div.smart-grid-column-header-cell-container[smart-id="columnContainer"] {
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.template-button {
+    background: transparent;
+    border: none;
+    color: var(--smart-secondary);
+    outline: none;
+    cursor: pointer;
+    display: flex;
+}
+
+.template-button:hover {
+    color: var(--smart-success);
+}
+
+.template-button:active {
+    color: var(--smart-primary);
+}
+
+img.logo {
+    border-radius: 50%;
+}
+
+img.header-logo {
+    float: right;
+    margin-top: 4px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.commit-title {
+    position: absolute;
+    bottom: 8px;
+    font-weight: bold;
+}
+
+.author-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+span.commit-title {
+    color: rgb(30, 30, 30);
+}
+
+smart-grid-cell .custom-icon {
+    font-size: 17px;
+    margin-right: 5px;
+}
+
+smart-grid-cell .fa-circle {
+    color: #CCC;
+}
+
+smart-grid-cell .fa-check-circle {
+    color: green;
+}
+
+smart-grid-cell .fa-exclamation-circle {
+    color: #ff9a00;
+}
+
+smart-grid-cell .fa-times-circle {
+    color: #d40000;
+}
+
+smart-grid-cell .fa-spinner {
+    color: #4070ff;
+}
+
+/* Date time padding */
+smart-grid-cell[data-field="date"] div.smart-label {
+    padding-right: 5px;
+}
+
+smart-grid-column {
+    font-size: 12px;
+}
+
+	/* Column icon */
+    smart-grid-column .smart-icon {
+        font-family: 'FontAwesome';
+        font-size: 16px;
+    }
+    /* Font awesome Icons */
+    smart-grid-cell .custom-icon {
+        margin-left: 4px;
+        margin-right: 4px;
+        font-family: 'FontAwesome';
+    }
+    /* Pin column icon positioning */
+    smart-grid-column:nth-child(3) {
+        display: flex;
+        flex-direction: row;
+    }
+    smart-grid-column:nth-child(3) div:nth-child(1) {
+        order: 2;
+        margin-right: 10px;
+        -ms-transform: rotate(45deg); /* IE 9 */
+        -webkit-transform: rotate(45deg); /* Safari 3-8 */
+        transform: rotate(45deg);
+    }
+    smart-grid-column:nth-child(3) div:nth-child(2) {
+        order: 1;
+    }
+    smart-grid-column:nth-child(3) div:nth-child(3) {
+        order: 3;
+        visibility: hidden;
+    }
+
+div.smart-grid-cell-container.center {
+    color: black;
+}
+
+smart-grid-cell[data-field="buildNum"] div.smart-label {
+    display: flex;
+    align-items: center;
+}
+
+smart-grid-cell[data-field="buildNum"] div.smart-label div.normal-circle {
+    border-radius: 50%;
+    min-width: 15px;
+    width: 15px;
+    border: 2px solid #ccc;
+    height: 15px;
+    margin-right: 5px;
+    margin-left: 3px;
+    display: inline-block;
+}
+
+smart-grid-cell[data-field="buildNum"] div.smart-label div.dashed-circle {
+    border-radius: 50%;
+    min-width: 15px;
+    width: 15px;
+    border: 1px solid #4f32ff;
+    height: 15px;
+    margin-right: 5px;
+    margin-left: 3px;
+    border-style: dashed;
+    display: inline-block;
+}
+
+.rotate90deg {
+    transform: rotate(90deg);
+}
+
+h4.subtitles {
+    cursor: pointer;
+    margin-left: 25px;
+    display: inline-block;
+    font-weight: normal;
+}
+
+h4.subtitles.active {
+    color: #43A047 !important;
+    border-bottom: 2px solid #43A047;
+}
+h4.subtitles.active button {
+    color: #43A047 !important;
+}
+.header-right-buttons {
+    float: right;
+    margin-top: 40px;
+}
+
+.header-right-buttons smart-button.run {
+    color: white;
+}
+
+.filter-right-button {
+    float: right;
+    margin-right: 15px;
+}
+
+.filter-right-button smart-button {
+    margin-top: 10px;
+}
+
+.header-right-buttons smart-button button {
+    padding: 4px;
+}
+
+.header-right-buttons smart-button {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.header-right-buttons  {
+    margin-right: 15px;
+}
+
+.header-right-buttons .filter {
+    margin-left: 5px;
+    margin-right: 10px;
+    float: right;
+}
+
+.header-right-buttons .button-text {
+    vertical-align: super;
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+smart-button.run {
+    background: #24A2FC;
+}
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}

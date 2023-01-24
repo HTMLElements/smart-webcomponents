@@ -1,0 +1,16 @@
+smart-tabs {
+	width: 60%;
+	margin-top: 30px;
+	height: 250px;
+}
+
+smart-tabs.albums {
+	width: 380px;
+	height:420px;
+}
+
+@media only screen and (max-width: 700px) {
+	smart-tabs, smart-tabs.albums {
+		width: 100%;
+	}
+}

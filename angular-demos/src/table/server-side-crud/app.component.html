@@ -1,0 +1,26 @@
+<div class="demo-description">
+    <h1>Server-Side CRUD operations</h1>
+    When a new row is added, removed or updated a request with CRUD data object
+    is made via 'virtualDataSource' on the Server-Side Datasource. The server
+    uses the SQL query sent by the Server-Side Datasource to get the rows.
+    The type of query is stored in the request's action property.
+    <br />
+    <br />This example uses a demo server with AlaSQL that generates SQL to show
+    how a real server might use the requests sent by the Table. The Server-Side
+    Table usage does not have any restrictions on the server-side technologies
+    used.
+</div>
+<div id="tableContainer">
+    <smart-table #table id="table" [dataSource]="dataSource" [editing]="editing" [editMode]="editMode"
+        [keyboardNavigation]="keyboardNavigation" [sortMode]="sortMode" [columns]="columns"></smart-table>
+    <smart-button #button id="addNewRow" class="primary" title="Add new row" (onClick)="handleButtonClick()">+
+    </smart-button>
+</div>
+<br />
+<br />
+<h3>SQL Query</h3>
+<div id="query"></div>
+<br />
+<br />
+<h3>Data</h3>
+<div id="dataLog"></div>

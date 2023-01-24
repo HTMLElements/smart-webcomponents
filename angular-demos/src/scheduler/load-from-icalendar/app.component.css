@@ -1,0 +1,11 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+    --smart-scheduler-view-item-size: 100px;
+}

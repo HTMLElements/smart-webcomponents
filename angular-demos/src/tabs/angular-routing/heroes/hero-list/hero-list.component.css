@@ -1,0 +1,62 @@
+/* HeroListComponent's private CSS styles */
+
+.heroes {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.heroes li {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .25em 0;
+  height: 1.7em;
+  border-radius: 4px;
+}
+
+.heroes li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.heroes a {
+  color: #888;
+  text-decoration: none;
+  position: relative;
+  display: block;
+}
+
+.heroes a:hover {
+  color: #607D8B;
+}
+
+.heroes .badge {
+  color: white;
+  background-color: #607D8B;
+  margin-right: .8em;
+  border-radius: 5px 0 0 5px;
+  padding: 0.25em;
+}
+
+.heroes li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.heroes li.selected:hover {
+  background-color: #BBD8DC;
+}
+
+app-hero-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+smart-tab-item > .smart-container {
+  overflow: hidden;
+}

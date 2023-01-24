@@ -258,6 +258,33 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-icon.smart-icon-docs:before {
   content: var(--smart-icon-docs);
 }
+.smart-grid-icon.smart-icon-pdf:before {
+  content: var(--smart-icon-pdf);
+  color: #E50012;
+}
+.smart-grid-icon.smart-icon-word::before {
+  content: var(--smart-icon-word);
+  color: #185ABD;
+}
+.smart-grid-icon.smart-icon-excel:before {
+  content: var(--smart-icon-excel);
+  color: #107C41;
+}
+.smart-grid-icon.smart-icon-archive:before {
+  content: var(--smart-icon-archive);
+  color: #EDC949;
+}
+.smart-grid-icon.smart-icon-file:before {
+  content: var(--smart-icon-file);
+  color: var(--smart-primary);
+}
+.smart-grid-icon.smart-icon-powerpoint:before {
+  content: var(--smart-icon-powerpoint);
+  color: #C43E1C;
+}
+.smart-grid-icon.smart-icon-text:before {
+  content: var(--smart-icon-text);
+}
 .smart-grid-icon.smart-icon-minus:before {
   content: var(--smart-icon-minus);
 }
@@ -812,6 +839,11 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-scroll-view .smart-grid-row-container.far {
   bottom: -2px;
 }
+.smart-grid-scroll-view.has-vscroll smart-grid-row[data-id="9999999"] {
+  box-shadow: none !important;
+  --smart-grid-cell-header-horizontal-border: transparent;
+  --smart-grid-cell-horizontal-border: transparent;
+}
 .smart-grid-scroll-view.vscroll {
   width: calc(100% - var(--smart-scroll-bar-size));
 }
@@ -905,11 +937,13 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-dialog-editor[template="colorInput"] smart-color-input {
   border: 1px solid var(--smart-border);
 }
+.smart-grid-dialog-editor .attachments,
 .smart-grid-dialog-editor .images {
   display: grid;
   grid-template-columns: 1fr auto auto;
   height: 100%;
 }
+.smart-grid-dialog-editor .attachments .container,
 .smart-grid-dialog-editor .images .container {
   display: flex;
   height: calc(100% - 3px);
@@ -917,23 +951,30 @@ input[type=number]::-webkit-outer-spin-button {
   overflow: hidden;
   padding-left: 5px;
 }
+.smart-grid-dialog-editor .attachments .smart-drop-image,
 .smart-grid-dialog-editor .images .smart-drop-image {
   margin-left: -5px;
 }
+.smart-grid-dialog-editor .attachments .smart-drop-image::after,
 .smart-grid-dialog-editor .images .smart-drop-image::after {
   font-family: var(--smart-font-family-icon);
   content: var(--smart-icon-download-alt);
   margin-left: 5px;
 }
+.smart-grid-dialog-editor .attachments .arrowbtn,
 .smart-grid-dialog-editor .images .arrowbtn {
   width: 15px;
   background: var(--smart-surface);
 }
+.smart-grid-dialog-editor .attachments .arrowbtn:hover,
 .smart-grid-dialog-editor .images .arrowbtn:hover {
   cursor: pointer;
   background: var(--smart-primary);
   color: var(--smart-primary-color);
 }
+.smart-grid-dialog-editor .attachments .attachment,
+.smart-grid-dialog-editor .attachments img,
+.smart-grid-dialog-editor .images .attachment,
 .smart-grid-dialog-editor .images img {
   height: 23px;
   width: 23px;
@@ -941,6 +982,9 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right: 3px;
   border-radius: var(--smart-border-radius);
 }
+.smart-grid-dialog-editor .attachments .attachment:hover,
+.smart-grid-dialog-editor .attachments img:hover,
+.smart-grid-dialog-editor .images .attachment:hover,
 .smart-grid-dialog-editor .images img:hover {
   cursor: pointer;
   border-color: var(--smart-primary);
@@ -1020,12 +1064,14 @@ input[type=number]::-webkit-outer-spin-button {
   content: var(--smart-icon-close);
   cursor: pointer;
 }
+.smart-grid-image-dialog .preview .list .item .attachment,
 .smart-grid-image-dialog .preview .list .item img {
   width: 50px;
   height: 50px;
   min-height: 50px;
   border: 2px solid transparent;
 }
+.smart-grid-image-dialog .preview .list .item .attachment:hover,
 .smart-grid-image-dialog .preview .list .item img:hover {
   border: 2px solid var(--smart-primary);
   border-radius: var(--smart-border-radius);
@@ -1252,6 +1298,12 @@ input[type=number]::-webkit-outer-spin-button {
   font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
 }
+.smart-window.smart-grid-dialog[mobile] {
+  left: 0px !important;
+  top: 0px !important;
+  width: 100% !important;
+  height: 100% !important;
+}
 .smart-window.smart-grid-dialog.smart-grid-dialog-description, .smart-window.smart-grid-dialog.smart-grid-dialog-add-column {
   transform: scaleY(0) !important;
   transform-origin: top !important;
@@ -1361,6 +1413,7 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-dialog-editor[template="image"] .smart-grid-cell-editor > div {
   display: block !important;
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-dialog-editor[template="image"] .attachment,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-dialog-editor[template="image"] img {
   width: 95px;
   height: 95px;
@@ -1373,6 +1426,10 @@ input[type=number]::-webkit-outer-spin-button {
   display: grid;
   grid-template-columns: 1fr 350px;
   column-gap: 20px;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout[mobile] {
+  display: flex;
+  flex-direction: column;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-editors-container.many {
   display: grid;
@@ -1563,9 +1620,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-window.smart-grid-dialog .col-sm-6 {
   padding: 0px;
-}
-.smart-window.smart-grid-dialog > .smart-container .smart-header-section {
-  cursor: default;
 }
 .smart-window.smart-grid-dialog.open, .smart-window.smart-grid-dialog.view.open {
   transform: scale(1) !important;
@@ -1801,6 +1855,9 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
   margin-left: 5px;
   height: 8px;
   box-sizing: content-box;
+}
+.smart-grid smart-grid-row[data-id="9999999"] {
+  box-shadow: rgba(140, 149, 159, 0.15) 0px 3px 6px 0px;
 }
 .smart-grid smart-grid-row .smart-grid-row-detail {
   overflow: hidden;
@@ -2754,7 +2811,6 @@ smart-grid-cell .nowrap {
   line-height: 1.5;
 }
 smart-grid-cell.smart-add-new-row {
-  box-shadow: rgba(140, 149, 159, 0.15) 0px 3px 6px 0px;
   background-color: var(--smart-surface);
   font-style: italic;
 }
@@ -2795,6 +2851,13 @@ smart-grid-cell .list,
 smart-grid-cell .tokens {
   padding-left: 6px;
   align-items: center;
+  height: 100%;
+}
+smart-grid-cell .dropdownlist .smart-flex-wrap,
+smart-grid-cell .list .smart-flex-wrap,
+smart-grid-cell .tokens .smart-flex-wrap {
+  flex-wrap: wrap;
+  padding-right: 5px;
 }
 smart-grid-cell .dropdownlist .smart-token,
 smart-grid-cell .list .smart-token,
@@ -2830,11 +2893,13 @@ smart-grid-cell[focus] .tokens .smart-arrow-down {
   min-width: var(--smart-editor-addon-width);
   opacity: 1;
 }
+smart-grid-cell .attachments,
 smart-grid-cell .images {
   display: grid;
   grid-template-columns: 1fr auto auto;
   height: 100%;
 }
+smart-grid-cell .attachments .container,
 smart-grid-cell .images .container {
   display: flex;
   height: calc(100% - 3px);
@@ -2842,30 +2907,41 @@ smart-grid-cell .images .container {
   overflow: hidden;
   padding-left: 5px;
 }
+smart-grid-cell .attachments .smart-drop-image,
 smart-grid-cell .images .smart-drop-image {
   margin-left: -5px;
 }
+smart-grid-cell .attachments .smart-drop-image::after,
 smart-grid-cell .images .smart-drop-image::after {
   font-family: var(--smart-font-family-icon);
   content: var(--smart-icon-download-alt);
   margin-left: 5px;
 }
+smart-grid-cell .attachments .arrowbtn,
 smart-grid-cell .images .arrowbtn {
   width: 15px;
   background: var(--smart-surface);
 }
+smart-grid-cell .attachments .arrowbtn:hover,
 smart-grid-cell .images .arrowbtn:hover {
   cursor: pointer;
   background: var(--smart-primary);
   color: var(--smart-primary-color);
 }
+smart-grid-cell .attachments .attachment,
+smart-grid-cell .attachments img,
+smart-grid-cell .images .attachment,
 smart-grid-cell .images img {
   height: 23px;
   width: 23px;
   border: 1px solid var(--smart-border);
   margin-right: 3px;
   border-radius: var(--smart-border-radius);
+  align-content: center;
 }
+smart-grid-cell .attachments .attachment:hover,
+smart-grid-cell .attachments img:hover,
+smart-grid-cell .images .attachment:hover,
 smart-grid-cell .images img:hover {
   cursor: pointer;
   border-color: var(--smart-primary);
@@ -3068,9 +3144,8 @@ smart-grid-cell[has-toggle-button] button[toggle-button].row-detail:after {
   color: var(--smart-primary);
 }
 smart-grid-cell[has-toggle-button] button[toggle-button].row-detail:hover:after {
-  background: var(--smart-ui-state-selected);
+  color: var(--smart-surface-color);
   padding: 3px;
-  border-radius: 50%;
 }
 smart-grid-cell[has-toggle-button] button[toggle-button][toggled]:after {
   transform: rotate(180deg);
@@ -3434,13 +3509,79 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
   border-radius: 50%;
 }
 
-smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item[level="1"] {
+.smart-grid-view-chooser {
+  background: var(--smart-background);
+  font-size: var(--smart-font-size);
+  font-family: var(--smart-font-family);
+}
+.smart-grid-view-chooser .smart-menu {
+  padding: 5px;
+}
+.smart-grid-view-chooser .smart-menu smart-menu-item {
+  border-radius: var(--smart-border-radius);
+}
+.smart-grid-view-chooser .smart-menu smart-menu-item[checked] {
+  background: var(--smart-ui-state-selected);
+  color: var(--smart-ui-state-color-selected);
+}
+.smart-grid-view-chooser .header {
+  padding: 10px;
+  display: block;
+  font-weight: 500;
+  background: var(--smart-surface);
+  color: var(--smart-surface-color);
+  border-bottom: 1px solid var(--smart-border);
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container {
+  margin-top: 10px;
+  border-top: 1px solid var(--smart-border);
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container label {
+  opacity: 0.75;
+  display: block;
+  padding: 0px 10px;
+  margin-top: 10px;
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container .smart-grid-view-storage smart-menu .smart-menu-item-label-element {
+  width: 100%;
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container .smart-grid-view-storage smart-menu .smart-menu-item-label-element > span {
+  display: grid;
+  align-items: baseline;
+  grid-template-columns: 20px 1fr 15px;
+  width: 100%;
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container smart-input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container .new-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container .new-view smart-button {
+  margin-right: 4px;
+  text-transform: none;
+}
+.smart-grid-view-chooser .smart-grid-view-chooser-container .new-view smart-button:hover button {
+  border-color: var(--smart-background-color);
+  background: var(--smart-background-color);
+  color: white;
+}
+
+smart-menu.smart-grid-views-menu[checkboxes][checkable][disable-auto-check] .smart-menu-item-label-container:after, smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable][disable-auto-check] .smart-menu-item-label-container:after {
+  display: none;
+}
+smart-menu.smart-grid-views-menu[checkboxes][checkable] smart-menu-item[level="1"], smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item[level="1"] {
   flex-direction: row-reverse;
 }
-smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item[level="1"] .smart-menu-item-label-container {
+smart-menu.smart-grid-views-menu[checkboxes][checkable] smart-menu-item[level="1"] .smart-menu-item-label-container, smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item[level="1"] .smart-menu-item-label-container {
   padding-left: 10px;
 }
-smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item[level="1"][checked] .smart-menu-item-label-container:after {
+smart-menu.smart-grid-views-menu[checkboxes][checkable] smart-menu-item[level="1"][checked] .smart-menu-item-label-container:after, smart-menu.smart-grid-column-chooser-menu[checkboxes][checkable] smart-menu-item[level="1"][checked] .smart-menu-item-label-container:after {
   left: initial;
   right: 10px;
 }

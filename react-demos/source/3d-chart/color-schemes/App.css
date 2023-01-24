@@ -1,0 +1,41 @@
+#chart{
+  width:60%;
+  min-width: 300px;
+  max-width: 800px;
+  height:600px;
+}
+
+body[theme='dark']{
+  background-color: #242424;
+}
+
+smart-drop-down-list .smart-input div.circle, .circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: static;
+  z-index: 1;
+  float: none;
+}
+
+.circle {
+  float: left;
+  margin-right: 5px;
+}
+
+#colorSchemes {
+  width: 210px;
+}
+
+#colorSchemes .smart-action-button {
+      display: flex;
+      flex-direction: column;
+      align-content: space-evenly;
+  }
+
+#customScheme1, #customScheme2, #customScheme3, #customScheme4, #customScheme5 {
+  display: inline-block;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}

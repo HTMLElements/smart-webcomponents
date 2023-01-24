@@ -1,0 +1,17 @@
+<div id="mainContainer">
+    <div id="header">
+        <div id="title">Billing History</div>
+        <div id="info">
+            <div>Your next payment will be on</div>
+            <div><strong>May 19, 2020</strong> for <strong>$13.99</strong>
+            </div>
+        </div>
+    </div>
+    <smart-table #table id="table" [dataSource]="dataSource" [freezeHeader]="freezeHeader" [selection]="selection"
+        [columns]="columns"></smart-table>
+    <div id="footer"><span class="material-icons">settings</span><span>Receipt settings</span>
+    </div>
+</div>
+<smart-tooltip #tooltip id="amountTooltip" [arrow]="true">Taxes are included</smart-tooltip>
+<smart-tooltip #tooltip2 id="errorTooltip" [arrow]="true" [position]="'bottom'">Insufficient funds in account</smart-tooltip>
+<smart-toast #toast id="actionToast" [position]="'top-right'" [autoClose]="true" [showCloseButton]="true" [type]="'success'"></smart-toast>

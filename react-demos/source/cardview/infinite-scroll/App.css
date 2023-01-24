@@ -1,0 +1,11 @@
+.nationality:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/flag-of-europe.png");
+}
+
+.phone:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/phone.png");
+}
+
+.registered:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/calendar-filled.png");
+}

@@ -1,0 +1,28 @@
+<p>closeButtonMode 'default'</p>
+<smart-tabs #tabs id="tabs1" class="demoTabsShort" [closeButtons]="true">
+    <smart-tab-item [label]="'TAB 1'">Content 1</smart-tab-item>
+    <smart-tab-item [label]="'TAB 2'" [selected]="true">Content 2</smart-tab-item>
+    <smart-tab-item [label]="'TAB 3'" [closeButtonHidden]="true">Content 3</smart-tab-item>
+</smart-tabs>
+<br />
+<p>closeButtonMode 'selected'</p>
+<smart-tabs #tabs2 id="tabs2" class="demoTabsShort" [closeButtons]="true" [closeButtonMode]="'selected'"
+    [addNewTab]="true">
+    <smart-tab-item [label]="'TAB 1'">Content 1</smart-tab-item>
+    <smart-tab-item [label]="'TAB 2'">Content 2</smart-tab-item>
+    <smart-tab-item [label]="'TAB 3'" [selected]="true">Content 3</smart-tab-item>
+</smart-tabs>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleCloseButtons" class="demoButton" [checked]="true">Toggle close
+            buttons</smart-toggle-button>
+        <br />
+        <br />
+        <smart-button #button id="showCloseButton" class="demoButton">Show third close button</smart-button>
+        <br />
+        <br />
+        <smart-button #button2 id="hideCloseButton" class="demoButton" [disabled]="true">Hide third close button
+        </smart-button>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+smart-grid {
+  height: auto;
+  width: 100%;
+  --smart-grid-cell-font-size: 24px;
+  --smart-grid-column-font-size: 20px;
+}

@@ -1,0 +1,41 @@
+<div class="options">
+    <div class="option">
+        <smart-button #button id="openButton" (onClick)="onButtonClick($event)">Open</smart-button>
+    </div>
+</div>
+
+<smart-window #window [opened]="true" [label]="'Mailbox'">
+    <smart-tabs #tabs id="tabs" [selectedIndex]="0">
+        <smart-tab-item [label]="'primaryTemplate'">
+            <smart-list-box #listbox class="mailList">
+                <smart-list-item>Re: Exam <strong class="date">9/1/17</strong>
+                </smart-list-item>
+                <smart-list-item>Dinner tonight? <strong class="date">8/16/17</strong>
+                </smart-list-item>
+                <smart-list-item>Hi <strong class="date">8/1/17</strong>
+                </smart-list-item>
+                <smart-list-item>About the interview <strong class="date">7/11/17</strong>
+                </smart-list-item>
+                <smart-list-item>Re: Query about car purchase <strong class="date">6/29/17</strong>
+                </smart-list-item>
+                <smart-list-item>Your weekly newsletter <strong class="date">6/17/17</strong>
+                </smart-list-item>
+                <smart-list-item>Important update <strong class="date">5/30/17</strong>
+                </smart-list-item>
+                <smart-list-item>Re: Introduction <strong class="date">5/30/17</strong>
+                </smart-list-item>
+                <smart-list-item>Welcome to our forums <strong class="date">5/28/17</strong>
+                </smart-list-item>
+                <smart-list-item>Your weekly newsletter <strong class="date">4/17/17</strong>
+                </smart-list-item>
+            </smart-list-box>
+        </smart-tab-item>
+        <smart-tab-item [label]="'promotionsTemplate'">Your Promotions tab is empty.</smart-tab-item>
+        <smart-tab-item [label]="'spamTemplate'">
+            <smart-list-box #listbox2 class="mailList">
+                <smart-list-item>Join our club today! <strong class="date">9/1/17</strong>
+                </smart-list-item>
+            </smart-list-box>
+        </smart-tab-item>
+    </smart-tabs>
+</smart-window>

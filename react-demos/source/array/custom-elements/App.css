@@ -1,0 +1,15 @@
+.demoContainer {
+    margin-right: 75px;
+}
+
+smart-progress-bar .smart-value {
+    background-color: #FFBB00;
+}
+
+smart-circular-progress-bar .smart-value {
+    stroke: #FFBB00;
+}
+
+smart-tank .smart-track {
+    border-color: gray;
+}

@@ -1,0 +1,51 @@
+﻿smart-button {
+    --smart-primary: #e14eca;
+}
+
+smart-card .user-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto;
+    margin-top: -80px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px 0 rgba(0,0,0,.3);
+}
+
+smart-card.lock {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 50px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+smart-card.lock[theme="dark"] {
+    background-color: rgb(46, 46, 46);
+}
+
+smart-card #submitForm smart-password-text-box input {
+    transition: color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out;
+}
+
+section.user {
+    margin-top: 100px;
+}
+
+section.user smart-button,
+section.user smart-password-text-box {
+    width: 100%;
+    display: block;
+    margin-top: 30px;
+}
+
+smart-button#lock {
+    text-transform: none;
+}
+
+smart-button {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
+}

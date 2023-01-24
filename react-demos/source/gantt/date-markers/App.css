@@ -1,0 +1,56 @@
+.smart-gantt-chart {
+    width: calc(100% - 300px);
+    height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .smart-gantt-chart {
+        width: 100%;
+    }
+}
+
+.smart-gantt-chart .office-open {
+    --smart-gantt-chart-date-marker-background: #BF6060;
+    --smart-gantt-chart-date-marker-text-color: white;
+}
+
+.smart-gantt-chart .daily-stand-up {
+    --smart-gantt-chart-date-marker-background: #6097BF;
+    --smart-gantt-chart-date-marker-text-color: white;
+}
+
+.smart-gantt-chart .lunch-break-start {
+    --smart-gantt-chart-date-marker-background: #BF0052;
+    --smart-gantt-chart-date-marker-text-color: white;
+    --smart-gantt-chart-date-marker-v-offset: 10%;
+}
+
+.smart-gantt-chart .lunch-break-end {
+    --smart-gantt-chart-date-marker-background: #BFA300;
+    --smart-gantt-chart-date-marker-text-color: white;
+    --smart-gantt-chart-date-marker-v-offset: 25%;
+}
+
+.smart-gantt-chart .office-close {
+    --smart-gantt-chart-date-marker-background: #208056;
+    --smart-gantt-chart-date-marker-text-color: white;
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

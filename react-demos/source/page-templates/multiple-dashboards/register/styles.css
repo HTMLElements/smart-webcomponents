@@ -1,0 +1,142 @@
+﻿:root {
+    --smart-primary: #e14eca;
+}
+
+smart-card.register {
+    max-width: 550px;
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+smart-splitter:not([theme="dark"]) smart-card.register > .smart-container {
+    background-image: url('./../../../../src/images/paint-1369406.jpg');
+    background-repeat: no-repeat;
+    background-size: 686px 600px;
+    background-position: 0px -100px;
+}
+
+smart-splitter[theme="dark"] smart-card.register {
+    background: rgb(46, 46, 46);
+}
+
+smart-card #submitForm smart-text-box input {
+    transition: color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out;
+}
+
+smart-card #submitForm .hover-colored-text {
+    color: #ba54f5;
+    transition: 0.3s;
+}
+
+smart-card #submitForm .hover-colored-text:hover {
+    color: var(--smart-primary);
+}
+
+smart-card.register {
+    padding: 0;
+}
+
+smart-card.register > .smart-container {
+    padding: 30px;
+}
+
+section.user smart-button,
+section.user smart-text-box {
+    width: 100%;
+    display: block;
+    margin-top: 30px;
+    }
+
+section.user .grid {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 50% 50%;
+}
+
+
+section.user .our-benefits {
+    align-self: center;
+    justify-self: end;
+    width: 80%;
+}
+
+section.user .our-benefits div.title i {
+    vertical-align: sub;
+    font-size: 35px;
+}
+
+section.user .our-benefits div.title i:last-child {
+    font-size: 25px;
+}
+
+section.user .our-benefits .benefit .title {
+    font-size: 23px;
+    margin-top: 40px;
+}
+
+section.user .our-benefits .benefit .description {
+    color: #9a9a9a;
+    margin-top: 10px;
+}
+
+smart-button#register {
+    text-transform: none;
+}
+
+smart-button {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
+}
+    
+h1.sign-in-text {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 24px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+smart-splitter[theme="dark"] h1.sign-in-text {
+    color: white;
+}
+
+smart-check-box {
+    margin-top: 15px;
+    margin-left: -8px;
+}
+
+.material-icons.icon-orange {
+    color: #ff8d72;
+}
+
+.material-icons.icon-pink {
+    color: #e14eca;
+}
+
+.material-icons.icon-blue {
+    color: #1d8cf8;
+}
+
+smart-text-box .smart-label {
+    margin-top: 10px;
+}
+
+
+@media only screen and (max-width: 700px) {
+    section.user .grid {
+        grid-template-columns: none;
+        grid-template-rows: 50% 50%;
+    }
+
+    section.user .our-benefits {
+        justify-self: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    smart-card.register {
+        width: 100% ;
+        margin-bottom: 20px;
+    }
+}

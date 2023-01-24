@@ -1,0 +1,37 @@
+<smart-slider #slider id="horizontalSlider" [showTooltip]="true" [min]="17" [max]="769"
+              [value]="172" [scalePosition]="'both'"></smart-slider>
+<br />
+<smart-slider #slider2 id="verticalSlider" [showTooltip]="true" [orientation]="'vertical'"
+              [inverted]="true" [min]="-100" [max]="0" [value]="-4" [scalePosition]="'both'"></smart-slider>
+<div class="options">
+    <div class="option">
+        <p>Labels</p>
+        <smart-radio-button #radiobutton id="all" name="labelsVisibility" [checked]="true">
+            <label for="all">All</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 id="endPoints" name="labelsVisibility">
+            <label for="endPoints">Endpoints</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 id="none" name="labelsVisibility">
+            <label for="none">None</label>
+        </smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <p>Tick Marks</p>
+        <smart-radio-button #radiobutton4 id="major" name="ticksVisibility">
+            <label for="major">Major</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5 id="minor" name="ticksVisibility" [checked]="true">
+            <label for="minor">Minor</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6 id="noTicks" name="ticksVisibility">
+            <label for="noTicks">None</label>
+        </smart-radio-button>
+        <br />
+    </div>
+</div>

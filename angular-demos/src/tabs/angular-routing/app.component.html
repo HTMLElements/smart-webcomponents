@@ -1,0 +1,14 @@
+<h1 class="title">Angular Router with Tabs</h1>
+
+<smart-tabs #tabs class="demoTabs" [selectedIndex]="1">
+  <smart-tab-item [label]="'Crisis List'">
+    <div [@routeAnimation]="getAnimationData(routerOutletAux)">
+      <router-outlet #routerOutletAux="outlet" name="crisis"></router-outlet>
+    </div>
+  </smart-tab-item>
+  <smart-tab-item [label]="'Heores'">
+    <div [@routeAnimation]="getAnimationData(routerOutlet)">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+  </smart-tab-item>
+</smart-tabs>

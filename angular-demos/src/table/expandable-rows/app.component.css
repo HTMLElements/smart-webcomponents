@@ -1,0 +1,32 @@
+.smart-table {
+    --smart-table-row-detail-height: 110px;
+    width: 100%;
+}
+
+.smart-table .smart-table-detail-container {
+    display: flex;
+}
+
+.element-cell {
+    border: 2px solid black;
+    width: 75px;
+    height: 85px;
+    padding: 2px;
+    margin-right: 10px;
+}
+
+.element-symbol,
+.element-name,
+.element-weight {
+    text-align: center;
+}
+
+.element-symbol {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.element-name,
+.element-weight {
+    font-size: 10px;
+}

@@ -1,0 +1,13 @@
+.date-format-panel-container {
+    width: 960px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.custom-format-holder {
+    top: 15px;
+    position: absolute;
+}

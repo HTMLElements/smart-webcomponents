@@ -1,0 +1,10 @@
+#toastContainer {
+    width: 380px;
+    height: 380px;
+    position: absolute;
+    left: calc(50% - 210px);
+    top: calc(50% - 210px);
+    padding: 20px;
+    border: 1px gray dashed;
+    overflow-y: auto;
+}

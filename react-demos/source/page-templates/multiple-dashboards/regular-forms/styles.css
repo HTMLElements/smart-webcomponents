@@ -1,0 +1,99 @@
+﻿smart-check-box,
+smart-radio-button {
+    --smart-primary: #e14eca;
+}
+
+.header-forms smart-card {
+    width: 95%;
+    height: 404px;
+}
+
+smart-card.input-variants-card,
+smart-card.form-elements-card {
+    width: 98%;
+}
+
+.form-elements-card {
+    padding-bottom: 0;
+}
+
+.error-text-box {
+    --smart-background-color: rgb(243, 54, 32);
+    --smart-border: rgb(243, 54, 32);
+}
+
+.success-text-box {
+    --smart-background-color: rgb(4, 177, 147);
+    --smart-border: rgb(4, 177, 147);
+}
+
+smart-button {
+    --smart-primary: #e14eca;
+    width: auto;
+    height: auto;
+}
+
+.btn-primary {
+    --smart-background: top right/210% 210% #e14eca;
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-regular button {
+    padding: 11px 40px;
+}
+
+.header-forms {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.custom-checkboxes-radios {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.label-input-holder {
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+.label-input-holder .left-label-side {
+    justify-self: end;
+}
+
+.left-label-side label {
+    top: 25px;
+    display: block;
+    position: relative;
+    margin-right: 13px;
+}
+
+.left-label-side label.label-top-10 {
+    top: 10px;
+}
+
+.label-input-holder .right-input-side .row > div {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.label-input-holder .right-input-side .row smart-text-box {
+    margin-top: 5px;
+}
+
+smart-card smart-text-box {
+    --smart-text-box-default-width: 100%;
+    margin-top: 20px;
+}
+
+smart-card smart-text-box input {
+    transition: color .3s ease-in-out,border-color .3s ease-in-out;
+}
+
+.with-help {
+    margin-top: -15px;
+    display: block;
+}

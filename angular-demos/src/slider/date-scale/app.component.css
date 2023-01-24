@@ -1,0 +1,23 @@
+#slider1, #slider3 {
+    width: 100px;
+}
+
+#slider2 {
+    --smart-slider-tooltip-width: 140px;
+    --smart-slider-tooltip-height: 50px;
+    width: 800px;
+    height: 100px;
+}
+
+    #slider2 .smart-tooltip {
+        z-index: 10;
+    }
+
+#birthday {
+    text-align: center;
+    color: maroon;
+}
+
+#slider4 {
+    width: 800px;
+}

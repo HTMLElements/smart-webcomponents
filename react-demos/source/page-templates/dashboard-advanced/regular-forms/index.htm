@@ -1,0 +1,225 @@
+﻿<div className="regular-forms-page smart-visibility-hidden">
+    <div className="header-forms">
+        <smart-card className="header-forms-left">
+            <div className="card-title m-0">Stacked Form</div>
+            <div className="card-conten">
+                <div className="smart-grid-layout">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <label>Email address</label>
+                            <smart-text-box value="" className="mtop0 mbottom20"></smart-text-box>
+                            <label>Password</label>
+                            <smart-text-box value="" className="mtop0 mbottom20"></smart-text-box>
+                            <smart-check-box enable-container-click>Subscribe to newsletter</smart-check-box>
+                            <br />
+                            <smart-button className="btn-primary btn-regular submit-btn mtop-20">Submit</smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-card>
+
+        <smart-card className="header-forms-right">
+            <div className="card-title m-0">Horizontal Form</div>
+            <div className="card-conten">
+                <div className="smart-grid-layout">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="label-input-holder">
+                                <div className="left-label-side">
+                                    <label>Username</label>
+                                </div>
+                                <div className="right-input-side">
+                                    <smart-text-box value=""></smart-text-box>
+                                </div>
+                            </div>
+                            <div className="label-input-holder">
+                                <div className="left-label-side">
+                                    <label>Email</label>
+                                </div>
+                                <div className="right-input-side">
+                                    <smart-text-box value=""></smart-text-box>
+                                </div>
+                            </div>
+                            <div className="label-input-holder">
+                                <div className="left-label-side">
+                                    <label>Password</label>
+                                </div>
+                                <div className="right-input-side">
+                                    <smart-text-box value=""></smart-text-box>
+                                </div>
+                            </div>
+                            <div className="label-input-holder">
+                                <div className="left-label-side">
+                                </div>
+                                <div className="right-input-side">
+                                    <smart-check-box enable-container-click>Remember me</smart-check-box>
+                                </div>
+                            </div>
+                            <br />
+                            <div className="label-input-holder">
+                                <div className="left-label-side">
+                                </div>
+                                <div className="right-input-side">
+                                    <smart-button className="btn-primary btn-regular sign-in-btn">Sign in</smart-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-card>
+    </div>
+
+    <div className="input-variants mtop-20">
+        <smart-card className="input-variants-card">
+            <div className="card-title m-0">Form Elements</div>
+            <div className="label-input-holder">
+                <div className="left-label-side">
+                    <label>With help</label>
+                </div>
+                <div className="right-input-side">
+                    <smart-text-box value="" className="mb0"></smart-text-box>
+                    <span className="with-help">A block of help text that breaks onto a new line.</span>
+                </div>
+            </div>
+            <div className="label-input-holder">
+                <div className="left-label-side">
+                    <label>Password</label>
+                </div>
+                <div className="right-input-side">
+                    <smart-text-box value=""></smart-text-box>
+                </div>
+            </div>
+            <div className="label-input-holder">
+                <div className="left-label-side">
+                    <label>Placeholder</label>
+                </div>
+                <div className="right-input-side">
+                    <smart-text-box placeholder="placeholder"></smart-text-box>
+                </div>
+            </div>
+            <div className="label-input-holder">
+                <div className="left-label-side">
+                    <label>Disabled</label>
+                </div>
+                <div className="right-input-side">
+                    <smart-text-box value="Disabled input here.." disabled></smart-text-box>
+                </div>
+            </div>
+            <div className="label-input-holder">
+                <div className="left-label-side">
+                    <label className="label-top-10">Static control</label>
+                </div>
+                <div className="right-input-side">
+                    <span className="mtop-10 dblock">hello@smartelements.com</span>
+                </div>
+            </div>
+            <br />
+            <div className="label-input-holder">
+                <div className="left-label-side ">
+                    <label className="label-top-10">Checkboxes and radios</label>
+                </div>
+                <div className="right-input-side mbottom-20">
+                    <smart-check-box enable-container-click>First Checkbox</smart-check-box>
+                    <br />
+                    <smart-check-box enable-container-click>Second Checkbox</smart-check-box>
+                    <br />
+                    <smart-radio-button checked>First Radio</smart-radio-button>
+                    <br />
+                    <smart-radio-button>Second Radio</smart-radio-button>
+                    <br />
+                </div>
+            </div>
+            <br />
+            <div className="label-input-holder">
+                <div className="left-label-side">
+                    <label className="label-top-10">
+                        Inline checkboxes
+                    </label>
+                </div>
+                <div className="right-input-side">
+                    <smart-check-box enable-container-click checked>a</smart-check-box>
+                    <smart-check-box enable-container-click checked>b</smart-check-box>
+                    <smart-check-box enable-container-click checked>c</smart-check-box>
+                </div>
+            </div>
+            <br />
+        </smart-card>
+    </div>
+    
+    <div className="form-elements mtop-20">
+        <smart-card className="form-elements-card">
+            <div className="card-title m-0">Input Variants</div>
+            <div className="smart-grid-layout">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="label-input-holder">
+                            <div className="left-label-side">
+                                <label>Custom Checkboxes & radios</label>
+                            </div>
+                            <div className="right-input-side">
+                                <div className="custom-checkboxes-radios">
+                                    <div className="left-side">
+                                        <smart-check-box enable-container-click>Unchecked</smart-check-box>
+                                        <br />
+                                        <smart-check-box enable-container-click checked>Checked</smart-check-box>
+                                        <br />
+                                        <smart-check-box enable-container-click disabled>Disabled Unchecked</smart-check-box>
+                                        <br />
+                                        <smart-check-box enable-container-click disabled checked>Disabled Checked</smart-check-box>
+                                        <br />
+                                    </div>
+                                    <div className="right-side">
+                                        <smart-radio-button>First Radio</smart-radio-button>
+                                        <br />
+                                        <smart-radio-button checked>Second Radio</smart-radio-button>
+                                        <br />
+                                        <smart-radio-button disabled>First Radio</smart-radio-button>
+                                        <br />
+                                        <smart-radio-button disabled checked>Second Radio</smart-radio-button>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="label-input-holder">
+                            <div className="left-label-side">
+                                <label>Input with success</label>
+                            </div>
+                            <div className="right-input-side">
+                                <smart-text-box className="success-text-box" placeholder="" value="Success"></smart-text-box>
+                            </div>
+                        </div>
+                        <div className="label-input-holder">
+                            <div className="left-label-side">
+                                <label>Input with error</label>
+                            </div>
+                            <div className="right-input-side">
+                                <smart-text-box className="error-text-box" placeholder="" value="Error"></smart-text-box>
+                            </div>
+                        </div>
+                        <div className="label-input-holder">
+                            <div className="left-label-side">
+                                <label>Column sizing</label>
+                            </div>
+                            <div className="right-input-side">
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <smart-text-box placeholder=".col-md-3"></smart-text-box>
+                                    </div>
+                                    <div className="col-md-4">
+                                        <smart-text-box placeholder=".col-md-4"></smart-text-box>
+                                    </div>
+                                    <div className="col-md-5">
+                                        <smart-text-box placeholder=".col-md-5"></smart-text-box>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-card>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.smart-window #article {
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+
+#root>div {
+	min-height: inherit;
+}

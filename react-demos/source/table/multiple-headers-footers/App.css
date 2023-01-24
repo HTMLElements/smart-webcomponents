@@ -1,0 +1,13 @@
+.smart-table {
+    height: 650px;
+}
+
+#totalLabel {
+    text-align: right;
+    font-weight: bold;
+}
+
+#customHeaderRow>th {
+    font-size: 11px;
+    font-style: italic;
+}

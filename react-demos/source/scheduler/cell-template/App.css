@@ -1,0 +1,33 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+    --smart-scheduler-event-color: var(--smart-secondary);
+    --smart-scheduler-event-background: transparent;
+}
+
+.smart-scheduler .custom-cell::after {
+    content: attr(holiday-name);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: var(--cell-icon);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    padding: inherit;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

@@ -1,0 +1,30 @@
+smart-carousel {
+    width: 1000px;
+    height: 450px;
+    border-width: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url('./images/carousel-background-3.jpg');
+}
+
+h2 {
+    text-align: center;
+}
+@media only screen and (max-width: 800px) {
+	smart-carousel {
+		max-width: 600px;
+		margin-bottom: 50px;
+	}
+	smart-carousel .smart-carousel-item {
+		width: 250px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	smart-carousel {
+		width: 300px;
+	}
+	smart-carousel .smart-carousel-item {
+		width:180px !important;
+	}
+}

@@ -1,0 +1,34 @@
+﻿:root {
+    --smart-primary: #e14eca;
+}
+
+.calendar-page smart-calendar {
+    --smart-calendar-default-width: 90%;
+    --smart-calendar-default-height: auto;
+}
+
+smart-calendar[months]:not([months="1"]) {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+.smart-calendar .smart-calendar-container > .smart-calendar-body {
+    padding-top: 20px;
+}
+
+.calendar-page smart-calendar[months] .smart-calendar-month {
+    width: 32%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .calendar-page smart-calendar[months] .smart-calendar-month {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .calendar-page smart-calendar[months] .smart-calendar-month {
+        width: 100%;
+    }
+}

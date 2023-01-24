@@ -1,0 +1,13 @@
+<div class="demo-description">This demo showcases the grouping functionality of smart-table.</div>
+<smart-table #table id="table" [dataSource]="dataSource" [grouping]="grouping" [keyboardNavigation]="keyboardNavigation"
+    [columns]="columns"></smart-table>
+<div class="options">
+    <div class="option">
+        <smart-check-box #checkBox id="hideGroupName" (onChange)="handleHideGroupNameChange($event)">Hide group name
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #checkBox2 id="hideGroupCount" (onChange)="handleHideGroupCountChange($event)">Hide group leaf
+            count</smart-check-box>
+    </div>
+</div>

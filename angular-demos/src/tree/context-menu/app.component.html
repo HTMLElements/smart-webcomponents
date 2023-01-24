@@ -1,0 +1,42 @@
+<div class="demo-description">
+    <p>Right click on a Tree item to open the Context menu for the target item.</p>
+</div>
+<smart-tree #tree id="tree">
+    <smart-tree-items-group [expanded]="true"> <i class="material-icons">fastfood</i> Fast Food
+        <smart-tree-item>Subway</smart-tree-item>
+        <smart-tree-item>Starbucks</smart-tree-item>
+        <smart-tree-item>McDonald's</smart-tree-item>
+        <smart-tree-item>Dunkin</smart-tree-item>
+        <smart-tree-item>Burger King</smart-tree-item>
+        <smart-tree-item>Pizza Hut</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group> <i class="material-icons">local_pizza</i> Pizza
+        <smart-tree-item>Margherita</smart-tree-item>
+        <smart-tree-item>Carbonara</smart-tree-item>
+        <smart-tree-item>Quattro Stagioni</smart-tree-item>
+        <smart-tree-item>Crudo</smart-tree-item>
+        <smart-tree-item>Napoletana</smart-tree-item>
+        <smart-tree-item>Frutti di Mare</smart-tree-item>
+        <smart-tree-item>Diavola</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group> <i class="material-icons">local_bar</i> Drinks
+        <smart-tree-item>Wine</smart-tree-item>
+        <smart-tree-item>Coffee</smart-tree-item>
+        <smart-tree-item>Lemonade</smart-tree-item>
+        <smart-tree-item>Iced tea</smart-tree-item>
+        <smart-tree-item>Milkshake</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group> <i class="material-icons">cake</i> Snacks
+        <smart-tree-item>Hummus</smart-tree-item>
+        <smart-tree-item>Candy</smart-tree-item>
+        <smart-tree-item>Snack Bars</smart-tree-item>
+        <smart-tree-item>Nuts</smart-tree-item>
+        <smart-tree-item>Crackers</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>
+<smart-menu #menu [mode]="'dropDown'" [closeAction]="'down'">
+    <smart-menu-item [value]="'addAfter'"><i class="material-icons">playlist_add</i>Add new sibling item
+    </smart-menu-item>
+    <smart-menu-item [value]="'addTo'"><i class="material-icons">playlist_add</i>Add new child item</smart-menu-item>
+    <smart-menu-item [value]="'removeItem'"><i class="material-icons">delete</i>Delete item</smart-menu-item>
+</smart-menu>

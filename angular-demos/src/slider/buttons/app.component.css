@@ -1,0 +1,14 @@
+smart-toggle-button .smart-button {
+    padding: 3px;
+}
+
+#horizontalSlider {
+    width: 570px;
+    height: 100px;
+    margin-left: 100px;
+}
+
+#verticalSlider {
+    width: 120px;
+    height: 500px;
+}

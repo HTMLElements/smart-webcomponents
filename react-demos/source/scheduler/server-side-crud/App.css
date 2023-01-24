@@ -1,0 +1,42 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-scheduler,
+.smart-table {
+    width: calc(100% - 300px);
+    height: calc(50% - 35px);
+}
+
+@media (max-width: 750px) {
+    .smart-scheduler,
+    .smart-table  {
+        width: 100%;
+    }
+}
+
+#query {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,26 @@
+.smart-window #article {
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .smart-window {
+	    width: 90% !important;
+		left: 5% !important;
+		top: 5px !important;
+	}
+}
+
+#logContainer {
+    border: 1px solid black;
+    height: 450px;
+    width: 250px;
+    overflow-y: auto;
+}
+
+    #logContainer h4 {
+        text-align: center;
+    }
+
+    #root>div {
+        min-height: inherit;
+    }

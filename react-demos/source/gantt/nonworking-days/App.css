@@ -1,0 +1,11 @@
+smart-gantt-chart {
+    width: 90%;
+    height: auto;
+}
+@media (max-width: 700px)
+{
+	smart-gantt-chart {
+		width: 95%;
+		margin-left:2%;
+	}
+}

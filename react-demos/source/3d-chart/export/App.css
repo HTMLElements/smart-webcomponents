@@ -1,0 +1,15 @@
+smart-3d-chart{
+  width: 800px;
+  height:400px;
+}
+
+#box{
+  display: block;
+  font-family: Consolas,"courier new";
+  background-color: #f1f1f1;
+  margin-top:15px;
+  width: 800px;
+  height: 300px;
+  word-wrap: break-word;
+  overflow: scroll;
+}

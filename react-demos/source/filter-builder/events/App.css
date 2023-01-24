@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+smart-filter-builder {
+    width: 99vw;
+    height: 99vh;
+}
+
+#filterEventBox {
+    position: absolute;
+    padding: 16px;
+    box-sizing: border-box;
+    right: 20px;
+    top: 2%;
+    width: 500px;
+    height: 95%;
+    border: dashed lightgray 1px;
+    color: gray;
+    font-size: 20px;
+}

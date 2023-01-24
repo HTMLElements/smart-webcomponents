@@ -1,0 +1,6 @@
+.container {
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    display: inline-block;
+}

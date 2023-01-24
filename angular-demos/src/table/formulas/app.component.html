@@ -1,0 +1,14 @@
+<div class="demo-description">This demo shows how to apply formulas as smart-table cell values. Formulas applied on
+    initialization are:
+    <ul>
+        <li><strong>A2</strong> <em>=A1+1</em></li>
+        <li><strong>A3</strong> <em>=A2+1</em></li>
+        <li><strong>C4</strong> <em>=SUM(C1:C3)</em></li>
+        <li><strong>D3</strong> <em>=D1&" "&D2&"!"</em></li>
+        <li><strong>F8</strong> <em>=8+2</em></li>
+        <li><strong>F9</strong> <em>=PI()</em></li>
+        <li><strong>G10</strong> <em>=MAX(A10:E10)</em></li>
+    </ul>
+</div>
+<smart-table #table id="table" [dataSource]="dataSource" [editing]="editing" [formulas]="formulas"
+    [keyboardNavigation]="keyboardNavigation" [columns]="columns"></smart-table>

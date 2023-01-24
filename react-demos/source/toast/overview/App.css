@@ -1,0 +1,385 @@
+          /* ------------ */
+
+         @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+        }
+.smart-toast-item  smart-button {
+	right:15px !important;
+}
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: inherit;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .smart-demo-container {
+            font-family: var(--smart-material-font-family);
+            line-height: 24px;
+            font-size: 13px;
+            padding: 25px;
+            margin-left: 0;
+		margin: 5% 10%;
+            padding-top: 50px;
+        }
+
+            .smart-demo-container section h2 {
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 40px;
+                margin-bottom: 30px;
+         	color: #764ebe;
+	   }
+
+            .smart-demo-container section:first-of-type h2 {
+                font-size: 34px;
+                border-top: initial;
+            }
+
+            .smart-demo-container section:first-of-type div h2 {
+                font-size: 20px;
+            }
+
+            .smart-demo-container section {
+                margin-top: 80px;
+            }
+
+                .smart-demo-container section:first-of-type {
+                    margin-top: 0;
+                }
+
+                .smart-demo-container section div h2 {
+                    color: #212121;
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 32px;
+                    margin-bottom: 20px;
+                    max-width: 940px;
+                }
+
+            .smart-demo-container nav {
+                display: block;
+                border-left: 5px #3949ab solid;
+                padding-left: 20px;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+                -webkit-font-smoothing: antialiased;
+                font: inherit;
+                margin-top: 60px;
+            }
+
+                .smart-demo-container nav ul {
+                    list-style: none;
+                    margin-top: 0;
+                    padding-left: 0;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    font: inherit;
+                    vertical-align: baseline;
+                    display: block;
+                    list-style-type: disc;
+                }
+
+                .smart-demo-container nav li {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    font-size: 100%;
+                    font: inherit;
+                    vertical-align: baseline;
+                    font-size: 20px;
+                    line-height: 40px;
+                }
+
+                    .smart-demo-container nav li a {
+                        text-decoration: none;
+                    }
+
+                .smart-demo-container nav h2 {
+                    font-size: 15px;
+                    line-height: 16px;
+                    padding-bottom: 12px;
+                    font-weight: 400;
+                    color: #757575;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    font: inherit;
+                    vertical-align: baseline;
+                    -webkit-margin-before: 1em;
+                    -webkit-margin-after: 1em;
+                    -webkit-margin-start: 0px;
+                    -webkit-margin-end: 0px;
+                }
+
+        .module {
+            width: calc(100% / 4);
+            display: inline-block;
+            font: inherit;
+            margin-right: 40px;
+            min-width: 365px;
+            vertical-align: top;
+        }
+
+        #toastContainer1dark,
+        #toastContainer3dark{
+            background-color:#323232;
+        }
+
+        .module h3 {
+            margin-top: 30px;
+        }
+
+        .module p {
+            margin-bottom: 20px;
+        }
+
+        .module img {
+            width: 100%;
+        }
+
+        .module-large{
+            width: calc(100% / 2);
+        }
+
+        .toast-container {
+            width:100%;
+            background-color:#EEEEEE;
+            padding:40px 40px 40px 40px;
+            box-sizing:border-box;
+            display:flex;
+            align-content:center;
+            justify-content:center;
+        }
+
+        .toast-container .smart-toast-container-custom{
+            width:415px;
+        }
+
+
+       /* snackbar */
+        #mobileDemo1, #mobileDemo2{
+             width: 371px;
+             height: 660px;
+             padding: 0px;
+             background-image: url(https://www.htmlelements.com/demos/images/components-toasts-mobile1.png);
+             background-repeat: no-repeat;
+             background-size: 100% auto;
+             position:relative;
+        }
+
+        #mobileDemo1 .toast-container,
+        #mobileDemo2 .toast-container{
+            position:absolute;
+            bottom:48px;
+            left:0px;
+            padding:0px;
+            background-color:transparent;
+        }
+
+        .smart-toast-container-custom{
+            overflow:hidden;
+        }
+
+        #mobileDemo1 button,
+        #mobileDemo2 button{
+            color:yellow;
+            font-weight:300;
+        }
+
+        #toastButton4,
+        #toastButton5 {
+            position: absolute;
+            top: -70px;
+            right: 15px;
+            width:60px;
+            height:60px;
+            font-size:25px;
+        }
+
+      
+        #toastContainer1 .smart-info.material,
+        #toastContainer2 .smart-info.material,
+        #toastContainer3 .smart-info.material {
+            width:100%;
+        }
+
+        #mobileDemo1 .smart-info.material,
+        #mobileDemo2 .smart-info.material,
+        #desktopDemo .smart-info.material {
+            width:100%;
+            overflow: hidden;
+            height:0px;
+            transition: height 0.2s;
+        }
+
+        #mobileDemo1 .smart-info.material[opened],
+        #mobileDemo2 .smart-info.material[opened],
+        #desktopDemo .smart-info.material[opened] {
+            height:50px;
+            transition: height 0.2s;
+        }
+
+
+        #desktopDemo{
+            width:743px;
+            height:215px;
+            background-image: url(https://www.htmlelements.com/demos/images/components-toasts-tabletdesktop2.png);
+            background-size: 100%;
+            background-repeat:no-repeat;
+            position:relative;
+        }
+
+        #desktopDemo .toast-container{
+            position:absolute;
+            bottom:45px;
+            left:0px;
+            padding:0px;
+            background-color:transparent;
+        }
+
+        #desktopDemo .smart-info.material .message{
+            width:350px;
+        }
+
+        #desktopDemo .smart-info.material button{
+            color:yellow;
+            font-weight:300;
+        }
+
+        #desktopDemo .toast-container .smart-toast-container-custom {
+            width: 454px;
+        }
+
+
+        .message-template {
+            position:relative;
+            color: #000;
+            text-shadow: none;
+            border-radius:0px;
+        }
+
+        .message-template .message-header{
+            color:#2A56C6;
+            display:flex;
+            align-content:center;
+            align-items: center;
+            padding: 20px 20px 0px 20px;
+        }
+
+        .message-template .material-icons.dot{
+            font-size:6px;
+            color:gray;
+            margin-left:5px;
+        }
+
+        .message-template .material-icons.arrow{
+            padding-top:8px;
+            font-size:14px;
+            cursor:pointer;
+        }
+
+        .message-template .material-icons{
+            margin-right:5px;
+        }
+
+        .message-template h3{
+            font-weight:bold;
+            margin-top:10px;
+            margin-bottom:0px;
+            font-size:14px;
+        }
+
+        .message-footer {
+            background-color:#eee;
+            height:50px;
+        }
+
+        .message-content {
+            padding: 0px 20px 20px 20px;
+        }
+
+        .message-footer smart-button{
+            height:100%;
+			position: relative;
+			left: 15px !important;
+		}
+
+        .message-footer button{
+            border-width:0px;
+            color: #2A56C6;
+            font-weight:bold;
+        }
+
+        .message-template img.profile-picture{
+            width:50px;            position:absolute;            right:20px;            top:50px;
+        }
+
+        #toast-notification1 .smart-toast-item.smart-info{
+            background-color:white;
+            border-color:white;
+            opacity:1;
+			overflow:hidden;
+            border-radius:0px;
+            box-shadow:1px 1px 10px 1px #aaaaaa;
+        }
+
+        #toast-notification1 .smart-toast-container-custom{
+            overflow:visible;
+        }
+
+        #toast-notification1 .smart-info{
+            margin-bottom:20px;
+            visibility:hidden;
+        }
+
+        #notificationMessagingContainer{
+            height:600px;
+        }
+
+        #toast-notification1 .smart-info[opened]{
+            visibility:visible;
+        }
+
+        #toast-notification1 .smart-info[opened]:last-child{
+            visibility:visible;
+            animation: notification-on 0.2s ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes notification-on {
+            0% {
+                margin-left:10%;
+                opacity:0.2;
+                visibility:hidden;
+            }
+
+            100% {
+                margin-left:0%;
+                opacity:1;
+                visibility:visible;
+            }
+        }
+
+        #toast-notification1  .smart-toast-item .smart-toast-item-content {
+            text-align: left;
+            opacity: 1;
+            width: auto;
+            margin: 0px;
+            padding:0px;
+ }

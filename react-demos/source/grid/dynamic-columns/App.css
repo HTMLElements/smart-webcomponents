@@ -1,0 +1,11 @@
+smart-grid {
+    width: 60%;
+	height: auto;
+	min-height: 349px;
+}
+smart-grid.smart-container {
+	min-height: 349px;
+}
+.options smart-button {
+	width: 100%;
+}

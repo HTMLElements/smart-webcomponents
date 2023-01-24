@@ -1,0 +1,45 @@
+smart-splitter {
+	width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+	 html, body {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	 }
+	 
+	 smart-splitter {
+		width: 100%;
+	}
+}
+
+#map-canvas-0,
+#map-canvas-1,
+#map-canvas-2 {
+    width: 100%;
+    height: 100%;
+}
+
+#waterText,
+#soilText,
+#airText {
+    display: none;
+}
+
+#container {
+    margin: 10px;
+}
+
+smart-splitter smart-splitter-item smart-list-box,
+smart-splitter smart-splitter-item smart-tabs {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none
+}
+
+
+    
+
+

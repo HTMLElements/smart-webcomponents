@@ -1,0 +1,13 @@
+<h2>HEROES</h2>
+<div *ngIf="hero$ | async as hero" >
+  <h3>"{{ hero.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ hero.id }}</div>
+  <div class="component-container">
+    <label>Name: </label>
+    <smart-text-box [(ngModel)]="hero.name" [placeholder]="'Name'" ></smart-text-box>
+  </div>
+  <p>
+    <smart-button (onClick)="gotoHeroes($event, hero)">Back</smart-button>
+  </p>
+</div>

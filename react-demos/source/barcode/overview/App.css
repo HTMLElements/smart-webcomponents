@@ -1,0 +1,44 @@
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+      /* ------------ */
+.smart-demo {
+margin: 0 !important;
+}
+
+.smart-demo section > h2:first-of-type {
+border-top: 1px solid rgba(0,0,0,.12);
+font-weight: 400;
+font-size: 24px;
+line-height: 40px;
+margin-bottom: 30px;
+color: #3949ab;
+padding-top: 80px;
+}
+
+#barcode-demo-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.card-container{
+  text-align: center;
+  max-width: 280px;
+  padding: 10px 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.card-body{
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.purchase-button{
+  margin: 10px;
+}

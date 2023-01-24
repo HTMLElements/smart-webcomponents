@@ -1,0 +1,11 @@
+smart-button {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 100px;
+    height: 50px;
+}
+
+smart-tooltip .smart-tooltip-content::after {
+    margin-left: 30px;
+}

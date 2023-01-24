@@ -1,0 +1,204 @@
+<div class="smart-demo-container">
+    <section>
+         <h2>smartToast</h2>
+        <div>
+             <h2>smartToast is used for system messaging.</h2>
+            <div class="module">
+                <p>smartToast represents an element which displays an unobtrusive notification
+                    to the user. Multiple instances of the same toast can be shown at the same
+                    time. In case with multiple instances, they are stacked vertically into
+                    special containers positioned:</p>
+                <ul>
+                    <li>top-left</li>
+                    <li>top-right</li>
+                    <li>bottom-left</li>
+                    <li>bottom-right</li>
+                    <li>center(in modal mode)</li>
+                    <li>custom container, defined by the user</li>
+                </ul>
+            </div>
+            <div class="module">
+                 <h3>Toast components</h3>
+                <p>Header area
+                    <br>Content area
+                    <br>Icon
+                    <br>
+                </p>
+                <h3>Behavior</h3>
+                <p>Open
+                    <br>Close</p>
+            </div>
+        </div>
+    </section>
+    <nav>
+         <h2>Contents</h2>
+        <ul>
+            <li><a href="#toast-usage">Usage</a>
+            </li>
+            <li><a href="#toast-usage">Snackbar</a>
+            </li>
+            <li><a href="#toast-notification">Notification</a>
+            </li>
+        </ul>
+    </nav>
+    <section id="toast-usage">
+         <h2>Usage</h2>
+        <p><strong>As a snackbar</strong>
+        </p>
+        <p>Snackbars appear above most elements on screen, and they are equal in
+            elevation to the floating action button. However, they are lower in elevation
+            than dialogs, bottom sheets, and navigation drawers.</p>
+        <p>Snackbars should contain a single line of text directly related to the
+            operation performed. They may contain a text action. They cannot contain
+            icons.</p>
+    </section>
+    <section id="toast-usage2">
+        <div class="module ">
+            <p><strong>Very short text strings</strong>
+            </p>
+            <p>Snackbars should contain a single line of text directly related to the
+                operation performed. They may contain a text action. They cannot contain
+                icons.</p>
+        </div>
+        <div class="module">
+            <div id="toastContainer1" class="toast-container"></div>
+            <smart-toast #toast append-to="toastContainer1" auto-open class="snackbar">Message sent</smart-toast>
+        </div>
+    </section>
+    <section id="toast-usage3">
+        <div class="module ">
+            <p><strong>0-1 actions, not dismiss or cancel</strong>
+            </p>
+            <p>If an action is present, comply with dialog spacing and affordance rules.
+                For two or more actions, use a dialog, not a snackbar, even when one of
+                the actions is a dismiss action. If the action described in the snackbar
+                is important enough to block the use of the screen, it should be a dialog.</p>
+        </div>
+        <br/>
+        <div class="module">
+            <div id="toastContainer3" class="toast-container"></div>
+            <smart-toast #toast2 append-to="toastContainer3" auto-open item-template="toastTemplate3"
+            class="snackbar">Message sent</smart-toast>
+            <template id="toastTemplate3"> <span class="message smart-toast-item-content">{{message}}</span> 
+                <smart-button
+                #button class="primary flat">UNDO</smart-button>
+            </template>
+        </div>
+    </section>
+    <section id="toast-usage4">
+        <div>
+            <div class="module">
+                <p><strong>Mobile</strong>
+                </p>
+                <p><strong>Don’t block the floating action button</strong>
+                </p>
+                <p>Move your floating action button vertically to accommodate the snackbar
+                    height.</p>
+            </div>
+            <div class="module">
+                <div class="light-theme" id="mobileDemo1">
+                    <div id="toastContainer4" class="toast-container">
+                        <smart-button #button2 id="toastButton4" class="primary floating"><i class="material-icons">&#xE145;</i>
+                        </smart-button>
+                    </div>
+                    <smart-toast #toast3 id="mobileToast1" append-to="toastContainer4" item-template="toastTemplate4"
+                    class="snackbar">Archived</smart-toast>
+                    <template id="toastTemplate4"> <span class="message smart-toast-item-content">{{message}}</span>
+                        <smart-button
+                        #button3 class="success flat">UNDO</smart-button>
+                    </template>
+                </div>
+                <p>A mobile snackbar</p>
+            </div>
+            <div class="module">
+                <div class="light-theme" id="mobileDemo2">
+                    <div id="toastContainer5" class="toast-container">
+                        <smart-button #button4 id="toastButton5" class="primary floating"><i class="material-icons">&#xE145;</i>
+                        </smart-button>
+                    </div>
+                    <smart-toast #toast4 id="mobileToast2" append-to="toastContainer5" item-template="toastTemplate5"
+                    class="snackbar">Archived</smart-toast>
+                    <template id="toastTemplate5"> <span class="message smart-toast-item-content">{{message}}</span>
+                        <smart-button
+                        #button5 class="success raised">UNDO</smart-button>
+                    </template>
+                </div>
+                <p>A mobile snackbar with updated content</p>
+            </div>
+        </div>
+    </section>
+    <section id="toast-desktop">
+        <div class="module ">
+            <p><strong>Desktop snackbar</strong>
+            </p>
+            <p>On open toasts are stacked vertically in order by their appearance. The
+                open method adds a new element at the end of the existing toast column</p>
+        </div>
+        <div>
+            <div class="light-theme" id="desktopDemo">
+                <div id="toastContainer6" class="toast-container"></div>
+                <smart-toast #toast5 id="desktopToast" append-to="toastContainer6"
+                item-template="toastTemplate5" class="snackbar">Connection timed out. Showing limited messages.</smart-toast>
+                <template
+                id="toastTemplate6"> <span class="message smart-toast-item-content">{{message}}</span>
+                    <smart-button
+                    #button6 class="raised primary">RETRY</smart-button>
+                        </template>
+            </div>
+        </div>
+    </section>
+    <section id="toast-notification">
+        <div class="module ">
+            <p><strong>As a notification</strong>
+            </p>
+            <p>Notifications are intended to inform users about events in your app. These
+                two types of notifications are the most effective:</p>
+            <ul>
+                <li>Communication from other users</li>
+                <li>Well-timed and informative task reminders</li>
+            </ul>
+        </div>
+        <div class="module"></div>
+    </section>
+    <section id="toast-notification1">
+        <div class="module ">
+            <p><strong>Overview</strong>
+            </p>
+            <p>Notifications have been designed to make it easy to scan and use a notification’s
+                most important elements:</p>
+            <p><strong>Primary content</strong>
+            </p>
+            <p>Content is the most prominent element of a notification. Secondary information,
+                such as a timestamp, is smaller and consolidated above the primary content.</p>
+            <p><strong>People</strong>
+            </p>
+            <p>If the notification involves a person, an avatar appears on the right
+                where it stands out from the rest of the content.</p>
+            <p><strong>Actions</strong>
+            </p>
+            <p>Expandable notifications are revealed by tapping an indicator icon. Actions
+                are displayed with text labels on a separate background color and location.</p>
+        </div>
+        <div class="module module-large">
+            <div id="notificationMessagingContainer" class="toast-container"></div>
+            <smart-toast #toast6 id="notificationMessaging" append-to="notificationMessagingContainer"
+            item-template="notificationMessagingTemplate"></smart-toast>
+            <template id="notificationMessagingTemplate">
+                <div class="message-template">
+                    <div class="message-header"> <i class="material-icons icon">&#xE0B7;</i>  <span class="message"> Messages </span> 
+                        <i
+                        class="material-icons dot">&#xE061;</i> <span><i class="material-icons arrow">&#xE313;</i></span>
+                    </div>
+                    <div class="message-content">
+                         <h3>Justin Rhyss</h3> <span class="smart-toast-item-content">{{message}}</span>
+                    </div>
+                    <img src="../../../images/notifications-icon2.png" class="profile-picture">
+                    <div class="message-footer smart-hidden">
+                        <smart-button>REPLY</smart-button>
+                        <smart-button>ARCHIVE</smart-button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+</div>

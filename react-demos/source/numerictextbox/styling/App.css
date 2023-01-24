@@ -1,0 +1,64 @@
+smart-numeric-text-box {
+    width: 300px;
+    height: 40px;
+}
+
+.non-default-look {
+    --smart-border-color: #000000;
+    color: #000000;
+}
+
+    .non-default-look input:focus,
+    .non-default-look .smart-numeric-text-box-focused-component {
+        border-color: #FFBB00;
+    }
+
+    .non-default-look .smart-spin-button {
+        background-color: transparent;
+    }
+
+    .non-default-look .smart-arrow:after {
+        color: #000000;
+    }
+
+
+
+#numericTextBox2 input {
+    border-right-width: var(--smart-border-width);
+}
+
+#numericTextBox2 .smart-spin-buttons-container,
+#numericTextBox5 .smart-spin-buttons-container {
+    --smart-border-width: 0;
+}
+
+#numericTextBox3 .smart-spin-buttons-container {
+    border-left: none;
+}
+
+#numericTextBox6 input {
+    border-left: none;
+}
+
+#numericTextBox7 .smart-drop-down {
+    background-color: white;
+    color: black;
+}
+
+    #numericTextBox7 .smart-drop-down .hovered {
+        color: var(--smart-hover-color);
+        background-color: transparent;
+    }
+
+#numericTextBox7[radix="2"] .smart-list-item[data-value="2"],
+#numericTextBox7 .smart-list-item[data-value="10"],
+#numericTextBox7[radix="8"] .smart-list-item[data-value="8"],
+#numericTextBox7[radix="16"] .smart-list-item[data-value="16"] {
+    background-color: rgba(255,187,0, 0.3);
+}
+
+#numericTextBox7[radix="2"] .smart-list-item[data-value="10"],
+#numericTextBox7[radix="8"] .smart-list-item[data-value="10"],
+#numericTextBox7[radix="16"] .smart-list-item[data-value="10"] {
+    background-color: transparent;
+}

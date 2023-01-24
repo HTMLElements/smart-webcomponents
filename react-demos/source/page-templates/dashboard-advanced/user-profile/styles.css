@@ -1,0 +1,122 @@
+﻿.profile-info {
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+smart-card .card-title {
+    padding: 0;
+}
+
+smart-card.info {
+    width: 95%;
+    margin: 0 auto;
+}
+
+smart-card.info smart-multiline-text-box {
+    height: 100px;
+    max-width: 600px;
+}
+
+smart-card.info[theme="dark"] label {
+    color: #a0a0a0;
+}
+
+smart-card.profile[theme="dark"] .user-bio {
+    color: #cdcdcd;
+}
+
+smart-card.profile .user-bio {
+    color: #646464;
+    padding: 0 20px;
+}
+
+smart-card.info .row > div {
+    padding: 10px 0;
+}
+
+smart-card.info smart-text-box,
+smart-card.info smart-multiline-text-box {
+    width: 100%;
+}
+
+smart-card.info .form-save {
+    background: top right/210% 210% #fd5d93;
+    background-image: linear-gradient(to bottom left,#fd5d93,#ec250d,#fd5d93);
+    border-radius: 10px;
+    height: 40px;
+    color: white;
+}
+
+smart-card.profile {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+smart-card.profile .user-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 40px auto 20px auto;
+    box-shadow: 0 10px 25px 0 rgba(0,0,0,.3);
+}
+
+smart-card.profile .username {
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+}
+
+smart-card.profile .user-description {
+    margin-top: 8px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#user-social {
+    display: table;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+#user-social img {
+    cursor: pointer;
+    width: 25px;
+    margin: 10px;
+}
+
+.block {
+    position: absolute;
+    height: 100px;
+    width: 250px;
+    background: rgba(225,78,202,.6);
+    background: linear-gradient(to right,rgba(225,78,202,.6) 0,rgba(225,78,202,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+}
+
+.block-one {
+    transform: rotate(150deg);
+    margin-top: -90px;
+    margin-left: -50px;
+}
+
+.block-two {
+    transform: rotate(30deg);
+    margin-top: -40px;
+    margin-left: -100px;
+}
+
+.block-three {
+    transform: rotate(170deg);
+    margin-top: -70px;
+    right: -45px;
+}
+
+.block-four {
+    transform: rotate(150deg);
+    margin-top: -25px;
+    right: -45px;
+}

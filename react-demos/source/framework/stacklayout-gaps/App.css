@@ -1,0 +1,7 @@
+.smart-stack-layout {
+	height: 300px;
+	width:60%;
+}
+.smart-stack-layout .item {
+	min-width: initial;
+}

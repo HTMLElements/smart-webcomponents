@@ -1,0 +1,59 @@
+.firstName:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/user-filled.png");
+}
+
+.lastName:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/signature-filled.png");
+}
+
+.birthday:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/birthday-filled.png");
+}
+
+.petName:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/pet-commands-follow-filled.png");
+}
+
+.productName:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/box-filled.png");
+}
+
+.price:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/price-tag-euro-filled.png");
+}
+
+.quantity:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/negative-dynamic-filled.png");
+}
+
+.country:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/country-filled.png");
+}
+
+.timeOfPurchase:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/alarm-clock-filled.png");
+}
+
+.expired:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/expired-filled.png");
+}
+
+.red, .yellow, .green {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.red {
+    background-color: #E94F37;
+    color: white;
+}
+
+.yellow {
+    background-color: #FFEE93;
+}
+
+.green {
+    background-color: #63C7B2;
+    color: white;
+}

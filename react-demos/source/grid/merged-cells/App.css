@@ -1,0 +1,8 @@
+smart-grid {
+    width: 60%;
+	height: auto;
+	max-width:700px;
+}
+.smart-grid-cell {
+	font-style: italic;
+}

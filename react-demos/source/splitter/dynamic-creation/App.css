@@ -1,0 +1,16 @@
+#horizontalSplitter smart-splitter-item {
+    width: 50%;
+    height: 50%;
+}
+
+#controlPanel {
+    margin-top: 1%;
+}
+
+#horizontalSplitter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+}

@@ -1,0 +1,18 @@
+<div class="demo-description">
+    <h1>Server-side Table Tree mode</h1>
+    Table in this example is used in Tree mode. That is achieved by setting
+    the dataSource's 'keyDataField' and 'parentDataField' properties. When
+    a row is expanded the Table sends a request with the expanded row data
+    object on the Server-Side Datasource. The server uses the SQL query sent
+    by the Server-Side Datasource and returns the requested sub-rows collection.
+    This example uses a demo server with AlaSQL that generates SQL to show
+    how a real server might use the requests sent by the Table. The Server-Side
+    Table usage does not have any restrictions on the server-side technologies
+    used.
+</div>
+<smart-table #table id="table" [dataSource]="dataSource" [filtering]="filtering" [filterRow]="filterRow"
+    [sortMode]="sortMode" [columns]="columns"></smart-table>
+<br />
+<br />
+<h3>SQL Query</h3>
+<div id="query"></div>

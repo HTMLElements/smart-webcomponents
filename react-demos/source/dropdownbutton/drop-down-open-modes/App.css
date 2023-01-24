@@ -1,0 +1,7 @@
+smart-drop-down-button {
+    --smart-editor-drop-down-max-height: 500px;
+    width: 200px;
+}
+body, html {
+	height: 800px;
+}

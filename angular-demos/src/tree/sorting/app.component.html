@@ -1,0 +1,73 @@
+<smart-tree #tree id="tree1" [filterable]="true" [showLines]="true" [showRootLines]="true" [sortDirection]="'asc'"
+    [sorted]="true" [toggleElementPosition]="'near'">
+    <smart-tree-items-group [expanded]="true">Numbers
+        <smart-tree-item>2</smart-tree-item>
+        <smart-tree-item>3</smart-tree-item>
+        <smart-tree-item>1</smart-tree-item>
+        <smart-tree-item>10</smart-tree-item>
+        <smart-tree-item>210</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [expanded]="true">Letters
+        <smart-tree-item [value]="'1000'">A</smart-tree-item>
+        <smart-tree-item [value]="'50'">C</smart-tree-item>
+        <smart-tree-item [value]="'30000'">D</smart-tree-item>
+        <smart-tree-item [value]="'2'">B</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [expanded]="true">Greek letters
+        <smart-tree-item>β</smart-tree-item>
+        <smart-tree-item>δ</smart-tree-item>
+        <smart-tree-item>α</smart-tree-item>
+        <smart-tree-item>γ</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>
+<p>Sort direction: ascending</p>
+<br />
+<br />
+<smart-tree #tree2 id="tree2" [filterable]="true" [showLines]="true" [showRootLines]="true" [sortDirection]="'desc'"
+    [sorted]="true" [toggleElementPosition]="'near'">
+    <smart-tree-items-group [expanded]="true">Numbers
+        <smart-tree-item>2</smart-tree-item>
+        <smart-tree-item>3</smart-tree-item>
+        <smart-tree-item>1</smart-tree-item>
+        <smart-tree-item>10</smart-tree-item>
+        <smart-tree-item>210</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [expanded]="true">Letters
+        <smart-tree-item [value]="'1000'">A</smart-tree-item>
+        <smart-tree-item [value]="'50'">C</smart-tree-item>
+        <smart-tree-item [value]="'30000'">D</smart-tree-item>
+        <smart-tree-item [value]="'2'">B</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [expanded]="true">Greek letters
+        <smart-tree-item>β</smart-tree-item>
+        <smart-tree-item>δ</smart-tree-item>
+        <smart-tree-item>α</smart-tree-item>
+        <smart-tree-item>γ</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>
+<p>Sort direction: descending</p>
+<br />
+<br />
+<smart-tree #tree3 id="tree3" [filterable]="true" [showLines]="true" [showRootLines]="true"
+    [sort]="customSortingFunction" [sorted]="true" [toggleElementPosition]="'near'">
+    <smart-tree-items-group [expanded]="true">Numbers
+        <smart-tree-item>2</smart-tree-item>
+        <smart-tree-item>3</smart-tree-item>
+        <smart-tree-item>1</smart-tree-item>
+        <smart-tree-item>10</smart-tree-item>
+        <smart-tree-item>210</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [expanded]="true">Letters
+        <smart-tree-item [value]="'1000'">A</smart-tree-item>
+        <smart-tree-item [value]="'50'">C</smart-tree-item>
+        <smart-tree-item [value]="'30000'">D</smart-tree-item>
+        <smart-tree-item [value]="'2'">B</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group [expanded]="true">Greek letters
+        <smart-tree-item>β</smart-tree-item>
+        <smart-tree-item>δ</smart-tree-item>
+        <smart-tree-item>α</smart-tree-item>
+        <smart-tree-item>γ</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>
+<p>Sorting via a custom function</p>

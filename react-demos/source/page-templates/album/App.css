@@ -1,0 +1,194 @@
+:root {
+    --smart-primary: #6200EE;
+}
+body{
+    margin:0px;
+    padding:0px;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    background-color:#fafafa;
+}
+
+header{
+    background-color:var(--smart-primary);
+    font-size:18px;
+    color:white;
+    padding:24px;
+    font-weight:bold;
+    box-shadow:-8px -1px 20px #000000;
+    opacity: 0.8;
+}
+
+.logo {
+    display:flex;
+    align-content:center;
+    align-items:center;
+}
+
+.material-icons{
+    margin-right:15px;
+}
+
+.user {
+    background-color:white;
+    margin-top:50px;
+    color:rgba(0, 0, 0, 0.87);
+    padding-bottom:50px;
+}
+
+.user .headline{
+    font-size:60px;
+    font-weight:100;
+    margin-bottom: 20px;
+}
+
+.user .container{
+    text-align:center;
+    font-size:18px;
+    width:600px;
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.user .container p{
+    color:gray;
+    line-height:150%;
+    font-size:20px;
+}
+
+.user smart-button{
+    width:230px;
+    margin-bottom:15px;
+}
+
+.articles{
+    padding:50px;
+}
+
+.articles .container{
+    width:1100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+smart-card .thumb-section{
+    width:100%;
+    height:145px;
+    background-color:#55595C;
+    display:flex;
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+    color:lightgray;
+    font-size:20px;
+    font-weight: bold;
+}
+
+smart-card h2{
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight:100;
+    font-size:24px;
+    color:rgba(0, 0, 0, 0.87);
+}
+
+smart-card .content{
+    margin:20px;
+    color:rgba(0, 0, 0, 0.87);
+}
+
+smart-card smart-button{
+    margin:5px;
+    width:70px;
+}
+
+smart-card {
+        width: 22%;
+        overflow:hidden;
+    }
+
+@media only screen and (max-width : 1280px) {
+    .jumbotron .container{
+        max-width:100%;
+    }
+
+    .articles{
+        padding:0px;
+    }
+
+    .articles .container{
+        width:auto;
+        max-width:100%;
+        padding:5px;
+    }
+
+    smart-card {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width : 960px) {
+    .articles .container{
+        width:auto;
+        padding:30px;
+    }
+
+    smart-card {
+        width: 47%;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    smart-card {
+        display: inline-block;
+        width: 47%;
+        margin:1%;
+    }
+}
+
+
+@media only screen and (max-width : 600px) {
+    smart-card {
+        display: block;
+        width: 100%;
+    }
+}
+
+footer{
+    background-color:white;
+    padding:50px;
+    text-align:center;
+}
+
+footer h4{
+    font-size:20px;
+    font-weight:100;
+    margin-bottom:15px;
+}
+
+footer p{
+    color:rgba(0, 0, 0, 0.54);
+}
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}

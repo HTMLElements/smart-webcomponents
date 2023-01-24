@@ -1,0 +1,152 @@
+
+smart-calendar[months="12"] {
+    width: 99vw;
+    min-width: 99vw;
+    height: 800px;
+    min-height: 800px;
+    --smart-calendar-header-height: 60px;
+    --smart-calendar-important-date-background: #0288d1;
+    --smart-calendar-important-date-color: var(--smart-primary-color);
+}
+
+smart-calendar[months="12"] .smart-calendar-month {
+    width: 25%;
+}
+
+@media only screen and (max-width: 768px) {
+    smart-calendar[months="12"] .smart-calendar-month {
+        width: 50%;
+    }
+    
+    smart-calendar[months="12"]:not([months="1"]) {
+        height: 1800px;
+    }
+}
+
+.calendar-header {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 10px 0 10px;
+}
+
+.view-selection, .year-selector, .navigation-buttons {
+    width: 33.3%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation-buttons .rounded {
+    border-radius: 50%;
+    --smart-button-padding: 0;
+    --smart-font-family: var(--smart-font-family-icon);
+    width: 35px;
+    height: 35px;
+}
+
+.view-selection {
+    justify-content: flex-start;
+}
+
+.view-selection smart-button:nth-last-of-type(2) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.view-selection smart-button:first-of-type {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.view-selection smart-button:last-of-type {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.navigation-buttons {
+    justify-content: flex-end;
+}
+
+.navigation-buttons smart-button {
+    margin-right: 5px;
+}
+
+.button-icon.floating {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    --smart-button-padding: 0;
+}
+
+.button-icon .smart-button::after {
+    content: "\e829";
+    font-family: var(--smart-font-family-icon);
+}
+
+.window-footer-buttons {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-column-gap: 2%;
+    grid-template-areas: "buttonDelete . buttonCancel buttonSave";
+    height: 100%;
+}
+
+.window-footer-buttons smart-button {
+    width: 100%;
+    height: 100%;
+    --smart-button-padding: 0.2rem;
+}
+
+#buttonDelete {
+    grid-area: buttonDelete;
+}
+
+#buttonCancel {
+    grid-area: buttonCancel;
+}
+
+#buttonSave {
+    grid-area: buttonSave;
+}
+
+#eventWindow {
+    height: auto;
+}
+
+.window-content {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+.window-content>div {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    justify-items: center;
+    align-items: center;
+}
+
+.window-content label {
+    white-space: nowrap;
+}
+
+.smart-multiline-text-box {
+    max-height: 60px;
+}
+
+.smart-multiline-text-box.smart-element, .smart-date-range-input {
+    width: 100%;
+}
+
+.window-content>div:first-of-type {
+    margin-bottom: 20px;
+}

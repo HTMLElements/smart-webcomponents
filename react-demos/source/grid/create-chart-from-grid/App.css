@@ -1,0 +1,99 @@
+#grid {
+    width: 60%;
+}
+
+@media only screen and (max-width: 400px) {
+    smart-grid {
+        width: 100%;
+    }
+}
+
+#toolbar {
+    display: flex;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+#toolbar.warning:after {
+    content: 'Selected data cannot be used to create a chart.';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: var(--smart-error);
+}
+
+#toolbar>div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 15px;
+    width: 35px;
+    height: 30px;
+    height: 100%;
+    font-size: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    user-select: none;
+    cursor: pointer;
+}
+
+#toolbar>div:hover {
+    background-color: var(--smart-grid-column-header-background-hover);
+}
+
+#toolbar>div:active {
+    background-color: var(--smart-grid-column-header-background-active);
+}
+
+#toolbar>div.warning {
+    outline: 2px solid var(--smart-error);
+}
+
+#column {
+    background-image: url("https://www.htmlelements.com/demos/images/create-column.png");
+}
+
+#line {
+    background-image: url("https://www.htmlelements.com/demos/images/create-line.png");
+}
+
+#pie {
+    background-image: url("https://www.htmlelements.com/demos/images/create-pie.png");
+}
+
+#bar {
+    background-image: url("https://www.htmlelements.com/demos/images/create-bar.png");
+}
+
+#area {
+    background-image: url("https://www.htmlelements.com/demos/images/create-area.png");
+}
+
+#scatter {
+    background-image: url("https://www.htmlelements.com/demos/images/create-scatter.png");
+}
+
+[theme="dark"] #column {
+    background-image: url("https://www.htmlelements.com/demos/images/create-column-dark.png");
+}
+
+[theme="dark"] #line {
+    background-image: url("https://www.htmlelements.com/demos/images/create-line-dark.png");
+}
+
+[theme="dark"] #pie {
+    background-image: url("https://www.htmlelements.com/demos/images/create-pie-dark.png");
+}
+
+[theme="dark"] #bar {
+    background-image: url("https://www.htmlelements.com/demos/images/create-bar-dark.png");
+}
+
+[theme="dark"] #area {
+    background-image: url("https://www.htmlelements.com/demos/images/create-area-dark.png");
+}
+
+[theme="dark"] #scatter {
+    background-image: url("https://www.htmlelements.com/demos/images/create-scatter-dark.png");
+}

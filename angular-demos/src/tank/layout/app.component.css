@@ -1,0 +1,10 @@
+#horizontalTank, #invertedHorizontalTank {
+    width: 180px;
+    height: 120px;
+}
+
+#verticalTank, #invertedVerticalTank {
+    width: 120px;
+    height: 180px;
+}
+

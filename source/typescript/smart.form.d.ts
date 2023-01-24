@@ -12,7 +12,7 @@ export interface FormProperties {
    */
   controls?: Control[];
   /**
-   * Callback function for handling status changes
+   * Callback function for handling status changes. The status could be  'disabled', 'invalid', 'pending', 'valid'.
    * Default value: null
    */
   onStatusChanges?: any;

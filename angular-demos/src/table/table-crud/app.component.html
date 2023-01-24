@@ -1,0 +1,14 @@
+<div class="demo-description">This demo shows how to Add, Remove and Update rows to a Table.</div>
+<smart-table #table class="table-dark table-striped" id="table" [dataSource]="dataSource" [columns]="columns"></smart-table>
+    <div class="options">
+        <div class="caption">Settings</div>
+        <div class="option">
+            <smart-button #button id="add" (onClick)="handleAdd($event)">Add</smart-button>
+        </div>
+        <div class="option">
+            <smart-button #button2 id="remove" (onClick)="handleRemove($event)">Remove</smart-button>
+        </div>
+        <div class="option">
+            <smart-button #button3 id="update" (onClick)="handleUpdate($event)">Update</smart-button>
+        </div>
+    </div>

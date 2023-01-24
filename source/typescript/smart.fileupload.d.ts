@@ -134,6 +134,11 @@ export interface FileUploadProperties {
    */
   unfocusable?: boolean;
   /**
+   * Sets or gets the remove URL. This property corresponds to the form's action attribute. For example, the removeUrl property can point to a PHP file, which handles the remove operation on the server-side.
+   * Default value: ""
+   */
+  removeUrl?: string;
+  /**
    * Gets the file upload value.
    * Default value: null
    */

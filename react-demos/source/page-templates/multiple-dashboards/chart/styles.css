@@ -1,0 +1,61 @@
+﻿smart-chart {
+    --smart-chart-default-width: auto;
+    --smart-chart-default-height: 220px;
+    --smart-background: transparent;
+}
+
+smart-chart[theme="dark"] {
+    --smart-background: transparent;
+}
+
+smart-card.basic-card {
+    width: 80%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 30px;
+    align-content: center;
+    justify-items: center;
+}
+
+.headline {
+    font-size: 40px;
+    font-weight: 100;
+    text-align: center;
+}
+
+smart-card[theme="dark"] .card-content,
+smart-card[theme="dark"] .card-description {
+    color: #ccc;
+}
+
+.chart-and-title-holder {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.chart-and-title-holder .card-description {
+    margin-top: 10px;
+}
+
+.chart-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.chart-value i {
+    color: #ff8d72;
+}
+
+.card-description {
+    font-size: 0.85rem;
+}
+
+.card-content-description {
+    justify-content: initial;
+    margin-bottom: 10px;
+}

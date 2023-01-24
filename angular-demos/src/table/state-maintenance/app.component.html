@@ -1,0 +1,14 @@
+<div class="demo-description">This demo showcases state maintenance in smart-table.</div>
+<smart-table #table id="table" [dataSource]="dataSource" [columnReorder]="columnReorder" [selection]="selection"
+    [sortMode]="sortMode" [columns]="columns"></smart-table>
+<div class="options">
+    <div class="option">
+        <smart-button #button id="getState" (onClick)="getState()">Get state</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="saveState" (onClick)="saveState()">Save state</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="loadState" [disabled]="true" (onClick)="loadState()">Load state</smart-button>
+    </div>
+</div>

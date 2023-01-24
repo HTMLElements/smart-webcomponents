@@ -1,0 +1,15 @@
+﻿smart-card.basic-card {
+    width: 100%;
+}
+
+smart-card.basic-card {
+    margin-bottom: 20px;
+}
+
+smart-card smart-grid {
+    width: 100%;
+}
+
+smart-card {
+    padding: 0;
+}

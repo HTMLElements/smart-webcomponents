@@ -1,0 +1,20 @@
+smart-switch-button.labels-on-right:after {
+    content: "";
+    color: gray;
+    font-size: 22px;
+    font-weight: 800;
+    position: absolute;
+    display: inline-block !important;
+    height: var(--main-switch-mark-size);
+    font-family: Impact;
+    left: 65px;
+    top: 5px;
+}
+
+smart-switch-button.labels-on-right:after {
+    content: "OFF";
+}
+
+smart-switch-button.labels-on-right[checked]:after {
+    content: "ON";
+}

@@ -1,0 +1,57 @@
+body, html {
+	height: 1200px;
+	overflow: hidden;
+}
+
+smart-grid {
+    width: 350px;
+	height: 500px;
+}
+
+smart-grid smart-grid-cell .template {
+   display: flex;
+   align-items: center;
+}
+
+@keyframes fadeAnimation {
+  0% { background-color: inherit; }
+  20% { background-color: #FFFF99; }
+  50% { background-color: #FFFF99; }
+  100% { background-color: inherit; }
+}
+
+.updated-cell-down {
+    color: #ff3333 !important;
+    background-image: none !important;
+    animation: fadeAnimation 5s ease-in-out;
+	padding-right: 6px;
+}
+
+.updated-cell-down::after {
+  content: "\2193	\00a0";
+  position: relative;
+  bottom: 2px;
+  left: 2px;
+}
+
+@keyframes fadeAnimation1 {
+  0% { background-color: inherit; }
+  20% { background-color: #99FF99; }
+  50% { background-color: #99FF99; }
+  100% { background-color: inherit; }
+}
+
+
+.updated-cell-up {
+    color: #0ea600 !important;
+    background-image: none !important;
+	animation: fadeAnimation1 5s ease-in-out;
+	padding-right: 6px;
+}
+
+.updated-cell-up::after {
+  content: '\2191 \00a0';
+  position: relative;
+  bottom: 2px;
+  left: 2px;
+}

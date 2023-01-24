@@ -1,0 +1,5 @@
+<div class="demo-description">This demo showcases the "auto" column size mode of jqx-table. In this mode, columns are
+    sized based on their content and the value of the <strong>columnMinWidth</strong> property, unless there is not
+    enough space in the Table, in which case ellipses are shown. User-set static column width is still respected.</div>
+<smart-table #table id="table" [columnMinWidth]="columnMinWidth" [columnSizeMode]="columnSizeMode"
+    [dataSource]="dataSource" [selection]="selection" [tooltip]="tooltip" [columns]="columns"></smart-table>

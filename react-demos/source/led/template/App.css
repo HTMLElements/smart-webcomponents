@@ -1,0 +1,20 @@
+.smart-indeterminate-content,
+.smart-true-content,
+.smart-false-content {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 10px;
+}
+
+.smart-indeterminate-content {
+    background-color: blue;
+}
+
+.smart-true-content {
+    background-color: green;
+}
+
+.smart-false-content {
+    background-color: red;
+}

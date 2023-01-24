@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xml:base="http://services.odata.org/Northwind/Northwind.svc/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+<title type="text">Customers</title>
+<updated>2011-11-30T11:39:28Z</updated>
+<link rel="self" title="Customers" href="Customers" />
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>ALFKI</d:CustomerID>
+      <d:CompanyName>Alfreds Futterkiste</d:CompanyName>
+      <d:ContactName>Maria Anders</d:ContactName>
+      <d:ContactTitle>Sales Representative</d:ContactTitle>
+      <d:Address>Obere Str. 57</d:Address>
+      <d:City>Berlin</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>12209</d:PostalCode>
+      <d:Country>Germany</d:Country>
+      <d:Phone>030-0074321</d:Phone>
+      <d:Fax>030-0076545</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>ANATR</d:CustomerID>
+      <d:CompanyName>Ana Trujillo Emparedados y helados</d:CompanyName>
+      <d:ContactName>Ana Trujillo</d:ContactName>
+      <d:ContactTitle>Owner</d:ContactTitle>
+      <d:Address>Avda. de la Constitución 2222</d:Address>
+      <d:City>México D.F.</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>05021</d:PostalCode>
+      <d:Country>Mexico</d:Country>
+      <d:Phone>(5) 555-4729</d:Phone>
+      <d:Fax>(5) 555-3745</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>ANTON</d:CustomerID>
+      <d:CompanyName>Antonio Moreno Taquería</d:CompanyName>
+      <d:ContactName>Antonio Moreno</d:ContactName>
+      <d:ContactTitle>Owner</d:ContactTitle>
+      <d:Address>Mataderos  2312</d:Address>
+      <d:City>México D.F.</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>05023</d:PostalCode>
+      <d:Country>Mexico</d:Country>
+      <d:Phone>(5) 555-3932</d:Phone>
+      <d:Fax m:null="true" />
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>AROUT</d:CustomerID>
+      <d:CompanyName>Around the Horn</d:CompanyName>
+      <d:ContactName>Thomas Hardy</d:ContactName>
+      <d:ContactTitle>Sales Representative</d:ContactTitle>
+      <d:Address>120 Hanover Sq.</d:Address>
+      <d:City>London</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>WA1 1DP</d:PostalCode>
+      <d:Country>UK</d:Country>
+      <d:Phone>(171) 555-7788</d:Phone>
+      <d:Fax>(171) 555-6750</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>BERGS</d:CustomerID>
+      <d:CompanyName>Berglunds snabbköp</d:CompanyName>
+      <d:ContactName>Christina Berglund</d:ContactName>
+      <d:ContactTitle>Order Administrator</d:ContactTitle>
+      <d:Address>Berguvsvägen  8</d:Address>
+      <d:City>Luleå</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>S-958 22</d:PostalCode>
+      <d:Country>Sweden</d:Country>
+      <d:Phone>0921-12 34 65</d:Phone>
+      <d:Fax>0921-12 34 67</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>BLAUS</d:CustomerID>
+      <d:CompanyName>Blauer See Delikatessen</d:CompanyName>
+      <d:ContactName>Hanna Moos</d:ContactName>
+      <d:ContactTitle>Sales Representative</d:ContactTitle>
+      <d:Address>Forsterstr. 57</d:Address>
+      <d:City>Mannheim</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>68306</d:PostalCode>
+      <d:Country>Germany</d:Country>
+      <d:Phone>0621-08460</d:Phone>
+      <d:Fax>0621-08924</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>BLONP</d:CustomerID>
+      <d:CompanyName>Blondesddsl père et fils</d:CompanyName>
+      <d:ContactName>Frédérique Citeaux</d:ContactName>
+      <d:ContactTitle>Marketing Manager</d:ContactTitle>
+      <d:Address>24, place Kléber</d:Address>
+      <d:City>Strasbourg</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>67000</d:PostalCode>
+      <d:Country>France</d:Country>
+      <d:Phone>88.60.15.31</d:Phone>
+      <d:Fax>88.60.15.32</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>BOLID</d:CustomerID>
+      <d:CompanyName>Bólido Comidas preparadas</d:CompanyName>
+      <d:ContactName>Martín Sommer</d:ContactName>
+      <d:ContactTitle>Owner</d:ContactTitle>
+      <d:Address>C/ Araquil, 67</d:Address>
+      <d:City>Madrid</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>28023</d:PostalCode>
+      <d:Country>Spain</d:Country>
+      <d:Phone>(91) 555 22 82</d:Phone>
+      <d:Fax>(91) 555 91 99</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>BONAP</d:CustomerID>
+      <d:CompanyName>Bon app'</d:CompanyName>
+      <d:ContactName>Laurence Lebihan</d:ContactName>
+      <d:ContactTitle>Owner</d:ContactTitle>
+      <d:Address>12, rue des Bouchers</d:Address>
+      <d:City>Marseille</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>13008</d:PostalCode>
+      <d:Country>France</d:Country>
+      <d:Phone>91.24.45.40</d:Phone>
+      <d:Fax>91.24.45.41</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>BOTTM</d:CustomerID>
+      <d:CompanyName>Bottom-Dollar Markets</d:CompanyName>
+      <d:ContactName>Elizabeth Lincoln</d:ContactName>
+      <d:ContactTitle>Accounting Manager</d:ContactTitle>
+      <d:Address>23 Tsawassen Blvd.</d:Address>
+      <d:City>Tsawassen</d:City>
+      <d:Region>BC</d:Region>
+      <d:PostalCode>T2F 8M4</d:PostalCode>
+      <d:Country>Canada</d:Country>
+      <d:Phone>(604) 555-4729</d:Phone>
+      <d:Fax>(604) 555-3745</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>BSBEV</d:CustomerID>
+      <d:CompanyName>B's Beverages</d:CompanyName>
+      <d:ContactName>Victoria Ashworth</d:ContactName>
+      <d:ContactTitle>Sales Representative</d:ContactTitle>
+      <d:Address>Fauntleroy Circus</d:Address>
+      <d:City>London</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>EC2 5NT</d:PostalCode>
+      <d:Country>UK</d:Country>
+      <d:Phone>(171) 555-1212</d:Phone>
+      <d:Fax m:null="true" />
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>CACTU</d:CustomerID>
+      <d:CompanyName>Cactus Comidas para llevar</d:CompanyName>
+      <d:ContactName>Patricio Simpson</d:ContactName>
+      <d:ContactTitle>Sales Agent</d:ContactTitle>
+      <d:Address>Cerrito 333</d:Address>
+      <d:City>Buenos Aires</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>1010</d:PostalCode>
+      <d:Country>Argentina</d:Country>
+      <d:Phone>(1) 135-5555</d:Phone>
+      <d:Fax>(1) 135-4892</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>CENTC</d:CustomerID>
+      <d:CompanyName>Centro comercial Moctezuma</d:CompanyName>
+      <d:ContactName>Francisco Chang</d:ContactName>
+      <d:ContactTitle>Marketing Manager</d:ContactTitle>
+      <d:Address>Sierras de Granada 9993</d:Address>
+      <d:City>México D.F.</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>05022</d:PostalCode>
+      <d:Country>Mexico</d:Country>
+      <d:Phone>(5) 555-3392</d:Phone>
+      <d:Fax>(5) 555-7293</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>CHOPS</d:CustomerID>
+      <d:CompanyName>Chop-suey Chinese</d:CompanyName>
+      <d:ContactName>Yang Wang</d:ContactName>
+      <d:ContactTitle>Owner</d:ContactTitle>
+      <d:Address>Hauptstr. 29</d:Address>
+      <d:City>Bern</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>3012</d:PostalCode>
+      <d:Country>Switzerland</d:Country>
+      <d:Phone>0452-076545</d:Phone>
+      <d:Fax m:null="true" />
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>COMMI</d:CustomerID>
+      <d:CompanyName>Comércio Mineiro</d:CompanyName>
+      <d:ContactName>Pedro Afonso</d:ContactName>
+      <d:ContactTitle>Sales Associate</d:ContactTitle>
+      <d:Address>Av. dos Lusíadas, 23</d:Address>
+      <d:City>Sao Paulo</d:City>
+      <d:Region>SP</d:Region>
+      <d:PostalCode>05432-043</d:PostalCode>
+      <d:Country>Brazil</d:Country>
+      <d:Phone>(11) 555-7647</d:Phone>
+      <d:Fax m:null="true" />
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>CONSH</d:CustomerID>
+      <d:CompanyName>Consolidated Holdings</d:CompanyName>
+      <d:ContactName>Elizabeth Brown</d:ContactName>
+      <d:ContactTitle>Sales Representative</d:ContactTitle>
+      <d:Address>Berkeley Gardens 12  Brewery</d:Address>
+      <d:City>London</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>WX1 6LT</d:PostalCode>
+      <d:Country>UK</d:Country>
+      <d:Phone>(171) 555-2282</d:Phone>
+      <d:Fax>(171) 555-9199</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>DRACD</d:CustomerID>
+      <d:CompanyName>Drachenblut Delikatessen</d:CompanyName>
+      <d:ContactName>Sven Ottlieb</d:ContactName>
+      <d:ContactTitle>Order Administrator</d:ContactTitle>
+      <d:Address>Walserweg 21</d:Address>
+      <d:City>Aachen</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>52066</d:PostalCode>
+      <d:Country>Germany</d:Country>
+      <d:Phone>0241-039123</d:Phone>
+      <d:Fax>0241-059428</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>DUMON</d:CustomerID>
+      <d:CompanyName>Du monde entier</d:CompanyName>
+      <d:ContactName>Janine Labrune</d:ContactName>
+      <d:ContactTitle>Owner</d:ContactTitle>
+      <d:Address>67, rue des Cinquante Otages</d:Address>
+      <d:City>Nantes</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>44000</d:PostalCode>
+      <d:Country>France</d:Country>
+      <d:Phone>40.67.88.88</d:Phone>
+      <d:Fax>40.67.89.89</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>EASTC</d:CustomerID>
+      <d:CompanyName>Eastern Connection</d:CompanyName>
+      <d:ContactName>Ann Devon</d:ContactName>
+      <d:ContactTitle>Sales Agent</d:ContactTitle>
+      <d:Address>35 King George</d:Address>
+      <d:City>London</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>WX3 6FW</d:PostalCode>
+      <d:Country>UK</d:Country>
+      <d:Phone>(171) 555-0297</d:Phone>
+      <d:Fax>(171) 555-3373</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+<entry>
+  <title type="text"></title>
+  <updated>2011-11-30T11:39:28Z</updated>
+  <author>
+    <name />
+  </author>
+  <content type="application/xml">
+    <m:properties>
+      <d:CustomerID>ERNSH</d:CustomerID>
+      <d:CompanyName>Ernst Handel</d:CompanyName>
+      <d:ContactName>Roland Mendel</d:ContactName>
+      <d:ContactTitle>Sales Manager</d:ContactTitle>
+      <d:Address>Kirchgasse 6</d:Address>
+      <d:City>Graz</d:City>
+      <d:Region m:null="true" />
+      <d:PostalCode>8010</d:PostalCode>
+      <d:Country>Austria</d:Country>
+      <d:Phone>7675-3425</d:Phone>
+      <d:Fax>7675-3426</d:Fax>
+    </m:properties>
+  </content>
+</entry>
+</feed>

@@ -1,0 +1,86 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+}
+
+.custom-footer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+}
+
+.color-icon {
+    width: 15px;
+    color: transparent;
+}
+
+#green {
+    --smart-background: rgb(51, 182, 121);
+}
+
+#yellow {
+    --smart-background: rgb(246, 191, 38);
+}
+
+#purple {
+    --smart-background: rgb(142, 36, 170);
+}
+
+#brown {
+    --smart-background: rgb(97, 97, 97);
+}
+
+.color-green {
+    --smart-scheduler-event-background-rgb: 51, 182, 121;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.color-yellow {
+    --smart-scheduler-event-background-rgb: 246, 191, 38;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.color-purple {
+    --smart-scheduler-event-background-rgb: 142, 36, 170;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.color-brown {
+    --smart-scheduler-event-background-rgb: 97, 97, 97;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

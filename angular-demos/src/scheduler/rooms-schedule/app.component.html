@@ -1,0 +1,8 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views"
+   [groupOrientation]="groupOrientation" [groups]="groups" [resources]="resources" [dataSource]="dataSource"
+   [groupTemplate]="groupTemplate" [cellTemplate]="cellTemplate" [restrictedHours]="restrictedHours"
+   (onResizeEnd)="notifyForRestrictions($event)" (onDragEnd)="notifyForRestrictions($event)"
+   (onEditDialogOpen)="setEventEditDetails($event)" (onEditDialogClose)="clearEventEdit()" (onItemUpdate)="checkEventEdit()"></smart-scheduler>
+<smart-alert-window #alertWindow id="alertWindow" [label]="'Alert'">
+   <h4>Event cannot last within the Lunch Break !</h4>
+</smart-alert-window>

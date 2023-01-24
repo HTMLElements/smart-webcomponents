@@ -1,0 +1,22 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+
+smart-grid-column .smart-sort-button.smart-grid-icon {
+	font-family: 'FontAwesome';	
+	font-size: 13px;
+	color: #9B9B9B;
+}
+
+smart-grid-column .smart-sort-button.smart-icon-sort:before {
+	content: "\f0dc";
+}
+
+smart-grid-column .smart-sort-button.asc:before,
+smart-grid-column .smart-sort-button.desc:before {
+	content: "\f0dd";
+}
+
+@media only screen and (max-width: 700px) {
+	smart-grid {
+		width: 100%;
+	}
+}

@@ -1,0 +1,23 @@
+#verticalGroup {
+    --smart-splitter-item-size: 50%;
+}
+
+smart-docking-layout {
+    width: 75%;
+    height: 600px;
+    --smart-splitter-item-size: 33.3%;
+}
+
+@media only screen and (max-width: 1400px) {
+    smart-docking-layout {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    smart-docking-layout {
+        width: 100%;
+        position: relative;
+        margin: 10px 0px;
+    }
+}

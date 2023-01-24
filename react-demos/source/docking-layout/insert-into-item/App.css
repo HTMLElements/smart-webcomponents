@@ -1,0 +1,20 @@
+smart-docking-layout {
+    width: 50%;
+    --smart-splitter-item-size: 50%;
+}
+
+smart-docking-layout {
+    width: 50%;
+    height: 600px;
+}
+
+#container {
+    margin-left: 0;
+}
+
+#insertIntoLeft,
+#insertIntoRight,
+#insertIntoTop,
+#insertIntoBottom {
+    width: 100%;
+}

@@ -1,0 +1,11 @@
+smart-combo-box{
+	width: 300px;
+}
+body,
+html {
+	min-height: 450px;
+}
+smart-combo-box#last {
+	position: absolute;
+	bottom: 20px;
+}

@@ -1,0 +1,254 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    --smart-scheduler-timeline-cell-min-width: 40px;
+    --smart-scheduler-event-border-radius: 4px;
+    --smart-scheduler-timeline-nonworking-color: var(--smart-background);
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+    border-radius: initial;
+}
+
+#primaryContainer,
+#primaryContainer .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#primaryContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+#primaryContainer .content {
+    height: calc(100% - 50px);
+}
+
+#primaryContainer.collapse #sideA {
+    width: 0;
+}
+
+#primaryContainer #sideA {
+    width: 280px;
+    transition: width 0.2s ease-in-out;
+}
+
+#primaryContainer.collapse #sideB {
+    width: 100%;
+    transition: width 0.2s ease-in-out;
+}
+
+#primaryContainer #sideB {
+    width: calc(100% - 280px);
+    transition: width 0.2s ease-in-out;
+}
+
+#sideA,
+#sideB {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: var(--smart-background);
+    color: var(--smart-background-color);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#sideA {
+    border-top: var(--smart-border-width) solid var(--smart-border);
+
+}
+
+#sideA .controls-container {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    max-height: calc(100% - 150px);
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 100%;
+    grid-row-gap: 20px;
+    overflow: auto;
+}
+
+.button-container {
+    height: 150px;
+}
+
+#sideA .smart-calendar {
+    min-width: initial;
+    max-width: 100%;
+    height: 250px;
+    min-height: initial;
+    --smart-font-size: 12px;
+    --smart-calendar-cell-size: 26px;
+    --smart-calendar-cell-spacing: 4px;
+    border: initial;
+    --smart-surface: transparent;
+}
+
+.smart-input,
+.smart-tree {
+    width: 100%;
+}
+
+.smart-tree {
+    height: 200px;
+    border: initial;
+}
+
+#primaryContainer.collapse #addNew {
+    width: 45px;
+    border-radius: 50%;
+}
+
+#primaryContainer.collapse #addNew::after {
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#primaryContainer.collapse #addNew span {
+    display: none;
+}
+
+#addNew {
+    top: 100%;
+    left: 20px;
+    margin-top: 100px;
+    position: absolute;
+    cursor: pointer;
+    width: 120px;
+    height: 45px;
+    border-radius: 25px;
+    box-shadow: var(--smart-elevation-2);
+    z-index: 1;
+}
+
+#addNew button {
+    padding-left: 45px;
+}
+
+#addNew::after {
+    content: '+';
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 30px;
+    height: 100%;
+    font-family: var(--smart-font-family-icon);
+    font-size: 40px;
+    color: inherit;
+    background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#toggleButton {
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: initial;
+    background: transparent;
+    margin-right: 10px;
+}
+
+#toggleButton::after {
+    content: var(--smart-icon-align-left);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: var(--smart-font-family-icon);
+    font-size: 25px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+#title {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    font-size: 20px;
+    position: relative;
+}
+
+#logo {
+    content: '';
+    position: relative;
+    width: 100%;
+    height: 90px;
+    background: url(https://www.htmlelements.com/wp-content/design/assets/images/csssprites.png) -465px -400px;
+    filter: invert(0.8);
+    box-sizing: border-box;
+}
+
+.smart-tree[selection-mode="checkBox"] smart-tree-items-group>.smart-tree-item-label-container::before,
+.smart-tree[selection-mode="checkBox"] smart-tree-items-group>.smart-tree-item-label-container::after {
+    content: initial !important;
+}
+
+.smart-tree .smart-tree-item[value="birthday"] {
+    --smart-primary: green;
+}
+
+.smart-tree .smart-tree-item[value="holiday"] {
+    --smart-primary: cornflowerblue;
+}
+
+.smart-tree .smart-tree-item[value="event"] {
+    --smart-primary: purple;
+}
+
+.birthday {
+    --smart-scheduler-event-background-rgb: 0, 129, 0;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.holiday {
+    --smart-scheduler-event-background-rgb: 100, 149, 237;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}
+
+.event {
+    --smart-scheduler-event-background-rgb: 128, 0, 128;
+    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+    --smart-scheduler-event-focus: rgba(var(--smart-scheduler-event-background-rgb), .9);
+    --smart-scheduler-event-hover: rgba(var(--smart-scheduler-event-background-rgb), .8);
+}

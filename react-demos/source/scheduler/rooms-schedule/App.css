@@ -1,0 +1,66 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+}
+
+#alertWindow {
+    --smart-window-default-height: 200px;
+}
+
+#alertWindow .smart-content-container>.smart-content {
+    justify-content: center;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+    --smart-scheduler-timeline-cell-width: 100px;
+    --smart-scheduler-timeline-header-vertical-group-size: 250px;
+    --smart-font-size: 13px;
+    --smart-scheduler-timeline-nonworking-color: rgba(0, 0, 0, 0.05);
+    --smart-scheduler-timeline-group-separator-background: var(--smart-border);
+}
+
+.smart-scheduler .smart-scheduler-view-header-vertical .smart-scheduler-cell {
+    align-items: center;
+}
+
+.smart-scheduler .smart-scheduler-event-content,
+.smart-scheduler-drag-feedback .smart-scheduler-event-content {
+    grid-row-gap: 0;
+}
+
+.smart-scheduler .smart-scheduler-groups-container .smart-scheduler-cell {
+    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    padding: initial
+}
+
+.smart-scheduler .smart-scheduler-groups-container .smart-scheduler-cell .col {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: var(--smart-scheduler-timeline-header-cell-padding);
+    line-height: 5em;
+}
+
+.smart-scheduler .smart-scheduler-groups-container .smart-scheduler-cell .col:not(:first-of-type) {
+    border-left: var(--smart-border-width) solid var(--smart-border);
+}
+
+@media (max-width: 750px) {
+    .smart-scheduler {
+        --smart-scheduler-timeline-header-vertical-group-size: 100px;
+    }
+
+    .smart-scheduler .smart-scheduler-groups-container .smart-scheduler-cell {
+        grid-template-columns: 100% repeat(2, 0);
+    }
+}

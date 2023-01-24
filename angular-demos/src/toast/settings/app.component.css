@@ -1,0 +1,8 @@
+#settingsContainer {
+    width: 380px;
+    position: absolute;
+    left: calc(50% - 210px);
+    top: 50px;
+    padding: 20px;
+    border: 1px gray dashed;
+}

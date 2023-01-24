@@ -1,0 +1,7 @@
+
+<smart-window #window [opened]="true" [headerTemplate]="'headerTemplate'" [footerTemplate]="'footerTemplate'" (onReady)="onReady($event)">
+    <section>
+        <smart-gauge #gauge [analogDisplayType]="'needle'" [startAngle]="-30" [endAngle]="210" [min]="0"
+            [max]="100" [value]="0" [sizeMode]="'auto'"></smart-gauge>
+    </section>
+</smart-window>

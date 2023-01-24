@@ -1,0 +1,13 @@
+<smart-slider #slider [showTooltip]="true" id="horizontalSlider" [min]="0" [max]="100"
+              [value]="50" [scalePosition]="'both'" [showButtons]="true"></smart-slider>
+<br />
+<smart-slider #slider2 [showTooltip]="true" id="verticalSlider" [orientation]="'vertical'"
+              [tooltipPosition]="'far'" [min]="0" [max]="100" [coerce]="true" [interval]="0.5" [scalePosition]="'both'"
+              [rangeSlider]="true" [values]="[10, 30]" [showButtons]="true"></smart-slider>
+<br />
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleButtons" [checked]="true">Toggle slider buttons</smart-toggle-button>
+    </div>
+</div>
