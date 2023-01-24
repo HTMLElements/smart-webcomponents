@@ -1,0 +1,11 @@
+<div class="demo-description">Radio buttons binding.</div>
+<smart-radio-button #radiobutton type="radio" id="one" value="One" smart-model="picked">
+    <label for="one">One</label>
+</smart-radio-button>
+<smart-radio-button #radiobutton2 type="radio" id="two" value="Two" smart-model="picked">
+    <label for="two">Two</label>
+</smart-radio-button>
+<smart-radio-button #radiobutton3 type="radio" id="three" value="Three" smart-model="picked">
+    <label for="three">Three</label>
+</smart-radio-button>
+<br>Picked: <span>{{ app.data.picked }}</span>

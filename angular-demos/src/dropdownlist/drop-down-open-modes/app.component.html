@@ -1,0 +1,21 @@
+<div id="description">
+    <h3>Modes Description</h3>
+    <pre>Auto - the dropDownList is opened/closed when the element is hovered.</pre>
+    <pre>Default - the dropDownList is opened/closed when the element is clicked.</pre>
+    <pre>DropDownButton - the dropDownList is divided in two components. An Action Button and a dropDown Button. The dropDownList can be opened/closed when the dropDownButton is clicked.</pre>
+    <pre>None - the dropDownList can't be opened/closed.</pre>
+</div>
+<div id="eventLog">
+    <h4>Event log:</h4>
+    <div #log id="log">...</div>
+</div>
+<div id="container">
+    <smart-drop-down-list #dropdownlist class="drop-down-list-modes-demo"></smart-drop-down-list>
+    <div id="controlPanel">
+        <h3>DropDownListOpen Mode:</h3>
+        <smart-button #button [disabled]="true">Default</smart-button>
+        <smart-button #button1>Auto</smart-button>
+        <smart-button #button2 style="font-size: 10px;">DropDownButton</smart-button>
+        <smart-button #button3>None</smart-button>
+    </div>
+</div>

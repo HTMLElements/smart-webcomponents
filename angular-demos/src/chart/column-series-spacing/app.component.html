@@ -1,0 +1,72 @@
+<smart-chart #chart id="chart" [animation]="animation" [caption]="caption" [description]="description"
+    [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding" [dataSource]="dataSource"
+    [columnSeriesOverlap]="columnSeriesOverlap" [xAxis]="xAxis" [valueAxis]="valueAxis" [colorScheme]="colorScheme"
+    [seriesGroups]="seriesGroups"></smart-chart>
+<div class="options">
+    <table>
+        <tr>
+            <td><b>Series group 1/2:</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <smart-check-box #checkbox id="btnStackedSeriesGroup1" [checked]="true">Stacked</smart-check-box>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <smart-check-box #checkbox2 id="btnStackedSeriesGroup2">Stacked</smart-check-box>
+            </td>
+        </tr>
+        <tr>
+            <td>Space between columns / padding:
+                <smart-slider #slider id="sliderColumnsGapPercentGroup1" [min]="0" [max]="99" [value]="25"
+                    [coerce]="true" [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'">
+                </smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Space between columns / padding:
+                <smart-slider #slider2 id="sliderColumnsGapPercentGroup2" [min]="0" [max]="99" [value]="25"
+                    [coerce]="true" [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'">
+                </smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Space between series:
+                <smart-slider #slider3 id="sliderSeriesGapGroup1" [min]="0" [max]="100" [value]="10" [coerce]="true"
+                    [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Space between series:
+                <smart-slider #slider4 id="sliderSeriesGapGroup2" [min]="0" [max]="100" [value]="10" [coerce]="true"
+                    [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Minimum column width:
+                <smart-slider #slider5 id="sliderMinWidthGroup1" [min]="0" [max]="50" [value]="0" [coerce]="true"
+                    [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Minimum column width:
+                <smart-slider #slider6 id="sliderMinWidthGroup2" [min]="0" [max]="50" [value]="0" [coerce]="true"
+                    [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Maximum column width:
+                <smart-slider #slider7 id="sliderMaxWidthGroup1" [min]="1" [max]="120" [value]="40" [coerce]="true"
+                    [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Maximum column width:
+                <smart-slider #slider8 id="sliderMaxWidthGroup2" [min]="1" [max]="120" [value]="40" [coerce]="true"
+                    [interval]="1" [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+    </table>
+</div>

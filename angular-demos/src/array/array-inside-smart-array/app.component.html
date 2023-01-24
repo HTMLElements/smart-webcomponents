@@ -1,0 +1,30 @@
+<div>
+	Set inner array values to see how the value of the main array is changed.
+</div>
+<br />
+<smart-array #smartArray id="smartArray"
+		   show-index-display
+		   type="custom"
+		   value='[[["a", "c"], ["b", "d"]], [["α", "γ"], ["β", "δ"]]]'
+		   dimensions="2"
+		   rows="1"
+		   columns="3"
+		   custom-widget-default-value="[[]]"
+		   show-horizontal-scrollbar
+		   element-template="elementTemplate"
+		   get-element-value="getElementValue"
+		   set-element-value="setElementValue"></smart-array>
+<div style="margin-top: 50px;">
+	<smart-button #resetMainArray id="resetMainArray" class="demoButton">
+		Reset main array
+	</smart-button>
+	<smart-button #emptyMainArray id="emptyMainArray" class="demoButton">
+		Empty main array
+	</smart-button>
+</div>
+<div style="margin-top: 50px; font-family: Verdana;">
+	Log:
+</div>
+<br />
+<div id="log">
+</div>

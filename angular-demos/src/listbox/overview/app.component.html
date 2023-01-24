@@ -1,0 +1,329 @@
+<div class="smart-demo-container">
+    <template id="itemTemplate">
+        <div class="templateContainer">
+            <div class="primaryAction"><i class="material-icons"></i>{{label}}</div>
+            <div class="secondaryAction"></div>
+        </div>
+    </template>
+    <template id="multiLineTemplate">
+        <div class="templateContainer">
+            <div class="firstLine">{{label}}</div>
+            <div class="secondLine"></div>
+        </div>
+    </template>
+    <div id="materialListBoxContainer">
+        <section>
+            <div>
+                 <h2>Lists present multiple line items vertically as a single continuous element.</h2>
+                <div class="module">
+                    <p>Lists are made up of a continuous column of rows. Each row contains a
+                        tile. Primary actions fill the tile, and supplemental actions are represented
+                        by icons and text.</p>
+                    <p>Lists are best suited for similar data types.:</p>
+                    <p><strong>Determinate indicators</strong> display how long an operation will
+                        take.</p>
+                    <p><strong>Indeterminate indicators</strong> visualize an unspecified wait
+                        time.</p>
+                </div>
+                <div class="module">
+                     <h3>Actions</h3>
+                    <p>Vertical and Horizontal scrolling
+                        <br>Filtering and Sorting</p>
+                     <h3>Gestures</h3>
+                    <p>Swipe
+                        <br>Drag and drop</p>
+                </div>
+            </div>
+        </section>
+        <section id="usage">
+             <h2>Usage</h2>
+            <div class="module">
+                <p>A <strong>list</strong> consists of a single continuous column of tessellated
+                    sub-divisions of equal width called <strong>rows</strong> that function as
+                    containers for <strong>tiles</strong>.</p>
+                <p><strong>Tiles</strong> hold content, and can vary in height within a list.</p>
+            </div>
+            <div class="module">
+                <p>Lists are best suited to presenting a homogeneous data type or sets of
+                    data types, such as images and text. They are optimized for reading comprehension
+                    while differentiating either between similar data types, or qualities within
+                    a single data type.</p>
+                 <h3>Density</h3>
+                <p>When the mouse and keyboard are the primary input methods, measurements
+                    may be condensed to accommodate denser layouts.</p>
+            </div>
+        </section>
+        <section id="behavior">
+             <h2>Behavior</h2>
+            <div class="module">
+                 <h2>Scrolling</h2>
+                <p>Lists scroll vertically and horizontally.</p>
+            </div>
+            <div class="module">
+                <smart-list-box #listbox class="horizontal-scrolling">
+                    <smart-list-item>Washington, Connecticut</smart-list-item>
+                    <smart-list-item>Washington, Iowa</smart-list-item>
+                    <smart-list-item>Washington Park, North Carolina</smart-list-item>
+                    <smart-list-item>Springfield, Massachusetts</smart-list-item>
+                    <smart-list-item>Mount Washington, Massachusetts</smart-list-item>
+                    <smart-list-item>Springfield, West Virginia</smart-list-item>
+                    <smart-list-item>Los Angeles, California</smart-list-item>
+                    <smart-list-item>Dallas, Texas</smart-list-item>
+                    <smart-list-item>Charleston, South Carolina</smart-list-item>
+                    <smart-list-item>Las Vegas, Nevada</smart-list-item>
+                    <smart-list-item>Seattle, Washington</smart-list-item>
+                    <smart-list-item>San Francisco, California</smart-list-item>
+                    <smart-list-item>Washington, D.C.</smart-list-item>
+                    <smart-list-item>New Orleans, Louisiana</smart-list-item>
+                    <smart-list-item>Palm Springs, California</smart-list-item>
+                    <smart-list-item>Saint Augustine, Florida</smart-list-item>
+                    <smart-list-item>St. Louis, Missouri</smart-list-item>
+                </smart-list-box>
+            </div>
+            <div class="module"></div>
+            <div class="module">
+                 <h2>Gestures</h2>
+                <p>The swipe action of each tile should be consistent within lists.</p>
+            </div>
+            <div class="module gestures">
+                <smart-list-box #listbox2 id="gestureListBox">
+                    <smart-list-item>Attarctions</smart-list-item>
+                    <smart-list-item>Dining</smart-list-item>
+                    <smart-list-item>Education</smart-list-item>
+                    <smart-list-item>Family</smart-list-item>
+                    <smart-list-item>Health</smart-list-item>
+                    <smart-list-item>Office</smart-list-item>
+                    <smart-list-item>Promotions</smart-list-item>
+                    <smart-list-item>Radio</smart-list-item>
+                    <smart-list-item>TV</smart-list-item>
+                    <smart-list-item>Entertainment</smart-list-item>
+                    <smart-list-item>Recipies</smart-list-item>
+                    <smart-list-item>Sports</smart-list-item>
+                    <smart-list-item>Travel</smart-list-item>
+                    <smart-list-item>Sports</smart-list-item>
+                    <smart-list-item>Hiking</smart-list-item>
+                    <smart-list-item>Skiing</smart-list-item>
+                    <smart-list-item>Politics</smart-list-item>
+                </smart-list-box>
+                <p></p>
+                <p>smartListBox provides Swipe left and Swipe right events to allow even
+                    more customizability.</p>
+            </div>
+            <div class="module">
+                 <h2>Drag & Drop</h2>
+                <p>Tiles may be moved between a list and drop target (similar to moving a
+                    file into a folder) and picked up and manually reordered within a list.</p>
+                <p>Reorder property allows the items inside the list box to be moved.</p>
+                <p>Items can even be moved accross list boxes.</p>
+            </div>
+            <div class="module dragDrop">
+                <smart-list-box #listbox3 allow-drag allow-drop id="dragDrop" reorder>
+                    <smart-list-item>Butter</smart-list-item>
+                    <smart-list-item>Tacos</smart-list-item>
+                    <smart-list-item>Bread</smart-list-item>
+                    <smart-list-item>Chocolate</smart-list-item>
+                    <smart-list-item>Ice cream</smart-list-item>
+                    <smart-list-item>Meat</smart-list-item>
+                    <smart-list-item>Fries</smart-list-item>
+                    <smart-list-item>Potatoes</smart-list-item>
+                    <smart-list-item>Salad</smart-list-item>
+                    <smart-list-item>Rice</smart-list-item>
+                    <smart-list-item>Recipies</smart-list-item>
+                    <smart-list-item>Pie</smart-list-item>
+                    <smart-list-item>Milk</smart-list-item>
+                    <smart-list-item>Eggs</smart-list-item>
+                    <smart-list-item>Seafood</smart-list-item>
+                    <smart-list-item>Cereal</smart-list-item>
+                    <smart-list-item>Spaghetti</smart-list-item>
+                </smart-list-box>
+                <p></p>
+                <p>List box A</p>
+                <smart-list-box #listbox4 allow-drag allow-drop>
+                    <smart-list-item>Tofu</smart-list-item>
+                    <smart-list-item>Buttered toast with Marmite</smart-list-item>
+                    <smart-list-item>Marzipan</smart-list-item>
+                    <smart-list-item>Ketchup</smart-list-item>
+                    <smart-list-item>French toast</smart-list-item>
+                    <smart-list-item>Chicken parm</smart-list-item>
+                    <smart-list-item>Hummus</smart-list-item>
+                    <smart-list-item>Chili crab</smart-list-item>
+                    <smart-list-item>Maple syrup</smart-list-item>
+                    <smart-list-item>Ankimo</smart-list-item>
+                    <smart-list-item>Parma ham</smart-list-item>
+                    <smart-list-item>Goi cuon (summer roll),</smart-list-item>
+                    <smart-list-item>Ohmi-gyu beef steak</smart-list-item>
+                    <smart-list-item>Pho</smart-list-item>
+                    <smart-list-item>Lechón</smart-list-item>
+                    <smart-list-item>Fajitas</smart-list-item>
+                    <smart-list-item>Butter garlic crab</smart-list-item>
+                    <smart-list-item>Champ</smart-list-item>
+                    <smart-list-item>Lasagna</smart-list-item>
+                    <smart-list-item>Poke</smart-list-item>
+                    <smart-list-item>Croissant</smart-list-item>
+                    <smart-list-item>Arepas</smart-list-item>
+                </smart-list-box>
+                <p></p>
+                <p>List box B</p>
+            </div>
+            <div class="module">
+                 <h2>Filtering and sorting</h2>
+                <p>List tiles can be sorted or filtered by date, file size, alphabetical
+                    order, or other parameters.</p>
+                 <h2>Icon with text</h2>
+                <p>List tiles can contain text with icons. Thanks to the itemTemplate property
+                    any HTML code can be placed inside the tiles.</p>
+                 <h2>Avatar with text</h2>
+                <p>List tiles can also contain avatars.</p>
+            </div>
+            <div class="module">
+                <smart-list-box #listbox5 id="phoneBook" [sorted]="true">
+                    <smart-list-item>Andrew Watson</smart-list-item>
+                    <smart-list-item>Anne Kean</smart-list-item>
+                    <smart-list-item>Avril Janin</smart-list-item>
+                    <smart-list-item>Janet Pattenson</smart-list-item>
+                    <smart-list-item>Johanna Svensson</smart-list-item>
+                    <smart-list-item>Johnny Abana</smart-list-item>
+                    <smart-list-item>Laura Thene</smart-list-item>
+                    <smart-list-item>Margaret Vetton</smart-list-item>
+                    <smart-list-item>Maria Sevrano</smart-list-item>
+                    <smart-list-item>Mark Yemen</smart-list-item>
+                    <smart-list-item>Maya Verdara</smart-list-item>
+                    <smart-list-item>Michael Barton</smart-list-item>
+                    <smart-list-item>Monica Oghini</smart-list-item>
+                    <smart-list-item>Nancy Queens</smart-list-item>
+                    <smart-list-item>Robert Drawny</smart-list-item>
+                    <smart-list-item>Steven Fedrichy</smart-list-item>
+                    <smart-list-item>Toni Versachi</smart-list-item>
+                </smart-list-box>
+                <p></p>
+                <p>Alphabetical sorting makes information easier to find.</p>
+            </div>
+            <div class="module">
+                <smart-list-box #listbox6 id="settingsMenu" [selectionMode]="'none'" [filterable]="true"
+                [filterInputPlaceholder]="'Searching ...'">
+                    <smart-list-items-group label="Wireless & Networks">
+                        <smart-list-item>Wi-Fi</smart-list-item>
+                        <smart-list-item>Bluetooth</smart-list-item>
+                        <smart-list-item>Data usage</smart-list-item>
+                        <smart-list-item>Connect a device</smart-list-item>
+                        <smart-list-item>More...</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="Device">
+                        <smart-list-item>Personalisation</smart-list-item>
+                        <smart-list-item>Call Settings</smart-list-item>
+                        <smart-list-item>Sound</smart-list-item>
+                        <smart-list-item>Display</smart-list-item>
+                        <smart-list-item>Storage</smart-list-item>
+                        <smart-list-item>Power management</smart-list-item>
+                        <smart-list-item>Apps</smart-list-item>
+                        <smart-list-item>Users</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="Personal">
+                        <smart-list-item>Location</smart-list-item>
+                        <smart-list-item>Security</smart-list-item>
+                        <smart-list-item>Profiles</smart-list-item>
+                        <smart-list-item>Google</smart-list-item>
+                        <smart-list-item>Language & Keyboard</smart-list-item>
+                        <smart-list-item>Backup & Restore</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="System">
+                        <smart-list-item>Date & Time</smart-list-item>
+                        <smart-list-item>Accessibility</smart-list-item>
+                        <smart-list-item>Printing</smart-list-item>
+                        <smart-list-item>About phone</smart-list-item>
+                        <smart-list-item>Support</smart-list-item>
+                    </smart-list-items-group>
+                </smart-list-box>
+                <p></p>
+                <p>Filtering allows the user to quickly find the needed items.</p>
+            </div>
+        </section>
+        <section id="multiLineLists">
+            <div class="module">
+                <p>Lists can have multiple lines of text.</p>
+            </div>
+            <div class="module">
+                 <h2>Demo usage</h2>
+            </div>
+            <div class="module">
+                <smart-list-box #listbox7 id="twoLineList" [sorted]="true">
+                    <smart-list-item>Andrew Watson</smart-list-item>
+                    <smart-list-item>Anne Kean</smart-list-item>
+                    <smart-list-item>Avril Janin</smart-list-item>
+                    <smart-list-item>Janet Pattenson</smart-list-item>
+                    <smart-list-item>Johanna Svensson</smart-list-item>
+                    <smart-list-item>Johnny Abana</smart-list-item>
+                    <smart-list-item>Laura Thene</smart-list-item>
+                    <smart-list-item>Margaret Vetton</smart-list-item>
+                    <smart-list-item>Maria Sevrano</smart-list-item>
+                    <smart-list-item>Mark Yemen</smart-list-item>
+                    <smart-list-item>Maya Verdara</smart-list-item>
+                    <smart-list-item>Michael Barton</smart-list-item>
+                    <smart-list-item>Monica Oghini</smart-list-item>
+                    <smart-list-item>Nancy Queens</smart-list-item>
+                    <smart-list-item>Robert Drawny</smart-list-item>
+                    <smart-list-item>Steven Fedrichy</smart-list-item>
+                    <smart-list-item>Toni Versachi</smart-list-item>
+                </smart-list-box>
+                <p></p>
+                <p>Example of a two-line list.</p>
+            </div>
+            <div class="module checkList">
+                <smart-list-box #listbox8 id="twoLineCheckList" [sorted]="true" [selectionMode]="'checkBox'">
+                    <smart-list-item>Alarms</smart-list-item>
+                    <smart-list-item>Android</smart-list-item>
+                    <smart-list-item>DCIM</smart-list-item>
+                    <smart-list-item>DeviceConfifg</smart-list-item>
+                    <smart-list-item>Documents</smart-list-item>
+                    <smart-list-item>Download</smart-list-item>
+                    <smart-list-item>Edited</smart-list-item>
+                    <smart-list-item>LazyList</smart-list-item>
+                    <smart-list-item>Movies</smart-list-item>
+                    <smart-list-item>Music</smart-list-item>
+                    <smart-list-item>Notifications</smart-list-item>
+                    <smart-list-item>System</smart-list-item>
+                    <smart-list-item>System Volume Information</smart-list-item>
+                    <smart-list-item>Podcast</smart-list-item>
+                    <smart-list-item>Ringtones</smart-list-item>
+                    <smart-list-item>New folder</smart-list-item>
+                    <smart-list-item>Temp</smart-list-item>
+                </smart-list-box>
+                <smart-button #button id="deleteButton" class="secondary floating smart-visibility-hidden"><i class="material-icons">&#xE16C;</i>
+                </smart-button>
+                <p></p>
+                <p>Example of a two-line list with icon.</p>
+            </div>
+        </section>
+        <section id="appearance">
+             <h2>Appearance</h2>
+            <div class="module">
+                <smart-list-box #listbox9 [selectionMode]="'none'" id="listBoxLight">
+                    <smart-list-items-group label="Sound">
+                        <smart-list-item>Audio settings</smart-list-item>
+                        <smart-list-item>Accessory settings</smart-list-item>
+                        <smart-list-item [readonly]="true">Media volume</smart-list-item>
+                        <smart-list-item [readonly]="true">Alarm volume</smart-list-item>
+                        <smart-list-item [readonly]="true">Ring volume</smart-list-item>
+                        <smart-list-item>Also vibrate for calls</smart-list-item>
+                        <smart-list-item>Do not disturb</smart-list-item>
+                        <smart-list-item>Phone ringtone</smart-list-item>
+                        <smart-list-item>Increasing ringtone</smart-list-item>
+                        <smart-list-item>Notification sound</smart-list-item>
+                        <smart-list-item>Other sounds</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="Notification">
+                        <smart-list-item>Notification light</smart-list-item>
+                        <smart-list-item>When device is locked</smart-list-item>
+                        <smart-list-item>App notifications</smart-list-item>
+                        <smart-list-item>Keep notifications on lock screen</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group label="Advanced">
+                        <smart-list-item>Notification access</smart-list-item>
+                        <smart-list-item>Do not disturb access</smart-list-item>
+                    </smart-list-items-group>
+                </smart-list-box>
+                <p></p>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='Description'>Angular Card Grid-layout | Card | https://www.htmlelements.com/</title>
+        <base href="./../../../dist/card/grid-layout/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+    </head>
+    <body>
+        <app-root>Loading...</app-root>
+        <template id="smallTemplate">
+            <div class="card-title">{{title}}</div>
+            <div class="card-content">{{content}}</div>
+        </template>
+        <template id="mediumTemplate">
+            <div class="card-title">{{title}}</div>
+            <div class="card-content">{{content}}</div>
+            <div class="card-target"> <span class="card-percentage">{{percentage}}%</span> of target</div>
+            <div
+            class="card-graphic">
+                <img src="{{image}}" />
+                </div>
+        </template>
+        <template id="largeTemplate">
+            <!--<div class="card-title">{{title}}</div>-->
+             <h3>{{title}}</h3>
+            <div class="carrusel">
+                <div class="slide">
+                    <div class="card-graphic">
+                        <img src="{{image1}}" />
+                    </div>
+                </div>
+                <div class="slide hidden">
+                    <div class="card-graphic">
+                        <img src="{{image2}}" />
+                    </div>
+                </div>
+                <div class="slide hidden">
+                    <div class="card-graphic">
+                        <img src="{{image3}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="pager">
+                <smart-pager #pager items="3" item-template="pagerTemplate"></smart-pager>
+            </div>
+        </template>
+        <template id="pagerTemplate"></template>
+        <script src="runtime.js" type="module"></script>
+		<script src="polyfills.js" type="module"></script>
+		
+		
+		<script src="main.js" type="module"></script>
+		
+    </body>
+</html>

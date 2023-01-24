@@ -1,0 +1,8 @@
+<div class="demo-description">
+    <h1>GridView with Inline and Batch Editing</h1>
+    <p>Move the mouse cursor over a row to show 'Edit' and 'Delete' commands
+        in that row. By using these commands you will be able to put a row into
+        edit mode or delete it. From the gridview's command bar, you will be able
+        to 'save' or 'revert' the changes.</p>
+    <smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns" [editing]="editing">
+    </smart-grid>

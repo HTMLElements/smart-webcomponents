@@ -1,0 +1,64 @@
+<div id="dashboardHeader">
+    <div>
+        <img #logo src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg"
+        class="smart-logo" />
+        <smart-button #button id="menu-btn"> <i class="material-icons">menu</i>
+        </smart-button>
+    </div>
+    <div class="floating">
+        <smart-button #button2 id="header-person-btn"> <i class="material-icons">person</i>
+        </smart-button>
+        <smart-button #button3 id="notifficationBtn"> <i class="material-icons">notifications</i>
+        </smart-button>
+        <smart-button #button4 id="header-dashboard-btn"> <i class="material-icons">view_quilt</i>
+        </smart-button>
+        <smart-button #button5 id="header-change-theme-btn" [theme]="'light'"> <i class="material-icons">invert_colors</i>
+        </smart-button>
+    </div>
+</div>
+<smart-splitter #splitter id="dashboard" [animation]="'none'">
+    <smart-splitter-item [collapsible]="true" id="leftPanel" [size]="'240'">
+        <smart-tree #tree class="dashboard-menu" [scrollMode]="'scrollButtons'"
+        [toggleElementPosition]="'far'" [toggleMode]="'click'">
+            <smart-tree-item [value]="'dashboard'" [separator]="true"><i class="material-icons">view_quilt</i>Dashboard</smart-tree-item>
+            <smart-tree-items-group
+            [readonly]="true"> <i class="material-icons">apps</i> Pages
+                <smart-tree-item [value]="'pricing'">Pricing</smart-tree-item>
+                <smart-tree-item [value]="'timeline'">Timeline</smart-tree-item>
+                <smart-tree-item [value]="'login'">Login</smart-tree-item>
+                <smart-tree-item [value]="'register'">Register</smart-tree-item>
+                <smart-tree-item [value]="'lock'">Lock</smart-tree-item>
+                <smart-tree-item [value]="'user-profile'">User Profile</smart-tree-item>
+                </smart-tree-items-group>
+                <smart-tree-items-group> <i class="material-icons">list_alt</i> Components
+                    <smart-tree-item [value]="'button'">Button</smart-tree-item>
+                    <smart-tree-item [value]="'grid-system'">Grid System</smart-tree-item>
+                    <smart-tree-item [value]="'panels'">Panels</smart-tree-item>
+                </smart-tree-items-group>
+                <smart-tree-items-group> <i class="material-icons">view_list</i> Forms
+                    <smart-tree-item [value]="'regular-forms'">Regular form</smart-tree-item>
+                    <smart-tree-item [value]="'extended-forms'">Extended form</smart-tree-item>
+                </smart-tree-items-group>
+                <smart-tree-items-group> <i class="material-icons">table_chart</i> Tables
+                    <smart-tree-item [value]="'tables'">Regular tables</smart-tree-item>
+                    <smart-tree-item [value]="'extended-table'">Extended tables</smart-tree-item>
+                </smart-tree-items-group>
+                <smart-tree-items-group> <i class="material-icons">map</i> Maps
+                    <smart-tree-item [value]="'maps-large'">Vector map tables</smart-tree-item>
+                    <smart-tree-item [value]="'maps'">Full screen map</smart-tree-item>
+                    <smart-tree-item [value]="'multiple-maps'">Google maps</smart-tree-item>
+                </smart-tree-items-group>
+                <smart-tree-item [value]="'widgets'"><i class="material-icons">hdr_strong</i> Widgets</smart-tree-item>
+                <smart-tree-item
+                [value]="'chart'"><i class="material-icons">bar_chart</i> Charts</smart-tree-item>
+                    <smart-tree-item
+                    [value]="'calendar'"><i class="material-icons">calendar_today</i> Calendar</smart-tree-item>
+        </smart-tree>
+    </smart-splitter-item>
+    <smart-splitter-bar class="smart-hidden"></smart-splitter-bar>
+    <smart-splitter-item id="rightPanel">
+        <!-- Page is included here -->
+        <div id="custom-html-header"></div>
+        <div #pageContainer id="include-html-page" demo-page="dashboard"></div>
+    </smart-splitter-item>
+</smart-splitter>

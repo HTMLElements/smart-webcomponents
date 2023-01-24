@@ -1,0 +1,16 @@
+<div class="demo-description">Tree Grid Data Export. The Grid component supports Hierarchical Data Export.
+    The data records in Excel(.xlsx) can be expanded/collapsed and also in
+    HTML format.</div>
+<smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns" [onRowInit]="onRowInit"></smart-grid>
+<div class="options">
+    <div class="caption"></div>
+    <div class="option">
+        <smart-button #button id="xlsxBtn">Export to Excel</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="pdfBtn">Export to PDF</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="htmlBtn">Export to HTML</smart-button>
+    </div>
+</div>

@@ -1,0 +1,332 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+h3 {
+    text-align: center;
+}
+
+smart-cards {
+    display: -ms-grid;
+    display: grid;
+    min-height: 100vh;
+}
+
+    smart-cards > * {
+        overflow: hidden;
+    }
+
+smart-card {
+    -ms-flex-item-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-self: stretch;
+    margin: 0px;
+    padding: 15px;
+    background-color: white;
+    -webkit-transition: grid-column 1s, grid-row 1s;
+    -o-transition: grid-column 1s, grid-row 1s;
+    transition: grid-column 1s, grid-row 1s;
+    transition: grid-column 1s, grid-row 1s, -ms-grid-column 1s, -ms-grid-row 1s;
+}
+
+    smart-card .card-title, smart-card .card-content, smart-card .card-comment {
+        position: relative;
+    }
+
+    smart-card .card-target {
+        font-size: 12px;
+        color: gray;
+    }
+
+    smart-card .card-percentage {
+        color: #51B785;
+    }
+
+    smart-card .card-content {
+        margin: 5px 0px 5px 0px;
+        font-size: 30px;
+    }
+
+    smart-card .card-graphic {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+        smart-card .card-graphic img {
+            max-width: 100%;
+            max-height: 80px;
+            margin-top: 10px;
+        }
+
+    smart-card.large .card-graphic {
+        display: block;
+    }
+
+        smart-card.large .card-graphic img {
+            max-height: initial;
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+    smart-card .pager {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    smart-card smart-pager {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    smart-card smart-pager {
+        width: 100%;
+        height: 40px;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+        smart-card smart-pager .smart-container {
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        smart-card smart-pager .smart-items-container {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        smart-card smart-pager .smart-pager-item {
+            width: 10px;
+            height: 10px;
+            background-color: lightgray;
+            margin: 5px;
+            border-radius: 50%;
+        }
+
+            smart-card smart-pager .smart-pager-item.smart-selected {
+                background-color: #4285F4;
+            }
+
+.hidden {
+    display: none;
+}
+/* Large scren ----------- */
+@media only screen and (min-width : 1025px) {
+    smart-cards {
+        -ms-grid-columns: calc(20% - 10px) calc(20% - 10px) calc(20% - 10px) calc(20% - 10px) calc(20% - 10px);
+        grid-template-columns: calc(20% - 10px) calc(20% - 10px) calc(20% - 10px) calc(20% - 10px) calc(20% - 10px);
+        -ms-grid-rows: 100px 100px 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px 100px 100px;
+        grid-gap: 10px;
+        padding: 10px;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    smart-card {
+        width: 100%;
+        -webkit-transition: grid-column 1s, grid-row 1s;
+        -o-transition: grid-column 1s, grid-row 1s;
+        transition: grid-column 1s, grid-row 1s;
+        transition: grid-column 1s, grid-row 1s, -ms-grid-column 1s, -ms-grid-row 1s;
+    }
+
+    #charts {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
+        grid-column: 1/4;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 5;
+        grid-row: 1/6;
+    }
+
+    #marketing {
+        -ms-grid-column: 5;
+        grid-column: 5;
+        -ms-grid-row: 4;
+        grid-row: 4;
+    }
+
+    #sales {
+        -ms-grid-column: 4;
+        grid-column: 4;
+        -ms-grid-row: 3;
+        grid-row: 3;
+    }
+
+    #design {
+        -ms-grid-column: 4;
+        grid-column: 4;
+        -ms-grid-row: 4;
+        grid-row: 4;
+    }
+
+    #clicks {
+        -ms-grid-column: 4;
+        -ms-grid-column-span: 2;
+        grid-column: 4/6;
+        -ms-grid-row: 5;
+        grid-row: 5;
+    }
+
+    #conversion {
+        -ms-grid-column: 4;
+        grid-column: 4;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 2;
+        grid-row: 1/3;
+    }
+
+    #impressions {
+        -ms-grid-column: 5;
+        grid-column: 5;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 3;
+        grid-row: 1/4;
+    }
+
+        #impressions .card-graphic {
+            display: block;
+        }
+
+            #impressions .card-graphic img {
+                width: 100%;
+                max-height: initial;
+                height: auto;
+                display: block;
+            }
+}
+/* Mobile (landscape) ----------- */
+@media only screen and (max-width : 1024px) {
+    smart-cards {
+        -ms-grid-columns: 33% 33% 33%;
+        grid-template-columns: 33% 33% 33%;
+        -ms-grid-rows: auto 90px 90px 90px;
+        grid-template-rows: auto 90px 90px 90px;
+        grid-gap: 10px;
+        padding: 10px;
+        justify-items: stretch;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    smart-card {
+        width: 100%;
+        -webkit-transition: grid-column 1s, grid-row 1s;
+        -o-transition: grid-column 1s, grid-row 1s;
+        transition: grid-column 1s, grid-row 1s;
+        transition: grid-column 1s, grid-row 1s, -ms-grid-column 1s, -ms-grid-row 1s;
+    }
+
+        smart-card.large .card-graphic img {
+            max-width: 850px;
+        }
+
+    #charts {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
+        grid-column: 1/4;
+    }
+
+    #marketing {
+        -ms-grid-column: 1;
+        grid-column: 1/1;
+        -ms-grid-row: 2;
+        grid-row: 2/2;
+    }
+
+    #conversion {
+        -ms-grid-column: 2;
+        grid-column: 2/2;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 2;
+        grid-row: 2/4;
+    }
+
+    #impressions {
+        -ms-grid-column: 3;
+        grid-column: 3/3;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 2;
+        grid-row: 2/4;
+    }
+
+    #design {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 2;
+        grid-column: 1/3;
+    }
+}
+/* Mobile (portrait) ----------- */
+@media only screen and (max-width : 768px) {
+    smart-cards {
+        -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+        -ms-grid-rows: auto 90px 90px 90px 90px;
+        grid-template-rows: auto 90px 90px 90px 90px;
+        grid-gap: 10px;
+        padding: 10px;
+        justify-items: stretch;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    smart-card {
+        -webkit-transition: grid-column 1s, grid-row 1s;
+        -o-transition: grid-column 1s, grid-row 1s;
+        transition: grid-column 1s, grid-row 1s;
+        transition: grid-column 1s, grid-row 1s, -ms-grid-column 1s, -ms-grid-row 1s;
+    }
+
+    smart-cards smart-card {
+        margin: 0px;
+    }
+
+    #charts {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 2;
+        grid-column: 1/3;
+    }
+
+    #marketing {
+        -ms-grid-column: 1;
+        grid-column: 1/1;
+        -ms-grid-row: 2;
+        grid-row: 2/2;
+    }
+
+    #conversion {
+        -ms-grid-column: 2;
+        grid-column: 2/2;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 2;
+        grid-row: 2/4;
+    }
+
+    #impressions {
+        -ms-grid-column: 1;
+        grid-column: 1/1;
+        -ms-grid-row: 3;
+        -ms-grid-row-span: 2;
+        grid-row: 3/5;
+    }
+
+    #design {
+        -ms-grid-column: 1;
+        grid-column: 1/1;
+    }
+}

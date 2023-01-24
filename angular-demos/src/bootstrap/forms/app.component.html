@@ -1,0 +1,878 @@
+<div class="smart">
+	<h2 id="forms">Material Bootstrap Forms</h2>
+
+	<p>
+		Examples and usage guidelines for form component styles, layout options, and custom components for
+		creating a wide variety of forms.
+	</p>
+
+	<h2>Overview</h2>
+
+
+	<p>Here’s a quick example to demonstrate Smart.Core’s form styles. Keep reading for documentation on
+		[required]="true" classes, form layout, and more.</p>
+
+	<div class="group">
+		<form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label>
+				<input type="email" class="form-component" id="exampleInputEmail1" aria-describedby="emailHelp"
+					placeholder="Enter email">
+				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+					else.</small>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="password" class="form-component" id="exampleInputPassword1" placeholder="Password">
+			</div>
+			<div class="form-group form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<label class="form-check-label" for="exampleCheck1">Check me out</label>
+			</div>
+			<bootstrap-button type="submit" [styleMode]="'primary'">Submit</bootstrap-button>
+		</form>
+	</div>
+
+	<h2>Form components</h2>
+
+	<p>Textual form components—like &lt;input&gt;s, &lt;select&gt;s, and &lt;textarea&gt;s—are styled with the
+		.form-component class. Included are styles for general appearance, focus state, sizing, and more.
+	</p>
+
+	<div class="group">
+		<form>
+			<div class="form-group">
+				<label for="exampleFormComponentInput1">Email address</label>
+				<input type="email" class="form-component" id="exampleFormComponentInput1"
+					placeholder="name@example.com">
+			</div>
+			<div class="form-group">
+				<label for="exampleFormComponentSelect1">Example select</label>
+				<select class="form-component" id="exampleFormComponentSelect1">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormComponentSelect2">Example multiple select</label>
+				<select multiple="" class="form-component" id="exampleFormComponentSelect2">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormComponentTextarea1">Example textarea</label>
+				<textarea class="form-component" id="exampleFormComponentTextarea1" rows="3"></textarea>
+			</div>
+		</form>
+	</div>
+
+	<h2>Sizing</h2>
+
+	<p>Set heights using classes like .form-component-lg and .form-component-sm.</p>
+
+	<div class="group">
+		<input class="form-component form-component-lg" type="text" placeholder=".form-component-lg">
+		<input class="form-component" type="text" placeholder="Default input">
+		<input class="form-component form-component-sm" type="text" placeholder=".form-component-sm">
+	</div>
+
+	<div class="group">
+		<select class="form-component form-component-lg">
+			<option>Large select</option>
+		</select>
+		<select class="form-component">
+			<option>Default select</option>
+		</select>
+		<select class="form-component form-component-sm">
+			<option>Small select</option>
+		</select>
+	</div>
+
+
+	<h2>Readonly plain text</h2>
+
+	<p>
+		If you want to have &lt;input readonly&gt; elements in your form styled as plain text, use the
+		.form-component-plaintext class to remove the default form field styling and preserve the correct
+		margin and padding.
+	</p>
+
+	<div class="group">
+		<form>
+			<div class="form-group row">
+				<label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-10">
+					<input type="text" [readonly]="true" class="form-component-plaintext" id="staticEmail"
+						[value]="'email@example.com'">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-component" id="inputPassword" placeholder="Password">
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="group">
+		<form class="form-inline">
+			<div class="form-group mb-2">
+				<label for="staticEmail2" class="sr-only">Email</label>
+				<input type="text" [readonly]="true" class="form-component-plaintext" id="staticEmail2"
+					[value]="'email@example.com'">
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="inputPassword2" class="sr-only">Password</label>
+				<input type="password" class="form-component" id="inputPassword2" placeholder="Password">
+			</div>
+			<button type="submit" class="btn btn-info mb-2">Confirm identity</button>
+		</form>
+	</div>
+
+
+	<h2>Range Inputs</h2>
+
+	<p>
+		Set horizontally scrollable range inputs using .form-component-range.
+	</p>
+
+	<div class="group">
+		<form>
+			<div class="form-group">
+				<label for="formComponentRange">Example Range input</label>
+				<input type="range" class="form-component-range" id="formComponentRange">
+			</div>
+		</form>
+	</div>
+
+
+	<h2>Checkboxes and radios</h2>
+
+	<p>
+		Default checkboxes and radios are improved upon with the help of .form-check, a single class for
+		both input types that improves the layout and behavior of their HTML elements. Checkboxes are for
+		selecting one or several options in a list, while radios are for selecting one option from many.
+	</p>
+
+	<p>
+		Disabled checkboxes and radios are supported. The disabled attribute will apply a lighter color to
+		help indicate the input’s state.
+	</p>
+
+	<p>
+		Checkboxes and radios use are built to support HTML-based form validation and provide concise,
+		accessible labels. As such, our &lt;input&gt;s and &lt;label&gt;s are sibling elements as opposed to
+		an &lt;input&gt;
+		within a &lt;label&gt;. This is slightly more verbose as you must specify id and for attributes to
+		relate the &lt;input&gt; and &lt;label&gt;.
+	</p>
+
+	<h2>Default (stacked)</h2>
+
+	<div class="group">
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" [value]="" id="defaultCheck1">
+			<label class="form-check-label" for="defaultCheck1">
+				Default checkbox
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" [value]="" id="defaultCheck2" [disabled]="true">
+			<label class="form-check-label" for="defaultCheck2">
+				Disabled checkbox
+			</label>
+		</div>
+	</div>
+
+
+	<h2>Inline</h2>
+
+	<p>Group checkboxes or radios on the same horizontal row by adding .form-check-inline to any
+		.form-check.</p>
+
+	<div class="group">
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<label class="form-check-label" for="inlineCheckbox1">1</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<label class="form-check-label" for="inlineCheckbox2">2</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" [disabled]="true">
+			<label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+		</div>
+	</div>
+
+
+	<h2>Horizontal form</h2>
+
+	<p>Create horizontal forms with the grid by adding the .row class to form groups and using the .col-*-*
+		classes to specify the width of your labels and components. Be sure to add .col-form-label to your
+		&lt;label&gt;s as well so they’re vertically centered with their associated form components..</p>
+
+	<div class="group">
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+			<label class="form-check-label" for="inlineCheckbox1">1</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			<label class="form-check-label" for="inlineCheckbox2">2</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" [disabled]="true">
+			<label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+		</div>
+	</div>
+
+	<h2>Layout</h2>
+
+	<p>Since Material Bootstrap applies display: block and width: 100% to almost all our form components, forms will by
+		default stack vertically. Additional classes can be used to vary this layout on a per-form basis.
+	</p>
+
+	<h2>Form groups</h2>
+
+	<p>
+		The .form-group class is the easiest way to add some structure to forms. It provides a flexible
+		class that encourages proper grouping of labels, components, optional help text, and form validation
+		messaging. By default it only applies margin-bottom, but it picks up additional styles in
+		.form-inline as needed. Use it with &lt;fieldset&gt;s, &lt;div&gt;s, or nearly any other element.
+	</p>
+
+	<div class="group">
+		<form>
+			<div class="form-group">
+				<label for="formGroupExampleInput">Example label</label>
+				<input type="text" class="form-component" id="formGroupExampleInput" placeholder="Example input">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput2">Another label</label>
+				<input type="text" class="form-component" id="formGroupExampleInput2" placeholder="Another input">
+			</div>
+		</form>
+	</div>
+
+	<h2>Form grid</h2>
+
+	<p>
+		More complex forms can be built using our grid classes. Use these for form layouts that require
+		multiple columns, varied widths, and additional alignment options.
+	</p>
+
+	<div class="group">
+		<form>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputEmail4">Email</label>
+					<input type="email" class="form-component" id="inputEmail4" placeholder="Email">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Password</label>
+					<input type="password" class="form-component" id="inputPassword4" placeholder="Password">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputAddress">Address</label>
+				<input type="text" class="form-component" id="inputAddress" placeholder="1234 Main St">
+			</div>
+			<div class="form-group">
+				<label for="inputAddress2">Address 2</label>
+				<input type="text" class="form-component" id="inputAddress2" placeholder="Apartment, studio, or floor">
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputCity">City</label>
+					<input type="text" class="form-component" id="inputCity">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputState">State</label>
+					<select id="inputState" class="form-component">
+						<option selected>Choose...</option>
+						<option>...</option>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputZip">Zip</label>
+					<input type="text" class="form-component" id="inputZip">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<label class="form-check-label" for="gridCheck">
+						Check me out
+					</label>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</form>
+	</div>
+
+	<h2>Form row</h2>
+
+	<p>
+		You may also swap .row for .form-row, a variation of our standard grid row that overrides the
+		default column gutters for tighter and more compact layouts.
+	</p>
+
+	<P>
+		Be sure to use .col-form-label-sm or .col-form-label-lg to your &lt;label&gt;s or &lt;legend&gt;s to
+		correctly follow the size of .form-component-lg and .form-component-sm.
+	</P>
+
+	<div class="group">
+		<form>
+			<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-component" id="inputEmail3" placeholder="Email">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-component" id="inputPassword3" placeholder="Password">
+				</div>
+			</div>
+			<fieldset class="form-group">
+				<div class="row">
+					<legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+					<div class="col-sm-10">
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+								value="option1" checked>
+							<label class="form-check-label" for="gridRadios1">
+								First radio
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+								value="option2">
+							<label class="form-check-label" for="gridRadios2">
+								Second radio
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
+								value="option3" disabled>
+							<label class="form-check-label" for="gridRadios3">
+								Third disabled radio
+							</label>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-group row">
+				<div class="col-sm-2">Checkbox</div>
+				<div class="col-sm-10">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="gridCheck1">
+						<label class="form-check-label" for="gridCheck1">
+							Example checkbox
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<button type="submit" class="btn btn-secondary">Sign in</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+	<h2>Column sizing</h2>
+
+	<p>
+		As shown in the previous examples, our grid system allows you to place any number of .cols within a
+		.row or .form-row. They’ll split the available width equally between them. You may also pick a
+		subset of your columns to take up more or less space, while the remaining .cols equally split the
+		rest, with specific column classes like .col-7.
+	</p>
+
+	<div class="group">
+		<form>
+			<div class="form-row">
+				<div class="col-7">
+					<input type="text" class="form-component" placeholder="City">
+				</div>
+				<div class="col">
+					<input type="text" class="form-component" placeholder="State">
+				</div>
+				<div class="col">
+					<input type="text" class="form-component" placeholder="Zip">
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+	<h2>Inline forms</h2>
+
+	<p>
+		Use the .form-inline class to display a series of labels, form components, and buttons on a single
+		horizontal row. Form components within inline forms vary slightly from their default states.
+	</p>
+
+	<ul>
+		<li>Components are <code class="highlighter-rouge">display: flex</code>, collapsing any HTML white
+			space and allowing you to provide alignment component with spacing and flexbox utilities.</li>
+		<li>Components and input groups receive <code class="highlighter-rouge">width: auto</code> to
+			override
+			the Material Bootstrap default <code class="highlighter-rouge">width: 100%</code>.</li>
+		<li>Components <strong>only appear inline in viewports that are at least 576px wide</strong> to
+			account for narrow viewports on mobile devices.</li>
+	</ul>
+
+	<p>
+		You may need to manually address the width and alignment of individual form components with spacing
+		utilities (as shown below). Lastly, be sure to always include a &lt;label&gt; with each form
+		component, even
+		if you need to hide it from non-screenreader visitors with .sr-only.
+	</p>
+
+	<div class="group">
+		<form class="form-inline">
+			<label class="sr-only" for="inlineFormInputName2">Name</label>
+			<input type="text" class="form-component mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+
+			<label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+			<div class="input-group mb-2 mr-sm-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text">@</div>
+				</div>
+				<input type="text" class="form-component" id="inlineFormInputGroupUsername2" placeholder="Username">
+			</div>
+
+			<div class="form-check mb-2 mr-sm-2">
+				<input class="form-check-input" type="checkbox" id="inlineFormCheck">
+				<label class="form-check-label" for="inlineFormCheck">
+					Remember me
+				</label>
+			</div>
+
+			<button type="submit" class="btn btn-primary mb-2">Submit</button>
+		</form>
+	</div>
+
+	<h2>Disabled forms</h2>
+
+	<p>
+		Add the disabled boolean attribute on an input to prevent user interactions and make it appear
+		lighter.
+	</p>
+
+	<figure class="highlight">
+		<pre
+			class="prettyprint">&lt;input class="form-component" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;</pre>
+	</figure>
+
+	<p>Add the disabled attribute to a &lt;fieldset&gt; to disable all the components within.</p>
+
+	<div class="group">
+		<form>
+			<fieldset disabled>
+				<div class="form-group">
+					<label for="disabledTextInput">Disabled input</label>
+					<input type="text" id="disabledTextInput" class="form-component" placeholder="Disabled input">
+				</div>
+				<div class="form-group">
+					<label for="disabledSelect">Disabled select menu</label>
+					<select id="disabledSelect" class="form-component">
+						<option>Disabled select</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+						<label class="form-check-label" for="disabledFieldsetCheck">
+							Can't check this
+						</label>
+					</div>
+				</div>
+				<button type="submit" class="btn">Submit</button>
+			</fieldset>
+		</form>
+	</div>
+
+
+	<h2>Validation</h2>
+
+	<p>
+		Provide valuable, actionable feedback to your users with HTML5 form validation–available in all our
+		supported browsers. Choose from the browser default validation feedback, or implement custom
+		messages with our built-in classes and starter JavaScript.
+	</p>
+
+	<h3>How it works</h3>
+
+	<p>Here’s how form validation works with Material Bootstrap:</p>
+
+	<ul>
+		<li>HTML form validation is applied via CSS’s two pseudo-classes, <code
+				class="highlighter-rouge">:invalid</code> and <code class="highlighter-rouge">:valid</code>.
+			It applies to <code class="highlighter-rouge">&lt;input&gt;</code>, <code
+				class="highlighter-rouge">&lt;select&gt;</code>, and <code
+				class="highlighter-rouge">&lt;textarea&gt;</code> elements.</li>
+		<li>Material Bootstrap scopes the <code class="highlighter-rouge">:invalid</code> and <code
+				class="highlighter-rouge">:valid</code> styles to parent <code
+				class="highlighter-rouge">.was-validated</code> class, usually applied to the <code
+				class="highlighter-rouge">&lt;form&gt;</code>. Otherwise, any required field without a value
+			shows up as invalid on page load. This way, you may choose when to activate them (typically
+			after form submission is attempted).</li>
+		<li>To reset the appearance of the form (for instance, in the case of dynamic form submissions using
+			AJAX), remove the <code class="highlighter-rouge">.was-validated</code> class from the <code
+				class="highlighter-rouge">&lt;form&gt;</code> again after submission.</li>
+
+	</ul>
+
+	<p>
+		With that in mind, consider the following demos for our custom form validation styles, optional
+		server side classes, and browser defaults.
+	</p>
+
+	<h3>Custom styles</h3>
+
+	<p>
+		For custom Material Bootstrap form validation messages, you’ll need to add the novalidate boolean attribute
+		to your &lt;form&gt;. This disables the browser default feedback tooltips, but still provides access
+		to
+		the form validation APIs in JavaScript. Try to submit the form below; our JavaScript will
+		intercept the submit button and relay feedback to you. When attempting to submit, you’ll see the
+		:invalid and :valid styles applied to your form components.
+	</p>
+
+
+
+	<div class="group">
+		<form class="needs-validation" novalidate>
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+					<label for="validationCustom01">First name</label>
+					<bootstrap-input type="text" id="validationCustom01" placeholder="First name" [value]="'Mark'"
+						[required]="true">
+					</bootstrap-input>
+					<div class="valid-feedback">
+						Looks good!
+					</div>
+				</div>
+				<div class="col-md-4 mb-3">
+					<label for="validationCustom02">Last name</label>
+					<bootstrap-input type="text" id="validationCustom02" placeholder="Last name" [value]="'Otto'"
+						[required]="true">
+					</bootstrap-input>
+					<div class="valid-feedback">
+						Looks good!
+					</div>
+				</div>
+				<div class="col-md-4 mb-3">
+					<label for="validationCustomUsername">Username</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroupPrepend">@</span>
+						</div>
+						<bootstrap-input type="text" id="validationCustomUsername" placeholder="Username"
+							aria-describedby="inputGroupPrepend" [required]="true"></bootstrap-input>
+
+						<div class="invalid-feedback">
+							Please choose a username.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-6 mb-3">
+					<label for="validationCustom03">City</label>
+					<bootstrap-input type="text" id="validationCustom03" placeholder="City" [required]="true">
+					</bootstrap-input>
+					<div class="invalid-feedback">
+						Please provide a valid city.
+					</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="validationCustom04">State</label>
+					<bootstrap-input type="text" id="validationCustom04" placeholder="State" [required]="true">
+					</bootstrap-input>
+					<div class="invalid-feedback">
+						Please provide a valid state.
+					</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="validationCustom05">Zip</label>
+					<bootstrap-input type="text" id="validationCustom05" placeholder="Zip" [required]="true">
+					</bootstrap-input>
+					<div class="invalid-feedback">
+						Please provide a valid zip.
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-check">
+					<bootstrap-check-box type="checkbox" id="invalidCheck" [required]="true">Agree to terms
+						and
+						conditions</bootstrap-check-box>
+					<div class="invalid-feedback">
+						You must agree before submitting.
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-success" type="submit">Submit form</button>
+		</form>
+	</div>
+
+
+
+	<h2>Custom forms</h2>
+
+	<p>
+		For even more customization and cross browser consistency, use our completely custom form elements
+		to replace the browser defaults. They’re built on top of semantic and accessible markup, so they’re
+		solid replacements for any default form component.
+	</p>
+
+	<h3>Checkboxes and radios</h3>
+
+	<p>
+		The "bootstrap-check-box" and "bootstrap-radio-button" tags display checkboxes and radiobuttons.
+	</p>
+
+	<h3>Checkboxes</h3>
+
+	<div class="group">
+		<bootstrap-check-box>Check me</bootstrap-check-box>
+	</div>
+
+	<p>The following code should set the checkbox input to inditerminate state</p>
+
+	<div class="group">
+		<bootstrap-check-box [indeterminate]="true">Check me</bootstrap-check-box>
+	</div>
+
+	<h3>Radios</h3>
+
+	<div class="group">
+		<bootstrap-radio-button>Radio 1</bootstrap-radio-button>
+		<bootstrap-radio-button>Radio 2</bootstrap-radio-button>
+	</div>
+
+
+	<h3>Switches</h3>
+
+	<p>
+		The "bootstrap-switch-button" tag renders a custom switch.
+	</p>
+
+	<div class="group">
+		<bootstrap-switch-button>Off</bootstrap-switch-button>
+		<bootstrap-switch-button [checked]="true">On</bootstrap-switch-button>
+	</div>
+
+	<h3>Select menu</h3>
+
+	<p>
+		Custom &lt;select&gt; menus need only a custom class, .select to trigger the custom styles.
+		Custom
+		styles are limited to the &lt;select&gt;’s initial appearance and cannot modify the &lt;option&gt;s
+		due to
+		browser limitatio
+	</p>
+
+	<div class="group">
+		<select class="select select-lg mb-3">
+			<option selected>Open this select menu</option>
+			<option value="1">One</option>
+			<option value="2">Two</option>
+			<option value="3">Three</option>
+		</select>
+
+		<select class="select select-sm">
+			<option selected>Open this select menu</option>
+			<option value="1">One</option>
+			<option value="2">Two</option>
+			<option value="3">Three</option>
+		</select>
+	</div>
+
+
+	<h2>Range</h2>
+
+	<p>
+		Create custom &lt;input type="range"&gt; components with .range. The track (the background) and
+		thumb
+		(the value) are both styled to appear the same across browsers. As only IE and Firefox support
+		“filling” their track from the left or right of the thumb as a means to visually indicate progress,
+		we do not currently support it.
+	</p>
+
+	<div class="group">
+		<bootstrap-range></bootstrap-range>
+	</div>
+
+
+	<h2>File browser</h2>
+
+	<p>
+		The file input is the most gnarly of the bunch and requires additional JavaScript if you’d like to
+		hook them up with functional Choose file… and selected file name text.
+	</p>
+
+	<div class="group">
+		<div class="file">
+			<input type="file" class="file-input" id="customFile">
+			<label class="file-label" for="customFile">Choose file</label>
+		</div>
+	</div>
+
+
+	<p>
+		We hide the default file &lt;input&gt; via opacity and instead style the &lt;label&gt;. The button
+		is generated
+		and positioned with ::after. Lastly, we declare a width and height on the &lt;input&gt; for proper
+		spacing for surrounding content.
+	</p>
+	<h3>Progress</h3>
+	The "bootstrap-progress-bar" is the custom element which displays a Progress bar.
+	<div>
+		<bootstrap-progress-bar [value]=25 [max]=100 [min]=0></bootstrap-progress-bar><br />
+		<bootstrap-progress-bar [styleMode]="'info'" [value]=50 [max]=100 [min]=0></bootstrap-progress-bar><br />
+		<bootstrap-progress-bar [styleMode]="'success'" [value]=75 [max]=100 [min]=0></bootstrap-progress-bar><br />
+		<bootstrap-progress-bar [styleMode]="'warning'" [value]=100 [max]=100 [min]=0></bootstrap-progress-bar><br />
+	</div>
+	By adding the 'striped' attribute adds stripes to the progress.
+	<div>
+		<bootstrap-progress-bar [striped]="true" [styleMode]="'danger'" [value]=50 [max]=100 [min]=0>
+		</bootstrap-progress-bar>
+	</div>
+	<br />
+	<br />
+	<h2>Material Design</h2>
+	<h3>Switches</h3><br />
+	<div class="smart material">
+		<bootstrap-switch-button>Off</bootstrap-switch-button>
+		<bootstrap-switch-button [checked]="true">On</bootstrap-switch-button>
+	</div><br />
+	<h3>Radio Buttons</h3><br />
+	<div class="smart material">
+		<bootstrap-radio-button>Off</bootstrap-radio-button>
+		<bootstrap-radio-button [checked]="true">On</bootstrap-radio-button>
+	</div> <br />
+	<h3>Checkbox</h3><br />
+	<div class="smart material">
+		<bootstrap-check-box>Off</bootstrap-check-box>
+		<bootstrap-check-box [checked]="true">On</bootstrap-check-box>
+	</div> <br />
+	<h3>Range</h3><br />
+	<div class="smart material">
+		<bootstrap-range [value]=5 [max]=15 [min]=0></bootstrap-range>
+	</div> <br />
+	<h3>Progress</h3>
+	<br />
+	Linear progress bar
+	<br /><br />
+	<div class="smart material">
+		<bootstrap-progress-bar [value]=25 [max]=100 [min]=0></bootstrap-progress-bar><br />
+		<bootstrap-progress-bar [styleMode]="'info'" [value]=50 [max]=100 [min]=0></bootstrap-progress-bar><br />
+		<bootstrap-progress-bar [styleMode]="'success'" [value]=75 [max]=100 [min]=0></bootstrap-progress-bar><br />
+		<bootstrap-progress-bar [styleMode]="'warning'" [value]=100 [max]=100 [min]=0></bootstrap-progress-bar><br />
+	</div>
+	<br />
+	Circular progress bar
+	<br />
+	<div class="smart material">
+		<bootstrap-progress-bar type="circular" [value]=25 [max]=100 [min]=0></bootstrap-progress-bar><br />
+		<bootstrap-progress-bar type="circular" [styleMode]="'info'" [value]=50 [max]=100 [min]=0>
+		</bootstrap-progress-bar>
+		<br />
+		<bootstrap-progress-bar type="circular" [styleMode]="'success'" [value]=75 [max]=100 [min]=0>
+		</bootstrap-progress-bar>
+		<br />
+		<bootstrap-progress-bar type="circular" [styleMode]="'warning'" [value]=100 [max]=100 [min]=0>
+		</bootstrap-progress-bar>
+		<br />
+	</div>
+	<br />
+	Text Fields
+	<br />
+
+	<div class="smart material group">
+		<form class="needs-validation" novalidate>
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+					<bootstrap-input [outlined]="true" placeholder="First Name" [required]="true" [value]="'Mark'">
+					</bootstrap-input>
+
+					<div class="valid-feedback">
+						Looks good!
+					</div>
+				</div>
+				<div class="col-md-4 mb-3">
+					<bootstrap-input [outlined]="true" placeholder="Last Name" [required]="true" [value]="'Andrews'">
+					</bootstrap-input>
+					<div class="valid-feedback">
+						Looks good!
+					</div>
+				</div>
+				<div class="col-md-4 mb-3">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroupPrepend">@</span>
+						</div>
+						<bootstrap-input [outlined]="true" placeholder="Username" [required]="true" [value]="">
+						</bootstrap-input>
+
+						<div class="invalid-feedback">
+							Please choose a username.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-6 mb-3">
+					<bootstrap-input [outlined]="true" placeholder="City" [required]="true" [value]="">
+					</bootstrap-input>
+
+					<div class="invalid-feedback">
+						Please provide a valid city.
+					</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<bootstrap-input [outlined]="true" placeholder="State" [required]="true" [value]="">
+					</bootstrap-input>
+
+					<div class="invalid-feedback">
+						Please provide a valid state.
+					</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<bootstrap-input [outlined]="true" placeholder="Zip" [required]="true" [value]=""></bootstrap-input>
+
+					<div class="invalid-feedback">
+						Please provide a valid zip.
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-check">
+					<br />
+					<bootstrap-check-box id="invalidCheck">Agree to terms and conditions</bootstrap-check-box>
+					<div class="invalid-feedback">
+						You must agree before submitting.
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-success" type="submit">Submit form</button>
+		</form>
+	</div>
+</div>

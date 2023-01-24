@@ -1,0 +1,29 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [hourStart]="hourStart" [hourEnd]="hourEnd"
+    [filterable]="filterable" [resources]="resources" [showLegend]="showLegend" [view]="view">
+</smart-scheduler>
+<div class="options">
+    <div class="option">
+        <h4>Filter Options:</h4>
+        <smart-button #button id="disableFiltering" (onClick)="handleFiltering()">Disable Filtering</smart-button>
+        <smart-button #button2 id="applyFilter" (onClick)="applyFiltering()">Apply Filter</smart-button>
+        <smart-button #button3 id="clearFilter" [disabled]="true" (onClick)="clearFiltering()">Clear Filter</smart-button>
+    </div>
+    <div class="option legend">
+        <h4>Legend:</h4>
+        <smart-switch-button #switchbutton [checked]="true"></smart-switch-button>
+    </div>
+    <div class="option legend-location">
+        <h4>Legend Location:</h4>
+        <smart-radio-button #radiobutton [checked]="true">Footer</smart-radio-button>
+        <smart-radio-button>Header</smart-radio-button>
+    </div>
+    <div class="option legend-position">
+        <h4>Legend Position:</h4>
+        <smart-radio-button #radiobutton2 [checked]="true">Near</smart-radio-button>
+        <smart-radio-button>Far</smart-radio-button>
+    </div>
+    <div class="option legend-item">
+        <h4>Disable/Enable Legend Item:</h4>
+        <smart-check-box #checkbox [checked]="true">Brainstorming Room</smart-check-box>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="smart-demo-container">
+    <section>
+        <div>
+             <h2>Progress and activity indicators are visual indications of an app loading content.</h2>
+            <div class="module">
+                <p>A single visual indicator should be used to represent each type of operation.
+                    For example, a refresh operation should display either a refresh bar or
+                    an activity circle, but not both.</p>
+                <p>Additional button types include:</p>
+                <p><strong>Determinate indicators</strong> display how long an operation will
+                    take.</p>
+                <p><strong>Indeterminate indicators</strong> visualize an unspecified wait
+                    time.</p>
+            </div>
+            <div class="module">
+                 <h3>Types</h3>
+                <p>Linear
+                    <br>Circular</p>
+                 <h3>Behavior</h3>
+                <p>Loading content in phases
+                    <br>Loading additional content</p>
+            </div>
+        </div>
+    </section>
+    <section id="indicatorTypes">
+         <h2>Types of indicators</h2>
+        <div class="module">
+            <p>When indicators are <strong>determinate</strong> they indicate how long
+                an operation will take when the percentage complete is detectable.</p>
+            <p>When indicators are <strong>indeterminate</strong> they request that the
+                user wait while something finishes when it’s not necessary to indicate
+                how long it will take.</p>
+            <p>Both linear and circular progress indicators may be either determinate
+                or indeterminate.</p>
+        </div>
+        <div class="module progress-bar-linear">
+             <h2>Linear</h2>
+            <p>A linear progress indicator should always fill from 0% to 100% and never
+                decrease in value. It should be represented by bars on the edge of a header
+                or sheet that appear and disappear.</p>
+            <p>For <strong>multiple operations</strong> happening in sequence, use the
+                indicator to represent the progress as a whole, and not each individual
+                operation.</p>
+        </div>
+        <div class="module progress-bar-animations">
+            <div>
+                 <h3>Determinate</h3>
+                <smart-progress-bar #progressbar [value]="50" class="determinate"></smart-progress-bar>
+                 <h3>Indeterminate</h3>
+                <smart-progress-bar #progressbar2 [indeterminate]="true" class=""></smart-progress-bar>
+            </div>
+            <p>Linear progress indicators Light Theme</p>
+        </div>
+        <div class="module"></div>
+        <div class="module progress-bar-behavior">
+             <h2>Demo usage</h2>
+        </div>
+        <div class="module files-loading-progress">
+            <div>
+                <p>Getting your files</p>
+                <smart-progress-bar #progressbar3 class="determinate"
+                [indeterminate]="true" [inverted]="true"></smart-progress-bar>
+            </div>
+            <p>Loading content for the first time</p>
+        </div>
+        <div class="module page-loading-progress">
+            <div>
+                <smart-progress-bar #progressbar4 [indeterminate]="true"></smart-progress-bar>
+            </div>
+            <p>Query indicator on a webpage</p>
+        </div>
+    </section>
+    <section id="circularProgressBar">
+        <div class="module">
+             <h2>Circular</h2>
+        </div>
+        <div class="module progress-bar-animations">
+            <div>
+                 <h3>Determinate</h3>
+                <smart-circular-progress-bar class="determinate"></smart-circular-progress-bar>
+                 <h3>Indeterminate</h3>
+                <smart-circular-progress-bar [indeterminate]="true"></smart-circular-progress-bar>
+            </div>
+            <p>Circular progress indicators Light Theme</p>
+        </div>
+        <div class="module ">
+            <div>
+                 <h3>Determinate</h3>
+                <smart-circular-progress-bar [value]=50 class="determinate"></smart-circular-progress-bar>
+                 <h3>Indeterminate</h3>
+                <smart-circular-progress-bar [indeterminate]="true"></smart-circular-progress-bar>
+            </div>
+            <p>Circular progress indicators Dark Theme</p>
+        </div>
+        <div class="module progress-bar-behavior">
+             <h2>Demo usage</h2>
+        </div>
+        <div class="module circular-loading-progress">
+            <div>
+                <smart-circular-progress-bar class="uploading">
+                    <smart-toggle-button #togglebutton id="toggleUploadButton"><i class="material-icons">cloud_upload</i>
+                    </smart-toggle-button>
+                </smart-circular-progress-bar>
+            </div>
+            <p>A circular loader may be integrated with a button.</p>
+        </div>
+        <div class="module page-refresh-progress">
+            <div>
+                <smart-circular-progress-bar id="refreshing" class="smart-visibility-hidden"
+                [indeterminate]="true"></smart-circular-progress-bar>
+            </div>
+            <p>A circular loader may be used to load something on hover.</p>
+        </div>
+    </section>
+</div>

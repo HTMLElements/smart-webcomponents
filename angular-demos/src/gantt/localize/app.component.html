@@ -1,0 +1,18 @@
+<div class="demo-description">Custom <b>timelineHeaderFormatFunction</b> is applied to change a specific
+    format for the header of the Timeline.
+    <br />Click on the Drop Down List to select a different Locale.</div>
+<smart-gantt-chart #ganttchart [view]="'month'" [durationUnit]="durationUnit" [taskColumns]="taskColumns" 
+[yearFormat]="yearFormat" [monthFormat]="monthFormat" [dayFormat]="dayFormat" [treeSize]="treeSize" 
+[timelineHeaderFormatFunction]="timelineHeaderFormatFunction" [messages]="messages" [dataSource]="dataSource"></smart-gantt-chart>
+    <div class="options">
+        <div class="option">
+             <h3>Select locale:</h3>
+
+            <smart-drop-down-list #dropDownList>
+                <smart-list-item [selected]="true">en</smart-list-item>
+                <smart-list-item>de</smart-list-item>
+                <smart-list-item>bg</smart-list-item>
+                <smart-list-item>fr</smart-list-item>
+            </smart-drop-down-list>
+        </div>
+    </div>

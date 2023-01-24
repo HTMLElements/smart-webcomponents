@@ -1,0 +1,8 @@
+<div class="demo-description">TextBox and MultilineTextBox are bound to sub properties.</div>
+<br />
+<smart-text-box #textbox smart-model="details.subject" id="textBox1"></smart-text-box>
+<br />
+<br />
+<smart-multiline-text-box #multilinetextbox smart-model="details.message" id="textBox2"></smart-multiline-text-box>
+<br /> <span>{{app.data.details.subject}}</span>
+<br /> <span>{{app.data.details.message}}</span>

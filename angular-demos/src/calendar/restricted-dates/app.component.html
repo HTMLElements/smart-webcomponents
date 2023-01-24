@@ -1,0 +1,10 @@
+<smart-calendar #calendar id="calendar" selected-dates='["2020-7-4"]'
+[restrictedDates]='restrictedDates'></smart-calendar>
+<div class="options">
+    <div class="caption">Restricted Dates</div>
+    <div class="option">
+        <div *ngFor="let date of restrictedDates">
+            {{date}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="demo-description">
+    <h1> Tooltip Display Mode</h1> In this example are demonstrated different options for Color Panel tooltips.</div>
+<smart-color-panel #colorpanel id="colorPanel"></smart-color-panel>
+    <div class="options" #options>
+        <div class="caption">Tooltip Display Mode</div>
+        <div class="option">
+            <smart-radio-button #radiobutton [groupName]="'tooltipDisplayMode'">none</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton2 [groupName]="'tooltipDisplayMode'">rgba</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton3 [groupName]="'tooltipDisplayMode'">rgb</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton4 [groupName]="'tooltipDisplayMode'" [checked]="true">hex</smart-radio-button>
+            <br/>
+        </div>
+    </div>

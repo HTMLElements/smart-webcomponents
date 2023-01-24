@@ -1,0 +1,16 @@
+<smart-calendar #calendar></smart-calendar>
+<div class="options">
+  <div class="option">Select first day of week</div>
+  <div class="option">
+    <smart-drop-down-list
+      [dataSource]="dataSource"
+      (change)="onChange($event)"
+      #dropdownlist
+      selected-indexes="[0]"
+      id="dayOfWeekSelector"
+    ></smart-drop-down-list>
+  </div>
+  <div class="option">
+    {{log}}
+  </div>
+</div>

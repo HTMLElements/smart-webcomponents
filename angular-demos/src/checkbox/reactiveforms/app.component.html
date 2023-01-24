@@ -1,0 +1,73 @@
+<div [hidden]="submitted" class="container">
+    <h1>Hero Form</h1>
+    <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <label for="name">Name</label>
+            <smart-input required class="form-component" formControlName="name">
+            </smart-input>
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                    Name is required.
+                </div>
+                <div *ngIf="name.errors.minlength">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="name.errors.forbiddenName">
+                    Name cannot be Bob.
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label for="alterEgo">Alter Ego</label>
+                <smart-input class="form-component" formControlName="alterEgo">
+                </smart-input>
+            </div>
+            <div class="form-row">
+                <label for="power">Hero Power</label>
+                <smart-drop-down-list required class="form-component" formControlName="power" required>
+                    <smart-list-item *ngFor="let pow of powers" [value]="pow">{{pow}}</smart-list-item>
+                </smart-drop-down-list>
+                <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+                    Power is required
+                </div>
+            </div>
+			<div class="form-row">
+                <label for="power">Hero Super Power</label>
+                <smart-check-box required class="form-component" formControlName="superPower" required>
+                </smart-check-box>
+                <div [hidden]="superPower.valid || superPower.pristine" class="alert alert-danger">
+                    Super Power is required
+                </div>
+            </div>
+            <div class="smart-stack-layout">
+                <smart-button [disabled]="!heroForm.valid" type="submit" class="success item">Submit</smart-button>
+                <smart-button type="button" (click)="newHero(); heroForm.reset()" class="primary item">New Hero
+                </smart-button>
+            </div>
+        </div>
+    </form>
+</div>
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Name</div>
+        <div class="col-xs-9">{{ name.value }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Alter Ego</div>
+        <div class="col-xs-9">{{ alterEgo.value }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Power</div>
+        <div class="col-xs-9">{{ power.value }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Super Power</div>
+        <div class="col-xs-9">{{ superPower.value }}</div>
+    </div>
+    <br>
+    <smart-button class="primary" (click)="submitted=false">Edit</smart-button>
+</div>
+<br /><br />
+<h2>Changes Log:</h2>
+{{diagnostic}}

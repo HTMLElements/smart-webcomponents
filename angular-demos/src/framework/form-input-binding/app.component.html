@@ -1,0 +1,6 @@
+<div class="demo-description">TextBox's value is data bound to the 'message' property. The SPAN tag's
+    text content is also automatically updated when the 'message' property
+    is changed.</div>
+<br />
+<smart-text-box #textbox title={{app.data.message}} smart-model="message" id="textBox1"></smart-text-box>
+<br />Message is: <span>{{app.data.message}}</span>

@@ -1,0 +1,124 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+smart-cards {
+    min-height: 100vh;
+}
+
+smart-card.expandable-card {
+    background-color: white;
+}
+
+    smart-card.expandable-card .card-image {
+        position: relative;
+    }
+
+        smart-card.expandable-card .card-image img {
+            width: 100%;
+            border-radius: 2px 2px 0px 0px;
+        }
+
+        smart-card.expandable-card .card-image .card-title {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            color: white;
+            font-size: 30px;
+            background-color: #00000087;
+            padding: 20px;
+        }
+
+    smart-card.expandable-card .card-content, smart-card.expandable-card .card-comment, smart-card.expandable-card .card-action {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    smart-card.expandable-card .card-comment {
+        font-style: italic;
+        font-size: 0.9em;
+    }
+
+    smart-card.expandable-card .card-action {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 20px;
+        border-top: 1px solid rgba(160,160,160,0.2);
+        border-radius: 0px 0px 2px 2px;
+    }
+
+    smart-card.expandable-card smart-accordion {
+        width: 100%;
+        height: auto;
+    }
+
+    smart-card.expandable-card smart-accordion-item > .smart-container {
+        border-bottom-width: 0px;
+    }
+
+    smart-card.expandable-card smart-accordion-item p {
+        border-bottom: 1px solid lightgray;
+        padding: 5px;
+        margin: 2px;
+        color: gray;
+    }
+
+    smart-card.expandable-card .card-buttons {
+        position: relative;
+        padding: 0px 20px 20px 0px;
+    }
+
+    smart-card.expandable-card .card-content.hidden {
+        display: none;
+    }
+
+smart-card smart-toggle-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 16px;
+    background-color: lightgray;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+}
+
+smart-card smart-button button.smart-button {
+    border-width: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+smart-card smart-toggle-button button.smart-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-width: 0px;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    -o-transition: transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+smart-card smart-toggle-button[checked] button.smart-button {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    -o-transition: transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+}

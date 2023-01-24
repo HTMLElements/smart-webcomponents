@@ -1,0 +1,28 @@
+<div class="demo-description">
+    <h1>Printing Grid Data</h1>
+    This page demonstrates how to Print the Grid data. The "dataExport" property
+    allows you to specify the printing options. "dataExport.view" determines
+    whether only the visible rows will be printed. "dataExport.viewStart" and
+    "dataExport.viewEnd" specify the start and end row that will be printed.
+    The "dataExport.header" property determines whether the Grid columns will
+    be printed.
+    <br />
+    <h2>Page Break</h2>
+    When Printing the Grid, all rows will have the CSS property "page-break-inside:
+    avoid". We do that to ensure that a row is fully visible on one page and
+    parts of it are not displayed on another page. For example: Part of the
+    row on one printed page with the other part on the next printed page.
+</div>
+<br />
+<br />
+<smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns" [dataExport]="dataExport"
+    [appearance]="appearance"></smart-grid>
+<div class="options">
+    <div class="caption"></div>
+    <div class="option">
+        <smart-button #printBtn id="printBtn">Print</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #printRestrictBtn id="printRestrictBtn">Print 25-50</smart-button>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+#fileZone {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    /*border: lightgray solid 1px;
+    */
+}
+
+    #fileZone .smart-selected-files:empty::after {
+        content: 'No selected files';
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        color: lightgray;
+        text-align: center;
+    }

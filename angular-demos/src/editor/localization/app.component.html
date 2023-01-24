@@ -1,0 +1,11 @@
+<smart-editor #editor id="editor" [toolbarItems]="toolbarItems" [locale]="locale" [messages]="messages"></smart-editor>
+<div class="options">
+    <div class="description">
+         <h4>Select a locale:</h4>
+    </div>
+    <div class="option">
+        <smart-radio-button>EN</smart-radio-button>
+        <smart-radio-button #radiobutton [checked]="true">DE</smart-radio-button>
+        <smart-radio-button>IT</smart-radio-button>
+    </div>
+</div>

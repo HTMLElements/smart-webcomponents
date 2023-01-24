@@ -1,0 +1,13 @@
+smart-drop-down-list {
+    position: relative;
+    top: 260px;
+	min-height: 35px;
+	height: auto;	
+}
+smart-drop-down-list  .smart-drop-down {
+	--smart-drop-down-element-max-height: 250px;
+}
+
+html, body {
+	min-height: 900px;
+}

@@ -1,0 +1,293 @@
+<div class="smart-demo-container">
+    <div id="materialDropDownListContainer">
+        <section>
+            <div>
+                 <h2>Smart HTML MultiSplitButton is a form control that allows either selecting a value from a drop down list or clicking one of the split buttons.</h2>
+                <div class="module">
+                    <p>A dropdown list selects between multiple selections. It displays the current
+                        state and a down/up arrow. Available states may be shown as a list of strings,
+                        a palette, or icons, for example.</p>
+                    <p>When a user interacts with the dropDown, a menu can appear over, under
+                        or below the drop down list and displays the possible states. Pressing
+                        a state dismisses the menu if the selection is single and updates the button
+                        to display this new state.</p>
+                    <p>Scrolling within the dropdown behaves the same way a menu scrolls.</p>
+                </div>
+                <div style="height: 5px;" class="module">
+                    <figure style="visibility: hidden;">
+                        <img alt="" src="../../../images/components-buttons.png">
+                    </figure>
+                </div>
+                <div class="module"></div>
+                <div class="module preview">
+                    <smart-button #button class="floating primary"><i class="material-icons">photo_camera</i>
+                    </smart-button>
+                    <div id="textFields"> <span>Name</span>
+                        <div class="group"> <span>Phone</span>
+                            <smart-multi-split-button #multisplitbutton buttons-data-source="['Call Phone']"
+                            drop-down-position="bottom" selection-mode="one" class="combos1 ">
+                                <smart-list-item>Mobile</smart-list-item>
+                                <smart-list-item>Home</smart-list-item>
+                                <smart-list-item>Work</smart-list-item>
+                            </smart-multi-split-button>
+                        </div>
+                        <div class="group"> <span>Email</span>
+                            <smart-multi-split-button #multisplitbutton2 buttons-data-source="['Send Email']"
+                            drop-down-position="bottom" selection-mode="one" class="combos1 ">
+                                <smart-list-item>Work</smart-list-item>
+                                <smart-list-item>Mobile</smart-list-item>
+                                <smart-list-item>Home</smart-list-item>
+                            </smart-multi-split-button>
+                        </div>
+                        <div class="group"> <span>Address</span>
+                            <smart-multi-split-button #multisplitbutton3 buttons-data-source="['Send Address']"
+                            drop-down-position="bottom" selection-mode="one" class="combos1">
+                                <smart-list-item>Home</smart-list-item>
+                                <smart-list-item>Mobile</smart-list-item>
+                                <smart-list-item>Work</smart-list-item>
+                            </smart-multi-split-button>
+                        </div> <span>Ringtone</span> <span>Add note</span>
+                    </div>
+                </div>
+                <div class="module"></div>
+            </div>
+        </section>
+        <div class="module">
+             <h2>Generic overflow MultiSplitButton</h2>
+            <p>The generic overflow MultiSplitButton displays an arrow by default. When
+                the button is pressed, the menu appears. Pressing an option on the menu
+                navigates to further settings for that option.</p>
+            <br />
+            <smart-multi-split-button #multisplitbutton4 buttons-data-source="['Apply Font']"
+            drop-down-position="bottom">
+                <smart-list-item>Arial</smart-list-item>
+                <smart-list-item selected>Calibri</smart-list-item>
+                <smart-list-item>Courier</smart-list-item>
+                <smart-list-item>Verdana</smart-list-item>
+            </smart-multi-split-button>
+        </div>
+        </section>
+        <section id="style">
+             <h2>Style</h2>
+            <div class="module MultiSplitButtonLightTheme">
+                <table>
+                    <tr>
+                        <td>
+                            <p>Normal</p>
+                        </td>
+                        <td>
+                            <smart-multi-split-button #multisplitbutton5 buttons-data-source="['Get', 'Set']"
+                            drop-down-position="bottom">
+                                <smart-list-item selected>Home</smart-list-item>
+                                <smart-list-item>Mobile</smart-list-item>
+                                <smart-list-item>Work</smart-list-item>
+                                <smart-list-item>Business</smart-list-item>
+                                <smart-list-item>Personal</smart-list-item>
+                            </smart-multi-split-button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Disabled</p>
+                        </td>
+                        <td>
+                            <smart-multi-split-button #multisplitbutton6 buttons-data-source="['Get', 'Set']"
+                            drop-down-position="bottom" [disabled]="true">
+                                <smart-list-item>Home</smart-list-item>
+                                <smart-list-item>Mobile</smart-list-item>
+                                <smart-list-item>Work</smart-list-item>
+                                <smart-list-item>Business</smart-list-item>
+                                <smart-list-item selected>Personal</smart-list-item>
+                            </smart-multi-split-button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="MultiSplitButtonOpenModes">
+             <h2>Open Directions</h2>
+            <div class="module">
+                <p>smartMultiSplitButton has a number of opening directions but the most
+                    popular are "bottom", "overlay-center" and "top".</p>
+            </div>
+            <div class="module dropDownOpenModes">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Bottom</td>
+                            <td>
+                                <smart-multi-split-button #multisplitbutton7 buttons-data-source="['Set Country']"
+                                drop-down-position="bottom">
+                                    <smart-list-item>Africa</smart-list-item>
+                                    <smart-list-item selected>America</smart-list-item>
+                                    <smart-list-item>Asia</smart-list-item>
+                                    <smart-list-item>Europe</smart-list-item>
+                                </smart-multi-split-button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Overlay-center</td>
+                            <td>
+                                <smart-multi-split-button #multisplitbutton8 buttons-data-source="['Set Food']"
+                                drop-down-position="overlay-center">
+                                    <smart-list-item>Yogurt</smart-list-item>
+                                    <smart-list-item selected>Honey</smart-list-item>
+                                    <smart-list-item>Strawberries</smart-list-item>
+                                </smart-multi-split-button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Top</td>
+                            <td>
+                                <smart-multi-split-button #multisplitbutton9 buttons-data-source="['Set Nuts']"
+                                drop-down-position="top">
+                                    <smart-list-item>Peanuts</smart-list-item>
+                                    <smart-list-item selected>Hazelnuts</smart-list-item>
+                                    <smart-list-item>Almonds</smart-list-item>
+                                </smart-multi-split-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="MultiSplitButtonSelectionModes">
+             <h2>Selection Modes</h2>
+            <div class="module">
+                <p>smartMultiSplitButton has a variaty of selection modes allowing single
+                    or multiple item selection.</p>
+            </div>
+            <div>One(Selection of single item)</div>
+            <br/>
+            <smart-multi-split-button #multisplitbutton10 buttons-data-source="['Set State']"
+            drop-down-position="bottom">
+                <smart-list-item selected>State 1</smart-list-item>
+                <smart-list-item>State 2</smart-list-item>
+                <smart-list-item>State 3</smart-list-item>
+            </smart-multi-split-button>
+            <br/>
+            <div>oneOrManyExtended - allows selection with shift and ctrl.</div>
+            <br/>
+            <smart-multi-split-button #multisplitbutton11 buttons-data-source="['Submit']"
+            drop-down-position="bottom" selection-mode="oneOrManyExtended">
+                <smart-list-item>State 1</smart-list-item>
+                <smart-list-item selected>State 2</smart-list-item>
+                <smart-list-item>State 3</smart-list-item>
+            </smart-multi-split-button>
+            <br/>
+            <div>checkBox</div>
+            <br/>
+            <smart-multi-split-button #multisplitbutton12 buttons-data-source="['Submit Selection']"
+            drop-down-position="bottom" selection-mode="checkBox">
+                <smart-list-item>Item 1</smart-list-item>
+                <smart-list-item selected>Item 2</smart-list-item>
+                <smart-list-item>Item 3</smart-list-item>
+            </smart-multi-split-button>
+            <br/>
+            <div>radioButton</div>
+            <br/>
+            <smart-multi-split-button #multisplitbutton13 buttons-data-source="['Submit Selection']"
+            drop-down-position="bottom" selection-mode="radioButton">
+                <smart-list-item>Item 1</smart-list-item>
+                <smart-list-item selected>Item 2</smart-list-item>
+                <smart-list-item>Item 3</smart-list-item>
+            </smart-multi-split-button>
+            <br/>
+            <p>Additional selection modes are "zeroOrOne", "OneOrMany", "zeroOrMany"
+                and "none"</p>
+        </section>
+        <section id="demoDropDown">
+             <h2>Demo</h2>
+            <div class="module">
+                <p>MultiSplitButtones are controls that are used for making a selection from
+                    a list of options.</p>
+            </div>
+            <div class="module shipping">
+                <div>
+                     <h2>Edit shipping info</h2>
+                    <div>
+                        <div class="name"> <i class="material-icons">&#xE7FD;</i> <span>John Williams</span>
+                        </div>
+                        <div class="address">
+                            <div> <i class="material-icons">&#xE55F;</i> <span>2000 Main Street</span> 
+                                <br
+                                />
+                            </div>
+                            <div> <span>Hoboken</span>
+                                <smart-multi-split-button #multisplitbutton14 buttons-data-source="['Submit State']"
+                                drop-down-position="overlay-center">
+                                    <smart-list-item>NJ</smart-list-item>
+                                    <smart-list-item selected>DE</smart-list-item>
+                                    <smart-list-item>FL</smart-list-item>
+                                    <smart-list-item>NH</smart-list-item>
+                                    <smart-list-item>GA</smart-list-item>
+                                    <smart-list-item>IN</smart-list-item>
+                                    <smart-list-item>HI</smart-list-item>
+                                    <smart-list-item>CT</smart-list-item>
+                                    <smart-list-item>NM</smart-list-item>
+                                    <smart-list-item>ID</smart-list-item>
+                                    <smart-list-item>KS</smart-list-item>
+                                    <smart-list-item>LA</smart-list-item>
+                                    <smart-list-item>KY</smart-list-item>
+                                    <smart-list-item>CO</smart-list-item>
+                                    <smart-list-item>NE</smart-list-item>
+                                    <smart-list-item>OH</smart-list-item>
+                                    <smart-list-item>SC</smart-list-item>
+                                    <smart-list-item>RI</smart-list-item>
+                                    <smart-list-item>TX</smart-list-item>
+                                    <smart-list-item>WA</smart-list-item>
+                                </smart-multi-split-button> <span>94122</span>
+                            </div>
+                        </div>
+                        <div class="email"> <i class="material-icons">&#xE0BE;</i> <span>Email</span>
+                        </div>
+                        <div class="buttons">
+                            <smart-button #button2 class="material flat">Cancel</smart-button>
+                            <smart-button #button3 class="material flat" [disabled]="true">Done</smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <div class="module welcome">
+                <div>
+                     <h2>Welcome</h2>
+                    <smart-multi-split-button #multisplitbutton15 buttons-data-source="['Set Country']"
+                    drop-down-position="overlay-center" selection-mode="zeroOrOne" placeholder="Select Language">
+                        <smart-list-item>English(US)</smart-list-item>
+                        <smart-list-item>English(UK)</smart-list-item>
+                        <smart-list-item>English(AU)</smart-list-item>
+                        <smart-list-item>English(IN)</smart-list-item>
+                        <smart-list-item>Czech</smart-list-item>
+                        <smart-list-item>Dutch</smart-list-item>
+                        <smart-list-item>French</smart-list-item>
+                        <smart-list-item>German(DE)</smart-list-item>
+                        <smart-list-item>German(AT)</smart-list-item>
+                        <smart-list-item>Italian</smart-list-item>
+                        <smart-list-item>Japanase</smart-list-item>
+                        <smart-list-item>Korean</smart-list-item>
+                        <smart-list-item>Polish</smart-list-item>
+                        <smart-list-item>Russian</smart-list-item>
+                        <smart-list-item>Spanish</smart-list-item>
+                        <smart-list-item>Arabic(EG)</smart-list-item>
+                        <smart-list-item>Arabic(IL)</smart-list-item>
+                        <smart-list-item>Bulgarian</smart-list-item>
+                        <smart-list-item>Croatian</smart-list-item>
+                        <smart-list-item>Danish</smart-list-item>
+                        <smart-list-item>Finnish</smart-list-item>
+                        <smart-list-item>Romanian</smart-list-item>
+                        <smart-list-item>Swedish</smart-list-item>
+                        <smart-list-item>Thai</smart-list-item>
+                        <smart-list-item>Turkish</smart-list-item>
+                        <smart-list-item>Ukrainian</smart-list-item>
+                        <smart-list-item>Vietnamese</smart-list-item>
+                    </smart-multi-split-button>
+                    <smart-button #button4 class="floating"><i class="material-icons">&#xE5C8;</i>
+                    </smart-button>
+                    <smart-button #button5 class="raised error"><i class="material-icons">&#xE0CD;</i><span>EMERGENCY</span>
+                    </smart-button>
+                </div>
+            </div>
+        </section>
+    </div>

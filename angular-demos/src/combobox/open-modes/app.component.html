@@ -1,0 +1,28 @@
+<div id="description">
+    <h3>Modes Description</h3>
+    <p>Auto - the comboBox is opened/closed when the element is hovered.</p>
+    <p>Default - the comboBox is opened/closed when the element is clicked.</p>
+    <p>DropDownButton - the comboBox is devided in two. An input field and a
+        drop-down button.
+        <br />Each component can be focused. The comboBox can be opened/closed when
+        the dropDownButton is clicked.</p>
+    <p>None - the dropDownList can't be opened/closed.</p>
+</div>
+<smart-combo-box #combobox class="drop-down-list-modes-demo"></smart-combo-box>
+<div class="options">
+    <div class="caption">
+        <h3>ComboBox Open Mode:</h3>
+        <div class="option">
+            <smart-button #buttonDefault [disabled]="true">Default</smart-button>
+        </div>
+        <div class="option">
+            <smart-button #buttonAuto>Auto</smart-button>
+        </div>
+        <div class="option">
+            <smart-button #buttonDropDownButton>DropDownButton</smart-button>
+        </div>
+        <div class="option">
+            <smart-button #buttonNone>None</smart-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<smart-gantt-chart #ganttchart id="gantt" [view]="view" [shadeUntilCurrentTime]="shadeUntilCurrentTime"
+    [currentTimeIndicator]="currentTimeIndicator" [currentTimeIndicatorInterval]="currentTimeIndicatorInterval"
+    [dateStart]="dateStart" [dateEnd]="dateEnd" [taskColumns]="taskColumns" [dataSource]="dataSource"></smart-gantt-chart>
+
+<div class="options">
+    <div class="option">
+        <h4>Current Time Indicator:</h4>
+        <smart-switch-button #switchbutton id="currentTimeIndicator" [checked]="true"></smart-switch-button>
+    </div>
+    <div class="option">
+        <h4>Shade Untill Current Time:</h4>
+        <smart-switch-button #switchbutton2 id="shadeUntilCurrentTime" [checked]="true"></smart-switch-button>
+    </div>
+    <div class="option">
+        <h4>Current Time Indicator/Shader Update Interval:</h4>
+        <smart-number-input #numberinput id="currentTimeIndicatorInterval" [value]="60" [min]="1"></smart-number-input>
+    </div>
+</div>

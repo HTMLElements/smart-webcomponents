@@ -1,0 +1,9 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views" [hourStart]="hourStart"
+    [hourEnd]="hourEnd" [groups]="groups" [groupByDate]="groupByDate" [resources]="resources"></smart-scheduler>
+<div class="options">
+    <div class="option">
+        <h4>Select Group Orientation:</h4>
+        <smart-radio-button #radiobutton [checked]="true">Horizontal</smart-radio-button>
+        <smart-radio-button>Vertical</smart-radio-button>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>My Shop</h1>
+        </div>
+
+        <smart-menu id="menu" [minimizeWidth]="500" [dropDownPosition]="'bottom-left'">
+            <smart-menu-item [shortcut]="'Ctrl+R'" class="active-item">
+                <i class="material-icons">
+                    payment
+                </i>
+            </smart-menu-item>
+
+            <smart-menu-item [shortcut]="'Ctrl+G'" onclick="window.location.href = '../cart/index.htm'">
+                <i class="material-icons">
+                    shopping_cart
+                </i>
+            </smart-menu-item>
+
+            <smart-menu-item [shortcut]="'Ctrl+F'">
+                <i class="material-icons">
+                    search
+                </i>
+            </smart-menu-item>
+
+        </smart-menu>
+
+    </div>
+</header>
+
+
+<section class="checkout-container">
+    <div class="smart-card-holder">
+        <div class=" smart-grid-layout centered">
+            <div class="row">
+
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                    <div class="subtitle">
+                        Billing details
+                    </div>
+
+                    <div class=" smart-grid-layout centered">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <label>First Name *</label>
+                                <smart-input></smart-input>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <label>Last Name *</label>
+                                <smart-input></smart-input>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <label>Company Name</label>
+                                <smart-input></smart-input>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <label>Email Address *</label>
+                                <smart-input></smart-input>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <label>Mobile No</label>
+                                <smart-input></smart-input>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <label>Country</label>
+                                <smart-drop-down-list [dropDownPosition]="'bottom'" [placeholder]="'Text'">
+                                    <smart-list-item [selected]="true">Australia</smart-list-item>
+                                    <smart-list-item>Brazil</smart-list-item>
+                                    <smart-list-item>France</smart-list-item>
+                                    <smart-list-item>Germany</smart-list-item>
+                                    <smart-list-item>United States</smart-list-item>
+                                </smart-drop-down-list>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <label>City</label>
+                                <smart-input></smart-input>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <label>Address</label>
+                                <smart-input></smart-input>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <smart-input [placeholder]="'Apartment, suite, unit etc. (optional)'"></smart-input>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <smart-check-box>Create an account ?</smart-check-box>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                    <smart-grid #grid id="productCheckout" [layout]="layout" [dataSource]="dataSource" [columns]="columns"></smart-grid>
+
+                    <smart-button class="primary btn-outlined place-order text">Place Order</smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

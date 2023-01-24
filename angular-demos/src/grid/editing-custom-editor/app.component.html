@@ -1,0 +1,12 @@
+<div class="demo-description">
+    <h1>Custom Template Editor with HTMLTemplateElement in smartGrid</h1>
+    <p>Click on any cell to open an editor which is set with 'HTMLTemplateElement'.
+        The First column represents a Template column with Emoji icons. When the
+        column is in edit mode, it displays the #moodEditorTemplate HTMLTemplateElement.
+        To select a mood, click on the emoji icon and press the 'Enter' key or
+        click outside the Grid. The 'First Name' and 'Last Name' columns are with
+        "INPUT" tags. The 'Product' Grid column is with 'SELECT' tag, the 'Order
+        Date' column is with 'INPUT TYPE="DATE"' editor. The 'Quantity' column
+        is with 'INPUT TYPE="RANGE"' editor and the 'Unit Price' Grid column is
+        with 'INPUT TYPE="NUMBER"' editor.</p>
+    <smart-grid #grid id="grid" [editing]="editing" [dataSource]="dataSource" [columns]="columns"></smart-grid>

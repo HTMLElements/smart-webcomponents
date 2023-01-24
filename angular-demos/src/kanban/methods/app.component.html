@@ -1,0 +1,30 @@
+<smart-kanban #kanban id="kanban" [collapsible]="collapsible" [dataSource]="dataSource" [editable]="editable"
+    [textTemplate]="textTemplate" [columns]="columns">
+</smart-kanban>
+
+<div class="options">
+    Manupulate column with status:
+    <smart-input #input id="status" [dataSource]='["toDo", "inProgress", "testing", "done"]'
+        [dropDownButtonPosition]="'right'" [value]="'toDo'">
+    </smart-input>
+    <br />
+    <br />
+    <smart-button #button id="collapse" (onClick)="collapseOnClick()">Collapse column</smart-button>
+    <smart-button #button2 id="expand" (onClick)="expandOnClick()">Expand column</smart-button>
+    <smart-button #button3 id="expandAll" (onClick)="expandAllOnClick()">Expand all columns</smart-button>
+    <br />
+    <br />
+    Manipulate task with ID:
+    <smart-numeric-text-box #numerictextbox id="idSelector" [inputFormat]="'integer'" [value]="0">
+    </smart-numeric-text-box>
+    <br />
+    <smart-button #button4 id="beginEdit" (onClick)="beginEditOnClick()">Begin edit</smart-button>
+    <smart-button #button5 id="endEdit" (onClick)="endEditOnClick()">End edit</smart-button>
+    <smart-button #button6 id="cancelEdit" (onClick)="cancelEditOnClick()">Cancel edit</smart-button>
+    <smart-button #button7 id="addTask" (onClick)="addTaskOnClick()">Add task</smart-button>
+    <smart-button #button8 id="copyTask" (onClick)="copyTaskOnClick()">Copy task</smart-button>
+    <smart-button #button9 id="moveTask" (onClick)="moveTaskOnClick()">Move task</smart-button>
+    <smart-button #button10 id="removeTask" (onClick)="removeTaskOnClick()">Remove task</smart-button>
+    <smart-button #button11 id="updateTask" (onClick)="updateTaskOnClick()">Update task</smart-button>
+    <smart-button #button12 id="ensureVisible" (onClick)="ensureVisibleOnClick()">Ensure visible</smart-button>
+</div>

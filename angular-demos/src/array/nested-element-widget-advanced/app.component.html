@@ -1,0 +1,31 @@
+    <smart-array #smartArray id="smartArray"
+               show-index-display
+               type="custom"
+               value='[[{ "firstName": "Roan", "lastName": "Fel" }, { "firstName": "Mara", "lastName": "Jade" }], [{ "firstName": "Ben", "lastName": "Skywalker" }, { "firstName": "Gilad", "lastName": "Pellaeon" }]]'
+               dimensions="2"
+               rows="3"
+               columns="3"
+               element-width="200"
+               element-height="200"
+               custom-widget-default-value='{ "firstName": "", "lastName": "" }'
+               element-template="elementTemplate"
+               get-element-value="getElementValue"
+               set-element-value="setElementValue"></smart-array>
+    <br />
+    <smart-button #setValueToOneElement id="setValueToOneElement" class="demoButton">
+        Set the value of (2, 0)
+    </smart-button>
+    <div style="margin-top: 50px; font-family: Verdana;">
+        Log:
+    </div>
+    <br />
+    <div #log id="log">
+    </div>
+    <template id="template">
+        <div class="container">
+            <div>First name:</div>
+            <input type="text" />
+            <div>Last name:</div>
+            <input type="text" class="lastNameinput" />
+        </div>
+    </template>

@@ -1,0 +1,14 @@
+<smart-color-panel #colorpanel id="colorPanel" [displayMode]="'default'"
+[enableCustomColors]="true"></smart-color-panel>
+
+<div class="options" #options>
+     <h1>Apply Value Mode</h1>
+    <div class="option">Selected color:
+        <br/>
+        <input type="text" class="smart-input" placeholder="#RRGGBB" id="rgbValue" #rgbInput/>
+    </div>
+    <div class="option">
+        <smart-radio-button #radiobutton id="applyValueModeInstantly" [groupName]="'applyValueMode'" [checked]="true">instantly</smart-radio-button>
+        <smart-radio-button #radiobutton2 id="applyValueModeUseButtons" [groupName]="'applyValueMode'">useButtons</smart-radio-button>
+    </div>
+</div>

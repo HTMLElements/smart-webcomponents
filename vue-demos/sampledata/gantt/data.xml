@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource>
+<task>
+    <dateStart>2021-05-01</dateStart>
+    <duration>5</duration>
+    <expanded>true</expanded>
+    <label>Project A</label>
+    <tasks>
+        <task>
+            <dateStart>2021-05-06</dateStart>
+            <duration>4</duration>
+            <expanded>true</expanded>
+            <label>Sub-Project A1</label>
+            <tasks>
+                <task>
+                <dateStart>2021-05-05</dateStart>
+                <duration>5</duration>
+                <label>Task A1.1</label>
+                <type>task</type>
+                </task>
+                <task>
+                <dateStart>2021-05-10T12:00:00</dateStart>
+                <duration>4</duration>
+                <label>Task A1.2</label>
+                <type>task</type>
+                </task>
+            </tasks>
+            <type>project</type>
+        </task>
+        <task>
+            <dateStart>2021-05-05</dateStart>
+            <duration>6</duration>
+            <expanded>true</expanded>
+            <label>Sub-Project A2</label>
+            <progress>70</progress>
+            <tasks>
+                <task>
+                <dateStart>2021-05-07</dateStart>
+                <duration>5</duration>
+                <label>Task A2.1</label>
+                <progress>25</progress>
+                <type>task</type>
+                </task>
+                <task>
+                <dateStart>2021-05-06</dateStart>
+                <duration>4</duration>
+                <label>Task A2.2</label>
+                <progress>90</progress>
+                <type>task</type>
+                </task>
+            </tasks>
+            <type>project</type>
+        </task>
+        <task>
+            <dateStart>2021-05-07</dateStart>
+            <duration>2</duration>
+            <expanded>true</expanded>
+            <label>Sub-Project A3</label>
+            <tasks>
+                <task>
+                <dateStart>2021-05-6</dateStart>
+                <duration>5</duration>
+                <label>Task A3.1</label>
+                <progress>100</progress>
+                <type>task</type>
+                </task>
+                <task>
+                <dateStart>2021-05-06</dateStart>
+                <duration>3</duration>
+                <label>Task A3.2</label>
+                <type>task</type>
+                </task>
+                <task>
+                <dateStart>2021-05-06</dateStart>
+                <duration>4</duration>
+                <label>Task A3.3</label>
+                <type>task</type>
+                </task>
+            </tasks>
+            <type>project</type>
+        </task>
+    </tasks>
+    <type>project</type>
+   </task>
+   <task>
+        <dateStart>2021-05-02T09:00:00</dateStart>
+        <duration>18</duration>
+        <expanded>true</expanded>
+        <label>Project B</label>
+        <tasks>
+            <task>
+                <dateStart>2021-05-02T09:00:00</dateStart>
+                <duration>10</duration>
+                <label>Task B1</label>
+                <progress>25</progress>
+                <type>task</type>
+            </task>
+            <task>
+                <dateStart>2021-05-04</dateStart>
+                <duration>4</duration>
+                <expanded>true</expanded>
+                <label>Sub-Project B2</label>
+                <progress>90</progress>
+                <tasks>
+                    <task>
+                    <dateStart>2021-05-05</dateStart>
+                    <duration>5</duration>
+                    <label>Task B2.1</label>
+                    <progress>35</progress>
+                    <type>task</type>
+                    </task>
+                    <task>
+                    <dateStart>2021-05-05</dateStart>
+                    <duration>6</duration>
+                    <label>Task B2.2</label>
+                    <progress>65</progress>
+                    <type>task</type>
+                    </task>
+                    <task>
+                    <dateStart>2021-05-05</dateStart>
+                    <duration>4</duration>
+                    <label>Task B2.3</label>
+                    <progress>50</progress>
+                    <type>task</type>
+                    </task>
+                    <task>
+                    <dateStart>2021-05-05</dateStart>
+                    <duration>6</duration>
+                    <label>Task B2.4</label>
+                    <progress>65</progress>
+                    <type>task</type>
+                    </task>
+                </tasks>
+                <type>project</type>
+            </task>
+            <task>
+                <dateStart>2021-05-05</dateStart>
+                <duration>3</duration>
+                <label>Task B3</label>
+                <progress>55</progress>
+                <type>task</type>
+            </task>
+            <task>
+                <dateStart>2021-05-01</dateStart>
+                <duration>3</duration>
+                <expanded>true</expanded>
+                <label>Sub-Project B4</label>
+                <progress>15</progress>
+                <tasks>
+                    <task>
+                    <dateStart>2021-05-05</dateStart>
+                    <duration>7</duration>
+                    <label>Task B4.1</label>
+                    <progress>100</progress>
+                    <type>task</type>
+                    </task>
+                    <task>
+                    <dateStart>2021-05-05</dateStart>
+                    <duration>5</duration>
+                    <label>Task B4.2</label>
+                    <progress>100</progress>
+                    <type>task</type>
+                    </task>
+                    <task>
+                    <dateStart>2021-05-05</dateStart>
+                    <duration>5</duration>
+                    <label>Task B4.3</label>
+                    <type>task</type>
+                    </task>
+                </tasks>
+                <type>project</type>
+            </task>
+            <task>
+                <dateStart>2021-05-06</dateStart>
+                <duration>6</duration>
+                <label>Task B5</label>
+                <type>task</type>
+            </task>
+        </tasks>
+        <type>project</type>
+   </task>
+</dataSource>

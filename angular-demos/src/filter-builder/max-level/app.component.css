@@ -1,0 +1,35 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+smart-filter-builder {
+    width: 99vw;
+    height: 99vh;
+}
+
+#filterQueryBox {
+    position: absolute;
+    padding: 10px;
+    box-sizing: border-box;
+    right: 20px;
+    top: 2%;
+    width: 500px;
+    height: 95%;
+    border: dashed lightgray 1px;
+    white-space: pre;
+    color: gray;
+    font-size: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+    #filterQueryBox:empty:after {
+        content: 'Filter Query';
+        height: 100%;
+        color: gray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }

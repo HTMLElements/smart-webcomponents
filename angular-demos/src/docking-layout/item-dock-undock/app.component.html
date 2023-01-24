@@ -1,0 +1,20 @@
+<smart-docking-layout #dockinglayout id="layout" [layout]="layout"></smart-docking-layout>
+<div class="options">
+    <div class="caption">Choose an Item</div>
+    <div class="option">
+        <smart-drop-down-list #dropdownlist [sorted]="true">
+            <smart-list-item [value]="'A'">Tabs A</smart-list-item>
+            <smart-list-item [value]="'B'">Tabs B</smart-list-item>
+            <smart-list-item [value]="'C'">Tabs C</smart-list-item>
+            <smart-list-item [value]="'D'">Tabs D</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+    <div class="option">
+        <smart-button #button id="dock">Dock</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="undock">Undock</smart-button>
+    </div>
+</div>
+<br />
+<br />

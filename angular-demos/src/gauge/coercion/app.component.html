@@ -1,0 +1,22 @@
+<smart-gauge #gauge id="gauge" [analogDisplayType]="'needle'" [digitalDisplay]="true"
+             [startAngle]="-30" [endAngle]="210" [min]="0" [max]="21" [value]="1" [coerce]="true" [interval]="1"></smart-gauge>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleCoerce" [checked]="true">
+            Toggle <strong>coerce</strong>
+        </smart-toggle-button>
+    </div>
+    <div class="option">
+        <smart-button #button id="setInterval">
+            Set <strong>interval</strong> to <em>2</em>
+        </smart-button>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<div class="description">
+    Coercion - snapping to the nearest value according to the coercion interval
+    setting.
+</div>

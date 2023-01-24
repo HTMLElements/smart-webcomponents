@@ -1,0 +1,109 @@
+
+<header>
+    <div class="header-container"> <span>Euro Air</span>
+        <div class="header-icon-container"> <i class="material-icons">search</i>
+ <i class="material-icons">notifications</i>
+            <i
+            class="material-icons">language</i>
+        </div>
+    </div>
+</header>
+<section class="page-container">
+    <div class="smart-grid-layout centered">
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="search-container">
+                    <smart-accordion #accordion [expandMode]="'singleFitHeight'">
+                        <smart-accordion-item [label]="'Look for a Flight'">
+                            <div class="row-separator">
+                                <label>Trip</label>
+                                <div class="filter-content">
+                                    <smart-radio-button #radiobutton [checked]="true" class="trip-type">One-Way</smart-radio-button>
+                                    <smart-radio-button #radiobutton2 class="trip-type return">Return</smart-radio-button>
+                                </div>
+                            </div>
+                            <div class="row-separator">
+                                <label>From</label>
+                                <div class="filter-content">
+                                    <smart-drop-down-list #dropdownlist5 [filterable]="true" [dropDownAppendTo]="'body'">
+                                        <smart-list-item [value]="'1'">Riga</smart-list-item>
+                                        <smart-list-item [value]="'2'">Moscow</smart-list-item>
+                                        <smart-list-item [value]="'3'">Prague</smart-list-item>
+                                        <smart-list-item [value]="'4'">Kiev</smart-list-item>
+                                        <smart-list-item [value]="'5'">St.Petersburg</smart-list-item>
+                                        <smart-list-item [value]="'6'">Minsk</smart-list-item>
+                                    </smart-drop-down-list>
+                                </div>
+                            </div>
+                            <div class="row-separator">
+                                <label>To</label>
+                                <div class="filter-content">
+                                    <smart-drop-down-list #dropdownlist6 [filterable]="true" [dropDownAppendTo]="'body'">
+                                        <smart-list-item [value]="'1'">Riga</smart-list-item>
+                                        <smart-list-item [value]="'2'">Moscow</smart-list-item>
+                                        <smart-list-item [value]="'3'">Prague</smart-list-item>
+                                        <smart-list-item [value]="'4'">Kiev</smart-list-item>
+                                        <smart-list-item [value]="'5'">St.Petersburg</smart-list-item>
+                                        <smart-list-item [value]="'6'">Minsk</smart-list-item>
+                                    </smart-drop-down-list>
+                                </div>
+                            </div>
+                            <div class="row-separator">
+                                <label>Departure</label>
+                                <div class="filter-content">
+                                    <smart-date-time-picker #datetimepicker5 [calendarButton]="true" [enableMouseWheelAction]="true"
+                                    [dropDownPosition]="'center-bottom'" [spinButtons]="true" [spinButtonsPosition]="'left'"
+                                    [dropDownDisplayMode]="'calendar'" [dropDownAppendTo]="'body'" [formatString]="'dd MMM yyyy'"></smart-date-time-picker>
+                                </div>
+                            </div>
+                            <div #rowSeparator class="row-separator return smart-hidden">
+                                <label>Return</label>
+                                <div class="filter-content">
+                                    <smart-date-time-picker #datetimepicker6 [calendarButton]="true" [enableMouseWheelAction]="true"
+                                    [dropDownPosition]="'center-bottom'" [spinButtons]="true" [spinButtonsPosition]="'left'"
+                                    [dropDownDisplayMode]="'calendar'" [dropDownAppendTo]="'body'" [formatString]="'dd MMM yyyy'"></smart-date-time-picker>
+                                </div>
+                            </div>
+                            <div class="row-separator">
+                                <label>Adults</label>
+                                <div class="filter-content">
+                                    <smart-numeric-text-box #numerictextbox [value]="'1'" [spinButtons]="true" [spinButtonsPosition]="'left'"
+                                    [enableMouseWheelAction]="true"></smart-numeric-text-box>
+                                </div>
+                            </div>
+                            <div class="row-separator">
+                                <label>Children</label>
+                                <div class="filter-content">
+                                    <smart-numeric-text-box #numerictextbox2 [value]="'1'" [spinButtons]="true" [spinButtonsPosition]="'left'"
+                                    [enableMouseWheelAction]="true"></smart-numeric-text-box>
+                                </div>
+                            </div>
+                            <smart-button #button3 class="search-now-btn">Search now</smart-button>
+                        </smart-accordion-item>
+                        <smart-accordion-item [label]="'Hotels'" id="hotelsItem"></smart-accordion-item>
+                        <smart-accordion-item [label]="'Cars'" id="carsItem"></smart-accordion-item>
+                        <smart-accordion-item [label]="'Register'" id="registerItem"></smart-accordion-item>
+                    </smart-accordion>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-12">
+                <div class="flights-container">
+                    <smart-card #card class="flights-card">
+                        <div class="title">Flights</div>
+                        <smart-tabs #tabs id="tabs3">
+                            <smart-tab-item [label]="'Offers'">
+                                <div id="offersGrid"></div>
+                            </smart-tab-item>
+                            <smart-tab-item [label]="'Regular'">
+                                <div id="regularGrid"></div>
+                            </smart-tab-item>
+                            <smart-tab-item [label]="'Info'">
+                                <div id="infoGrid"></div>
+                            </smart-tab-item>
+                        </smart-tabs>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

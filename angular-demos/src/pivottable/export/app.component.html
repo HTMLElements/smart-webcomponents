@@ -1,0 +1,27 @@
+<div class="demo-description">This demo shows how to export smart-pivot-table to a variety
+    of popular file formats - CSV, HTML, JSON, PDF, TSV, XLSX, and XML.</div>
+<smart-pivot-table #pivottable id="pivotTable" [dataSource]="dataSource" [freezeHeader]="freezeHeader"
+    [keyboardNavigation]="keyboardNavigation" [rowTotals]="rowTotals" [columns]="columns"></smart-pivot-table>
+<div class="options">
+    <div class="option">
+        <smart-button #button id="csv" (onClick)="csvClick()">Export to CSV</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="html" (onClick)="htmlClick()">Export to HTML</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="json" (onClick)="jsonClick()">Export to JSON</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="pdf" (onClick)="pdfClick()">Export to PDF</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button5 id="tsv" (onClick)="tsvClick()">Export to TSV</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button6 id="xlsx" (onClick)="xlsxClick()">Export to XLSX</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button7 id="xml" (onClick)="xmlClick()">Export to XML</smart-button>
+    </div>
+</div>

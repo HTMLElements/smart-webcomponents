@@ -1,0 +1,9 @@
+<div class="demo-description">
+    <h1>Grid Email column type</h1>
+    A column with email type stores a single email address in each cell. Clicking
+    on an email address within an email field will open up your device's native
+    email client with the To: field addressed to the email you just clicked
+    on.
+</div>
+<smart-grid #grid id="grid" [onRowDetailInit]="onRowDetailInit" [dataSource]="dataSource" [sorting]="sorting"
+    [behavior]="behavior" [layout]="layout" [rowDetail]="rowDetail" [columns]="columns"></smart-grid>

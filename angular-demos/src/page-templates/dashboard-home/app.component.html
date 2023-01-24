@@ -1,0 +1,127 @@
+<smart-splitter #splitter id="dashboard" expanded>
+    <smart-splitter-item id="leftPanel">
+        <div class="dashboard-header">
+            <img #logo src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg"
+                class="smart-logo" />
+            <smart-button #buttonCollapse id="collapseBtn" class="floating">
+                <i class="material-icons">chevron_left</i>
+            </smart-button>
+            <smart-button #buttonExpand id="expandBtn" class="floating">
+                <i class="material-icons">menu</i>
+            </smart-button>
+        </div>
+
+        <div class="dashboard-menu-container">
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">view_quilt</i>Contacts</smart-button>
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">person</i>Opportunities</smart-button>
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">list_alt</i>Opportunity Statuses</smart-button>
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">view_list</i>Tasks</smart-button>
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">hdr_strong</i>Task Statuses</smart-button>
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">map</i>Task Types</smart-button>
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">notifications</i>Home</smart-button>
+            <smart-button class="flat menu-btn">
+                <i class="material-icons">language</i>RTL Support</smart-button>
+        </div>
+    </smart-splitter-item>
+    <smart-splitter-bar class="smart-hidden"></smart-splitter-bar>
+    <smart-splitter-item id="rightPanel">
+        <div class="dashboard-header"></div>
+        <div id="cards-container">
+            <div>
+                <smart-card class="basic-card storage">
+                    <div class="card-content revenue">
+                        <div>
+                            <span class="icon-holder">
+                                <i class="material-icons">attach_money</i>
+                            </span>
+                            <div class="titles">
+                                <span class="card-title">Revenue</span>
+                                <span class="card-subtitle">Last month</span>
+                            </div>
+                        </div>
+                        <div class="value">$205,000.00</div>
+                    </div>
+                </smart-card>
+            </div>
+            <div>
+                <smart-card class="basic-card storage">
+                    <div class="card-content opportunities">
+                        <div>
+                            <span class="icon-holder">
+                                <i class="material-icons">shopping_cart</i>
+                            </span>
+                            <div class="titles">
+                                <span class="card-title">Opportunities</span>
+                                <span class="card-subtitle">Last month</span>
+                            </div>
+                        </div>
+                        <div class="value">2</div>
+                    </div>
+                </smart-card>
+            </div>
+            <div>
+                <smart-card class="basic-card storage">
+                    <div class="card-content balance">
+                        <div>
+                            <span class="icon-holder">
+                                <i class="material-icons">account_balance_wallet</i>
+                            </span>
+                            <div class="titles">
+                                <span class="card-title">Average Deal Size</span>
+                                <span class="card-subtitle">Last month</span>
+                            </div>
+                        </div>
+                        <div class="value">102500</div>
+                    </div>
+                </smart-card>
+            </div>
+            <div>
+                <smart-card class="basic-card storage">
+                    <div class="card-content win-rate">
+                        <div>
+                            <span class="icon-holder">
+                                <i class="material-icons">thumb_up</i>
+                            </span>
+                            <div class="titles">
+                                <span class="card-title">Win Rate</span>
+                                <span class="card-subtitle">Last month</span>
+                            </div>
+                        </div>
+                        <div class="value">64%</div>
+                    </div>
+                </smart-card>
+            </div>
+        </div>
+        <div id="charts-container">
+            <smart-chart #chart1 id="customerLifeTime" [caption]="chart1Caption" [description]="description"
+                [padding]="padding" [titlePadding]="titlePadding" [backgroundColor]="backgroundColor"
+                [seriesGroups]="chart1SeriesGroups" [showBorderLine]="showBorderLine"
+                [showLegend]="showLegend" [dataSource]="chart1DataSource" [xAxis]="chart1XAxis"></smart-chart>
+            <smart-chart #chart2 id="revenue" [caption]="chart2Caption" [description]="description" [padding]="padding"
+                [titlePadding]="titlePadding" [backgroundColor]="backgroundColor"
+                [seriesGroups]="chart2SeriesGroups" [showBorderLine]="showBorderLine"
+                [showLegend]="showLegend" [dataSource]="chart2DataSource" [xAxis]="chart2XAxis"></smart-chart>
+            <smart-chart #chart3 id="revenueByEmployee" [caption]="chart3Caption" [description]="description"
+                [padding]="padding" [titlePadding]="titlePadding" [backgroundColor]="backgroundColor"
+                [seriesGroups]="chart3SeriesGroups" [showBorderLine]="showBorderLine"
+                [showLegend]="showLegend" [dataSource]="chart3DataSource" [xAxis]="chart3XAxis"></smart-chart>
+        </div>
+        <div id="grids-container">
+            <div>
+                <h3>Opportunities</h3>
+                <smart-grid #grid id="opportunities" [selection]="selection" [appearance]="appearance" [dataSource]="dataSource" [columns]="columns"></smart-grid>
+            </div>
+            <div>
+                <h3>Active Tasks</h3>
+                <smart-grid #grid2 id="activeTasks" [selection]="selection" [appearance]="appearance" [dataSource]="grid2DataSource" [columns]="grid2Columns"></smart-grid>
+            </div>
+        </div>
+    </smart-splitter-item>
+</smart-splitter>

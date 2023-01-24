@@ -1,0 +1,47 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [firstDayOfWeek]="firstDayOfWeek"
+    [hourStart]="hourStart" [hourEnd]="hourEnd" [timelineDayScale]="timelineDayScale"></smart-scheduler>
+    
+<div class="options">
+    <div class="option">
+        <h4>Current Time Indicator Color:</h4>
+        <smart-color-input id="indicator" class="color-selector" [value]="'#005c99'">
+        </smart-color-input>
+    </div>
+    <div class="option">
+        <h4>Time Shade Color:</h4>
+        <smart-color-input id="shader" class="color-selector" [value]="'#f4e0e080'" >
+        </smart-color-input>
+    </div>
+    <div class="option">
+        <h4>Day/Week Horizontal Line Size:</h4>
+        <smart-input #input id="line-horizontal" class="size-selector" [dropDownButtonPosition]="'right'"
+            [dataSource]='["1","2","5"]' [value]="'1'"  [readonly]="true"></smart-input>
+    </div>
+    <div class="option">
+        <h4>Day/Week Vertical Line Size:</h4>
+        <smart-input #input2 id="line-vertical" class="size-selector" [dropDownButtonPosition]="'right'"
+            [dataSource]='["1","2","5"]' [value]="'1'"  [readonly]="true"></smart-input>
+    </div>
+    <div class="option">
+        <h4>Day/Week Horizontal Line color:</h4>
+        <smart-color-input id="line-horizontal" class="color-selector"
+            [value]="'#464646'" ></smart-color-input>
+    </div>
+    <div class="option">
+        <h4>Day/Week Vertical Line color:</h4>
+        <smart-color-input id="line-vertical" class="color-selector" [value]="'#464646'" >
+        </smart-color-input>
+    </div>
+    <div class="option">
+        <h4>Show Time Ruler Ticks:</h4>
+        <smart-switch-button #switchbutton id="timeRulerTicks"></smart-switch-button>
+    </div>
+    <div class="option">
+        <h4>Show Current Time Indicator:</h4>
+        <smart-switch-button #switchbutton2 id="currentTimeIndicator"></smart-switch-button>
+    </div>
+    <div class="option">
+        <h4>Shade Until Current Time:</h4>
+        <smart-switch-button #switchbutton3 id="shadeUntilCurrentTime"></smart-switch-button>
+    </div>
+</div>

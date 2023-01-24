@@ -1,0 +1,18 @@
+<div class="demo-description">
+    <h1>Server-Side Sort and Filter with MySQL and PHP</h1>
+    Data in this demo is loaded on demand from MySql Database and especially the 'Customers' table of the
+    Northwind Database. Server request is made when you change Sort or Filter. This is achieved by using the
+    CardView's Data Virtualization in combination with DataAdapter's "virtualDataSource".
+
+    <ul>
+        <li>Filtering and sorting UI is enabled by setting the property <strong>headerPosition</strong> to
+            <em>'top'</em> or <em>'bottom'</em>.</li>
+        <li>The 'query' in the data request is used by the server to perform sorting and filtering.</li>
+    </ul>
+</div>
+<smart-card-view #cardview id="cardView" [dataSource]="dataSource" [headerPosition]="headerPosition"
+    [scrolling]="scrolling" [titleField]="titleField" [columns]="columns"></smart-card-view>
+<br />
+<br />
+<h3>SQL Query</h3>
+<div id="query"></div>

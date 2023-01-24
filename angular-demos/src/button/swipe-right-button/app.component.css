@@ -1,0 +1,80 @@
+body {
+    background: #fff;
+}
+
+.button-demo {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.button-demo label {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: auto;
+    color: black;
+}
+
+.demo-buttons-group {
+    margin-top: 20px;
+}
+
+/* Swipe Right Button */
+smart-button.swipe-right-btn {
+    text-transform: none;
+    border-radius: 0;
+}
+
+smart-button.swipe-right-btn {
+    --smart-button-opacity-focus: initial;
+    --smart-button-opacity-hover: initial;
+    --smart-button-opacity-active: initial;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+smart-button.swipe-right-btn button {
+    padding: 0;
+}
+
+a {
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+}
+
+a span {
+    position: relative;
+    z-index: 2;
+}
+
+a:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff003b;
+    transition: all .35s;
+}
+
+a:hover {
+    color: #fff;
+}
+
+a:hover:after {
+    width: 100%;
+}

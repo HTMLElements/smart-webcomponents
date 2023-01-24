@@ -1,0 +1,20 @@
+.smart-file smart-progress-bar {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+    .smart-file smart-progress-bar .smart-value {
+        opacity: 0.5;
+    }
+
+.smart-file.smart-uploading::before, .smart-file.smart-uploading::after {
+    content: none;
+}
+
+
+smart-file-upload[show-progress] .smart-file smart-progress-bar{
+    display:block;
+    color:gray;
+    font-size:18px;
+}

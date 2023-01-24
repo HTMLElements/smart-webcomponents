@@ -1,0 +1,93 @@
+<div [hidden]="submitted" class="container">
+    <h1>User Registration</h1>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-row">
+            <label for="name">Name</label>
+            <smart-input required class="form-component" [(ngModel)]="model.name" name="name" id="name" #name="ngModel">
+            </smart-input>
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="address">Address</label>
+            <smart-input class="form-component" [(ngModel)]="model.address" name="address" id="address">
+            </smart-input>
+        </div>
+        <div class="form-row">
+            <label for="phone">Phone</label>
+            <smart-masked-text-box class="form-component" mask="+1 (###) ### - ####" [(ngModel)]="model.phone"
+                name="phone" id="phone">
+            </smart-masked-text-box>
+        </div>
+        <div class="form-row" ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
+            <label for="exampleInputPassword1">Password</label>
+            <smart-password-text-box type="password" class="form-component" id="exampleInputPassword1"
+                placeholder="password" [(ngModel)]="password1" (change)="model.password=passwordA.value"
+                #passwordA="ngModel" name="passwordA" required id="passwordA">
+            </smart-password-text-box>
+            <label for="exampleInputPassword2">Confirm Password</label>
+            <smart-password-text-box type="password" class="form-component" id="exampleInputPassword2"
+                placeholder="confirm password" [(ngModel)]="password2" #passwordB="ngModel" name="passwordB" required
+                id="passwordB">
+            </smart-password-text-box>
+        </div>
+        <div *ngIf="passwordB.invalid && (passwordA.dirty || passwordA.touched)" class="alert alert-danger">
+            Please confirm your password.
+        </div>
+        <div *ngIf="passwords.errors?.passwordCheck && (passwordB.dirty || passwordB.touched)"
+            class="alert alert-danger">
+            Passwords do not match.
+        </div>
+
+
+        <div class="form-row">
+            <label for="gender">Gender</label>
+            <smart-drop-down-list required #gender="ngModel" class="form-component" [(ngModel)]="model.gender"
+                name="gender" id="gender" required>
+                <smart-list-item *ngFor="let gender of genderType" [value]="gender">{{gender}}</smart-list-item>
+            </smart-drop-down-list>
+            <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">
+                Gender is required
+            </div>
+        </div>
+
+
+
+        <div class="smart-stack-layout">
+            <smart-button [disabled]="!userForm.form.valid" type="submit" class="success item">Submit</smart-button>
+            <smart-button type="submit" (click)="newUser(); userForm.reset()" class="primary item">New User
+            </smart-button>
+        </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Name</div>
+        <div class="col-xs-9">{{ model.name }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Address</div>
+        <div class="col-xs-9">{{ model.address }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Phone</div>
+        <div class="col-xs-9">{{ model.phone }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Password</div>
+        <div class="col-xs-9">{{ model.password }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Gender</div>
+        <div class="col-xs-9">{{ model.gender }}</div>
+    </div>
+    <br>
+    <smart-button class="primary" (click)="submitted=false">Edit</smart-button>
+</div>
+<br /><br />
+<h2>Changes Log:</h2>
+{{diagnostic}}

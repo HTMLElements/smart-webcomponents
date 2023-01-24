@@ -1,0 +1,27 @@
+app-crisis-detail {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.component-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+}
+
+h3 {
+  text-align: center;
+}
+
+smart-text-box {
+  margin-left: 0.5em;
+}
+
+smart-button {
+  margin-right: 0.5em;
+}
+
+smart-tab-item > .smart-container {
+  overflow: hidden;
+}

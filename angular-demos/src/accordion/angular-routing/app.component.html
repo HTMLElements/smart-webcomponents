@@ -1,0 +1,14 @@
+<h1>Angular Router with Accordion</h1>
+
+<smart-accordion #accordion [expandedIndexes]="[1]">
+  <smart-accordion-item [label]="'Crisis List'">
+    <div [@routeAnimation]="getAnimationData(routerOutletAux)">
+      <router-outlet #routerOutletAux="outlet" name="crisis"></router-outlet>
+    </div>
+    </smart-accordion-item>
+    <smart-accordion-item [label]="'Heroes'">
+      <div [@routeAnimation]="getAnimationData(routerOutlet)">
+        <router-outlet #routerOutlet="outlet"></router-outlet>
+      </div>
+    </smart-accordion-item>
+</smart-accordion>

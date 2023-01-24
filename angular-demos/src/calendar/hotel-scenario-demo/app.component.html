@@ -1,0 +1,39 @@
+<div>
+     <h2>Hotel Booking</h2>
+</div>
+<div id="mainContainer">
+    <div>
+         <h4>Name of the destination:</h4>
+        <smart-text-box #nameInput id="nameInput" placeholder="London"></smart-text-box>
+    </div>
+    <div id="travelChooser">
+         <h4>Work travel ?</h4>
+        <smart-radio-button>Yes</smart-radio-button>
+        <smart-radio-button>No</smart-radio-button>
+    </div>
+    <div>
+         <h4>Reservation dates:</h4>
+        <smart-calendar #datePicker id="datePicker" min="new Date()" months="2"
+        selection-mode="many" view-sections='["header", "footer"]'></smart-calendar>
+    </div>
+    <br/>
+    <div id="summary" class="smart-visibility-hidden"></div>
+    <br/>
+    <div id="personPicker">
+        <div>
+             <h4>Rooms:</h4>
+            <smart-combo-box #roomPicker id="roomPicker" class="hotelRoomPicker" selection-mode="one"></smart-combo-box>
+        </div>
+        <div>
+             <h4>Adults:</h4>
+            <smart-combo-box #adultPicker id="adultPicker" class="hotelRoomPicker" selection-mode="one"></smart-combo-box>
+        </div>
+        <div>
+             <h4>Children:</h4>
+            <smart-combo-box #childrenPicker id="childrenPicker" class="hotelRoomPicker"
+            selection-mode="one"></smart-combo-box>
+        </div>
+    </div>
+    <br/>
+    <smart-button #submitButton id="submitButton">Search</smart-button>
+</div>

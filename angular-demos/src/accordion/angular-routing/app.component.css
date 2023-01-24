@@ -1,0 +1,7 @@
+smart-accordion {
+    height: 550px;
+}
+
+smart-accordion-item .smart-content-container {
+    overflow: hidden;
+}

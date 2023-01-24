@@ -1,0 +1,10 @@
+<div class="container">
+    <p>When the Error Correction Level is sufficiently high, it is possible to embed an Image inside the QR Code.<br>
+        The maximum size of the image depends on the Error Correction Level and the QR Code value.</p>
+    <div class="qrcode-container">
+        <smart-qrcode value="ANGULAR.IO" [embedImage]="'https://www.htmlelements.com/demos/images/angular.svg'"
+        [imageWidth]="60" [imageHeight]="60"></smart-qrcode>
+        <smart-qrcode value="VUEJS.ORG" embed-image="https://www.htmlelements.com/demos/images/vuejs.svg"
+        [imageWidth]="60"[imageHeight]="60"></smart-qrcode>
+    </div>
+</div>

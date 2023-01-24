@@ -1,0 +1,145 @@
+smart-gauge {
+	width:250px;
+}
+
+smart-gauge {
+    float: left;
+    margin-left: 40px;
+}
+
+#needleGauge1 .smart-needle {
+    height: 30px;
+    fill: maroon;
+}
+
+#needleGauge1 .smart-needle-central-circle {
+    display: none;
+}
+
+#needleGauge2 .smart-needle,
+#needleGauge2 .smart-needle-central-circle {
+    fill: #3E3E3E;
+}
+
+#needleGauge2 .smart-range {
+    fill: #3D6990;
+}
+
+#needleGauge2 .range1 {
+    opacity: 0.25;
+}
+
+#needleGauge2 .range2 {
+    opacity: 0.5;
+}
+
+#needleGauge2 .range3 {
+    opacity: 0.75;
+}
+
+#needleGauge2 .smart-label {
+    fill: black;
+}
+
+#fillGauge1 .smart-value {
+    fill: #4384B7;
+    stroke: #5EB9FF;
+}
+
+#fillGauge2 .smart-track {
+    width: 150px;
+}
+
+#lineGauge, #fuelGauge {
+    background-color: black;
+}
+
+    #lineGauge .smart-track {
+        width: 50px;
+        fill: #333333;
+    }
+
+    #lineGauge .smart-line {
+        stroke: white;
+    }
+
+    #lineGauge .smart-tick {
+        stroke: #F2F2F2;
+    }
+
+    #lineGauge .smart-label {
+        fill: white;
+    }
+
+#fillGauge1 .range1 {
+    fill: #30C842;
+}
+
+#fillGauge1 .range2 {
+    fill: #96E244;
+}
+
+#fillGauge1 .range3 {
+    fill: #FEFF4B;
+}
+
+#fillGauge1 .range4 {
+    fill: #F1A31B;
+}
+
+#fillGauge1 .range5 {
+    fill: #F70E21;
+}
+
+#fuelGauge {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+    #fuelGauge .smart-tick {
+        stroke: white;
+    }
+
+    #fuelGauge .smart-label {
+        fill: white;
+    }
+
+    #fuelGauge .smart-needle {
+        width: 5px;
+        stroke: #F72E38;
+        stroke-width: 5px;
+        stroke-linejoin: round;
+        fill: #F72E38;
+    }
+
+    #fuelGauge .smart-needle-central-circle {
+        display: none;
+    }
+
+    #fuelGauge .smart-range {
+        width: 15px;
+        opacity: 1;
+    }
+
+    #fuelGauge .range1 {
+        fill: #FF270D;
+    }
+
+    #fuelGauge .range2 {
+        fill: #6DD962;
+    }
+
+    #fuelGauge .range3 {
+        fill: white;
+    }
+
+#fuelGaugeContainer {
+    position: relative;
+    float: left;
+}
+
+    #fuelGaugeContainer img {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+    }

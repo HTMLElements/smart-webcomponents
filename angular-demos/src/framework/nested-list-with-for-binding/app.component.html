@@ -1,0 +1,16 @@
+<div class="demo-description">The List in this examples is automatically rendered by reading the 'items'
+    array. The example also demonstrates Event binding. Clicking a Header is
+    bound to the 'itemClick' event handler.</div>
+<ul id="list" smart-for="items">
+    <li>
+        <h2>[[label]]</h2>
+        <ul>
+            <li><span>First Name: </span><span>[[details.firstName]]</span>
+            </li>
+            <li><span>Last Name: </span><span>[[details.lastName]]</span>
+            </li>
+            <li><span>Job Position: </span><span>[[details.jobPosition]]</span>
+            </li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,11 @@
+<p>
+    <b>Description:</b>The resource Timeline displays the working time of the poeple that have tasks assigned. The capacity of each resource represents the working hours of a person on a task.
+</p>
+
+<p>The workload represents the total working time in hours of a resource.</p>
+
+<p> Clicking on a resource from the Resource Tree will highlight the tasks ( inside the TaskTree) that are assigned to that resource. The same goes for the tasks inside the Task tree.</p>
+
+<smart-gantt-chart #ganttChart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns" [resourceColumns]="resourceColumns" 
+[resourcePanelSize]="resourcePanelSize" [treeMin]="treeMin" [nonworkingDays]="nonworkingDays" 
+[view]="view" [timelineHeaderFormatFunction]="timelineHeaderFormatFunction"></smart-gantt-chart>

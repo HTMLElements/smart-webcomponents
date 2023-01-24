@@ -1,0 +1,26 @@
+<div id="container">
+    <smart-drop-down-button [placeholder]="'DropDown'" #dropdownbutton [dropDownWidth]="'auto'">
+        <smart-tank #tank id="tank" class="animation" [max]="100" [scaleType]="'integer'"
+        [value]="75" [interval]="10"></smart-tank>
+    </smart-drop-down-button>
+    <div class="options">
+        <div class="option">
+            <div>Button Position:</div>
+            <smart-radio-button #radioButtonLeft>Left</smart-radio-button>
+            <br />
+            <smart-radio-button #radioButtonRight [checked]="true">Right</smart-radio-button>
+            <br />
+            <smart-radio-button #radioButtonTop>Top</smart-radio-button>
+            <br />
+            <smart-radio-button #radioButtonBottom>Bottom</smart-radio-button>
+            <br />
+        </div>
+        <div class="option">
+            <div>Open Mode:</div>
+            <smart-radio-button #radioButtonDefault [checked]>Default</smart-radio-button>
+            <br />
+            <smart-radio-button #radioButtonDropDownButton>DropDownButton</smart-radio-button>
+            <br />
+        </div>
+    </div>
+</div>

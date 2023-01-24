@@ -1,0 +1,25 @@
+<smart-window #window id="messageWindowJ" [label]="'Johnny'">
+    <smart-multiline-text-box #multilinetextbox id="messageBoxJ" [placeholder]="'Type a message here'"
+        [enterKeyBehavior]="'clearOnSubmit'"></smart-multiline-text-box>
+</smart-window>
+<smart-window #window2 id="messageWindowS" [label]="'Sam'">
+    <smart-multiline-text-box #multilinetextbox2 id="messageBoxS" [placeholder]="'Type a message here'"
+        [enterKeyBehavior]="'clearOnSubmit'"></smart-multiline-text-box>
+</smart-window>
+<div class="options">
+    <div class="caption">Enter Key Behavior</div>
+    <div class="option">
+        <smart-radio-button #radiobutton id="radioBtn0" [value]="'clearOnSubmit'" [checked]="true">
+            clearOnSubmit</smart-radio-button>
+        <smart-radio-button #radiobutton2 id="radioBtn1" [value]="'submit'">submit
+        </smart-radio-button>
+        <smart-radio-button #radiobutton3 id="radioBtn2" [value]="'newLine'">newLine
+        </smart-radio-button>
+    </div>
+    <div class="option">
+        <smart-button #button id="startChat">Start chat</smart-button>
+    </div>
+    <div class="option">
+        <div #messageContainer id="messageContainer"></div>
+    </div>
+</div>

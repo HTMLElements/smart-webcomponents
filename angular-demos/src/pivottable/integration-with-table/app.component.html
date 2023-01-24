@@ -1,0 +1,15 @@
+<div class="demo-description">This demo showcases how to integrate smart-pivot-table with
+    smart-table.</div>
+<div #mainContainer id="mainContainer" class="table-mode">
+    <div id="tableContainer">
+        <smart-table #table id="table" [dataSource]="tableDataSource" [freezeHeader]="true" [keyboardNavigation]="true"
+            [columns]="tableColumns"></smart-table>
+        <div id="panel">When Pivot Mode is enabled, the Pivot Table designer will appear here.</div>
+    </div>
+    <smart-pivot-table #pivottable id="pivotTable" class="hidden" [dataSource]="pivotTableDataSource" [designer]="true"
+        [freezeHeader]="true" [keyboardNavigation]="true" [columns]="pivotTableColumns"></smart-pivot-table>
+    <div id="switchContainer">
+        <smart-switch-button #switchbutton id="switchButton" (onChange)="handleChange($event)"></smart-switch-button>
+        <div>Pivot Mode</div>
+    </div>
+</div>

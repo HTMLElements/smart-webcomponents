@@ -1,0 +1,6 @@
+<div class="demo-description">Button's 'click' event is bound to the data object's 'submit' function.</div>
+<br />
+<smart-text-box #textbox smart-model="message" id="textBox1"></smart-text-box>
+<br />
+<smart-button #button (onClick)="submit($event)">Submit</smart-button>
+<br />

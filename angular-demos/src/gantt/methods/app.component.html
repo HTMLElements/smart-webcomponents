@@ -1,0 +1,25 @@
+<div class="demo-description"> <b>Description:</b>  <b>Update</b> method updates the task with index 9 (
+    if there's one). <b>Insert</b> method insert's a Project Task with two sub-tasks
+    at position 8. <b>Remove</b> method removes the first Task.</div>
+<smart-gantt-chart #ganttChart [dataSource]="dataSource" [treeSize]="treeSize" [taskColumns]="taskColumns"></smart-gantt-chart>
+<div class="options">
+    <div class="captions">Settings</div>
+    <div class="option">
+        <smart-button #button id="updateButton">Update</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="insertButton">Insert</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="insertAtButton">Insert at Position 2</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="insertIntoButton">Insert into Project 1.1</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button5 id="insertIntoAtButton">Insert into Project 1 at last position</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button6 id="removeButton">Remove</smart-button>
+    </div>
+</div>

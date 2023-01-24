@@ -1,0 +1,9 @@
+<smart-kanban #kanban id="kanban" [collapsible]="collapsible" [dataSource]="dataSource" [editable]="editable"
+    [columns]="columns">
+</smart-kanban>
+<smart-menu #menu id="menu" [mode]="'dropDown'">
+    <smart-menu-item id="edit">Edit</smart-menu-item>
+    <smart-menu-item id="copy">Copy</smart-menu-item>
+    <smart-menu-item #done id="done">Mark as "Done"</smart-menu-item>
+    <smart-menu-item #removeAll id="removeAll">Remove all tasks</smart-menu-item>
+</smart-menu>

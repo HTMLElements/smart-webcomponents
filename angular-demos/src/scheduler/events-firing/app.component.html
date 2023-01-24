@@ -1,0 +1,60 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view"
+    (onChange)="handleSchedulerEvent($event)" (onViewChange)="handleSchedulerEvent($event)"
+    (onClosing)="handleSchedulerEvent($event)" (onDragStart)="handleSchedulerEvent($event)"
+    (onDragEnd)="handleSchedulerEvent($event)" (onResizeStart)="handleSchedulerEvent($event)"
+    (onResizeEnd)="handleSchedulerEvent($event)" (onProgressChangeStart)="handleSchedulerEvent($event)"
+    (onEditDialogOpening)="handleSchedulerEvent($event)" (onEditDialogOpen)="handleSchedulerEvent($event)"
+    (onEditDialogClose)="handleSchedulerEvent($event)" (onEditDialogClosing)="handleSchedulerEvent($event)"
+    (onContextMenuOpen)="handleSchedulerEvent($event)" (onContextMenuOpening)="handleSchedulerEvent($event)"
+    (onContextMenuClose)="handleSchedulerEvent($event)" (onContextMenuClosing)="handleSchedulerEvent($event)"
+    (onEventMenuOpen)="handleSchedulerEvent($event)" (onEventMenuOpening)="handleSchedulerEvent($event)"
+    (onEventMenuClose)="handleSchedulerEvent($event)" (onEventMenuClosing)="handleSchedulerEvent($event)"
+    (onDateMenuOpen)="handleSchedulerEvent($event)" (onDateMenuClose)="handleSchedulerEvent($event)"
+    (onViewMenuOpen)="handleSchedulerEvent($event)" (onViewMenuClose)="handleSchedulerEvent($event)"
+    (onNotificationOpen)="handleSchedulerEvent($event)" (onNotificationClose)="handleSchedulerEvent($event)"
+    (onItemRemove)="handleSchedulerEvent($event)" (onItemInsert)="handleSchedulerEvent($event)"
+    (onItemUpdate)="handleSchedulerEvent($event)" (onItemClick)="handleSchedulerEvent($event)"
+    (onEventShortcutKey)="handleSchedulerEvent($event)" (onDateChange)="handleSchedulerEvent($event)"></smart-scheduler>
+<div class="options">
+    <h3>Events:</h3>
+    <div class="demo-description">
+        <p>Scheduler fires the following events:</p>
+        <ul>
+            <li>change - fired when selection is changed</li>
+            <li>viewChange - fired when the view is changed</li>
+            <li>editDialogOpening - fired when the editor window is opening</li>
+            <li>editDialogOpen - fired when the editor window is opened</li>
+            <li>editDialogClosing - fired when the editor window is closing</li>
+            <li>editDialogClose - fired when the editor window is closed</li>
+            <li>dragStart - fired when an event dragging is started</li>
+            <li>dragEnd - fired when an event dragging is finished</li>
+            <li>resizeStart - fired when an event resizing is started</li>
+            <li>resizeEnd - fired when an event resizing is finished</li>
+            <li>contextMenuOpen - fired when the context menu is opened</li>
+            <li>contextMenuOpening - fired when the context menu is opening</li>
+            <li>contextMenuClose - fired when the context menu is closed</li>
+            <li>contextMenuClosing - fired when the context menu is closing</li>
+            <li>eventMenuOpen - fired when the event menu is opened</li>
+            <li>eventMenuOpening - fired when the event menu is opening</li>
+            <li>eventMenuClose - fired when the event menu is closed</li>
+            <li>eventMenuClosing - fired when the event menu is closing</li>
+            <li>dateMenuOpen - fired when the date selection menu is opened</li>
+            <li>dateMenuClose - fired when the date selection menu is closed</li>
+            <li>viewMenuOpen - fired when the view selection menu is opened</li>
+            <li>viewMenuClose - fired when the view selection menu is closed.</li>
+            <li>notificationOpen - fired when a notification is opened</li>
+            <li>notificationClose - fired when a notification is closed.</li>
+            <li>itemRemove - fired when an event is removed.</li>
+            <li>itemInsert - fired when an event is inserted.</li>
+            <li>itemUpdate - fired when an event is updated.</li>
+            <li>itemClick - fired when an eventis clicked.</li>
+            <li>eventShortcutKey - fired when an event shortcut key is pressed.</li>
+            <li>dateChange - fired when the current visible date is changed(e.g. using
+                the date navigation keys).</li>
+        </ul>
+    </div>
+    <div class="option" id="eventLog">
+        <h3>Event Log:</h3>
+        <div id="log" #log></div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<smart-gauge #gauge id="gauge" [analogDisplayType]="'fill'" [digitalDisplay]="true"
+             [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="0"></smart-gauge>
+<div class="options">
+    <div class="caption">Appearance</div>
+    <div class="option">
+        <smart-button #button id="fontSizeButton">Set font-size to 20px</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="colorButton">Set label 'fill' and stroke to red</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="resizeButton">Resize Gauge</smart-button>
+    </div>
+</div>

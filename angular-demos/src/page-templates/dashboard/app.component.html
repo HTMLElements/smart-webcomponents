@@ -1,0 +1,111 @@
+<smart-splitter #splitter id="dashboard" expanded>
+    <smart-splitter-item [collapsible]="true" id="leftPanel" [size]="'240'">
+        <div class="dashboard-header">
+            <smart-button #button (onClick)="collapse($event)" id="collapseBtn" class="floating"> <i class="material-icons">chevron_left</i>
+            </smart-button>
+            <smart-button #button2 (onClick)="expand($event)" id="expandBtn" class="floating"> <i class="material-icons">menu</i>
+            </smart-button>
+        </div>
+        <div class="dashboard-menu-container">
+            <smart-button #button3 class="flat menu-btn"><i class="material-icons">view_quilt</i>Dashboard</smart-button>
+            <smart-button
+            #button4 class="flat menu-btn"><i class="material-icons">shopping_cart</i>Orders</smart-button>
+                <smart-button
+                #button5 class="flat menu-btn"><i class="material-icons">people</i>Customers</smart-button>
+                    <smart-button
+                    #button6 class="flat menu-btn"><i class="material-icons">bar_chart</i>Reports</smart-button>
+                        <smart-button
+                        #button7 class="flat menu-btn"><i class="material-icons">layers</i>Integrations</smart-button>
+                             <h6>Saved reports</h6>
+                            <smart-button #button8 class="flat menu-btn"><i class="material-icons">assignment</i>Curent month</smart-button>
+                            <smart-button
+                            #button9 class="flat menu-btn"><i class="material-icons">assignment</i>Last quarter</smart-button>
+                                <smart-button
+                                #button10 class="flat menu-btn"><i class="material-icons">assignment</i>Year-end sale</smart-button>
+        </div>
+    </smart-splitter-item>
+    <smart-splitter-item id="rightPanel">
+        <div class="dashboard-header">Dashboard
+            <smart-button #button11 id="notifficationBtn" class="floating"> <i class="material-icons">notifications</i>
+            </smart-button>
+        </div>
+         <h1>Orders</h1>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>Orders/vizits</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <td>Orders</td>
+                <td>3400</td>
+                <td>2398</td>
+                <td>4300</td>
+                <th>2908</th>
+                <td>4780</td>
+                <td>3800</td>
+                <td>4300</td>
+            </tr>
+            <tr>
+                <td>Vizits</td>
+                <td>2200</td>
+                <td>1280</td>
+                <td>5000</td>
+                <td>4780</td>
+                <td>5890</td>
+                <td>4390</td>
+                <td>4490</td>
+            </tr>
+        </table>
+         <h1>Products</h1>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>Dessert (100g serving)</th>
+                <th>Calories</th>
+                <th>Fat (g)</th>
+                <th>Carbs (g)</th>
+                <th>Protein (g)</th>
+            </tr>
+            <tr>
+                <td>Frozen yoghurt</td>
+                <td>159</td>
+                <td>6</td>
+                <td>24</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>Ice cream sandwich</td>
+                <td>237</td>
+                <td>9</td>
+                <td>37</td>
+                <td>4.3</td>
+            </tr>
+            <tr>
+                <td>Eclair</td>
+                <td>262</td>
+                <td>16</td>
+                <td>24</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Cupcake</td>
+                <td>305</td>
+                <td>3.7</td>
+                <td>67</td>
+                <td>4.3</td>
+            </tr>
+            <tr>
+                <td>Gingerbread</td>
+                <td>356</td>
+                <td>16</td>
+                <td>49</td>
+                <td>3.9</td>
+            </tr>
+        </table>
+    </smart-splitter-item>
+</smart-splitter>

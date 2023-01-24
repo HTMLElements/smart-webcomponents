@@ -1,0 +1,23 @@
+<div class="demo-description">Select a Project task from the drop down list to collapse/expand.</div>
+<smart-gantt-chart #ganttchart id="gant" [view]="'year'" [dataSource]="dataSource"></smart-gantt-chart>
+    <div class="options">
+        <div class="option">
+            <smart-drop-down-list #dropdownlist id="indexSelector">
+                <smart-list-item [value]="'0'">Project 1</smart-list-item>
+                <smart-list-item [value]="'0.2'">Project 1.1</smart-list-item>
+                <smart-list-item [value]="'0.2.2'">Project 1.1.1</smart-list-item>
+            </smart-drop-down-list>
+        </div>
+        <div class="option">
+            <smart-button #button id="collapseButton">Collapse</smart-button>
+        </div>
+        <div class="option">
+            <smart-button #button2 id="expandButton">Expand</smart-button>
+        </div>
+        <div class="option">
+            <div id="logContainer">
+                 <h4>Event Log:</h4>
+                <div id="log" #log></div>
+            </div>
+        </div>
+    </div>

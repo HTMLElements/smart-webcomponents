@@ -1,0 +1,33 @@
+<h1>Display Mode "materialGrid"</h1>
+<smart-color-panel #colorpanel id="colorPanel" [displayMode]="'materialGrid'"></smart-color-panel>
+<div class="options" #options>
+    <div class="option">Selected color:
+        <input type="text" class="smart-input" placeholder="#RRGGBB" id="rgbValue" #rgbInput />
+    </div>
+    <div class="option">
+         <h3>Toggle Grid Color Size</h3>
+        <br/>
+        <smart-radio-button #radiobutton [groupName]="'columnSize'" [checked]="true">20</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 [groupName]="'columnSize'">40</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3 [groupName]="'columnSize'">60</smart-radio-button>
+        <br/>
+    </div>
+    <div class="option">
+         <h3>Toggle Grid Column Gap</h3>
+        <br/>
+        <smart-radio-button #radiobutton4 [groupName]="'columnGap'" [checked]="true">1</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton5 [groupName]="'columnGap'">5</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton6 [groupName]="'columnGap'">10</smart-radio-button>
+        <br/>
+    </div>
+    <div class="option">
+         <h3>Apply Value Mode</h3>
+        <smart-radio-button #radiobutton7 [groupName]="'applyValueMode'" [checked]="true">instantly</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton8 [groupName]="'applyValueMode'">useButtons</smart-radio-button>
+    </div>
+</div>

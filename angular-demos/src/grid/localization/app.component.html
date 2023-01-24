@@ -1,0 +1,13 @@
+<smart-grid #grid id="grid" [sorting]="sorting" [locale]="locale" [messages]="messages" [dataSource]="dataSource"
+    [columns]="columns"></smart-grid>
+<div class="options">
+    <div class="caption">Language:</div>
+    <div class="option">
+        <br />
+        <smart-radio-button #radiobutton class="language" id="enUK">English (UK)</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 class="language" id="enUS">English (USA)</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 class="language" id="de" [checked]="true">Deutsch</smart-radio-button>
+    </div>
+</div>

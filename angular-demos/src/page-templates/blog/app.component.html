@@ -1,0 +1,139 @@
+<header>
+    <div class="container">
+        <smart-button #button id="subscribe" class="flat">Subscribe</smart-button>
+         <h2>Blog</h2>
+        <div class="button-group">
+            <smart-button #button2 id="search" class="floating flat"><i class="material-icons">search</i>
+            </smart-button>
+            <smart-button #button3 id="signup">SIGN UP</smart-button>
+        </div>
+    </div>
+</header>
+<section class="menu">
+    <div class="container">
+        <smart-menu #menu id="menu" [dropDownAppendTo]="'body'" [dataSource]="dataSource"></smart-menu>
+    </div>
+</section>
+<section class="user">
+    <div class="container">
+         <h1 class="headline">Title of a longer featured blog post</h1>
+        <p class="content">Multiple lines of text that form the lede, informing new readers quickly
+            and efficiently about what's most interesting in this post's contents…</p>
+    </div>
+</section>
+<section class="featured">
+    <div class="container">
+        <smart-card>
+            <div class="content">
+                 <h3>Featured post</h3>
+                 <h4>Nov 12</h4>
+                <p>This is a wider card with supporting text below as a natural lead-in to
+                    additional content.
+                    <br />
+                    <br /> <span class="more-info">Continue reading...</span>
+                </p>
+            </div>
+            <div class="thumb">Thumbnail</div>
+        </smart-card>
+        <smart-card>
+            <div class="content">
+                 <h3>Post title</h3>
+                 <h4>Nov 11</h4>
+                <p>This is a wider card with supporting text below as a natural lead-in to
+                    additional content.
+                    <br />
+                    <br /> <span class="more-info">Continue reading...</span>
+                </p>
+            </div>
+            <div class="thumb">Thumbnail</div>
+        </smart-card>
+    </div>
+</section>
+<section class="articles">
+    <div class="container">
+        <div class="main">
+             <h6 class="top-headline">From the Firehose</h6>
+            <div class="blog-post">
+                 <h6>Sample blog post</h6>
+                <p class="timestamp">April 1, 2020 by Olivier</p>
+                <p>This blog post shows a few different types of content that are supported
+                    and styled with Material styles. Basic typography, images, and code are
+                    all supported. You can extend these by modifying Markdown.js.</p>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                    ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                    venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
+                    consectetur purus sit amet fermentum.</p>
+                <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis
+                    ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur
+                    purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="blog-post">
+                 <h6>Another blog post</h6>
+                <p class="timestamp">March 23, 2020 by Matt</p>
+                <p>This blog post shows a few different types of content that are supported
+                    and styled with Material styles. Basic typography, images, and code are
+                    all supported. You can extend these by modifying Markdown.js.</p>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                    ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                    venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
+                    consectetur purus sit amet fermentum.</p>
+                <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis
+                    ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur
+                    purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="blog-post">
+                 <h6>New feature</h6>
+                <p class="timestamp">March 14, 2020 by Tom</p>
+                <p>This blog post shows a few different types of content that are supported
+                    and styled with Material styles. Basic typography, images, and code are
+                    all supported. You can extend these by modifying Markdown.js.</p>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                    ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                    venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
+                    consectetur purus sit amet fermentum.</p>
+                <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis
+                    ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur
+                    purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+        </div>
+        <div class="side-bar">
+            <div class="about">
+                 <h3>About</h3>
+                <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur
+                    purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="archives">
+                 <h3>Archives</h3>
+                <ul>
+                    <li>March 2020</li>
+                    <li>February 2020</li>
+                    <li>January 2020</li>
+                    <li>December 2019</li>
+                    <li>November 2019</li>
+                    <li>October 2019</li>
+                    <li>September 2019</li>
+                    <li>August 2019</li>
+                    <li>July 2019</li>
+                    <li>June 2019</li>
+                    <li>May 2019</li>
+                    <li>April 2019</li>
+                </ul>
+            </div>
+            <div class="social">
+                 <h3>Social</h3>
+                <ul>
+                    <li>GitHub</li>
+                    <li>Twitter</li>
+                    <li>Facebook</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+     <h4>Footer</h4>
+    <p>Something here to give the footer a purpose!</p>
+</footer>

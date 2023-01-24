@@ -1,0 +1,34 @@
+<div class="demo-description">StackLayout organizes views in a one-dimensional line ("stack"), either
+    horizontally or vertically. Views in a StackLayout can be sized based on
+    the space in the layout using layout options. Positioning is determined
+    by the order views were added to the layout and the layout options of the
+    views.</div>
+<div class="smart-stack-layout">
+    <smart-button #button class="primary item">OK</smart-button>
+    <smart-button #button2 class="secondary item">Cancel</smart-button>
+</div>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-radio-button #radiobutton value="left" smart-model="horizontalAlignment"
+        [checked]="true">Left</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 value="center" smart-model="horizontalAlignment">Center</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3 value="right" smart-model="horizontalAlignment">Right</smart-radio-button>
+    </div>
+    <div class="option">
+        <smart-radio-button #radiobutton4 value="top" smart-model="verticalAlignment"
+        [checked]="true">Top</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton5 value="middle" smart-model="verticalAlignment">Middle</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton6 value="bottom" smart-model="verticalAlignment">Bottom</smart-radio-button>
+    </div>
+    <div class="option">
+        <smart-radio-button #radiobutton7 value="horizontal" smart-model="orientation"
+        [checked]="true">Horizontal</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton8 value="vertical" smart-model="orientation">Vertical</smart-radio-button>
+    </div>
+</div>

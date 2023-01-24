@@ -1,0 +1,19 @@
+smart-docking-layout .smart-items-container > .smart-container > smart-splitter-item {
+    width: 50%;
+}
+
+smart-docking-layout {
+    width: 50%;
+    height: 600px;
+}
+
+#container {
+    margin-left: 0;
+}
+
+#insertIntoLeft,
+#insertIntoRight,
+#insertIntoTop,
+#insertIntoBottom {
+    width: 125px;
+}

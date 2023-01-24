@@ -1,0 +1,23 @@
+<div class="demo-description">
+     <h1>Map Within Card Demo</h1>
+    <div>In this demo we are showcasing our "smart-map" component within a simple
+        card with a overlaping card header.</div>
+</div>
+<div class="card-wrapper">
+    <div class="card-container">
+        <div class="card-header regular-map-header">
+             <h3>Regular map</h3>
+        </div>
+        <div class="map-container">
+            <smart-map #map [query]="queryFirstMap" [apiKey]="apiKey" [mapType]="mapTypeFirstMap"></smart-map>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-header custom-map-header">
+             <h3>Custom map</h3>
+        </div>
+        <div class="map-container">
+            <smart-map #map2 [query]="querySecondMap" [apiKey]="apiKey" [mapType]="mapTypeSecondMap"></smart-map>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="demo-description">
+    <h1>Add New Row in Data Grid with Scroll Button Click and Keyboard</h1>
+    <p>By enabling the 'editing.addNewRow.autoCreate' property, the Grid will
+        automatically create new unbound rows when the bottom of the Grid is reached
+        and the vertical scrollbar's down button is clickced, 'Enter' is pressed
+        or 'Tab' is pressed when the last column cell is selected. When an unbound
+        row is edited, it becomes part of the Grid's rows collection and all unbound
+        rows before it are also added to the rows collection.
+        <br />
+    </p>
+    <p>Scroll to the Bottom and press the ScrollBar's down arrow button to create
+        a new row.</p>
+</div>
+<smart-grid #grid id="grid" [selection]="selection" [editing]="editing" [appearance]="appearance"
+    [dataSource]="dataSource" [columns]="columns">
+</smart-grid>

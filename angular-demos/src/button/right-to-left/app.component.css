@@ -1,0 +1,22 @@
+.demo-horizontal-layout {
+    display:  flex;
+}
+label {
+    font-size: 14px;
+    font-family:Roboto,"Helvetica Neue",sans-serif; 
+}
+.demo-buttons-group {
+    margin: 8px;
+}
+.demo-buttons-group smart-button {
+    margin:8px;
+}
+.glyphicon {
+    left: 0;
+    top: 3px;
+    font-size:30px;
+}
+
+smart-button.floating  {
+    --smart-button-padding: 0;
+}

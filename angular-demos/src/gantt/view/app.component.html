@@ -1,0 +1,14 @@
+<p> <b>Description:</b> Click on the Drop Down List to select a different Timeline
+    View.</p>
+<smart-gantt-chart #ganttChart [dataSource]="dataSource"></smart-gantt-chart>
+<div class="options">
+    <div class="option">
+         <h3>Select view:</h3>
+        <smart-drop-down-list #dropDownList>
+            <smart-list-item [selected]="true">year</smart-list-item>
+            <smart-list-item>month</smart-list-item>
+            <smart-list-item>week</smart-list-item>
+            <smart-list-item>day</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+</div>

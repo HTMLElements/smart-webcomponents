@@ -1,0 +1,23 @@
+<div class="demo-description">
+     <h1>Server-Side Pagination, Sort, Filter with MySQL and PHP</h1>Data in this demo is loaded on demand from MySql Database and especially
+    the 'Customers' table of the Northwind Database. Server request is made
+    when you change Page, Sort, Filter or expand a Group. This is achieved
+    by using the Grid's Data Virtualization in combination with DataAdapter's
+    "virtualDataSource".
+    <ul>
+        <li>Paging is enabled by setting the 'pager' and  'paging' properties.</li>
+        <li>Filtering is enabled by setting the 'filtering' property.</li>
+        <li>Sorting is enabled by setting the 'sorting' property.</li>
+        <li>The number of rows returned per request is set to 10, which is equal to
+            the pageSize.</li>
+        <li>The number of rows returned per request is set to 10, which is equal to
+            the pageSize.</li>
+        <li>The 'query' in the data request is used by the server to perform pagination,
+            sorting and filtering.</li>
+    </ul>
+</div>
+<smart-grid [paging]="paging" [pager]="pager" [filtering]="filtering" [sorting]="sorting" [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>
+<br />
+<br />
+	<h3>SQL Query</h3>
+<div id="query"></div>

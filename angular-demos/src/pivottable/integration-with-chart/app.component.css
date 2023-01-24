@@ -1,0 +1,16 @@
+#pivotTable,
+#revenueChart {
+    width: 1200px;
+}
+
+#pivotTable {
+    --smart-table-group-count-display: none;
+}
+
+#pivotTable thead>tr:nth-child(2) .total-arrow {
+    display: none;
+}
+
+#revenueChart {
+    height: 300px;
+}

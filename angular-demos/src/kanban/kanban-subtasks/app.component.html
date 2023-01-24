@@ -1,0 +1,23 @@
+<div class="demo-description">Kanban Sub-tasks have three different rendering modes. Sub-tasks in this example are
+    displayed in the task card.</div>
+
+<smart-kanban #kanban id="kanban" [collapsible]="collapsible" [dataSource]="dataSource" [taskDue]="taskDue"
+     [editable]="editable" [taskProgress]="taskProgress" [columns]="columns">
+</smart-kanban>
+<div class="options">
+    <div class="caption">
+        Options
+    </div>
+    <div class="option">
+        <smart-radio-button data-target="#kanban" data-value="none" data-property="taskSubTasks">
+            None
+        </smart-radio-button>
+        <smart-radio-button data-target="#kanban" checked data-value="onePerRow" data-property="taskSubTasks">
+            One Per Row
+        </smart-radio-button>
+        <smart-radio-button data-target="#kanban" data-value="onlyUnfinished" data-property="taskSubTasks">
+            Only unfinished
+        </smart-radio-button>
+
+    </div>
+</div>

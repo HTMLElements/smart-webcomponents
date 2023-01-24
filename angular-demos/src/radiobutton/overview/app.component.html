@@ -1,0 +1,60 @@
+<div class="smart-demo-container">
+    <section id="radio-button">
+        <div class="module">
+            <p>Radio buttons allow the selection of a single option from a set.</p>
+            <p>Radio buttons allow the user to select one option from a set. Use radio
+                buttons for exclusive selection if you think that the user needs to see
+                all available options side-by-side</p>
+            <p>Otherwise, consider a dropdown, which uses less space than displaying
+                all options.</p>
+        </div>
+        <div class="module">
+            <smart-radio-button #radiobutton group-name="A" [checked]="true"></smart-radio-button>
+            <smart-radio-button #radiobutton2 group-name="A"></smart-radio-button>
+        </div>
+    </section>
+    <section id="">
+        <div class="module">
+            <div class="radio-buttons-table-light">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p>hover</p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p>focused</p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p>pressed</p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <p>disabled</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1">
+                                <p style="top:-20px; position:relative;"></p>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <smart-radio-button #radiobutton3 hover></smart-radio-button>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <smart-radio-button #radiobutton4 focus></smart-radio-button>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <smart-radio-button #radiobutton5 [checked]="true"></smart-radio-button>
+                            </td>
+                            <td colspan="1" rowspan="1">
+                                <smart-radio-button #radiobutton6 [disabled]="true"></smart-radio-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>

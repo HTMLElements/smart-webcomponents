@@ -1,0 +1,36 @@
+<div class="demo-description">This example demonstrates the "hexagonal" display mode of the Color Picker.</div>
+<smart-color-picker #colorpicker [displayMode]="'hexagonal'"></smart-color-picker>
+<div class="options" #options>
+    <div class="option">
+        <div>Column Count</div>
+        <smart-radio-button #radiobutton [groupName]="'columnSettings'">4</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 [groupName]="'columnSettings'" [checked]="true">8</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 [groupName]="'columnSettings'">14</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <div>ApplyValueMode</div>
+        <smart-radio-button #radiobutton4 [groupName]="'applyValueMode'" [checked]="true">instantly</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5 [groupName]="'applyValueMode'">useButtons</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <h3>Palette</h3>
+        <smart-radio-button #radiobutton [groupName]="'palette'" [checked]="true">default</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 [groupName]="'palette'">gray</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 [groupName]="'palette'">red</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton4 [groupName]="'palette'">green</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5 [groupName]="'palette'">blue</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox id="inverted">Inverted</smart-check-box>
+    </div>
+</div>

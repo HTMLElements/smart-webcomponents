@@ -1,0 +1,11 @@
+<smart-kanban #kanban id="kanban" [collapsible]="collapsible" [dataSource]="dataSource" [columns]="columns">
+</smart-kanban>
+<div class="options">
+    <smart-button #button id="csv" (onClick)="csvClick()">Export to CSV</smart-button>
+    <smart-button #button2 id="html" (onClick)="htmlClick()">Export to HTML</smart-button>
+    <smart-button #button3 id="json" (onClick)="jsonClick()">Export to JSON</smart-button>
+    <smart-button #button4 id="pdf" (onClick)="pdfClick()">Export to PDF</smart-button>
+    <smart-button #button5 id="tsv" (onClick)="tsvClick()">Export to TSV</smart-button>
+    <smart-button #button6 id="xlsx" (onClick)="xlsxClick()">Export to XLSX</smart-button>
+    <smart-button #button7 id="xml" (onClick)="xmlClick()">Export to XML</smart-button>
+</div>

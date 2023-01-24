@@ -1,0 +1,90 @@
+<div class="demoContainer">
+    <p>smartArray with smart-drop-down-list</p>
+    <smart-array #array id="dropDownListSmartArray"
+    show-index-display type="custom" value='["B", "D", "C"]' dimensions="1"
+    rows="7" columns="1" element-width="200" element-height="30" custom-widget-default-value="A"
+    element-template="elementTemplateDropDownList" change-property="changeProperty1"
+    get-element-value="getElementValue1" set-element-value="setElementValue1"></smart-array>
+    <p>smartArray with smart-combo-box</p>
+    <smart-array #array2 id="comboBoxSmartArray"
+    show-index-display type="custom" value='["France", "Bulgaria", "France", "USA"]'
+    dimensions="1" rows="5" columns="1" element-width="200" element-height="30"
+    custom-widget-default-value="Other country" element-template="elementTemplateComboBox"
+    change-property="changeProperty1" get-element-value="getElementValue1"
+    set-element-value="setElementValue1"></smart-array>
+    <p>smartArray with smart-toggle-button</p>
+    <smart-array #array3 id="toggleButtonSmartArray"
+    show-index-display type="custom" value="[[false, true], [true, true]]"
+    dimensions="2" rows="2" columns="2" element-width="50" element-height="35"
+    custom-widget-default-value="false" element-template="elementTemplateToggleButton"
+    change-property="changeProperty1" get-element-value="getElementValue2"
+    set-element-value="setElementValue2"></smart-array>
+    <p>smartArray with smart-led</p>
+    <smart-array #array4 id="ledButtonSmartArray"
+    show-index-display type="custom" value="[[false, true], [true, true]]"
+    dimensions="2" rows="3" columns="3" element-width="20" element-height="20"
+    custom-widget-default-value="false" element-template="elementTemplateLed"
+    change-property="changeProperty1" get-element-value="getElementValue2"
+    set-element-value="setElementValue2"></smart-array>
+    <p>smartArray with smart-power-button</p>
+    <smart-array #array5 id="powerButtonSmartArray"
+    show-index-display type="custom" value="[false, true, false, true]" dimensions="1"
+    rows="1" columns="7" element-width="30" element-height="30" custom-widget-default-value="false"
+    element-template="elementTemplatePowerButton" change-property="changeProperty1"
+    get-element-value="getElementValue2" set-element-value="setElementValue2"></smart-array>
+</div>
+<div class="demoContainer">
+    <p>smartArray with smart-list-box</p>
+    <smart-array #array6 id="listBoxSmartArray"
+    show-index-display type="custom" value='[["B", "D"], ["A", "E"]]' dimensions="2"
+    rows="2" columns="3" element-width="120" element-height="100" custom-widget-default-value="A"
+    element-template="elementTemplateListBox" change-property="changeProperty1"
+    get-element-value="getElementValue1" set-element-value="setElementValue1"></smart-array>
+    <p>smartArray with smart-progress-bar</p>
+    <smart-array #array7 id="progressBarSmartArray"
+    show-index-display type="custom" value='[20, 30, 10]' dimensions="1" rows="5"
+    columns="1" element-width="180" element-height="30" custom-widget-default-value="0"
+    element-template="elementTemplateProgressBar" change-property="changeProperty1"
+    get-element-value="getElementValue3" set-element-value="setElementValue3"></smart-array>
+    <p>smartArray with smart-circular-progress-bar</p>
+    <smart-array #array8 id="circularProgressBarSmartArray"
+    show-index-display type="custom" value='[20, 30, 10]' dimensions="1" rows="1"
+    columns="5" element-width="100" element-height="100" custom-widget-default-value="0"
+    element-template="elementTemplateCircularProgressBar" change-property="changeProperty1"
+    get-element-value="getElementValue3" set-element-value="setElementValue3"></smart-array>
+    <p>smartArray with smart-check-box</p>
+    <smart-array #array9 id="checkBoxSmartArray"
+    show-index-display type="custom" value="[[false, true], [true, true]]"
+    dimensions="2" rows="4" columns="4" element-width="16" element-height="16"
+    custom-widget-default-value="false" element-template="elementTemplateCheckBox"
+    change-property="changeProperty1" get-element-value="getElementValue2"
+    set-element-value="setElementValue2"></smart-array>
+    <p>smartArray with smart-date-time-picker</p>
+    <smart-array #array10 id="dateTimePickerSmartArray"
+    show-index-display type="custom" value='[["new Date(2017, 10, 2)"], ["new Date(2012, 5, 11)"]]'
+    dimensions="2" rows="2" columns="4" element-width="120" element-height="30"
+    custom-widget-default-value="new Date(2017, 0, 1)" element-template="elementTemplateDateTimePicker"
+    change-property="changeProperty1" get-element-value="getElementValue5"
+    set-element-value="setElementValue5"></smart-array>
+</div>
+<div class="demoContainer">
+    <p>smartArray with smart-gauge</p>
+    <smart-array #array11 id="gaugeSmartArray"
+    show-index-display type="custom" value="[[50, 1], [100, 12]]" dimensions="2"
+    rows="2" columns="3" element-width="150" element-height="150" custom-widget-default-value="0"
+    element-template="elementTemplateGauge" change-property="changeProperty1"
+    get-element-value="getElementValue3" set-element-value="setElementValue3"></smart-array>
+    <p>smartArray with smart-slider</p>
+    <smart-array #array12 id="sliderSmartArray"
+    show-index-display type="custom" value="[[[50, 90], [0, 10]], [[90, 100], [12, 12]]]"
+    dimensions="2" rows="2" columns="3" element-width="200" element-height="60"
+    custom-widget-default-value="[0, 100]" element-template="elementTemplateSlider"
+    change-property="changeProperty1" get-element-value="getElementValue4"
+    set-element-value="setElementValue4"></smart-array>
+    <p>smartArray with smart-tank</p>
+    <smart-array #array13 id="tankSmartArray"
+    show-index-display type="custom" value="[[50, 1], [100, 12]]" dimensions="2"
+    rows="2" columns="3" element-width="150" element-height="100" custom-widget-default-value="0"
+    element-template="elementTemplateTank" change-property="changeProperty1"
+    get-element-value="getElementValue3" set-element-value="setElementValue3"></smart-array>
+</div>

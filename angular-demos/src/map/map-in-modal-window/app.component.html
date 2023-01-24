@@ -1,0 +1,39 @@
+
+<div class="demo-description">
+     <h1>Map In Modal Window Overview Demo</h1>
+    <div>For this demo we used our "smart-map","smart-button" and "smart-window"
+        components. The purpose of this demo is to demonstrate our "smart-map"
+        component in a modal window when opened by clicking it representitive button.</div>
+</div>
+<div class="modal-buttons">
+    <div class="open-modal-buttons">
+        <smart-button #button7 id="regular-map-button" 
+            (onClick) ="openModalWindowRegular($event)"
+            class="raised primary">Regular Map Modal</smart-button>
+        <smart-button #button8 id="satellite-map-button"
+            class="raised success"
+            (onClick) ="openModalWindowSatellite($event)"
+            >Satellite Map Modal</smart-button>
+        <smart-button #button9 id="custom-map-button"
+            (onClick) = "openModalWindowCustom($event)"
+            class="raised">Custom Map Modal </smart-button>
+    </div>
+</div>
+<smart-window #window [modal]="true" [opened] ="false"  (click) ="handleCloseMapWindow($event)" [headerButtons]="['close', 'maximize']"
+[label]="labelFirst" id="windowRegularMap" class="mapWindow" [footerTemplate]="'footerTemplate'">
+    <section>
+        <smart-map #map [query]="queryFirstMap" [apiKey]="apiKey" [mapType]="mapTypeFirstMap"></smart-map>
+    </section>
+</smart-window>
+ <smart-window #window2 [opened]="false"  (click)="handleCloseMapWindow($event)" [modal]="true" [headerButtons]="['close',  'maximize']"
+[label]="labelSecond" id="windowSatelliteMap" class="mapWindow" [footerTemplate]="'footerTemplateSatellite'">
+    <section>
+        <smart-map #map2 [query]="querySecondMap" [apiKey]="apiKey" [mapType]="mapTypeSecondMap"></smart-map>
+    </section>
+</smart-window>
+<smart-window #window3  [opened]="false"  (click) ="handleCloseMapWindow($event)"  [modal]="true" [headerButtons]="['close', 'maximize']"
+[label]="labelThird" id="windowCustomMap" class="mapWindow" [footerTemplate]="'footerTemplateCustom'">
+    <section>
+        <smart-map #map3 [query]="queryThirdMap" [apiKey]="apiKey" [mapType]="mapTypeThirdMap"></smart-map>
+    </section>
+</smart-window> 

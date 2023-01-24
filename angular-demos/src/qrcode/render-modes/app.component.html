@@ -1,0 +1,18 @@
+<p>The QR Code component supports &lt;svg> and &lt;canvas> rendering modes.</p>
+<p>Using the <b>svg</b> rendering mode is recommended as the QR Code doesn't lose quality when it is zoomed.</p>
+<smart-qrcode #qrcodeToRender [value]="'A5600B'" [labelPosition]="'bottom'" [labelFontSize]="30"></smart-qrcode>
+<br />
+<h3>Rendered HTML:</h3>
+<div>
+    <code id="element-html">{{log}}</code>
+</div>
+<div class="options">
+    <div class="caption">Render Mode</div>
+    <div class="option">		
+		<smart-radio-button (click)="svgOptionClick($event)" #svgOption [checked]="true">Render as SVG</smart-radio-button>
+        <br/><br/>
+        <smart-radio-button  (click)="canvasOptionClick($event)" #canvasOption>Render as Canvas</smart-radio-button>
+ 
+    </div>
+        
+</div>

@@ -1,0 +1,9 @@
+<div class="demo-description">This example shows a Grid displaying dynamic trading data, which is also
+    reflected on a Chart.</div>
+<div id="container">
+    <smart-grid #grid id="grid" [appearance]="appearance" [behavior]="behavior" [dataSource]="dataSource"
+        [columns]="columns"></smart-grid>
+    <smart-chart #chart id="chart" [caption]="caption" [description]="description" [showLegend]="showLegend"
+        [showToolTips]="showToolTips" [padding]="padding" [dataSource]="tradingData" [xAxis]="xAxis"
+        [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-chart>
+</div>

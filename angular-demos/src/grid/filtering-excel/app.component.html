@@ -1,0 +1,9 @@
+<div class="demo-description">
+    	<h1>Excel-like filtering UI</h1>
+    <p>DataGrid excel-like filtering is enabled for all columns. The feature
+        can be turned on/off by using the "filtering.filterMenu.mode = 'excel'"
+        property. You can also enable it per column by using the column's "filterMenuMode"
+        property and set it to 'excel'. Users may click the filter icons to see
+        a drop-down where they can apply filters.</p>
+</div>
+<smart-grid [dataSource]="dataSource" [columns]="columns" [sorting]="sorting" [filtering]="filtering" #grid id="grid"></smart-grid>

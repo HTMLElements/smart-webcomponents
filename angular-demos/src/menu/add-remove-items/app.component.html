@@ -1,0 +1,19 @@
+<smart-menu #menu id="menu" [dropDownAppendTo]="'body'">
+    <smart-menu-items-group>
+        Item 0
+        <smart-menu-item>Item 0.0</smart-menu-item>
+    </smart-menu-items-group>
+    <smart-menu-item>Item 1</smart-menu-item>
+</smart-menu>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="addItem" class="demoButton">Add item</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="addSubItem" class="demoButton">Add to "Item 0"</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="removeItem" class="demoButton">Remove "Item 1"</smart-button>
+    </div>
+</div>

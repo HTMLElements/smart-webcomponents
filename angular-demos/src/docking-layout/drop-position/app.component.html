@@ -1,0 +1,21 @@
+<smart-docking-layout #dockinglayout [snapMode]="'advanced'" [layout]="layout"></smart-docking-layout>
+<div class="description">smartDockingLayout Drag & Drop Customization</div>
+<p>Every DockingLayout item can have a specific drop position. Drop position
+    is the destination of an item as a result of a dragging operation ( reordering
+    of items ). They are applied as a property <b>dropPosition</b> to the items
+    of the Layout.</p>
+<p>The Drop position is an array of strings indicating the allowed locations
+    at which the item can be dropped. Possible values are:</p>
+<ul>
+    <li>All - all possible drop positions are available</li>
+    <li>Top - position Top is allowed.</li>
+    <li>Bottom - position Bottom is allowed.</li>
+    <li>Left - position Left is allowed.</li>
+    <li>Right - position Right is allowed.</li>
+    <li>Center - position Center (available only in snapMode = "advanced") is
+        allowed.</li>
+    <li>Header - position Header is allowed.</li>
+    <li>None - dropping is not allowed.</li>
+</ul>
+<p><b>draggable</b> is a smartTabItem property that can be applied in order
+    to disable the dragging of a specific tab items.</p>

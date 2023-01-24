@@ -1,0 +1,43 @@
+smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-task-fill-border-radius: 2px;
+    --smart-gantt-chart-header-height: 40px;
+}
+
+smart-gantt-chart .priority-low {
+    --smart-gantt-chart-task-color: var(--smart-success);
+    --smart-gantt-chart-task-label-color: var(--smart-success-color);
+    --smart-gantt-chart-task-label-color-selected: var(--smart-success-color);
+    --smart-gantt-chart-project-label-color: var(--smart-success-color);
+    --smart-gantt-chart-project-label-color-selected: var(--smart-success-color);
+}
+
+smart-gantt-chart .priority-medium {
+    --smart-gantt-chart-task-color: var(--smart-toast-warning-background);
+    --smart-gantt-chart-task-label-color: var(--smart-toast-warning-color);
+    --smart-gantt-chart-task-label-color-selected: var(--smart-toast-warning-color);
+    --smart-gantt-chart-project-label-color: var(--smart-toast-warning-color);
+    --smart-gantt-chart-project-label-color-selected: var(--smart-toast-warning-color);
+}
+
+smart-gantt-chart .priority-high {
+    --smart-gantt-chart-task-color: var(--smart-error);
+    --smart-gantt-chart-task-label-color: var(--smart-error-color);
+    --smart-gantt-chart-task-label-color-selected: var(--smart-error-color);
+    --smart-gantt-chart-project-label-color: var(--smart-error-color);
+    --smart-gantt-chart-project-label-color-selected: var(--smart-error-color);
+}
+
+.task-filtering-container  {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 10px;
+    --smart-background: var(--smart-surface);
+}
+
+.priority-container {
+    display: flex;
+}

@@ -1,0 +1,9 @@
+#element-html{
+  display: block;
+  font-family: Consolas,"courier new";
+  background-color: #f1f1f1;
+  max-width: 500px;
+  max-height: 300px;
+  word-wrap: break-word;
+  overflow: scroll;
+}

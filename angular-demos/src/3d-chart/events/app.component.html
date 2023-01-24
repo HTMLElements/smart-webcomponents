@@ -1,0 +1,20 @@
+<smart-3d-chart #chart id="chart" [caption]="caption" [description]="description" [showLegend]="showLegend" [dataSource]="dataSource"
+    [colorScheme]="colorScheme" [seriesGroups]="seriesGroups" [cameraPosition]="cameraPosition"></smart-3d-chart>
+
+<h4>Chart Events:</h4>
+<div id="box"></div>
+<div class="options">
+    <div class="caption">Chart Events</div>
+    <div class="option">
+        <h4>Item Index:</h4>
+        <smart-number-input #itemIndex [value]="0" [min]="0" [max]="3" ></smart-number-input>
+        <br /><br />
+        <smart-button #showItem (click)="showItem($event)">Show Item</smart-button>
+        <br /><br />
+        <smart-button #hideItem (click)="hideItem($event)">Hide Item</smart-button>
+        <br /><br />
+        <smart-button #selectItem (click)="selectItem($event)">Select Item</smart-button>
+        <br /><br />
+        <smart-button #unselectItem (click)="unselectItem($event)">Unselect Item</smart-button>
+    </div>
+</div>

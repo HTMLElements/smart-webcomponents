@@ -1,0 +1,7 @@
+
+@media only screen and (max-width: 500px) {
+	body, html {
+		font-size: 12px;
+		width: 320px;
+	}
+}

@@ -1,0 +1,6 @@
+<p> <b>Description:</b>  <b>nonworkingHours</b> determine the non working Hours
+    of the day. Similar to nonworkingDays they are also ignored in the task
+    start/end date calculations. Also colored in gray. Drag and Drop a task
+    inside the timeline to see how the Task Bar changes according to the new
+    added/removed slack time.</p>
+<smart-gantt-chart #ganttchart [view]="'day'" [nonworkingHours]="[22, 23, 0, 1 ,2 ,3 ,4 ,5 ,6]" [dataSource]="dataSource"></smart-gantt-chart>

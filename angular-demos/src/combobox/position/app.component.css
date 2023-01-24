@@ -1,0 +1,11 @@
+smart-combo-box {
+    position: relative;
+    top: 260px;
+}
+smart-combo-box  .smart-drop-down {
+	--smart-drop-down-element-max-height: 250px;
+}
+
+html, body {
+	min-height: 900px;
+}

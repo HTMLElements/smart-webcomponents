@@ -1,0 +1,12 @@
+smart-drop-down-button {
+    --smart-editor-drop-down-max-height: none;
+    width: 225px;
+}
+
+smart-drop-down-button smart-tree {
+    height: auto;
+}
+
+.smart-drop-down smart-tree {
+    border: 0;
+}

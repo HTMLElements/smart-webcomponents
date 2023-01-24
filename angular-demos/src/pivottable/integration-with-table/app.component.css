@@ -1,0 +1,81 @@
+#mainContainer {
+    position: relative;
+    width: 100%;
+    height: 800px;
+}
+
+#mainContainer * {
+    box-sizing: border-box;
+}
+
+#tableContainer,
+#pivotTable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#tableContainer {
+    display: flex;
+}
+
+#table {
+    width: calc(100% - var(--smart-pivot-panel-width));
+    height: 100%;
+}
+
+#table>.smart-container {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--smart-border-width) solid var(--smart-border);
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+    border-left: none;
+    width: var(--smart-pivot-panel-width);
+    height: 100%;
+    padding: 50px;
+    text-align: justify;
+    font-family: var(--smart-font-family);
+    font-size: 13px;
+    font-style: italic;
+}
+
+#pivotTable smart-pivot-panel {
+    margin-top: 50px;
+    height: calc(100% - 50px);
+}
+
+#switchContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: var(--smart-border-width) solid var(--smart-border);
+    width: var(--smart-pivot-panel-width);
+    height: 50px;
+    font-family: var(--smart-font-family);
+}
+
+#switchButton {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#mainContainer.pivot-mode #table,
+#mainContainer.table-mode #pivotTable {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#mainContainer.pivot-mode #switchContainer {
+    box-shadow: -1px 0px 0px 0px var(--smart-border);
+}

@@ -1,0 +1,25 @@
+<smart-gauge #gauge id="needleGauge1" [analogDisplayType]="'needle'" [digitalDisplay]="true"
+             [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="70" [scalePosition]="'outside'"
+             [needlePosition]="'edge'"></smart-gauge>
+<smart-gauge #gauge2 id="needleGauge2" [analogDisplayType]="'needle'"
+             [digitalDisplay]="true" [startAngle]="-50" [endAngle]="230" [min]="0" [max]="100" [value]="40"
+             [scalePosition]="'inside'" [showRanges]="true"></smart-gauge>
+<smart-gauge #gauge3 id="fillGauge1" [analogDisplayType]="'fill'"
+             [digitalDisplay]="true" [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="10"
+             [scalePosition]="'inside'" [ticksPosition]="'scale'" [showRanges]="true"></smart-gauge>
+<smart-gauge #gauge4 id="fillGauge2" [analogDisplayType]="'fill'"
+             [digitalDisplay]="true" [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="10"
+             [scalePosition]="'outside'"></smart-gauge>
+<smart-gauge #gauge5 id="fillGauge3" [analogDisplayType]="'fill'"
+             [digitalDisplay]="true" [startAngle]="90" [endAngle]="90" [min]="0" [max]="10" [value]="1.7"
+             [scalePosition]="'outside'" [ticksPosition]="'track'" [ticksVisibility]="'major'"></smart-gauge>
+<smart-gauge #gauge6 id="lineGauge" [analogDisplayType]="'line'"
+             [digitalDisplay]="true" [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="90"
+             [scalePosition]="'inside'" [ticksPosition]="'track'"></smart-gauge>
+<div id="fuelGaugeContainer">
+    <smart-gauge #gauge7 id="fuelGauge" [analogDisplayType]="'needle'" [startAngle]="45"
+                 [endAngle]="135" [min]="0" [max]="40" [value]="40" [scalePosition]="'inside'" [showRanges]="true"
+                 [ranges]='[{ "startValue": "0", "endValue": "2", "className": "range1" }, { "startValue": "19", "endValue": "21", "className": "range2" }, { "startValue": "38", "endValue": "40", "className": "range3" }]'
+                 [labelFormatFunction]="fuelGaugeLabelFormatFunction"></smart-gauge>
+    <img src="../../../demos/images/fuel.png" />
+</div>

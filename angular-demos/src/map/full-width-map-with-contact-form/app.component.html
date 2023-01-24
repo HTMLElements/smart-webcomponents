@@ -1,0 +1,38 @@
+<div class="demo-description">
+     <h1>Full Width Map With a Contact Form Demo</h1>
+    <div>For the following demo we show our "smart-map" component set up in full-width
+        of the parent component including other of our elements such as: "smart-input",
+        "smart-text-area" and "smart-button".</div>
+</div>
+<div class="wrapper">
+     <h2>Contact us</h2>
+    <div class="container">
+        <div class="map-container">
+            <smart-map #map [query]="query" [apiKey]="apiKey" [mapType]="mapType"></smart-map>
+        </div>
+        <div class="form-container">
+            <form action="">
+                <div class="form-inputs">
+                    <div class="form-col">
+                        <div class="form-row">
+                            <smart-input #input [placeholder]="placeholderForName" class="underlined"></smart-input>
+                        </div>
+                        <div class="form-row">
+                            <smart-input #input2 [placeholder]="placeholderForEmail" class="underlined"></smart-input>
+                        </div>
+                        <div class="form-row">
+                            <smart-input #input3 [placeholder]="placeholderForSubject" class="underlined"></smart-input>
+                        </div>
+                    </div>
+                    <div class="form-textarea">
+                        <smart-text-area class="underlined" placeholder="Your message" rows="10"
+                        cols="20" auto-expand></smart-text-area>
+                    </div>
+                </div>
+                <div class="form-button">
+                    <smart-button #button>Send message</smart-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

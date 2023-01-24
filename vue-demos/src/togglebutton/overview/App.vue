@@ -1,0 +1,220 @@
+<template>
+  <div class="vue-root">
+    <div class="smart-demo-container">
+      <section id="toggle-button">
+        <div class="module">
+          <br />
+          <p>
+            Toggle buttons may be used to group related options. Arrange layout and
+            spacing to convey that certain toggle buttons are part of a group.
+          </p>
+          <p>
+            Focus and pressed states may reinforce that toggles are part of a group.
+            For example, when one button segment is focused, focus may be displayed
+            simultaneously on the rest of the segment.
+          </p>
+          <p>Toggle button requirements:</p>
+          <ul class="arrow-list">
+            <li>Have at least three toggle buttons in a group</li>
+            <li>Label buttons with text, an icon, or both</li>
+          </ul>
+          <p>The following combinations are recommended:</p>
+          <ul class="arrow-list">
+            <li>Multiple and unselected</li>
+            <li>Exclusive and unselected</li>
+            <li>Exclusive only</li>
+          </ul>
+        </div>
+        <div class="module">
+          <div>
+            <div class="toggle-button-container toggle-button-exclusive-selection">
+              <div>
+                <smart-toggle-button class="primary" group="A">
+                  <i class="material-icons">format_align_left</i>
+                </smart-toggle-button>
+                <smart-toggle-button class="secondary" group="A" checked>
+                  <i class="material-icons">format_align_center</i>
+                </smart-toggle-button>
+                <smart-toggle-button class="error" group="A">
+                  <i class="material-icons">format_align_right</i>
+                </smart-toggle-button>
+                <smart-toggle-button class="success" group="A">
+                  <i class="material-icons">format_align_justify</i>
+                </smart-toggle-button>
+              </div>
+            </div>
+            <p>Exclusive selection</p>
+            <p>
+              Text justification toggle buttons present options for left, right, center,
+              full, and justified text with only one item available for selection at
+              a time. Selecting one option deselects any other.
+            </p>
+          </div>
+          <div>
+            <div class="toggle-button-container toggle-button-no-selection">
+              <div>
+                <smart-toggle-button>
+                  <i class="material-icons">format_align_left</i>
+                </smart-toggle-button>
+                <smart-toggle-button>
+                  <i class="material-icons">format_align_center</i>
+                </smart-toggle-button>
+                <smart-toggle-button>
+                  <i class="material-icons">format_align_right</i>
+                </smart-toggle-button>
+                <smart-toggle-button>
+                  <i class="material-icons">format_align_justify</i>
+                </smart-toggle-button>
+              </div>
+            </div>
+            <p>No options are selected</p>
+          </div>
+        </div>
+        <div class="module">
+          <div>
+            <div class="toggle-button-container toggle-button-multiple-selection">
+              <div>
+                <smart-toggle-button checked>
+                  <i class="material-icons">format_bold</i>
+                </smart-toggle-button>
+                <smart-toggle-button checked>
+                  <i class="material-icons">format_italic</i>
+                </smart-toggle-button>
+                <smart-toggle-button checked>
+                  <i class="material-icons">format_underlined</i>
+                </smart-toggle-button>
+                <smart-toggle-button>
+                  <i class="material-icons">format_color_fill</i>
+                  <i class="material-icons">arrow_drop_down</i>
+                </smart-toggle-button>
+              </div>
+            </div>
+            <p>Multiple selection</p>
+            <p>
+              Logically-grouped options, like Bold, Italic, and Underline, allow multiple
+              options to be selected.
+            </p>
+          </div>
+          <div>
+            <div class="toggle-button-container toggle-button-single-selection">
+              <div>
+                <smart-toggle-button class="primary raised exclusive-selection">
+                  <i class="material-icons">format_bold</i>
+                </smart-toggle-button>
+                <smart-toggle-button class="primary raised exclusive-selection" checked>
+                  <i class="material-icons">format_italic</i>
+                </smart-toggle-button>
+                <smart-toggle-button class="primary raised exclusive-selection">
+                  <i class="material-icons">format_underlined</i>
+                </smart-toggle-button>
+                <smart-toggle-button class="primary raised exclusive-selection">
+                  <i class="material-icons">format_color_fill</i>
+                  <i class="material-icons">arrow_drop_down</i>
+                </smart-toggle-button>
+              </div>
+            </div>
+            <p>One option is selected</p>
+          </div>
+        </div>
+      </section>
+      <section id="toggle-button-icons">
+        <div class="module">
+          <h2>Icon toggles</h2>
+          <br />
+          <p>
+            Icons are appropriate for toggle buttons that allow a single choice to
+            be selected or deselected, such as adding or removing a star to an item.
+          </p>
+          <p>They are best located in app bars, toolbars, action buttons or toggles.</p>
+          <p>
+            Icon toggles may display bounded or unbounded ink surface reaction ripples
+            beyond their touch-target bounds.
+          </p>
+        </div>
+        <div class="module">
+          <div class="toggle-button-icons-container">
+            <h3>Toggles</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td colspan="1" rowspan="1">
+                    <smart-toggle-button class="normal">
+                      <i class="material-icons">wifi</i>
+                    </smart-toggle-button>
+                  </td>
+                  <td colspan="1" rowspan="1">
+                    <smart-toggle-button class="error">
+                      <i class="material-icons">wifi</i>
+                    </smart-toggle-button>
+                  </td>
+                  <td colspan="1" rowspan="1">
+                    <smart-toggle-button class="success">
+                      <i class="material-icons">wifi</i>
+                    </smart-toggle-button>
+                  </td>
+                  <td colspan="1" rowspan="1">
+                    <smart-toggle-button class="primary">
+                      <i class="material-icons">wifi</i>
+                    </smart-toggle-button>
+                  </td>
+                  <td colspan="1" rowspan="1">
+                    <smart-toggle-button class="secondary">
+                      <i class="material-icons">wifi</i>
+                    </smart-toggle-button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Icon toggles in normal, hover, focused, pressed, and inactive states</p>
+        </div>
+        <div class="module"></div>
+        <div class="module">
+          <div class="toggle-button-icons-themes">
+            <div>
+              <p>icon</p>
+              <smart-toggle-button checked>
+                <i class="material-icons">favorite</i>
+              </smart-toggle-button>
+            </div>
+          </div>
+          <p>
+            The icon toggle focus indicator color and opacity are related to the color
+            of the icon.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>
+
+<script>
+import { onMounted } from "vue";
+import "smart-webcomponents/source/styles/smart.default.css";
+import "smart-webcomponents/source/modules/smart.button.js";
+
+export default {
+  name: "app",
+  setup() {
+    onMounted(() => {
+      const toggleButtons = document.getElementsByClassName(
+        "exclusive-selection"
+      );
+      for (let i = 0; i < toggleButtons.length; i++) {
+        toggleButtons[i].addEventListener("change", function(event) {
+          if (event.detail.value) {
+            for (let k = 0; k < toggleButtons.length; k++) {
+              if (toggleButtons[k] !== this) {
+                toggleButtons[k].checked = false;
+              }
+            }
+          }
+        });
+      }
+    });
+  }
+};
+</script>
+
+<style>
+</style>

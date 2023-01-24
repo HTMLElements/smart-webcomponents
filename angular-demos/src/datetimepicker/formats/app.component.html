@@ -1,0 +1,23 @@
+<smart-date-time-picker #datetimepicker class="demoDateTimePickerWide"
+                        [calendarButton]="true" [enableMouseWheelAction]="true" [spinButtons]="true" [spinButtonsPosition]="'left'"></smart-date-time-picker>
+<div class="options">
+    <div class="caption">Formats</div>
+    <div class="option">
+        <smart-drop-down-list #dropdownlist id="chooseFormat">
+            <smart-list-item [value]="'dd-MMM-yy HH:mm:ss.fff'" [selected]="true">default pattern</smart-list-item>
+            <smart-list-item [value]="'d'">short date pattern</smart-list-item>
+            <smart-list-item [value]="'D'">long date pattern</smart-list-item>
+            <smart-list-item [value]="'t'">short time pattern</smart-list-item>
+            <smart-list-item [value]="'T'">long time pattern</smart-list-item>
+            <smart-list-item [value]="'f'">long date, short time pattern</smart-list-item>
+            <smart-list-item [value]="'F'">long date, long time pattern</smart-list-item>
+            <smart-list-item [value]="'M'">month/day pattern</smart-list-item>
+            <smart-list-item [value]="'Y'">month/year pattern</smart-list-item>
+            <smart-list-item [value]="'FP'">full precision</smart-list-item>
+            <smart-list-item [value]="'FT'">full precision time</smart-list-item>
+            <smart-list-item [value]="'PP'">processor precision</smart-list-item>
+            <smart-list-item [value]="'PT'">processor precision time</smart-list-item>
+            <smart-list-item [value]="'dddd-MMMM-yyyy'">custom</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+</div>

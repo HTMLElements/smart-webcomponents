@@ -1,0 +1,17 @@
+<div class="container">
+    <h3>The barcode element supports a wide range of the most common barcode types available</h3>
+    <div class="underlined">Pharmacode:</div>
+    <smart-barcode #pharmacode [type]="'pharmacode'" [value]="'1234'"></smart-barcode>
+    <div class="underlined">Codabar:</div>
+    <smart-barcode #codabar [type]="'codabar'" [value]="'A2402B'" ></smart-barcode>
+    <div class="underlined">Code128 A | B | C:</div>
+    <smart-barcode #code128c [type]="'code128c'" [value]="'22481203'"></smart-barcode>
+    <smart-barcode #code128a [type]="'code128a'" [value]="'EXAMPLE'"></smart-barcode>
+    <smart-barcode #code128b [type]="'code128b'" [value]="'example'"></smart-barcode>
+    <br/>
+    <div class="underlined">MSI 10 | 11:</div>
+    <smart-barcode #msi10 [type]="'msi10'" [value]="'12345'"></smart-barcode>
+    <smart-barcode #msi11 [type]="'msi11'" [value]="'67890'"></smart-barcode>
+    <div class="underlined">Code39:</div>
+    <smart-barcode #code39 [type]="'code39'" [value]="'*1234567AB*'" [lineWidth]="2" ></smart-barcode>
+</div>

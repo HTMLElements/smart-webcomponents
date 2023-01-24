@@ -1,0 +1,6 @@
+<div class="demo-description">Columns 'template' property is set to a custom function in order to render
+    the cell contents. The Grid initially requests for a cell template, when
+    the function is called. Once the 'template' is set to the 'formatObject',
+    the Grid requests only for template updates while scrolling. It does not
+    recreate the 'template' from scratch.</div>
+<smart-grid [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>

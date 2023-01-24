@@ -1,0 +1,682 @@
+<template>
+  <div class="vue-root">
+    <div class="button-demo fancy-buttons">
+      <label>Fancy Buttons</label>
+      <div class="demo-buttons-group">
+        <section class="content">
+          <div>
+            <smart-button class="doar-btn">
+              <a href="javascript:void(0)" class="btn btn--doar">Click</a>
+            </smart-button>
+          </div>
+          <br />
+          <div>
+            <a href="javascript:void(0)" class="btn btn--promo">
+              <smart-button class="promtion-btn">Promo</smart-button>
+            </a>
+          </div>
+          <br />
+          <div>
+            <smart-button class="pausar-btn">
+              <a href="javascript:void(0)" class="btn btn--action">
+                <span>Pause</span>
+              </a>
+            </smart-button>
+          </div>
+          <!-- Redes Sociais -->
+          <div class="flat-under">
+            <div class="grow-container">
+              <smart-button class="share-btn">
+                <a href="javascript:void(0)" class="to-twitter circle-button">
+                  <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
+                </a>
+              </smart-button>
+            </div>
+            <div class="grow-container">
+              <smart-button class="share-btn">
+                <a href="javascript:void(0)" class="to-facebook circle-button">
+                  <i class="fa fa-facebook fa-fw" aria-hidden="true"></i>
+                </a>
+              </smart-button>
+            </div>
+            <div class="grow-container">
+              <smart-button class="share-btn">
+                <a href="javascript:void(0)" class="to-linkedin circle-button">
+                  <i class="fa fa-linkedin fa-fw" aria-hidden="true"></i>
+                </a>
+              </smart-button>
+            </div>
+            <div class="grow-container">
+              <smart-button class="share-btn">
+                <a href="javascript:void(0)" class="to-reddit circle-button">
+                  <i class="fa fa-reddit-alien fa-fw" aria-hidden="true"></i>
+                </a>
+              </smart-button>
+            </div>
+          </div>
+          <!-- WOOOOOW -->
+          <div class="box">
+            <button class="cta">
+              <smart-button class="click-me">
+                <a href="javascript:void(0)">Click me</a>
+              </smart-button>
+              <span class="shape">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { onMounted } from "vue";
+import "smart-webcomponents/source/styles/smart.default.css";
+import "smart-webcomponents/source/modules/smart.button.js";
+
+export default {
+  name: "app",
+  setup() {
+    onMounted(() => {
+      "use strict";
+      let button = document.querySelector(".cta");
+      button.addEventListener("click", function() {
+        button.classList.add("active");
+        window.setTimeout(() => {
+          button.classList.remove("active");
+        }, 300);
+      });
+    });
+  }
+};
+</script>
+
+<style>
+.button-demo {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.button-demo label {
+  font-size: 18px;
+  font-weight: normal;
+  font-family: auto;
+  color: black;
+}
+
+.demo-buttons-group {
+  margin-top: 20px;
+}
+
+/* Fancy Buttons */
+a.btn.btn--doar {
+  text-transform: none;
+}
+
+smart-button.doar-btn {
+  --smart-button-opacity-focus: initial;
+  --smart-button-opacity-hover: initial;
+  --smart-button-opacity-active: initial;
+  background: transparent;
+  padding: 0;
+  width: auto;
+  height: auto;
+  outline: none;
+  border: none;
+  text-transform: none;
+}
+
+smart-button.doar-btn a:hover {
+  color: white;
+}
+
+smart-button.doar-btn button {
+  text-transform: none;
+  padding: 0;
+  outline: none;
+}
+
+/*Promotion btn*/
+a.btn.btn--promo {
+  padding: 0;
+}
+
+smart-button.promtion-btn {
+  --smart-button-opacity-focus: initial;
+  --smart-button-opacity-hover: initial;
+  --smart-button-opacity-active: initial;
+  text-transform: none;
+  color: white;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 32px;
+  font-weight: 700;
+  padding: 0;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+}
+
+smart-button.promtion-btn button {
+  outline: none;
+  padding: 13px;
+}
+
+/* Pausar */
+smart-button.pausar-btn {
+  background: transparent;
+  border: none;
+  --smart-button-opacity-focus: initial;
+  --smart-button-opacity-hover: initial;
+  --smart-button-opacity-active: initial;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  padding-bottom: 2px;
+  font-family: arial;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: none;
+  border-radius: 20px;
+  color: black;
+  text-transform: none;
+}
+
+smart-button.pausar-btn button {
+  outline: none;
+  overflow: visible;
+  padding-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+}
+
+smart-button.pausar-btn button a {
+  text-transform: none;
+}
+
+smart-button.pausar-btn button a:focus {
+  box-shadow: 0 0 0 0.2rem transparent;
+}
+
+smart-button.click-me {
+  background: transparent;
+  width: 160px;
+  height: 60px;
+  background: #e6203b;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  --smart-button-opacity-focus: initial;
+  --smart-button-opacity-hover: initial;
+  --smart-button-opacity-active: initial;
+}
+
+smart-button.click-me a {
+  text-decoration: none;
+}
+
+smart-button.share-btn {
+  --smart-button-opacity-focus: initial;
+  --smart-button-opacity-hover: initial;
+  --smart-button-opacity-active: initial;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+smart-button.share-btn a {
+  outline: none;
+}
+
+smart-button.share-btn button {
+  padding: 8px;
+  outline: none;
+}
+
+a.btn {
+  padding: 15px;
+  font-weight: 700;
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+a.btn--doar {
+  color: #fff;
+  padding-right: 0;
+  background-color: #c0392b;
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+}
+
+a.btn--doar:hover {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+}
+
+a.btn--doar:after {
+  content: "\f004";
+  color: #e74c3c;
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  right: -55px;
+  transition: all 0.2s ease;
+}
+
+a.btn--doar:hover:after {
+  margin: -5px 15px;
+  right: 0px;
+}
+
+a.btn--promo {
+  color: #dff9fb;
+  background-color: #130f40;
+  border-radius: 50px;
+}
+
+a.btn--promo:after {
+  content: "40% OFF";
+  display: inline-block;
+  font-size: 1rem;
+  color: #130f40;
+  background-color: #f0932b;
+  border-radius: 25px;
+  padding: 5px;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: -55px;
+}
+
+smart-button.pausar-btn a.btn--action {
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background-color: #f6e58d;
+  color: #000;
+  transition: all 0.5s ease 0s;
+  box-shadow: 0 10px #f9ca24;
+}
+
+smart-button.pausar-btn a.btn--action span {
+  display: inline-block;
+  color: black;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+smart-button.pausar-btn a.btn--action span:before {
+  content: "\f04c";
+  color: #000;
+  font-size: 1rem;
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 1.5rem;
+  opacity: 0;
+  transition: all 0.1s ease 0s;
+}
+
+smart-button.pausar-btn a.btn--action:hover span {
+  padding-left: 1.5rem;
+}
+
+smart-button.pausar-btn a.btn--action:hover span:before {
+  left: 0;
+  opacity: 1;
+}
+
+smart-button.pausar-btn a.btn--action:active {
+  box-shadow: 0 5px #f0932b;
+  transform: translateY(5px);
+}
+
+/* Redes Sociais */
+smart-button.share-btn a.circle-button {
+  font-family: "Roboto", sans-serif;
+  color: #ccc;
+  display: inline-block;
+  font-size: 2rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+smart-button.share-btn a.circle-button:hover {
+  animation: circle-anim 0.3s ease forwards;
+  transition: all 0.4s ease;
+}
+
+.grow-container {
+  display: inline-block;
+  margin: 1em;
+}
+
+smart-button.share-btn a.to-red:hover {
+  background: #e5393f;
+}
+
+smart-button.share-btn a.to-twitter:hover {
+  background: #1da1f3;
+}
+
+smart-button.share-btn a.to-facebook:hover {
+  background: #3b5998;
+}
+
+smart-button.share-btn a.to-linkedin:hover {
+  background: #0077b5;
+}
+
+smart-button.share-btn a.to-reddit:hover {
+  background: #ff4500;
+}
+
+@keyframes circle-anim {
+  0% {
+  }
+
+  90% {
+    padding: 0.35em;
+    margin: -0.35em;
+  }
+
+  100% {
+    padding: 0.25em;
+    margin: -0.25em;
+  }
+}
+
+/* WOOOW */
+.box button.cta {
+  background: transparent;
+}
+
+.box button.cta a {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* let's shape */
+.box button.cta span.shape {
+  height: 60px;
+  width: 160px;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+.box button.cta span span {
+  content: "";
+  position: absolute;
+  margin: auto;
+  height: 8px;
+  width: 2px;
+  background: #e6203b;
+  opacity: 0;
+}
+
+.box button.cta span span:nth-of-type(1) {
+  top: -20px;
+  left: 0;
+  right: 0;
+}
+
+.box button.cta span span:nth-of-type(2) {
+  bottom: -20px;
+  left: 0;
+  right: 0;
+}
+
+.box button.cta span span:nth-of-type(3) {
+  top: 0;
+  bottom: 0;
+  left: -10px;
+}
+
+.box button.cta span span:nth-of-type(4) {
+  top: 0;
+  bottom: 0;
+  right: -10px;
+}
+
+.box button.cta span span:nth-of-type(5) {
+  top: -20px;
+  left: -70%;
+  right: 0;
+  transform: rotate(-30deg);
+}
+
+.box button.cta span span:nth-of-type(6) {
+  top: -20px;
+  left: 0;
+  right: -70%;
+  transform: rotate(30deg);
+}
+
+.box button.cta span span:nth-of-type(7) {
+  bottom: -20px;
+  right: 0;
+  left: -70%;
+  transform: rotate(30deg);
+}
+
+.box button.cta span span:nth-of-type(8) {
+  bottom: -20px;
+  left: 0;
+  right: -70%;
+  transform: rotate(-30deg);
+}
+
+.box button {
+  outline: none;
+  border: none;
+}
+
+/* let's animate this */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.box button.cta.active {
+  animation: bounce 0.3s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(1) {
+  animation: anim1 0.4s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(2) {
+  animation: anim2 0.4s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(3) {
+  animation: anim3 0.4s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(4) {
+  animation: anim4 0.4s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(5) {
+  animation: anim5 0.4s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(6) {
+  animation: anim6 0.4s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(7) {
+  animation: anim7 0.4s ease-out 1;
+}
+
+.box button.cta.active span span:nth-of-type(8) {
+  animation: anim8 0.4s ease-out 1;
+}
+
+@keyframes anim1 {
+  0% {
+    transform: scaleY(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(-10px) scaleY(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-20px) scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes anim2 {
+  0% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(10px) scaleY(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(20px) scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes anim3 {
+  0% {
+    transform: rotate(90deg) scaleX(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(90deg) translateY(10px) scaleX(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(90deg) translateY(20px) scaleX(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes anim4 {
+  0% {
+    transform: rotate(90deg) scaleX(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(90deg) translateY(-10px) scaleX(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(90deg) translateY(-20px) scaleX(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes anim5 {
+  0% {
+    transform: rotate(-30deg) scaleY(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(-30deg) translateY(-8px) scaleY(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-30deg) translateY(-16px) scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes anim6 {
+  0% {
+    transform: rotate(30deg) scaleY(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(30deg) translateY(-8px) scaleY(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(30deg) translateY(-16px) scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes anim7 {
+  0% {
+    transform: rotate(30deg) scaleY(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(30deg) translateY(8px) scaleY(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(30deg) translateY(16px) scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes anim8 {
+  0% {
+    transform: rotate(-30deg) scaleY(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(-30deg) translateY(8px) scaleY(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-30deg) translateY(16px) scaleY(0.5);
+    opacity: 0;
+  }
+}
+</style>

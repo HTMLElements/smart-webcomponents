@@ -1,0 +1,23 @@
+<h1>Dispaly Mode "hexagonal"</h1>
+<smart-color-panel #colorpanel id="colorPanel" [displayMode]="'hexagonal'"></smart-color-panel>
+<div class="options" #options>
+    <div class="option">Selected color:
+        <input placeholder="#RRGGBB" class="smart-input" id="rgbValue" #rgbaInput/>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox id="inverted">Inverted</smart-check-box>
+    </div>
+    <div class="option">
+         <h3>Palette</h3>
+        <smart-radio-button #radiobutton [groupName]="'palette'" [checked]="true">default</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 [groupName]="'palette'">gray</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3 [groupName]="'palette'">red</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton4 [groupName]="'palette'">green</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton5 [groupName]="'palette'">blue</smart-radio-button>
+        <br/>
+    </div>
+</div>

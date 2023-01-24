@@ -1,0 +1,16 @@
+smart-grid {
+    width: auto;
+	height: auto;
+	--smart-grid-template-columns:  250px 150px 150px 200px auto;
+}
+
+@media only screen and (max-width: 800px) {
+	smart-grid {  
+	  --smart-grid-template-columns:  150px 150px 150px 150px auto;
+	}
+}
+@media only screen and (max-width: 600px) {
+	smart-grid {  
+	  --smart-grid-template-columns:  60px 60px 60px 60px auto;
+	}
+}

@@ -1,0 +1,18 @@
+<smart-gantt-chart #ganttchart id="gantt" [nonworkingDays]="nonworkingDays" [nonworkingHours]="nonworkingHours"
+    [durationUnit]="durationUnit" [view]="view" [treeSize]="treeSize" [disableSelection]="disableSelection"
+    [keyboardNavigation]="keyboardNavigation" [taskColumns]="taskColumns" [dataSource]="dataSource"></smart-gantt-chart>
+<div class="options">
+    <h3>Adjust To Nonworking Time</h3>
+    <div class="option">
+        <p>The <b>adjustToNonworkingTime</b> determines whether the tasks are displayed
+            according to the working time inside the Timeline. By default the proeprty
+            is disabled and tasks are displayed according to the calendar time inside
+            the timeline. When enabled, the <b>dateEnd</b> of the tasks is recalculated
+            according to the duration in working time only. Work time is determined
+            by the <b>nonworkingDays</b> and <b>nonwokringHours</b> properties.</p>
+    </div>
+    <div class="option">
+        <p>Click on the button to enable or disable the adjustment to working time</p>
+        <smart-button #button (onClick)="buttonClickHandler()" id="adjust">Click To Enable</smart-button>
+    </div>
+</div>

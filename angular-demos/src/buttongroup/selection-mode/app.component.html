@@ -1,0 +1,7 @@
+<smart-button-group #buttongroup [dataSource]="dataSource"></smart-button-group>
+<div class="options" #options>
+     <h4>Select a Selection Mode:</h4>
+    <div class="option">
+        <smart-input #input [readonly]="true" [value]="'one'" [dataSource]="selectionModes" [dropDownButtonPosition]="'right'"></smart-input>
+    </div>
+</div>

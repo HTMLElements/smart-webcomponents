@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id='Description'>Angular Grid Editing-custom-editor | Grid | https://www.htmlelements.com/</title>
+    <base href="./../../../dist/grid/editing-custom-editor/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <app-root>Loading...</app-root>
+    <template id="moodTemplate">
+        <div>Mood: {{value=&#128522;}}</div>
+    </template>
+    <template id="moodEditorTemplate">
+        <div tabindex=0 style="padding: 0px; display:flex; justify-content: center;"><span
+                tabindex=1>&#128522;</span><span tabindex=2>&#128528;</span>
+            <span tabindex=3>&#128514;</span>
+        </div>
+    </template>
+    <template id="template">
+        <select>
+            <option>Black Tea</option>
+            <option>Green Tea</option>
+            <option>Caffe Espresso</option>
+            <option>Doubleshot Espresso</option>
+            <option>Caffe Latte</option>
+            <option>White Chocolate Mocha</option>
+            <option>Caramel Latte</option>
+            <option>Caffe Americano</option>
+            <option>Cappuccino</option>
+            <option>Espresso Truffle</option>
+            <option>Espresso con Panna</option>
+            <option>Peppermint Mocha Twist
+            <option>
+        </select>
+    </template>
+    <script src="runtime.js" type="module"></script>
+    <script src="polyfills.js" type="module"></script>
+    
+    
+    <script src="main.js" type="module"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<div class="smart-demo-container">
+    <section id="power-button">
+        <div class="module">
+            <p>Power button is a two-state type of toggle button with an indicator.</p>
+            <p>Used as indicator.</p>
+        </div>
+        <div class="module power-button-flat-light">
+            <div>
+                <smart-power-button></smart-power-button>
+                <br />
+                <smart-power-button #powerbutton hover></smart-power-button>
+                <br />
+                <smart-power-button #powerbutton2 [checked]="true"></smart-power-button>
+                <br />
+                <smart-power-button #powerbutton3 [disabled]="true"></smart-power-button>
+            </div>
+        </div>
+        <div class="module"></div>
+        <div class="module power-button-light">
+            <div>
+                <smart-power-button #powerbutton4 class="raised"></smart-power-button>
+                <br />
+                <smart-power-button #powerbutton5 class="raised"></smart-power-button>
+                <br />
+                <smart-power-button #powerbutton6 class="checked raised" [checked]="true"></smart-power-button>
+                <br />
+                <smart-power-button #powerbutton7 class="raised" [disabled]="true"></smart-power-button>
+            </div>
+            <p>Raised Power button</p>
+        </div>
+        <div class="module power-button-dark">
+             <h2>Demo usage</h2>
+        </div>
+        <div class="module power-button">
+            <div>
+                <smart-circular-progress-bar id="progressBarAnimated" indeterminate value="100">
+                    <smart-power-button #powerbutton8 style="border:none;" id="powerButtonAnimation"></smart-power-button>
+                </smart-circular-progress-bar>
+            </div>
+            <p>A power button can control the loading process.</p>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,9 @@
+<div class="description">Automatic State Handling. Resize or Reorder item. The state(like a snapshot
+    of the layout) is automatically saved. Then open the demo again, and Your
+    State is loaded.
+</div>
+
+<smart-button #button (onClick)="initializeLayout($event)">Initialize Layout</smart-button>
+<smart-button #button2 (onClick)="clearState($event)">Clear State</smart-button>
+<smart-docking-layout #dockinglayout id="layout" [autoSaveState]="true" [autoLoadState]="true" [layout]="layout">
+</smart-docking-layout>

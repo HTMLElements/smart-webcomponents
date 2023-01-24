@@ -1,0 +1,44 @@
+<div id="container">
+    <smart-drop-down-button #dropdownbutton [placeholder]="'Select'" [dropDownWidth]="'auto'">
+        <smart-tabs #tabs id="tab">
+            <smart-tab-item [label]="'Tab 1'">Content of Item 1</smart-tab-item>
+            <smart-tab-item [label]="'Tab 2'">Content of Item 2</smart-tab-item>
+            <smart-tab-item [label]="'Tab 3'">Content of Item 3</smart-tab-item>
+        </smart-tabs>
+    </smart-drop-down-button>
+</div>
+<div class="options">
+    <div class="option">
+        <div>Open Mode:</div>
+        <br/>
+        <smart-button #buttonDefault [disabled]="true">Default</smart-button>
+        <br/>
+        <br/>
+        <smart-button #buttonAuto>Auto</smart-button>
+        <br/>
+        <br/>
+        <smart-button #button>Button</smart-button>
+        <br/>
+        <br/>
+        <smart-button #buttonNone>None</smart-button>
+        <br/>
+    </div>
+    <div class="option" id="eventLog">
+         <h4>Event log:</h4>
+        <div id="log" #log>...</div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<div id="description">
+    <div>Modes Description</div>
+    <ul>
+        <li>Auto - the dropDownButton is opened/closed when the element is hovered.</li>
+        <li>Default - the dropDownButton is opened/closed when the element is clicked.</li>
+        <li>DropDownButton - the dropDownButton is devided in two components. An Action
+            Button and a dropDown Button.
+            <br/>The dropDownButton can be opened/closed when the dropDownButton is clicked.</li>
+        <li>None - the dropDownButton can't be opened/closed.</li>
+    </ul>
+</div>

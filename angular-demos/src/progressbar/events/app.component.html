@@ -1,0 +1,11 @@
+<smart-progress-bar #progressbar [value]="50"></smart-progress-bar>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <div>
+            <smart-button #button (onClick)="setVal($event)">Set Value</smart-button>
+        </div>
+        <br />
+        <div id="log" #log></div>
+    </div>
+</div>

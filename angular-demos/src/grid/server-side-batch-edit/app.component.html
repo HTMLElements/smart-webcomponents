@@ -1,0 +1,25 @@
+<div class="demo-description">
+     <h1>Server-Side Batch Edit</h1>This example performs CRUD operations via Batch Editing. In order to enable
+    batch editing, the 'editing.batch' property should be set to 'true'. The
+    'editing.commandBar' setting allows you to display a tool bar or status
+    bar with tools for saving and reverting the edit made by the users. This
+    is achieved by setting 'editing.commandBar.visible' to 'true'.
+    <br/>
+    <br/>When the 'Save' button is clicked, the Grid sends server requests. The
+    server uses the SQL query sent by the Server-Side Datasource to get the
+    rows. The type of query is stored in the request's action property. Double-click
+    on a cell to begin edit.
+    <br />
+    <br />This example uses a demo server with AlaSQL that generates SQL to show
+    how a real server might use the requests sent by the Datagrid. The Server-Side
+    Datagrid usage does not have any restrictions on the server-side technologies
+    used.</div>
+<smart-grid [editing]="editing" [sorting]="sorting" [selection]="selection" [appearance]="appearance" [columns]="columns" [dataSource]="dataSource" #grid id="grid"></smart-grid>
+<br />
+<br />
+	<h3>SQL Query</h3>
+<div id="query"></div>
+<br />
+<br />
+ <h3>Data</h3>
+<div id="dataLog"></div>

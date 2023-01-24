@@ -1,0 +1,58 @@
+<div class="demo-description">The Color Picker's display-mode is set to "spectrumGrid"</div>
+<smart-color-picker #colorpicker [displayMode]="'spectrumGrid'" [placeholder]="'Select a Color'"></smart-color-picker>
+<div class="options" #options>
+    <div class="caption">Settings</div>
+    <div class="option">
+        <div>Toggle Grid Column Size</div>
+        <smart-radio-button #radiobutton [groupName]="'columnCount'">5</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 [groupName]="'columnCount'" [checked]="true">10</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 [groupName]="'columnCount'">15</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <div>Toggle Grid Color Size</div>
+        <smart-radio-button #radiobutton4 [groupName]="'columnSize'" [checked]="true">20</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5 [groupName]="'columnSize'">40</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6 [groupName]="'columnSize'">60</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <div>Toggle Grid Column Gap</div>
+        <smart-radio-button #radiobutton7 [groupName]="'columnGap'" [checked]="true">3</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton8 [groupName]="'columnGap'">6</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton9 [groupName]="'columnGap'">9</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <div>Apply Value Mode</div>
+        <smart-radio-button #radiobutton10 [groupName]="'applyValueMode'" [checked]="true">instantly
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton11 [groupName]="'applyValueMode'">useButtons</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <div>Palette</div>
+        <smart-radio-button #radiobutton12 [groupName]="'palette'" [checked]="true">default</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton13 [groupName]="'palette'">gray</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton14 [groupName]="'palette'">red</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton15 [groupName]="'palette'">green</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton16 [groupName]="'palette'">blue</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <div>Inverted</div>
+        <smart-check-box #checkbox id="inverted">inverted</smart-check-box>
+        <br />
+    </div>
+</div>

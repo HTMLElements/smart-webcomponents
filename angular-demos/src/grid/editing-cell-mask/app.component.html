@@ -1,0 +1,9 @@
+<div class="demo-description">
+    <h1>Grid Masked TextBox column type</h1>
+    A MaskedTextBox Grid Column is intended for editing of strict input values
+    such as SSN, Phone, Credit Card numbers, etc. Clicking on the "Phone" column
+    cells will display a MaskedTextBox editor.
+</div>
+<smart-grid #grid id="grid" [onRowDetailInit]="onRowDetailInit" [dataSource]="dataSource" [sorting]="sorting"
+    [behavior]="behavior" [layout]="layout" [rowDetail]="rowDetail" [selection]="selection" [editing]="editing"
+    [columns]="columns"></smart-grid>

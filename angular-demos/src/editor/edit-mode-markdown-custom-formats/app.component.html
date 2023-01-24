@@ -1,0 +1,13 @@
+<smart-editor #editor id="editor" [editMode]="editMode" [toolbarItems]="toolbarItems" [value]="value"></smart-editor>
+<div class="options">
+     <h3>Description</h3>
+    <div class="description">Smart Editor\'s drop down toolbar items can be customized in order to
+        have different values. In the following demo the <b>formats</b> toolbar item
+        has been modified to include additional headings. Click on the toobar item
+        in order to add a format. Clicking on the <b>Source Code</b> Toolbar item
+        will show the HTML output of the markdown.</div>
+    <div class="option">
+         <h4>Preview HTML Output:</h4>
+        <smart-switch-button #switchbutton id="switchButton" (onChange)="handleChange($event)">Show HTML Output</smart-switch-button>
+    </div>
+</div>

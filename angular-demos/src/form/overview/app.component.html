@@ -1,0 +1,37 @@
+<div class="demo-description">This example shows how to create a Reactive Form with Validation.</div>
+<form
+id="profileForm">
+    <div class="smart-form-row">
+        <label>First Name:</label>
+        <smart-input #input class="underlined" form-control-name="firstName"></smart-input>
+    </div>
+    <div class="smart-form-row">
+        <label>Last Name:</label>
+        <smart-input #input2 class="underlined" form-control-name="lastName"></smart-input>
+    </div>
+    <div class="smart-form-row" form-group-name="address">
+         <h3>Address</h3>
+        <div class="smart-form-row">
+            <label>Street:</label>
+            <smart-input #input3 class="underlined" form-control-name="street"></smart-input>
+        </div>
+        <div class="smart-form-row">
+            <label>City:</label>
+            <smart-input #input4 class="underlined" form-control-name="city"></smart-input>
+        </div>
+        <div class="smart-form-row">
+            <label>State:</label>
+            <smart-input #input5 class="underlined" form-control-name="state"></smart-input>
+        </div>
+        <div class="smart-form-row">
+            <label>Zip Code:</label>
+            <smart-input #input6 class="underlined" form-control-name="zip"></smart-input>
+        </div>
+    </div>
+    <div class="smart-form-row submit">
+        <smart-button #button class="success" form-control-name="submit" type="submit">Submit</smart-button>
+    </div>
+    </form>
+    <br />
+    <br />
+    <div id="log"></div>

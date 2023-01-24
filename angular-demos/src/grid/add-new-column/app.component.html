@@ -1,0 +1,9 @@
+<div class="demo-description">
+    <h1>DataGrid Add New Column</h1>
+    DataGrid has built-in UI for Dynamically Adding a New Column. To enable
+    it, you need to set the 'editing.addNewColumn.visible' property to true.
+    <br />Press the '+' button to open the 'New Column Dialog'. On open and close,
+    the 'openColumnDialog' and 'closeColumnDialog' events are fired.
+</div>
+<smart-grid #grid id="grid" [dataSource]="dataSource" [selection]="selection" [behavior]="behavior" [sorting]="sorting"
+    [filtering]="filtering" [editing]="editing" [columns]="columns"></smart-grid>

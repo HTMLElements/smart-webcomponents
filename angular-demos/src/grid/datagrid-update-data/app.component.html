@@ -1,0 +1,19 @@
+<div class="demo-description">
+    	<h1>DataGrid Update Data</h1>
+    <p>This DataGrid example shows how to update the Grid's data, row or cell.</p>
+</div>
+<smart-grid [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>
+<div class="options">
+    <div class="option">
+        <smart-button #updateBtn id="updateBtn">Update New DataSource</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #updateRowBtn id="updateRowBtn">Update First Row Data</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #updateCellBtn id="updateCellBtn">Update First Cell</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #clearBtn id="clearBtn">Clear Data</smart-button>
+    </div>
+</div>

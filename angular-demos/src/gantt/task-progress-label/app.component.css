@@ -1,0 +1,9 @@
+smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-task-default-height: 34px;
+    --smart-gantt-chart-task-fill-border-radius: 2.5px;
+    --smart-gantt-chart-project-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-project-label-color: white;
+    --smart-gantt-chart-task-tree-splitter-bar-fit-size: var(--smart-gantt-chart-task-default-height);
+}

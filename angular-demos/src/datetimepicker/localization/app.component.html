@@ -1,0 +1,16 @@
+<smart-date-time-picker #datetimepicker class="demoDateTimePickerWide" [calendarButton]="true" [enableMouseWheelAction]="true" [dropDownPosition]="'center-bottom'"
+                        [spinButtons]="true" [spinButtonsPosition]="'left'" [locale]="'en'"></smart-date-time-picker>
+<div class="options">
+    <div class="option">Locales</div>
+    <div class="option">
+        <smart-drop-down-list #dropdownlist id="chooseLocale">
+            <smart-list-item [value]="'bg'">Bulgarian</smart-list-item>
+            <smart-list-item [selected]="true" [value]="'en'">English</smart-list-item>
+            <smart-list-item [value]="'fr'">French</smart-list-item>
+            <smart-list-item [value]="'de'">German</smart-list-item>
+            <smart-list-item [value]="'it'">Italian</smart-list-item>
+            <smart-list-item [value]="'ja'">Japanese</smart-list-item>
+            <smart-list-item [value]="'es'">Spanish</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="demo-description">Grouping Data Export. The Grid component supports Grouped Data Export.
+    The data records in Excel(.xlsx) can be expanded/collapsed.</div>
+<smart-grid [dataSource]="dataSource" [columns]="columns" [grouping]="grouping" #grid id="grid"></smart-grid>
+<div class="options">
+    <div class="caption"></div>
+    <div class="option">
+        <smart-button #button id="xlsxBtn">Export to Excel</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="pdfBtn">Export to PDF</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="htmlBtn">Export to HTML</smart-button>
+    </div>
+</div>

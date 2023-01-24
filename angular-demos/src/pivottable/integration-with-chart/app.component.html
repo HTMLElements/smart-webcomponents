@@ -1,0 +1,11 @@
+<div class="demo-description">This demo shows how to integrate smart-pivot-table with smart-chart,
+    synchronising the Chart's data source and series when total columns and
+    rows of the Pivot Table are toggled.</div>
+<smart-chart #chart id="revenueChart" [caption]="caption" [description]="description" [showLegend]="showLegend"
+    [legendLayout]="legendLayout" [padding]="padding" [titlePadding]="titlePadding" [borderLineWidth]="borderLineWidth"
+    [xAxis]="xAxis" [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-chart>
+<smart-pivot-table #pivottable id="pivotTable" [columnTotals]="columnTotals" [dataSource]="dataSource"
+    [freezeHeader]="freezeHeader" [keyboardNavigation]="keyboardNavigation" [columns]="columns"
+    (onCollapseTotalColumn)="collapseTotalColumnHandler($event)"
+    (onExpandTotalColumn)="expandTotalColumnHandler($event)" (onExpand)="expandHandler($event)"
+    (onCollapse)="collapseHandler($event)" (onReady)="readyHandler()"></smart-pivot-table>

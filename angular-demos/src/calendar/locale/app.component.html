@@ -1,0 +1,17 @@
+<smart-calendar #calendar id="calendar"></smart-calendar>
+<div class="options">
+  <div class="caption">Choose a locale</div>
+  <div class="option">
+    <smart-drop-down-list
+      (change)="onChange($event)"
+      #localePicker
+      [dataSource]="dataSource"
+      selected-indexes="[0]"
+      id="localePicker"
+    >
+    </smart-drop-down-list>
+  </div>
+  <div class="option">
+    {{log}}
+  </div>
+</div>

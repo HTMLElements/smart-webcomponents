@@ -1,0 +1,180 @@
+.smart-check-input-drop-down-menu li {
+    height: 37px;
+}
+
+.smart-check-input-drop-down-menu li[value] a::before {
+    width: 20px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0rem;
+    box-shadow: 0 0 2.5px 0 black;
+}
+
+li[value="Austria"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/at.svg);
+}
+
+li[value="Belarus"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/by.svg);
+}
+
+li[value="Belgium"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/be.svg);
+}
+
+li[value="Bosnia and Herzegovina"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ba.svg);
+}
+
+li[value="Bulgaria"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/bg.svg);
+}
+
+li[value="Croatia"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/hr.svg);
+}
+
+li[value="Cyprus"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/cy.svg);
+}
+
+li[value="Czech Republic"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/cz.svg);
+}
+
+li[value="Denmark"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/dk.svg);
+}
+
+li[value="Estonia"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ee.svg);
+}
+
+li[value="Finland"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/fi.svg);
+}
+
+li[value="France"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/fr.svg);
+}
+
+li[value="Georgia"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ge.svg);
+}
+
+li[value="Germany"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/de.svg);
+}
+
+li[value="Greece"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/gr.svg);
+}
+
+li[value="Hungary"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/hu.svg);
+}
+
+li[value="Iceland"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/is.svg);
+}
+
+li[value="Ireland"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ie.svg);
+}
+
+li[value="Italy"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/it.svg);
+}
+
+li[value="Latvia"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/lv.svg);
+}
+
+li[value="Liechtenstein"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/li.svg);
+}
+
+li[value="Lithuania"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/lt.svg);
+}
+
+li[value="Luxembourg"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/lu.svg);
+}
+
+li[value="Macedonia, The Former Yugoslav Republic of"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/mk.svg);
+}
+
+li[value="Malta"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/mt.svg);
+}
+
+li[value="Moldova, Republic of"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/md.svg);
+}
+
+li[value="Netherlands"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/nl.svg);
+}
+
+li[value="Norway"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/no.svg);
+}
+
+li[value="Poland"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/pl.svg);
+}
+
+li[value="Portugal"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/pt.svg);
+}
+
+li[value="Romania"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ro.svg);
+}
+
+li[value="Russian Federation"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ru.svg);
+}
+
+li[value="Serbia"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/rs.svg);
+}
+
+li[value="Montenegro"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/me.svg);
+}
+
+li[value="Slovakia"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/sk.svg);
+}
+
+li[value="Slovenia"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/si.svg);
+}
+
+li[value="Spain"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/es.svg);
+}
+
+li[value="Sweden"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/se.svg);
+}
+
+li[value="Switzerland"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ch.svg);
+}
+
+li[value="Turkey"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/tr.svg);
+}
+
+li[value="Ukraine"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/ua.svg);
+}
+
+li[value="United Kingdom"] a::before {
+    content: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/1x1/gb.svg);
+}

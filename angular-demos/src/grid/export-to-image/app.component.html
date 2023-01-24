@@ -1,0 +1,25 @@
+<div class="demo-description">
+    <h1>DataGrid Image Export</h1>
+    This page demonstrates the Export to Image feature of the smartGrid web
+    component. The Grid can be exported to .png or .jpeg image. You can specify
+    whether to export all records or only part of the visible data by using
+    the 'dataExport' property's 'view' boolean option.
+</div>
+<br />
+<br />
+<smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns"></smart-grid>
+<div class="options">
+    <div class="caption"></div>
+    <div class="option">
+        <smart-button #pngBtn id="pngBtn">Export to PNG</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #jpegBtn id="jpegBtn">Export to JPEG</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #exportAllBtn id="exportAllBtn">Export All</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #exportRestrictBtn id="exportRestrictBtn">Export 25-50</smart-button>
+    </div>
+</div>

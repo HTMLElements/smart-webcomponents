@@ -1,0 +1,36 @@
+<smart-menu #menu id="menu" class="material animation" [dropDownPosition]="'auto'">
+    <smart-menu-items-group>
+        File
+        <smart-menu-item [shortcut]="'Ctrl+N'">New</smart-menu-item>
+        <smart-menu-item [shortcut]="'Ctrl+0'">Open</smart-menu-item>
+        <smart-menu-item [shortcut]="'Ctrl+S'" [disabled]="true">Save</smart-menu-item>
+        <smart-menu-item [shortcut]="'Ctrl+Alt+S'" [separator]="true">Save As...</smart-menu-item>
+        <smart-menu-item [shortcut]="'Alt+F4'">Exit</smart-menu-item>
+    </smart-menu-items-group>
+    <smart-menu-items-group>
+        Edit
+        <smart-menu-item [shortcut]="'Ctrl+Z'">Undo</smart-menu-item>
+        <smart-menu-item [shortcut]="'Ctrl+Y'" [separator]="true">Redo</smart-menu-item>
+        <smart-menu-item [shortcut]="'Ctrl+X'">Cut</smart-menu-item>
+        <smart-menu-item [shortcut]="'Ctrl+C'">Copy</smart-menu-item>
+        <smart-menu-item [shortcut]="'Ctrl+V'" [disabled]="true">Paste</smart-menu-item>
+    </smart-menu-items-group>
+</smart-menu>
+<div class="options">
+    <div class="caption">Dropdown Position</div>
+    <div class="option">
+        <smart-radio-button #radiobutton [checked]="true">Auto (browser bounds detection)</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2>Bottom left</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3>Bottom right</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton4>Top left</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5>Top right</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6>Overlay left</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton7>Overlay right</smart-radio-button>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<smart-chart #chart id="chart" [animation]="animation" [clip]="clip" [caption]="caption" [description]="description"
+    [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding" [colorScheme]="colorScheme"
+    [xAxis]="xAxis" [valueAxis]="valueAxis"></smart-chart>
+<div class="options">
+    <table>
+        <tr>
+            <td>
+                <p>Select Serie 1 Symbol:</p>
+                <smart-drop-down-list #dropdownlist id='dropDownSerie1Symbol' [dataSource]="symbols"
+                    [selectionMode]="'one'" [selectedIndexes]="[0]"></smart-drop-down-list>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Select Serie 2 Symbol:</p>
+                <smart-drop-down-list #dropdownlist2 id='dropDownSerie2Symbol' [dataSource]="symbols"
+                    selection-mode="one" selected-indexes="[1]"></smart-drop-down-list>
+            </td>
+        </tr>
+    </table>
+</div>

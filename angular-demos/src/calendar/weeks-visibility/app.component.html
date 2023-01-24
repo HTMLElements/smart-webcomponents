@@ -1,0 +1,13 @@
+<smart-calendar #calendar weeks="2"></smart-calendar>
+<div class="options">
+  <div class="caption">Number of weeks(1-6)</div>
+  <div class="option">
+    <input
+      (change)="onChange(weeksCountSelector.value)"
+      class="text-input"
+      #weeksCountSelector
+      value="2"
+      id="weeksCountSelector"
+    />
+  </div>
+</div>

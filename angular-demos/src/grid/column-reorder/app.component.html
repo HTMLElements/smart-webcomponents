@@ -1,0 +1,23 @@
+<div class="demo-description">
+  Grid Column Headers Reorder example. Move the pointer to a column header and
+  start dragging it. When you drop it over another column header, columns are
+  reordered. To enable column reorder, the behavior.allowColumnReorder is set to
+  true. To disable the reorder of a column, you can set its "allowReorder"
+  property to false. To cancel dragging, pres 'Escape' while you drag.
+</div>
+<smart-grid
+  #grid
+  id="grid"
+  (onColumnDragStart)="onColumnDragStart($event)"
+  (onColumnDragEnd)="onColumnDragEnd($event)"
+  (onColumnDragCancel)="onColumnDragCancel($event)"
+  [paging]="paging"
+  [pager]="pager"
+  [behavior]="behavior"
+  [dataSource]="dataSource"
+  [columns]="columns"
+></smart-grid>
+<div class="options">
+  <div class="caption">Event Log</div>
+  <div class="option">{{log}}</div>
+</div>

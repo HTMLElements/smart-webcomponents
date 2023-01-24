@@ -1,0 +1,13 @@
+<div class="demo-description">
+     <h1>Column Panel - DataGrid column UI</h1>
+    <p>This example shows how to use the DataGrid column panel. Click on the
+        Column button in the Grid header to open the column panel.</p>
+</div>
+<smart-grid [dataSource]="dataSource" [appearance]="appearance" [selection]="selection" [grouping]="grouping" [onCommand]="onCommand" [editing]="editing" #grid id="grid"></smart-grid>
+<smart-menu #menu id="menu" mode="dropDown">
+    <smart-menu-item data-id="Notification" label="<i class='icon fa-bell'></i>Notify me"></smart-menu-item>
+    <smart-menu-item data-id="Remove" label="<i class='icon fa-bell-slash'></i>Unsubscribe"></smart-menu-item>
+</smart-menu>
+<br/>
+<br/>
+<div id="log"></div>

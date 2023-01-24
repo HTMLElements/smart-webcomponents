@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='Description'>Angular gantt Custom-popup-window | gantt | https://www.htmlelements.com/</title>
+        <base href="./../../../dist/gantt/custom-popup-window/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+    </head>
+    <body>
+        <app-root>Loading...</app-root>
+
+        <template id="myTemplate">
+            <div class="custom-window-content">
+                <div class="custom-window-content-section">
+                    <label id="taskLabel"></label>
+                </div>
+                <div class="custom-window-content-section"> <b>Description</b>
+                </div>
+                <div class="custom-window-content-section">
+                    <smart-multiline-text-box #multilinetextbox id="description"></smart-multiline-text-box>
+                </div>
+                <div class="custom-window-content-section"> <b>Time Period</b>
+                </div>
+                <div class="custom-window-content-section date-controls">
+                    <div class="custom-window-content-section">
+                        <select id="dayPicker">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                        <select id="monthPicker">
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                        <select id="yearPicker">
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="custom-window-content-section">
+                        <smart-repeat-button #repeatbutton id="dayDecrementBtn"><span class="glyphicon glyphicon-minus"></span>
+                        </smart-repeat-button>
+                        <smart-text-box #textbox id="dayInput"></smart-text-box>
+                        <smart-repeat-button #repeatbutton2 id="dayIncrementBtn"><span class="glyphicon glyphicon-plus"></span>
+                        </smart-repeat-button>
+                        <label>Days</label>
+                    </div>
+                    <div class="custom-window-content-section">
+                        <label id="totalDate"></label>
+                    </div>
+                </div>
+                <div class="custom-window-content-section buttons">
+                    <smart-button #button class="error flat" id="deleteBtn">Delete</smart-button>
+                    <smart-button #button2 class="primary flat" id="cancelBtn">Cancel</smart-button>
+                    <smart-button #button3 class="primary" id="saveBtn">Save</smart-button>
+                </div>
+            </div>
+        </template>
+
+        <script src="runtime.js" type="module"></script>
+		<script src="polyfills.js" type="module"></script>
+		
+		
+		<script src="main.js" type="module"></script>
+		
+    </body>
+</html>

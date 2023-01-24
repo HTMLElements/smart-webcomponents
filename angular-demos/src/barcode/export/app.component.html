@@ -1,0 +1,14 @@
+<p>Click on the export buttons to create a downloadable file.</p>
+<smart-barcode #barcodeToExport [value]="'A5600B'" [labelPosition]="'bottom'" [labelFontSize]="30"></smart-barcode>
+<br />
+<div class="options">
+    <div class="caption">Export</div>
+    <div class="option">		
+        <smart-button (click)="svg()" #btnSVG>Export as SVG</smart-button>
+        <br/><br/>
+        <smart-button (click)="png()" #btnPNG>Export as PNG</smart-button>
+        <br/><br/>
+        <smart-button (click)="jpg()" #btnJPG>Export as JPG</smart-button>
+    </div>
+        
+</div>

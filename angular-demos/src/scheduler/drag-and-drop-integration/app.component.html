@@ -1,0 +1,6 @@
+<div class="container">
+    <smart-tree #tree id="tree" [dataSource]="treeDataSource" [allowDrag]="allowDrag" [allowDrop]="allowDrop"
+        [sorted]="sorted" (onDragStart)="handleTreeDragStart($event)" (onDragEnd)="handleTreeDragEnd($event)"></smart-tree>
+    <smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [views]="views" (onDragEnd)="handleSchedulerDragEnd($event)">
+    </smart-scheduler>
+</div>

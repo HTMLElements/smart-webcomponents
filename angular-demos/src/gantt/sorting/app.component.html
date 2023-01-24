@@ -1,0 +1,20 @@
+<smart-gantt-chart #ganttChart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns"
+    [treeSize]="treeSize" [resourceColumns]="resourceColumns" [durationUnit]="durationUnit" [sortMode]="sortMode"></smart-gantt-chart>
+<div class="options">
+    <h3>Switch view:</h3>
+    <div class="description">
+        <p>Gantt Chart can be sorted by columns by clicking on the header of the desired column. The first click on
+            the header will sort the Tasks in 'ascending' order. Second click will sort them in 'descending' and the
+            third will remove the sorting.</p>
+        Enable/Disable Multi Column Sorting from the Checkbox:
+    </div>
+    <div class="option">
+        <smart-check-box #checkBox>Multi Column Sorting</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-button #buttonSort id="sort">Sort</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #buttonClearSort id="clearSort">Clear Sort</smart-button>
+    </div>
+</div>

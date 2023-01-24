@@ -1,0 +1,19 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view"
+    [headerViewPosition]="headerViewPosition" [headerTemplate]="headerTemplate" (onDragEnd)="updateButtons()"
+    (onResizeEnd)="updateButtons()" (onItemRemove)="updateButtons()" (onItemInsert)="updateButtons()"
+    (onItemUpdate)="updateButtons()"></smart-scheduler>
+
+<div class="options">
+    <div class="option">
+        <h4>Description:</h4>
+        <p>The component creates a history of the events that have been removed,
+            updated or inserted.</p>In this demo the Smart.Scheduler has it's header
+        customized in order to contain two additional Buttons that allow to call
+        the <b>undo</b> and <b>redo</b> operations of the Scheduler.
+        <p>When the user makes changes to some of the events like drag and drop an
+            event to another cell or delete an event the undo/redo buttons inside Scheduler's
+            header section will be updated. Clicking on the buttons will restore the
+            event that was modifed to it's previus or future state (depending on the
+            action).</p>
+    </div>
+</div>

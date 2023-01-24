@@ -1,0 +1,33 @@
+<div class="demo-description">
+    <h1> Color Panel Localization</h1> In this example, the Color Panel is localized.
+</div>
+<smart-color-panel #colorpanel id="colorPanel" [editAlphaChannel]="true" [enableCustomColors]="true">
+</smart-color-panel>
+<div class="options" #options>
+    <div class="option">
+        <h3>Locale</h3>
+        <smart-radio-button #radiobutton [groupName]="'locale'" [checked]="true">en</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 [groupName]="'locale'">de</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 [groupName]="'locale'">fr</smart-radio-button>
+        <br />
+    </div>
+    <div class="option">
+        <h3>Display Mode</h3>
+        <smart-radio-button #radiobutton4 [groupName]="'displayMode'" [checked]="true">default</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5 [groupName]="'displayMode'">grid</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6 [groupName]="'displayMode'">spectrumGrid</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton7 [groupName]="'displayMode'">materialGrid</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton8 [groupName]="'displayMode'">palette</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton9 [groupName]="'displayMode'">radial</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton10 [groupName]="'displayMode'">hexagonal</smart-radio-button>
+        <br />
+    </div>
+</div>

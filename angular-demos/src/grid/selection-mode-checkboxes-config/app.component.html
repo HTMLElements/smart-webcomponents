@@ -1,0 +1,21 @@
+<div class="demo-description">This Data Grid demo illustrates difference settings of the Checkbox selection
+    column.</div>
+<smart-grid #grid style="width:60%;" [selection]="selection" [dataSource]="dataSource" [columns]="columns"
+    [paging]="paging" [pager]="pager" id="grid">
+</smart-grid>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #enableCheckBox id="enableCheckBox" [checked]="true">Enabled</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #selectAllCheckBox id="selectAllModeCheckBox" [checked]="true">Select All CheckBox
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #positionCheckBox id="positionCheckBox" [checked]="true">Position: Right</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #clickCheckBox id="clickCheckBox" [checked]="true">Select on Cell Click</smart-check-box>
+    </div>
+</div>

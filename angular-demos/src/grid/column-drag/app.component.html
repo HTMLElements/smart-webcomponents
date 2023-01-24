@@ -1,0 +1,11 @@
+<div class="demo-description">Drag a column from Grid A and drop it into Grid B. Dragging of 'Product'
+    column is disabled. Column Reorder in Grid A is disabled. Column Reorder
+    in Grid B is enabled.</div>
+	<h3>Grid A</h3>
+<br />
+<br />
+<smart-grid [dataSource]="dataSource" [columns]="columns" [behavior]="behavior" #grid id="grid"></smart-grid>
+<br />
+<br />
+	<h3>Grid B</h3>
+<smart-grid [dataSource]="dataSource" [columns]="columns2" [behavior]="behavior" #grid2 id="grid2"></smart-grid>

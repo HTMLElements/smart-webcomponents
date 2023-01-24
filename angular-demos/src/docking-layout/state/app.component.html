@@ -1,0 +1,22 @@
+<smart-docking-layout #dockingLayout id="layout" [snapMode]="'simple'"></smart-docking-layout>
+<div class="options">
+    <div class="caption">State Maintanance</div>
+    <div class="option">
+        <smart-button #button id="createLayout" (onClick)="initializeLayout($event)">Load Layout</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="saveState">Save Layout State</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="saveCurrentState">Save Current State</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="loadState">Load Layout State</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button5 id="clearState">Clear State</smart-button>
+    </div>
+    <div class="option">
+        <div id="state" #log></div>
+    </div>
+</div>

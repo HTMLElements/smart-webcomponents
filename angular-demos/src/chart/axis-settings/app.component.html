@@ -1,0 +1,88 @@
+<smart-chart #chart id="chart" [animation]="'none'" [renderEngine]="renderEngine" [caption]="caption"
+    [description]="description" [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding"
+    [dataSource]="dataSource" [xAxis]="xAxis" [colorScheme]="colorScheme" [valueAxis]="valueAxis"
+    [seriesGroups]="seriesGroups"></smart-chart>
+<div class="options">
+    <table>
+        <tr>
+            <td><b>Value axis properties:</b>
+            </td>
+        </tr>
+        <tr>
+            <td>Left padding:
+                <smart-slider #slider id="sliderValueAxisLeftPadding" [min]="0" [max]="50" [value]="0" [coerce]="true"
+                    [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Right padding:
+                <smart-slider #slider2 id="sliderValueAxisRightPadding" [min]="0" [max]="50" [value]="0" [coerce]="true"
+                    [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Labels angle:
+                <smart-slider #slider3 id="sliderValueAxisAngle" [min]="0" [max]="360" [value]="0" [coerce]="true"
+                    [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td><b>xAxis properties:</b>
+            </td>
+        </tr>
+        <tr>
+            <td>Top padding:
+                <smart-slider #slider4 id="sliderXAxisTopPadding" [min]="0" [max]="50" [value]="0" [coerce]="true"
+                    [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Bottom padding:
+                <smart-slider #slider5 id="sliderXAxisBottomPadding" [min]="0" [max]="50" [value]="0" [coerce]="true"
+                    [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Labels angle:
+                <smart-slider #slider6 id="sliderXAxisAngle" [min]="0" [max]="360" [value]="0" [coerce]="true"
+                    [labelsVisibility]="'none'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>Position:
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <smart-radio-button #radiobutton id="btnLeft">Left</smart-radio-button>
+                            <br />
+                            <smart-radio-button #radiobutton2 id="btnRight" [checked]="true">Right</smart-radio-button>
+                        </td>
+                    </tr>
+                </table>
+        </tr>
+        <tr>
+            <td>Position:
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <smart-radio-button #radiobutton3 id="btnTop">Top</smart-radio-button>
+                            <br />
+                            <smart-radio-button #radiobutton4 id="btnBottom" [checked]="true">Bottom
+                            </smart-radio-button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <smart-check-box #checkbox id="btnValueAxisFlip">Flip valueAxis positions</smart-check-box>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <smart-check-box #checkbox2 id="btnXAxisFlip">Flip xAxis positions</smart-check-box>
+            </td>
+        </tr>
+    </table>
+</div>

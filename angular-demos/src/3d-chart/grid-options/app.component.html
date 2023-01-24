@@ -1,0 +1,30 @@
+<smart-3d-chart #chart id="chart" [caption]="caption" [description]="description" [showLegend]="showLegend"
+    [dataSource]="dataSource" [cameraPosition]="cameraPosition"
+    [xAxis]=" xAxis" [valueAxis]="valueAxis" [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"
+    [gridOptions]="gridOptions"></smart-3d-chart>
+
+<div class="options">
+    <div class="option">
+        <smart-check-box #dynamicWidth>Dynamic Width</smart-check-box>
+        <br /><br />
+        <span>Height:</span>
+        <smart-number-input [value]="30" [min]="15" [max]="50" #gridHeight></smart-number-input>
+        <br /><br />
+        <span>Width:</span>
+        <smart-number-input [value]="90" [min]="50" [max]="120" #gridWidth></smart-number-input>
+        <br /><br />
+        <span>Grid Cell X-Width:</span>
+        <smart-number-input [value]="16" min="5" [max]="30" #gridCellWidthX disabled></smart-number-input>
+        <br /><br />
+        <span>Grid Cell Z-Width:</span>
+        <smart-number-input [value]="16" min="5" [max]="30" #gridCellWidthZ></smart-number-input>
+    </div>
+    <div class="option">
+        <br /><br />
+        <span>Grid Color:</span>
+        <smart-color-picker #gridLines [value]="'#808080'"></smart-color-picker>
+        <br /><br />
+        <smart-button #formatLabels>Format Labels</smart-button>
+
+    </div>
+</div>

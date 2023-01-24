@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='Description'>Angular page-templates Project-tracker | page-templates | https://www.htmlelements.com/</title>
+        <base href="./../../../dist/page-templates/project-tracker/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+    </head>
+    <body>
+        <app-root>Loading...</app-root>
+
+        <template id="footerTemplate">
+            <div id="footer">
+                <span id="count"></span> records
+                <div id="buttons">
+                    <smart-button class="print-button">Print</smart-button>
+                    <smart-button class="export-button">Export</smart-button>
+                </div>
+            </div>
+        </template>
+
+        <script src="runtime.js" type="module"></script>
+		<script src="polyfills.js" type="module"></script>
+		
+		
+		<script src="main.js" type="module"></script>
+		
+    </body>
+</html>

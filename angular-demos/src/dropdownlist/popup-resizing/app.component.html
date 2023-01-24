@@ -1,0 +1,49 @@
+<div class="options">
+    <div class="caption">Resize Mode</div>
+    <div class="option">
+        <smart-radio-button #radiobuttonnone>None</smart-radio-button>
+        <br/>
+        <br/>
+        <smart-radio-button #radiobuttonhorizontal>Horizontal</smart-radio-button>
+        <br/>
+        <br/>
+        <smart-radio-button #radiobuttonboth>Both</smart-radio-button>
+        <br/>
+        <br/>
+        <smart-radio-button #radiobuttonvertical [checked]="true">Vertical</smart-radio-button>
+        <br/>
+        <br/>
+    </div>
+    <div class="caption">DropDown position</div>
+    <div class="option">
+        <smart-radio-button #radiobuttonbottom checked>Bottom</smart-radio-button>
+        <smart-radio-button #radiobuttontop>Top</smart-radio-button>
+    </div>
+</div>
+<smart-drop-down-list #dropdownlist [selectedIndexes]="[0]" [resizeMode]="'vertical'">
+    <smart-list-item [value]="'Afghanistan'">Afghanistan</smart-list-item>
+    <smart-list-item [selected]="true" [value]="'Albania'">Albania</smart-list-item>
+    <smart-list-item [value]="'Algeria'">Algeria</smart-list-item>
+    <smart-list-item [value]="'American Samoa'">American Samoa</smart-list-item>
+    <smart-list-item [value]="'Andorra'">Andorra</smart-list-item>
+    <smart-list-item [value]="'Angola'">Angola</smart-list-item>
+    <smart-list-item [value]="'Anguilla'">Anguilla</smart-list-item>
+    <smart-list-item [value]="'Antarctica'">Antarctica</smart-list-item>
+    <smart-list-item [value]="'Antigua and Barbuda'">Antigua and Barbuda</smart-list-item>
+    <smart-list-item [value]="'Argentina'">Argentina</smart-list-item>
+    <smart-list-item [value]="'Armenia'">Armenia</smart-list-item>
+    <smart-list-item [value]="'Aruba'">Aruba</smart-list-item>
+    <smart-list-item [value]="'Australia'">Australia</smart-list-item>
+    <smart-list-item [value]="'Austria'">Austria</smart-list-item>
+    <smart-list-item [value]="'Azerbaijan'">Azerbaijan</smart-list-item>
+    <smart-list-item [value]="'Bahamas'">Bahamas</smart-list-item>
+    <smart-list-item [value]="'Bahrain'">Bahrain</smart-list-item>
+    <smart-list-item [value]="'Bangladesh'">Bangladesh</smart-list-item>
+    <smart-list-item [value]="'Barbados'">Barbados</smart-list-item>
+    <smart-list-item [value]="'Belarus'">Belarus</smart-list-item>
+    <smart-list-item [value]="'Belgium'">Belgium</smart-list-item>
+    <smart-list-item [value]="'Belize'">Belize</smart-list-item>
+    <smart-list-item [value]="'Benin'">Benin</smart-list-item>
+    <smart-list-item [value]="'Bermuda'">Bermuda</smart-list-item>
+    <smart-list-item [value]="'Bhutan'">Bhutan</smart-list-item>
+</smart-drop-down-list>

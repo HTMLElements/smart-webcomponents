@@ -1,0 +1,29 @@
+<div class="demo-description">This example allows you to customize the Color Picker with its API</div>
+<smart-color-picker #colorPicker></smart-color-picker>
+<div class="options" #options>
+    <div class="option">
+        <label>Toggle Grid Color Size</label>
+        <br/>
+        <smart-radio-button #radiobutton [groupName]="'gridSettings'">10</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 [groupName]="'gridSettings'" [checked]="true">20</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3 [groupName]="'gridSettings'">30</smart-radio-button>
+        <br/>
+    </div>
+    <div class="option'">
+        <label>Toggle Grid Column Gap</label>
+        <br/>
+        <smart-radio-button #radiobutton4 [groupName]="'gapSettings'" [checked]="true">1</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton5 [groupName]="'gapSettings'">2.5</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton6 [groupName]="'gapSettings'">5</smart-radio-button>
+        <br/>
+    </div>
+    <div class="option">
+        <label>Enable/Disable Custom Colors</label>
+        <br/>
+        <smart-check-box #checkbox id="enableCustomColors">Enable Custom Colors</smart-check-box>
+    </div>
+</div>

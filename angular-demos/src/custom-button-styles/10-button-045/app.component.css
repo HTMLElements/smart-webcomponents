@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+body {
+    background: #5CA4EA;
+}
+
+.button-demo {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.button-demo label {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: auto;
+    color: white;
+}
+
+.demo-buttons-group {
+    margin-top: 20px;
+}
+
+/* Button N° 045 */
+.container {
+    margin: 0;
+}
+
+.center {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+}
+
+smart-button.btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    box-sizing: initial;
+    background: transparent;
+    border: 1px solid #91C9FF;
+    outline: none;
+    padding: 0;
+    border-radius: 0;
+    transition: 1s ease-in-out;
+    --smart-button-opacity-focus: initial;
+    --smart-button-opacity-hover: initial;
+    --smart-button-opacity-active: initial;
+}
+
+smart-button.btn {
+    border-radius: 0;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+}
+
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: #4F95DA;
+}
+
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}

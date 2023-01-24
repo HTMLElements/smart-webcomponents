@@ -1,0 +1,13 @@
+smart-grid {
+	width: 100%;
+	height: auto;
+	min-height:100px;
+}
+
+#log {
+	font-size: 12px;
+}
+
+.demo-description {
+	width: 60%;
+}

@@ -1,0 +1,68 @@
+<div class="demo-description">Paging in Smart Grid is highly customizable. Use the options on the right
+    to dynamically customize the Grid pager.</div>
+<smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns" [paging]="paging" [pager]="pager">
+</smart-grid>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #showBottomPager [checked]="true" id="showBottomPager">Show Bottom Pager</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #changePageSizeSelectorPosition id="changePageSizeSelectorPosition">Page Size Near Position
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #changePageIndexSelectorsCount [checked]="true" id="changePageIndexSelectorsCount">Page Index
+            Count to 3
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #changeNavigationButtonsPosition id="changeNavigationButtonsPosition">Nav Buttons Near Position
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #changeNavigationInputPosition [disabled]="true" id="changeNavigationInputPosition">Nav Input
+            Near
+            Position</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #changeSummaryPosition [disabled]="true" id="changeSummaryPosition">Summary Near Position
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showPagerSummary id="showPagerSummary">Show Pager Summary</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showTopPager id="showTopPager">Show Top Pager</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showPageSizeSelector id="showPageSizeSelector" [checked]="true">Show Page Size Selector
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showPrevNextNavigationButtons id="showPrevNextNavigationButtons" [checked]="true">Show
+            Prev/Next Nav
+            Buttons</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showFirstLastNavigationButtons id="showFirstLastNavigationButtons" [checked]="true">Show
+            First/Last Nav
+            Buttons</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showNavigationButtonsAsLabels id="showNavigationButtonsAsLabels">Show Nav Buttons as Labels
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showNavigationInput id="showNavigationInput">Show Nav Input</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showPagerIndexSelectors id="showPagerIndexSelectors" [checked]="true">Show Pager Index
+            Selectors
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #showPagerEllipsis id="showPagerEllipsis" [checked]="true">Show Pager Ellipsis
+        </smart-check-box>
+    </div>
+</div>

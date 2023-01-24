@@ -1,0 +1,85 @@
+<h3>Gauge with analogDisplayType: 'needle'</h3>
+<div>
+    <div class="gauge-container">
+        <smart-gauge #gauge [digitalDisplay]="true" [analogDisplayType]="'needle'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="10" [scalePosition]="'outside'"></smart-gauge>
+    </div>
+    <div class="gauge-container">
+        <smart-gauge #gauge2 [digitalDisplay]="true" [analogDisplayType]="'needle'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="20" [scalePosition]="'inside'"></smart-gauge>
+    </div>
+</div>
+<br style="clear: both;" />
+<h3>Gauge with analogDisplayType: 'fill'</h3>
+<div>
+    <div class="gauge-container">
+        <smart-gauge #gauge3 [digitalDisplay]="true" [analogDisplayType]="'fill'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="30" [scalePosition]="'outside'" [ticksPosition]="'scale'"></smart-gauge>
+    </div>
+    <div class="gauge-container">
+        <smart-gauge #gauge4 [digitalDisplay]="true" [analogDisplayType]="'fill'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="40" [scalePosition]="'inside'" [ticksPosition]="'scale'"></smart-gauge>
+    </div>
+    <div class="gauge-container">
+        <smart-gauge #gauge5 [digitalDisplay]="true" [analogDisplayType]="'fill'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="50" [scalePosition]="'inside'" [ticksPosition]="'track'"></smart-gauge>
+    </div>
+    <div class="gauge-container">
+        <smart-gauge #gauge6 [digitalDisplay]="true" [analogDisplayType]="'fill'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="60" [scalePosition]="'outside'" [ticksPosition]="'track'"></smart-gauge>
+    </div>
+</div>
+<br style="clear: both;" />
+<h3>Gauge with analogDisplayType: 'line'</h3>
+<div>
+    <div class="gauge-container">
+        <smart-gauge #gauge7 [digitalDisplay]="true" [analogDisplayType]="'line'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="70" [scalePosition]="'outside'" [ticksPosition]="'scale'"></smart-gauge>
+    </div>
+    <div class="gauge-container">
+        <smart-gauge #gauge8 [digitalDisplay]="true" [analogDisplayType]="'line'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="60" [scalePosition]="'inside'" [ticksPosition]="'scale'"></smart-gauge>
+    </div>
+    <div class="gauge-container">
+        <smart-gauge #gauge9 [digitalDisplay]="true" [analogDisplayType]="'line'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="50" [scalePosition]="'inside'" [ticksPosition]="'track'"></smart-gauge>
+    </div>
+    <div class="gauge-container">
+        <smart-gauge #gauge10 [digitalDisplay]="true" [analogDisplayType]="'line'" [startAngle]="-30"
+                     [min]="0" [max]="100" [endAngle]="210" [value]="40" [scalePosition]="'outside'" [ticksPosition]="'track'"></smart-gauge>
+    </div>
+</div>
+<div class="options">
+    <div class="option">
+        <div class="caption">Labels</div>
+        <smart-radio-button #radiobutton id="all" name="labelsVisibility"
+                            [checked]="true">
+            <label for="all">All</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 id="endPoints" name="labelsVisibility">
+            <label for="endPoints">Endpoints</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 id="none" name="labelsVisibility">
+            <label for="none">None</label>
+        </smart-radio-button>
+        <br />
+    </div>
+    <hr />
+    <div class="option">
+        <div class="caption">Tick Marks</div>
+        <smart-radio-button #radiobutton4 id="major" name="ticksVisibility">
+            <label for="major">Major</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton5 id="minor" name="ticksVisibility" [checked]="true">
+            <label for="minor">Minor</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6 id="noTicks" name="ticksVisibility">
+            <label for="noTicks">None</label>
+        </smart-radio-button>
+        <br />
+    </div>
+</div>

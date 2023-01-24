@@ -1,0 +1,9 @@
+
+body {
+	height: 1000px;
+}
+
+#filterQueryValue {
+	max-width: 60%;
+	margin-top: 50px;
+}

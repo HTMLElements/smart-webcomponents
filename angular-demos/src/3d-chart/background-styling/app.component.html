@@ -1,0 +1,22 @@
+<div class="container">
+    <div>3D Chart allows you to style the background in the following ways:</div>
+    <ul>
+        <li><strong>backgroundColor</strong> - static background color</li>
+        <li><strong>backgroundGradient</strong> - static background gradient set as an array of <strong>"offset, color"</strong> strings</li>
+        <li><strong>backgroundImage</strong> - static background image</li>
+        <li><strong>backgroundTexture</strong> - dynamic background image, which rotates with the camera.
+            It is set as an array of 6 images, one for each side of a 3D cube</li>
+    </ul>
+    <smart-3d-chart #chart id="chart" [animation]="'none'" [backgroundTexture]="backgroundTexture" [caption]="caption" [description]="description" [showLegend]="showLegend"
+    [xAxis]="xAxis" [valueAxis]="valueAxis" [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-3d-chart>
+</div>
+<div class="options">
+    <h3>Background Type</h3>
+    <div>
+        <smart-radio-button #backgroundColor class="radio-button">Background Color</smart-radio-button>
+        <smart-radio-button #backgroundGradient class="radio-button">Background Gradient</smart-radio-button>
+        <smart-radio-button #backgroundImage class="radio-button">Background Image</smart-radio-button>
+        <smart-radio-button checked #backgroundTextureButton class="radio-button">Background Texture</smart-radio-button>
+    </div>
+    
+</div>

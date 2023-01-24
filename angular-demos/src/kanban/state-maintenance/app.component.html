@@ -1,0 +1,9 @@
+<smart-kanban #kanban id="kanban" [autoLoadState]="autoLoadState" [collapsible]="collapsible" [dataSource]="dataSource"
+    [editable]="editable" [headerPosition]="headerPosition" [selectionMode]="selectionMode" [columns]="columns">
+</smart-kanban>
+
+<div class="options">
+    <smart-button #button id="saveState" (onClick)="saveStateOnClick()">Save state</smart-button><br /><br />
+    <smart-button #button2 id="loadState" [disabled]="true" (onClick)="loadStateOnClick()">Load state</smart-button>
+    <br />
+</div>

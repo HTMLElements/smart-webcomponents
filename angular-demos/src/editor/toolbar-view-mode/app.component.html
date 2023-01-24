@@ -1,0 +1,17 @@
+<smart-editor #editor id="editor" [placeholder]="placeholder" [toolbarItems]="toolbarItems"></smart-editor>
+<div class="options">
+    <div class="description">
+         <h4>Toolbar Scroll View Mode</h4>
+    </div>
+    <div class="option">
+        <p>
+            <smart-radio-button #radiobutton [groupName]="'editorOptions'"><b>multiRow</b> - Multi-row Toolbar</smart-radio-button>
+        </p>
+        <p>
+            <smart-radio-button #radiobutton2 [groupName]="'editorOptions'" [checked]="true"><b>toggle</b> - Expandable Toolbar</smart-radio-button>
+        </p>
+        <p>
+            <smart-radio-button #radiobutton3 [groupName]="'editorOptions'"><b>scroll</b> - Scrollable Toolbar</smart-radio-button>
+        </p>
+    </div>
+</div>

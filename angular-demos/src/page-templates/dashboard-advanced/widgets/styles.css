@@ -1,0 +1,277 @@
+﻿.widgets-page {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+smart-check-box {
+    --smart-primary: #e14eca;
+    --smart-ui-state-border-active: #e14eca;
+    --smart-ui-state-active: #e14eca;
+    --smart-ui-state-border-focus: #e14eca;
+    --smart-ui-state-focus: #e14eca;
+}
+
+.left-widget-holder smart-card {
+    padding: 0;
+}
+
+.left-widget-holder .container {
+    display: grid;
+    grid-template-columns: 47.5% 47.5%;
+    grid-column-gap: 5%;
+}
+
+.left-widget-holder .timeline-data:not(:last-of-type),
+.right-widget-holder .timeline-data:not(:last-of-type) {
+    margin-bottom: 5%;
+}
+
+.right-widget-holder .timeline-data {
+    display: grid;
+    grid-template-columns: 5% 95%;
+}
+
+.timeline-data.red i,
+.timeline-data.red .card-title {
+    background: #fd5d93;
+}
+
+.timeline-data.green i,
+.timeline-data.green .card-title {
+    background: #00bf9a;
+}
+
+.timeline-data.blue i,
+.timeline-data.blue .card-title {
+    background: #1d8cf8;
+}
+
+.timeline-data.orange i,
+.timeline-data.orange .card-title {
+    background: #ff8d72;
+}
+
+.right-widget-holder .timeline-data .card-title {
+    width: fit-content;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 13px;
+    margin-left: 15px;
+    color: white;
+}
+
+.timeline-data .card-content p {
+    font-size: 15px;
+    padding: 0 15px;
+    line-height: 150%;
+}
+
+.left-widget-holder .card-content p {
+    text-align: center;
+}
+
+.timeline-data i {
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+[theme="dark"] .right-widget-holder .card-content p {
+    color: white
+}
+
+.widgets-page div.timeline-data i {
+    align-self: center;
+    position: relative;
+}
+
+
+.right-widget-holder .timeline-data i:nth-child(2n+1) {
+    justify-self: end;
+    left: 30px;
+    color: white;
+}
+
+#todoListGrid {
+    width: 100%;
+    height: auto;
+}
+
+.contributors-card .card-title {
+    font-size: 35px;
+    justify-content: center;
+    color: black;
+}
+
+[theme="dark"] .contributors-card .card-title {
+    color: white;
+}
+
+.contributors-card .card-description {
+    font-size: 15px;
+    text-align: center;
+}
+
+.contributors-card .card-action {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 45px;
+    padding-bottom: 25px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.contributors-card .card-action .left-card-action-holder,
+.contributors-card .card-action .right-card-action-holder {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+smart-card .user-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto;
+    margin-top: -80px;
+    box-shadow: 0 10px 25px 0 rgba(0,0,0,.3);
+}
+
+.quote-holder {
+    width: 97.5%;
+    margin: 80px 0 0 2.5%;
+}
+
+.quote-holder .quote-icon {
+    text-align: center;
+}
+
+.quote-holder .quote-icon i {
+    font-size: 50px;
+    color: #e14eca;
+}
+
+.quote {
+    text-align: center;
+    font-size: 15px;
+}
+
+.quote-holder .user-name {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.quote-holder .user-mail {
+    text-align: center;
+}
+
+.quote-holder[theme="dark"] .user-name {
+    color: rgba(255,255,255,.8);
+}
+
+.quote-holder[theme="dark"] .user-mail {
+    color: #aaa;
+}
+
+.widgets-page smart-button {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
+smart-card .thumb-section {
+    display: flex;
+    justify-content: center;
+}
+
+smart-card .thumb-section h2 {
+    font-family: cursive;
+    font-size: 33px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+smart-card .text-on-front {
+    padding-top: 30px;
+}
+
+[theme="dark"] smart-card .text-on-front {
+    color: white;
+}
+
+smart-card .text-on-back {
+    font-size: 121px;
+    margin-top: -96px;
+    margin-bottom: 10px;
+}
+
+#pro,
+#basic {
+    width: 100%;
+}
+
+#pro .text-on-back {
+    color: rgba(225,78,202,.1);
+}
+
+.text-on-back {
+    color: rgba(0,242,195,.1);
+}
+
+smart-button.get-started {
+    border-radius: 30px;
+    height: 40px;
+    width: auto;
+    --smart-border-width: 0;
+}
+
+#pro smart-button.get-started {
+    background: top right/210% 210% #e14eca;
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+}
+
+#basic smart-button.get-started {
+    background-color: #0098f0;
+    background-image: linear-gradient(to bottom left,#00f2c3,#0098f0,#00f2c3);
+}
+
+.thumb-section {
+    background-repeat: no-repeat;
+    background-image: url('./../../../../src/images/paint-work-02-1531044.jpg');
+    background-size: 1000px 1000px;
+    background-position: -294px -683px;
+}
+
+smart-card h3 {
+    font-weight: 100;
+    font-size: 48px;
+    margin: 0px;
+}
+
+smart-card .content {
+    margin: 20px;
+    text-align: center;
+}
+
+smart-card .content sub {
+    display: block;
+}
+
+[theme="dark"] smart-card .content sub {
+    color: white;
+}
+
+smart-card smart-button {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .widgets-page smart-card.quote-holder {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

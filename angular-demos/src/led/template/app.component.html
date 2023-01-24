@@ -1,0 +1,18 @@
+Custom LED template
+<br />
+<br />
+<smart-led #led checked="null" indeterminate-template="indeterminateTemplate"
+true-template="trueTemplate" false-template="falseTemplate" indeterminate-content="||"
+true-content="On" false-content="Off"></smart-led>
+<template id="indeterminateTemplate"> <span class="smart-indeterminate-content">{{content}}</span>
+</template>
+<template id="trueTemplate"> <span class="smart-true-content">{{content}}</span>
+</template>
+<template id="falseTemplate"> <span class="smart-false-content">{{content}}</span>
+</template>
+<template id="indeterminateTemplate2"> <span class="smart-indeterminate-content">{{content}}!</span>
+</template>
+<template id="trueTemplate2"> <span class="smart-true-content">{{content}}!</span>
+</template>
+<template id="falseTemplate2"> <span class="smart-false-content">{{content}}!</span>
+</template>

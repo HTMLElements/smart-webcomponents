@@ -1,0 +1,179 @@
+<div class="smart-demo-container">
+<div class="smart-demo-container">
+  <section id="list-menu">
+    <h2>List menu</h2>
+    <p>
+      A list menu represents an element which can be used to choose an option
+      from a nested list of items. Navigation through the nested list is done in
+      a single view.
+    </p>
+    <div class="module">
+      <div id="listMenu1Container">
+        <smart-list-menu
+          #listmenu
+          id="listMenu1"
+          [filterable]="true"
+          [grouped]="true"
+          [overflow]="'hidden'"
+          [filterMode]="'contains'"
+          [enableMouseWheelAction]="true"
+        >
+          <smart-menu-items-group
+            >Janet Leverling
+            <smart-menu-item label="janetInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Andrew Fuller
+            <smart-menu-item label="andrewInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Robert King
+            <smart-menu-item label="robertInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Anne Dodsworth
+            <smart-menu-item label="anneInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Margaret Peacock
+            <smart-menu-item label="margaretInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Michael Suyama
+            <smart-menu-item label="michaelInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Nancy Davolio
+            <smart-menu-item label="nancyInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Steven Buchanan
+            <smart-menu-item label="stevenInfo"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group
+            >Laura Callahan
+            <smart-menu-item label="lauraInfo"></smart-menu-item>
+          </smart-menu-items-group>
+        </smart-list-menu>
+      </div>
+    </div>
+    <div class="module">
+      <div id="listMenu3Container">
+        <smart-list-menu
+          #listmenu2
+          id="listMenu3"
+          overflow="hidden"
+          enable-mouse-wheel-action
+        >
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE53F;</i> Attractions
+            <smart-menu-item>Movies</smart-menu-item>
+            <smart-menu-item>Circus</smart-menu-item>
+            <smart-menu-item>Concerts</smart-menu-item>
+            <smart-menu-item>Monuments</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE56C;</i> Dining
+            <smart-menu-item>Restaurants</smart-menu-item>
+            <smart-menu-item>Cafés</smart-menu-item>
+            <smart-menu-item>Bars</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE80C;</i> Education
+            <smart-menu-item>Schools</smart-menu-item>
+            <smart-menu-item>Colleges</smart-menu-item>
+            <smart-menu-item>Universities</smart-menu-item>
+            <smart-menu-item>Educational courses</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xEB41;</i> Family
+            <smart-menu-item>Babysitting</smart-menu-item>
+            <smart-menu-item>Family trips</smart-menu-item>
+            <smart-menu-item>Theme parks</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE87D;</i> Health
+            <smart-menu-item>Hospitals</smart-menu-item>
+            <smart-menu-item>Family physicians</smart-menu-item>
+            <smart-menu-item>Optics</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE30A;</i> Office
+            <smart-menu-item>Offices for rent</smart-menu-item>
+            <smart-menu-item>Office equipment</smart-menu-item>
+            <smart-menu-item>Repair works</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE25C;</i> Promotions
+            <smart-menu-item>Sales</smart-menu-item>
+            <smart-menu-item>Malls</smart-menu-item>
+            <smart-menu-item>Collective buying</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE03E;</i> Radio
+            <smart-menu-item>Available stations</smart-menu-item>
+            <smart-menu-item>Search</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE7E9;</i> Recipes
+            <smart-menu-item>With meat</smart-menu-item>
+            <smart-menu-item>With fish</smart-menu-item>
+            <smart-menu-item>Vegetarian recipes</smart-menu-item>
+            <smart-menu-item>Vegan recipes</smart-menu-item>
+            <smart-menu-item>Desserts</smart-menu-item>
+            <smart-menu-item>Chef's recommendations</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE52F;</i> Sports
+            <smart-menu-item>Football</smart-menu-item>
+            <smart-menu-item>Basketball</smart-menu-item>
+            <smart-menu-item>Tennis</smart-menu-item>
+            <smart-menu-item>Baseball</smart-menu-item>
+            <smart-menu-item>Cycling</smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group>
+            <i class="material-icons">&#xE53D;</i> Travel
+            <smart-menu-item>Local destinations</smart-menu-item>
+            <smart-menu-item>Book tickets</smart-menu-item>
+            <smart-menu-item>Organised travel</smart-menu-item>
+          </smart-menu-items-group>
+        </smart-list-menu>
+      </div>
+    </div>
+    <div class="module">
+      <div id="listMenu4Container">
+        <smart-list-menu
+          #listmenu3
+          id="listMenu4"
+          overflow="hidden"
+          enable-mouse-wheel-action
+        >
+          <smart-menu-items-group label="mail1Preview" [separator]="true">
+            <smart-menu-item label="mail1"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group label="mail2Preview" [separator]="true">
+            <smart-menu-item label="mail2"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group label="mail3Preview" [separator]="true">
+            <smart-menu-item label="mail3"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group label="mail4Preview" [separator]="true">
+            <smart-menu-item label="mail4"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group label="mail5Preview" [separator]="true">
+            <smart-menu-item label="mail5"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group label="mail6Preview" [separator]="true">
+            <smart-menu-item label="mail6"></smart-menu-item>
+          </smart-menu-items-group>
+          <smart-menu-items-group label="mail7Preview" [separator]="true">
+            <smart-menu-item label="mail7"></smart-menu-item>
+          </smart-menu-items-group>
+        </smart-list-menu>
+        <smart-button #button id="plusButton" class="primary floating"
+          >+</smart-button
+        >
+      </div>
+    </div>
+  </section>
+</div>

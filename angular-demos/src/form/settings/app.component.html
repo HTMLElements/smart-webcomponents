@@ -1,0 +1,27 @@
+<div class="demo-description">In this example is demonstrated how to dynamically change Form options
+    like changing the FormGroup columns count, making the Form readonly, changing
+    the labels location, displaying a ':' after the form labels.</div>
+<br/>
+<form id="profileForm"></form>
+<div class="options">
+    <div class="option">
+        <label>Labels Location:</label>
+        <br />
+        <smart-radio-button #topLabelLocation [checked]="true" id="topLabelLocation">Top</smart-radio-button>
+        <br />
+        <smart-radio-button #leftLabelLocation id="leftLabelLocation">Left</smart-radio-button>
+    </div>
+    <div class="option">
+        <br />
+        <label>Columns Count:</label>
+        <br />
+        <smart-drop-down-list #columnsList id="columns" selected-indexes=[0]
+        data-source="[1, 2]"></smart-drop-down-list>
+    </div>
+    <div class="option">
+        <br />
+        <smart-check-box #readonly id="readonly">Readonly</smart-check-box>
+        <br />
+        <smart-check-box #showColonAfterLabel id="showColonAfterLabel">Show ':' after label</smart-check-box>
+    </div>
+</div>

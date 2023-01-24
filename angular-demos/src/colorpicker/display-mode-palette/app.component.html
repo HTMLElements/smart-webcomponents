@@ -1,0 +1,20 @@
+<div class="demo-description">This example demonstrates the "palette" display mode of the Color Picker.</div>
+<smart-color-picker #colorpicker [editAlphaChannel]="true" [displayMode]="'palette'"></smart-color-picker>
+<div class="options" #options>
+    <div class="option">
+        <h3>ApplyValueMode</h3>
+        <smart-radio-button #radiobutton [groupName]="'applyValueMode'" [checked]="true">instantly</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 [groupName]="'applyValueMode'">useButtons</smart-radio-button>
+    </div>
+    <div class="option">
+        <h3>Color Editors</h3>
+        <smart-check-box #checkbox id="hidePreviewContainer">Hide Preview Container</smart-check-box>
+        <br />
+        <smart-check-box #checkbox2 id="hideRGBEditor">Hide RGB Editor</smart-check-box>
+        <br />
+        <smart-check-box #checkbox3 id="hideHEXEditor">Hide HEX Editor</smart-check-box>
+        <br />
+        <smart-check-box #checkbox4 id="hideAlphaEditor">Hide Alpha Editor</smart-check-box>
+    </div>
+</div>

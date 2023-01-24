@@ -1,0 +1,34 @@
+<div class="smart-demo-container">
+    <div id="materialListBoxContainer">
+        <section id="appearance">
+            <div class="module">
+                <smart-list-box #listbox [selectionMode]="'none'" id="listBoxLight" [itemTemplate]="'multiLineTemplate'" [itemTemplate]="itemTemplate" (onReady)="onReady($event)">
+                    <smart-list-items-group [label]="'Sound'">
+                        <smart-list-item>Audio settings</smart-list-item>
+                        <smart-list-item>Accessory settings</smart-list-item>
+                        <smart-list-item [readonly]="true">Media volume</smart-list-item>
+                        <smart-list-item [readonly]="true">Alarm volume</smart-list-item>
+                        <smart-list-item [readonly]="true">Ring volume</smart-list-item>
+                        <smart-list-item>Also vibrate for calls</smart-list-item>
+                        <smart-list-item>Do not disturb</smart-list-item>
+                        <smart-list-item>Phone ringtone</smart-list-item>
+                        <smart-list-item>Increasing ringtone</smart-list-item>
+                        <smart-list-item>Notification sound</smart-list-item>
+                        <smart-list-item>Other sounds</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group [label]="'Notification'">
+                        <smart-list-item>Notification light</smart-list-item>
+                        <smart-list-item>When device is locked</smart-list-item>
+                        <smart-list-item>App notifications</smart-list-item>
+                        <smart-list-item>Keep notifications on lock screen</smart-list-item>
+                    </smart-list-items-group>
+                    <smart-list-items-group [label]="'Advanced'">
+                        <smart-list-item>Notification access</smart-list-item>
+                        <smart-list-item>Do not disturb access</smart-list-item>
+                    </smart-list-items-group>
+                </smart-list-box>
+                <p></p>
+            </div>
+        </section>
+    </div>
+</div>

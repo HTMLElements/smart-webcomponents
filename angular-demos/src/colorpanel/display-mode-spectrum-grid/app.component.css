@@ -1,0 +1,48 @@
+body, html {
+	height: 800px;
+}
+/* Color Column Count */
+
+smart-color-panel.column-count-small {
+    --smart-color-panel-grid-mode-column-count: 5;
+}
+
+smart-color-panel.column-count-medium {
+    --smart-color-panel-grid-mode-column-count: 10;
+}
+
+smart-color-panel.column-count-large {
+    --smart-color-panel-grid-mode-column-count: 15;
+}
+
+/* Color Column Size */
+
+smart-color-panel.item-size-small {
+    --smart-color-panel-grid-mode-item-size: 20px;
+}
+
+smart-color-panel.item-size-medium {
+    --smart-color-panel-grid-mode-item-size: 40px;
+}
+
+smart-color-panel.item-size-large {
+    --smart-color-panel-grid-mode-item-size: 60px;
+}
+
+/* Column Gap */
+
+smart-color-panel.column-gap-small {
+    --smart-color-panel-grid-mode-columns-gap: 3px;
+}
+
+smart-color-panel.column-gap-medium {
+    --smart-color-panel-grid-mode-columns-gap: 6px;
+}
+
+smart-color-panel.column-gap-large {
+    --smart-color-panel-grid-mode-columns-gap: 9px;
+}
+
+smart-color-panel {
+    --smart-color-panel-grid-mode-columns-gap: 3px;
+}

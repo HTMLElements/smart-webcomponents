@@ -1,0 +1,7 @@
+<div class="demo-description">This demo shows how to display column totals in smart-pivot-table. When
+    column totals are enabled, an additional "total" column is displayed for
+    all summary columns of a unique value, for each pivot level. The summary
+    function used in the total column is the same as the one in the summary
+    columns.</div>
+<smart-pivot-table #pivottable id="pivotTable" [columnTotals]="columnTotals" [dataSource]="dataSource"
+    [freezeHeader]="freezeHeader" [keyboardNavigation]="keyboardNavigation" [columns]="columns"></smart-pivot-table>

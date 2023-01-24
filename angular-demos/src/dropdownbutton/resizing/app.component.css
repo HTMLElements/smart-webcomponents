@@ -1,0 +1,11 @@
+smart-drop-down-button {
+    position: absolute;
+    left: 25%;
+    top: 45%;
+    --smart-drop-down-element-max-height: 300px;
+}
+@media only screen and (max-width: 500px) {
+	smart-drop-down-button{
+		position: static;
+	}
+}

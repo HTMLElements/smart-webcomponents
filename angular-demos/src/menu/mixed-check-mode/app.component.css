@@ -1,0 +1,8 @@
+#menu1, #menu2, #menu3 {
+    margin-left: 5%;
+    height: auto;
+}
+
+#menu2, #menu3 {
+    margin-top: 100px;
+}

@@ -1,0 +1,8 @@
+textarea {
+    box-sizing: border-box;
+    width: 550px;
+    height: 200px;
+}
+smart-chart {
+	width: 60%;
+}

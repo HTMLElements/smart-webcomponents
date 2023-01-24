@@ -1,0 +1,14 @@
+<div class="demo-description">
+    <p> <b>Smart.PhoneInput</b> is a simple input that can have use for entering a phone number
+        list.</p>
+    <p><b>RenderMode</b> radio buttons allow to change the appearance of the input.</p>
+</div>
+<smart-phone-input #input [placeholder]='"Empty"'></smart-phone-input>
+<div class="options">
+    <div class="option">
+        <div class="description">Render Mode</div>
+        <smart-radio-button #radiobutton [checked]="true" class="render-mode">Default</smart-radio-button>
+        <smart-radio-button #radiobutton2 class="render-mode">Outlined</smart-radio-button>
+        <smart-radio-button #radiobutton3 class="render-mode">Underlined</smart-radio-button>
+    </div>
+</div>

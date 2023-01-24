@@ -1,0 +1,10 @@
+smart-file-upload .smart-upload-all-button,
+smart-file-upload .smart-cancel-all-button,
+smart-file-upload .smart-pause-all-button {
+    width: 120px;
+    height: 35px;
+}
+
+smart-file-upload {
+    width: 380px;
+}

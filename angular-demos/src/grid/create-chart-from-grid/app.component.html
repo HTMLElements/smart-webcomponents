@@ -1,0 +1,13 @@
+<div class="demo-description">
+    <h1>Data Visualize Grid Data</h1>
+    <p>Select a range of cells and press any of the toolbar buttons to create
+        a Chart from the selection. To create a chart from the entire data set,
+        just click any of the chart buttons.</p>
+</div>
+<p><em>Click an icon to generate a chart based on the grid's selection.</em>
+</p>
+
+<div id="gridContainer">
+    <smart-grid (click)="onClick($event)" [dataSource]="dataSource" [columns]="columns" [header]="header"
+        [selection]="selection" [appearance]="appearance" [sorting]="sorting" #grid id="grid"></smart-grid>
+</div>

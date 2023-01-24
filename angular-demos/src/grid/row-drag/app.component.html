@@ -1,0 +1,10 @@
+<div class="demo-description">Drag a row from Grid A and drop it into Grid B. The dragged row will be
+    removed from Grid A, after the drop and will be added to Grid B.</div>
+	<h3>Grid A</h3>
+<br />
+<br />
+<smart-grid [dataSource]="dataSource" [appearance]="appearance" [columns]="columns" [behavior]="behavior" #grid id="grid"></smart-grid>
+<br />
+<br />
+	<h3>Grid B</h3>
+<smart-grid [dataSource]="dataSource2" [appearance]="appearance2" [columns]="columns" [behavior]="behavior" #grid2 id="grid2"></smart-grid>

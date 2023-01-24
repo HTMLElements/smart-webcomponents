@@ -1,0 +1,13 @@
+
+.group {
+	margin: 1rem;
+	padding: 1rem;
+}
+
+span, a {
+	margin-left: 0.5rem;
+}
+
+p {
+	display: block;
+}

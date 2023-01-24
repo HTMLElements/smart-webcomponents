@@ -1,0 +1,30 @@
+<div class="demo-description">
+    <p> <b>Smart.DateRangeInput</b> is an input that allows to select a Date/Date
+        range from a Calendar drop down.</p>
+    <p><b>Readonly</b> will turn the input in to a DatePicker/DateTimePicker.</p>
+    <p><b>Timepicker</b> will enable/disable time selection from a menu that is
+        available when the user clicks on the time icon(string) at the bottom of
+        the popup.</p>
+    <p><b>Icons</b> will enable/disable quick action icons(buttons) inside the
+        popup.</p>
+    <p><b>RenderMode</b> radio buttons allow to change the appearance of the input.</p>
+</div>
+<smart-date-range-input #daterangeinput [placeholder]='"Please Select"' [dropDownButtonPosition]='"right"'></smart-date-range-input>
+<div class="options">
+    <div class="description">Readonly DateInput acts as a simple DateTimeInput.</div>
+    <div class="option">
+        <smart-check-box #checkbox class="readonly">Readonly</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox2 class="timepicker">Timepicker</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox3 class="icons">Icons</smart-check-box>
+    </div>
+    <div class="option">
+        <div class="description">Render Mode</div>
+        <smart-radio-button #radiobutton [checked]="true" class="render-mode">Default</smart-radio-button>
+        <smart-radio-button #radiobutton2 class="render-mode">Outlined</smart-radio-button>
+        <smart-radio-button #radiobutton3 class="render-mode">Underlined</smart-radio-button>
+    </div>
+</div>

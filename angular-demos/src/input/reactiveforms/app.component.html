@@ -1,0 +1,65 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>
+        First Name:
+        <smart-input type="text" formControlName="firstName" required></smart-input>
+    </label>
+
+    <label>
+        Last Name:
+        <smart-input type="text" formControlName="lastName"></smart-input>
+    </label>
+
+    <div formGroupName="address">
+        <h3>Address</h3>
+
+        <label>
+            Street:
+            <smart-input type="text" formControlName="street"></smart-input>
+        </label>
+
+        <label>
+            City:
+            <smart-input type="text" formControlName="city"></smart-input>
+        </label>
+
+        <label>
+            State:
+            <smart-input type="text" formControlName="state"></smart-input>
+        </label>
+
+        <label>
+            Zip Code:
+            <smart-input type="text" formControlName="zip"></smart-input>
+        </label>
+    </div>
+
+    <div formArrayName="aliases">
+        <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
+
+        <div *ngFor="let alias of aliases.controls; let i=index">
+            <!-- The repeated alias template -->
+            <label>
+                Alias:
+                <smart-input type="text" [formControlName]="i"></smart-input>
+            </label>
+        </div>
+    </div>
+
+    <smart-button type="submit" class="primary" [disabled]="!profileForm.valid">Submit</smart-button>
+</form>
+
+<hr>
+
+
+<p>
+    Form Value: {{ profileForm.value | json }}
+</p>
+
+
+<p>
+    Form Status: {{ profileForm.status }}
+</p>
+
+<p>
+    <button (click)="updateProfile()">Update Profile</button>
+</p>

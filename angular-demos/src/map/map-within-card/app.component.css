@@ -1,0 +1,68 @@
+body,
+html
+{
+    width: 100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+    font-family: "Roboto",sans-serif;
+    font-weight: 300;
+    color: #212529;
+   
+}
+*{
+    box-sizing: border-box
+}
+.card-wrapper{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card-container{
+    width: 40%;
+    padding:1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    border-radius: .25rem;
+}
+.card-header{
+    padding: .6rem 1rem;
+    border-radius: .25rem;
+    width:80%;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    z-index: 999;
+    overflow: hidden;
+}
+.regular-map-header{
+    background: rgb(88,31,194);
+    background: linear-gradient(90deg, rgba(88,31,194,1) 0%, rgba(17,123,144,1) 100%);
+}
+.custom-map-header{
+    background: rgb(224,28,28);
+    background: linear-gradient(90deg, rgba(224,28,28,1) 2%, rgba(252,176,69,1) 100%);
+}
+.card-header h3{
+    font-size: 1.17rem;
+}
+.map-container{
+    height: 20rem;
+    
+}
+@media only screen and (max-width: 768px){
+    .card-container,
+    .card-wrapper{
+        display: block;
+        width: 95%;
+        margin-bottom:4rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

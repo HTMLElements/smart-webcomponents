@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id='Description'>Angular Grid Column-template | Grid | https://www.htmlelements.com/</title>
+    <base href="./../../../dist/grid/column-template/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <app-root>Loading...</app-root>
+    <template id="notesTemplate">
+        <button data-id="{{id}}" onclick="alert('{{value}}');" class="template-button"
+            style="width: 100%; height: 100%; overflow:hidden; text-overflow: ellipsis;">Details</button>
+    </template>
+    <script src="runtime.js" type="module"></script>
+    <script src="polyfills.js" type="module"></script>
+    
+    
+    <script src="main.js" type="module"></script>
+    
+</body>
+
+</html>

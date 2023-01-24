@@ -1,0 +1,7 @@
+.smart-pivot-table {
+    height: 800px;
+}
+
+.smart-pivot-table th.highlight {
+    --smart-background: #E6F4FD;
+}

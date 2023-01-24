@@ -1,0 +1,18 @@
+<div class="demo-description"> <b>Save State</b> Button saves the current state of the Chart to LocalStorage. <b>Load State</b> Button
+    reloads a previously saved state. <b>Reset</b> Button will erase any cache
+    and will restore the Chart to it's initial state. <pre><b>Previously saved states of the element are pre-loade on page refresh !</b></pre>
+    <br
+    /> <pre><b>Notice that the element must have an 'id' in order to save/load it's state.</b></pre>
+</div>
+<smart-gantt-chart #ganttchart id="myGanttChart" [view]="'week'" [treeSize]="treeSize" [taskColumns]="taskColumns"></smart-gantt-chart>
+<div class="options">
+    <div class="option">
+        <smart-button #button id="saveState">Save State</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="loadState">Load State</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="clearState">Reset</smart-button>
+    </div>
+</div>

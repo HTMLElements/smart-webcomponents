@@ -1,0 +1,24 @@
+<div class="demo-description">GanttChart's can be exported to a PDF or XLSX file via the <b>exportData</b> method
+    by clicking on the corresponding button.</div>
+<smart-gantt-chart #ganttchart id="gantt"[treeSize]="treeSize" [durationUnit]="durationUnit" [nonworkingHours]="nonworkingHours"
+[nonworkingDays]="nonworkingDays" [taskColumns]="taskColumns" [dataSource]="dataSource"></smart-gantt-chart>
+<div class="options">
+    <div class="option">
+        <smart-button #button id="exportToXLSX" (onClick)="handleExport('xlsx')">Export to XLSX</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="exportToPDF" (onClick)="handleExport('pdf')">Export to PDF</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="exportToHTML" (onClick)="handleExport('html')">Export to HTML</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="exportToCSV" (onClick)="handleExport('csv')">Export to CSV</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button5 id="exportToTSV" (onClick)="handleExport('tsv')">Export to TSV</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button6 id="exportToXML" (onClick)="handleExport('xml')">Export to XML</smart-button>
+    </div>
+</div>

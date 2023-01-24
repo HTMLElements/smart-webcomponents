@@ -1,0 +1,23 @@
+#cardView {
+    width: 800px;
+}
+
+.name:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/user-filled.png");
+}
+
+.country:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/country-filled.png");
+}
+
+.born:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/babys-room-filled.png");
+}
+
+.died:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/cemetery-filled.png");
+}
+
+.bio:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/book-filled.png");
+}

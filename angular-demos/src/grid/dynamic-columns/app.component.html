@@ -1,0 +1,20 @@
+<div class="demo-description">Grid Column CRUD example.Grid Columns can be added, updated or deleted
+    the same way you work with basic Javascript Arrays. Here, we demonstrate
+    how to use the Smart Grid API to update, remove the first or last column
+    and add a new column,</div>
+<smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns"></smart-grid>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-button #button id="addColumn">Add Column</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="removeLastColumn">Remove Last Column</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="removeFirstColumn">Remove First Column</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="updateFirstColumn">Update First Column Header</smart-button>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id='Description'>Angular gantt Resource-panel-custom-header | gantt | https://www.htmlelements.com/</title>
+    <base href="./../../../dist/gantt/resource-panel-custom-header/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <app-root>Loading...</app-root>
+
+    <template id="headerTemplate">
+        <div class="custom-resource-panel-header">
+            <div class="treeHeader">
+                <label>Resources Type:</label>
+                <smart-drop-down-list id="resourceFilter" drop-down-append-to="body">
+                    <smart-list-item value="all" selected>All</smart-list-item>
+                    <smart-list-item value="investor">Investors</smart-list-item>
+                    <smart-list-item value="manager">Managers</smart-list-item>
+                    <smart-list-item value="worker">Workers</smart-list-item>
+                    <smart-list-item value="outsource">External Company</smart-list-item>
+                </smart-drop-down-list>
+            </div>
+            <div class="timelineHeader">
+                <smart-radio-button checked value="hours">Hours per week</smart-radio-button>
+                <smart-radio-button value="tasks">Tasks per week</smart-radio-button>
+            </div>
+        </div>
+    </template>
+
+    <script src="runtime.js" type="module"></script>
+    <script src="polyfills.js" type="module"></script>
+    
+    
+    <script src="main.js" type="module"></script>
+    
+</body>
+
+</html>

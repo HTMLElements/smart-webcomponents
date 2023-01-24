@@ -1,0 +1,23 @@
+.smart-gantt-chart {
+    height: auto;
+}
+
+.smart-gantt-chart .front-end {
+    --smart-gantt-chart-task-color: rgb(26, 199, 247);
+}
+
+.smart-gantt-chart .back-end {
+    --smart-gantt-chart-task-color: rgb(255, 168, 212);
+}
+
+.smart-gantt-chart .backbone {
+    --smart-gantt-chart-task-color: rgb(245, 204, 0);
+}
+
+.smart-gantt-chart .main {
+    --smart-gantt-chart-task-color: rgb(213, 210, 201);
+}
+
+.smart-gantt-chart .qa {
+    --smart-gantt-chart-task-color: rgb(0, 231, 173);
+}

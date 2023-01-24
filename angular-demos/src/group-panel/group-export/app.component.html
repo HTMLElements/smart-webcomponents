@@ -1,0 +1,8 @@
+<p>Data (first 5 rows of 50):</p>
+<p #dataContainer id="data"></p>
+<br />
+<smart-group-panel #grouppanel id="groupPanel" [dataSource]="dataSource"></smart-group-panel>
+<br />
+<smart-button #button id="html" (onClick)="exportToHTML()">Export to HTML</smart-button>
+<smart-button #button2 id="pdf" (onClick)="exportToPDF()">Export to PDF</smart-button>
+<smart-button #button3 id="xlsx" (onClick)="exportToXLSX()">Export to XLSX</smart-button>

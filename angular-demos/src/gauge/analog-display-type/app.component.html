@@ -1,0 +1,12 @@
+<smart-gauge #gauge id="gauge" [analogDisplayType]="'fill'" [digitalDisplay]="true"
+             [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="30"></smart-gauge>
+<div class="options">
+    <div class="caption">Analog Display Type</div>
+    <div class="option">
+        <smart-radio-button #radiobutton [groupName]="'analogDisplayType'">needle</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 [checked]="true" [groupName]="'analogDisplayType'">fill</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 [groupName]="'analogDisplayType'">line</smart-radio-button>
+    </div>
+</div>

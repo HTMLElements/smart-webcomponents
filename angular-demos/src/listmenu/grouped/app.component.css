@@ -1,0 +1,8 @@
+#listMenu {
+    --smart-list-menu-filter-input-size: 40px;
+    height: 550px;
+}
+
+table {
+    white-space: initial;
+}

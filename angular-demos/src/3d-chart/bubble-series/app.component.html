@@ -1,0 +1,24 @@
+<div class="container">
+    <smart-3d-chart #chart id="chart" [caption]="caption" [description]="description" [showLegend]="showLegend" [dataSource]="dataSource"
+        [xAxis]="xAxis" [valueAxis]="valueAxis" [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-3d-chart>
+</div>
+<div class="options">
+    <table>
+        <tr>
+            <td>
+                <p>
+                    Select Serie 1 Symbol:
+                </p>
+                <smart-drop-down-list #dropDownSerie1Symbol [dataSource]='["circle", "diamond", "square", "triangle_up", "triangle_down", "triangle_left", "triangle_right"]' [selectionMode]="'one'" [selectedIndexes]="[1]" (change)="serieOneChange($event)"></smart-drop-down-list>
+            </td>         
+        </tr>
+        <tr>
+                <td>
+                <p>
+                    Select Serie 2 Symbol:
+                </p>
+                <smart-drop-down-list #dropDownSerie2Symbol [dataSource]='["circle", "diamond", "square", "triangle_up", "triangle_down", "triangle_left", "triangle_right"]' [selectionMode]="one" [selectedIndexes]="[4]" (change)="serieTwoChange($event)"></smart-drop-down-list>
+            </td>
+        </tr>
+    </table>
+</div>

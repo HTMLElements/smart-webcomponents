@@ -1,0 +1,52 @@
+smart-gantt-chart {
+    width: calc(100% - 300px);
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-task-color: #517eb5;
+    --smart-gantt-chart-project-color: #45af50;
+    --smart-gantt-chart-project-label-color: var(--smart-gantt-chart-task-label-color);
+    --smart-gantt-chart-project-label-color-selected: var(--smart-gantt-chart-project-label-color);
+    --smart-gantt-chart-task-label-color-selected: var(--smart-gantt-chart-task-label-color);
+}
+
+@media only screen and (max-width: 600px) {
+    .smart-gantt-chart {
+        width: 100%;
+        height: auto;
+    }
+}
+
+smart-gantt-chart .gantt-chart-task-assignee {
+    border-radius: 50%;
+    color: white;
+    background: linear-gradient(45deg, #13547a, #80d0c7);
+    width: calc(var(--smart-gantt-chart-task-default-height) - 12px);
+    height: calc(var(--smart-gantt-chart-task-default-height) - 12px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px 0px grey;
+    margin-right: 5px;
+}
+
+smart-gantt-chart .unassigned {
+    background: red;
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,6 @@
+<div class="demo-description"> <b>nonworkingDays</b> colored in gray determine which days of the week
+    are nonworking. Nonwokring days are ignored. This means that dropping a
+    task in a nonworking day will add/remove slack time to it in order to recalculate
+    the start/end date to a working date. Weekends are always colored in light
+    blue.</div>
+<smart-gantt-chart #ganttchart [view]="'week'" [nonworkingDays]="[0,1]" [dataSource]="dataSource"></smart-gantt-chart>

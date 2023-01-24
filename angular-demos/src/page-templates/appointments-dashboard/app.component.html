@@ -1,0 +1,47 @@
+<div class="dashboard-header">
+    <span class="header-name" #headerName>
+        Nancy Davolio
+    </span>
+    <div>
+        <span class="icon-holder">
+            <img #headerLogo class="header-logo" src="./../../../src/images/people/nancy.png" />
+        </span>
+    </div>
+</div>
+<smart-splitter id="dashboard" #splitter>
+    <smart-splitter-item [collapsible]="true" id="leftPanel">
+        <div class="upper">
+            <smart-chart id="chart" #chart [caption]="caption" [description]="description" [showLegend]="showLegend" 
+            [showBorderLine]="showBorderLine" [padding]="padding" [titlePadding]="titlePadding" 
+            [dataSource]="dataSource" [xAxis]="xAxis" [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-chart>
+            <div id="personInfo" #personInfo>
+                <img width="30%" />
+                <div id="form">
+                    <label>Name</label>
+                    <smart-text-box #textBox id="name"></smart-text-box>
+                    <label>Date</label>
+                    <smart-date-time-picker #dateTimePicker [calendarButton]="true" [formatString]="'MM/dd/yyyy'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+                    <label>Email</label>
+                    <smart-text-box #textBoxEmail id="email"></smart-text-box>
+                    <smart-radio-button #radioButtonInpatient id="inpatient">Inpatient</smart-radio-button>
+                    <smart-radio-button #radioButtonOutPatient id="outpatient">Outpatient</smart-radio-button>
+                    <div class="buttons">
+                        <smart-button #saveButton id="save">Save</smart-button>
+                        <smart-button #resetButton id="reset">Reset</smart-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <smart-grid id="grid" #grid [appearance]="appearance" [selection]="selection" [dataSource]="gridDataSource" [columns]="columns" ></smart-grid>
+        </div>
+    </smart-splitter-item>
+    <smart-splitter-bar class="smart-hidden"></smart-splitter-bar>
+    <smart-splitter-item [collapsible]="true" id="rightPanel" [size]="'17%'" [min]="'250'">
+        <smart-list-box #listBox id="listbox" (onReady)="onListBoxReady($event)" [filterable]="true" [itemTemplate]="'template'"
+                      [itemHeight]="53" [displayMember]="'name'"
+                      [selectionMode]="'zeroOrOne'" [selectedIndexes]="[0]">
+        </smart-list-box>
+        <smart-calendar #calendar id="calendar" (onReady)="onCalendarReady($event)" [footerTemplate]="'calendarFooter'" [viewSections]="['footer']"></smart-calendar>
+    </smart-splitter-item>
+</smart-splitter>

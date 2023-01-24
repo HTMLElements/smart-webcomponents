@@ -1,0 +1,7 @@
+<div class="options">Choose locale:
+    <div>
+        <smart-radio-button #en id="en" [checked]="true">English (en)</smart-radio-button>
+        <smart-radio-button #bg id="bg">Bulgarian (bg)</smart-radio-button>
+    </div>
+</div>
+<smart-card-view [coverField]="coverField" [headerPosition]="'top'" [titleField]="titleField" [allowDrag]="true" [dataSource]="dataSource" [columns]="columns" #cardview id="cardView"></smart-card-view>

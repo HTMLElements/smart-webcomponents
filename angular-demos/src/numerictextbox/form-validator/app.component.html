@@ -1,0 +1,60 @@
+<div [hidden]="submitted" class="container">
+    <h1>Bulk Product Shipping</h1>
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+        <div class="form-row">
+            <label for="productName">Product Name</label>
+            <smart-input required class="form-component" [(ngModel)]="model.productName" name="productName"
+                id="productName" #productName="ngModel" [dataSource]="productType" [dropDownButtonPosition]="'right'"
+                [readonly]="true">
+            </smart-input>
+            <div [hidden]="productName.valid || productName.pristine" class="alert alert-danger">
+                Name is required
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="shippingAddress">Shipping Address</label>
+            <smart-input class="form-component" [(ngModel)]="model.shippingAddress" name="shippingAddress"
+                id="shippingAddress"></smart-input>
+        </div>
+
+        <div class="form-row">
+            <label for="numerictextboxQuantity">Quantity</label>
+            <smart-numeric-text-box id="numerictextboxQuantity" name="numerictextboxQuantity" class="form-component"
+                #numerictextboxQuantity="ngModel" [(ngModel)]="model.quantity" required appCheckNumericValue
+                [nullable]="true" [placeholder]="'Specify'" [showUnit]="true" [unit]="'kg'"></smart-numeric-text-box>
+        </div>
+
+        <div *ngIf="numerictextboxQuantity.errors?.numericValueCheck && (numerictextboxQuantity.dirty || numerictextboxQuantity.touched)"
+            class="alert alert-danger">
+            Please choose a quantity between 11 and 100 kg.
+        </div>
+
+        <div class="smart-stack-layout">
+            <smart-button [disabled]="!productForm.form.valid" type="submit" class="success item">Submit</smart-button>
+            <smart-button type="submit" (click)="newShipment(); productForm.reset()" class="primary item">New Shipment
+            </smart-button>
+        </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Product Name</div>
+        <div class="col-xs-9">{{ model.productName }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Shipping Address</div>
+        <div class="col-xs-9">{{ model.shippingAddress }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Quantity</div>
+        <div class="col-xs-9">{{ model.quantity }}</div>
+    </div>
+    <br>
+    <smart-button class="primary" (click)="submitted=false">Edit</smart-button>
+</div>
+<br /><br />
+<h2>Changes Log:</h2>
+{{diagnostic}}

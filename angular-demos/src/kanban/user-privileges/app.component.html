@@ -1,0 +1,22 @@
+<div id="header">
+    <div #loginInfo id="loginInfo">Logged in as Guest</div>
+    <div #loginAgain id="loginAgain" (click)="loginAgainOnClick()">Log in as another user</div>
+    <div #pic id="pic"></div>
+</div>
+
+<smart-kanban #kanban id="kanban" [addNewButton]="addNewButton" [collapsible]="collapsible" [currentUser]="currentUser"
+    [dataSource]="dataSource" [editable]="editable" [taskActions]="taskActions" [taskComments]="taskComments"
+    [userList]="userList" [users]="users" [columns]="columns"></smart-kanban>
+
+<smart-window #window id="prompt" [modal]="true" [opened]="true" [label]="'Log in'" [footerTemplate]="'footerTemplate'">
+    <form>
+        <div>User name</div>
+        <smart-input #input id="userName"></smart-input>
+        <br />
+        <br />
+        <div>Password</div>
+        <smart-password-text-box #passwordtextbox id="password"></smart-password-text-box>
+        <br />
+        <smart-button #button id="confirm" class="primary" (onClick)="confirmOnClick()">Log in</smart-button>
+    </form>
+</smart-window>

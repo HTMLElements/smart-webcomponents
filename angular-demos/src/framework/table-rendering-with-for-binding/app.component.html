@@ -1,0 +1,11 @@
+<div class="demo-description">The Table is rendered by using 'smart-for' loop data bound to model.</div>
+<table id="customers">
+    <tr smart-for="columns">
+        <th>[[value]]</th>
+    </tr>
+    <tr smart-for-self smart-for="rows">
+        <td>[[id]]</td>
+        <td>[[firstName]]</td>
+        <td>[[lastName]]</td>
+    </tr>
+</table>

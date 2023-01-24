@@ -1,0 +1,276 @@
+:root {
+    --smart-primary: #6200EE;
+}
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background-color: #FAFAFA;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+
+header .container,
+section .container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+#subscribe {
+    width: 150px;
+}
+
+#search {
+    box-shadow: none;
+}
+
+    #search button {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+#signup {
+    width: 100px;
+}
+
+#menu{
+    width:100%;
+    max-width:100%;
+}
+
+#menu .smart-menu-main-container{
+    justify-content:space-between;
+}
+
+.user .container {
+    max-width: 100%;
+    width: 1000px;
+    padding: 50px;
+    background-color: #424242;
+    color: white;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+    .user .container h1 {
+        width: 50%;
+        font-size: 50px;
+        font-weight: 100;
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+
+    .user .container p {
+        width: 50%;
+        font-size: 24px;
+    }
+
+.user .container {
+    max-width: calc(100% - 100px);
+    width: 1000px;
+    padding: 50px;
+    background-color: #424242;
+    color: white;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.featured .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+smart-card {
+    width: 48%;
+    margin: 0px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+smart-card .smart-container{
+    display:flex;
+    flex-direction:row;
+}
+
+smart-card .content{
+    width:calc(100% - 150px);
+    padding:0px 20px 20px 20px;
+}
+
+smart-card .thumb{
+    width:150px;
+    height:100%;
+    display:inline-flex;
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+    background-color:gray;
+    color:white;
+    font-weight:bold;
+    font-size:1.2em;
+}
+
+smart-card h3{
+    font-size:25px;
+    margin-bottom:0px;
+}
+
+smart-card h4{
+    color:gray;
+    font-size:16px;
+    margin:5px 0px 5px 0px;
+    padding:0px;
+    font-weight:100;
+}
+
+smart-card p{
+    font-size:16px;
+    line-height:170%;
+    margin:0px;
+}
+
+smart-card .more-info{
+    color: var(--smart-primary);
+    font-size:16px;
+}
+
+.articles .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom:100px;
+}
+
+.articles .main {
+    width: calc(100% - 300px);
+}
+
+.articles .main h6{
+    font-size:19px;
+    padding-top:0px;
+    padding-bottom:0px;
+    margin-top:30px;
+    margin-bottom:0px;
+    font-weight:600;
+    color:rgba(0, 0, 0, 0.8);
+}
+
+.articles .main h6.top-headline{
+    border-bottom:1px solid lightgray;
+    padding-bottom:10px;
+    
+}
+
+.articles .main .timestamp{
+    font-size:12px;
+}
+
+.articles .main p{
+    font-size:14px;
+}
+
+
+.articles .side-bar {
+    width: 300px;
+    padding-left: 20px;
+}
+
+    .articles .side-bar .about {
+        background-color: #eeeeee;
+        border-radius: 5px;
+        padding: 5px 15px 5px 15px;
+    }
+
+    .articles .side-bar ul {
+        list-style-type: none;
+        padding: 0px;
+    }
+
+    .articles .side-bar li {
+        font-size: 14px;
+        line-height:150%;
+    }
+
+    .articles .side-bar p {
+        font-size: 14px;
+    }
+
+    .articles .side-bar h3 {
+        margin-top: 30px;
+        font-weight: 800;
+    }
+
+
+footer {
+    background-color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+
+    footer h4 {
+        font-size: 20px;
+        font-weight: 100;
+        margin-bottom: 15px;
+    }
+
+    footer p {
+        color: rgba(0, 0, 0, 0.54);
+    }
+
+
+@media only screen and (max-width : 960px) {
+    .featured > .container,
+    .articles > .container  {
+        display:block;
+    }
+
+    smart-card {
+        width: 100%;
+    }
+
+    smart-card .thumb{
+        height:auto;
+    }
+
+    .articles .main,
+    .articles .side-bar {
+        width: 100%;
+        padding-left:0px;
+    }
+
+    .user .container h1,
+    .user .container p{
+        width:auto;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    smart-card .content{
+        width:100%;
+    }
+    smart-card .thumb{
+        display:none;
+    }
+}

@@ -1,0 +1,15 @@
+<div class="demo-description">
+    <h1>Context Menu in Grid Web Component</h1>
+    <p>Right Click on a Grid row to show a Context Menu. The Context menu is
+        smartMenu component with two items - 'Edit' and 'Remove'. The 'Edit' item
+        puts the clicked Grid row in edit mode. The 'Remove' item removes the clicked
+        grid row.</p>
+    <br />
+    <br />
+</div>
+<smart-grid [dataSource]="dataSource" [columns]="columns" [appearance]="appearance" [editing]="editing" #grid id="grid">
+</smart-grid>
+<smart-menu #menu id="menu" mode="dropDown">
+    <smart-menu-item data-id="Edit" label="<i class='material-icons'>edit</i>Edit"></smart-menu-item>
+    <smart-menu-item data-id="Remove" label="<i class='material-icons'>delete</i> Remove"></smart-menu-item>
+</smart-menu>

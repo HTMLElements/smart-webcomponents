@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='Description'>Angular page-templates Dashboard-super-advanced | page-templates | https://www.htmlelements.com/</title>
+        <base href="./../../../dist/page-templates/dashboard-super-advanced/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+          <!-- amCharts Map -->
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+
+    <!-- amCharts javascript code -->
+    <script type="text/javascript">
+        AmCharts.makeChart("map", {
+            "type": "map",
+            "pathToImages": "http://www.amcharts.com/lib/3/images/",
+            "addClassNames": true,
+            "fontSize": 15,
+            "color": "#FFFFFF",
+            "projection": "mercator",
+            "backgroundAlpha": 1,
+            //"backgroundColor": "rgba(180,180,180,1)",
+            "backgroundColor": "white",
+            "dataProvider": {
+                "map": "worldLow",
+                "getAreasFromMap": true,
+                "areas": [
+                    {
+                        "id": "US",
+                        "title": "United States",
+                        "color": "rgba(200,200,200,1)"
+                    },
+                    {
+                        "id": "DE",
+                        "title": "Germany",
+                        "color": "rgba(200,200,200,1)"
+                    },
+                    {
+                        "id": "RU",
+                        "title": "Russia",
+                        "color": "rgba(200,200,200,1)"
+                    }
+                ]
+            },
+            "balloon": {
+                "horizontalPadding": 15,
+                "borderAlpha": 0,
+                "borderThickness": 1,
+                "verticalPadding": 15
+            },
+            "areasSettings": {
+                "color": "rgba(240,240,240,1)",
+                "outlineColor": "rgba(180,180,180,1)",
+                "rollOverOutlineColor": "rgba(180,180,180,1)",
+                "rollOverBrightness": 20,
+                "selectedBrightness": 20,
+                "selectable": true,
+                "unlistedAreasAlpha": 0,
+                "unlistedAreasOutlineAlpha": 0
+            },
+            "imagesSettings": {
+                "alpha": 1,
+                "color": "rgba(240,240,240,1)",
+                "outlineAlpha": 0,
+                "rollOverOutlineAlpha": 0,
+                "outlineColor": "rgba(180,180,180,1)",
+                "rollOverBrightness": 20,
+                "selectedBrightness": 20,
+                "selectable": true
+            },
+            "linesSettings": {
+                "color": "rgba(240,240,240,1)",
+                "selectable": true,
+                "rollOverBrightness": 20,
+                "selectedBrightness": 20
+            },
+            "zoomControl": {
+                "zoomControlEnabled": true, //true
+                "homeButtonEnabled": true,
+                "panControlEnabled": false,
+                "left": 38,
+                "bottom": 30,
+                "minZoomLevel": 0.75,
+                "gridHeight": 100,
+                "gridAlpha": 0.1,
+                "gridBackgroundAlpha": 0,
+                "gridColor": "#333",
+                "draggerAlpha": 1,
+                "buttonCornerRadius": 2
+            }
+        });
+    </script>
+    </head>
+    <body>
+        <app-root>Loading...</app-root>
+
+        <script src="runtime.js" type="module"></script>
+		<script src="polyfills.js" type="module"></script>
+		
+		
+		<script src="main.js" type="module"></script>
+		
+    </body>
+</html>

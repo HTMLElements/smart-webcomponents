@@ -1,0 +1,15 @@
+<div id="description">
+    <p> <b>Description:</b> The following demo displays a Company Acqusition process
+        where the Timeline is in months by displaying the weeks of the months from
+        their starting date. Some of the Tasks have Resources assigned to them.
+        Selecting a resource from the Resource Tree will select the assigned task
+        and vice versa. The Resource Timeline indicates the working hours for each
+        week by resource. A Custom Header is applied to the Resource Panel and
+        it contains controls that allow to show the resources by type or change
+        the Resource Timeline view.</p>
+</div>
+<smart-gantt-chart #ganttchart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns"
+    [resourceColumns]="resourceColumns" [treeSize]="treeSize" [resourcePanelSize]="resourcePanelSize"
+    [resourcePanelHeaderTemplate]="resourcePanelHeaderTemplate" [durationUnit]="durationUnit" [view]="view"
+    [timelineHeaderFormatFunction]="timelineHeaderFormatFunction" (onReady)="onReady()">
+</smart-gantt-chart>

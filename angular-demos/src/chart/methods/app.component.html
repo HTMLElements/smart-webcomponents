@@ -1,0 +1,31 @@
+<smart-chart #chart id="chart" [clip]="clip" [caption]="caption" [description]="description" [showLegend]="showLegend"
+    [padding]="padding" [titlePadding]="titlePadding" [dataSource]="dataSource" [colorScheme]="colorScheme"
+    [xAxis]="xAxis" [valueAxis]="valueAxis" [seriesGroups]="seriesGroups"></smart-chart>
+<div class="options"> <span>Series: </span>
+    <smart-numeric-text-box #numerictextbox id="seriesNo" [min]="0" [max]="2" [value]="0" [spinButtons]="true">
+    </smart-numeric-text-box>
+    <br />
+    <br /> <span>Item: </span>
+    <smart-numeric-text-box #numerictextbox2 id="itemNo" [min]="0" [max]="16" [value]="0" [spinButtons]="true">
+    </smart-numeric-text-box>
+    <br />
+    <br />
+    <smart-button #button id="getItemsCount">getItemsCount</smart-button>
+    <smart-button #button2 id="getItemCoord">getItemCoord</smart-button>
+    <br />
+    <br />
+    <smart-button #button3 id="showSerie">showSerie</smart-button>
+    <smart-button #button4 id="hideSerie">hideSerie</smart-button>
+    <br />
+    <br />
+    <smart-button #button5 id="showToolTip">showToolTip</smart-button>
+    <smart-button #button6 id="hideToolTip">hideToolTip</smart-button>
+    <br />
+    <br />
+    <smart-button #button7 id="getXAxisRect">getXAxisRect</smart-button>
+    <smart-button #button8 id="getXAxisLabels">getXAxisLabels</smart-button>
+    <br />
+    <br />
+    <smart-button #button9 id="getValueAxisRect">getValueAxisRect</smart-button>
+    <smart-button #button10 id="getValueAxisLabels">getValueAxisLabels</smart-button>
+</div>

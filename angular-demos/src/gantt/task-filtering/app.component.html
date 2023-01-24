@@ -1,0 +1,22 @@
+<div class="demo-description">
+    <p>The following demo illustrates how to filter the tasks inside the GanttChart component. Two types of filtering are avaialble: default and
+        advanced( via the <b>filterRow</b>). The default filtering mode filters all columns based
+        on
+        their cell values. Cell value might not be the same as the cell's actual content that appear inside the Table.
+        The cell value is determined by the column settings defined in the <b>taskColumn</b>
+        property. For example, the <u>Priority</u> column uses a <b>formatFunction</b> to display the priority
+        labels ('Low', 'Medium', 'High') instead of the actual numeric values that represent them. The filtering is applied on the numeric
+        values of the column since they represent the actual priority of the task.</p>
+</div>
+
+<smart-gantt-chart #ganttchart id="gantt" [view]="view" [durationUnit]="durationUnit" [treeMin]="treeMin"
+    [taskFiltering]="taskFiltering" [hideTimelineHeaderDetails]="hideTimelineHeaderDetails" [taskColumns]="taskColumns" [dataSource]="dataSource">
+</smart-gantt-chart>
+
+<div class="options">
+    <h3>Filter Row</h3>
+    <div class="option">
+        <p>Click on the button to enable or disable filter row</p>
+        <smart-button #button id="filterRow">Enable</smart-button>
+    </div>
+</div>

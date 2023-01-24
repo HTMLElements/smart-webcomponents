@@ -1,0 +1,16 @@
+<div class="demo-description">
+    <h1>Add Row in Data Grid</h1>
+    <p>The 'Add New Row' UI element enables users to quickly add rows to the
+        Grid with a single click. This example shows how to display and customize
+        the positioning of the 'Add New Row' element.</p>
+</div>
+<smart-grid #grid id="grid" [editing]="editing" [appearance]="appearance" [dataSource]="dataSource" [columns]="columns">
+</smart-grid>
+<div class="options">
+    <div class="caption">Position</div>
+    <div class="option">
+        <smart-radio-button #top id="top">Top</smart-radio-button>
+        <smart-radio-button #both [checked]="true" id="both">Both</smart-radio-button>
+        <smart-radio-button #bottom id="bottom">Bottom</smart-radio-button>
+    </div>
+</div>

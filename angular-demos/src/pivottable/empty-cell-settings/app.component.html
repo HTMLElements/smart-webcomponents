@@ -1,0 +1,14 @@
+<div class="demo-description">This demo shows how to change the value shown in cells that do not have
+    aggregated data to display. This behavior is controlled by the property <strong>nullDefaultValue</strong> which
+    is <em>null</em> by default and displays empty cells. In this example, the
+    property is set to <em>0</em>.</div>
+<smart-pivot-table #pivottable id="pivotTable" [dataSource]="dataSource" [freezeHeader]="freezeHeader"
+    [keyboardNavigation]="keyboardNavigation" [nullDefaultValue]="nullDefaultValue" [columns]="columns">
+</smart-pivot-table>
+<div class="options">
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleButton" (onChange)="changeHandler($event)">Change
+            <strong>nullDefaultValue</strong> to <span id="toggleButtonLabel">null</span>
+        </smart-toggle-button>
+    </div>
+</div>

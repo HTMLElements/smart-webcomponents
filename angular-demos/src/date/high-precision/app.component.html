@@ -1,0 +1,24 @@
+<h3>High-precision DateTime object example</h3>
+<p>Initialization:</p> <code>new smartUtilities.DateTime(<span title="year">1920</span>, <span title="month">3</span>, <span title="date">12</span>, <span title="hours">8</span>, <span title="minutes">34</span>, <span title="seconds">21</span>, <span title="milliseconds">89</span>, <span title="microseconds">19</span>, <span title="nanoseconds">800</span>, <span title="picoseconds">2</span>, <span title="femtoseconds">333</span>, <span title="attoseconds">18</span>, <span title="zeptoseconds">45</span>, <span title="yoctoseconds">11</span>);</code>
+<div
+id="alternative">
+    <p>Alternative initialization:</p> <code>new smartUtilities.DateTime('1920-03-12 08:34:21:089:019:800:002:333:018:045:011');</code>
+    </div>
+    <br />
+    <p>format <code>'FP'</code> - full precision (from year to yoctoseconds (10<sup>−24</sup> seconds)):</p>
+    <span
+    id="fp"></span>
+        <p>format <code>'FT'</code> - full precision time (from hours to yoctoseconds
+            (10<sup>−24</sup> seconds)):</p> <span id="ft"></span>
+        <p>format <code>'PP'</code> - processor precision (from year to picoseconds
+            (10<sup>−12</sup> seconds)):</p> <span id="pp"></span>
+        <p>format <code>'PT'</code> - processor precision time (from hours to picoseconds
+            (10<sup>−12</sup> seconds)):</p> <span id="pt"></span>
+        <p>custom format <code>'fff:uu:nn'</code> - milliseconds:microseconds:nanoseconds:</p>
+        <span
+        id="custom"></span>
+            <br />
+            <br />
+            <smart-button #button id="microseconds">Increase microseconds by 1</smart-button>
+            <smart-button #button2 id="yoctoseconds">Decrease yoctoseconds by 2</smart-button>
+            <smart-button #button3 id="now">Set to now</smart-button>

@@ -1,0 +1,13 @@
+<smart-docking-layout #dockinglayout id="layout" [layout]="layout"></smart-docking-layout>
+<div class="options">
+    <div class="option">
+        <smart-drop-down-list #dropDownList>
+            <smart-list-item [value]="'tab1'">Tab 1</smart-list-item>
+            <smart-list-item [value]="'tab2'">Tab 2</smart-list-item>
+            <smart-list-item [value]="'tab3'">Tab 3</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+    <div class="option">
+        <smart-button #button id="update" (onClick)="update($event)">Update</smart-button>
+    </div>
+</div>

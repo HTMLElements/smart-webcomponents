@@ -1,0 +1,98 @@
+<header>
+    <div class="logo">Company name</div>
+</header>
+<smart-card #card id="card">
+     <h1>Checkout</h1>
+    <smart-breadcrumb #breadcrumb id="breadcrumb" [dataSource]='breadcrumbDataSource' step="1"
+    [itemTemplate]="'breadcrumbTemplate'"></smart-breadcrumb>
+    <section id="address">
+         <h2>Shipping address</h2>
+        <form>
+            <smart-text-box #textbox [label]="'First name*'" id="firstName"></smart-text-box>
+            <smart-text-box #textbox2 [label]="'Last name*'" id="lastName"></smart-text-box>
+            <smart-text-box #textbox3 [label]="'Address line 1*'" id="address1"></smart-text-box>
+            <smart-text-box #textbox4 [label]="'Address line 2'" id="address2"></smart-text-box>
+            <smart-text-box #textbox5 [label]="'City*'" id="city"></smart-text-box>
+            <smart-text-box #textbox6 [label]="'State/Province/Region'" id="state"></smart-text-box>
+            <smart-text-box #textbox7 [label]="'Zip / Postal code*'" id="zip"></smart-text-box>
+            <smart-text-box #textbox8 [label]="'Country*'" id="country"></smart-text-box>
+            <smart-check-box #checkbox [checkMode]="'both'">Use this address for payment details</smart-check-box>
+        </form>
+    </section>
+    <section id="details">
+         <h2>Payment method</h2>
+        <form>
+            <smart-text-box #textbox9 [label]="'Name on card*'" id="nameOnCard"></smart-text-box>
+            <smart-text-box #textbox10 [label]="'Card number*'" id="cardNumber"></smart-text-box>
+            <smart-text-box #textbox11 [label]="'Expiry date*'" id="expiry"></smart-text-box>
+            <smart-text-box #textbox12 [label]="'CVV*'" [hint]="'Last three digits on signature strip'" id="ccv"></smart-text-box>
+            <smart-check-box #checkbox2 [checkMode]="'both'">Remember credit card details for next time</smart-check-box>
+        </form>
+    </section>
+    <section id="order">
+         <h2>Order summary</h2>
+        <table id="orderSumary">
+            <tr>
+                <td>Product 1 A nice thing</td>
+                <td>$9.99</td>
+            </tr>
+            <tr>
+                <td>Product 2 Another thing</td>
+                <td>$3.45</td>
+            </tr>
+            <tr>
+                <td>Product 3 Something else</td>
+                <td>$6.51</td>
+            </tr>
+            <tr>
+                <td>Product 4 Best thing of all</td>
+                <td>$14.11</td>
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td id="total">$34.06</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Shipping</th>
+                <th>Payment details</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>John Smith</td>
+                <td>Card type</td>
+                <td>Visa</td>
+            </tr>
+            <tr>
+                <td>1 Material-UI Drive, Reactville,</td>
+                <td>Card holder</td>
+                <td>Mr John Smith</td>
+            </tr>
+            <tr>
+                <td>Anytown, 99999, USA</td>
+                <td>Card number</td>
+                <td>xxxx-xxxx-xxxx-1234</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Expiry date</td>
+                <td>04/2024</td>
+            </tr>
+        </table>
+    </section>
+    <section id="sumary">
+         <h2>Thank you for your order.</h2>
+        <p>Your order number is #2001539. We have emailed your order confirmation,
+            and will send you an update when your order has shipped.</p>
+    </section>
+    <div class="buttons-container">
+        <smart-button #button id="prev" class="flat smart-hidden">BACK</smart-button>
+        <smart-button #button2 id="next" class="primary">NEXT</smart-button>
+        <smart-button #button3 id="placeOrder" class="primary smart-hidden">PLACE ORDER</smart-button>
+    </div>
+</smart-card>

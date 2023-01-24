@@ -1,0 +1,39 @@
+<div class="smart-demo-container">
+    <div id="materialPagerContainer">
+        <section>
+            <div>
+                <div class="module">
+                    <p>smartPager provides navigation for paged information, typically used with
+                        a grid or table.</p>
+                </div>
+                <div class="module"></div>
+            </div>
+        </section>
+        <section id="usage">
+             <h2>Usage</h2>
+            <div class="module">
+                 <h2>Navigation</h2>
+                <p>User can navigate between pages and/or items via built-in optional buttons.</p>
+            </div>
+            <smart-pager #pager show-prev-next-navigation-buttons auto-ellipsis="both"
+            show-page-index-selectors pages-count="20" page-index-selectors="10"></smart-pager>
+        </section>
+        <section id="pager-mobile">
+             <h2>Mobile</h2>
+            <div class="module"></div>
+            <div class="module">
+                <div id="pager-mobile-container" style="position:relative;">
+                    <div id="imageContainer">
+                        <div id="content" class="img0">
+                            <img src="https://htmlelements.com/demos/images/albums_pop.png" />
+                            <img src="https://htmlelements.com/demos/images/albums_alternative.png"
+                            />
+                            <img src="https://htmlelements.com/demos/images/albums_rock.png" />
+                        </div>
+                    </div>
+                    <smart-pager #pager2 id="mobile" show-page-index-selectors pages-count="5"
+                    page-index-selectors="5"></smart-pager>
+                </div>
+            </div>
+        </section>
+    </div>

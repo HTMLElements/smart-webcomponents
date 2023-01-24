@@ -1,0 +1,38 @@
+<div class="demo-description">
+    <p>
+        Resource Timeline View can display different information depending on the <b>resourceTimelineView</b> property:
+    </p>
+</div>
+<smart-gantt-chart #ganttChart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns" [treeMin]="treeMin"
+    [resourceColumns]="resourceColumns" [resourcePanelSize]="resourcePanelSize"
+    [resourceTimelineMode]="resourceTimelineMode" [view]="view"
+    [resourceTimelineFormatFunction]="resourceTimelineFormatFunction"></smart-gantt-chart>
+
+<div class="options" #options>
+    <div class="option">
+        <h3>Resource Timeline View:</h3>
+        <smart-radio-button [checked]="true">hours</smart-radio-button>
+        <smart-radio-button>tasks</smart-radio-button>
+        <smart-radio-button>custom</smart-radio-button>
+    </div>
+    <div class="option">
+        <h3>Description</h3>
+        <ul>
+            <li>
+                <b>hours</b> - the hours of a resource assigned to a task, where the resource attribute <b>capacity</b>
+                represents the working capacity of the resource and <b>maxCapacity</b> represents the maximum capacity.
+            </li>
+            <li>
+                <b>tasks</b> - the tasks that are assigned to the resource. In this mode <b>capacity</b> is not taken
+                into considuration. Only <b>maxCapacity</b> is used to determine the maximum possible tasks that should
+                be assigned to the resource.
+            </li>
+            <li>
+                <b>custom</b> - allows to customize the cell content of the histogram since that's the
+                <b>resourceTimelineMode</b>. This can be achieved via the <b>resourceTimelineFormatFunction</b> property
+                which accepts a callback. <br /> In the current demo 'custom' mode displays the bonuses that the workers
+                will get for each task they are assigned to.
+            </li>
+        </ul>
+    </div>
+</div>

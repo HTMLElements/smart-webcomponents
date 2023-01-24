@@ -1,0 +1,34 @@
+<p>Default look:</p>
+<smart-numeric-text-box #numerictextbox id="numericTextBox1"
+                        [inputFormat]="'floatingPoint'" [value]="100" [spinButtons]="true" [spinButtonsPosition]="'right'"
+                        [spinButtonsStep]="1" [enableMouseWheelAction]="true"></smart-numeric-text-box>
+<br />
+<p>Spin buttons "outside" the input (similar to the appearance of smart-date-time-picker):</p>
+<smart-numeric-text-box #numerictextbox2 id="numericTextBox2" class="non-default-look" [inputFormat]="'floatingPoint'"
+                        [value]="100" [spinButtons]="true" [spinButtonsPosition]="'right'" [spinButtonsStep]="1"
+                        [enableMouseWheelAction]="true"></smart-numeric-text-box>
+<br />
+<p>Spin buttons "inside" the input:</p>
+<smart-numeric-text-box #numerictextbox3
+                        id="numericTextBox3" class="non-default-look" [inputFormat]="'floatingPoint'"
+                        [value]="100" [spinButtons]="true" [spinButtonsPosition]="'right'" [spinButtonsStep]="1"
+                        [enableMouseWheelAction]="true"></smart-numeric-text-box>
+<p>Default look (spin buttons on the left):</p>
+<smart-numeric-text-box #numerictextbox4
+                        id="numericTextBox4" [inputFormat]="'floatingPoint'" [value]="100" [spinButtons]="true"
+                        [spinButtonsPosition]="'left'" [spinButtonsStep]="1" [enableMouseWheelAction]="true"></smart-numeric-text-box>
+<br />
+<p>Spin buttons on the left, "outside" the input:</p>
+<smart-numeric-text-box #numerictextbox5 id="numericTextBox5" class="non-default-look" [inputFormat]="'floatingPoint'"
+                        [value]="100" [spinButtons]="true" [spinButtonsPosition]="'left'" [spinButtonsStep]="1"
+                        [enableMouseWheelAction]="true"></smart-numeric-text-box>
+<br />
+<p>Spin buttons on the left, "inside" the input:</p>
+<smart-numeric-text-box #numerictextbox6 id="numericTextBox6" class="non-default-look" [inputFormat]="'floatingPoint'"
+                        [value]="100" [spinButtons]="true" [spinButtonsPosition]="'left'" [spinButtonsStep]="1"
+                        [enableMouseWheelAction]="true"></smart-numeric-text-box>
+<br />
+<p>Dropdown styled similar to that of smart-drop-down-list:</p>
+<smart-numeric-text-box #numerictextbox7 id="numericTextBox7" [value]="0" [inputFormat]="'integer'"
+                        [wordLength]="'uint64'" [radixDisplay]="true" [dropDownEnabled]="true" [spinButtons]="true" [spinButtonsPosition]="'right'"
+                        [spinButtonsStep]="1" placeholder="'Please type...'" [enableMouseWheelAction]="true"></smart-numeric-text-box>

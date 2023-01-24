@@ -1,0 +1,59 @@
+.smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-project-label-color: white;
+    --smart-gantt-chart-project-label-color-selected: rgb(192, 248, 87);
+    --smart-gantt-chart-task-label-color-selected: rgb(192, 248, 87);
+}
+
+.smart-gantt-chart .material-icons {
+    --smart-font-family-icon: 'Material Icons';
+    --smart-font-size: 18px;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.smart-gantt-chart .beth {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(95, 44, 130), rgb(73, 160, 157));
+}
+
+.smart-gantt-chart .william {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(236, 111, 102), rgb(243, 161, 131));
+}
+
+.smart-gantt-chart .emma {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(116, 116, 191), rgb(52, 138, 199));
+}
+
+.smart-gantt-chart .team-oliver {
+    --smart-gantt-chart-project-color: linear-gradient(to right, rgb(8, 80, 120), rgb(133, 216, 206));
+}
+
+.smart-gantt-chart .oliver {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(218, 226, 248), rgb(214, 164, 164));
+}
+
+.smart-gantt-chart .jason {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(19, 78, 94), rgb(113, 178, 128));
+}
+
+.smart-gantt-chart .alex {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(36, 198, 220), rgb(81, 74, 157));
+}
+
+.smart-gantt-chart .lucas {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(237, 66, 100), rgb(255, 237, 188));
+}
+
+.smart-gantt-chart .michael {
+    --smart-gantt-chart-task-color: linear-gradient(to right, rgb(117, 127, 154), rgb(215, 221, 232));
+}
+
+/* ------------ Google fonts ------------ */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v115/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}

@@ -1,0 +1,33 @@
+#progressbar1 {
+    margin-bottom: 20px;
+}
+
+input {
+    height: 33px;
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    margin-top: 5px;
+	width: 60px;
+	border:1px solid #fafafa;
+}
+
+.settings-button, .layout, .min, .max {
+    margin-top: 5px;
+}
+
+.smart-button, .progress-bar-layout {
+    display: inline-block;
+}
+
+.button-layout {
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+}

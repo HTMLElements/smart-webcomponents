@@ -1,0 +1,13 @@
+<div class="container">
+    <p>Use the settings menu to change the error correction level of the QR Code.</p>
+    <p>The higher the Error Correction Level, the higher is the amount of data that can be retrieved if part of the QR Code is damaged or hidden.</p>
+    <smart-qrcode #qrcode value="HTMLELEMENTS.COM" [renderAs]="'canvas'"></smart-qrcode>
+	<div class="options">
+		<div class="caption">Error Correction Level</div>
+		<div class="option">		
+			<smart-radio-button #lowOption>Set to Low</smart-radio-button>
+			<br/><br/>
+			<smart-radio-button  #highOption [checked]="true">Set to High</smart-radio-button>
+		</div>
+    </div>
+</div>

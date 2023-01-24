@@ -1,0 +1,15 @@
+<div class="demo-description">
+    	<h1>Server-side Tree Grid</h1>Datagrid in this example is used as a Tree Grid. That is achieved by setting
+    the dataSource's 'keyDataField' and 'parentDataField' properties. When
+    a row is expanded the datagrid sends a request with the expanded row data
+    object on the Server-Side Datasource. The server uses the SQL query sent
+    by the Server-Side Datasource and returns the requested sub-rows collection.
+    This example uses a demo server with AlaSQL that generates SQL to show
+    how a real server might use the requests sent by the Datagrid. The Server-Side
+    Datagrid usage does not have any restrictions on the server-side technologies
+    used.</div>
+<smart-grid [appearance]="appearance" [sorting]="sorting" [filtering]="filtering" [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>
+<br />
+<br />
+	<h3>SQL Query</h3>
+<div id="query"></div>

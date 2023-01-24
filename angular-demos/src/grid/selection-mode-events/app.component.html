@@ -1,0 +1,15 @@
+<div class="demo-description">This demo demonstrates the Grid's "change" event. The "change" event occurs
+    when the user selects cells, rows or columns. The "change" event has two
+    boolean arguments: "started" and "finished". When the selection starts,
+    the "started" boolean argument value is "true". When the selection ends,
+    the "finished" boolean argument value is "true". If the selection is with
+    dragging, the values of "started" and "finished" is false.</div>
+<br />
+<smart-grid #grid id="grid" [selection]="selection" [appearance]="appearance" [dataSource]="dataSource"
+    [columns]="columns"></smart-grid>
+<div class="options">
+    <div class="caption">Events</div>
+    <div class="option" id="eventsLog">
+        {{log}}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="demo-description"> <b>duration</b> of tasks can be calculated in different units: day, hour
+    and others. Press on the radio button to change the Duration Unit.</div>
+<smart-gantt-chart #ganttchart [durationUnit]="'day'" [dataSource]="dataSource"></smart-gantt-chart>
+    <div class="options">
+         <h3>Duration Unit:</h3>
+        <div class="option">
+            <smart-radio-button #radiobutton [groupName]="'durationUnit'" [checked]="true" id="dayUnit">day</smart-radio-button>
+        </div>
+        <div class="option">
+            <smart-radio-button #radiobutton2 [groupName]="'durationUnit'" id="hourUnit">hour</smart-radio-button>
+        </div>
+    </div>

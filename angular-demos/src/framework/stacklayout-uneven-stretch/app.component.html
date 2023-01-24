@@ -1,0 +1,20 @@
+<div class="demo-description"></div>
+<div class="smart-stack-layout stretch">
+    <smart-button #button class="primary item">OK</smart-button>
+    <smart-button #button2 class="secondary item flex-2">Cancel</smart-button>
+</div>
+<div class="options">
+    <div class="caption">Stretch</div>
+    <div class="option">
+        <smart-check-box #checkbox smart-model="stretch" [checked]="true">Horizontal</smart-check-box>
+        <br/>
+        <smart-check-box #checkbox2 smart-model="verticalStretch">Vertical</smart-check-box>
+    </div>
+    <div class="caption">Orientation</div>
+    <div class="option">
+        <smart-radio-button #radiobutton value="horizontal" smart-model="orientation"
+        [checked]="true">Horizontal</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 value="vertical" smart-model="orientation">Vertical</smart-radio-button>
+    </div>
+</div>

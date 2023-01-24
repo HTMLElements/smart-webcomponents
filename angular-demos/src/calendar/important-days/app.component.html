@@ -1,0 +1,10 @@
+<smart-calendar #calendar class="special-days" [importantDatesTemplate]="'importantDatesTemplate'"
+[importantDates]="importantDates" [tooltip]="true">
+</smart-calendar>
+
+<div class="options">
+    <div class="caption">Important Dates</div>
+    <div *ngFor="let date of importantDates" class="option" id="importantDates">
+        {{date}}
+    </div>
+</div>

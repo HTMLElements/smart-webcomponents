@@ -1,0 +1,19 @@
+<div class="demo-description">The demo shows switching between different value display modes of the
+    Color Picker</div>
+<smart-color-picker #colorpicker [enableCustomColors]="true"></smart-color-picker>
+<div class="options" #options>
+    <div class="option">Selected color:
+        <input type="text" class="smart-input" placeholder="#RRGGBB" id="rgbValue" #rgbInput/>
+    </div>
+    <div class="option">
+        <div>Toggle Value Display Mode</div>
+        <smart-radio-button #radiobutton [groupName]="'valueDisplayMode'" [checked]="true">default</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 [groupName]="'valueDisplayMode'">colorBox</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3 [groupName]="'valueDisplayMode'">colorCode</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton4 [groupName]="'valueDisplayMode'">none</smart-radio-button>
+        <br/>
+    </div>
+</div>

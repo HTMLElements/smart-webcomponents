@@ -1,0 +1,11 @@
+smart-carousel {
+    display: inline-block;
+}
+
+    smart-carousel, smart-carousel .smart-arrow:after {
+        color: white;
+    }
+
+        smart-carousel .smart-indicator {
+            border-color: white;
+        }

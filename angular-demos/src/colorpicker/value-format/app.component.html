@@ -1,0 +1,18 @@
+<smart-color-picker #colorpicker [enableCustomColors]="true" [editable]="true"></smart-color-picker>
+<div class="options" #options>
+    <div class="option">
+         <h3>Toggle Value Display Mode</h3>
+        <smart-radio-button #radiobutton [groupName]="'valueFormat'" [checked]="true">default</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 [groupName]="'valueFormat'">rgb</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3 [groupName]="'valueFormat'">rgba</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton4 [groupName]="'valueFormat'">hex</smart-radio-button>
+        <br/>
+    </div>
+    <div class="option">
+         <h3>Edit Alpha Channel</h3>
+        <smart-check-box #checkbox id="editAlphaChannel">Edit Alpha Channel</smart-check-box>
+    </div>
+</div>

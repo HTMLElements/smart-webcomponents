@@ -1,0 +1,377 @@
+[
+    {
+        "label": "Project A",
+        "dateStart": "2021-04-30T21:00:00.000Z",
+        "duration": 5,
+        "expanded": true,
+        "type": "project",
+        "hidden": false,
+        "resources": [],
+        "minDuration": 0,
+        "maxDuration": 0,
+        "dateEnd": "2021-05-05T21:00:00.000Z",
+        "progress": 0,
+        "connections": [
+            {
+                "target": 1,
+                "type": 1
+            },
+            {
+                "target": 7,
+                "type": 1
+            },
+            {
+                "target": 4,
+                "type": 1
+            }
+        ],
+        "class": "",
+        "tasks": [
+            {
+                "label": "Sub-Project A1",
+                "dateStart": "2021-05-05T21:00:00.000Z",
+                "duration": 4,
+                "expanded": true,
+                "type": "project",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-09T21:00:00.000Z",
+                "progress": 0,
+                "connections": [
+                    {
+                        "target": 3,
+                        "type": 1
+                    }
+                ],
+                "class": "",
+                "tasks": [
+                    {
+                        "label": "Task A1.1",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 5,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-09T21:00:00.000Z",
+                        "progress": 0,
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task A1.2",
+                        "dateStart": "2021-05-10T09:00:00.000Z",
+                        "duration": 4,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-14T09:00:00.000Z",
+                        "progress": 0,
+                        "connections": [],
+                        "class": ""
+                    }
+                ]
+            },
+            {
+                "label": "Sub-Project A2",
+                "dateStart": "2021-05-04T21:00:00.000Z",
+                "duration": 6,
+                "progress": 70,
+                "expanded": true,
+                "type": "project",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-10T21:00:00.000Z",
+                "connections": [],
+                "class": "",
+                "tasks": [
+                    {
+                        "label": "Task A2.1",
+                        "dateStart": "2021-05-06T21:00:00.000Z",
+                        "duration": 5,
+                        "progress": 25,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-11T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task A2.2",
+                        "dateStart": "2021-05-05T21:00:00.000Z",
+                        "progress": 90,
+                        "duration": 4,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-09T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    }
+                ]
+            },
+            {
+                "label": "Sub-Project A3",
+                "dateStart": "2021-05-06T21:00:00.000Z",
+                "duration": 2,
+                "expanded": true,
+                "type": "project",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-08T21:00:00.000Z",
+                "progress": 0,
+                "connections": [],
+                "class": "",
+                "tasks": [
+                    {
+                        "label": "Task A3.1",
+                        "dateStart": "2021-05-05T21:00:00.000Z",
+                        "duration": 5,
+                        "progress": 100,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-10T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task A3.2",
+                        "dateStart": "2021-05-05T21:00:00.000Z",
+                        "duration": 3,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-08T21:00:00.000Z",
+                        "progress": 0,
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task A3.3",
+                        "dateStart": "2021-05-05T21:00:00.000Z",
+                        "duration": 4,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-09T21:00:00.000Z",
+                        "progress": 0,
+                        "connections": [],
+                        "class": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "label": "Project B",
+        "dateStart": "2021-05-02T06:00:00.000Z",
+        "duration": 18,
+        "expanded": true,
+        "type": "project",
+        "hidden": false,
+        "resources": [],
+        "minDuration": 0,
+        "maxDuration": 0,
+        "dateEnd": "2021-05-20T06:00:00.000Z",
+        "progress": 0,
+        "connections": [],
+        "class": "",
+        "tasks": [
+            {
+                "label": "Task B1",
+                "dateStart": "2021-05-02T06:00:00.000Z",
+                "duration": 10,
+                "progress": 25,
+                "type": "task",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-12T06:00:00.000Z",
+                "connections": [],
+                "class": ""
+            },
+            {
+                "label": "Sub-Project B2",
+                "dateStart": "2021-05-03T21:00:00.000Z",
+                "progress": 90,
+                "duration": 4,
+                "expanded": true,
+                "type": "project",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-07T21:00:00.000Z",
+                "connections": [],
+                "class": "",
+                "tasks": [
+                    {
+                        "label": "Task B2.1",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 5,
+                        "progress": 35,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-09T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task B2.2",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 6,
+                        "progress": 65,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-10T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task B2.3",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 4,
+                        "progress": 50,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-08T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task B2.4",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 6,
+                        "progress": 65,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-10T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    }
+                ]
+            },
+            {
+                "label": "Task B3",
+                "dateStart": "2021-05-04T21:00:00.000Z",
+                "duration": 3,
+                "progress": 55,
+                "type": "task",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-07T21:00:00.000Z",
+                "connections": [],
+                "class": ""
+            },
+            {
+                "label": "Sub-Project B4",
+                "dateStart": "2021-04-30T21:00:00.000Z",
+                "duration": 3,
+                "progress": 15,
+                "expanded": true,
+                "type": "project",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-03T21:00:00.000Z",
+                "connections": [],
+                "class": "",
+                "tasks": [
+                    {
+                        "label": "Task B4.1",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 7,
+                        "progress": 100,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-11T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task B4.2",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 5,
+                        "progress": 100,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-09T21:00:00.000Z",
+                        "connections": [],
+                        "class": ""
+                    },
+                    {
+                        "label": "Task B4.3",
+                        "dateStart": "2021-05-04T21:00:00.000Z",
+                        "duration": 5,
+                        "type": "task",
+                        "hidden": false,
+                        "resources": [],
+                        "minDuration": 0,
+                        "maxDuration": 0,
+                        "dateEnd": "2021-05-09T21:00:00.000Z",
+                        "progress": 0,
+                        "connections": [],
+                        "class": ""
+                    }
+                ]
+            },
+            {
+                "label": "Task B5",
+                "dateStart": "2021-05-05T21:00:00.000Z",
+                "duration": 6,
+                "type": "task",
+                "hidden": false,
+                "resources": [],
+                "minDuration": 0,
+                "maxDuration": 0,
+                "dateEnd": "2021-05-11T21:00:00.000Z",
+                "progress": 0,
+                "connections": [],
+                "class": ""
+            }
+        ]
+    }
+]

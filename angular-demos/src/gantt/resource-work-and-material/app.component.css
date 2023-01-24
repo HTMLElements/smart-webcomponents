@@ -1,0 +1,39 @@
+.smart-gantt-chart {
+    width: 100%;
+    height: 80%;
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-task-color: #8BC34A;
+    --smart-gantt-chart-task-label-color-selected: var(--smart-gantt-chart-task-label-color);
+    --smart-gantt-chart-task-default-height: 35px;
+}
+
+    .smart-gantt-chart .smart-task-item[group] > .smart-task-label-container,
+    .smart-gantt-chart .smart-tree-items-group > .smart-tree-item-label-container {
+        font-weight: bold;
+    }
+
+    .smart-gantt-chart .gantt-chart-task-assignees {
+        display: flex;
+        align-items: center;
+    }
+
+    .smart-gantt-chart .gantt-chart-task-assignee {
+        border-radius: 25%;
+        color: white;
+        background: #3266a7;
+        width: calc(var(--smart-gantt-chart-task-default-height) / 2);
+        height: calc(var(--smart-gantt-chart-task-default-height) / 2);
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2px;
+    }
+
+    .smart-gantt-chart .unassigned {
+        background: red;
+    }
+
+    body {
+        height: 100vh;
+    }

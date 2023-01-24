@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='Description'>Angular page-templates Album | page-templates | https://www.htmlelements.com/</title>
+        <base href="./../../../dist/page-templates/album/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+    </head>
+    <body>
+        <app-root>Loading...</app-root>
+
+        <template id="cardTemplate">
+            <div class="thumb-section">Thumbnail</div>
+            <div class="content">
+                 <h2>Heading</h2>
+                <p>This is a media card. You can use this section to describe the content.</p>
+            </div>
+            <div>
+                <smart-button #button3 class="flat primary">VIEW</smart-button>
+                <smart-button #button4 class="flat primary">EDIT</smart-button>
+            </div>
+        </template>
+
+        <script src="runtime.js" type="module"></script>
+		<script src="polyfills.js" type="module"></script>
+		
+		
+		<script src="main.js" type="module"></script>
+		
+    </body>
+</html>

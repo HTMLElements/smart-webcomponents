@@ -1,0 +1,13 @@
+<div class="demo-description">
+    	<h1>Grid Row Header Icons</h1>
+    <p>The following appearance settings can be applied to rows header:</p>
+        <ul>
+            <li>showRowHeader - displays a row header.</li>
+            <li>showRowHeaderNumber - displays a row header number.</li>
+            <li>showRowHeaderEditIcon - displays an Edit icon, when the row is in <em>edit</em> state.</li>
+            <li>showRowHeaderFocusIcon - displays a Focus icon, when the row is in <em>focus</em> state.</li>
+            <li>showRowHeaderSelectIcon - displays a Select icon, when the pointer is
+                over the row header. It indicated that the user can select the row.</li>
+        </ul>
+</div>
+<smart-grid #grid [dataSource]="dataSource" [columns]="columns" [editing]="editing" [appearance]="appearance" [selection]="selection" id="grid"></smart-grid>

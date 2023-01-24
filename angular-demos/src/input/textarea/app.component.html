@@ -1,0 +1,14 @@
+<div class="demo-description">
+    <p> <b>Smart.TextArea</b> is a simple TextArea that can have a predefined options
+        list.</p>
+    <p><b>RenderMode</b> radio buttons allow to change the appearance of the input.</p>
+</div>
+<smart-text-area #input [placeholder]='"Empty"'></smart-text-area>
+<div class="options">
+    <div class="option">
+        <div class="description">Render Mode</div>
+        <smart-radio-button #radiobutton [checked]="true" class="render-mode">Default</smart-radio-button>
+        <smart-radio-button #radiobutton2 class="render-mode">Outlined</smart-radio-button>
+        <smart-radio-button #radiobutton3 class="render-mode">Underlined</smart-radio-button>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+#log {
+    border: 1px dashed black;
+    width: 800px;
+    height: 400px;
+    background-color: white;
+    overflow: auto;
+}
+
+.smart-array-element {
+    border: 1px solid black;
+    overflow: auto;
+}
+
+.container {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: black;
+}
+
+.lastNameinput {
+    width: 300px;
+}

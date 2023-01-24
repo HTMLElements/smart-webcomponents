@@ -1,0 +1,31 @@
+<div class="container">
+    <smart-gauge #gauge id="gauge1" [analogDisplayType]="'fill'" [coerce]="true" [scalePosition]="'outside'"
+                 [min]="0" [max]="10000" [value]="100" [customInterval]="true" [customTicks]='[100, 1000, 5000, 10000]'></smart-gauge>
+    <p>Gauge with floating point scale:</p>
+</div>
+<div class="container">
+    <smart-gauge #gauge2 id="gauge2" [analogDisplayType]="'fill'" [coerce]="true" [scalePosition]="'outside'"
+                 [scaleType]="'integer'" [significantDigits]="3" [wordLength]="'int64'" [min]="'-9223372036854775808'"
+                 [max]="'9223372036854775807'" [value]="-3e18" [customInterval]="true" [customTicks]='[-9e18, -3e18, 1e18, 9e18]'></smart-gauge>
+    <p>Gauge with 64-bit Integer scale:</p>
+</div>
+<div class="container">
+    <smart-gauge #gauge3 id="gauge3" [analogDisplayType]="'fill'" [coerce]="true" [logarithmicScale]="true"
+                 [scalePosition]="'outside'" [min]="1" [max]="100" [value]="55" [customInterval]="true" [customTicks]='[1, 2, 3, 5, 8, 13, 21, 34, 55, 89]'></smart-gauge>
+    <p>Gauge with logarithmic scale and Fibonacci numbers as custom ticks:</p>
+</div>
+<div class="container">
+    <smart-gauge #gauge4 id="gauge4" [analogDisplayType]="'fill'" [labelFormatFunction]="gauge4LabelFormatFunction"
+                 [coerce]="true" [scalePosition]="'outside'" [min]="1" [max]="26" [value]="10" [customInterval]="true"
+                 [customTicks]='[1, 2, 3, 5, 10, 13, 18, 22, 24, 26]'></smart-gauge>
+    <p>Gauge with letters:</p>
+</div>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #checkbox id="toggleCustomInterval" [checked]="true">Custom interval</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox2 id="toggleCoerce" [checked]="true">Coerce</smart-check-box>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="demo-description">smartGrid can display nested Grids by using the Row Detail functionality.
+    By expanding a Grid row in this demo, a Nested Grid is displayed showing
+    additional details about data. That is achieved by enabling row details
+    and implementing the 'onRowDetailInit' callback function.</div>
+<smart-grid [appearance]="appearance" [onRowInit]="onRowInit" [onRowDetailInit]="onRowDetailInit"
+    [rowDetail]="rowDetail" [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>

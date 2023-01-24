@@ -1,0 +1,194 @@
+﻿<div class="dashboard-page smart-visibility-hidden">
+    <div class="smart-grid-layout charts-in-tab">
+        <div class="row">
+            <div class="col-md-12">
+                <smart-card class="performance-card-with-charts">
+                    <div class="card-title">
+                        <div>Total Shipments</div>
+                        <div>Performance</div>
+                    </div>
+                    <div class="card-content">
+                        <smart-tabs class="performanceTabs" selected-index="0">
+                            <smart-tab-item label="Accounts">
+                                <smart-chart id="accountsShipments"></smart-chart>
+                            </smart-tab-item>
+                            <smart-tab-item label="Purchases">
+                                <smart-chart id="purchasesShipments"></smart-chart>
+                            </smart-tab-item>
+                            <smart-tab-item label="Sessions">
+                                <smart-chart id="sessionsShipments"></smart-chart>
+                            </smart-tab-item>
+                        </smart-tabs>
+                    </div>
+                </smart-card>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Number, Followers, Users, Errors -->
+    <div class="smart-grid-layout numbers-followers-users-errors-cards">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                <smart-card class="basic-card number-card">
+                    <span class="card-title">Number</span>
+                    <div class="card-content">
+                        150GB
+                        <div class="right-icon-holder">
+                            <i class="material-icons">storage</i>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="javascript:void(0)"><i class="material-icons">refresh</i> Update Now</a>
+                    </div>
+                </smart-card>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                <smart-card class="basic-card followers-card">
+                    <div class="card-title">Followers</div>
+                    <div class="card-content">
+                        +45k
+                        <div class="right-icon-holder">
+                            <i class="material-icons">star</i>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="javascript:void(0)"><i class="material-icons">bar_chart</i> Last Research</a>
+                    </div>
+                </smart-card>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                <smart-card class="basic-card users-card">
+                    <span class="card-title">Users</span>
+                    <div class="card-content">
+                        150,000
+                        <div class="right-icon-holder">
+                            <i class="material-icons">people</i>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="javascript:void(0)"><i class="material-icons">feedback</i> Customers feedback</a>
+                    </div>
+                </smart-card>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                <smart-card class="basic-card errors-card">
+                    <span class="card-title">Errors</span>
+                    <div class="card-content">
+                        12
+                        <div class="right-icon-holder">
+                            <i class="material-icons">error</i>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="javascript:void(0)"><i class="material-icons">hourglass_empty</i> In the last hours</a>
+                    </div>
+                </smart-card>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Total Shipments, Daily Sales, Completed Tasks -->
+    <div class="smart-grid-layout cards-with-chart shipments-sales-tasks-cards">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                <smart-card class="basic-card total-shipments">
+                    <div class="card-title">Total Shipments</div>
+                    <div class="card-content">
+                        <div class="card-content-description">
+                            <i class="material-icons">flight</i>763,215
+                        </div>
+                        <smart-chart id="totalShipments"></smart-chart>
+                    </div>
+                </smart-card>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                <smart-card class="basic-card daily-sales">
+                    <div class="card-title">Daily Sales</div>
+                    <div class="card-content">
+                        <div class="card-content-description">
+                            <i class="material-icons">monetization_on</i>3,500€
+                        </div>
+                        <smart-chart id="dailySales"></smart-chart>
+                    </div>
+                </smart-card>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                <smart-card class="basic-card tasks">
+                    <div class="card-title">Completed Tasks</div>
+                    <div class="card-content">
+                        <div class="card-content-description">
+                            <i class="material-icons">done_all</i>12,100K
+                        </div>
+                        <smart-chart id="completedTasks"></smart-chart>
+                    </div>
+                </smart-card>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Tasks, Management table -->
+    <div class="smart-grid-layout grid-sitemap-holder">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <smart-card class="basic-card tasks-today">
+                    <div class="card-title">
+                        <div>Tasks (5)</div>
+                        <div>Today</div>
+                    </div>
+                    <div class="card-content">
+                        <div id="tasksTodayGrid"></div>
+                    </div>
+                </smart-card>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <smart-card class="basic-card management-table">
+                    <div class="card-title">
+                        <div>Management Table</div>
+                        <div>
+                            <smart-drop-down-button class="subtitle" drop-down-width="auto" placeholder="">
+                                <smart-button class="flat">Action</smart-button>
+                                <smart-button class="flat">Another action</smart-button>
+                                <smart-button class="flat">Something else here</smart-button>
+                            </smart-drop-down-button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div id="gridManagementTable"></div>
+                    </div>
+                </smart-card>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Sales -->
+    <div class="smart-grid-layout global-sales-holder">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <smart-card class="basic-card global-sales">
+                    <div class="card-title">
+                        <div>Global Sales by Top Locations</div>
+                        <div>All Products That Were Shipped</div>
+                    </div>
+                    <div class="card-content">
+                        <div id="shippedProds"></div>
+                        <div id="map"></div>
+                    </div>
+                </smart-card>
+            </div>
+        </div>
+    </div>
+</div>

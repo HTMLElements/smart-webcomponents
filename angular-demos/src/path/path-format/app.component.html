@@ -1,0 +1,73 @@
+<table>
+    <thead>
+        <tr>
+            <th>Encoded Path</th>
+            <th>Windows</th>
+            <th>Linux</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>//rel//../Folder/File.txt</td>
+            <td>..\Folder\File.txt</td>
+            <td>../Folder/File.txt</td>
+            <td>This represents a relative file path.</td>
+        </tr>
+        <tr>
+            <td>//abs//C/Folder/File.txt</td>
+            <td>C:\Folder\File.txt</td>
+            <td>/C/Folder/File.txt</td>
+            <td>This represents an absolute file path.</td>
+        </tr>
+        <tr>
+            <td>//unc//Server/Folder/File.txt</td>
+            <td>\\Server\Folder\File.txt</td>
+            <td>//Server/Folder/File.txt</td>
+            <td>This represents a UNC path.</td>
+        </tr>
+        <tr>
+            <td>//</td>
+            <td><strong>not a path</strong>
+            </td>
+            <td><strong>not a path</strong>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>////</td>
+            <td><strong>empty path</strong>
+            </td>
+            <td><strong>empty path</strong>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<smart-path #path [label]="'Path Control'" [value]="'C:\\Folder\\File.txt'"></smart-path>
+<div class="options">
+    <div class="option">
+        <smart-drop-down-list #dropDownList>
+            <smart-list-item>..\Folder\File.txt</smart-list-item>
+            <smart-list-item>../Folder/File.txt</smart-list-item>
+            <smart-list-item [selected]="true">C:\Folder\File.txt</smart-list-item>
+            <smart-list-item>/C/Folder/File.txt</smart-list-item>
+            <smart-list-item>//Server/Folder/File.txt</smart-list-item>
+            <smart-list-item>\\Server\Folder\File.txt</smart-list-item>
+            <smart-list-item>//rel//../Folder/File.txt</smart-list-item>
+            <smart-list-item>//abs//C/Folder/File.txt</smart-list-item>
+            <smart-list-item>//unc//Server/Folder/File.txt</smart-list-item>
+            <smart-list-item>//</smart-list-item>
+            <smart-list-item>////</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+    <div class="option">
+        <h3>Select path format:</h3>
+        <smart-radio-button #radiobutton [checked]="true" [groupName]="'pathFormat'">windows</smart-radio-button>
+        <smart-radio-button #radiobutton2 [groupName]="'pathFormat'">unix</smart-radio-button>
+    </div>
+    <div class="option">
+        <h2>Value:</h2>
+        <div id="log" #log></div>
+    </div>
+</div>

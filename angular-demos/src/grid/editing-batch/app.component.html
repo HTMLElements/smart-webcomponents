@@ -1,0 +1,12 @@
+<div class="demo-description">
+    <h1>Batch Editing in Data Grid</h1>
+    <p>The data grid allows you to edit and update multiple grid rows on the
+        client side and send them with a single server request. To enable the Grid's
+        batch editing, the 'editing.batch' property should be set to 'true' The
+        'editing.commandBar' setting allows you to display a toolbar or statusbar
+        with tools for saving and reverting the edit made by the users. This is
+        done by setting 'editing.commandBar.visible' to 'true'.</p>
+    <br />
+</div>
+<smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns" [editing]="editing" [appearance]="appearance">
+</smart-grid>

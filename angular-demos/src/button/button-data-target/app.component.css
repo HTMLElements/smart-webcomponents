@@ -1,0 +1,43 @@
+.demo-horizontal-layout {
+    display:  flex;
+	flex-direction: column;
+}
+.dark-mode .demo-icon {
+	background-image: none;
+}
+label {
+    font-size: 14px;
+}
+.demo-buttons-group {
+    margin: 8px;
+}
+.demo-buttons-group smart-button {
+    margin:8px;
+}
+.button-demo-icon {
+	position:relative;
+	left: -5px;
+}
+/* fallback */
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: inherit;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+}

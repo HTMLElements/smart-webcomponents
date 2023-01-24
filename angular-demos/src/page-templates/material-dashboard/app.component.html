@@ -1,0 +1,187 @@
+<smart-splitter #splitter id="dashboard" expanded>
+    <smart-splitter-item [collapsible]="true" id="leftPanel" [size]="'240'">
+        <div class="dashboard-header">
+            <img #logo src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg"
+            class="smart-logo" />
+            <smart-button #button id="collapseBtn" class="floating"> <i class="material-icons">chevron_left</i>
+            </smart-button>
+            <smart-button #button2 id="expandBtn" class="floating"> <i class="material-icons">menu</i>
+            </smart-button>
+        </div>
+        <div class="dashboard-menu-container">
+            <smart-button #button3 class="flat menu-btn"><i class="material-icons">view_quilt</i>Dashboard</smart-button>
+            <smart-button
+            #button4 class="flat menu-btn"><i class="material-icons">person</i>User Profile</smart-button>
+                <smart-button
+                #button5 class="flat menu-btn"><i class="material-icons">list_alt</i>Table List</smart-button>
+                    <smart-button
+                    #button6 class="flat menu-btn"><i class="material-icons">view_list</i>Typography</smart-button>
+                        <smart-button
+                        #button7 class="flat menu-btn"><i class="material-icons">hdr_strong</i>Icons</smart-button>
+                            <!--<h6>Saved</h6>-->
+                            <smart-button #button8 class="flat menu-btn"><i class="material-icons">map</i>Maps</smart-button>
+                            <smart-button #button9
+                            class="flat menu-btn"><i class="material-icons">notifications</i>Notifications</smart-button>
+                            <smart-button
+                            #button10 class="flat menu-btn"><i class="material-icons">language</i>RTL Support</smart-button>
+        </div>
+    </smart-splitter-item>
+    <smart-splitter-bar class="smart-hidden"></smart-splitter-bar>
+    <smart-splitter-item id="rightPanel">
+        <div class="dashboard-header">Dashboard
+            <div class="floating">
+                <smart-button #button11 id="normalBtn"> <i class="material-icons">person</i>
+                </smart-button>
+                <smart-button #button12 id="notifficationBtn"> <i class="material-icons">notifications</i>
+                </smart-button>
+                <smart-button #button13 id="normalBtn2"> <i class="material-icons">view_quilt</i>
+                </smart-button>
+                <smart-button #button14 id="borderedBtn"> <i class="material-icons">search</i>
+                </smart-button>
+            </div>
+        </div>
+        <!--<h1>Dashboard</h1>-->
+        <br />
+        <div class="smart-grid-layout">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card class="basic-card storage">
+                        <div class="card-content"> <span class="icon-holder">
+
+                                    <i class="material-icons">sd_storage</i>
+
+                                </span>
+ <span class="card-title">Used Space</span>
+                            <p>49/50 GB</p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)"><i class="material-icons warning">warning</i>&nbsp;Get more space</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card2 class="basic-card revenue">
+                        <div class="card-content"> <span class="icon-holder">
+
+                                    <i class="material-icons">home</i>
+
+                                </span>
+ <span class="card-title">Revenue</span>
+                            <p>$34,245</p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)"><i class="material-icons warning">calendar_today</i>&nbsp;Last 24 Hours</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card3 class="basic-card issues">
+                        <div class="card-content"> <span class="icon-holder">
+
+                                    <i class="material-icons">info</i>
+
+                                </span>
+ <span class="card-title">Fixed Issues</span>
+                            <p>75</p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)"><i class="material-icons warning">label</i>&nbsp;Tracked from Github</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card4 class="basic-card followers">
+                        <div class="card-content"> <span class="icon-holder">
+
+                                    <i class="material-icons">people</i>
+
+                                </span>
+ <span class="card-title">Followers</span>
+                            <p>+245</p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)"><i class="material-icons warning">loop</i>&nbsp;Just Updated</a>
+                        </div>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="smart-grid-layout">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card5 class="basic-card with-chart subscription">
+                        <div class="card-content">
+                            <smart-chart #chart id="chart-monthly-sales" [animationDuration]="animationDuration" [backgroundColor]="backgroundColor" 
+                            [borderLineWidth]="borderLineWidth" [toolTipLineColor]="toolTipLineColor" [caption]="caption" [description]="description" 
+                            [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding" [dataSource]="dataSource" 
+                            [colorScheme]="colorScheme" [xAxis]="xAxis" [clip]="clip" [valueAxis]="valueAxis" [seriesGroups]="seriesGroups"></smart-chart> 
+                            <span class="card-title">Monthly Sales</span>
+                            <p> <span class="percentage"><i class="material-icons">arrow_upward</i>55%</span> increase
+                                in today sales.</p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)"><i class="material-icons warning">loop</i>&nbsp;updated 4 days ago</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card6 class="basic-card with-chart subscription">
+                        <div class="card-content">
+                            <smart-chart #chart2 id="chart-email-subscriptions" [animationDuration]="chart2AnimationDuration" [backgroundColor]="chart2BackgroundColor" 
+                            [borderLineWidth]="borderLineWidth" [toolTipLineColor]="toolTipLineColor" [caption]="caption" [description]="description" 
+                            [showLegend]="showLegend" [padding]="chart2Padding" [titlePadding]="chart2TitlePadding" [dataSource]="chart2DataSource" 
+                            [colorScheme]="chart2ColorScheme" [xAxis]="chart2XAxis" [seriesGroups]="chart2SeriesGroups"></smart-chart> 
+                            <span class="card-title">Email Subscriptions</span>
+                            <p>Last Campaign Performance</p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)"><i class="material-icons warning">loop</i>&nbsp;campaign sent 2 minutes ago</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card7 class="basic-card with-chart tasks">
+                        <div class="card-content">
+                            <smart-chart #chart3 id="chart-completed-tasks" [animationDuration]="animationDuration" [backgroundColor]="chart3BackgroundColor" 
+                            [borderLineWidth]="borderLineWidth" [toolTipLineColor]="toolTipLineColor" [caption]="caption" [description]="description" 
+                            [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding" [dataSource]="chart3DataSource" 
+                            [colorScheme]="chart2ColorScheme" [xAxis]="chart3XAxis" [clip]="clip" [valueAxis]="chart3ValueAxis" [seriesGroups]="chart3SeriesGroups"></smart-chart> 
+                            <span class="card-title">Completed Tasks</span>
+                            <p>Last Campaign Performance</p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)">
+
+                                    <i class="material-icons warning">loop</i>&nbsp;campaign sent 2 days ago
+
+                                </a>
+                        </div>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+        <div class="smart-grid-layout">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <smart-tabs #tabs class="demoTabs" [selectedIndex]="1" style="width: 100%; height: 324px;">
+                        <smart-tab-item [label]="'Bugs'">
+                            <smart-grid #grid id="grid-bugs" style="width:100%; height: auto;" [layout]="layout" [dataSource]="gridDataSource" 
+                            [selection]="selection" [columns]="columns"></smart-grid>
+                        </smart-tab-item>
+                        <smart-tab-item [label]="'Website'">
+                            <smart-grid #grid2 id="grid-website" style="width:100%; height: auto;" [layout]="layout" [dataSource]="grid2DataSource" 
+                            [selection]="selection" [columns]="grid2Columns"></smart-grid>
+                        </smart-tab-item>
+                        <smart-tab-item [label]="'Server'">
+                            <smart-grid #grid3 id="grid-server" style="width:100%; height: auto;" [layout]="layout" [dataSource]="grid3DataSource" 
+                            [selection]="selection" [columns]="grid3Columns"></smart-grid>
+                        </smart-tab-item>
+                    </smart-tabs>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="grid-holder">
+                        <p class="header"> <span class="title">Employees Stats</span>
+ <span class="description">New employees on 15th September, 2016</span>
+                        </p>
+                        <smart-grid #grid4 id="grid-salary" [sorting]="sorting" [layout]="layout" [dataSource]="grid4DataSource" 
+                        [selection]="selection" [columns]="grid4Columns"></smart-grid>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </smart-splitter-item>
+</smart-splitter>

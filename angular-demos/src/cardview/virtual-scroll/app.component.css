@@ -1,0 +1,7 @@
+.email:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/secured-letter-filled.png");
+}
+
+.registered:after {
+    background-image: url("https://img.icons8.com/ios/16/000000/calendar-filled.png");
+}

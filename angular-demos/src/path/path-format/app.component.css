@@ -1,0 +1,38 @@
+smart-path {
+    float: left;
+    margin: 5%;
+}
+
+smart-drop-down-list {
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 16px;
+    margin-top: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+    table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+    }
+
+    table td,
+    table th {
+        border: 1px solid #dfe2e5;
+        padding: 6px 13px;
+    }
+
+    table th {
+        font-weight: 600;
+    }
+
+    table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+    }

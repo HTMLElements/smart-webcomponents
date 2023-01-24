@@ -1,0 +1,125 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+smart-grid {
+  width: 100%;
+  --smart-surface: #fff;
+  --smart-border: #EEEEEE;
+  --smart-grid-column-font-size: 12px;
+  --smart-grid-cell-horizontal-border: transparent;
+  --smart-grid-column-font-weight: 500;
+}
+
+smart-breadcrumb {
+   --smart-background: #EEEEEE;
+   --smart-border-radius: 10px;
+  }
+  smart-breadcrumb .smart-breadcrumb-item {
+    height: 25px;
+    padding: 3px 9px;
+}
+smart-grid smart-grid-column {
+  color: #939394;
+ --smart-border: transparent;
+}
+smart-grid smart-grid-cell[header] {
+  font-size: 12px;
+  color: #939394;
+}
+
+smart-grid smart-grid-cell[header] span[summary] {
+  display: none;
+}
+smart-grid-cell .status {
+	display: flex;
+}
+smart-grid-cell .status .fa-circle-o {
+	color: #2ED58B;
+	font-size: 16px;
+}
+smart-grid-cell .status .fa-circle-o-notch {
+	color: #FF3B6A;
+	font-size: 14px;
+}
+smart-grid-cell[freeze], smart-grid-column[freeze] {
+	background: transparent;
+}
+.header {
+	height: 220px;
+	background: #242528;
+	color: #9FA0A1;
+}
+.icon {
+	font-family: "FontAwesome";
+	width: 32px;
+	height: 100%;
+	display: flex;
+	font-size: 20px;
+	justify-content: center;
+	align-items: center;
+}
+.header .bar .label {
+	font-size: 20px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+.header .bar {
+	background: #1C1D1F;
+	height: 40px;
+	border-bottom: 1px solid #2D2D2F;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+}
+.header .bar .item {
+	display: flex;
+}
+.header .items {
+    display: flex;
+    font-size: 32px;
+    align-items: center;
+    height: calc(100% - 40px);
+    justify-content: space-around;
+}
+.header .items .item {
+}
+.header .items .item .count {
+	display: flex;
+	justify-content: center;
+}
+.header .items .item .label {
+	font-size: 16px;
+	text-transform: lower;
+}
+
+.filter-bar {
+	height: 40px;
+	display: flex;
+	justify-content:flex-end;
+}
+.filter-bar .item {
+	height: 100%;
+	margin-left: 10px;
+	width: auto;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.filter-bar .item#applyFilter {
+	cursor: pointer;
+}
+
+.filter-bar .item#filterInput {
+	border: none;
+}
+.filter-bar .item#filterInput .smart-drop-down-button {
+	background: transparent;
+	border-left: none;
+	color: inherit;
+}
+
+#menu {
+    height: auto;
+	width: 150px;
+}

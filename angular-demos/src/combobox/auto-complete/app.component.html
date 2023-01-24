@@ -1,0 +1,10 @@
+<smart-combo-box #combobox [autoComplete]="'manual'" [minLength]="1" [selectionMode]="'zeroOrOne'"></smart-combo-box>
+<div class="options">
+    <div class="caption">Auto Complete Modes</div>
+    <div class="option">
+        <smart-radio-button #radioButtonNone>None</smart-radio-button>
+        <smart-radio-button #radioButtonAuto>Auto</smart-radio-button>
+        <smart-radio-button #radioButtonInline>Inline</smart-radio-button>
+        <smart-radio-button #radioButtonManual [checked]="true">Manual</smart-radio-button>
+    </div>
+</div>

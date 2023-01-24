@@ -1,0 +1,16 @@
+#help {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+    #help .smart-menu-items-group-arrow {
+        display: none;
+    }
+
+#helpIcon {
+    width: 30px;
+    height: 30px;
+}
+smart-menu {
+	margin-left: 5%;
+}

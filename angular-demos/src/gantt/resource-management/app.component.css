@@ -1,0 +1,216 @@
+smart-gantt-chart {
+    height: auto;
+    width: calc(100% - 300px);
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-task-color: salmon;
+    --smart-gantt-chart-project-label-color: var(--smart-gantt-chart-task-label-color);
+    --smart-gantt-chart-project-label-color-selected: var(--smart-gantt-chart-project-label-color);
+    --smart-gantt-chart-task-label-color-selected: var(--smart-gantt-chart-task-label-color);
+    /* Demo variables */
+    --anthony-background: darkblue;
+    --jonathan-background: #03A9F4;
+    --mia-background: rgb(224, 102, 222);
+    --peter-background: rgb(230, 174, 48);
+    --liam-background: green;
+    --will-background: blueviolet;
+    --taylor-background: burlywood;
+    --leo-background: cadetblue;
+    --veronica-background: darkolivegreen;
+    --jessica-background: deeppink;
+    --anna-background: mediumpurple;
+    --christina-background: tomato;
+    --nelson-background: teal;
+    --philip-background: steelblue;
+    --jenna-background: rgb(139, 0, 0);
+    --new-resource-background: rgb(64, 224, 208);
+    --unassigned-background: red;
+    --resource-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .jqx-gantt-chart {
+       width: 100%;
+       height: auto;
+   }
+}
+
+
+smart-gantt-chart .gantt-chart-task-assignee {
+    border-radius: 20px;
+    padding: 5px;
+    color: var(--resource-color);
+}
+
+/*smart-gantt-chart .researchers {
+        background: var(--researchers-background);
+    }*/
+
+smart-gantt-chart .anthony {
+    background: var(--anthony-background);
+}
+
+smart-gantt-chart .jonathan {
+    background: var(--jonathan-background);
+}
+
+smart-gantt-chart .mia {
+    background: var(--mia-background);
+}
+
+smart-gantt-chart .peter {
+    background: var(--peter-background);
+}
+
+smart-gantt-chart .liam {
+    background: var(--liam-background);
+}
+
+smart-gantt-chart .will {
+    background: var(--will-background);
+}
+
+smart-gantt-chart .taylor {
+    background: var(--taylor-background);
+}
+
+smart-gantt-chart .leo {
+    background: var(--leo-background);
+}
+
+smart-gantt-chart .veronica {
+    background: var(--veronica-background);
+}
+
+smart-gantt-chart .jessica {
+    background: var(--jessica-background);
+}
+
+smart-gantt-chart .anna {
+    background: var(--anna-background);
+}
+
+smart-gantt-chart .christina {
+    background: var(--christina-background);
+}
+
+smart-gantt-chart .nelson {
+    background: var(--nelson-background);
+}
+
+smart-gantt-chart .philip {
+    background: var(--philip-background);
+}
+
+smart-gantt-chart .jenna {
+    background: var(--jenna-background);
+}
+
+smart-gantt-chart .unassigned {
+    background: var(--unassigned-background);
+}
+
+smart-gantt-chart .new.resource {
+    background: linear-gradient(black, var(--new-resource-background));
+}
+
+smart-gantt-chart .updated.resource {
+    background: linear-gradient(black, var(--new-resource-background));
+}
+
+smart-gantt-chart .concept-formation {
+    --smart-gantt-chart-task-color: var(--will-background);
+}
+
+smart-gantt-chart .proposal-development {
+    --smart-gantt-chart-task-color: var(--taylor-background);
+}
+
+smart-gantt-chart .proposal-review {
+    --smart-gantt-chart-task-color: var(--leo-background);
+}
+
+smart-gantt-chart .proposal-development {
+    --smart-gantt-chart-task-color: var(--leo-background);
+}
+
+smart-gantt-chart .commercialization {
+    --smart-gantt-chart-task-color: var(--veronica-background);
+}
+
+smart-gantt-chart .resource-planning {
+    --smart-gantt-chart-task-color: var(--jessica-background);
+}
+
+smart-gantt-chart .target-group-usability {
+    --smart-gantt-chart-task-color: linear-gradient(to right, var(--jessica-background), var(--anna-background));
+}
+
+smart-gantt-chart .marketing-strategy {
+    --smart-gantt-chart-task-color: var(--christina-background);
+}
+
+smart-gantt-chart .development {
+    --smart-gantt-chart-project-color: var(--liam-background);
+}
+
+smart-gantt-chart .design {
+    --smart-gantt-chart-task-color: var(--mia-background);
+}
+
+smart-gantt-chart .coding {
+    --smart-gantt-chart-task-color: linear-gradient(to right, var(--anthony-background), var(--jonathan-background));
+}
+
+smart-gantt-chart .debugging {
+    --smart-gantt-chart-task-color: linear-gradient(to right, var(--jonathan-background), var(--anthony-background));
+}
+
+smart-gantt-chart .testing {
+    --smart-gantt-chart-task-color: linear-gradient(to right, var(--peter-background), var(--liam-background), var(--mia-background));
+}
+
+smart-gantt-chart .documentation {
+    --smart-gantt-chart-task-color: var(--mia-background);
+}
+
+smart-gantt-chart .development-strategy {
+    --smart-gantt-chart-task-color: var(--nelson-background);
+}
+
+smart-gantt-chart .productivity {
+    --smart-gantt-chart-task-color: var(--philip-background);
+}
+
+smart-gantt-chart .completion-cost {
+    --smart-gantt-chart-task-color: var(--jenna-background);
+}
+
+smart-gantt-chart .add-task-button {
+    font-size: 1.35rem;
+    color: rgba(109, 113, 232, 0.5);
+    font-weight: 900;
+}
+
+smart-gantt-chart .add-task-button:hover,
+smart-gantt-chart .add-task-button:active {
+    color: rgba(109, 113, 232, 1);
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

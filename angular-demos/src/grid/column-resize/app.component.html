@@ -1,0 +1,17 @@
+<div class="demo-description">Grid Column Headers Resize example. Move the pointer to the right border
+    of a column header.
+    <br />When the cursor is changed to a col-resize cursor, press the mouse button
+    or tap to start resize.
+    <br />The column is resized when you release the pressed buttton.</div>
+<smart-grid [behavior]="behavior" [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>
+<div class="options">
+    <div class="caption">Column Resize Mode</div>
+    <div class="option">
+        <smart-radio-button #none id="none">None</smart-radio-button>
+        <br />
+        <smart-radio-button #split id="split">Split</smart-radio-button>
+        <br />
+        <smart-radio-button #growAndShrink [checked]="true" id="growAndShrink">Grow and Shrink</smart-radio-button>
+        <br />
+    </div>
+</div>

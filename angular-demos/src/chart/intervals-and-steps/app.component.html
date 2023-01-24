@@ -1,0 +1,95 @@
+<smart-chart #chart id="chart" [animation]="animation" [caption]="caption" [description]="description"
+    [showLegend]="showLegend" [enableCrosshairs]="enableCrosshairs" [padding]="padding" [titlePadding]="titlePadding"
+    [dataSource]="dataSource" [xAxis]="xAxis" [valueAxis]="valueAxis" [colorScheme]="colorScheme"
+    [seriesGroups]="seriesGroups"></smart-chart>
+<div class="options">
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td colspan="2"><b>xAxis settings:</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Labels step</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox id="inputXAxisLabelsStep" [min]="1" [max]="10"
+                                [value]="2" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Grid lines step</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox2 id="inputXAxisGridLinesStep" [min]="1" [max]="10"
+                                [value]="1" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tick marks step</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox3 id="inputXAxisTickMarksStep" [min]="1" [max]="10"
+                                [value]="1" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unit unitInterval</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox4 id="inputXAxisUnitInterval" [min]="1" [max]="10"
+                                [value]="1" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <smart-check-box #checkbox id="btnValuesBetweenTicks">Values between ticks</smart-check-box>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td colspan="2"><b>valueAxis settings:</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Labels step</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox5 id="inputValueAxisLabelsStep" [min]="1" [max]="10"
+                                [value]="1" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Grid lines step</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox6 id="inputValueAxisGridLinesStep" [min]="1"
+                                [max]="10" [value]="1" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tick marks step</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox7 id="inputValueAxisTickMarksStep" [min]="1"
+                                [max]="10" [value]="1" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unit unitInterval</td>
+                        <td>
+                            <smart-numeric-text-box #numerictextbox8 id="inputValueAxisUnitInterval" [min]="1"
+                                [max]="10" [value]="5" [spinButtons]="true"></smart-numeric-text-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <smart-check-box #checkbox2 id="btnValueAxisValuesBetweenTicks">Values between ticks
+                            </smart-check-box>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

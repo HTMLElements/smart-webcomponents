@@ -1,0 +1,4 @@
+.smart-pivot-table {
+    --smart-table-group-count-display: none;
+    max-height: 800px;
+}

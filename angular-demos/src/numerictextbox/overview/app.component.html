@@ -1,0 +1,29 @@
+<div class="smart-demo-container">
+  <section>
+    <div>
+      <h2>Numeric Text fields allow users to enter and edit any type of numbers.</h2>
+      <div class="module">
+        <p>Numeric Text fields typically reside in forms but can appear in other
+          places, like dialog boxes and search.</p>
+      </div>
+    </div>
+  </section>
+  <div>
+    <smart-numeric-text-box #numerictextbox placeholder="Enter a number..." input-type="integer" hint="Idle & empty"
+      [nullable]="true" value="null"></smart-numeric-text-box>
+    <br />
+    <br />
+    <br />
+    <smart-numeric-text-box #numerictextbox2 placeholder="Enter" show-unit [nullable]="true" value="null">
+    </smart-numeric-text-box>
+    <br />
+    <br />
+    <br />
+    <smart-numeric-text-box #numerictextbox3 radix-display value="123" [nullable]="true"></smart-numeric-text-box>
+    <br />
+    <br />
+    <br />
+    <smart-numeric-text-box #numerictextbox4 [disabled]="true" [nullable]="true"></smart-numeric-text-box>
+    <p>disabled</p>
+  </div>
+</div>

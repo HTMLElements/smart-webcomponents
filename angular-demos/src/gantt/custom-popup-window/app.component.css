@@ -1,0 +1,145 @@
+smart-gantt-chart {
+    height: auto;
+    --smart-gantt-chart-task-tree-splitter-bar-fit-size: calc(2 * var(--smart-gantt-chart-task-default-height));
+    --smart-gantt-chart-project-color: #1de9b6;
+    --smart-gantt-chart-task-color: #448aff;
+    --smart-gantt-chart-milestone-default-color: #ffc107;
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-task-label-color-selected: white;
+    --smart-gantt-chart-project-label-color: rgba(0,0,0,.6);
+    --smart-gantt-chart-project-label-color-selected: rgba(0,0,0,.6);
+    --smart-gantt-chart-selection: rgba(0,199,181,.2);
+    --smart-gantt-chart-selection-color: rgba(0,0,0,.6);
+    --smart-gantt-chart-timeline-task-connection-color: #87a4bc;
+    --smart-gantt-chart-timeline-task-connection-color-hover: #87a4bc;
+    --smart-gantt-chart-timeline-task-connection-feedback-color: #87a4bc;
+    --smart-gantt-chart-timeline-weekend-color: initial;
+    --smart-gantt-chart-timeline-header-background: white;
+    --smart-gantt-chart-timeline-row-border-width: 0;
+    --smart-gantt-chart-timeline-header-row-border-width: 1px;
+    --smart-gantt-chart-task-default-height: 35px;
+    --smart-gantt-chart-task-fill-border-radius: 10px;
+    --smart-gantt-chart-header-box-shadow: 0 2.5px 5px 0 rgba(0,0,0,0.15);
+    --smart-gantt-chart-task-popup-window-default-width: 550px;
+}
+
+#description {
+    /*--smart-text-box-default-height: 30px;*/
+    --smart-multiline-text-box-default-height: 75px;
+    width: 100%;
+	height: 200px;
+    overflow: hidden;
+}
+
+#dayPicker,
+#monthPicker,
+#yearPicker {
+    height: 30px;
+    border-color: #E0E0E0;
+    border-radius: 4px;
+}
+
+#dayPicker {
+    width: 40px;
+}
+
+#yearPicker {
+    width: 60px;
+}
+
+#dayInput,
+#dayIncrementBtn,
+#dayDecrementBtn {
+    width: 30px;
+    --smart-button-padding: 5px;
+    --smart-text-box-text-align: center;
+}
+
+.custom-window-content {
+    display: grid;
+    grid-row-gap: 15px;
+    padding: 15px;
+}
+
+.custom-window-content-section[disabled] {
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+.custom-window-content-section:first-of-type label {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.custom-window-content-section.date-controls {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    align-items: center;
+}
+
+    .custom-window-content-section.date-controls .custom-window-content-section {
+        display: grid;
+        align-items: center;
+        grid-column-gap: 5px;
+        grid-template-columns: repeat(4, auto);
+        justify-content: center;
+    }
+
+        .custom-window-content-section.date-controls .custom-window-content-section:first-of-type {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .custom-window-content-section.date-controls .custom-window-content-section:last-of-type {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+.custom-window-content-section.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+}
+
+#cancelBtn {
+    grid-column-start: 3;
+}
+
+#totalDate {
+    white-space: nowrap;
+    min-width: 100px;
+}
+
+body {
+	height: 1000px;
+}
+
+/* Glyph Icons */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('./../../../src/images/glyphicons-halflings-regular.eot');
+    src: url('./../../../src/images/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('./../../../src/images/glyphicons-halflings-regular.woff2') format('woff2'), url('./../../../src/images/glyphicons-halflings-regular.woff') format('woff'), url('./../../../src/images/glyphicons-halflings-regular.ttf') format('truetype'), url('./../../../src/images/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-minus:before {
+    content: "\2212";
+}
+
+.glyphicon-plus:before {
+    content: "\002b";
+}

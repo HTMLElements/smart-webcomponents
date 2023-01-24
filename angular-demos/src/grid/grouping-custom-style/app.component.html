@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="bar">
+        <div class="item">
+            <div class="icon fa-bars"></div>
+            <div class="label">Business Tasks</div>
+        </div>
+        <div class="item">
+            <div class="icon fa-info-circle"></div>
+            <div class="icon fa-bell"></div>
+            <div class="icon fa-user"></div>
+        </div>
+    </div>
+    <div class="items"></div>
+</div>
+<div class="filter-bar">
+    <smart-input #input class="item" drop-down-button-position="right" value="All tasks" id="filterInput"></smart-input>
+    <div id="applyFilter" class="item icon fa-filter"></div>
+    <smart-button #button class="item primary">ADD TASK</smart-button>
+</div>
+<smart-menu #menu id="menu" mode="dropDown">
+    <smart-menu-item data-id="Notification" label="<i class='icon fa-bell'></i>Notify me"></smart-menu-item>
+    <smart-menu-item data-id="Remove" label="<i class='icon fa-bell-slash'></i>Unsubscribe"></smart-menu-item>
+</smart-menu>
+<smart-grid [dataSource]="dataSource" [columns]="columns" [behavior]="behavior" [appearance]="appearance"
+    [editing]="editing" [grouping]="grouping" [onCommand]="onCommand" #grid id="grid"></smart-grid>

@@ -1,0 +1,42 @@
+<smart-editor #editor id="editor" [required]="required" (onChange)="handleEditorChange()">
+    <div class="section">
+        <div>
+            <h2 style="text-align: center;">Camels</h2>
+            <p>A camel is an even-toed ungulate in the genus Camelus that bears distinctive
+                fatty deposits known as "humps" on its back. Camels have long been domesticated
+                and, as livestock, they provide food (milk and meat) and textiles (fiber
+                and felt from hair). Camels are working animals especially suited to their
+                desert habitat and are a vital means of transport for passengers and cargo.
+                There are three surviving species of camel. The one-humped dromedary makes
+                up 94% of the world's camel population, and the two-humped Bactrian camel
+                makes up 6%. The Wild Bactrian camel is a separate species and is now critically
+                endangered. The word camel is also used informally in a wider sense, where
+                the more correct term is "camelid", to include all seven species of the
+                family Camelidae: the true camels (the above three species), along with
+                the "New World" camelids: the llama, the alpaca, the guanaco, and the vicuña.
+                The word itself is derived via Latin: camelus and Greek: κάμηλος (kamēlos)
+                from Hebrew, Arabic or Phoenician: gāmāl.</p>
+        </div>
+        <img src="./../../../src/images/travel/1.jpg" />
+    </div>
+</smart-editor>
+<div #options class="options">
+    <div class="description">
+        <h4>Editor Messages</h4>
+        <p>Messages can be displayed inside the Editor via the <b>showMessage</b> API
+            method. Messages can be customized.</p>
+        <p>The <b>required</b> property set to the Editor opens an error message on
+            Editor blur if the content is empty.</p>
+    </div>
+    <div class="option">
+        <h3>Select a message type:</h3>
+        <smart-radio-button #radiobutton id="info">Info</smart-radio-button>
+        <smart-radio-button #radiobutton2 id="success" [checked]="true">Success</smart-radio-button>
+        <smart-radio-button #radiobutton3 id="warning">Warning</smart-radio-button>
+    </div>
+    <div class="option">
+        <smart-button #button id="showMessage" (onClick)="showMessage()">Show Message</smart-button>
+        <smart-button #button2 id="hideLastMessage" (onClick)="hideLastMessage()">Hide Last Message</smart-button>
+        <smart-button #button3 id="hideAllMessages" (onClick)="hideMessages()">Hide All Messages</smart-button>
+    </div>
+</div>

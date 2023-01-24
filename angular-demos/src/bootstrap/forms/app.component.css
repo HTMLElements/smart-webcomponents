@@ -1,0 +1,12 @@
+
+.group {
+	position: relative;
+	padding: 1rem;
+	border: solid #f8f9fa;
+	margin-top: 1rem;
+}
+
+.group > input,
+.group > select {
+	margin-top: 1rem;
+}

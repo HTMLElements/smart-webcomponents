@@ -1,0 +1,9 @@
+<h3>Heroes</h3>
+<div class="controls-container">
+    <smart-text-box #textBox [label]="'Hero Name:'"></smart-text-box>
+    <smart-button #button (onClick)="add($event, textBox.value); textBox.value=''">Add</smart-button>
+    <smart-button #button2 (onClick)="search($event, textBox.value)">Search</smart-button>
+</div>
+
+<smart-grid #grid id="grid" [editing]="editing" [editing]="editing" [layout]="layout" [dataSource]="dataSource"
+    [columns]="columns"></smart-grid>

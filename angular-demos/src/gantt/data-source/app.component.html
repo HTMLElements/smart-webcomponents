@@ -1,0 +1,18 @@
+<div class="demo-description">Click on the Button to show the current <b>DataSource</b> in the log section.</div>
+
+<smart-gantt-chart #ganttchart id="gantt" [view]="view" [treeSize]="treeSize" [durationUnit]="durationUnit"
+    [taskColumns]="taskColumns" [timelineHeaderFormatFunction]="timelineHeaderFormatFunction" [dataSource]="dataSource">
+</smart-gantt-chart>
+
+<div class="options">
+    <h3>DataSource</h3>
+    <div class="option">
+        <smart-button #button id="showDataSource">Show DataSource</smart-button>
+    </div>
+    <div class="option">
+        <h4>Log:</h4>
+            <div class="log">
+                <pre #log id="log"></pre>
+            </div>
+    </div>
+</div>

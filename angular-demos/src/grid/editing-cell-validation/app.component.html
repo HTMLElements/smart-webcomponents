@@ -1,0 +1,13 @@
+<div class="demo-description">
+    <h1>Grid Cells Editing Validation</h1>
+    The 'validationRules' property determines the validation rules of the
+    column values. The available set of rules are: 'min', 'max', 'minLength',
+    'maxLength', 'minDate', 'maxDate', 'null', 'email', 'required', 'requiredTrue'
+    and 'pattern'. A cell editor is active until a valid value is entered by
+    the user. In this demo, 'First Name', 'Last Name' and 'Product Name' are
+    with 'required' and 'minLength' validation rules. The 'Quantity' and 'Unit
+    Price' columns are with 'min' and 'max' set to '1' and '20'. validation
+    rules.
+</div>
+<smart-grid #grid id="grid" [dataSource]="dataSource" [editing]="editing" [selection]="selection" [columns]="columns">
+</smart-grid>

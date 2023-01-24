@@ -1,0 +1,22 @@
+#breadcrumb2 {
+    --smart-breadcrumb-item-height: 50px;
+    width: 800px;
+}
+
+    #breadcrumb2 .smart-breadcrumb-item-label {
+        display: flex;
+        align-items: center;
+    }
+
+.material-icons {
+    margin-right: 5px;
+    padding: 5px;
+    width: 34px;
+    height: 34px;
+    background-color: var(--smart-success);
+    border-radius: 100%;
+}
+
+#breadcrumb3 {
+    width: 100px;
+}

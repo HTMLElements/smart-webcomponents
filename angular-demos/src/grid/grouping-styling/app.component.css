@@ -1,0 +1,9 @@
+:root {
+   --smart-grid-group-row-vertical-offset: 0;
+    --smart-grid-group-row-horizontal-offset: 0;
+    --smart-grid-group-row-border-radius: var(--smart-border-radius);
+	--smart-grid-group-row-background: inherit;
+}
+smart-grid{
+	width: 100%;
+}

@@ -1,0 +1,38 @@
+<div class="header">
+    <div class="bar">
+        <div class="item">
+            <div class="icon fa-bars"></div>
+            <div class="label">Business Tasks</div>
+        </div>
+        <div class="item">
+            <div class="icon fa-info-circle"></div>
+            <div class="icon fa-bell"></div>
+            <div class="icon fa-user"></div>
+        </div>
+    </div>
+    <div class="items"></div>
+</div>
+<div class="filter-bar">
+    <smart-input #filterInput class="item" drop-down-button-position="right" value="All tasks" id="filterInput">
+    </smart-input>
+    <div id="applyFilter" class="item icon fa-filter"></div>
+    <smart-button #button class="item primary">ADD TASK</smart-button>
+</div>
+<smart-grid [dataSource]="dataSource" [columns]="columns" [appearance]="appearance" [selection]="selection"
+    [editing]="editing" [grouping]="grouping" [onCommand]="onCommand" #grid id="grid"></smart-grid>
+<smart-menu #menu id="menu" mode="dropDown">
+    <smart-menu-item data-id="Notification" label="<i class='icon fa-bell'></i>Notify me"></smart-menu-item>
+    <smart-menu-item data-id="Remove" label="<i class='icon fa-bell-slash'></i>Unsubscribe"></smart-menu-item>
+</smart-menu>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="demo-description">Grid example with Grouping, Column Chooser, Custom Cells Rendering and
+    Custom Filtering. To filter the Grid, use the filter Input component. Filtering
+    is applied when the value is changed. To group by 'Name' or 'Status', move
+    the cursor over the column headers and open the column menu. To add notification,
+    press the vertical ellipsis button and use the popup menu. Column Chooser
+    is displayed when you click on the last column's header.</div>

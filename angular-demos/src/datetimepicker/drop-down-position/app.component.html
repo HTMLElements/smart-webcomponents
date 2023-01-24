@@ -1,0 +1,23 @@
+<smart-date-time-picker #datetimepicker [calendarButton]="true" [calendarButtonPosition]="'right'"
+                        [enableMouseWheelAction]="true" [dropDownPosition]="'bottom'"></smart-date-time-picker>
+<div class="options">
+    <div class="caption">Dropdown Position:</div>
+    <div class="option">
+        <smart-radio-button #radiobutton [checked]="true">Bottom</smart-radio-button>
+        <smart-radio-button #radiobutton2>Top</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3>Overlay bottom</smart-radio-button>
+        <smart-radio-button #radiobutton4>Overlay center</smart-radio-button>
+        <smart-radio-button #radiobutton5>Overlay top</smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton6>Center bottom</smart-radio-button>
+        <smart-radio-button #radiobutton7>Center top</smart-radio-button>
+    </div>
+    <br />
+    <div class="caption">Calendar Button Position:</div>
+    <div class="option">
+        <smart-radio-button #radiobutton8>Left</smart-radio-button>
+        <smart-radio-button #radiobutton9 [checked]="true">Right</smart-radio-button>
+        <smart-radio-button #radiobutton10>None</smart-radio-button>
+    </div>
+</div>

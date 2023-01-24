@@ -1,0 +1,29 @@
+<div class="progress-bar-layout"> <span class="label">Horizontal</span>
+    <smart-progress-bar #progressbar id="progressbar1" class="smart-unselectable" [value]="50"
+        [showProgressValue]="true"></smart-progress-bar>
+    <span class="label">Vertical</span>
+    <smart-progress-bar #progressbar2 id="progressbar2" class="smart-unselectable" [orientation]="'vertical'" [value]="50"
+    [showProgressValue]="true"></smart-progress-bar>
+</div>
+<div class="options"> <span class="label">Settings</span>
+    <div>
+        <input type="text" id="input" value="30" #input/>
+        <smart-button #button class="settings-button" (onClick)="setValue($event)">Set Value</smart-button>
+    </div> <span class="label">Layout:</span>
+    <div>
+        <smart-button #button2 class="layout" (onClick)="setSettings($event, 'normal')" [disabled]="true">Normal</smart-button>
+        <smart-button #button3 class="layout" (onClick)="setSettings($event, 'inverted')">inverted</smart-button>
+    </div> <span class="label">Min:</span>
+    <div>
+        <smart-button #button4 class="min" (onClick)="setSettings($event, 0)" [disabled]="true">0</smart-button>
+        <smart-button #button5 class="min" (onClick)="setSettings($event, 50)">50</smart-button>
+    </div> <span class="label">Max:</span>
+    <div>
+        <smart-button #button6 class="max" (onClick)="setSettings($event, 100)" [disabled]="true">100</smart-button>
+        <smart-button #button7 class="max" (onClick)="setSettings($event, 200)">200</smart-button>
+    </div>
+</div>
+<div> <span class="label">Circular</span>
+    <smart-circular-progress-bar #circularProgressBar id="progressbar3" class="smart-unselectable" [value]="50" [showProgressValue]="true">
+    </smart-circular-progress-bar>
+</div>

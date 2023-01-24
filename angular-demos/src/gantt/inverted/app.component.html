@@ -1,0 +1,9 @@
+<div class="demo-description">Inverted Gantt Chart has it's Task Tree on the right and it's Timeline
+    on the left. Click on the CheckBox in order to change the positions.</div>
+<smart-gantt-chart #ganttchart [inverted]="true" [dataSource]="dataSource"></smart-gantt-chart>
+    <div class="options">
+         <h3>Inverted Gantt Chart</h3>
+        <div class="option">
+            <smart-check-box #checkbox [checked]="true">Inverted</smart-check-box>
+        </div>
+    </div>

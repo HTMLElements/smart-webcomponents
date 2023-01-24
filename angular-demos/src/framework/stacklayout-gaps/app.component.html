@@ -1,0 +1,24 @@
+<div class="demo-description"></div>
+<div class="smart-stack-layout space-between">
+    <smart-button #button class="primary item">A</smart-button>
+    <smart-button #button2 class="secondary item">B</smart-button>
+    <smart-button #button3 class="primary item">C</smart-button>
+    <smart-button #button4 class="secondary item">D</smart-button>
+</div>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-radio-button #radiobutton [checked]="true" value="space-between" smart-model="spacing"
+        >Space Between</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 value="space-evenly" smart-model="spacing">Space Evenly</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton3 value="space-around" smart-model="spacing">Space Around</smart-radio-button>
+    </div>
+    <div class="option">
+        <smart-radio-button #radiobutton4 value="horizontal" smart-model="orientation"
+        [checked]="true">Horizontal</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton5 value="vertical" smart-model="orientation">Vertical</smart-radio-button>
+    </div>
+</div>

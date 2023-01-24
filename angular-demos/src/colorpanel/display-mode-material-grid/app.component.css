@@ -1,0 +1,33 @@
+/* Color Column Size */
+
+smart-color-panel.item-size-small {
+    --smart-color-panel-grid-mode-item-size: 20px;
+}
+
+smart-color-panel.item-size-medium {
+    --smart-color-panel-grid-mode-item-size: 40px;
+}
+
+smart-color-panel.item-size-large {
+    --smart-color-panel-grid-mode-item-size: 60px;
+}
+
+/* Column Gap */
+
+smart-color-panel.column-gap-small {
+    --smart-color-panel-grid-mode-columns-gap: 1px;
+}
+
+smart-color-panel.column-gap-medium {
+    --smart-color-panel-grid-mode-columns-gap: 5px;
+}
+
+smart-color-panel.column-gap-large {
+    --smart-color-panel-grid-mode-columns-gap: 10px;
+}
+
+#rgbValue {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}

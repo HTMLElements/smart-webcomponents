@@ -1,0 +1,28 @@
+<h1>Display Mode "palette"</h1>
+<smart-color-panel #colorpanel id="colorPanel" [editAlphaChannel]="true" [displayMode]="'radial'"></smart-color-panel>
+<div class="options" #options>
+    <div class="option">Selected color:
+        <input type="text" class="smart-input" placeholder="#RRGGBB" #rgbInput id="rgbValue" />
+    </div>
+    <div class="option">
+         <h3>ApplyValueMode</h3>
+        <smart-radio-button #radiobutton [groupName]="'applyValueMode'" [checked]="true">instantly</smart-radio-button>
+        <br/>
+        <smart-radio-button #radiobutton2 [groupName]="'applyValueMode'">useButtons</smart-radio-button>
+        <br/>
+    </div>
+    <div class="option">
+         <h3>Color Editors</h3>
+        <smart-check-box #checkbox id="hidePreviewContainer">Hide Preview Container</smart-check-box>
+        <br/>
+        <smart-check-box #checkbox2 id="hideRGBEditor">Hide RGB Editor</smart-check-box>
+        <br/>
+        <smart-check-box #checkbox3 id="hideHEXEditor">Hide HEX Editor</smart-check-box>
+        <br/>
+        <smart-check-box #checkbox4 id="hideAlphaEditor">Hide Alpha Editor</smart-check-box>
+        <br/>
+    </div>
+    <div class="option">
+        <smart-check-box #checkbox5 id="inverted">inverted</smart-check-box>
+    </div>
+</div>

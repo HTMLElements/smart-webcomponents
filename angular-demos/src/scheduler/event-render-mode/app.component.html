@@ -1,0 +1,22 @@
+<smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource" [view]="view" [hourStart]="hourStart"
+    [timelineDayScale]="timelineDayScale"></smart-scheduler>
+<div class="options">
+    <div class="description">
+        <h4>Description</h4>
+        <b>eventRenderMode</b> determines how the events are rendered inside the
+        cells:
+        <ul>
+            <li>classic - the events are fitted inside the target cell. No event collector
+                is used.</li>
+            <li>modern - the events are fitted according to their size set via the CSS
+                variable. Events that overflow will be placed inside a collector. On Mobile
+                all events are placed inside collectors.</li>
+        </ul>
+    </div>
+    <div class="option">
+        <h4>Select Event Render Mode:</h4>
+        <smart-input #input id="input" [readonly]="true" [dropDownButtonPosition]="'right'" [value]="'modern'"
+            [dataSource]="inputDataSource" (onChange)="handleChange($event)">
+        </smart-input>
+    </div>
+</div>

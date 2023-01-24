@@ -1,0 +1,14 @@
+<smart-editor #editor id="editor" [placeholder]="placeholder"></smart-editor>
+<div class="options">
+     <h4>Editor Import from TXT or HTML</h4>
+    <div class="demo-description">
+        <p>The Editor component can import content from TXT and HTML files.</p>
+        <p>Click on the appropriate button for a live demonstration.</p>
+    </div>
+    <div class="option">
+        <smart-button #button id="importFromHTML" (onClick)="handleHTMLImport()">Import from HTML</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="importFromTXT" (onClick)="handleTXTImport()">Import from TXT</smart-button>
+    </div>
+</div>

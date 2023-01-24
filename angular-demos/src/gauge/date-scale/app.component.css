@@ -1,0 +1,16 @@
+smart-gauge {
+    width: 300px;
+    height: 300px;
+}
+
+smart-gauge .smart-range.range1 {
+    fill: maroon;
+}
+
+smart-gauge .smart-range.range2 {
+    fill: orange;
+}
+
+smart-gauge .smart-range.range3 {
+    fill: forestgreen;
+}

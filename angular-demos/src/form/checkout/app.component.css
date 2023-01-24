@@ -1,0 +1,23 @@
+#checkoutForm {
+	background: #f5f5f5;
+	border: 1px solid #bbb;
+	box-shadow: var(--smart-elevation-4);
+	padding: 10px;
+}
+#checkoutForm table {
+	width: 100%;
+	table-layout: fixed;
+	padding: 15px;
+}
+
+#checkoutForm h2 {
+	margin-left: 20px;
+}
+
+#checkoutForm h2,
+#checkoutForm table th {
+	font-size: 20px;
+	color: var(--smart-primary);
+	padding: 10px;
+    white-space: nowrap;
+}

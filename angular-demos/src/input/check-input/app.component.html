@@ -1,0 +1,19 @@
+<div class="demo-description">
+    <p> <b>Smart.CheckInput</b> is an input that allows select from a predefined
+        checkbox style options drop down list.</p>
+    <p><b>Readonly</b> will turn the input in to a drop down list.</p>
+    <p><b>RenderMode</b> radio buttons allow to change the appearance of the input.</p>
+</div>
+<smart-check-input #checkinput [dataSource]="dataSource" [placeholder]='"Please Select"' [dropDownButtonPosition]='"right"'></smart-check-input>
+<div class="options">
+    <div class="description">Readonly MultiInput acts as a simple DropDownList.</div>
+    <div class="option">
+        <smart-check-box #checkbox class="readonly">Read only</smart-check-box>
+    </div>
+    <div class="option">
+        <div class="description">Render Mode</div>
+        <smart-radio-button #radiobutton [checked]="true" class="render-mode">Default</smart-radio-button>
+        <smart-radio-button #radiobutton2 class="render-mode">Outlined</smart-radio-button>
+        <smart-radio-button #radiobutton3 class="render-mode">Underlined</smart-radio-button>
+    </div>
+</div>

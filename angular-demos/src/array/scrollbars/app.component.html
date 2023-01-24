@@ -1,0 +1,13 @@
+<p>Visible items:</p>
+<smart-check-box #checkbox id="enableIndexDisplay" [checked]="true">Index Display</smart-check-box>
+<smart-check-box #checkbox2 id="enableVerticalScrollbar"
+[checked]="true">Vertical Scrollbar</smart-check-box>
+<smart-check-box #checkbox3 id="enableHorizontalScrollbar"
+[checked]="true">Horizontal Scrollbar</smart-check-box>
+<br />
+<br />
+<smart-array #array id="smartArray" type="string" value='[["A", "a", "α"], ["B", "b", "β"], ["C", "c", "κ"], ["D", "d", "δ"], ["E", "e", "ε"]]'
+dimensions="2" rows="2" columns="2" show-index-display show-vertical-scrollbar
+show-horizontal-scrollbar></smart-array>
+<br />
+<div #log id="log"></div>

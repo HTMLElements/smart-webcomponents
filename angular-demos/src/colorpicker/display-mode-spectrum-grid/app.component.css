@@ -1,0 +1,46 @@
+/* Color Column Count */
+
+smart-color-picker.column-count-small {
+    --smart-color-picker-grid-mode-column-count: 5;
+}
+
+smart-color-picker.column-count-medium {
+    --smart-color-picker-grid-mode-column-count: 10;
+}
+
+smart-color-picker.column-count-large {
+    --smart-color-picker-grid-mode-column-count: 15;
+}
+
+/* Color Column Size */
+
+smart-color-picker.item-size-small {
+    --smart-color-picker-grid-mode-item-size: 20px;
+}
+
+smart-color-picker.item-size-medium {
+    --smart-color-picker-grid-mode-item-size: 40px;
+}
+
+smart-color-picker.item-size-large {
+    --smart-color-picker-grid-mode-item-size: 60px;
+}
+
+/* Column Gap */
+
+smart-color-picker.column-gap-small {
+    --smart-color-picker-grid-mode-columns-gap: 3px;
+}
+
+smart-color-picker.column-gap-medium {
+    --smart-color-picker-grid-mode-columns-gap: 6px;
+}
+
+smart-color-picker.column-gap-large {
+    --smart-color-picker-grid-mode-columns-gap: 9px;
+}
+
+smart-color-picker {
+    --smart-color-picker-grid-mode-columns-gap: 3px;
+}
+

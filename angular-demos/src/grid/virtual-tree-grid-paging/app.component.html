@@ -1,0 +1,9 @@
+<div class="demo-description">
+    <h1>Tree Grid Load on demand with Paging</h1>
+    In Tree Grid's virtual mode, new sub-rows are loaded when you expand a
+    row. Root rows are loaded on demand when you change the page through the
+    Pager UI component.
+</div>
+<smart-grid #grid id="grid" [dataSource]="dataSource" [columns]="columns" [paging]="paging" [pager]="pager"
+    [behavior]="behavior">
+</smart-grid>

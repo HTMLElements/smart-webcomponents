@@ -1,0 +1,18 @@
+<div class="demo-description">
+    <p>Resouces can be assigned to tasks via the <b>dataSource</b> property on
+        initialization or the API methods. Clicking on the + icon will add a new
+        task to the list at the same level.</p>
+</div>
+<smart-gantt-chart #ganttchart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns" [treeSize]="treeSize" [hideResourcePanel]="hideResourcePanel"></smart-gantt-chart>
+<div class="options">
+     <h3>Manage Resources:</h3>
+    <div class="option">
+        <smart-button #button id="insertResource">Insert</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="updateResource">Update</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="removeResource">Remove</smart-button>
+    </div>
+</div>

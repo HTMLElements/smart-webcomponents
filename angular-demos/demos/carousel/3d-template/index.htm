@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id='Description'>Angular Carousel 3d-template | Carousel | https://www.htmlelements.com/</title>
+    <base href="./../../../dist/carousel/3d-template/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <app-root>Loading...</app-root>
+
+    <script src="runtime.js" type="module"></script>
+    <script src="polyfills.js" type="module"></script>
+    
+    
+    <script src="main.js" type="module"></script>
+    
+
+    <template id="itemTemplate">
+        <div class="image-container" style="background-image:url('{{image}}')"> <span class="date-container">29 July
+                2018</span>
+        </div>
+        <div class="text-container">
+            <h2>{{headline}}</h2>
+            <p>{{content}}</p>
+            <p>Read more ...</p>
+        </div>
+        <div class="footer-container"> <span class="footer-item"> <i class="material-icons">local_offer</i> <span
+                    class="footer-text">Art</span></span>
+            <span class="footer-item"><i class="material-icons">person</i> admin</span> <span class="footer-item"><i
+                    class="material-icons">forum</i> 4</span>
+            <span class="footer-item"><i class="material-icons">favorite</i> Favorite</span>
+        </div>
+    </template>
+</body>
+
+</html>

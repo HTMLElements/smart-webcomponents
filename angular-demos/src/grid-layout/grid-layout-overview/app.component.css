@@ -1,0 +1,8 @@
+.smart-grid-layout .row div {
+	background-color: #444;
+	color: #fff;
+}
+.smart-grid-layout {
+	--smart-grid-layout-rows: 100px 1fr 100px;
+	height:500px;
+}

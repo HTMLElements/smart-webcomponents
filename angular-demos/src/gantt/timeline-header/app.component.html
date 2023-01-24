@@ -1,0 +1,6 @@
+<div class="demo-description">
+    <b>Description:</b> Custom Task Columns with custom content.
+</div>
+<smart-gantt-chart #ganttchart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns" [treeSize]="treeSize" 
+[hideResourcePanel]="hideResourcePanel" [dateStart]="dateStart" [view]="view" [headerTemplate]="headerTemplate"
+(onReady)="onReady($event)"></smart-gantt-chart>

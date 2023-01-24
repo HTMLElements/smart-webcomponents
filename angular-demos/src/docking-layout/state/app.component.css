@@ -1,0 +1,44 @@
+smart-docking-layout{
+	width: 75%;
+}
+
+@media only screen and (max-width: 1400px) {
+	smart-docking-layout{
+		width: 60%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	smart-docking-layout{
+		width: 100%;
+		position: relative;
+		margin: 10px 0px;
+	}	
+}
+
+.smart-window smart-carousel,
+.smart-window smart-multiline-text-box,
+.smart-window smart-gauge,
+.smart-window smart-tank {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+    .smart-window smart-carousel .smart-carousel-item .smart-carousel-item-container {
+        background-size: cover;
+    }
+
+.smart-window smart-tab-item > .smart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smart-window smart-multiline-text-box {
+    color: black;
+}
+
+.smart-window smart-progress-bar {
+    margin-right: 5px;
+}

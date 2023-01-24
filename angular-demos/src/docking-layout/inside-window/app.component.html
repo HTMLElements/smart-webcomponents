@@ -1,0 +1,44 @@
+<smart-window #window [label]="'Smart Docking Layout'" [opened]="true" [resizeMode]="'both'" id="layoutWindow">
+    <smart-docking-layout #dockinglayout id="layout" [layout]="layout"></smart-docking-layout>
+</smart-window>
+
+<smart-tree id="tree" [filterable]="true" #tree>
+    <smart-tree-items-group>
+        <i class="material-icons">folder</i> Attractions
+        <smart-tree-item>Movies</smart-tree-item>
+        <smart-tree-item>Circus</smart-tree-item>
+        <smart-tree-item>Concerts</smart-tree-item>
+        <smart-tree-item>Monuments</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>
+        <i class="material-icons">folder</i> Dining
+        <smart-tree-item>Restaurants</smart-tree-item>
+        <smart-tree-item>Caf&eacute;s</smart-tree-item>
+        <smart-tree-item>Bars</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>
+        <i class="material-icons">folder</i> Education
+        <smart-tree-item>Schools</smart-tree-item>
+        <smart-tree-item>Colleges</smart-tree-item>
+        <smart-tree-item>Universities</smart-tree-item>
+        <smart-tree-item>Educational courses</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>
+        <i class="material-icons">folder</i> Family
+        <smart-tree-item>Babysitting</smart-tree-item>
+        <smart-tree-item>Family trips</smart-tree-item>
+        <smart-tree-item>Theme parks</smart-tree-item>
+    </smart-tree-items-group>
+    <smart-tree-items-group>
+        <i class="material-icons">folder</i> Health
+        <smart-tree-item>Hospitals</smart-tree-item>
+        <smart-tree-item>Family physicians</smart-tree-item>
+        <smart-tree-item>Optics</smart-tree-item>
+    </smart-tree-items-group>
+</smart-tree>
+
+<smart-multiline-text-box id="editor1" #multilineTextBox [value]="multilineTextBoxValue"></smart-multiline-text-box>
+<smart-multiline-text-box id="editor1" #multilineTextBox2>File Editor 2</smart-multiline-text-box>
+<smart-multiline-text-box id="editor1" #multilineTextBox3>File Editor 3</smart-multiline-text-box>
+<smart-text-box #textBox>Some Text Inside the Text Box</smart-text-box>
+<smart-gauge #gauge></smart-gauge>

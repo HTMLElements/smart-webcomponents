@@ -1,0 +1,55 @@
+smart-gantt-chart {
+    width: calc(100% - 300px);
+    height: auto;
+    --smart-gantt-chart-timeline-cell-size: 200px;
+}
+
+@media (max-width: 700px) {
+    smart-gantt-chart {
+        width: 95%;
+        margin-left: 2%;
+    }
+}
+
+smart-gantt-chart .product-team {
+    --smart-gantt-chart-task-default-color: rgb(94, 99, 181);
+}
+
+smart-gantt-chart .marketing-team {
+    --smart-gantt-chart-task-default-color: rgb(43, 195, 190);
+}
+
+smart-gantt-chart .dev-team {
+    --smart-gantt-chart-task-default-color: rgb(242, 115, 112);
+}
+
+smart-gantt-chart .design-team {
+    --smart-gantt-chart-task-default-color: rgb(255, 197, 53);
+}
+
+smart-gantt-chart .qa-team {
+    --smart-gantt-chart-task-default-color: rgb(99, 181, 144);
+}
+
+smart-gantt-chart .release-team {
+    --smart-gantt-chart-task-default-color: rgb(188, 150, 223);
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

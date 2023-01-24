@@ -1,0 +1,18 @@
+#kanban {
+    width: 1000px;
+    height: 800px;
+}
+
+smart-button,
+#status,
+#idSelector {
+    width: 100%;
+}
+
+smart-button {
+    margin-bottom: 10px;
+}
+
+.smart-badge {
+    margin-right: 5px;
+}

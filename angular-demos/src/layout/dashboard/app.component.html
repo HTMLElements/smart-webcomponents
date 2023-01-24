@@ -1,0 +1,60 @@
+<smart-layout>
+    <smart-tab-layout-group [position]="'bottom'">
+        <smart-tab-layout-item [modifiers]="'drag, resize'" [label]="'Patients'">
+            <div class="dashboard-header"> <span class="header-name">
+                    Nancy Davolio
+                </span>
+                <div> <span class="icon-holder">
+                        <img class="header-logo" src="../../images/people/nancy.jpg" />
+                    </span>
+                </div>
+            </div>
+            <smart-list-box #listbox id="listbox" [filterable]="true" [itemTemplate]="'template'" [itemHeight]="53"
+                [displayMember]="'name'" [selectionMode]="'zeroOrOne'" [selectedIndexes]="[0]"></smart-list-box>
+        </smart-tab-layout-item>
+        <smart-tab-layout-item [modifiers]="'drag, resize'" [label]="'Calendar'">
+            <smart-calendar #calendar id="calendar" [footerTemplate]="'calendatFooter'" [viewSections]="['footer']" (onReady)="onCalendarReady($event)"></smart-calendar>
+        </smart-tab-layout-item>
+    </smart-tab-layout-group>
+    <smart-tab-layout-group [size]="'80%'">
+        <smart-tab-layout-item [modifiers]="'drag, resize'" [label]="'Total Visits'">
+            <smart-layout-group [orientation]="'horizontal'">
+                <smart-layout-group [orientation]="'vertical'">
+                    <smart-layout-item>
+                        <smart-chart #chart id="chart" [caption]="caption" [description]="description"
+                            [showLegend]="showLegend" [showBorderLine]="showBorderLine" [padding]="padding"
+                            [titlePadding]="titlePadding" [dataSource]="dataSource" [xAxis]="xAxis"
+                            [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-chart>
+                    </smart-layout-item>
+                    <smart-layout-item>
+                        <div id="personInfo">
+                            <img width="30%" />
+                            <div id="form">
+                                <label>Name</label>
+                                <smart-text-box #textbox id="name"></smart-text-box>
+                                <label>Date</label>
+                                <smart-date-time-picker #datetimepicker [calendarButton]="true"
+                                    [formatString]="'MM/dd/yyyy'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+                                <label>Email</label>
+                                <smart-text-box #textbox2 id="email"></smart-text-box>
+                                <smart-radio-button #radiobutton id="inpatient">Inpatient
+                                </smart-radio-button>
+                                <smart-radio-button #radiobutton2 id="outpatient">Outpatient
+                                </smart-radio-button>
+                                <div class="buttons">
+                                    <smart-button #button2 class="primary" id="save">Save</smart-button>
+                                    <smart-button #button3 id="reset">Reset</smart-button>
+                                </div>
+                            </div>
+                        </div>
+                    </smart-layout-item>
+                </smart-layout-group>
+                <smart-tab-layout-group [position]="'bottom'">
+                    <smart-tab-layout-item [modifiers]="'drag, resize'" [label]="'In/Out Patients'">
+                        <smart-grid #grid id="grid" [appearance]="gridAppearance" [selection]="gridSelection" [dataSource]="gridDataSource" [columns]="gridColumns"></smart-grid>
+                    </smart-tab-layout-item>
+                </smart-tab-layout-group>
+            </smart-layout-group>
+        </smart-tab-layout-item>
+    </smart-tab-layout-group>
+</smart-layout>

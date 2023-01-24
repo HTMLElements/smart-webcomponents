@@ -1,0 +1,107 @@
+<header>
+    <div class="header-container">
+         <h1>QA Dashboard</h1>
+        <smart-menu #menu id="menu" [minimizeWidth]="500" [dropDownPosition]="'bottom-left'">
+            <smart-menu-item [shortcut]="'Shopping Cart'"> <i class="material-icons">shopping_cart</i>
+            </smart-menu-item>
+            <smart-menu-item [shortcut]="'Notifications'"> <i class="material-icons">notifications</i>
+            </smart-menu-item>
+            <smart-menu-item [shortcut]="'Search'"> <i class="material-icons">search</i>
+            </smart-menu-item>
+        </smart-menu>
+    </div>
+</header>
+<section class="page-container">
+    <div class="smart-grid-layout centered">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+                <div id="top-qa-container" class="top-qa-container">
+                    <smart-card #card class="recent-tickets-card">
+                        <div class="title">Top QA</div>
+                        <smart-card #card2 class="top-qa-card">
+                            <div class="image">
+                                <img src="./../../../src/images/girl-2771001_960_720.jpg" />
+                            </div>
+                            <div class="rating">
+                                <smart-rating></smart-rating>
+                            </div>
+                            <div class="title">Daisy Fitzroy</div>
+                            <div class="description">Automation</div>
+                            <div class="points">135</div>
+                        </smart-card>
+                        <smart-card #card3 class="top-qa-card">
+                            <div class="image">
+                                <img src="./../../../src/images/woman-3096664_960_720.jpg" />
+                            </div>
+                            <div class="rating">
+                                <smart-rating></smart-rating>
+                            </div>
+                            <div class="title">Elizabeth DeWitt</div>
+                            <div class="description">Automation</div>
+                            <div class="points">336</div>
+                        </smart-card>
+                        <smart-card #card4 class="top-qa-card">
+                            <div class="image">
+                                <img src="./../../../src/images/man-4252192_960_720.jpg" />
+                            </div>
+                            <div class="rating">
+                                <smart-rating></smart-rating>
+                            </div>
+                            <div class="title">Elizabeth DeWitt</div>
+                            <div class="description">Automation</div>
+                            <div class="points">228</div>
+                        </smart-card>
+                        <smart-card #card5 class="top-qa-card">
+                            <div class="image">
+                                <img src="./../../../src/images/girl-2366438_960_720.jpg" />
+                            </div>
+                            <div class="rating">
+                                <smart-rating></smart-rating>
+                            </div>
+                            <div class="title">Elizabeth DeWitt</div>
+                            <div class="description">Automation</div>
+                            <div class="points">216</div>
+                        </smart-card>
+                        <smart-card #card6 class="top-qa-card">
+                            <div class="image">
+                                <img src="./../../../src/images/entrepreneur-593358_960_720.jpg" />
+                            </div>
+                            <div class="rating">
+                                <smart-rating></smart-rating>
+                            </div>
+                            <div class="title">Elizabeth DeWitt</div>
+                            <div class="description">Automation</div>
+                            <div class="points">426</div>
+                        </smart-card>
+                        <smart-card #card7 class="top-qa-card">
+                            <div class="image">
+                                <img src="./../../../src/images/woman-2003647_960_720.jpg" />
+                            </div>
+                            <div class="rating">
+                                <smart-rating></smart-rating>
+                            </div>
+                            <div class="title">Elizabeth DeWitt</div>
+                            <div class="description">Automation</div>
+                            <div class="points">435</div>
+                        </smart-card>
+                    </smart-card>
+                </div>
+                <div class="user-activity-container">
+                    <smart-card #card8 class="maps-card">
+                        <div class="title">User activity</div>
+               
+                    </smart-card>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="recent-tickets-container">
+                    <smart-card #card9 class="recent-tickets-card">
+                        <div class="title">Recent tickets</div>
+                        <!-- <div smart-component id="recentTickets"></div> -->
+                        <smart-grid id="recentTickets" [sorting]="sorting" [layout]="layout" [columns]="columns" [dataSource]="dataSource"></smart-grid>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

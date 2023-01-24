@@ -1,0 +1,10 @@
+smart-grid {
+  width: 100%;
+  height: auto;
+}
+smart-menu {
+	height: auto !important;
+}
+body {
+	height: 1000px;
+}

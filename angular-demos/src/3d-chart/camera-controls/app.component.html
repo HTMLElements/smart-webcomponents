@@ -1,0 +1,22 @@
+<p>The 3D Chart allows users to interact with the 3D Scene by zooming, rotating or panning the Camera.<br>
+    In addition, the 3D Chart includes various properties and methods to customize the behavior of the camera & controls
+</p>
+<div class="container">
+    <smart-3d-chart #chart id="chart" [autoRotate]="autoRotate" [autoRotateSpeed]="autoRotateSpeed" [caption]="caption" [description]="description" [showLegend]="showLegend" [dataSource]="dataSource"
+    [xAxis]="xAxis" [valueAxis]="valueAxis" [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-3d-chart>
+</div>
+<div class="options">
+    <div class="caption">Camera Controls</div>
+    <div>
+        <ul>
+            <li>Hold mouse to rotate camera</li>
+            <li>Scroll mouse wheel to zoom in/zoom out</li>
+            <li>Right click with mouse to pan camera</li>
+        </ul>
+    </div>
+    <div class="option">
+        <smart-button #autoStop (click)="stopRotate()">Stop Auto-Rotate</smart-button>
+        <br><br>
+        <smart-button #cameraPos (click)="setCameraPos()">Set new camera position</smart-button>
+    </div>
+</div>

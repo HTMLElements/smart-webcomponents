@@ -1,0 +1,14 @@
+smart-accordion {
+    width: 100%;
+    height: 80%;
+}
+
+#tabs {
+	width: 100%;
+	height:350px;
+}
+@media only screen and (max-width: 500px) {
+	#tabs {
+		max-width: 350px;
+	}
+}

@@ -1,0 +1,338 @@
+﻿:root {
+    --smart-primary: #e14eca;
+    --smart-progress-bar-border-active: transparent;
+    --smart-progress-bar-background: #e9ecef;
+}
+
+smart-progress-bar {
+    --smart-progress-bar-default-height: 10px;
+    --smart-progress-bar-border-top-left-radius: 2px;
+    --smart-progress-bar-border-top-right-radius: 2px;
+    --smart-progress-bar-border-bottom-left-radius: 2px;
+    --smart-progress-bar-border-bottom-right-radius: 2px;
+}
+
+.user {
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.user .headline {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.user .container {
+    text-align: center;
+    font-size: 18px;
+}
+
+.user .container .content {
+    color: gray;
+    line-height: 150%;
+    font-size: 20px;
+}
+
+.articles {
+    padding: 50px;
+}
+
+.articles .container,
+.selected-plan .container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+smart-card {
+    position: relative;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+
+.popular::after {
+    content: 'star_border';
+    font-family: 'Material Icons';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 26px;
+}
+
+smart-card .thumb-section {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+smart-card .thumb-section h2 {
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 33px;
+}
+
+smart-card .text-on-front {
+    padding-top: 30px;
+}
+
+smart-card .text-on-back {
+    font-size: 121px;
+    margin-top: -96px;
+    margin-bottom: 10px;
+}
+
+.get-started,
+.get-started:hover,
+.get-started:active,
+.get-started:focus {
+    border-radius: 30px;
+    height: 40px;
+    width: auto;
+    border: none;
+    outline: none;
+}
+
+smart-card#pro .text-on-back {
+    color: rgba(225,78,202,.1);
+}
+
+smart-card#pro smart-button.get-started {
+    background: top right/210% 210% #e14eca;
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+}
+
+smart-card#basic smart-button.get-started {
+    background-color: #0098f0;
+    background-image: linear-gradient(to bottom left,#00f2c3,#0098f0,#00f2c3);
+}
+
+smart-card#mid smart-button.get-started {
+    background-color: #ff6491;
+    background-image: linear-gradient(to bottom left,#ff8d72,#ff6491,#ff8d72);
+}
+
+smart-card#trial smart-button.get-started {
+    background-color: #ec250d;
+    background-image: linear-gradient(to bottom left,#fd5d93,#ec250d,#fd5d93);
+}
+
+smart-card#basic .text-on-back {
+    color: rgba(0,242,195,.1);
+}
+
+smart-card#mid .text-on-back {
+    color: rgba(255,141,114,.1);
+}
+
+smart-card#trial .text-on-back {
+    color: rgba(253,93,147,.1);
+}
+
+smart-card .thumb-section {
+    background-repeat: no-repeat;
+    background-size: 1000px 1000px;
+}
+
+smart-card#pro .thumb-section {
+    background-image: url('./../../../../src/images/paint-work-02-1531044.jpg');
+    background-position: -497px -333px;
+}
+
+smart-card#basic .thumb-section {
+    background-image: url('./../../../../src/images/paint-work-02-1531044.jpg');
+    background-position: -294px -683px;
+}
+
+smart-card#mid .thumb-section {
+    background-image: url('./../../../../src/images/paint-work-02-1531044.jpg');
+    background-position: -523px -657px;
+}
+
+smart-card#trial .thumb-section {
+    background-image: url('./../../../../src/images/paint-work-02-1531044.jpg');
+    background-position: -142px -333px;
+}
+
+smart-card.active {
+    background: #2e2e2e;
+}
+
+smart-card[theme="dark"].active {
+    background: white;
+}
+
+smart-card.active .text-on-front {
+    color: white;
+}
+
+smart-card[theme="dark"].active .text-on-front {
+    color: black;
+}
+
+smart-card[theme="dark"]:not(.active) .text-on-front {
+    color: white;
+}
+
+smart-card.active {
+    color: white;
+}
+
+smart-card.active[theme="dark"].active {
+    color: black;
+}
+
+smart-card[theme="dark"].active smart-button,
+smart-card[theme="dark"].active button {
+    color: white;
+}
+
+smart-card h2 {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 100;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.87);
+    display: block;
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+}
+
+smart-card .subheadline {
+    font-family: cursive;
+    display: block;
+    font-size: 16px;
+    opacity: 0.7;
+    margin: 0px;
+    padding: 0px;
+    font-weight: 100;
+    color: black;
+}
+
+smart-card h3 {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 100;
+    font-size: 48px;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+smart-card .content {
+    margin: 20px;
+    text-align: center;
+}
+
+smart-card .content sub {
+    display: block;
+}
+
+smart-card smart-button {
+    margin-top: 20px;
+}
+
+.selected-plan {
+    margin-bottom: 50px;
+}
+
+.selected-plan .left-panel {
+    width: 50%;
+    float: left;
+    margin: 0 auto;
+}
+
+.selected-plan .right-panel {
+    margin: 0 auto;
+}
+
+.selected-plan .plan-name {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.selected-plan .plan-description {
+    font-size: 16px;
+}
+
+footer .container {
+    padding-top: 70px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    width: 90%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+}
+
+footer ul {
+    width: 20%;
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 100;
+}
+
+footer li {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #999;
+    cursor: pointer;
+}
+
+footer li:hover {
+    color: #e14eca;
+}
+
+@media only screen and (max-width: 960px) {
+    .articles > .container {
+        display: block;
+        text-align: center;
+    }
+
+    smart-card {
+        display: inline-block;
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .articles > .container {
+        display: block;
+    }
+
+    smart-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    footer .container {
+        display: block;
+        text-align: center;
+    }
+
+    footer ul {
+        width: 45%;
+        height: 220px;
+        display: inline-flex;
+        flex-direction: column;
+        text-align: left;
+    }
+}

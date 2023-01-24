@@ -1,0 +1,28 @@
+<smart-gauge #gauge id="needleGauge" [analogDisplayType]="'needle'" [digitalDisplay]="true"
+             [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="100"></smart-gauge>
+<smart-gauge #gauge2 id="fillGauge" [analogDisplayType]="'fill'"
+             [digitalDisplay]="true" [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="20"
+             [ticksPosition]="'scale'"></smart-gauge>
+<smart-gauge #gauge3 id="lineGauge" [analogDisplayType]="'line'"
+             [digitalDisplay]="true" [startAngle]="-30" [endAngle]="210" [min]="0" [max]="100" [value]="75"
+             [ticksPosition]="'scale'"></smart-gauge>
+<div class="options">
+    <div class="caption">Mechanical action</div>
+    <div class="option">
+        <smart-radio-button #radiobutton id="switchWhileDragging" name="mechanicalAction"
+                            [checked]="true">
+            <label for="switchWhileDragging">switchWhileDragging</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton2 type="radio" id="switchUntilReleased"
+                            name="mechanicalAction">
+            <label for="switchUntilReleased">switchUntilReleased</label>
+        </smart-radio-button>
+        <br />
+        <smart-radio-button #radiobutton3 type="radio" id="switchWhenReleased"
+                            name="mechanicalAction">
+            <label for="switchWhenReleased">switchWhenReleased</label>
+        </smart-radio-button>
+        <br />
+    </div>
+</div>

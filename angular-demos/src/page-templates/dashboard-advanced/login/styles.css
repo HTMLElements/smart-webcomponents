@@ -1,0 +1,78 @@
+﻿:root {
+    --smart-primary: #e14eca;
+}
+
+smart-card.login {
+    padding: 0;
+}
+
+smart-card.login {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+smart-card.login[theme="dark"] h1 {
+    color: #aaa;
+}
+
+smart-card.login:not([theme="dark"]) > .smart-container {
+    background-image: url('./../../../../src/images/paint-1369406.jpg');
+    background-repeat: no-repeat;
+    background-size: 686px 600px;
+    background-position: 0px -100px;
+}
+
+smart-card #submitForm smart-text-box input {
+    transition: color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out;
+}
+
+smart-card.login > .smart-container {
+    padding: 30px;
+}
+
+section.user smart-button,
+section.user smart-text-box {
+    width: 100%;
+    display: block;
+    margin-top: 30px;
+}
+
+smart-button#signIn {
+    text-transform: none;
+}
+
+smart-button {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
+h1.sign-in-text {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 24px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+smart-check-box {
+    margin-top: 15px;
+    margin-left: -8px;
+}
+
+.footer-sign-in {
+    color: #e14eca;
+    display: block;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.footer-sign-in#miniLeftBtn {
+    float: left
+}
+
+.footer-sign-in#miniRightBtn {
+    text-align: right;
+}

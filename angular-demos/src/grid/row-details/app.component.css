@@ -1,0 +1,17 @@
+html, body {
+	height: 1200px;
+}
+
+smart-grid {
+   height: auto;
+   max-height: 700px;
+   width: 100%;
+}
+
+smart-tabs {
+	margin-left: 20px;
+	margin-top: 20px;
+	line-height: initial;
+	height: calc(100% - 40px);
+	width: calc(100% - 40px);
+}

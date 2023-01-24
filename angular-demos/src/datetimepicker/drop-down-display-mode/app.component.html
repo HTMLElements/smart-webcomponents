@@ -1,0 +1,13 @@
+<smart-date-time-picker #datetimepicker id="dateTimePicker" [calendarButton]="true"
+                        [dropDownDisplayMode]="'default'" [dropDownPosition]="'center-bottom'" [enableMouseWheelAction]="true"
+                        [spinButtons]="true" [spinButtonsPosition]="'left'"></smart-date-time-picker>
+<div class="options">
+    <div class="caption">Display Mode</div>
+    <div class="option">
+        <smart-radio-button #radiobutton [checked]="true">Default</smart-radio-button>
+        <smart-radio-button #radiobutton2>Classic (NI theme)</smart-radio-button>
+        <smart-radio-button #radiobutton3>Calendar only</smart-radio-button>
+        <smart-radio-button #radiobutton4>Time picker only</smart-radio-button>
+        <smart-radio-button #radiobutton5>Auto (based on <strong>formatString</strong>)</smart-radio-button>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+/* Colun Count */
+
+smart-color-picker.column-count-small {
+    --smart-color-picker-grid-mode-column-count: 4;
+}
+
+smart-color-picker.column-count-medium {
+    --smart-color-picker-grid-mode-column-count: 8;
+}
+
+smart-color-picker.column-count-large {
+    --smart-color-picker-grid-mode-column-count: 14;
+}
+
+/*smart-color-picker {
+    display: inline-block;
+    
+}*/

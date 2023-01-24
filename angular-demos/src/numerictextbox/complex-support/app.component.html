@@ -1,0 +1,10 @@
+<smart-numeric-text-box #numerictextbox id="myCustomElement" [inputFormat]="'complex'"
+                        [value]="'3.14159265359+0.3i'" [spinButtons]="true" [spinButtonsPosition]="'left'" [spinButtonsStep]="'1 + 1i'"
+                        [enableMouseWheelAction]="true"></smart-numeric-text-box>
+<br />
+<smart-button #button id="setSignificantDigits">significantDigits = 5</smart-button>
+<smart-button #button2 id="setPrecisionDigits">precisionDigits = 5</smart-button>
+<br />
+<br />
+<smart-button #button3 id="setValue">set value to "5e12 + 1.6e3i"</smart-button>
+<smart-button #button4 id="setScientificNotationValue">set value to "34E - 12i"</smart-button>

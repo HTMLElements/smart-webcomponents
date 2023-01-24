@@ -1,0 +1,22 @@
+<div class="sideGaugeContainer">
+    <smart-gauge #gauge class="sideGauge" [analogDisplayType]="'needle'" [startAngle]="60"
+                 [endAngle]="180" [min]="0" [max]="10" [value]="9" [ticksVisibility]="'major'" [customInterval]="true"
+                 [customTicks]="[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [labelsVisibility]="'none'"
+                 [showRanges]="true" [ranges]='[{ "startValue": "0", "endValue": "10", "className": "borderRange" }]'
+                 [drawNeedle]="customDrawNeedleFunction2"></smart-gauge>
+</div>
+<div class="sideGaugeContainer">
+    <smart-gauge #gauge2 class="sideGauge" [analogDisplayType]="'needle'" [startAngle]="0"
+                 [endAngle]="120" [min]="0" [max]="10" [value]="1.5" [inverted]="true" [ticksVisibility]="'major'"
+                 [customInterval]="true" [customTicks]="[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [labelsVisibility]="'none'"
+                 [showRanges]="true" [ranges]='[{ "startValue": "0", "endValue": "10", "className": "borderRange" }]'
+                 [drawNeedle]="customDrawNeedleFunction2"></smart-gauge>
+</div>
+<div id="centralGaugeContainer">
+    <div id="firstCircle">
+        <div id="secondCircle"></div>
+    </div>
+    <smart-gauge #gauge3 id="centralGauge" [analogDisplayType]="'needle'" [startAngle]="-40"
+                 [endAngle]="220" [min]="0" [max]="20" [value]="18.5" [ticksVisibility]="'major'"
+                 [labelsVisibility]="'none'" [showRanges]="true" [drawNeedle]="customDrawNeedleFunction1"></smart-gauge>
+</div>

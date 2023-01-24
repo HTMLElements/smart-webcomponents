@@ -1,0 +1,28 @@
+#pivotTable {
+    --smart-table-group-count-display: none;
+}
+
+#pivotTable thead>tr:nth-child(3) .total-arrow {
+    display: none;
+}
+
+#pivotTable tbody .small {
+    background-color: tomato;
+    color: rgb(255, 219, 224);
+}
+
+#pivotTable tbody .medium {
+    background-color: yellow;
+    color: rgb(184, 101, 0);
+}
+
+#pivotTable tbody .large {
+    background-color: yellowgreen;
+    color: darkgreen;
+}
+
+#pivotTable .grand-total td {
+    background-color: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+    font-size: var(--smart-font-size);
+}

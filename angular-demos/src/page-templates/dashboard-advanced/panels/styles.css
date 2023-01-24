@@ -1,0 +1,83 @@
+﻿smart-card {
+    width: 95%;
+    padding: 0;
+}
+
+smart-tabs, smart-tabs[theme="dark"] {
+    --smart-primary: #f9234e;
+    --smart-tabs-default-width: 100%;
+    --smart-tabs-default-height: 200px;
+    --smart-ui-state-color-selected: #f9234e;
+    --smart-ui-state-color-focus: #f9234e;
+    --smart-item-border-selected: #f9234e;
+    --smart-item-border-focus: #f9234e;
+}
+
+.smart-tabs .smart-tabs-content-section {
+    --smart-outline: rgb(70, 70, 70);
+}
+
+smart-accordion {
+    --smart-accordion-default-width: 100%;
+    --smart-accordion-default-height: 225px;
+}
+
+.smart-tabs .smart-header {
+    --smart-border-width: 0;
+}
+
+.navigation-pills {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.card-sub-title {
+    margin-left: 10px;
+    margin-top: 0;
+    padding-top: 15px;
+}
+
+.card-title {
+    font-size: 20px;
+    margin: 10px;
+    margin-bottom: 15px;
+}
+
+smart-accordion-item {
+    box-shadow: none;
+}
+
+smart-accordion-item .smart-accordion-item-header {
+    --smart-surface-color: #ec250d;
+}
+
+#tabsVerticalIcons .smart-tab-label-text-container i,
+#tabsVerticalIconsFooter .smart-tab-label-text-container i {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 7px;
+}
+
+div.smart-tab-strip {
+    text-align: center;
+}
+
+.footer-tabs-container {
+    margin-top: 50px;
+}
+
+.footer-tabs-container smart-tabs .smart-tabs-content-section {
+    text-align: center;
+}
+
+.footer-tabs-container smart-tabs .smart-header {
+    --smart-surface: transparent;
+}
+
+.footer-tabs-container .card-title {
+    text-align: center;
+}
+
+.smart-tabs#tabsVerticalIconsFooter {
+    --smart-border-width: 0;
+}

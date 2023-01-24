@@ -1,0 +1,184 @@
+<div class="smart">
+	<h2 id="buttons">Material Bootstrap Buttons</h2><br />
+	<p>Use Material Bootstrap custom button styles for actions in forms, dialogs, and more with support for multiple
+		sizes, states, and more.</p>
+	<br />
+	<h3>Buttons</h3>
+
+	<p>Material Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a
+		few extras thrown in for more control.</p>
+	<div class="group">
+		<bootstrap-circular></bootstrap-circular>
+		<bootstrap-button style-mode="primary">Primary</bootstrap-button>
+		<bootstrap-button style-mode="secondary">Secondary</bootstrap-button>
+		<bootstrap-button style-mode="success">Success</bootstrap-button>
+		<bootstrap-button style-mode="danger">Danger</bootstrap-button>
+		<bootstrap-button style-mode="warning">Warning</bootstrap-button>
+		<bootstrap-button style-mode="info">Info</bootstrap-button>
+		<bootstrap-button style-mode="light">Light</bootstrap-button>
+		<bootstrap-button style-mode="dark">Dark</bootstrap-button>
+		<bootstrap-button style-mode="link">Link</bootstrap-button>
+	</div>
+
+	<p>
+		<b>StyleMode</b> property allows the user to change the style of the elements.
+	</p>
+
+	<h2>Outlined Buttons</h2><br />
+	<p>
+		In need of a button, but not the hefty background colors they bring? Just add the class
+		<b>[outlined]="true"</b> to remove all background images and colors on any button.
+	</p>
+	<div class="group">
+		<bootstrap-button [outlined]="true" style-mode="primary">Primary</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="secondary">Secondary</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="success">Success</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="danger">Danger</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="warning">Warning</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="info">Info</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="light">Light</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="dark">Dark</bootstrap-button>
+		<bootstrap-button [outlined]="true" style-mode="link">Link</bootstrap-button>
+	</div>
+
+
+	<p>
+		Setting the <b>[outlined]="true"</b> property the elements turn into [outlined]="true" buttons with no filling
+		untill
+		hovered.
+	</p>
+
+	<h2>Buttons Sizes</h2><br />
+	<p>
+		Fancy larger or smaller buttons? Just set the <b>sizeMode</b> property to 'sm' or 'lg' for
+		additional sizes.
+	</p>
+	<div class="group">
+		<bootstrap-button size-mode="lg">Large Button</bootstrap-button>
+		<bootstrap-button size-mode="lg">Large Button</bootstrap-button>
+	</div>
+
+	<div class="group">
+		<bootstrap-button size-mode="sm">Small Button</bootstrap-button>
+		<bootstrap-button size-mode="sm">Small Button</bootstrap-button>
+	</div>
+
+	<p>
+		Buttons can be reset back to normal if <b>SizeMode</b> is set to an empty string.
+	</p>
+
+	<h2>Disabled Buttons</h2><br />
+	<div class="group">
+		<bootstrap-button [disabled]="true" style-mode="primary">Primary</bootstrap-button>
+		<bootstrap-button [disabled]="true" style-mode="secondary">Secondary</bootstrap-button>
+	</div>
+
+	<p>
+		To disable/enable an element just set the <b>[disabled]="true"</b> property.
+	</p>
+
+	<h2>Material Bootstrap Checkbox</h2><br />
+	<p>
+		Checkboxes are buttons that can be toggled. The checked state of these buttons can be updated via
+		click or by setting the <b>checked</b> property to true.
+		Checkboxes like the other toggle buttons can be pre-checked.
+	</p>
+	<div class="group">
+		<bootstrap-check-box type="button" [checked]="true">Checked</bootstrap-check-box>
+		<bootstrap-check-box type="button">Unchecked</bootstrap-check-box>
+	</div>
+
+	<p>
+		Appling/Removing the <b>[checked]="true"</b> attribute will toggle the state of the button.
+	</p>
+
+	<h2>Material Bootstrap Toggle Button</h2>
+	<div class="group">
+		<bootstrap-toggle-button type="button" [checked]="true"> Checked</bootstrap-toggle-button>
+		<bootstrap-toggle-button type="button">Unchecked</bootstrap-toggle-button>
+	</div>
+
+
+	<p>
+		Add the <b>checked</b> attribute to toggle a button’s active state. If you’re pre-toggling a button,
+		you must manually add the <b>checked</b> attribute to the button.
+	</p>
+
+	<h2>Material Bootstrap Radio Button</h2>
+	<div class="group">
+		<bootstrap-radio-button type="button" [checked]="true"> Active</bootstrap-radio-button>
+		<bootstrap-radio-button type="button">Radio</bootstrap-radio-button>
+		<bootstrap-radio-button type="button">Radio</bootstrap-radio-button>
+	</div>
+
+
+	<p>
+		Radio buttons are group elements that allow only one of them to be checked. Similar to the other
+		toggle elements to set a button into checked state the property <b>checked</b> has to be applied to
+		the element.
+		All elements that have the same <b>group</b> property are considered to be in the same group.
+		<b>group</b> can be set on initialization.
+	</p>
+
+	<h2>Material Design</h2>
+	<div class="smart material">
+		<div class="group">
+			<bootstrap-button class="abcbutton" style-mode="primary">Primary</bootstrap-button>
+			<bootstrap-button style-mode="secondary">Secondary</bootstrap-button>
+			<bootstrap-button style-mode="success">Success</bootstrap-button>
+			<bootstrap-button style-mode="danger">Danger</bootstrap-button>
+			<bootstrap-button style-mode="warning">Warning</bootstrap-button>
+			<bootstrap-button style-mode="info">Info</bootstrap-button>
+			<bootstrap-button style-mode="light">Light</bootstrap-button>
+			<bootstrap-button style-mode="dark">Dark</bootstrap-button>
+			<bootstrap-button style-mode="link">Link</bootstrap-button>
+		</div>
+		<h3>Outlined Material Buttons</h3>
+		<div class="group">
+			<bootstrap-button [outlined]="true" style-mode="primary">Primary</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="secondary">Secondary</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="success">Success</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="danger">Danger</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="warning">Warning</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="info">Info</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="light">Light</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="dark">Dark</bootstrap-button>
+			<bootstrap-button [outlined]="true" style-mode="link">Link</bootstrap-button>
+		</div>
+		<h3>Outlined Material Checkbox Buttons</h3>
+		<div class="group">
+			<bootstrap-check-box type="button" [checked]="true">Checked</bootstrap-check-box>
+			<bootstrap-check-box type="button">Unchecked</bootstrap-check-box>
+		</div>
+		<h3>Outlined Material Radio Buttons</h3>
+		<div class="group">
+			<bootstrap-radio-button type="button" [checked]="true"> Active</bootstrap-radio-button>
+			<bootstrap-radio-button type="button">Radio</bootstrap-radio-button>
+			<bootstrap-radio-button type="button">Radio</bootstrap-radio-button>
+		</div>
+	</div>
+	<h2>Button Group</h2>
+	<div class="smart material group">
+		<div class="button-group" role="group" aria-label="Basic example">
+			<bootstrap-button class="item" style-mode="primary">Btn 1</bootstrap-button>
+			<bootstrap-button class="item" style-mode="primary">Btn 2</bootstrap-button>
+			<bootstrap-button class="item" style-mode="primary">Btn 3</bootstrap-button>
+		</div>
+	</div>
+	<h2>Vertical Button Group</h2>
+	<div class="smart material group">
+		<div class="button-group-vertical" role="group" aria-label="Basic example">
+			<bootstrap-button class="item" style-mode="success">Btn 1</bootstrap-button>
+			<bootstrap-button class="item" style-mode="success">Btn 2</bootstrap-button>
+			<bootstrap-button class="item" style-mode="success">Btn 3</bootstrap-button>
+		</div>
+	</div>
+	<h2>Toggle Button Group</h2>
+	<div class="smart material group">
+		<div class="button-group" role="group" aria-label="Basic example">
+			<bootstrap-toggle-button class="item" style-mode="info">Toggle 1</bootstrap-toggle-button>
+			<bootstrap-toggle-button class="item" style-mode="info">Toggle 2</bootstrap-toggle-button>
+			<bootstrap-toggle-button class="item" style-mode="info">Toggle 3</bootstrap-toggle-button>
+		</div>
+	</div>
+</div>

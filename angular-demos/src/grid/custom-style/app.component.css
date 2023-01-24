@@ -1,0 +1,144 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+:root {
+   --smart-grid-group-row-vertical-offset: 0;
+    --smart-grid-group-row-horizontal-offset: 0;
+    --smart-grid-group-row-border-radius: var(--smart-border-radius);
+	--smart-grid-group-row-background: inherit;
+}
+body {
+	height: 1000px;
+}
+
+smart-grid {
+	width: 100%;
+	height: auto;
+}
+
+smart-grid[grouped] {
+	background: transparent;
+}
+
+smart-grid-column {
+	color: rgba(0,0,0, 0.5);
+	background: transparent;
+}
+
+smart-grid-cell[freeze], smart-grid-column[freeze] {
+	background: transparent;
+}
+smart-grid-cell[header][freeze][checkBox], smart-grid-cell[header][freeze][checkBox]:hover {
+	background: transparent;
+}
+smart-grid-cell .status {
+	display: flex;
+}
+smart-grid-cell .status .fa-circle-o {
+	color: #2ED58B;
+	font-size: 16px;
+}
+smart-grid-cell .status .fa-circle-o-notch {
+	color: #FF3B6A;
+	font-size: 14px;
+}
+
+
+smart-grid-cell[selected]:not([editor]) {
+	color: inherit;
+	background: inherit;
+}
+
+smart-grid-cell[header][freeze][checkBox] .smart-input {
+	background: rgba(255, 255, 255, 0.5);
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+smart-grid-cell[header][freeze][checkBox] .smart-input:hover {
+	border-color: rgba(0, 0, 0, 0.1);
+}
+
+smart-grid-cell[header][freeze][checkBox][selected] .smart-input {
+	color: var(--smart-primary);
+	border-color: var(--smart-primary);
+}
+
+.header {
+	height: 220px;
+	background: #242528;
+	color: #9FA0A1;
+}
+.icon {
+	font-family: "FontAwesome";
+	width: 32px;
+	height: 100%;
+	display: flex;
+	font-size: 20px;
+	justify-content: center;
+	align-items: center;
+}
+.header .bar .label {
+	font-size: 20px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+.header .bar {
+	background: #1C1D1F;
+	height: 40px;
+	border-bottom: 1px solid #2D2D2F;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+}
+.header .bar .item {
+	display: flex;
+}
+.header .items {
+    display: flex;
+    font-size: 32px;
+    align-items: center;
+    height: calc(100% - 40px);
+    justify-content: space-around;
+}
+.header .items .item {
+}
+.header .items .item .count {
+	display: flex;
+	justify-content: center;
+}
+.header .items .item .label {
+	font-size: 16px;
+	text-transform: lower;
+}
+
+.filter-bar {
+	height: 40px;
+	display: flex;
+	justify-content:flex-end;
+}
+.filter-bar .item {
+	height: 100%;
+	margin-left: 10px;
+	width: auto;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.filter-bar .item#applyFilter {
+	cursor: pointer;
+}
+
+.filter-bar .item#filterInput {
+	border: none;
+}
+.filter-bar .item#filterInput .smart-drop-down-button {
+	background: transparent;
+	border-left: none;
+	color: inherit;
+}
+
+#menu {
+    height: auto;
+	width: 150px;
+}

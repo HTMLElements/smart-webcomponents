@@ -1,0 +1,38 @@
+<smart-chart #chart id="chart" [caption]="caption" [description]="description" [showLegend]="showLegend"
+    [padding]="padding" [titlePadding]="titlePadding" [dataSource]="dataSource" [xAxis]="xAxis"
+    [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-chart>
+<div class="options">
+    <table>
+        <tr>
+            <td>
+                <p>Move the slider to rotate:</p>
+                <smart-slider #slider id="sliderStartAngle" [min]="0" [max]="360" [value]="0" [coerce]="true"
+                    [labelsVisibility]="'endPoints'" [ticksVisibility]="'major'" [showUnit]="true" [unit]="'°'">
+                </smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Select the series type:</p>
+                <smart-drop-down-list #dropdownlist id='dropDownSeries'
+                    [dataSource]='["splinearea", "spline", "column", "scatter", "stackedcolumn", "stackedsplinearea", "stackedspline"]'
+                    [selectionMode]="'one'" [selectedIndexes]="[0]"></smart-drop-down-list>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Move the slider to change the radius:</p>
+                <smart-slider #slider2 id="sliderRadius" [min]="80" [max]="140" [value]="120" [coerce]="true"
+                    [labelsVisibility]="'endPoints'" [ticksVisibility]="'major'"></smart-slider>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Select color scheme:</p>
+                <smart-drop-down-list #dropdownlist2 id='dropDownColors'
+                    [dataSource]='["scheme01", "scheme02", "scheme03", "scheme04", "scheme05", "scheme06", "scheme07", "scheme08"]'
+                    [selectionMode]="'one'" [selectedIndexes]="[4]"></smart-drop-down-list>
+            </td>
+        </tr>
+    </table>
+</div>

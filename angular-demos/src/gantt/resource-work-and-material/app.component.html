@@ -1,0 +1,14 @@
+<div class="demo-description">
+    <p>
+        <b>Description</b><br />
+        GanttChart Resources can be people and materials. The following demo illustrates how to have multiple types of resources in a single project.<br />
+        The GanttChart represents a Building Construction Project with subtasks and resources assigned to some of them. Tasks with multiple resources assigned have a custom appearance for their <b>resource</b> column.<br />
+        The Resource Panel shows the allocation of the resources according to the days and tasks assigned.
+        The resource Tree and timeline are customized to show different units and resource placement. <br />
+        Saturdays and Sundays are nonworking days and <b>snapToNearest</b> is enabled, which means that the tasks will start and end at the begining of the days.
+    </p>
+</div>
+<smart-gantt-chart #ganttchart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns" [treeSize]="treeSize" 
+[resourceColumns]="resourceColumns" [nonworkingDays]="nonworkingDays" [resourcePanelSize]="resourcePanelSize" [durationUnit]="durationUnit"
+[snapToNearest]="snapToNearest" [view]="view" [timelineHeaderFormatFunction]="timelineHeaderFormatFunction"
+[resourceTimelineView]="resourceTimelineView" [resourceTimelineFormatFunction]="resourceTimelineFormatFunction"></smart-gantt-chart>

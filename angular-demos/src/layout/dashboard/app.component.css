@@ -1,0 +1,128 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	font-family: Roboto;
+}
+
+smart-layout {
+	width: 100%;
+	height: 100%;
+}
+
+.dashboard-header {
+    background-color: var(--smart-surface);
+    color:var(--smart-surface-color);
+    padding: 5px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .dashboard-header .header-name {
+        margin-left: 20px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+img.header-logo {
+    float: right;
+    width: 40px;
+    height: 50px;
+    margin-top: 4px;
+    margin-right: 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+    #personInfo {
+        display: flex;
+    }
+    #personInfo #form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+        #personInfo #form label {
+            display: inline-block;
+            font-weight: 600;
+        }
+
+    #personInfo smart-text-box, #personInfo smart-date-time-picker {
+        display: block;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    #personInfo .buttons {
+        margin-top: 15px;
+    }
+
+        #personInfo .buttons smart-button {
+            width: 45%;
+        }
+
+#chart, #personInfo, #grid {
+    margin: 0;
+    padding:0;
+}
+
+#chart, #grid {
+    width: 100%;
+    height: 100%;
+}
+
+
+#listbox, #calendar {
+   width: 100%;
+}
+
+#listbox {
+    height: calc(100% - 70px);
+    border: none;
+}
+
+smart-calendar[view-sections*= "footer"] {
+    --smart-calendar-default-height: calc(50px + var( --smart-calendar-cell-spacing) + 7 * (var( --smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
+}
+
+.themes {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+    .themes div {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 1px solid black;
+    }
+
+.list-item {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 40px;
+    height: 50px;
+    display: flex;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 8px;
+    position: relative;
+}
+

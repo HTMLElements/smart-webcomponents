@@ -1,0 +1,25 @@
+<p>When the barcode is set to a invalid value, the <b>invalid</b> event will be triggred.
+The event contains information such as
+</p>
+<ul>
+    <li>the validity of the length</li>
+    <li>the validity of the pattern</li>
+    <li>an array of the illegal characters</li>
+</ul>
+<p>In addition, the <b>isValid</b> method returns a boolean indicating the validity of the barcode.</p>
+<smart-qrcode #qrCodeToValidate (invalid)="invalid($event)" [value]="'ABCDEF'" [labelPosition]="'bottom'" [labelFontSize]="30"></smart-qrcode>
+<br />
+<h3>Event detail:</h3>
+<ul>
+    <li>new Value: <b><span id="value">{{value}}</span></b></li>
+    <li>patternValidity: <b><span id="pattern">{{patternValidity}}</span></b></li>
+    <li>lengthValidity: <b><span id="length">{{length}}</span></b></li>
+    <li>illegal Characters: <b><span id="chars">{{chars}}</span></b></li>
+</ul>
+<div class="options">
+    <div class="caption">Validity</div>
+    <div class="option">		
+        <smart-button (click)="validate($event)" #btn1>Set to invalid value</smart-button>
+        <br/><br/>
+    </div>
+</div>

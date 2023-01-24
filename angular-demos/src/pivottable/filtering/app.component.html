@@ -1,0 +1,20 @@
+<div class="demo-description">This demo shows how to filter smart-pivot-table programmatically.</div>
+<smart-pivot-table #pivottable id="pivotTable" [dataSource]="dataSource" [freezeHeader]="freezeHeader"
+    [keyboardNavigation]="keyboardNavigation" [columns]="columns"></smart-pivot-table>
+<div class="options">
+    <div class="caption">Filter Pivot Table:</div>
+    <div class="option">
+        <smart-button #button id="filter1" (onClick)="filter1Click()">"Espresso" only</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="filter2" (onClick)="filter2Click()">Quantity > 5 only</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="filter3" (onClick)="filter3Click()">First name "Andrew" or last name "Ohno"
+        </smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button4 id="clearFilters" [disabled]="true" (onClick)="clearFiltersClick()">Clear filters
+        </smart-button>
+    </div>
+</div>

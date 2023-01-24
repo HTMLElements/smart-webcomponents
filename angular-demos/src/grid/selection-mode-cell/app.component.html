@@ -1,0 +1,28 @@
+<div class="demo-description">The Grid component supports difference Cells selection configuration options.
+    You can select one or multiple cells or have Excel-like Cells selection.
+    It is also possible to select entire row or column or configure the selection
+    on single or double click.</div>
+<smart-grid #grid style="width:60%;" [appearance]="appearance" [selection]="selection" [dataSource]="dataSource"
+    [columns]="columns" id="grid"></smart-grid>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #dblclickCheckBox id="dblclickCheckBox">Select on Double Click</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #headerSelectionCheckBox id="headerSelectionCheckBox">Allow Row Header Selection
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #colheaderSelectionCheckBox id="colheaderSelectionCheckBox">Allow Column Header Selection
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-radio-button #singleRadioButton id="singleRadioButton">Single Selection</smart-radio-button>
+        <br />
+        <smart-radio-button #multipleRadioButton id="multipleRadioButton">Multiple Selection</smart-radio-button>
+        <br />
+        <smart-radio-button #extendedRadioButton id="extendedRadioButton" [checked]="true">Extended Selection
+        </smart-radio-button>
+    </div>
+</div>

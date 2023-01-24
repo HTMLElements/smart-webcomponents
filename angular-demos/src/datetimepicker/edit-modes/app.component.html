@@ -1,0 +1,17 @@
+<p>editMode: 'full' - Value validation on blur only.</p>
+<smart-date-time-picker #datetimepicker [calendarButton]="true" [formatString]="'d'" [enableMouseWheelAction]="true"
+                        [interval]="'new smartUtilities.TimeSpan(24, 0, 0)'" [dropDownPosition]="'center-bottom'"
+                        [spinButtons]="true" [spinButtonsPosition]="'left'" [editMode]="'full'"></smart-date-time-picker>
+<br />
+<p>editMode: 'default' - Validation while typing and on blur.</p>
+<smart-date-time-picker #datetimepicker2 [calendarButton]="true" [formatString]="'d'" [enableMouseWheelAction]="true"
+                        [interval]="'new smartUtilities.TimeSpan(24, 0, 0)'" [dropDownPosition]="'center-bottom'"
+                        [spinButtons]="true" [spinButtonsPosition]="'left'" [editMode]="'default'"></smart-date-time-picker>
+<br />
+<p>
+    editMode: 'partial' - Strict Validation while typing. Delete/Backspace
+    set the edit part to min value.
+</p>
+<smart-date-time-picker #datetimepicker3 [calendarButton]="true" [formatString]="'d'" [enableMouseWheelAction]="true" [interval]="'new smartUtilities.TimeSpan(24, 0, 0)'"
+                        [dropDownPosition]="'center-bottom'" [spinButtons]="true" [spinButtonsPosition]="'left'"
+                        [editMode]="'partial'"></smart-date-time-picker>

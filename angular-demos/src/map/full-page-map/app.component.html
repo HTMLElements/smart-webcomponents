@@ -1,0 +1,42 @@
+<div class="demo-description">
+     <h1>Full Page Map Demo</h1>
+    <div>In this demo, we show how to use our "smart-map" component. "smart-map"
+        is a component which displays a map of an area defined by a user.For the
+        current demo we have a full page with our map component.Additional used
+        components for this demo are "smart-menu".</div>
+</div>
+<div class="header-menu">
+    <div W>
+    <smart-menu #menu [minimizeWidth]="minimizeWidth" id="menu">
+        <smart-menu-item>Option 1</smart-menu-item>
+        <smart-menu-item>Option 2</smart-menu-item>
+        <smart-menu-item>Option 3</smart-menu-item>
+        <smart-menu-item>Option 4</smart-menu-item>
+    </smart-menu>
+    </div>
+    <smart-menu #menu2 id="menu-part-2">
+        <smart-menu-items-group minimizable="true"> <span class="smart-badge smart-badge-danger ">3</span>
+ <i class="material-icons">notifications</i>
+            <span
+            class="responsive-text">Notifications</span>
+                <smart-menu-item>Some Notification</smart-menu-item>
+                <smart-menu-item>Another Notification</smart-menu-item>
+                <smart-menu-item>Another Notification</smart-menu-item>
+                <smart-menu-item>Another Notification</smart-menu-item>
+        </smart-menu-items-group>
+        <smart-menu-item> <i class="material-icons"> mail</i>  <span class="responsive-text">Contact</span>
+        </smart-menu-item>
+        <smart-menu-item> <span class="responsive-text">Support</span> 
+        </smart-menu-item>
+        <smart-menu-items-group> <i class="material-icons">person</i>
+ <span class="responsive-text">Profile</span>
+            <smart-menu-item>Log out</smart-menu-item>
+            <smart-menu-item>My account</smart-menu-item>
+        </smart-menu-items-group>
+    </smart-menu>
+</div>
+<div class="map-holder">
+    <smart-map #map [query]="query" [apiKey]="apiKey" [mapType]="mapType"></smart-map>
+</div>
+<div class="footer"> <span>Copyright: </span>  <span>HTMLELEMENTS</span>
+</div>

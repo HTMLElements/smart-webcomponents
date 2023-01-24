@@ -1,0 +1,10 @@
+<div class="demo-description">Task 3 has a lag of 5 days. This means that it will start 5 days after
+    the Milestone. Click on the CheckBox to enable Strict Mode.</div>
+<smart-gantt-chart
+#ganttchart [autoSchedule]="true" [dataSource]="dataSource"></smart-gantt-chart>
+    <div class="options">
+         <h3>Auto Schedule</h3>
+        <div class="option">
+            <smart-check-box #checkBox>Strict Mode</smart-check-box>
+        </div>
+    </div>

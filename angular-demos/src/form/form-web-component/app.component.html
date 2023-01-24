@@ -1,0 +1,103 @@
+<div class="demo-description">
+  Reactive Form with Validation created from HTML
+</div>
+<smart-form (onReady)="handleReady($event)" #profileForm id="profileForm">
+  <smart-form-group
+    id="employee"
+    label="Employee"
+    data-field="employee"
+  >
+    <smart-form-group data-field="name">
+      <smart-form-control
+        [columnSpan]="2"
+        label="Photo"
+        [controlType]="'template'"
+      >
+        <div style="overflow: hidden;">
+          <img
+            width="100"
+            src="https://htmlelements.com/demos/images/people/anne.png"
+          />
+        </div>
+      </smart-form-control>
+      <smart-form-control
+        info="Enter First Name"
+        [required]="true"
+        placeholder="First Name"
+        [controlType]="'input'"
+        data-field="firstName"
+        label="First Name"
+        class="outlined"
+      ></smart-form-control>
+      <smart-form-control
+        info="Enter Last Name"
+        [required]="true"
+        placeholder="Last Name"
+        [controlType]="'input'"
+        data-field="lastName"
+        label="Last Name"
+        class="outlined"
+      ></smart-form-control>
+    </smart-form-group>
+    <smart-form-group label="Details" data-field="details">
+      <smart-form-control
+        placeholder="Company Name"
+        [required]="true"
+        [controlType]="'input'"
+        data-field="company"
+        label="Company"
+        class="outlined"
+      ></smart-form-control>
+      <smart-form-control
+        placeholder="Address"
+        [required]="true"
+        [controlType]="'input'"
+        data-field="address"
+        label="Address"
+        class="outlined"
+      ></smart-form-control>
+      <smart-form-control
+        placeholder="City"
+        [required]="true"
+        [controlType]="'input'"
+        data-field="city"
+        label="City"
+        class="outlined"
+      ></smart-form-control>
+      <smart-form-control
+        placeholder="State"
+        [required]="true"
+        [controlType]="'input'"
+        data-field="state"
+        label="State"
+        class="outlined"
+      ></smart-form-control>
+      <smart-form-control
+        placeholder="Zip / Postal Code"
+        [required]="true"
+        [controlType]="'input'"
+        data-field="zip"
+        label="Zip / Postal Code"
+        class="outlined"
+      ></smart-form-control>
+    </smart-form-group>
+    <smart-form-group [columns]="2">
+      <smart-form-control
+        align="right"
+        control-type="submit"
+        label="Submit"
+        class="primary"
+      ></smart-form-control>
+      <smart-form-control
+        align="left"
+        action="reset"
+        control-type="button"
+        label="Reset"
+      ></smart-form-control>
+    </smart-form-group>
+  </smart-form-group>
+</smart-form>
+<h3>Form Value:</h3>
+<div #log id="log">
+  {{value}}
+</div>

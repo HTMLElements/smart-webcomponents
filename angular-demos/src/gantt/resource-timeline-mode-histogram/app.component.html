@@ -1,0 +1,9 @@
+<div class="demo-description">
+    <b>Description:</b> The Resource Timeline displays a histogram of the working time of the resources. The resources
+    represent people that are assigned to different tasks. The resource properties <b>capactiy</b> and
+    <b>maxCapacity</b> determines the capacity and maximal capacity that a person can spend working on a task. If the
+    capacity is above the maximum possible it is collered in red in the histogram.
+</div>
+<smart-gantt-chart #ganttchart id="ganttChart" [dataSource]="dataSource" [taskColumns]="taskColumns"
+    [treeMin]="treeMin" [resourceColumns]="resourceColumns" [resourcePanelSize]="resourcePanelSize"
+    [resourceTimelineMode]="resourceTimelineMode" [view]="view" [timelineHeaderFormatFunction]="timelineHeaderFormatFunction"></smart-gantt-chart>

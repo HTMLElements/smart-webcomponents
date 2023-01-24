@@ -1,0 +1,43 @@
+
+.records {
+    position: absolute;
+    color: white;
+    top: 16px;
+    right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .records {
+        display: none;
+    }
+}
+
+smart-grid {
+    width: 100%;
+    height: 100%;
+}
+
+.person-template {
+    display: flex;
+    width: fit-content;
+    margin-right: 7px;
+    padding: 4px 18px;
+    border-radius: 10px 5px;
+    background: #F7F7F7;
+    align-items: center;
+}
+
+    .person-template > img {
+        height: 30px;
+        margin-right: 10px;
+    }
+
+.details-dialog .column-info {
+    margin-bottom: 20px;
+}
+
+.details-dialog label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}

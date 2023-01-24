@@ -1,0 +1,39 @@
+<div id="main">
+    <h1 id="title">Project Tracker</h1>
+    <p>
+        Managing a lot of projects at the same time is a difficult task. You should track all requirements, progress,
+        deadlines,
+        communication with stakeholders. Here is an example of a template of a project tracker. It is useful for project
+        managers, freelancers, small companies and others for managing their projects easily.
+    </p>
+
+    <p>
+        This template could be used for all types of project, no matter of their size. You could track either small
+        projects
+        with few requirements or big ones with a lot of team members, tasks and deadlines.
+    </p>
+
+    <p>
+        This project tracker template can collect all your work in one place and gives the ability to create different
+        views
+        of your project management workflow. So all team members, as well as the managers could stay up to date with
+        their individual tasks and also the overal project's status.
+    </p>
+
+    <div #tabsContainer id="tabsContainer">
+        <smart-tabs #tabs id="tabs" [scrollButtonsPosition]="'far'">
+            <smart-tab-item [label]="'Design projects'">
+                <smart-grid #grid id="tab1Grid" [appearance]="appearance" [behavior]="behavior" [layout]="layout" [selection]="selection"
+                 [sorting]="sorting" [onRowDetailInit]="onRowDetailInit" [rowDetail]="rowDetail" [dataSource]="dataSource" [columns]="columns"></smart-grid>
+            </smart-tab-item>
+            <smart-tab-item [label]="'Tasks'">
+                <smart-grid #grid2 id="tab2Grid" [appearance]="appearance" [behavior]="behavior" [layout]="layout" [selection]="selection"
+                [sorting]="sorting" [onRowDetailInit]="onRowDetailInit" [rowDetail]="grid2RowDetail" [dataSource]="grid2DataSource" [columns]="grid2Columns"></smart-grid>
+            </smart-tab-item>
+            <smart-tab-item [label]="'Clients'">
+                <smart-grid #grid3 id="tab3Grid" [appearance]="appearance" [behavior]="behavior" [layout]="layout" [selection]="selection"
+                [sorting]="sorting" [onRowDetailInit]="onRowDetailInit" [rowDetail]="grid2RowDetail" [dataSource]="grid3DataSource" [columns]="grid3Columns"></smart-grid>
+            </smart-tab-item>
+        </smart-tabs>
+    </div>
+</div>

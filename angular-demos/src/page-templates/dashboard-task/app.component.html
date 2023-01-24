@@ -1,0 +1,123 @@
+<smart-splitter #splitter [theme]="'green'" id="dashboard" expanded>
+    <smart-splitter-item [collapsible]="true" id="leftPanel" [size]="'240'">
+        <div class="dashboard-header">
+            <div class="company-logo-holder">
+                <img style="height: 34px" src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg" />
+            </div>
+            <smart-button #buttonCollapse id="collapseBtn" class="floating">
+                <i class="material-icons">chevron_left</i>
+            </smart-button>
+            <smart-button #buttonExpand id="expandBtn" class="floating">
+                <i class="material-icons">menu</i>
+            </smart-button>
+        </div>
+
+        <div class="dashboard-menu-container">
+            <smart-button #buttonChart id="chartButton" class="flat menu-btn bold">
+                <i class="material-icons">dashboard</i>
+                <span class="menu-title">Chart</span>
+            </smart-button>
+            <smart-button #buttonGrid id="gridButton" class="flat menu-btn">
+                <i class="material-icons">apps</i>
+                <span class="menu-title">Grid</span>
+            </smart-button>
+        </div>
+    </smart-splitter-item>
+
+    <smart-splitter-item id="rightPanel">
+        <div class="dashboard-header">
+            <span class="breadcrumb-header">
+                Project / Software Company / Pipelines / Builds
+            </span>
+            <span class="icon-holder">
+                <smart-button id="notifficationSearchBtn">
+                    <i class="material-icons">search</i>
+                </smart-button>
+                <smart-button id="notifficationSearchBtn">
+                    <i class="material-icons">menu</i>
+                </smart-button>
+                <smart-button id="notifficationBtn">
+                    <i class="material-icons">shopping_basket</i>
+                </smart-button>
+                <img style="width: 32px; height: 32px;" class="header-logo" src="./../../../src/images/phonebook/nancy.png" />
+            </span>
+        </div>
+        <h1 class="main-company-name">Supplies</h1>
+
+        <div #chartContainer id="chartContainer">
+            <smart-chart id="chart" [caption]="caption" [description]="description" [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding" [borderLineWidth]="borderLineWidth" [dataSource]="dataSource" [xAxis]="xAxis" [colorScheme]="colorScheme" [valueAxis]="valueAxis" [seriesGroups]="seriesGroups"></smart-chart>
+        </div>
+
+        <div #gridContainer id="gridContainer" style="display: none">
+            <div class="header-right-buttons">
+                <smart-button class="floating primary" id="newRowButton">
+                    <i class="material-icons">add</i>
+                </smart-button>
+            </div>
+
+            <div class="subtitles-holder">
+                <h4 id="supplies" class="subtitles active">
+                    <smart-button>Supplies purchases</smart-button>
+                </h4>
+                <h4 id="current" class="subtitles">
+                    <smart-button>Current orders</smart-button>
+                </h4>
+
+                <div class="filter-right-button">
+                    <smart-button id="filterButton" class="transparent-bck">
+                        <i class="material-icons vertical-align-middle filter">filter_list</i>
+                    </smart-button>
+                </div>
+            </div>
+
+            <smart-grid #grid id="suppliesPurchasesGrid" [appearance]="appearance" [filtering]="filtering" [paging]="paging" [pager]="pager" 
+            [dataSource]="gridDataSource" [columns]="columns"></smart-grid>
+            <smart-grid #grid2 id="currentOrdersGrid" [appearance]="appearance" [filtering]="filtering" [paging]="paging" [pager]="pager" 
+            [dataSource]="grid2DataSource" [columns]="grid2Columns"></smart-grid>
+        </div>
+    </smart-splitter-item>
+</smart-splitter>
+
+<smart-dialog-window #dialog3 id="suppliesPurchasesFilterWindow" [label]="'Filter supplies purchases'" class="material">
+    <div class="label label-from">From</div>
+    <smart-date-time-picker id="fromDate" [calendarButton]="true" [spinButtons]="true" [autoClose]="true" [spinButtonsPosition]="'left'" [formatString]="'d'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+    <div class="label label-to">To</div>
+    <smart-date-time-picker id="toDate" [calendarButton]="true" [spinButtons]="true" [autoClose]="true" [spinButtonsPosition]="'left'" [formatString]="'d'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+    <div class="label label-supplier">Supplier</div>
+    <smart-drop-down-list #dropDownList id="supplier" [dropDownAppendTo]="'body'" data-source='["Nancy", "Andrew", "Laura", "Anne"]'></smart-drop-down-list>
+</smart-dialog-window>
+
+<smart-dialog-window #dialog4 id="currentOrdersFilterWindow" [label]="'Filter current orders'" class="material">
+    <div class="label label-from">From</div>
+    <smart-date-time-picker id="fromDate" [calendarButton]="true" [spinButtons]="true" [autoClose]="true" [spinButtonsPosition]="'left'" [formatString]="'d'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+    <div class="label label-to">To</div>
+    <smart-date-time-picker id="toDate" [calendarButton]="true" [spinButtons]="true" [autoClose]="true" [spinButtonsPosition]="'left'" [formatString]="'d'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+    <div class="label label-supplier">Supplier</div>
+    <smart-drop-down-list #dropDownList2 id="supplier" [selectedIndexes]="[0]" [dropDownAppendTo]="'body'" [dataSource]="['Nancy', 'Andrew', 'Laura', 'Anne']"></smart-drop-down-list>
+</smart-dialog-window>
+
+<smart-dialog-window #dialog5 id="addNewRowWindow" [label]="'New'" class="material">
+    <div class="label label-supplier">Supplier</div>
+    <smart-drop-down-list #dropDownList3 id="supplier" [selectedIndexes]="[0]"  [dropDownAppendTo]="'body'" [dataSource]="['Nancy', 'Andrew', 'Laura', 'Anne']" [selectedIndexes]="[0]"></smart-drop-down-list>
+    <div class="label label-to">Date</div>
+    <smart-date-time-picker id="date" [calendarButton]="true" [spinButtons]="true" [autoClose]="true" [spinButtonsPosition]="'left'" [formatString]="'d'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+</smart-dialog-window>
+
+<smart-dialog-window #dialog id="editRowWindow" [label]="'Edit'" class="material">
+    <div class="label label-supplier">Supplier</div>
+    <div id="supplier"></div>
+    <div class="label label-to">Date</div>
+    <smart-date-time-picker id="date" [calendarButton]="true" [spinButtons]="true" [autoClose]="true" [spinButtonsPosition]="'left'" [formatString]="'d'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+</smart-dialog-window>
+
+<smart-dialog-window #dialog2 id="confirmDeleteWindow" [label]="'Confirm delete'" class="material">
+    <div class="label label-supplier">Supplier</div>
+    <div id="supplier"></div>
+    <div class="label label-to">Date</div>
+    <smart-date-time-picker id="date" [calendarButton]="true" [spinButtons]="true" [autoClose]="true" [spinButtonsPosition]="'left'" [formatString]="'d'" [dropDownAppendTo]="'body'"></smart-date-time-picker>
+</smart-dialog-window>
+
+<smart-menu #menu id="gridContextMenu" [mode]="'dropDown'">
+    <smart-menu-item data-id="Edit" [label]="'&lt;i class=\'material-icons\'&gt;edit&lt;i&gt;Edit'" [value]="'edit'"></smart-menu-item>
+    <smart-menu-item data-id="Remove" [label]="'&lt;i class=\'material-icons\'&gt;delete&lt;i&gt; Remove'" [value]="'remove'"></smart-menu-item>
+</smart-menu>

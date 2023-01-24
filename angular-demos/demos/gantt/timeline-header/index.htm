@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id='Description'>Angular gantt Timeline-Header| gantt | https://www.htmlelements.com/</title>
+    <base href="./../../../dist/gantt/timeline-header/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <app-root>Loading...</app-root>
+
+
+    <template id="headerTemplate">
+        <div class="header-controls">
+            <div class="zooming">
+                <smart-button id="zoomIn"><i class="material-icons">zoom_in</i></smart-button>
+                <smart-button id="zoomOut"><i class="material-icons">zoom_out</i></smart-button>
+            </div>
+            <div class="resource-view">
+                <smart-button id="view">Show Resource View</smart-button>
+            </div>
+            <div class="actions">
+                <smart-button id="undo" disabled><i class="material-icons">restore</i></smart-button>
+                <smart-button id="redo" disabled><i class="material-icons">update</i></smart-button>
+            </div>
+        </div>
+    </template>
+
+    <script src="runtime.js" type="module"></script>
+    <script src="polyfills.js" type="module"></script>
+    
+    
+    <script src="main.js" type="module"></script>
+    
+</body>
+
+</html>

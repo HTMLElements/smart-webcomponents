@@ -1,0 +1,55 @@
+<div [hidden]="submitted" class="container">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <div class="form-row">
+            <label for="name">Name</label>
+            <smart-input required class="form-component" [(ngModel)]="model.name" name="name" id="name" #name="ngModel">
+            </smart-input>
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="alterEgo">Alter Ego</label>
+            <smart-input class="form-component" [(ngModel)]="model.alterEgo" name="alterEgo" id="alterEgo">
+            </smart-input>
+        </div>
+        <div class="form-row">
+            <label for="power">Hero Power</label>
+            <smart-combo-box required #power="ngModel" class="form-component" [(ngModel)]="model.power" name="power"
+                id="power" required>
+                <smart-list-item *ngFor="let pow of powers" [value]="pow">{{pow}}</smart-list-item>
+            </smart-combo-box>
+            <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+                Power is required
+            </div>
+        </div>
+        <div class="smart-stack-layout">
+            <smart-button [disabled]="!heroForm.form.valid" type="submit" class="success item">Submit</smart-button>
+            <smart-button type="submit" (click)="newHero(); heroForm.reset()" class="primary item">New Hero
+            </smart-button>
+        </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Name</div>
+        <div class="col-xs-9">{{ model.name }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Alter Ego</div>
+        <div class="col-xs-9">{{ model.alterEgo }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Power</div>
+        <div class="col-xs-9">{{ model.power }}</div>
+    </div>
+    <br>
+    <smart-button class="primary" (click)="submitted=false">Edit</smart-button>
+</div>
+<br /><br />
+<h2>Changes Log:</h2>
+{{diagnostic}}

@@ -1,0 +1,35 @@
+<div class="demo-description">This example demonstrates the "grid" display mode of the Color Picker.</div>
+<smart-color-picker #colorpicker [displayMode]="'grid'"></smart-color-picker>
+    <div class="options"  #options>
+        <div class="option">
+             <h3>ApplyValueMode</h3>
+            <smart-radio-button #radiobutton [groupName]="'applyValueMode'" [checked]="true">instantly</smart-radio-button>
+            <smart-radio-button #radiobutton2 [groupName]="'applyValueMode'">useButtons</smart-radio-button>
+        </div>
+        <div class="option">
+            <div>Select Grid Column Count</div>
+            <smart-radio-button #radiobutton [groupName]="'columnSettings'">4</smart-radio-button>
+            <smart-radio-button #radiobutton2 [groupName]="'columnSettings'" [checked]="true">8</smart-radio-button>
+            <smart-radio-button #radiobutton3 [groupName]="'columnSettings'">14</smart-radio-button>
+            <br/>
+        </div>
+        <div class="option">
+            <div>Palette</div>
+            <smart-radio-button #radiobutton4 [groupName]="'palette'" [checked]="true">default</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton5 [groupName]="'palette'">gray</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton6 [groupName]="'palette'">red</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton7 [groupName]="'palette'">green</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton8 [groupName]="'palette'">blue</smart-radio-button>
+            <br/>
+            <smart-radio-button #radiobutton9 [groupName]="'palette'">custom</smart-radio-button>
+            <br/>
+        </div>
+        <div class="option">
+            <div>Enable/Disable Custom Colors</div>
+            <smart-check-box #checkbox id="enableCustomColors">Enable Custom Colors</smart-check-box>
+        </div>
+    </div>

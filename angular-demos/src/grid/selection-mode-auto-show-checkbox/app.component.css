@@ -1,0 +1,28 @@
+smart-grid { 
+  height: auto;	
+  max-width: 700px !important;
+  width: 100%;
+  border: none;
+  --smart-grid-freeze-splitter-size: 0px;
+  --smart-grid-row-height: 42px;
+  --smart-grid-column-header-background: var(--smart-grid-cell-background);
+  --smart-grid-row-header-background: var(--smart-grid-cell-background);
+  --smart-grid-column-header-background-freeze:  var(--smart-grid-cell-background);
+}
+
+smart-grid-column[checkbox] .smart-input,
+smart-grid-column[checkbox] .smart-input::after,
+smart-grid-cell[checkbox] .smart-input {
+	border-radius: 50% !important;
+}
+smart-grid-cell {
+	transition: background ease-in-out 0.25s !important;
+}
+
+smart-grid-row[selected] smart-grid-cell {
+	background: #DADADA !important;
+	color: #333 !important;
+}
+smart-grid-row:hover smart-grid-cell {
+	background: #F4F4F4 !important;
+}

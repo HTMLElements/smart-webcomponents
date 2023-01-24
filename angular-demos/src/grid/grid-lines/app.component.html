@@ -1,0 +1,24 @@
+<div class="demo-description">
+    <h1>Data Grid Lines Appearance</h1>
+    <p>The Data Grid provides multiple line customization options. It can render
+        horizontal or vertical lines only, or both horizontal and vertical lines.
+        This is controlled by the 'appearance.showRowLines', 'appearance.showColumnLines',
+        'appearance.showColumnHeaderLines' properties. In this demo, use the checkboxes
+        to change the gridline style.</p>
+</div>
+<smart-grid #grid id="grid" [appearance]="behavior" [behavior]="behavior" [dataSource]="dataSource" [columns]="columns">
+</smart-grid>
+<div class="options">
+    <div class="caption">Appearance</div>
+    <div class="option">
+        <smart-check-box #checkbox [checked]="true" id="headerLines">Column Header Lines</smart-check-box>
+        <br />
+        <br />
+        <smart-check-box #checkbox2 [checked]="true" id="columnLines">Column Lines</smart-check-box>
+        <br />
+        <br />
+        <smart-check-box #checkbox3 [checked]="true" id="rowLines">Row Lines</smart-check-box>
+        <br />
+        <br />
+    </div>
+</div>

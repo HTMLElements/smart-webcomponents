@@ -1,0 +1,12 @@
+<div class="demo-description">This demo shows the sorting by row functionality of smart-pivot-table.
+    Click on a cell from the Group column to sort by its respective row.</div>
+<smart-pivot-table #pivottable id="pivotTable" [columnTotals]="columnTotals" [dataSource]="dataSource"
+    [freezeHeader]="freezeHeader" [grandTotal]="grandTotal" [keyboardNavigation]="keyboardNavigation" [onInit]="onInit"
+    [rowSort]="rowSort" [columns]="columns"></smart-pivot-table>
+<div class="options">
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleButton" (onChange)="changeHandler($event)">Change
+            <strong>groupLayout</strong> to '<span #toggleButtonLabel id="toggleButtonLabel">classic</span>'
+        </smart-toggle-button>
+    </div>
+</div>

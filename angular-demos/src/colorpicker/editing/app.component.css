@@ -1,0 +1,43 @@
+smart-color-picker {
+    --smart-drop-down-element-max-width: 500px;
+    --smart-drop-down-element-max-height: auto;
+    --smart-drop-down-element-min-width: 500px;
+    --smart-drop-down-element-min-height: 350px;
+    width: 250px;
+    display: inline-block;
+}
+
+#demoBox {
+    padding: 16px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 60%;
+    border: dashed lightgray 1px;
+    color: gray;
+    font-size: 20px;
+    overflow-y: auto;
+}
+
+#frame {
+    border: gray solid 1px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#frameHeader,
+#frameContent {
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial;
+}
+
+#frameHeader {
+    background-color: #DEDEDE;
+    color: white;
+}
+
+#frameContent {
+    background-color: #F7F7F7;
+    color: gray;
+    padding-bottom: 50px;
+}

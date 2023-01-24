@@ -1,0 +1,24 @@
+h2 {
+ 	font-size: 14px;
+}
+h4 {
+	font-size: 13px;
+}
+h3 {
+    text-align: center;
+    -webkit-margin-before: 0.25em;
+    -webkit-margin-after: 0.25em;
+}
+
+i {
+    margin-bottom: 10px;
+}
+@media only screen and (max-width: 500px) {
+	smart-calendar[months] .smart-calendar-month {
+		width: 100%;
+	}
+	smart-calendar {
+		width: 320px !important;
+		height: 600px !important;
+	}
+}

@@ -1,0 +1,55 @@
+smart-led {
+    width: 40px !important;
+    height: 40px !important;
+    float: left;
+}
+
+    smart-led .smart-input,
+    smart-led:hover .smart-input,
+    smart-led .smart-input:hover,
+    smart-led:focus .smart-input {
+        border-width: 2px;
+        border-color: rgba(130, 130, 130, .6);
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    smart-led .smart-true-content-container {
+        background-color: rgba(237,194,66,1);
+    }
+
+    smart-led .smart-indeterminate-content-container {
+        background-color: gray;
+    }
+
+.container {
+    padding: 50px;
+    vertical-align: middle;
+}
+
+.theme-name {
+    padding: 11px 10px 10px 20px;
+    float: left;
+}
+
+.metro-blue {
+    background-color: #322e7c;
+    color: #eeeeee;
+}
+
+.metro-dark {
+    background-color: #292929;
+    color: #eeeeee;
+}
+
+.metro-light {
+    background-color: #eeeeee;
+}
+
+.metro-red {
+    background-color: red;
+    color: #eeeeee;
+}
+
+.clearing {
+    clear: both;
+}

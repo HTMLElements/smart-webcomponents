@@ -1,0 +1,35 @@
+<div class="demo-description">Right click on a task inside the Timeline or the Tree to open the context
+    menu.</div>
+<smart-gantt-chart #ganttchart id="ganttChart" [view]="view" [treeSize]="treeSize"
+    [hideTimelineHeaderDetails]="hideTimelineHeaderDetails" [snapToNearest]="snapToNearest"
+    [timelineHeaderFormatFunction]="timelineHeaderFormatFunction" [durationUnit]="durationUnit"
+    [taskColumns]="taskColumns" [dataSource]="dataSource"></smart-gantt-chart>
+<smart-menu #menu [checkable]="true" [mode]="'dropDown'" [closeAction]="'down'">
+    <smart-menu-items-group [separator]="true">
+        File
+        <smart-menu-item [separator]="true"><i class="material-icons">drafts</i>File</smart-menu-item>
+        <smart-menu-item><i class="material-icons">folder</i>Open</smart-menu-item>
+        <smart-menu-item><i class="material-icons">save</i>Save</smart-menu-item>
+        <smart-menu-item [disabled]="true" [separator]="true"><i class="material-icons">save_alt</i>Save As</smart-menu-item>
+        <smart-menu-item><i class="material-icons">print</i>Print</smart-menu-item>
+        <smart-menu-item [disabled]="true" [separator]="true"><i class="material-icons">tune</i>Page Setup</smart-menu-item>
+        <smart-menu-item><i class="material-icons">close</i>Close</smart-menu-item>
+
+    </smart-menu-items-group>
+    <smart-menu-items-group>
+        Edit
+        <smart-menu-item><i class="material-icons">undo</i>Undo</smart-menu-item>
+        <smart-menu-item [separator]="true"><i class="material-icons">redo</i>Redo</smart-menu-item>
+        <smart-menu-item [separator]="true"><i class="material-icons">select_all</i>Select All</smart-menu-item>
+        <smart-menu-item><i class="material-icons">content_cut</i>Cut</smart-menu-item>
+        <smart-menu-item><i class="material-icons">content_copy</i>Copy</smart-menu-item>
+        <smart-menu-item><i class="material-icons">content_paste</i>Paste</smart-menu-item>
+
+    </smart-menu-items-group>
+    <smart-menu-items-group>
+        Help
+        <smart-menu-item><i class="material-icons">info</i>About</smart-menu-item>
+        <smart-menu-item><i class="material-icons">help</i>Help</smart-menu-item>
+        <smart-menu-item><i class="material-icons">bug_report</i>Bug Reporting</smart-menu-item>
+    </smart-menu-items-group>
+</smart-menu>

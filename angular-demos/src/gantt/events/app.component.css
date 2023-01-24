@@ -1,0 +1,29 @@
+smart-gantt-chart {
+    height: auto;
+    width: calc(100% - 300px);
+}
+
+@media only screen and (max-width: 600px) {
+    .smart-gantt-chart {
+        width: 100%;
+    }
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, .15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px
+}
+
+@media (max-width: 750px) {
+    .options {
+        position: relative;
+        top: 30px;
+        width: 240px;
+        margin: 0 auto;
+    }
+}

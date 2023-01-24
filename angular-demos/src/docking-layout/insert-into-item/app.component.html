@@ -1,0 +1,17 @@
+<div class="options">
+    <div class="option">Choose an Item</div>
+    <div class="option">
+        <smart-drop-down-list [sorted]="true" #dropDownList>
+            <smart-list-item>Tabs 0</smart-list-item>
+            <smart-list-item>Tabs 1</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+    <div class="option">
+        <div class="option">Choose a method:</div>
+        <smart-button #buttonInsertIntoLeft id="insertIntoLeft">InsertIntoLeft</smart-button> <br />
+        <smart-button #buttonInsertIntoRight id="insertIntoRight">InsertIntoRight</smart-button><br />
+        <smart-button #buttonInsertIntoTop id="insertIntoTop">InsertIntoTop</smart-button><br />
+        <smart-button #buttonInsertIntoBottom id="insertIntoBottom">InsertIntoBottom</smart-button>
+    </div>
+</div>
+<smart-docking-layout #dockingLayout id="layout" [layout]="layout"></smart-docking-layout>

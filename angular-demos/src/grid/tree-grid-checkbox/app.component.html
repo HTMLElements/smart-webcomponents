@@ -1,0 +1,24 @@
+<div class="demo-description">The Tree Grid can display checkboxes in the cells by using the column's
+    'appearance.showRowHierarchyCheckBoxes' property. By using the 'appearance.allowRowHierarchyTriStateCheckBoxes',
+    the checkboxes may appear in indeterminate state depending on the checked
+    state of sub-rows.</div>
+<smart-grid #grid id="grid" [behavior]="behavior" [selection]="selection" [checkBoxes]="checkBoxes"
+    [dataSource]="dataSource" [columns]="columns">
+</smart-grid>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #check (onChange)="showCheckBoxes($event)" [checked]="true" id="check">Show Checkboxes
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box (onChange)="triStateCheckBoxes($event)" #tristateCheck [checked]="true" id="tristateCheck">Has
+            Three
+            States</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box (onChange)="showHideCheckBoxes($event)" #showHideCheck [checked]="true" id="showHideCheck">
+            Show/Hide
+            Root Checkboxes</smart-check-box>
+    </div>
+</div>

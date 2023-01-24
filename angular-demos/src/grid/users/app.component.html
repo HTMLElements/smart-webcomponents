@@ -1,0 +1,20 @@
+<div class="demo-description">In that example, the DataGrid shows how it can operate in multi-user mode.
+    The "users" array property works together with the "currentUser" index
+    property. When "users" is set, the current user may write row comments
+    and additional columns such as "CreatedBy", "ModifiedBy" and "Collaborator"
+    can be used. The 'CreatedBy' column displays the user information for the
+    user who created the row. The 'ModifiedBy' displays the user information
+    for the user who last edited the row. The 'Collaborator' column type can
+    be used for setting a user(s) per row. That is useful when you want to
+    assign tasks and the row data is a task. You can switch between different
+    users by setting the "currentUser" property to an index from 0 to the count
+    of users. The DataGrid's sorting, filtering, editing, searching, row header
+    and add new row features are enabled.</div>
+<smart-grid [filtering]="filtering" [currentUser]="currentUser" [users]="users" [header]="header" [behavior]="behavior" [dataSource]="dataSource" [rowDetail]="rowDetail" [columns]="columns" [columnGroups]="columnGroups" [behavior]="behavior" [sorting]="sorting" [editing]="editing" [selection]="selection" [appearance]="appearance"  #grid id="grid"></smart-grid>
+<div class="options">
+    <div class="caption">Users</div>
+    <div class="option">
+        <smart-multi-combo-input (onChange)="change($event)" [dataSource]="inputData" #multicomboinput [singleSelect]="true" [pills]="true" id="users"
+        [readonly]="true" [dropDownButtonPosition]="'right'"></smart-multi-combo-input>
+    </div>
+</div>

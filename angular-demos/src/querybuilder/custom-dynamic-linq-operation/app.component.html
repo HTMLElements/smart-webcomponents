@@ -1,0 +1,18 @@
+<smart-drop-down-list
+  #dropdownlist
+  id="linqSelector"
+  [dropDownWidth]="'auto'"
+  [label]="'Select a Linq Expression:'"
+>
+  <smart-list-item>{{items[0]}}</smart-list-item>
+  <smart-list-item>{{items[1]}}</smart-list-item>
+  <smart-list-item>{{items[2]}}</smart-list-item>
+  <smart-list-item>{{items[3]}}</smart-list-item>
+  <smart-list-item>{{items[4]}}</smart-list-item>
+  <smart-list-item>{{items[5]}}</smart-list-item>
+</smart-drop-down-list>
+<smart-query-builder #querybuilder id="queryBuilder"></smart-query-builder>
+<div id="log">
+  <h3>LINQ:</h3>
+  <div id="linqValue" #linqValue></div>
+</div>

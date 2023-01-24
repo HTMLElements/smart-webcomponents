@@ -1,0 +1,18 @@
+<smart-docking-layout #dockinglayout id="layout"></smart-docking-layout>
+<div class="options">
+    <div class="caption">Choose an Item</div>
+    <div class="option">
+        <smart-drop-down-list #dropdownlist [selectedIndexes]="[0]" [sorted]="true">
+            <smart-list-item>Tabs 0</smart-list-item>
+            <smart-list-item>Tabs 1</smart-list-item>
+            <smart-list-item>Tabs 2</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+    <div class="caption">Choose a method</div>
+    <div class="option">
+        <smart-button #button id="insertBeforeItem">InsertBeforeItem</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="insertAfterItem">InsertAfterItem</smart-button>
+    </div>
+</div>

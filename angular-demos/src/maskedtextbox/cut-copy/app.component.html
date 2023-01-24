@@ -1,0 +1,18 @@
+<h3>cutCopyMaskFormat : </h3>
+<smart-masked-text-box #maskedtextbox [mask]="'00/00/0000'" [cutCopyMaskFormat]="'excludePromptAndLiterals'">
+</smart-masked-text-box>: excludePromptAndLiterals
+<br />
+<smart-masked-text-box #maskedtextbox2 [mask]="'00/00/0000'" [cutCopyMaskFormat]="'includePrompt'">
+</smart-masked-text-box>:
+includePrompt
+<br />
+<smart-masked-text-box #maskedtextbox3 [mask]="'00/00/0000'" [cutCopyMaskFormat]="'includeLiterals'">
+</smart-masked-text-box>
+: includeLiterals
+<br />
+<smart-masked-text-box #maskedtextbox4 [mask]="'00/00/0000'" [cutCopyMaskFormat]="'includePromptAndLiterals'">
+</smart-masked-text-box>: includePromptAndLiterals
+<br />
+<br />
+<h3>Paste copied text from a masked text box:</h3>
+<smart-text-box #textbox [placeholder]="'Paste Here ...'"></smart-text-box>

@@ -1,0 +1,14 @@
+#controlPanel {
+    display: flex;
+    padding: 20px;
+    margin: 0;
+}
+
+    #controlPanel smart-button {
+        width: 100px;
+        margin-left: 10px;
+    }
+
+    #controlPanel smart-button {
+        width: 300px;
+    }

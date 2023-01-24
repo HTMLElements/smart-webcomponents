@@ -1,0 +1,18 @@
+.options smart-button {
+    width: 200px;
+    text-transform: unset;
+}
+
+span {
+    display: inline-block;
+    width: 50px;
+}
+
+smart-numeric-text-box {
+    display: inline-block;
+    width: 80px;
+}
+smart-chart {
+	width: 100%;
+	max-width: 550px;
+}

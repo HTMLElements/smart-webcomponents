@@ -1,0 +1,9 @@
+<smart-chart #chart id="chart" [animation]="animation" [caption]="caption" [description]="description"
+    [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding" [dataSource]="dataSource"
+    [xAxis]="xAxis" [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-chart>
+<br />
+<div class="options">
+    <p>Select missing points display mode:</p>
+    <smart-drop-down-list #dropdownlist id="dropDownMissingPointsMode" [dataSource]='["skip", "zero", "connect"]'
+        [selectionMode]="'one'" [selectedIndexes]="[0]"></smart-drop-down-list>
+</div>

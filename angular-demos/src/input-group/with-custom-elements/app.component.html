@@ -1,0 +1,46 @@
+<h3>With smart-input</h3>
+<div class="input-group">
+    <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    <smart-input #input class="form-control" placeholder="Username"></smart-input>
+</div>
+<div class="input-group">
+    <smart-input #input2 class="form-control" data-source="['oliver', 'george', 'harry', 'jack', 'jacob', 'noah', 'charlie']"
+    placeholder="Recipient's username"></smart-input>
+    <div class="input-group-append"> <span class="input-group-text" id="basic-addon2">@example.com</span>
+    </div>
+</div>
+<label for="basic-url">Your vanity URL</label>
+<div class="input-group">
+    <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+    </div>
+    <smart-input #input3 class="form-control" data-source="['oliver', 'george', 'harry', 'jack', 'jacob', 'noah', 'charlie']"
+    placeholder="Recipient's username"></smart-input>
+</div>
+ <h3>With smart-button</h3>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <smart-button #button type="button">Button</smart-button>
+    </div>
+    <smart-input #input4 class="form-control"></smart-input>
+</div>
+<div class="input-group">
+    <smart-input #input5 class="form-control" placeholder="Recipient's username"></smart-input>
+    <div class="input-group-append">
+        <smart-button #button2 type="button">Button</smart-button>
+    </div>
+</div>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <smart-button #button3 type="button">Button</smart-button>
+        <smart-button #button4 type="button">Button</smart-button>
+    </div>
+    <smart-input #input6 class="form-control"></smart-input>
+</div>
+<div class="input-group">
+    <smart-input #input7 class="form-control" placeholder="Recipient's username"></smart-input>
+    <div class="input-group-append">
+        <smart-button #button5 type="button">Button</smart-button>
+        <smart-button #button6 type="button">Button</smart-button>
+    </div>
+</div>

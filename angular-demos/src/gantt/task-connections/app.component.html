@@ -1,0 +1,30 @@
+<b>Description:</b> Connections can be created/removed using methods as
+well.
+<ul>
+    <li>Add Connection - Create's a connection between "Task 1.2" and "Milestone
+        1" of type Start-to-Start(0).</li>
+    <li>Remove Specific Connection - Removes the selected connection from the
+        Drop Down List.</li>
+    <li>Remove All Connections - Removes all connections between the tasks.</li>
+</ul>
+<smart-gantt-chart #ganttChart [dataSource]="dataSource"></smart-gantt-chart>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <!--<input placeholder="a-b-c" id="connectionIdInput" />-->
+        <smart-drop-down-list #dropdownlist id="connectionSelector">
+            <smart-list-item [value]="'0-1-0'">Project 1 - Task 1.1</smart-list-item>
+            <smart-list-item [value]="'1-2-2'">Task 1.1 - Task 1.2</smart-list-item>
+            <smart-list-item [value]="'3-4-1'">Milestone 1 - Task 2</smart-list-item>
+        </smart-drop-down-list>
+    </div>
+    <div class="option">
+        <smart-button #button id="createConButton">Add Connection</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button2 id="deleteConButton">Remove Connection</smart-button>
+    </div>
+    <div class="option">
+        <smart-button #button3 id="deleteAllConButton">Remove All</smart-button>
+    </div>
+</div>

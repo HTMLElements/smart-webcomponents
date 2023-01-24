@@ -1,0 +1,15 @@
+<div class="demo-description">
+     <h1>Server-Side Master Detail</h1>In this example, we use two Tables - 'Categories' and 'Products'. The
+    master Grid displays the 'Categories' table. When a row from the 'Categories'
+    table is expanded, a detail Grid with 'Products' matching the expanded
+    'CategoryID' is displayed in a popup dialog.
+    <br />
+    <br />This example uses a demo server with AlaSQL that generates SQL to show
+    how a real server might use the requests sent by the Datagrid. The Server-Side
+    Datagrid usage does not have any restrictions on the server-side technologies
+    used.</div>
+<smart-grid [appearance]="appearance" [rowDetail]="rowDetail" [onRowInit]="onRowInit" [onRowDetailInit]="onRowDetailInit" [sorting]="sorting" [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>
+<br />
+<br />
+	<h3>SQL Query</h3>
+<div id="query"></div>

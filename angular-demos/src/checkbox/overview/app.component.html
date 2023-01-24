@@ -1,0 +1,93 @@
+<section id="check-box">
+  <div>
+    <p>Checkboxes allow the user to select multiple options from a set.</p>
+    <br />
+    <p>
+      If you have multiple options appearing in a list, you can preserve space
+      by using checkboxes instead of on/off switches.
+    </p>
+    <br />
+    <p>
+      If you have a single option, avoid using a checkbox and use an on/off
+      switch instead.
+    </p>
+    <br />
+  </div>
+  <br />
+  <div>
+    <div class="check-box-container-light">
+      <smart-check-box #checkbox [checked]="true"></smart-check-box>
+      <smart-check-box></smart-check-box>
+    </div>
+  </div>
+</section>
+<br />
+<section id="check-box-light">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <p></p>
+        </td>
+        <td>
+          <p>hover</p>
+        </td>
+        <td>
+          <p>focused</p>
+        </td>
+        <td>
+          <p>pressed</p>
+        </td>
+        <td>
+          <p>disabled</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <p>On</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <p></p>
+        </td>
+        <td>
+          <smart-check-box #checkbox2 hover [checked]="true"></smart-check-box>
+        </td>
+        <td>
+          <smart-check-box #checkbox3 focus [checked]="true"></smart-check-box>
+        </td>
+        <td>
+          <smart-check-box #checkbox4 active [checked]="true"></smart-check-box>
+        </td>
+        <td>
+          <smart-check-box #checkbox5 [checked]="true"></smart-check-box>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <p>Off</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <p></p>
+        </td>
+        <td>
+          <smart-check-box #checkbox6 hover></smart-check-box>
+        </td>
+        <td>
+          <smart-check-box #checkbox7 focus></smart-check-box>
+        </td>
+        <td>
+          <smart-check-box #checkbox8 active></smart-check-box>
+        </td>
+        <td>
+          <smart-check-box #checkbox9 [disabled]="true"></smart-check-box>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

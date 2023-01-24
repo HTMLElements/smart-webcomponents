@@ -1,0 +1,16 @@
+<div class="demo-description">
+     <h1>Server-Side Filtering</h1>    When a data filter is applied in the datagrid a request with Filtering
+    data object is made via 'virtualDataSource' on the Server-Side Datasource.
+    The server uses the SQL query sent by the Server-Side Datasource to filter
+    the rows.
+    <br />
+    <br />This example uses a demo server with AlaSQL that generates SQL to show
+    how a real server might use the requests sent by the Datagrid. The Server-Side
+    Datagrid usage does not have any restrictions on the server-side technologies
+    used.</div>
+	<smart-grid [appearance]="appearance" [filtering]="filtering" [sorting]="sorting" [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>
+
+<br />
+<br />
+	<h3>SQL Query</h3>
+<div id="query"></div>

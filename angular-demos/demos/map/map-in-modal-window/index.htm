@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='Description'>Angular Map Map-in-modal-window | Map | https://www.htmlelements.com/</title>
+        <base href="./../../../dist/map/map-in-modal-window/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+    </head>
+    <body>
+        <app-root>Loading...</app-root>
+        <template id="footerTemplate">
+            <div>
+                <smart-button #button class="primary medium raised" id="saveLocationRegularMap"> 
+                    <span class="primary">
+                        Save Location <i class="material-icons">location_on</i>
+                    </span>
+                </smart-button>
+                <smart-button #button2 class="closeRegularMap primary outlined medium raised" > 
+                    <span class="primary">
+                        Close <i class="material-icons">close</i>
+                    </span>
+                </smart-button>
+            </div>
+        </template>
+        <template id="footerTemplateSatellite">
+            <div>
+                <smart-button #button3 class="success medium raised" id="saveLocationSatelliteMap"> <span class="primary">
+                        Save Location <i class="material-icons">location_on</i>
+                        </span>
+                </smart-button>
+                <smart-button #button4 class="closeSatelliteMap success outlined medium raised"> <span class="primary">
+
+                        Close <i class="material-icons">close</i>
+
+                        </span>
+                </smart-button>
+            </div>
+        </template>
+        <template id="footerTemplateCustom">
+            <div>
+                <smart-button #button5 class="'raised'" id="saveLocationCustomMap"> 
+                    <span class="primary">
+                        Save Location <i class="material-icons">location_on</i>
+                    </span>
+                </smart-button>
+                <smart-button #button6 class="closeCustomMap raised"> 
+                    <span class="primary">
+                        Close <i class="material-icons">close</i>
+                    </span>
+                </smart-button>
+            </div>
+        </template> 
+        <script src="runtime.js" type="module"></script>
+		<script src="polyfills.js" type="module"></script>
+		
+		
+		<script src="main.js" type="module"></script>
+		
+    </body>
+</html>

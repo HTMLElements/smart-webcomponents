@@ -1,0 +1,10 @@
+<div class="demo-description">This demo showcases the sorting capabilities of smart-pivot-table which are enabled via
+    the property <strong>sortMode</strong> which can be
+    set to 'none', 'one', or 'many'.</div>
+<smart-pivot-table #pivottable id="pivotTable" [dataSource]="dataSource" [freezeHeader]="freezeHeader"
+    [keyboardNavigation]="keyboardNavigation" [sortMode]="sortMode" [columns]="columns"></smart-pivot-table>
+<div class="options">
+    <div class="option">
+        <smart-check-box #checkbox id="sortMode" (onChange)="handleChange($event)">sortMode: 'many'</smart-check-box>
+    </div>
+</div>

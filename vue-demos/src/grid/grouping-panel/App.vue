@@ -1,0 +1,106 @@
+<template>
+  <div class="vue-root">
+    <div class="demo-description">
+      <h1>Grid Grouping with Panel</h1>
+      <p>
+        The example demonstrates the grouping panel of the Grid Web Component.
+        Drag a column header to the Grouping Panel to Group by that column or drag
+        a column from the grouping panel back to the Grid to ungroup.
+      </p>
+    </div>
+    <smart-grid id="grid"></smart-grid>
+  </div>
+</template>
+
+<script>
+import { onMounted } from "vue";
+import "smart-webcomponents/source/styles/smart.default.css";
+import "smart-webcomponents/source/modules/smart.grid.js";
+
+export default {
+  name: "app",
+  setup() {
+    onMounted(() => {
+      window.Smart(
+        "#grid",
+        class {
+          get properties() {
+            return {
+              dataSource: new window.Smart.DataAdapter({
+                dataSource: window.generateData(100),
+                groupBy: ["firstName", "lastName"],
+                dataFields: [
+                  "id: number",
+                  "firstName: string",
+                  "lastName: string",
+                  "productName: string",
+                  "quantity: number",
+                  "price: number",
+                  "total: number"
+                ]
+              }),
+              sorting: {
+                enabled: true
+              },
+              behavior: {
+                allowColumnReorder: true
+              },
+              grouping: {
+                enabled: true,
+                groupBar: {
+                  visible: true
+                }
+              },
+              columns: [
+                {
+                  label: "#",
+                  width: 200,
+                  dataField: "id"
+                },
+                {
+                  label: "First Name",
+                  dataField: "firstName"
+                },
+                {
+                  label: "Last Name",
+                  dataField: "lastName"
+                },
+                {
+                  label: "Product",
+                  dataField: "productName"
+                },
+                {
+                  label: "Quantity",
+                  dataField: "quantity",
+                  align: "right",
+                  cellsAlign: "right"
+                },
+                {
+                  label: "Unit Price",
+                  dataField: "price",
+                  align: "right",
+                  cellsAlign: "right",
+                  cellsFormat: "c2"
+                },
+                {
+                  label: "Total",
+                  dataField: "total",
+                  align: "right",
+                  cellsAlign: "right",
+                  cellsFormat: "c2"
+                }
+              ]
+            };
+          }
+        }
+      );
+    });
+  }
+};
+</script>
+
+<style>
+smart-grid {
+  width: 100%;
+}
+</style>

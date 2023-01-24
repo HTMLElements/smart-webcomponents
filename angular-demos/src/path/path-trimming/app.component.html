@@ -1,0 +1,13 @@
+<smart-path #path [label]="'Path Control'" [value]="'C:\\Users\\Inowotny\\Documents\\LabVIEW Projects\\PathControlPlay\\DesktopPath.gvi'"></smart-path>
+<smart-path #path2 [label]="'Path Wrap'" [wrap]="true" [value]="'C:\\Users\\Inowotny\\Documents\\LabVIEW Projects\\PathControlPlay\\DesktopPath.gvi'"></smart-path>
+<div class="options">
+    <div class="option">
+         <h2>Slider to change Path's <b>Width</b></h2>
+        <smart-slider #slider id="hSlider" [min]="100" [value]="250" [max]="600"></smart-slider>
+    </div>
+    <div class="option">
+         <h2>Slider to change Path's <b>Height</b></h2>
+        <smart-slider #slider2 id="vSlider" [orientation]="'vertical'" [min]="30" [value]="30"
+        [max]="100" [scalePosition]="'far'"></smart-slider>
+    </div>
+</div>

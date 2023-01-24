@@ -1,0 +1,27 @@
+<smart-3d-chart #chart id="chart" [caption]="caption" [description]="description" [showLegend]="showLegend"
+    [dataSource]="dataSource" [cameraPosition]="cameraPosition" [xAxis]="xAxis" [valueAxis]="valueAxis"
+    [colorScheme]="colorScheme" [seriesGroups]="seriesGroups"></smart-3d-chart>
+<div class="options">
+    <div class="caption">Chart Methods</div>
+    <div class="option">
+        <h4>Series Group Index:</h4>
+        <smart-number-input [value]="2" [min]="0" [max]="2" #seriesGroupIndex></smart-number-input>
+        <h4>Serie Index:</h4>
+        <smart-number-input [value]="4" [min]="0" [max]="2" #serieIndex></smart-number-input>
+        <h4>Item Index:</h4>
+        <smart-number-input [value]="1" [min]="0" [max]="4" #itemIndex></smart-number-input>
+        <smart-button #getItem (click)="getItem()">Get Item</smart-button>
+        <br /><br />
+        <smart-button #showItem (click)="showItem()" >Show Item</smart-button>
+        <br />
+        <smart-button #hideItem (click)="hideItem()">Hide Item</smart-button>
+    </div>
+    <div class="option">
+        <br /><br />
+        <smart-button #getValueAxis (click)="getValueAxis()">Get Value Axis Labels</smart-button>
+        <br /><br />
+        <smart-button #getXAxis (click)="getXAxis()">Get X Axis Labels</smart-button>
+        <br /><br />
+        <smart-button #getZAxis (click)="getZAxis()">Get Z Axis Labels</smart-button>
+    </div>
+</div>

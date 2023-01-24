@@ -1,0 +1,56 @@
+#progressbar1 {
+    margin-bottom: 20px;
+}
+
+#progressbar3 {
+    margin-top: 20px;
+}
+
+
+smart-circular-progress-bar.echo-animation {
+    /* Use vars if browser supports! CSS vars on stroke-width DO NOT work in EDGE ! */
+    --smart-circular-progress-bar-fill-size: 8;
+}
+
+    smart-circular-progress-bar.echo-animation > .smart-container,
+    smart-circular-progress-bar.echo-animation .smart-label-container {
+        border: none;
+    }
+
+    smart-circular-progress-bar.echo-animation .smart-value {
+        stroke: url(#outlineGrad);
+        animation: circle-around 3s infinite linear;
+        stroke-width: calc(var(--smart-circular-progress-bar-fill-size) + 2);
+        stroke-width: 10;
+        transform-origin: center center;
+    }
+
+    smart-circular-progress-bar.echo-animation .smart-value-path {
+        stroke: url(#blueGrad);
+        stroke-width: var(--smart-circular-progress-bar-fill-size);
+        stroke-width: 8;
+    }
+
+/* MS EDGE only solution for the SVG animation */
+@supports (-ms-ime-align: auto) {
+    smart-circular-progress-bar.echo-animation svg:first-of-type {
+        animation: circle-around 2.5s infinite linear;
+    }
+}
+
+/* IE10+ solution for the SVG animation for the SVG animation*/
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    smart-circular-progress-bar.echo-animation svg:first-of-type {
+        animation: circle-around 2.5s infinite linear;
+    }
+}
+
+@keyframes circle-around {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

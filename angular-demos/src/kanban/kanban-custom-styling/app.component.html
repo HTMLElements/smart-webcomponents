@@ -1,0 +1,19 @@
+<div></div>
+<smart-kanban #kanban id="kanban" [collapsible]="collapsible" [dataSource]="dataSource" [taskDue]="taskDue"
+    [taskProgress]="taskProgress" [columns]="columns"></smart-kanban>
+    <div class="options">
+        <div class="caption">
+            Options
+        </div>
+        <div class="option">
+            <smart-radio-button data-target="#kanban" data-value="false" data-property="columnColorEntireSurface"
+                name="defaultStyle" id="style1" checked>
+                Default Style
+            </smart-radio-button>
+            <smart-radio-button data-target="#kanban" data-value="true" data-property="columnColorEntireSurface"
+                name="alternativeStyle" id="style2">
+                Alternative Style
+            </smart-radio-button>
+
+        </div>
+    </div>

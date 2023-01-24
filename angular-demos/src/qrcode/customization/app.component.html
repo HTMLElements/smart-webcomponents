@@ -1,0 +1,25 @@
+<p>The barcode component supports a wide variety of customization options.</p>
+<p>Use the settings menu to style the barcode:</p>
+<smart-qrcode #qrcodeToStyle [value]="'HTMLELEMENTS.COM'" [labelPosition]="'bottom'" [labelFontSize]="10"></smart-qrcode>
+<br />
+<div class="options">
+        <h4>Background Color:</h4>		
+        <smart-color-picker #backgroundColorPicker class="option" [value]="'white'"></smart-color-picker>
+        <br/>
+        <h4>Line Color:</h4>		
+        <smart-color-picker #lineColorPicker class="option" [value]="'black'"></smart-color-picker>
+        <br/>
+        <h4>Square Width:</h4>		
+        <smart-number-input #lineWidthInput class="option" [value]="12" [min]="8" [max]="30"></smart-number-input>
+        <br/>
+        <h4>Display Label:</h4>
+        <smart-check-box #labelDisplayCheck class="option">Visible</smart-check-box>
+        <br/>
+        <h4>Label Color:</h4>		
+        <smart-color-picker #labelColorPicker class="option" [value]="'black'"></smart-color-picker>
+        <br/>
+        <h4>Label Font Size:</h4>		
+        <smart-number-input #labelFontSizeInput class="option" [value]="14" [max]="20" [min]="10"></smart-number-input>
+        <br/><br/>
+        <smart-button (click)="apply()" #applyBtn>Apply</smart-button>	
+</div>

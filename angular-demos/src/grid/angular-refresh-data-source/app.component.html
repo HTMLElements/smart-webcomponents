@@ -1,0 +1,9 @@
+<smart-grid [dataSource]="dataSource" [columns]="columns" #grid id="grid"></smart-grid>
+<div class="options">
+    <div class="option">
+        <smart-button #button id="addRecord" #addRecord (onClick)="addRecordOnClick()">Add record</smart-button>
+        <br />
+        <smart-button #button id="removeRecord" #removeRecord (onClick)="removeRecordOnClick()">Remove record
+        </smart-button>
+    </div>
+</div>

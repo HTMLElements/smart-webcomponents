@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='Description'>Angular Card Expandable | Card | https://www.htmlelements.com/</title>
+        <base href="./../../../dist/card/expandable/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+    </head>
+    <body>
+        <app-root>Loading...</app-root>
+        <template id="customTemplate">
+            <div class="card-image">
+                <img src="{{image}}">
+                 <h2 class="card-title">{{title}}</h2>
+            </div>
+            <div class="card-comment">{{comment}}</div>
+            <div class="card-buttons">
+                <smart-button #button class="share">Share</smart-button>
+                <smart-button #button2 class="more">More</smart-button>
+                <smart-toggle-button><i class="material-icons">&#xE313;</i>
+                </smart-toggle-button>
+            </div>
+            <div class="card-content hidden">{{content}}</div>
+        </template>
+        <script src="runtime.js" type="module"></script>
+		<script src="polyfills.js" type="module"></script>
+		
+		
+		<script src="main.js" type="module"></script>
+		
+    </body>
+</html>

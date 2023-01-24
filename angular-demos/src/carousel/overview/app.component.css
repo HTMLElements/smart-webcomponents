@@ -1,0 +1,10 @@
+smart-carousel .smart-carousel-item .smart-carousel-item-content, smart-carousel .smart-carousel-item .smart-carousel-item-label {
+	font-size: 48px;
+	color: #fafafa;
+}
+
+@media screen and (max-width: 700px) {
+	smart-carousel {
+		width: 100%;
+	}
+}

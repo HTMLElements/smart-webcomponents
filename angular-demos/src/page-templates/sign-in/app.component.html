@@ -1,0 +1,11 @@
+<smart-card> <i class="material-icons">lock</i>
+     <h1>Sign in</h1>
+    <form #form id="submitForm" method="get">
+        <smart-text-box #textbox id="email" [label]="'Email Address*'" [name]="'email'"></smart-text-box>
+        <smart-text-box #textbox2 id="password" [label]="'Password*'"
+        name="password"></smart-text-box>
+        <smart-check-box #checkbox [checkMode]="'both'">Remember me</smart-check-box>
+        <smart-button #button id="signIn" class="primary" type="submit">Sign In</smart-button>
+    </form>
+</smart-card>
+<smart-tooltip #tooltip id="tooltip" [position]="'bottom'" [arrow]="true" [disabled]="true"><span class="note"> ! </span>Please fill out this field.</smart-tooltip>

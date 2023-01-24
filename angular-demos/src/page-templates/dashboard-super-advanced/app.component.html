@@ -1,0 +1,339 @@
+<smart-splitter #splitter id="dashboard" expanded>
+    <smart-splitter-item [collapsible]="true" id="leftPanel" [size]="'240'">
+        <div class="dashboard-header">
+            <img #logo src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg"
+                class="smart-logo" />
+            <smart-button #button id="collapseBtn" class="floating"> <i class="material-icons">chevron_left</i>
+            </smart-button>
+            <smart-button #button2 id="expandBtn" class="floating"> <i class="material-icons">menu</i>
+            </smart-button>
+        </div>
+        <div class="dashboard-menu-container">
+            <smart-button #button3 class="flat menu-btn"><i class="material-icons">view_quilt</i>Dashboard
+            </smart-button>
+            <smart-button #button4 class="flat menu-btn"><i class="material-icons">person</i>User Profile</smart-button>
+            <smart-button #button5 class="flat menu-btn"><i class="material-icons">list_alt</i>Table List</smart-button>
+            <smart-button #button6 class="flat menu-btn"><i class="material-icons">view_list</i>Typography
+            </smart-button>
+            <smart-button #button7 class="flat menu-btn"><i class="material-icons">hdr_strong</i>Icons</smart-button>
+            <!--<h6>Saved</h6>-->
+            <smart-button #button8 class="flat menu-btn"><i class="material-icons">map</i>Maps</smart-button>
+            <smart-button #button9 class="flat menu-btn"><i class="material-icons">notifications</i>Notifications
+            </smart-button>
+            <smart-button #button10 class="flat menu-btn"><i class="material-icons">language</i>RTL Support
+            </smart-button>
+        </div>
+    </smart-splitter-item>
+    <smart-splitter-bar class="smart-hidden"></smart-splitter-bar>
+    <smart-splitter-item id="rightPanel">
+        <div class="dashboard-header">
+            <!--Dashboard-->
+            <div class="search-holder"> <i class="material-icons search-icon" style="color:white">
+
+                    search
+
+                </i>
+                <smart-text-box #textbox id="search-input" [placeholder]="'Search'"></smart-text-box>
+            </div>
+            <div class="floating">
+                <smart-button #button11 id="header-person-btn"> <i class="material-icons">person</i>
+                </smart-button>
+                <smart-button #button12 id="notifficationBtn"> <i class="material-icons">notifications</i>
+                </smart-button>
+                <smart-button #button13 id="header-dashboard-btn"> <i class="material-icons">view_quilt</i>
+                </smart-button>
+            </div>
+        </div>
+        <br />
+        <br />
+        <h1 class="main-title">Alternative</h1>
+        <div class="breadcrumb"> <span class="icon link">
+
+                <i class="material-icons">
+
+                    home
+
+                </i>
+
+            </span>
+            / <span class="active link">
+
+                Dashboards
+
+            </span>
+            / <span>
+
+                Alternative
+
+            </span>
+        </div>
+        <div class="right-filters">
+            <smart-button>New</smart-button>
+            <smart-button>Filter</smart-button>
+        </div>
+        <br />
+        <br />
+        <div class="smart-grid-layout cards-with-progressbar">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card class="basic-card tasks-completed">
+                        <div class="card-content"> <span class="card-title">TASKS COMPLETED</span>
+                            <p>8/24
+                                <smart-progress-bar #progressbar [value]="33"></smart-progress-bar>
+                                <smart-drop-down-button #dropdownbutton class="first-card-item" [dropDownWidth]="'auto'"
+                                    [placeholder]="''">
+                                    <smart-button #button14 class="flat">Action</smart-button>
+                                    <smart-button #button15 class="flat">Another action</smart-button>
+                                    <smart-button #button16 class="flat">Something else here</smart-button>
+                                </smart-drop-down-button>
+                            </p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)">See details</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card2 class="basic-card contacts">
+                        <div class="card-content"> <span class="card-title">ITEMS SOLD</span>
+                            <p>123/267
+                                <smart-progress-bar #progressbar2 [value]="46"></smart-progress-bar>
+                                <smart-drop-down-button #dropdownbutton2 class="first-card-item"
+                                    [dropDownWidth]="'auto'" [placeholder]="''">
+                                    <smart-button #button17 class="flat">Action</smart-button>
+                                    <smart-button #button18 class="flat">Another action</smart-button>
+                                    <smart-button #button19 class="flat">Something else here</smart-button>
+                                </smart-drop-down-button>
+                            </p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)">See details</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card3 class="basic-card items-sold">
+                        <div class="card-content"> <span class="card-title">ITEMS SOLD</span>
+                            <p>200/300
+                                <smart-progress-bar #progressbar3 [value]="66"></smart-progress-bar>
+                                <smart-drop-down-button #dropdownbutton3 class="first-card-item"
+                                    [dropDownWidth]="'auto'" [placeholder]="''">
+                                    <smart-button #button20 class="flat">Action</smart-button>
+                                    <smart-button #button21 class="flat">Another action</smart-button>
+                                    <smart-button #button22 class="flat">Something else here</smart-button>
+                                </smart-drop-down-button>
+                            </p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)">See details</a>
+                        </div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <smart-card #card4 class="basic-card notifications">
+                        <div class="card-content"> <span class="card-title">NOTIFICATIONS</span>
+                            <p>50/62
+                                <smart-progress-bar #progressbar4 [value]="80"></smart-progress-bar>
+                                <smart-drop-down-button #dropdownbutton4 class="first-card-item"
+                                    [dropDownWidth]="'auto'" [placeholder]="''">
+                                    <smart-button #button23 class="flat">Action</smart-button>
+                                    <smart-button #button24 class="flat">Another action</smart-button>
+                                    <smart-button #button25 class="flat">Something else here</smart-button>
+                                </smart-drop-down-button>
+                            </p>
+                        </div>
+                        <div class="card-action"> <a href="javascript:void(0)">See details</a>
+                        </div>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+        <div class="smart-grid-layout cards-with-chart">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card5 class="basic-card sales">
+                        <div class="card-content"> <span class="card-title">OVERVIEW</span>
+                            <p>Sales value</p>
+                            <smart-chart #chart id="chart-sales" [animationDuration]="animationDuration"
+                                [backgroundColor]="backgroundColor" [borderLineWidth]="borderLineWidth"
+                                [toolTipLineColor]="toolTipLineColor" [caption]="caption" [description]="description"
+                                [showLegend]="showLegend" [padding]="padding" [titlePadding]="titlePadding"
+                                [dataSource]="dataSource" [colorScheme]="colorScheme" [xAxis]="xAxis" [clip]="clip"
+                                [valueAxis]="valueAxis" [seriesGroups]="seriesGroups"></smart-chart>
+                        </div>
+                        <div class="card-action"></div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card6 class="basic-card performance">
+                        <div class="card-content"> <span class="card-title">PERFORMANCE</span>
+                            <p>Total orders</p>
+                            <smart-chart #chart2 id="performance" [animationDuration]="chart2AnimationDuration"
+                                [backgroundColor]="backgroundColor" [borderLineWidth]="borderLineWidth"
+                                [toolTipLineColor]="toolTipLineColor" [caption]="caption" [description]="description"
+                                [showLegend]="showLegend" [padding]="chart2Padding" [titlePadding]="chart2TitlePadding"
+                                [dataSource]="chart2DataSource" [colorScheme]="chart2ColorScheme" [xAxis]="chart2XAxis"
+                                [clip]="clip" [valueAxis]="valueAxis" [seriesGroups]="chart2SeriesGroups"></smart-chart>
+                        </div>
+                        <div class="card-action"></div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card7 class="basic-card tasks">
+                        <div class="card-content" style="padding-bottom: 0;"> <span class="card-title">5/23
+                                PROJECTS</span>
+                            <p>Progress track
+                                <smart-button>Action</smart-button>
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <div class="progressbar-holder">
+                                <div class="progress-item bootstrap-design-system">
+                                    <div class="icon">
+                                        <img src="./../../../src/images/bootstrap.svg" style="width: 50px;" />
+                                    </div>
+                                    <div class="progressbar-right-side"> <span class="title">Design System</span>
+                                        <smart-progress-bar #progressbar5 [value]="80"></smart-progress-bar>
+                                    </div>
+                                </div>
+                                <div class="progress-item angular">
+                                    <div class="icon">
+                                        <img src="./../../../src/images/angular.svg" style="width: 40px;" />
+                                    </div>
+                                    <div class="progressbar-right-side"> <span class="title">Angular Now UI Kit
+                                            PRO</span>
+                                        <smart-progress-bar #progressbar6 [value]="80"></smart-progress-bar>
+                                    </div>
+                                </div>
+                                <div class="progress-item black-dshb">
+                                    <div class="icon">
+                                        <img src="./../../../src/images/sketch.svg" style="width: 40px;" />
+                                    </div>
+                                    <div class="progressbar-right-side"> <span class="title">Black Dashboard</span>
+                                        <smart-progress-bar #progressbar7 [value]="80"></smart-progress-bar>
+                                    </div>
+                                </div>
+                                <div class="progress-item react">
+                                    <div class="icon">
+                                        <img src="./../../../src/images/react.svg" style="width: 40px;" />
+                                    </div>
+                                    <div class="progressbar-right-side"> <span class="title">React Material
+                                            Dashboard</span>
+                                        <smart-progress-bar #progressbar8 [value]="80"></smart-progress-bar>
+                                    </div>
+                                </div>
+                                <div class="progress-item vuejs">
+                                    <div class="icon">
+                                        <img src="./../../../src/images/vuejs.svg" style="width: 40px;" />
+                                    </div>
+                                    <div class="progressbar-right-side"> <span class="title">Vue Paper UI Kit PRO</span>
+                                        <smart-progress-bar #progressbar9 [value]="80"></smart-progress-bar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+        <div class="smart-grid-layout grid-sitemap-holder">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                    <smart-card #card8 class="basic-card page-visits">
+                        <div class="card-content"> <span class="card-title">Page visits</span>
+                            <p>
+                                <smart-button #button26 class="see-all">See all</smart-button>
+                                <smart-grid #grid id="grid-page-visits" [layout]="layout" [dataSource]="gridDataSource"
+                                    [columns]="columns"></smart-grid>
+                            </p>
+                        </div>
+                        <div class="card-action"></div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <smart-card #card9 class="basic-card real-time">
+                        <div class="card-content"> <span class="card-title">Real time</span>
+                            <smart-button #button27 class="action">Action</smart-button>
+                            <div id="map"></div>
+                            <smart-grid #grid2 id="real-time-grid" [layout]="grid2Layout" [dataSource]="grid2DataSource"
+                                [columns]="grid2Columns"></smart-grid>
+                        </div>
+                        <div class="card-action"></div>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+        <!-- Team members, To do list, Progress track -->
+        <div class="smart-grid-layout grid-members-holder">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card10 class="basic-card team-members">
+                        <div class="card-content"> <span class="card-title">Team members</span>
+                            <p>
+                                <smart-grid #grid3 id="team-members-grid" [columnHeader]="columnHeader"
+                                    [layout]="grid3Layout" [dataSource]="grid3DataSource" [columns]="grid3Columns">
+                                </smart-grid>
+                            </p>
+                        </div>
+                        <div class="card-action"></div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card11 class="basic-card todo-list">
+                        <div class="card-content"> <span class="card-title">To do list</span>
+                            <p>
+                                <smart-grid #grid4 id="todo-list-grid" [columnHeader]="columnHeader"
+                                    [layout]="grid4Layout" [dataSource]="grid4DataSource" [columns]="grid4Columns">
+                                </smart-grid>
+                            </p>
+                        </div>
+                        <div class="card-action"></div>
+                    </smart-card>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <smart-card #card12 class="basic-card tasks">
+                        <div class="card-content">
+                            <p>Progress track</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="progressbar-holder">
+                                <div class="progress-item bootstrap-design-system">
+                                    <div class="icon">
+                                        <img src="./../../../src/images/bootstrap.svg" style="width: 50px;" />
+                                    </div>
+                                    <div class="progressbar-right-side"> <span class="title">Design System</span>
+                                        <smart-progress-bar #progressbar10 [value]="80"></smart-progress-bar>
+                                    </div>
+                                </div>
+                                <div class="progress-item angular">
+                                    <div class="icon">
+                                        <img src="./../../../src/images/angular.svg" style="width: 40px;" />
+                                    </div>
+                                    <div class="progressbar-right-side"> <span class="title">Angular Now UI Kit
+                                            PRO</span>
+                                        <smart-progress-bar #progressbar11 [value]="80"></smart-progress-bar>
+                                    </div>
+                                </div>
+                                <div class=" progress-item black-dshb">
+                                            <div class="icon">
+                                                <img src="./../../../src/images/sketch.svg" style="width: 40px;" />
+                                            </div>
+                                            <div class="progressbar-right-side"> <span class="title">Black
+                                                    Dashboard</span>
+                                                <smart-progress-bar #progressbar12 [value]="80"></smart-progress-bar>
+                                            </div>
+                                    </div>
+                                    <div class="progress-item react">
+                                        <div class="icon">
+                                            <img src="./../../../src/images/react.svg" style="width: 40px;" />
+                                        </div>
+                                        <div class="progressbar-right-side"> <span class="title">React Material
+                                                Dashboard</span>
+                                            <smart-progress-bar #progressbar13 [value]="80"></smart-progress-bar>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </smart-card>
+                </div>
+            </div>
+        </div>
+    </smart-splitter-item>
+</smart-splitter>

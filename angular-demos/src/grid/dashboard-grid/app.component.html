@@ -1,0 +1,118 @@
+<smart-splitter #dashboard id="dashboard" expanded>
+    <smart-splitter-item [collapsible]="true" id="leftPanel" size="240">
+        <div class="dashboard-header">
+            <div class="company-logo-holder">
+                <img style="height: 34px"
+                    src="https://www.htmlelements.com/wp-content/design/assets/images/logo-htmlelements.svg" />
+            </div>
+            <smart-button #collapseBtn id="collapseBtn" class="floating"> <i class="material-icons">chevron_left</i>
+            </smart-button>
+            <smart-button #expandBtn id="expandBtn" class="floating"> <i class="material-icons">menu</i>
+            </smart-button>
+        </div>
+        <div class="dashboard-menu-container">
+            <smart-button #button3 class="flat menu-btn bold"><i class="material-icons">dashboard</i><span
+                    class="menu-title">Software Company</span>
+            </smart-button>
+            <smart-button #button4 class="flat menu-btn"><i class="material-icons">apps</i><span
+                    class="menu-title">Overview</span>
+            </smart-button>
+            <smart-button #button5 class="flat menu-btn"><i class="material-icons">apps</i><span
+                    class="menu-title">Boards</span>
+            </smart-button>
+            <smart-button #button6 class="flat menu-btn"><i class="material-icons">merge_type</i><span
+                    class="menu-title">Repos</span>
+            </smart-button>
+            <smart-button #button7 class="flat menu-btn"><i class="material-icons">timeline</i><span
+                    class="menu-title">Pipelines</span>
+            </smart-button>
+            <smart-button #button8 class="flat menu-btn"><i class="material-icons rotate90deg">input</i><span
+                    class="menu-title">Builds</span>
+            </smart-button>
+            <smart-button #button9 class="flat menu-btn"><i class="material-icons">publish</i><span
+                    class="menu-title">Releases</span>
+            </smart-button>
+            <smart-button #button10 class="flat menu-btn"><i class="material-icons">library_books</i><span
+                    class="menu-title">Library</span>
+            </smart-button>
+            <smart-button #button11 class="flat menu-btn"><i class="material-icons">group_work</i><span
+                    class="menu-title">Deployment groups</span>
+            </smart-button>
+            <smart-button #button12 class="flat menu-btn"><i class="material-icons">developer_mode</i><span
+                    class="menu-title">Test Plans</span>
+            </smart-button>
+            <smart-button #button13 class="flat menu-btn"><i class="material-icons">filter_none</i><span
+                    class="menu-title">Artifacts</span>
+            </smart-button>
+        </div>
+    </smart-splitter-item>
+    <smart-splitter-item id="rightPanel">
+        <div class="dashboard-header"> <span class="breadcrumb-header">
+
+                Project / Software Company / Pipelines / Builds
+
+            </span>
+            <span class="icon-holder">
+
+                <smart-button #button14 id="notifficationSearchBtn">
+
+                    <i class="material-icons">search</i>
+
+                </smart-button>
+
+                <smart-button #button15 id="notifficationSearchBtn">
+
+                    <i class="material-icons">menu</i>
+
+                </smart-button>
+
+                <smart-button #button16 id="notifficationBtn">
+
+                    <i class="material-icons">shopping_basket</i>
+
+                </smart-button>
+
+                <img style="width: 32px; height: 32px;" class="header-logo"
+                    src="../../../src/images/phonebook/nancy.png" />
+
+            </span>
+        </div>
+        <h1 class="main-company-name">Software Company</h1>
+        <div class="header-right-buttons">
+            <smart-button> <i class="material-icons">edit</i> <span class="button-text">Edit</span>
+            </smart-button>
+            <smart-button #button17 class="run"> <i class="material-icons">play_arrow</i> <span
+                    class="button-text">Run</span>
+            </smart-button>
+            <smart-button #button18 class="transparent-bck"> <i
+                    class="material-icons vertical-align-middle more-horiz">more_horiz</i>
+            </smart-button>
+        </div>
+        <div class="history-holder">
+            <h4 class="subtitles active">
+
+                <smart-button>
+
+                    History
+
+                </smart-button>
+
+            </h4>
+            <h4 class="subtitles">
+
+                <smart-button>
+
+                    Analytics
+
+                </smart-button>
+
+            </h4>
+            <div class="filter-right-button">
+                <smart-button #button19 class="transparent-bck"> <i
+                        class="material-icons vertical-align-middle filter">filter_list</i>
+                </smart-button>
+            </div>
+        </div>
+        <smart-grid [dataSource]="dataSource" [columns]="columns" [layout]="layout" #grid id="grid"></smart-grid>
+    </smart-splitter-item>
+</smart-splitter>

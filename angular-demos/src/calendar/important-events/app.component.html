@@ -1,0 +1,23 @@
+<div class="demo-description">Most popular Tennis Events are added to the Calendar as <b>importantDates</b>.
+    Hover over a date in order to see the Tooltip with the event description.
+    Click on the calendar Button inside the Tooltip to edit the event. Double
+    clicking on an empty date(non-important date) will allow to add a new event(important
+    date) to the Calendar.</div>
+<smart-calendar #calendar id="calendar" [months]="months" [firstDayOfWeek]="firstDayOfWeek"
+    [importantDates]="importantDates" [scrollButtonsPosition]="scrollButtonsPosition" [selectedDates]="selectedDates"
+    [headerTemplate]="headerTemplate" [tooltipTemplate]="tooltipTemplate" [tooltip]="tooltip"></smart-calendar>
+
+<smart-window #window id="eventWindow" [modal]="true" [footerTemplate]="'windowFooterTemplate'" (onReady)="handleReady($event)">
+    <div class="window-content">
+        <div>
+            <label>Description</label>
+            <smart-multiline-text-box #multilinetextbox id="descriptionInput" [autoExpand]="true"
+                [placeholder]="'Enter description'"></smart-multiline-text-box>
+        </div>
+        <div>
+            <label>Time period</label>
+            <smart-date-range-input #daterangeinput id="dateRangeInput" [placeholder]="'Enter date(s)'"
+                [dropDownButtonPosition]="'right'" [valueType]="'object'"></smart-date-range-input>
+        </div>
+    </div>
+</smart-window>

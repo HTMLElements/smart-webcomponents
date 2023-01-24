@@ -1,0 +1,12 @@
+i {
+    line-height: 35px;
+    vertical-align: middle;
+    margin-left: 20px;
+    transform: rotate(0deg);
+    transition: transform 2s;
+}
+
+smart-chip:hover i {
+    transform: rotate(-360deg);
+    transition: transform 2s;
+}

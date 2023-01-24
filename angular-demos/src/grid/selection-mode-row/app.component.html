@@ -1,0 +1,38 @@
+<div class="demo-description">
+    <h1>Grid Row Selection</h1>
+    <p>The data grid component supports different configurations for selection.
+        You can choose to select/unselect rows with API only or on single or double
+        click by setting the 'selection.action' property to 'none', 'click' or
+        'dblclick'. Clicking on a Grid Row or Column header can also be used for
+        selection just like in Microsoft Excel. The 'selection.mode' property determines
+        whether we will have Single or Multi-Row selection. The allowed values
+        for that property are 'one', 'many' and 'extended'. 'one' allows only single
+        row selection, while 'many' and 'extended' allow multi-row selection. The
+        difference between 'many' and 'extended' Grid selection modes is that in
+        'extended', users will have to click 'Ctrl' or 'Shift' keyboard keys to
+        perform multiple selection.</p>
+</div>
+<smart-grid #grid style="width:60%;" [appearance]="appearance" [selection]="selection" [dataSource]="dataSource"
+    [columns]="columns" id="grid"></smart-grid>
+<div class="options">
+    <div class="caption">Settings</div>
+    <div class="option">
+        <smart-check-box #dblclickCheckBox id="dblclickCheckBox">Select on Double Click</smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #headerSelectionCheckBox id="headerSelectionCheckBox">Allow Row Header Selection
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-check-box #colheaderSelectionCheckBox id="colheaderSelectionCheckBox">Allow Column Header Selection
+        </smart-check-box>
+    </div>
+    <div class="option">
+        <smart-radio-button #singleRadioButton id="singleRadioButton">Single Selection</smart-radio-button>
+        <br />
+        <smart-radio-button #multipleRadioButton id="multipleRadioButton">Multiple Selection</smart-radio-button>
+        <br />
+        <smart-radio-button #extendedRadioButton id="extendedRadioButton" [checked]="true">Extended Selection
+        </smart-radio-button>
+    </div>
+</div>

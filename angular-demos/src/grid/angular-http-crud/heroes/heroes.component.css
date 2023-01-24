@@ -1,0 +1,34 @@
+.controls-container {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 20px;
+}
+
+.controls-container>*:not(:first-child) {
+  margin-left: 5px;
+  height: 100%;
+}
+
+smart-grid {
+	width: 400px;
+	height: auto;
+}
+
+@media only screen and (max-width: 700px) {
+	smart-grid {
+		width: 100%;
+	}
+}
+
+.smart-grid-cell-template {
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	display: flex;
+}
+
+.delete-row-button {
+	width: 100%;
+	height: 100%;
+	--smart-button-padding: 0;
+}

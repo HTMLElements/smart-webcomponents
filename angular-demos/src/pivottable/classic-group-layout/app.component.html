@@ -1,0 +1,14 @@
+<div class="demo-description">This demo shows how to display smart-pivot-table row nesting
+    (based on <strong>rowGroup</strong> columns) in a classic, OLAP, layout.
+    In this layout, there is a separate column for each level of nesting. Clicking
+    the toggle button will change to the default, tree grid-like, style with
+    a separate row for each record in the hierarchy.</div>
+<smart-pivot-table #pivottable id="pivotTable" [dataSource]="dataSource" [freezeHeader]="freezeHeader"
+    [groupLayout]="groupLayout" [keyboardNavigation]="keyboardNavigation" [onInit]="onInit" [columns]="columns">
+</smart-pivot-table>
+<div class="options">
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleButton" (onChange)="handleChange($event)">Change
+            <strong>groupLayout</strong> to '<span id="toggleButtonLabel">default</span>'</smart-toggle-button>
+    </div>
+</div>

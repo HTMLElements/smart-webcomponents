@@ -1,0 +1,23 @@
+.name:after {
+    background-image: url("https://img.icons8.com/color/16/000000/user.png");
+}
+
+.age:after {
+    background-image: url("https://img.icons8.com/color/16/000000/birthday.png");
+}
+
+.married:after {
+    background-image: url("https://img.icons8.com/doodle/16/000000/wedding-rings.png");
+}
+
+.arrival:after {
+    background-image: url("https://img.icons8.com/color/16/000000/calendar.png");
+}
+
+.departure:after {
+    background-image: url("https://img.icons8.com/color/16/000000/airplane-take-off.png");
+}
+
+.luggage:after {
+    background-image: url("https://img.icons8.com/color/16/000000/luggage-trolley.png");
+}

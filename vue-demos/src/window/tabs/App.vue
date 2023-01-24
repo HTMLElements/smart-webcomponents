@@ -1,0 +1,187 @@
+<template>
+  <div class="vue-root">
+    <div class="options">
+      <div class="option">
+        <smart-button id="openButton">Open/Close</smart-button>
+      </div>
+    </div>
+    <!-- smart-tab-item label templates -->
+    <template id="primaryTemplate">
+      Primary
+      <span class="smart-badge smart-badge-success">10</span>
+    </template>
+    <template id="promotionsTemplate">
+      Promotions
+      <span class="smart-badge smart-badge-info">0</span>
+    </template>
+    <template id="spamTemplate">
+      Spam
+      <span class="smart-badge smart-badge-danger">1</span>
+    </template>
+    <smart-window opened label="Mailbox">
+      <smart-tabs id="tabs" selected-index="0">
+        <smart-tab-item label="primaryTemplate">
+          <smart-list-box class="mailList">
+            <smart-list-item>
+              Re: Exam
+              <strong class="date">9/1/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Dinner tonight?
+              <strong class="date">8/16/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Hi
+              <strong class="date">8/1/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              About the interview
+              <strong class="date">7/11/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Re: Query about car purchase
+              <strong class="date">6/29/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Your weekly newsletter
+              <strong class="date">6/17/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Important update
+              <strong class="date">5/30/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Re: Introduction
+              <strong class="date">5/30/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Welcome to our forums
+              <strong class="date">5/28/17</strong>
+            </smart-list-item>
+            <smart-list-item>
+              Your weekly newsletter
+              <strong class="date">4/17/17</strong>
+            </smart-list-item>
+          </smart-list-box>
+        </smart-tab-item>
+        <smart-tab-item label="promotionsTemplate">Your Promotions tab is empty.</smart-tab-item>
+        <smart-tab-item label="spamTemplate">
+          <smart-list-box class="mailList">
+            <smart-list-item>
+              Join our club today!
+              <strong class="date">9/1/17</strong>
+            </smart-list-item>
+          </smart-list-box>
+        </smart-tab-item>
+      </smart-tabs>
+    </smart-window>
+  </div>
+</template>
+
+<script>
+import { onMounted } from "vue";
+import "smart-webcomponents/source/styles/smart.default.css";
+import "smart-webcomponents/source/modules/smart.button.js";
+import "smart-webcomponents/source/modules/smart.listbox.js";
+import "smart-webcomponents/source/modules/smart.tabs.js";
+import "smart-webcomponents/source/modules/smart.window.js";
+
+export default {
+  name: "app",
+  setup() {
+    onMounted(() => {
+      const smartWindow = document.querySelector("smart-window");
+      document
+        .getElementById("openButton")
+        .addEventListener("click", function() {
+          smartWindow.opened ? smartWindow.close() : smartWindow.open();
+        });
+    });
+  }
+};
+</script>
+
+<style>
+html,
+body,
+#app,
+.vue-root {
+  width: 99%;
+  height: 99%;
+}
+
+.smart-window #article {
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .smart-window {
+    width: 90% !important;
+    left: 5% !important;
+    top: 5px !important;
+  }
+}
+#tabs {
+  border-color: #878787;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+#tabs .smart-tab-strip {
+  background-color: #e0e0e0;
+}
+
+#tabs .smart-tab-label-container {
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: transparent;
+}
+
+#tabs .smart-tab-label-container.smart-tab-selected {
+  background-color: #f2f2f2;
+}
+
+#tabs .smart-tab-label-container.smart-tab-hovered {
+  background-color: #e5e5e5;
+  color: black;
+}
+
+#tabs .smart-tab-label-container:nth-child(1).smart-tab-selected {
+  border-color: #5cb85c;
+}
+
+#tabs .smart-tab-label-container:nth-child(1).smart-tab-hovered {
+  border-color: #7dd17d;
+}
+
+#tabs .smart-tab-label-container:nth-child(2).smart-tab-selected {
+  border-color: #5bc0de;
+}
+
+#tabs .smart-tab-label-container:nth-child(2).smart-tab-hovered {
+  border-color: #7eddf7;
+}
+
+#tabs .smart-tab-label-container:nth-child(3).smart-tab-selected {
+  border-color: #d9534f;
+}
+
+#tabs .smart-tab-label-container:nth-child(3).smart-tab-hovered {
+  border-color: #f27371;
+}
+
+smart-list-box.mailList {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+#tabs .smart-list-item-container {
+  width: 100%;
+}
+
+smart-list-item.date {
+  float: right;
+}
+</style>

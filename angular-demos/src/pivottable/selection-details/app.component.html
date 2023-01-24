@@ -1,0 +1,15 @@
+<div class="demo-description">This demo showcases the cell selection functionality of smart-pivot-table.
+    Click-drag in order to select multiple cells. When multiple cells with
+    non-null summary values are selected, a tooltip showng the Average, Count,
+    and Sum of the values is displayed.</div>
+<smart-pivot-table #pivottable id="pivotTable" [dataSource]="dataSource" [drillDown]="drillDown"
+    [freezeHeader]="freezeHeader" [grandTotal]="grandTotal" [keyboardNavigation]="keyboardNavigation"
+    [selection]="selection" [selectionMode]="selectionMode" [toolbar]="toolbar" [columns]="columns"
+    (onReady)="readyHandler()">
+</smart-pivot-table>
+<div class="options">
+    <div class="option">
+        <smart-toggle-button #togglebutton id="toggleButton" (onChange)="changeHandler($event)">Hide cell selection
+            tooltip</smart-toggle-button>
+    </div>
+</div>
