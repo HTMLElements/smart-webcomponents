@@ -41,6 +41,16 @@ interface ITaskGenerateData {
 	dueDate?: Date
 }
 
+interface IPivotRowGenerateData {
+	continent: string;
+	city: string;
+	year: number;
+	quarter: string;
+	month: string;
+	revenue: number;
+	expense: number;
+}
+
 export function GetCountriesData() {
 	var countries = [{
 		"ID": 1,
@@ -829,7 +839,7 @@ export function GetEmployees() {
 		"Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German."];
 	var k = 0;
 	for (var i = 0; i < firstNames.length; i++) {
-		var row = {};
+		var row: any = {};
 		row["firstName"] = firstNames[k];
 		row["lastName"] = lastNames[k];
 		row["title"] = titles[k];
@@ -1010,7 +1020,7 @@ export function GetOrdersData(rowscount?: number): IRowGenerateOrdersData[] {
 }
 
 export function GetKanbanData(locale = 'en') {
-	const text = {
+	const text: any = {
 		en: [
 			'Research', 'Displaying data from data source', 'Showing cover and title', 'Property validation',
 			'formatFunction and formatSettings', 'Expand/collapse arrow', 'Virtual scrolling', 'Deferred scrolling',
@@ -1026,7 +1036,7 @@ export function GetKanbanData(locale = 'en') {
 			'שימוש חוזר באלמנטים HTML קיימים', 'וירטואליזציה של כרטיסים שהתמוטטו'
 		]
 	},
-		tags = {
+		tags: any = {
 			en: ['initial', 'data', 'visual', 'property', 'scrolling', 'method'],
 			he: ['התחלתי', 'נתונים', 'חזותי', 'תכונה', 'גלילה', 'שיטה']
 		},
@@ -1284,6 +1294,95 @@ export function GetKanbanHierarchicalData() {
 	data = data.concat(GetKanbanData());
 	return data;
 }
+
+export function GeneratePivotData(numberOfRecords: number, numberOfYears: number = 4): any {
+	const continents: string[] = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'],
+		cities: any = {
+			Africa: ['Cairo', 'Lagos', 'Kinshasa', 'Luanda', 'Khartoum'],
+			Asia: ['Tokyo', 'Delhi', 'Shanghai', 'Mumbai', 'Beijing'],
+			Australia: ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide'],
+			Europe: ['Istanbul', 'Moscow', 'Paris', 'London', 'Madrid'],
+			'North America': ['Mexico City', 'New York City', 'Los Angeles', 'Chicago', 'Houston'],
+			'South America': ['São Paulo', 'Buenos Aires', 'Rio de Janeiro', 'Bogotá', 'Lima']
+		},
+		allMonths: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+		months: any = {
+			Q1: ['January', 'February', 'March'],
+			Q2: ['April', 'May', 'June'],
+			Q3: ['July', 'August', 'September'],
+			Q4: ['October', 'November', 'December']
+		},
+		maxYear = new Date().getFullYear(),
+		minYear = maxYear - numberOfYears + 1;
+	let result: any = [];
+
+	for (let i = 0; i < numberOfRecords; i++) {
+		const dataPoint: any = {} as IPivotRowGenerateData;
+
+		dataPoint.continent = continents[Math.floor(Math.random() * continents.length)];
+		dataPoint.city = cities[dataPoint.continent][Math.floor(Math.random() * cities[dataPoint.continent].length)];
+		dataPoint.year = Math.floor(Math.random() * (maxYear - minYear + 1)) + minYear;
+		dataPoint.quarter = ['Q1', 'Q2', 'Q3', 'Q4'][Math.floor(Math.random() * 4)];
+		
+		const randomQuarter: number = Math.floor(Math.random() * 3);
+		dataPoint.month = months[dataPoint.quarter][randomQuarter];
+		dataPoint.revenue = Math.floor(Math.random() * (10000 - 1001)) + 1000;
+		dataPoint.expense = -1 * Math.floor(Math.random() * (10000 - 1001)) + 1000;
+
+		result.push(dataPoint);
+	}
+
+	if (window.Smart && window.Smart.DataAdapter) {
+		result = new window.Smart.DataAdapter({
+			dataSource: result,
+			dataFields: [
+				'continent: string',
+				'city: string',
+				'year: number',
+				'quarter: string',
+				'month: string',
+				'revenue: number',
+				'expense: number'
+			]
+		});
+
+		result._sort(result.boundSource, ['year', 'quarter', 'month'], ['asc', 'asc', 'asc'], ['number', 'string', 'string'],
+			function (dataSource: any, sortColumns: string[], directions: string[], compareFunctions: ((a: any, b: any) => number)[]) {
+				dataSource.sort(function (a: any, b: any) {
+					for (let i = 0; i < sortColumns.length; i++) {
+						if (i === 2) {
+							return allMonths.indexOf(a.month) - allMonths.indexOf(b.month);
+						}
+
+						const result = compareFunctions[i](a[sortColumns[i]], b[sortColumns[i]]);
+
+						if (result === 0) {
+							if (sortColumns[i + 1]) {
+								continue;
+							}
+							else if (a.$.index !== undefined) {
+								// makes sorting stable
+								return (a.$.index - b.$.index) * (directions[i] === 'asc' ? 1 : -1);
+							}
+
+							return 0;
+						}
+
+						return result * (directions[i] === 'asc' ? 1 : -1);
+					}
+					
+					return 0;
+				});
+
+				for (let i = 0; i < dataSource.length; i++) {
+					result[i] = dataSource[i];
+				}
+			});
+	}
+
+	return result;
+}
+
 
 export function GetGanttChartTreeData(count: number = 50, minDate?: Date, maxDate?: Date) {
 	const data = [];

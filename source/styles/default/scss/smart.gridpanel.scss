@@ -622,8 +622,8 @@ smart-group-panel {
   padding: 3px;
   position: relative;
   display: grid;
-  grid-template-areas: "views customize filter sort format details delete . search";
-  grid-template-columns: minmax(0px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
+  grid-template-areas: "states views customize filter sort format details delete . search";
+  grid-template-columns: minmax(0px, max-content) minmax(0px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
   grid-gap: 10px;
   grid-template-rows: 100%;
   background: var(--smart-surface);
@@ -816,7 +816,7 @@ smart-group-panel {
   grid-area: filter;
 
   &:after {
-    content: var(--smart-icon-filter);
+    content: var(--smart-icon-add-filter);
   }
 
   &.filtered {
@@ -907,6 +907,24 @@ smart-group-panel {
 
   &.kanban:before {
     content: var(--smart-icon-kanban);
+  }
+
+  &.formatted {
+    background-color: var(--smart-primary);
+    color: var(--smart-primary-color);
+  }
+}
+
+
+.smart-data-view-states-button {
+  grid-area: states;
+  border-right: 1px solid var(--smart-border);
+  padding-right: 5px;
+  &:before {
+    font-family: var(--smart-font-family-icon);
+    left: 8px;
+    content: var(--smart-icon-menu);
+    position: absolute;
   }
 
   &.formatted {

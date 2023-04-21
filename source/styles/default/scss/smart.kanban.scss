@@ -19,7 +19,7 @@
     .smart-kanban-column:not(.smart-kanban-add-new-column) {
       background: var(--smart-surface);
       padding: 5px;
-      box-shadow: 0 0 1px rgba(0,0,0,0.2),0 0 2px rgba(0,0,0,0.08),0 3px 4px rgba(0,0,0,0.03),0 3px 16px rgba(0,0,0,0.06);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 0 2px rgba(0, 0, 0, 0.08), 0 3px 4px rgba(0, 0, 0, 0.03), 0 3px 16px rgba(0, 0, 0, 0.06);
       border-radius: 5px;
       box-sizing: border-box;
 
@@ -375,9 +375,9 @@
       justify-content: center;
       width: 100%;
       opacity: 0.5;
-      font-size:11px;
+      font-size: 11px;
     }
-    
+
     .smart-kanban-task[focus] {
       box-shadow: inset 0px 0px 1px 1px var(--smart-primary);
     }
@@ -409,11 +409,13 @@
   .smart-kanban-task {
     &:hover {
       .smart-kanban-task-edit {
+        width: 16px;
+
         &:after {
           content: var(--smart-icon-mode-edit);
           font-family: var(--smart-font-family-icon);
         }
-      }      
+      }
     }
 
     &.dragged {
@@ -579,10 +581,11 @@
       transition: transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
       transform: scale(1);
       transition-delay: 0s;
+
       &:hover {
         box-shadow: var(--smart-elevation-8);
         transform: scale(1.2);
-     }
+      }
 
       &:after {
         content: var(--smart-icon-plus);
@@ -950,7 +953,7 @@
   display: none;
 
   &:after {
-    content: var(--smart-icon-comment) ' 'attr(num);
+    content: var(--smart-icon-comment) ' ' attr(num);
     font-family: var(--smart-font-family-icon);
     white-space: nowrap;
   }
@@ -1139,11 +1142,12 @@
     .remove-subtask {
       display: none;
     }
+
     .new-subtask {
       display: none;
     }
 
-    .smart-footer, 
+    .smart-footer,
     .smart-button.add,
     .smart-button.delete {
       display: none !important;
@@ -1154,7 +1158,9 @@
     }
 
     .smart-multi-combo-input {
-      .smart-drop-down-button, .smart-drop-down-list-unselect-button {
+
+      .smart-drop-down-button,
+      .smart-drop-down-list-unselect-button {
         display: none;
       }
     }
@@ -1162,16 +1168,19 @@
     smart-numeric-text-box input {
       border: none;
     }
+
     .smart-numeric-text-box .smart-numeric-text-box-unit-display {
-      border: none;   
+      border: none;
     }
+
     smart-color-input {
       pointer-events: none;
       opacity: 0.7;
     }
+
     .smart-kanban-tab-content.details textarea,
     input,
-    smart-input, 
+    smart-input,
     smart-multi-combo-input,
     smart-numeric-text-box,
     smart-date-time-picker {
@@ -1191,9 +1200,9 @@
       grid-column-gap: 30px;
 
       &.single-column {
-        grid-template-columns:  1fr;
+        grid-template-columns: 1fr;
       }
-      
+
       .description-editor {
         height: 91px;
       }

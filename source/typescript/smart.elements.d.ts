@@ -170,6 +170,11 @@ export interface ThreeDChartProperties {
    */
   toolTipFormatFunction?: {(value?: any, index?: number, series?: any): string};
   /**
+   * Tooltip data formatting settings for the values in the serie.
+   * Default value: [object Object]
+   */
+  toolTipFormatSettings?: ThreeDChartFormatSettings;
+  /**
    * Tooltip line color. By default it is set to the hovered item's color
    * Default value: null
    */
@@ -1896,6 +1901,16 @@ export interface BarcodeProperties {
    * Default value: ""
    */
   value?: string;
+  /**
+   * Sets or gets the width of the barcode. If the width is set to 0, the width of the barcode is calculated automatically.
+   * Default value: 0
+   */
+  width?: number;
+  /**
+   * Sets or gets the height of the barcode. If the height is set to 0, the height of the barcode is calculated automatically.
+   * Default value: 0
+   */
+  height?: number;
 }
 /**
  Barcodes encodes text value in a specific pattern.
@@ -12606,12 +12621,12 @@ export interface FormProperties {
    * Callback function for handling status changes. The status could be  'disabled', 'invalid', 'pending', 'valid'.
    * Default value: null
    */
-  onStatusChanges?: any;
+  onStatusChanges?: {(value: string): void};
   /**
-   * Callback function for handling value changes
+   * Callback function for handling value changes. The function argument is the form's value as a JSON object.
    * Default value: null
    */
-  onValueChanges?: any;
+  onValueChanges?: {(value: any): void};
   /**
    * Sets or Gets the labels position.
    * Default value: left
@@ -13026,20 +13041,30 @@ export interface FormGroupProperties {
    */
   columns?: number;
   /**
+   * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
+   * Default value: ""
+   */
+  dataField?: string;
+  /**
+   * Gets or Sets the Form control's label.
+   * Default value: ""
+   */
+  label?: string;
+  /**
    * 
    * Default value: null
    */
   controls?: Control[];
   /**
-   * Callback function for handling status changes
+   * Callback function for handling status changes. The function argument is a string which could be: 'valid', 'invalid', 'disabled', 'pending'
    * Default value: null
    */
-  onStatusChanges?: any;
+  onStatusChanges?: {(value: string): void};
   /**
-   * Callback function for handling value changes
+   * Callback function for handling value changes. The function argument is the form's value as a JSON object.
    * Default value: null
    */
-  onValueChanges?: any;
+  onValueChanges?: {(value: any): void};
   /**
    * Sets or Gets the labels position.
    * Default value: left
@@ -13369,6 +13394,11 @@ export interface GanttChartProperties {
    */
   filterRow?: boolean;
   /**
+   * Determines the view start day. Sunday is 0, Monday is 1, Saturday is 6. By default it's Sunday.
+   * Default value: -1
+   */
+  firstDayOfWeek?: number;
+  /**
    * Groups the tasks inside the Task timeline according to the resources they are assigned to. Unassigned tasks are placed in a default group labeled 'Unassigned'.
    * Default value: false
    */
@@ -13384,10 +13414,20 @@ export interface GanttChartProperties {
    */
   hideDateMarkers?: boolean;
   /**
-   * By default the Timeline has a two level header - timeline details and timeline header. This property hides the header details container( the top container ).
+   * By default the Timeline has a three level header - timeline details, timeline second details and timeline header. This property hides the header container( the bottom container ).
+   * Default value: false
+   */
+  hideTimelineHeader?: boolean;
+  /**
+   * By default the Timeline has a three level header - timeline details, timeline second details and timeline header. This property hides the header details container( the top container ).
    * Default value: false
    */
   hideTimelineHeaderDetails?: boolean;
+  /**
+   * By default the Timeline has a three level header - timeline details and timeline header. This property hides the second header details container( the middle container ).
+   * Default value: true
+   */
+  hideTimelineSecondHeaderDetails?: boolean;
   /**
    * Shows the selection column of the Task/Resource Table. When applied a checkbox column is displayed that allows to select tasks/resources.
    * Default value: false
@@ -13453,6 +13493,11 @@ export interface GanttChartProperties {
    * Default value: short
    */
   monthFormat?: MonthFormat | string;
+  /**
+   * Determines the scale in Month view.
+   * Default value: week
+   */
+  monthScale?: MonthScale | string;
   /**
    * Determines the nonworking days of the week from 0 to 6, where 0 is the first day of the week and 6 is the last day. Nonworking days will be displayed with colored cells inside the timeline and will not affect the dateEnd of the tasks unless the adjustToNonworkingTime property is enabled.
    * Default value: 
@@ -14647,6 +14692,8 @@ export declare type GanttDayFormat = '2-digit' | 'numeric' | 'long' | 'short' | 
 export declare type Duration = 'day' | 'hour' | 'minute' | 'second' | 'milisecond';
 /**Determines the format of the dates inside the timeline header when they represent hours. */
 export declare type HourFormat = 'default' | '2-digit' | 'numeric';
+/**Determines the scale in Month view. */
+export declare type MonthScale = 'day' | 'week';
 /**Determines how the capacity of the resources will be visualized inside the resource timeline. By default, the capacity is measured in hours depending on the <b>view</b> property of the element. */
 export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | 'custom';
 /**Determines how the resources will be displayed inside the resource Timeline. */
@@ -14661,7 +14708,7 @@ month - the timeline shows the days of the month.
 year - the timeline shows the months of the year.
 resource - displays the current tasks by grouping them according to the resources they have assigned. The unassigned tasks will be placed in a separate group called 'Unassigned'.
  <br /> The timeline has a header section that contains the labels of each cell according to the date inside them. The header is splitted in two sections in order to give a more detailed information of the dates. */
-export declare type GanttChartView = 'day' | 'week' | 'month' | 'year';
+export declare type GanttChartView = 'day' | 'week' | 'month' | 'quarter' | 'year';
 /**Determines the format of the dates inside the timeline header when they represent weeks.  */
 export declare type WeekFormat = 'long' | 'numeric';
 export interface GaugeProperties {
@@ -24701,6 +24748,21 @@ export interface PivotTableProperties {
    */
   onInit?: { (): void };
   /**
+   * Sets or gets the page size (when paging is enabled).
+   * Default value: 10
+   */
+  pageSize?: PivotTablePageSize | string;
+  /**
+   * Sets or gets the current (zero-based) page index (when paging is enabled).
+   * Default value: 0
+   */
+  pageIndex?: number;
+  /**
+   * Sets or gets whether paging is enabled.
+   * Default value: false
+   */
+  paging?: boolean;
+  /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
@@ -25044,6 +25106,8 @@ export declare type PivotTableDesignerPosition = 'near' | 'far';
 export declare type PivotTableDrillDownDataExport = null | 'xlsx' | 'pdf' | 'html' | 'json' | 'csv' | 'tsv' | 'xml';
 /**Sets or gets the way row nesting (based on rowGroup columns) is displayed. */
 export declare type PivotTableGroupLayout = 'classic' | 'default';
+/**Sets or gets the page size (when paging is enabled). */
+export declare type PivotTablePageSize = '10' | '25' | '50';
 /**Sets or gets the position of row total columns (shown when rowTotals is enabled). */
 export declare type PivotTableRowTotalsPosition = 'near' | 'far';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */
@@ -25284,6 +25348,11 @@ export interface QRcodeProperties {
    */
   errorLevel?: string;
   /**
+   * Sets color to the transparent parts of the embedded image. Background remains transparent if set to empty string.
+   * Default value: ""
+   */
+  imageBackgroundColor?: string;
+  /**
    * Sets the height of the embedded image.
    * Default value: 15
    */
@@ -25343,6 +25412,16 @@ export interface QRcodeProperties {
    * Default value: ""
    */
   value?: string;
+  /**
+   * Sets or gets the width of the QR Code. If the width is set to 0, the width of the QR Code is calculated automatically.
+   * Default value: 0
+   */
+  width?: number;
+  /**
+   * Sets or gets the height of the QR Code. If the height is set to 0, the height of the QR Code is calculated automatically.
+   * Default value: 0
+   */
+  height?: number;
 }
 /**
  QR Codes encode text values in a two-dimensional pattern.

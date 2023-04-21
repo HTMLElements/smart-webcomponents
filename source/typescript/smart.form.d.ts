@@ -15,12 +15,12 @@ export interface FormProperties {
    * Callback function for handling status changes. The status could be  'disabled', 'invalid', 'pending', 'valid'.
    * Default value: null
    */
-  onStatusChanges?: any;
+  onStatusChanges?: {(value: string): void};
   /**
-   * Callback function for handling value changes
+   * Callback function for handling value changes. The function argument is the form's value as a JSON object.
    * Default value: null
    */
-  onValueChanges?: any;
+  onValueChanges?: {(value: any): void};
   /**
    * Sets or Gets the labels position.
    * Default value: left
@@ -435,20 +435,30 @@ export interface FormGroupProperties {
    */
   columns?: number;
   /**
+   * Sets the Form control data field. The control's inner input's name is set to the dataField value and in the FormGroup it is accessible through the dataField value.
+   * Default value: ""
+   */
+  dataField?: string;
+  /**
+   * Gets or Sets the Form control's label.
+   * Default value: ""
+   */
+  label?: string;
+  /**
    * 
    * Default value: null
    */
   controls?: Control[];
   /**
-   * Callback function for handling status changes
+   * Callback function for handling status changes. The function argument is a string which could be: 'valid', 'invalid', 'disabled', 'pending'
    * Default value: null
    */
-  onStatusChanges?: any;
+  onStatusChanges?: {(value: string): void};
   /**
-   * Callback function for handling value changes
+   * Callback function for handling value changes. The function argument is the form's value as a JSON object.
    * Default value: null
    */
-  onValueChanges?: any;
+  onValueChanges?: {(value: any): void};
   /**
    * Sets or Gets the labels position.
    * Default value: left

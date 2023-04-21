@@ -22,6 +22,11 @@ export interface QRcodeProperties {
    */
   errorLevel?: string;
   /**
+   * Sets color to the transparent parts of the embedded image. Background remains transparent if set to empty string.
+   * Default value: ""
+   */
+  imageBackgroundColor?: string;
+  /**
    * Sets the height of the embedded image.
    * Default value: 15
    */
@@ -81,6 +86,16 @@ export interface QRcodeProperties {
    * Default value: ""
    */
   value?: string;
+  /**
+   * Sets or gets the width of the QR Code. If the width is set to 0, the width of the QR Code is calculated automatically.
+   * Default value: 0
+   */
+  width?: number;
+  /**
+   * Sets or gets the height of the QR Code. If the height is set to 0, the height of the QR Code is calculated automatically.
+   * Default value: 0
+   */
+  height?: number;
 }
 /**
  QR Codes encode text values in a two-dimensional pattern.

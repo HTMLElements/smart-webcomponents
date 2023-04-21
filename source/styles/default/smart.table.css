@@ -36,6 +36,9 @@ smart-table tr.expanded .hierarchy-arrow {
   text-align: left;
   font-weight: 500;
 }
+.smart-table thead th[filter] {
+  position: relative;
+}
 .smart-table thead th[filter]::before {
   content: var(--smart-icon-filter);
   font-family: var(--smart-font-family-icon);
@@ -60,7 +63,10 @@ smart-table tr.expanded .hierarchy-arrow {
   visibility: hidden;
   width: 16px;
   height: 16px;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   opacity: 0;
 }
 .smart-table thead th .sort-by:before {
@@ -188,7 +194,7 @@ smart-table tr.expanded .hierarchy-arrow {
   background-color: var(--smart-primary);
 }
 .smart-table th.smart-table-select-all.indeterminate > div:after {
-  content: '';
+  content: "";
   position: absolute;
   width: calc(0.5 * var(--smart-check-box-default-size));
   height: calc(0.5 * var(--smart-check-box-default-size));
@@ -229,7 +235,7 @@ smart-table tr.expanded .hierarchy-arrow {
   background-color: var(--smart-primary);
 }
 .smart-table td.indeterminate > div:after {
-  content: '';
+  content: "";
   position: absolute;
   width: calc(0.5 * var(--smart-check-box-default-size));
   height: calc(0.5 * var(--smart-check-box-default-size));
@@ -321,7 +327,7 @@ smart-table tr.expanded .hierarchy-arrow {
 }
 .smart-table th.smart-table-select-all > div:before,
 .smart-table td.smart-table-select-row > div:before {
-  content: '';
+  content: "";
   position: absolute;
   border-radius: 50%;
   width: 100%;
@@ -338,10 +344,14 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table th.smart-table-select-all > div:hover:active:before,
 .smart-table td.smart-table-select-row > div:hover:active:before {
   background-color: var(--smart-primary);
-  animation-name: active;
-  animation-duration: 0.2s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: 1;
+  -webkit-animation-name: active;
+          animation-name: active;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 .smart-table th.smart-table-select-all.selected > div,
 .smart-table td.smart-table-select-row.selected > div {
@@ -368,6 +378,7 @@ smart-table tr.expanded .hierarchy-arrow {
   border-left: none;
   border-right: none;
   border-bottom: none;
+  position: -webkit-sticky;
   position: sticky;
   left: 0;
   bottom: 0;
@@ -426,7 +437,7 @@ smart-table tr.expanded .hierarchy-arrow {
   outline: none;
 }
 .smart-table .smart-table-container:focus td[focus]:after {
-  content: '';
+  content: "";
   box-sizing: border-box;
   position: absolute;
   width: calc(100% - 1px);
@@ -442,6 +453,7 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table .smart-table-header {
   height: var(--smart-table-header-footer-height);
   display: none;
+  position: -webkit-sticky;
   position: sticky;
   left: 0;
   top: 0;
@@ -514,7 +526,7 @@ smart-table tr.expanded .hierarchy-arrow {
   width: 100%;
   height: 100%;
   font-size: 20px;
-  font-family: 'smart-icons';
+  font-family: "smart-icons";
   pointer-events: none;
   opacity: 0.4;
 }
@@ -533,7 +545,7 @@ smart-table tr.expanded .hierarchy-arrow {
   position: absolute;
   width: 100%;
   height: 100%;
-  font-family: 'smart-icons';
+  font-family: "smart-icons";
   pointer-events: none;
   content: var(--smart-icon-less-than-equal);
   font-size: 16px;
@@ -556,7 +568,7 @@ smart-table tr.expanded .hierarchy-arrow {
   position: absolute;
   width: 100%;
   height: 100%;
-  font-family: 'smart-icons';
+  font-family: "smart-icons";
   pointer-events: none;
   font-size: 16px;
   top: 8px;
@@ -579,7 +591,8 @@ smart-table tr.expanded .hierarchy-arrow {
   display: grid;
   grid-template-columns: 1fr var(--smart-filter-row-content-height) var(--smart-filter-row-content-height);
   grid-template-rows: 100%;
-  column-gap: 2px;
+  -moz-column-gap: 2px;
+       column-gap: 2px;
   height: var(--smart-filter-row-content-height);
 }
 .smart-table .smart-table-filter-row > td.no-filter {
@@ -606,7 +619,7 @@ smart-table tr.expanded .hierarchy-arrow {
   outline: none;
   border-color: var(--smart-outline);
 }
-.smart-table .smart-table-filter-row .filter-value[type="number"] {
+.smart-table .smart-table-filter-row .filter-value[type=number] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
@@ -664,7 +677,7 @@ smart-table tr.expanded .hierarchy-arrow {
   position: relative;
 }
 .smart-table .drop-column:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 2px;
   height: 100%;
@@ -678,6 +691,7 @@ smart-table tr.expanded .hierarchy-arrow {
   right: 0;
 }
 .smart-table .freeze-near {
+  position: -webkit-sticky;
   position: sticky;
   opacity: 1;
   z-index: 1;
@@ -687,6 +701,7 @@ smart-table tr.expanded .hierarchy-arrow {
   box-shadow: 1px 0px 0px 0px var(--smart-border);
 }
 .smart-table .freeze-far {
+  position: -webkit-sticky;
   position: sticky;
   opacity: 1;
   z-index: 1;
@@ -924,31 +939,31 @@ smart-table tr.expanded .hierarchy-arrow {
   border-radius: unset;
   box-shadow: var(--smart-elevation-8);
 }
-.smart-table:not([animation="none"]) thead th .sort-by {
+.smart-table:not([animation=none]) thead th .sort-by {
   transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
 }
-.smart-table:not([animation="none"]) thead th .sort-by:before {
+.smart-table:not([animation=none]) thead th .sort-by:before {
   transition: transform 0.5s ease-out;
 }
-.smart-table:not([animation="none"]) tr[row-id] td:not(.editing) {
+.smart-table:not([animation=none]) tr[row-id] td:not(.editing) {
   transition: padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out, transform 0.2s ease-in-out, border-top-color 0.2s ease-in-out;
 }
-.smart-table:not([animation="none"]) td.editing.invalid:before {
+.smart-table:not([animation=none]) td.editing.invalid:before {
   transition: visibility 0.2s ease-in-out, opacity 0.2s ease-out, transform 0.1s ease-out;
 }
-.smart-table:not([animation="none"]) smart-pager .smart-pager-button:before {
+.smart-table:not([animation=none]) smart-pager .smart-pager-button:before {
   transition: visibility 0.2s ease-out, opacity 0.2s ease-out, transform 0.1s ease-out;
 }
-.smart-table:not([animation="none"]) .smart-table-toolbar-button:before {
+.smart-table:not([animation=none]) .smart-table-toolbar-button:before {
   transition: visibility 0.2s ease-out, opacity 0.2s ease-out, transform 0.1s ease-out;
 }
-.smart-table:not([animation="none"]) .hierarchy-arrow {
+.smart-table:not([animation=none]) .hierarchy-arrow {
   transition: transform 0.2s ease-in-out;
 }
-.smart-table:not([animation="none"]):not([ignore-detail-animation]) .smart-table-row-detail {
+.smart-table:not([animation=none]):not([ignore-detail-animation]) .smart-table-row-detail {
   transition: height 0.2s ease-in-out;
 }
-.smart-table:not([animation="none"]):not([ignore-detail-animation]) .smart-table-row-detail .smart-table-detail-container {
+.smart-table:not([animation=none]):not([ignore-detail-animation]) .smart-table-row-detail .smart-table-detail-container {
   transition: height 0.2s ease-in-out, padding-top 0.2s ease-in-out, padding-bottom 0.2s ease-in-out;
 }
 .smart-table[virtualization] {
@@ -1005,27 +1020,34 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[conditional-formatting-button][filtering][filter-row] .smart-table-header .smart-table-toolbar-button.conditional-formatting {
   grid-area: button;
 }
-.smart-table[paging] smart-pager {
+.smart-table[paging]:not(.smart-pivot-table) smart-pager {
   display: block;
   z-index: 1;
 }
-.smart-table[paging] .smart-table-container {
+.smart-table[paging]:not(.smart-pivot-table) .smart-table-container {
   height: calc(100% - var(--smart-table-header-footer-height));
 }
-.smart-table[paging] .smart-table-virtualization-container {
+.smart-table[paging]:not(.smart-pivot-table) .smart-table-virtualization-container {
   height: calc(100% - var(--smart-table-header-footer-height));
 }
-.smart-table[paging][filtering]:not([filter-row]) .smart-table-container {
+.smart-table[paging]:not(.smart-pivot-table)[filtering]:not([filter-row]) .smart-table-container {
   height: calc(100% - 2 * var(--smart-table-header-footer-height));
 }
-.smart-table[paging][filtering]:not([filter-row]) .smart-table-virtualization-container {
+.smart-table[paging]:not(.smart-pivot-table)[filtering]:not([filter-row]) .smart-table-virtualization-container {
   height: calc(100% - 2 * var(--smart-table-header-footer-height));
 }
-.smart-table[paging][conditional-formatting-button] .smart-table-container {
+.smart-table[paging]:not(.smart-pivot-table)[conditional-formatting-button] .smart-table-container {
   height: calc(100% - 2 * var(--smart-table-header-footer-height));
 }
-.smart-table[paging][conditional-formatting-button] .smart-table-virtualization-container {
+.smart-table[paging]:not(.smart-pivot-table)[conditional-formatting-button] .smart-table-virtualization-container {
   height: calc(100% - 2 * var(--smart-table-header-footer-height));
+}
+.smart-table[paging].smart-pivot-table smart-pager {
+  display: block;
+  z-index: 999;
+}
+.smart-table[paging].smart-pivot-table [designer] smart-pager {
+  border-right: 1px solid var(--smart-border);
 }
 .smart-table[column-reorder] thead th {
   touch-action: none;
@@ -1034,7 +1056,7 @@ smart-table tr.expanded .hierarchy-arrow {
   cursor: move;
 }
 .smart-table:not([column-resize]) .dragged:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1048,7 +1070,7 @@ smart-table tr.expanded .hierarchy-arrow {
   touch-action: none;
 }
 .smart-table[column-resize] th[data-field]:before, .smart-table[column-resize] th[data-field]:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   width: 5px;
@@ -1099,7 +1121,7 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[column-resize][resize-max-reached] th[data-field]:after {
   content: none;
 }
-.smart-table[sort-mode="many"] thead th .sort-by:after {
+.smart-table[sort-mode=many] thead th .sort-by:after {
   content: attr(order);
 }
 .smart-table[loading] tbody td {
@@ -1109,6 +1131,7 @@ smart-table tr.expanded .hierarchy-arrow {
   pointer-events: none;
 }
 .smart-table[freeze-header]:not([virtualization]) thead th {
+  position: -webkit-sticky;
   position: sticky;
   opacity: 1;
   border-bottom: none;
@@ -1166,6 +1189,7 @@ smart-table tr.expanded .hierarchy-arrow {
   position: relative;
 }
 .smart-table[freeze-header][virtualization] thead th.sticky {
+  position: -webkit-sticky;
   position: sticky;
 }
 .smart-table[freeze-header][virtualization] thead th.freeze-near {
@@ -1204,6 +1228,7 @@ smart-table tr.expanded .hierarchy-arrow {
   top: calc(var(--smart-table-header-footer-height) + 4 * var(--smart-table-column-header-height));
 }
 .smart-table[freeze-footer] tfoot td {
+  position: -webkit-sticky;
   position: sticky;
   opacity: 1;
   border-top: none;
@@ -1228,13 +1253,13 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[freeze-footer] .smart-table-container:focus td[focus]:after {
   height: calc(100% - 1px);
 }
-.smart-table[freeze-footer][paging] tfoot td {
+.smart-table[freeze-footer][paging]:not(.smart-pivot-table) tfoot td {
   bottom: var(--smart-table-header-footer-height);
 }
-.smart-table[freeze-footer][paging] tfoot tr:nth-last-child(2) td {
+.smart-table[freeze-footer][paging]:not(.smart-pivot-table) tfoot tr:nth-last-child(2) td {
   bottom: calc(var(--smart-table-row-height) + var(--smart-table-header-footer-height));
 }
-.smart-table[freeze-footer][paging] tfoot tr:nth-last-child(3) td {
+.smart-table[freeze-footer][paging]:not(.smart-pivot-table) tfoot tr:nth-last-child(3) td {
   bottom: calc(2 * var(--smart-table-row-height) + var(--smart-table-header-footer-height));
 }
 .smart-table[row-detail-template] tr[row-id] {
@@ -1257,7 +1282,7 @@ smart-table tr.expanded .hierarchy-arrow {
   line-height: 0;
   transform: scaleY(0);
 }
-.smart-table[hierarchy]:not([animation="none"]) tr[row-id] {
+.smart-table[hierarchy]:not([animation=none]) tr[row-id] {
   transition: height 0.2s ease-in-out;
 }
 .smart-table[modal] {
@@ -1269,7 +1294,7 @@ smart-table tr.expanded .hierarchy-arrow {
   user-select: none;
 }
 .smart-table[modal]:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1281,7 +1306,8 @@ smart-table tr.expanded .hierarchy-arrow {
   cursor: default;
   -moz-user-select: none;
   -webkit-user-select: none;
-  user-select: none;
+  -ms-user-select: none;
+      user-select: none;
   z-index: 100;
 }
 .smart-table[toolbar][designer] .smart-table-toolbar-button.conditional-formatting {
@@ -1312,6 +1338,7 @@ smart-table tr.expanded .hierarchy-arrow {
   border-top: none;
 }
 .smart-table[virtualization] tr.smart-table-filter-row td {
+  position: -webkit-sticky;
   position: sticky;
   top: var(--smart-table-column-header-height);
   background-color: var(--smart-background);
@@ -1323,10 +1350,10 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[virtualization][conditional-formatting-button] .smart-table-container {
   height: 100%;
 }
-.smart-table[virtualization][paging] .smart-table-container {
+.smart-table[virtualization][paging]:not(.smart-pivot-table) .smart-table-container {
   height: 100%;
 }
-.smart-table[virtualization][paging][filtering]:not([filter-row]):not([column-menu]) .smart-table-container, .smart-table[virtualization][paging][conditional-formatting-button] .smart-table-container {
+.smart-table[virtualization][paging]:not(.smart-pivot-table)[filtering]:not([filter-row]):not([column-menu]) .smart-table-container, .smart-table[virtualization][paging]:not(.smart-pivot-table)[conditional-formatting-button] .smart-table-container {
   height: 100%;
 }
 .smart-table[virtualization][freeze-header][filtering]:not([filter-row]):not([column-menu]) thead th, .smart-table[virtualization][freeze-header][conditional-formatting-button] thead th {
@@ -1415,7 +1442,7 @@ smart-table tr.expanded .hierarchy-arrow {
     opacity: 1;
   }
   .smart-table .freeze-near,
-  .smart-table .freeze-far {
+.smart-table .freeze-far {
     box-shadow: 0px 0px 0px 1px var(--smart-border);
   }
   .smart-table .smart-table-container:focus td[focus]:after {
@@ -1423,7 +1450,7 @@ smart-table tr.expanded .hierarchy-arrow {
     top: 1px;
   }
   .smart-table[freeze-header] thead th.empty,
-  .smart-table[freeze-header] thead th:empty {
+.smart-table[freeze-header] thead th:empty {
     box-shadow: -1px 0px 0px 0px var(--smart-border);
   }
   .smart-table[freeze-footer] .smart-table-container:focus td[focus]::after {
@@ -1447,7 +1474,7 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[hide-selection-column] td.smart-table-select-row .selection-checkbox {
   visibility: hidden;
 }
-.smart-table[hide-selection-column] tr[aria-selected="true"] td {
+.smart-table[hide-selection-column] tr[aria-selected=true] td {
   background: var(--smart-ui-state-selected);
   color: var(--smart-ui-state-color-selected);
 }
@@ -1455,15 +1482,15 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-pivot-table th.expanded .total-arrow {
   transform: rotate(180deg);
 }
-.smart-pivot-table:not([animation="none"]) .total-arrow {
+.smart-pivot-table:not([animation=none]) .total-arrow {
   transition: transform 0.2s ease-in-out;
 }
-.smart-pivot-table:not([group-layout="classic"]) tr.expanded .hierarchy-arrow {
+.smart-pivot-table:not([group-layout=classic]) tr.expanded .hierarchy-arrow {
   transform: rotate(180deg);
 }
 @-moz-document url-prefix() {
   .smart-pivot-table thead th:not(:last-child),
-  .smart-pivot-table thead th:last-child {
+.smart-pivot-table thead th:last-child {
     border: none;
     box-shadow: 0px 0px 0px 1px var(--smart-border);
   }
@@ -1477,6 +1504,7 @@ smart-table tr.expanded .hierarchy-arrow {
     box-shadow: -1px 0px 0px 0px var(--smart-border);
   }
 }
+
 .smart-pivot-panel > .smart-container[modal] {
   position: relative;
   pointer-events: none;
@@ -1486,7 +1514,7 @@ smart-table tr.expanded .hierarchy-arrow {
   user-select: none;
 }
 .smart-pivot-panel > .smart-container[modal]:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1498,7 +1526,8 @@ smart-table tr.expanded .hierarchy-arrow {
   cursor: default;
   -moz-user-select: none;
   -webkit-user-select: none;
-  user-select: none;
+  -ms-user-select: none;
+      user-select: none;
   z-index: 100;
 }
 
@@ -1679,7 +1708,8 @@ smart-table tr.expanded .hierarchy-arrow {
   display: grid;
   grid-template-columns: 1fr var(--smart-filter-row-content-height) var(--smart-filter-row-content-height);
   grid-template-rows: 100%;
-  column-gap: 2px;
+  -moz-column-gap: 2px;
+       column-gap: 2px;
   height: var(--smart-filter-row-content-height);
   position: relative;
 }
@@ -1695,7 +1725,10 @@ smart-table tr.expanded .hierarchy-arrow {
   margin-bottom: 5px;
 }
 .smart-table-column-menu.wrapper .smart-table-menu-item.smart-disabled {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   pointer-events: none;
   opacity: 0.5;
 }
@@ -1781,7 +1814,7 @@ smart-table tr.expanded .hierarchy-arrow {
   outline: none;
   border-color: var(--smart-outline);
 }
-.smart-table-column-menu .filter-value[type="number"] {
+.smart-table-column-menu .filter-value[type=number] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
@@ -1804,6 +1837,15 @@ smart-table tr.expanded .hierarchy-arrow {
   transform: none !important;
 }
 
+@-webkit-keyframes active {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(2.5);
+  }
+}
+
 @keyframes active {
   from {
     transform: scale(0);
@@ -1814,7 +1856,7 @@ smart-table tr.expanded .hierarchy-arrow {
 }
 @-moz-document url-prefix() {
   .smart-table[right-to-left] .freeze-near,
-  .smart-table[right-to-left] .freeze-far {
+.smart-table[right-to-left] .freeze-far {
     box-shadow: 0px 0px 0px 1px var(--smart-border);
   }
 }
@@ -1917,13 +1959,13 @@ smart-table tr.expanded .hierarchy-arrow {
   content: none;
 }
 .smart-table[right-to-left][column-resize]:not([selection]) th[data-field]:not([locked]):first-child:before {
-  content: '';
+  content: "";
 }
 .smart-table[right-to-left][column-resize][selection] th[data-field]:nth-child(2):after {
   content: none;
 }
 .smart-table[right-to-left][column-resize][selection] th[data-field]:not([locked]):nth-child(2):before {
-  content: '';
+  content: "";
 }
 .smart-table[right-to-left][column-groups] th:not(:last-child) {
   border-left: var(--smart-border-width) solid var(--smart-border);
@@ -1931,7 +1973,7 @@ smart-table tr.expanded .hierarchy-arrow {
 
 @-moz-document url-prefix() {
   .smart-pivot-table[right-to-left] thead th:not(:last-child),
-  .smart-pivot-table[right-to-left] thead th:last-child {
+.smart-pivot-table[right-to-left] thead th:last-child {
     border: none;
     box-shadow: 0px 0px 0px 1px var(--smart-border);
   }
@@ -2013,5 +2055,3 @@ smart-table tr.expanded .hierarchy-arrow {
 .smart-table[right-to-left] .outline-level-10.tree-leaf {
   padding-right: calc(10 * var(--smart-table-indent) + var(--smart-table-arrow-size) + var(--smart-table-arrow-margin));
 }
-
-/*# sourceMappingURL=smart.table.css.map */

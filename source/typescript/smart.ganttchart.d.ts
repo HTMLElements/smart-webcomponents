@@ -132,6 +132,11 @@ export interface GanttChartProperties {
    */
   filterRow?: boolean;
   /**
+   * Determines the view start day. Sunday is 0, Monday is 1, Saturday is 6. By default it's Sunday.
+   * Default value: -1
+   */
+  firstDayOfWeek?: number;
+  /**
    * Groups the tasks inside the Task timeline according to the resources they are assigned to. Unassigned tasks are placed in a default group labeled 'Unassigned'.
    * Default value: false
    */
@@ -147,10 +152,20 @@ export interface GanttChartProperties {
    */
   hideDateMarkers?: boolean;
   /**
-   * By default the Timeline has a two level header - timeline details and timeline header. This property hides the header details container( the top container ).
+   * By default the Timeline has a three level header - timeline details, timeline second details and timeline header. This property hides the header container( the bottom container ).
+   * Default value: false
+   */
+  hideTimelineHeader?: boolean;
+  /**
+   * By default the Timeline has a three level header - timeline details, timeline second details and timeline header. This property hides the header details container( the top container ).
    * Default value: false
    */
   hideTimelineHeaderDetails?: boolean;
+  /**
+   * By default the Timeline has a three level header - timeline details and timeline header. This property hides the second header details container( the middle container ).
+   * Default value: true
+   */
+  hideTimelineSecondHeaderDetails?: boolean;
   /**
    * Shows the selection column of the Task/Resource Table. When applied a checkbox column is displayed that allows to select tasks/resources.
    * Default value: false
@@ -216,6 +231,11 @@ export interface GanttChartProperties {
    * Default value: short
    */
   monthFormat?: MonthFormat | string;
+  /**
+   * Determines the scale in Month view.
+   * Default value: week
+   */
+  monthScale?: MonthScale | string;
   /**
    * Determines the nonworking days of the week from 0 to 6, where 0 is the first day of the week and 6 is the last day. Nonworking days will be displayed with colored cells inside the timeline and will not affect the dateEnd of the tasks unless the adjustToNonworkingTime property is enabled.
    * Default value: 
@@ -1414,6 +1434,8 @@ export declare type HorizontalScrollBarVisibility = 'auto' | 'disabled' | 'hidde
 export declare type HourFormat = 'default' | '2-digit' | 'numeric';
 /**Determines the format of the dates the timeline header when they represent months. */
 export declare type MonthFormat = '2-digit' | 'numeric' | 'long' | 'short' | 'narrow';
+/**Determines the scale in Month view. */
+export declare type MonthScale = 'day' | 'week';
 /**Determines how the capacity of the resources will be visualized inside the resource timeline. By default, the capacity is measured in hours depending on the <b>view</b> property of the element. */
 export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | 'custom';
 /**Determines how the resources will be displayed inside the resource Timeline. */
@@ -1430,7 +1452,7 @@ month - the timeline shows the days of the month.
 year - the timeline shows the months of the year.
 resource - displays the current tasks by grouping them according to the resources they have assigned. The unassigned tasks will be placed in a separate group called 'Unassigned'.
  <br /> The timeline has a header section that contains the labels of each cell according to the date inside them. The header is splitted in two sections in order to give a more detailed information of the dates. */
-export declare type GanttChartView = 'day' | 'week' | 'month' | 'year';
+export declare type GanttChartView = 'day' | 'week' | 'month' | 'quarter' | 'year';
 /**Determines the format of the dates inside the timeline header when they represent years. */
 export declare type YearFormat = '2-digit' | 'numeric';
 /**Determines the format of the dates inside the timeline header when they represent weeks.  */

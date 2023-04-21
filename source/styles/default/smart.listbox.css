@@ -390,6 +390,16 @@ smart-list-box {
 [type="list"][opened][focus] smart-list-item[focus] .smart-content {
   color: var(--smart-ui-state-color-selected);
   border-color: var(--smart-ui-state-border-selected); }
+[type="list"][opened][focus] smart-list-item[focus]:not([selected]) .smart-overlay {
+  background-color: var(--smart-ui-state-focus); }
+[type="list"][opened][focus] smart-list-item[focus]:not([selected]) .smart-content {
+  color: var(--smart-ui-state-color-focus);
+  border-color: var(--smart-ui-state-border-focus); }
+[type="list"][opened][focus] smart-list-item[focus][selected] .smart-overlay {
+  background-color: var(--smart-ui-state-selected); }
+[type="list"][opened][focus] smart-list-item[focus][selected] .smart-content {
+  color: var(--smart-ui-state-color-selected);
+  border-color: var(--smart-ui-state-border-selected); }
 
 .smart-list-item-feedback {
   background-color: var(--smart-surface);

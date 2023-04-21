@@ -416,6 +416,14 @@ smart-tree {
   opacity: 0.75;
 }
 
+.smart-flex {
+  display: flex;
+}
+.smart-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .smart-dragging,
 .smart-dragging * {
   cursor: move !important;

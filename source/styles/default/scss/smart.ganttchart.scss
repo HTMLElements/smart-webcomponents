@@ -766,6 +766,11 @@ smart-gantt-chart>.smart-container,
       min-width: initial;
       border-top: none;
 
+      &.middle {
+        border-top: 1px solid var(--smart-border);
+        border-bottom-color: var(--smart-border);
+      }
+
       &:not(:first-of-type) {
         border-left-color: transparent;
       }

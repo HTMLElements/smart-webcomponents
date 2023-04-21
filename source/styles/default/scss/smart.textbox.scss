@@ -234,7 +234,6 @@ textarea {
 @import 'textbox/_color-input';
 @import 'textbox/_date-input';
 @import 'textbox/_phone-input';
-
 @import 'textbox/_underlined';
 @import 'textbox/_outlined';
 
@@ -242,7 +241,6 @@ textarea {
 @media not all and (min-resolution: .001dpcm) {
   @supports (-webkit-appearance: none) {
     .smart-input {
-
       .smart-input,
       .smart-hint,
       .smart-hint::after {

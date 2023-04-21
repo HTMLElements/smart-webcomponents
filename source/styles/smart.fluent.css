@@ -1,0 +1,3319 @@
+@charset "UTF-8";
+/* Theme font-size */
+@import url("https://fonts.cdnfonts.com/css/segoe-ui-4");
+:root {
+  --fluent-black: #000;
+  --fluent-white: #fff;
+  --fluent-surface: #fff;
+  --fluent-surface-color: #000;
+  --fluent-background: #fff;
+  --fluent-background-color: #000;
+  --fluent-type-primary: #201F1E;
+  --fluent-type-secondary: #323130;
+  --fluent-type-disabled: #323130;
+  --fluent-body-divider: #EDEBE9;
+  --fluent-input-background: #fff;
+  --fluent-input-disabled-background: #EDEBE9;
+  --fluent-input-border: #8A8886;
+  --fluent-input-border-hover: #323130;
+  --fluent-alert-color: #201F1E;
+  --fluent-theme-primary: #0078D4;
+  --fluent-theme-lighter-alt: #EFF6FC;
+  --fluent-theme-lighter: #DEECF9;
+  --fluent-theme-light: #C7E0F4;
+  --fluent-theme-tertiary: #2B88D8;
+  --fluent-theme-dark-alt: #106EBE;
+  --fluent-theme-dark: #005A9E;
+  --fluent-theme-darker: #004578;
+  --fluent-btn-primary-color: #fff;
+  --fluent-btn-primary-bg: #0078D4;
+  --fluent-btn-primary-bg-hover: #106EBE;
+  --fluent-btn-primary-bg-active: #005A9E;
+  --fluent-btn-secondary-color: #201F1E;
+  --fluent-btn-secondary-bg: #fff;
+  --fluent-btn-secondary-bg-hover: #F3F2F1;
+  --fluent-btn-secondary-bg-active: #EDEBE9;
+  --fluent-btn-text-color: #201F1E;
+  --fluent-btn-text-bg: #fff;
+  --fluent-btn-text-color-hover: #201F1E;
+  --fluent-btn-text-bg-hover: #F3F2F1;
+  --fluent-btn-text-color-active: #201F1E;
+  --fluent-btn-text-bg-active: #EDEBE9;
+  --fluent-window-bg: #fff;
+  --fluent-tabs-item-bg-hover: #F3F2F1;
+  --fluent-list-items-group-bg: #EDEBE9;
+  --fluent-tooltip-bg: #fff;
+  --fluent-tooltip-color: #201F1E;
+  --fluent-tag-bg: #F3F2F1;
+  --fluent-tag-color: #201F1E;
+  --fluent-breadcrumb-color: #605E5C;
+  --fluent-breadcrumb-bg: transparent;
+  --fluent-breadcrumb-color-hover: #201F1E;
+  --fluent-breadcrumb-bg-hover: #F3F2F1;
+  --fluent-accordion-header-color: #201F1E;
+  --fluent-accordion-header-bg: #EDEBE9;
+  --fluent-pager-color: #0078D4;
+  --fluent-pager-bg: #fff;
+  --fluent-pager-border: #C8C6C4;
+  --fluent-sortable-border: #EDEBE9;
+  --fluent-error-bg: #FDE7E9;
+  --fluent-error-color: #A80000;
+  --fluent-success-bg: #DFF6DD;
+  --fluent-success-color: #107C10;
+  --fluent-severe-warning-bg: #FED9CC;
+  --fluent-severe-warning-color: #D83B01;
+  --fluent-warning-bg: #FFF4CE;
+  --fluent-warning-color: #797775;
+  --fluent-greys-white: #fff;
+  --fluent-greys-grey10: #FAF9F8;
+  --fluent-greys-grey20: #F3F2F1;
+  --fluent-greys-grey30: #EDEBE9;
+  --fluent-greys-grey40: #E1DFDD;
+  --fluent-greys-grey50: #D2D0CE;
+  --fluent-greys-grey60: #C8C6C4;
+  --fluent-greys-grey90: #A19F9D;
+  --fluent-greys-grey110: #8A8886;
+  --fluent-greys-grey130: #605E5C;
+  --fluent-greys-grey150: #3B3A39;
+  --fluent-greys-grey160: #323130;
+  --fluent-greys-grey190: #201F1E;
+  --fluent-overlay-light: rgba(red("#fff"), green("#fff"), blue("#fff"), 0.4);
+  --fluent-overlay-dark: rgba(red("#000"), green("#000"), blue("#000"), 0.4);
+  --fluent-box-shadow-4: 0px 0.3px 0.9px rgba(0, 0, 0, 0.1), 0px 1.6px 3.6px rgba(0, 0, 0, 0.13);
+  --fluent-box-shadow-8: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1), 0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
+  --fluent-box-shadow-16: 0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13);
+  --fluent-box-shadow-64: 0px 4.8px 14.4px rgba(0, 0, 0, 0.18), 0px 25.6px 57.6px rgba(0, 0, 0, 0.22);
+  --smart-primary: var(--fluent-theme-primary);
+}
+
+body[theme=dark] {
+  --fluent-surface: #282727;
+  --fluent-surface-color: #fff;
+  --fluent-background: #282727;
+  --fluent-background-color: #fff;
+  --fluent-input-background: #282727;
+  --fluent-input-disabled-background: #605E5C;
+  --fluent-greys-grey190: #fff;
+  --fluent-type-primary: #EDEBE9;
+  --fluent-input-border: #6c6c6c;
+  --fluent-input-border-hover: #EDEBE9;
+  --fluent-btn-secondary-color: #EDEBE9;
+  --fluent-btn-secondary-bg: #8A8886;
+  --fluent-btn-secondary-bg-hover: #605E5C;
+  --fluent-btn-secondary-bg-active: #3B3A39;
+  --fluent-btn-text-color: #201F1E;
+  --fluent-btn-text-bg: #fff;
+  --fluent-btn-text-color-hover: #fff;
+  --fluent-btn-text-bg-hover: #605E5C;
+  --fluent-btn-text-color-active: #fff;
+  --fluent-btn-text-bg-active: #3B3A39;
+  --fluent-window-bg: #282727;
+  --fluent-tabs-item-bg-hover: #605E5C;
+  --fluent-list-items-group-bg: #605E5C;
+  --fluent-tooltip-bg: #201F1E;
+  --fluent-tooltip-color: #fff;
+  --fluent-tag-bg: #605E5C;
+  --fluent-tag-color: #F3F2F1;
+  --fluent-breadcrumb-color: #C8C6C4;
+  --fluent-breadcrumb-bg: transparent;
+  --fluent-breadcrumb-color-hover: #C8C6C4;
+  --fluent-breadcrumb-bg-hover: #3B3A39;
+  --fluent-accordion-header-color: #EDEBE9;
+  --fluent-accordion-header-bg: #201F1E;
+  --fluent-pager-color: #C8C6C4;
+  --fluent-pager-bg: #201F1E;
+  --fluent-pager-border: #3B3A39;
+  --fluent-sortable-border: #3B3A39;
+}
+
+:root,
+body[theme=dark] {
+  --smart-primary: var(--fluent-theme-primary);
+  --smart-primary-color: var(--fluent-theme-lighter-alt);
+  --smart-secondary: var(--fluent-greys-white);
+  --smart-secondary-color: var(--fluent-greys-grey190);
+  --smart-error: var(--fluent-error-bg);
+  --smart-error-color: var(--fluent-error-color);
+  --smart-success: var(--fluent-success-bg);
+  --smart-success-color: var(--fluent-success-color);
+  --smart-info: var(--fluent-info-bg);
+  --smart-info-color: var(--fluent-info-color);
+  --smart-warning: var(--fluent-warning-bg);
+  --smart-warning-color: var(--fluent-warning-color);
+  --smart-light-rgb: hexToRGB(#EFF6FC);
+  /* The r, g, and b components of the theme light color */
+  --smart-light: #EFF6FC;
+  /* The theme light color */
+  --smart-light-color: #201F1E;
+  /* Text color on top of a light background */
+  --smart-dark-rgb: hexToRGB(#201F1E);
+  /* The r, g, and b components of the theme dark color */
+  --smart-dark: #201F1E;
+  /* The theme dark color */
+  --smart-dark-color: #EFF6FC;
+  /* Text color on top of a dark background */
+  --smart-white-rgb: hexToRGB(#ffffff);
+  /* The r, g, and b components of the theme white color */
+  --smart-white: #ffffff;
+  /* The theme white color */
+  --smart-white-color: #000000;
+  /* Text color on top of a white background */
+  --smart-black-rgb: hexToRGB(#000000);
+  /* The r, g, and b components of the theme black color */
+  --smart-black: #000000;
+  /* The theme black color */
+  --smart-black-color: #000000;
+  /* Text color on top of a black background */
+  --smart-font-size: 14px;
+  /* Theme font-size */
+  --smart-font-weight: 400;
+  /* Theme font-weight */
+  --smart-font-family: Segoe UI Variable, Segoe UI, sans-serif;
+  /* Theme font-family */
+  --smart-border-width: 1px;
+  /* Theme border-width */
+  --smart-border-radius: 2px;
+  /* Theme border-radius */
+  --smart-editor-height: 38px;
+  /* Default height for editors */
+  --smart-editor-label-padding: 10px;
+  /* Default padding for inputs */
+  /* Button - Default */
+  --smart-button-text-transform: inherit;
+  /* Controls the capitalization of button's text. Could be set as uppercase/lowercase/capitalize. */
+  /* Sets button's paddings. */
+  /* Sets large button's paddings. */
+  /* Sets large button's font size. */
+  /* Sets small button's paddings. */
+  /* Sets small button's font size. */
+  --smart-button-very-small-padding: 1px 5px;
+  /* Sets very small button's paddings. */
+  --smart-button-very-small-font-size: 12px;
+  /* Sets very small button's font size. */
+  --smart-button-group-default-height: var(--smart-editor-height);
+  --smart-check-box-default-size: 16px;
+  /* Default size for the check box used in smartCheckBox and smartListItem. */
+  --smart-color-panel-grid-mode-item-size: 20px;
+  /* smartColorPanel item size */
+  --smart-progress-bar-default-height: 7px;
+  /* smartProgressBar default height */
+  --smart-circular-progress-bar-fill-size: 20%;
+  --smart-radio-button-default-size: 16px;
+  /* Default size for the radio button. */
+  --smart-slider-thumb-border-top-left-radimobile-menu-activatedus: 15px;
+  /* Top-left border radius of smartSlider thumb */
+  --smart-toast-info-background: #5bc0de;
+  /* Background color for type info */
+  --smart-toast-info-color: #fff;
+  /* Text color for type info */
+  --smart-toast-warning-background: #FFA800;
+  /* Background color for type warning */
+  --smart-toast-warning-color: #fff;
+  /* Text color for type warning */
+  --smart-scheduler-context-menu-max-height: calc(3 * var(--smart-scheduler-event-item-size));
+  /* Context menu max-height */
+  --smart-grid-cell-background-update: rgba(var(--smart-success-rgb), .3);
+  --smart-scroll-bar-thumb-padding: 0px;
+  --smart-pager-page-size-selector-width: 65px;
+  --smart-accordion-item-expanded-offset: 0px;
+  --smart-background: var(--fluent-background);
+  /* The theme background color. The background color appears behind scrollable content.*/
+  --smart-background-color: var(--fluent-background-color);
+  /* Text color on top of a background background */
+  --smart-scroll-button-size: 12px;
+  --smart-scroll-bar-size: 15px;
+  --smart-scroll-bar-thumb-border-top-right-radius: 6px;
+  --smart-scroll-bar-thumb-border-top-left-radius: 6px;
+  --smart-scroll-bar-thumb-border-bottom-left-radius: 6px;
+  --smart-scroll-bar-thumb-border-bottom-right-radius: 6px;
+  --smart-scroll-bar-thumb-size: 100%;
+  --smart-scroll-bar-thumb-padding: 3px;
+  --smart-scroll-bar-default-width: var(--smart-editor-width);
+  --smart-scroll-bar-default-height: var(--smart-scroll-bar-size);
+  --smart-scroll-bar-background: #fafafa;
+  --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
+  --smart-scroll-bar-border: #F1F1F1;
+  --smart-scroll-bar-thumb-background: #C1C1C1;
+  --smart-scroll-bar-thumb-border: transparent;
+}
+:root smart-scroll-bar[aria-orientation=horizontal],
+body[theme=dark] smart-scroll-bar[aria-orientation=horizontal] {
+  --smart-scroll-button-size: 12px;
+}
+
+body:not([theme=dark]) {
+  --smart-alternation-index0-color: #333;
+  /* Alternation color for index0 */
+  --smart-alternation-index0-border: #DEE2E6;
+  /* Alternation border color for index0 */
+  --smart-alternation-index0-background: var(--fluent-greys-grey20);
+  /* Alternation background color for index0 */
+  --smart-surface: var(--fluent-surface);
+  --smart-surface-color: var(--fluent-surface-color);
+  --smart-scheduler-event-color: var(--fluent-surface-color);
+}
+
+body[theme=dark] {
+  --smart-alternation-index0-color: #fff;
+  /* Alternation color for index0 */
+  --smart-alternation-index0-border: #1E1E1E;
+  /* Alternation border color for index0 */
+  --smart-alternation-index0-background: #3E3E42;
+  /* Alternation background color for index0 */
+  --smart-surface: var(--fluent-surface);
+  --smart-surface-color: var(--fluent-surface-color);
+  --smart-scheduler-event-color: var(--fluent-surface-color);
+  --smart-secondary-color: #201F1E;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+.smart-animate.smart-ripple {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.smart-toggle-box .smart-overlay {
+  left: 0;
+}
+
+/* BUTTON */
+.smart-grid-command-item,
+smart-button,
+smart-toggle-button,
+smart-repeat-button {
+  --smart-button-small-padding: 1px 14px;
+  --smart-button-padding: 2px 15.5px;
+  --smart-button-large-padding: 4px 16px;
+  --smart-button-opacity-hover: unset !important;
+  --smart-button-opacity-focus: unset !important;
+  --smart-button-opacity-active: unset !important;
+  --smart-border-radius: 2px !important;
+  --smart-inner-border-color: transparent;
+  padding: 2px !important;
+  border-radius: var(--smart-border-radius);
+}
+.smart-grid-command-item button.smart-button,
+.smart-grid-command-item a.smart-button,
+smart-button button.smart-button,
+smart-button a.smart-button,
+smart-toggle-button button.smart-button,
+smart-toggle-button a.smart-button,
+smart-repeat-button button.smart-button,
+smart-repeat-button a.smart-button {
+  color: inherit !important;
+  background-color: inherit !important;
+  line-height: 1.5;
+  letter-spacing: 0;
+  border: 1px solid var(--smart-inner-border-color) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.smart-grid-command-item button.smart-button i,
+.smart-grid-command-item a.smart-button i,
+smart-button button.smart-button i,
+smart-button a.smart-button i,
+smart-toggle-button button.smart-button i,
+smart-toggle-button a.smart-button i,
+smart-repeat-button button.smart-button i,
+smart-repeat-button a.smart-button i {
+  font-size: 16px;
+  line-height: 1;
+}
+.smart-grid-command-item.icon,
+smart-button.icon,
+smart-toggle-button.icon,
+smart-repeat-button.icon {
+  --smart-button-padding: 2px 5.5px !important;
+}
+.smart-grid-command-item.primary,
+smart-button.primary,
+smart-toggle-button.primary,
+smart-repeat-button.primary {
+  --smart-background: var(--fluent-btn-primary-bg);
+  --smart-border: var(--fluent-btn-primary-bg);
+  --smart-background-color: var(--fluent-btn-primary-color);
+  --smart-ui-state-hover: var(--fluent-btn-primary-bg-hover);
+  --smart-ui-state-border-hover: var(--fluent-btn-primary-bg-hover);
+  --smart-ui-state-color-hover: var(--fluent-btn-primary-color);
+  --smart-ui-state-active: var(--fluent-btn-primary-bg-active);
+  --smart-ui-state-border-active: var(--fluent-btn-primary-bg-active);
+  --smart-ui-state-color-active: var(--fluent-btn-primary-color);
+  --smart-ui-state-focus: var(--fluent-btn-primary-bg);
+  --smart-ui-state-border-focus: var(--fluent-btn-primary-bg);
+  --smart-ui-state-color-focus: var(--fluent-btn-primary-color);
+}
+.smart-grid-command-item.primary[focus], .smart-grid-command-item.primary:focus,
+smart-button.primary[focus],
+smart-button.primary:focus,
+smart-toggle-button.primary[focus],
+smart-toggle-button.primary:focus,
+smart-repeat-button.primary[focus],
+smart-repeat-button.primary:focus {
+  --smart-inner-border-color: var(--fluent-btn-primary-color);
+}
+.smart-grid-command-item.primary[disabled],
+smart-button.primary[disabled],
+smart-toggle-button.primary[disabled],
+smart-repeat-button.primary[disabled] {
+  background: var(--fluent-greys-grey20);
+  border-color: var(--fluent-greys-grey20);
+  color: var(--fluent-greys-grey90);
+}
+.smart-grid-command-item:not(.primary):not(.secondary):not(.text):not(.link), .smart-grid-command-item.secondary,
+smart-button:not(.primary):not(.secondary):not(.text):not(.link),
+smart-button.secondary,
+smart-toggle-button:not(.primary):not(.secondary):not(.text):not(.link),
+smart-toggle-button.secondary,
+smart-repeat-button:not(.primary):not(.secondary):not(.text):not(.link),
+smart-repeat-button.secondary {
+  --smart-background: var(--fluent-btn-secondary-bg);
+  --smart-border: var(--fluent-input-border);
+  --smart-ui-state-hover: var(--fluent-btn-secondary-bg-hover);
+  --smart-ui-state-border-hover: var(--fluent-input-border);
+  --smart-ui-state-color-hover: var(--fluent-btn-secondary-color);
+  --smart-ui-state-active: var(--fluent-btn-secondary-bg-active);
+  --smart-ui-state-border-active: var(--fluent-input-border);
+  --smart-ui-state-color-active: var(--fluent-btn-secondary-color);
+  --smart-ui-state-focus: var(--fluent-btn-secondary-bg);
+  --smart-ui-state-border-focus: var(--fluent-input-border);
+  --smart-ui-state-color-focus: var(--fluent-btn-secondary-color);
+}
+.smart-grid-command-item:not(.primary):not(.secondary):not(.text):not(.link)[focus], .smart-grid-command-item:not(.primary):not(.secondary):not(.text):not(.link):focus, .smart-grid-command-item.secondary[focus], .smart-grid-command-item.secondary:focus,
+smart-button:not(.primary):not(.secondary):not(.text):not(.link)[focus],
+smart-button:not(.primary):not(.secondary):not(.text):not(.link):focus,
+smart-button.secondary[focus],
+smart-button.secondary:focus,
+smart-toggle-button:not(.primary):not(.secondary):not(.text):not(.link)[focus],
+smart-toggle-button:not(.primary):not(.secondary):not(.text):not(.link):focus,
+smart-toggle-button.secondary[focus],
+smart-toggle-button.secondary:focus,
+smart-repeat-button:not(.primary):not(.secondary):not(.text):not(.link)[focus],
+smart-repeat-button:not(.primary):not(.secondary):not(.text):not(.link):focus,
+smart-repeat-button.secondary[focus],
+smart-repeat-button.secondary:focus {
+  --smart-inner-border-color: var(--fluent-btn-secondary-color);
+}
+.smart-grid-command-item:not(.primary):not(.secondary):not(.text):not(.link)[disabled], .smart-grid-command-item.secondary[disabled],
+smart-button:not(.primary):not(.secondary):not(.text):not(.link)[disabled],
+smart-button.secondary[disabled],
+smart-toggle-button:not(.primary):not(.secondary):not(.text):not(.link)[disabled],
+smart-toggle-button.secondary[disabled],
+smart-repeat-button:not(.primary):not(.secondary):not(.text):not(.link)[disabled],
+smart-repeat-button.secondary[disabled] {
+  background: var(--fluent-greys-grey20);
+  border-color: var(--fluent-greys-grey20);
+  color: var(--fluent-greys-grey90);
+}
+.smart-grid-command-item.text,
+smart-button.text,
+smart-toggle-button.text,
+smart-repeat-button.text {
+  --smart-background: transparent;
+  --smart-border: transparent;
+  --smart-ui-state-hover: var(--fluent-btn-text-bg-hover);
+  --smart-ui-state-border-hover: var(--fluent-btn-text-bg-hover);
+  --smart-ui-state-color-hover: var(--fluent-btn-text-color-hover);
+  --smart-ui-state-active: var(--fluent-btn-text-bg-active);
+  --smart-ui-state-border-active: var(--fluent-btn-text-bg-active);
+  --smart-ui-state-color-active: var(--fluent-btn-text-color-active);
+  --smart-ui-state-focus: transparent;
+  --smart-ui-state-border-focus: var(--fluent-input-border-hover);
+  --smart-ui-state-color-focus: var(--fluent-btn-text-color);
+}
+.smart-grid-command-item.text[focus], .smart-grid-command-item.text:focus,
+smart-button.text[focus],
+smart-button.text:focus,
+smart-toggle-button.text[focus],
+smart-toggle-button.text:focus,
+smart-repeat-button.text[focus],
+smart-repeat-button.text:focus {
+  border-color: var(--smart-ui-state-color-focus);
+  --smart-inner-border-color: transparent;
+}
+.smart-grid-command-item.text[disabled],
+smart-button.text[disabled],
+smart-toggle-button.text[disabled],
+smart-repeat-button.text[disabled] {
+  background: var(--smart-background);
+  border-color: var(--smart-background);
+  color: var(--fluent-greys-grey90);
+}
+.smart-grid-command-item.text.icon:not([disabled]) i,
+smart-button.text.icon:not([disabled]) i,
+smart-toggle-button.text.icon:not([disabled]) i,
+smart-repeat-button.text.icon:not([disabled]) i {
+  color: var(--fluent-theme-primary);
+}
+.smart-grid-command-item.link,
+smart-button.link,
+smart-toggle-button.link,
+smart-repeat-button.link {
+  --smart-button-padding: 0 !important;
+  padding: 1px !important;
+  --smart-background: transparent;
+  --smart-border: transparent;
+  --smart-background-color: var(--fluent-theme-primary);
+  --smart-ui-state-hover: transparent;
+  --smart-ui-state-border-hover: transparent;
+  --smart-ui-state-color-hover: var(--fluent-theme-dark);
+  --smart-ui-state-active: transparent;
+  --smart-ui-state-border-active: var(--fluent-input-border-hover);
+  --smart-ui-state-color-active: var(--fluent-theme-primary);
+  --smart-ui-state-focus: transparent;
+  --smart-ui-state-border-focus: var(--fluent-input-border-hover);
+  --smart-ui-state-color-focus: var(--fluent-theme-primary);
+}
+.smart-grid-command-item.link[hover] a, .smart-grid-command-item.link[hover] button, .smart-grid-command-item.link:hover a, .smart-grid-command-item.link:hover button,
+smart-button.link[hover] a,
+smart-button.link[hover] button,
+smart-button.link:hover a,
+smart-button.link:hover button,
+smart-toggle-button.link[hover] a,
+smart-toggle-button.link[hover] button,
+smart-toggle-button.link:hover a,
+smart-toggle-button.link:hover button,
+smart-repeat-button.link[hover] a,
+smart-repeat-button.link[hover] button,
+smart-repeat-button.link:hover a,
+smart-repeat-button.link:hover button {
+  padding: 0;
+  line-height: 1;
+  text-decoration: underline;
+}
+.smart-grid-command-item.link[active], .smart-grid-command-item.link:active, .smart-grid-command-item.link[focus], .smart-grid-command-item.link:focus,
+smart-button.link[active],
+smart-button.link:active,
+smart-button.link[focus],
+smart-button.link:focus,
+smart-toggle-button.link[active],
+smart-toggle-button.link:active,
+smart-toggle-button.link[focus],
+smart-toggle-button.link:focus,
+smart-repeat-button.link[active],
+smart-repeat-button.link:active,
+smart-repeat-button.link[focus],
+smart-repeat-button.link:focus {
+  border-color: var(--smart-ui-state-border-focus);
+  --smart-inner-border-color: transparent;
+}
+.smart-grid-command-item.link[active] a, .smart-grid-command-item.link[active] button, .smart-grid-command-item.link:active a, .smart-grid-command-item.link:active button, .smart-grid-command-item.link[focus] a, .smart-grid-command-item.link[focus] button, .smart-grid-command-item.link:focus a, .smart-grid-command-item.link:focus button,
+smart-button.link[active] a,
+smart-button.link[active] button,
+smart-button.link:active a,
+smart-button.link:active button,
+smart-button.link[focus] a,
+smart-button.link[focus] button,
+smart-button.link:focus a,
+smart-button.link:focus button,
+smart-toggle-button.link[active] a,
+smart-toggle-button.link[active] button,
+smart-toggle-button.link:active a,
+smart-toggle-button.link:active button,
+smart-toggle-button.link[focus] a,
+smart-toggle-button.link[focus] button,
+smart-toggle-button.link:focus a,
+smart-toggle-button.link:focus button,
+smart-repeat-button.link[active] a,
+smart-repeat-button.link[active] button,
+smart-repeat-button.link:active a,
+smart-repeat-button.link:active button,
+smart-repeat-button.link[focus] a,
+smart-repeat-button.link[focus] button,
+smart-repeat-button.link:focus a,
+smart-repeat-button.link:focus button {
+  padding: 0;
+  line-height: 1;
+  text-decoration: underline;
+}
+.smart-grid-command-item.link[disabled],
+smart-button.link[disabled],
+smart-toggle-button.link[disabled],
+smart-repeat-button.link[disabled] {
+  background: transparent;
+  border-color: transparent;
+  color: var(--fluent-greys-grey90);
+}
+.smart-grid-command-item.link.icon:not([disabled]) i,
+smart-button.link.icon:not([disabled]) i,
+smart-toggle-button.link.icon:not([disabled]) i,
+smart-repeat-button.link.icon:not([disabled]) i {
+  color: var(--fluent-theme-primary);
+}
+.smart-grid-command-item[disabled],
+smart-button[disabled],
+smart-toggle-button[disabled],
+smart-repeat-button[disabled] {
+  opacity: 1;
+}
+
+/* BUTTON GROUP */
+.smart-button-group {
+  --smart-button-small-padding: 5px 14px;
+  --smart-button-padding: 6px 15.5px;
+  --smart-button-large-padding: 8px 16px;
+  --smart-button-opacity-hover: unset !important;
+  --smart-button-opacity-focus: unset !important;
+  --smart-button-opacity-active: unset !important;
+  --smart-border-radius: 2px !important;
+  --smart-inner-border-color: transparent;
+  background: transparent;
+  display: inline-flex;
+  vertical-align: middle;
+  --smart-button-group-default-height: auto;
+  border: 0;
+  border-radius: var(--smart-border-radius);
+}
+.smart-button-group .smart-button-group-items .smart-button-group-item {
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+.smart-button-group .smart-button-group-items .smart-button-group-item:first-of-type {
+  border-bottom-left-radius: var(--smart-border-top-left-radius);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+}
+.smart-button-group .smart-button-group-items .smart-button-group-item:last-of-type {
+  border-bottom-right-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-left-radius);
+}
+.smart-button-group.primary {
+  --smart-background: var(--fluent-theme-primary);
+  --smart-border: var(--fluent-theme-primary);
+  --smart-background-color: var(--fluent-greys-white);
+  --smart-ui-state-hover: var(--fluent-theme-dark-alt);
+  --smart-ui-state-border-hover: var(--fluent-theme-dark-alt);
+  --smart-ui-state-color-hover: var(--fluent-greys-white);
+  --smart-ui-state-active: var(--fluent-theme-dark);
+  --smart-ui-state-border-active: var(--fluent-theme-dark);
+  --smart-ui-state-color-active: var(--fluent-greys-white);
+  --smart-ui-state-focus: var(--fluent-theme-primary);
+  --smart-ui-state-border-focus: var(--fluent-theme-primary);
+  --smart-ui-state-color-focus: var(--fluent-greys-white);
+}
+.smart-button-group.primary .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.primary .smart-button-group-items .smart-button-group-item:hover {
+  background-color: var(--smart-ui-state-hover);
+}
+.smart-button-group.primary .smart-button-group-items .smart-button-group-item[focus] {
+  background-color: var(--smart-ui-state-focus);
+  color: var(--smart-ui-state-color-focus);
+}
+.smart-button-group.primary .smart-button-group-items .smart-button-group-item:active, .smart-button-group.primary .smart-button-group-items .smart-button-group-item[active] {
+  background-color: var(--smart-ui-state-active);
+  color: var(--smart-ui-state-color-active);
+}
+.smart-button-group.secondary {
+  --smart-background: var(--fluent-greys-white);
+  --smart-border: var(--fluent-input-border);
+  --smart-background-color: var(--fluent-greys-grey190);
+  --smart-ui-state-hover: var(--fluent-greys-grey20);
+  --smart-ui-state-border-hover: var(--fluent-input-border);
+  --smart-ui-state-color-hover: var(--fluent-greys-grey190);
+  --smart-ui-state-active: var(--fluent-greys-grey30);
+  --smart-ui-state-border-active: var(--fluent-input-border);
+  --smart-ui-state-color-active: var(--fluent-greys-grey190);
+  --smart-ui-state-focus: var(--fluent-greys-white);
+  --smart-ui-state-border-focus: var(--fluent-input-border);
+  --smart-ui-state-color-focus: var(--fluent-greys-grey190);
+}
+.smart-button-group.secondary .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.secondary .smart-button-group-items .smart-button-group-item:hover {
+  background-color: var(--smart-ui-state-hover);
+}
+.smart-button-group.secondary .smart-button-group-items .smart-button-group-item[focus] {
+  background-color: var(--smart-ui-state-focus);
+  color: var(--smart-ui-state-color-focus);
+}
+.smart-button-group.secondary .smart-button-group-items .smart-button-group-item:active, .smart-button-group.secondary .smart-button-group-items .smart-button-group-item[active] {
+  background-color: var(--smart-ui-state-active);
+  color: var(--smart-ui-state-color-active);
+}
+.smart-button-group.small {
+  font-size: var(--smart-button-small-font-size);
+  height: calc(var(--smart-button-group-default-height) + 3px);
+}
+.smart-button-group.small .smart-button-group-items .smart-button-group-item {
+  padding: var(--smart-button-small-padding);
+}
+.smart-button-group.large {
+  font-size: var(--smart-button-large-font-size);
+  height: calc(var(--smart-button-group-default-height) + 20px);
+}
+.smart-button-group.large .smart-button-group-items .smart-button-group-item {
+  padding: var(--smart-button-large-padding);
+}
+
+/* BADGE */
+.smart-badge {
+  padding: 5px 10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 2px;
+}
+
+/* INPUT FIELDS */
+.field-holder {
+  margin-bottom: 1rem;
+}
+.field-holder .smart-check-box {
+  margin-left: -8px;
+}
+.field-holder .smart-label,
+.field-holder label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.field-holder smart-multiline-text-box .smart-label {
+  margin: unset;
+  display: none;
+}
+.field-holder smart-radio-button .smart-label,
+.field-holder smart-radio-button label,
+.field-holder smart-check-box .smart-label,
+.field-holder smart-check-box label {
+  margin-bottom: 0;
+}
+.field-holder > .smart-element {
+  display: block;
+  width: 100%;
+}
+
+smart-number-input:not([disabled]) .nav.smart-drop-down-button:hover,
+smart-number-input:not([disabled]) .nav.smart-drop-down-button:active {
+  background: var(--smart-surface);
+  color: var(--smart-surface-color);
+}
+
+smart-numeric-text-box.smart-numeric-text-box {
+  border-radius: var(--smart-border-radius);
+}
+
+input.smart-input.smart-filter-panel-input:focus,
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--fluent-theme-primary);
+}
+
+smart-date-input.smart-date-input,
+smart-text-area.smart-text-area,
+smart-check-input.smart-check-input,
+smart-multi-input.smart-multi-input,
+smart-multi-combo-input.smart-multi-combo-input,
+smart-time-input.smart-time-input,
+smart-color-input.smart-color-input,
+smart-date-range-input.smart-date-range-input,
+smart-masked-text-box.smart-masked-text-box,
+smart-numeric-text-box.smart-numeric-text-box,
+smart-number-input.smart-number-input,
+smart-password-input.smart-password-input,
+smart-password-text-box.smart-password-text-box,
+smart-date-time-picker.smart-date-time-picker,
+smart-multiline-text-box.smart-multiline-text-box,
+smart-input.smart-input {
+  --smart-border-radius: 2px;
+  --smart-background: var(--fluent-input-background);
+  --smart-background-color: var(--fluent-type-primary);
+  --smart-border: var(--fluent-input-border);
+  --smart-outline: transparent;
+  --smart-text-box-default-height: 34px;
+  --smart-primary: var(--fluent-theme-primary);
+  --smart-surface: var(--fluent-input-background);
+  --smart-surface-color: var(--fluent-type-primary);
+  border-color: var(--smart-border);
+  border-radius: var(--smart-border-radius);
+  outline: 1px solid var(--smart-outline);
+}
+smart-date-input.smart-date-input .smart-input-prefix,
+smart-text-area.smart-text-area .smart-input-prefix,
+smart-check-input.smart-check-input .smart-input-prefix,
+smart-multi-input.smart-multi-input .smart-input-prefix,
+smart-multi-combo-input.smart-multi-combo-input .smart-input-prefix,
+smart-time-input.smart-time-input .smart-input-prefix,
+smart-color-input.smart-color-input .smart-input-prefix,
+smart-date-range-input.smart-date-range-input .smart-input-prefix,
+smart-masked-text-box.smart-masked-text-box .smart-input-prefix,
+smart-numeric-text-box.smart-numeric-text-box .smart-input-prefix,
+smart-number-input.smart-number-input .smart-input-prefix,
+smart-password-input.smart-password-input .smart-input-prefix,
+smart-password-text-box.smart-password-text-box .smart-input-prefix,
+smart-date-time-picker.smart-date-time-picker .smart-input-prefix,
+smart-multiline-text-box.smart-multiline-text-box .smart-input-prefix,
+smart-input.smart-input .smart-input-prefix {
+  margin-right: -5px;
+  margin-left: 5px;
+}
+smart-date-input.smart-date-input .smart-input-prefix i,
+smart-text-area.smart-text-area .smart-input-prefix i,
+smart-check-input.smart-check-input .smart-input-prefix i,
+smart-multi-input.smart-multi-input .smart-input-prefix i,
+smart-multi-combo-input.smart-multi-combo-input .smart-input-prefix i,
+smart-time-input.smart-time-input .smart-input-prefix i,
+smart-color-input.smart-color-input .smart-input-prefix i,
+smart-date-range-input.smart-date-range-input .smart-input-prefix i,
+smart-masked-text-box.smart-masked-text-box .smart-input-prefix i,
+smart-numeric-text-box.smart-numeric-text-box .smart-input-prefix i,
+smart-number-input.smart-number-input .smart-input-prefix i,
+smart-password-input.smart-password-input .smart-input-prefix i,
+smart-password-text-box.smart-password-text-box .smart-input-prefix i,
+smart-date-time-picker.smart-date-time-picker .smart-input-prefix i,
+smart-multiline-text-box.smart-multiline-text-box .smart-input-prefix i,
+smart-input.smart-input .smart-input-prefix i {
+  color: var(--fluent-theme-primary);
+}
+smart-date-input.smart-date-input .smart-input-suffix i,
+smart-text-area.smart-text-area .smart-input-suffix i,
+smart-check-input.smart-check-input .smart-input-suffix i,
+smart-multi-input.smart-multi-input .smart-input-suffix i,
+smart-multi-combo-input.smart-multi-combo-input .smart-input-suffix i,
+smart-time-input.smart-time-input .smart-input-suffix i,
+smart-color-input.smart-color-input .smart-input-suffix i,
+smart-date-range-input.smart-date-range-input .smart-input-suffix i,
+smart-masked-text-box.smart-masked-text-box .smart-input-suffix i,
+smart-numeric-text-box.smart-numeric-text-box .smart-input-suffix i,
+smart-number-input.smart-number-input .smart-input-suffix i,
+smart-password-input.smart-password-input .smart-input-suffix i,
+smart-password-text-box.smart-password-text-box .smart-input-suffix i,
+smart-date-time-picker.smart-date-time-picker .smart-input-suffix i,
+smart-multiline-text-box.smart-multiline-text-box .smart-input-suffix i,
+smart-input.smart-input .smart-input-suffix i {
+  color: var(--fluent-greys-grey130);
+}
+smart-date-input.smart-date-input .smart-input-prefix,
+smart-date-input.smart-date-input .smart-input-suffix,
+smart-text-area.smart-text-area .smart-input-prefix,
+smart-text-area.smart-text-area .smart-input-suffix,
+smart-check-input.smart-check-input .smart-input-prefix,
+smart-check-input.smart-check-input .smart-input-suffix,
+smart-multi-input.smart-multi-input .smart-input-prefix,
+smart-multi-input.smart-multi-input .smart-input-suffix,
+smart-multi-combo-input.smart-multi-combo-input .smart-input-prefix,
+smart-multi-combo-input.smart-multi-combo-input .smart-input-suffix,
+smart-time-input.smart-time-input .smart-input-prefix,
+smart-time-input.smart-time-input .smart-input-suffix,
+smart-color-input.smart-color-input .smart-input-prefix,
+smart-color-input.smart-color-input .smart-input-suffix,
+smart-date-range-input.smart-date-range-input .smart-input-prefix,
+smart-date-range-input.smart-date-range-input .smart-input-suffix,
+smart-masked-text-box.smart-masked-text-box .smart-input-prefix,
+smart-masked-text-box.smart-masked-text-box .smart-input-suffix,
+smart-numeric-text-box.smart-numeric-text-box .smart-input-prefix,
+smart-numeric-text-box.smart-numeric-text-box .smart-input-suffix,
+smart-number-input.smart-number-input .smart-input-prefix,
+smart-number-input.smart-number-input .smart-input-suffix,
+smart-password-input.smart-password-input .smart-input-prefix,
+smart-password-input.smart-password-input .smart-input-suffix,
+smart-password-text-box.smart-password-text-box .smart-input-prefix,
+smart-password-text-box.smart-password-text-box .smart-input-suffix,
+smart-date-time-picker.smart-date-time-picker .smart-input-prefix,
+smart-date-time-picker.smart-date-time-picker .smart-input-suffix,
+smart-multiline-text-box.smart-multiline-text-box .smart-input-prefix,
+smart-multiline-text-box.smart-multiline-text-box .smart-input-suffix,
+smart-input.smart-input .smart-input-prefix,
+smart-input.smart-input .smart-input-suffix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+smart-date-input.smart-date-input .smart-input-prefix i,
+smart-date-input.smart-date-input .smart-input-suffix i,
+smart-text-area.smart-text-area .smart-input-prefix i,
+smart-text-area.smart-text-area .smart-input-suffix i,
+smart-check-input.smart-check-input .smart-input-prefix i,
+smart-check-input.smart-check-input .smart-input-suffix i,
+smart-multi-input.smart-multi-input .smart-input-prefix i,
+smart-multi-input.smart-multi-input .smart-input-suffix i,
+smart-multi-combo-input.smart-multi-combo-input .smart-input-prefix i,
+smart-multi-combo-input.smart-multi-combo-input .smart-input-suffix i,
+smart-time-input.smart-time-input .smart-input-prefix i,
+smart-time-input.smart-time-input .smart-input-suffix i,
+smart-color-input.smart-color-input .smart-input-prefix i,
+smart-color-input.smart-color-input .smart-input-suffix i,
+smart-date-range-input.smart-date-range-input .smart-input-prefix i,
+smart-date-range-input.smart-date-range-input .smart-input-suffix i,
+smart-masked-text-box.smart-masked-text-box .smart-input-prefix i,
+smart-masked-text-box.smart-masked-text-box .smart-input-suffix i,
+smart-numeric-text-box.smart-numeric-text-box .smart-input-prefix i,
+smart-numeric-text-box.smart-numeric-text-box .smart-input-suffix i,
+smart-number-input.smart-number-input .smart-input-prefix i,
+smart-number-input.smart-number-input .smart-input-suffix i,
+smart-password-input.smart-password-input .smart-input-prefix i,
+smart-password-input.smart-password-input .smart-input-suffix i,
+smart-password-text-box.smart-password-text-box .smart-input-prefix i,
+smart-password-text-box.smart-password-text-box .smart-input-suffix i,
+smart-date-time-picker.smart-date-time-picker .smart-input-prefix i,
+smart-date-time-picker.smart-date-time-picker .smart-input-suffix i,
+smart-multiline-text-box.smart-multiline-text-box .smart-input-prefix i,
+smart-multiline-text-box.smart-multiline-text-box .smart-input-suffix i,
+smart-input.smart-input .smart-input-prefix i,
+smart-input.smart-input .smart-input-suffix i {
+  font-size: 24px;
+}
+smart-date-input.smart-date-input:hover, smart-date-input.smart-date-input[hover],
+smart-text-area.smart-text-area:hover,
+smart-text-area.smart-text-area[hover],
+smart-check-input.smart-check-input:hover,
+smart-check-input.smart-check-input[hover],
+smart-multi-input.smart-multi-input:hover,
+smart-multi-input.smart-multi-input[hover],
+smart-multi-combo-input.smart-multi-combo-input:hover,
+smart-multi-combo-input.smart-multi-combo-input[hover],
+smart-time-input.smart-time-input:hover,
+smart-time-input.smart-time-input[hover],
+smart-color-input.smart-color-input:hover,
+smart-color-input.smart-color-input[hover],
+smart-date-range-input.smart-date-range-input:hover,
+smart-date-range-input.smart-date-range-input[hover],
+smart-masked-text-box.smart-masked-text-box:hover,
+smart-masked-text-box.smart-masked-text-box[hover],
+smart-numeric-text-box.smart-numeric-text-box:hover,
+smart-numeric-text-box.smart-numeric-text-box[hover],
+smart-number-input.smart-number-input:hover,
+smart-number-input.smart-number-input[hover],
+smart-password-input.smart-password-input:hover,
+smart-password-input.smart-password-input[hover],
+smart-password-text-box.smart-password-text-box:hover,
+smart-password-text-box.smart-password-text-box[hover],
+smart-date-time-picker.smart-date-time-picker:hover,
+smart-date-time-picker.smart-date-time-picker[hover],
+smart-multiline-text-box.smart-multiline-text-box:hover,
+smart-multiline-text-box.smart-multiline-text-box[hover],
+smart-input.smart-input:hover,
+smart-input.smart-input[hover] {
+  --smart-border: var(--fluent-input-border-hover);
+}
+smart-date-input.smart-date-input[focus],
+smart-text-area.smart-text-area[focus],
+smart-check-input.smart-check-input[focus],
+smart-multi-input.smart-multi-input[focus],
+smart-multi-combo-input.smart-multi-combo-input[focus],
+smart-time-input.smart-time-input[focus],
+smart-color-input.smart-color-input[focus],
+smart-date-range-input.smart-date-range-input[focus],
+smart-masked-text-box.smart-masked-text-box[focus],
+smart-numeric-text-box.smart-numeric-text-box[focus],
+smart-number-input.smart-number-input[focus],
+smart-password-input.smart-password-input[focus],
+smart-password-text-box.smart-password-text-box[focus],
+smart-date-time-picker.smart-date-time-picker[focus],
+smart-multiline-text-box.smart-multiline-text-box[focus],
+smart-input.smart-input[focus] {
+  --smart-border: var(--fluent-theme-primary);
+  --smart-outline: var(--fluent-theme-primary);
+}
+smart-date-input.smart-date-input[disabled],
+smart-text-area.smart-text-area[disabled],
+smart-check-input.smart-check-input[disabled],
+smart-multi-input.smart-multi-input[disabled],
+smart-multi-combo-input.smart-multi-combo-input[disabled],
+smart-time-input.smart-time-input[disabled],
+smart-color-input.smart-color-input[disabled],
+smart-date-range-input.smart-date-range-input[disabled],
+smart-masked-text-box.smart-masked-text-box[disabled],
+smart-numeric-text-box.smart-numeric-text-box[disabled],
+smart-number-input.smart-number-input[disabled],
+smart-password-input.smart-password-input[disabled],
+smart-password-text-box.smart-password-text-box[disabled],
+smart-date-time-picker.smart-date-time-picker[disabled],
+smart-multiline-text-box.smart-multiline-text-box[disabled],
+smart-input.smart-input[disabled] {
+  --smart-background: var(--fluent-input-disabled-background);
+  --smart-background-color: var(--fluent-greys-grey90);
+  --smart-border: var(--fluent-input-disabled-background);
+  opacity: 1;
+}
+smart-date-input.smart-date-input[disabled] .smart-input-prefix i,
+smart-date-input.smart-date-input[disabled] .smart-input-suffix i,
+smart-text-area.smart-text-area[disabled] .smart-input-prefix i,
+smart-text-area.smart-text-area[disabled] .smart-input-suffix i,
+smart-check-input.smart-check-input[disabled] .smart-input-prefix i,
+smart-check-input.smart-check-input[disabled] .smart-input-suffix i,
+smart-multi-input.smart-multi-input[disabled] .smart-input-prefix i,
+smart-multi-input.smart-multi-input[disabled] .smart-input-suffix i,
+smart-multi-combo-input.smart-multi-combo-input[disabled] .smart-input-prefix i,
+smart-multi-combo-input.smart-multi-combo-input[disabled] .smart-input-suffix i,
+smart-time-input.smart-time-input[disabled] .smart-input-prefix i,
+smart-time-input.smart-time-input[disabled] .smart-input-suffix i,
+smart-color-input.smart-color-input[disabled] .smart-input-prefix i,
+smart-color-input.smart-color-input[disabled] .smart-input-suffix i,
+smart-date-range-input.smart-date-range-input[disabled] .smart-input-prefix i,
+smart-date-range-input.smart-date-range-input[disabled] .smart-input-suffix i,
+smart-masked-text-box.smart-masked-text-box[disabled] .smart-input-prefix i,
+smart-masked-text-box.smart-masked-text-box[disabled] .smart-input-suffix i,
+smart-numeric-text-box.smart-numeric-text-box[disabled] .smart-input-prefix i,
+smart-numeric-text-box.smart-numeric-text-box[disabled] .smart-input-suffix i,
+smart-number-input.smart-number-input[disabled] .smart-input-prefix i,
+smart-number-input.smart-number-input[disabled] .smart-input-suffix i,
+smart-password-input.smart-password-input[disabled] .smart-input-prefix i,
+smart-password-input.smart-password-input[disabled] .smart-input-suffix i,
+smart-password-text-box.smart-password-text-box[disabled] .smart-input-prefix i,
+smart-password-text-box.smart-password-text-box[disabled] .smart-input-suffix i,
+smart-date-time-picker.smart-date-time-picker[disabled] .smart-input-prefix i,
+smart-date-time-picker.smart-date-time-picker[disabled] .smart-input-suffix i,
+smart-multiline-text-box.smart-multiline-text-box[disabled] .smart-input-prefix i,
+smart-multiline-text-box.smart-multiline-text-box[disabled] .smart-input-suffix i,
+smart-input.smart-input[disabled] .smart-input-prefix i,
+smart-input.smart-input[disabled] .smart-input-suffix i {
+  color: var(--smart-background-color);
+}
+smart-date-input.smart-date-input.smart-validation-error,
+smart-text-area.smart-text-area.smart-validation-error,
+smart-check-input.smart-check-input.smart-validation-error,
+smart-multi-input.smart-multi-input.smart-validation-error,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error,
+smart-time-input.smart-time-input.smart-validation-error,
+smart-color-input.smart-color-input.smart-validation-error,
+smart-date-range-input.smart-date-range-input.smart-validation-error,
+smart-masked-text-box.smart-masked-text-box.smart-validation-error,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error,
+smart-number-input.smart-number-input.smart-validation-error,
+smart-password-input.smart-password-input.smart-validation-error,
+smart-password-text-box.smart-password-text-box.smart-validation-error,
+smart-date-time-picker.smart-date-time-picker.smart-validation-error,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error,
+smart-input.smart-input.smart-validation-error {
+  margin-bottom: 0.75rem;
+}
+smart-date-input.smart-date-input.smart-validation-success:not(smart-check-box) > div.smart-container:after, smart-date-input.smart-date-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-text-area.smart-text-area.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-text-area.smart-text-area.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-check-input.smart-check-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-check-input.smart-check-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-multi-input.smart-multi-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-multi-input.smart-multi-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-time-input.smart-time-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-time-input.smart-time-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-color-input.smart-color-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-color-input.smart-color-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-date-range-input.smart-date-range-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-date-range-input.smart-date-range-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-masked-text-box.smart-masked-text-box.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-masked-text-box.smart-masked-text-box.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-number-input.smart-number-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-number-input.smart-number-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-password-input.smart-password-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-password-input.smart-password-input.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-password-text-box.smart-password-text-box.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-password-text-box.smart-password-text-box.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-date-time-picker.smart-date-time-picker.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-date-time-picker.smart-date-time-picker.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-input.smart-input.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-input.smart-input.smart-validation-error:not(smart-check-box) > div.smart-container:after {
+  display: none;
+}
+smart-date-input.smart-date-input.smart-validation-success .smart-input, smart-date-input.smart-date-input.smart-validation-error .smart-input,
+smart-text-area.smart-text-area.smart-validation-success .smart-input,
+smart-text-area.smart-text-area.smart-validation-error .smart-input,
+smart-check-input.smart-check-input.smart-validation-success .smart-input,
+smart-check-input.smart-check-input.smart-validation-error .smart-input,
+smart-multi-input.smart-multi-input.smart-validation-success .smart-input,
+smart-multi-input.smart-multi-input.smart-validation-error .smart-input,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success .smart-input,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error .smart-input,
+smart-time-input.smart-time-input.smart-validation-success .smart-input,
+smart-time-input.smart-time-input.smart-validation-error .smart-input,
+smart-color-input.smart-color-input.smart-validation-success .smart-input,
+smart-color-input.smart-color-input.smart-validation-error .smart-input,
+smart-date-range-input.smart-date-range-input.smart-validation-success .smart-input,
+smart-date-range-input.smart-date-range-input.smart-validation-error .smart-input,
+smart-masked-text-box.smart-masked-text-box.smart-validation-success .smart-input,
+smart-masked-text-box.smart-masked-text-box.smart-validation-error .smart-input,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success .smart-input,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error .smart-input,
+smart-number-input.smart-number-input.smart-validation-success .smart-input,
+smart-number-input.smart-number-input.smart-validation-error .smart-input,
+smart-password-input.smart-password-input.smart-validation-success .smart-input,
+smart-password-input.smart-password-input.smart-validation-error .smart-input,
+smart-password-text-box.smart-password-text-box.smart-validation-success .smart-input,
+smart-password-text-box.smart-password-text-box.smart-validation-error .smart-input,
+smart-date-time-picker.smart-date-time-picker.smart-validation-success .smart-input,
+smart-date-time-picker.smart-date-time-picker.smart-validation-error .smart-input,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success .smart-input,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error .smart-input,
+smart-input.smart-input.smart-validation-success .smart-input,
+smart-input.smart-input.smart-validation-error .smart-input {
+  padding-right: calc(1.5em + 0.75rem);
+}
+smart-date-input.smart-date-input.smart-validation-success.underlined[focus], smart-date-input.smart-date-input.smart-validation-success.outlined[focus], smart-date-input.smart-date-input.smart-validation-error.underlined[focus], smart-date-input.smart-date-input.smart-validation-error.outlined[focus],
+smart-text-area.smart-text-area.smart-validation-success.underlined[focus],
+smart-text-area.smart-text-area.smart-validation-success.outlined[focus],
+smart-text-area.smart-text-area.smart-validation-error.underlined[focus],
+smart-text-area.smart-text-area.smart-validation-error.outlined[focus],
+smart-check-input.smart-check-input.smart-validation-success.underlined[focus],
+smart-check-input.smart-check-input.smart-validation-success.outlined[focus],
+smart-check-input.smart-check-input.smart-validation-error.underlined[focus],
+smart-check-input.smart-check-input.smart-validation-error.outlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-success.underlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-success.outlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-error.underlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-error.outlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success.underlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success.outlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error.underlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error.outlined[focus],
+smart-time-input.smart-time-input.smart-validation-success.underlined[focus],
+smart-time-input.smart-time-input.smart-validation-success.outlined[focus],
+smart-time-input.smart-time-input.smart-validation-error.underlined[focus],
+smart-time-input.smart-time-input.smart-validation-error.outlined[focus],
+smart-color-input.smart-color-input.smart-validation-success.underlined[focus],
+smart-color-input.smart-color-input.smart-validation-success.outlined[focus],
+smart-color-input.smart-color-input.smart-validation-error.underlined[focus],
+smart-color-input.smart-color-input.smart-validation-error.outlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-success.underlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-success.outlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-error.underlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-error.outlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-success.underlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-success.outlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-error.underlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-error.outlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success.underlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success.outlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error.underlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error.outlined[focus],
+smart-number-input.smart-number-input.smart-validation-success.underlined[focus],
+smart-number-input.smart-number-input.smart-validation-success.outlined[focus],
+smart-number-input.smart-number-input.smart-validation-error.underlined[focus],
+smart-number-input.smart-number-input.smart-validation-error.outlined[focus],
+smart-password-input.smart-password-input.smart-validation-success.underlined[focus],
+smart-password-input.smart-password-input.smart-validation-success.outlined[focus],
+smart-password-input.smart-password-input.smart-validation-error.underlined[focus],
+smart-password-input.smart-password-input.smart-validation-error.outlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-success.underlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-success.outlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-error.underlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-error.outlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-success.underlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-success.outlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-error.underlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-error.outlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success.underlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success.outlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error.underlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error.outlined[focus],
+smart-input.smart-input.smart-validation-success.underlined[focus],
+smart-input.smart-input.smart-validation-success.outlined[focus],
+smart-input.smart-input.smart-validation-error.underlined[focus],
+smart-input.smart-input.smart-validation-error.outlined[focus] {
+  box-shadow: none;
+}
+smart-date-input.smart-date-input.smart-validation-success,
+smart-text-area.smart-text-area.smart-validation-success,
+smart-check-input.smart-check-input.smart-validation-success,
+smart-multi-input.smart-multi-input.smart-validation-success,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success,
+smart-time-input.smart-time-input.smart-validation-success,
+smart-color-input.smart-color-input.smart-validation-success,
+smart-date-range-input.smart-date-range-input.smart-validation-success,
+smart-masked-text-box.smart-masked-text-box.smart-validation-success,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success,
+smart-number-input.smart-number-input.smart-validation-success,
+smart-password-input.smart-password-input.smart-validation-success,
+smart-password-text-box.smart-password-text-box.smart-validation-success,
+smart-date-time-picker.smart-date-time-picker.smart-validation-success,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success,
+smart-input.smart-input.smart-validation-success {
+  --smart-border: var(--fluent-input-border);
+}
+smart-date-input.smart-date-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-text-area.smart-text-area.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-check-input.smart-check-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-multi-input.smart-multi-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-time-input.smart-time-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-color-input.smart-color-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-date-range-input.smart-date-range-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-masked-text-box.smart-masked-text-box.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-number-input.smart-number-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-password-input.smart-password-input.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-password-text-box.smart-password-text-box.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-date-time-picker.smart-date-time-picker.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success.underlined[focus] .smart-hint:after,
+smart-input.smart-input.smart-validation-success.underlined[focus] .smart-hint:after {
+  background-color: var(--fluent-success-color);
+}
+smart-date-input.smart-date-input.smart-validation-success.underlined[focus], smart-date-input.smart-date-input.smart-validation-success.outlined[focus],
+smart-text-area.smart-text-area.smart-validation-success.underlined[focus],
+smart-text-area.smart-text-area.smart-validation-success.outlined[focus],
+smart-check-input.smart-check-input.smart-validation-success.underlined[focus],
+smart-check-input.smart-check-input.smart-validation-success.outlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-success.underlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-success.outlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success.underlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-success.outlined[focus],
+smart-time-input.smart-time-input.smart-validation-success.underlined[focus],
+smart-time-input.smart-time-input.smart-validation-success.outlined[focus],
+smart-color-input.smart-color-input.smart-validation-success.underlined[focus],
+smart-color-input.smart-color-input.smart-validation-success.outlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-success.underlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-success.outlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-success.underlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-success.outlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success.underlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-success.outlined[focus],
+smart-number-input.smart-number-input.smart-validation-success.underlined[focus],
+smart-number-input.smart-number-input.smart-validation-success.outlined[focus],
+smart-password-input.smart-password-input.smart-validation-success.underlined[focus],
+smart-password-input.smart-password-input.smart-validation-success.outlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-success.underlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-success.outlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-success.underlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-success.outlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success.underlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success.outlined[focus],
+smart-input.smart-input.smart-validation-success.underlined[focus],
+smart-input.smart-input.smart-validation-success.outlined[focus] {
+  box-shadow: none;
+}
+smart-date-input.smart-date-input.smart-validation-error,
+smart-text-area.smart-text-area.smart-validation-error,
+smart-check-input.smart-check-input.smart-validation-error,
+smart-multi-input.smart-multi-input.smart-validation-error,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error,
+smart-time-input.smart-time-input.smart-validation-error,
+smart-color-input.smart-color-input.smart-validation-error,
+smart-date-range-input.smart-date-range-input.smart-validation-error,
+smart-masked-text-box.smart-masked-text-box.smart-validation-error,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error,
+smart-number-input.smart-number-input.smart-validation-error,
+smart-password-input.smart-password-input.smart-validation-error,
+smart-password-text-box.smart-password-text-box.smart-validation-error,
+smart-date-time-picker.smart-date-time-picker.smart-validation-error,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error,
+smart-input.smart-input.smart-validation-error {
+  --smart-border: var(--fluent-error-color);
+  --smart-error: var(--fluent-error-color);
+}
+smart-date-input.smart-date-input.smart-validation-error:focus, smart-date-input.smart-date-input.smart-validation-error[focus],
+smart-text-area.smart-text-area.smart-validation-error:focus,
+smart-text-area.smart-text-area.smart-validation-error[focus],
+smart-check-input.smart-check-input.smart-validation-error:focus,
+smart-check-input.smart-check-input.smart-validation-error[focus],
+smart-multi-input.smart-multi-input.smart-validation-error:focus,
+smart-multi-input.smart-multi-input.smart-validation-error[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error:focus,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error[focus],
+smart-time-input.smart-time-input.smart-validation-error:focus,
+smart-time-input.smart-time-input.smart-validation-error[focus],
+smart-color-input.smart-color-input.smart-validation-error:focus,
+smart-color-input.smart-color-input.smart-validation-error[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-error:focus,
+smart-date-range-input.smart-date-range-input.smart-validation-error[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-error:focus,
+smart-masked-text-box.smart-masked-text-box.smart-validation-error[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error:focus,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error[focus],
+smart-number-input.smart-number-input.smart-validation-error:focus,
+smart-number-input.smart-number-input.smart-validation-error[focus],
+smart-password-input.smart-password-input.smart-validation-error:focus,
+smart-password-input.smart-password-input.smart-validation-error[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-error:focus,
+smart-password-text-box.smart-password-text-box.smart-validation-error[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-error:focus,
+smart-date-time-picker.smart-date-time-picker.smart-validation-error[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error:focus,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error[focus],
+smart-input.smart-input.smart-validation-error:focus,
+smart-input.smart-input.smart-validation-error[focus] {
+  outline: 1px solid var(--smart-outline);
+  --smart-outline: var(--fluent-error-color);
+}
+smart-date-input.smart-date-input.smart-validation-error .smart-input,
+smart-text-area.smart-text-area.smart-validation-error .smart-input,
+smart-check-input.smart-check-input.smart-validation-error .smart-input,
+smart-multi-input.smart-multi-input.smart-validation-error .smart-input,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error .smart-input,
+smart-time-input.smart-time-input.smart-validation-error .smart-input,
+smart-color-input.smart-color-input.smart-validation-error .smart-input,
+smart-date-range-input.smart-date-range-input.smart-validation-error .smart-input,
+smart-masked-text-box.smart-masked-text-box.smart-validation-error .smart-input,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error .smart-input,
+smart-number-input.smart-number-input.smart-validation-error .smart-input,
+smart-password-input.smart-password-input.smart-validation-error .smart-input,
+smart-password-text-box.smart-password-text-box.smart-validation-error .smart-input,
+smart-date-time-picker.smart-date-time-picker.smart-validation-error .smart-input,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error .smart-input,
+smart-input.smart-input.smart-validation-error .smart-input {
+  border-color: var(--fluent-error-color);
+}
+smart-date-input.smart-date-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-text-area.smart-text-area.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-check-input.smart-check-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-multi-input.smart-multi-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-time-input.smart-time-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-color-input.smart-color-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-date-range-input.smart-date-range-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-masked-text-box.smart-masked-text-box.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-number-input.smart-number-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-password-input.smart-password-input.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-password-text-box.smart-password-text-box.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-date-time-picker.smart-date-time-picker.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error.underlined[focus] .smart-hint:after,
+smart-input.smart-input.smart-validation-error.underlined[focus] .smart-hint:after {
+  background-color: var(--fluent-error-color);
+}
+smart-date-input.smart-date-input.smart-validation-error.underlined[focus], smart-date-input.smart-date-input.smart-validation-error.outlined[focus],
+smart-text-area.smart-text-area.smart-validation-error.underlined[focus],
+smart-text-area.smart-text-area.smart-validation-error.outlined[focus],
+smart-check-input.smart-check-input.smart-validation-error.underlined[focus],
+smart-check-input.smart-check-input.smart-validation-error.outlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-error.underlined[focus],
+smart-multi-input.smart-multi-input.smart-validation-error.outlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error.underlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.smart-validation-error.outlined[focus],
+smart-time-input.smart-time-input.smart-validation-error.underlined[focus],
+smart-time-input.smart-time-input.smart-validation-error.outlined[focus],
+smart-color-input.smart-color-input.smart-validation-error.underlined[focus],
+smart-color-input.smart-color-input.smart-validation-error.outlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-error.underlined[focus],
+smart-date-range-input.smart-date-range-input.smart-validation-error.outlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-error.underlined[focus],
+smart-masked-text-box.smart-masked-text-box.smart-validation-error.outlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error.underlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.smart-validation-error.outlined[focus],
+smart-number-input.smart-number-input.smart-validation-error.underlined[focus],
+smart-number-input.smart-number-input.smart-validation-error.outlined[focus],
+smart-password-input.smart-password-input.smart-validation-error.underlined[focus],
+smart-password-input.smart-password-input.smart-validation-error.outlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-error.underlined[focus],
+smart-password-text-box.smart-password-text-box.smart-validation-error.outlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-error.underlined[focus],
+smart-date-time-picker.smart-date-time-picker.smart-validation-error.outlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error.underlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-error.outlined[focus],
+smart-input.smart-input.smart-validation-error.underlined[focus],
+smart-input.smart-input.smart-validation-error.outlined[focus] {
+  box-shadow: none;
+}
+smart-date-input.smart-date-input.underlined, smart-date-input.smart-date-input.outlined,
+smart-text-area.smart-text-area.underlined,
+smart-text-area.smart-text-area.outlined,
+smart-check-input.smart-check-input.underlined,
+smart-check-input.smart-check-input.outlined,
+smart-multi-input.smart-multi-input.underlined,
+smart-multi-input.smart-multi-input.outlined,
+smart-multi-combo-input.smart-multi-combo-input.underlined,
+smart-multi-combo-input.smart-multi-combo-input.outlined,
+smart-time-input.smart-time-input.underlined,
+smart-time-input.smart-time-input.outlined,
+smart-color-input.smart-color-input.underlined,
+smart-color-input.smart-color-input.outlined,
+smart-date-range-input.smart-date-range-input.underlined,
+smart-date-range-input.smart-date-range-input.outlined,
+smart-masked-text-box.smart-masked-text-box.underlined,
+smart-masked-text-box.smart-masked-text-box.outlined,
+smart-numeric-text-box.smart-numeric-text-box.underlined,
+smart-numeric-text-box.smart-numeric-text-box.outlined,
+smart-number-input.smart-number-input.underlined,
+smart-number-input.smart-number-input.outlined,
+smart-password-input.smart-password-input.underlined,
+smart-password-input.smart-password-input.outlined,
+smart-password-text-box.smart-password-text-box.underlined,
+smart-password-text-box.smart-password-text-box.outlined,
+smart-date-time-picker.smart-date-time-picker.underlined,
+smart-date-time-picker.smart-date-time-picker.outlined,
+smart-multiline-text-box.smart-multiline-text-box.underlined,
+smart-multiline-text-box.smart-multiline-text-box.outlined,
+smart-input.smart-input.underlined,
+smart-input.smart-input.outlined {
+  box-shadow: none;
+}
+smart-date-input.smart-date-input.underlined,
+smart-text-area.smart-text-area.underlined,
+smart-check-input.smart-check-input.underlined,
+smart-multi-input.smart-multi-input.underlined,
+smart-multi-combo-input.smart-multi-combo-input.underlined,
+smart-time-input.smart-time-input.underlined,
+smart-color-input.smart-color-input.underlined,
+smart-date-range-input.smart-date-range-input.underlined,
+smart-masked-text-box.smart-masked-text-box.underlined,
+smart-numeric-text-box.smart-numeric-text-box.underlined,
+smart-number-input.smart-number-input.underlined,
+smart-password-input.smart-password-input.underlined,
+smart-password-text-box.smart-password-text-box.underlined,
+smart-date-time-picker.smart-date-time-picker.underlined,
+smart-multiline-text-box.smart-multiline-text-box.underlined,
+smart-input.smart-input.underlined {
+  border-width: 2px;
+  outline: unset;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+smart-date-input.smart-date-input.underlined[hover], smart-date-input.smart-date-input.underlined:hover, smart-date-input.smart-date-input.underlined[focus], smart-date-input.smart-date-input.underlined:focus,
+smart-text-area.smart-text-area.underlined[hover],
+smart-text-area.smart-text-area.underlined:hover,
+smart-text-area.smart-text-area.underlined[focus],
+smart-text-area.smart-text-area.underlined:focus,
+smart-check-input.smart-check-input.underlined[hover],
+smart-check-input.smart-check-input.underlined:hover,
+smart-check-input.smart-check-input.underlined[focus],
+smart-check-input.smart-check-input.underlined:focus,
+smart-multi-input.smart-multi-input.underlined[hover],
+smart-multi-input.smart-multi-input.underlined:hover,
+smart-multi-input.smart-multi-input.underlined[focus],
+smart-multi-input.smart-multi-input.underlined:focus,
+smart-multi-combo-input.smart-multi-combo-input.underlined[hover],
+smart-multi-combo-input.smart-multi-combo-input.underlined:hover,
+smart-multi-combo-input.smart-multi-combo-input.underlined[focus],
+smart-multi-combo-input.smart-multi-combo-input.underlined:focus,
+smart-time-input.smart-time-input.underlined[hover],
+smart-time-input.smart-time-input.underlined:hover,
+smart-time-input.smart-time-input.underlined[focus],
+smart-time-input.smart-time-input.underlined:focus,
+smart-color-input.smart-color-input.underlined[hover],
+smart-color-input.smart-color-input.underlined:hover,
+smart-color-input.smart-color-input.underlined[focus],
+smart-color-input.smart-color-input.underlined:focus,
+smart-date-range-input.smart-date-range-input.underlined[hover],
+smart-date-range-input.smart-date-range-input.underlined:hover,
+smart-date-range-input.smart-date-range-input.underlined[focus],
+smart-date-range-input.smart-date-range-input.underlined:focus,
+smart-masked-text-box.smart-masked-text-box.underlined[hover],
+smart-masked-text-box.smart-masked-text-box.underlined:hover,
+smart-masked-text-box.smart-masked-text-box.underlined[focus],
+smart-masked-text-box.smart-masked-text-box.underlined:focus,
+smart-numeric-text-box.smart-numeric-text-box.underlined[hover],
+smart-numeric-text-box.smart-numeric-text-box.underlined:hover,
+smart-numeric-text-box.smart-numeric-text-box.underlined[focus],
+smart-numeric-text-box.smart-numeric-text-box.underlined:focus,
+smart-number-input.smart-number-input.underlined[hover],
+smart-number-input.smart-number-input.underlined:hover,
+smart-number-input.smart-number-input.underlined[focus],
+smart-number-input.smart-number-input.underlined:focus,
+smart-password-input.smart-password-input.underlined[hover],
+smart-password-input.smart-password-input.underlined:hover,
+smart-password-input.smart-password-input.underlined[focus],
+smart-password-input.smart-password-input.underlined:focus,
+smart-password-text-box.smart-password-text-box.underlined[hover],
+smart-password-text-box.smart-password-text-box.underlined:hover,
+smart-password-text-box.smart-password-text-box.underlined[focus],
+smart-password-text-box.smart-password-text-box.underlined:focus,
+smart-date-time-picker.smart-date-time-picker.underlined[hover],
+smart-date-time-picker.smart-date-time-picker.underlined:hover,
+smart-date-time-picker.smart-date-time-picker.underlined[focus],
+smart-date-time-picker.smart-date-time-picker.underlined:focus,
+smart-multiline-text-box.smart-multiline-text-box.underlined[hover],
+smart-multiline-text-box.smart-multiline-text-box.underlined:hover,
+smart-multiline-text-box.smart-multiline-text-box.underlined[focus],
+smart-multiline-text-box.smart-multiline-text-box.underlined:focus,
+smart-input.smart-input.underlined[hover],
+smart-input.smart-input.underlined:hover,
+smart-input.smart-input.underlined[focus],
+smart-input.smart-input.underlined:focus {
+  outline: unset;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+smart-date-input.smart-date-input.borderless,
+smart-text-area.smart-text-area.borderless,
+smart-check-input.smart-check-input.borderless,
+smart-multi-input.smart-multi-input.borderless,
+smart-multi-combo-input.smart-multi-combo-input.borderless,
+smart-time-input.smart-time-input.borderless,
+smart-color-input.smart-color-input.borderless,
+smart-date-range-input.smart-date-range-input.borderless,
+smart-masked-text-box.smart-masked-text-box.borderless,
+smart-numeric-text-box.smart-numeric-text-box.borderless,
+smart-number-input.smart-number-input.borderless,
+smart-password-input.smart-password-input.borderless,
+smart-password-text-box.smart-password-text-box.borderless,
+smart-date-time-picker.smart-date-time-picker.borderless,
+smart-multiline-text-box.smart-multiline-text-box.borderless,
+smart-input.smart-input.borderless {
+  outline: unset;
+  --smart-border: transparent;
+  border: 0;
+}
+smart-date-input.smart-date-input.borderless[hover], smart-date-input.smart-date-input.borderless:hover, smart-date-input.smart-date-input.borderless[focus], smart-date-input.smart-date-input.borderless:focus,
+smart-text-area.smart-text-area.borderless[hover],
+smart-text-area.smart-text-area.borderless:hover,
+smart-text-area.smart-text-area.borderless[focus],
+smart-text-area.smart-text-area.borderless:focus,
+smart-check-input.smart-check-input.borderless[hover],
+smart-check-input.smart-check-input.borderless:hover,
+smart-check-input.smart-check-input.borderless[focus],
+smart-check-input.smart-check-input.borderless:focus,
+smart-multi-input.smart-multi-input.borderless[hover],
+smart-multi-input.smart-multi-input.borderless:hover,
+smart-multi-input.smart-multi-input.borderless[focus],
+smart-multi-input.smart-multi-input.borderless:focus,
+smart-multi-combo-input.smart-multi-combo-input.borderless[hover],
+smart-multi-combo-input.smart-multi-combo-input.borderless:hover,
+smart-multi-combo-input.smart-multi-combo-input.borderless[focus],
+smart-multi-combo-input.smart-multi-combo-input.borderless:focus,
+smart-time-input.smart-time-input.borderless[hover],
+smart-time-input.smart-time-input.borderless:hover,
+smart-time-input.smart-time-input.borderless[focus],
+smart-time-input.smart-time-input.borderless:focus,
+smart-color-input.smart-color-input.borderless[hover],
+smart-color-input.smart-color-input.borderless:hover,
+smart-color-input.smart-color-input.borderless[focus],
+smart-color-input.smart-color-input.borderless:focus,
+smart-date-range-input.smart-date-range-input.borderless[hover],
+smart-date-range-input.smart-date-range-input.borderless:hover,
+smart-date-range-input.smart-date-range-input.borderless[focus],
+smart-date-range-input.smart-date-range-input.borderless:focus,
+smart-masked-text-box.smart-masked-text-box.borderless[hover],
+smart-masked-text-box.smart-masked-text-box.borderless:hover,
+smart-masked-text-box.smart-masked-text-box.borderless[focus],
+smart-masked-text-box.smart-masked-text-box.borderless:focus,
+smart-numeric-text-box.smart-numeric-text-box.borderless[hover],
+smart-numeric-text-box.smart-numeric-text-box.borderless:hover,
+smart-numeric-text-box.smart-numeric-text-box.borderless[focus],
+smart-numeric-text-box.smart-numeric-text-box.borderless:focus,
+smart-number-input.smart-number-input.borderless[hover],
+smart-number-input.smart-number-input.borderless:hover,
+smart-number-input.smart-number-input.borderless[focus],
+smart-number-input.smart-number-input.borderless:focus,
+smart-password-input.smart-password-input.borderless[hover],
+smart-password-input.smart-password-input.borderless:hover,
+smart-password-input.smart-password-input.borderless[focus],
+smart-password-input.smart-password-input.borderless:focus,
+smart-password-text-box.smart-password-text-box.borderless[hover],
+smart-password-text-box.smart-password-text-box.borderless:hover,
+smart-password-text-box.smart-password-text-box.borderless[focus],
+smart-password-text-box.smart-password-text-box.borderless:focus,
+smart-date-time-picker.smart-date-time-picker.borderless[hover],
+smart-date-time-picker.smart-date-time-picker.borderless:hover,
+smart-date-time-picker.smart-date-time-picker.borderless[focus],
+smart-date-time-picker.smart-date-time-picker.borderless:focus,
+smart-multiline-text-box.smart-multiline-text-box.borderless[hover],
+smart-multiline-text-box.smart-multiline-text-box.borderless:hover,
+smart-multiline-text-box.smart-multiline-text-box.borderless[focus],
+smart-multiline-text-box.smart-multiline-text-box.borderless:focus,
+smart-input.smart-input.borderless[hover],
+smart-input.smart-input.borderless:hover,
+smart-input.smart-input.borderless[focus],
+smart-input.smart-input.borderless:focus {
+  outline: unset;
+  --smart-border: transparent;
+}
+
+smart-drop-down-list.smart-drop-down-list.underlined[focus], smart-drop-down-list.smart-drop-down-list.outlined[focus] {
+  box-shadow: none;
+}
+
+smart-date-time-picker.smart-date-time-picker {
+  --smart-surface: var(--fluent-input-background);
+  --smart-surface-color: var(--fluent-type-primary);
+  min-height: 0;
+}
+smart-date-time-picker.smart-date-time-picker .smart-input {
+  height: 100%;
+}
+smart-date-time-picker.smart-date-time-picker[calendar-button] .smart-drop-down-button.smart-calendar-button {
+  border-left: 0;
+}
+smart-date-time-picker.smart-date-time-picker[calendar-button] .smart-drop-down-button.smart-calendar-button[active] {
+  color: var(--fluent-type-primary);
+}
+smart-date-time-picker.smart-date-time-picker[calendar-button][disabled] .smart-drop-down-button.smart-calendar-button {
+  background-color: var(--fluent-input-disabled-background);
+}
+
+smart-multiline-text-box.smart-multiline-text-box.smart-validation-success .smart-input, smart-multiline-text-box.smart-multiline-text-box.smart-validation-error .smart-input {
+  background-position: right calc(0.375em + 0.1875rem) top calc(0.375em + 0.1875rem);
+}
+
+smart-color-picker.smart-color-picker,
+smart-combo-box.smart-combo-box,
+smart-drop-down-list.smart-drop-down-list {
+  --smart-border-radius: 2px;
+  --smart-background: var(--fluent-input-background);
+  --smart-background-color: var(--fluent-type-primary);
+  --smart-surface: var(--fluent-input-background);
+  --smart-surface-color: var(--fluent-type-primary);
+  --smart-border: var(--fluent-input-border);
+  --smart-outline: transparent;
+  --smart-text-box-default-height: 34px;
+  --smart-primary: var(--fluent-theme-primary);
+  --smart-ui-state-border-hover: var(--fluent-theme-primary);
+  --smart-ui-state-hover: var(--fluent-theme-primary);
+}
+smart-color-picker.smart-color-picker .smart-drop-down-button .smart-drop-down-button-icon,
+smart-combo-box.smart-combo-box .smart-drop-down-button .smart-drop-down-button-icon,
+smart-drop-down-list.smart-drop-down-list .smart-drop-down-button .smart-drop-down-button-icon {
+  transform: rotate(90deg);
+}
+smart-color-picker.smart-color-picker .smart-drop-down-button .smart-drop-down-button-icon:after,
+smart-combo-box.smart-combo-box .smart-drop-down-button .smart-drop-down-button-icon:after,
+smart-drop-down-list.smart-drop-down-list .smart-drop-down-button .smart-drop-down-button-icon:after {
+  content: var(--smart-icon-arrow-alt) !important;
+  font-size: 16px !important;
+}
+smart-color-picker.smart-color-picker[hover].smart-combo-box .smart-drop-down-button .smart-drop-down-button-icon:after,
+smart-combo-box.smart-combo-box[hover].smart-combo-box .smart-drop-down-button .smart-drop-down-button-icon:after,
+smart-drop-down-list.smart-drop-down-list[hover].smart-combo-box .smart-drop-down-button .smart-drop-down-button-icon:after {
+  color: var(--fluent-greys-white) !important;
+}
+smart-color-picker.smart-color-picker[hover]:not([drop-down-open-mode=dropDownButton]) .smart-action-button,
+smart-color-picker.smart-color-picker[hover]:not([drop-down-open-mode=dropDownButton]) .smart-drop-down-button,
+smart-combo-box.smart-combo-box[hover]:not([drop-down-open-mode=dropDownButton]) .smart-action-button,
+smart-combo-box.smart-combo-box[hover]:not([drop-down-open-mode=dropDownButton]) .smart-drop-down-button,
+smart-drop-down-list.smart-drop-down-list[hover]:not([drop-down-open-mode=dropDownButton]) .smart-action-button,
+smart-drop-down-list.smart-drop-down-list[hover]:not([drop-down-open-mode=dropDownButton]) .smart-drop-down-button {
+  background-color: var(--smart-surface);
+  border-color: var(--smart-border);
+}
+smart-color-picker.smart-color-picker[focus],
+smart-combo-box.smart-combo-box[focus],
+smart-drop-down-list.smart-drop-down-list[focus] {
+  --smart-border: var(--fluent-theme-primary);
+  --smart-outline: var(--fluent-theme-primary);
+}
+smart-color-picker.smart-color-picker.smart-validation-success:not(smart-check-box) > div.smart-container:after, smart-color-picker.smart-color-picker.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-combo-box.smart-combo-box.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-combo-box.smart-combo-box.smart-validation-error:not(smart-check-box) > div.smart-container:after,
+smart-drop-down-list.smart-drop-down-list.smart-validation-success:not(smart-check-box) > div.smart-container:after,
+smart-drop-down-list.smart-drop-down-list.smart-validation-error:not(smart-check-box) > div.smart-container:after {
+  display: none;
+}
+smart-color-picker.smart-color-picker.smart-validation-success .smart-action-button, smart-color-picker.smart-color-picker.smart-validation-error .smart-action-button,
+smart-combo-box.smart-combo-box.smart-validation-success .smart-action-button,
+smart-combo-box.smart-combo-box.smart-validation-error .smart-action-button,
+smart-drop-down-list.smart-drop-down-list.smart-validation-success .smart-action-button,
+smart-drop-down-list.smart-drop-down-list.smart-validation-error .smart-action-button {
+  padding-right: calc(1.5em + 0.75rem);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+smart-color-picker.smart-color-picker.smart-validation-success,
+smart-combo-box.smart-combo-box.smart-validation-success,
+smart-drop-down-list.smart-drop-down-list.smart-validation-success {
+  --smart-border: var(--fluent-success-color);
+  --smart-outline: var(--fluent-success-color);
+}
+smart-color-picker.smart-color-picker.smart-validation-success .smart-action-button,
+smart-combo-box.smart-combo-box.smart-validation-success .smart-action-button,
+smart-drop-down-list.smart-drop-down-list.smart-validation-success .smart-action-button {
+  background-image: url("data:image/svg+xml,%3csvg xmlns= 'http://www.w3.org/2000/svg' width= '8' height= '8' viewBox= '0 0 8 8' %3e%3cpath fill= '%2328a745' d= 'M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z' /%3e%3c/svg%3e");
+}
+smart-color-picker.smart-color-picker.smart-validation-error,
+smart-combo-box.smart-combo-box.smart-validation-error,
+smart-drop-down-list.smart-drop-down-list.smart-validation-error {
+  --smart-border: var(--fluent-error-color);
+  --smart-outline: var(--fluent-error-color);
+}
+smart-color-picker.smart-color-picker.smart-validation-error .smart-action-button,
+smart-combo-box.smart-combo-box.smart-validation-error .smart-action-button,
+smart-drop-down-list.smart-drop-down-list.smart-validation-error .smart-action-button {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+}
+smart-color-picker.smart-color-picker button.smart-button,
+smart-combo-box.smart-combo-box button.smart-button,
+smart-drop-down-list.smart-drop-down-list button.smart-button {
+  justify-content: center;
+}
+
+.smart-error-holder {
+  font-size: 12px;
+  background: transparent;
+  color: var(--fluent-error-color);
+  padding: 0;
+  margin-top: 12px;
+  z-index: -1;
+  display: block !important;
+}
+
+.smart-success-holder {
+  font-size: 12px;
+  background: transparent;
+  color: var(--fluent-success-color);
+  padding: 0;
+  margin-top: 12px;
+  z-index: -1;
+}
+
+smart-combo-box.smart-combo-box .smart-resize-trigger-container {
+  min-height: unset !important;
+  height: 0 !important;
+}
+smart-combo-box.smart-combo-box .smart-token {
+  border-radius: 10px;
+  color: var(--fluent-tag-color);
+  background: var(--fluent-tag-bg);
+  padding: 4px 10px;
+}
+smart-combo-box.smart-combo-box .smart-token .smart-drop-down-list-unselect-button {
+  color: transparent;
+  position: relative;
+  margin-left: 7px;
+}
+smart-combo-box.smart-combo-box .smart-token .smart-drop-down-list-unselect-button:before {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-cancel-alt);
+  font-weight: 100;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: var(--fluent-tag-color);
+  position: absolute;
+  z-index: 9;
+}
+
+/* SWITCH BUTTON */
+.smart-switch-button {
+  --smart-switch-button-default-width: 40px;
+  --smart-switch-button-default-height: 40px;
+  --smart-switch-button-thumb-size: 18px;
+}
+.smart-switch-button .smart-resize-trigger-container,
+.smart-switch-button .smart-false-content-container,
+.smart-switch-button .smart-true-content-container {
+  display: none;
+}
+.smart-switch-button .smart-container {
+  position: relative;
+}
+.smart-switch-button .smart-container:before {
+  box-sizing: border-box;
+  background-color: var(--fluent-greys-white);
+  opacity: 1;
+  border: 1px solid var(--fluent-input-border);
+  transition: unset !important;
+}
+.smart-switch-button:focus .smart-thumb,
+.smart-switch-button .smart-thumb {
+  border: 2px solid var(--fluent-greys-white);
+  border-radius: 100%;
+  width: var(--smart-switch-button-thumb-size);
+  height: var(--smart-switch-button-thumb-size);
+  background-color: var(--fluent-greys-grey130);
+  box-shadow: unset;
+}
+.smart-switch-button:focus .smart-thumb:before,
+.smart-switch-button .smart-thumb:before {
+  display: none;
+}
+.smart-switch-button[checked] .smart-container:before {
+  background-color: var(--fluent-theme-primary);
+  border: 1px solid var(--fluent-theme-primary);
+  opacity: 1;
+}
+.smart-switch-button[checked]:focus .smart-thumb,
+.smart-switch-button[checked] .smart-thumb {
+  background-color: var(--fluent-greys-white);
+  border-color: var(--fluent-theme-primary);
+}
+.smart-switch-button[disabled] {
+  opacity: 1;
+}
+.smart-switch-button[disabled] .smart-container:before {
+  background-color: var(--fluent-greys-white);
+  border: 1px solid var(--fluent-greys-grey60);
+  box-shadow: unset !important;
+}
+.smart-switch-button[disabled]:focus .smart-thumb,
+.smart-switch-button[disabled] .smart-thumb {
+  background: var(--fluent-greys-grey60);
+  border-color: var(--fluent-greys-white);
+}
+.smart-switch-button[disabled][checked] .smart-container:before {
+  background-color: var(--fluent-greys-grey60);
+  border: 1px solid var(--fluent-greys-grey60);
+}
+.smart-switch-button[disabled][checked]:focus .smart-thumb,
+.smart-switch-button[disabled][checked] .smart-thumb {
+  background: var(--fluent-greys-grey20);
+  border-color: var(--fluent-greys-grey60);
+}
+.smart-switch-button.hovered .smart-container:before {
+  border: 1px solid var(--fluent-input-border-hover);
+}
+.smart-switch-button.hovered:focus .smart-thumb,
+.smart-switch-button.hovered .smart-thumb {
+  background-color: var(--fluent-type-primary);
+}
+.smart-switch-button.hovered[checked] .smart-container:before {
+  background-color: var(--fluent-theme-dark-alt);
+  border: 1px solid var(--fluent-theme-dark-alt);
+}
+.smart-switch-button.hovered[checked]:focus .smart-thumb,
+.smart-switch-button.hovered[checked] .smart-thumb {
+  background-color: var(--fluent-greys-white);
+  border-color: var(--fluent-theme-dark-alt);
+}
+.smart-switch-button:not([inverted]) .smart-inner-container {
+  left: calc(100% - var(--smart-switch-button-thumb-size) - 3px);
+}
+.smart-switch-button:not([inverted])[checked] .smart-inner-container {
+  left: 3px;
+}
+.smart-switch-button[inverted] .smart-inner-container {
+  left: 3px;
+}
+.smart-switch-button[inverted][checked] .smart-inner-container {
+  left: calc(100% - var(--smart-switch-button-thumb-size) - 3px);
+}
+
+/* CHECKBOXES and RADIO buttons */
+.smart-radio-button.smart-toggle-box {
+  --smart-primary-color: var(--fluent-theme-primary);
+  --smart-border: var(--fluent-input-border-hover);
+  display: inline-flex;
+  width: auto;
+  height: auto;
+}
+.smart-radio-button.smart-toggle-box .smart-label {
+  margin-bottom: 0;
+  overflow: unset;
+  font-weight: 400;
+  margin-right: 0;
+}
+.smart-radio-button.smart-toggle-box .smart-overlay {
+  display: none;
+}
+.smart-radio-button.smart-toggle-box .smart-input {
+  margin-left: 0;
+}
+.smart-radio-button.smart-toggle-box .smart-input:after {
+  width: 55%;
+  height: 55%;
+}
+.smart-radio-button.smart-toggle-box[hover] .smart-input {
+  border: 1px solid var(--fluent-input-border-hover);
+  background-color: var(--fluent-greys-white);
+}
+.smart-radio-button.smart-toggle-box[hover] .smart-input:after {
+  background-color: var(--fluent-greys-grey130);
+}
+.smart-radio-button.smart-toggle-box[focus] .smart-input {
+  background-color: var(--fluent-greys-white);
+  border: 1px solid var(--fluent-input-border-hover);
+}
+.smart-radio-button.smart-toggle-box[checked] {
+  --smart-ui-state-color-hover: var(--fluent-theme-dark);
+  --smart-ui-state-border-hover: var(--fluent-theme-dark);
+}
+.smart-radio-button.smart-toggle-box[checked] .smart-input {
+  background-color: var(--fluent-greys-white);
+}
+.smart-radio-button.smart-toggle-box[checked][hover] .smart-input {
+  border: 1px solid var(--fluent-theme-dark);
+}
+.smart-radio-button.smart-toggle-box[checked][focus] .smart-input {
+  border: 1px solid var(--fluent-theme-primary);
+}
+.smart-radio-button.smart-toggle-box[disabled] {
+  opacity: 1 !important;
+  --smart-background-color: var(--fluent-greys-grey60);
+  --smart-primary-color: var(--fluent-greys-grey60);
+  --smart-ui-state-border-active: var(--fluent-greys-grey60);
+  --smart-ui-state-border: var(--fluent-greys-grey60);
+  --smart-border: var(--fluent-greys-grey60);
+}
+.smart-radio-button.smart-toggle-box[disabled][checked] .smart-overlay {
+  background: var(--fluent-greys-grey60);
+}
+.smart-radio-button.smart-toggle-box[focus] {
+  outline: 1px solid var(--fluent-greys-grey190);
+}
+
+.smart-check-box.smart-toggle-box {
+  --smart-border-radius: 2px;
+  --smart-border: var(--fluent-input-border-hover);
+  --smart-ui-state-active: var(--fluent-greys-white);
+  --smart-ui-state-border-active: var(--fluent-input-border-hover);
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+.smart-check-box.smart-toggle-box .smart-label {
+  margin-bottom: 0;
+  font-weight: 400;
+  margin-right: 0;
+}
+.smart-check-box.smart-toggle-box .smart-input {
+  border-radius: var(--smart-border-radius);
+  margin-left: 0;
+}
+.smart-check-box.smart-toggle-box .smart-input:after {
+  content: "";
+  height: 100%;
+}
+.smart-check-box.smart-toggle-box .smart-overlay {
+  display: none;
+}
+.smart-check-box.smart-toggle-box[hover] {
+  --smart-ui-state-border-hover: var(--fluent-input-border-hover);
+}
+.smart-check-box.smart-toggle-box[hover] .smart-input {
+  background-color: var(--fluent-greys-white);
+}
+.smart-check-box.smart-toggle-box[hover] .smart-input:after {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23605E5C' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.smart-check-box.smart-toggle-box[disabled] {
+  opacity: 1;
+  --smart-border: var(--fluent-greys-grey60);
+}
+.smart-check-box.smart-toggle-box[disabled] .smart-label {
+  color: var(--fluent-greys-grey60);
+}
+.smart-check-box.smart-toggle-box[focus] {
+  opacity: 1;
+  --smart-border: var(--fluent-input-border-hover);
+  outline: 1px solid var(--smart-border);
+  display: inline-flex;
+  width: auto;
+}
+.smart-check-box.smart-toggle-box[focus] .smart-input {
+  border-color: var(--smart-border);
+  background-color: var(--fluent-greys-white);
+}
+.smart-check-box.smart-toggle-box[checked] {
+  --smart-border: var(--fluent-theme-primary);
+  --smart-ui-state-active: var(--fluent-theme-primary);
+  --smart-ui-state-border-active: var(--fluent-theme-primary);
+}
+.smart-check-box.smart-toggle-box[checked] .smart-input:after {
+  content: "";
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.smart-check-box.smart-toggle-box[checked][hover] {
+  --smart-ui-state-border-hover: var(--fluent-theme-dark-alt);
+}
+.smart-check-box.smart-toggle-box[checked][hover] .smart-input {
+  background-color: var(--fluent-theme-dark-alt);
+}
+.smart-check-box.smart-toggle-box[checked][disabled] {
+  opacity: 1;
+}
+.smart-check-box.smart-toggle-box[checked][disabled] .smart-label {
+  color: var(--fluent-greys-grey60);
+}
+.smart-check-box.smart-toggle-box[checked][disabled] .smart-input {
+  border-color: var(--fluent-greys-grey60);
+  background-color: var(--fluent-greys-grey60);
+}
+.smart-check-box.smart-toggle-box[checked][focus] {
+  opacity: 1;
+  outline: 1px solid var(--fluent-greys-grey190);
+  display: inline-flex;
+  width: auto;
+}
+.smart-check-box.smart-toggle-box[checked][focus] .smart-input {
+  border-color: var(--fluent-theme-primary);
+  background-color: var(--fluent-theme-primary);
+}
+
+div[role=checkbox][checkbox] {
+  --smart-border: var(--fluent-input-border);
+}
+
+smart-grid.smart-grid .smart-input-overlay {
+  display: none;
+}
+smart-grid.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor):hover,
+smart-grid.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor):hover,
+smart-grid.smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor):hover,
+smart-grid.smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor):hover {
+  --smart-border: var(--fluent-input-border);
+  --smart-ui-state-border-hover: var(--fluent-input-border);
+  background: transparent;
+}
+smart-grid.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor):hover:after,
+smart-grid.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor):hover:after,
+smart-grid.smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor):hover:after,
+smart-grid.smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor):hover:after {
+  color: var(--fluent-input-border);
+  content: var(--smart-icon-check);
+}
+smart-grid.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked],
+smart-grid.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked],
+smart-grid.smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor)[checked],
+smart-grid.smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor)[checked] {
+  background: var(--fluent-theme-primary);
+}
+smart-grid.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked]:after,
+smart-grid.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked]:after,
+smart-grid.smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor)[checked]:after,
+smart-grid.smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor)[checked]:after {
+  color: var(--fluent-greys-white);
+  content: var(--smart-icon-check);
+}
+smart-grid.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked]:hover,
+smart-grid.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked]:hover,
+smart-grid.smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor)[checked]:hover,
+smart-grid.smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor)[checked]:hover {
+  --smart-border: var(--fluent-input-border);
+  background: var(--fluent-theme-dark-alt);
+}
+smart-grid.smart-grid [editor=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked]:hover:after,
+smart-grid.smart-grid [template=checkBox] .smart-input:not(.smart-grid-cell-editor)[checked]:hover:after,
+smart-grid.smart-grid [checkbox] .smart-input:not(.smart-grid-cell-editor)[checked]:hover:after,
+smart-grid.smart-grid [check-boxes_visible] [has-toggle-button] .smart-input:not(.smart-grid-cell-editor)[checked]:hover:after {
+  color: var(--fluent-greys-white);
+}
+
+/* DROPDOWN BUTTON */
+smart-drop-down-button {
+  --smart-tree-item-horizontal-offset: 0;
+  --smart-editor-drop-down-max-height: none;
+  --smart-border-radius: 2px;
+  --smart-border: var(--fluent-input-border);
+  --smart-border-top-right-radius: var(--smart-border-radius);
+  --smart-border-top-left-radius: var(--smart-border-radius);
+  --smart-border-bottom-right-radius: var(--smart-border-radius);
+  --smart-border-bottom-left-radius: var(--smart-border-radius);
+  --smart-surface: var(--fluent-btn-secondary-bg);
+  --smart-surface-color: var(--fluent-btn-secondary-color);
+  --smart-ui-state-hover: var(--fluent-btn-secondary-bg);
+  --smart-ui-state-hover-color: var(--fluent-btn-secondary-color);
+  --smart-ui-state-border-hover: var(--fluent-input-border-hover);
+  --smart-ui-state-focus: var(--fluent-btn-secondary-bg);
+  --smart-ui-state-focus-color: var(--fluent-btn-secondary-color);
+  --smart-ui-state-border-focus: var(--fluent-theme-primary);
+  --smart-ui-state-selected: var(--fluent-btn-secondary-bg);
+  --smart-ui-state-selected-color: var(--fluent-btn-secondary-color);
+  --smart-ui-state-border-selected: var(--fluent-theme-primary);
+  --smart-ui-state-аctive: var(--fluent-btn-secondary-bg);
+  --smart-ui-state-color-аctive: var(--fluent-btn-secondary-color);
+  --smart-ui-state-border-аctive: var(--fluent-theme-primary);
+  --smart-editor-label-padding: 10px;
+  --smart-editor-height: 32px;
+  --smart-tree-item-padding: 8px 10px;
+  --smart-tree-item-label-height: 32px;
+}
+smart-drop-down-button[disabled] {
+  opacity: 1;
+  --smart-surface: var(--fluent-greys-grey30);
+  --smart-surface-color: var(--fluent-greys-grey90);
+  --smart-border: var(--fluent-greys-grey30);
+}
+smart-drop-down-button.underline {
+  --smart-border-bottom-right-radius: 0px;
+  --smart-border-bottom-left-radius: 0px;
+  --smart-border: var(--fluent-input-border);
+  --smart-ui-state-border-hover: var(--fluent-input-border-hover);
+  --smart-ui-state-border-focus: var(--fluent-theme-primary);
+  --smart-ui-state-border-selected: var(--fluent-theme-primary);
+  --smart-ui-state-border-аctive: var(--fluent-theme-primary);
+}
+smart-drop-down-button.underline .smart-action-button,
+smart-drop-down-button.underline .smart-drop-down-button {
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+}
+smart-drop-down-button.underline[opened] {
+  outline: 0px !important;
+}
+smart-drop-down-button.underline[opened] .smart-action-button,
+smart-drop-down-button.underline[opened] .smart-drop-down-button {
+  border-bottom-color: var(--smart-ui-state-border-selected);
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+smart-drop-down-button smart-tree {
+  height: auto;
+  width: auto;
+}
+smart-drop-down-button .smart-drop-down smart-tree {
+  border: 0;
+}
+smart-drop-down-button .smart-drop-down-container {
+  --smart-border: var(--fluent-input-border);
+  min-width: 10rem !important;
+  padding: 0.5rem 0 !important;
+  margin: 0.325rem 0 0 !important;
+  font-size: 1rem !important;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  border: 1px solid var(--fluent-input-border);
+  border-radius: 0.25rem;
+  box-shadow: unset !important;
+}
+smart-drop-down-button .smart-date-time-picker .smart-drop-down[bottom],
+smart-drop-down-button .smart-date-time-picker .smart-drop-down,
+smart-drop-down-button .smart-drop-down-button .smart-drop-down[bottom],
+smart-drop-down-button .smart-drop-down-button .smart-drop-down,
+smart-drop-down-button .smart-text-box .smart-drop-down[bottom],
+smart-drop-down-button .smart-text-box .smart-drop-down,
+smart-drop-down-button .smart-drop-down-list .smart-drop-down[bottom],
+smart-drop-down-button .smart-drop-down-list .smart-drop-down,
+smart-drop-down-button .smart-combo-box .smart-drop-down[bottom],
+smart-drop-down-button .smart-combo-box .smart-drop-down,
+smart-drop-down-button .smart-multi-split-button .smart-drop-down[bottom],
+smart-drop-down-button .smart-multi-split-button .smart-drop-down,
+smart-drop-down-button .smart-color-picker .smart-drop-down[bottom],
+smart-drop-down-button .smart-color-picker .smart-drop-down,
+smart-drop-down-button .smart-path .smart-drop-down[bottom],
+smart-drop-down-button .smart-path .smart-drop-down {
+  --smart-editor-drop-down-min-width: auto;
+  border: 1px solid var(--fluent-input-border);
+}
+smart-drop-down-button .smart-tree-main-container .smart-tree-item {
+  border-radius: 0;
+  border: 0 !important;
+  margin: 0;
+}
+smart-drop-down-button .smart-tree-main-container .smart-tree-item .smart-tree-item-label-container {
+  padding-left: 0 !important;
+}
+smart-drop-down-button .smart-tree-main-container .smart-tree-item:focus:hover .smart-tree-item-label-container, smart-drop-down-button .smart-tree-main-container .smart-tree-item:focus .smart-tree-item-label-container, smart-drop-down-button .smart-tree-main-container .smart-tree-item[focus][hover] .smart-tree-item-label-container, smart-drop-down-button .smart-tree-main-container .smart-tree-item[focus] .smart-tree-item-label-container {
+  background: var(--fluent-theme-primary);
+  color: var(--fluent-greys-white);
+}
+smart-drop-down-button[opened] {
+  outline: 1px solid var(--smart-ui-state-border-аctive);
+}
+smart-drop-down-button[opened] .smart-action-button,
+smart-drop-down-button[opened] .smart-drop-down-button {
+  background: var(--smart-ui-state-аctive) !important;
+  color: var(--smart-ui-state-color-аctive) !important;
+  border-color: var(--smart-ui-state-border-аctive);
+}
+smart-drop-down-button[opened] .smart-drop-down-button .smart-drop-down-button-icon:after,
+smart-drop-down-button[opened] .smart-drop-down-button[bottom] .smart-drop-down-button-icon:after,
+smart-drop-down-button[opened] .smart-drop-down-button[center-bottom] .smart-drop-down-button-icon:after {
+  transform: unset !important;
+}
+smart-drop-down-button .smart-drop-down-button[top] .smart-drop-down-button-icon:after,
+smart-drop-down-button .smart-drop-down-button[center-top] .smart-drop-down-button-icon:after {
+  transform: unset !important;
+}
+smart-drop-down-button .smart-buttons-container .smart-drop-down-button .smart-drop-down-button-icon:after {
+  font-size: 20px;
+}
+smart-drop-down-button[animation=none] .smart-drop-down-container {
+  -webkit-animation: unset !important;
+          animation: unset !important;
+}
+smart-drop-down-button[animation=none] .smart-date-time-picker .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-date-time-picker .smart-drop-down,
+smart-drop-down-button[animation=none] .smart-drop-down-button .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-drop-down-button .smart-drop-down,
+smart-drop-down-button[animation=none] .smart-text-box .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-text-box .smart-drop-down,
+smart-drop-down-button[animation=none] .smart-drop-down-list .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-drop-down-list .smart-drop-down,
+smart-drop-down-button[animation=none] .smart-combo-box .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-combo-box .smart-drop-down,
+smart-drop-down-button[animation=none] .smart-multi-split-button .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-multi-split-button .smart-drop-down,
+smart-drop-down-button[animation=none] .smart-color-picker .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-color-picker .smart-drop-down,
+smart-drop-down-button[animation=none] .smart-path .smart-drop-down[bottom],
+smart-drop-down-button[animation=none] .smart-path .smart-drop-down {
+  -webkit-animation: unset;
+          animation: unset;
+}
+
+/* DROPDOWN MENUS */
+.smart-menu,
+.smart-drop-down {
+  border-width: 1px;
+  border-style: solid !important;
+  border-color: transparent !important;
+  border-radius: 2px;
+  box-shadow: var(--fluent-box-shadow-8) !important;
+}
+.smart-menu[animation=none],
+.smart-drop-down[animation=none] {
+  -webkit-animation: unset !important;
+          animation: unset !important;
+}
+
+.smart-drop-down.smart-drop-down-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.smart-drop-down .smart-list-item .smart-overlay {
+  border-radius: 0;
+}
+
+.smart-drop-down.smart-date-time-drop-down.smart-drop-down-repositioned,
+.smart-drop-down.smart-drop-down-container.smart-drop-down-repositioned {
+  padding-top: 0 !important;
+}
+
+.smart-input-drop-down-menu {
+  --smart-border: transparent;
+  padding: 0;
+  font-size: 1rem !important;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  border-radius: 2px;
+  box-shadow: var(--fluent-box-shadow-8) !important;
+}
+.smart-input-drop-down-menu ul li a {
+  border-radius: 0 !important;
+}
+.smart-input-drop-down-menu[animation=none] {
+  -webkit-animation: unset !important;
+          animation: unset !important;
+}
+
+.smart-drop-down-box .smart-drop-down-button {
+  border-left-style: unset;
+}
+.smart-drop-down-box.smart-invalid:not([drop-down-open-mode=dropDownButton]) .smart-action-button {
+  border-bottom-color: var(--smart-error) !important;
+}
+
+/* LIST MENU */
+.smart-list-menu input.smart-filter-input {
+  background: var(--fluent-greys-white);
+  color: var(--fluent-greys-grey190);
+}
+
+.smart-list-menu .smart-header > smart-button,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button {
+  left: 1px;
+  top: 1px;
+}
+.smart-list-menu .smart-header > smart-button .smart-arrow:after,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-arrow:after {
+  font-size: 20px;
+}
+.smart-list-menu .smart-header > smart-button .smart-button,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-button {
+  border-radius: var(--smart-border-radius) !important;
+}
+
+/* LIST BOX */
+.smart-list-box {
+  --smart-check-box-default-size: 14px;
+  --smart-list-item-check-box-radius: 2px;
+  --smart-border-radius: 2px;
+  --smart-border: var(--fluent-input-border-hover);
+  --smart-ui-state-active: var(--fluent-greys-white);
+  --smart-ui-state-border-active: var(--fluent-input-border-hover);
+  --smart-surface: var(--fluent-list-items-group-bg);
+}
+.smart-list-box[selection-mode=checkBox][focus] .smart-list-item[focus][selected] .smart-input:before {
+  display: none !important;
+}
+.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=radioButton] .smart-overlay,
+.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=radioButton] .smart-content,
+.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=checkBox] .smart-overlay,
+.smart-list-box[selection-mode=checkBox] .smart-list-item[display-mode=checkBox] .smart-content {
+  padding: 5px;
+  left: calc(22px + var(--smart-check-box-default-size));
+  width: calc(100% - 22px - var(--smart-check-box-default-size));
+}
+.smart-list-box[selection-mode=checkBox] .smart-list-item .smart-input {
+  border-radius: 2px;
+}
+.smart-list-box[selection-mode=checkBox] .smart-list-item[selected] .smart-input {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.smart-list-box[selection-mode=checkBox] .smart-list-item[selected] .smart-input:after {
+  content: "";
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  width: 100%;
+  height: 100%;
+}
+.smart-list-box[selection-mode=checkBox] .smart-list-item[focus] .smart-input {
+  --smart-border: var(--fluent-theme-primary);
+  --smart-outline: var(--fluent-theme-primary);
+}
+.smart-list-box .smart-list-box-filter-input-container input {
+  background: var(--fluent-input-background);
+  color: var(--fluent-type-primary);
+}
+.smart-list-box .smart-list-items-inner-container {
+  margin: 0 auto !important;
+}
+.smart-list-box .smart-list-items-inner-container .smart-list-item {
+  padding: 0 !important;
+}
+.smart-list-box .smart-list-items-inner-container .smart-list-item .smart-list-item-container {
+  border: 0 !important;
+}
+
+/* TOAST */
+.smart-toast-container.smart-toast-container-top-left, .smart-toast-container.smart-toast-container-top-right, .smart-toast-container.smart-toast-container-bottom-left, .smart-toast-container.smart-toast-container-bottom-right, .smart-toast-container.smart-toast-container-custom {
+  padding: 20px;
+}
+
+.smart-toast-item {
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  padding: 10px 12px;
+  border: 0;
+  font-size: 12px;
+  color: var(--fluent-alert-color);
+  opacity: 1;
+}
+.smart-toast-item[opened] {
+  opacity: 1;
+}
+.smart-toast-item i {
+  font-size: 16px;
+  margin-right: 8px;
+  line-height: 1;
+  color: var(--fluent-greys-grey130);
+}
+.smart-toast-item.info {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-greys-grey20);
+}
+.smart-toast-item.success {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-success-bg);
+}
+.smart-toast-item.success i {
+  color: var(--fluent-success-color);
+}
+.smart-toast-item.warning {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-warning-bg);
+}
+.smart-toast-item.warning i {
+  color: var(--fluent-warning-color);
+}
+.smart-toast-item.severe-warning {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-severe-warning-bg);
+}
+.smart-toast-item.severe-warning i {
+  color: var(--fluent-severe-warning-color);
+}
+.smart-toast-item.error {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-error-bg);
+}
+.smart-toast-item.error i {
+  color: var(--fluent-error-color);
+}
+.smart-toast-item .smart-alert {
+  margin: 0;
+}
+.smart-toast-item[show-close-button] .smart-toast-item-header {
+  height: 0;
+  color: var(--fluent-alert-color);
+}
+.smart-toast-item[show-close-button] .smart-toast-item-header .smart-toast-item-close-button {
+  margin: 0 10px;
+  width: auto;
+  z-index: 999;
+}
+.smart-toast-item[show-close-button] .smart-toast-item-header .smart-toast-item-close-button:after {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-cancel-alt);
+  font-weight: 100;
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  margin-right: 8px;
+  line-height: 0.8;
+  color: var(--fluent-alert-color);
+}
+.smart-toast-item .smart-toast-item-header {
+  font-weight: 600;
+  height: 0;
+}
+.smart-toast-item .smart-toast-item-container {
+  padding: 0;
+  top: 0;
+}
+.smart-toast-item .smart-toast-item-container .smart-toast-item-icon {
+  display: none;
+}
+.smart-toast-item .smart-toast-item-container .smart-toast-item-content {
+  margin: 0;
+  width: 100%;
+  text-align: unset;
+}
+
+/* ALERT */
+.smart-alert {
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  padding: 9px 12px;
+  border: 0;
+  font-size: 12px;
+  color: var(--fluent-alert-color);
+}
+.smart-alert.justify-content-between {
+  justify-content: space-between;
+}
+.smart-alert > div {
+  display: flex;
+  align-items: center;
+}
+.smart-alert i {
+  font-size: 16px;
+  margin-right: 8px;
+  line-height: 1;
+  color: var(--fluent-greys-grey130);
+}
+.smart-alert.smart-alert-primary {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-theme-light);
+}
+.smart-alert.smart-alert-primary i {
+  color: var(--fluent-theme-primary);
+}
+.smart-alert.smart-alert-info {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-greys-grey20);
+}
+.smart-alert.smart-alert-success {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-success-bg);
+}
+.smart-alert.smart-alert-success i {
+  color: var(--fluent-success-color);
+}
+.smart-alert.smart-alert-warning {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-warning-bg);
+}
+.smart-alert.smart-alert-warning i {
+  color: var(--fluent-warning-color);
+}
+.smart-alert.smart-alert-severe-warning {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-severe-warning-bg);
+}
+.smart-alert.smart-alert-severe-warning i {
+  color: var(--fluent-severe-warning-color);
+}
+.smart-alert.smart-alert-error {
+  color: var(--fluent-alert-color);
+  background-color: var(--fluent-error-bg);
+}
+.smart-alert.smart-alert-error i {
+  color: var(--fluent-error-color);
+}
+.smart-alert .alert-dismiss {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  outline: unset;
+}
+.smart-alert .alert-dismiss i {
+  color: var(--fluent-alert-color);
+  margin: 0;
+}
+.smart-alert .smart-button {
+  padding: 2px 20px;
+  line-height: 1;
+}
+
+/* WINDOW */
+.smart-window {
+  background-color: var(--fluent-window-bg);
+  background-clip: padding-box;
+  border-radius: 2px;
+  outline: 0;
+}
+.smart-window .smart-content-container > .smart-header-section {
+  padding: 15px;
+  background-color: var(--fluent-window-bg);
+  color: var(--fluent-greys-grey130);
+  border-bottom: 0;
+  height: auto;
+}
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container .smart-button {
+  opacity: 1;
+  color: var(--fluent-greys-grey190);
+}
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container .smart-button:after {
+  text-shadow: 0 1px 0 #fff;
+}
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container .smart-button:hover,
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container .smart-button [hover] {
+  opacity: 1;
+}
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container .smart-button.smart-close-button:after {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1;
+  content: "×";
+}
+.smart-window .smart-content-container > .smart-header-section .smart-header {
+  line-height: 1.5;
+  color: var(--fluent-greys-grey190);
+  font-size: 20px;
+  font-weight: bold;
+}
+.smart-window .smart-content-container > .smart-content {
+  padding: 0 15px;
+  background-color: var(--fluent-window-bg);
+}
+.smart-window .smart-content-container > .smart-footer {
+  padding: 15px;
+  border-top: 0;
+  background-color: var(--fluent-window-bg);
+  height: auto;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.smart-window .smart-content-container > .smart-footer smart-button .smart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.smart-window[focus], .smart-window[active] {
+  border-color: transparent;
+}
+.smart-window[focus] .smart-content-container > .smart-header-section, .smart-window[active] .smart-content-container > .smart-header-section {
+  color: var(--fluent-greys-grey190);
+  background: unset;
+}
+.smart-window:not(.smart-container) {
+  box-shadow: var(--fluent-box-shadow-64);
+}
+.smart-window.smart-tabs-window[dragged] .smart-content-container > .smart-header-section .smart-button,
+.smart-window.smart-tabs-window[dragged] .smart-content-container > .smart-header-section .smart-header, .smart-window.smart-tabs-window[focus] .smart-content-container > .smart-header-section .smart-button,
+.smart-window.smart-tabs-window[focus] .smart-content-container > .smart-header-section .smart-header, .smart-window.smart-tabs-window[active] .smart-content-container > .smart-header-section .smart-button,
+.smart-window.smart-tabs-window[active] .smart-content-container > .smart-header-section .smart-header {
+  color: var(--fluent-greys-white) !important;
+}
+
+/* CAROUSEL */
+smart-carousel.slider {
+  min-height: 400px;
+  width: 100%;
+  position: relative;
+}
+smart-carousel.slider .smart-carousel-item {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+smart-carousel.slider > .smart-container {
+  overflow: visible;
+  position: relative;
+}
+smart-carousel.slider .smart-slide-wrapper {
+  width: 100%;
+  padding: 20px 75px 40px 75px;
+  text-align: center;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center center;
+}
+smart-carousel.slider .smart-slide-wrapper:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  z-index: 2;
+  pointer-events: none;
+}
+smart-carousel.slider.smart-calculated-height .smart-slide-wrapper {
+  height: 100%;
+}
+smart-carousel.slider .smart-arrow-right {
+  right: 40px;
+  border-radius: 0;
+}
+smart-carousel.slider .smart-arrow-left {
+  left: 40px;
+  border-radius: 0;
+}
+smart-carousel.slider .header {
+  color: #fff;
+  font-size: 1.25rem;
+}
+smart-carousel.slider .content {
+  color: #fff;
+  font-size: 1rem;
+}
+smart-carousel.slider .content-holder {
+  max-width: 80%;
+  z-index: 9;
+}
+smart-carousel.slider .content-holder p {
+  line-height: 1.5;
+}
+smart-carousel.slider .smart-indicators-container {
+  bottom: 0;
+  margin: 0 auto 1rem auto;
+}
+smart-carousel.slider .smart-indicators-container .smart-indicator {
+  border: 0;
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+}
+smart-carousel.slider .smart-indicators-container .smart-indicator.smart-active {
+  opacity: 1;
+}
+smart-carousel.slider .smart-arrow {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+}
+smart-carousel.slider .smart-arrow:after {
+  font-size: 35px;
+}
+smart-carousel.slider .smart-arrow:hover, smart-carousel.slider .smart-arrow[hover], smart-carousel.slider .smart-arrow[active], smart-carousel.slider .smart-arrow[focus] {
+  box-shadow: unset !important;
+  border: 0;
+  background: transparent;
+}
+smart-carousel.slider .smart-arrow:hover > button, smart-carousel.slider .smart-arrow[hover] > button, smart-carousel.slider .smart-arrow[active] > button, smart-carousel.slider .smart-arrow[focus] > button {
+  box-shadow: unset !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+smart-carousel.slider .smart-arrow:hover {
+  opacity: 1;
+}
+
+/* Gauge */
+.smart-gauge {
+  background: transparent;
+}
+.smart-gauge .smart-digital-display-container .smart-numeric-text-box input.smart-input {
+  color: var(--fluent-greys-grey190);
+}
+
+/* SLIDER */
+.smart-slider {
+  --smart-primary: var(--fluent-greys-grey130);
+  --smart-ui-state-active: var(--fluent-greys-grey130);
+  --smart-disabled: var(--fluent-greys-grey60);
+  --smart-slider-track-size: 4px;
+  --smart-slider-thumb-width: 16px;
+  --smart-slider-thumb-height: 16px;
+}
+.smart-slider .smart-track-container {
+  border-radius: 2px;
+}
+.smart-slider .smart-thumb {
+  background-color: var(--fluent-greys-white);
+  border-width: 2px;
+}
+.smart-slider .smart-track[hover] {
+  --smart-ui-state-active: var(--fluent-theme-primary);
+  --smart-primary: var(--fluent-theme-primary);
+  background-color: var(--fluent-theme-light);
+  --smart-disabled: var(--fluent-theme-light);
+}
+.smart-slider .smart-track[hover] .smart-value {
+  background-color: var(--fluent-theme-primary);
+}
+.smart-slider .smart-track .smart-thumb[hover] {
+  box-shadow: unset;
+}
+.smart-slider .smart-track .smart-thumb:before {
+  display: none !important;
+  -webkit-animation: unset !important;
+          animation: unset !important;
+  transform: unset !important;
+}
+.smart-slider[disabled] {
+  opacity: 1;
+}
+.smart-slider[disabled] .smart-track {
+  --smart-primary: var(--fluent-greys-grey90);
+  background-color: var(--fluent-greys-grey20);
+  --smart-disabled: var(--fluent-greys-grey20);
+}
+.smart-slider[disabled] .smart-track .smart-value {
+  background-color: var(--fluent-greys-grey90);
+}
+
+/* PROGRESSBAR */
+.smart-progress-bar {
+  --smart-progress-bar-default-width: var(--smart-editor-width);
+  --smart-progress-bar-default-height: 4px;
+  --smart-border-top-left-radius: 0;
+  --smart-border-top-right-radius: 0;
+  --smart-border-bottom-left-radius: 0;
+  --smart-border-bottom-right-radius: 0;
+  --smart-border-width: 0;
+  color: var(--fluent-theme-primary);
+}
+.smart-progress-bar:not(.smart-circular-progress-bar) {
+  background-color: var(--fluent-greys-grey30) !important;
+}
+.smart-progress-bar .smart-value-path {
+  stroke: var(--fluent-theme-primary);
+}
+
+.smart-circular-progress-bar {
+  background: transparent;
+}
+
+/* QUERY BUILDER */
+.smart-query-builder .smart-input,
+.smart-query-builder smart-input {
+  box-shadow: unset;
+  border: unset;
+  max-height: 100%;
+  max-width: 100%;
+}
+.smart-query-builder .filter-builder-item.smart-filter-value {
+  border: unset;
+  overflow: hidden;
+}
+.smart-query-builder .filter-builder-item.smart-filter-value .smart-spin-button {
+  border: unset !important;
+}
+.smart-query-builder .filter-builder-item.smart-filter-value smart-numeric-text-box.smart-numeric-text-box,
+.smart-query-builder .filter-builder-item.smart-filter-value smart-input.smart-input {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: var(--smart-border-top-left-radius) !important;
+  border-top-right-radius: var(--smart-border-top-right-radius) !important;
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius) !important;
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius) !important;
+}
+.smart-query-builder .filter-builder-item.smart-filter-value .smart-editors-container {
+  height: 100%;
+  width: 100%;
+}
+.smart-query-builder .filter-builder-item.smart-filter-value .smart-hint:after {
+  display: none !important;
+}
+.smart-query-builder .filter-builder-item.smart-filter-value smart-numeric-text-box.smart-numeric-text-box input {
+  border: unset !important;
+}
+.smart-query-builder .filter-builder-item.smart-filter-field-name, .smart-query-builder .filter-builder-item.smart-filter-operation, .smart-query-builder .filter-builder-item.smart-filter-value {
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  border-width: var(--smart-border-width) !important;
+  font-family: var(--smart-font-family);
+  font-size: var(--smart-font-size);
+  background: var(--smart-background);
+  border-style: solid !important;
+  border-color: var(--smart-border) !important;
+  color: var(--smart-background-color);
+  border-top-left-radius: var(--smart-border-top-left-radius) !important;
+  border-top-right-radius: var(--smart-border-top-right-radius) !important;
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius) !important;
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: var(--smart-editor-height);
+  outline: none;
+  text-align: var(--smart-text-box-text-align);
+  box-sizing: border-box;
+}
+.smart-query-builder .filter-builder-item.smart-filter-field-name[edited], .smart-query-builder .filter-builder-item.smart-filter-field-name:focus, .smart-query-builder .filter-builder-item.smart-filter-operation[edited], .smart-query-builder .filter-builder-item.smart-filter-operation:focus, .smart-query-builder .filter-builder-item.smart-filter-value[edited], .smart-query-builder .filter-builder-item.smart-filter-value:focus {
+  --smart-border: var(--fluent-theme-primary);
+  --smart-outline: var(--fluent-theme-primary);
+  box-shadow: var(--fluent-box-shadow-8);
+}
+.smart-query-builder .filter-builder-item .smart-filter-value {
+  box-shadow: unset !important;
+}
+.smart-query-builder .smart-filter-add-btn:after {
+  line-height: 1 !important;
+}
+
+/* TOOLTIP */
+smart-tooltip {
+  --smart-elevation-6: 0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13), 0 1px 3px 0 rgba(0, 0, 0, .2);
+  --smart-border-width: 2px;
+  --smart-tooltip-arrow-width: 10px;
+}
+smart-tooltip .smart-tooltip-content {
+  opacity: 1;
+  padding: 20px;
+  box-shadow: var(--fluent-box-shadow-16);
+}
+smart-tooltip:not(.primary) {
+  --smart-background: var(--fluent-tooltip-bg);
+  --smart-background-color: var(--fluent-tooltip-color);
+  --smart-tooltip-arrow-color: var(--fluent-tooltip-bg);
+}
+smart-tooltip:not(.primary) .smart-tooltip-content {
+  border: var(--smart-border-width) solid var(--fluent-tooltip-bg);
+  background-color: var(--fluent-tooltip-bg);
+  color: var(--fluent-tooltip-color);
+}
+smart-tooltip.primary {
+  --smart-background: var(--fluent-theme-primary);
+  --smart-background-color: var(--fluent-greys-white);
+  --smart-tooltip-arrow-color: var(--fluent-theme-primary);
+}
+smart-tooltip.primary .smart-tooltip-content {
+  border: var(--smart-border-width) solid var(--fluent-theme-primary);
+  background-color: var(--fluent-theme-primary);
+  color: var(--fluent-greys-white);
+}
+
+/* BREADCRUMB */
+smart-breadcrumb {
+  padding: 5px 0;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border: 0;
+}
+smart-breadcrumb a {
+  color: var(--fluent-breadcrumb-color);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+}
+smart-breadcrumb a:hover {
+  color: var(--fluent-breadcrumb-color-hover);
+  background-color: var(--fluent-breadcrumb-bg-hover);
+}
+smart-breadcrumb a:focus {
+  color: var(--fluent-breadcrumb-color-hover);
+  border-color: var(--fluent-input-border-hover);
+}
+smart-breadcrumb.smart-element {
+  background: transparent;
+}
+smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadcrumb-item {
+  height: auto;
+  padding: 2px 5px 2px 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadcrumb-item:last-child {
+  color: var(--fluent-greys-grey190);
+  font-weight: 600;
+}
+smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadcrumb-item:after {
+  display: none;
+}
+smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadcrumb-item:not(:first-child):before {
+  padding-right: 5px;
+  color: var(--fluent-greys-grey130);
+  content: "›";
+  float: revert;
+  position: relative;
+  width: auto;
+  top: 0;
+  left: 0;
+  height: auto;
+  background: transparent;
+  line-height: 0;
+  font-size: 28px;
+  margin-top: -4px;
+  font-weight: 100;
+}
+
+/* TABLE */
+.smart-table {
+  font-size: 1rem;
+  --smart-border: var(--fluent-greys-grey30);
+}
+.smart-table > .smart-container {
+  border-radius: 0;
+  border: 0;
+}
+.smart-table thead th {
+  color: var(--fluent-greys-grey190);
+  font-weight: bold;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--fluent-greys-grey30);
+}
+.smart-table th.tooltip,
+.smart-table td.tooltip {
+  display: table-cell;
+}
+.smart-table td.tree-cell {
+  font-weight: bold;
+}
+.smart-table td.tree-cell div {
+  font-size: 16px;
+}
+
+/* CARD */
+.smart-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: var(--fluent-box-shadow-4) !important;
+}
+.smart-card > hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+.smart-card > .smart-container {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 10px;
+  color: var(--fluent-greys-grey190);
+}
+.smart-card > .smart-container .card-title {
+  margin-top: 0;
+}
+.smart-card > .smart-container .smart-card-view-label {
+  padding-left: 0px;
+}
+.smart-card > .smart-container .smart-card-view-label.icon {
+  padding-left: 30px;
+}
+
+/* MENU */
+.smart-menu {
+  --smart-menu-default-width: auto;
+}
+.smart-menu .smart-menu-drop-down {
+  --smart-border: var(--fluent-greys-grey30);
+  font-size: 1rem !important;
+  color: var(--fluent-greys-grey190);
+  box-shadow: var(--fluent-box-shadow-8);
+  border-radius: 2px;
+}
+.smart-menu[animation=none] .smart-menu-drop-down {
+  -webkit-animation: unset !important;
+          animation: unset !important;
+}
+.smart-menu[aria-orientation=horizontal] {
+  --smart-surface: var(--fluent-theme-primary);
+  --smart-surface-color: var(--fluent-greys-white);
+  border: 0 !important;
+  padding: 0.5rem 1rem;
+}
+.smart-menu[aria-orientation=horizontal] smart-menu-item[level="1"],
+.smart-menu[aria-orientation=horizontal] smart-menu-items-group[level="1"] {
+  color: var(--fluent-greys-white);
+}
+.smart-menu[aria-orientation=horizontal] smart-menu-item[level="1"][hover], .smart-menu[aria-orientation=horizontal] smart-menu-item[level="1"][focus],
+.smart-menu[aria-orientation=horizontal] smart-menu-items-group[level="1"][hover],
+.smart-menu[aria-orientation=horizontal] smart-menu-items-group[level="1"][focus] {
+  background: transparent;
+}
+.smart-menu smart-menu-item[level="1"].logo,
+.smart-menu smart-menu-items-group[level="1"].logo {
+  margin-right: 10px;
+}
+.smart-menu smart-menu-item[level="1"].logo .smart-menu-item-label-container,
+.smart-menu smart-menu-items-group[level="1"].logo .smart-menu-item-label-container {
+  padding: 0;
+}
+.smart-menu smart-menu-item[level="1"].logo .smart-menu-item-label-element,
+.smart-menu smart-menu-items-group[level="1"].logo .smart-menu-item-label-element {
+  display: flex;
+  height: 100%;
+}
+.smart-menu smart-menu-item[level="1"].logo .smart-menu-item-label-element > span,
+.smart-menu smart-menu-items-group[level="1"].logo .smart-menu-item-label-element > span {
+  height: 100%;
+  display: block;
+}
+.smart-menu smart-menu-item[level="1"].logo img,
+.smart-menu smart-menu-items-group[level="1"].logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.smart-menu smart-menu-item[level="1"].active,
+.smart-menu smart-menu-items-group[level="1"].active {
+  color: var(--fluent-theme-primary);
+}
+.smart-menu smart-menu-item[level="1"].disabled,
+.smart-menu smart-menu-items-group[level="1"].disabled {
+  color: var(--fluent-greys-grey30);
+}
+.smart-menu smart-menu-item[level="1"] .smart-menu-item-label-element > span,
+.smart-menu smart-menu-items-group[level="1"] .smart-menu-item-label-element > span {
+  line-height: 1.2;
+}
+.smart-menu smart-menu-item:not([level="1"]),
+.smart-menu smart-menu-items-group:not([level="1"]) {
+  color: var(--fluent-greys-grey190);
+}
+.smart-menu smart-menu-item:not([level="1"]) .smart-menu-item-label-container,
+.smart-menu smart-menu-items-group:not([level="1"]) .smart-menu-item-label-container {
+  padding: 10px 25px 10px 25px;
+}
+.smart-menu smart-menu-item:not([level="1"]) .smart-menu-drop-down,
+.smart-menu smart-menu-items-group:not([level="1"]) .smart-menu-drop-down {
+  --smart-border: var(--fluent-greys-grey30);
+  font-size: 1rem !important;
+  color: var(--fluent-greys-grey190);
+  box-shadow: var(--fluent-box-shadow-8);
+  border-radius: 2px;
+}
+.smart-menu .smart-arrow-down {
+  font-size: 1rem;
+}
+.smart-menu .smart-arrow-down:after {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  width: unset;
+  height: unset;
+}
+
+/* SORTABLE LIST */
+.smart-sortable {
+  border-radius: 2px;
+}
+.smart-sortable ul,
+.smart-sortable ol {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.smart-sortable ul li,
+.smart-sortable ol li {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--fluent-input-background);
+  border: 1px solid var(--fluent-sortable-border);
+  color: var(--fluent-type-primary);
+}
+.smart-sortable ul li:first-child,
+.smart-sortable ol li:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.smart-sortable ul li:last-child,
+.smart-sortable ol li:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.smart-sortable ul li.smart-sortable-item.dragged,
+.smart-sortable ol li.smart-sortable-item.dragged {
+  box-shadow: var(--fluent-box-shadow-8) !important;
+}
+.smart-sortable ul li + li,
+.smart-sortable ol li + li {
+  border-top-width: 0;
+}
+
+/* PAGER */
+smart-pager.smart-element {
+  border-radius: 2px;
+  --smart-item-border-top-left-radius: 2px;
+  --smart-item-border-top-right-radius: 2px;
+  --smart-item-border-bottom-left-radius: 2px;
+  --smart-item-border-bottom-right-radius: 2px;
+}
+
+/* Splitter */
+.smart-splitter-bar {
+  --smart-ui-state-hover: var(--fluent-greys-grey90);
+  --smart-surface: var(--fluent-theme-primary);
+  --smart-ui-state-border-hover: var(--fluent-greys-grey90);
+}
+
+/* Tree */
+.smart-tree {
+  --smart-ui-state-selected: var(--fluent-theme-lighter);
+}
+.smart-tree smart-tree-items-group .smart-tree-items-group-arrow {
+  height: unset;
+}
+
+/* TABS */
+.smart-tabs .smart-tabs-selection-bar {
+  display: none;
+}
+.smart-tabs .smart-header {
+  border: 0;
+  background: transparent;
+}
+.smart-tabs .smart-header .smart-tab-strip {
+  border-bottom: 2px solid transparent;
+  margin-bottom: 1rem;
+}
+.smart-tabs .smart-header .smart-tab-label-container {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 2px solid transparent !important;
+  border-bottom: 2px solid transparent !important;
+  text-transform: unset;
+  background: transparent;
+}
+.smart-tabs .smart-header .smart-tab-label-container .smart-tab-label-text-wrapper {
+  color: var(--fluent-greys-grey190);
+}
+.smart-tabs .smart-header .smart-tab-label-container:hover, .smart-tabs .smart-header .smart-tab-label-container[hover] {
+  background: var(--fluent-tabs-item-bg-hover);
+  border: 2px solid transparent !important;
+  border-bottom: 2px solid var(--fluent-tabs-item-bg-hover) !important;
+}
+.smart-tabs .smart-header .smart-tab-label-container.smart-tab-selected {
+  border: 2px solid transparent !important;
+  border-bottom: 2px solid var(--fluent-theme-primary) !important;
+}
+.smart-tabs .smart-header .smart-tab-label-container.smart-tab-selected .smart-tab-label-text-wrapper {
+  color: var(--fluent-greys-grey190);
+  font-weight: bold;
+}
+.smart-tabs .smart-tabs-content-section {
+  border: 0;
+  background: transparent;
+}
+.smart-tabs[horizontal] .smart-nav-button,
+.smart-tabs[horizontal] .smart-tabs-header-items > .smart-drop-down-button {
+  margin-bottom: 1rem;
+}
+.smart-tabs[horizontal] .smart-tab-group-arrow {
+  height: 1rem;
+}
+.smart-tabs[vertical] .smart-header .smart-tab-label-container {
+  border: 1px solid transparent !important;
+  border-radius: 0;
+}
+.smart-tabs[vertical] .smart-header .smart-tab-strip {
+  border-bottom: 0;
+}
+.smart-tabs.auto-height {
+  width: 100%;
+  height: auto;
+  min-height: initial;
+}
+.smart-tabs.auto-height smart-tab-item:not(.smart-visibility-hidden) {
+  position: relative;
+}
+
+/* ACCORDION */
+.smart-accordion > .smart-container {
+  overflow: hidden;
+}
+.smart-accordion .smart-accordion-item-content {
+  padding: 0;
+}
+.smart-accordion .smart-accordion-item {
+  background: var(--fluent-accordion-header-bg);
+  border-radius: 2px;
+  box-shadow: unset;
+  margin: 0 !important;
+  overflow: hidden;
+}
+.smart-accordion .smart-accordion-item:hover .smart-accordion-item-header, .smart-accordion .smart-accordion-item[hover] .smart-accordion-item-header, .smart-accordion .smart-accordion-item[focus] .smart-accordion-item-header, .smart-accordion .smart-accordion-item[focused] .smart-accordion-item-header, .smart-accordion .smart-accordion-item[expanded] .smart-accordion-item-header {
+  background: var(--fluent-accordion-header-bg);
+}
+.smart-accordion .smart-accordion-item .smart-accordion-item-header {
+  padding: 0px;
+  background: var(--fluent-accordion-header-bg);
+}
+.smart-accordion .smart-accordion-item .smart-accordion-item-header .smart-arrow {
+  display: none;
+}
+.smart-accordion .smart-accordion-item .smart-accordion-item-header .smart-label {
+  font-size: 1rem;
+  color: var(--fluent-accordion-header-color);
+  padding: 0.375rem 0.75rem;
+}
+.smart-accordion .smart-accordion-item .smart-container {
+  border: 1px solid var(--fluent-greys-grey60);
+}
+.smart-accordion .smart-accordion-item:last-of-type .smart-container {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.smart-accordion .smart-accordion-item:first-of-type .smart-container {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.smart-accordion .smart-accordion-item:not(:last-of-type) .smart-container {
+  border-bottom: 0;
+}
+
+/* Scrollbar */
+.smart-scroll-bar .smart-thumb {
+  border: 0;
+}
+
+/* Other */
+smart-color-panel smart-button {
+  justify-content: center;
+}
+
+smart-calendar {
+  border: 0;
+  --smart-surface: var(--fluent-input-disabled-background);
+  --smart-surface-color: var(--fluent-type-primary);
+}
+
+.smart-form .smart-hint {
+  display: none !important;
+}
+
+.smart-list-item[selected] .smart-content,
+[type=list][opened][focus] .smart-list-item[focus] .smart-content,
+.smart-list-box:focus .smart-list-item[focus][selected] .smart-content {
+  color: contrast-color(rgba(0, 120, 212, 0.1), #3baaff, #0078D4);
+}
+.smart-list-item[selected] .smart-overlay,
+[type=list][opened][focus] .smart-list-item[focus] .smart-overlay,
+.smart-list-box:focus .smart-list-item[focus][selected] .smart-overlay {
+  background-color: rgba(0, 120, 212, 0.1);
+}
+
+.smart-drop-down-box[drop-down-open-mode=dropDownButton] .smart-action-button {
+  padding-left: 0;
+}
+
+.smart-multi-column-filter-panel {
+  --smart-multi-column-filter-panel-template-columns: 15px 80px 3fr 3fr 3fr;
+}
+.smart-multi-column-filter-panel[close-button-position=right] {
+  --smart-multi-column-filter-panel-template-columns: 80px 3fr 3fr 3fr 15px;
+}
+
+.smart-data-view-header-drop-down .smart-filter-panel-items-container {
+  overflow: hidden;
+  line-height: 1.5;
+}
+.smart-data-view-header-drop-down .smart-formatting-panel .smart-add-new-button {
+  box-shadow: var(--smart-elevation-4);
+}
+.smart-data-view-header-drop-down .smart-formatting-panel .smart-add-new-button:hover {
+  box-shadow: var(--smart-elevation-8);
+}
+.smart-data-view-header-drop-down .smart-formatting-panel .smart-add-new-button:after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  content: var(--smart-icon-plus);
+  font-family: var(--smart-font-family-icon);
+  font-size: var(--smart-font-size);
+}
+
+.smart-filter-panel .smart-filter-panel-button-container > smart-button button {
+  padding: unset;
+}
+
+.smart-grid-column-menu {
+  --smart-border: var(--fluent-input-border);
+  min-width: 10rem !important;
+  padding: 0 !important;
+  margin: 0.325rem 0 0 !important;
+  font-size: 1rem !important;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: var(--fluent-box-shadow-16) !important;
+  -webkit-animation: unset !important;
+          animation: unset !important;
+}
+.smart-grid-column-menu .smart-menu {
+  border: 0;
+}
+.smart-grid-column-menu .smart-button {
+  justify-content: center;
+}
+
+/* SCHEDULER */
+smart-scheduler * {
+  font-family: "Segoe UI", sans-serif !important;
+}
+smart-scheduler .smart-scheduler-date-nav,
+smart-scheduler .smart-scheduler-header,
+smart-scheduler .smart-scheduler-footer {
+  background: transparent;
+}
+smart-scheduler:not(.bordered) {
+  --smart-scheduler-day-week-view-vertical-line-color: transparent;
+  /* Vertical timeline color in 'day' and 'week' views */
+}
+smart-scheduler.bordered {
+  --smart-scheduler-day-week-view-vertical-line-color: var(--fluent-greys-grey60);
+  /* Vertical timeline color in 'day' and 'week' views */
+}
+smart-scheduler.no-border {
+  border: 0;
+}
+smart-scheduler .smart-scheduler-view-header-horizontal .smart-scheduler-cells {
+  font-weight: bold;
+}
+smart-scheduler[view-type=week] .smart-scheduler-view-header-horizontal .smart-scheduler-cell {
+  border-left: 0;
+}
+smart-scheduler:not([view-type^=timeline]) .smart-scheduler-cells-container .smart-scheduler-cell.scale:not(:last-of-type) {
+  border-color: var(--fluent-greys-grey60) !important;
+}
+
+smart-chart.smart-chart rect {
+  fill: var(--smart-background);
+}
+
+/* DOCKING LAYOUT */
+.smart-docking-layout .smart-tabs[tab-text-orientation=vertical] .smart-header .smart-tab-label-container {
+  border: 1px solid var(--fluent-input-border) !important;
+}
+.smart-docking-layout .smart-tabs[tab-text-orientation=vertical] .smart-header .smart-tab-label-container:last-of-type {
+  border-bottom-left-radius: var(--smart-item-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
+}
+.smart-docking-layout .smart-tabs[tab-text-orientation=vertical] .smart-header .smart-tab-label-container.smart-tab-selected {
+  border-bottom: 1px solid var(--fluent-input-border) !important;
+}

@@ -6,6 +6,7 @@ smart-multi-input,
 smart-multi-combo-input,
 smart-check-input,
 smart-masked-text-box,
+smart-phone-input,
 smart-password-text-box {
   &.outlined {
     background-color: transparent;
@@ -14,12 +15,24 @@ smart-password-text-box {
 
 smart-date-range-input,
 smart-date-input,
+smart-phone-input,
 smart-time-input {
   &.outlined {
     overflow: visible;
   }
 }
-
+smart-phone-input {
+  &.outlined {
+      .smart-drop-down-button {
+        margin-right: 0px;
+      }
+    
+      .smart-container::after {
+        margin-left: -18px;
+        z-index: 9;
+      }
+  }
+}
 .outlined {
   &.smart-input {
     position: relative;

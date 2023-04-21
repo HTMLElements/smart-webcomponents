@@ -71,6 +71,16 @@ export interface BarcodeProperties {
    * Default value: ""
    */
   value?: string;
+  /**
+   * Sets or gets the width of the barcode. If the width is set to 0, the width of the barcode is calculated automatically.
+   * Default value: 0
+   */
+  width?: number;
+  /**
+   * Sets or gets the height of the barcode. If the height is set to 0, the height of the barcode is calculated automatically.
+   * Default value: 0
+   */
+  height?: number;
 }
 /**
  Barcodes encodes text value in a specific pattern.

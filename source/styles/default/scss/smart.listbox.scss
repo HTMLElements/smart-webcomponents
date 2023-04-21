@@ -589,15 +589,6 @@ smart-list-box {
 
 [type="list"][opened][focus] {
   smart-list-item[focus] {
-    //.smart-overlay {
-    //  background-color: var(--smart-ui-state-focus);
-    //}
-    //
-    //.smart-content {
-    //  color: var(--smart-ui-state-color-focus);
-    //  border-color: var(--smart-ui-state-border-focus);
-    //}
-
     .smart-overlay {
       background-color: var(--smart-ui-state-selected);
     }
@@ -606,6 +597,27 @@ smart-list-box {
       color: var(--smart-ui-state-color-selected);
       border-color: var(--smart-ui-state-border-selected);
     }
+
+      &:not([selected]) {
+        .smart-overlay {
+          background-color: var(--smart-ui-state-focus);
+        }
+        
+        .smart-content {
+          color: var(--smart-ui-state-color-focus);
+          border-color: var(--smart-ui-state-border-focus);
+        }
+      }
+      &[selected] {
+        .smart-overlay {
+          background-color: var(--smart-ui-state-selected);
+        }
+        
+        .smart-content {
+          color: var(--smart-ui-state-color-selected);
+          border-color: var(--smart-ui-state-border-selected);
+        }
+      }
   }
 }
 

@@ -25,6 +25,7 @@ smart-drop-down-button {
       width: 0;
     }
   }
+  
 
   .smart-drop-down-container {
     > smart-scroll-viewer {
@@ -107,3 +108,27 @@ smart-drop-down-button {
     }
   }
 }
+
+.smart-drop-down-button.smart-drop-down-container {
+  smart-scroll-viewer {
+    --smart-scroll-viewer-min-width: calc(var(--smart-editor-drop-down-min-width) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+    --smart-scroll-viewer-max-width: calc(var(--smart-editor-drop-down-max-width) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+    --smart-scroll-viewer-min-height: calc(var(--smart-editor-drop-down-min-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+    --smart-scroll-viewer-max-height: calc(var(--smart-editor-drop-down-max-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size));
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+
+    > .smart-container {
+      > .smart-scroll-viewer-container {
+        > .smart-scroll-viewer-content-container {
+          vertical-align: top; /* Fixes the height issue of display: inline-block */
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+

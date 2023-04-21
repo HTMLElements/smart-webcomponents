@@ -172,6 +172,11 @@ export interface ThreeDChartProperties {
    */
   toolTipFormatFunction?: {(value?: any, index?: number, series?: any): string};
   /**
+   * Tooltip data formatting settings for the values in the serie.
+   * Default value: [object Object]
+   */
+  toolTipFormatSettings?: ThreeDChartFormatSettings;
+  /**
    * Tooltip line color. By default it is set to the hovered item's color
    * Default value: null
    */

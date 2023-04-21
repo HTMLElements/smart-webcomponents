@@ -73,7 +73,7 @@ smart-multi-combo-input {
       min-height: var(--smart-editor-height);
     }
   }
-
+  
   .smart-token {
     position: relative;
     white-space: nowrap;
@@ -86,7 +86,7 @@ smart-multi-combo-input {
     border-radius: 20px;
     background-color: var(--smart-primary);
     color: var(--smart-primary-color);
-    margin: var(--smart-editor-label-padding) 0 0 var(--smart-editor-label-padding);
+    margin: 0;
     height: 22px;
 
     .smart-drop-down-list-selection-label {

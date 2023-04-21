@@ -1,12 +1,12 @@
 
-/* Smart UI v9.3.53 (2021-05-10) 
-Copyright (c) 2011-2021 jQWidgets. 
+/* Smart UI v15.2.0 (2023-04-20) 
+Copyright (c) 2011-2023 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
 
 
-    const Version = '9.1.27';
+    const Version = '16.0.0';
     const templates = [];
 
     let namespace = 'Smart';
@@ -643,6 +643,10 @@ License: https://htmlelements.com/license/ */ //
         }
 
         static sanitizeHTML(value) {
+            if (value && (value.indexOf('onclick') >= 0 || value.indexOf('onload') >= 0 || value.indexOf('onerror') >= 0)) {
+                return this.escapeHTML(value)
+            }
+
             const regExp = new RegExp('<\s*(applet|audio|base|bgsound|embed|form|iframe|isindex|keygen|layout|link|meta|object|script|svg|style|template|video)[^>]*>(.*?)<\s*/\s*(applet|audio|base|bgsound|embed|form|iframe|isindex|keygen|layout|link|meta|object|script|svg|style|template|video)>', 'ig');
             const result = String(value).replace(regExp, s => this.escapeHTML(s));
 
@@ -2719,8 +2723,8 @@ License: https://htmlelements.com/license/ */ //
                     reflectToAttribute: false
                 },
                 'localizeFormatFunction': {
-                    value: undefined,
-                    type: 'function',
+                    value: null,
+                    type: 'any',
                     reflectToAttribute: false
                 },
                 'messages': {
@@ -3393,6 +3397,16 @@ License: https://htmlelements.com/license/ */ //
 
                 if (boundPropertyName === 'innerHTML') {
                     if (node[name].toString().trim() !== element[boundPropertyName].toString().trim()) {
+                        if (window.smartBlazor && node[name].indexOf('<!--') >= 0) {
+                            if (boundProperty.ready) {
+                                node[name] = boundProperty.value.toString();
+                            }
+                            else if (element._properties[boundPropertyName].defaultValue !== boundProperty.value) {
+                                node[name] = boundProperty.value.toString();
+                            }
+                            continue;
+                        }
+
                         if (boundProperty.ready) {
                             node[name] = boundProperty.value.toString().trim();
                         }
@@ -3584,7 +3598,21 @@ License: https://htmlelements.com/license/ */ //
             }
 
             if (!message) {
-                return undefined;
+                const defaultMessages = that.messages['en'];
+                if (defaultMessages) {
+                    let defaultMessage = defaultMessages[messageKey];
+
+                    if (defaultMessage) {
+                        for (let messageName in messageArguments) {
+                            let messageValue = messageArguments[messageName];
+                            defaultMessage = defaultMessage.replace(new RegExp('{{' + messageName + '}}', 'g'), messageValue);
+                        }
+
+                        return defaultMessage;
+                    }
+
+                    return messageKey;
+                }
             }
 
             const defaultMessage = message;
@@ -3594,7 +3622,11 @@ License: https://htmlelements.com/license/ */ //
             }
 
             if (that.localizeFormatFunction) {
-                that.localizeFormatFunction(defaultMessage, message, messageArguments)
+                const newMessage = that.localizeFormatFunction(defaultMessage, message, messageArguments, messageKey)
+
+                if (newMessage !== undefined) {
+                    return newMessage;
+                }
             }
 
             return message;
@@ -4281,29 +4313,36 @@ License: https://htmlelements.com/license/ */ //
                     const propertyName = propertyNames[i];
                     const propertyValue = that._initProperties[propertyName]
 
-                    if (propertyValue.constructor === Smart.ObservableArray || propertyValue instanceof Smart.ObservableArray) {
-                        that[propertyName] = propertyValue.toArray();
-                        continue;
-                    }
-
-                    if (propertyValue.constructor === Smart.DataAdapter || propertyValue.constructor.name === 'smartDataAdapter' || (typeof propertyValue === 'object' && Smart.DataAdapter && propertyValue instanceof Smart.DataAdapter) || propertyValue instanceof Smart.Observable || propertyValue.constructor === Smart.Observable || typeof propertyValue !== 'object' || Utilities.Types.isArray(propertyValue) || propertyValue instanceof Date) {
-                        if (that[propertyName] === undefined && ['onReady', 'onAttached', 'onDetached', 'onCreated', 'onCompleted'].indexOf(propertyName) === -1) {
-                            const localizedError = that.localize('propertyUnknownName', {
-                                name: propertyName
-                            });
-                            that.log(localizedError);
+                    if (propertyValue !== undefined) {
+                        if (propertyValue.constructor === Smart.ObservableArray || propertyValue instanceof Smart.ObservableArray) {
+                            that[propertyName] = propertyValue.toArray();
+                            continue;
                         }
 
+                        if (propertyValue.constructor === Smart.DataAdapter || propertyValue.constructor.name === 'smartDataAdapter' || (typeof propertyValue === 'object' && Smart.DataAdapter && propertyValue instanceof Smart.DataAdapter) || propertyValue instanceof Smart.Observable || propertyValue.constructor === Smart.Observable || typeof propertyValue !== 'object' || Utilities.Types.isArray(propertyValue) || propertyValue instanceof Date) {
+                            if (that[propertyName] === undefined && ['onReady', 'onAttached', 'onDetached', 'onCreated', 'onCompleted'].indexOf(propertyName) === -1) {
+                                const localizedError = that.localize('propertyUnknownName', {
+                                    name: propertyName
+                                });
+                                that.log(localizedError);
+                            }
+
+                            that[propertyName] = propertyValue;
+                            continue;
+                        }
+                    }
+
+                    if (propertyName === 'messages') {
+                        that[propertyName] = Object.assign(that[propertyName], propertyValue);
+                        continue;
+                    }
+
+                    if (propertyName === 'dataSourceMap' || propertyName === 'rowCSSRules') {
                         that[propertyName] = propertyValue;
                         continue;
                     }
 
-                    if (propertyName === 'messages' || propertyName === 'dataSourceMap') {
-                        that[propertyName] = propertyValue;
-                        continue;
-                    }
-
-                    if (typeof propertyValue === 'object') {
+                    if (propertyValue && typeof propertyValue === 'object') {
                         const setHierarchicalProperty = function (propertyValue, path) {
                             const subPropertyNames = Object.keys(propertyValue);
 
@@ -4344,6 +4383,103 @@ License: https://htmlelements.com/license/ */ //
 
                         setHierarchicalProperty(propertyValue, propertyName);
                     }
+                }
+            }
+        }
+
+        setProperties(properties) {
+            const that = this;
+            const propertyNames = Object.keys(properties);
+
+            for (let i = 0; i < propertyNames.length; i++) {
+                const propertyName = propertyNames[i];
+                const propertyValue = properties[propertyName]
+
+                if (propertyValue.constructor === Smart.ObservableArray || propertyValue instanceof Smart.ObservableArray) {
+                    that[propertyName] = propertyValue.toArray();
+                    continue;
+                }
+
+                if (propertyValue.constructor === Smart.DataAdapter || propertyValue.constructor.name === 'smartDataAdapter' || (typeof propertyValue === 'object' && Smart.DataAdapter && propertyValue instanceof Smart.DataAdapter) || propertyValue instanceof Smart.Observable || propertyValue.constructor === Smart.Observable || typeof propertyValue !== 'object' || Utilities.Types.isArray(propertyValue) || propertyValue instanceof Date) {
+                    if (that[propertyName] === undefined && ['onReady', 'onAttached', 'onDetached', 'onCreated', 'onCompleted'].indexOf(propertyName) === -1) {
+                        continue;
+                    }
+
+                    const propertyObject = that._properties[propertyName];
+                    if (propertyObject.type === 'int' || propertyObject.type === 'number' && typeof subPropertyValue === 'string') {
+                        if (propertyObject.type === 'int') {
+                            that[propertyName] = parseInt(propertyValue);
+                        }
+                        else {
+                            that[propertyName] = parseFloat(propertyValue);
+                        }
+                    }
+                    else {
+                        that[propertyName] = propertyValue;
+                    }
+                    continue;
+                }
+
+                if (propertyName === 'messages' || propertyName === 'dataSourceMap') {
+                    that[propertyName] = propertyValue;
+                    continue;
+                }
+
+                if (typeof propertyValue === 'object') {
+                    const setHierarchicalProperty = function (propertyValue, path) {
+                        const subPropertyNames = Object.keys(propertyValue);
+
+                        for (let i = 0; i < subPropertyNames.length; i++) {
+                            const propertyName = subPropertyNames[i];
+                            const subPropertyValue = propertyValue[propertyName]
+
+                            const property = that._properties[path + '_' + propertyName];
+
+                            if (property && property.value === null) {
+                                if (that[path + '_' + propertyName] === undefined) {
+                                    continue;
+                                }
+
+                                const propertyObject = that._properties[path + '_' + propertyName];
+                                if (propertyObject.type === 'int' || propertyObject.type === 'number' && typeof subPropertyValue === 'string') {
+                                    if (propertyObject.type === 'int') {
+                                        that[path + '_' + propertyName] = parseInt(subPropertyValue);
+                                    }
+                                    else {
+                                        that[path + '_' + propertyName] = parseFloat(subPropertyValue);
+                                    }
+                                }
+                                else {
+                                    that[path + '_' + propertyName] = subPropertyValue;
+                                }
+                                continue;
+                            }
+
+                            if (typeof subPropertyValue === 'object' && !Utilities.Types.isArray(subPropertyValue) && subPropertyValue && subPropertyValue.constructor !== Date) {
+                                setHierarchicalProperty(subPropertyValue, path + '_' + propertyName);
+                            }
+                            else {
+                                if (that[path + '_' + propertyName] === undefined) {
+                                    continue;
+                                }
+
+                                const propertyObject = that._properties[path + '_' + propertyName];
+                                if (propertyObject.type === 'int' || propertyObject.type === 'number' && typeof subPropertyValue === 'string') {
+                                    if (propertyObject.type === 'int') {
+                                        that[path + '_' + propertyName] = parseInt(subPropertyValue);
+                                    }
+                                    else {
+                                        that[path + '_' + propertyName] = parseFloat(subPropertyValue);
+                                    }
+                                }
+                                else {
+                                    that[path + '_' + propertyName] = subPropertyValue;
+                                }
+                            }
+                        }
+                    }
+
+                    setHierarchicalProperty(propertyValue, propertyName);
                 }
             }
         }
@@ -5867,7 +6003,7 @@ License: https://htmlelements.com/license/ */ //
             for (let index in methods) {
                 let methodName = methods[index];
 
-                if (methodName.startsWith('_') || excludeMethods.find(
+                if ((methodName && methodName.startsWith && methodName.startsWith('_')) || excludeMethods.find(
                     excludeMethodName => excludeMethodName === methodName) !== undefined) {
                     continue;
                 }
@@ -5998,6 +6134,10 @@ License: https://htmlelements.com/license/ */ //
 
                 if (property.isHierarchicalProperty) {
                     const setHierarchicalProperty = function (propertyValue, path) {
+                        if (!propertyValue) {
+                            return;
+                        }
+
                         const subPropertyNames = Object.keys(propertyValue);
 
                         for (let i = 0; i < subPropertyNames.length; i++) {
@@ -6210,7 +6350,9 @@ License: https://htmlelements.com/license/ */ //
             const that = this;
 
             if (that.isInShadowDOM) {
-                return that.getRootNode().host.shadowRoot;
+                if (that.getRootNode().host) {
+                    return that.getRootNode().host.shadowRoot;
+                }
             }
 
             return document.body;
@@ -7837,7 +7979,7 @@ License: https://htmlelements.com/license/ */ //
         Render: render,
         Data: data,
         Mode: userDefinedSettings.Mode || 'production',
-        License: 'Evaluation'
+        License: userDefinedSettings.License || 'Evaluation'
     });
 
     let theme = window[namespace].Theme;
@@ -7980,6 +8122,10 @@ License: https://htmlelements.com/license/ */ //
     window[namespace]('smart-scroll-viewer', class ScrollViewer extends window[namespace].ContentElement {
         static get properties() {
             return {
+                'autoRefresh': {
+                    type: 'boolean',
+                    value: false
+                },
                 'horizontalScrollBarVisibility': {
                     type: 'string',
                     value: 'auto',
@@ -8427,6 +8573,9 @@ License: https://htmlelements.com/license/ */ //
                     scrollHeight = that.$.scrollViewerContentContainer.offsetHeight - that.$.scrollViewerContainer.offsetHeight;
                 }
 
+                if (that.virtualScrollHeight) {
+                    scrollHeight = that.virtualScrollHeight;
+                }
 
                 if (scrollHeight > 0 && that.verticalScrollBarVisibility !== 'hidden' || that.verticalScrollBarVisibility === 'visible') {
                     that.$.scrollViewerContainer.classList.add('vscroll');
@@ -8444,6 +8593,14 @@ License: https://htmlelements.com/license/ */ //
 
             if (!that.$.scrollViewerContentContainer) {
                 return;
+            }
+
+            if (that.verticalScrollBarVisibility === 'hidden') {
+                that.$.scrollViewerContentContainer.setAttribute('disable-vertical', '');
+            }
+
+            if (that.horizontalScrollBarVisibility === 'hidden') {
+                that.$.scrollViewerContentContainer.setAttribute('disable-horizontal', '');
             }
 
             //Caching the size's before they are re-calculated. Used to check if width/height of the container have changed.
@@ -8475,6 +8632,11 @@ License: https://htmlelements.com/license/ */ //
                 if (that.$.container.offsetHeight - that.$.content.offsetHeight < 5) {
                     that.$.container.style.paddingBottom = that._scrollView.hScrollBar.offsetHeight + 'px';
                 }
+            }
+
+            if (that.autoRefresh) {
+                that.$.scrollViewerContainer.scrollLeft = 0;
+                that.$.scrollViewerContainer.scrollTop = 0;
             }
         }
 
@@ -9129,4 +9291,164 @@ License: https://htmlelements.com/license/ */ //
             }
         }
     });
+
+
+    class Color {
+        constructor(color) {
+            if (!window.Smart._colors) {
+                window.Smart._colors = [];
+            }
+
+            if (window.Smart._colors[color]) {
+                const cachedColor = window.Smart._colors[color];
+                this.hex = cachedColor.hex;
+                this.r = cachedColor.r;
+                this.g = cachedColor.g;
+                this.b = cachedColor.b;
+
+                return;
+            }
+
+            this.r = this.g = this.b = 0;
+            this.hex = '';
+
+            const initColor = this.getStandardizedColor(color);
+
+            if (initColor) {
+                this.setHex(initColor.substring(1));
+
+                window.Smart._colors[color] = {
+                    hex: this.hex,
+                    r: this.r,
+                    g: this.g,
+                    b: this.b
+                }
+            }
+        }
+
+        getStandardizedColor(color) {
+            const ctx = document.createElement('canvas').getContext('2d');
+            ctx.fillStyle = color;
+            return ctx.fillStyle;
+        }
+
+        getInvertedColor() {
+            if (this.hex === '') {
+                return 'transparent';
+            }
+
+            const nThreshold = 105;
+            const bgDelta = (this.r * 0.299) + (this.g * 0.587) + (this.b * 0.114);
+            const foreColor = (255 - bgDelta < nThreshold) ? 'Black' : 'White';
+
+            return foreColor;
+        }
+
+        hexToRgb(hex) {
+            hex = this.validateHex(hex);
+
+            let r = '00', g = '00', b = '00';
+
+            if (hex.length === 6) {
+                r = hex.substring(0, 2);
+                g = hex.substring(2, 4);
+                b = hex.substring(4, 6);
+            }
+            else {
+                if (hex.length > 4) {
+                    r = hex.substring(4, hex.length);
+                    hex = hex.substring(0, 4);
+                }
+                if (hex.length > 2) {
+                    g = hex.substring(2, hex.length);
+                    hex = hex.substring(0, 2);
+                }
+                if (hex.length > 0) {
+                    b = hex.substring(0, hex.length);
+                }
+            }
+
+            return { r: this.hexToInt(r), g: this.hexToInt(g), b: this.hexToInt(b) };
+        }
+
+        validateHex(hex) {
+            hex = new String(hex).toUpperCase();
+            hex = hex.replace(/[^A-F0-9]/g, '0');
+            if (hex.length > 6) hex = hex.substring(0, 6);
+            return hex;
+        }
+
+        webSafeDec(dec) {
+            dec = Math.round(dec / 51);
+            dec *= 51;
+            return dec;
+        }
+
+        hexToWebSafe(hex) {
+            let r, g, b;
+
+            if (hex.length === 3) {
+                r = hex.substring(0, 1);
+                g = hex.substring(1, 1);
+                b = hex.substring(2, 1);
+            }
+            else {
+                r = hex.substring(0, 2);
+                g = hex.substring(2, 4);
+                b = hex.substring(4, 6);
+            }
+            return this.intToHex(this.webSafeDec(this.hexToInt(r))) + this.intToHex(this.webSafeDec(this.hexToInt(g))) + this.intToHex(this.webSafeDec(this.hexToInt(b)));
+        }
+
+        rgbToWebSafe(rgb) {
+            return { r: this.webSafeDec(rgb.r), g: this.webSafeDec(rgb.g), b: this.webSafeDec(rgb.b) };
+        }
+
+        rgbToHex(rgb) {
+            return this.intToHex(rgb.r) + this.intToHex(rgb.g) + this.intToHex(rgb.b);
+        }
+
+        intToHex(dec) {
+            let result = (parseInt(dec).toString(16));
+            if (result.length === 1)
+                result = ('0' + result);
+            return result.toUpperCase();
+        }
+
+        hexToInt(hex) {
+            return (parseInt(hex, 16));
+        }
+
+
+        setRgb(r, g, b) {
+            let validate = function (input) {
+                if (input < 0 || input > 255) {
+                    return 0;
+                }
+
+                if (isNaN(parseInt(input))) {
+                    return 0;
+                }
+
+                return input;
+            }
+
+            this.r = validate(r);
+            this.g = validate(g);
+            this.b = validate(b);
+
+            this.hex = this.rgbToHex(this);
+        }
+
+        setHex(hex) {
+            this.hex = hex;
+
+            let newRgb = this.hexToRgb(this.hex);
+            this.r = newRgb.r;
+            this.g = newRgb.g;
+            this.b = newRgb.b;
+        }
+    }
+
+    window.Smart.Color = Color;
 })();

@@ -1,10 +1,9 @@
 # Smart UI
+Web Components, Anguiar UI Components and React UI Components  for Professional Web Applications
 
-UI Component Library. Includes Grid, Pivot Grid, Scheduler, Gantt, Kanban, Rich Text Editor and many more UI Components. Material & Bootstrap themes are available with different color schemes. Theme Builder application for custom themes building is available, too.
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core) | [![Price](https://img.shields.io/badge/price-COMMERCIAL-0098f7.svg)](https://jqwidgets.com/license/) | [![Build Status](https://www.travis-ci.com/HTMLElements/Team.svg?token=4VSAagStBB3xmHF2Epxz&branch=master)](https://www.travis-ci.com/HTMLElements/Team)
 
-Web Components, Angular, React, Vue and Blazor UI for Professional Web Development
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/collection/HTMLElements/smarthtmlelements-core)
 Build responsive, mobile-first projects on the Web with the most advanced front-end component library
 -----------------------------------------------------------------------------------------------------
 
@@ -12,9 +11,9 @@ What is Smart UI?
 ----------------------------
 
 Smart UI is a Framework for building  Web Components and Custom Elements. Smart is similar to Stencil and LitElement. It supports two-way data-binding, templates, property change notifications, Typescript-like type-checking and validation.
-Smart does not have third-party dependencies. It is pure Javascript ES6 code. 
-80+ UI Components are built with Smart including Grid, Chart, Scheduler, Editor, Kanban, Gantt, Table, Tabs, Accordion, Gauge, DateTimePicker and others. 
-Smart UI components are available in Javascript, Angular, React, VueJS and Blazor.
+Smart does not have third-party dependencies. It is pure Javascript code. 
+60+ UI Components are built with Smart including Grid, Chart, Kanban, Gantt, Table, Tabs, Accordion, Gauge, DateTimePicker and others. Some of the UI Components built with the library are commercial. Others are open-source.
+Smart UI components are available in Javascript, Angular and React. Typescript definitions are included.
 
 Works across devices and browsers
 ---------------------------------
@@ -40,7 +39,6 @@ UI Components
 | [`<smart-docking-layout>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+docking+layout)
 | [`<smart-drop-down-button>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+drop+down+button)
 | [`<smart-drop-down-list>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+drop+down+list)
-| [`<smart-editor>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+editor)
 | [`<smart-file-upload>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+file+upload)
 | [`<smart-gantt-chart>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+gantt+chart)
 | [`<smart-gauge>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+gauge)
@@ -66,7 +64,6 @@ UI Components
 | [`<smart-sortable>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sortable)
 | [`<smart-splitter>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+splitter)
 | [`<smart-switch-button>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+switch+button)
-| [`<smart-scheduler>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+scheduler)
 | [`<smart-table>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+table)
 | [`<smart-tabs>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+tabs)
 | [`<smart-tank>`](https://github.com/HTMLElements/smart-elements) | [![Published on npm](https://img.shields.io/npm/v/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents) | [*Issues*](https://github.com/HTMLElements/smart-elements/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+tank)
@@ -81,7 +78,7 @@ UI Components
 Download and Installation
 -------------------------
 
-[Download Smart UI](https://www.htmlelements.com/download/)
+[Download Smart HTML Elements](https://www.htmlelements.com/download/)
 
     
 [Live Demo ↗](https://htmlelements.com/demos//)

@@ -152,6 +152,21 @@ export interface PivotTableProperties {
    */
   onInit?: { (): void };
   /**
+   * Sets or gets the page size (when paging is enabled).
+   * Default value: 10
+   */
+  pageSize?: PivotTablePageSize | string;
+  /**
+   * Sets or gets the current (zero-based) page index (when paging is enabled).
+   * Default value: 0
+   */
+  pageIndex?: number;
+  /**
+   * Sets or gets whether paging is enabled.
+   * Default value: false
+   */
+  paging?: boolean;
+  /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
@@ -495,6 +510,8 @@ export declare type PivotTableDesignerPosition = 'near' | 'far';
 export declare type PivotTableDrillDownDataExport = null | 'xlsx' | 'pdf' | 'html' | 'json' | 'csv' | 'tsv' | 'xml';
 /**Sets or gets the way row nesting (based on rowGroup columns) is displayed. */
 export declare type PivotTableGroupLayout = 'classic' | 'default';
+/**Sets or gets the page size (when paging is enabled). */
+export declare type PivotTablePageSize = '10' | '25' | '50';
 /**Sets or gets the position of row total columns (shown when rowTotals is enabled). */
 export declare type PivotTableRowTotalsPosition = 'near' | 'far';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */
