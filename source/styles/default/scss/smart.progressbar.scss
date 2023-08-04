@@ -2,7 +2,8 @@
 
 /* smart-progress-bar */
 smart-progress-bar,
-smart-circular-progress-bar {
+smart-circular-progress-bar,
+.smart-circular-progress-bar {
   &.smart-element {
     border: none;
 
@@ -128,7 +129,8 @@ smart-progress-bar {
   }
 }
 
-smart-circular-progress-bar {
+smart-circular-progress-bar,
+.smart-circular-progress-bar {
   width: var(--smart-circular-progress-bar-default-size);
   height: var(--smart-circular-progress-bar-default-size);
 

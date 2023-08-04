@@ -9453,6 +9453,11 @@ export interface DropDownListProperties {
    */
   filterMode?: FilterMode | string;
   /**
+   * A callback that should return a condition that will be used for custom item filtering. Used in conjunction with filterMode 'custom'
+   * Default value: null
+   */
+  filterCallback?: any;
+  /**
    * If enabled, the items will be grouped by their first letter. Can't be applied if the dataSource already contains groups.
    * Default value: false
    */
@@ -10444,6 +10449,11 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   onMessageOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * Adds a new Toolbar item. Example: editor.addToolbarItem({ name: &#039;customButton2&#039;, width: 100, template: &#039;&lt;smart-button&gt;Button2&lt;/smart-button&gt;&#039; })
+   * @param {any} itemName. The toolbar item to be added
+   */
+  addToolbarItem(itemName: any): void;
+  /**
    * Blurs the content of the Editor.
    */
   blur(): void;
@@ -10510,6 +10520,12 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   hideLastMessage(): void;
   /**
+   * Inserts a new Toolbar item. Example: editor.insertToolbarItem({ name: &#039;customButton2&#039;, width: 100, template: &#039;&lt;smart-button&gt;Button2&lt;/smart-button&gt;&#039; })
+   * @param {any} itemName. The toolbar item to be added
+   * @param {number} index. The toolbar item's index
+   */
+  insertToolbarItem(itemName: any, index: number): void;
+  /**
    * Shows a custom message inside the Editor.
    * @param {string} message. The text message to be displayed.
    * @param {any} settings?. Additional settings that can be applied to the Toast element that handles the messages. This parameter should contain only valid Toast properties and values.
@@ -10548,6 +10564,11 @@ export interface Editor extends BaseElement, EditorProperties {
    * @param {boolean} value?. Determines whether to enter or leave split mode. By default the argument is not passed and the mode is toggled.
    */
   previewMode(value?: boolean): void;
+  /**
+   * Removes a Toolbar item. Example: editor.removeToolbarItem(0)
+   * @param {number} index. The toolbar item's index
+   */
+  removeToolbarItem(index: number): void;
   /**
    * Sets Editor into Full Screen Mode. If enabled the Editor is positioned above the page content and fills the screen.
    * @param {boolean} value?. Determines whether to enter or leave split mode. By default the argument is not passed and the mode is toggled.
@@ -13299,6 +13320,11 @@ export interface GanttChartProperties {
    */
   columnResizeFeedback?: boolean;
   /**
+   * Gantt's current time. By default it is the today's date.
+   * Default value: 
+   */
+  currentTime?: string | Date;
+  /**
    * Enables/Disables the current time indicator. Current time indicator shows the current time in the appropriate view cells.
    * Default value: false
    */
@@ -13509,6 +13535,11 @@ export interface GanttChartProperties {
    */
   nonworkingHours?: number[] | number[][];
   /**
+   * A function that can be used to completly customize the task element. The function has five arguments: task - the task object.segment - the task current segment object. If the task has only one segment, the task object is passed again.taskElement - the task's html element.segmentElement - the task's segment html element.labelElement - the task's segment label html element.
+   * Default value: null
+   */
+  onTaskRender?: any;
+  /**
    * A function that can be used to completly customize the popup Window that is used to interact width tasks by changing their properties. The function as three arguments: target - the target popup Window that is about to be opened.type - the type of the window. The type determines the purpose of the window. Three possible values: 'task' (task editing), 'confirm' ( confirmation window), 'connection' (used when deleting a connection between tasks). item - the connection/task object that is the target of the window.
    * Default value: null
    */
@@ -13523,6 +13554,11 @@ export interface GanttChartProperties {
    * Default value: null
    */
   progressLabelFormatFunction?: any;
+  /**
+   * Determines the format of the dates the timeline header when they represent quarters.
+   * Default value: short
+   */
+  quarterFormat?: QuarterFormat | string;
   /**
    * A getter that returns a flat structure as an array of all resources inside the element.
    * Default value: null
@@ -14431,6 +14467,11 @@ export interface GanttChartTask {
    */
   formatFunction?: any;
   /**
+   * Project, Task or Milestone format function. The function gets passed the following arguments: task, segment, taskElement, segmentElement, labelElement. task - the task object.segment - the task current segment object. If the task has only one segment, the task object is passed again.taskElement - the task's html element.segmentElement - the task's segment html element.labelElement - the task's segment label html element.
+   * Default value: null
+   */
+  onRender?: any;
+  /**
    * Project, Task or Milestone max start date.
    * Default value: 
    */
@@ -14694,6 +14735,8 @@ export declare type Duration = 'day' | 'hour' | 'minute' | 'second' | 'milisecon
 export declare type HourFormat = 'default' | '2-digit' | 'numeric';
 /**Determines the scale in Month view. */
 export declare type MonthScale = 'day' | 'week';
+/**Determines the format of the dates the timeline header when they represent quarters. */
+export declare type QuarterFormat = 'numeric' | 'long' | 'short';
 /**Determines how the capacity of the resources will be visualized inside the resource timeline. By default, the capacity is measured in hours depending on the <b>view</b> property of the element. */
 export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | 'custom';
 /**Determines how the resources will be displayed inside the resource Timeline. */
@@ -16471,6 +16514,16 @@ export interface GridAppearance {
    */
   showRowLines?: boolean;
   /**
+   * Shows lines between columns in column groups.
+   * Default value: true
+   */
+  showColumnGroupLines?: boolean;
+  /**
+   * Shows lines between cells in column groups.
+   * Default value: true
+   */
+  showColumnGroupCellLines?: boolean;
+  /**
    * Shows column groups in the Hide columns panel. Column groups and columns are shown in a tree-like structure. When the property is set to false, the column groups are not displayed and the column labels contain the column group name.
    * Default value: false
    */
@@ -16491,10 +16544,10 @@ export interface GridAppearance {
    */
   showFrozenColumnBackground?: boolean;
   /**
-   * Shows filtered row background, when the Grid has frozen rows.
-   * Default value: true
+   * Shows the selection on top of all other styles.
+   * Default value: false
    */
-  showFrozenRowBackground?: boolean;
+  showSelectionOnTop?: boolean;
   /**
    * Shows column sort button.
    * Default value: true
@@ -16795,6 +16848,11 @@ export interface GridColumn {
    * Default value: default
    */
   filterMenuMode?: GridColumnFilterMenuMode | string;
+  /**
+   * Sets or gets the column's filter editor. The value is an object with the following possible options: template: string, condition: string, onInit: any - callback function for init purposes, min: number, max: number, minLength: number, maxLength: number
+   * Default value: null
+   */
+  filterEditor?: any;
   /**
    * Sets or gets the column's format function.
    * Default value: null
@@ -18212,6 +18270,11 @@ export interface GridStateSettings {
    * Default value: false
    */
   autoSave?: boolean;
+  /**
+   * Enables or disables auto-load of the Grid's state on page reload.
+   * Default value: undefined
+   */
+  autoLoad?: boolean;
   /**
    * Enables or disables save/load of the grid state.
    * Default value: true
@@ -19796,10 +19859,10 @@ export interface Kanban extends BaseElement, KanbanProperties {
    */
   getSelectedTasks(id: number): any;
   /**
-   * Gets the Kanban's state.
-   * @returns 
+   * Gets the Kanban's state. Returns an object with the following type: { collapsed: {}, dataSource: [], filtering: { filters: [], operator: string }, selection: { selected: [], selectionStart?: number | string, selectionInColumn: string, swimlane: string }, sorting: { dataFields: [], dataTypes: [], orderBy: [] }, tabs: [], visibility: { taskActions: boolean, taskComments: boolean, taskDue: boolean, taskPriority: boolean, taskProgress: boolean, taskTags: boolean, taskUserIcon: boolean } } 
+   * @returns {any}
    */
-  getState(): { collapsed: {}, dataSource: [], filtering: { filters: [], operator: string }, selection: { selected: [], selectionStart: number | string, selectionInColumn: string, swimlane: string }, sorting: { dataFields: [], dataTypes: [], orderBy: [] }, tabs: [], visibility: { taskActions: boolean, taskComments: boolean, taskDue: boolean, taskPriority: boolean, taskProgress: boolean, taskTags: boolean, taskUserIcon: boolean } };
+  getState(): any;
   /**
    * Loads the Kanban's state.
    * @param  state?. An object returned by one of the methods getState or saveState. If not passed, gets saved state from the browser's localStorage.
@@ -26196,6 +26259,11 @@ export interface SchedulerProperties {
    */
   colorScheme?: string[];
   /**
+   * Determines the current time of the Scheduler to use for the current time indicator functionality. By default the current time is Today.
+   * Default value: new Date()
+   */
+  currentTime?: string | Date;
+  /**
    * Enables/Disables the current time indicator. Current time indicator shows the current time in the appropriate view cells. 
    * Default value: false
    */
@@ -26551,7 +26619,7 @@ export interface SchedulerProperties {
    */
   restrictedHours?: any;
   /**
-   * Defines an array of dates and hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed. Each array item is an Object and requires 2 fields - date and hours. For example: { date: new Date(2022, 10, 1), hours: [[0, 6], 12, [20, 23]] }. The hours define a range of restricted hours similartly to the restricted hours property, the date defines a date where the restricted hours will be applied.
+   * Defines an array of dates and hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed. Each array item is an Object and requires 2 fields - date and hours. For example: { date: new Date(2023, 10, 1), hours: [[0, 6], 12, [20, 23]] }. The hours define a range of restricted hours similartly to the restricted hours property, the date defines a date where the restricted hours will be applied.
    * Default value: 
    */
   restricted?: any;
@@ -29511,6 +29579,10 @@ export interface Table extends BaseElement, TableProperties {
    */
   removeRow(row: string | number): void;
   /**
+   * Resets the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is cleared, based on the value of the <strong>stateSettings</strong> property.
+   */
+  resetState(): void;
+  /**
    * Saves the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is saved, based on the value of the <strong>stateSettings</strong> property.
    * @returns {any}
    */
@@ -30540,6 +30612,11 @@ export interface TextAreaProperties {
    */
   readonly?: boolean;
   /**
+   * Determines whether ot not the user can resize the Textarea.
+   * Default value: none
+   */
+  resize?: TextAreaResize | string;
+  /**
    * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
    * Default value: false
    */
@@ -30569,6 +30646,11 @@ export interface TextAreaProperties {
    * Default value: false
    */
   unfocusable?: boolean;
+  /**
+   * Sets the TextArea users. Expects an array with 'id', 'name' properties. When you press '@' you can enter an user from a dropdown.
+   * Default value: []
+   */
+  users?: any[];
   /**
    * Sets or gets the value of the element.
    * Default value: ""
@@ -30607,6 +30689,11 @@ export interface TextArea extends BaseElement, TextAreaProperties {
    */
   ensureVisible(): void;
   /**
+   * Returns an array of users mentioned in the Textarea's value.
+   * @returns {any[]}
+   */
+  getMentions(): any[];
+  /**
    * Opens the drop down.
    */
   open(): void;
@@ -30628,6 +30715,8 @@ declare global {
 
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
 export declare type TextAreaQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
+/**Determines whether ot not the user can resize the Textarea. */
+export declare type TextAreaResize = 'none' | 'horizontal' | 'vertical' | 'both';
 export interface TextBoxProperties {
   /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'

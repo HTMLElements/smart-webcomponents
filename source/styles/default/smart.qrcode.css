@@ -1,12 +1,4 @@
 /* .smart-alert */
-.smart-qr-code {
+.smart-bar-code {
   display: block;
 }
-
-.smart-qrcode-container {
-  width: fit-content;
-}
-
-
-
-/*# sourceMappingURL=smart.barcode.css.map */

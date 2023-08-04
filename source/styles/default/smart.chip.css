@@ -1,13 +1,17 @@
 /* smart-chip */
 smart-chip:hover, smart-chip:focus {
   box-shadow: var(--smart-elevation-2);
-  outline: none; }
+  outline: none;
+}
 smart-chip .smart-container {
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 smart-chip.smart-element {
-  display: inline-block; }
+  display: inline-block;
+}
 smart-chip[disabled]:hover {
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 .smart-chip {
   min-height: var(--smart-chip-default-height);
@@ -17,69 +21,82 @@ smart-chip[disabled]:hover {
   background-color: var(--smart-primary);
   color: var(--smart-primary-color);
   position: relative;
-  margin: 2px; }
-  .smart-chip .smart-avatar {
-    width: var(--smart-chip-default-height);
-    height: var(--smart-chip-default-height);
-    line-height: var(--smart-chip-default-height);
-    border-radius: 50%;
-    display: none;
-    vertical-align: middle;
-    font-size: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis; }
-  .smart-chip .smart-value {
-    line-height: var(--smart-chip-default-height);
-    display: none;
-    vertical-align: middle;
-    padding: 0px 15px 0px 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0px;
-    cursor: default; }
-  .smart-chip .smart-close-button {
-    width: var(--smart-chip-default-height);
-    height: var(--smart-chip-default-height);
-    display: none;
-    position: relative;
-    vertical-align: middle; }
-    .smart-chip .smart-close-button:after {
-      font-family: var(--smart-font-family-icon);
-      content: var(--smart-icon-close);
-      color: inherit;
-      display: inline-block;
-      line-height: var(--smart-chip-default-height);
-      width: 100%;
-      text-align: center; }
-    .smart-chip .smart-close-button:hover:after {
-      color: var(--smart-primary-color);
-      cursor: pointer; }
-  .smart-chip.smart-container {
-    white-space: nowrap; }
-  .smart-chip[avatar] .smart-avatar {
-    display: inline-block; }
-    .smart-chip[avatar] .smart-avatar img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%; }
-  .smart-chip[avatar] .smart-value {
-    width: calc(100% - var(--smart-chip-default-height));
-    padding-left: 5px; }
-  .smart-chip[close-button] .smart-value {
-    width: calc(100% - var(--smart-chip-default-height));
-    padding-right: 5px; }
-  .smart-chip[close-button] .smart-close-button {
-    display: inline-block; }
-  .smart-chip[avatar][close-button] .smart-value {
-    width: calc(100% - 2 * var(--smart-chip-default-height)); }
-  .smart-chip[value] .smart-value {
-    display: inline-block; }
+  margin: 2px;
+}
+.smart-chip .smart-avatar {
+  width: var(--smart-chip-default-height);
+  height: var(--smart-chip-default-height);
+  line-height: var(--smart-chip-default-height);
+  border-radius: 50%;
+  display: none;
+  vertical-align: middle;
+  font-size: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.smart-chip .smart-value {
+  line-height: var(--smart-chip-default-height);
+  display: none;
+  vertical-align: middle;
+  padding: 0px 15px 0px 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0px;
+  cursor: default;
+}
+.smart-chip .smart-close-button {
+  width: var(--smart-chip-default-height);
+  height: var(--smart-chip-default-height);
+  display: none;
+  position: relative;
+  vertical-align: middle;
+}
+.smart-chip .smart-close-button:after {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-close);
+  color: inherit;
+  display: inline-block;
+  line-height: var(--smart-chip-default-height);
+  width: 100%;
+  text-align: center;
+}
+.smart-chip .smart-close-button:hover:after {
+  color: var(--smart-primary-color);
+  cursor: pointer;
+}
+.smart-chip.smart-container {
+  white-space: nowrap;
+}
+.smart-chip[avatar] .smart-avatar {
+  display: inline-block;
+}
+.smart-chip[avatar] .smart-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.smart-chip[avatar] .smart-value {
+  width: calc(100% - var(--smart-chip-default-height));
+  padding-left: 5px;
+}
+.smart-chip[close-button] .smart-value {
+  width: calc(100% - var(--smart-chip-default-height));
+  padding-right: 5px;
+}
+.smart-chip[close-button] .smart-close-button {
+  display: inline-block;
+}
+.smart-chip[avatar][close-button] .smart-value {
+  width: calc(100% - 2 * var(--smart-chip-default-height));
+}
+.smart-chip[value] .smart-value {
+  display: inline-block;
+}
 
 /* smart-chip */
 smart-chip[right-to-left] > .smart-container {
-  direction: rtl; }
-
-/*# sourceMappingURL=smart.chip.css.map */
+  direction: rtl;
+}

@@ -348,6 +348,9 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-icon.smart-icon-check-squared:before {
   content: var(--smart-icon-check-squared);
 }
+.smart-grid-icon.smart-icon-check:before {
+  content: var(--smart-icon-check);
+}
 .smart-grid-icon.smart-icon-number:before {
   content: "#";
   font-weight: bold;
@@ -491,6 +494,9 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-icon.smart-icon-calendar:before {
   content: var(--smart-icon-calendar);
 }
+.smart-grid-icon.smart-icon-comment:before {
+  content: var(--smart-icon-comment);
+}
 .smart-grid-icon.smart-icon-attention:before {
   content: var(--smart-icon-attention);
 }
@@ -592,9 +598,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .smart-grid-placeholder {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   text-align: center;
   display: flex;
   height: 100%;
@@ -877,6 +881,12 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
   width: 100%;
 }
+.smart-grid-summary-row-cell .summary-value .summary-value-part {
+  transition: transform ease-in-out 0.2s;
+}
+.smart-grid-summary-row-cell .summary-value .summary-value-part:hover {
+  transform: scale(1.2);
+}
 .smart-grid-summary-row-cell .summary-value .smart-arrow-down,
 .smart-grid-summary-row-cell .summary-value .smart-summary-placeholder {
   opacity: 0;
@@ -941,6 +951,27 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-grid-dialog-editor[template=colorInput] smart-color-input {
   border: 1px solid var(--smart-border);
+}
+.smart-grid-dialog-editor[template=rating] {
+  border: none !important;
+}
+.smart-grid-dialog-editor[template=rating] .rating {
+  display: flex;
+}
+.smart-grid-dialog-editor[template=rating] .rating div {
+  color: #DFDFDF;
+}
+.smart-grid-dialog-editor[template=rating] .rating div.hover, .smart-grid-dialog-editor[template=rating] .rating div:hover {
+  color: #FFBA05;
+  opacity: 0.5;
+}
+.smart-grid-dialog-editor[template=rating] .rating div.value {
+  visibility: inherit;
+  color: #FFBA05 !important;
+  opacity: 1 !important;
+}
+.smart-grid-dialog-editor[template=rating] .rating:hover div {
+  visibility: inherit;
 }
 .smart-grid-dialog-editor .attachments,
 .smart-grid-dialog-editor .images {
@@ -1203,8 +1234,8 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-slider-dialog {
   z-index: 99999;
   position: absolute;
-  min-width: 150px;
-  min-height: 120px;
+  min-width: 160px;
+  min-height: 140px;
   font-size: var(--smart-font-size);
   font-family: var(--smart-font-family);
   background: var(--smart-background);
@@ -1223,6 +1254,18 @@ input[type=number]::-webkit-outer-spin-button {
   min-height: 60px;
   max-width: 200px;
   transform: rotate(-90deg);
+}
+.smart-grid-text-area-dialog .smart-grid-text-area-resizer,
+.smart-grid-slider-dialog .smart-grid-text-area-resizer {
+  position: absolute;
+  background: var(--smart-primary);
+  color: var(--smart-primary-color);
+  height: 16px;
+  font-size: 10px;
+  right: -3px;
+  top: -16px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .smart-grid-text-area-dialog .smart-grid-text-area-container,
 .smart-grid-text-area-dialog .smart-grid-slider-container,
@@ -1248,7 +1291,9 @@ input[type=number]::-webkit-outer-spin-button {
   position: absolute;
   width: var(--smart-scroll-bar-size);
 }
+.smart-grid-text-area-dialog smart-text-area,
 .smart-grid-text-area-dialog textarea,
+.smart-grid-slider-dialog smart-text-area,
 .smart-grid-slider-dialog textarea {
   padding: 3px;
   min-height: 120px;
@@ -1376,6 +1421,9 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row {
   width: 750px !important;
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row[mobile] {
+  width: 100% !important;
+}
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-column-info {
   display: grid;
   grid-template-columns: 25px 1fr 25px;
@@ -1466,12 +1514,17 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout {
   display: grid;
   grid-template-columns: 1fr 350px;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout[mobile] {
   display: flex;
   flex-direction: column;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout.hide-activity {
+  grid-template-columns: 1fr;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout.hide-activity .smart-grid-edit-dialog-activity-container {
+  display: none;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-editors-container.many {
   display: grid;
@@ -1678,6 +1731,15 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid var(--smart-border);
   border-radius: var(--smart-border-radius);
 }
+.smart-window.smart-grid-dialog [editor]:not([template=checkBox])[template=textarea] {
+  height: 120px;
+  min-height: 80px;
+  resize: vertical;
+}
+.smart-window.smart-grid-dialog [editor]:not([template=checkBox])[template=textarea] smart-text-area {
+  width: 100% !important;
+  height: 100%;
+}
 .smart-window.smart-grid-dialog [editor][focus] {
   border-color: var(--smart-primary);
 }
@@ -1783,6 +1845,9 @@ smart-grid.smart-kanban-view {
 smart-grid.smart-kanban-view .smart-grid-add-row-button {
   display: none !important;
 }
+smart-grid[appearance_hide-column-group-lines] smart-grid-column:not([column-group-first-child])[column-group]:before {
+  background: transparent !important;
+}
 smart-grid[appearance_allow-hover] smart-grid-cell:not([focus]):hover:not(.smart-add-new-column) {
   background: var(--smart-ui-state-hover);
   color: var(--smart-ui-state-color-hover);
@@ -1807,9 +1872,15 @@ smart-grid[tree] smart-grid-cell[has-toggle-button]:not([detail]) button[toggle-
 smart-grid.smart-element {
   visibility: inherit;
 }
+smart-grid:not([selection_allow-cell-selection])[focus][appearance_show-selection-on-top] smart-grid-row[focus] smart-grid-cell:not([editor]):not([header]),
+smart-grid:not([selection_allow-cell-selection])[focus][appearance_show-selection-on-top] smart-grid-row[focus] smart-grid-cell:not([editor]):not([header]) .smart-label {
+  background: rgba(var(--smart-primary-rgb), 0.7) !important;
+  color: var(--smart-primary-color) !important;
+  border-color: var(--smart-primary) !important;
+}
 smart-grid:not([selection_allow-cell-selection])[focus] smart-grid-row[focus] smart-grid-cell:not([editor]):not([header]),
-smart-grid:not([selection_allow-cell-selection])[focus] smart-grid-row[focus] smart-grid-cell:not([editor]):not([header]) .smart-label {
-  background: rgba(var(--smart-primary-rgb), 0.8) !important;
+smart-grid:not([selection_allow-cell-selection])[focus] smart-grid-row[focus] smart-grid-cell:not([editor]):not([header]) .smart-label:not([style]) {
+  background: rgba(var(--smart-primary-rgb), 0.7) !important;
   color: var(--smart-primary-color) !important;
   border-color: var(--smart-primary) !important;
 }
@@ -2055,9 +2126,7 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
 .smart-grid .smart-grid-command-item {
   display: flex;
   padding: 5px 8px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   min-width: 25px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -2192,22 +2261,32 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
   grid-column-gap: 5px;
   align-items: center;
 }
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced]:hover span[group] span {
+  transform: scale(1.1);
+  opacity: 1;
+  color: var(--smart-primary);
+}
 .smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] span[group] {
-  font-size: var(--smart-font-size);
+  display: flex;
   font-weight: bold;
 }
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] span[group] span {
+  opacity: 0.7;
+  font-weight: normal;
+  margin-left: -8px;
+  transform: scale(0.9);
+}
 .smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] span[value] {
+  font-size: var(--smart-font-size);
   position: relative;
   white-space: nowrap;
   text-overflow: ellipsis;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   display: flex;
   align-items: center;
-  padding: 4px 12px;
+  padding: 2px 6px 2px 6px;
   font-weight: 400;
-  border-radius: 4px;
+  border-radius: 20px;
   background-color: var(--smart-primary);
   color: var(--smart-primary-color);
   border: 1px solid var(--smart-primary);
@@ -2217,7 +2296,10 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
   font-size: 10px;
   opacity: 0.7;
 }
-.smart-grid[appearance_allow-hover] smart-grid-row:hover smart-grid-cell:not(.smart-add-new-column) {
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced]:hover span[summary] {
+  opacity: 1;
+}
+.smart-grid[appearance_allow-hover]:not([selection_allow-cell-selection]) smart-grid-row:hover smart-grid-cell:not(.smart-add-new-column) {
   background: var(--smart-ui-state-hover);
   color: var(--smart-ui-state-color-hover);
   cursor: default;
@@ -2589,9 +2671,7 @@ smart-grid-row[alternation-index="0"] smart-grid-cell[editor]:not([selected]):no
   height: calc(100% - 1px);
   position: relative;
   left: 1px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 smart-grid-row[alternation-index="0"] smart-grid-cell:not([selected]):not([header]):not([update]):not([delete]):not([add]):not([freeze]):not([focus]):not([sort]):not([filter]) .smart-label {
   background-color: var(--smart-background);
@@ -2765,6 +2845,7 @@ smart-grid-column .smart-action-button div:before, smart-grid-column .smart-acti
   top: 50%;
   left: 50%;
   background: var(--smart-surface-color);
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   transition: transform 0.25s ease-in-out;
 }
@@ -2772,9 +2853,11 @@ smart-grid-column .smart-action-button.smart-animate {
   transition: width 0.25s ease;
 }
 smart-grid-column .smart-action-button.active:before {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg);
 }
 smart-grid-column .smart-action-button.active:after {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 smart-grid-column .smart-grid-cell-editor.smart-grid-input-cell-editor {
@@ -2913,8 +2996,7 @@ smart-grid-cell .list .smart-multi-combo-input .smart-flex,
 smart-grid-cell .tokens .smart-multi-combo-input .smart-flex {
   align-items: center;
   row-gap: 5px;
-  -moz-column-gap: 5px;
-       column-gap: 5px;
+  column-gap: 5px;
 }
 smart-grid-cell .dropdownlist .smart-flex-wrap,
 smart-grid-cell .list .smart-flex-wrap,
@@ -3277,9 +3359,7 @@ smart-grid-cell[editor] > .smart-label:not(.smart-input) {
   height: calc(100% - 1px);
   position: relative;
   margin-left: 1px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 smart-grid-cell[editor][row-editor] {
   border: 0px solid var(--smart-primary);
@@ -3322,6 +3402,50 @@ smart-grid-cell[template][template=url] a, smart-grid-cell[template][template=em
 }
 smart-grid-cell[template][template=url][selected] a, smart-grid-cell[template][template=email][selected] a {
   color: var(--smart-primary-color);
+}
+smart-grid-cell[template][template=rating][selected] .rating div {
+  visibility: inherit;
+}
+smart-grid-cell[template][template=rating] .rating {
+  display: flex;
+}
+smart-grid-cell[template][template=rating] .rating div {
+  color: #DFDFDF;
+}
+smart-grid-cell[template][template=rating] .rating div.hover {
+  color: #FFBA05;
+  opacity: 0.5;
+}
+smart-grid-cell[template][template=rating] .rating div.value {
+  visibility: inherit;
+  color: #FFBA05;
+  opacity: 1;
+}
+smart-grid-cell[template][template=rating] .rating div.down {
+  animation: starJump 1s ease-in-out;
+}
+smart-grid-cell[template][template=rating] .rating:hover div {
+  visibility: inherit;
+}
+@keyframes starJump {
+  from {
+    transform: translateY(0) scale(0.67, 0.67);
+  }
+  20% {
+    transform: translateY(0) scale(0.75, 0.5);
+  }
+  40% {
+    transform: translateY(0) scale(1.15, 1.15);
+  }
+  60% {
+    transform: translateY(0) scale(1.1, 0.6);
+  }
+  80% {
+    transform: translateY(0) scale(0.95, 1.1);
+  }
+  to {
+    transform: translateY(0) scale(1, 1);
+  }
 }
 smart-grid-cell[template][template=url] .smart-label, smart-grid-cell[template][template=email] .smart-label, smart-grid-cell[template][template=modifiedTime] .smart-label, smart-grid-cell[template][template=createdTime] .smart-label, smart-grid-cell[template][template=autoNumber] .smart-label, smart-grid-cell[template][template=phone] .smart-label, smart-grid-cell[template][template=password] .smart-label {
   padding-left: 4px;
@@ -3389,9 +3513,7 @@ smart-grid-cell[error]:not([row-editor]) > .smart-label {
   height: calc(100% - 1px);
   position: relative;
   left: 1px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 smart-grid-cell[sort] {
   background: var(--smart-grid-cell-background-sort);
@@ -3575,7 +3697,8 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
   align-items: center;
   width: calc(100% - 25px);
   margin-left: 5%;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 2px;
 }
 .smart-grid-add-column-dialog-color-panel .smart-sortable .smart-grid-add-column-dialog-color-item smart-color-input .smart-color-box {
   border-radius: 50%;
@@ -3603,7 +3726,7 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container {
   display: grid;
-  grid-template-rows: 1fr 230px;
+  grid-template-rows: 1fr auto;
   height: 100%;
   padding: 5px;
 }
@@ -3997,6 +4120,17 @@ smart-grid-row:not([selected]):not(:hover) [header][checkbox][auto-show]:not(:ho
   transition: opacity ease-in-out 0.2s;
 }
 
+.smart-grid-check-box-cell-editor.smart-filter-input-value[checked=indeterminate]:after {
+  margin: 14%;
+  width: 70%;
+  height: 70%;
+  content: "";
+  background-color: var(--smart-ui-state-color-active);
+  box-sizing: border-box;
+  top: 0px;
+  border-radius: 0px;
+}
+
 .smart-grid-dialog-editor[checkbox][selected=indeterminate] .smart-input:after, .smart-grid-dialog-editor[checkbox][checked=indeterminate] .smart-input:after,
 smart-grid-cell[checkbox][selected=indeterminate] .smart-input:after,
 smart-grid-cell[checkbox][checked=indeterminate] .smart-input:after,
@@ -4065,7 +4199,6 @@ smart-grid-column div[checkbox] .smart-input[checked=indeterminate]:after {
   background: var(--smart-primary);
   background-size: 18px 12px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.06), 0 2px 2px rgba(0, 0, 20, 0.1);
-  -webkit-transition: box-shadow 0.2s;
   transition: box-shadow 0.2s;
 }
 .smart-slider-editor input[type=range]:focus::-webkit-slider-thumb {
@@ -4079,7 +4212,6 @@ smart-grid-column div[checkbox] .smart-input[checked=indeterminate]:after {
   background: var(--smart-primary);
   background-size: 18px 12px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.06), 0 2px 2px rgba(0, 0, 20, 0.1);
-  -moz-transition: box-shadow 0.2s;
   transition: box-shadow 0.2s;
 }
 .smart-slider-editor input[type=range]:focus::-moz-range-thumb {
@@ -4274,4 +4406,4 @@ smart-grid-column div[checkbox] .smart-input[checked=indeterminate]:after {
 
 .smart-grid-color-input {
   --smart-input-drop-down-menu-width: auto;
-}/*# sourceMappingURL=smart.grid.css.map */
+}

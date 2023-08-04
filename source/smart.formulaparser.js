@@ -1,6 +1,0 @@
-
-/* Smart UI v15.2.0 (2023-04-20) 
-Copyright (c) 2011-2023 jQWidgets. 
-License: https://htmlelements.com/license/ */ //
-
-Smart.Utilities.Assign("FormulaParser",class{constructor(a){const e=this;let r;try{r=new formulaParser.Parser}catch(a){throw new Error("Smart.FormulaParser: Missing reference to 'formula-parser.min.js'.")}r.on("callCellValue",e._callCellValue.bind(e)),r.on("callRangeValue",e._callRangeValue.bind(e)),e.dataTable=a,e.parser=r}parse(a){const e=this.parser.parse(a);return null!==e.result?e.result:e.error}_callCellValue(a,e){const r=this,l=r.dataTable,t=a.column.index,s=a.row.index,n=l.columns[t].dataField;let o=l.dataSource[s][n];"string"==typeof o&&/=.+/.test(o)&&(o=r.parse(o.slice(1))),e(o)}_callRangeValue(a,e,r){const l=this.dataTable,t=l.dataSource,s=[];for(let r=a.row.index;r<=e.row.index;r++){const n=t[r],o=[];for(let r=a.column.index;r<=e.column.index;r++){let a=n[l.columns[r].dataField];isNaN(a)||(a=parseFloat(a)),o.push(a)}s.push(o)}s&&r(s)}}),Smart.FormulaParser=Smart.Utilities.FormulaParser;

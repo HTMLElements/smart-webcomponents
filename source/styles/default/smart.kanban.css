@@ -44,6 +44,7 @@
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 .smart-kanban > .smart-container[modal]:after, .smart-kanban.smart-container[modal]:after {
@@ -1577,4 +1578,4 @@
 [right-to-left] .smart-kanban-task-progress {
   left: unset;
   right: 0;
-}/*# sourceMappingURL=smart.kanban.css.map */
+}

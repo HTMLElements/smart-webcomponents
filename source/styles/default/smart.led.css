@@ -4,28 +4,35 @@ smart-led {
   width: var(--smart-led-default-width);
   height: var(--smart-led-default-height);
   display: inline-block;
-  border-radius: 50%; }
-  smart-led .smart-container {
-    cursor: pointer;
-    height: 100%;
-    position: relative;
-    display: flex;
-    overflow: hidden; }
-  smart-led .smart-ripple {
-    background: var(--smart-primary); }
-  smart-led[focus] {
-    outline: none; }
-  smart-led[disabled] .smart-container {
-    cursor: initial; }
-  smart-led[shape="square"] {
-    border-radius: 0px; }
+  border-radius: 50%;
+}
+smart-led .smart-container {
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+smart-led .smart-ripple {
+  background: var(--smart-primary);
+}
+smart-led[focus] {
+  outline: none;
+}
+smart-led[disabled] .smart-container {
+  cursor: initial;
+}
+smart-led[shape=square] {
+  border-radius: 0px;
+}
 
 .smart-led.smart-container {
   cursor: pointer;
   height: 100%;
   position: relative;
   display: flex;
-  overflow: hidden; }
+  overflow: hidden;
+}
 .smart-led .smart-input {
   width: 100%;
   height: 100%;
@@ -44,7 +51,8 @@ smart-led {
   border-color: var(--smart-border);
   font-family: inherit;
   font-size: inherit;
-  outline: none; }
+  outline: none;
+}
 .smart-led .smart-false-content-container,
 .smart-led .smart-true-content-container,
 .smart-led .smart-indeterminate-content-container {
@@ -54,16 +62,20 @@ smart-led {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+}
 .smart-led .smart-false-content-container {
   display: flex;
-  background-color: transparent; }
+  background-color: transparent;
+}
 .smart-led .smart-true-content-container {
   display: none;
-  background-color: var(--smart-primary); }
+  background-color: var(--smart-primary);
+}
 .smart-led .smart-indeterminate-content-container {
   display: none;
-  background-color: lightgray; }
+  background-color: lightgray;
+}
 .smart-led .smart-false-content {
   display: flex;
   align-items: center;
@@ -71,20 +83,24 @@ smart-led {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 .smart-led[focus] .smart-input {
   border: var(--smart-border-width) solid var(--smart-ui-state-border-focus);
   background: var(--smart-ui-state-focus);
-  color: var(--smart-ui-state-color-focus); }
+  color: var(--smart-ui-state-color-focus);
+}
 .smart-led:hover .smart-input {
   border: var(--smart-border-width) solid var(--smart-ui-state-border-hover);
   background: var(--smart-ui-state-hover);
   color: var(--smart-ui-state-color-hover);
-  transition: background-color 100ms linear; }
+  transition: background-color 100ms linear;
+}
 .smart-led.active .smart-input {
   border: var(--smart-border-width) solid var(--smart-ui-state-border-active);
   background: var(--smart-ui-state-active);
-  color: var(--smart-ui-state-color-active); }
+  color: var(--smart-ui-state-color-active);
+}
 .smart-led[checked] .smart-true-content {
   display: flex;
   align-items: center;
@@ -92,32 +108,38 @@ smart-led {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 .smart-led[checked] .smart-false-content-container {
-  display: none; }
+  display: none;
+}
 .smart-led[checked] .smart-true-content-container {
-  display: flex; }
-.smart-led[checked="null"] .smart-indeterminate-content {
+  display: flex;
+}
+.smart-led[checked=null] .smart-indeterminate-content {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  height: 100%; }
-.smart-led[checked="null"] .smart-indeterminate-content-container {
-  display: flex; }
-.smart-led[checked="null"] .smart-true-content-container {
-  display: none; }
-.smart-led[shape="square"] .smart-input,
-.smart-led[shape="square"] .smart-false-content-container,
-.smart-led[shape="square"] .smart-true-content-container,
-.smart-led[shape="square"] .smart-indeterminate-content-container {
-  border-radius: 0px; }
+  height: 100%;
+}
+.smart-led[checked=null] .smart-indeterminate-content-container {
+  display: flex;
+}
+.smart-led[checked=null] .smart-true-content-container {
+  display: none;
+}
+.smart-led[shape=square] .smart-input,
+.smart-led[shape=square] .smart-false-content-container,
+.smart-led[shape=square] .smart-true-content-container,
+.smart-led[shape=square] .smart-indeterminate-content-container {
+  border-radius: 0px;
+}
 
 .smart-led[right-to-left] .smart-false-content-container,
 .smart-led[right-to-left] .smart-true-content-container,
 .smart-led[right-to-left] .smart-indeterminate-content-container {
-  direction: rtl; }
-
-/*# sourceMappingURL=smart.led.css.map */
+  direction: rtl;
+}

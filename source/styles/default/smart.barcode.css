@@ -1,10 +1,4 @@
 /* .smart-alert */
-.smart-barcode {
+.smart-bar-code {
   display: block;
 }
-
-.smart-barcode-container {
-  width: fit-content;
-}
-
-/*# sourceMappingURL=smart.barcode.css.map */

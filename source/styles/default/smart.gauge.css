@@ -5,64 +5,82 @@ smart-gauge {
   height: var(--smart-gauge-default-height);
   min-width: 125px;
   min-height: 125px;
-  fill: var(--smart-background-color); }
-  smart-gauge:focus {
-    outline: none; }
-  smart-gauge.smart-element {
-    border: none; }
-  smart-gauge[disabled] {
-    user-select: none; }
-  smart-gauge[size-mode="auto"] {
-    min-height: initial; }
+  fill: var(--smart-background-color);
+}
+smart-gauge:focus {
+  outline: none;
+}
+smart-gauge.smart-element {
+  border: none;
+}
+smart-gauge[disabled] {
+  user-select: none;
+}
+smart-gauge[size-mode=auto] {
+  min-height: initial;
+}
 
 .smart-gauge:focus .smart-needle,
 .smart-gauge:focus .smart-needle-central-circle {
-  fill: var(--smart-primary); }
+  fill: var(--smart-primary);
+}
 .smart-gauge .smart-container, .smart-gauge.smart-container {
   position: relative;
-  border-radius: 50%; }
+  border-radius: 50%;
+}
 .smart-gauge .drawContainer > svg {
   fill: var(--smart-gauge-label-fill-state);
-  stroke: var(--smart-gauge-label-stroke); }
+  stroke: var(--smart-gauge-label-stroke);
+}
 .smart-gauge .smart-svg-container {
   width: 100%;
   height: 100%;
-  touch-action: none; }
+  touch-action: none;
+}
 .smart-gauge .smart-tick {
   stroke: var(--smart-border);
   stroke-width: 1px;
   width: 15px;
-  pointer-events: none; }
+  pointer-events: none;
+}
 .smart-gauge .smart-tick-minor {
-  width: 5px; }
+  width: 5px;
+}
 .smart-gauge .smart-needle {
   width: 20px;
   height: 110px;
-  fill: var(--smart-background-color); }
+  fill: var(--smart-background-color);
+}
 .smart-gauge .smart-needle-central-circle {
-  fill: var(--smart-background-color); }
+  fill: var(--smart-background-color);
+}
 .smart-gauge .smart-track {
   width: 15px;
   stroke: var(--smart-border);
   stroke-width: 2px;
-  fill: var(--smart-background); }
+  fill: var(--smart-background);
+}
 .smart-gauge .smart-value {
   stroke: var(--smart-ui-state-border-active);
   stroke-width: 2px;
-  fill: var(--smart-ui-state-active); }
+  fill: var(--smart-ui-state-active);
+}
 .smart-gauge .smart-line {
   stroke: var(--smart-background-color);
-  stroke-width: 5px; }
+  stroke-width: 5px;
+}
 .smart-gauge .smart-range {
   width: 75px;
-  fill: #D8D8D8; }
+  fill: #D8D8D8;
+}
 .smart-gauge .smart-digital-display-container {
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  pointer-events: none; }
+  pointer-events: none;
+}
 .smart-gauge .smart-digital-display {
   --smart-numeric-text-box-background: transparent;
   --smart-numeric-text-box-text-align: center;
@@ -75,42 +93,54 @@ smart-gauge {
   transform: translate(-50%, -50%);
   color: black;
   font-size: inherit;
-  pointer-events: initial; }
+  pointer-events: initial;
+}
 .smart-gauge[dragged] {
-  cursor: pointer; }
-  .smart-gauge[dragged] .smart-label {
-    cursor: pointer; }
-.smart-gauge[analog-display-type="fill"][ticks-position="track"] .smart-tick, .smart-gauge[analog-display-type="line"][ticks-position="track"] .smart-tick {
-  stroke: #F2F2F2; }
-.smart-gauge[ticks-visibility="major"] .smart-tick-minor, .smart-gauge[labels-visibility="endPoints"] .smart-label-middle {
-  visibility: hidden; }
+  cursor: pointer;
+}
+.smart-gauge[dragged] .smart-label {
+  cursor: pointer;
+}
+.smart-gauge[analog-display-type=fill][ticks-position=track] .smart-tick, .smart-gauge[analog-display-type=line][ticks-position=track] .smart-tick {
+  stroke: #F2F2F2;
+}
+.smart-gauge[ticks-visibility=major] .smart-tick-minor, .smart-gauge[labels-visibility=endPoints] .smart-label-middle {
+  visibility: hidden;
+}
 .smart-gauge[show-ranges][ranges] .smart-track {
-  opacity: 0; }
+  opacity: 0;
+}
 .smart-gauge[show-unit] .smart-digital-display {
-  --smart-numeric-text-box-text-align: right; }
-  .smart-gauge[show-unit] .smart-digital-display input.smart-input {
-    border-right: none; }
+  --smart-numeric-text-box-text-align: right;
+}
+.smart-gauge[show-unit] .smart-digital-display input.smart-input {
+  border-right: none;
+}
 .smart-gauge[digital-display] .smart-digital-display {
-  display: inline-block; }
-.smart-gauge[digital-display-position="top"] .smart-digital-display {
+  display: inline-block;
+}
+.smart-gauge[digital-display-position=top] .smart-digital-display {
   top: 25%;
-  transform: translate(-50%, -50%); }
-.smart-gauge[digital-display-position="right"] .smart-digital-display {
+  transform: translate(-50%, -50%);
+}
+.smart-gauge[digital-display-position=right] .smart-digital-display {
   top: 50%;
   left: 70%;
-  transform: translate(-50%, -50%); }
-.smart-gauge[digital-display-position="left"] .smart-digital-display {
+  transform: translate(-50%, -50%);
+}
+.smart-gauge[digital-display-position=left] .smart-digital-display {
   top: 50%;
   left: 30%;
-  transform: translate(-50%, -50%); }
-.smart-gauge[digital-display-position="center"] .smart-digital-display {
+  transform: translate(-50%, -50%);
+}
+.smart-gauge[digital-display-position=center] .smart-digital-display {
   top: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+}
 
 /* smart-gauge */
 smart-gauge[right-to-left] .smart-label,
 smart-gauge[right-to-left] .smart-label-middle {
   direction: rtl;
-  text-anchor: end; }
-
-/*# sourceMappingURL=smart.gauge.css.map */
+  text-anchor: end;
+}

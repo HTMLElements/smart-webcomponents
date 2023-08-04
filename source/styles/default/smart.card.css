@@ -8,10 +8,13 @@
   max-width: 1500px;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--smart-surface); }
-  @media only screen and (max-width: 768px) {
-    .smart-cards smart-card {
-      margin: 0px 10px 10px 10px; } }
+  background-color: var(--smart-surface);
+}
+@media only screen and (max-width: 768px) {
+  .smart-cards smart-card {
+    margin: 0px 10px 10px 10px;
+  }
+}
 
 smart-card {
   display: inline-block;
@@ -20,26 +23,32 @@ smart-card {
   margin: 1%;
   box-shadow: var(--smart-elevation-2);
   box-sizing: border-box;
-  font-size: inherit; }
-  @media only screen and (max-width: 1024px) {
-    smart-card {
-      display: inline-block;
-      width: 47%; } }
-  @media only screen and (max-width: 768px) {
-    smart-card {
-      display: block;
-      width: 100%;
-      margin: 0px;
-      max-height: 100vh;
-      overflow-y: auto; } }
-  smart-card:hover {
-    box-shadow: var(--smart-elevation-4); }
-  smart-card.simple {
-    box-shadow: unset;
-    width: auto;
-    margin: 0; }
+  font-size: inherit;
+}
+@media only screen and (max-width: 1024px) {
+  smart-card {
+    display: inline-block;
+    width: 47%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  smart-card {
+    display: block;
+    width: 100%;
+    margin: 0px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+smart-card:hover {
+  box-shadow: var(--smart-elevation-4);
+}
+smart-card.simple {
+  box-shadow: unset;
+  width: auto;
+  margin: 0;
+}
 
 smart-card[right-to-left] > .smart-container, smart-card[right-to-left].smart-container, smart-card[right-to-left] > .smart-container, smart-card[right-to-left].smart-container {
-  direction: rtl; }
-
-/*# sourceMappingURL=smart.card.css.map */
+  direction: rtl;
+}

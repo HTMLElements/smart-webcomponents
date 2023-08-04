@@ -696,27 +696,27 @@
 
   &[months="3"],
   &[months="4"] {
-    --smart-calendar-default-height: calc(2 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height)));
+    --smart-calendar-default-height: calc(2 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height))) !important;
   }
 
   &[months="5"],
   &[months="6"] {
-    --smart-calendar-default-height: calc(3 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height)));
+    --smart-calendar-default-height: calc(3 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height))) !important;
   }
 
   &[months="7"],
   &[months="8"] {
-    --smart-calendar-default-height: calc(4 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height)));
+    --smart-calendar-default-height: calc(4 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height))) !important;
   }
 
   &[months="9"],
   &[months="10"] {
-    --smart-calendar-default-height: calc(5 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height)));
+    --smart-calendar-default-height: calc(5 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height))) !important;
   }
 
   &[months="11"],
   &[months="12"] {
-    --smart-calendar-default-height: calc(6 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height)));
+    --smart-calendar-default-height: calc(6 * calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height))) !important;
   }
 
   @media only screen and (max-width: 768px) {

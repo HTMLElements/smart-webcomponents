@@ -107,6 +107,11 @@ export interface DropDownListProperties {
    */
   filterMode?: FilterMode | string;
   /**
+   * A callback that should return a condition that will be used for custom item filtering. Used in conjunction with filterMode 'custom'
+   * Default value: null
+   */
+  filterCallback?: any;
+  /**
    * If enabled, the items will be grouped by their first letter. Can't be applied if the dataSource already contains groups.
    * Default value: false
    */

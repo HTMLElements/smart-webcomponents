@@ -1,117 +1,106 @@
 .smart-input-buttons-elements-holder {
-    display: grid;
-    grid-template-columns: var(--smart-date-format-panel-smart-inputs-container-width) var(--smart-date-format-panel-apply-container-width);
-    grid-template-rows: auto;
-    grid-column-gap: var(--smart-date-format-panel-smart-input-buttons-column-gap);
+  display: grid;
+  grid-template-columns: var(--smart-date-format-panel-smart-inputs-container-width) var(--smart-date-format-panel-apply-container-width);
+  grid-template-rows: auto;
+  grid-column-gap: var(--smart-date-format-panel-smart-input-buttons-column-gap);
 }
 
 .smart-input-and-add-formats-holder {
-    border: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
-    border-radius: var(--smart-date-format-panel-border-radius);
-    display: grid;
-    grid-template-columns: var(--smart-date-format-panel-smart-inputs-holder-width) var(--smart-date-format-panel-add-format-holder-width);
-    grid-template-rows: auto;
-    align-items: baseline;
-    justify-content: center;
+  border: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
+  border-radius: var(--smart-date-format-panel-border-radius);
+  display: grid;
+  grid-template-columns: var(--smart-date-format-panel-smart-inputs-holder-width) var(--smart-date-format-panel-add-format-holder-width);
+  grid-template-rows: auto;
+  align-items: baseline;
+  justify-content: center;
 }
 
 .smart-input-list-holder {
-    padding: var(--smart-date-format-panel-smart-inputs-list-holder-offset);
+  padding: var(--smart-date-format-panel-smart-inputs-list-holder-offset);
 }
-
 .smart-input-list-holder:empty {
-    border: none;
+  border: none;
 }
-
 .smart-input-list-holder smart-input {
-    display: inline-flex;
-    height: var(--smart-date-format-panel-smart-input-height);
-    margin: var(--smart-date-format-panel-each-smart-input-offset);
+  display: inline-flex;
+  height: var(--smart-date-format-panel-smart-input-height);
+  margin: var(--smart-date-format-panel-each-smart-input-offset);
 }
-
 .smart-input-list-holder .format-smart-input-list {
-    width: var(--smart-date-format-panel-smart-input-format-width);
+  width: var(--smart-date-format-panel-smart-input-format-width);
 }
-
 .smart-input-list-holder .sign-smart-input {
-    width: var(--smart-date-format-panel-smart-input-sign-width);
+  width: var(--smart-date-format-panel-smart-input-sign-width);
 }
 
 .all-format-holders {
-    width: var(--smart-date-format-panel-all-format-holders-width);
+  width: var(--smart-date-format-panel-all-format-holders-width);
 }
 
 .format-holder {
-    width: var(--smart-date-format-panel-each-add-format-holder-width);
-    text-align: center;
-    float: left;
+  width: var(--smart-date-format-panel-each-add-format-holder-width);
+  text-align: center;
+  float: left;
 }
 
 .add-format-holder {
-    margin: var(--smart-date-format-panel-add-new-format-dropdown-offset);
-    align-self: normal;
-    justify-self: end;
+  margin: var(--smart-date-format-panel-add-new-format-dropdown-offset);
+  align-self: normal;
+  justify-self: end;
 }
-
 .add-format-holder span.smart-drop-down-button {
-    --smart-date-format-panel-smart-drop-down-button-border: transparent;
+  --smart-date-format-panel-smart-drop-down-button-border: transparent;
 }
-
 .add-format-holder smart-button {
-    font-size: var(--smart-date-format-panel-smart-font-size);
-    width: auto;
-    min-width: var(--smart-date-format-panel-add-format-holder-button);
+  font-size: var(--smart-date-format-panel-smart-font-size);
+  width: auto;
+  min-width: var(--smart-date-format-panel-add-format-holder-button);
 }
 
 .use-format-button {
-    margin: 0 auto;
-    margin-top: var(--smart-date-format-panel-margin-from-the-top);
+  margin: 0 auto;
+  margin-top: var(--smart-date-format-panel-margin-from-the-top);
 }
-
 .use-format-button[disabled] {
-    display: none;
+  display: none;
 }
 
-li[value=' '] a {
-    height: calc(var(--smart-date-format-panel-smart-font-size) + 2 * 8px);
+li[value=" "] a {
+  height: calc(var(--smart-date-format-panel-smart-font-size) + 16px);
 }
 
 .date-time-format-list {
-    padding: 0;
-    margin: 0;
-    margin-top: var(--smart-date-format-panel-date-time-format-list-offset-top);
-    max-height: var(--smart-date-format-panel-date-time-format-list-max-height);
-    overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  margin-top: var(--smart-date-format-panel-date-time-format-list-offset-top);
+  max-height: var(--smart-date-format-panel-date-time-format-list-max-height);
+  overflow-y: auto;
 }
 
 .date-time-format {
-    cursor: pointer;
-    border: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
-    border-bottom: none;
-    text-align: center;
-    padding: var(--smart-date-format-panel-each-date-time-format-offset);
-    list-style-type: none;
-    padding-left: 0;
+  cursor: pointer;
+  border: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
+  border-bottom: none;
+  text-align: center;
+  padding: var(--smart-date-format-panel-each-date-time-format-offset);
+  list-style-type: none;
+  padding-left: 0;
 }
-
 .date-time-format:last-child {
-    border-bottom: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
+  border-bottom: var(--smart-date-format-panel-border-size) solid var(--smart-date-format-panel-border-color);
 }
-
 .date-time-format:hover {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 .text-tramsform-none {
-    text-transform: none;
+  text-transform: none;
 }
 
 .cboth {
-    clear: both;
+  clear: both;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
-
-/*# sourceMappingURL=smart.dateformatpanel.css.map */

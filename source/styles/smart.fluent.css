@@ -275,8 +275,7 @@ body {
 }
 
 .smart-animate.smart-ripple {
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
 }
 
 .smart-toggle-box .smart-overlay {
@@ -2102,8 +2101,7 @@ smart-drop-down-button .smart-buttons-container .smart-drop-down-button .smart-d
   font-size: 20px;
 }
 smart-drop-down-button[animation=none] .smart-drop-down-container {
-  -webkit-animation: unset !important;
-          animation: unset !important;
+  animation: unset !important;
 }
 smart-drop-down-button[animation=none] .smart-date-time-picker .smart-drop-down[bottom],
 smart-drop-down-button[animation=none] .smart-date-time-picker .smart-drop-down,
@@ -2121,8 +2119,7 @@ smart-drop-down-button[animation=none] .smart-color-picker .smart-drop-down[bott
 smart-drop-down-button[animation=none] .smart-color-picker .smart-drop-down,
 smart-drop-down-button[animation=none] .smart-path .smart-drop-down[bottom],
 smart-drop-down-button[animation=none] .smart-path .smart-drop-down {
-  -webkit-animation: unset;
-          animation: unset;
+  animation: unset;
 }
 
 /* DROPDOWN MENUS */
@@ -2136,8 +2133,7 @@ smart-drop-down-button[animation=none] .smart-path .smart-drop-down {
 }
 .smart-menu[animation=none],
 .smart-drop-down[animation=none] {
-  -webkit-animation: unset !important;
-          animation: unset !important;
+  animation: unset !important;
 }
 
 .smart-drop-down.smart-drop-down-container {
@@ -2168,8 +2164,7 @@ smart-drop-down-button[animation=none] .smart-path .smart-drop-down {
   border-radius: 0 !important;
 }
 .smart-input-drop-down-menu[animation=none] {
-  -webkit-animation: unset !important;
-          animation: unset !important;
+  animation: unset !important;
 }
 
 .smart-drop-down-box .smart-drop-down-button {
@@ -2576,6 +2571,7 @@ smart-carousel.slider .smart-indicators-container {
 smart-carousel.slider .smart-indicators-container .smart-indicator {
   border: 0;
   box-sizing: content-box;
+  -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   width: 30px;
   height: 3px;
@@ -2660,8 +2656,7 @@ smart-carousel.slider .smart-arrow:hover {
 }
 .smart-slider .smart-track .smart-thumb:before {
   display: none !important;
-  -webkit-animation: unset !important;
-          animation: unset !important;
+  animation: unset !important;
   transform: unset !important;
 }
 .smart-slider[disabled] {
@@ -2927,8 +2922,7 @@ smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadc
   border-radius: 2px;
 }
 .smart-menu[animation=none] .smart-menu-drop-down {
-  -webkit-animation: unset !important;
-          animation: unset !important;
+  animation: unset !important;
 }
 .smart-menu[aria-orientation=horizontal] {
   --smart-surface: var(--fluent-theme-primary);
@@ -3019,7 +3013,9 @@ smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadc
 }
 .smart-sortable ul,
 .smart-sortable ol {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: column;
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
@@ -3262,8 +3258,7 @@ smart-calendar {
   border: 1px solid transparent;
   border-radius: 2px;
   box-shadow: var(--fluent-box-shadow-16) !important;
-  -webkit-animation: unset !important;
-          animation: unset !important;
+  animation: unset !important;
 }
 .smart-grid-column-menu .smart-menu {
   border: 0;

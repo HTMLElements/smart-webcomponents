@@ -652,6 +652,10 @@ export interface Table extends BaseElement, TableProperties {
    */
   removeRow(row: string | number): void;
   /**
+   * Resets the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is cleared, based on the value of the <strong>stateSettings</strong> property.
+   */
+  resetState(): void;
+  /**
    * Saves the Table's state. Information about columns, expanded rows, selected rows, applied fitering, grouping, and sorted columns is saved, based on the value of the <strong>stateSettings</strong> property.
    * @returns {any}
    */

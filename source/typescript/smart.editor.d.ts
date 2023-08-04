@@ -636,6 +636,11 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   onMessageOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * Adds a new Toolbar item. Example: editor.addToolbarItem({ name: &#039;customButton2&#039;, width: 100, template: &#039;&lt;smart-button&gt;Button2&lt;/smart-button&gt;&#039; })
+   * @param {any} itemName. The toolbar item to be added
+   */
+  addToolbarItem(itemName: any): void;
+  /**
    * Blurs the content of the Editor.
    */
   blur(): void;
@@ -702,6 +707,12 @@ export interface Editor extends BaseElement, EditorProperties {
    */
   hideLastMessage(): void;
   /**
+   * Inserts a new Toolbar item. Example: editor.insertToolbarItem({ name: &#039;customButton2&#039;, width: 100, template: &#039;&lt;smart-button&gt;Button2&lt;/smart-button&gt;&#039; })
+   * @param {any} itemName. The toolbar item to be added
+   * @param {number} index. The toolbar item's index
+   */
+  insertToolbarItem(itemName: any, index: number): void;
+  /**
    * Shows a custom message inside the Editor.
    * @param {string} message. The text message to be displayed.
    * @param {any} settings?. Additional settings that can be applied to the Toast element that handles the messages. This parameter should contain only valid Toast properties and values.
@@ -740,6 +751,11 @@ export interface Editor extends BaseElement, EditorProperties {
    * @param {boolean} value?. Determines whether to enter or leave split mode. By default the argument is not passed and the mode is toggled.
    */
   previewMode(value?: boolean): void;
+  /**
+   * Removes a Toolbar item. Example: editor.removeToolbarItem(0)
+   * @param {number} index. The toolbar item's index
+   */
+  removeToolbarItem(index: number): void;
   /**
    * Sets Editor into Full Screen Mode. If enabled the Editor is positioned above the page content and fills the screen.
    * @param {boolean} value?. Determines whether to enter or leave split mode. By default the argument is not passed and the mode is toggled.

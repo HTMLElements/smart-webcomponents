@@ -9,6 +9,30 @@
 }
 
 &[right-to-left] {
+  &[current-time-indicator] {
+    .smart-scheduler-view-header-horizontal {
+      .smart-scheduler-cell[current] {
+        color: var(--smart-scheduler-current-time-indicator-background);
+        border-bottom: var(--smart-scheduler-current-time-indicator-header-size) solid var(--smart-scheduler-current-time-indicator-background);
+      }
+    }
+  
+    .smart-scheduler-view-header-vertical {
+      .smart-scheduler-cell[current] {
+        color: var(--smart-scheduler-current-time-indicator-background);
+        border-left: var(--smart-scheduler-current-time-indicator-header-size) solid var(--smart-scheduler-current-time-indicator-background);
+        border-right: none;
+      }
+    }
+  
+    .smart-scheduler-current-time-indicator {
+      &:before {
+        left: calc(100% - 6px);
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  
   .smart-scheduler-header,
   .smart-scheduler-view {
     direction: rtl;

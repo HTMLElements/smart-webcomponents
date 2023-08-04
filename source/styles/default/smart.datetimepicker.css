@@ -166,14 +166,14 @@ smart-date-time-picker > .smart-container > input,
   text-align: initial;
   line-height: initial;
 }
-.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button {
+.smart-date-time-picker[spin-buttons-position=left] .smart-spin-button {
   border-right-width: var(--smart-border-width);
   border-left-width: 0px;
 }
-.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button:first-child {
+.smart-date-time-picker[spin-buttons-position=left] .smart-spin-button:first-child {
   border-top-left-radius: var(--smart-border-top-left-radius);
 }
-.smart-date-time-picker[spin-buttons-position="left"] .smart-spin-button:last-child {
+.smart-date-time-picker[spin-buttons-position=left] .smart-spin-button:last-child {
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
 }
 .smart-date-time-picker[spin-buttons] {
@@ -185,7 +185,7 @@ smart-date-time-picker > .smart-container > input,
 .smart-date-time-picker[spin-buttons] .smart-spin-buttons-container {
   display: block;
 }
-.smart-date-time-picker[spin-buttons]:not([spin-buttons-position="left"]) .smart-input.smart-date-time-input {
+.smart-date-time-picker[spin-buttons]:not([spin-buttons-position=left]) .smart-input.smart-date-time-input {
   border-top-left-radius: var(--smart-border-top-left-radius);
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
 }
@@ -205,13 +205,13 @@ smart-date-time-picker > .smart-container > input,
 .smart-date-time-picker[spin-buttons][calendar-button] .smart-input.smart-date-time-input {
   width: calc(100% - var(--smart-editor-addon-width) - var(--smart-editor-addon-width));
 }
-.smart-date-time-picker[spin-buttons][calendar-button][calendar-button-position="left"][spin-buttons-position="left"] .smart-spin-button:first-child {
+.smart-date-time-picker[spin-buttons][calendar-button][calendar-button-position=left][spin-buttons-position=left] .smart-spin-button:first-child {
   border-top-left-radius: 0;
 }
-.smart-date-time-picker[spin-buttons][calendar-button][calendar-button-position="left"][spin-buttons-position="left"] .smart-spin-button:last-child {
+.smart-date-time-picker[spin-buttons][calendar-button][calendar-button-position=left][spin-buttons-position=left] .smart-spin-button:last-child {
   border-bottom-left-radius: 0;
 }
-.smart-date-time-picker[calendar-button-position="left"] .smart-drop-down-button {
+.smart-date-time-picker[calendar-button-position=left] .smart-drop-down-button {
   border-left: none;
   border-right-width: var(--smart-border-width);
   border-top-left-radius: var(--smart-border-top-left-radius);
@@ -219,31 +219,31 @@ smart-date-time-picker > .smart-container > input,
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.smart-date-time-picker[calendar-button-position="left"][spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:first-child {
+.smart-date-time-picker[calendar-button-position=left][spin-buttons]:not([spin-buttons-position=left]) .smart-spin-button:first-child {
   border-top-right-radius: var(--smart-border-top-right-radius);
 }
-.smart-date-time-picker[calendar-button-position="left"][spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:last-child {
+.smart-date-time-picker[calendar-button-position=left][spin-buttons]:not([spin-buttons-position=left]) .smart-spin-button:last-child {
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
-.smart-date-time-picker[calendar-button-position="left"][spin-buttons-position="left"] .smart-input.smart-date-time-input {
-  border-top-right-radius: var(--smart-border-top-right-radius);
-  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
-}
-.smart-date-time-picker:not([calendar-button])[spin-buttons-position="left"] .smart-input.smart-date-time-input {
+.smart-date-time-picker[calendar-button-position=left][spin-buttons-position=left] .smart-input.smart-date-time-input {
   border-top-right-radius: var(--smart-border-top-right-radius);
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
-.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:first-child {
+.smart-date-time-picker:not([calendar-button])[spin-buttons-position=left] .smart-input.smart-date-time-input {
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+}
+.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position=left]) .smart-spin-button:first-child {
   border-top-right-radius: var(--smart-border-top-right-radius);
 }
-.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position="left"]) .smart-spin-button:last-child {
+.smart-date-time-picker:not([calendar-button])[spin-buttons]:not([spin-buttons-position=left]) .smart-spin-button:last-child {
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
 .smart-date-time-picker:not([spin-buttons]) .smart-input.smart-date-time-input {
   border-top-left-radius: var(--smart-border-top-left-radius);
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
 }
-.smart-date-time-picker:not([spin-buttons]):not([calendar-button]) .smart-input.smart-date-time-input, .smart-date-time-picker:not([spin-buttons])[calendar-button-position="left"] .smart-input.smart-date-time-input {
+.smart-date-time-picker:not([spin-buttons]):not([calendar-button]) .smart-input.smart-date-time-input, .smart-date-time-picker:not([spin-buttons])[calendar-button-position=left] .smart-input.smart-date-time-input {
   border-top-right-radius: var(--smart-border-top-right-radius);
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
 }
@@ -588,7 +588,7 @@ smart-date-time-picker > .smart-container > input,
 .smart-drop-down.smart-date-time-drop-down .smart-date-time-picker .smart-hidden {
   display: none;
 }
-.smart-drop-down.smart-date-time-drop-down[drop-down-display-mode="classic"] .smart-calendar-container, .smart-drop-down.smart-date-time-drop-down[drop-down-display-mode="timePicker"] .smart-calendar-container {
+.smart-drop-down.smart-date-time-drop-down[drop-down-display-mode=classic] .smart-calendar-container, .smart-drop-down.smart-date-time-drop-down[drop-down-display-mode=timePicker] .smart-calendar-container {
   height: 100%;
 }
 .smart-drop-down.smart-date-time-drop-down.smart-visibility-hidden.not-in-view {
@@ -608,5 +608,3 @@ smart-date-time-picker > .smart-container > input,
 .smart-date-time-picker[right-to-left] .smart-hint {
   direction: rtl;
 }
-
-/*# sourceMappingURL=smart.datetimepicker.css.map */

@@ -32,9 +32,9 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   position: absolute;
   left: 0px;
   top: 0px;
-  font-family: 'arial';
+  font-family: "arial";
   content: var(--smart-file-upload-text-content-uploading-start);
-  background-color: #c1c1c169;
+  background-color: rgba(193, 193, 193, 0.4117647059);
   opacity: 1;
   display: flex;
   justify-content: flex-end;
@@ -48,14 +48,14 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   animation: connecting 1s linear infinite;
 }
 .smart-file.smart-uploading:before {
-  font-family: 'arial';
+  font-family: "arial";
   position: absolute;
   left: 0px;
   top: 0px;
   content: var(--smart-file-upload-text-content-uploading);
   width: 100%;
   height: 100%;
-  background-color: #c1c1c169;
+  background-color: rgba(193, 193, 193, 0.4117647059);
   opacity: 1;
   display: flex;
   justify-content: flex-end;
@@ -75,14 +75,14 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   user-select: none;
 }
 .smart-file.smart-pause:before {
-  font-family: 'arial';
+  font-family: "arial";
   position: absolute;
   left: 0px;
   top: 0px;
   content: var(--smart-file-upload-text-content-pause);
   width: 100%;
   height: 100%;
-  background-color: #ff000030;
+  background-color: rgba(255, 0, 0, 0.1882352941);
   border-radius: 3px;
   opacity: 0.8;
   display: flex;
@@ -96,7 +96,7 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   z-index: 1;
 }
 .smart-file.smart-error:before {
-  font-family: 'arial';
+  font-family: "arial";
   position: absolute;
   left: 0px;
   top: 0px;
@@ -164,7 +164,7 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   height: 100px;
 }
 .smart-file-upload .smart-total-files {
-  font-family: 'arial';
+  font-family: "arial";
   font-size: 12px;
   color: gray;
   display: block;
@@ -220,10 +220,10 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   animation: drop-zone 1s ease-in infinite;
 }
 
-[data-theme="modern"] {
+[data-theme=modern] {
   --smart-file-upload-text-content-drop-zone-over: "Drop here";
 }
-[data-theme="modern"] .smart-drop-zone {
+[data-theme=modern] .smart-drop-zone {
   border: 2px dashed var(--smart-surface);
   width: 100%;
   background-size: contain;
@@ -234,17 +234,17 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
   justify-content: center;
   align-items: center;
 }
-[data-theme="modern"] .smart-drop-zone:after {
+[data-theme=modern] .smart-drop-zone:after {
   font-family: "Verdana";
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
 }
-[data-theme="modern"] .smart-drop-zone:hover {
+[data-theme=modern] .smart-drop-zone:hover {
   border-color: var(--smart-primary);
   background-color: rgba(var(--smart-primary-rgb), .1);
 }
-[data-theme="modern"] .smart-drop-zone.smart-drag-over:after {
+[data-theme=modern] .smart-drop-zone.smart-drag-over:after {
   border-color: transparent;
   content: var(--smart-file-upload-text-content-drop-zone-over);
   font-size: 2.5rem;
@@ -424,7 +424,7 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
 }
 .smart-drop-zone-images-only .smart-drop-zone:before {
   display: block;
-  content: '';
+  content: "";
   background-image: url("../images/dropable_zone_image.svg");
   width: 70px;
   height: 55px;
@@ -434,24 +434,24 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
 
 @-webkit-keyframes connecting {
   0% {
-    color: #73737350;
+    color: rgba(115, 115, 115, 0.3137254902);
   }
   50% {
-    color: #73737399;
+    color: rgba(115, 115, 115, 0.6);
   }
   100% {
-    color: #73737350;
+    color: rgba(115, 115, 115, 0.3137254902);
   }
 }
 @-webkit-keyframes drop-zone {
   0% {
-    color: #b1b1b100;
+    color: rgba(177, 177, 177, 0);
   }
   50% {
-    color: #b1b1b199;
+    color: rgba(177, 177, 177, 0.6);
   }
   100% {
-    color: #b1b1b100;
+    color: rgba(177, 177, 177, 0);
   }
 }
 @-webkit-keyframes rotating {
@@ -465,19 +465,19 @@ smart-file-upload[show-progress] .smart-file smart-progress-bar[value] {
 @-webkit-keyframes error {
   0% {
     opacity: 0.8;
-    background-color: #ff000015;
+    background-color: rgba(255, 0, 0, 0.0823529412);
   }
   3% {
-    background-color: #ff000040;
+    background-color: rgba(255, 0, 0, 0.2509803922);
   }
   6% {
-    background-color: #ff000015;
+    background-color: rgba(255, 0, 0, 0.0823529412);
   }
   9% {
-    background-color: #ff000040;
+    background-color: rgba(255, 0, 0, 0.2509803922);
   }
   12% {
-    background-color: #ff000015;
+    background-color: rgba(255, 0, 0, 0.0823529412);
   }
   80% {
     opacity: 0.8;
@@ -497,5 +497,3 @@ smart-file-upload[right-to-left] > .smart-container {
 .smart-drop-zone[right-to-left] {
   direction: rtl;
 }
-
-/*# sourceMappingURL=smart.fileupload.css.map */

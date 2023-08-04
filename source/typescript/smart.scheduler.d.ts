@@ -22,6 +22,11 @@ export interface SchedulerProperties {
    */
   colorScheme?: string[];
   /**
+   * Determines the current time of the Scheduler to use for the current time indicator functionality. By default the current time is Today.
+   * Default value: new Date()
+   */
+  currentTime?: string | Date;
+  /**
    * Enables/Disables the current time indicator. Current time indicator shows the current time in the appropriate view cells. 
    * Default value: false
    */
@@ -377,7 +382,7 @@ export interface SchedulerProperties {
    */
   restrictedHours?: any;
   /**
-   * Defines an array of dates and hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed. Each array item is an Object and requires 2 fields - date and hours. For example: { date: new Date(2022, 10, 1), hours: [[0, 6], 12, [20, 23]] }. The hours define a range of restricted hours similartly to the restricted hours property, the date defines a date where the restricted hours will be applied.
+   * Defines an array of dates and hours that are not allowed to have events on. Events that overlap restricted Hours or start/end on them will not be displayed. Each array item is an Object and requires 2 fields - date and hours. For example: { date: new Date(2023, 10, 1), hours: [[0, 6], 12, [20, 23]] }. The hours define a range of restricted hours similartly to the restricted hours property, the date defines a date where the restricted hours will be applied.
    * Default value: 
    */
   restricted?: any;

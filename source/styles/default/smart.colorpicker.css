@@ -62,46 +62,46 @@ smart-color-picker.smart-element {
   cursor: pointer;
   user-select: none;
 }
-.smart-color-picker[value-display-mode="none"] .smart-color-box {
+.smart-color-picker[value-display-mode=none] .smart-color-box {
   display: none;
 }
-.smart-color-picker[value-display-mode="none"] .smart-color-input {
+.smart-color-picker[value-display-mode=none] .smart-color-input {
   display: none;
 }
-.smart-color-picker[value-display-mode="none"] .smart-color-input.smart-input {
+.smart-color-picker[value-display-mode=none] .smart-color-input.smart-input {
   width: 0;
   opacity: 0;
   padding: initial;
 }
-.smart-color-picker[value-display-mode="none"] .smart-action-button {
+.smart-color-picker[value-display-mode=none] .smart-action-button {
   padding: initial;
   border: none;
 }
-.smart-color-picker[value-display-mode="none"] .smart-drop-down-button {
+.smart-color-picker[value-display-mode=none] .smart-drop-down-button {
   border-top-left-radius: var(--smart-border-top-left-radius);
   border-bottom-left-radius: var(--smart-border-bottom-left-radius);
   border-left-width: var(--smart-border-width);
   border-left-style: solid;
 }
-.smart-color-picker[value-display-mode="none"]:not([opened]):not([drop-down-open-mode="dropDownButton"]) .smart-drop-down-button {
+.smart-color-picker[value-display-mode=none]:not([opened]):not([drop-down-open-mode=dropDownButton]) .smart-drop-down-button {
   border-left-color: var(--smart-border);
 }
-.smart-color-picker[value-display-mode="colorCode"] .smart-color-box {
+.smart-color-picker[value-display-mode=colorCode] .smart-color-box {
   display: none;
 }
-.smart-color-picker[value-display-mode="colorCode"] .smart-color-input {
+.smart-color-picker[value-display-mode=colorCode] .smart-color-input {
   display: block;
 }
-.smart-color-picker[value-display-mode="colorBox"] .smart-color-box {
+.smart-color-picker[value-display-mode=colorBox] .smart-color-box {
   display: block;
 }
-.smart-color-picker[value-display-mode="colorBox"] .smart-input {
+.smart-color-picker[value-display-mode=colorBox] .smart-input {
   display: none;
 }
 .smart-color-picker[editable] .smart-action-button {
   cursor: initial;
 }
-.smart-color-picker[editable]:not([opened]):not([drop-down-open-mode="dropDownButton"])[hover] .smart-action-button {
+.smart-color-picker[editable]:not([opened]):not([drop-down-open-mode=dropDownButton])[hover] .smart-action-button {
   background: var(--smart-background);
   color: var(--smart-background-color);
 }
@@ -131,5 +131,3 @@ smart-color-picker.smart-element {
   box-sizing: content-box;
   overflow: hidden;
 }
-
-/*# sourceMappingURL=smart.colorpicker.css.map */

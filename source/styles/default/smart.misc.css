@@ -97,22 +97,13 @@
   border-radius: 50%;
   transform: scale(0);
   pointer-events: none;
-  -webkit-animation: ripple 0.35s linear;
-          animation: ripple 0.35s linear;
+  animation: ripple 0.35s linear;
   border: none;
   opacity: 0.5;
 }
 .smart-ripple.smart-animate {
-  -webkit-animation: ripple 0.65s linear;
-          animation: ripple 0.65s linear;
+  animation: ripple 0.65s linear;
   position: absolute;
-}
-
-@-webkit-keyframes ripple {
-  100% {
-    opacity: 0;
-    transform: scale(2.5); /*scale the element to 250% to safely cover the entire link and fade it out*/
-  }
 }
 
 @keyframes ripple {
@@ -226,10 +217,8 @@ smart-table .smart-loader:after {
   border-radius: inherit;
   opacity: 1;
   border: 6px solid transparent;
-  -webkit-animation-delay: 0.44s;
-          animation-delay: 0.44s;
-  -webkit-animation: smart-loader-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, smart-loader-spin-fade 1.1s linear infinite;
-          animation: smart-loader-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, smart-loader-spin-fade 1.1s linear infinite;
+  animation-delay: 0.44s;
+  animation: smart-loader-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, smart-loader-spin-fade 1.1s linear infinite;
 }
 smart-grid .smart-loader.smart-hidden,
 smart-list-box .smart-loader.smart-hidden,
@@ -269,8 +258,7 @@ smart-tree[loading-indicator-position=bottom] .smart-loader-container {
   height: 10%;
   background-color: #F2F2F2;
   overflow: hidden;
-  -webkit-animation: smart-loader-container-pop-up-down 0.3s linear;
-          animation: smart-loader-container-pop-up-down 0.3s linear;
+  animation: smart-loader-container-pop-up-down 0.3s linear;
 }
 smart-grid[loading-indicator-position=top] .smart-loader-container.smart-hidden, smart-grid[loading-indicator-position=bottom] .smart-loader-container.smart-hidden,
 smart-list-box[loading-indicator-position=top] .smart-loader-container.smart-hidden,
@@ -309,8 +297,7 @@ smart-list-menu[loading-indicator-position=top] .smart-loader-container,
 smart-tree[loading-indicator-position=top] .smart-loader-container {
   top: 0;
   position: absolute;
-  -webkit-animation: smart-loader-container-pop-up-top 0.3s linear;
-          animation: smart-loader-container-pop-up-top 0.3s linear;
+  animation: smart-loader-container-pop-up-top 0.3s linear;
 }
 smart-grid[loading-indicator-position=bottom] .smart-loader-container,
 smart-list-box[loading-indicator-position=bottom] .smart-loader-container,
@@ -335,26 +322,7 @@ smart-list-menu[disabled] .smart-loader:before,
 smart-list-menu[disabled] .smart-loader:after,
 smart-tree[disabled] .smart-loader:before,
 smart-tree[disabled] .smart-loader:after {
-  -webkit-animation: none;
-          animation: none;
-}
-
-@-webkit-keyframes smart-loader-container-pop-up-down {
-  0% {
-    top: 0;
-  }
-  20% {
-    top: -2%;
-  }
-  35% {
-    top: -6%;
-  }
-  60% {
-    top: -8%;
-  }
-  100% {
-    top: -10%;
-  }
+  animation: none;
 }
 
 @keyframes smart-loader-container-pop-up-down {
@@ -374,23 +342,6 @@ smart-tree[disabled] .smart-loader:after {
     top: -10%;
   }
 }
-@-webkit-keyframes smart-loader-container-pop-up-top {
-  0% {
-    top: -10%;
-  }
-  20% {
-    top: -8%;
-  }
-  35% {
-    top: -6%;
-  }
-  60% {
-    top: -2%;
-  }
-  100% {
-    top: 0;
-  }
-}
 @keyframes smart-loader-container-pop-up-top {
   0% {
     top: -10%;
@@ -408,31 +359,9 @@ smart-tree[disabled] .smart-loader:after {
     top: 0;
   }
 }
-@-webkit-keyframes smart-loader-spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
 @keyframes smart-loader-spin {
   100% {
     transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes smart-loader-spin-fade {
-  0% {
-    border-top-color: #7A7A7A;
-  }
-  20% {
-    border-top-color: #7A7A7A;
-  }
-  35% {
-    border-top-color: transparent;
-  }
-  60% {
-    border-top-color: #7A7A7A;
-  }
-  100% {
-    border-top-color: #7A7A7A;
   }
 }
 @keyframes smart-loader-spin-fade {

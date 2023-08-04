@@ -5,12 +5,14 @@
   font-size: var(--smart-font-size);
   content: var(--smart-icon-star);
   color: var(--smart-primary);
-  font-family: var(--smart-font-family-icon); }
+  font-family: var(--smart-font-family-icon);
+}
 .smart-rating .rating-star.hover:after {
-  color: var(--smart-secondary); }
+  color: var(--smart-secondary);
+}
 .smart-rating .rating-star.active:after {
-  color: var(--smart-secondary); }
+  color: var(--smart-secondary);
+}
 .smart-rating .rating-star.active.hover:after {
-  color: var(--smart-secondary); }
-
-/*# sourceMappingURL=smart.rating.css.map */
+  color: var(--smart-secondary);
+}

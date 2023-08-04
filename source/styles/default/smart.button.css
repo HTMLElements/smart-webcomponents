@@ -8,7 +8,7 @@ smart-repeat-button {
   vertical-align: middle;
   cursor: pointer;
   text-transform: var(--smart-button-text-transform);
-  letter-spacing: .08929em;
+  letter-spacing: 0.08929em;
   overflow: hidden;
   border-color: var(--smart-border);
   border-top-left-radius: var(--smart-border-top-left-radius);
@@ -488,7 +488,7 @@ button.smart-button[type]:not(.smart-container) {
   cursor: pointer;
   text-transform: var(--smart-button-text-transform);
   font-weight: 500;
-  letter-spacing: .08929em;
+  letter-spacing: 0.08929em;
   overflow: hidden;
   font-style: var(--smart-font-style);
   font-size: var(--smart-font-size);
@@ -514,5 +514,3 @@ smart-toggle-button[right-to-left],
 smart-repeat-button[right-to-left] {
   direction: rtl;
 }
-
-/*# sourceMappingURL=smart.button.css.map */

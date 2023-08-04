@@ -1352,6 +1352,23 @@
     /* Radio Button */
     --smart-radio-button-default-size: calc(1px + 1/2 * var(--smart-editor-height));
     /* Default size for the radio button. */
+    /* Ribbon */
+    --smart-ribbon-tab-height: 125px;
+    /* smartRibbon tab height */
+    --smart-ribbon-collapsed-tab-height: 50px;
+    /* smartRibbon collapsed tab height */
+    --smart-ribbon-border-color: var(--smart-border);
+    /* smartRibbon border color */
+    --smart-ribbon-tab-header-width: 100px;
+    /* smartRibbon tab header width */
+    --smart-ribbon-tab-padding: 0px;
+    /* smartRibbon tab padding */
+    --smart-ribbon-group-items-padding: 0 10px;
+    /* smartRibbon group items padding */
+    --smart-ribbon-tab-header-height: 32px;
+    /* smartRibbon tab header height */
+    --smart-ribbon-header-padding: 0px;
+    /* smartRibbon header padding */
     /* Sortable */
     --smart-sortable-handle-size: 25px;
     /* smartSortable handle size */

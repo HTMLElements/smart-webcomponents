@@ -155,8 +155,7 @@ smart-accordion smart-accordion-item[expanded] .smart-accordion-item-header > .s
   transform: rotate(0deg);
   transform-origin: center;
 }
-smart-accordion smart-accordion-item[expanded] > .smart-container >
-.smart-accordion-item-content {
+smart-accordion smart-accordion-item[expanded] > .smart-container > .smart-accordion-item-content {
   display: block;
 }
 smart-accordion smart-accordion-item[hover] .smart-accordion-item-header {
@@ -186,24 +185,24 @@ smart-accordion smart-accordion-item[disabled] {
 smart-accordion smart-accordion-item[disabled] .smart-accordion-item-header {
   cursor: initial;
 }
-smart-accordion[expand-mode="singleFitHeight"] smart-accordion-item .smart-accordion-item-header {
+smart-accordion[expand-mode=singleFitHeight] smart-accordion-item .smart-accordion-item-header {
   height: var(--smart-accordion-item-header-height);
 }
-smart-accordion[expand-mode="singleFitHeight"] smart-accordion-item .smart-accordion-item-content {
+smart-accordion[expand-mode=singleFitHeight] smart-accordion-item .smart-accordion-item-content {
   overflow-y: auto;
   height: var(--smart-accordion-expanded-content-height);
   padding: 0px 24px;
   color: var(--smart-background-color);
   background: var(--smart-background);
 }
-smart-accordion[expand-mode="single"] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode="toggle"] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode="multiple"] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode="none"] smart-accordion-item .smart-accordion-item-content {
+smart-accordion[expand-mode=single] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode=toggle] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode=multiple] smart-accordion-item .smart-accordion-item-content, smart-accordion[expand-mode=none] smart-accordion-item .smart-accordion-item-content {
   overflow-y: hidden;
   height: auto;
 }
-smart-accordion[expand-mode="multiple"] > .smart-container.smart-toggling {
+smart-accordion[expand-mode=multiple] > .smart-container.smart-toggling {
   padding: 10px;
 }
-smart-accordion[expand-mode="multiple"].smart-container.smart-toggling {
+smart-accordion[expand-mode=multiple].smart-container.smart-toggling {
   padding: 10px;
 }
 smart-accordion[disabled] {
@@ -235,13 +234,13 @@ smart-accordion.smart-arrow-right smart-accordion-item[expanded] .smart-accordio
 smart-accordion .smart-toggled-item .smart-accordion-item-content {
   overflow: hidden;
 }
-smart-accordion:not([animation='none']) {
+smart-accordion:not([animation=none]) {
   animation-duration: var(--smart-accordion-animation-duration);
 }
-smart-accordion:not([animation='none']) * {
+smart-accordion:not([animation=none]) * {
   animation-duration: inherit;
 }
-smart-accordion:not([animation='none'])[expand-mode="singleFitHeight"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
+smart-accordion:not([animation=none])[expand-mode=singleFitHeight] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
   animation: smart-accordion-item-expand-animation-default-mode ease-out;
   animation-direction: reverse;
   display: block;
@@ -249,27 +248,27 @@ smart-accordion:not([animation='none'])[expand-mode="singleFitHeight"] smart-acc
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-smart-accordion:not([animation='none'])[expand-mode="singleFitHeight"].smart-toggled-item smart-accordion-item[expanded] .smart-accordion-item-content {
+smart-accordion:not([animation=none])[expand-mode=singleFitHeight].smart-toggled-item smart-accordion-item[expanded] .smart-accordion-item-content {
   animation: smart-accordion-item-expand-animation-default-mode ease-in;
   animation-duration: inherit;
   animation-iteration-count: 1;
 }
-smart-accordion:not([animation='none'])[expand-mode="single"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="multiple"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="toggle"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="none"] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
+smart-accordion:not([animation=none])[expand-mode=single] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation=none])[expand-mode=multiple] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation=none])[expand-mode=toggle] smart-accordion-item.smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation=none])[expand-mode=none] smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
   animation: smart-accordion-item-expand-animation ease-out;
   animation-direction: reverse;
   display: block;
   animation-duration: inherit;
   animation-iteration-count: 1;
 }
-smart-accordion:not([animation='none'])[expand-mode="single"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="multiple"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="toggle"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation='none'])[expand-mode="none"] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content {
+smart-accordion:not([animation=none])[expand-mode=single] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation=none])[expand-mode=multiple] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation=none])[expand-mode=toggle] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content, smart-accordion:not([animation=none])[expand-mode=none] smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content {
   animation: smart-accordion-item-expand-animation ease-in;
   animation-duration: inherit;
   animation-iteration-count: 1;
 }
-smart-accordion:not([animation='none']) smart-accordion-item .smart-accordion-item-header > .smart-arrow.smart-animate-trigger:after {
+smart-accordion:not([animation=none]) smart-accordion-item .smart-accordion-item-header > .smart-arrow.smart-animate-trigger:after {
   transition: transform 0.2s ease-out;
 }
-smart-accordion:not([animation='none']) smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
+smart-accordion:not([animation=none]) smart-accordion-item.smart-toggled-item .smart-accordion-item-content {
   animation: smart-accordion-item-expand-animation-default-mode ease-out;
   animation-direction: reverse;
   display: block;
@@ -277,7 +276,7 @@ smart-accordion:not([animation='none']) smart-accordion-item.smart-toggled-item 
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-smart-accordion:not([animation='none']) smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content {
+smart-accordion:not([animation=none]) smart-accordion-item[expanded].smart-toggled-item .smart-accordion-item-content {
   animation: smart-accordion-item-expand-animation-default-mode ease-in;
   animation-duration: inherit;
   animation-iteration-count: 1;
@@ -309,5 +308,3 @@ smart-accordion[right-to-left] > .smart-container {
     height: var(--smart-accordion-expanded-content-local-height);
   }
 }
-
-/*# sourceMappingURL=smart.accordion.css.map */

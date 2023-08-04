@@ -1446,6 +1446,16 @@ export interface GridAppearance {
    */
   showRowLines?: boolean;
   /**
+   * Shows lines between columns in column groups.
+   * Default value: true
+   */
+  showColumnGroupLines?: boolean;
+  /**
+   * Shows lines between cells in column groups.
+   * Default value: true
+   */
+  showColumnGroupCellLines?: boolean;
+  /**
    * Shows column groups in the Hide columns panel. Column groups and columns are shown in a tree-like structure. When the property is set to false, the column groups are not displayed and the column labels contain the column group name.
    * Default value: false
    */
@@ -1466,10 +1476,10 @@ export interface GridAppearance {
    */
   showFrozenColumnBackground?: boolean;
   /**
-   * Shows filtered row background, when the Grid has frozen rows.
-   * Default value: true
+   * Shows the selection on top of all other styles.
+   * Default value: false
    */
-  showFrozenRowBackground?: boolean;
+  showSelectionOnTop?: boolean;
   /**
    * Shows column sort button.
    * Default value: true
@@ -1770,6 +1780,11 @@ export interface GridColumn {
    * Default value: default
    */
   filterMenuMode?: GridColumnFilterMenuMode | string;
+  /**
+   * Sets or gets the column's filter editor. The value is an object with the following possible options: template: string, condition: string, onInit: any - callback function for init purposes, min: number, max: number, minLength: number, maxLength: number
+   * Default value: null
+   */
+  filterEditor?: any;
   /**
    * Sets or gets the column's format function.
    * Default value: null
@@ -3187,6 +3202,11 @@ export interface GridStateSettings {
    * Default value: false
    */
   autoSave?: boolean;
+  /**
+   * Enables or disables auto-load of the Grid's state on page reload.
+   * Default value: undefined
+   */
+  autoLoad?: boolean;
   /**
    * Enables or disables save/load of the grid state.
    * Default value: true

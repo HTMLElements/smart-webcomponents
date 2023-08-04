@@ -4,15 +4,18 @@ smart-drop-down-list {
   height: var(--smart-drop-down-list-default-height);
   overflow: initial;
   visibility: hidden;
-  cursor: pointer; }
-  smart-drop-down-list.smart-element {
-    overflow: visible;
-    visibility: inherit;
-    border-width: 0px; }
-    smart-drop-down-list.smart-element .smart-drop-down.smart-visibility-hidden {
-      transform: scale(0);
-      transition: transform 0.2s ease-in;
-      transform-origin: left top 0px; }
+  cursor: pointer;
+}
+smart-drop-down-list.smart-element {
+  overflow: visible;
+  visibility: inherit;
+  border-width: 0px;
+}
+smart-drop-down-list.smart-element .smart-drop-down.smart-visibility-hidden {
+  transform: scale(0);
+  transition: transform 0.2s ease-in;
+  transform-origin: left top 0px;
+}
 
 .smart-drop-down-list smart-list-box {
   position: relative;
@@ -23,7 +26,8 @@ smart-drop-down-list {
   overflow: hidden;
   font-size: inherit;
   font-family: inherit;
-  outline: none; }
+  outline: none;
+}
 .smart-drop-down-list .smart-buttons-container .smart-action-button .smart-token {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -32,14 +36,16 @@ smart-drop-down-list {
   margin: 2px;
   user-select: none;
   margin-top: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+}
 .smart-drop-down-list .smart-drop-down-list-unselect-button {
   /*visibility: hidden;*/
-  pointer-events: none; }
-  .smart-drop-down-list .smart-drop-down-list-unselect-button:not(:empty) {
-    margin-right: 2px; }
-.smart-drop-down-list[selection-display-mode="tokens"] .smart-drop-down-list-unselect-button {
+  pointer-events: none;
+}
+.smart-drop-down-list .smart-drop-down-list-unselect-button:not(:empty) {
+  margin-right: 2px;
+}
+.smart-drop-down-list[selection-display-mode=tokens] .smart-drop-down-list-unselect-button {
   /*visibility: visible;*/
-  pointer-events: initial; }
-
-/*# sourceMappingURL=smart.dropdownlist.css.map */
+  pointer-events: initial;
+}

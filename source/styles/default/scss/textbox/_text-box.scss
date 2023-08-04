@@ -25,7 +25,6 @@ smart-text-box {
   &:focus input.hovered {
     border-color: var(--smart-ui-state-border-hover);
   }
-
   input {
     &:focus {
       border-color: var(--smart-outline);

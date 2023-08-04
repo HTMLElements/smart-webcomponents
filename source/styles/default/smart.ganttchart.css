@@ -494,8 +494,7 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
   white-space: nowrap;
   display: flex;
   align-items: center;
-  -webkit-margin-start: 10px;
-          margin-inline-start: 10px;
+  margin-inline-start: 10px;
   font-size: 0.8em;
   font-weight: 600;
   pointer-events: none;
@@ -675,8 +674,7 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
   align-items: center;
   border-radius: var(--smart-gantt-chart-task-fill-border-radius);
   padding: 5px;
-  -webkit-margin-start: var(--smart-gantt-chart-date-marker-h-offset);
-          margin-inline-start: var(--smart-gantt-chart-date-marker-h-offset);
+  margin-inline-start: var(--smart-gantt-chart-date-marker-h-offset);
 }
 .smart-gantt-chart .smart-gantt-chart-date-marker .smart-gantt-chart-marker-label::before {
   content: "";
@@ -698,8 +696,7 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
   content: var(--smart-gantt-chart-indicator-icon);
   font-family: var(--smart-font-family-icon);
   font-size: var(--smart-font-size);
-  -webkit-margin-end: 2.5px;
-          margin-inline-end: 2.5px;
+  margin-inline-end: 2.5px;
 }
 .smart-gantt-chart .smart-gantt-chart-task-deadline {
   position: absolute;
@@ -1438,7 +1435,7 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
   grid-column-gap: 2%;
   grid-template-areas: "buttonOk buttonCancel";
 }
-@media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
+@media not all and (min-resolution: 0.001dpcm) {
   .smart-confirm-popup-window .smart-content-container > .smart-footer,
   .smart-connection-popup-window .smart-content-container > .smart-footer {
     align-content: start;
@@ -1595,4 +1592,4 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
 
 .smart-window.smart-task-popup-window .smart-tab-item[right-to-left] > .smart-container > .smart-footer .smart-icon {
   margin-left: 2.5px;
-}/*# sourceMappingURL=smart.ganttchart.css.map */
+}

@@ -14,7 +14,7 @@ smart-date-range-input {
   border-bottom-right-radius: var(--smart-border-bottom-right-radius);
   overflow: hidden;
 
-  > .smart-container {
+  >.smart-container {
     display: flex;
   }
 
@@ -73,6 +73,7 @@ smart-date-range-input {
 
 .smart-time-input {
   &.smart-input {
+
     .smart-drop-down-button,
     .smart-drop-down-button[open] {
       .arrow:after {
@@ -84,6 +85,7 @@ smart-date-range-input {
 }
 
 .smart-timepicker {
+
   .minute-selection,
   .hour-selection {
     display: grid;
@@ -133,6 +135,7 @@ smart-date-range-input {
   }
 
   .hour-selection {
+
     &:before,
     &:after {
       content: attr(am-label);
@@ -154,6 +157,7 @@ smart-date-range-input {
 
 .smart-date-input {
   &.smart-input {
+
     .smart-drop-down-button,
     .smart-drop-down-button[open] {
       .arrow {
@@ -168,6 +172,7 @@ smart-date-range-input {
 
 .smart-date-range-input {
   &.smart-input {
+
     .smart-drop-down-button,
     .smart-drop-down-button[open] {
       .arrow {
@@ -329,6 +334,15 @@ smart-date-range-input {
     &.smart-date-input-drop-down-menu {
       height: 250px;
     }
+
+    &.smart-date-range-input-drop-down-menu {
+      min-height: 250px;
+      height: auto !important;
+
+      .smart-calendar-date-view-container {
+        min-height: 250px;
+      }
+    }
   }
 
   &:not([timepicker]) {
@@ -355,5 +369,3 @@ smart-date-range-input {
     }
   }
 }
-
-

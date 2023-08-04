@@ -176,6 +176,21 @@ smart-grid-row:not([selected]):not(:hover) {
   }
 }
 
+.smart-grid-check-box-cell-editor.smart-filter-input-value {
+  &[checked="indeterminate"] {
+    &:after {
+      margin: 14%;
+      width: 70%;
+      height: 70%;
+      content: '';
+      background-color: var(--smart-ui-state-color-active);
+      box-sizing: border-box;
+      top: 0px;
+      border-radius: 0px;
+    }
+  }
+}
+
 .smart-grid-dialog-editor,
 smart-grid-cell,
 smart-grid-column {

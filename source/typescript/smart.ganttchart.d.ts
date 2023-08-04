@@ -37,6 +37,11 @@ export interface GanttChartProperties {
    */
   columnResizeFeedback?: boolean;
   /**
+   * Gantt's current time. By default it is the today's date.
+   * Default value: 
+   */
+  currentTime?: string | Date;
+  /**
    * Enables/Disables the current time indicator. Current time indicator shows the current time in the appropriate view cells.
    * Default value: false
    */
@@ -247,6 +252,11 @@ export interface GanttChartProperties {
    */
   nonworkingHours?: number[] | number[][];
   /**
+   * A function that can be used to completly customize the task element. The function has five arguments: task - the task object.segment - the task current segment object. If the task has only one segment, the task object is passed again.taskElement - the task's html element.segmentElement - the task's segment html element.labelElement - the task's segment label html element.
+   * Default value: null
+   */
+  onTaskRender?: any;
+  /**
    * A function that can be used to completly customize the popup Window that is used to interact width tasks by changing their properties. The function as three arguments: target - the target popup Window that is about to be opened.type - the type of the window. The type determines the purpose of the window. Three possible values: 'task' (task editing), 'confirm' ( confirmation window), 'connection' (used when deleting a connection between tasks). item - the connection/task object that is the target of the window.
    * Default value: null
    */
@@ -261,6 +271,11 @@ export interface GanttChartProperties {
    * Default value: null
    */
   progressLabelFormatFunction?: any;
+  /**
+   * Determines the format of the dates the timeline header when they represent quarters.
+   * Default value: short
+   */
+  quarterFormat?: QuarterFormat | string;
   /**
    * A getter that returns a flat structure as an array of all resources inside the element.
    * Default value: null
@@ -1169,6 +1184,11 @@ export interface GanttChartTask {
    */
   formatFunction?: any;
   /**
+   * Project, Task or Milestone format function. The function gets passed the following arguments: task, segment, taskElement, segmentElement, labelElement. task - the task object.segment - the task current segment object. If the task has only one segment, the task object is passed again.taskElement - the task's html element.segmentElement - the task's segment html element.labelElement - the task's segment label html element.
+   * Default value: null
+   */
+  onRender?: any;
+  /**
    * Project, Task or Milestone max start date.
    * Default value: 
    */
@@ -1436,6 +1456,8 @@ export declare type HourFormat = 'default' | '2-digit' | 'numeric';
 export declare type MonthFormat = '2-digit' | 'numeric' | 'long' | 'short' | 'narrow';
 /**Determines the scale in Month view. */
 export declare type MonthScale = 'day' | 'week';
+/**Determines the format of the dates the timeline header when they represent quarters. */
+export declare type QuarterFormat = 'numeric' | 'long' | 'short';
 /**Determines how the capacity of the resources will be visualized inside the resource timeline. By default, the capacity is measured in hours depending on the <b>view</b> property of the element. */
 export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | 'custom';
 /**Determines how the resources will be displayed inside the resource Timeline. */
