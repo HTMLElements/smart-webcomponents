@@ -1,0 +1,475 @@
+smart-ribbon .smart-ribbon-header {
+  display: flex;
+  border: var(--smart-border-width) solid var(--smart-surface);
+  background: var(--smart-surface);
+  color: var(--smart-surface-color);
+  padding: var(--smart-ribbon-header-padding);
+  height: var(--smart-ribbon-tab-header-height);
+}
+
+smart-ribbon {
+  display: block;
+}
+
+smart-ribbon:focus > div.smart-ribbon{
+  outline: 1px solid var(--smart-outline);
+}
+
+
+
+smart-ribbon[right-to-left] .smart-ribbon-header{
+  flex-direction: row-reverse;
+}
+
+.smart-ribbon-file-container smart-drop-down-button .smart-action-button{
+  cursor: pointer;
+  width: 100%;
+}
+
+.smart-ribbon-file-container smart-drop-down-button {
+  border-radius: 0;
+  --smart-border: var(--smart-surface);
+}
+
+.smart-ribbon-file-container smart-drop-down-button, .smart-ribbon-file-container smart-button{
+  text-align: center;
+  --smart-editor-addon-width: 0;
+  --smart-border-radius: 0;
+  --smart-border-top-right-radius: var(--smart-border-radius);
+  --smart-border-bottom-right-radius: var(--smart-border-radius);
+  --smart-border-top-left-radius: var(--smart-border-radius);
+  --smart-border-bottom-left-radius: var(--smart-border-radius);
+  border-radius: 0px;
+  min-width: 70px;
+}
+
+.smart-ribbon-file-container smart-menu {
+  --smart-menu-vertical-default-height: auto;
+  border: 0;
+}
+
+.smart-ribbon-header .smart-ribbon-header-tabs {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+smart-ribbon[right-to-left] .smart-ribbon-header-tabs{
+  flex-direction: row-reverse;
+}
+
+.smart-ribbon-header-tabs .smart-ribbon-header-tab{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  border: var(--smart-border-width) solid var(--smart-surface);
+  border-bottom: none;
+  background: var(--smart-surface);
+  color: var(--smart-surface-color);
+  padding: var(--smart-ribbon-header-tab-padding);
+  cursor: pointer;
+  max-width: var(--smart-ribbon-tab-header-width);
+}
+
+.smart-ribbon-header-tabs .smart-ribbon-header-tab:hover,  .smart-ribbon-header-tabs .smart-ribbon-header-tab:focus{
+  background: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
+  border-color: var(--smart-ui-state-border-hover);
+}
+
+.smart-ribbon-header-tabs .smart-ribbon-header-tab[selected] {
+  background-color: var(--smart-ui-state-selected);
+  border-color: var(--smart-ui-state-border-active);
+  border-bottom-width: var(--smart-border-width);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-style: solid;
+  color: var(--smart-ui-state-color-selected);
+}
+
+.smart-ribbon-tabs{
+  position: relative;
+}
+
+.smart-ribbon-tabs smart-ribbon-tab {
+  position: relative;
+  height: var(--smart-ribbon-tab-height);
+  display: none;
+  border: var(--smart-border-width) solid var(--smart-surface);
+  border-top: none;
+  color: var(--smart-surface-color);
+  padding: var(--smart-ribbon-tab-padding);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background: var(--smart-background);
+}
+
+smart-ribbon[right-to-left] smart-ribbon-tab{
+  flex-direction: row-reverse;
+}
+
+smart-ribbon-tab[collapsed]{
+  height: var(--smart-ribbon-collapsed-tab-height);
+}
+
+smart-ribbon-tab[selected]{
+  display: flex;
+}
+
+smart-ribbon-tab .smart-ribbon-tab-groups{
+  display: inline-flex;
+  width: min-content;
+}
+
+smart-ribbon[right-to-left] smart-ribbon-tab .smart-ribbon-tab-groups{
+  flex-direction: row-reverse;
+}
+
+smart-ribbon-tab .smart-ribbon-tab-side-container{
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto; 
+  margin-right: 0;
+  position: relative;
+}
+
+smart-ribbon[right-to-left] smart-ribbon-tab .smart-ribbon-tab-side-container{
+  margin-left: 0;
+  margin-right: auto;
+}
+
+smart-ribbon-tab[collapsed] .smart-ribbon-tab-side-container{
+  width: 100%;
+  margin-left: 5px;
+  flex-direction: row;
+  justify-content: right;
+}
+
+smart-ribbon[right-to-left] smart-ribbon-tab[collapsed] .smart-ribbon-tab-side-container{
+  flex-direction: row-reverse;
+}
+
+smart-ribbon-tab[collapsed] .smart-ribbon-tab-side-container.smart-ribbon-tab-side-container-flex-between{
+  justify-content: space-between;
+}
+
+.smart-ribbon-tab-side-container .smart-ribbon-tab-collapse-icon{
+  font-family: var(--smart-font-family-icon);
+  font-size: calc(var(--smart-font-size) * 1.5);
+  cursor: pointer;
+}
+
+.smart-ribbon-tabs .smart-ribbon-tab-collapse-icon:after{
+  content: var(--smart-icon-arrow-up);
+}
+
+smart-ribbon-tab[collapsed] .smart-ribbon-tab-collapse-icon:after{
+  content: var(--smart-icon-arrow-down);
+}
+
+.smart-ribbon-more-button.smart-drop-down-button.smart-drop-down-container smart-scroll-viewer{
+  --smart-editor-drop-down-min-height: var(--smart-ribbon-collapsed-tab-height);
+  --smart-editor-drop-down-max-height: var(--smart-ribbon-collapsed-tab-height);
+}
+
+smart-ribbon-tab[collapsed] smart-drop-down-button.smart-ribbon-more-button.flat{
+  color: var(--smart-button-flat-color);
+  background: transparent;
+  border-color: transparent;
+}
+
+smart-ribbon-tab[collapsed] smart-drop-down-button.smart-ribbon-more-button.flat[hover]{
+  color: var(--smart-button-flat-color);
+  background: transparent;
+  border-color: transparent;
+}
+
+smart-ribbon-tab[collapsed] smart-drop-down-button.smart-ribbon-more-button.flat[active]{
+  color: var(--smart-button-flat-color);
+  background: transparent;
+  border-color: transparent;
+}
+
+smart-ribbon-tab[collapsed] .smart-ribbon-more-button.flat.smart-drop-down-box .smart-drop-down-button{
+  border: transparent;
+  border-radius: 0;
+}
+
+smart-ribbon-tab[collapsed] smart-drop-down-button.smart-ribbon-more-button .smart-action-button{
+  display: none;
+}
+
+smart-ribbon-tab[collapsed] smart-drop-down-button.smart-ribbon-more-button .smart-drop-down-button-icon:after{
+  transform: none;
+  --smart-icon-arrow-down: var(--smart-icon-ellipsis);
+}
+
+
+.smart-ribbon-more-items{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.smart-ribbon-more-items .smart-ribbon-sub-menu-group{
+  display: flex;
+  border-color: var(--smart-ribbon-border-color);
+  border-width: 0 var(--smart-border-width) 0 0;
+  border-style: solid;
+}
+
+smart-ribbon-tab smart-ribbon-group[root], .smart-ribbon-group-drop-down[role="dialog"] smart-ribbon-group[root]{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  flex: 1;
+  color: var(--smart-surface-color);
+  padding-top: 10px;
+}
+
+smart-ribbon-tab smart-ribbon-group[root] {
+  border-color: var(--smart-ribbon-border-color);
+  border-width: 0 var(--smart-border-width) 0 0;
+  border-style: solid;
+}
+
+smart-ribbon[right-to-left] smart-ribbon-group[root] {
+  border-width: 0 0 0 var(--smart-border-width);
+}
+
+
+smart-ribbon-tab[collapsed] smart-ribbon-group[root], .smart-ribbon-more-button .smart-ribbon-group[root]{
+  padding: 2px;
+}
+
+
+.smart-ribbon-group-items .smart-ribbon-group-item-separator{
+  width: 1px;
+  background: var(--smart-ribbon-border-color);
+  margin: 0 5px;
+  height: 100%;
+}
+
+smart-ribbon-group[root] > .smart-ribbon-group-items{
+  width: 100%;
+  display: flex;
+  flex: 1;
+  height: 100%;
+  padding: var(--smart-ribbon-group-items-padding);
+}
+
+smart-ribon[right-to-left] smart-ribbon-group[root] > .smart-ribbon-group-items {
+  flex-direction: row-reverse;
+}
+
+smart-ribbon-group[inner] > .smart-ribbon-group-items{
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+}
+
+smart-ribbon-group[direction="vertical"] > .smart-ribbon-group-items{
+  flex-direction: column;
+}
+
+smart-ribbon-tab[collapsed] smart-ribbon-group[direction="vertical"] > .smart-ribbon-group-items, .smart-ribbon-more-button smart-ribbon-group[direction="vertical"] > .smart-ribbon-group-items{
+  flex-direction: row;
+}
+
+smart-ribbon-group[direction="horizontal"] > .smart-ribbon-group-items{
+  flex-direction: row;
+}
+
+smart-ribbon-group[size="small"] > .smart-ribbon-group-items{
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+smart-ribbon-tab[collapsed] smart-ribbon-group[size="small"] > .smart-ribbon-group-items{
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.smart-ribbon-more-button smart-ribbon-group[size="small"] > .smart-ribbon-group-items {
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+smart-ribbon-group[size="small"] smart-ribbon-item{
+  flex: 100%;
+}
+
+smart-ribbon-item{
+  display: flex;
+  align-items: center;
+}
+
+smart-ribbon-item > smart-button {
+  height: 100%;
+}
+
+
+.smart-ribbon-group-item-label{
+  vertical-align: super;
+}
+smart-ribbon-item[size="iconOnly"] .smart-ribbon-group-item-label{
+  display: none;
+}
+
+
+.smart-ribbon-group-item-flex-break {
+  display: none;
+}
+smart-ribbon-item[size="normal"] .smart-ribbon-group-item-flex-break,
+smart-ribbon-item[size="large"] .smart-ribbon-group-item-flex-break,
+.smart-ribbon-group-drop-down .smart-ribbon-group-item-flex-break{
+  display: block;
+  flex-basis: 100%;
+  height: 0;
+}
+
+smart-ribbon-item[size="small"] .smart-drop-down-box .smart-action-button,
+smart-ribbon-item[size="verySmall"] .smart-drop-down-box .smart-action-button{	
+  flex-wrap: nowrap;
+}
+
+
+smart-ribbon-group .smart-ribbon-group-header{
+  position: relative;
+  display: flex;
+}
+
+smart-ribbon-group .smart-ribbon-group-header-label{
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--smart-font-size) * 0.75);
+  padding: 5px 0 5px 0;
+}
+
+smart-ribbon-group .smart-ribbon-group-header .smart-ribbon-group-dialog-launcher{
+  position: absolute;
+  height:100%;
+  right: 0;
+}
+
+smart-ribbon[right-to-left] .smart-ribbon-group-header .smart-ribbon-group-dialog-launcher{
+  left: 0;
+  right: auto;
+}
+
+smart-ribbon-group[grouped][root]{
+  padding-top: 0px;
+  align-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+smart-ribbon-group[hidden]{
+  display: none;
+}
+
+smart-ribbon-group[grouped] .smart-ribbon-group-header-label, smart-ribbon-tab[collapsed] .smart-ribbon-group-header-label{
+  display: none;
+}
+
+smart-ribbon-tab[clone] smart-button button > button{
+  padding: 0;
+}
+
+
+smart-ribbon-group[grouped] smart-drop-down-button {
+  min-width: 75px;
+}
+
+.smart-ribbon-group-drop-down-container{
+  display: none;
+  justify-content: center;
+  align-items: center; 
+  height: 100%;
+}
+
+smart-ribbon-group[grouped] .smart-ribbon-group-drop-down-container{
+  display: flex;
+}
+
+.smart-ribbon-group-drop-down[role="dialog"], .smart-ribbon-more-button[role="dialog"]{
+  --smart-editor-drop-down-z-index: 9998;
+}
+
+.smart-ribbon-more-button[role="dialog"]{
+  display: flex;
+  justify-content: center;
+}
+
+.smart-ribbon-more-button[role="dialog"] .smart-scroll-viewer-content-container {}
+
+smart-drop-down-button.smart-ribbon-group-drop-down[drop-down-button-position="bottom"] {
+  min-height: 80px;
+}
+
+smart-drop-down-button.smart-ribbon-group-drop-down .smart-buttons-container > .smart-action-button{
+  height: 70%;
+}
+
+smart-drop-down-button.smart-ribbon-group-drop-down .smart-buttons-container > .smart-drop-down-button{
+  height: 30%;
+}
+
+.smart-ribbon-group-drop-down[role="dialog"] smart-ribbon-group[root] {
+  padding: 0px;
+  height: 100%;
+}
+
+.smart-ribbon-group-drop-down[role="dialog"] .smart-scroll-viewer-content-container {
+  height: 100%;
+}
+
+.smart-ribbon-group-drop-down[role="dialog"] .smart-ribbon-group-drop-down-element {
+  height: 100%;
+  padding: 0 5px;
+}
+
+smart-button.smart-element.smart-ribbon-navigation-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 75%;
+  width: 30px;
+  --smart-font-weight: 800;
+  --smart-button-very-small-font-size: 18px;
+  opacity: 80%;
+  font-family: var(--smart-font-family-icon);
+  display: none; /* initially hidden */
+}
+
+.smart-ribbon-navigation-button.left {
+  left: 0;
+}
+.smart-ribbon-navigation-button.left .left-navigation::after{
+  content: var(--smart-icon-arrow-left);
+}
+
+.smart-ribbon-navigation-button.right {
+  right: 0;
+}
+
+.smart-ribbon-navigation-button.right .right-navigation::after{
+  content: var(--smart-icon-arrow-right);
+}
+
+.smart-ribbon-group-dialog-launcher-icon:after{
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-arrow-down);
+}
+
+smart-button.smart-element.smart-ribbon-navigation-button.active {
+  display: block;
+}

@@ -2,11 +2,6 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface DropDownListProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
-   * Default value: advanced
-   */
-  animation?: Animation | string;
-  /**
    * Used only when dropDownOpenMode is set to 'auto'. Determines the delay before the opened drop down closes if the pointer is not over the element.
    * Default value: 100
    */
@@ -389,6 +384,11 @@ export interface DropDownList extends BaseElement, DropDownListProperties {
    */
   appendChild<T extends Node>(node: Node): T;
   /**
+   * Adds a new item(s).
+   * @param {any} item. Describes the properties of the item that will be inserted. You can also pass an array of items.
+   */
+  add(item: any): void;
+  /**
    * Removes all items from the drop down list.
    */
   clearItems(): void;
@@ -400,6 +400,10 @@ export interface DropDownList extends BaseElement, DropDownListProperties {
    * Closes the dropDown list.
    */
   close(): void;
+  /**
+   * Performs a data bind. This can be used to refresh the data source.
+   */
+  dataBind(): void;
   /**
    * Ensures the desired item is visible by scrolling to it.
    * @param {HTMLElement | string} item. A list item or value of the desired item to be visible.

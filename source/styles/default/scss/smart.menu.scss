@@ -400,7 +400,7 @@ smart-menu-items-group {
       transform: scaleY(1);
       -webkit-transform-origin: top;
       transform-origin: top;
-      transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
       &.smart-visibility-hidden {
         opacity: 0.2;
@@ -412,18 +412,18 @@ smart-menu-items-group {
       .smart-menu-drop-down {
         -webkit-transform-origin: top;
         transform-origin: top;
-        transition: height 0.2s ease-in;
+        transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       }
 
       .smart-menu-item-label-container {
         >.smart-menu-items-group-arrow {
-          transition: transform 0.2s ease-in;
+          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         }
       }
     }
 
     .smart-hamburger-icon-line {
-      transition: visibility 0.02s ease-in, transform 0.2s ease-in, width 0.2s ease-in;
+      transition: visibility 0.02s cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     }
   }
 
@@ -776,7 +776,7 @@ smart-menu-items-group {
     }
 
     &:not([animation='none']) {
-      transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       opacity: 1;
       transform: scale(1);
       -webkit-transform-origin: 0 0;
@@ -1416,7 +1416,7 @@ smart-menu-items-group {
       transform: scaleY(1);
       -webkit-transform-origin: top;
       transform-origin: top;
-      transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
       &.smart-visibility-hidden {
         opacity: 0.2;
@@ -1634,17 +1634,17 @@ smart-menu-items-group {
     transform: scaleY(1);
     -webkit-transform-origin: top;
     transform-origin: top;
-    transition: opacity 0.2s ease-in, visibility 0.2s ease-in, transform 0.2s ease-in;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
     .smart-menu-drop-down {
       -webkit-transform-origin: top;
       transform-origin: top;
-      transition: height 0.2s ease-in;
+      transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     }
 
     .smart-menu-item-label-container {
       >.smart-menu-items-group-arrow {
-        transition: transform 0.2s ease-in;
+        transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       }
     }
 

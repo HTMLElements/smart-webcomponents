@@ -172,11 +172,6 @@ export interface GanttChartProperties {
    */
   hideTimelineSecondHeaderDetails?: boolean;
   /**
-   * Shows the selection column of the Task/Resource Table. When applied a checkbox column is displayed that allows to select tasks/resources.
-   * Default value: false
-   */
-  showSelectionColumn?: boolean;
-  /**
    * Hides the Resource panel regardless of the resources availability By default the Resource panel is visible if resources are added to the GanttChart. This property allows to hide the Resource panel permanently.
    * Default value: false
    */
@@ -347,10 +342,20 @@ export interface GanttChartProperties {
    */
   selectedResourceIds?: number[] | string[];
   /**
+   * Sets or gets the selection mode. Only applicable when selection is enabled.
+   * Default value: many
+   */
+  selectionMode?: GanttChartSelectionMode | string;
+  /**
    * Enables/Disables the current time shader. If enabled all cells that represent past time will be shaded.
    * Default value: false
    */
   shadeUntilCurrentTime?: boolean;
+  /**
+   * Shows the selection column of the Task/Resource Table. When applied a checkbox column is displayed that allows to select tasks/resources.
+   * Default value: false
+   */
+  showSelectionColumn?: boolean;
   /**
    * Determines whether the baselnes of the tasks are visible or not. Baselines are defined via the 'planned' attribute on the task objects of the dataSource property.
    * Default value: false
@@ -1462,6 +1467,8 @@ export declare type QuarterFormat = 'numeric' | 'long' | 'short';
 export declare type GanttChartResourceTimelineMode = 'diagram' | 'histogram' | 'custom';
 /**Determines how the resources will be displayed inside the resource Timeline. */
 export declare type GanttChartResourceTimelineView = 'hours' | 'tasks' | 'custom';
+/**Sets or gets the selection mode. Only applicable when selection is enabled. */
+export declare type GanttChartSelectionMode = 'one' | 'many' | 'extended';
 /**Determines whether the GanttChart can be sorted by one, more then one or no columns. */
 export declare type GanttChartSortMode = 'none' | 'one' | 'many';
 /**Project, Task or Milestone type. Possible values are 'project', 'milestone' and 'task' */

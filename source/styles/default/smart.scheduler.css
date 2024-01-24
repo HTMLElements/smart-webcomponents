@@ -470,6 +470,9 @@ smart-scheduler .smart-scheduler-view-items-button:not([active]) button:active {
 smart-scheduler .smart-scheduler-view-items-button.smart-visibility-hidden {
   transform: scale(0);
 }
+smart-scheduler[hide-other-month-days] .smart-scheduler-cell[other-month] {
+  background: var(--smart-surface) !important;
+}
 smart-scheduler[hide-other-month-days] .smart-scheduler-cell[other-month] > div {
   visibility: hidden;
 }
@@ -2359,7 +2362,8 @@ smart-scheduler[right-to-left] .smart-scheduler-legend {
   padding: 10px 12px 10px var(--smart-scheduler-shortcut-size);
 }
 
-/* --- Scheduler Style Color Input --- */ /* --- Scheduler Drag Feedback --- */
+/* --- Scheduler Style Color Input --- */
+/* --- Scheduler Drag Feedback --- */
 .smart-scheduler-drag-feedback {
   position: absolute;
   outline: none;
@@ -2782,4 +2786,4 @@ smart-scheduler[right-to-left] .smart-scheduler-legend {
 
 .smart-scheduler-color-input {
   --smart-input-drop-down-menu-width: auto;
-}
+}/*# sourceMappingURL=smart.scheduler.css.map */

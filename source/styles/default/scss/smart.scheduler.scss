@@ -166,7 +166,7 @@ smart-scheduler {
     height: 100%;
     display: grid;
     grid-template-rows: auto minmax(0, 1fr);
-    grid-template-areas: 'hHeader hHeader''vHeader content';
+    grid-template-areas: 'hHeader hHeader' 'vHeader content';
     grid-template-columns: auto minmax(0, 1fr);
     outline: none;
     position: relative;
@@ -618,6 +618,10 @@ smart-scheduler {
   }
 
   &[hide-other-month-days] {
+    .smart-scheduler-cell[other-month] {
+      background: var(--smart-surface) !important;
+    }
+
     .smart-scheduler-cell[other-month]>div {
       visibility: hidden;
     }
@@ -1279,9 +1283,9 @@ smart-scheduler {
       border: none;
       font-family: var(--smart-font-family-icon);
 
-        input {
-          display: none;
-        }
+      input {
+        display: none;
+      }
 
       .smart-container::before {
         content: var(--smart-icon-menu);
@@ -1352,6 +1356,7 @@ smart-scheduler {
       }
     }
   }
+
   .smart-scheduler-window-modal {
     position: absolute;
     opacity: 0.5;

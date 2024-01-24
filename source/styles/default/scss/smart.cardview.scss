@@ -69,7 +69,8 @@
     }
   }
 
-  smart-card {
+  smart-card,
+  .smart-card {
     display: flex;
     margin: 0;
     border: var(--smart-border-width) solid var(--smart-card-border, var(--smart-border));
@@ -369,7 +370,8 @@
   }
 
   &[editable] {
-    smart-card {
+    smart-card,
+    .smart-card {
       cursor: pointer;
     }
   }

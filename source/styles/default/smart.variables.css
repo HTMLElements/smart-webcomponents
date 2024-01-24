@@ -399,14 +399,14 @@
     --smart-icon-excel: '\f1C3';
     /* Code of excel icon */
     --smart-icon-word: '\f1C2';
-     /* Code of word icon */
-     --smart-icon-archive: '\f1C6';
-      /* Code of zip icon */
-     --smart-icon-file: '\e845';
-      /* Code of file icon */
-     --smart-icon-powerpoint: '\f1c4';
-     /* Code of powerpoint icon */
-     --smart-icon-text: '\f0f6';
+    /* Code of word icon */
+    --smart-icon-archive: '\f1C6';
+    /* Code of zip icon */
+    --smart-icon-file: '\e845';
+    /* Code of file icon */
+    --smart-icon-powerpoint: '\f1c4';
+    /* Code of powerpoint icon */
+    --smart-icon-text: '\f0f6';
     /* Code of text icon */
     --smart-icon-math: '\f01a';
     /* Code of math icon */
@@ -456,6 +456,8 @@
     /* Code of list numbered icon */
     --smart-icon-list-unordered: '\f0ca';
     /* Code of list bullet icon */
+    --smart-icon-list-check: '\e89f';
+    /* Code of list check icon */
     --smart-icon-subscript: '\f12c';
     /* Code of subscript icon */
     --smart-icon-superscript: '\f12b';
@@ -529,6 +531,9 @@
     --smart-icon-move: '\F047';
     /* Code of Move icon */
     --smart-icon-home: '\E843';
+    /* Code of Home icon */
+    --smart-icon-history: '\F1DA';
+    /* Code of History icon */
     /* Accordion */
     --smart-accordion-animation-duration: 225ms;
     /* smartAccordion animation duration */
@@ -1113,6 +1118,7 @@
     --smart-grid-cell-color-freeze: var(--smart-surface-color);
     /* Sets text color of cells, when row/column is frozen. */
     --smart-grid-cell-background-freeze: var(--smart-surface);
+    --smart-grid-cell-background-freeze-selected: #DCE5EC;
     /* Sets background color of cells, when row/column is frozen */
     --smart-grid-cell-color-delete: #333;
     /* Sets text color of cells, when row is deleted. */

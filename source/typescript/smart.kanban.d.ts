@@ -52,6 +52,11 @@ export interface KanbanProperties {
    */
   allowDrop?: boolean;
   /**
+   * Allows the dropping of tasks placeholder. When you drag a task over another task it will make an empty space for the task.
+   * Default value: false
+   */
+  allowDropPlaceholder?: boolean;
+  /**
    * This property changes the visual appeal of the Kanban columns and tasks. When set to true and the Kanban columns have their 'color' property set, the color is also applied to the tasks and edit dialog.
    * Default value: false
    */
@@ -161,6 +166,11 @@ export interface KanbanProperties {
    * Default value: false
    */
   editable?: boolean;
+  /**
+   * Determines the edit behavior. It could be either singleClick or doubleClick. The dialog edit window is by default opened when user double clicks on a Kanban task.
+   * Default value: doubleClick
+   */
+  editMode?: KanbanEditMode | string;
   /**
    * Sets or gets the format string of the "Due date" label and the "Start date" and "Due date" editors.
    * Default value: "d"
@@ -986,6 +996,8 @@ export declare type KanbanAddNewButtonDisplayMode = 'top' | 'bottom' | 'both';
 export declare type KanbanColumnOrientation = 'vertical' | 'horizontal';
 /**Determines the column edit behavior. With the 'header' option, edit starts on double click on the column's label. In 'menu' mode, edit is allowed from the 'columnActions' menu. In 'headerAndMenu' option, column editing includes both options. */
 export declare type KanbanColumnEditMode = 'header' | 'menu' | 'headerAndMenu';
+/**Determines the edit behavior. It could be either singleClick or doubleClick. The dialog edit window is by default opened when user double clicks on a Kanban task. */
+export declare type KanbanEditMode = 'doubleClick' | 'singleClick';
 /**Sets or gets the header position. The header contains the Customize, Filter, Sort, and Search buttons. */
 export declare type KanbanHeaderPosition = 'none' | 'top' | 'bottom';
 /**Sets or gets the way column hierarchy is represented. */

@@ -1,6 +1,6 @@
 
-/* Smart UI v15.2.0 (2023-04-20) 
-Copyright (c) 2011-2023 jQWidgets. 
+/* Smart UI v18.0.1 (2024-01-23) 
+Copyright (c) 2011-2024 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
 (function () {
@@ -2197,7 +2197,18 @@ License: https://htmlelements.com/license/ */ //
             }
 
             that.dispatchEvent(customEvent);
-
+            if (window[namespace].isVue) {
+                const eventTypeToDash = Utilities.Core.toDash(eventType);
+                if (eventTypeToDash !== eventType) {
+                    const vueCustomEvent = new CustomEvent(eventTypeToDash, options);
+                    vueCustomEvent.originalStopPropagation = customEvent.stopPropagation;
+                    vueCustomEvent.stopPropagation = function () {
+                        vueCustomEvent.isPropagationStopped = true;
+                        return vueCustomEvent.originalStopPropagation();
+                    }
+                    that.dispatchEvent(vueCustomEvent);
+                }
+            }
             return customEvent;
         }
 
@@ -2555,6 +2566,20 @@ License: https://htmlelements.com/license/ */ //
                 catch (er) {
                     if (window[stringValue] && (typeof window[stringValue] === 'object')) {
                         return window[stringValue];
+                    }
+                    else if (type === 'object' && stringValue.indexOf('{') >= 0) {
+                        stringValue = stringValue.replace(/{/ig, '').replace(/}/ig, '').replace('[', '').replace(']', '').replace(/'/ig, '').replace(/"/ig, '').trim();
+                        let parts = stringValue.trim().split(',');
+                        let parsedObject = {
+                        };
+
+                        for (let j = 0; j < parts.length; j++) {
+                            const key = parts[j].split(':')[0].trim();
+                            const value = parts[j].split(':')[1].trim();
+
+                            parsedObject[key] = value;
+                        }
+                        return parsedObject;
                     }
                     else if (type === 'array' && stringValue.indexOf('[') >= 0) {
                         if (stringValue.indexOf('{') >= 0) {
@@ -5715,6 +5740,8 @@ License: https://htmlelements.com/license/ */ //
                     that.modulesList.push(moduleInstance);
                 }
 
+                const hierarchicalDefaultValues = [];
+
                 for (let i = 0; i < propertyNames.length; i += 1) {
                     const propertyName = propertyNames[i];
                     const property = properties[propertyName];
@@ -5735,9 +5762,18 @@ License: https://htmlelements.com/license/ */ //
 
                     // eslint-disable-next-line no-prototype-builtins
                     if (window.navigator.userAgent.indexOf('PhantomJS') === -1 && that.hasOwnProperty(propertyName)) {
-                        defaultValue = that[propertyName];
+                        // set value of hierarchical props after init.
+                        if (property.isHierarchicalProperty && that[propertyName]) {
+                            const hierarchicalDefaultvalue = that[propertyName];
+                            hierarchicalDefaultValues.push({ name: propertyName, value: hierarchicalDefaultvalue });
 
-                        delete that[propertyName];
+                            defaultValue = property.value;
+                            delete that[propertyName];
+                        }
+                        else {
+                            defaultValue = that[propertyName];
+                            delete that[propertyName];
+                        }
                     }
 
                     if (property.type === 'array' && defaultValue !== undefined && defaultValue !== null) {
@@ -5809,6 +5845,14 @@ License: https://htmlelements.com/license/ */ //
                 }
 
                 that.defineElementHierarchicalProperties(that._properties, that);
+
+                // set default values of hierarchical props.
+                if (hierarchicalDefaultValues.length && window[namespace].RenderMode !== 'manual') {
+                    for (let m = 0; m < hierarchicalDefaultValues.length; m++) {
+                        const property = hierarchicalDefaultValues[m];
+                        that[property.name] = property.value;
+                    }
+                }
 
                 that.isCreated = true;
             };
@@ -6758,7 +6802,9 @@ License: https://htmlelements.com/license/ */ //
                 if (window[namespace].isAngular === undefined) {
                     window[namespace].isAngular = document.body.querySelector('[ng-version]') !== null;
                 }
-
+                if (window[namespace].isVue === undefined) {
+                    window[namespace].isVue = document.querySelector('.vue-root') !== null;
+                }
                 if (window[namespace].isAngular) {
                     for (let i = 0; i < that.parents.length; i++) {
                         if (that.parents[i].nodeName.toLowerCase().startsWith(namespace.toLowerCase() + '-')) {
@@ -7193,6 +7239,15 @@ License: https://htmlelements.com/license/ */ //
                     return method.apply(context, args)
                 },
                 get: function (target, property/*, receiver*/) {
+                    function isSymbol(x) {
+                        return typeof x === 'symbol'
+                            || typeof x === 'object' && Object.prototype.toString.call(x) === '[object Symbol]';
+                    }
+
+                    if (isSymbol(property)) {
+                        return target[property];
+                    }
+
                     if (!target[property] && !isNaN(parseInt(property))) {
                         return that.getItem(parseInt(property));
                     }
@@ -7732,7 +7787,15 @@ License: https://htmlelements.com/license/ */ //
 
         if (instance && instance.isReady) {
             for (let property in properties) {
-                instance[property] = properties[property];
+                if (property === 'properties') {
+                    const initProperties = properties[property];
+                    for (let propertyName in initProperties) {
+                        instance[propertyName] = initProperties[propertyName];
+                    }
+                }
+                else {
+                    instance[property] = properties[property];
+                }
             }
         }
         else if (instance) {
@@ -8345,7 +8408,15 @@ License: https://htmlelements.com/license/ */ //
                 event.preventDefault();
 
                 if (that.scrollHeight > 0) {
-                    that.scrollTo(that.scrollTop + that._getScrollCoefficient(event, that.offsetHeight));
+                    that._wheelrafId = 0;
+                    const autoScroll = () => {
+                        that.scrollTop += event.deltaY;
+                    }
+                    cancelAnimationFrame(that._wheelrafId);
+                    that._wheelrafId = 0;
+                    that._wheelrafId = requestAnimationFrame(autoScroll);
+
+                    //       that.scrollTo(that.scrollTop + that._getScrollCoefficient(event, that.offsetHeight));
                 }
             }
         }

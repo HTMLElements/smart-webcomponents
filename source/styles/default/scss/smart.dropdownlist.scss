@@ -14,7 +14,7 @@ smart-drop-down-list {
 
     .smart-drop-down.smart-visibility-hidden {
       transform: scale(0);
-      transition: transform 0.2s ease-in;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       transform-origin: left top 0px;
     }
   }

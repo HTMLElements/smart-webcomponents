@@ -58,7 +58,7 @@ smart-window:not([opened]) {
       background: var(--smart-window-header-background);
       padding: var(--smart-window-header-padding);
 
-      >.smart-buttons-container {
+      .smart-buttons-container {
         height: 100%;
         display: flex;
         justify-content: center;
@@ -157,7 +157,7 @@ smart-window:not([opened]) {
   }
 
   .smart-header-section {
-    >.smart-buttons-container {
+    .smart-buttons-container {
       button {
         &:after {
           position: absolute;
@@ -398,7 +398,6 @@ smart-window:not([opened]) {
     }
 
     smart-tab-item {
-      padding: 5px;
       user-select: text;
       -webkit-user-select: text;
     }
@@ -1246,4 +1245,5 @@ smart-docking-layout {
     opacity: 1;
   }
 }
+
 @import 'rtl/_window';

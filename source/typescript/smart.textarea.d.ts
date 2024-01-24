@@ -144,7 +144,7 @@ export interface TextAreaProperties {
    */
   unfocusable?: boolean;
   /**
-   * Sets the TextArea users. Expects an array with 'id', 'name' properties. When you press '@' you can enter an user from a dropdown.
+   * Sets the TextArea users. Expects an array of objects. Each object should have an id and name properties. When you press the 'at' key, you can enter an user from a dropdown.
    * Default value: []
    */
   users?: any[];

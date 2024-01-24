@@ -54,13 +54,13 @@ smart-window:not([opened]) {
   background: var(--smart-window-header-background);
   padding: var(--smart-window-header-padding);
 }
-.smart-window .smart-content-container > .smart-header-section > .smart-buttons-container {
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.smart-window .smart-content-container > .smart-header-section > .smart-buttons-container button {
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container button {
   position: relative;
   margin-left: 1px;
   margin-right: 1px;
@@ -74,7 +74,7 @@ smart-window:not([opened]) {
   border: none;
   outline: none;
 }
-.smart-window .smart-content-container > .smart-header-section > .smart-buttons-container button:active {
+.smart-window .smart-content-container > .smart-header-section .smart-buttons-container button:active {
   outline: none;
   background-color: initial;
 }
@@ -129,7 +129,7 @@ smart-window:not([opened]) {
 .smart-window .smart-content-container.smart-window-resizing-top-right, .smart-window .smart-content-container.smart-window-resizing-bottom-left, .smart-window .smart-content-container.smart-window-resizing-top-right > .smart-header-section, .smart-window .smart-content-container.smart-window-resizing-bottom-left > .smart-header-section {
   cursor: sw-resize;
 }
-.smart-window .smart-header-section > .smart-buttons-container button:after {
+.smart-window .smart-header-section .smart-buttons-container button:after {
   position: absolute;
   top: 0;
   font-family: var(--smart-font-family-icon);
@@ -142,13 +142,13 @@ smart-window:not([opened]) {
   justify-content: center;
   pointer-events: none;
 }
-.smart-window .smart-header-section > .smart-buttons-container button:first-of-type {
+.smart-window .smart-header-section .smart-buttons-container button:first-of-type {
   margin-left: initial;
 }
-.smart-window .smart-header-section > .smart-buttons-container button:last-of-type {
+.smart-window .smart-header-section .smart-buttons-container button:last-of-type {
   margin-right: initial;
 }
-.smart-window .smart-header-section > .smart-buttons-container button.hover {
+.smart-window .smart-header-section .smart-buttons-container button.hover {
   color: initial;
   background-color: initial;
 }
@@ -290,7 +290,6 @@ smart-window:not([opened]) {
   height: 100%;
 }
 .smart-window.smart-tabs-window smart-tab-item {
-  padding: 5px;
   user-select: text;
   -webkit-user-select: text;
 }
@@ -827,4 +826,4 @@ smart-docking-layout .smart-window-resize-feedback {
 
 .smart-tabs-window[right-to-left] .smart-content-container > .smart-content {
   direction: initial;
-}
+}/*# sourceMappingURL=smart.window.css.map */

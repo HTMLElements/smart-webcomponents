@@ -131,7 +131,7 @@
 
     &.smart-visibility-hidden {
       transform: scale(0);
-      transition: transform 0.2s ease-in;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       transform-origin: left top 0px;
     }
   }
@@ -1402,12 +1402,12 @@
       margin: unset;
 
       &:not([animation='none']) {
-        animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+        animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         -webkit-transform-origin: center;
         transform-origin: center;
 
         &.smart-visibility-hidden {
-          animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+          animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
           -webkit-transform-origin: center;
           transform-origin: center;
         }
@@ -1419,12 +1419,12 @@
       margin: calc(-1 * (var(--smart-editor-drop-down-vertical-offset) + 3px)) 0px;
 
       &:not([animation='none']) {
-        animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+        animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         -webkit-transform-origin: bottom;
         transform-origin: bottom;
 
         &.smart-visibility-hidden {
-          animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+          animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
           -webkit-transform-origin: bottom;
           transform-origin: bottom;
         }
@@ -1434,12 +1434,12 @@
     &[bottom],
     &[center-bottom] {
       &:not([animation='none']) {
-        animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+        animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         -webkit-transform-origin: top;
         transform-origin: top;
 
         &.smart-visibility-hidden {
-          animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+          animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
           -webkit-transform-origin: top;
           transform-origin: top;
         }
@@ -1448,7 +1448,7 @@
 
     &:not([animation='none']) {
       &.smart-visibility-hidden {
-        transition: animation, visibility 0.2s ease-in;
+        transition: animation, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       }
     }
   }
@@ -1585,13 +1585,13 @@
 
   &:not([animation='none']) {
     .smart-drop-down {
-      animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+      animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       -webkit-transform-origin: top;
       transform-origin: top;
 
       &.smart-visibility-hidden {
-        transition: animation, visibility 0.2s ease-in;
-        animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+        transition: animation, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         //-webkit-transform-origin: center;
         //transform-origin: center;
         -webkit-transform-origin: top;
@@ -1600,12 +1600,12 @@
 
       &[bottom],
       &[center-bottom] {
-        animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+        animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         -webkit-transform-origin: top;
         transform-origin: top;
 
         &.smart-visibility-hidden {
-          animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+          animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
           -webkit-transform-origin: top;
           transform-origin: top;
         }
@@ -1613,12 +1613,12 @@
 
       &[top],
       &[center-top] {
-        animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+        animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         -webkit-transform-origin: bottom;
         transform-origin: bottom;
 
         &.smart-visibility-hidden {
-          animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+          animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
           -webkit-transform-origin: bottom;
           transform-origin: bottom;
         }
@@ -1626,24 +1626,24 @@
 
       &[overlay-bottom],
       &[overlay-top] {
-        animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+        animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         -webkit-transform-origin: center;
         transform-origin: center;
 
         &.smart-visibility-hidden {
-          animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+          animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
           -webkit-transform-origin: center;
           transform-origin: center;
         }
       }
 
       &[overlay-center] {
-        animation: smart-drop-down-list-smart-animate-overlay-center-opening 0.2s ease-out;
+        animation: smart-drop-down-list-smart-animate-overlay-center-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         -webkit-transform-origin: top;
         transform-origin: top;
 
         &.smart-visibility-hidden {
-          animation: smart-drop-down-list-smart-animate-overlay-center-closing 0.2s ease-in;
+          animation: smart-drop-down-list-smart-animate-overlay-center-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
           -webkit-transform-origin: top;
           transform-origin: top;
         }

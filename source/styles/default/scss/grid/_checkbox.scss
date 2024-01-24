@@ -230,7 +230,6 @@ smart-grid-column {
 
 .smart-grid-cell-editor {
 
-  &.smart-grid-text-area-cell-editor,
   &.smart-grid-number-input-cell-editor {
     .smart-input {
       width: calc(100% - var(--smart-editor-addon-width));

@@ -240,6 +240,9 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-icon.smart-icon-mail:before {
   content: var(--smart-icon-mail);
 }
+.smart-grid-icon.smart-icon-math:before {
+  content: var(--smart-icon-math);
+}
 .smart-grid-icon.smart-icon-user:before {
   content: var(--smart-icon-user);
 }
@@ -326,6 +329,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-grid-icon.smart-icon-search:before {
   content: var(--smart-icon-search);
+}
+.smart-grid-icon.smart-icon-history:before {
+  content: var(--smart-icon-history);
 }
 .smart-grid-icon.smart-icon-settings:before {
   content: var(--smart-icon-settings);
@@ -923,6 +929,12 @@ input[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
+.smart-grid-dialog-add-column {
+  max-height: 700px;
+}
+.smart-grid-dialog-add-column .smart-footer {
+  background: var(--smart-background) !important;
+}
 .smart-grid-dialog-add-column .smart-grid-dialog-radio-field {
   width: 100%;
 }
@@ -979,7 +991,9 @@ input[type=number]::-webkit-outer-spin-button {
   grid-template-columns: 1fr auto auto;
   height: 100%;
 }
+.smart-grid-dialog-editor .attachments .file-container,
 .smart-grid-dialog-editor .attachments .container,
+.smart-grid-dialog-editor .images .file-container,
 .smart-grid-dialog-editor .images .container {
   display: flex;
   height: calc(100% - 3px);
@@ -1283,29 +1297,18 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 6px;
   box-sizing: border-box;
 }
-.smart-grid-text-area-dialog smart-scroll-bar[orientation=vertical],
-.smart-grid-slider-dialog smart-scroll-bar[orientation=vertical] {
-  height: 100%;
-  right: 0px;
-  top: 0px;
-  position: absolute;
-  width: var(--smart-scroll-bar-size);
-}
 .smart-grid-text-area-dialog smart-text-area,
 .smart-grid-text-area-dialog textarea,
 .smart-grid-slider-dialog smart-text-area,
 .smart-grid-slider-dialog textarea {
-  padding: 3px;
-  min-height: 120px;
-  width: calc(100% + var(--smart-scroll-bar-size));
-  overflow-x: hidden;
-  height: 120px;
+  min-height: 180px;
+  width: 100%;
+  height: 180px;
   box-sizing: border-box;
   border: none;
   background: inherit;
   outline: none;
   resize: none;
-  padding-right: 20px;
   color: inherit;
 }
 
@@ -1420,9 +1423,22 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row {
   width: 750px !important;
+  height: 500px !important;
+  --smart-window-content-padding: 0px;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-header-section {
+  border-bottom: 1px solid var(--smart-border);
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-header-section span {
+  margin-left: 10px;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-header-section,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-footer {
+  background: var(--smart-background);
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row[mobile] {
   width: 100% !important;
+  height: 100% !important;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-column-info {
   display: grid;
@@ -1443,37 +1459,38 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .tabs {
   width: 100%;
-  height: 35px;
+  height: 30px;
   overflow: hidden;
   background: var(--smart-background);
   transition: all 0.2s ease-in-out;
   display: flex;
   margin-bottom: 10px;
-  border-bottom: 1px solid var(--smart-border);
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .tabs .tab {
-  padding: 8px 22px;
+  padding: 4px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-transform: uppercase;
-  color: var(--smart-background-color);
+  color: var(--smart-surface-color);
   cursor: pointer;
   white-space: nowrap;
+  position: relative;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .tabs .tab:hover {
+  color: var(--smart-primary);
+  border-bottom-color: var(--smart-primary) !important;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .tabs .tab.active {
-  color: var(--smart-primary);
-  border-bottom: 2px solid var(--smart-primary);
+  border-bottom: 2px solid var(--smart-surface-color);
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-content-container {
   width: 100%;
 }
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-prev-button:after,
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-next-button:after {
-  font-size: calc(100% - 2px);
-}
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-prev-button:after {
   content: var(--smart-icon-arrow-up);
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-next-button {
+  margin-right: 5px;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-next-button:after {
   content: var(--smart-icon-arrow-down);
@@ -1484,14 +1501,31 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout {
   display: block;
+  height: 100%;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-drop-down-button {
-  display: none !important;
+  pointer-events: none;
+  cursor: default;
+  background: var(--smart-background);
+  border: none;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .smart-drop-down-button-icon,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .up,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .down,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .arrow,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-drop-down-button .smart-drop-down-button-icon,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-drop-down-button .up,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-drop-down-button .down,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-drop-down-button .arrow {
+  opacity: 0;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-dialog-editor {
-  background: var(--smart-surface);
+  background: var(--smart-background);
+  --smart-surface: var(--smart-background);
   pointer-events: none;
+  border: none;
+  border-bottom: 1px solid var(--smart-border);
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.disable-edit .smart-grid-edit-dialog-layout .smart-grid-dialog-editor[template=image] {
   pointer-events: initial;
@@ -1513,18 +1547,53 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout {
   display: grid;
-  grid-template-columns: 1fr 350px;
-  column-gap: 20px;
+  grid-template-columns: 1fr 310px;
+  grid-template-areas: "content sidebar" "footer sidebar";
+  height: 100%;
+  grid-template-rows: 1fr 45px;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout[mobile] {
   display: flex;
   flex-direction: column;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout[mobile] .smart-grid-edit-dialog-activity-container {
+  position: absolute;
+  top: 45px;
+  width: 90%;
+  height: calc(100% - 45px);
+  right: 0px;
+  box-shadow: var(--smart-elevation-8);
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout[mobile] .smart-grid-edit-dialog-editors-container {
+  height: calc(100% - 45px);
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout.hide-activity {
   grid-template-columns: 1fr;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout.hide-activity .smart-grid-edit-dialog-activity-container {
   display: none;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-footer {
+  grid-area: footer;
+  display: flex;
+  padding-inline-start: 10px;
+  padding-inline-end: 5px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-footer .smart-button {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-footer .smart-button.primary {
+  margin-right: 10px;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-editors-container {
+  padding: 10px;
+  overflow: auto;
+  grid-area: content;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-editors-container.many {
   display: grid;
@@ -1533,9 +1602,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container {
   background: var(--smart-surface);
-  border: 1px solid var(--smart-border);
-  border-radius: var(--smart-border-radius);
+  border-left: 1px solid var(--smart-border);
   overflow: hidden;
+  grid-area: sidebar;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container > div {
   height: 100%;
@@ -1544,28 +1613,6 @@ input[type=number]::-webkit-outer-spin-button {
   height: 100%;
   display: grid;
   grid-template-rows: 40px 40px 40px 40px 40px 1fr;
-}
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-row {
-  padding: 5px;
-}
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout {
-  max-height: 500px;
-  overflow: auto;
-}
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-user {
-  display: grid;
-  grid-template-columns: 35px 1fr 1fr;
-  align-items: center;
-}
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-action {
-  display: grid;
-  padding-left: 35px;
-  grid-template-columns: 50% 50%;
-  align-items: center;
-  opacity: 0.8;
-}
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-action .detail {
-  white-space: initial;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .smart-user {
   position: relative;
@@ -1592,44 +1639,119 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
   font-size: 24px;
 }
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .user-name {
-  font-weight: bold;
-}
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .time {
-  opacity: 0.8;
-}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-header,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-header {
   white-space: nowrap;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-tab {
   height: calc(100% - 35px);
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout {
   display: grid;
   grid-template-rows: 1fr auto;
   flex-direction: column;
   padding: 3px;
-  height: calc(100% - 55px);
+  height: calc(100% - 10px);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .no-comments,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .no-comments {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .no-comments span,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .no-comments span {
+  text-align: center;
+  padding: 20px;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment {
   display: grid;
   grid-template-columns: 30px 1fr;
   grid-column-gap: var(--smart-data-view-padding);
   margin: var(--smart-data-view-padding);
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .history-header,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .comment-header,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .history-header,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .comment-header,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .history-header,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .comment-header,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .history-header,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .comment-header {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  opacity: 0.75;
+  grid-template-columns: 1fr auto auto auto;
   grid-column-gap: calc(var(--smart-data-view-padding) / 2);
   margin-bottom: var(--smart-data-view-padding);
 }
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .remove-button {
-  transform: rotate(90deg);
-  width: 16px;
-  cursor: pointer;
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .history-body,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .comment-body,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .history-body,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .comment-body,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .history-body,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .comment-body,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .history-body,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .comment-body {
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--smart-border-radius);
+  background: var(--smart-background);
+  box-shadow: var(--smart-elevation-1);
+  overflow: hidden;
+  overflow-wrap: break-word;
+  display: inline-block;
+  margin: 2px;
+  max-width: 220px;
 }
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .remove-button:after {
-  content: var(--smart-icon-close);
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .history-body .detail,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .comment-body .detail,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .history-body .detail,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .comment-body .detail,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .history-body .detail,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .comment-body .detail,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .history-body .detail,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .comment-body .detail {
+  margin-top: 10px;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .history-body.edit,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .comment-body.edit,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .history-body.edit,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .comment-body.edit,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .history-body.edit,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .comment-body.edit,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .history-body.edit,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .comment-body.edit {
+  overflow: visible;
+  box-shadow: none;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .edit-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .edit-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .edit-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .edit-button {
+  cursor: pointer;
+  opacity: 0;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .remove-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .remove-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .remove-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .remove-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .edit-button:after {
+  content: var(--smart-icon-delete);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1637,14 +1759,47 @@ input[type=number]::-webkit-outer-spin-button {
   font-family: var(--smart-font-family-icon);
   cursor: pointer;
 }
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .remove-button.enabled {
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .remove-button.edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .edit-button.edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .remove-button.edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .edit-button.edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .remove-button.edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .edit-button.edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .remove-button.edit-button:after,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .edit-button.edit-button:after {
+  content: var(--smart-icon-mode-edit);
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .remove-button.enabled,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .edit-button.enabled,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .remove-button.enabled,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .edit-button.enabled,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .remove-button.enabled,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .edit-button.enabled,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .remove-button.enabled,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .edit-button.enabled {
   visibility: visible;
 }
-.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comments {
-  overflow: auto;
-  min-height: 180px;
-  max-height: 350px;
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row:hover .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row:hover .edit-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment:hover .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment:hover .edit-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row:hover .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row:hover .edit-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment:hover .remove-button,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment:hover .edit-button {
+  opacity: 1;
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comments,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comments {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 180px;
+  max-height: 400px;
+  position: relative;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .footer,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .footer {
   height: 45px;
   display: flex;
@@ -1652,14 +1807,17 @@ input[type=number]::-webkit-outer-spin-button {
   box-sizing: border-box;
   transition: height ease-in-out 0.2s;
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .footer.focus,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .footer.focus {
   height: 70px;
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .footer smart-text-area,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .footer smart-text-area {
   width: 100%;
   height: 100%;
   border-radius: 0px;
 }
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .footer smart-button,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .footer smart-button {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -1716,6 +1874,17 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-window.smart-grid-dialog .col-sm-6 {
   padding: 0px;
 }
+.smart-window.smart-grid-dialog > .smart-container .smart-header-section .smart-buttons-container button {
+  border-radius: var(--smart-border-radius);
+}
+.smart-window.smart-grid-dialog > .smart-container .smart-header-section .smart-buttons-container button:hover {
+  background: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
+}
+.smart-window.smart-grid-dialog > .smart-container .smart-header-section .smart-buttons-container button.checked {
+  background: var(--smart-ui-state-selected);
+  color: var(--smart-ui-state-color-selected);
+}
 .smart-window.smart-grid-dialog.open, .smart-window.smart-grid-dialog.view.open {
   transform: scale(1) !important;
   opacity: 1;
@@ -1732,8 +1901,8 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: var(--smart-border-radius);
 }
 .smart-window.smart-grid-dialog [editor]:not([template=checkBox])[template=textarea] {
-  height: 120px;
-  min-height: 80px;
+  height: 180px;
+  min-height: 120px;
   resize: vertical;
 }
 .smart-window.smart-grid-dialog [editor]:not([template=checkBox])[template=textarea] smart-text-area {
@@ -1868,6 +2037,10 @@ smart-grid[tree] smart-grid-cell[has-toggle-button]:not([detail]) button[toggle-
   padding-right: 7px;
   padding-right: 14px;
   margin-left: 7px;
+  cursor: pointer;
+}
+smart-grid[tree] smart-grid-cell[has-toggle-button]:not([detail]) button[toggle-button]:hover {
+  color: var(--smart-primary);
 }
 smart-grid.smart-element {
   visibility: inherit;
@@ -2418,6 +2591,11 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
   top: 0;
   min-width: 0px;
 }
+.smart-grid[appearance_show-row-status] smart-grid-row[focus] smart-grid-cell[header][detail][has-toggle-button] button.row-detail:after {
+  content: var(--smart-icon-resize-full);
+  font-size: 13px;
+  color: var(--smart-primary);
+}
 .smart-grid[appearance_show-row-header-focus-icon] smart-grid-row[focus]:not([edit]) smart-grid-cell[header]:not([detail]):not(:hover) > .smart-label:before {
   content: var(--smart-icon-arrow-right);
 }
@@ -2535,6 +2713,201 @@ smart-grid-row:hover smart-grid-cell[checkbox][header][auto-show] .smart-input {
   opacity: 1;
   border-color: var(--smart-border);
 }
+smart-grid-row[aria-rowindex="1"] .smart-grid-row-card-container .smart-card-layout-view {
+  padding-top: 10px;
+}
+smart-grid-row .smart-grid-row-card-container {
+  width: 100%;
+  height: 100%;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view {
+  min-width: unset;
+  min-height: unset;
+  width: calc(100% - 20px);
+  height: 100%;
+  padding: 10px;
+  padding-top: 0px;
+  background: var(--smart-surface);
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container {
+  display: flex;
+  justify-content: space-evenly;
+  order: none;
+  width: 100%;
+  height: 100%;
+  grid-column-gap: var(--smart-card-view-column-gap, var(--smart-card-view-gap));
+  grid-row-gap: var(--smart-card-view-row-gap, var(--smart-card-view-gap));
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card {
+  width: 100% !important;
+  display: flex;
+  margin: 0;
+  border: var(--smart-border-width) solid var(--smart-card-border, var(--smart-border));
+  width: unset;
+  padding: var(--smart-data-view-padding);
+  overflow: auto;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: var(--smart-background);
+  color: var(--smart-background-color);
+  border-top-left-radius: var(--smart-border-top-left-radius);
+  border-top-right-radius: var(--smart-border-top-right-radius);
+  border-bottom-left-radius: var(--smart-border-bottom-left-radius);
+  border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  box-shadow: var(--smart-elevation-2);
+  transition: box-shadow ease-in-out 0.2s;
+  position: relative;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card.smart-card-tree-header {
+  cursor: pointer;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card.smart-card-header {
+  cursor: pointer;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card.smart-card-header .smart-card-view-cell {
+  justify-content: center;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card.smart-card-header .smart-card-view-value:after {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-arrow-right);
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card[editable]:not(.smart-card-header) {
+  cursor: pointer;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card[editable]:not(.smart-card-header)[edit] {
+  border: 1px solid var(--smart-primary);
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card[editable]:not(.smart-card-header)[edit]:after, smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card[editable]:not(.smart-card-header):hover:after {
+  content: var(--smart-icon-mode-edit);
+  font-family: var(--smart-font-family-icon);
+  width: 16px;
+  height: 16px;
+  right: 3px;
+  bottom: 3px;
+  position: absolute;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-data-container {
+  width: 100%;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-data-container.col-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-data-container.col-2 .smart-card-view-cell {
+  justify-content: flex-start;
+  column-gap: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-data-container.col-2 .smart-card-view-cell .smart-card-view-value {
+  width: 100%;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-data-container.col-2 .smart-card-view-cell.center {
+  align-items: center;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-data-container.col-2 .smart-card-view-cell.right {
+  align-items: flex-end;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card:hover {
+  box-shadow: var(--smart-elevation-4);
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell.span {
+  grid-column: 1/span 2;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-arrow-down {
+  visibility: hidden;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell.row-span .smart-card-view-value smart-grid-cell {
+  height: 100%;
+  white-space: normal;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell.row-span .smart-card-view-value smart-grid-cell .smart-label {
+  white-space: normal;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  grid-row-gap: 0.25rem;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-label {
+  font-size: 12px;
+  opacity: 0.7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 50%;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell {
+  width: 100%;
+  height: auto;
+  position: static;
+  display: block;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell .attachments {
+  display: block;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell[template=image] img {
+  max-width: 100%;
+  max-height: 100%;
+  width: unset;
+  height: unset;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell[template=image] .images {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 3px;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell[template=image] .smart-navigation {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  width: 100%;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  grid-column-gap: 3px;
+  margin-top: -3px;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell[template=image] .smart-navigation .smart-navigation-item {
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--smart-border);
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell[template=image] .smart-navigation .smart-navigation-item.active, smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell[template=image] .smart-navigation .smart-navigation-item:hover {
+  border-color: var(--smart-primary);
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell .textwrap {
+  display: block;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell::before, smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell::after {
+  content: "";
+  border: none;
+  width: 0px;
+  height: 0px;
+}
+smart-grid-row .smart-grid-row-card-container .smart-card-layout-view .smart-card-container .smart-card .smart-card-view-cell .smart-card-view-value smart-grid-cell .smart-label {
+  white-space: nowrap;
+  text-align: unset;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+smart-grid-row[filter-row], smart-grid-row[summary-row] {
+  background: var(--smart-surface);
+}
 smart-grid-row smart-grid-cell[header][freeze] {
   background: var(--smart-surface);
   color: var(--smart-surface-color);
@@ -2579,7 +2952,7 @@ smart-grid-row .smart-grid-command-bar {
 smart-grid-row .smart-grid-command-bar.show {
   transform: scaleX(1);
 }
-smart-grid-row[edit] {
+smart-grid-row[edit] smart-grid-cell:not(rowspan):not(colspan)[editor] {
   z-index: 7;
 }
 smart-grid-row[edit][error] {
@@ -2654,6 +3027,9 @@ smart-grid-row[selected=none] smart-grid-cell {
 smart-grid-row[selected=indeterminate] smart-grid-cell[selected]:not([editor]) {
   background: var(--smart-ui-state-selected);
   color: var(--smart-ui-state-color-selected);
+}
+smart-grid-row[selected=indeterminate] smart-grid-cell[selected]:not([editor])[freeze] {
+  background: var(--smart-grid-cell-background-freeze);
 }
 smart-grid-row[selected=indeterminate] smart-grid-cell[selected][focus]:not([editor]):not([rowspan]):not([colspan]) {
   background: var(--smart-ui-state-active);
@@ -2911,8 +3287,6 @@ smart-grid-row[error] smart-grid-cell.smart-add-new-column.smart-add-new-column 
 
 smart-grid-cell {
   display: block;
-  color: var(--smart-surface-color);
-  background: var(--smart-surface);
   color: var(--smart-background-color);
   background: var(--smart-background);
   white-space: nowrap;
@@ -2924,6 +3298,11 @@ smart-grid-cell {
   text-overflow: ellipsis;
   font-size: var(--smart-grid-cell-font-size, inherit);
   font-weight: var(--smart-grid-cell-font-weight, inherit);
+  scrollbar-width: auto;
+  scrollbar-color: #8b8b8b #ffffff;
+}
+smart-grid-cell.smart-readonly {
+  color: var(--smart-disabled);
 }
 smart-grid-cell button[toggle-button]:after {
   justify-content: flex-start;
@@ -2934,6 +3313,42 @@ smart-grid-cell .wrap {
   flex-direction: column;
   justify-content: center;
   line-height: 1.5;
+}
+smart-grid-cell .textwrap {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+smart-grid-cell ul,
+smart-grid-cell ol {
+  padding-left: 16px;
+  margin: 0px;
+}
+smart-grid-cell ul[checklist] {
+  padding-left: 0px;
+}
+smart-grid-cell ul[checklist] li {
+  list-style: none;
+  padding-left: 0px;
+}
+smart-grid-cell ul[checklist] li::before {
+  border-radius: 3px;
+  top: 3.5px;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  content: "";
+  margin-right: 5px;
+  position: relative;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+}
+smart-grid-cell ul[checklist] li[checked]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16' style='shape-rendering: geometricprecision;'%3E%3Cpath fill-rule='evenodd' fill='white' d='M5.944 12.305a1.031 1.031 0 0 0 1.433-.009l5.272-5.181A1.483 1.483 0 0 0 12.661 5a1.468 1.468 0 0 0-2.109.025L7.008 8.701a.465.465 0 0 1-.685-.01l-.587-.641A1.42 1.42 0 0 0 3.661 8a1.473 1.473 0 0 0 .017 2.106l2.266 2.199z'%3E%3C/path%3E%3C/svg%3E");
+  background-color: var(--smart-primary);
+  border: 2px solid transparent;
 }
 smart-grid-cell .nowrap {
   white-space: nowrap;
@@ -3016,6 +3431,11 @@ smart-grid-cell .tokens .smart-token {
   line-height: 1.5;
   display: inline-flex;
 }
+smart-grid-cell .dropdownlist .smart-tokens-layout,
+smart-grid-cell .list .smart-tokens-layout,
+smart-grid-cell .tokens .smart-tokens-layout {
+  width: 100%;
+}
 smart-grid-cell .dropdownlist .smart-arrow-down,
 smart-grid-cell .list .smart-arrow-down,
 smart-grid-cell .tokens .smart-arrow-down {
@@ -3046,10 +3466,22 @@ smart-grid-cell[focus] .tokens .smart-arrow-down {
 smart-grid-cell .attachments,
 smart-grid-cell .images {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: auto 1fr auto auto;
   height: 100%;
 }
+smart-grid-cell .attachments .smart-icon-plus,
+smart-grid-cell .images .smart-icon-plus {
+  opacity: 0;
+  width: 0px;
+}
+smart-grid-cell .attachments:hover .smart-icon-plus,
+smart-grid-cell .images:hover .smart-icon-plus {
+  opacity: 1;
+  width: 26px;
+}
+smart-grid-cell .attachments .file-container,
 smart-grid-cell .attachments .container,
+smart-grid-cell .images .file-container,
 smart-grid-cell .images .container {
   display: flex;
   height: calc(100% - 3px);
@@ -3287,11 +3719,6 @@ smart-grid-cell[has-toggle-button] button[toggle-button].row-detail.row-comments
   transform: rotate(45deg);
   top: -5px;
   right: -5px;
-}
-smart-grid-cell[has-toggle-button] button[toggle-button].row-detail:after {
-  content: var(--smart-icon-resize-full);
-  font-size: 13px;
-  color: var(--smart-primary);
 }
 smart-grid-cell[has-toggle-button] button[toggle-button].row-detail:hover:after {
   color: var(--smart-surface-color);
@@ -3551,6 +3978,9 @@ smart-grid-cell[freeze] {
   background: var(--smart-grid-cell-background-freeze);
   color: var(--smart-grid-cell-color-freeze);
 }
+smart-grid-cell[freeze][selected] {
+  background: var(--smart-grid-cell-background-freeze-selected) !important;
+}
 smart-grid-cell[highlight] .smart-label {
   background: #FFF1C8 !important;
   color: #333 !important;
@@ -3685,7 +4115,6 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
 }
 .smart-grid-add-column-dialog-color-panel .smart-sortable {
   width: 100%;
-  max-height: 200px;
   margin-bottom: 10px;
   overflow: auto;
 }
@@ -3712,6 +4141,10 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
   --smart-background: var(--smart-grid-view-bar-background);
   border-right: 1px solid var(--smart-border);
 }
+.smart-grid-view-bar.smart-mobile {
+  z-index: 99;
+  box-shadow: var(--smart-elevation-4);
+}
 .smart-grid-view-bar smart-menu-item[checked] {
   background: var(--smart-ui-state-selected);
   color: var(--smart-ui-state-color-selected);
@@ -3728,7 +4161,6 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
   display: grid;
   grid-template-rows: 1fr auto;
   height: 100%;
-  padding: 5px;
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .view-label {
   display: flex;
@@ -3778,6 +4210,7 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .smart-grid-view-storage {
   overflow: hidden;
+  padding: 5px;
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .smart-grid-view-storage smart-menu {
   height: calc(100% - 50px) !important;
@@ -3808,41 +4241,31 @@ smart-grid-cell:not(.smart-grid-column-border):not(.smart-grid-column-border-col
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
   margin-bottom: 0px;
   border-top: 1px solid var(--smart-border);
+  background: var(--smart-surface);
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .new-view .footer {
   display: flex;
-  height: 60px;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .new-view smart-button {
   background: transparent;
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .new-view smart-button.view {
-  margin-right: 4px;
   text-transform: none;
-  width: 50%;
   border: none;
-}
-.smart-grid-view-bar .smart-grid-view-chooser-container .new-view smart-button.view.selected {
-  background: var(--smart-primary);
-  color: var(--smart-primary-color);
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .new-view smart-button.view button {
   align-items: center;
+  color: var(--smart-surface-color);
   display: flex;
-  flex-direction: column;
-}
-.smart-grid-view-bar .smart-grid-view-chooser-container .new-view smart-button.view button .smart-grid-icon {
-  font-size: 20px;
+  justify-content: space-between;
 }
 .smart-grid-view-bar .smart-grid-view-chooser-container .new-view smart-button.view:hover button {
-  background: var(--smart-secondary);
-  color: var(--smart-secondary-color);
-  color: white;
+  background: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
 }
 
 .smart-grid-view-chooser {
@@ -3894,20 +4317,81 @@ smart-menu.smart-grid-views-menu[checkboxes][checkable] smart-menu-item[level="1
 @keyframes fadeAnimation {
   0% {
     background-color: inherit;
+    color: #333;
   }
   20% {
-    background-color: #99FF99;
+    background-color: #0A85D9;
+    color: #fff;
   }
   50% {
-    background-color: #99FF99;
+    background-color: #0A85D9;
+    color: #fff;
   }
   100% {
     background-color: inherit;
+    color: inherit;
   }
 }
 .smart-flash-cell .smart-label {
   background-image: none !important;
-  animation: fadeAnimation 2s ease-in-out;
+  animation: fadeAnimation 1s ease-in-out;
+}
+
+.smart-switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+}
+
+.smart-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.smart-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(var(--smart-secondary-rgb), 0.5);
+  transition: 0.4s;
+}
+
+.smart-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--smart-background);
+  transition: 0.4s;
+}
+
+.smart-switch input:checked + .slider {
+  background-color: var(--smart-primary);
+}
+
+.smart-switch input:focus + .slider {
+  box-shadow: 0 0 1px var(--smart-primary);
+}
+
+.smart-switch input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.smart-switch .slider.round,
+.smart-switch .slider.round:before {
+  border-radius: 30px;
+}
+
+.smart-grid[view=card] .smart-grid-column-header {
+  display: none;
 }
 
 [editor=checkBox] .smart-label,
@@ -4158,7 +4642,7 @@ smart-grid-column div[checkbox] .smart-input[checked=indeterminate]:after {
   border-radius: 0px;
 }
 
-.smart-grid-cell-editor.smart-grid-text-area-cell-editor .smart-input, .smart-grid-cell-editor.smart-grid-number-input-cell-editor .smart-input {
+.smart-grid-cell-editor.smart-grid-number-input-cell-editor .smart-input {
   width: calc(100% - var(--smart-editor-addon-width));
   border: none;
   padding: var(--smart-editor-label-padding);

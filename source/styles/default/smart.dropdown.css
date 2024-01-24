@@ -112,7 +112,7 @@
 }
 .smart-drop-down-box .smart-drop-down.smart-visibility-hidden {
   transform: scale(0);
-  transition: transform 0.2s ease-in;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transform-origin: left top 0px;
 }
 .smart-drop-down-box[drop-down-button-position=top] .smart-action-button, .smart-drop-down-box[drop-down-button-position=bottom] .smart-action-button {
@@ -981,12 +981,12 @@
   margin: unset;
 }
 .smart-drop-down-container.smart-drop-down-repositioned[overlay-bottom]:not([animation=none]), .smart-drop-down-container.smart-drop-down-repositioned[overlay-center]:not([animation=none]), .smart-drop-down-container.smart-drop-down-repositioned[overlay-top]:not([animation=none]) {
-  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: center;
   transform-origin: center;
 }
 .smart-drop-down-container.smart-drop-down-repositioned[overlay-bottom]:not([animation=none]).smart-visibility-hidden, .smart-drop-down-container.smart-drop-down-repositioned[overlay-center]:not([animation=none]).smart-visibility-hidden, .smart-drop-down-container.smart-drop-down-repositioned[overlay-top]:not([animation=none]).smart-visibility-hidden {
-  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: center;
   transform-origin: center;
 }
@@ -994,27 +994,27 @@
   margin: calc(-1 * (var(--smart-editor-drop-down-vertical-offset) + 3px)) 0px;
 }
 .smart-drop-down-container.smart-drop-down-repositioned[top]:not([animation=none]), .smart-drop-down-container.smart-drop-down-repositioned[center-top]:not([animation=none]) {
-  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: bottom;
   transform-origin: bottom;
 }
 .smart-drop-down-container.smart-drop-down-repositioned[top]:not([animation=none]).smart-visibility-hidden, .smart-drop-down-container.smart-drop-down-repositioned[center-top]:not([animation=none]).smart-visibility-hidden {
-  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: bottom;
   transform-origin: bottom;
 }
 .smart-drop-down-container.smart-drop-down-repositioned[bottom]:not([animation=none]), .smart-drop-down-container.smart-drop-down-repositioned[center-bottom]:not([animation=none]) {
-  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }
 .smart-drop-down-container.smart-drop-down-repositioned[bottom]:not([animation=none]).smart-visibility-hidden, .smart-drop-down-container.smart-drop-down-repositioned[center-bottom]:not([animation=none]).smart-visibility-hidden {
-  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }
 .smart-drop-down-container.smart-drop-down-repositioned:not([animation=none]).smart-visibility-hidden {
-  transition: animation, visibility 0.2s ease-in;
+  transition: animation, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 .smart-drop-down-container[top].smart-drop-down-container.smart-drop-down-repositioned {
   bottom: initial;
@@ -1241,7 +1241,7 @@
 .smart-text-box:not([animation=none]) .smart-drop-down,
 .smart-drop-down-button:not([animation=none]) .smart-drop-down,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down {
-  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }
@@ -1253,8 +1253,8 @@
 .smart-text-box:not([animation=none]) .smart-drop-down.smart-visibility-hidden,
 .smart-drop-down-button:not([animation=none]) .smart-drop-down.smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down.smart-visibility-hidden {
-  transition: animation, visibility 0.2s ease-in;
-  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  transition: animation, visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }
@@ -1273,7 +1273,7 @@
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[center-bottom],
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[bottom],
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[center-bottom] {
-  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }
@@ -1292,7 +1292,7 @@
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[center-bottom].smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[bottom].smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[center-bottom].smart-visibility-hidden {
-  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }
@@ -1311,7 +1311,7 @@
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[center-top],
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[top],
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[center-top] {
-  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: bottom;
   transform-origin: bottom;
 }
@@ -1330,7 +1330,7 @@
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[center-top].smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[top].smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[center-top].smart-visibility-hidden {
-  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: bottom;
   transform-origin: bottom;
 }
@@ -1349,7 +1349,7 @@
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[overlay-top],
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[overlay-bottom],
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[overlay-top] {
-  animation: smart-drop-down-list-smart-animate-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: center;
   transform-origin: center;
 }
@@ -1368,7 +1368,7 @@
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[overlay-top].smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[overlay-bottom].smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[overlay-top].smart-visibility-hidden {
-  animation: smart-drop-down-list-smart-animate-closing 0.2s ease-in;
+  animation: smart-drop-down-list-smart-animate-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: center;
   transform-origin: center;
 }
@@ -1380,7 +1380,7 @@
 .smart-text-box:not([animation=none]) .smart-drop-down[overlay-center],
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[overlay-center],
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[overlay-center] {
-  animation: smart-drop-down-list-smart-animate-overlay-center-opening 0.2s ease-out;
+  animation: smart-drop-down-list-smart-animate-overlay-center-opening 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }
@@ -1392,7 +1392,7 @@
 .smart-text-box:not([animation=none]) .smart-drop-down[overlay-center].smart-visibility-hidden,
 .smart-drop-down-button:not([animation=none]) .smart-drop-down[overlay-center].smart-visibility-hidden,
 .smart-date-time-picker:not([animation=none]) .smart-drop-down[overlay-center].smart-visibility-hidden {
-  animation: smart-drop-down-list-smart-animate-overlay-center-closing 0.2s ease-in;
+  animation: smart-drop-down-list-smart-animate-overlay-center-closing 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-transform-origin: top;
   transform-origin: top;
 }

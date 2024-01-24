@@ -3,7 +3,7 @@ smart-column-panel,
 smart-multi-column-filter-panel,
 smart-formatting-panel {
   display: block;
-  min-width: 375px;
+  min-width: 345px;
   width: var(--smart-grid-panel-default-width);
   height: var(--smart-grid-panel-default-height);
   padding: var(--smart-grid-panel-padding);
@@ -16,7 +16,7 @@ smart-formatting-panel {
 
 smart-group-panel {
   display: block;
-  min-width: 375px;
+  min-width: 345px;
   height: var(--smart-grid-panel-default-height);
   padding: var(--smart-grid-panel-padding);
   overflow: auto;
@@ -25,6 +25,9 @@ smart-group-panel {
   font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
   width: var(--smart-grid-panel-default-width);
+}
+smart-group-panel.smart-mobile {
+  width: 345px;
 }
 
 .smart-sort-panel .smart-grid-panel-item.dragged,
@@ -98,6 +101,9 @@ smart-group-panel {
   color: var(--smart-primary-color);
 }
 
+.smart-sort-panel.smart-mobile smart-input {
+  max-width: 150px;
+}
 .smart-sort-panel .smart-grid-panel-maintain-sort {
   justify-content: flex-end;
   margin-top: 5px;
@@ -240,6 +246,10 @@ smart-group-panel {
   min-width: 215px;
   width: 40%;
 }
+.smart-sort-panel .smart-grid-panel-container-footer > smart-input.smart-mobile {
+  min-width: 100px;
+  width: 120px;
+}
 .smart-sort-panel .smart-grid-panel-item-close-button {
   display: flex;
   align-items: center;
@@ -316,6 +326,10 @@ smart-group-panel {
 .smart-group-panel .smart-grid-panel-container-footer > smart-input {
   min-width: 215px;
   width: 40%;
+}
+.smart-group-panel .smart-grid-panel-container-footer > smart-input.smart-mobile {
+  min-width: 100px;
+  width: 120px;
 }
 .smart-group-panel .smart-grid-panel-item-close-button {
   display: flex;
@@ -590,11 +604,14 @@ smart-group-panel {
   position: absolute;
   background-color: var(--smart-background);
   box-shadow: var(--smart-elevation-8);
-  z-index: 1000;
+  z-index: 9999;
   height: auto;
   transform: scaleY(1);
   transform-origin: top;
   opacity: 1;
+}
+.smart-data-view-header-drop-down.smart-mobile {
+  --smart-font-size: 12px;
 }
 .smart-data-view-header-drop-down smart-column-panel,
 .smart-data-view-header-drop-down smart-multi-column-filter-panel,
@@ -775,6 +792,9 @@ smart-group-panel {
 }
 .smart-data-view-views-button.kanban:before {
   content: var(--smart-icon-kanban);
+}
+.smart-data-view-views-button.card:before {
+  content: var(--smart-icon-card);
 }
 .smart-data-view-views-button.formatted {
   background-color: var(--smart-primary);

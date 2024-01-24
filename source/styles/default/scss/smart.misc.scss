@@ -129,7 +129,8 @@
 @keyframes ripple {
   100% {
     opacity: 0;
-    transform: scale(2.5); /*scale the element to 250% to safely cover the entire link and fade it out*/
+    transform: scale(2.5);
+    /*scale the element to 250% to safely cover the entire link and fade it out*/
   }
 }
 
@@ -245,6 +246,7 @@ smart-list-box,
 smart-list-menu,
 .smart-list-menu-view.smart-drop-down-repositioned,
 smart-tree {
+
   &[loading-indicator-position="top"],
   &[loading-indicator-position="bottom"] {
     .smart-loader {
@@ -308,6 +310,7 @@ smart-list-menu,
 smart-tree {
   &[disabled] {
     .smart-loader {
+
       &:before,
       &:after {
         animation: none;
@@ -419,6 +422,7 @@ smart-tree {
 .smart-flex {
   display: flex;
 }
+
 .smart-flex-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -427,4 +431,25 @@ smart-tree {
 .smart-dragging,
 .smart-dragging * {
   cursor: move !important;
+}
+
+.smart-element {
+  ::-webkit-scrollbar {
+    width: 18px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--smart-scroll-bar-thumb-background);
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--smart-scroll-bar-thumb-background-hover);
+  }
 }
