@@ -12,6 +12,11 @@ export interface DateInputProperties {
    */
   autoCloseDelay?: number;
   /**
+   * Determines the calendar properties to be set to the popup calendar.
+   * Default value: null
+   */
+  calendarProperties?: any;
+  /**
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */

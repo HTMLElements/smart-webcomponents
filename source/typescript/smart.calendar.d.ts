@@ -37,6 +37,11 @@ export interface CalendarProperties {
    */
   disableAutoNavigation?: boolean;
   /**
+   * Enables or disables the Calendar mouse wheel behavior.
+   * Default value: false
+   */
+  disableMouseWheel?: boolean;
+  /**
    * Determines the date view of the calendar when calendarMode is set to 'default'
    * Default value: month
    */

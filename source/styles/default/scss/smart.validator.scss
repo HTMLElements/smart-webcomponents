@@ -144,6 +144,7 @@ input.smart-validation-error {
 //Spans in the bottom of the body - shown on input click
 .smart-error-holder {
   position: absolute;
+  font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
   background-color: var(--smart-error);
   color: var(--smart-error-color);

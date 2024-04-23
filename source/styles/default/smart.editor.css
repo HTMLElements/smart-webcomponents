@@ -1,4 +1,5 @@
-/* .smart-editor */ /* --- Scheduler Style Color Input --- */
+/* .smart-editor */
+/* --- Scheduler Style Color Input --- */
 .smart-editor .smart-editor-content-container .smart-editor-editable, .smart-editor .smart-editor-content-container textarea {
   width: 100%;
   height: 100%;
@@ -786,7 +787,7 @@
   content: var(--smart-icon-list-unordered);
 }
 .smart-editor-toolbar-item[item-name=checklist]::before {
-  content: var(--smart-icon-list-unordered);
+  content: var(--smart-icon-list-check);
 }
 .smart-editor-toolbar-item[item-name=subscript]::before {
   content: var(--smart-icon-subscript);

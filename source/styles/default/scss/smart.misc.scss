@@ -145,7 +145,7 @@
   -moz-user-select: none;
 }
 
-.smart-hidden {
+.smart-hidden, .smart-collapse {
   display: none !important;
 }
 
@@ -397,6 +397,10 @@ smart-tree {
 
 .smart-micro {
   font-size: 9px;
+}
+
+.smart-small {
+  font-size: 12px;
 }
 
 .smart-caps {

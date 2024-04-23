@@ -633,7 +633,7 @@
 }
 .smart-calendar[view-sections*=title] .smart-calendar-container {
   width: 100%;
-  height: calc(100% - var(--smart-calendar-title-height));
+  height: calc(100% - (var(--smart-calendar-title-height)));
 }
 .smart-calendar[view-sections*=title][view-sections*=footer] {
   --smart-calendar-default-height: calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height) + var(--smart-calendar-footer-height));
@@ -704,7 +704,7 @@
   flex-direction: row;
 }
 .smart-calendar[view=landscape] .smart-calendar-container {
-  width: calc(100% - var(--smart-calendar-title-height));
+  width: calc(100% - (var(--smart-calendar-title-height)));
   height: 100%;
 }
 .smart-calendar[view=landscape] .smart-calendar-title {

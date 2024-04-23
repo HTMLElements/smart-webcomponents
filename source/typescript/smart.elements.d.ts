@@ -2370,6 +2370,11 @@ export interface CalendarProperties {
    */
   disableAutoNavigation?: boolean;
   /**
+   * Enables or disables the Calendar mouse wheel behavior.
+   * Default value: false
+   */
+  disableMouseWheel?: boolean;
+  /**
    * Determines the date view of the calendar when calendarMode is set to 'default'
    * Default value: month
    */
@@ -7965,6 +7970,11 @@ export interface DateInputProperties {
    */
   autoCloseDelay?: number;
   /**
+   * Determines the calendar properties to be set to the popup calendar.
+   * Default value: null
+   */
+  calendarProperties?: any;
+  /**
    * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
@@ -8797,7 +8807,7 @@ export interface DockingLayoutProperties {
    */
   closedItems?: any;
   /**
-   * Determines the structure of the element. This property represents an array of objects that define the hierarchy of the items inside the element and their specific settings. Each object must have a type attribute that defines it's behavior.  Three types of objects are allowed:   LayoutGroup - Represents a group of items (Splitter). Used when the user wants more than one DockingLayout item in a single container.  Properties: orientation - A string value indicating the orientation of the Splitter group. Possible values: 'horizontal', 'vertical'. size - A string | number value indicating the size of the Splitter group. items - An array of LayoutPanel object definitions. resizeMode - A string indicating the resize mode. Possible values: 'none', 'adjacent', 'end', 'proportional'. resizeStep - A nummeric value that determines the step of resizing. liveResize - Determines if splitter resizing happens while dragging or not.   LayoutPanel - Represents a DockingLayout item (TabsWindow). LayoutPanels can have one or many items (TabItem).  Properties:   id - the ID of the LayoutPanel. autoHide - a boolean property that determines if the LayoutPanel is autoHidden. autoHidePosition - determines the autoHide position of the item if 'autoHide' property is set. Possible values: 'top', 'bottom', 'left', 'right'. dropPosition - Determines the possible positions for the item at which a new item can be dropped as a result of dragging. Possible values: 'top', 'bottom', 'left', 'right', 'center', 'header', 'layout-top', 'layout-bottom', 'layout-left', 'layout-right'. Positions with the 'layout' prefix reflect on LayoutPanelItems that are children of the LayoutPanel. label - the Label of the LayoutPanel window. tabPosition - Determines the position of the Tab labels inside the LayoutPanel. layout - determines the DockingLayout owner of the LayoutPanel. Accepts a string indicating the ID of a DockingLayout on the page or a direct reference to it. headerButtons - an Array of strings that define the buttons in the header section of the DockingLayout item. tabCloseButtons - a boolean property that Enables or disables the close buttons inside each Tab item label inside the DockingLayout item. tabOverflow - same as 'overflow' property of jqxTabs. It defines the overflow mode of the labels of the Tab items inside a DockingLayout item.selectionMode - the same as jqxTabs selection modes. Applies to Tab items inside a DockingLayout item. tabResize - the same as 'resize' property of jqxTabs. Allows resizing the Tab labels inside the DockingLayout item. locked - Locks the size of the item and does not allow resizing. max - sets the maximum size of the item. min - sets the minimum size of the item size - sets the size of the item. items - an array of objects. Each object defines the structure of a LayoutPanelItem.   LayoutPanelItem - Represents a LayoutPanel item (TabItem). Properties:  id - the ID of the Tab item. label - a string representing the label of the Tab item. content - represents the content of the Tab item. Can be anything. selected - determines if the item is selected. By default the first added item to the LayoutPanel is automatically selected. draggable - a boolean property that allows to disable the dragging of the Tab item.    
+   * Determines the structure of the element. This property represents an array of objects that define the hierarchy of the items inside the element and their specific settings. Each object must have a type attribute that defines it's behavior.  Three types of objects are allowed:   LayoutGroup - Represents a group of items (Splitter). Used when the user wants more than one DockingLayout item in a single container.  Properties: orientation - A string value indicating the orientation of the Splitter group. Possible values: 'horizontal', 'vertical'. size - A string | number value indicating the size of the Splitter group. items - An array of LayoutPanel object definitions. resizeMode - A string indicating the resize mode. Possible values: 'none', 'adjacent', 'end', 'proportional'. resizeStep - A nummeric value that determines the step of resizing. liveResize - Determines if splitter resizing happens while dragging or not.   LayoutPanel - Represents a DockingLayout item (TabsWindow). LayoutPanels can have one or many items (TabItem).  Properties:   id - the ID of the LayoutPanel. autoHide - a boolean property that determines if the LayoutPanel is autoHidden. autoHidePosition - determines the autoHide position of the item if 'autoHide' property is set. Possible values: 'top', 'bottom', 'left', 'right'. dropPosition - Determines the possible positions for the item at which a new item can be dropped as a result of dragging. Possible values: 'top', 'bottom', 'left', 'right', 'center', 'header', 'layout-top', 'layout-bottom', 'layout-left', 'layout-right'. Positions with the 'layout' prefix reflect on LayoutPanelItems that are children of the LayoutPanel. label - the Label of the LayoutPanel window. tabPosition - Determines the position of the Tab labels inside the LayoutPanel. layout - determines the DockingLayout owner of the LayoutPanel. Accepts a string indicating the ID of a DockingLayout on the page or a direct reference to it. headerButtons - an Array of strings that define the buttons in the header section of the DockingLayout item. Possible values for the array are empty array like this [] or an array with any of the following items: 'close', 'autoHide'. tabCloseButtons - a boolean property that Enables or disables the close buttons inside each Tab item label inside the DockingLayout item. tabOverflow - same as 'overflow' property of jqxTabs. It defines the overflow mode of the labels of the Tab items inside a DockingLayout item.selectionMode - the same as jqxTabs selection modes. Applies to Tab items inside a DockingLayout item. tabResize - the same as 'resize' property of jqxTabs. Allows resizing the Tab labels inside the DockingLayout item. locked - Locks the size of the item and does not allow resizing. max - sets the maximum size of the item. min - sets the minimum size of the item size - sets the size of the item. items - an array of objects. Each object defines the structure of a LayoutPanelItem.   LayoutPanelItem - Represents a LayoutPanel item (TabItem). Properties:  id - the ID of the Tab item. label - a string representing the label of the Tab item. content - represents the content of the Tab item. Can be anything. selected - determines if the item is selected. By default the first added item to the LayoutPanel is automatically selected. draggable - a boolean property that allows to disable the dragging of the Tab item.    
    * Default value: 
    */
   layout?: any;
@@ -13548,6 +13558,16 @@ export interface GanttChartProperties {
    */
   onTaskRender?: any;
   /**
+   * A function that can be used to completly customize the task element. The function has two arguments: task - the task object.taskElement - the task's html element.
+   * Default value: null
+   */
+  taskFormatFunction?: any;
+  /**
+   * A function that can be used to completly customize the tooltip. The function has three arguments: tooltipObject - the tooltip object.event - the event that triggered the tooltip.content - the tooltip's label element.
+   * Default value: null
+   */
+  tooltipFormatFunction?: any;
+  /**
    * A function that can be used to completly customize the popup Window that is used to interact width tasks by changing their properties. The function as three arguments: target - the target popup Window that is about to be opened.type - the type of the window. The type determines the purpose of the window. Three possible values: 'task' (task editing), 'confirm' ( confirmation window), 'connection' (used when deleting a connection between tasks). item - the connection/task object that is the target of the window.
    * Default value: null
    */
@@ -14189,6 +14209,12 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    * @param {string} content?. Allows to set a custom content for the Tooltip.
    */
   showTooltip(target: HTMLElement, content?: string): void;
+  /**
+   * Scrolls to a date.
+   * @param {Date} date. The date to scroll to.
+   */
+  scrollTo(date: Date): void;
+   scrollTo(options?: ScrollToOptions): void;
   /**
    * Saves the current settings of the element to LocalStorage. <strong>Requires an id to be set to the element.</strong>
    * @param {any[]} state?. An Array containing a valid structure of Gantt Chart tasks.
@@ -15137,6 +15163,11 @@ export interface GridProperties {
    */
   columnGroups?: GridColumnGroup[];
   /**
+   * 
+   * Default value: false
+   */
+  dropDownMode?: boolean;
+  /**
    * Sets or gets details about conditional formatting to be applied to the Grid's cells.
    * Default value: null
    */
@@ -15236,6 +15267,11 @@ export interface GridProperties {
    * Default value: null
    */
   onCellBeginEdit?: {(id: string, dataField: string, value: any): boolean};
+  /**
+   * Callback function, which is called when a cell edit ends. It is used along with the 'editing.readOnlyEdit' property when it is set to true and the purpose of this function is to update the Grid cell after editing.
+   * Default value: null
+   */
+  onCellEditRequest?: {(id: string, dataField: string, value: any, oldValue: any, data: any): void};
   /**
    * Callback function() called before the grid has been initialized and the Grid's Virtual DOM is not created.
    * Default value: null
@@ -15930,8 +15966,10 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Exports the Grid data to .XLSX, .PDF, .JSON, .XML, .CSV, .TSV, .HTML, .JPEG or .PNG. The method uses the options of the <em>dataExport</em> property.
    * @param {string} Dataformat. 'xlsx', 'pdf', 'json', 'xml', 'csv', 'tsv', 'html', 'png', 'jpeg'.
+   * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer to the Smart Export Documentation.
+   * @param {any} dataCallback?. A callback that allows to change the exported data.
    */
-  exportData(Dataformat: string): void;
+  exportData(Dataformat: string, callback?: any, dataCallback?: any): void;
   /**
    * Finds entries by using a query and returns an array of row ids. Example: const rows = grid.find('nancy'); returns all rows that have 'nancy' value. Example 2: const rows = grid.find('nancy, davolio'); returns all rows that have 'nancy' and 'davolio' values in the same row. Example 3: const rows = grid.find(5, 'quantity', '>'); returns all rows where the value of the 'quantity' field is > 5. 
    * @param {string} query. Search query
@@ -16188,6 +16226,14 @@ export interface Grid extends BaseElement, GridProperties {
    */
   openContextMenu(left: number, top: number): void;
   /**
+   * Opens the Grid when the 'dropDownMode' property is true.
+   */
+  openDropDown(): void;
+  /**
+   * Closes the Grid when the 'dropDownMode' property is true.
+   */
+  closeDropDown(): void;
+  /**
    * Prints the Grid data. The method uses the options of the <em>dataExport</em> property. When printed, the Grid will not display any scrollbars so all rows and columns will be displayed. The grid will auto resize width and height to fit all contents. To customize the printing options, you can use  the <em>dataExport</em> property.
    */
   print(): void;
@@ -16352,6 +16398,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   setCellStyle(rowId: string | number, dataField: string, rowStyle: {background?: string, color?: string, fontSize?: string, fontFamily?: string, textDecoration?: string, fontStyle?: string, fontWeight?: string}): void;
   /**
+   * Sets the label of the Grid when the 'dropDownMode' property is true.
+   * @param {string} label. The label to be displayed in the dropdown button.
+   */
+  setDropDownLabel(label: string): void;
+  /**
    * Sets the position of the vertical scrollbar. You can use this method in combination with the getVerticalScrollValue and getVerticalScrollMax.
    * @param {number} value. The new scroll position
    */
@@ -16366,6 +16417,13 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {string | number} rowId. row bound id
    */
   showDetail(rowId: string | number): void;
+  /**
+   * Shows an overlay message below a cell. This method can be used for onboarding tips or in scenarios when you want to display custom messages to the user.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @param {string} value. The message to be shown below the cell
+   */
+  showCellMessage(rowId: string | number, dataField: string, value: string): void;
   /**
    * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string | number} rowId. row bound id
@@ -16682,6 +16740,11 @@ export interface GridBehavior {
    */
   allowColumnFreeze?: boolean;
   /**
+   * Determines whether the scrolling with mouse wheel is enabled.
+   * Default value: true
+   */
+  allowMouseWheel?: boolean;
+  /**
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
@@ -16748,10 +16811,10 @@ export interface GridColumn {
    */
   allowSelect?: boolean | null;
   /**
-   * Sets or gets whether the column can be edited.
+   * Sets or gets whether the column can be edited. The property can be 'boolean' i.e accept true and false values. To dynamically determine which cells are editable, a callback function can be supplied to the 'allowEdit' property. For example: allowEdit: (id, dataField, value, data) => { return value === 'Cappuccino'; }
    * Default value: true
    */
-  allowEdit?: boolean;
+  allowEdit?: any;
   /**
    * Sets or gets whether the column can be sorted.
    * Default value: true
@@ -16842,6 +16905,11 @@ export interface GridColumn {
    * Default value: ""
    */
   description?: string;
+  /**
+   * Sets or gets custom data object related to the column.
+   * Default value: null
+   */
+  dataSet?: any;
   /**
    * Gets the HTML Element. The property returns null when the Column is not in the View.
    * Default value: null
@@ -16973,10 +17041,15 @@ export interface GridColumn {
    */
   width?: string | number;
   /**
-   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'radioButton', 'url', 'email', 'dropdownlist', 'list', 'progress', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
+   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'url', 'email', 'dropdownlist', 'list', 'progress', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images', 'checklist', 'attachments', 'sparklines', 'richText', 'color', 'rating', 'duration', 'startDate', 'dueDates'. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
    * Default value: 
    */
   template?: any;
+  /**
+   * Sets or gets additional settings related to the column's template. For example, when the template is 'sparklines', the templateSettings could be an object which defines has 'type' - 'bar', 'column', 'line' or 'pie'. If you want to apply a custom color, you can add the 'colorFunction: function(value) { } and return a custom color as a 'hex' string or a 'tooltipFormatFunction: function(value) {}' which returns a formatted tooltip string. Additional properties are 'min', 'max', 'gap' and 'strokeWidth'.
+   * Default value: null
+   */
+  templateSettings?: any;
   /**
    * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
    * Default value: null
@@ -17011,6 +17084,11 @@ export interface GridContextMenu {
    * Default value: false
    */
   enabled?: boolean;
+  /**
+   * Sets an array of custom context menu items to be displayed in the context menu.
+   * Default value: null
+   */
+  customContextMenuItems?: any[];
   /**
    * Sets the data sources to the context menu.
    * Default value: [object Object]
@@ -17546,6 +17624,11 @@ export interface GridEditing {
    */
   action?: GridEditingAction | string;
   /**
+   * Read Only Edit is a mode in the grid whereby Cell Editing will not update the data inside the grid. Instead the grid invokes the 'onCellEditRequest' function allowing the application to process the update request.
+   * Default value: false
+   */
+  readOnlyEdit?: boolean;
+  /**
    * Describes command keys.
    * Default value: [object Object]
    */
@@ -18053,7 +18136,7 @@ export interface GridHeader {
    */
   onInit?: {(element: HTMLElement): void};
   /**
-   * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
+   * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel. 'colors' displays a button with colors options for formatting.
    * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
    */
   buttons?: string[];
@@ -18126,6 +18209,21 @@ export interface GridLayout {
    * Default value: null
    */
   cardsPerRow?: number;
+  /**
+   * Sets whether cards are vertically oriented. In this layout mode, the column label is displayed above the column value
+   * Default value: false
+   */
+  cardVertical?: boolean;
+  /**
+   * Sets the width of the Grid when displayed in a drop-down mode.
+   * Default value: 700
+   */
+  dropDownWidth?: number;
+  /**
+   * Sets the height of the Grid when displayed in a drop-down mode.
+   * Default value: 500
+   */
+  dropDownHeight?: number;
   /**
    * Sets the minimum height of the Grid rows.
    * Default value: 30
@@ -27649,9 +27747,10 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   /**
    * Exports the events from the Scheduler.
    * @param {string} dataFormat. Determines the format of the exported file. The following values are available: <ul><li><b>pdf</b></li><li><b>xlsx</b></li><li><b>html</b></li><li><b>iCal</b></li></ul>
-   * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer ro the Smart Export Documentation.
+   * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer to the Smart Export Documentation.
+   * @param {any} dataCallback?. A callback that allows to change the exported data.
    */
-  exportData(dataFormat: string, callback?: any): void;
+  exportData(dataFormat: string, callback?: any, dataCallback?: any): void;
   /**
    * Returns a JSON representation of the events inside the Scheduler.
    * @returns {any}
@@ -29761,7 +29860,7 @@ export interface TableProperties {
    * Sets or gets the page size (when paging is enabled).
    * Default value: 10
    */
-  pageSize?: TablePageSize | string;
+  pageSize?: number;
   /**
    * Sets or gets the current (zero-based) page index (when paging is enabled).
    * Default value: 0
@@ -29782,6 +29881,11 @@ export interface TableProperties {
    * Default value: "null"
    */
   rowDetailTemplate?: string;
+  /**
+   * Sets or gets a callback function with 3 arguments - column, filterConditions, filterInputTemplateString. The function should return the new filter input.
+   * Default value: null
+   */
+  onFilterRowInput?: any;
   /**
    * Sets or gets an array of the Table's selected row's ids.
    * Default value: 
@@ -30499,8 +30603,6 @@ export declare type TableDataSourceSettingsDataSourceType = 'array' | 'json' | '
 export declare type TableEditMode = 'cell' | 'row';
 /**Sets or gets the behavior when loading column settings either via autoLoadState or loadState. Applicable only when stateSettings contains 'columns'. */
 export declare type TableLoadColumnStateBehavior = 'implementationOnly' | 'intersection' | 'stateOnly';
-/**Sets or gets the page size (when paging is enabled). */
-export declare type TablePageSize = '10' | '25' | '50';
 /**Sets or gets the selection mode. Only applicable when selection is enabled. */
 export declare type TableSelectionMode = 'one' | 'many' | 'extended';
 /**Determines the sorting mode of the Table. */
@@ -31180,6 +31282,11 @@ export interface TextAreaProperties {
    * Default value: false
    */
   rightToLeft?: boolean;
+  /**
+   * Enables or disables the rich text formatting.
+   * Default value: false
+   */
+  richText?: boolean;
   /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
@@ -32709,6 +32816,12 @@ export interface Tree extends BaseElement, TreeProperties {
    */
   onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when selection in jqx-tree is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value)
+   *  value - The filter input value.
+   */
+  onFilterChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Tree has been scrolled to the bottom.
 	* @param event. The custom event.    */
   onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
@@ -32784,6 +32897,11 @@ export interface Tree extends BaseElement, TreeProperties {
    * @returns {HTMLElement}
    */
   getItem(id: string): HTMLElement;
+  /**
+   * Gets the applied filter.
+   * @returns {string}
+   */
+  getFilter(): string;
   /**
    * Gets the selected values. If value is not defined, returns the selected labels.
    * @returns {string[]}

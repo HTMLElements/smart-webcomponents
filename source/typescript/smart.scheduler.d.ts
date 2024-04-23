@@ -853,9 +853,10 @@ export interface Scheduler extends BaseElement, SchedulerProperties {
   /**
    * Exports the events from the Scheduler.
    * @param {string} dataFormat. Determines the format of the exported file. The following values are available: <ul><li><b>pdf</b></li><li><b>xlsx</b></li><li><b>html</b></li><li><b>iCal</b></li></ul>
-   * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer ro the Smart Export Documentation.
+   * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer to the Smart Export Documentation.
+   * @param {any} dataCallback?. A callback that allows to change the exported data.
    */
-  exportData(dataFormat: string, callback?: any): void;
+  exportData(dataFormat: string, callback?: any, dataCallback?: any): void;
   /**
    * Returns a JSON representation of the events inside the Scheduler.
    * @returns {any}

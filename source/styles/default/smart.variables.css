@@ -534,6 +534,13 @@
     /* Code of Home icon */
     --smart-icon-history: '\F1DA';
     /* Code of History icon */
+    --smart-icon-kanban-alt: '\e8a1';
+    /* Code of Kanban icon */
+    --smart-icon-card-alt: '\e8a2';
+    /* Code of Card icon */
+    --smart-icon-grid-alt: '\e8a3'; 
+    /* Code of Grid icon */
+
     /* Accordion */
     --smart-accordion-animation-duration: 225ms;
     /* smartAccordion animation duration */
@@ -1712,7 +1719,7 @@
     /* Sets the min-height of the cells inside the Timeline */
     --smart-scheduler-header-height: 50px;
     /* Sets the height of the header */
-    --smart-scheduler-header-today-button-size: 70px;
+    --smart-scheduler-header-today-button-size: auto;
     /* Scheduler header Today Button width */
     --smart-scheduler-header-date-button-max-size: auto;
     /* Sets the size of the Header Date Selection Button*/

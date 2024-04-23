@@ -123,7 +123,7 @@
   -moz-user-select: none;
 }
 
-.smart-hidden {
+.smart-hidden, .smart-collapse {
   display: none !important;
 }
 
@@ -390,6 +390,10 @@ smart-tree[disabled] .smart-loader:after {
   font-size: 9px;
 }
 
+.smart-small {
+  font-size: 12px;
+}
+
 .smart-caps {
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -438,4 +442,4 @@ smart-tree[disabled] .smart-loader:after {
 }
 .smart-element ::-webkit-scrollbar-thumb:hover {
   background-color: var(--smart-scroll-bar-thumb-background-hover);
-}/*# sourceMappingURL=smart.misc.css.map */
+}

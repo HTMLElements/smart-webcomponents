@@ -513,7 +513,7 @@
   }
 
   .smart-kanban-task-placeholder {
-    transition: margin 0.2s ease-out;
+    transition: margin 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .drop-target {
@@ -582,8 +582,8 @@
     }
 
     .smart-kanban-add-new-button {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: var(--smart-primary);
       color: var(--smart-primary-color);
@@ -592,15 +592,14 @@
       justify-content: center;
       align-content: center;
       align-items: center;
-      font-size: 24px;
-      box-shadow: var(--smart-elevation-6);
+      font-size: 14px;
       cursor: pointer;
-      transition: transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
+      transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       transform: scale(1);
       transition-delay: 0s;
 
       &:hover {
-        box-shadow: var(--smart-elevation-8);
+        box-shadow: var(--smart-elevation-4);
         transform: scale(1.2);
       }
 
@@ -622,7 +621,7 @@
 
         >.smart-kanban-column-header-settings-button {
           display: block;
-          transition: transform 0.2s ease-in-out;
+          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           margin-top: -1px;
 
           &:hover,
@@ -660,7 +659,7 @@
 
         >.smart-arrow {
           display: block;
-          transition: transform 0.2s ease-in-out;
+          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
           &:hover {
             color: var(--smart-primary);
@@ -1721,7 +1720,7 @@
     .smart-kanban-comments,
     .smart-kanban-new-comment,
     .smart-kanban-new-comment textarea {
-      transition: height 0.2s ease-in;
+      transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 

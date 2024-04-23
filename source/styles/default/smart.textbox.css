@@ -1047,6 +1047,10 @@ smart-multi-combo-input[focus] {
 .smart-multi-combo-input .smart-drop-down-button .arrow {
   min-height: var(--smart-editor-height);
 }
+.smart-multi-combo-input .smart-tokens-container {
+  grid-row-gap: 3px;
+  padding: 3px;
+}
 .smart-multi-combo-input .smart-token {
   position: relative;
   white-space: nowrap;
@@ -3424,4 +3428,4 @@ smart-phone-input.outlined .smart-container::after {
       transition-duration: 0.1s;
     }
   }
-}/*# sourceMappingURL=smart.textbox.css.map */
+}

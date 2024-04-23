@@ -1,6 +1,6 @@
 /*!
  * 
- * /* Smart UI v16.0.0 (2023-August)
+ * /* Smart UI v18.0.0 (2024-February)
  * Copyright (c) 2011-2023 jQWidgets.
  * License: https://htmlelements.com/license/ * /
  *

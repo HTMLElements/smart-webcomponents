@@ -49,6 +49,11 @@ export interface GridProperties {
    */
   columnGroups?: GridColumnGroup[];
   /**
+   * 
+   * Default value: false
+   */
+  dropDownMode?: boolean;
+  /**
    * Sets or gets details about conditional formatting to be applied to the Grid's cells.
    * Default value: null
    */
@@ -148,6 +153,11 @@ export interface GridProperties {
    * Default value: null
    */
   onCellBeginEdit?: {(id: string, dataField: string, value: any): boolean};
+  /**
+   * Callback function, which is called when a cell edit ends. It is used along with the 'editing.readOnlyEdit' property when it is set to true and the purpose of this function is to update the Grid cell after editing.
+   * Default value: null
+   */
+  onCellEditRequest?: {(id: string, dataField: string, value: any, oldValue: any, data: any): void};
   /**
    * Callback function() called before the grid has been initialized and the Grid's Virtual DOM is not created.
    * Default value: null
@@ -842,8 +852,10 @@ export interface Grid extends BaseElement, GridProperties {
   /**
    * Exports the Grid data to .XLSX, .PDF, .JSON, .XML, .CSV, .TSV, .HTML, .JPEG or .PNG. The method uses the options of the <em>dataExport</em> property.
    * @param {string} Dataformat. 'xlsx', 'pdf', 'json', 'xml', 'csv', 'tsv', 'html', 'png', 'jpeg'.
+   * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer to the Smart Export Documentation.
+   * @param {any} dataCallback?. A callback that allows to change the exported data.
    */
-  exportData(Dataformat: string): void;
+  exportData(Dataformat: string, callback?: any, dataCallback?: any): void;
   /**
    * Finds entries by using a query and returns an array of row ids. Example: const rows = grid.find('nancy'); returns all rows that have 'nancy' value. Example 2: const rows = grid.find('nancy, davolio'); returns all rows that have 'nancy' and 'davolio' values in the same row. Example 3: const rows = grid.find(5, 'quantity', '>'); returns all rows where the value of the 'quantity' field is > 5. 
    * @param {string} query. Search query
@@ -1100,6 +1112,14 @@ export interface Grid extends BaseElement, GridProperties {
    */
   openContextMenu(left: number, top: number): void;
   /**
+   * Opens the Grid when the 'dropDownMode' property is true.
+   */
+  openDropDown(): void;
+  /**
+   * Closes the Grid when the 'dropDownMode' property is true.
+   */
+  closeDropDown(): void;
+  /**
    * Prints the Grid data. The method uses the options of the <em>dataExport</em> property. When printed, the Grid will not display any scrollbars so all rows and columns will be displayed. The grid will auto resize width and height to fit all contents. To customize the printing options, you can use  the <em>dataExport</em> property.
    */
   print(): void;
@@ -1264,6 +1284,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   setCellStyle(rowId: string | number, dataField: string, rowStyle: {background?: string, color?: string, fontSize?: string, fontFamily?: string, textDecoration?: string, fontStyle?: string, fontWeight?: string}): void;
   /**
+   * Sets the label of the Grid when the 'dropDownMode' property is true.
+   * @param {string} label. The label to be displayed in the dropdown button.
+   */
+  setDropDownLabel(label: string): void;
+  /**
    * Sets the position of the vertical scrollbar. You can use this method in combination with the getVerticalScrollValue and getVerticalScrollMax.
    * @param {number} value. The new scroll position
    */
@@ -1278,6 +1303,13 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {string | number} rowId. row bound id
    */
   showDetail(rowId: string | number): void;
+  /**
+   * Shows an overlay message below a cell. This method can be used for onboarding tips or in scenarios when you want to display custom messages to the user.
+   * @param {string | number} rowId. row bound id
+   * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
+   * @param {string} value. The message to be shown below the cell
+   */
+  showCellMessage(rowId: string | number, dataField: string, value: string): void;
   /**
    * Updates a row. When batch editing is enabled, the row is not saved until the batch edit is saved.
    * @param {string | number} rowId. row bound id
@@ -1594,6 +1626,11 @@ export interface GridBehavior {
    */
   allowColumnFreeze?: boolean;
   /**
+   * Determines whether the scrolling with mouse wheel is enabled.
+   * Default value: true
+   */
+  allowMouseWheel?: boolean;
+  /**
    * Sets the column resize mode. split resize mode 'grows' or 'shrinks' the resize element's size and 'shrinks' or 'grows' the next sibling element's size. growAndShrink resize mode 'grows' or 'shrinks' the resize element's size
    * Default value: none
    */
@@ -1660,10 +1697,10 @@ export interface GridColumn {
    */
   allowSelect?: boolean | null;
   /**
-   * Sets or gets whether the column can be edited.
+   * Sets or gets whether the column can be edited. The property can be 'boolean' i.e accept true and false values. To dynamically determine which cells are editable, a callback function can be supplied to the 'allowEdit' property. For example: allowEdit: (id, dataField, value, data) => { return value === 'Cappuccino'; }
    * Default value: true
    */
-  allowEdit?: boolean;
+  allowEdit?: any;
   /**
    * Sets or gets whether the column can be sorted.
    * Default value: true
@@ -1754,6 +1791,11 @@ export interface GridColumn {
    * Default value: ""
    */
   description?: string;
+  /**
+   * Sets or gets custom data object related to the column.
+   * Default value: null
+   */
+  dataSet?: any;
   /**
    * Gets the HTML Element. The property returns null when the Column is not in the View.
    * Default value: null
@@ -1885,10 +1927,15 @@ export interface GridColumn {
    */
   width?: string | number;
   /**
-   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'radioButton', 'url', 'email', 'dropdownlist', 'list', 'progress', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
+   * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'url', 'email', 'dropdownlist', 'list', 'progress', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images', 'checklist', 'attachments', 'sparklines', 'richText', 'color', 'rating', 'duration', 'startDate', 'dueDates'. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
    * Default value: 
    */
   template?: any;
+  /**
+   * Sets or gets additional settings related to the column's template. For example, when the template is 'sparklines', the templateSettings could be an object which defines has 'type' - 'bar', 'column', 'line' or 'pie'. If you want to apply a custom color, you can add the 'colorFunction: function(value) { } and return a custom color as a 'hex' string or a 'tooltipFormatFunction: function(value) {}' which returns a formatted tooltip string. Additional properties are 'min', 'max', 'gap' and 'strokeWidth'.
+   * Default value: null
+   */
+  templateSettings?: any;
   /**
    * Sets or gets the column's validation rules. The expected value is an Array of Objects. Each object should have a 'type' property that can be set to 'required', 'min', 'max', 'minLength', 'maxLength', 'email', 'null', 'requiredTrue', 'minData', 'maxDate', 'pattern'. The 'value' property should be set, too. For validation rule types 'required', 'requiredTrue' and 'null' you can skip the 'value' property. Optional property is 'message', which determines the error message.
    * Default value: null
@@ -1923,6 +1970,11 @@ export interface GridContextMenu {
    * Default value: false
    */
   enabled?: boolean;
+  /**
+   * Sets an array of custom context menu items to be displayed in the context menu.
+   * Default value: null
+   */
+  customContextMenuItems?: any[];
   /**
    * Sets the data sources to the context menu.
    * Default value: [object Object]
@@ -2458,6 +2510,11 @@ export interface GridEditing {
    */
   action?: GridEditingAction | string;
   /**
+   * Read Only Edit is a mode in the grid whereby Cell Editing will not update the data inside the grid. Instead the grid invokes the 'onCellEditRequest' function allowing the application to process the update request.
+   * Default value: false
+   */
+  readOnlyEdit?: boolean;
+  /**
    * Describes command keys.
    * Default value: [object Object]
    */
@@ -2965,7 +3022,7 @@ export interface GridHeader {
    */
   onInit?: {(element: HTMLElement): void};
   /**
-   * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel.
+   * Determines the buttons displayed in the Grid header. 'columns' displays a button opening the columns chooser panel. 'filter'  displays a button opening the filtering panel.  'group' displays a button opening the grouping panel. 'sort'  displays a button opening the sorting panel. 'format'  displays a button opening the conditional formatting panel. 'search' displays a button opening the search panel. 'colors' displays a button with colors options for formatting.
    * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
    */
   buttons?: string[];
@@ -3038,6 +3095,21 @@ export interface GridLayout {
    * Default value: null
    */
   cardsPerRow?: number;
+  /**
+   * Sets whether cards are vertically oriented. In this layout mode, the column label is displayed above the column value
+   * Default value: false
+   */
+  cardVertical?: boolean;
+  /**
+   * Sets the width of the Grid when displayed in a drop-down mode.
+   * Default value: 700
+   */
+  dropDownWidth?: number;
+  /**
+   * Sets the height of the Grid when displayed in a drop-down mode.
+   * Default value: 500
+   */
+  dropDownHeight?: number;
   /**
    * Sets the minimum height of the Grid rows.
    * Default value: 30

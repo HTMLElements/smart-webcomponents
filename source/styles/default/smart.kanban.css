@@ -386,7 +386,7 @@
   min-width: 0;
 }
 .smart-kanban .smart-kanban-task-placeholder {
-  transition: margin 0.2s ease-out;
+  transition: margin 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .smart-kanban .drop-target:after {
   content: "";
@@ -425,8 +425,8 @@
   display: block;
 }
 .smart-kanban[add-new-button] .smart-kanban-add-new-button {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: var(--smart-primary);
   color: var(--smart-primary-color);
@@ -435,15 +435,14 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  font-size: 24px;
-  box-shadow: var(--smart-elevation-6);
+  font-size: 14px;
   cursor: pointer;
-  transition: transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(1);
   transition-delay: 0s;
 }
 .smart-kanban[add-new-button] .smart-kanban-add-new-button:hover {
-  box-shadow: var(--smart-elevation-8);
+  box-shadow: var(--smart-elevation-4);
   transform: scale(1.2);
 }
 .smart-kanban[add-new-button] .smart-kanban-add-new-button:after {
@@ -456,7 +455,7 @@
 }
 .smart-kanban[column-actions] .smart-kanban-column:not(.collapsed) > .smart-kanban-column-header[settings] > .smart-kanban-column-header-settings-button {
   display: block;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: -1px;
 }
 .smart-kanban[column-actions] .smart-kanban-column:not(.collapsed) > .smart-kanban-column-header[settings] > .smart-kanban-column-header-settings-button:hover, .smart-kanban[column-actions] .smart-kanban-column:not(.collapsed) > .smart-kanban-column-header[settings] > .smart-kanban-column-header-settings-button[aria-expanded] {
@@ -479,7 +478,7 @@
 }
 .smart-kanban[collapsible] .smart-kanban-column[collapsible] > .smart-kanban-column-header > .smart-arrow {
   display: block;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .smart-kanban[collapsible] .smart-kanban-column[collapsible] > .smart-kanban-column-header > .smart-arrow:hover {
   color: var(--smart-primary);
@@ -1370,7 +1369,7 @@
 .smart-kanban-list.dialog.comments .smart-kanban-comments,
 .smart-kanban-list.dialog.comments .smart-kanban-new-comment,
 .smart-kanban-list.dialog.comments .smart-kanban-new-comment textarea {
-  transition: height 0.2s ease-in;
+  transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .smart-kanban-list.dialog:focus {
   outline: 1px solid var(--smart-primary);
@@ -1604,4 +1603,4 @@
 [right-to-left] .smart-kanban-task-progress {
   left: unset;
   right: 0;
-}/*# sourceMappingURL=smart.kanban.css.map */
+}

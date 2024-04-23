@@ -74,6 +74,11 @@ smart-multi-combo-input {
     }
   }
   
+  .smart-tokens-container {
+    grid-row-gap: 3px;
+    padding: 3px;
+  }
+  
   .smart-token {
     position: relative;
     white-space: nowrap;

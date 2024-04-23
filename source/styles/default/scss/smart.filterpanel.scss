@@ -171,6 +171,10 @@ smart-filter-panel {
         content: var(--smart-icon-greater-than);
       }
 
+      &.smart-icon-calendar:after {
+        content: var(--smart-icon-calendar);
+      }
+
       &.smart-icon-greater-than-equal:after {
         content: var(--smart-icon-greater-than-equal);
       }

@@ -327,6 +327,12 @@ export interface Tree extends BaseElement, TreeProperties {
    */
   onExpanding?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when selection in jqx-tree is changed.
+	* @param event. The custom event. Custom data event was created with: ev.detail(value)
+   *  value - The filter input value.
+   */
+  onFilterChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * This event is triggered when the Tree has been scrolled to the bottom.
 	* @param event. The custom event.    */
   onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
@@ -402,6 +408,11 @@ export interface Tree extends BaseElement, TreeProperties {
    * @returns {HTMLElement}
    */
   getItem(id: string): HTMLElement;
+  /**
+   * Gets the applied filter.
+   * @returns {string}
+   */
+  getFilter(): string;
   /**
    * Gets the selected values. If value is not defined, returns the selected labels.
    * @returns {string[]}

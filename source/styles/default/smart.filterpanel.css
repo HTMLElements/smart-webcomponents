@@ -118,6 +118,9 @@ smart-filter-panel.smart-element {
 .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-greater-than:after {
   content: var(--smart-icon-greater-than);
 }
+.smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-calendar:after {
+  content: var(--smart-icon-calendar);
+}
 .smart-filter-panel-list-drop-down-menu.smart-input-drop-down-menu ul li span.smart-icon.smart-icon-greater-than-equal:after {
   content: var(--smart-icon-greater-than-equal);
 }

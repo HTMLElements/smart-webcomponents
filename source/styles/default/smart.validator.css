@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Error and Success styles */
 .smart-validation-error:not(smart-check-box) > div.smart-container:after,
 .smart-validation-success:not(smart-check-box) > div.smart-container:after {
@@ -109,6 +110,7 @@ input.smart-validation-error {
 
 .smart-error-holder {
   position: absolute;
+  font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
   background-color: var(--smart-error);
   color: var(--smart-error-color);

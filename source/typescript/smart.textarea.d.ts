@@ -119,6 +119,11 @@ export interface TextAreaProperties {
    */
   rightToLeft?: boolean;
   /**
+   * Enables or disables the rich text formatting.
+   * Default value: false
+   */
+  richText?: boolean;
+  /**
    * Determines whether the items are sorted alphabetically or not
    * Default value: false
    */

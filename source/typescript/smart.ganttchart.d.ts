@@ -252,6 +252,16 @@ export interface GanttChartProperties {
    */
   onTaskRender?: any;
   /**
+   * A function that can be used to completly customize the task element. The function has two arguments: task - the task object.taskElement - the task's html element.
+   * Default value: null
+   */
+  taskFormatFunction?: any;
+  /**
+   * A function that can be used to completly customize the tooltip. The function has three arguments: tooltipObject - the tooltip object.event - the event that triggered the tooltip.content - the tooltip's label element.
+   * Default value: null
+   */
+  tooltipFormatFunction?: any;
+  /**
    * A function that can be used to completly customize the popup Window that is used to interact width tasks by changing their properties. The function as three arguments: target - the target popup Window that is about to be opened.type - the type of the window. The type determines the purpose of the window. Three possible values: 'task' (task editing), 'confirm' ( confirmation window), 'connection' (used when deleting a connection between tasks). item - the connection/task object that is the target of the window.
    * Default value: null
    */
@@ -893,6 +903,12 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    * @param {string} content?. Allows to set a custom content for the Tooltip.
    */
   showTooltip(target: HTMLElement, content?: string): void;
+  /**
+   * Scrolls to a date.
+   * @param {Date} date. The date to scroll to.
+   */
+  scrollTo(date: Date): void;
+   scrollTo(options?: ScrollToOptions): void;
   /**
    * Saves the current settings of the element to LocalStorage. <strong>Requires an id to be set to the element.</strong>
    * @param {any[]} state?. An Array containing a valid structure of Gantt Chart tasks.
