@@ -67,6 +67,21 @@ export interface TreeProperties {
    */
   dragOffset?: number[];
   /**
+   * 
+   * Default value: false
+   */
+  dropDownMode?: boolean;
+  /**
+   * Sets the width of the Tree when displayed in a drop-down mode.
+   * Default value: 300
+   */
+  dropDownWidth?: number;
+  /**
+   * Sets the height of the Tree when displayed in a drop-down mode.
+   * Default value: 400
+   */
+  dropDownHeight?: number;
+  /**
    * Enables or disables item's editting. An edit operation can be initiated by double-clicking a tree item or pressing F2 while an item is selected.
    * Default value: false
    */
@@ -121,6 +136,11 @@ export interface TreeProperties {
    * Default value: center
    */
   loadingIndicatorPosition?: VerticalAlignment | string;
+  /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
   /**
    * Sets or gets the locale. Used in conjunction with the property messages.
    * Default value: "en"
@@ -333,6 +353,14 @@ export interface Tree extends BaseElement, TreeProperties {
    */
   onFilterChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the dropdown is opened.
+	* @param event. The custom event.    */
+  onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the dropdown is closed.
+	* @param event. The custom event.    */
+  onClose: ((this: any, ev: Event) => any) | null;
+  /**
    * This event is triggered when the Tree has been scrolled to the bottom.
 	* @param event. The custom event.    */
   onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
@@ -381,6 +409,14 @@ export interface Tree extends BaseElement, TreeProperties {
    * @param {boolean} animation?. If set to false, disables collapse animation even if animation is enabled for the element.
    */
   collapseItem(item: HTMLElement | string, animation?: boolean): void;
+  /**
+   * Closes the dropdown when the Tree is in dropdown mode.
+   */
+  closeDropDown(): void;
+  /**
+   * Opens the dropdown when the Tree is in dropdown mode.
+   */
+  openDropDown(): void;
   /**
    * Makes sure an item is visible by scrolling to it.
    * @param {HTMLElement | string} item. The id or numeric path of an item

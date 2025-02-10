@@ -62,6 +62,11 @@ export interface SliderProperties {
    */
   labelsVisibility?: LabelsVisibility | string;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    * Sets or gets the locale. Used in conjunction with the property messages. 
    * Default value: "en"
    */

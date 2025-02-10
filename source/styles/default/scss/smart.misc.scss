@@ -425,6 +425,16 @@ smart-tree {
 
 .smart-flex {
   display: flex;
+  
+  &.middle {
+    align-content: center;
+    justify-content: center;
+  }
+
+  &.center {
+    align-items: center;
+    justify-items: center;
+  }
 }
 
 .smart-flex-wrap {
@@ -438,6 +448,7 @@ smart-tree {
 }
 
 .smart-element {
+  direction: ltr;
   ::-webkit-scrollbar {
     width: 18px;
   }

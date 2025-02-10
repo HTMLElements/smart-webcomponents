@@ -70,8 +70,8 @@ smart-group-panel {
   color: var(--smart-background-color);
   font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
-  min-height: 350px;
-  height: 350px;
+  min-height: 400px;
+  height: 400px;
   max-height: 450px;
   width: 250px;
   padding: 0;
@@ -879,8 +879,8 @@ smart-group-panel {
   }
 
   &.hidden {
-    background-color: var(--smart-info);
-    color: var(--smart-info-color);
+    background-color: #D0F0FD;
+    color: #039BE5;
   }
 }
 
@@ -908,8 +908,8 @@ smart-group-panel {
   }
 
   &.filtered {
-    background-color: var(--smart-success);
-    color: var(--smart-success-color);
+    background-color: #D1F7C4;
+    color: #0B8043;
   }
 }
 
@@ -921,11 +921,25 @@ smart-group-panel {
   }
 
   &.sorted {
-    background-color: #FDE1A8;
-    color: var(--smart-surface-color);
+    background-color: #FFEBB6;
+    color: #B88707;
   }
 }
 
+.smart-data-view-label-button {
+  grid-area: group;
+
+  &:after {
+    content: var(--smart-icon-font);
+  }
+
+  &.grouped {
+    background-color: #FFDAF6;
+    color: #FF36C2;
+  }
+}
+
+.smart-data-view-resource-button,
 .smart-data-view-group-button {
   grid-area: group;
 
@@ -934,8 +948,19 @@ smart-group-panel {
   }
 
   &.grouped {
-    background-color: var(--smart-secondary);
-    color: var(--smart-secondary-color);
+    background-color: #D0F0FD;
+    color: #039BE5;
+  }
+
+  &.scheduler {
+    &.grouped {
+      background-color: #FFCFC9;
+      color: #D50000;
+    }
+
+    &:after {
+      content: var(--smart-icon-scheduler);
+    }
   }
 }
 
@@ -960,10 +985,11 @@ smart-group-panel {
   }
 
   &.formatted {
-    background-color: var(--smart-primary);
-    color: var(--smart-primary-color);
+    background-color:#ECE1FD;
+    color: #8C47FF;
   }
 }
+
 
 .smart-data-view-download-button {
   grid-area: download;

@@ -32,6 +32,11 @@ export interface PhoneInputProperties {
    */
   messages?: any;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
    * Default value: ""
    */

@@ -207,6 +207,11 @@ export interface GanttChartProperties {
    */
   keyboardNavigation?: boolean;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    *  Determines the language of the GanttChart. 
    * Default value: "en"
    */
@@ -907,8 +912,7 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    * Scrolls to a date.
    * @param {Date} date. The date to scroll to.
    */
-  scrollTo(date: Date): void;
-   scrollTo(options?: ScrollToOptions): void;
+  scrollToDate(date: Date): void;
   /**
    * Saves the current settings of the element to LocalStorage. <strong>Requires an id to be set to the element.</strong>
    * @param {any[]} state?. An Array containing a valid structure of Gantt Chart tasks.

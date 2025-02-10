@@ -15,7 +15,7 @@ smart-drop-down-button.smart-element {
 smart-drop-down-button .smart-ripple {
   background: var(--smart-primary-color);
 }
-smart-drop-down-button .smart-buttons-container > .smart-action-button:empty {
+smart-drop-down-button > .smart-buttons-container > .smart-action-button:empty {
   padding: 0;
   width: 0;
 }

@@ -3,7 +3,8 @@
 /* smart-button, smart-repeat-button, smart-toggle-button */
 smart-button,
 smart-toggle-button,
-smart-repeat-button {
+smart-repeat-button,
+.smart-button-element {
   --smart-button-flat-color: var(--smart-background-color);
   text-align: center;
   display: inline-flex;

@@ -1,7 +1,8 @@
 /* smart-button, smart-repeat-button, smart-toggle-button */
 smart-button,
 smart-toggle-button,
-smart-repeat-button {
+smart-repeat-button,
+.smart-button-element {
   --smart-button-flat-color: var(--smart-background-color);
   text-align: center;
   display: inline-flex;
@@ -22,18 +23,21 @@ smart-repeat-button {
 }
 smart-button.smart-element,
 smart-toggle-button.smart-element,
-smart-repeat-button.smart-element {
+smart-repeat-button.smart-element,
+.smart-button-element.smart-element {
   display: inline-flex;
   visibility: inherit;
 }
 smart-button button::-moz-focus-inner,
 smart-toggle-button button::-moz-focus-inner,
-smart-repeat-button button::-moz-focus-inner {
+smart-repeat-button button::-moz-focus-inner,
+.smart-button-element button::-moz-focus-inner {
   border: 0;
 }
 smart-button.primary,
 smart-toggle-button.primary,
-smart-repeat-button.primary {
+smart-repeat-button.primary,
+.smart-button-element.primary {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -56,7 +60,8 @@ smart-repeat-button.primary {
 }
 smart-button.secondary,
 smart-toggle-button.secondary,
-smart-repeat-button.secondary {
+smart-repeat-button.secondary,
+.smart-button-element.secondary {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -79,7 +84,8 @@ smart-repeat-button.secondary {
 }
 smart-button.success,
 smart-toggle-button.success,
-smart-repeat-button.success {
+smart-repeat-button.success,
+.smart-button-element.success {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -102,7 +108,8 @@ smart-repeat-button.success {
 }
 smart-button.error,
 smart-toggle-button.error,
-smart-repeat-button.error {
+smart-repeat-button.error,
+.smart-button-element.error {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -125,7 +132,8 @@ smart-repeat-button.error {
 }
 smart-button.info,
 smart-toggle-button.info,
-smart-repeat-button.info {
+smart-repeat-button.info,
+.smart-button-element.info {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -148,7 +156,8 @@ smart-repeat-button.info {
 }
 smart-button.warning,
 smart-toggle-button.warning,
-smart-repeat-button.warning {
+smart-repeat-button.warning,
+.smart-button-element.warning {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -171,7 +180,8 @@ smart-repeat-button.warning {
 }
 smart-button.light,
 smart-toggle-button.light,
-smart-repeat-button.light {
+smart-repeat-button.light,
+.smart-button-element.light {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -194,7 +204,8 @@ smart-repeat-button.light {
 }
 smart-button.dark,
 smart-toggle-button.dark,
-smart-repeat-button.dark {
+smart-repeat-button.dark,
+.smart-button-element.dark {
   --smart-button-opacity-hover: 0.75;
   --smart-button-opacity-focus: 0.7;
   --smart-button-opacity-active: 0.65;
@@ -217,7 +228,8 @@ smart-repeat-button.dark {
 }
 smart-button[hover],
 smart-toggle-button[hover],
-smart-repeat-button[hover] {
+smart-repeat-button[hover],
+.smart-button-element[hover] {
   color: var(--smart-ui-state-color-hover);
   border-color: var(--smart-ui-state-border-hover);
   background-color: var(--smart-ui-state-hover);
@@ -226,7 +238,8 @@ smart-repeat-button[hover] {
 }
 smart-button[focus],
 smart-toggle-button[focus],
-smart-repeat-button[focus] {
+smart-repeat-button[focus],
+.smart-button-element[focus] {
   color: var(--smart-ui-state-color-focus);
   border-color: var(--smart-ui-state-border-focus);
   background-color: var(--smart-ui-state-focus);
@@ -234,7 +247,8 @@ smart-repeat-button[focus] {
 }
 smart-button[active],
 smart-toggle-button[active],
-smart-repeat-button[active] {
+smart-repeat-button[active],
+.smart-button-element[active] {
   color: var(--smart-ui-state-color-active);
   border-color: var(--smart-ui-state-border-active);
   background-color: var(--smart-ui-state-active);
@@ -243,7 +257,8 @@ smart-repeat-button[active] {
 }
 smart-button[disabled],
 smart-toggle-button[disabled],
-smart-repeat-button[disabled] {
+smart-repeat-button[disabled],
+.smart-button-element[disabled] {
   color: var(--smart-disabled-color);
   border-color: var(--smart-disabled);
   background-color: var(--smart-disabled);
@@ -254,25 +269,29 @@ smart-repeat-button[disabled] {
 }
 smart-button.large button,
 smart-toggle-button.large button,
-smart-repeat-button.large button {
+smart-repeat-button.large button,
+.smart-button-element.large button {
   padding: var(--smart-button-large-padding);
   font-size: var(--smart-button-large-font-size);
 }
 smart-button.small button,
 smart-toggle-button.small button,
-smart-repeat-button.small button {
+smart-repeat-button.small button,
+.smart-button-element.small button {
   padding: var(--smart-button-small-padding);
   font-size: var(--smart-button-small-font-size);
 }
 smart-button.very-small button,
 smart-toggle-button.very-small button,
-smart-repeat-button.very-small button {
+smart-repeat-button.very-small button,
+.smart-button-element.very-small button {
   padding: var(--smart-button-very-small-padding);
   font-size: var(--smart-button-very-small-font-size);
 }
 smart-button.rounded,
 smart-toggle-button.rounded,
-smart-repeat-button.rounded {
+smart-repeat-button.rounded,
+.smart-button-element.rounded {
   --smart-border-top-left-radius: 50px;
   --smart-border-top-right-radius: 50px;
   --smart-border-bottom-left-radius: 50px;
@@ -281,7 +300,8 @@ smart-repeat-button.rounded {
 }
 smart-button.squared,
 smart-toggle-button.squared,
-smart-repeat-button.squared {
+smart-repeat-button.squared,
+.smart-button-element.squared {
   --smart-border-top-left-radius: 0;
   --smart-border-top-right-radius: 0;
   --smart-border-bottom-left-radius: 0;
@@ -289,44 +309,51 @@ smart-repeat-button.squared {
 }
 smart-button.flat,
 smart-toggle-button.flat,
-smart-repeat-button.flat {
+smart-repeat-button.flat,
+.smart-button-element.flat {
   color: var(--smart-button-flat-color);
   background: transparent;
   border-color: transparent;
 }
 smart-button.flat[hover],
 smart-toggle-button.flat[hover],
-smart-repeat-button.flat[hover] {
+smart-repeat-button.flat[hover],
+.smart-button-element.flat[hover] {
   color: var(--smart-button-flat-color);
   background: transparent;
   border-color: transparent;
 }
 smart-button.flat[active],
 smart-toggle-button.flat[active],
-smart-repeat-button.flat[active] {
+smart-repeat-button.flat[active],
+.smart-button-element.flat[active] {
   color: var(--smart-button-flat-color);
   background: transparent;
   border-color: transparent;
 }
 smart-button.flat[focus],
 smart-toggle-button.flat[focus],
-smart-repeat-button.flat[focus] {
+smart-repeat-button.flat[focus],
+.smart-button-element.flat[focus] {
   border-color: var(--smart-ui-state-focus);
 }
 smart-button.flat[checked],
 smart-toggle-button.flat[checked],
-smart-repeat-button.flat[checked] {
+smart-repeat-button.flat[checked],
+.smart-button-element.flat[checked] {
   text-decoration: underline;
   background: var(--smart-ui-state-active);
 }
 smart-button.flat .smart-ripple,
 smart-toggle-button.flat .smart-ripple,
-smart-repeat-button.flat .smart-ripple {
+smart-repeat-button.flat .smart-ripple,
+.smart-button-element.flat .smart-ripple {
   background-color: var(--smart-button-flat-color);
 }
 smart-button.outlined,
 smart-toggle-button.outlined,
-smart-repeat-button.outlined {
+smart-repeat-button.outlined,
+.smart-button-element.outlined {
   color: var(--smart-button-outlined-color);
   border-color: var(--smart-button-outlined-border);
   background: transparent;
@@ -334,51 +361,59 @@ smart-repeat-button.outlined {
 }
 smart-button.outlined[hover],
 smart-toggle-button.outlined[hover],
-smart-repeat-button.outlined[hover] {
+smart-repeat-button.outlined[hover],
+.smart-button-element.outlined[hover] {
   color: var(--smart-button-outlined-color);
   border-color: var(--smart-button-outlined-border);
   background: transparent;
 }
 smart-button.outlined[active],
 smart-toggle-button.outlined[active],
-smart-repeat-button.outlined[active] {
+smart-repeat-button.outlined[active],
+.smart-button-element.outlined[active] {
   color: var(--smart-button-outlined-color);
   border-color: var(--smart-button-outlined-border);
   background: transparent;
 }
 smart-button.outlined[focus],
 smart-toggle-button.outlined[focus],
-smart-repeat-button.outlined[focus] {
+smart-repeat-button.outlined[focus],
+.smart-button-element.outlined[focus] {
   color: var(--smart-button-outlined-color);
   border-color: var(--smart-ui-state-focus);
   background: transparent;
 }
 smart-button.outlined[checked],
 smart-toggle-button.outlined[checked],
-smart-repeat-button.outlined[checked] {
+smart-repeat-button.outlined[checked],
+.smart-button-element.outlined[checked] {
   color: var(--smart-ui-state-color-active);
   border-color: var(--smart-ui-state-active);
   background: var(--smart-ui-state-active);
 }
 smart-button.outlined .smart-ripple,
 smart-toggle-button.outlined .smart-ripple,
-smart-repeat-button.outlined .smart-ripple {
+smart-repeat-button.outlined .smart-ripple,
+.smart-button-element.outlined .smart-ripple {
   background-color: var(--smart-button-outlined-color);
 }
 smart-button.outlined button.smart-button,
 smart-toggle-button.outlined button.smart-button,
-smart-repeat-button.outlined button.smart-button {
+smart-repeat-button.outlined button.smart-button,
+.smart-button-element.outlined button.smart-button {
   border-radius: initial;
 }
 smart-button.raised,
 smart-toggle-button.raised,
-smart-repeat-button.raised {
+smart-repeat-button.raised,
+.smart-button-element.raised {
   box-shadow: var(--smart-elevation-2);
   transition: background-color 100ms linear, box-shadow 280ms ease-in-out;
 }
 smart-button.raised[hover],
 smart-toggle-button.raised[hover],
-smart-repeat-button.raised[hover] {
+smart-repeat-button.raised[hover],
+.smart-button-element.raised[hover] {
   box-shadow: var(--smart-elevation-4);
 }
 smart-button.raised[active], smart-button.raised[checked], smart-button.raised[active],
@@ -390,19 +425,26 @@ smart-toggle-button.raised button[active],
 smart-repeat-button.raised[active],
 smart-repeat-button.raised[checked],
 smart-repeat-button.raised[active],
-smart-repeat-button.raised button[active] {
+smart-repeat-button.raised button[active],
+.smart-button-element.raised[active],
+.smart-button-element.raised[checked],
+.smart-button-element.raised[active],
+.smart-button-element.raised button[active] {
   box-shadow: var(--smart-elevation-8);
 }
 smart-button.raised[focus], smart-button.raised[focus]:not([checked]),
 smart-toggle-button.raised[focus],
 smart-toggle-button.raised[focus]:not([checked]),
 smart-repeat-button.raised[focus],
-smart-repeat-button.raised[focus]:not([checked]) {
+smart-repeat-button.raised[focus]:not([checked]),
+.smart-button-element.raised[focus],
+.smart-button-element.raised[focus]:not([checked]) {
   box-shadow: var(--smart-elevation-6);
 }
 smart-button.floating,
 smart-toggle-button.floating,
-smart-repeat-button.floating {
+smart-repeat-button.floating,
+.smart-button-element.floating {
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -411,21 +453,26 @@ smart-repeat-button.floating {
 }
 smart-button.floating[hover],
 smart-toggle-button.floating[hover],
-smart-repeat-button.floating[hover] {
+smart-repeat-button.floating[hover],
+.smart-button-element.floating[hover] {
   box-shadow: var(--smart-elevation-6);
 }
 smart-button.floating[active], smart-button.floating[checked],
 smart-toggle-button.floating[active],
 smart-toggle-button.floating[checked],
 smart-repeat-button.floating[active],
-smart-repeat-button.floating[checked] {
+smart-repeat-button.floating[checked],
+.smart-button-element.floating[active],
+.smart-button-element.floating[checked] {
   box-shadow: var(--smart-elevation-12);
 }
 smart-button.floating[focus], smart-button.floating[focus]:not([checked]),
 smart-toggle-button.floating[focus],
 smart-toggle-button.floating[focus]:not([checked]),
 smart-repeat-button.floating[focus],
-smart-repeat-button.floating[focus]:not([checked]) {
+smart-repeat-button.floating[focus]:not([checked]),
+.smart-button-element.floating[focus],
+.smart-button-element.floating[focus]:not([checked]) {
   box-shadow: var(--smart-elevation-6);
 }
 

@@ -539,8 +539,19 @@
     --smart-icon-card-alt: '\e8a2';
     /* Code of Card icon */
     --smart-icon-grid-alt: '\e8a3'; 
-    /* Code of Grid icon */
-
+    /* Code of timeline icon */
+    --smart-icon-timeline: '\E8A4';
+    /* Code of scheduler icon */
+    --smart-icon-scheduler: '\E8A5';
+    /* Code of like icon */
+    --smart-icon-like: '\F164';
+     /* Code of heart icon */
+     --smart-icon-heart: '\E84E';
+     /* Code of like icon */
+     --smart-icon-flag: '\E850';
+     /* Code of music */
+     --smart-icon-music: '\E851';
+  
     /* Accordion */
     --smart-accordion-animation-duration: 225ms;
     /* smartAccordion animation duration */
@@ -1134,6 +1145,7 @@
     --smart-grid-cell-color-update: #333;
     /* Sets text color of cells, when cell is updated.. */
     --smart-grid-cell-background-update: #D7F9C7;
+    --smart-grid-cell-background-color: #D7F9C7;
     /* Sets background color of cells, when cell is updated.. */
     --smart-grid-cell-color-add: #333;
     /* Sets text color of cells, when row is added.. */

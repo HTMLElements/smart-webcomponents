@@ -22,6 +22,11 @@ export interface RibbonProperties {
    */
   fileMenu?: RibbonFileMenu;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    * Determines the locale of the ribbon.
    * Default value: "en"
    */

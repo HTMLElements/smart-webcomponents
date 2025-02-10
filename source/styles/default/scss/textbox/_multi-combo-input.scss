@@ -97,6 +97,18 @@ smart-multi-combo-input {
     .smart-drop-down-list-selection-label {
       text-overflow: ellipsis;
       overflow: hidden;
+
+      &.dots {
+        &::before {
+          content:"\A";
+          width:8px;
+          height:8px;
+          border-radius:50%;
+          background: var(--smart-primary-color);
+          display:inline-block;
+          margin-right: 4px;
+        }
+      }
     }
 
     .smart-drop-down-list-selection-image {
@@ -351,6 +363,47 @@ smart-multi-combo-input {
   }
 
   &[pills] {
+    .smart-custom-item {
+      white-space: nowrap !important;
+
+      a { 
+        white-space: nowrap !important;
+
+        &::before {
+          border-radius:50%;
+          background: var(--smart-primary-color);
+          margin-right: 4px;
+          content: "+" !important;
+          width: 12px !important;
+          height: 12px !important;
+          color: var(--smart-primary);
+          margin-right: 4px;
+          align-items: center;
+          align-content: center;
+          justify-content: center;
+          justify-items: center;
+          align-items: center;
+          display: flex !important;
+        }
+      }
+    }
+
+    &[dots] {
+      ul {
+        li {
+          a::before {
+              content:"\A";
+              width:8px;
+              height:8px;
+              border-radius:50%;
+              background: var(--smart-primary-color);
+              display:inline-block;
+              margin-right: 4px;
+          }
+        }
+      }
+    }
+
     ul {
       li {
         height: 30px;
@@ -376,7 +429,7 @@ smart-multi-combo-input {
           background: var(--smart-primary);
           border-color: var(--smart-primary);
           color: var(--smart-primary-color);
-
+          white-space: nowrap;
           .smart-drop-down-list-selection-image {
             height: 20px;
             width: 20px;

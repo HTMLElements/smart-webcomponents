@@ -313,6 +313,7 @@ smart-repeat-button a.smart-button {
   border: 1px solid var(--smart-inner-border-color) !important;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
 }
 .smart-grid-command-item button.smart-button i,

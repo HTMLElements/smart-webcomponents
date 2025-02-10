@@ -19,7 +19,7 @@ smart-drop-down-button {
     background: var(--smart-primary-color);
   }
 
-  .smart-buttons-container {
+  > .smart-buttons-container {
     > .smart-action-button:empty {
       padding: 0;
       width: 0;

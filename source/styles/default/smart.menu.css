@@ -1193,9 +1193,15 @@ smart-menu-items-group {
 .smart-menu[right-to-left] .smart-menu-drop-down[level="2"] {
   right: 0;
 }
+.smart-menu[right-to-left] smart-menu-item {
+  direction: rtl;
+}
 .smart-menu[right-to-left] smart-menu-item .smart-menu-item-shortcut {
   margin-left: initial;
   margin-right: 100px;
+}
+.smart-menu[right-to-left] smart-menu-items-group {
+  direction: rtl;
 }
 .smart-menu[right-to-left] smart-menu-items-group .smart-menu-items-group-arrow {
   margin-right: initial;

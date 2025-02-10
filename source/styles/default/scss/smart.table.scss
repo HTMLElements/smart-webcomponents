@@ -117,7 +117,7 @@ smart-table {
         &.asc,
         &.desc {
           display: inline-block;
-          visibility: visible;
+          visibility: inherit;
           opacity: 1;
         }
 

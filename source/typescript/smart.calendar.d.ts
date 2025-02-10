@@ -102,6 +102,11 @@ export interface CalendarProperties {
    */
   importantDatesTemplate?: any;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    *  Determines the language of the Calendar. 
    * Default value: "en"
    */

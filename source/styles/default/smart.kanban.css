@@ -596,7 +596,7 @@
 .smart-kanban-task-subtasks .smart-kanban-sub-task {
   display: grid;
   grid-column-gap: 5px;
-  grid-template-columns: 16px 1fr 16px;
+  grid-template-columns: 16px 1fr 16px 16px;
   font-size: calc(var(--smart-font-size) - 1px) !important;
   padding: 2px;
 }
@@ -606,6 +606,11 @@
   cursor: pointer;
   font-size: var(--smart-font-size) !important;
 }
+.smart-kanban-task-subtasks .smart-kanban-sub-task:hover .edit-subtask:after {
+  content: var(--smart-icon-mode-edit);
+  font-family: var(--smart-font-family-icon);
+  cursor: pointer;
+}
 .smart-kanban-task-subtasks .smart-kanban-sub-task:hover .remove-subtask:after {
   content: var(--smart-icon-close);
   font-family: var(--smart-font-family-icon);
@@ -614,6 +619,8 @@
 .smart-kanban-task-subtasks .smart-kanban-sub-task.selected {
   background: var(--smart-ui-state-selected);
   color: var(--smart-ui-state-color-selected);
+}
+.smart-kanban-task-subtasks .smart-kanban-sub-task.selected .label {
   text-decoration: line-through;
 }
 .smart-kanban-task-subtasks .smart-kanban-sub-task.selected:before {
@@ -1334,6 +1341,12 @@
   --smart-input-drop-down-menu-width: auto;
 }
 
+.smart-kanban-color-input --smart-input-drop-down-menu-width {
+  width: 98px;
+}
+.smart-kanban-color-input .default-samples-container {
+  display: flex;
+}
 .smart-kanban-color-input.smart-color-picker {
   background: transparent !important;
 }

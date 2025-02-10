@@ -124,10 +124,20 @@ export interface GridProperties {
    */
   layout?: GridLayout;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
    */
   locale?: string;
+  /**
+   * Keys handling. You can define a key like "Enter": "Tab" or set a function as a value. When the key is pressed, it will be mapped to the other key, action such as 'copy', 'copyPrev', 'copyNext' or 'delete' or just a function defined in your document.
+   * Default value: null
+   */
+  keys?: any;
   /**
    * Sets the messages values.
    * Default value:    * [object Object]
@@ -158,6 +168,11 @@ export interface GridProperties {
    * Default value: null
    */
   onCellEditRequest?: {(id: string, dataField: string, value: any, oldValue: any, data: any): void};
+  /**
+   * Callback function, which is called when a cell value is changed.
+   * Default value: null
+   */
+  onCellValueChanged?: {(id: string, dataField: string, value: any): boolean};
   /**
    * Callback function() called before the grid has been initialized and the Grid's Virtual DOM is not created.
    * Default value: null
@@ -1659,6 +1674,11 @@ export interface GridClipboard {
    */
   enabled?: boolean;
   /**
+   * Sets or gets whether the copy the column headers to the clipboard.
+   * Default value: false
+   */
+  copyHeadersToClipboard?: boolean;
+  /**
    * Sets or gets whether the copy-pasted values will be auto-filled by using automatic pattern detection. This is used in the Drag&Drop Multiple Cells selection. none does nothing. copy just copies the cells. 'fillSeries' detects and automatically fills the values. For example, if the selection has '1, 2' and the possible positions are more, the pasted values would be '1, 2, 3, 4, etc.
    * Default value: fillSeries
    */
@@ -1731,6 +1751,11 @@ export interface GridColumn {
    * Default value: true
    */
   allowNull?: boolean;
+  /**
+   * Sets or gets the cell's height in card view mode.
+   * Default value: 0
+   */
+  cardHeight?: number;
   /**
    * Sets or gets the column's cells format. This property is used for applying a formatting to the cell values. Number format strings: 'd' - decimal numbers.'f' - floating-point numbers.'n' - integer numbers.'c' - currency numbers.'p' - percentage numbers.For adding decimal places to the numbers, add a number after the formatting striFor example: 'c3' displays a number in this format $25.256Built-in Date formats:// short date pattern'd' - 'M/d/yyyy',// long date pattern'D' - 'dddd, MMMM dd, yyyy',// short time pattern't' - 'h:mm tt',// long time pattern'T' - 'h:mm:ss tt',// long date, short time pattern'f' - 'dddd, MMMM dd, yyyy h:mm tt',// long date, long time pattern'F' - 'dddd, MMMM dd, yyyy h:mm:ss tt',// month/day pattern'M' - 'MMMM dd',// month/year pattern'Y' - 'yyyy MMMM',// S is a sortable format that does not vary by culture'S' - 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'Date format strings:'d'-the day of the month;'dd'-the day of the month'ddd'-the abbreviated name of the day of the week'dddd'- the full name of the day of the week'h'-the hour, using a 12-hour clock from 1 to 12'hh'-the hour, using a 12-hour clock from 01 to 12'H'-the hour, using a 24-hour clock from 0 to 23'HH'- the hour, using a 24-hour clock from 00 to 23'm'-the minute, from 0 through 59'mm'-the minutes,from 00 though59'M'- the month, from 1 through 12'MM'- the month, from 01 through 12'MMM'-the abbreviated name of the month'MMMM'-the full name of the month's'-the second, from 0 through 59'ss'-the second, from 00 through 59't'- the first character of the AM/PM designator'tt'-the AM/PM designator'y'- the year, from 0 to 99'yy'- the year, from 00 to 99'yyy'-the year, with a minimum of three digits'yyyy'-the year as a four-digit number;'yyyyy'-the year as a four-digit number.
    * Default value: ""
@@ -1892,10 +1917,10 @@ export interface GridColumn {
    */
   relationField?: string;
   /**
-   * Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null.
-   * Default value: null
+   * Sets or gets the sort order of the column. Accepts: 'asc', 'desc', 'none' and null.
+   * Default value: none
    */
-  sortOrder?: GridColumnSortOrder | null | string;
+  sortOrder?: GridColumnSortOrder | string;
   /**
    * Sets or gets the sort index of the column. Accepts an integer value. This property can be used to get or set the column's sort index when sorting mode is 'many'.
    * Default value: null
@@ -2378,6 +2403,61 @@ export interface GridDataExport {
    * Default value: null
    */
   rowIds?: {(): void};
+  /**
+   * An array of custom rows to add before the Grid rows.
+   * Default value: null
+   */
+  headerContent?: any;
+  /**
+   * An array of custom rows to add after the Grid rows.
+   * Default value: null
+   */
+  footerContent?: any;
+  /**
+   * A function which allows you to add images to the cells in Export to Excel. The following params are passed: (index, dataField, value, values). It should return an object like this: return { image: { id: 'myImage' + index, base64: value, imageType: 'jpeg', width: 20, height: 11, position: { offsetX: 10 + (25 * values.indexOf(value)), offsetY: 5.5 } } };
+   * Default value: null
+   */
+  addImageToCell?: any;
+  /**
+   * A function which allows you to set the height of the rows in the Export to Excel. The function gets the row index as parameter and should return its height as a number.
+   * Default value: null
+   */
+  setRowHeight?: any;
+  /**
+   * A function which allows you to return additonal data to the Excel export to export into multiple sheets.
+   * Default value: null
+   */
+  getSpreadsheets?: any;
+  /**
+   * A function which allows you to export a styled data grid to Excel.
+   * Default value: true
+   */
+  exportStyles?: boolean;
+  /**
+   * A function which allows you to format cells before export. (index, dataField, value) are the params. It should return the formatted value.
+   * Default value: null
+   */
+  cellFormatFunction?: any;
+  /**
+   * Sets whether the header is frozen when Export to Excel.
+   * Default value: false
+   */
+  freezeHeader?: boolean;
+  /**
+   * Sets whether to auto-convert the formulas in the Excel export.
+   * Default value: true
+   */
+  autoConvertFormulas?: boolean;
+  /**
+   * Sets whether to export only the selected cells or rows when Export to Excel.
+   * Default value: false
+   */
+  onlySelected?: boolean;
+  /**
+   * Sets whether to export it as Excel Table when Export to Excel
+   * Default value: false
+   */
+  exportAsTable?: boolean;
 }
 
 /**Sets the grid's data source settings when the <em>dataSource</em> property is set to an Array or URL. */
@@ -2494,6 +2574,11 @@ export interface GridEditing {
    * Default value: true
    */
   autoUpdateFilterAndSort?: boolean;
+  /**
+   * Automatically opens a drop-down editor not only when the arrow button is clicked, but also when you click an item from it.
+   * Default value: true
+   */
+  allowListOpenOnContentClick?: boolean;
   /**
    * Enables editing.
    * Default value: false
@@ -3885,8 +3970,8 @@ export declare type VerticalAlignment = 'top' | 'center' | 'bottom';
 export declare type Position = 'near' | 'far';
 /**Sets or gets the filter menu mode of the column. In 'basic' mode, a single input is displayed in the filter menu. In 'default' mode, two input options are available for more precise filtering. In 'excel' mode, checked list with unique values is displayed. */
 export declare type GridColumnFilterMenuMode = 'basic' | 'default' | 'excel';
-/**Sets or gets the sort order of the column. Accepts: 'asc', 'desc' and null. */
-export declare type GridColumnSortOrder = 'asc' | 'desc' | null;
+/**Sets or gets the sort order of the column. Accepts: 'asc', 'desc', 'none' and null. */
+export declare type GridColumnSortOrder = 'asc' | 'desc' | 'none';
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Sets the page orientation, when exporting to PDF. */

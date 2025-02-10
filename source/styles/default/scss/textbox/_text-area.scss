@@ -133,7 +133,7 @@ smart-text-area {
 
 .smart-rich-textarea ul[checklist] {
   position: relative;
-  left: -20px;
+  left: -10px;
 }
 
 .smart-rich-textarea a.ctrl {
@@ -141,7 +141,7 @@ smart-text-area {
 }
 
 .smart-rich-textarea .smart-editor-editable {
-  padding: 10px;
+  padding: 10px 5px !important;
 }
 
 .smart-editor-toolbar-item-center {

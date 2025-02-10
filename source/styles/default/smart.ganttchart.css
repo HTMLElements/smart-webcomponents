@@ -705,6 +705,7 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
   align-items: center;
   justify-content: center;
   width: 1px;
+  pointer-events: none;
 }
 .smart-gantt-chart .smart-gantt-chart-task-deadline::before {
   content: var(--smart-gantt-chart-deadline-icon);

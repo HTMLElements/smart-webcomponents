@@ -152,6 +152,7 @@ smart-scheduler {
     justify-content: center;
     align-items: center;
     background: var(--smart-surface);
+  z-index: 9;
 
     &:empty {
       display: none;
@@ -214,6 +215,7 @@ smart-scheduler {
       }
     }
 
+    &[focus],
     &:focus {
       .smart-scheduler-cell:not(.scale)[selected] {
         background: var(--smart-ui-state-selected);
@@ -538,6 +540,7 @@ smart-scheduler {
 
   .smart-scheduler-view-container {
     position: relative;
+    transition: width cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
   }
 
   .smart-scheduler-view-label-container {
@@ -558,6 +561,7 @@ smart-scheduler {
     display: flex;
   }
 
+  .smart-scheduler-view-list-button,
   .smart-scheduler-view-items-button {
     --smart-button-text-transform: initial;
     transform: scale(1);
@@ -617,6 +621,23 @@ smart-scheduler {
     }
   }
 
+  .smart-scheduler-view-list-button{
+    &:not(.smart-hidden) {
+      display: block !important;
+    }
+    background: transparent;
+    
+    margin-left: 10px;
+    &.active:not(:hover) {
+      background-color: var(--smart-primary);
+      color: var(--smart-primary-color);
+    }
+    &:after {
+      right: 2px;
+      content: var(--smart-icon-menu);
+    }
+  }
+
   &[hide-other-month-days] {
     .smart-scheduler-cell[other-month] {
       background: var(--smart-surface) !important;
@@ -624,6 +645,27 @@ smart-scheduler {
 
     .smart-scheduler-cell[other-month]>div {
       visibility: hidden;
+    }
+  }
+
+  .smart-scheduler-list-container {
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    background: var(--smart-surface);
+    color:var(--smart-surface-color);
+    height: 100%;
+    width: 0px;
+    transform: scaleX(0);
+    opacity: 0;
+    transition: transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s, opacity cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--smart-border);
+    transform-origin: right;
+    &.open {
+      transform: scaleX(1);
+      opacity: 1;
     }
   }
 
@@ -1123,6 +1165,7 @@ smart-scheduler {
       border-top: var(--smart-border-width) solid var(--smart-border);
     }
 
+    &[focus] .smart-scheduler-item[selected],
     &:focus .smart-scheduler-item[selected] {
       background-color: var(--smart-ui-state-focus);
       border-color: var(--smart-ui-state-border-focus);
@@ -1357,6 +1400,45 @@ smart-scheduler {
     }
   }
 
+  .smart-scheduler-event-list-event {
+    &:hover {
+      .smart-event-actions {
+        opacity: 1;
+      }
+    }
+
+    .smart-event-actions {
+      display: inline-flex;
+      position: absolute;
+      right: 10px;
+      column-gap: 5px;
+      opacity: 0;
+      transition: opacity ease-in-out 0.2s;
+     
+
+      .smart-icon-edit {
+        font-family: var(--smart-font-family-icon);
+        font-style: normal;
+        font-weight: normal;
+        font-size: var(--smart-arrow-size);
+
+        &:after {
+          content: var(--smart-icon-mode-edit);
+        }
+      }
+
+      .smart-icon-navigate {
+        font-family: var(--smart-font-family-icon);
+        font-style: normal;
+        font-weight: normal;
+        font-size: var(--smart-arrow-size);
+        
+        &::after {
+        content: var(--smart-icon-link-ext);   
+        }
+      }
+    }
+  }
   .smart-scheduler-window-modal {
     position: absolute;
     opacity: 0.5;

@@ -111,6 +111,7 @@ smart-scheduler .smart-scheduler-footer {
   justify-content: center;
   align-items: center;
   background: var(--smart-surface);
+  z-index: 9;
 }
 smart-scheduler .smart-scheduler-footer:empty {
   display: none;
@@ -156,11 +157,11 @@ smart-scheduler .smart-scheduler-view[show-group-header=horizontal] .smart-sched
   border-right-width: var(--smart-scheduler-timeline-group-separator-size);
   border-right-style: solid;
 }
-smart-scheduler .smart-scheduler-view:focus .smart-scheduler-cell:not(.scale)[selected] {
+smart-scheduler .smart-scheduler-view[focus] .smart-scheduler-cell:not(.scale)[selected], smart-scheduler .smart-scheduler-view:focus .smart-scheduler-cell:not(.scale)[selected] {
   background: var(--smart-ui-state-selected);
   color: var(--smart-ui-state-color-selected);
 }
-smart-scheduler .smart-scheduler-view:focus .smart-scheduler-cell:not(.scale)[selected=start] {
+smart-scheduler .smart-scheduler-view[focus] .smart-scheduler-cell:not(.scale)[selected=start], smart-scheduler .smart-scheduler-view:focus .smart-scheduler-cell:not(.scale)[selected=start] {
   background: var(--smart-ui-state-active);
   color: var(--smart-ui-state-color-active);
 }
@@ -405,6 +406,7 @@ smart-scheduler .smart-scheduler-view-details .smart-scheduler-cell:not(:first-o
 }
 smart-scheduler .smart-scheduler-view-container {
   position: relative;
+  transition: width cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
 }
 smart-scheduler .smart-scheduler-view-label-container {
   display: flex;
@@ -421,6 +423,7 @@ smart-scheduler .smart-scheduler-view-groups-content {
   overflow: hidden;
   display: flex;
 }
+smart-scheduler .smart-scheduler-view-list-button,
 smart-scheduler .smart-scheduler-view-items-button {
   --smart-button-text-transform: initial;
   transform: scale(1);
@@ -432,6 +435,7 @@ smart-scheduler .smart-scheduler-view-items-button {
   border-bottom-right-radius: var(--smart-item-border-bottom-right-radius);
   overflow: hidden;
 }
+smart-scheduler .smart-scheduler-view-list-button:after,
 smart-scheduler .smart-scheduler-view-items-button:after {
   position: absolute;
   top: 0;
@@ -452,29 +456,68 @@ smart-scheduler .smart-scheduler-view-items-button:after {
   content: var(--smart-icon-arrow-down);
   background: transparent;
 }
+smart-scheduler .smart-scheduler-view-list-button button,
 smart-scheduler .smart-scheduler-view-items-button button {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: initial;
 }
+smart-scheduler .smart-scheduler-view-list-button button > span,
 smart-scheduler .smart-scheduler-view-items-button button > span {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+smart-scheduler .smart-scheduler-view-list-button:not([active]) button:active,
 smart-scheduler .smart-scheduler-view-items-button:not([active]) button:active {
   color: inherit;
   border-color: inherit;
   background-color: inherit;
 }
+smart-scheduler .smart-scheduler-view-list-button.smart-visibility-hidden,
 smart-scheduler .smart-scheduler-view-items-button.smart-visibility-hidden {
   transform: scale(0);
+}
+smart-scheduler .smart-scheduler-view-list-button {
+  background: transparent;
+  margin-left: 10px;
+}
+smart-scheduler .smart-scheduler-view-list-button:not(.smart-hidden) {
+  display: block !important;
+}
+smart-scheduler .smart-scheduler-view-list-button.active:not(:hover) {
+  background-color: var(--smart-primary);
+  color: var(--smart-primary-color);
+}
+smart-scheduler .smart-scheduler-view-list-button:after {
+  right: 2px;
+  content: var(--smart-icon-menu);
 }
 smart-scheduler[hide-other-month-days] .smart-scheduler-cell[other-month] {
   background: var(--smart-surface) !important;
 }
 smart-scheduler[hide-other-month-days] .smart-scheduler-cell[other-month] > div {
   visibility: hidden;
+}
+smart-scheduler .smart-scheduler-list-container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: var(--smart-surface);
+  color: var(--smart-surface-color);
+  height: 100%;
+  width: 0px;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s, opacity cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--smart-border);
+  transform-origin: right;
+}
+smart-scheduler .smart-scheduler-list-container.open {
+  transform: scaleX(1);
+  opacity: 1;
 }
 smart-scheduler .smart-scheduler-cells .smart-scheduler-cell:empty {
   display: none;
@@ -830,7 +873,7 @@ smart-scheduler .smart-scheduler-items-container .smart-scheduler-item[selected]
   border-right: var(--smart-border-width) solid var(--smart-border);
   border-top: var(--smart-border-width) solid var(--smart-border);
 }
-smart-scheduler .smart-scheduler-items-container:focus .smart-scheduler-item[selected] {
+smart-scheduler .smart-scheduler-items-container[focus] .smart-scheduler-item[selected], smart-scheduler .smart-scheduler-items-container:focus .smart-scheduler-item[selected] {
   background-color: var(--smart-ui-state-focus);
   border-color: var(--smart-ui-state-border-focus);
   color: var(--smart-ui-state-color-focus);
@@ -1025,6 +1068,35 @@ smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item > span 
   smart-scheduler .smart-scheduler-legend .smart-scheduler-legend-res-item > span {
     width: 0;
   }
+}
+smart-scheduler .smart-scheduler-event-list-event:hover .smart-event-actions {
+  opacity: 1;
+}
+smart-scheduler .smart-scheduler-event-list-event .smart-event-actions {
+  display: inline-flex;
+  position: absolute;
+  right: 10px;
+  column-gap: 5px;
+  opacity: 0;
+  transition: opacity ease-in-out 0.2s;
+}
+smart-scheduler .smart-scheduler-event-list-event .smart-event-actions .smart-icon-edit {
+  font-family: var(--smart-font-family-icon);
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--smart-arrow-size);
+}
+smart-scheduler .smart-scheduler-event-list-event .smart-event-actions .smart-icon-edit:after {
+  content: var(--smart-icon-mode-edit);
+}
+smart-scheduler .smart-scheduler-event-list-event .smart-event-actions .smart-icon-navigate {
+  font-family: var(--smart-font-family-icon);
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--smart-arrow-size);
+}
+smart-scheduler .smart-scheduler-event-list-event .smart-event-actions .smart-icon-navigate::after {
+  content: var(--smart-icon-link-ext);
 }
 smart-scheduler .smart-scheduler-window-modal {
   position: absolute;

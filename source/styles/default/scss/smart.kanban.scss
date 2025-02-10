@@ -810,7 +810,7 @@
   .smart-kanban-sub-task {
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: 16px 1fr 16px;
+    grid-template-columns: 16px 1fr 16px 16px;
     font-size: calc(var(--smart-font-size) - 1px) !important;
     padding: 2px;
 
@@ -822,6 +822,14 @@
     }
 
     &:hover {
+      .edit-subtask {
+        &:after {
+          content: var(--smart-icon-mode-edit);
+          font-family: var(--smart-font-family-icon);
+          cursor: pointer;
+        }
+      }
+      
       .remove-subtask {
         &:after {
           content: var(--smart-icon-close);
@@ -834,8 +842,11 @@
     &.selected {
       background: var(--smart-ui-state-selected);
       color: var(--smart-ui-state-color-selected);
-      text-decoration: line-through;
 
+      .label {
+       text-decoration: line-through;
+      }
+     
       &:before {
         content: var(--smart-icon-check-squared);
       }
@@ -1679,6 +1690,12 @@
 @include color-input-mixin(kanban);
 
 .smart-kanban-color-input {
+  --smart-input-drop-down-menu-width {
+    width: 98px;
+  }
+  .default-samples-container {
+    display: flex;
+  }
   &.smart-color-picker {
     background: transparent !important;
   }

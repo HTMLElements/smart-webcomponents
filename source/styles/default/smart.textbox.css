@@ -495,7 +495,7 @@ smart-text-area textarea.smart-input {
 
 .smart-rich-textarea ul[checklist] {
   position: relative;
-  left: -20px;
+  left: -10px;
 }
 
 .smart-rich-textarea a.ctrl {
@@ -503,7 +503,7 @@ smart-text-area textarea.smart-input {
 }
 
 .smart-rich-textarea .smart-editor-editable {
-  padding: 10px;
+  padding: 10px 5px !important;
 }
 
 .smart-editor-toolbar-item-center {
@@ -1070,6 +1070,15 @@ smart-multi-combo-input[focus] {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.smart-multi-combo-input .smart-token .smart-drop-down-list-selection-label.dots::before {
+  content: "\a";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--smart-primary-color);
+  display: inline-block;
+  margin-right: 4px;
+}
 .smart-multi-combo-input .smart-token .smart-drop-down-list-selection-image {
   display: flex;
   justify-content: center;
@@ -1255,6 +1264,37 @@ smart-multi-combo-input[focus] {
 .smart-multi-combo-input-drop-down-menu[single-select] ul li:hover:after, .smart-multi-combo-input-drop-down-menu[single-select] ul li.selected:after {
   display: none;
 }
+.smart-multi-combo-input-drop-down-menu[pills] .smart-custom-item {
+  white-space: nowrap !important;
+}
+.smart-multi-combo-input-drop-down-menu[pills] .smart-custom-item a {
+  white-space: nowrap !important;
+}
+.smart-multi-combo-input-drop-down-menu[pills] .smart-custom-item a::before {
+  border-radius: 50%;
+  background: var(--smart-primary-color);
+  margin-right: 4px;
+  content: "+" !important;
+  width: 12px !important;
+  height: 12px !important;
+  color: var(--smart-primary);
+  margin-right: 4px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  display: flex !important;
+}
+.smart-multi-combo-input-drop-down-menu[pills][dots] ul li a::before {
+  content: "\a";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--smart-primary-color);
+  display: inline-block;
+  margin-right: 4px;
+}
 .smart-multi-combo-input-drop-down-menu[pills] ul li {
   height: 30px;
   margin-top: 1px;
@@ -1277,6 +1317,7 @@ smart-multi-combo-input[focus] {
   background: var(--smart-primary);
   border-color: var(--smart-primary);
   color: var(--smart-primary-color);
+  white-space: nowrap;
 }
 .smart-multi-combo-input-drop-down-menu[pills] ul li a .smart-drop-down-list-selection-image {
   height: 20px;

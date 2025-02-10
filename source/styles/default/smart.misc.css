@@ -417,6 +417,14 @@ smart-tree[disabled] .smart-loader:after {
 .smart-flex {
   display: flex;
 }
+.smart-flex.middle {
+  align-content: center;
+  justify-content: center;
+}
+.smart-flex.center {
+  align-items: center;
+  justify-items: center;
+}
 
 .smart-flex-wrap {
   display: flex;
@@ -428,6 +436,9 @@ smart-tree[disabled] .smart-loader:after {
   cursor: move !important;
 }
 
+.smart-element {
+  direction: ltr;
+}
 .smart-element ::-webkit-scrollbar {
   width: 18px;
 }

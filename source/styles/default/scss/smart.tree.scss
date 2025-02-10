@@ -1124,5 +1124,34 @@ smart-tree {
   display: none !important;
 }
 
+.smart-tree-drop-down-button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.smart-window {
+  &.smart-tree-popup {
+    transition: opacity 0.2s, transform 0.2s ease-out;
+    opacity: 0;
+    font-family: var(--smart-font-family);
+    font-size: var(--smart-font-size);
+    transform: scaleY(0) !important;
+    transform-origin: top !important;
+    --smart-window-content-padding: 0px;
+    --smart-window-header-height: 0px;
+    box-shadow: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    position: absolute;
+    border:none;
+    &.open {
+      transform: scale(1) !important;
+      opacity: 1;
+    }
+  }
+}
+
 
 @import 'rtl/_tree';

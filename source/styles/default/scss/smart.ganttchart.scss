@@ -926,7 +926,7 @@ smart-gantt-chart>.smart-container,
     align-items: center;
     justify-content: center;
     width: 1px;
-
+    pointer-events: none;
     &::before {
       content: var(--smart-gantt-chart-deadline-icon);
       font-family: var(--smart-font-family-icon);

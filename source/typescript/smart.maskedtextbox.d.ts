@@ -62,6 +62,11 @@ export interface MaskedTextBoxProperties {
    */
   label?: string;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
    */

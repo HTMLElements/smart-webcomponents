@@ -31,6 +31,7 @@
         }
 
         smart-menu-item {
+            direction: rtl;
             .smart-menu-item-shortcut {
                 margin-left: initial;
                 margin-right: 100px;
@@ -38,7 +39,8 @@
         }
 
         smart-menu-items-group {
-            .smart-menu-items-group-arrow {
+            direction: rtl;
+             .smart-menu-items-group-arrow {
                 margin-right: initial;
                 margin-left: initial;
             }

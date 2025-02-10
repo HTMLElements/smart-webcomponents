@@ -27,6 +27,11 @@ export interface InputProperties {
    */
   dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
+   * Determines the position of the drop down when opened.
+   * Default value: auto
+   */
+  dropDownOpenPosition?: DropDownOpenPosition | string;
+  /**
    * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
    * Default value: 
    */
@@ -46,6 +51,11 @@ export interface InputProperties {
    * Default value: 8
    */
   items?: number;
+  /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
   /**
    * Sets or gets the language. Used in conjunction with the property messages. 
    * Default value: "en"
@@ -240,5 +250,7 @@ declare global {
 
 /**Determines the position of the drop down button. */
 export declare type DropDownButtonPosition = 'none' | 'left' | 'right';
+/**Determines the position of the drop down when opened. */
+export declare type DropDownOpenPosition = 'auto' | 'top' | 'bottom';
 /**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
 export declare type InputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';

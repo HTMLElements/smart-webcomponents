@@ -307,6 +307,11 @@ export interface SchedulerProperties {
    */
   horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    *  Determines the language of the Scheduler. 
    * Default value: "en"
    */

@@ -157,6 +157,11 @@ export interface DateTimePickerProperties {
    */
   label?: string;
   /**
+   * Sets or gets the unlockKey which unlocks the product.
+   * Default value: ""
+   */
+  unlockKey?: string;
+  /**
    * Sets or gets the locale that determines what language is used to localize the labels inside the DateTimePicker.
    * Default value: "en"
    */

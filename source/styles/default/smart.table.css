@@ -101,7 +101,7 @@ smart-table tr.expanded .hierarchy-arrow {
 }
 .smart-table thead th .sort-by.asc, .smart-table thead th .sort-by.desc {
   display: inline-block;
-  visibility: visible;
+  visibility: inherit;
   opacity: 1;
 }
 .smart-table thead th .sort-by.desc:before {
