@@ -311,6 +311,9 @@ input[type=number]::-webkit-outer-spin-button {
 .smart-grid-icon.smart-icon-resize-full:before {
   content: var(--smart-icon-resize-full);
 }
+.smart-grid-icon.smart-icon-resize-small:before {
+  content: var(--smart-icon-resize-small);
+}
 .smart-grid-icon.smart-icon-align-left:before {
   content: var(--smart-icon-align-left);
 }
@@ -340,6 +343,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-grid-icon.smart-icon-close:before {
   content: var(--smart-icon-close);
+}
+.smart-grid-icon.smart-icon-download:before {
+  content: var(--smart-icon-download-alt);
 }
 .smart-grid-icon.smart-icon-search:before {
   content: var(--smart-icon-search);
@@ -492,6 +498,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .smart-grid-icon.smart-icon-copy-record:before {
   content: var(--smart-icon-copy-record);
+}
+.smart-grid-icon.smart-icon-cut:before {
+  content: var(--smart-icon-cut);
 }
 .smart-grid-icon.smart-icon-paste:before {
   content: var(--smart-icon-paste);
@@ -1329,7 +1338,7 @@ smart-grid-row[edit] .smart-grid-cell-container.near, smart-grid-row[edit] .smar
 
 .smart-grid-text-area-dialog,
 .smart-grid-slider-dialog {
-  z-index: 99999;
+  z-index: 9999;
   position: absolute;
   min-width: 160px;
   min-height: 140px;
@@ -1346,6 +1355,10 @@ smart-grid-row[edit] .smart-grid-cell-container.near, smart-grid-row[edit] .smar
   box-sizing: border-box;
   overflow: visible;
 }
+.smart-grid-text-area-dialog.open,
+.smart-grid-slider-dialog.open {
+  box-shadow: var(--smart-elevation-8) !important;
+}
 .smart-grid-text-area-dialog.smart-grid-slider-dialog,
 .smart-grid-slider-dialog.smart-grid-slider-dialog {
   min-height: 60px;
@@ -1357,12 +1370,13 @@ smart-grid-row[edit] .smart-grid-cell-container.near, smart-grid-row[edit] .smar
   position: absolute;
   background: var(--smart-primary);
   color: var(--smart-primary-color);
-  height: 16px;
-  font-size: 10px;
-  right: -3px;
-  top: -16px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  right: -10px;
+  top: -15px;
+  border-radius: 50%;
+  z-index: 9;
 }
 .smart-grid-text-area-dialog .smart-grid-text-area-container,
 .smart-grid-text-area-dialog .smart-grid-slider-container,
@@ -1555,6 +1569,13 @@ smart-grid-row[edit] .smart-grid-cell-container.near, smart-grid-row[edit] .smar
 .smart-window.smart-grid-dialog.smart-grid-dialog.disable-animation {
   transition: none;
 }
+.smart-window.smart-grid-dialog.smart-grid-side-panel {
+  transform-origin: top right !important;
+  transform: scaleX(0) !important;
+}
+.smart-window.smart-grid-dialog.smart-grid-side-panel.open {
+  transform: scaleX(1) !important;
+}
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row {
   width: 750px !important;
   height: 500px !important;
@@ -1565,6 +1586,16 @@ smart-grid-row[edit] .smart-grid-cell-container.near, smart-grid-row[edit] .smar
     width: 1100px !important;
     height: 750px !important;
   }
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.smart-grid-side-panel {
+  transform-origin: top right !important;
+  transform: scaleX(0) !important;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.smart-grid-side-panel.collapsed {
+  width: 450px !important;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row.smart-grid-side-panel.open {
+  transform: scaleX(1) !important;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-header-section {
   border-bottom: 1px solid var(--smart-border);
@@ -1866,8 +1897,24 @@ smart-grid-row[edit] .smart-grid-cell-container.near, smart-grid-row[edit] .smar
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .comment-body.edit,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .history-body.edit,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .comment-body.edit {
-  overflow: visible;
+  min-width: 200px;
+  min-height: 50px;
   box-shadow: none;
+}
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .history-body.edit .smart-text-area,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .comment-body.edit .smart-text-area,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .history-body.edit .smart-text-area,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .comment .comment-body.edit .smart-text-area,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .history-body.edit .smart-text-area,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .history-row .comment-body.edit .smart-text-area,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .history-body.edit .smart-text-area,
+.smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .comments-layout .comment .comment-body.edit .smart-text-area {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+  background: var(--smart-background);
+  color: var(--smart-background-color);
+  border: none;
 }
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .remove-button,
 .smart-window.smart-grid-dialog.smart-grid-dialog-expand-row .smart-grid-edit-dialog-layout .smart-grid-edit-dialog-activity-container .history-layout .history-row .edit-button,
@@ -3606,6 +3653,9 @@ smart-grid-cell.row-comments .smart-label::after {
   position: absolute;
   right: 5px;
 }
+smart-grid-cell smart-color-input .smart-color-box {
+  border-radius: 50% !important;
+}
 smart-grid-cell button[toggle-button]:after {
   justify-content: flex-start;
 }
@@ -3633,9 +3683,16 @@ smart-grid-cell .textwrap {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  white-space: pre-wrap;
+  white-space: normal;
   word-break: break-word;
   line-height: 1.5;
+}
+smart-grid-cell .textwrap p, smart-grid-cell .textwrap h1, smart-grid-cell .textwrap h2, smart-grid-cell .textwrap h3, smart-grid-cell .textwrap h4, smart-grid-cell .textwrap h5, smart-grid-cell .textwrap h6 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+smart-grid-cell .textwrap p:first-child, smart-grid-cell .textwrap h1:first-child, smart-grid-cell .textwrap h2:first-child, smart-grid-cell .textwrap h3:first-child, smart-grid-cell .textwrap h4:first-child, smart-grid-cell .textwrap h5:first-child, smart-grid-cell .textwrap h6:first-child {
+  margin-top: 0px;
 }
 smart-grid-cell ul,
 smart-grid-cell ol {
@@ -3929,6 +3986,18 @@ smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container {
   height: 100%;
   border: 1px solid transparent;
 }
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container[disabled] .nav {
+  pointer-events: none;
+  visibility: hidden;
+}
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container[disabled] .smart-filter-input-type {
+  pointer-events: none;
+  visibility: hidden;
+}
+smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container[disabled] .smart-grid-icon {
+  visibility: hidden;
+  pointer-events: none;
+}
 smart-grid-cell.smart-grid-filter-row-cell .smart-filter-input-container[focus] {
   border-color: var(--smart-ui-state-border-active);
   border-style: solid;
@@ -4152,6 +4221,23 @@ smart-grid-cell[template][template=dropdownGrid] .smart-label:hover {
   background: var(--smart-ui-state-hover);
   color: var(--smart-ui-state-color-hover);
   cursor: pointer;
+}
+smart-grid-cell[template][template=richText][focus] .smart-label:after,
+smart-grid-cell[template][template=richText] .smart-label:hover:after {
+  color: var(--smart-background-color) !important;
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-resize-full);
+  background: inherit;
+  color: var(--smart-primary);
+  position: absolute;
+  font-size: 12px;
+  right: 5px;
+  line-height: 1;
+  top: calc(50% - 6px);
+  cursor: pointer;
+}
+smart-grid-cell[template][template=richText][focus] .smart-label:after {
+  color: var(--smart-primary) !important;
 }
 smart-grid-cell[template][template=url] a, smart-grid-cell[template][template=email] a {
   color: var(--smart-primary);
@@ -4863,6 +4949,127 @@ smart-menu.smart-grid-views-menu[checkboxes][checkable] smart-menu-item[level="1
   transition: all 0.2s ease-in-out;
 }
 
+.smart-reaction-tooltip {
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background: var(--smart-surface);
+  color: var(--smart-surface-color);
+  z-index: 10;
+  padding: 5px;
+  pointer-events: none;
+}
+
+.smart-reaction-tooltip.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto; /* Allows interaction when visible */
+  transform: translateY(0); /* Smoother appearance */
+}
+
+.smart-reaction-tooltip span {
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+/* Pulsing effect on hover */
+.smart-reaction-tooltip span:hover {
+  animation: pulse 0.7s infinite ease-in-out; /* Pulsing effect on hover */
+}
+
+/* Pulsing keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.smart-reaction-bubble {
+  padding: 3px 5px;
+  font-size: 14px;
+  display: flex;
+  font-size: var(--smart-font-size);
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.smart-reactions-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Hover effect to display reactions */
+.smart-message {
+  position: relative;
+}
+
+.marching-ants::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%), linear-gradient(90deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 50%);
+  background-position: top, left, right, bottom;
+  background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+  background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px;
+  animation: marqueeAnimate var(--duration, 12s) linear infinite;
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+
+.marching-ants::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(90deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%);
+  background-position: top, left, right, bottom;
+  background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+  background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px;
+  animation: marqueeAnimate var(--alt-duration, 12s) linear infinite;
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+
+@keyframes marqueeAnimate {
+  0% {
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+  }
+  100% {
+    background-position: 100% 0, 0 -100%, 100% 100%, -100% 100%;
+  }
+}
+@keyframes ants {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 4px 0;
+  }
+}
 [editor=checkBox] .smart-label,
 [template=checkBox] .smart-label,
 [checkbox] .smart-label,

@@ -545,6 +545,11 @@ smart-window:not([opened]) {
   border-width: var(--smart-border-width);
   border-style: solid;
 }
+.smart-window.smart-dialog-window .smart-content-container > .smart-footer .smart-button.primary, .smart-window.smart-alert-window .smart-content-container > .smart-footer .smart-button.primary, .smart-window.smart-prompt-window .smart-content-container > .smart-footer .smart-button.primary, .smart-window.smart-multiline-prompt-window .smart-content-container > .smart-footer .smart-button.primary, .smart-window.smart-progress-window .smart-content-container > .smart-footer .smart-button.primary {
+  color: var(--smart-primary-color);
+  border-color: var(--smart-primary);
+  background-color: var(--smart-primary);
+}
 .smart-window.smart-dialog-window .smart-content-container > .smart-footer .smart-button:focus, .smart-window.smart-alert-window .smart-content-container > .smart-footer .smart-button:focus, .smart-window.smart-prompt-window .smart-content-container > .smart-footer .smart-button:focus, .smart-window.smart-multiline-prompt-window .smart-content-container > .smart-footer .smart-button:focus, .smart-window.smart-progress-window .smart-content-container > .smart-footer .smart-button:focus {
   color: var(--smart-ui-state-color-focus);
   border-color: var(--smart-ui-state-focus);

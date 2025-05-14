@@ -42,10 +42,10 @@ export interface FormProperties {
    */
   showSummary?: boolean;
   /**
-   * Gets the Form's state. Each member in the state has { dirty, untouched, disabled } properties.
+   * Gets the Form's status. Each member in the status has { dirty, untouched, disabled } properties.
    * Default value: null
    */
-  state?: any;
+  status?: any;
   /**
    * Gets or Sets the Form value.
    * Default value: null

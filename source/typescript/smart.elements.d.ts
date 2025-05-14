@@ -4876,6 +4876,11 @@ export interface ChartValueAxis {
    */
   title?: ChartTitle;
   /**
+   * Color of tick marks.
+   * Default value: ""
+   */
+  tickMarksColor?: string;
+  /**
    * Sets the interval between the units.
    * Default value: null
    */
@@ -9973,6 +9978,11 @@ declare global {
 
 export interface EditorProperties {
   /**
+   * An object containing settings related to the grid's AI integration.
+   * Default value: [object Object]
+   */
+  ai?: AI;
+  /**
    * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
    * Default value: advanced
    */
@@ -10038,7 +10048,7 @@ export interface EditorProperties {
    */
   disableSearchBar?: boolean;
   /**
-   * Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode.
+   * Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. The 'blockHtml' edit mode creates DIV tags when you hit enter and also includes built-in commands for data input. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode.
    * Default value: html
    */
   editMode?: EditMode | string;
@@ -10354,6 +10364,21 @@ export interface EditorProperties {
    * Default value: 100
    */
   splitModeRefreshTimeout?: number;
+  /**
+   * Sets the editor users. Expects an array with 'id', 'name' and optionally 'color' and 'image' properties.
+   * Default value: []
+   */
+  users?: any[];
+  /**
+   * Enables the editor pages feature.
+   * Default value: false
+   */
+  enablePages?: boolean;
+  /**
+   * Sets the editor pages. Expects an array with 'label' and 'innerHTML' properties.
+   * Default value: []
+   */
+  pages?: any[];
   /**
    * Sets or gets the upload URL. This property corresponds to the upload form's action attribute. For example, the uploadUrl property can point to a PHP file, which handles the upload operation on the server-side.
    * Default value: ""
@@ -10762,6 +10787,35 @@ export interface Editor extends BaseElement, EditorProperties {
   updateToolbarItem(name: string | number, settings: any): boolean | undefined;
 }
 
+/**An object containing settings related to the grid's AI integration. */
+export interface AI {
+  /**
+   * The AI model used for text generation or other AI-powered features.
+   * Default value: "gpt-3.5-turbo"
+   */
+  model?: string;
+  /**
+   * The maximum number of tokens (words/characters) the AI can generate in a single request
+   * Default value: 200
+   */
+  maxTokens?: number;
+  /**
+   * Controls the randomness of AI output. Lower values produce more focused results; higher values are more creative.
+   * Default value: 0.7
+   */
+  temperature?: number;
+  /**
+   * The endpoint URL for sending AI requests, typically your backend proxy to OpenAI or another provider.
+   * Default value: ""
+   */
+  url?: string;
+  /**
+   * The API key used to authenticate requests to the AI provider.
+   * Default value: ""
+   */
+  key?: string;
+}
+
 /**Determines the content filtering settings. */
 export interface EditorContentFiltering {
   /**
@@ -10994,8 +11048,8 @@ export declare type EditorContentFilteringTagFilterMode = 'blackList' | 'whiteLi
 export declare type EditorContentFilteringStyleAttributeFilterMode = 'blackList' | 'whiteList';
 /**Determines the context menu for the Editor. The context menu is triggered when the user right clicks on the content area of the Editor. */
 export declare type EditorContextMenu = 'default' | 'browser' | 'none';
-/**Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode. */
-export declare type EditMode = 'html' | 'markdown';
+/**Determines the edit mode for the Editor. By default the editor's content accepts and parses HTML. The 'blockHtml' edit mode creates DIV tags when you hit enter and also includes built-in commands for data input. However if set to 'markdown' the Editor can be used as a full time Markdown Editor by parsing the makrdown to HTML in preview mode. */
+export declare type EditMode = 'html' | 'markdown' | 'blockHtml';
 /**Determines the file format of the image/video that are uploaded from local storage. By default images/videos are stroed as base64. */
 export declare type EditorImageFormat = 'base64' | 'blob';
 /**Determines the format of the content that will be pasted inside the Editor. */
@@ -12852,10 +12906,10 @@ export interface FormProperties {
    */
   showSummary?: boolean;
   /**
-   * Gets the Form's state. Each member in the state has { dirty, untouched, disabled } properties.
+   * Gets the Form's status. Each member in the status has { dirty, untouched, disabled } properties.
    * Default value: null
    */
-  state?: any;
+  status?: any;
   /**
    * Gets or Sets the Form value.
    * Default value: null
@@ -15292,6 +15346,11 @@ export interface GridProperties {
    */
   appearance?: GridAppearance;
   /**
+   * An object containing settings related to the grid's AI integration.
+   * Default value: [object Object]
+   */
+  ai?: AI;
+  /**
    * An object containing settings related to the grid's behavior.
    * Default value: [object Object]
    */
@@ -16262,6 +16321,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getSelectedRows(): any[];
   /**
+   * Gets an Array where each item contains the row data.
+   * @returns {any[]}
+   */
+  getSelectedRowsData(): any[];
+  /**
    * Gets the selected row ids.
    * @returns {any[]}
    */
@@ -16597,6 +16661,17 @@ export interface Grid extends BaseElement, GridProperties {
    */
   setHorizontalScrollValue(value: number): void;
   /**
+   * Closes the Grid's side panel.
+   */
+  closeSidePanel(): void;
+  /**
+   * Shows the side panel of the Grid.
+   * @param {any} content. This is the content which will be displayed in the side panel. It can be String, HTML Element, HTML Template Element or Component
+   * @param {number} width?. This is the width of the side panel
+   * @param {any} callback?. Function called when the panel is opened. It can be used for dynamically showing content and initializing it.
+   */
+  showSidePanel(content: any, width?: number, callback?: any): void;
+  /**
    * Shows the Details of a Row, when row details are enabled.
    * @param {string | number} rowId. row bound id
    */
@@ -16894,6 +16969,35 @@ export interface GridAppearance {
    * Default value: true
    */
   showTodayDateAsString?: boolean;
+}
+
+/**An object containing settings related to the grid's AI integration. */
+export interface AI {
+  /**
+   * The AI model used for text generation or other AI-powered features.
+   * Default value: "gpt-3.5-turbo"
+   */
+  model?: string;
+  /**
+   * The maximum number of tokens (words/characters) the AI can generate in a single request
+   * Default value: 200
+   */
+  maxTokens?: number;
+  /**
+   * Controls the randomness of AI output. Lower values produce more focused results; higher values are more creative.
+   * Default value: 0.7
+   */
+  temperature?: number;
+  /**
+   * The endpoint URL for sending AI requests, typically your backend proxy to OpenAI or another provider.
+   * Default value: ""
+   */
+  url?: string;
+  /**
+   * The API key used to authenticate requests to the AI provider.
+   * Default value: ""
+   */
+  key?: string;
 }
 
 /**An object containing settings related to the grid's behavior. */
@@ -31298,9 +31402,9 @@ export interface Tabs extends BaseElement, TabsProperties {
   expand(): void;
   /**
    * Returns an array of the TabItems inside the element.
-   * @returns {TabItem[]}
+   * @returns {any}
    */
-  getTabs(): TabItem[];
+  getTabs(): any;
   /**
    * Returns the offset of the tab item container (smart-tab-item element) from the edge of the Tabs (smart-tabs element) where the tab strip is positioned.
    * @param {number} index. The index of the tab item.

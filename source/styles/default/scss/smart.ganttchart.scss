@@ -256,7 +256,6 @@ smart-gantt-chart>.smart-container,
       }
     }
   }
-
   >.smart-container,
   &.smart-container {
     position: relative;
@@ -276,6 +275,24 @@ smart-gantt-chart>.smart-container,
       z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
     }
   }
+
+  &[paging] {
+    >.smart-container,
+    &.smart-container {
+      >smart-splitter {
+        height: calc(100%  - 48px);
+  
+      }
+      
+      smart-pager {
+        border-bottom: 0px;
+      }
+
+      &.hscroll>smart-splitter {
+        height: calc(100% - var(--smart-scroll-bar-size) - 48px);
+      }
+  }
+}
 
   .smart-splitter {
     >.smart-container {

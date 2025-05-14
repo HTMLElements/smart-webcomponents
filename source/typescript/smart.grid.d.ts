@@ -9,6 +9,11 @@ export interface GridProperties {
    */
   appearance?: GridAppearance;
   /**
+   * An object containing settings related to the grid's AI integration.
+   * Default value: [object Object]
+   */
+  ai?: AI;
+  /**
    * An object containing settings related to the grid's behavior.
    * Default value: [object Object]
    */
@@ -979,6 +984,11 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getSelectedRows(): any[];
   /**
+   * Gets an Array where each item contains the row data.
+   * @returns {any[]}
+   */
+  getSelectedRowsData(): any[];
+  /**
    * Gets the selected row ids.
    * @returns {any[]}
    */
@@ -1314,6 +1324,17 @@ export interface Grid extends BaseElement, GridProperties {
    */
   setHorizontalScrollValue(value: number): void;
   /**
+   * Closes the Grid's side panel.
+   */
+  closeSidePanel(): void;
+  /**
+   * Shows the side panel of the Grid.
+   * @param {any} content. This is the content which will be displayed in the side panel. It can be String, HTML Element, HTML Template Element or Component
+   * @param {number} width?. This is the width of the side panel
+   * @param {any} callback?. Function called when the panel is opened. It can be used for dynamically showing content and initializing it.
+   */
+  showSidePanel(content: any, width?: number, callback?: any): void;
+  /**
    * Shows the Details of a Row, when row details are enabled.
    * @param {string | number} rowId. row bound id
    */
@@ -1611,6 +1632,35 @@ export interface GridAppearance {
    * Default value: true
    */
   showTodayDateAsString?: boolean;
+}
+
+/**An object containing settings related to the grid's AI integration. */
+export interface AI {
+  /**
+   * The AI model used for text generation or other AI-powered features.
+   * Default value: "gpt-3.5-turbo"
+   */
+  model?: string;
+  /**
+   * The maximum number of tokens (words/characters) the AI can generate in a single request
+   * Default value: 200
+   */
+  maxTokens?: number;
+  /**
+   * Controls the randomness of AI output. Lower values produce more focused results; higher values are more creative.
+   * Default value: 0.7
+   */
+  temperature?: number;
+  /**
+   * The endpoint URL for sending AI requests, typically your backend proxy to OpenAI or another provider.
+   * Default value: ""
+   */
+  url?: string;
+  /**
+   * The API key used to authenticate requests to the AI provider.
+   * Default value: ""
+   */
+  key?: string;
 }
 
 /**An object containing settings related to the grid's behavior. */

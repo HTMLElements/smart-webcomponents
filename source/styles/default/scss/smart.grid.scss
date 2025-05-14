@@ -398,6 +398,10 @@ input[type=number] {
     content: var(--smart-icon-resize-full);
   }
 
+  &.smart-icon-resize-small:before {
+    content: var(--smart-icon-resize-small);
+  }
+
   &.smart-icon-align-left:before {
     content: var(--smart-icon-align-left);
   }
@@ -437,6 +441,11 @@ input[type=number] {
   &.smart-icon-close:before {
     content: var(--smart-icon-close);
   }
+
+  &.smart-icon-download:before {
+    content: var(--smart-icon-download-alt);
+  }
+
 
   &.smart-icon-search:before {
     content: var(--smart-icon-search);
@@ -628,6 +637,10 @@ input[type=number] {
   
   &.smart-icon-copy-record:before {
     content: var(--smart-icon-copy-record);
+  }
+
+  &.smart-icon-cut:before {
+    content: var(--smart-icon-cut);
   }
 
   &.smart-icon-paste:before {
@@ -1625,7 +1638,7 @@ smart-grid-row[edit] {
 
 .smart-grid-text-area-dialog,
 .smart-grid-slider-dialog {
-  z-index: 99999;
+  z-index: 9999;
   position: absolute;
   min-width: 160px;
   min-height: 140px;
@@ -1642,6 +1655,10 @@ smart-grid-row[edit] {
   box-sizing: border-box;
   overflow: visible;
 
+  &.open {
+    box-shadow: var(--smart-elevation-8) !important;
+  }
+
   &.smart-grid-slider-dialog {
     min-height: 60px;
     max-width: 200px;
@@ -1652,12 +1669,13 @@ smart-grid-row[edit] {
     position: absolute;
     background: var(--smart-primary);
     color: var(--smart-primary-color);
-    height: 16px;
-    font-size: 10px;
-    right: -3px;
-    top: -16px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    height: 20px;
+    width: 20px;
+    font-size: 12px;
+    right: -10px;
+    top: -15px;
+    border-radius: 50%;
+    z-index: 9;
   }
 
   .smart-grid-text-area-container,
@@ -1865,6 +1883,15 @@ smart-grid-row[edit] {
       transition: none;
     }
 
+    &.smart-grid-side-panel {
+      transform-origin: top right !important;
+      transform: scaleX(0) !important;
+      
+      &.open {
+        transform: scaleX(1) !important;
+      }
+    }
+
     &.smart-grid-dialog-expand-row {
       width: 750px !important;
       height: 500px !important;
@@ -1872,6 +1899,19 @@ smart-grid-row[edit] {
       @media screen and (min-width: 1128px) {
         width: 1100px !important;
         height: 750px !important;
+      }
+
+      &.smart-grid-side-panel {
+        transform-origin: top right !important;
+        transform: scaleX(0) !important;
+        
+        &.collapsed {
+          width: 450px !important;
+        }
+        
+        &.open {
+          transform: scaleX(1) !important;
+        }
       }
 
       --smart-window-content-padding: 0px;
@@ -2192,7 +2232,18 @@ smart-grid-row[edit] {
                 }
 
                 &.edit {
-                  overflow: visible;
+                  min-width: 200px;
+                  min-height: 50px;
+
+                  .smart-text-area {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0px;
+                    background: var(--smart-background);
+                    color: var(--smart-background-color);
+                    border: none;
+                  }
+              
                   box-shadow: none;
                 }
               }
@@ -4476,6 +4527,12 @@ smart-grid-cell {
     
   }
 
+  smart-color-input {
+    .smart-color-box {
+      border-radius: 50% !important;
+    }
+  }
+
   button[toggle-button] {
     &:after {
       justify-content: flex-start;
@@ -4511,9 +4568,18 @@ smart-grid-cell {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    white-space: pre-wrap;
+    white-space: normal;
     word-break: break-word;
-    line-height: 1.5;
+    line-height: 1.5; 
+
+    p, h1, h2, h3, h4, h5, h6 {
+      margin-top: 3px;
+      margin-bottom: 3px;
+    
+      &:first-child {
+        margin-top: 0px;
+      }
+    }
   }
 
   scrollbar-width: auto;
@@ -4846,6 +4912,21 @@ smart-grid-cell {
       height: 100%;
       border: 1px solid transparent;
 
+      &[disabled] {
+        .nav{
+          pointer-events: none;
+          visibility: hidden;
+        }
+        .smart-filter-input-type {
+          pointer-events: none;
+          visibility: hidden;
+        }
+        .smart-grid-icon {
+          visibility: hidden;
+          pointer-events: none;
+        }
+      }
+
       &[focus] {
         border-color: var(--smart-ui-state-border-active);
         border-style: solid;
@@ -5152,6 +5233,31 @@ smart-grid-cell {
         cursor: pointer;
       }
     }
+
+    &[template="richText"] {
+      &[focus] .smart-label,
+      .smart-label:hover {
+      
+        &:after {
+          color: var(--smart-background-color) !important;
+          font-family: var(--smart-font-family-icon);
+          content: var(--smart-icon-resize-full);
+          background: inherit;
+          color: var(--smart-primary);
+          position: absolute;
+          font-size:12px;
+          right: 5px;
+          line-height: 1;
+          top: calc(50% - 6px);
+          cursor: pointer;
+        }
+      }
+
+      &[focus] .smart-label:after {
+        color: var(--smart-primary) !important;
+      }
+    }
+
     &[template="url"],
     &[template="email"] {
       a {
@@ -6048,6 +6154,125 @@ smart-menu {
 .smart-votes-bar-animate .smart-votes-bar, 
 .smart-votes-bar-animate .smart-votes-bar-frame {
   transition: all .2s ease-in-out;
+}
+
+.smart-reaction-tooltip {
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+    z-index: 10;
+    padding: 5px;
+    pointer-events: none;
+}
+
+.smart-reaction-tooltip.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto; /* Allows interaction when visible */
+  transform: translateY(0); /* Smoother appearance */
+}
+
+.smart-reaction-tooltip span {
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+/* Pulsing effect on hover */
+.smart-reaction-tooltip span:hover {
+  animation: pulse .7s infinite ease-in-out; /* Pulsing effect on hover */
+}
+
+/* Pulsing keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.smart-reaction-bubble {
+  padding: 3px 5px;
+  font-size: 14px;
+  display: flex;
+  font-size:var(--smart-font-size);
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.smart-reactions-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Hover effect to display reactions */
+.smart-message {
+  position: relative;
+}
+
+.marching-ants {
+
+}
+
+.marching-ants::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.0) 50%, rgba(255,255,255, 0.0) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%), linear-gradient(90deg, rgba(255, 255, 255, 0.0) 50%, rgba(255,255,255, 0) 50%);
+  background-position: top, left, right, bottom;
+  background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+  background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px;
+  animation: marqueeAnimate var(--duration, 12s) linear infinite;
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+
+.marching-ants::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(175deg, rgba(255, 255, 255, 0) 50%, rgba(255,255,255, 0) 50%), linear-gradient(90deg, rgba(255, 255, 255, 0.6) 50%, rgba(var(--smart-primary-rgb), 0.6) 50%);
+  background-position: top, left, right, bottom;
+  background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+  background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px;
+  animation: marqueeAnimate  var(--alt-duration, 12s) linear infinite;
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+
+@keyframes marqueeAnimate {
+  0% {background-position: 0 0, 0 0, 100% 0, 0 100%;}
+100% {background-position: 100% 0, 0 -100%, 100% 100%, -100% 100%;}
+}
+@keyframes ants {
+  0% { background-position: 0 0; }
+  100% { background-position: 4px 0; }
 }
 
 @import 'grid/_checkbox';

@@ -198,6 +198,15 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
   min-height: 100%;
   z-index: calc(var(--smart-editor-drop-down-z-index) - 1);
 }
+.smart-gantt-chart[paging] > .smart-container > smart-splitter, .smart-gantt-chart[paging].smart-container > smart-splitter {
+  height: calc(100% - 48px);
+}
+.smart-gantt-chart[paging] > .smart-container smart-pager, .smart-gantt-chart[paging].smart-container smart-pager {
+  border-bottom: 0px;
+}
+.smart-gantt-chart[paging] > .smart-container.hscroll > smart-splitter, .smart-gantt-chart[paging].smart-container.hscroll > smart-splitter {
+  height: calc(100% - var(--smart-scroll-bar-size) - 48px);
+}
 .smart-gantt-chart .smart-splitter > .smart-container > smart-splitter-bar > .smart-container {
   transform: scaleX(5);
   transform-origin: left;

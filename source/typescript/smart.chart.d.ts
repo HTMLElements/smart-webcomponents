@@ -1375,6 +1375,11 @@ export interface ChartValueAxis {
    */
   title?: ChartTitle;
   /**
+   * Color of tick marks.
+   * Default value: ""
+   */
+  tickMarksColor?: string;
+  /**
    * Sets the interval between the units.
    * Default value: null
    */
