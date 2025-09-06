@@ -8,7 +8,7 @@
 Modern UI Components for **React**, **Angular**, **Vue**, **Blazor**, and **JavaScript**.  
 Build data-rich, responsive applications faster with a powerful, professional-grade library.  
 
-![Smart UI Banner](https://www.htmlelements.com/wp-content/uploads/2021/11/smart-ui.png)
+![Smart UI Banner](https://www.htmlelements.com/wp-content/uploads/smart-ui-datagrid.png)
 
 ---
 
