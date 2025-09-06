@@ -1,0 +1,13 @@
+{
+'browse': 'Browse',
+                        'uploadFile': 'Upload File',
+                        'cancelFile': 'Cancel File',
+                        'pauseFile': 'Pause File',
+                        'uploadAll': 'Upload All',
+                        'cancelAll': 'Cancel All',
+                        'pauseAll': 'Pause All',
+                        'totalFiles': 'Total files: ',
+                        'connectionError': '{{elementType}}: File Upload requires connection to the server.',
+                        'wrongItemIndex': '{{elementType}}: There is no file with such an index in the list of uploaded files.',
+                        'tooLongFileName': '{{elementType}}: File name is too long.'
+}

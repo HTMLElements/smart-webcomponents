@@ -1,0 +1,7 @@
+{
+'newItem': 'Βρείτε...',
+'tagLabelOne': '{{value}} επιλεγμένο στοιχείο',
+'tagLabel': '{{value}} επιλεγμένα στοιχεία',
+'selectAll': 'Επιλογή Όλων',
+'unselectAll': 'Αποεπιλογή Όλων'
+}

@@ -1,0 +1,7 @@
+{
+  "ambiguousIndexes": "smart-tabs: 最初に設定された smart-tab-item のインデックスがあいまいであり、HTML 構造が優先され無視されます。",
+  "detailsObjectRequired": "smart-tabs: メソッド「insert」には、2 番目の引数として詳細オブジェクトの渡しが必要です。",
+  "invalidIndex": "smart-tabs: 「{{method}}」メソッドは数値型のインデックスを受け取ります。",
+  "referenceNodeNotChild": "smart-tabs: 渡された {{argument}} はこの smart-tabs 要素の一部ではありません。",
+  "tabItemRequired": "smart-tabs: メソッド「{{method}}」には「smart-tab-item」要素を引数として渡す必要があります。"
+}

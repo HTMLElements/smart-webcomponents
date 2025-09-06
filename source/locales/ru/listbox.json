@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Применены переопределяющие свойства {{property1}} и {{property2}}. Свойство "{{property1}}" используется по умолчанию.',
+'invalidIndex': '{{elementType}}: Метод "{{method}}" принимает индекс типа number или массив чисел.',
+'indexOutOfBound': '{{elementType}}: Выход индекса/индексов за пределы в методе "{{method}}".',
+'invalidItem': '{{elementType}}: Метод "{{method}}" принимает объект или массив объектов в качестве второго параметра.',
+'invalidSettings': '{{elementType}}: Метод "{{method}}" принимает строку или объект в качестве второго параметра.'
+}

@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Kamerayı Sıfırla',
+'cameraMode': 'Kamera Modu',
+'panMode': 'Gezdirme Modu',
+'zoomMode': 'Yakınlaştırma Modu',
+'saveImage': 'Görüntüyü Kaydet',
+'zoomOut': 'Uzaklaştır',
+'zoomIn': 'Yaklaştır',
+'field': 'Alan',
+'invalidSeries': 'smart-chart: Geçersiz özellik: her seri grubunun geçerli bir dizi olan bir \'series\' özelliği olmalıdır.',
+'invalidSeriesGroups': 'smart-chart: Geçersiz özellik: \'seriesGroups\' özelliği zorunludur ve geçerli bir dizi olmalıdır.',
+'invalidType': 'smart-chart: Geçersiz seri türü "{{type}}".',
+'missingReference': 'smart-chart: {{files}} referansı eksik.',
+'missingType': 'smart-chart: Geçersiz özellik: her seri grubunun geçerli bir \'type\' özelliği olmalıdır.'
+}

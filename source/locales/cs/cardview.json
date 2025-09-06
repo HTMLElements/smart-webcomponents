@@ -1,0 +1,21 @@
+{
+'addImage': 'Přidat',
+'applyOnce': 'Použít jednou',
+'coverField': 'Pole obálky',
+'crop': 'Oříznout',
+'customize': 'Přizpůsobit karty',
+'dateTabLabel': 'DATUM',
+'draggedRecord': 'Záznam {{id}}',
+'fit': 'Přizpůsobit',
+'imageUrl': 'Nová URL obrázku:',
+'incorrectStructure': '"dataSource" musí být instancí Smart.DataAdapter nebo pole objektů s klíč-hodnota páry.',
+'nextRecord': 'Další záznam',
+'noCoverField': 'Žádné pole obálky',
+'noData': 'Žádná data k zobrazení',
+'noMatches': 'Žádné shodné záznamy',
+'now': 'Nyní',
+'previousRecord': 'Předchozí záznam',
+'removeImage': 'Odstranit',
+'timeTabLabel': 'ČAS',
+'toggleVisibility': 'Přepnout viditelnost pole'
+}

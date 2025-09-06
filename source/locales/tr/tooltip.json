@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" bir Dize, bir HTMLElement ya da null olmalıdır.',
+'htmlTemplateNotSuported': '{{elementType}}: Tarayıcı HTMLTemplate öğelerini desteklemiyor.',
+'invalidTemplate': '{{elementType}}: "{{property}}" özelliği, DOM\'daki bir HTMLTemplate öğesinin id\'si ile eşleşmesi gereken bir dize kabul eder.',
+'invalidNode': '{{elementType}}: {{method}} çağrılırken geçersiz parametre "{{node}}".'
+}

@@ -1,0 +1,13 @@
+{
+'firstButton': 'Πρώτη',
+'lastButton': 'Τελευταία',
+'previousButton': 'Προηγούμενη',
+'nextButton': 'Επόμενη',
+'navigateToLabel': 'Μετάβαση σε:',
+'pageSizeLabel': 'Εμφάνιση:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': 'από',
+'summaryPrefix': 'από',
+'summarySuffix': ''
+}

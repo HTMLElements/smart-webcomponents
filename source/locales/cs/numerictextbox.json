@@ -1,0 +1,9 @@
+{
+'binary': 'BINÁRNÍ',
+'octal': 'OSMIČKOVÁ',
+'decimal': 'DESÍTKOVÁ',
+'hexadecimal': 'ŠESTNÁCTKOVÁ',
+'integerOnly': 'jqxNumericTextBox: Vlastnost {{property}} může být nastavena pouze pokud je inputFormat celé číslo.',
+'noInteger': 'jqxNumericTextBox: Vlastnost {{property}} nemůže být nastavena pokud je inputFormat celé číslo.',
+'significantPrecisionDigits': 'jqxNumericTextBox: Vlastnosti significantDigits a precisionDigits nemohou být nastaveny současně.'
+}

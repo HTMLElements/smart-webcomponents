@@ -1,0 +1,3 @@
+{
+'callbackFunctionRequired': 'smart-array: Når "type" er \'custom\', må {{callback}} callback-funksjonen implementeres.'
+}

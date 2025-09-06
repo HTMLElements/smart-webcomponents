@@ -1,0 +1,21 @@
+{
+'addImage': '追加',
+'applyOnce': '一度適用',
+'coverField': 'カバーフィールド',
+'crop': 'トリミング',
+'customize': 'カードのカスタマイズ',
+'dateTabLabel': '日付',
+'draggedRecord': 'レコード {{id}}',
+'fit': 'フィット',
+'imageUrl': '新しい画像のURL:',
+'incorrectStructure': '"dataSource" は Smart.DataAdapter のインスタンスまたはキーと値のペアを持つオブジェクトの配列でなければなりません。',
+'nextRecord': '次のレコード',
+'noCoverField': 'カバーフィールドがありません',
+'noData': '表示するデータがありません',
+'noMatches': '一致するレコードがありません',
+'now': '今',
+'previousRecord': '前のレコード',
+'removeImage': '削除',
+'timeTabLabel': '時間',
+'toggleVisibility': 'フィールドの表示切替'
+}

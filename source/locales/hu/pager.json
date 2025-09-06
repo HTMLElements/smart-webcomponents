@@ -1,0 +1,13 @@
+{
+'firstButton': 'Első',
+'lastButton': 'Utolsó',
+'previousButton': 'Előző',
+'nextButton': 'Következő',
+'navigateToLabel': 'Ugrás ide:',
+'pageSizeLabel': 'Mutat:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': 'ból',
+'summaryPrefix': 'ból',
+'summarySuffix': ''
+}

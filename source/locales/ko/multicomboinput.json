@@ -1,0 +1,7 @@
+{
+'newItem': '검색...',
+'tagLabelOne': '{{value}}개 항목 선택됨',
+'tagLabel': '{{value}}개 항목 선택됨',
+'selectAll': '전체 선택',
+'unselectAll': '전체 선택 해제'
+}

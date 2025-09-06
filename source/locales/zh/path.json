@@ -1,0 +1,6 @@
+{
+  "incorrectArgument": "{{elementType}}: 方法 {{methodName}} 中参数 {{argumentName}} 不正确。",
+  "missingReference": "{{elementType}}: 方法 {{methodName}} 中缺少对 {{file}} 的引用。",
+  "notAPath": "设置为非路径",
+  "validPath": "设置为有效路径"
+}

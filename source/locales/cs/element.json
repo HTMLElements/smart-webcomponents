@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Neplatný název vlastnosti: \'{{name}}\'!',
+'propertyUnknownType': 'Vlastnost \'{{name}}\' má nedefinovaný člen \'type\'!',
+'propertyInvalidValue': 'Neplatná hodnota vlastnosti \'{{name}}\'! Skutečná hodnota: \'{{actualValue}}\', Očekávaná hodnota: \'{{value}}\'!',
+'propertyInvalidValueType': 'Neplatný typ hodnoty vlastnosti \'{{name}}\'! Skutečný typ: \'{{actualType}}\', Očekávaný typ: \'{{type}}\'!',
+'methodInvalidValueType': 'Neplatný typ hodnoty argumentu metody \'{{name}}\'! Skutečný typ: \'{{actualType}}\', Očekávaný typ: \'{{type}}\' pro argument s indexem: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Neplatný počet argumentů metody \'{{name}}\'! Skutečný počet argumentů: \'{{actualArgumentsCount}}\', Očekává se alespoň: \'{{argumentsCount}}\' argument(ů)!',
+'methodInvalidReturnType': 'Neplatný návratový typ metody \'{{name}}\'! Skutečný typ: \'{{actualType}}\', Očekávaný typ: \'{{type}}\'!',
+'elementNotInDOM': 'Prvek neexistuje v DOM! Před voláním metody prosím přidejte prvek do DOM.',
+'moduleUndefined': 'Modul není definován.',
+'missingReference': '{{elementType}}: Chybí odkaz na \'{{files}}\'.',
+'htmlTemplateNotSuported': '{{elementType}}: Webový prohlížeč nepodporuje elementy HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: Vlastnost \'{{property}}\' přijímá řetězec, který musí odpovídat ID elementu HTMLTemplate v DOM.'
+}

@@ -1,0 +1,4 @@
+{
+'noId': 'smart-tree : La sauvegarde et le chargement de l\'état de l\'élément ne sont pas disponibles si l\'élément n\'a pas d\'id.',
+'dropDownPlaceholder': 'Veuillez sélectionner...'
+}

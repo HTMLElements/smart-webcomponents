@@ -285,7 +285,6 @@ textarea {
 @import 'textbox/_underlined';
 @import 'textbox/_outlined';
 
-
 /* Faster transition in Safari for less noticable fractional font-size issue */
 @media not all and (min-resolution: .001dpcm) {
   @supports (-webkit-appearance: none) {

@@ -1,0 +1,8 @@
+{
+  "invalidNode": "{{elementType}}: El método \"{{method}}\" acepta una instancia de Smart.TabsWindow",
+  "invalidNodeRemove": "{{elementType}}: El método \"{{method}}\" acepta una instancia de Smart.TabsWindow que es un hijo del DockingLayout.",
+  "invalidNodeType": "{{elementType}}: El método \"{{method}}\" requiere que se pase un elemento \"smart-tabs-window\" como argumento.",
+  "invalidTargetNode": "{{elementType}}: El método \"{{method}}\" requiere un índice de un elemento que no esté oculto/cerrado. Solo los elementos visibles que son parte del Layout son válidos.",
+  "invalidIndex": "{{elementType}}: El método \"{{method}}\" acepta un índice de tipo número.",
+  "noId": "jqxDockingLayout requiere un id para poder guardar/cargar un estado."
+}

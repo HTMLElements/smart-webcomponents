@@ -1,0 +1,3 @@
+{
+'callbackFunctionRequired': 'smart-array: "type" が \'custom\' の場合、{{callback}} コールバック関数を実装する必要があります。'
+}

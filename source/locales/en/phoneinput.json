@@ -1,0 +1,9 @@
+{
+'Example': 'Example: ',
+                        'IS_POSSIBLE': 'Is possible',
+                        'INVALID_COUNTRY_CODE': 'Invalid country code',
+                        'TOO_SHORT': 'Too short',
+                        'TOO_LONG': 'Too long',
+                        'IS_POSSIBLE_LOCAL_ONLY': 'Is possible local only',
+                        'INVALID_LENGTH': 'Invalid length'
+}

@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}}: \"{{method}}\"-metodi hyväksyy indeksin, jonka tyyppi on number.",
+  "indexOutOfBound": "{{elementType}}: \"{{method}}\"-metodissa indeksi/indeksit ovat sallitun alueen ulkopuolella.",
+  "invalidNode": "{{elementType}}: \"{{method}}\"-metodi hyväksyy toisena parametrinaan objektin tai taulukon objekteja.",
+  "invalidSettings": "{{elementType}}: \"{{method}}\"-metodi hyväksyy toisena parametrinaan merkkijonon tai objektin.",
+  "invalidType": "{{elementType}}: \"{{propertyName}}\"-kentän on oltava tyypiltään merkkijono tai numero."
+}

@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Nome de propriedade inválido: \'{{name}}\'!',
+'propertyUnknownType': 'Propriedade \'{{name}}\' com membro \'type\' indefinido!',
+'propertyInvalidValue': 'Valor inválido para a propriedade \'{{name}}\'! Valor atual: \'{{actualValue}}\', Valor esperado: \'{{value}}\'!',
+'propertyInvalidValueType': 'Tipo de valor inválido para a propriedade \'{{name}}\'! Tipo atual: \'{{actualType}}\', Tipo esperado: \'{{type}}\'!',
+'methodInvalidValueType': 'Tipo de valor inválido para o argumento do método \'{{name}}\'! Tipo atual: \'{{actualType}}\', Tipo esperado: \'{{type}}\' para o argumento com índice: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Quantidade inválida de argumentos para o método \'{{name}}\'! Quantidade atual de argumentos: \'{{actualArgumentsCount}}\', Esperado no mínimo: \'{{argumentsCount}}\' argumento(s)!',
+'methodInvalidReturnType': 'Tipo de retorno inválido para o método \'{{name}}\'! Tipo atual: \'{{actualType}}\', Tipo esperado: \'{{type}}\'!',
+'elementNotInDOM': 'Elemento não existe no DOM! Por favor, adicione o elemento ao DOM antes de invocar um método.',
+'moduleUndefined': 'Módulo está indefinido.',
+'missingReference': '{{elementType}}: Referência para \'{{files}}\' ausente.',
+'htmlTemplateNotSuported': '{{elementType}}: O navegador web não suporta elementos HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: A propriedade \'{{property}}\' aceita uma string que deve corresponder ao id de um elemento HTMLTemplate do DOM.'
+}

@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Virheellinen ominaisuuden nimi: \'{{name}}\'!',
+'propertyUnknownType': '\'{{name}}\'-ominaisuudella ei ole määriteltyä \'type\'-jäsentä!',
+'propertyInvalidValue': 'Virheellinen \'{{name}}\'-ominaisuuden arvo! Todellinen arvo: \'{{actualValue}}\', odotettu arvo: \'{{value}}\'!',
+'propertyInvalidValueType': 'Virheellinen \'{{name}}\'-ominaisuuden arvon tyyppi! Todellinen tyyppi: \'{{actualType}}\', odotettu tyyppi: \'{{type}}\'!',
+'methodInvalidValueType': 'Virheellisen \'{{name}}\'-metodin argumentin arvon tyyppi! Todellinen tyyppi: \'{{actualType}}\', odotettu tyyppi: \'{{type}}\' argumentille indeksillä: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Virheellinen \'{{name}}\'-metodin argumenttien määrä! Todellinen argumenttien määrä: \'{{actualArgumentsCount}}\', vähintään odotettu: \'{{argumentsCount}}\' argumenttia!',
+'methodInvalidReturnType': 'Virheellinen \'{{name}}\'-metodin paluuarvon tyyppi! Todellinen tyyppi: \'{{actualType}}\', odotettu tyyppi: \'{{type}}\'!',
+'elementNotInDOM': 'Elementtiä ei ole DOMissa! Ole hyvä ja lisää elementti DOMiin ennen metodin kutsumista.',
+'moduleUndefined': 'Moduulia ei ole määritelty.',
+'missingReference': '{{elementType}}: Viite puuttuu tiedostoon(t): \'{{files}}\'',
+'htmlTemplateNotSuported': '{{elementType}}: Verkkoselain ei tue HTMLTemplate-elementtejä.',
+'invalidTemplate': '{{elementType}}: \'{{property}}\' ominaisuus hyväksyy merkkijonon, joka vastaa DOMin HTMLTemplate-elementin id:tä.'
+}

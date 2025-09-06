@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': '無効なプロパティ名: \'{{name}}\'！',
+'propertyUnknownType': '\'{{name}}\' プロパティの \'type\' メンバーが未定義です！',
+'propertyInvalidValue': '無効な \'{{name}}\' プロパティ値！実際の値: \'{{actualValue}}\'、期待される値: \'{{value}}\'！',
+'propertyInvalidValueType': '無効な \'{{name}}\' プロパティ値の型！実際の型: \'{{actualType}}\'、期待される型: \'{{type}}\'！',
+'methodInvalidValueType': '無効な \'{{name}}\' メソッド引数の値の型！実際の型: \'{{actualType}}\'、引数インデックス: \'{{argumentIndex}}\' の期待型: \'{{type}}\'！',
+'methodInvalidArgumentsCount': '無効な \'{{name}}\' メソッドの引数数！実際の引数数: \'{{actualArgumentsCount}}\'、期待される最小引数数: \'{{argumentsCount}}\'！',
+'methodInvalidReturnType': '無効な \'{{name}}\' メソッドの戻り値の型！実際の型: \'{{actualType}}\'、期待される型: \'{{type}}\'！',
+'elementNotInDOM': '要素はDOMに存在しません！メソッドを呼び出す前に要素をDOMに追加してください。',
+'moduleUndefined': 'モジュールが未定義です。',
+'missingReference': '{{elementType}}: \'{{files}}\' への参照が不足しています。',
+'htmlTemplateNotSuported': '{{elementType}}: ウェブブラウザーはHTMLTemplate要素をサポートしていません。',
+'invalidTemplate': '{{elementType}}: \'{{property}}\' プロパティは、DOM内のHTMLTemplate要素のIDに一致する文字列を受け入れます。'
+}

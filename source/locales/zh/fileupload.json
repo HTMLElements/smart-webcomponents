@@ -1,0 +1,13 @@
+{
+'browse': '浏览',
+'uploadFile': '上传文件',
+'cancelFile': '取消文件',
+'pauseFile': '暂停文件',
+'uploadAll': '上传全部',
+'cancelAll': '取消全部',
+'pauseAll': '暂停全部',
+'totalFiles': '文件总数：',
+'connectionError': '{{elementType}}: 文件上传需要连接到服务器。',
+'wrongItemIndex': '{{elementType}}: 上传文件列表中没有该索引的文件。',
+'tooLongFileName': '{{elementType}}: 文件名太长。'
+}

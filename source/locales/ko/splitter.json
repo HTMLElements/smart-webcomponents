@@ -1,0 +1,7 @@
+{
+'invalidIndex': '{{elementType}}: "{{method}}" 메서드는 숫자 타입의 인덱스를 허용합니다.',
+'indexOutOfBound': '{{elementType}}: "{{method}}" 메서드에서 인덱스가 범위를 벗어났습니다.',
+'invalidNode': '{{elementType}}: "{{method}}" 메서드는 두 번째 매개변수로 객체 또는 객체 배열을 허용합니다.',
+'invalidSettings': '{{elementType}}: "{{method}}" 메서드는 두 번째 매개변수로 문자열 또는 객체를 허용합니다.',
+'invalidType': '{{elementType}}: "{{propertyName}}"은(는) 문자열 또는 숫자 타입이어야 합니다.'
+}

@@ -1,0 +1,7 @@
+{
+  "ambiguousIndexes": "smart-tabs: Αρχικά καθορισμένοι δείκτες στοιχείων smart-tab-item είναι ασαφείς και αγνοούνται υπέρ της δομής HTML.",
+  "detailsObjectRequired": "smart-tabs: Η μέθοδος \"insert\" απαιτεί ένα αντικείμενο λεπτομερειών να περαστεί ως δεύτερο όρισμα.",
+  "invalidIndex": "smart-tabs: Η μέθοδος \"{{method}}\" αποδέχεται έναν δείκτη τύπου αριθμού.",
+  "referenceNodeNotChild": "smart-tabs: Το περασμένο {{argument}} δεν αποτελεί μέρος αυτού του στοιχείου smart-tabs.",
+  "tabItemRequired": "smart-tabs: Η μέθοδος \"{{method}}\" απαιτεί να περαστεί ένα στοιχείο \"smart-tab-item\" ως όρισμα."
+}

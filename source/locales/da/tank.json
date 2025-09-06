@@ -1,0 +1,6 @@
+{
+'missingReference': '{{elementType}}: Manglende reference til {{files}}.',
+'significantPrecisionDigits': '{{elementType}}: egenskaberne significantDigits og precisionDigits kan ikke indstilles samtidigt.',
+'invalidMinOrMax': '{{elementType}}: Ugyldig {{property}} værdi. Maks kan ikke være lavere end Min.',
+'noInteger': '{{elementType}}: precisionDigits kan kun indstilles på "floatingPoint" scaleType.'
+}

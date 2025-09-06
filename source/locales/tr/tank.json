@@ -1,0 +1,6 @@
+{
+'missingReference': '{{elementType}}: {{files}} için eksik referans.',
+'significantPrecisionDigits': '{{elementType}}: significantDigits ve precisionDigits özellikleri aynı anda ayarlanamaz.',
+'invalidMinOrMax': '{{elementType}}: Geçersiz {{property}} değeri. Maksimum minimumdan daha düşük olamaz.',
+'noInteger': '{{elementType}}: precisionDigits yalnızca "floatingPoint" scaleType üzerinde ayarlanabilir.'
+}

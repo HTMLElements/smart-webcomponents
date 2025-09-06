@@ -1,0 +1,13 @@
+{
+  "firstButton": "První",
+  "lastButton": "Poslední",
+  "previousButton": "Předchozí",
+  "nextButton": "Další",
+  "navigateToLabel": "Přejít na:",
+  "pageSizeLabel": "Zobrazit:",
+  "navigateToInputPlaceholder": "",
+  "ellipsis": "...",
+  "summaryString": "z",
+  "summaryPrefix": "z",
+  "summarySuffix": ""
+}

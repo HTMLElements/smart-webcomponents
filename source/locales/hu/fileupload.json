@@ -1,0 +1,13 @@
+{
+'browse': 'Tallózás',
+'uploadFile': 'Fájl feltöltése',
+'cancelFile': 'Fájl törlése',
+'pauseFile': 'Fájl szüneteltetése',
+'uploadAll': 'Összes feltöltése',
+'cancelAll': 'Összes törlése',
+'pauseAll': 'Összes szüneteltetése',
+'totalFiles': 'Összes fájl: ',
+'connectionError': '{{elementType}}: A fájl feltöltéshez kapcsolódás szükséges a szerverhez.',
+'wrongItemIndex': '{{elementType}}: Nincs ilyen indexű fájl a feltöltött fájlok listájában.',
+'tooLongFileName': '{{elementType}}: A fájlnév túl hosszú.'
+}

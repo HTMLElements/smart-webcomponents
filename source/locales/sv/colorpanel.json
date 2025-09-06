@@ -1,0 +1,12 @@
+{
+'redPrefix': 'R:',
+'greenPrefix': 'G:',
+'bluePrefix': 'B:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Alfa:',
+'ok': 'OK',
+'cancel': 'AVBRYT',
+'customColor': 'ANPASSAD FÄRG',
+'standardColors': 'Standardfärger',
+'themeColors': 'Temafärger'
+}

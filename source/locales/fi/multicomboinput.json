@@ -1,0 +1,7 @@
+{
+'newItem': 'Etsi...',
+'tagLabelOne': '{{value}} kohde valittu',
+'tagLabel': '{{value}} kohdetta valittu',
+'selectAll': 'Valitse kaikki',
+'unselectAll': 'Poista valinnat'
+}

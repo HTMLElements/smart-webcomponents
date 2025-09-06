@@ -1,0 +1,8 @@
+{
+'invalidNode': '{{elementType}}: "{{method}}" yöntemi bir Smart.TabsWindow örneği kabul eder',
+'invalidNodeRemove': '{{elementType}}: "{{method}}" yöntemi, DockingLayout içinde bir çocuk olan bir Smart.TabsWindow örneği kabul eder.',
+'invalidNodeType': '{{elementType}}: "{{method}}" yöntemi bir "smart-tabs-window" öğesinin argüman olarak iletilmesini gerektirir.',
+'invalidTargetNode': '{{elementType}}: "{{method}}" yöntemi, gizli/kapalı olmayan bir öğenin indeksini gerektirir. Sadece Düzenin parçası olan görünür öğeler geçerlidir.',
+'invalidIndex': '{{elementType}}: "{{method}}" yöntemi sayı türünde bir indeks kabul eder.',
+'noId': 'jqxDockingLayout, bir durumu kaydetmek/yüklemek için bir kimlik gerektirir.'
+}

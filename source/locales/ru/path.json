@@ -1,0 +1,6 @@
+{
+  "incorrectArgument": "{{elementType}}: Некорректный аргумент {{argumentName}} в методе {{methodName}}.",
+  "missingReference": "{{elementType}}: Отсутствует ссылка на {{file}} в методе {{methodName}}.",
+  "notAPath": "Установлено как не путь",
+  "validPath": "Установлено как корректный путь"
+}

@@ -1,0 +1,15 @@
+{
+'resetCamera': '카메라 재설정',
+'cameraMode': '카메라 모드',
+'panMode': '팬 모드',
+'zoomMode': '줌 모드',
+'saveImage': '이미지 저장',
+'zoomOut': '축소',
+'zoomIn': '확대',
+'field': '필드',
+'invalidSeries': 'smart-chart: 잘못된 속성: 각 시리즈 그룹은 유효한 배열이어야 하는 \'series\' 속성을 가져야 합니다.',
+'invalidSeriesGroups': 'smart-chart: 잘못된 속성: \'seriesGroups\' 속성이 필요하며 유효한 배열이어야 합니다.',
+'invalidType': 'smart-chart: 잘못된 시리즈 유형 "{{type}}"입니다.',
+'missingReference': 'smart-chart: {{files}}에 대한 참조가 누락되었습니다.',
+'missingType': 'smart-chart: 잘못된 속성: 각 시리즈 그룹은 유효한 \'type\' 속성을 가져야 합니다.'
+}

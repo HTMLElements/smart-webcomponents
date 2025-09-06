@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Resetovat kameru',
+'cameraMode': 'Režim kamery',
+'panMode': 'Režim posunu',
+'zoomMode': 'Režim přiblížení',
+'saveImage': 'Uložit obrázek',
+'zoomOut': 'Oddálit',
+'zoomIn': 'Přiblížit',
+'field': 'Pole',
+'invalidSeries': 'smart-chart: Neplatná vlastnost: každá skupina sérií musí mít vlastnost \'series\', která musí být platné pole.',
+'invalidSeriesGroups': 'smart-chart: Neplatná vlastnost: vlastnost \'seriesGroups\' je povinná a musí být platné pole.',
+'invalidType': 'smart-chart: Neplatný typ série "{{type}}".',
+'missingReference': 'smart-chart: Chybějící odkaz na {{files}}.',
+'missingType': 'smart-chart: Neplatná vlastnost: každá skupina sérií musí mít platnou vlastnost \'type\'.'
+}

@@ -1,0 +1,3 @@
+{
+'htmlTemplateNotSuported': '{{elementType}}：浏览器不支持 HTMLTemplate 元素。'
+}

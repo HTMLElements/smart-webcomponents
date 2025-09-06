@@ -1,0 +1,14 @@
+{
+'apply': 'Ok',
+'booleanFirst': '☐',
+'booleanLast': '☑',
+'cancel': 'Avbryt',
+'dateFirst': '1',
+'dateLast': '9',
+'from': 'från',
+'numberFirst': '1',
+'numberLast': '9',
+'stringFirst': 'A',
+'stringLast': 'Z',
+'thenBy': 'sedan efter'
+}

@@ -1,0 +1,14 @@
+{
+'apply': 'Ок',
+                        'booleanFirst': '☐',
+                        'booleanLast': '☑',
+                        'cancel': 'Отмена',
+                        'dateFirst': '1',
+                        'dateLast': '9',
+                        'from': 'от',
+                        'numberFirst': '1',
+                        'numberLast': '9',
+                        'stringFirst': 'А',
+                        'stringLast': 'Я',
+                        'thenBy': 'затем по'
+}

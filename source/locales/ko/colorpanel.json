@@ -1,0 +1,12 @@
+{
+'redPrefix': '빨강:',
+'greenPrefix': '초록:',
+'bluePrefix': '파랑:',
+'hexPrefix': '#:',
+'alphaPrefix': '알파:',
+'ok': '확인',
+'cancel': '취소',
+'customColor': '사용자 지정 색상',
+'standardColors': '기본 색상',
+'themeColors': '테마 색상'
+}

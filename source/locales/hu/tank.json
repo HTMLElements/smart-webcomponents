@@ -1,0 +1,6 @@
+{
+'missingReference': '{{elementType}}: Hiányzó hivatkozás a következőre: {{files}}.',
+'significantPrecisionDigits': '{{elementType}}: a significantDigits és precisionDigits tulajdonságok nem állíthatók be egyszerre.',
+'invalidMinOrMax': '{{elementType}}: Érvénytelen {{property}} érték. A Max nem lehet kisebb, mint a Min.',
+'noInteger': '{{elementType}}: a precisionDigits csak "floatingPoint" scaleType esetén állítható be.'
+}

@@ -1,0 +1,12 @@
+{
+'redPrefix': 'Rood:',
+'greenPrefix': 'Groen:',
+'bluePrefix': 'Blauw:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Alpha:',
+'ok': 'OK',
+'cancel': 'ANNULEER',
+'customColor': 'AANGEPASTE KLEUR',
+'standardColors': 'Standaardkleuren',
+'themeColors': 'Themakleuren'
+}

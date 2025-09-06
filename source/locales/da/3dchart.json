@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Nulstil kamera',
+'cameraMode': 'Kameratilstand',
+'panMode': 'Panoreringstilstand',
+'zoomMode': 'Zoomtilstand',
+'saveImage': 'Gem billede',
+'zoomOut': 'Zoom ud',
+'zoomIn': 'Zoom ind',
+'field': 'Felt',
+'invalidSeries': 'smart-chart: Ugyldig egenskab: hver seriegruppe skal have en \'series\' egenskab, som skal være et gyldigt array.',
+'invalidSeriesGroups': 'smart-chart: Ugyldig egenskab: \'seriesGroups\' egenskaben er påkrævet og skal være et gyldigt array.',
+'invalidType': 'smart-chart: Ugyldig serietype "{{type}}".',
+'missingReference': 'smart-chart: Manglende reference til {{files}}.',
+'missingType': 'smart-chart: Ugyldig egenskab: hver seriegruppe skal have en gyldig \'type\' egenskab.'
+}

@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Geçersiz özellik adı: \'{{name}}\'!',
+'propertyUnknownType': '\'{{name}}\' özelliğinin tanımsız \'type\' üyesi var!',
+'propertyInvalidValue': 'Geçersiz \'{{name}}\' özelliği değeri! Gerçek değer: \'{{actualValue}}\', Beklenen değer: \'{{value}}\'!',
+'propertyInvalidValueType': 'Geçersiz \'{{name}}\' özelliği değer türü! Gerçek tür: \'{{actualType}}\', Beklenen tür: \'{{type}}\'!',
+'methodInvalidValueType': 'Geçersiz \'{{name}}\' yöntem argüman değeri türü! Gerçek tür: \'{{actualType}}\', Beklenen tür: \'{{type}}\', argüman indeksi: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Geçersiz \'{{name}}\' yöntem argüman sayısı! Gerçek argüman sayısı: \'{{actualArgumentsCount}}\', En az beklenen: \'{{argumentsCount}}\' argüman!',
+'methodInvalidReturnType': 'Geçersiz \'{{name}}\' yöntem dönüş türü! Gerçek tür: \'{{actualType}}\', Beklenen tür: \'{{type}}\'!',
+'elementNotInDOM': 'Element DOM içinde yok! Lütfen bir yöntem çağırmadan önce elementi DOM\'a ekleyin.',
+'moduleUndefined': 'Modül tanımsız.',
+'missingReference': '{{elementType}}: \'{{files}}\' referans eksik.',
+'htmlTemplateNotSuported': '{{elementType}}: Web tarayıcısı HTMLTemplate elementlerini desteklemiyor.',
+'invalidTemplate': '{{elementType}}: \'{{property}}\' özelliği, DOM\'daki bir HTMLTemplate elementinin id\'si ile eşleşen bir string kabul eder.'
+}

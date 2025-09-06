@@ -1,0 +1,12 @@
+{
+'redPrefix': '红:',
+'greenPrefix': '绿:',
+'bluePrefix': '蓝:',
+'hexPrefix': '#:',
+'alphaPrefix': '透明度:',
+'ok': '确定',
+'cancel': '取消',
+'customColor': '自定义颜色',
+'standardColors': '标准颜色',
+'themeColors': '主题颜色'
+}

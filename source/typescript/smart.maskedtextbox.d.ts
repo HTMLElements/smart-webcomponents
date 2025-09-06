@@ -2,102 +2,102 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface MaskedTextBoxProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Specifies or retrieves the current animation mode for the element. When set to 'none', all animations are disabled for the element, resulting in immediate changes without any animated transitions. If another value is assigned, the corresponding animation mode will be applied, controlling how transitions or visual effects are rendered.
    * Default value: advanced
    */
   animation?: Animation | string;
   /**
-   * Determines whether promptChar can be entered as valid input by the user.
+   * Checks if the specified promptChar character is recognized as a valid input, allowing the user to enter it into the field. If promptChar is considered valid, it will be accepted and processed as part of the user’s input; otherwise, it will be rejected.
    * Default value: false
    */
   allowPromptAsInput?: boolean;
   /**
-   * Determines whether the input accepts characters only from the ASCII character set.
+   * Specifies whether the input field restricts user entries to characters within the standard ASCII character set (codes 0–127), excluding all non-ASCII symbols, accented letters, and characters from other languages.
    * Default value: false
    */
   asciiOnly?: boolean;
   /**
-   * Specifies whether the input should be focused when the page is loaded.
+   * Determines if the input element automatically receives focus when the page loads, allowing users to begin typing immediately without manually selecting the field.
    * Default value: false
    */
   autoFocus?: boolean;
   /**
-   * Determines whether the mask is shown/hidden on focus/blur even if placeholder is not set.
+   * Controls whether the input mask is displayed or hidden when the input field receives or loses focus, regardless of whether a placeholder is specified. This setting applies even if no placeholder attribute is present on the input element.
    * Default value: false
    */
   autoShowMask?: boolean;
   /**
-   * Determines whether literals and prompt characters are copied to the clipboard on cut/copy operations.
+   * Specifies whether formatting characters (such as literals and prompt symbols) included in an input mask are also copied to the clipboard when performing cut or copy operations. If enabled, both the user's input and the input mask characters will be included in the clipboard data; if disabled, only the user's input is copied.
    * Default value: excludePromptAndLiterals
    */
   cutCopyMaskFormat?: MaskedTextBoxCutCopyMaskFormat | string;
   /**
-   * Enables or disables the element.
+   * Determines whether the element is interactive or inactive. When enabled, users can interact with the element; when disabled, the element appears dimmed and does not respond to user input.
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Specifies the behavior on "Enter" key press. Default mode is "submit".
+   * Defines the action performed when the "Enter" key is pressed. Possible values include "submit" (submits the form), "newline" (inserts a new line), or "none" (no action). The default value is "submit".
    * Default value: submit
    */
   enterKeyBehavior?: EnterKeyBehavior | string;
   /**
-   * Determines whether the prompt character in the input mask is hidden when the masked text box isn't focused anymore.
+   * Controls whether the prompt character in the input mask is hidden when the masked text box loses focus. When set to true, the prompt character will not be visible in the textbox after it loses focus; when set to false, the prompt character remains visible even when the textbox is not focused. This helps manage what users see when interacting with the masked input field.
    * Default value: false
    */
   hidePromptOnLeave?: boolean;
   /**
-   * Sets additional helper text below the element. The hint is visible only when the element is focused.
+   * Displays supplementary helper text beneath the element. This hint appears exclusively when the element is focused, providing contextual guidance to the user during input or interaction. The helper text is hidden when the element is not focused, ensuring a clean interface when not needed.
    * Default value: ""
    */
   hint?: string;
   /**
-   * Determines whether new user input overwrites the existing input value or not.
+   * Specifies whether new user input will replace the current input value entirely, or if it will be appended to or combined with the existing value. When enabled, any new input overwrites the existing content; when disabled, new input is added to the existing value without removing it.
    * Default value: false
    */
   isOverwriteMode?: boolean;
   /**
-   * Sets label above the element. The label is always visible.
+   * Displays a label positioned above the element. The label remains constantly visible, providing clear identification for the associated element at all times.
    * Default value: ""
    */
   label?: string;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Defines or retrieves the unlockKey, a unique identifier or code required to activate and access the product's full features.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Specifies or retrieves the current language setting for the application or component. This property determines which set of localized messages from the messages object will be used for display, enabling support for multiple languages. When you set the language, the corresponding message translations from the messages property are applied automatically.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * A callback function that allows you to customize the formatting of messages returned by the Localization Module. Use this to modify translated strings—such as injecting dynamic values, changing case, or applying additional formatting—before they are displayed to users.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Defines the mask for the input.
+   * Specifies the input mask pattern that determines the allowed format and structure of user input. This ensures that the entered data matches the required criteria, such as a phone number, date, or custom format.
    * Default value: "#####"
    */
   mask?: string;
   /**
-   * Indicates whether all required fields of the mask have been populated or not.
+   * Specifies whether every required field defined by the mask has been filled in with valid data. Returns true if all required fields are populated; otherwise, returns false.
    * Default value: false
    */
   maskCompleted?: boolean;
   /**
-   * Indicates whether all required and optional fields of the mask have been populated or not.
+   * Specifies whether every required and optional field defined by the mask has been filled with a value. If true, all fields that the mask references are populated; if false, at least one referenced field remains unset.
    * Default value: false
    */
   maskFull?: boolean;
   /**
-   * Determines the maximum number of characters that the user can enter.
+   * Specifies the upper limit on the number of characters that a user is allowed to input. If the user attempts to enter more characters than this limit, additional input will be prevented or ignored. This property is commonly used in form fields to enforce data length constraints and ensure consistent data entry.
    * Default value: 5
    */
   maxLength?: number;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Defines or retrieves an object containing customizable text strings used within the widget, allowing for localization of user interface elements. This property works in conjunction with the locale property to provide translations and adapt the widget's display language to different regions or languages. Use this to specify or override default labels, messages, or prompts shown in the widget.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -114,77 +114,77 @@ export interface MaskedTextBoxProperties {
    */
   messages?: any;
   /**
-   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Sets or retrieves the value of the element's name attribute. The name attribute identifies the element within an HTML form, ensuring its value is included in the form data sent to the server upon submission. This is essential for correctly processing user input on the backend.
    * Default value: ""
    */
   name?: string;
   /**
-   * A string that appears inside the input when there's no value and mask. 
+   * Specifies the placeholder text displayed in the input field when both the value and mask properties are unset or empty. This text provides users with a hint or example of the expected input format until they enter a value.
    * Default value: ""
    */
   placeholder?: string;
   /**
-   * Determines the prompt char that is used for the mask of the element.
+   * Specifies the character used as the placeholder in the input mask for the element. This character indicates where user input is expected within the input field.
    * Default value: "_"
    */
   promptChar?: string;
   /**
-   * If the element is readonly, the users cannot iteract with the element.
+   * When the element is set to readonly, users can view its content but cannot modify or interact with it in any way. This ensures that the element’s value remains unchanged by user input, while still being visible on the page.
    * Default value: false
    */
   readonly?: boolean;
   /**
-   * Determines whether the parsing of user input should stop after the first invalid character or not.
+   * Specifies whether the parsing process should immediately halt upon encountering the first invalid character in the user input, or continue attempting to parse the remaining input.
    * Default value: false
    */
   rejectInputOnFirstFailure?: boolean;
   /**
-   * Specifies that the input must be filled in before submitting a form
+   * Indicates that this input field is required and cannot be left empty; users must provide a value before the form can be successfully submitted.
    * Default value: false
    */
   required?: boolean;
   /**
-   * Determines whether an input character that matches the prompt character should reset the current selected value in the input or not. Applicable only when allowPromptAsInput is enabled.
+   * Controls whether entering a character in the input field that matches the prompt character will reset the currently selected value. This setting is relevant only when allowPromptAsInput is enabled, meaning the prompt character can be used as user input. When enabled, if the user types the prompt character, the input’s selected value will be cleared; otherwise, the value remains unchanged.
    * Default value: false
    */
   resetOnPrompt?: boolean;
   /**
-   * Determines whether hitting space character resets the currently selected value from the input or not.
+   * Specifies whether pressing the spacebar will clear the currently selected value in the input field. When set to true, pressing the space key will reset (clear) the selection; when set to false, the value remains unchanged.
    * Default value: false
    */
   resetOnSpace?: boolean;
   /**
-   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Specifies or retrieves a Boolean value that determines whether the element’s content is aligned to support right-to-left (RTL) languages, such as Arabic or Hebrew. When set to true, the element’s text direction and alignment are adjusted to display content appropriately for RTL locales.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * Specifies whether the value of the input will be selected on focus or not.
+   * Determines if the entire value of the input field will be automatically highlighted (selected) when the input receives focus, allowing users to easily replace or copy the existing content.
    * Default value: false
    */
   selectAllOnFocus?: boolean;
   /**
-   * Determines whether the value of the input should contain or not the prompt/literals of the mask.
+   * Specifies whether the value entered in the input field should include or exclude the static characters (prompts and literals) defined by the input mask. When enabled, the resulting value will contain these mask characters; otherwise, only the user input (without mask characters) will be stored.
    * Default value: excludePromptAndLiterals
    */
   textMaskFormat?: MaskedTextBoxTextMaskFormat | string;
   /**
-   * Determines the theme. Theme defines the look of the element
+   * Specifies the visual theme to be applied. The theme controls the overall appearance—including colors, fonts, and style—of the element, ensuring a consistent and customizable look and feel.
    * Default value: ""
    */
   theme?: string;
   /**
-   * If is set to true, the element cannot be focused.
+   * If this property is set to true, the element will be excluded from keyboard navigation and cannot receive focus, either by tabbing or programmatically.
    * Default value: false
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets the value of the element. 
+   * Gets the current value of the element or sets a new value for the element, depending on how the method is used. When called without arguments, it returns the element's current value. When provided with a value as an argument, it updates the element with the specified value. Commonly used with form input elements.
    * Default value: ""
    */
   value?: string;
   /**
-   * Callback function that allows to set custom validation on the value. If the function returns false then the value of the input is treated as not valid.
+   * A callback function that enables you to define custom validation logic for the input value. This function receives the input value as an argument and should return a boolean value: return true if the value is considered valid, or false if it is invalid. If the function returns false, the input will be treated as invalid and may trigger corresponding validation error messages or prevent form submission. Use this to implement validations that go beyond the default rules.
    * Default value: null
    */
   validation?: any;
@@ -197,31 +197,31 @@ export interface MaskedTextBox extends BaseElement, MaskedTextBoxProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the value of the Text Box is changed.
+   * This event is triggered whenever the user modifies the content of the Text Box, such as by typing, deleting, or pasting text. It fires each time the value of the Text Box changes, allowing you to respond to user input in real-time.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value before it was changed.
    *  value - The new value.
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered on each key up event of the MaskedTextBox, if the value is changed.
+   * This event is triggered whenever a key is released (on key up) in the MaskedTextBox control and the input value has been modified as a result. It only fires if the key up event causes a change in the current value of the MaskedTextBox, allowing you to respond specifically to user edits in real-time.
 	* @param event. The custom event. Custom data event was created with: ev.detail(oldValue, value)
    *  oldValue - The previous value before it was changed.
    *  value - The new value.
    */
   onChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered if the <b>validation</b> property is set. Indicates whether valiation has passed successfully or not.
+   * This event is triggered when the <b>validation</b> property is set. It indicates the result of the validation process—specifically, whether the validation completed successfully (<code>true</code>) or failed (<code>false</code>). Use this event to respond to changes in the validation state of the associated data or form.
 	* @param event. The custom event. Custom data event was created with: ev.detail(success)
    *  success - A flag inidicating whether the validation was successfull or not.
    */
   onValidation?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Focuses the element. 
+   * Sets keyboard and screen reader focus to the specified element, making it the active element for user interactions such as typing or accessibility navigation.
    */
   focus(): void;
   /**
-   * Blurs the element. 
+   * Applies a blur effect to the element, causing its content and any child elements to appear out of focus by softening edges and details. The degree of blur can typically be adjusted to achieve the desired level of visual obscurity.
    */
   blur(): void;
 }
@@ -236,9 +236,9 @@ declare global {
     }
 }
 
-/**Determines whether literals and prompt characters are copied to the clipboard on cut/copy operations. */
+/**Specifies whether formatting characters (such as literals and prompt symbols) included in an input mask are also copied to the clipboard when performing cut or copy operations. If enabled, both the user's input and the input mask characters will be included in the clipboard data; if disabled, only the user's input is copied. */
 export declare type MaskedTextBoxCutCopyMaskFormat = 'excludePromptAndLiterals' | 'includePrompt' | 'includeLiterals' | 'includePromptAndLiterals';
-/**Specifies the behavior on "Enter" key press. Default mode is "submit". */
+/**Defines the action performed when the "Enter" key is pressed. Possible values include "submit" (submits the form), "newline" (inserts a new line), or "none" (no action). The default value is "submit". */
 export declare type EnterKeyBehavior = 'clearOnSubmit' | 'submit';
-/**Determines whether the value of the input should contain or not the prompt/literals of the mask. */
+/**Specifies whether the value entered in the input field should include or exclude the static characters (prompts and literals) defined by the input mask. When enabled, the resulting value will contain these mask characters; otherwise, only the user input (without mask characters) will be stored. */
 export declare type MaskedTextBoxTextMaskFormat = 'excludePromptAndLiterals' | 'includePrompt' | 'includeLiterals' | 'includePromptAndLiterals';

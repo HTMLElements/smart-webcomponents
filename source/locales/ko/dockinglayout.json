@@ -1,0 +1,8 @@
+{
+'invalidNode': '{{elementType}}: "{{method}}" 메서드는 Smart.TabsWindow 인스턴스를 허용합니다.',
+'invalidNodeRemove': '{{elementType}}: "{{method}}" 메서드는 DockingLayout의 자식인 Smart.TabsWindow 인스턴스를 허용합니다.',
+'invalidNodeType': '{{elementType}}: "{{method}}" 메서드는 "smart-tabs-window" 요소가 인수로 전달되어야 합니다.',
+'invalidTargetNode': '{{elementType}}: "{{method}}" 메서드는 숨겨지거나 닫히지 않은 항목의 인덱스를 요구합니다. 레이아웃의 일부인 보이는 항목만 유효합니다.',
+'invalidIndex': '{{elementType}}: "{{method}}" 메서드는 숫자 유형의 인덱스를 허용합니다.',
+'noId': 'jqxDockingLayout은 상태를 저장/로드하기 위해 id가 필요합니다.'
+}

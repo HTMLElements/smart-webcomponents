@@ -1,0 +1,7 @@
+{
+'newItem': '見つける...',
+'tagLabelOne': '{{value}} アイテムが選択されました',
+'tagLabel': '{{value}} アイテムが選択されました',
+'selectAll': 'すべて選択',
+'unselectAll': 'すべて選択解除'
+}

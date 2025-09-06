@@ -1,0 +1,3 @@
+{
+'invalidNode': '{{elementType}}: {{method}}를(을) 호출할 때 "{{node}}" 매개변수가 유효하지 않습니다.'
+}

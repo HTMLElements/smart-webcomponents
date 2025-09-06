@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Ugyldigt egenskabsnavn: \'{{name}}\'!',
+'propertyUnknownType': '\'{{name}}\' egenskab har en udefineret \'type\' medlem!',
+'propertyInvalidValue': 'Ugyldig værdi for \'{{name}}\' egenskab! Aktuel værdi: \'{{actualValue}}\', Forventet værdi: \'{{value}}\'!',
+'propertyInvalidValueType': 'Ugyldig værdi type for \'{{name}}\' egenskab! Aktuel type: \'{{actualType}}\', Forventet type: \'{{type}}\'!',
+'methodInvalidValueType': 'Ugyldig værdi type for argument i \'{{name}}\' metode! Aktuel type: \'{{actualType}}\', Forventet type: \'{{type}}\' for argument med indeks: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Ugyldigt antal argumenter til \'{{name}}\' metode! Aktuelt antal argumenter: \'{{actualArgumentsCount}}\', Forventet mindst: \'{{argumentsCount}}\' argument(er)!',
+'methodInvalidReturnType': 'Ugyldig returtype for \'{{name}}\' metode! Aktuel type: \'{{actualType}}\', Forventet type: \'{{type}}\'!',
+'elementNotInDOM': 'Element findes ikke i DOM! Tilføj venligst elementet til DOM, før du kalder en metode.',
+'moduleUndefined': 'Modul er udefineret.',
+'missingReference': '{{elementType}}: Mangler reference til \'{{files}}\'.',
+'htmlTemplateNotSuported': '{{elementType}}: Webbrowseren understøtter ikke HTMLTemplate elementer.',
+'invalidTemplate': '{{elementType}}: \'{{property}}\' egenskaben accepterer en streng, som skal matche id\'et på et HTMLTemplate element fra DOM.'
+}

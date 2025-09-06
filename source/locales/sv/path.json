@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Felaktigt argument {{argumentName}} i metoden {{methodName}}.',
+'missingReference': '{{elementType}}: Saknad referens till {{file}} i metoden {{methodName}}.',
+'notAPath': 'Angivet som ej en sökväg',
+'validPath': 'Angivet som giltig sökväg'
+}

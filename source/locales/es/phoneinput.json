@@ -1,0 +1,9 @@
+{
+  "Example": "Ejemplo: ",
+  "IS_POSSIBLE": "Es posible",
+  "INVALID_COUNTRY_CODE": "Código de país inválido",
+  "TOO_SHORT": "Demasiado corto",
+  "TOO_LONG": "Demasiado largo",
+  "IS_POSSIBLE_LOCAL_ONLY": "Es posible solo localmente",
+  "INVALID_LENGTH": "Longitud inválida"
+}

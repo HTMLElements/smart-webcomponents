@@ -1,0 +1,9 @@
+{
+'Example': 'Przykład: ',
+'IS_POSSIBLE': 'Możliwe',
+'INVALID_COUNTRY_CODE': 'Nieprawidłowy kod kraju',
+'TOO_SHORT': 'Za krótki',
+'TOO_LONG': 'Za długi',
+'IS_POSSIBLE_LOCAL_ONLY': 'Możliwe tylko lokalnie',
+'INVALID_LENGTH': 'Nieprawidłowa długość'
+}

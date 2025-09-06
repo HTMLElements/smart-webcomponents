@@ -1,0 +1,7 @@
+{
+'ambiguousIndexes': 'smart-tabs：初始设置的 smart-tab-item 索引不明确，已被忽略，采用 HTML 结构。',
+'detailsObjectRequired': 'smart-tabs：“insert”方法需要传入一个作为第二个参数的详情对象。',
+'invalidIndex': 'smart-tabs：“{{method}}”方法接受的索引类型应为数字。',
+'referenceNodeNotChild': 'smart-tabs：传入的 {{argument}} 不是此 smart-tabs 元素的子元素。',
+'tabItemRequired': 'smart-tabs：“{{method}}”方法需要传入一个“smart-tab-item”元素作为参数。'
+}

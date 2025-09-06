@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" πρέπει να είναι String, HTMLElement ή null.',
+'htmlTemplateNotSuported': '{{elementType}}: Ο περιηγητής δεν υποστηρίζει στοιχεία HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: Η ιδιότητα "{{property}}" δέχεται μία συμβολοσειρά που πρέπει να ταιριάζει με το id ενός στοιχείου HTMLTemplate από το DOM.',
+'invalidNode': '{{elementType}}: Μη έγκυρη παράμετρος "{{node}}" κατά την κλήση της {{method}}.'
+}

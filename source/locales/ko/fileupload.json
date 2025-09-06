@@ -1,0 +1,13 @@
+{
+'browse': '찾아보기',
+'uploadFile': '파일 업로드',
+'cancelFile': '파일 취소',
+'pauseFile': '파일 일시중지',
+'uploadAll': '모두 업로드',
+'cancelAll': '모두 취소',
+'pauseAll': '모두 일시중지',
+'totalFiles': '총 파일 수: ',
+'connectionError': '{{elementType}}: 파일 업로드를 위해 서버와의 연결이 필요합니다.',
+'wrongItemIndex': '{{elementType}}: 업로드된 파일 목록에 해당 인덱스의 파일이 없습니다.',
+'tooLongFileName': '{{elementType}}: 파일 이름이 너무 깁니다.'
+}

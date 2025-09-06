@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: {{property1}} ve {{property2}} geçersiz kılan özellikler uygulandı. Varsayılan olarak "{{property1}}" özelliği kullanılır.',
+'invalidIndex': '{{elementType}}: "{{method}}" yöntemi sayı türünde veya sayıların dizisi türünde bir indeks kabul eder.',
+'indexOutOfBound': '{{elementType}}: "{{method}}" yönteminde sınır dışı indeks/indeksler var.',
+'invalidItem': '{{elementType}}: "{{method}}" yöntemi ikinci parametre olarak bir nesne veya nesnelerden oluşan bir dizi kabul eder.',
+'invalidSettings': '{{elementType}}: "{{method}}" yöntemi ikinci parametre olarak bir dize veya nesne kabul eder.'
+}

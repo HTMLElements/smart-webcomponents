@@ -1,0 +1,13 @@
+{
+'browse': '参照',
+'uploadFile': 'ファイルをアップロード',
+'cancelFile': 'ファイルをキャンセル',
+'pauseFile': 'ファイルを一時停止',
+'uploadAll': 'すべてアップロード',
+'cancelAll': 'すべてキャンセル',
+'pauseAll': 'すべて一時停止',
+'totalFiles': 'ファイル合計: ',
+'connectionError': '{{elementType}}: ファイルアップロードにはサーバーへの接続が必要です。',
+'wrongItemIndex': '{{elementType}}: アップロードされたファイルリストに該当するインデックスのファイルがありません。',
+'tooLongFileName': '{{elementType}}: ファイル名が長すぎます。'
+}

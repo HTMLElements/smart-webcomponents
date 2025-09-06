@@ -1,0 +1,15 @@
+{
+'resetCamera': 'カメラをリセット',
+'cameraMode': 'カメラモード',
+'panMode': 'パンモード',
+'zoomMode': 'ズームモード',
+'saveImage': '画像を保存',
+'zoomOut': 'ズームアウト',
+'zoomIn': 'ズームイン',
+'field': 'フィールド',
+'invalidSeries': 'smart-chart: 無効なプロパティ: 各シリーズグループには、有効な配列である「series」プロパティが必要です。',
+'invalidSeriesGroups': 'smart-chart: 無効なプロパティ: 「seriesGroups」プロパティは必須で、有効な配列でなければなりません。',
+'invalidType': 'smart-chart: 無効なシリーズタイプ "{{type}}" です。',
+'missingReference': 'smart-chart: {{files}} への参照がありません。',
+'missingType': 'smart-chart: 無効なプロパティ: 各シリーズグループには、有効な「type」プロパティが必要です。'
+}

@@ -1,0 +1,3 @@
+{
+  "missingReference": "{{elementType}}：缺少对 {{files}} 的引用。"
+}

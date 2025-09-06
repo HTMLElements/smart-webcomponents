@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Réinitialiser la caméra',
+'cameraMode': 'Mode caméra',
+'panMode': 'Mode panoramique',
+'zoomMode': 'Mode zoom',
+'saveImage': 'Enregistrer l\'image',
+'zoomOut': 'Dézoomer',
+'zoomIn': 'Zoomer',
+'field': 'Champ',
+'invalidSeries': 'smart-chart : Propriété invalide : chaque groupe de séries doit avoir une propriété \'series\' qui doit être un tableau valide.',
+'invalidSeriesGroups': 'smart-chart : Propriété invalide : la propriété \'seriesGroups\' est requise et doit être un tableau valide.',
+'invalidType': 'smart-chart : Type de série invalide "{{type}}".',
+'missingReference': 'smart-chart : Référence manquante à {{files}}.',
+'missingType': 'smart-chart : Propriété invalide : chaque groupe de séries doit avoir une propriété \'type\' valide.'
+}

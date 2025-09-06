@@ -1,0 +1,12 @@
+{
+'redPrefix': 'P:',
+'greenPrefix': 'V:',
+'bluePrefix': 'S:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Alfa:',
+'ok': 'OK',
+'cancel': 'PERUUTA',
+'customColor': 'OMAVÄRI',
+'standardColors': 'Vakio värit',
+'themeColors': 'Teemavärit'
+}

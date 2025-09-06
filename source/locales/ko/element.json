@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': '잘못된 속성 이름: \'{{name}}\'!',
+'propertyUnknownType': '\'{{name}}\' 속성에 정의되지 않은 \'type\' 멤버가 있습니다!',
+'propertyInvalidValue': '잘못된 \'{{name}}\' 속성 값입니다! 실제 값: \'{{actualValue}}\', 예상 값: \'{{value}}\'!',
+'propertyInvalidValueType': '잘못된 \'{{name}}\' 속성 값 유형입니다! 실제 유형: \'{{actualType}}\', 예상 유형: \'{{type}}\'!',
+'methodInvalidValueType': '잘못된 \'{{name}}\' 메서드 인수 값 유형입니다! 실제 유형: \'{{actualType}}\', 예상 유형: \'{{type}}\', 인수 인덱스: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': '잘못된 \'{{name}}\' 메서드 인수 개수입니다! 실제 인수 개수: \'{{actualArgumentsCount}}\', 최소 예상 인수 개수: \'{{argumentsCount}}\'!',
+'methodInvalidReturnType': '잘못된 \'{{name}}\' 메서드 반환 유형입니다! 실제 유형: \'{{actualType}}\', 예상 유형: \'{{type}}\'!',
+'elementNotInDOM': 'DOM에 요소가 존재하지 않습니다! 메서드를 호출하기 전에 요소를 DOM에 추가해 주세요.',
+'moduleUndefined': '모듈이 정의되지 않았습니다.',
+'missingReference': '{{elementType}}: \'{{files}}\'에 대한 참조가 없습니다.',
+'htmlTemplateNotSuported': '{{elementType}}: 웹 브라우저가 HTMLTemplate 요소를 지원하지 않습니다.',
+'invalidTemplate': '{{elementType}}: \'{{property}}\' 속성은 DOM의 HTMLTemplate 요소 ID와 일치하는 문자열이어야 합니다.'
+}

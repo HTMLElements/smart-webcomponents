@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Reset Camera',
+              'cameraMode': 'Camera Mode',
+              'panMode': 'Pan Mode',
+              'zoomMode': 'Zoom Mode',
+              'saveImage': 'Save Image',
+              'zoomOut': 'Zoom Out',
+              'zoomIn': 'Zoom In',
+              'field': 'Field',
+              'invalidSeries': 'smart-chart: Invalid property: each series group must have a \'series\' property which must be a valid array.',
+              'invalidSeriesGroups': 'smart-chart: Invalid property: \'seriesGroups\' property is required and must be a valid array.',
+              'invalidType': 'smart-chart: Invalid serie type "{{type}}".',
+              'missingReference': 'smart-chart: Missing reference to {{files}}.',
+              'missingType': 'smart-chart: Invalid property: each series group must have a valid \'type\' property.'
+}

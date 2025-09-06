@@ -1,0 +1,8 @@
+{
+  'accordionItemRequired': '{{elementType}}: "{{method}}" 메서드는 "smart-accordion-item" 유형의 항목이 필요합니다.',
+  'indexOutOfBound': '{{elementType}}: "{{method}}" 메서드에서 인덱스/인덱스가 범위를 벗어났습니다.',
+  'invalidSettings': '{{elementType}}: "{{method}}" 메서드의 두 번째 매개변수는 문자열 또는 객체여야 합니다.',
+  'missingReference': '{{elementType}}: {{files}}에 대한 참조가 없습니다.',
+  'noItems': '{{elementType}}: 자식 요소가 없습니다.',
+  'overridingProperties': '{{elementType}}: {{property1}} 및 {{property2}} 속성 덮어쓰기가 적용되었습니다. 기본적으로 "{{property1}}" 속성이 사용됩니다.'
+}

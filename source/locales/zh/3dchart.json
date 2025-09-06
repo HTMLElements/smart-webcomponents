@@ -1,0 +1,15 @@
+{
+'resetCamera': '重置相机',
+'cameraMode': '相机模式',
+'panMode': '平移模式',
+'zoomMode': '缩放模式',
+'saveImage': '保存图片',
+'zoomOut': '缩小',
+'zoomIn': '放大',
+'field': '字段',
+'invalidSeries': 'smart-chart：无效属性：每个系列组必须有一个有效数组类型的\'series\'属性。',
+'invalidSeriesGroups': 'smart-chart：无效属性：必须存在且是有效数组类型的\'seriesGroups\'属性。',
+'invalidType': 'smart-chart：无效的系列类型 "{{type}}"。',
+'missingReference': 'smart-chart：缺少对 {{files}} 的引用。',
+'missingType': 'smart-chart：无效属性：每个系列组必须有一个有效的\'type\'属性。'
+}

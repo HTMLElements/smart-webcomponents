@@ -1,0 +1,7 @@
+{
+  "ambiguousIndexes": "smart-tabs: Anfangs gesetzte smart-tab-item Indizes sind mehrdeutig und werden zugunsten der HTML-Struktur ignoriert.",
+  "detailsObjectRequired": "smart-tabs: Die Methode \"insert\" erfordert, dass ein Details-Objekt als zweites Argument übergeben wird.",
+  "invalidIndex": "smart-tabs: Die Methode \"{{method}}\" akzeptiert nur einen Index vom Typ Zahl.",
+  "referenceNodeNotChild": "smart-tabs: Übergebenes {{argument}} ist kein Teil dieses smart-tabs Elements.",
+  "tabItemRequired": "smart-tabs: Die Methode \"{{method}}\" erfordert, dass ein \"smart-tab-item\" Element als Argument übergeben wird."
+}

@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Resetuj kamerę',
+'cameraMode': 'Tryb kamery',
+'panMode': 'Tryb przesuwania',
+'zoomMode': 'Tryb powiększania',
+'saveImage': 'Zapisz obraz',
+'zoomOut': 'Pomniejsz',
+'zoomIn': 'Powiększ',
+'field': 'Pole',
+'invalidSeries': 'smart-chart: Nieprawidłowa właściwość: każda grupa serii musi mieć właściwość \'series\', która musi być prawidłową tablicą.',
+'invalidSeriesGroups': 'smart-chart: Nieprawidłowa właściwość: wymagana jest właściwość \'seriesGroups\', która musi być prawidłową tablicą.',
+'invalidType': 'smart-chart: Nieprawidłowy typ serii "{{type}}".',
+'missingReference': 'smart-chart: Brak odwołania do {{files}}.',
+'missingType': 'smart-chart: Nieprawidłowa właściwość: każda grupa serii musi mieć prawidłową właściwość \'type\'.'
+}

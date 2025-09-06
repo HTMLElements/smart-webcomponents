@@ -1,0 +1,9 @@
+{
+'invalidRadiusDataField': 'smart-chart: Άκυρη τιμή radiusDataField στη θέση [{{index}}]',
+'invalidSeries': 'smart-chart: Άκυρη ιδιότητα: κάθε ομάδα σειρών πρέπει να έχει ιδιότητα \'series\' η οποία πρέπει να είναι έγκυρος πίνακας.',
+'invalidSeriesGroups': 'smart-chart: Άκυρη ιδιότητα: η ιδιότητα \'seriesGroups\' είναι απαραίτητη και πρέπει να είναι έγκυρος πίνακας.',
+'invalidType': 'smart-chart: Άκυρος τύπος σειράς "{{type}}".',
+'missingAxis': 'smart-chart: λείπει ο ορισμός {{axis}} στην seriesGroup[{{index}}].',
+'missingReference': 'smart-chart: Λείπει αναφορά σε {{files}}.',
+'missingType': 'smart-chart: Άκυρη ιδιότητα: κάθε ομάδα σειρών πρέπει να έχει έγκυρη ιδιότητα \'type\'.'
+}

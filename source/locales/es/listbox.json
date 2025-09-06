@@ -1,0 +1,7 @@
+{
+  "overridingProperties": "{{elementType}}: Propiedades anuladas {{property1}} y {{property2}} aplicadas. La propiedad \"{{property1}}\" se usa por defecto.",
+  "invalidIndex": "{{elementType}}: El método \"{{method}}\" acepta un índice de tipo número o un arreglo de números.",
+  "indexOutOfBound": "{{elementType}}: Índice(s) fuera de rango en el método \"{{method}}\".",
+  "invalidItem": "{{elementType}}: El método \"{{method}}\" acepta un objeto o un arreglo de objetos como segundo parámetro.",
+  "invalidSettings": "{{elementType}}: El método \"{{method}}\" acepta una cadena o un objeto como segundo parámetro."
+}

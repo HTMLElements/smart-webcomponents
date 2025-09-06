@@ -106,132 +106,132 @@ declare global {
 
 export interface MultiSplitButtonProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Sets or retrieves the current animation mode for the component. When the property is set to 'none', all animations are disabled. For other supported values, the animation mode will determine how visual transitions are rendered.
    * Default value: advanced
    */
   animation?: Animation | string;
   /**
-   * Determines a data source used to generate element's permanently visible buttons.
+   * Specifies the data source that provides the information required to generate the element’s permanently visible buttons. This property defines where and how the button data is retrieved, ensuring the buttons remain constantly displayed on the element.
    * Default value: 
    */
   buttonsDataSource?: string[];
   /**
-   * Determines the data source of the multi split button's dropdown.
+   * Specifies the data source from which the multi-split button's dropdown menu retrieves and displays its list of options. This setting defines what content appears in the dropdown and enables dynamic or static population of menu items.
    * Default value: []
    */
   dataSource?: any;
   /**
-   * Enables or disables jqxMultiSplitButton.
+   * Controls whether the jqxMultiSplitButton component is active or inactive. When enabled, users can interact with the jqxMultiSplitButton; when disabled, the component becomes non-interactive and appears visually inactive.
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Displays or hides the loading indicator
+   * Controls the visibility of the loading indicator, showing it when active and hiding it when not needed. This allows users to receive visual feedback during content loading or processing operations.
    * Default value: false
    */
   displayLoadingIndicator?: boolean;
   /**
-   * Sets or gets the displayMember. The displayMember specifies the name of an object property to display. The name is contained in the collection specified by the 'dataSource' property.
+   * Defines or retrieves the displayMember property, which determines the name of the object property to display in the UI. When binding a data collection using the dataSource property, displayMember specifies which property of each data object should be shown to the user. For example, if dataSource is an array of user objects, setting displayMember to "name" will display the value of the "name" property for each user in the collection.
    * Default value: """"
    */
   displayMember?: string;
   /**
-   * Sets the parent container of the button's dropDown list (the popup). The expected value is CSS Selector, ID or 'body'. Used when a CSS property of unknowned parent is interfering with the visibility of the dropDown list.
+   * Specifies the parent container element for the button’s dropdown list (popup). Accepts a CSS selector, an element ID, or the literal value 'body' as the target container. Use this option when a CSS property from an ancestor element is affecting the visibility or display of the dropdown list. By setting the parent container, you can control where the dropdown is rendered in the DOM, helping to resolve issues with overflow, clipping, or z-index caused by parent elements.
    * Default value: "null"
    */
   dropDownAppendTo?: string;
   /**
-   * Determines position of the drop down button.
+   * Specifies the location where the dropdown button will be displayed relative to its parent element. Possible values may include options such as "left," "right," "top," or "bottom," allowing you to control the alignment and placement of the dropdown button within the user interface.
    * Default value: right
    */
   dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
-   * Defines how element's drop down behaves. In 'none' mode drop down never opens. In 'dropDownButton' mode drop down is opened only via elelent's drop down button. In 'auto' mode drop down is opened on click on the whole top section.
+   * Specifies the behavior of the element's drop-down functionality.  - In 'none' mode, the drop-down will never open, regardless of any user interaction.  - In 'dropDownButton' mode, the drop-down opens only when the dedicated drop-down button on the element is clicked; clicking other parts of the element will have no effect.  - In 'auto' mode, the drop-down opens when any area of the element's top section is clicked, not just the button—providing a more flexible and user-friendly experience.
    * Default value: dropDownButton
    */
   dropDownOpenMode?: DropDownOpenMode | string;
   /**
-   * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document.
+   * When this property is enabled, opening the element’s dropdown will render a transparent overlay layer between the dropdown menu and the rest of the page content. This overlay visually separates the dropdown from the background and can help intercept clicks outside the dropdown to close it or prevent interaction with other elements while the dropdown is open.
    * Default value: false
    */
   dropDownOverlay?: boolean;
   /**
-   * Determines the vertical position of the dropDown list. 'Auto' means its automatically determined depending on the viewport size.
+   * Specifies the vertical placement of the drop-down list relative to its trigger element. When set to 'auto', the component dynamically chooses whether to display the drop-down above or below the trigger based on available space within the viewport, ensuring that the list remains fully visible without overflow.
    * Default value: auto
    */
   dropDownPosition?: DropDownPosition | string;
   /**
-   * Determines whether the Filtering is enabled.
+   * Specifies whether the filtering feature is currently active. When set to true, filtering is enabled and data will be filtered according to the specified criteria; when false, all data is shown without applying any filters.
    * Default value: false
    */
   filterable?: boolean;
   /**
-   * Determines the filtering for the drop down list mode.
+   * Specifies the filtering behavior applied to the dropdown list when users type or search. This property controls how the available options are filtered and displayed, such as matching items that contain, start with, or exactly match the user's input.
    * Default value: startsWithIgnoreCase
    */
   filterMode?: FilterMode | string;
   /**
-   * Determines the placeholder for the drop down list filter input field.
+   * Specifies the placeholder text that appears inside the dropdown list's filter input field, providing guidance or example input to help users understand what they can type to filter the list options.
    * Default value: ""
    */
   filterInputPlaceholder?: string;
   /**
-   * If enabled, the items will be grouped by their first letter. Can't be applied if the dataSource already contains groups.
+   * When enabled, this setting organizes items into groups based on the first letter of each item's value. Note: This option cannot be used if your dataSource is already grouped, as it only applies to flat (ungrouped) collections.
    * Default value: false
    */
   grouped?: boolean;
   /**
-   * Sets or gets the groupMember. If it's not set, by default is used 'group' property of the source object.
+   * Gets or sets the groupMember property. If groupMember is not explicitly set, it defaults to using the value of the source object's group property.
    * Default value: "null"
    */
   groupMember?: string;
   /**
-   * Sets ot gets the incrementalSearchDelay property. The incrementalSearchDelay specifies the time-interval in milliseconds after which the previous search string is deleted. The timer starts when you stop typing.
+   * Enhances or retrieves the value of the incrementalSearchDelay property. This property defines the time interval, in milliseconds, that must pass after the user stops typing before the previous search string is cleared. The countdown begins as soon as the user ceases typing, ensuring that only periods of inactivity longer than the specified delay will reset the search input.
    * Default value: 700
    */
   incrementalSearchDelay?: number;
   /**
-   * Sets ot gets the mode of the incremental search mode.
+   * Gets or sets the current mode for incremental search, which determines how search input is processed as the user types.
    * Default value: startsWithIgnoreCase
    */
   incrementalSearchMode?: SearchMode | string;
   /**
-   * Determines the height of the items.
+   * Specifies the vertical dimension (height) of each item, in pixels or another defined unit. This property controls how tall each item appears within the component, affecting layout and spacing.
    * Default value: null
    */
   itemHeight?: number | null;
   /**
-   * The itemTemplate property is a string that represents the id of an HTMLTemplateElement in the DOM. It's used to load list items from the HTMLTemplateElement.
+   * The 'itemTemplate' property is a string that specifies the 'id' attribute of an 'HTMLTemplateElement' present in the DOM. This property is used to reference the corresponding template when generating list items, allowing the application to clone and insert the template’s content for each item in the list dynamically. By using an 'HTMLTemplateElement', you can define the structure and layout of individual list items in a reusable, maintainable way.
    * Default value: null
    */
   itemTemplate?: any;
   /**
-   * Determines the text that will be displayed next to the loading indicator when the loader is visible and it's position is top or bottom.
+   * Specifies the text to be shown alongside the loading indicator when the loader is visible and positioned at either the top or bottom of the component. This text provides context or feedback to users during loading states.
    * Default value: "Loading..."
    */
   loadingIndicatorPlaceholder?: string;
   /**
-   * The position of the loading indicator.
+   * Specifies the on-screen location where the loading indicator will be displayed (e.g., top, bottom, center, or custom coordinates).
    * Default value: center
    */
   loadingIndicatorPosition?: VerticalAlignment | string;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Sets or retrieves the unlockKey property, a unique key required to unlock access to the product’s features or content. Use this to programmatically provide or verify the unlock key during authentication or activation processes.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Specifies or retrieves the current language code (e.g., "en", "fr", "es") for localization. This property works together with messages, ensuring the appropriate language-specific messages are displayed or retrieved based on the selected language.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback, related to localization module. 
+   * Callback function used in the localization module, typically invoked to handle language changes, translate content, or manage locale-specific operations during application runtime.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property language. 
+   * Defines or retrieves an object containing customizable strings and messages displayed by the widget, enabling support for localization and internationalization. This property works together with the language setting to provide appropriate translations based on the user's selected language. Use this object to specify translations for all widget text elements.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -248,52 +248,52 @@ export interface MultiSplitButtonProperties {
    */
   messages?: any;
   /**
-   * Determines whether the popup is opened or closed
+   * Specifies whether the popup is currently visible (open) or hidden (closed) on the screen. This property controls the display state of the popup component.
    * Default value: false
    */
   opened?: boolean;
   /**
-   * Disables user interaction with the element.
+   * Prevents users from interacting with the element, disabling all input events such as clicks, typing, or form submissions. The element remains visible, but users cannot select, activate, or modify it in any way.
    * Default value: false
    */
   readonly?: boolean;
   /**
-   * Sets or gets selected indexes of buttons's dropDown.
+   * Gets or sets the selected indexes of items within the button's dropdown menu. This property allows you to programmatically retrieve or update which items in the dropdown are currently selected.
    * Default value: 
    */
   selectedIndexes?: number[];
   /**
-   * Sets or gets selected values of buttons's dropDown.
+   * Gets or sets the selected values in the button's drop-down menu. This property allows you to retrieve the currently selected options or specify which options should be selected within the drop-down associated with the button.
    * Default value: 
    */
   selectedValues?: string[];
   /**
-   * Determines how many items can be selected.
+   * Specifies the maximum number of items a user is allowed to select. If set to 1, only single selection is permitted; higher values enable multiple selections up to the defined limit.
    * Default value: one
    */
   selectionMode?: MultiSplitButtonSelectionMode | string;
   /**
-   * Determines whether the items in the dropDown are sorted alphabetically or not
+   * Specifies whether the items displayed in the dropdown menu are automatically sorted in alphabetical order. If enabled, all dropdown items will appear in alphabetical sequence; if disabled, items will retain their original order as provided.
    * Default value: false
    */
   sorted?: boolean;
   /**
-   * Determines the theme. Theme defines the look of the element
+   * Specifies the theme to be applied, which controls the overall appearance and styling of the element, including colors, fonts, backgrounds, and other visual properties. This setting allows for consistent visual presentation across the application or component.
    * Default value: ""
    */
   theme?: string;
   /**
-   * If is set to true, the element cannot be focused.
+   * When set to true, this property prevents the element from receiving keyboard focus, making it inaccessible via keyboard navigation (such as the Tab key).
    * Default value: false
    */
   unfocusable?: boolean;
   /**
-   * Determines the value member of an item. Stored as value in the item object.
+   * Specifies the property of the item object that holds its unique value. This property is used to retrieve or assign the item's value, which is typically leveraged for data binding, form submission, or identifying items within a collection. The value is stored in the specified key of the item object.
    * Default value: """"
    */
   valueMember?: string;
   /**
-   * Determines weather or not Virtualization is used for the button's dropDownList.
+   * Specifies whether virtualization is enabled for the button’s drop-down list. When set to true, virtualization improves performance by only rendering items visible in the viewport, which is useful for large datasets. When set to false, all items are rendered regardless of visibility.
    * Default value: false
    */
   virtualized?: boolean;
@@ -306,11 +306,11 @@ export interface MultiSplitButton extends BaseElement, MultiSplitButtonPropertie
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when action button is clicked.
+   * This event is triggered whenever the user clicks on the action button, allowing you to execute custom functionality in response to the user's interaction.
 	* @param event. The custom event.    */
   onButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the selection is changed.
+   * This event fires whenever the user modifies the current selection, such as when they highlight different text or select a new item from a list. It is triggered immediately after the selection change occurs, allowing developers to respond dynamically to user selection actions.
 	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
    *  addedItems - An array of List items that have been selected.
    *  disabled - A flag indicating whether or not the item that caused the change event is disabled.
@@ -322,15 +322,15 @@ export interface MultiSplitButton extends BaseElement, MultiSplitButtonPropertie
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered when button's dropDown list is closed.
+   * This event is triggered when the drop-down list associated with the button is closed, either by user interaction or programmatically. It allows you to perform actions or execute logic after the drop-down menu has been dismissed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered when button's dropDown list is closing.
+   * This event is triggered when the dropdown list associated with the button begins to close, either due to user interaction or programmatic actions. It allows you to execute custom logic just before the dropdown is fully closed.
 	* @param event. The custom event.    */
   onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when an item is clicked.
+   * This event is triggered whenever a user clicks on an individual item, allowing you to execute custom logic in response to item selection. The event provides details about the clicked item, such as its identifier or associated data, which can be used for further processing or navigation.
 	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
    *  disabled - Indicates whether the List item that was clicked is disabled or not.
    *  index - Indicates the index of the List item that was clicked.
@@ -340,53 +340,53 @@ export interface MultiSplitButton extends BaseElement, MultiSplitButtonPropertie
    */
   onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when button's dropDown list is opened.
+   * This event is triggered whenever the drop-down list of the button is opened, either by a user action such as clicking or by programmatic interaction. It allows you to perform custom actions or update the UI in response to the drop-down list becoming visible.
 	* @param event. The custom event.    */
   onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when button's dropDown list is opening.
+   * This event is triggered just before the button's dropdown list becomes visible, allowing you to perform actions or modify the dropdown content as it is about to open.
 	* @param event. The custom event.    */
   onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when user scrolls to the end of the dropDown list.
+   * This event is triggered when the user reaches the bottom of the drop-down list by scrolling, indicating that all available list items have been viewed. This can be used to implement features such as lazy loading or dynamic data fetching when additional items need to be loaded into the drop-down.
 	* @param event. The custom event.    */
   onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when user scrolls to the start of the dropDown list.
+   * This event is triggered when the user scrolls to the very top (the first item) of the drop-down list. It can be used to detect when the user has reached the beginning of the list, for actions such as loading more items or updating the UI accordingly.
 	* @param event. The custom event.    */
   onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Closes button's dropDown list.
+   * Closes the dropdown list associated with the button, hiding its options from view.
    */
   close(): void;
   /**
-   * Returns an item instance occured in the element's drop down.
+   * Returns an instance of the item that appears in the element’s dropdown menu. This instance represents the selected item from the dropdown list, allowing access to its properties and methods.
    * @param {string} value. The value of an item from the drop down list or a button.
    * @returns {HTMLElement}
    */
   getItem(value: string): HTMLElement;
   /**
-   * Returns an array with the items from the split button's dropDown list.
+   * Returns an array containing all items currently present in the dropdown list of the split button component. Each array element represents an individual dropdown item, allowing you to access or manipulate the complete set of options available in the split button's dropdown.
    * @returns {any[]}
    */
   items(): any[];
   /**
-   * Inserts a new item at a specified position in the drop down list.
+   * Inserts a new item into the dropdown list at the specified index, shifting existing items as needed. The new item will appear at the given position within the list, and subsequent items will be moved down to accommodate it.
    * @param {number} position. The position where the item must be inserted.
    * @param {any} value. The value of the new item.
    */
   insert(position: number, value: any): void;
   /**
-   * Opens the splitButton's dropDown list.
+   * Displays the drop-down list associated with the splitButton control, allowing users to view and select available options.
    */
   open(): void;
   /**
-   * Removes an item at a specified position in the drop down list.
+   * Removes an item located at the specified index from the drop-down list, updating the list to exclude the removed item and adjusting the positions of subsequent items accordingly.
    * @param {number} position. The position of the removed item.
    */
   removeAt(position: number): void;
   /**
-   * Updates an item from the dropDown list.
+   * Updates a specific item within the drop-down list by modifying its properties or replacing its value with new data. This operation allows you to dynamically change the content displayed for a selected option in the drop-down menu.
    * @param {number} position. The position where the item must be updated.
    * @param {any} value. The value of the updated item.
    */
@@ -403,17 +403,17 @@ declare global {
     }
 }
 
-/**Determines position of the drop down button. */
+/**Specifies the location where the dropdown button will be displayed relative to its parent element. Possible values may include options such as "left," "right," "top," or "bottom," allowing you to control the alignment and placement of the dropdown button within the user interface. */
 export declare type DropDownButtonPosition = 'none' | 'left' | 'right';
-/**Defines how element's drop down behaves. In 'none' mode drop down never opens. In 'dropDownButton' mode drop down is opened only via elelent's drop down button. In 'auto' mode drop down is opened on click on the whole top section. */
+/**Specifies the behavior of the element's drop-down functionality.  <br/>- In 'none' mode, the drop-down will never open, regardless of any user interaction.  <br/>- In 'dropDownButton' mode, the drop-down opens only when the dedicated drop-down button on the element is clicked; clicking other parts of the element will have no effect.  <br/>- In 'auto' mode, the drop-down opens when any area of the element's top section is clicked, not just the button—providing a more flexible and user-friendly experience. */
 export declare type DropDownOpenMode = 'none' | 'dropDownButton' | 'auto';
-/**Determines the vertical position of the dropDown list. 'Auto' means its automatically determined depending on the viewport size. */
+/**Specifies the vertical placement of the drop-down list relative to its trigger element. When set to 'auto', the component dynamically chooses whether to display the drop-down above or below the trigger based on available space within the viewport, ensuring that the list remains fully visible without overflow. */
 export declare type DropDownPosition = 'auto' | 'top' | 'bottom' | 'overlay-top' | 'overlay-center' | 'overlay-bottom' | 'center-bottom' | 'center-top';
-/**Determines the filtering for the drop down list mode. */
+/**Specifies the filtering behavior applied to the dropdown list when users type or search. This property controls how the available options are filtered and displayed, such as matching items that contain, start with, or exactly match the user's input. */
 export declare type FilterMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
-/**Sets ot gets the mode of the incremental search mode. */
+/**Gets or sets the current mode for incremental search, which determines how search input is processed as the user types. */
 export declare type SearchMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
-/**The position of the loading indicator. */
+/**Specifies the on-screen location where the loading indicator will be displayed (e.g., top, bottom, center, or custom coordinates). */
 export declare type VerticalAlignment = 'bottom' | 'center' | 'top';
-/**Determines how many items can be selected. */
+/**Specifies the maximum number of items a user is allowed to select. If set to 1, only single selection is permitted; higher values enable multiple selections up to the defined limit. */
 export declare type MultiSplitButtonSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';

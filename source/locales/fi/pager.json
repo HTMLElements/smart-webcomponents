@@ -1,0 +1,13 @@
+{
+'firstButton': 'Ensimmäinen',
+'lastButton': 'Viimeinen',
+'previousButton': 'Edellinen',
+'nextButton': 'Seuraava',
+'navigateToLabel': 'Siirry kohtaan:',
+'pageSizeLabel': 'Näytä:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': 'yhteensä',
+'summaryPrefix': 'yhteensä',
+'summarySuffix': ''
+}

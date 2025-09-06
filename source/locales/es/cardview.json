@@ -1,0 +1,21 @@
+{
+'addImage': 'Agregar',
+'applyOnce': 'Aplicar una vez',
+'coverField': 'Campo de portada',
+'crop': 'Recortar',
+'customize': 'Personalizar tarjetas',
+'dateTabLabel': 'FECHA',
+'draggedRecord': 'Registro {{id}}',
+'fit': 'Ajustar',
+'imageUrl': 'Nueva URL de la imagen:',
+'incorrectStructure': '"dataSource" debe ser una instancia de Smart.DataAdapter o un arreglo de objetos con pares clave-valor.',
+'nextRecord': 'Siguiente registro',
+'noCoverField': 'Sin campo de portada',
+'noData': 'No hay datos para mostrar',
+'noMatches': 'No se encontraron registros',
+'now': 'Ahora',
+'previousRecord': 'Registro anterior',
+'removeImage': 'Eliminar',
+'timeTabLabel': 'TIEMPO',
+'toggleVisibility': 'Alternar visibilidad del campo'
+}

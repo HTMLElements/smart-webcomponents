@@ -1,0 +1,13 @@
+{
+'browse': 'Bla gjennom',
+'uploadFile': 'Last opp fil',
+'cancelFile': 'Avbryt fil',
+'pauseFile': 'Pause fil',
+'uploadAll': 'Last opp alle',
+'cancelAll': 'Avbryt alle',
+'pauseAll': 'Pause alle',
+'totalFiles': 'Totalt antall filer: ',
+'connectionError': '{{elementType}}: Filopplasting krever tilkobling til serveren.',
+'wrongItemIndex': '{{elementType}}: Det finnes ingen fil med slik indeks i listen over opplastede filer.',
+'tooLongFileName': '{{elementType}}: Filnavnet er for langt.'
+}

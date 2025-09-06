@@ -1,0 +1,7 @@
+{
+'invalidIndex': '{{elementType}}: "{{method}}" method accepts an index of type number.',
+                        'indexOutOfBound': '{{elementType}}: Out of bound index/indexes in "{{method}}" method.',
+                        'invalidNode': '{{elementType}}: "{{method}}" method accepts an object or an array of objects as it\'s second parameter.',
+                        'invalidSettings': '{{elementType}}: "{{method}}" method accepts a string or an object as it\'s second parameter.',
+                        'invalidType': '{{elementType}}: "{{propertyName}}" must be of type string or number.'
+}

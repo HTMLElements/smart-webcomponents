@@ -1,0 +1,8 @@
+{
+  "invalidNode": "{{elementType}}: “{{method}}” 方法接受 Smart.TabsWindow 的实例",
+  "invalidNodeRemove": "{{elementType}}: “{{method}}” 方法接受 DockingLayout 子元素中的 Smart.TabsWindow 实例",
+  "invalidNodeType": "{{elementType}}: “{{method}}” 方法需要传入 “smart-tabs-window” 元素作为参数",
+  "invalidTargetNode": "{{elementType}}: “{{method}}” 方法需要传入一个未隐藏或未关闭项目的索引。仅布局中可见项目有效",
+  "invalidIndex": "{{elementType}}: “{{method}}” 方法接受一个数字类型的索引",
+  "noId": "jqxDockingLayout 需要一个 id 以保存/加载状态"
+}

@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Forkert argument {{argumentName}} i metode {{methodName}}.',
+'missingReference': '{{elementType}}: Manglende reference til {{file}} i metode {{methodName}}.',
+'notAPath': 'Sæt til ikke en sti',
+'validPath': 'Sæt til gyldig sti'
+}

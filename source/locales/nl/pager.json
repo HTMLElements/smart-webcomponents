@@ -1,0 +1,13 @@
+{
+'firstButton': 'Eerste',
+'lastButton': 'Laatste',
+'previousButton': 'Vorige',
+'nextButton': 'Volgende',
+'navigateToLabel': 'Ga naar:',
+'pageSizeLabel': 'Toon:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': 'van',
+'summaryPrefix': 'van',
+'summarySuffix': ''
+}

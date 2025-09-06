@@ -1,0 +1,13 @@
+{
+'browse': 'Обзор',
+'uploadFile': 'Загрузить файл',
+'cancelFile': 'Отменить файл',
+'pauseFile': 'Пауза файла',
+'uploadAll': 'Загрузить все',
+'cancelAll': 'Отменить все',
+'pauseAll': 'Пауза всех',
+'totalFiles': 'Всего файлов: ',
+'connectionError': '{{elementType}}: Для загрузки файла требуется подключение к серверу.',
+'wrongItemIndex': '{{elementType}}: Файла с таким индексом нет в списке загруженных файлов.',
+'tooLongFileName': '{{elementType}}: Имя файла слишком длинное.'
+}

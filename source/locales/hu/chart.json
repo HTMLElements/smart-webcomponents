@@ -1,0 +1,9 @@
+{
+'invalidRadiusDataField': 'smart-chart: Érvénytelen radiusDataField érték a(z) [{{index}}] helyen',
+'invalidSeries': 'smart-chart: Érvénytelen tulajdonság: minden sorozatcsoportnak rendelkeznie kell egy \'series\' tulajdonsággal, amely egy érvényes tömb.',
+'invalidSeriesGroups': 'smart-chart: Érvénytelen tulajdonság: a \'seriesGroups\' tulajdonság szükséges és érvényes tömbnek kell lennie.',
+'invalidType': 'smart-chart: Érvénytelen sorozattípus "{{type}}".',
+'missingAxis': 'smart-chart: a seriesGroup[{{index}}] hiányzik a(z) {{axis}} definíció.',
+'missingReference': 'smart-chart: Hiányzó hivatkozás a következőhöz: {{files}}.',
+'missingType': 'smart-chart: Érvénytelen tulajdonság: minden sorozatcsoportnak rendelkeznie kell egy érvényes \'type\' tulajdonsággal.'
+}

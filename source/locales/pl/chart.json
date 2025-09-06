@@ -1,0 +1,9 @@
+{
+'invalidRadiusDataField': 'smart-chart: Nieprawidłowa wartość radiusDataField w pozycji [{{index}}]',
+'invalidSeries': 'smart-chart: Nieprawidłowa właściwość: każda grupa serii musi mieć właściwość \'series\', która musi być prawidłową tablicą.',
+'invalidSeriesGroups': 'smart-chart: Nieprawidłowa właściwość: właściwość \'seriesGroups\' jest wymagana i musi być prawidłową tablicą.',
+'invalidType': 'smart-chart: Nieprawidłowy typ serii "{{type}}".',
+'missingAxis': 'smart-chart: seriiGroup[{{index}}] brakuje definicji osi {{axis}}.',
+'missingReference': 'smart-chart: Brak odwołania do {{files}}.',
+'missingType': 'smart-chart: Nieprawidłowa właściwość: każda grupa serii musi mieć prawidłową właściwość \'type\'.'
+}

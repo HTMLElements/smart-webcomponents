@@ -1,0 +1,9 @@
+{
+'Example': 'Παράδειγμα: ',
+'IS_POSSIBLE': 'Είναι δυνατό',
+'INVALID_COUNTRY_CODE': 'Μη έγκυρος κωδικός χώρας',
+'TOO_SHORT': 'Πολύ σύντομο',
+'TOO_LONG': 'Πολύ μακρύ',
+'IS_POSSIBLE_LOCAL_ONLY': 'Είναι δυνατό μόνο τοπικά',
+'INVALID_LENGTH': 'Μη έγκυρο μήκος'
+}

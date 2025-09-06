@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: {{methodName}} metodunda {{argumentName}} argümanı yanlış.',
+                        'missingReference': '{{elementType}}: {{methodName}} metodunda {{file}} referansı eksik.',
+                        'notAPath': 'Yol değil olarak ayarlandı',
+                        'validPath': 'Geçerli yol olarak ayarlandı'
+}

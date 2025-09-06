@@ -1,0 +1,9 @@
+{
+  "binary": "ΔΥΝ",
+  "octal": "ΟΚΤ",
+  "decimal": "ΔΕΚ",
+  "hexadecimal": "ΕΞΑ",
+  "integerOnly": "jqxNumericTextBox: Η ιδιότητα {{property}} μπορεί να οριστεί μόνο όταν το inputFormat είναι ακέραιος.",
+  "noInteger": "jqxNumericTextBox: Η ιδιότητα {{property}} δεν μπορεί να οριστεί όταν το inputFormat είναι ακέραιος.",
+  "significantPrecisionDigits": "jqxNumericTextBox: Οι ιδιότητες significantDigits και precisionDigits δεν μπορούν να οριστούν ταυτόχρονα."
+}

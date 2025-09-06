@@ -33,6 +33,9 @@ smart-menu[mode=vertical], smart-menu[mode=dropDown], smart-menu[mode=tree] {
   width: var(--smart-menu-vertical-default-width);
   height: var(--smart-menu-vertical-default-height);
 }
+smart-menu[mode=dropDown] {
+  height: auto;
+}
 smart-menu[mode=tree]:focus {
   outline: none;
   border-color: var(--smart-outline);

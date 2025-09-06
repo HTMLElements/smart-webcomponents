@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" требует элемент типа "smart-accordion-item".',
+'indexOutOfBound': '{{elementType}}: Индекс/индексы за пределами допустимого диапазона в методе "{{method}}".',
+'invalidSettings': '{{elementType}}: Метод "{{method}}" принимает в качестве второго параметра строку или объект.',
+'missingReference': '{{elementType}}: Отсутствует ссылка на {{files}}.',
+'noItems': '{{elementType}}: Не найдено дочерних элементов.',
+'overridingProperties': '{{elementType}}: Применено переопределение свойств {{property1}} и {{property2}}. По умолчанию используется свойство "{{property1}}".'
+}

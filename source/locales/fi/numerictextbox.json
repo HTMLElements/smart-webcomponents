@@ -1,0 +1,9 @@
+{
+'binary': 'BIN',
+'octal': 'OKTAALI',
+'decimal': 'DESIMAALI',
+'hexadecimal': 'HEKSADESIMAALI',
+'integerOnly': 'jqxNumericTextBox: Ominaisuus {{property}} voidaan asettaa vain, kun inputFormat on kokonaisluku.',
+'noInteger': 'jqxNumericTextBox: ominaisuutta {{property}} ei voi asettaa, kun inputFormat on kokonaisluku.',
+'significantPrecisionDigits': 'jqxNumericTextBox: ominaisuuksia significantDigits ja precisionDigits ei voi asettaa samanaikaisesti.'
+}

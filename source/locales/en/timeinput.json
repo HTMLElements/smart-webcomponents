@@ -1,0 +1,6 @@
+{
+'hours': 'Hours',
+                        'minutes': 'Minutes',
+                        'am': 'am',
+                        'pm': 'pm'
+}

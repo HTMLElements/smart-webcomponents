@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" должен быть строкой, HTMLElement или null.',
+'htmlTemplateNotSuported': '{{elementType}}: Браузер не поддерживает элементы HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: свойство "{{property}}" принимает строку, которая должна совпадать с id элемента HTMLTemplate из DOM.',
+'invalidNode': '{{elementType}}: Неверный параметр "{{node}}" при вызове {{method}}.'
+}

@@ -1,0 +1,9 @@
+{
+'Example': 'Esimerkki: ',
+'IS_POSSIBLE': 'On mahdollista',
+'INVALID_COUNTRY_CODE': 'Virheellinen maakoodi',
+'TOO_SHORT': 'Liian lyhyt',
+'TOO_LONG': 'Liian pitkä',
+'IS_POSSIBLE_LOCAL_ONLY': 'Mahdollinen vain paikallisesti',
+'INVALID_LENGTH': 'Virheellinen pituus'
+}

@@ -1,0 +1,7 @@
+{
+'newItem': 'Najít...',
+'tagLabelOne': '{{value}} položka vybrána',
+'tagLabel': '{{value}} položky vybrány',
+'selectAll': 'Vybrat vše',
+'unselectAll': 'Zrušit výběr všeho'
+}

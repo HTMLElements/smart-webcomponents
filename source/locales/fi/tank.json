@@ -1,0 +1,6 @@
+{
+'missingReference': '{{elementType}}: Viitteitä {{files}} puuttuu.',
+'significantPrecisionDigits': '{{elementType}}: ominaisuuksia significantDigits ja precisionDigits ei voi asettaa samanaikaisesti.',
+'invalidMinOrMax': '{{elementType}}: Virheellinen arvo {{property}}. Maksimi ei voi olla pienempi kuin minimi.',
+'noInteger': '{{elementType}}: precisionDigits voidaan asettaa vain "floatingPoint"-mittakaavatyypille.'
+}

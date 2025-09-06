@@ -1,0 +1,11 @@
+```json
+{
+  "invalidRadiusDataField": "smart-chart: Neplatná hodnota radiusDataField na pozici [{{index}}]",
+  "invalidSeries": "smart-chart: Neplatná vlastnost: každá skupina sérií musí mít vlastnost 'series', která musí být platné pole.",
+  "invalidSeriesGroups": "smart-chart: Neplatná vlastnost: vlastnost 'seriesGroups' je vyžadována a musí být platné pole.",
+  "invalidType": "smart-chart: Neplatný typ série \"{{type}}\".",
+  "missingAxis": "smart-chart: skupině sérií [{{index}}] chybí definice {{axis}}.",
+  "missingReference": "smart-chart: Chybí odkaz na {{files}}.",
+  "missingType": "smart-chart: Neplatná vlastnost: každá skupina sérií musí mít platnou vlastnost 'type'."
+}
+```

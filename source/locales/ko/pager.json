@@ -1,0 +1,13 @@
+{
+'firstButton': '처음',
+'lastButton': '마지막',
+'previousButton': '이전',
+'nextButton': '다음',
+'navigateToLabel': '이동:',
+'pageSizeLabel': '표시:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': '중',
+'summaryPrefix': '중',
+'summarySuffix': ''
+}

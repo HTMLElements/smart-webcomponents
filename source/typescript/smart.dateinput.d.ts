@@ -2,77 +2,77 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface DateInputProperties {
   /**
-   * Determines whether the calendar button pop-up will be closed automatically when date or time is selected through it.
+   * Specifies whether the calendar button pop-up should automatically close after a user selects a date or time. If set to true, the pop-up will close immediately upon selection; if false, the pop-up will remain open, allowing multiple selections or further interaction.
    * Default value: false
    */
   autoClose?: boolean;
   /**
-   * Determines the delay before the calendar pop-up is automatically closed. Applicable only when autoClose is set to true.
+   * Specifies the duration (in milliseconds) to wait before automatically closing the calendar pop-up after it is opened. This setting is effective only when autoClose is set to true; if autoClose is false, this option is ignored.
    * Default value: 500
    */
   autoCloseDelay?: number;
   /**
-   * Determines the calendar properties to be set to the popup calendar.
+   * Specifies the configuration options and properties that will be applied to the popup calendar, such as date format, selectable date range, default view, and localization settings.
    * Default value: null
    */
   calendarProperties?: any;
   /**
-   * Determines the format of the dates displayed in the input. Accepts valid ECMAScript Internationalization API format. Intl.DateTimeFormat is used to format date strings in JavaScript. By default the date format is 'numeric'. The default value is: { day: 'numeric', month: 'numeric', year: 'numeric' }
+   * Specifies the format in which dates are displayed within the input field. This property accepts a configuration object compatible with the ECMAScript Internationalization API (Intl.DateTimeFormat). You can customize the date format by providing options such as day, month, and year with values like 'numeric', '2-digit', 'long', etc. For example, { day: 'numeric', month: 'long', year: '2-digit' }. Internally, JavaScript’s Intl.DateTimeFormat is used to format the date strings according to these options. If not specified, the default format is { day: 'numeric', month: 'numeric', year: 'numeric' }, which displays dates using numeric day, month, and year values (e.g., 06/11/2024).
    * Default value: { day: 'numeric', month: 'numeric', year: 'numeric' }
    */
   dateTimeFormat?: any;
   /**
-   * Enables or disables the element.
+   * Determines whether the element is enabled and interactive, or disabled and non-interactive. When set to true, the element is disabled and cannot be interacted with by the user; when set to false, the element remains enabled and fully functional.
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Determines the position of the drop down button.
+   * Specifies the placement of the dropdown button within its container, such as aligning it to the left, right, center, or another designated position. This setting affects where the button appears in relation to surrounding elements.
    * Default value: right
    */
   dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
-   * Sets the height of the drop down. By default it's set to 'auto'.
+   * Specifies the height of the drop-down menu. By default, the height is set to 'auto', allowing the drop-down to automatically adjust its size based on its content. You can set a specific value (e.g., '200px', '50%', etc.) to limit or customize the height as needed.
    * Default value: auto
    */
   dropDownHeight?: string | number;
   /**
-   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Specifies the width of the dropdown menu. By default, this property is set to an empty string, which means the dropdown's width will be determined by the corresponding CSS variable. If a specific value is provided (such as "200px" or "50%"), it will override the CSS variable and explicitly set the dropdown's width to that value. Use this property to customize the dropdown’s width as needed.
    * Default value: 
    */
   dropDownWidth?: string | number;
   /**
-   * Sets the format string. When this property is set, the dateTimeFormat property will be disabled and the formatting will use the value of the formatString. Built-in Date formats:// short date pattern'd' - 'M/d/yyyy',// long date pattern'D' - 'dddd, MMMM dd, yyyy',// short time pattern't' - 'h:mm tt',// long time pattern'T' - 'h:mm:ss tt',// long date, short time pattern'f' - 'dddd, MMMM dd, yyyy h:mm tt',// long date, long time pattern'F' - 'dddd, MMMM dd, yyyy h:mm:ss tt',// month/day pattern'M' - 'MMMM dd',// month/year pattern'Y' - 'yyyy MMMM',// S is a sortable format that does not vary by culture'S' - 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'Date format strings:'d'-the day of the month;'dd'-the day of the month'ddd'-the abbreviated name of the day of the week'dddd'- the full name of the day of the week'h'-the hour, using a 12-hour clock from 1 to 12'hh'-the hour, using a 12-hour clock from 01 to 12'H'-the hour, using a 24-hour clock from 0 to 23'HH'- the hour, using a 24-hour clock from 00 to 23'm'-the minute, from 0 through 59'mm'-the minutes,from 00 though59'M'- the month, from 1 through 12'MM'- the month, from 01 through 12'MMM'-the abbreviated name of the month'MMMM'-the full name of the month's'-the second, from 0 through 59'ss'-the second, from 00 through 59't'- the first character of the AM/PM designator'tt'-the AM/PM designator'y'- the year, from 0 to 99'yy'- the year, from 00 to 99'yyy'-the year, with a minimum of three digits'yyyy'-the year as a four-digit number;'yyyyy'-the year as a four-digit number.
+   * Sets the custom date and time formatting pattern. When the 'formatString' property is set, it takes precedence over the 'dateTimeFormat' property, which will be disabled. The formatted output will strictly follow the pattern defined in 'formatString'.'Built-in Format Strings:'- ''d'': Short date pattern (e.g., 'M/d/yyyy')- ''D'': Long date pattern (e.g., 'dddd, MMMM dd, yyyy')- ''t'': Short time pattern (e.g., 'h:mm tt')- ''T'': Long time pattern (e.g., 'h:mm:ss tt')- ''f'': Long date, short time pattern (e.g., 'dddd, MMMM dd, yyyy h:mm tt')- ''F'': Long date, long time pattern (e.g., 'dddd, MMMM dd, yyyy h:mm:ss tt')- ''M'': Month/day pattern (e.g., 'MMMM dd')- ''Y'': Year/month pattern (e.g., 'yyyy MMMM')- ''S'': Sortable date/time pattern, culture-invariant (e.g., 'yyyy-MM-ddTHH:mm:ss')'Custom Format String Components:'- ''d'': Day of month (1–31)- ''dd'': Day of month, two digits (01–31)- ''ddd'': Abbreviated day name (e.g., Mon, Tue)- ''dddd'': Full day name (e.g., Monday, Tuesday)- ''h'': Hour (12-hour clock, 1–12)- ''hh'': Hour (12-hour clock, two digits, 01–12)- ''H'': Hour (24-hour clock, 0–23)- ''HH'': Hour (24-hour clock, two digits, 00–23)- ''m'': Minute (0–59)- ''mm'': Minute, two digits (00–59)- ''M'': Month (1–12)- ''MM'': Month, two digits (01–12)- ''MMM'': Abbreviated month name (e.g., Jan, Feb)- ''MMMM'': Full month name (e.g., January, February)- ''s'': Second (0–59)- ''ss'': Second, two digits (00–59)- ''t'': First character of the AM/PM designator (A or P)- ''tt'': AM/PM designator- ''y'': Year, last one or two digits (e.g., 0–99)- ''yy'': Year, last two digits (00–99)- ''yyy'': Year, minimum three digits- ''yyyy'': Year, four digits (e.g., 2024)- ''yyyyy'': Year, minimum five digits (pads with leading zeros if necessary)'Note:'  Use these format specifiers to customize how dates and times are displayed in your application. If you assign a value to 'formatString', make sure to use the correct pattern for your intended output. When this property is active, 'dateTimeFormat' settings are ignored.
    * Default value: ""
    */
   formatString?: string;
   /**
-   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Defines the expected type of input data for the form element and specifies whether, and to what extent, the browser or user agent is allowed to provide automated autofill assistance. This value directly corresponds to the standard HTML autocomplete attribute and guides browsers in offering suggestions to the user, improving form completion speed and accuracy. Possible values include generic options such as 'on' or 'off', as well as more specific values describing the kind of information expected—such as 'name', 'email', 'organization', 'street-address', and others. Setting this attribute helps enhance both user experience and data accuracy by allowing browsers to match the input field with saved user data.
    * Default value: "off"
    */
   inputPurpose?: string;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Retrieves or assigns the unlockKey value used to authenticate and grant access to the product. The unlockKey serves as a security credential required to unlock the product’s features or content.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Specifies or retrieves the current language setting. This property determines which language is used when displaying messages, in coordination with the messages property that holds localized message strings for different languages. Adjusting this property updates the displayed messages to match the selected language.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * A callback function that allows you to define custom formatting for messages returned by the Localization Module. Use this to modify or enhance the appearance, structure, or content of localization messages before they are rendered to the user.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Determines the max date for the Calendar displayed inside the popup.
+   * Specifies the latest selectable date that can be displayed in the popup's Calendar. Dates beyond this value will be disabled and cannot be selected by the user.
    * Default value: new Date(2100, 1, 1)
    */
   max?: any;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Defines or retrieves an object containing the set of user-facing strings displayed by the widget, allowing them to be customized for different languages. This property works in conjunction with the locale property to support localization and internationalization of the widget interface. By providing translated strings in this object, you can ensure that all text elements within the widget match the selected locale.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -89,47 +89,47 @@ export interface DateInputProperties {
    */
   messages?: any;
   /**
-   * Determines the min date for the Calendar displayed inside the popup.
+   * Specifies the earliest selectable date that can be shown in the Calendar component within the popup. Dates prior to this value will be disabled and cannot be selected by the user.
    * Default value: new Date(1900, 1, 1)
    */
   min?: any;
   /**
-   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Enhances or retrieves the value of the 'name' attribute for the element. The 'name' attribute assigns a unique identifier to the element, which is essential when submitting form data. During form submission, the value of the element is sent to the server associated with this 'name', allowing the server to correctly process and recognize each field of the form.
    * Default value: ""
    */
   name?: string;
   /**
-   * Determines whether the drop down is opened or not.
+   * Specifies whether the dropdown menu is currently open (visible to the user) or closed (hidden from view).
    * Default value: false
    */
   opened?: boolean;
   /**
-   * Determines the placeholder of the input.
+   * Specifies the placeholder text that appears inside the input field before the user enters a value. This text provides guidance or an example of the expected input format.
    * Default value: ""
    */
   placeholder?: string;
   /**
-   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Determines whether the user can enter or edit text in the input field. When the dropDownButtonPosition property is set to 'left' or 'right' and a dataSource is provided, the readonly property controls the input's behavior:  - If readonly is false, the element functions as a ComboBox, allowing users to type custom values in addition to selecting from the drop-down list.  - If readonly is true, the element functions as a DropDownList, restricting user input to selections from the provided list only; manual text entry is disabled.
    * Default value: false
    */
   readonly?: boolean;
   /**
-   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Sets or retrieves a value that specifies whether the element’s text and layout are aligned to support right-to-left (RTL) languages, such as Arabic or Hebrew, ensuring proper display and reading order for locales that use RTL scripts.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * Determines the theme for the element. Themes define the look of the elements.
+   * Specifies the visual theme to be applied to the element. The selected theme controls the overall appearance, including colors, fonts, and styles, ensuring a consistent look and feel across the element.
    * Default value: ""
    */
   theme?: string;
   /**
-   * If is set to true, the element cannot be focused.
+   * When set to true, this property prevents the element from receiving keyboard focus, making it inaccessible via tab navigation or script-based focus methods.
    * Default value: false
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets the value of the element. Expected value is: Date string, Date object or null.
+   * Gets or sets the value of the element. The value should be either a date string (e.g., "2024-06-01"), a JavaScript Date object, or null to indicate no value.
    * Default value: 
    */
   value?: any;
@@ -142,7 +142,7 @@ export interface DateInput extends BaseElement, DateInputProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the selection is changed.
+   * This event is triggered whenever the user changes the current selection, such as highlighting different text, selecting a new item in a list, or modifying the currently selected elements. It allows you to execute custom code in response to any change in selection within the relevant component or interface.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
    *  label - The label of the new selected item.
    *  oldLabel - The label of the item that was previously selected before the event was triggered.
@@ -151,29 +151,29 @@ export interface DateInput extends BaseElement, DateInputProperties {
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * Closes the drop down.
+   * Closes the dropdown menu, hiding its options from view and returning the dropdown component to its inactive state.
    */
   close(): void;
   /**
-   * Opens the drop down.
+   * Displays and expands the dropdown menu, allowing the user to view and select available options.
    */
   open(): void;
   /**
-   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   * Enhancement:<br/><br/>"Selects the text within the input element. If the input is marked as <b>readonly</b>, the element will be focused without selecting its content."
    */
   select(): void;
   /**
-   * Returns the value in the desired format.
+   * Returns the value converted to the specified format, ensuring that the output matches the required data type or structure as requested.
    * @param {string | Date} value. The value to be formatted by the method. 
    * @param {any} format?. The object that contains the formatting properties. The argument should contain Intl.DateTimeFormat valid properties.
    */
   getFormattedValue(value: string | Date, format?: any): void;
   /**
-   * Returns the date of the input.
+   * Returns the date portion extracted from the provided input, which can be a date, datetime string, or timestamp. The output is formatted as a standard date (e.g., "YYYY-MM-DD"), omitting any time or timezone information present in the input.
    */
   getValue(): void;
   /**
-   * Sets the date of the input.
+   * Specifies the date value for the input field. This determines the preselected date that appears in the date picker when the input is rendered, or programmatically sets the input's current date. The value should follow the format 'YYYY-MM-DD' to ensure compatibility across browsers.
    * @param {string | Date} value. The value to be set. 
    */
   setValue(value: string | Date): void;
@@ -189,5 +189,5 @@ declare global {
     }
 }
 
-/**Determines the position of the drop down button. */
+/**Specifies the placement of the dropdown button within its container, such as aligning it to the left, right, center, or another designated position. This setting affects where the button appears in relation to surrounding elements. */
 export declare type DropDownButtonPosition = 'none' | 'left' | 'right';

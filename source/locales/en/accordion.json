@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" requires an item from type "smart-accordion-item".',
+                        'indexOutOfBound': '{{elementType}}: Out of bound index/indexes in "{{method}}" method.',
+                        'invalidSettings': '{{elementType}}: "{{method}}" method accepts a string or an object as it\'s second parameter.',
+                        'missingReference': '{{elementType}}: Missing reference to {{files}}.',
+                        'noItems': '{{elementType}}: No child elements found.',
+                        'overridingProperties': '{{elementType}}: Overriding properties {{property1}} and {{property2}} applied. The "{{property1}}" property is used by default.'
+}

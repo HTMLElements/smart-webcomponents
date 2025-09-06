@@ -1,0 +1,9 @@
+{
+'binary': 'BINÆR',
+'octal': 'OKTAL',
+'decimal': 'DECIMAL',
+'hexadecimal': 'HEKSADESIMAL',
+'integerOnly': 'jqxNumericTextBox: Egenskaben {{property}} kan kun indstilles, når inputFormat er heltal.',
+'noInteger': 'jqxNumericTextBox: egenskaben {{property}} kan ikke indstilles, når inputFormat er heltal.',
+'significantPrecisionDigits': 'jqxNumericTextBox: egenskaberne significantDigits og precisionDigits kan ikke indstilles samtidig.'
+}

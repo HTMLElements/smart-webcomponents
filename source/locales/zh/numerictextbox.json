@@ -1,0 +1,9 @@
+{
+  "binary": "二进制",
+  "octal": "八进制",
+  "decimal": "十进制",
+  "hexadecimal": "十六进制",
+  "integerOnly": "jqxNumericTextBox：只有当 inputFormat 为整数时，属性 {{property}} 才能被设置。",
+  "noInteger": "jqxNumericTextBox：当 inputFormat 为整数时，属性 {{property}} 不能被设置。",
+  "significantPrecisionDigits": "jqxNumericTextBox：属性 significantDigits 和 precisionDigits 不能同时设置。"
+}

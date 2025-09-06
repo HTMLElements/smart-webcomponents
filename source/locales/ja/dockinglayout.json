@@ -1,0 +1,8 @@
+{
+  "invalidNode": "{{elementType}}: \"{{method}}\" メソッドは Smart.TabsWindow のインスタンスを受け入れます",
+  "invalidNodeRemove": "{{elementType}}: \"{{method}}\" メソッドは DockingLayout の子である Smart.TabsWindow のインスタンスを受け入れます。",
+  "invalidNodeType": "{{elementType}}: メソッド \"{{method}}\" には \"smart-tabs-window\" 要素を引数として渡す必要があります。",
+  "invalidTargetNode": "{{elementType}}: メソッド \"{{method}}\" には非表示/閉じていないアイテムのインデックスが必要です。レイアウトの一部である表示中のアイテムのみ有効です。",
+  "invalidIndex": "{{elementType}}: \"{{method}}\" メソッドは数値型のインデックスを受け入れます。",
+  "noId": "jqxDockingLayout は状態の保存/読み込みに id が必要です。"
+}

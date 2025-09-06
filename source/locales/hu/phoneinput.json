@@ -1,0 +1,9 @@
+{
+'Example': 'Példa: ',
+'IS_POSSIBLE': 'Lehetséges',
+'INVALID_COUNTRY_CODE': 'Érvénytelen országkód',
+'TOO_SHORT': 'Túl rövid',
+'TOO_LONG': 'Túl hosszú',
+'IS_POSSIBLE_LOCAL_ONLY': 'Csak lokálisan lehetséges',
+'INVALID_LENGTH': 'Érvénytelen hossz'
+}

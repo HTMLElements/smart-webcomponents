@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" 需要一个类型为 "smart-accordion-item" 的项。',
+'indexOutOfBound': '{{elementType}}: "{{method}}" 方法中的索引超出范围。',
+'invalidSettings': '{{elementType}}: "{{method}}" 方法的第二个参数必须是字符串或对象。',
+'missingReference': '{{elementType}}: 缺少对 {{files}} 的引用。',
+'noItems': '{{elementType}}: 未找到子元素。',
+'overridingProperties': '{{elementType}}: 应用了覆盖属性 {{property1}} 和 {{property2}}。默认使用 "{{property1}}" 属性。'
+}

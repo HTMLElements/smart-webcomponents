@@ -1,0 +1,12 @@
+{
+'redPrefix': 'R:',
+                        'greenPrefix': 'G:',
+                        'bluePrefix': 'B:',
+                        'hexPrefix': '#:',
+                        'alphaPrefix': 'Alfa:',
+                        'ok': 'OK',
+                        'cancel': 'ANNULLER',
+                        'customColor': 'BRUGERDEFINERET FARVE',
+                        'standardColors': 'Standardfarver',
+                        'themeColors': 'Tema farver'
+}

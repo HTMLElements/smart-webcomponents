@@ -1,0 +1,6 @@
+{
+'missingReference': '{{elementType}}: 缺少对 {{files}} 的引用。',
+'significantPrecisionDigits': '{{elementType}}: 属性 significantDigits 和 precisionDigits 不能同时设置。',
+'invalidMinOrMax': '{{elementType}}: {{property}} 的值无效。最大值不能小于最小值。',
+'noInteger': '{{elementType}}: precisionDigits 只能在 "floatingPoint" scaleType 上设置。'
+}

@@ -1,0 +1,9 @@
+{
+'Example': '示例: ',
+'IS_POSSIBLE': '可能',
+'INVALID_COUNTRY_CODE': '无效的国家代码',
+'TOO_SHORT': '太短',
+'TOO_LONG': '太长',
+'IS_POSSIBLE_LOCAL_ONLY': '仅本地可能',
+'INVALID_LENGTH': '无效的长度'
+}

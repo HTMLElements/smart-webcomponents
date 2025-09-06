@@ -1,0 +1,21 @@
+{
+'addImage': 'Tilføj',
+'applyOnce': 'Anvend én gang',
+'coverField': 'Forsidefelt',
+'crop': 'Beskær',
+'customize': 'Tilpas kort',
+'dateTabLabel': 'DATO',
+'draggedRecord': 'Post {{id}}',
+'fit': 'Tilpas',
+'imageUrl': 'Ny billed-URL:',
+'incorrectStructure': '"dataSource" skal være en instans af Smart.DataAdapter eller et array af objekter med nøgle-værdi par.',
+'nextRecord': 'Næste post',
+'noCoverField': 'Intet forsidefelt',
+'noData': 'Ingen data at vise',
+'noMatches': 'Ingen matchende poster',
+'now': 'Nu',
+'previousRecord': 'Forrige post',
+'removeImage': 'Fjern',
+'timeTabLabel': 'TID',
+'toggleVisibility': 'Skift feltsynlighed'
+}

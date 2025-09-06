@@ -1,0 +1,7 @@
+{
+  "ambiguousIndexes": "smart-tabs: Aanvankelijk ingestelde smart-tab-item indexes zijn dubbelzinnig en worden genegeerd ten gunste van de HTML-structuur.",
+  "detailsObjectRequired": "smart-tabs: De methode \"insert\" vereist dat een details-object als tweede argument wordt doorgegeven.",
+  "invalidIndex": "smart-tabs: De methode \"{{method}}\" accepteert een index van het type nummer.",
+  "referenceNodeNotChild": "smart-tabs: Doorgegeven {{argument}} is geen onderdeel van dit smart-tabs element.",
+  "tabItemRequired": "smart-tabs: De methode \"{{method}}\" vereist dat een \"smart-tab-item\" element als argument wordt doorgegeven."
+}

@@ -1,0 +1,3 @@
+{
+  "callbackFunctionRequired": "smart-array: 当 \"type\" 为 'custom' 时，必须实现 {{callback}} 回调函数。"
+}

@@ -1,0 +1,21 @@
+{
+'addImage': 'Legg til',
+'applyOnce': 'Bruk én gang',
+'coverField': 'Omslagsfelt',
+'crop': 'Beskjær',
+'customize': 'Tilpass kort',
+'dateTabLabel': 'DATO',
+'draggedRecord': 'Post {{id}}',
+'fit': 'Tilpass',
+'imageUrl': 'Ny bilde-URL:',
+'incorrectStructure': '"dataSource" må være en instans av Smart.DataAdapter eller et array av objekter med nøkkel-verdi-par.',
+'nextRecord': 'Neste post',
+'noCoverField': 'Ingen omslagsfelt',
+'noData': 'Ingen data å vise',
+'noMatches': 'Ingen samsvarende poster',
+'now': 'Nå',
+'previousRecord': 'Forrige post',
+'removeImage': 'Fjern',
+'timeTabLabel': 'TID',
+'toggleVisibility': 'Bytt synlighet for felt'
+}

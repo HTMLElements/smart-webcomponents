@@ -1,0 +1,13 @@
+{
+'firstButton': 'First',
+                        'lastButton': 'Last',
+                        'previousButton': 'Previous',
+                        'nextButton': 'Next',
+                        'navigateToLabel': 'Go to:',
+                        'pageSizeLabel': 'Show:',
+                        'navigateToInputPlaceholder': '',
+                        'ellipsis': '...',
+                        'summaryString': 'of',
+                        'summaryPrefix': 'of',
+                        'summarySuffix': ''
+}

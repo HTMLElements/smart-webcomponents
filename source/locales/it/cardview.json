@@ -1,0 +1,21 @@
+{
+'addImage': 'Aggiungi',
+'applyOnce': 'Applica una volta',
+'coverField': 'Campo copertina',
+'crop': 'Ritaglia',
+'customize': 'Personalizza schede',
+'dateTabLabel': 'DATA',
+'draggedRecord': 'Record {{id}}',
+'fit': 'Adatta',
+'imageUrl': "Nuovo URL immagine:",
+'incorrectStructure': '"dataSource" deve essere un\'istanza di Smart.DataAdapter oppure un array di oggetti con coppie chiave-valore.',
+'nextRecord': 'Record successivo',
+'noCoverField': 'Nessun campo copertina',
+'noData': 'Nessun dato da mostrare',
+'noMatches': 'Nessun record corrispondente',
+'now': 'Ora',
+'previousRecord': 'Record precedente',
+'removeImage': 'Rimuovi',
+'timeTabLabel': 'ORA',
+'toggleVisibility': 'Attiva/disattiva visibilità campo'
+}

@@ -1,0 +1,7 @@
+{
+"ambiguousIndexes": "smart-tabs: Initialt angivna smart-tab-item-index är tvetydiga och ignoreras till förmån för HTML-strukturen.",
+"detailsObjectRequired": "smart-tabs: Metoden \"insert\" kräver att ett details-objekt skickas som andra argument.",
+"invalidIndex": "smart-tabs: Metoden \"{{method}}\" accepterar ett index av typen nummer.",
+"referenceNodeNotChild": "smart-tabs: Det passerade {{argument}} är inte en del av detta smart-tabs-element.",
+"tabItemRequired": "smart-tabs: Metoden \"{{method}}\" kräver att ett \"smart-tab-item\"-element skickas som argument."
+}

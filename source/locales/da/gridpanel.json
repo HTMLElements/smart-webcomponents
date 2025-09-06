@@ -1,0 +1,14 @@
+{
+'apply': 'Anvend',
+'booleanFirst': '☐',
+'booleanLast': '☑',
+'cancel': 'Annuller',
+'dateFirst': '1',
+'dateLast': '9',
+'from': 'fra',
+'numberFirst': '1',
+'numberLast': '9',
+'stringFirst': 'A',
+'stringLast': 'Z',
+'thenBy': 'derefter efter'
+}

@@ -1,0 +1,9 @@
+{
+'binary': 'İKİLİ',
+'octal': 'SEKİZLİ',
+'decimal': 'ONDALIK',
+'hexadecimal': 'ONALTI',
+'integerOnly': 'jqxNumericTextBox: {{property}} özelliği yalnızca inputFormat tam sayı olduğunda ayarlanabilir.',
+'noInteger': 'jqxNumericTextBox: {{property}} özelliği inputFormat tam sayı olduğunda ayarlanamaz.',
+'significantPrecisionDigits': 'jqxNumericTextBox: significantDigits ve precisionDigits özellikleri aynı anda ayarlanamaz.'
+}

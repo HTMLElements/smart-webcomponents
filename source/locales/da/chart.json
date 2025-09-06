@@ -1,0 +1,9 @@
+{
+'invalidRadiusDataField': 'smart-chart: Ugyldig radiusDataField værdi ved [{{index}}]',
+'invalidSeries': 'smart-chart: Ugyldig egenskab: hver seriegruppe skal have en \'series\' egenskab, som skal være et gyldigt array.',
+'invalidSeriesGroups': 'smart-chart: Ugyldig egenskab: \'seriesGroups\' egenskaben er påkrævet og skal være et gyldigt array.',
+'invalidType': 'smart-chart: Ugyldig serietype "{{type}}".',
+'missingAxis': 'smart-chart: seriesGroup[{{index}}] mangler {{axis}} definition.',
+'missingReference': 'smart-chart: Manglende reference til {{files}}.',
+'missingType': 'smart-chart: Ugyldig egenskab: hver seriegruppe skal have en gyldig \'type\' egenskab.'
+}

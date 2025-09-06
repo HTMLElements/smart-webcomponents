@@ -1,0 +1,8 @@
+{
+  "accordionItemRequired": "{{elementType}}: A(z) \"{{method}}\" metódushoz \"smart-accordion-item\" típusú elem szükséges.",
+  "indexOutOfBound": "{{elementType}}: \"{{method}}\" metódusban határon kívüli index/indexek.",
+  "invalidSettings": "{{elementType}}: A(z) \"{{method}}\" metódus második paramétere lehet string vagy objektum.",
+  "missingReference": "{{elementType}}: Hiányzó hivatkozás a következőhöz: {{files}}.",
+  "noItems": "{{elementType}}: Nem található gyerekelem.",
+  "overridingProperties": "{{elementType}}: Felülíró tulajdonságok: {{property1}} és {{property2}} alkalmazva. Az alapértelmezett tulajdonság a \"{{property1}}\"."
+}

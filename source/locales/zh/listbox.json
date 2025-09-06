@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}：已应用覆盖属性 {{property1}} 和 {{property2}}。默认使用 "{{property1}}" 属性。',
+'invalidIndex': '{{elementType}}："{{method}}" 方法接受数字类型的索引或数字数组。',
+'indexOutOfBound': '{{elementType}}："{{method}}" 方法中的索引超出范围。',
+'invalidItem': '{{elementType}}："{{method}}" 方法的第二个参数接受对象或对象数组。',
+'invalidSettings': '{{elementType}}："{{method}}" 方法的第二个参数接受字符串或对象。'
+}

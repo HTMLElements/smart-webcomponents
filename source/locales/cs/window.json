@@ -1,0 +1,5 @@
+```json
+{
+  "missingReference": "{{elementType}}: Chybějící odkaz na {{files}}."
+}
+```

@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Onjuist argument {{argumentName}} in methode {{methodName}}.',
+'missingReference': '{{elementType}}: Ontbrekende verwijzing naar {{file}} in methode {{methodName}}.',
+'notAPath': 'Ingesteld op geen pad',
+'validPath': 'Ingesteld op geldig pad'
+}

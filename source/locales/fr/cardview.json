@@ -1,0 +1,21 @@
+{
+'addImage': 'Ajouter',
+'applyOnce': 'Appliquer une fois',
+'coverField': 'Champ de couverture',
+'crop': 'Rogner',
+'customize': 'Personnaliser les cartes',
+'dateTabLabel': 'DATE',
+'draggedRecord': 'Enregistrement {{id}}',
+'fit': 'Ajuster',
+'imageUrl': 'Nouvelle URL de l\'image :',
+'incorrectStructure': '"dataSource" doit être une instance de Smart.DataAdapter ou un tableau d\'objets avec des paires clé-valeur.',
+'nextRecord': 'Enregistrement suivant',
+'noCoverField': 'Pas de champ de couverture',
+'noData': 'Pas de données à afficher',
+'noMatches': 'Aucun enregistrement correspondant',
+'now': 'Maintenant',
+'previousRecord': 'Enregistrement précédent',
+'removeImage': 'Supprimer',
+'timeTabLabel': 'HEURE',
+'toggleVisibility': 'Basculer la visibilité du champ'
+}

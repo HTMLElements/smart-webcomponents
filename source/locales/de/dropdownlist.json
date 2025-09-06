@@ -1,0 +1,3 @@
+{
+'invalidNode': '{{elementType}}: Ungültiger Parameter "{{node}}" beim Aufruf von {{method}}.'
+}

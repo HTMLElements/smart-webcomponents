@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Feil argument {{argumentName}} i metoden {{methodName}}.',
+'missingReference': '{{elementType}}: Manglende referanse til {{file}} i metoden {{methodName}}.',
+'notAPath': 'Satt til ikke en sti',
+'validPath': 'Satt til gyldig sti'
+}

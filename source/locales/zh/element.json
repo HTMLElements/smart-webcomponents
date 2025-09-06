@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': '无效的属性名称：\'{{name}}\'！',
+'propertyUnknownType': '\'{{name}}\' 属性缺少定义的 \'type\' 成员！',
+'propertyInvalidValue': '无效的 \'{{name}}\' 属性值！实际值：\'{{actualValue}}\'，期望值：\'{{value}}\'！',
+'propertyInvalidValueType': '无效的 \'{{name}}\' 属性值类型！实际类型：\'{{actualType}}\'，期望类型：\'{{type}}\'！',
+'methodInvalidValueType': '无效的 \'{{name}}\' 方法参数值类型！参数索引：\'{{argumentIndex}}\' 的实际类型：\'{{actualType}}\'，期望类型：\'{{type}}\'！',
+'methodInvalidArgumentsCount': '无效的 \'{{name}}\' 方法参数数量！实际数量：\'{{actualArgumentsCount}}\'，至少期望数量：\'{{argumentsCount}}\'！',
+'methodInvalidReturnType': '无效的 \'{{name}}\' 方法返回类型！实际类型：\'{{actualType}}\'，期望类型：\'{{type}}\'！',
+'elementNotInDOM': '元素不存在于 DOM 中！请先将元素添加到 DOM，然后再调用方法。',
+'moduleUndefined': '模块未定义。',
+'missingReference': '{{elementType}}：缺少对 \'{{files}}\' 的引用。',
+'htmlTemplateNotSuported': '{{elementType}}：网页浏览器不支持 HTMLTemplate 元素。',
+'invalidTemplate': '{{elementType}}：\'{{property}}\' 属性接受一个字符串，必须匹配 DOM 中 HTMLTemplate 元素的 id。'
+}

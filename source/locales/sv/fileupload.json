@@ -1,0 +1,13 @@
+{
+'browse': 'Bläddra',
+'uploadFile': 'Ladda upp fil',
+'cancelFile': 'Avbryt fil',
+'pauseFile': 'Pausa fil',
+'uploadAll': 'Ladda upp alla',
+'cancelAll': 'Avbryt alla',
+'pauseAll': 'Pausa alla',
+'totalFiles': 'Totalt antal filer: ',
+'connectionError': '{{elementType}}: Filuppladdning kräver anslutning till servern.',
+'wrongItemIndex': '{{elementType}}: Det finns ingen fil med det indexet i listan över uppladdade filer.',
+'tooLongFileName': '{{elementType}}: Filnamnet är för långt.'
+}

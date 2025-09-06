@@ -1,0 +1,12 @@
+{
+'redPrefix': 'Кр:',
+'greenPrefix': 'З:',
+'bluePrefix': 'С:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Прозрачность:',
+'ok': 'ОК',
+'cancel': 'ОТМЕНА',
+'customColor': 'СВОЙ ЦВЕТ',
+'standardColors': 'Стандартные цвета',
+'themeColors': 'Цвета темы'
+}

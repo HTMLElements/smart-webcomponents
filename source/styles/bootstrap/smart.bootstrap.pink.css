@@ -242,12 +242,12 @@ smart-repeat-button.primary {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #ff0d86;
-  --smart-ui-state-border-hover: #ff0080;
-  --smart-ui-state-active: #ff0d86;
-  --smart-ui-state-border-active: #ff0080;
-  --smart-ui-state-focus: #ff0d86;
-  --smart-ui-state-border-focus: #ff0080;
+  --smart-ui-state-hover: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-hover: rgb(255, 0, 127.5);
+  --smart-ui-state-active: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-active: rgb(255, 0, 127.5);
+  --smart-ui-state-focus: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-focus: rgb(255, 0, 127.5);
 }
 smart-button.secondary,
 smart-toggle-button.secondary,
@@ -255,12 +255,12 @@ smart-repeat-button.secondary {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #5a6268;
-  --smart-ui-state-border-hover: #545b62;
-  --smart-ui-state-active: #5a6268;
-  --smart-ui-state-border-active: #545b62;
-  --smart-ui-state-focus: #5a6268;
-  --smart-ui-state-border-focus: #545b62;
+  --smart-ui-state-hover: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-hover: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  --smart-ui-state-active: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-active: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  --smart-ui-state-focus: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-focus: rgb(84.3605150215, 91.3905579399, 97.6394849785);
 }
 smart-button.success,
 smart-toggle-button.success,
@@ -268,12 +268,12 @@ smart-repeat-button.success {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #218838;
-  --smart-ui-state-border-hover: #1e7e34;
-  --smart-ui-state-active: #218838;
-  --smart-ui-state-border-active: #1e7e34;
-  --smart-ui-state-focus: #218838;
-  --smart-ui-state-border-focus: #1e7e34;
+  --smart-ui-state-hover: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-hover: rgb(30.1449275362, 125.8550724638, 52);
+  --smart-ui-state-active: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-active: rgb(30.1449275362, 125.8550724638, 52);
+  --smart-ui-state-focus: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-focus: rgb(30.1449275362, 125.8550724638, 52);
 }
 smart-button.info,
 smart-toggle-button.info,
@@ -281,12 +281,12 @@ smart-repeat-button.info {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #138496;
-  --smart-ui-state-border-hover: #117a8b;
-  --smart-ui-state-active: #138496;
-  --smart-ui-state-border-active: #117a8b;
-  --smart-ui-state-focus: #138496;
-  --smart-ui-state-border-focus: #117a8b;
+  --smart-ui-state-hover: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-hover: rgb(17.3333333333, 122.0869565217, 138.6666666667);
+  --smart-ui-state-active: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-active: rgb(17.3333333333, 122.0869565217, 138.6666666667);
+  --smart-ui-state-focus: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-focus: rgb(17.3333333333, 122.0869565217, 138.6666666667);
 }
 smart-button.warning,
 smart-toggle-button.warning,
@@ -294,12 +294,12 @@ smart-repeat-button.warning {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #e0a800;
-  --smart-ui-state-border-hover: #d39e00;
-  --smart-ui-state-active: #e0a800;
-  --smart-ui-state-border-active: #d39e00;
-  --smart-ui-state-focus: #e0a800;
-  --smart-ui-state-border-focus: #d39e00;
+  --smart-ui-state-hover: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-hover: rgb(211, 158.25, 0);
+  --smart-ui-state-active: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-active: rgb(211, 158.25, 0);
+  --smart-ui-state-focus: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-focus: rgb(211, 158.25, 0);
 }
 smart-button.error,
 smart-toggle-button.error,
@@ -307,12 +307,12 @@ smart-repeat-button.error {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #c82333;
-  --smart-ui-state-border-hover: #bd2130;
-  --smart-ui-state-active: #c82333;
-  --smart-ui-state-border-active: #bd2130;
-  --smart-ui-state-focus: #c82333;
-  --smart-ui-state-border-focus: #bd2130;
+  --smart-ui-state-hover: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-hover: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  --smart-ui-state-active: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-active: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  --smart-ui-state-focus: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-focus: rgb(189.2151898734, 32.7848101266, 47.7721518987);
 }
 smart-button.light,
 smart-toggle-button.light,
@@ -320,12 +320,12 @@ smart-repeat-button.light {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #e2e6ea;
-  --smart-ui-state-border-hover: #dae0e5;
-  --smart-ui-state-active: #e2e6ea;
-  --smart-ui-state-border-active: #dae0e5;
-  --smart-ui-state-focus: #e2e6ea;
-  --smart-ui-state-border-focus: #dae0e5;
+  --smart-ui-state-hover: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-hover: rgb(218.25, 223.5, 228.75);
+  --smart-ui-state-active: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-active: rgb(218.25, 223.5, 228.75);
+  --smart-ui-state-focus: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-focus: rgb(218.25, 223.5, 228.75);
 }
 smart-button.dark,
 smart-toggle-button.dark,
@@ -333,12 +333,12 @@ smart-repeat-button.dark {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #23272b;
-  --smart-ui-state-border-hover: #1d2124;
-  --smart-ui-state-active: #23272b;
-  --smart-ui-state-border-active: #1d2124;
-  --smart-ui-state-focus: #23272b;
-  --smart-ui-state-border-focus: #1d2124;
+  --smart-ui-state-hover: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-hover: rgb(29.1379310345, 32.5, 35.8620689655);
+  --smart-ui-state-active: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-active: rgb(29.1379310345, 32.5, 35.8620689655);
+  --smart-ui-state-focus: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-focus: rgb(29.1379310345, 32.5, 35.8620689655);
 }
 smart-button.link,
 smart-toggle-button.link,
@@ -401,99 +401,99 @@ smart-repeat-button.outlined[active] {
   border-top-right-radius: var(--smart-border-top-left-radius);
 }
 .smart-button-group.primary .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.primary .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #f20079 !important;
+  background-color: rgb(242.25, 0, 121.125) !important;
 }
 .smart-button-group.primary .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #f20079 !important;
+  background-color: rgb(242.25, 0, 121.125) !important;
   color: var(--smart-primary-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-primary-rgb), 0.5)  !important;
 }
 .smart-button-group.primary .smart-button-group-items .smart-button-group-item:active, .smart-button-group.primary .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #f20079 !important;
+  background-color: rgb(242.25, 0, 121.125) !important;
   color: var(--smart-primary-color);
 }
 .smart-button-group.secondary .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.secondary .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #4e555b !important;
+  background-color: rgb(78.4506437768, 84.9881974249, 90.7993562232) !important;
 }
 .smart-button-group.secondary .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #4e555b !important;
+  background-color: rgb(78.4506437768, 84.9881974249, 90.7993562232) !important;
   color: var(--smart-secondary-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-secondary-rgb), 0.5)  !important;
 }
 .smart-button-group.secondary .smart-button-group-items .smart-button-group-item:active, .smart-button-group.secondary .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #4e555b !important;
+  background-color: rgb(78.4506437768, 84.9881974249, 90.7993562232) !important;
   color: var(--smart-secondary-color);
 }
 .smart-button-group.success .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.success .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #1c7430 !important;
+  background-color: rgb(27.6811594203, 115.5688405797, 47.75) !important;
 }
 .smart-button-group.success .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #1c7430 !important;
+  background-color: rgb(27.6811594203, 115.5688405797, 47.75) !important;
   color: var(--smart-success-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-success-rgb), 0.5)  !important;
 }
 .smart-button-group.success .smart-button-group-items .smart-button-group-item:active, .smart-button-group.success .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #1c7430 !important;
+  background-color: rgb(27.6811594203, 115.5688405797, 47.75) !important;
   color: var(--smart-success-color);
 }
 .smart-button-group.info .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.info .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #10707f !important;
+  background-color: rgb(15.9166666667, 112.1086956522, 127.3333333333) !important;
 }
 .smart-button-group.info .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #10707f !important;
+  background-color: rgb(15.9166666667, 112.1086956522, 127.3333333333) !important;
   color: var(--smart-info-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-info-rgb), 0.5)  !important;
 }
 .smart-button-group.info .smart-button-group-items .smart-button-group-item:active, .smart-button-group.info .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #10707f !important;
+  background-color: rgb(15.9166666667, 112.1086956522, 127.3333333333) !important;
   color: var(--smart-info-color);
 }
 .smart-button-group.warning .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.warning .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #c69500 !important;
+  background-color: rgb(198.25, 148.6875, 0) !important;
 }
 .smart-button-group.warning .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #c69500 !important;
+  background-color: rgb(198.25, 148.6875, 0) !important;
   color: var(--smart-warning-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-warning-rgb), 0.5)  !important;
 }
 .smart-button-group.warning .smart-button-group-items .smart-button-group-item:active, .smart-button-group.warning .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #c69500 !important;
+  background-color: rgb(198.25, 148.6875, 0) !important;
   color: var(--smart-warning-color);
 }
 .smart-button-group.error .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.error .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #b21f2d !important;
+  background-color: rgb(178.3481012658, 30.9018987342, 45.0284810127) !important;
 }
 .smart-button-group.error .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #b21f2d !important;
+  background-color: rgb(178.3481012658, 30.9018987342, 45.0284810127) !important;
   color: var(--smart-error-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-error-rgb), 0.5)  !important;
 }
 .smart-button-group.error .smart-button-group-items .smart-button-group-item:active, .smart-button-group.error .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #b21f2d !important;
+  background-color: rgb(178.3481012658, 30.9018987342, 45.0284810127) !important;
   color: var(--smart-error-color);
 }
 .smart-button-group.light .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.light .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #d3d9df !important;
+  background-color: rgb(210.8125, 217.125, 223.4375) !important;
 }
 .smart-button-group.light .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #d3d9df !important;
+  background-color: rgb(210.8125, 217.125, 223.4375) !important;
   color: var(--smart-light-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-light-rgb), 0.5)  !important;
 }
 .smart-button-group.light .smart-button-group-items .smart-button-group-item:active, .smart-button-group.light .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #d3d9df !important;
+  background-color: rgb(210.8125, 217.125, 223.4375) !important;
   color: var(--smart-light-color);
 }
 .smart-button-group.dark .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.dark .smart-button-group-items .smart-button-group-item:hover {
-  background-color: #171a1d !important;
+  background-color: rgb(23.4224137931, 26.125, 28.8275862069) !important;
 }
 .smart-button-group.dark .smart-button-group-items .smart-button-group-item[focus] {
-  background-color: #171a1d !important;
+  background-color: rgb(23.4224137931, 26.125, 28.8275862069) !important;
   color: var(--smart-dark-color);
   box-shadow: 0 0 0 0.25rem rgba(var(--smart-dark-rgb), 0.5)  !important;
 }
 .smart-button-group.dark .smart-button-group-items .smart-button-group-item:active, .smart-button-group.dark .smart-button-group-items .smart-button-group-item [active] {
-  background-color: #171a1d !important;
+  background-color: rgb(23.4224137931, 26.125, 28.8275862069) !important;
   color: var(--smart-dark-color);
 }
 .smart-button-group.pagination .smart-button-group-items .smart-button-group-item {
@@ -506,7 +506,7 @@ smart-repeat-button.outlined[active] {
 }
 .smart-button-group.pagination .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.pagination .smart-button-group-items .smart-button-group-item:hover, .smart-button-group.pagination .smart-button-group-items .smart-button-group-item[focus] {
   background-color: #e9ecef !important;
-  color: #e60073;
+  color: rgb(229.5, 0, 114.75);
 }
 .smart-button-group.pagination .smart-button-group-items .smart-button-group-item:active, .smart-button-group.pagination .smart-button-group-items .smart-button-group-item[active] {
   background-color: var(--smart-primary) !important;
@@ -713,12 +713,12 @@ smart-drop-down-button.primary {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-primary-color);
-  --smart-ui-state-hover: #ff0d86;
-  --smart-ui-state-border-hover: #ff0080;
-  --smart-ui-state-active: #ff0d86;
-  --smart-ui-state-border-active: #ff0080;
-  --smart-ui-state-focus: #ff0d86;
-  --smart-ui-state-border-focus: #ff0080;
+  --smart-ui-state-hover: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-hover: rgb(255, 0, 127.5);
+  --smart-ui-state-active: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-active: rgb(255, 0, 127.5);
+  --smart-ui-state-focus: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-focus: rgb(255, 0, 127.5);
   --smart-ui-state-color-hover: var(--smart-primary-color);
 }
 smart-drop-down-button.primary[opened] {
@@ -729,12 +729,12 @@ smart-drop-down-button.secondary {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-secondary-color);
-  --smart-ui-state-hover: #5a6268;
-  --smart-ui-state-border-hover: #545b62;
-  --smart-ui-state-active: #5a6268;
-  --smart-ui-state-border-active: #545b62;
-  --smart-ui-state-focus: #5a6268;
-  --smart-ui-state-border-focus: #545b62;
+  --smart-ui-state-hover: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-hover: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  --smart-ui-state-active: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-active: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  --smart-ui-state-focus: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-focus: rgb(84.3605150215, 91.3905579399, 97.6394849785);
   --smart-ui-state-color-hover: var(--smart-secondary-color);
 }
 smart-drop-down-button.secondary[opened] {
@@ -745,12 +745,12 @@ smart-drop-down-button.success {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-success-color);
-  --smart-ui-state-hover: #218838;
-  --smart-ui-state-border-hover: #1e7e34;
-  --smart-ui-state-active: #218838;
-  --smart-ui-state-border-active: #1e7e34;
-  --smart-ui-state-focus: #218838;
-  --smart-ui-state-border-focus: #1e7e34;
+  --smart-ui-state-hover: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-hover: rgb(30.1449275362, 125.8550724638, 52);
+  --smart-ui-state-active: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-active: rgb(30.1449275362, 125.8550724638, 52);
+  --smart-ui-state-focus: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-focus: rgb(30.1449275362, 125.8550724638, 52);
   --smart-ui-state-color-hover: var(--smart-success-color);
 }
 smart-drop-down-button.success[opened] {
@@ -761,12 +761,12 @@ smart-drop-down-button.info {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-info-color);
-  --smart-ui-state-hover: #138496;
-  --smart-ui-state-border-hover: #117a8b;
-  --smart-ui-state-active: #138496;
-  --smart-ui-state-border-active: #117a8b;
-  --smart-ui-state-focus: #138496;
-  --smart-ui-state-border-focus: #117a8b;
+  --smart-ui-state-hover: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-hover: rgb(17.3333333333, 122.0869565217, 138.6666666667);
+  --smart-ui-state-active: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-active: rgb(17.3333333333, 122.0869565217, 138.6666666667);
+  --smart-ui-state-focus: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-focus: rgb(17.3333333333, 122.0869565217, 138.6666666667);
   --smart-ui-state-color-hover: var(--smart-info-color);
 }
 smart-drop-down-button.info[opened] {
@@ -777,12 +777,12 @@ smart-drop-down-button.warning {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-warning-color);
-  --smart-ui-state-hover: #e0a800;
-  --smart-ui-state-border-hover: #d39e00;
-  --smart-ui-state-active: #e0a800;
-  --smart-ui-state-border-active: #d39e00;
-  --smart-ui-state-focus: #e0a800;
-  --smart-ui-state-border-focus: #d39e00;
+  --smart-ui-state-hover: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-hover: rgb(211, 158.25, 0);
+  --smart-ui-state-active: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-active: rgb(211, 158.25, 0);
+  --smart-ui-state-focus: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-focus: rgb(211, 158.25, 0);
   --smart-ui-state-color-hover: var(--smart-warning-color);
 }
 smart-drop-down-button.warning[opened] {
@@ -793,12 +793,12 @@ smart-drop-down-button.error {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-error-color);
-  --smart-ui-state-hover: #c82333;
-  --smart-ui-state-border-hover: #bd2130;
-  --smart-ui-state-active: #c82333;
-  --smart-ui-state-border-active: #bd2130;
-  --smart-ui-state-focus: #c82333;
-  --smart-ui-state-border-focus: #bd2130;
+  --smart-ui-state-hover: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-hover: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  --smart-ui-state-active: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-active: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  --smart-ui-state-focus: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-focus: rgb(189.2151898734, 32.7848101266, 47.7721518987);
   --smart-ui-state-color-hover: var(--smart-error-color);
 }
 smart-drop-down-button.error[opened] {
@@ -809,12 +809,12 @@ smart-drop-down-button.light {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-light-color);
-  --smart-ui-state-hover: #e2e6ea;
-  --smart-ui-state-border-hover: #dae0e5;
-  --smart-ui-state-active: #e2e6ea;
-  --smart-ui-state-border-active: #dae0e5;
-  --smart-ui-state-focus: #e2e6ea;
-  --smart-ui-state-border-focus: #dae0e5;
+  --smart-ui-state-hover: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-hover: rgb(218.25, 223.5, 228.75);
+  --smart-ui-state-active: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-active: rgb(218.25, 223.5, 228.75);
+  --smart-ui-state-focus: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-focus: rgb(218.25, 223.5, 228.75);
   --smart-ui-state-color-hover: var(--smart-light-color);
 }
 smart-drop-down-button.light[opened] {
@@ -825,12 +825,12 @@ smart-drop-down-button.dark {
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
   --smart-ui-state-color-active: var(--smart-dark-color);
-  --smart-ui-state-hover: #23272b;
-  --smart-ui-state-border-hover: #1d2124;
-  --smart-ui-state-active: #23272b;
-  --smart-ui-state-border-active: #1d2124;
-  --smart-ui-state-focus: #23272b;
-  --smart-ui-state-border-focus: #1d2124;
+  --smart-ui-state-hover: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-hover: rgb(29.1379310345, 32.5, 35.8620689655);
+  --smart-ui-state-active: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-active: rgb(29.1379310345, 32.5, 35.8620689655);
+  --smart-ui-state-focus: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-focus: rgb(29.1379310345, 32.5, 35.8620689655);
   --smart-ui-state-color-hover: var(--smart-dark-color);
 }
 smart-drop-down-button.dark[opened] {
@@ -1352,7 +1352,7 @@ smart-scheduler.table-dark .smart-scheduler-cell-container .smart-scheduler-cell
   background-color: transparent;
 }
 smart-scheduler.table-secondary, smart-scheduler.table-dark {
-  --smart-scheduler-day-week-view-vertical-line-color: #454d55;
+  --smart-scheduler-day-week-view-vertical-line-color: rgb(69.1465517241, 77.125, 85.1034482759);
   /* Vertical timeline color in 'day' and 'week' views */
 }
 smart-scheduler.table-secondary .smart-scheduler-view-all-day-label,
@@ -1378,7 +1378,7 @@ smart-scheduler.table-dark .smart-scheduler-view-header-horizontal .smart-schedu
 smart-scheduler.table-dark .smart-scheduler-view-all-day,
 smart-scheduler.table-dark .smart-scheduler-cells-container .smart-scheduler-cell-container:not(:last-of-type),
 smart-scheduler.table-dark .smart-scheduler-cells-container .smart-scheduler-cell.scale:not(:last-of-type) {
-  border-color: #454d55 !important;
+  border-color: rgb(69.1465517241, 77.125, 85.1034482759) !important;
 }
 
 /* CARD */
@@ -1541,9 +1541,9 @@ smart-card.card .card-footer:last-child {
   line-height: 1.5;
 }
 .smart-alert.smart-alert-primary {
-  color: #bd005e;
+  color: rgb(188.7, 0, 94.35);
   background-color: white;
-  border-color: #ffebf5;
+  border-color: rgb(255, 234.6, 244.8);
 }
 .smart-alert.smart-alert-secondary {
   color: #383d41;
@@ -2054,89 +2054,89 @@ smart-carousel.slider .smart-arrow:hover {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #ff0d86;
-  --smart-ui-state-border-hover: #ff0080;
-  --smart-ui-state-active: #ff0d86;
-  --smart-ui-state-border-active: #ff0080;
-  --smart-ui-state-focus: #ff0d86;
-  --smart-ui-state-border-focus: #ff0080;
+  --smart-ui-state-hover: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-hover: rgb(255, 0, 127.5);
+  --smart-ui-state-active: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-active: rgb(255, 0, 127.5);
+  --smart-ui-state-focus: rgb(255, 12.75, 133.875);
+  --smart-ui-state-border-focus: rgb(255, 0, 127.5);
 }
 .smart-multi-split-button.secondary {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #5a6268;
-  --smart-ui-state-border-hover: #545b62;
-  --smart-ui-state-active: #5a6268;
-  --smart-ui-state-border-active: #545b62;
-  --smart-ui-state-focus: #5a6268;
-  --smart-ui-state-border-focus: #545b62;
+  --smart-ui-state-hover: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-hover: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  --smart-ui-state-active: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-active: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  --smart-ui-state-focus: rgb(90.2703862661, 97.7929184549, 104.4796137339);
+  --smart-ui-state-border-focus: rgb(84.3605150215, 91.3905579399, 97.6394849785);
 }
 .smart-multi-split-button.success {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #218838;
-  --smart-ui-state-border-hover: #1e7e34;
-  --smart-ui-state-active: #218838;
-  --smart-ui-state-border-active: #1e7e34;
-  --smart-ui-state-focus: #218838;
-  --smart-ui-state-border-focus: #1e7e34;
+  --smart-ui-state-hover: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-hover: rgb(30.1449275362, 125.8550724638, 52);
+  --smart-ui-state-active: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-active: rgb(30.1449275362, 125.8550724638, 52);
+  --smart-ui-state-focus: rgb(32.6086956522, 136.1413043478, 56.25);
+  --smart-ui-state-border-focus: rgb(30.1449275362, 125.8550724638, 52);
 }
 .smart-multi-split-button.info {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #138496;
-  --smart-ui-state-border-hover: #117a8b;
-  --smart-ui-state-active: #138496;
-  --smart-ui-state-border-active: #117a8b;
-  --smart-ui-state-focus: #138496;
-  --smart-ui-state-border-focus: #117a8b;
+  --smart-ui-state-hover: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-hover: rgb(17.3333333333, 122.0869565217, 138.6666666667);
+  --smart-ui-state-active: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-active: rgb(17.3333333333, 122.0869565217, 138.6666666667);
+  --smart-ui-state-focus: rgb(18.75, 132.0652173913, 150);
+  --smart-ui-state-border-focus: rgb(17.3333333333, 122.0869565217, 138.6666666667);
 }
 .smart-multi-split-button.warning {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #e0a800;
-  --smart-ui-state-border-hover: #d39e00;
-  --smart-ui-state-active: #e0a800;
-  --smart-ui-state-border-active: #d39e00;
-  --smart-ui-state-focus: #e0a800;
-  --smart-ui-state-border-focus: #d39e00;
+  --smart-ui-state-hover: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-hover: rgb(211, 158.25, 0);
+  --smart-ui-state-active: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-active: rgb(211, 158.25, 0);
+  --smart-ui-state-focus: rgb(223.75, 167.8125, 0);
+  --smart-ui-state-border-focus: rgb(211, 158.25, 0);
 }
 .smart-multi-split-button.error {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #c82333;
-  --smart-ui-state-border-hover: #bd2130;
-  --smart-ui-state-active: #c82333;
-  --smart-ui-state-border-active: #bd2130;
-  --smart-ui-state-focus: #c82333;
-  --smart-ui-state-border-focus: #bd2130;
+  --smart-ui-state-hover: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-hover: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  --smart-ui-state-active: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-active: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  --smart-ui-state-focus: rgb(200.082278481, 34.667721519, 50.5158227848);
+  --smart-ui-state-border-focus: rgb(189.2151898734, 32.7848101266, 47.7721518987);
 }
 .smart-multi-split-button.light {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #e2e6ea;
-  --smart-ui-state-border-hover: #dae0e5;
-  --smart-ui-state-active: #e2e6ea;
-  --smart-ui-state-border-active: #dae0e5;
-  --smart-ui-state-focus: #e2e6ea;
-  --smart-ui-state-border-focus: #dae0e5;
+  --smart-ui-state-hover: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-hover: rgb(218.25, 223.5, 228.75);
+  --smart-ui-state-active: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-active: rgb(218.25, 223.5, 228.75);
+  --smart-ui-state-focus: rgb(225.6875, 229.875, 234.0625);
+  --smart-ui-state-border-focus: rgb(218.25, 223.5, 228.75);
 }
 .smart-multi-split-button.dark {
   --smart-button-opacity-hover: 1;
   --smart-button-opacity-focus: 1;
   --smart-button-opacity-active: 1;
-  --smart-ui-state-hover: #23272b;
-  --smart-ui-state-border-hover: #1d2124;
-  --smart-ui-state-active: #23272b;
-  --smart-ui-state-border-active: #1d2124;
-  --smart-ui-state-focus: #23272b;
-  --smart-ui-state-border-focus: #1d2124;
+  --smart-ui-state-hover: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-hover: rgb(29.1379310345, 32.5, 35.8620689655);
+  --smart-ui-state-active: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-active: rgb(29.1379310345, 32.5, 35.8620689655);
+  --smart-ui-state-focus: rgb(34.8534482759, 38.875, 42.8965517241);
+  --smart-ui-state-border-focus: rgb(29.1379310345, 32.5, 35.8620689655);
 }
 
 /* LIST MENU */
@@ -2586,7 +2586,7 @@ smart-carousel.slider .smart-arrow:hover {
 .smart-menu smart-menu-items-group:not([level="1"])[hover],
 .smart-menu smart-menu-items-group:not([level="1"])[focus] {
   background: #f8f9fa;
-  color: #16181b;
+  color: rgb(21.6283783784, 24.25, 26.8716216216);
 }
 .smart-menu smart-menu-item:not([level="1"]) .smart-menu-item-label-container,
 .smart-menu smart-menu-items-group:not([level="1"]) .smart-menu-item-label-container {
@@ -3258,44 +3258,44 @@ smart-combo-box.smart-combo-box .smart-resize-trigger-container {
 }
 
 body[theme=dark] .smart-alert.smart-alert-primary {
-  color: #bd005e;
+  color: rgb(188.7, 0, 94.35);
   background-color: #ff99cc;
-  border-color: #ffebf5;
+  border-color: rgb(255, 234.6, 244.8);
 }
 body[theme=dark] .smart-alert.smart-alert-secondary {
-  color: #363a3e;
-  background-color: #a1a8ae;
-  border-color: #cdd1d4;
+  color: rgb(53.6291845494, 58.0982832618, 62.0708154506);
+  background-color: rgb(161.1158798283, 167.8755364807, 173.8841201717);
+  border-color: rgb(204.8927038627, 208.5004291845, 211.7072961373);
 }
 body[theme=dark] .smart-alert.smart-alert-success {
-  color: #11481e;
-  background-color: #5dd879;
-  border-color: #9fe8af;
+  color: rgb(17.3333333333, 72.3666666667, 29.9);
+  background-color: rgb(92.8405797101, 216.1594202899, 121);
+  border-color: rgb(158.6724637681, 231.9275362319, 175.4);
 }
 body[theme=dark] .smart-alert.smart-alert-info {
-  color: #0a4650;
-  background-color: #4cd3e9;
-  border-color: #95e5f2;
+  color: rgb(9.9666666667, 70.2, 79.7333333333);
+  background-color: rgb(76.3333333333, 211.3043478261, 232.6666666667);
+  border-color: rgb(148.8666666667, 229.0434782609, 241.7333333333);
 }
 body[theme=dark] .smart-alert.smart-alert-warning {
-  color: #916d00;
-  background-color: #ffdb6d;
-  border-color: #ffefbf;
+  color: rgb(144.7, 108.525, 0);
+  background-color: rgb(255, 218.5, 109);
+  border-color: rgb(255, 238.9, 190.6);
 }
 body[theme=dark] .smart-alert.smart-alert-error {
-  color: #851722;
-  background-color: #eb8c95;
-  border-color: #f7d1d5;
+  color: rgb(132.7063291139, 22.9936708861, 33.5050632911);
+  background-color: rgb(235.0632911392, 139.9367088608, 149.0506329114);
+  border-color: rgb(247.1139240506, 209.4860759494, 213.0911392405);
 }
 body[theme=dark] .smart-alert.smart-alert-light {
-  color: #b4bec9;
+  color: rgb(179.575, 190.35, 201.125);
   background-color: white;
   border-color: white;
 }
 body[theme=dark] .smart-alert.smart-alert-dark {
   color: black;
-  background-color: #626d78;
-  border-color: #8b96a1;
+  background-color: rgb(97.724137931, 109, 120.275862069);
+  border-color: rgb(138.9172413793, 149.8, 160.6827586207);
 }
 
 /* Gauge */

@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Återställ kamera',
+'cameraMode': 'Kameraläge',
+'panMode': 'Panoreringsläge',
+'zoomMode': 'Zoomläge',
+'saveImage': 'Spara bild',
+'zoomOut': 'Zooma ut',
+'zoomIn': 'Zooma in',
+'field': 'Fält',
+'invalidSeries': 'smart-chart: Ogiltig egenskap: varje seriegäng måste ha en \'series\' egenskap som måste vara en giltig array.',
+'invalidSeriesGroups': 'smart-chart: Ogiltig egenskap: \'seriesGroups\' egenskap krävs och måste vara en giltig array.',
+'invalidType': 'smart-chart: Ogiltig serietyp "{{type}}".',
+'missingReference': 'smart-chart: Saknar referens till {{files}}.',
+'missingType': 'smart-chart: Ogiltig egenskap: varje seriegäng måste ha en giltig \'type\' egenskap.'
+}

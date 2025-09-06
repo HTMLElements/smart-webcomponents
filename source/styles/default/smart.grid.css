@@ -2177,6 +2177,10 @@ smart-grid .smart-grid-add-row-button {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   height: 28px;
 }
+smart-grid .smart-grid-add-column-button.insert,
+smart-grid .smart-grid-add-row-button.insert {
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 smart-grid .smart-grid-add-column-button.float,
 smart-grid .smart-grid-add-row-button.float {
   height: 24px;
@@ -2398,6 +2402,10 @@ smart-grid[selection_allow-cell-selection] smart-grid-row[focus] smart-grid-cell
 }
 .smart-grid smart-grid-column .smart-add-new-column {
   border-right: 1px solid var(--smart-border);
+}
+.smart-grid smart-grid-column .smart-add-new-column:hover {
+  background: var(--smart-ui-state-hover);
+  color: var(--smart-ui-state-color-hover);
 }
 .smart-grid smart-grid-column:not(.smart-grid-column-border).smart-grid-horizontal-border-collapse:after {
   height: 0px;
@@ -4213,6 +4221,12 @@ smart-grid-cell[editor=checkBox] .smart-label {
   align-items: center;
   cursor: pointer;
 }
+smart-grid-cell[placeholder]:not([detail]):not([group]):not([editor]):not(.smart-add-new-row) .smart-label {
+  font-style: italic;
+}
+smart-grid-cell[placeholder]:not([detail]):not([group]):not([editor]):not(.smart-add-new-row):not([focus]):not([selected]) .smart-label {
+  color: #9E9E9E !important;
+}
 smart-grid-cell[template] .smart-label {
   padding-left: 0px;
   padding-right: 0px;
@@ -5014,6 +5028,60 @@ smart-menu.smart-grid-views-menu[checkboxes][checkable] smart-menu-item[level="1
 /* Hover effect to display reactions */
 .smart-message {
   position: relative;
+}
+
+smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=string][template=tags]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly):hover .smart-label, smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=string][template=tags]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly)[focus] .smart-label {
+  padding-right: 30px;
+}
+smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=string][template=tags]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly):hover .smart-label:after, smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=string][template=tags]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly)[focus] .smart-label:after {
+  content: var(--smart-icon-arrow-down);
+  position: absolute;
+  right: 7px;
+  top: calc(50% - 8px);
+  line-height: 1;
+  font-style: normal;
+  font-family: var(--smart-font-family-icon);
+  cursor: pointer;
+}
+
+smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=date]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly):hover .smart-label.align-right, smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=date]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly)[focus] .smart-label.align-right {
+  padding-right: 30px;
+}
+smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=date]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly):hover .smart-label:after, smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=date]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly)[focus] .smart-label:after {
+  content: var(--smart-icon-calendar);
+  position: absolute;
+  right: 7px;
+  top: calc(50% - 8px);
+  line-height: 1;
+  font-style: normal;
+  font-family: var(--smart-font-family-icon);
+  cursor: pointer;
+}
+
+smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=number]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly):hover .smart-label.align-right, smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=number]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly)[focus] .smart-label.align-right {
+  padding-right: 30px;
+}
+smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=number]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly):hover .smart-label:after, smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=number]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly)[focus] .smart-label:after {
+  content: var(--smart-icon-arrow-down);
+  position: absolute;
+  right: 7px;
+  top: calc(75% - 8px);
+  line-height: 1;
+  font-style: normal;
+  font-family: var(--smart-font-family-icon);
+  font-size: 14px;
+  cursor: pointer;
+}
+smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=number]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly):hover .smart-label:before, smart-grid[editing_enabled][selection_allow-cell-selection][selection_enabled] smart-grid-cell[data-type=number]:not([editor]):not(.smart-grid-summary-row-cell):not(.smart-add-new-row):not([readonly]):not(.smart-readonly)[focus] .smart-label:before {
+  content: var(--smart-icon-arrow-up);
+  position: absolute;
+  right: 7px;
+  top: calc(25% - 8px);
+  line-height: 1;
+  font-style: normal;
+  font-size: 14px;
+  font-family: var(--smart-font-family-icon);
+  cursor: pointer;
 }
 
 .marching-ants::after {

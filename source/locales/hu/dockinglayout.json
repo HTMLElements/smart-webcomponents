@@ -1,0 +1,8 @@
+{
+'invalidNode': '{{elementType}}: A(z) "{{method}}" metódus egy Smart.TabsWindow példányát fogadja el',
+'invalidNodeRemove': '{{elementType}}: A(z) "{{method}}" metódus egy Smart.TabsWindow példányát fogadja el, amely a DockingLayout gyermeke.',
+'invalidNodeType': '{{elementType}}: A(z) "{{method}}" metódushoz egy "smart-tabs-window" elemet kell átadni argumentumként.',
+'invalidTargetNode': '{{elementType}}: A(z) "{{method}}" metódushoz a nem rejtett/lezárt elem indexét kell megadni. Csak a Layout részét képező látható elemek érvényesek.',
+'invalidIndex': '{{elementType}}: A(z) "{{method}}" metódus egy szám típusú indexet fogad el.',
+'noId': 'A jqxDockingLayout-nek szüksége van egy azonosítóra az állapot mentéséhez/betöltéséhez.'
+}

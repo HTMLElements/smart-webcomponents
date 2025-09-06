@@ -1,0 +1,3 @@
+{
+'invalidNode': '{{elementType}}: Virheellinen parametri "{{node}}" kutsuttaessa {{method}}.'
+}

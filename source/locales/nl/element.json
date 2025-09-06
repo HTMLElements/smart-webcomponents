@@ -1,0 +1,14 @@
+{
+  "propertyUnknownName": "Ongeldige eigenschapsnaam: '{{name}}'!",
+  "propertyUnknownType": "'{{name}}' eigenschap heeft een niet-gedefinieerd 'type'-lid!",
+  "propertyInvalidValue": "Ongeldige waarde voor eigenschap '{{name}}'! Werkelijke waarde: '{{actualValue}}', Verwachte waarde: '{{value}}'!",
+  "propertyInvalidValueType": "Ongeldig type waarde voor eigenschap '{{name}}'! Werkelijk type: '{{actualType}}', Verwacht type: '{{type}}'!",
+  "methodInvalidValueType": "Ongeldig type argumentwaarde voor methode '{{name}}'! Werkelijk type: '{{actualType}}', Verwacht type: '{{type}}' voor argument met index: '{{argumentIndex}}'!",
+  "methodInvalidArgumentsCount": "Ongeldig aantal argumenten voor methode '{{name}}'! Werkelijk aantal argumenten: '{{actualArgumentsCount}}', Verwacht minimaal: '{{argumentsCount}}' argument(en)!",
+  "methodInvalidReturnType": "Ongeldig returntype voor methode '{{name}}'! Werkelijk type: '{{actualType}}', Verwacht type: '{{type}}'!",
+  "elementNotInDOM": "Element bestaat niet in de DOM! Voeg het element toe aan de DOM vóór het aanroepen van een methode.",
+  "moduleUndefined": "Module is niet gedefinieerd.",
+  "missingReference": "{{elementType}}: Ontbrekende referentie naar '{{files}}'.",
+  "htmlTemplateNotSuported": "{{elementType}}: Webbrowser ondersteunt geen HTMLTemplate-elementen.",
+  "invalidTemplate": "{{elementType}}: De eigenschap '{{property}}' accepteert een string die moet overeenkomen met de id van een HTMLTemplate-element in de DOM."
+}

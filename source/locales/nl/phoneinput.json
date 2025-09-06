@@ -1,0 +1,9 @@
+{
+  "Example": "Voorbeeld: ",
+  "IS_POSSIBLE": "Is mogelijk",
+  "INVALID_COUNTRY_CODE": "Ongeldige landcode",
+  "TOO_SHORT": "Te kort",
+  "TOO_LONG": "Te lang",
+  "IS_POSSIBLE_LOCAL_ONLY": "Alleen lokaal mogelijk",
+  "INVALID_LENGTH": "Ongeldige lengte"
+}

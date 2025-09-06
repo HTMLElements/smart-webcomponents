@@ -1,0 +1,12 @@
+{
+'redPrefix': '赤:',
+'greenPrefix': '緑:',
+'bluePrefix': '青:',
+'hexPrefix': '16進数:',
+'alphaPrefix': '透明度:',
+'ok': 'OK',
+'cancel': 'キャンセル',
+'customColor': 'カスタムカラー',
+'standardColors': '標準色',
+'themeColors': 'テーマカラー'
+}

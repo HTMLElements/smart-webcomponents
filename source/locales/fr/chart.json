@@ -1,0 +1,9 @@
+{
+  'invalidRadiusDataField': 'smart-chart : Valeur invalide pour radiusDataField à [{{index}}]',
+  'invalidSeries': 'smart-chart : Propriété invalide : chaque groupe de séries doit posséder une propriété \'series\' qui doit être un tableau valide.',
+  'invalidSeriesGroups': 'smart-chart : Propriété invalide : la propriété \'seriesGroups\' est requise et doit être un tableau valide.',
+  'invalidType': 'smart-chart : Type de série invalide "{{type}}".',
+  'missingAxis': 'smart-chart : seriesGroup[{{index}}] manque la définition de {{axis}}.',
+  'missingReference': 'smart-chart : Référence manquante vers {{files}}.',
+  'missingType': 'smart-chart : Propriété invalide : chaque groupe de séries doit avoir une propriété \'type\' valide.'
+}

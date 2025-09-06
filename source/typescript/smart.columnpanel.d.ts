@@ -2,37 +2,37 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface ColumnPanelProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Configures or retrieves the current animation mode for the element. When set to 'none', all animations are disabled and the element will update instantly without any animated transitions. Use this property to enable, disable, or specify different animation behaviors as needed.
    * Default value: advanced
    */
   animation?: Animation | string;
   /**
-   * Determines the data source that will be loaded to the column panel.
+   * Specifies the data source from which content will be retrieved and displayed in the column panel. This setting determines what data is loaded and shown within the column panel interface.
    * Default value: null
    */
   dataSource?: ColumnPanelDataSource[];
   /**
-   * Enables or disables the column panel.
+   * Determines whether the column panel is active. When enabled, the column panel is displayed, allowing users to view and manage available columns. When disabled, the column panel is inactive.
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Sets or retrieves the 'unlockKey' value, a unique key required to unlock and grant access to the product’s protected features or content. Use this property to securely store or obtain the unlock key as part of the product activation process.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages.
+   * Gets or sets the current language used for displaying messages or content. This property works together with the messages property, which contains localized text for each supported language. Selecting a language updates the displayed messages to their corresponding translations defined in the messages object.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Callback function that allows you to define or modify the formatting of messages returned by the Localization Module. Use this to customize how localized messages are displayed or structured before they are delivered to the application interface.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Handles the setting or retrieval of an object containing customizable strings used throughout the widget interface, enabling localization of text elements. This property works in tandem with the locale property to provide language-specific translations, ensuring the widget displays appropriate text based on the user's selected language or region.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -55,17 +55,17 @@ export interface ColumnPanelProperties {
    */
   messages?: any;
   /**
-   * If the element is readonly, users cannot interact with it.
+   * When an element is set to "readonly," users cannot modify its value or content. However, they can still focus on the element (for example, by tabbing to it) and select its text. Unlike disabled elements—which are neither interactive nor focusable—a readonly element remains accessible for review but does not allow user edits.
    * Default value: false
    */
   readonly?: boolean;
   /**
-   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Gets or sets a value that specifies whether the element's layout direction is set to right-to-left, enabling proper alignment and display for languages and locales that use right-to-left text, such as Arabic or Hebrew.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * If is set to true, the element cannot be focused.
+   * If this property is set to true, the element will be unfocusable, meaning users will not be able to focus on it using keyboard navigation (such as the Tab key) or by clicking on it.
    * Default value: false
    */
   unfocusable?: boolean;
@@ -78,14 +78,14 @@ export interface ColumnPanel extends BaseElement, ColumnPanelProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the "Apply" button is clicked.
+   * This event is triggered whenever the user clicks the "Apply" button on the interface, indicating their intent to submit or confirm the current selection or settings. It is typically used to initiate processes such as form submission, filtering data, or applying configuration changes, depending on the context of the application.
 	* @param event. The custom event. Custom data event was created with: ev.detail(value, positionChanged)
    *  value - The current configuration of columns (data source).
    *  positionChanged - A boolean detail that shows whether the columns have been reordered.
    */
   onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the "Cancel" button is clicked.
+   * This event is triggered when a user clicks the "Cancel" button, indicating their intention to abort or exit the current action or form. It can be used to execute custom logic, such as closing a dialog, discarding unsaved changes, or navigating away from the current view.
 	* @param event. The custom event.    */
   onCancel: ((this: any, ev: Event) => any) | null;
 }

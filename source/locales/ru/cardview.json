@@ -1,0 +1,21 @@
+{
+'addImage': 'Добавить',
+'applyOnce': 'Применить один раз',
+'coverField': 'Обложка',
+'crop': 'Обрезать',
+'customize': 'Настроить карточки',
+'dateTabLabel': 'ДАТА',
+'draggedRecord': 'Запись {{id}}',
+'fit': 'Подогнать',
+'imageUrl': 'Новый URL изображения:',
+'incorrectStructure': '"dataSource" должен быть экземпляром Smart.DataAdapter или массивом объектов с парами ключ-значение.',
+'nextRecord': 'Следующая запись',
+'noCoverField': 'Нет поля для обложки',
+'noData': 'Нет данных для отображения',
+'noMatches': 'Нет совпадающих записей',
+'now': 'Сейчас',
+'previousRecord': 'Предыдущая запись',
+'removeImage': 'Удалить',
+'timeTabLabel': 'ВРЕМЯ',
+'toggleVisibility': 'Переключить видимость поля'
+}

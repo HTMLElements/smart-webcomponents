@@ -65,11 +65,11 @@ smart-splitter-item > .smart-container {
   color: var(--smart-ui-state-color-active);
 }
 .smart-splitter smart-splitter-bar[show-near-button] .smart-splitter-near-collapse-button {
-  visibility: visible;
+  visibility: inherit;
   width: 100%;
 }
 .smart-splitter smart-splitter-bar[show-far-button] .smart-splitter-far-collapse-button {
-  visibility: visible;
+  visibility: inherit;
   width: 100%;
 }
 .smart-splitter smart-splitter-bar[item-collapsed] {

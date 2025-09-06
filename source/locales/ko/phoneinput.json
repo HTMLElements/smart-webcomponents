@@ -1,0 +1,9 @@
+{
+  'Example': '예: ',
+  'IS_POSSIBLE': '가능함',
+  'INVALID_COUNTRY_CODE': '잘못된 국가 코드',
+  'TOO_SHORT': '너무 짧음',
+  'TOO_LONG': '너무 김',
+  'IS_POSSIBLE_LOCAL_ONLY': '로컬 가능함',
+  'INVALID_LENGTH': '잘못된 길이'
+}

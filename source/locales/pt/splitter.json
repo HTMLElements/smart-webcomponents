@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}}: o método \"{{method}}\" aceita um índice do tipo número.",
+  "indexOutOfBound": "{{elementType}}: índice(s) fora do limite no método \"{{method}}\".",
+  "invalidNode": "{{elementType}}: o método \"{{method}}\" aceita um objeto ou um array de objetos como seu segundo parâmetro.",
+  "invalidSettings": "{{elementType}}: o método \"{{method}}\" aceita uma string ou um objeto como seu segundo parâmetro.",
+  "invalidType": "{{elementType}}: \"{{propertyName}}\" deve ser do tipo string ou número."
+}

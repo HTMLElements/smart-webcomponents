@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Korvataan ominaisuudet {{property1}} ja {{property2}} käytetty. Ominaisuus "{{property1}}" on oletusarvo.',
+'invalidIndex': '{{elementType}}: "{{method}}" menetelmä hyväksyy numerotyyppisen indeksin tai numerotaulukon.',
+'indexOutOfBound': '{{elementType}}: Indeksi/indeksit ovat "{{method}}" menetelmässä sallitun alueen ulkopuolella.',
+'invalidItem': '{{elementType}}: "{{method}}" menetelmä hyväksyy toisena parametrinaan objektin tai objekti-taulukon.',
+'invalidSettings': '{{elementType}}: "{{method}}" menetelmä hyväksyy toisena parametrinaan merkkijonon tai objektin.'
+}

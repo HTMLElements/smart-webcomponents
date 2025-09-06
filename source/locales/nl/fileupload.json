@@ -1,0 +1,13 @@
+{
+'browse': 'Bladeren',
+'uploadFile': 'Bestand uploaden',
+'cancelFile': 'Bestand annuleren',
+'pauseFile': 'Bestand pauzeren',
+'uploadAll': 'Alles uploaden',
+'cancelAll': 'Alles annuleren',
+'pauseAll': 'Alles pauzeren',
+'totalFiles': 'Totaal aantal bestanden: ',
+'connectionError': '{{elementType}}: Bestand uploaden vereist een verbinding met de server.',
+'wrongItemIndex': '{{elementType}}: Er is geen bestand met zo een index in de lijst van geüploade bestanden.',
+'tooLongFileName': '{{elementType}}: Bestandsnaam is te lang.'
+}

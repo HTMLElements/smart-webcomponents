@@ -1,0 +1,21 @@
+{
+'addImage': 'Dodaj',
+'applyOnce': 'Zastosuj raz',
+'coverField': 'Pole okładki',
+'crop': 'Przytnij',
+'customize': 'Dostosuj karty',
+'dateTabLabel': 'DATA',
+'draggedRecord': 'Rekord {{id}}',
+'fit': 'Dopasuj',
+'imageUrl': 'Nowy URL obrazu:',
+'incorrectStructure': '"dataSource" musi być instancją Smart.DataAdapter lub tablicą obiektów z parami klucz-wartość.',
+'nextRecord': 'Następny rekord',
+'noCoverField': 'Brak pola okładki',
+'noData': 'Brak danych do wyświetlenia',
+'noMatches': 'Brak pasujących rekordów',
+'now': 'Teraz',
+'previousRecord': 'Poprzedni rekord',
+'removeImage': 'Usuń',
+'timeTabLabel': 'CZAS',
+'toggleVisibility': 'Przełącz widoczność pola'
+}

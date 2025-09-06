@@ -1,0 +1,8 @@
+{
+'invalidNode': '{{elementType}}: Metoda "{{method}}" přijímá instanci Smart.TabsWindow',
+'invalidNodeRemove': '{{elementType}}: Metoda "{{method}}" přijímá instanci Smart.TabsWindow, která je potomkem DockingLayout.',
+'invalidNodeType': '{{elementType}}: Metoda "{{method}}" vyžaduje jako argument prvek "smart-tabs-window".',
+'invalidTargetNode': '{{elementType}}: Metoda "{{method}}" vyžaduje index položky, která není skrytá/uzavřená. Platné jsou pouze viditelné položky, které jsou součástí Layoutu.',
+'invalidIndex': '{{elementType}}: Metoda "{{method}}" přijímá index typu číslo.',
+'noId': 'jqxDockingLayout vyžaduje id pro uložení/nahrání stavu.'
+}

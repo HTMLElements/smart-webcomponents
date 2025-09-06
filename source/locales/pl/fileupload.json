@@ -1,0 +1,13 @@
+{
+'browse': 'Przeglądaj',
+'uploadFile': 'Prześlij plik',
+'cancelFile': 'Anuluj plik',
+'pauseFile': 'Wstrzymaj plik',
+'uploadAll': 'Prześlij wszystko',
+'cancelAll': 'Anuluj wszystko',
+'pauseAll': 'Wstrzymaj wszystko',
+'totalFiles': 'Łączna liczba plików: ',
+'connectionError': '{{elementType}}: Przesyłanie plików wymaga połączenia z serwerem.',
+'wrongItemIndex': '{{elementType}}: Nie ma pliku o takim indeksie na liście przesłanych plików.',
+'tooLongFileName': '{{elementType}}: Nazwa pliku jest za długa.'
+}

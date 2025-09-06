@@ -1,0 +1,13 @@
+{
+'browse': 'Procházet',
+'uploadFile': 'Nahrát soubor',
+'cancelFile': 'Zrušit soubor',
+'pauseFile': 'Pozastavit soubor',
+'uploadAll': 'Nahrát vše',
+'cancelAll': 'Zrušit vše',
+'pauseAll': 'Pozastavit vše',
+'totalFiles': 'Celkem souborů: ',
+'connectionError': '{{elementType}}: Nahrávání souboru vyžaduje připojení k serveru.',
+'wrongItemIndex': '{{elementType}}: V seznamu nahraných souborů není soubor s tímto indexem.',
+'tooLongFileName': '{{elementType}}: Název souboru je příliš dlouhý.'
+}

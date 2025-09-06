@@ -1,0 +1,9 @@
+{
+'binary': 'BIN',
+'octal': 'OKT',
+'decimal': 'DEZ',
+'hexadecimal': 'HEX',
+'integerOnly': 'jqxNumericTextBox: Die Eigenschaft {{property}} kann nur gesetzt werden, wenn inputFormat auf Ganzzahl eingestellt ist.',
+'noInteger': 'jqxNumericTextBox: Die Eigenschaft {{property}} kann nicht gesetzt werden, wenn inputFormat auf Ganzzahl eingestellt ist.',
+'significantPrecisionDigits': 'jqxNumericTextBox: Die Eigenschaften significantDigits und precisionDigits können nicht gleichzeitig gesetzt werden.'
+}

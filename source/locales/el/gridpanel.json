@@ -1,0 +1,14 @@
+{
+'apply': 'Εντάξει',
+'booleanFirst': '☐',
+'booleanLast': '☑',
+'cancel': 'Ακύρωση',
+'dateFirst': '1',
+'dateLast': '9',
+'from': 'από',
+'numberFirst': '1',
+'numberLast': '9',
+'stringFirst': 'Α',
+'stringLast': 'Ω',
+'thenBy': 'έπειτα με'
+}

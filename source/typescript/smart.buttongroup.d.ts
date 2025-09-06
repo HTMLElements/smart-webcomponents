@@ -2,42 +2,42 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface ButtonGroupProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Sets or retrieves the current animation mode for the component. When the property is set to 'none', all animations are disabled, resulting in immediate transitions without visual effects. Otherwise, specifying a different mode enables animations according to the selected option.
    * Default value: advanced
    */
   animation?: Animation | string;
   /**
-   * Determines the buttons configuration. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Configures the set of buttons to be displayed. The dataSource property accepts multiple formats: it can be an array of strings or numbers—each representing a button—or an array of objects, where each object defines the properties of a button (for example, with attributes such as label for the button text and value for its underlying value). Alternatively, dataSource can be a function (callback) that returns an array in either of these formats. This flexibility allows you to define button configurations statically or generate them dynamically based on custom logic.
    * Default value: []
    */
   dataSource?: any;
   /**
-   * Determines the selection mode for the element.
+   * Specifies how items within the element can be selected—for example, allowing single selection, multiple selections, or no selection at all.
    * Default value: one
    */
   selectionMode?: ButtonGroupSelectionMode | string;
   /**
-   * Enables or disables the element. 
+   * Specifies whether the element is interactive and can be used by the user. When enabled, the element responds to user input; when disabled, the element is non-interactive and usually appears visually distinct to indicate it is unavailable.
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Defines or retrieves the unlockKey, a unique identifier or code required to activate and gain access to the product’s full features.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Specifies or retrieves the currently selected language for the component. This property works together with messages, which provides the corresponding localized texts or translations for each available language. Changing the language will update the displayed messages based on the selected locale.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * A callback function that allows you to customize the formatting of messages returned by the Localization Module before they are displayed to the user. Use this to modify, translate, or enrich message content based on your application's specific requirements.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Defines or retrieves an object containing text strings used within the widget, allowing these strings to be localized for different languages. This property works in conjunction with the locale property to provide translated text for the widget's user interface, enabling support for internationalization.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -53,37 +53,37 @@ export interface ButtonGroupProperties {
    */
   messages?: any;
   /**
-   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Sets or retrieves the value of the element's name attribute. The name attribute is used to identify form fields when submitting an HTML form, allowing the form data to be sent as key-value pairs to the server. This attribute is essential for grouping related input elements and accessing their submitted values on the server side.
    * Default value: """"
    */
   name?: string;
   /**
-   * If the custom element is readonly, it cannot be interacted with.
+   * When the custom element has the 'readonly' attribute set, its value cannot be modified by the user. Interaction methods such as typing, selecting, or altering content are disabled; however, users are still able to focus on and copy content from the element if desired. Any attempts to change the value—either via keyboard, mouse, or programmatic user actions—will have no effect.
    * Default value: false
    */
   readonly?: boolean;
   /**
-   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Gets or sets a value that determines whether the element’s layout and text direction are aligned for right-to-left (RTL) locales, such as those using Arabic or Hebrew scripts. When enabled, this property ensures proper alignment and rendering for languages that read from right to left."
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * Determines the theme. Theme defines the look of the element
+   * Specifies the visual theme to be applied to the element. The theme controls the overall appearance, including colors, typography, and style variations, ensuring the element is displayed consistently according to the selected design.
    * Default value: ""
    */
   theme?: string;
   /**
-   * Sets or gets the button group's selected values. Represents an array of strings.
+   * Gets or sets the selected values of the button group component as an array of strings. Each string in the array corresponds to the value attribute of a selected button within the group. This property can be used to programmatically read which buttons are currently selected or to define the initial selection state.
    * Default value: 
    */
   selectedValues?: string[];
   /**
-   * Sets or gets the button group's selected indexes. Represents an array of numbers
+   * Gets or sets the indexes of the selected buttons within the group as an array of numbers. Each number corresponds to the zero-based index of a selected button. Used to track multiple selected buttons within the group.
    * Default value: 
    */
   selectedIndexes?: number[];
   /**
-   * If is set to true, the element cannot be focused.
+   * If set to true, this property prevents the element from receiving keyboard focus, making it unreachable via keyboard navigation (such as the Tab key).
    * Default value: false
    */
   unfocusable?: boolean;
@@ -96,11 +96,11 @@ export interface ButtonGroup extends BaseElement, ButtonGroupProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * Change event is triggered when the selectedValues/selectedIndexes are changed.
+   * The "change" event is triggered whenever the values of selectedValues or selectedIndexes are updated. This event occurs whenever the user selects or deselects an option, or when the selection state is modified programmatically. Use this event to respond to changes in the selection, such as updating the UI or performing validation.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * Selects/Unselects an item inside the element.
+   * Toggles the selection state of an item within the element, allowing users to either select or deselect the specified item based on its current state.
    * @param {number | string} value. The index or the value of the item to be selected/unselected.
    */
   select(value: number | string): void;
@@ -116,5 +116,5 @@ declare global {
     }
 }
 
-/**Determines the selection mode for the element. */
+/**Specifies how items within the element can be selected—for example, allowing single selection, multiple selections, or no selection at all. */
 export declare type ButtonGroupSelectionMode = 'none' | 'one' | 'zeroOrOne' | 'zeroOrMany';

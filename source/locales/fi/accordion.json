@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" vaatii kohteen tyypiltä "smart-accordion-item".',
+'indexOutOfBound': '{{elementType}}: Indeksi/indeksit metodissa "{{method}}" ovat sallitun alueen ulkopuolella.',
+'invalidSettings': '{{elementType}}: "{{method}}" metodi hyväksyy toisena parametrinaan joko merkkijonon tai objektin.',
+'missingReference': '{{elementType}}: Viite {{files}} puuttuu.',
+'noItems': '{{elementType}}: Lapsielementtejä ei löydy.',
+'overridingProperties': '{{elementType}}: Ylikirjoitetaan ominaisuudet {{property1}} ja {{property2}}. Oletuksena käytetään ominaisuutta "{{property1}}".'
+}

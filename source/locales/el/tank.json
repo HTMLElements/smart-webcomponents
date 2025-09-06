@@ -1,0 +1,6 @@
+{
+  "missingReference": "{{elementType}}: Λείπει αναφορά σε {{files}}.",
+  "significantPrecisionDigits": "{{elementType}}: οι ιδιότητες significantDigits και precisionDigits δεν μπορούν να οριστούν ταυτόχρονα.",
+  "invalidMinOrMax": "{{elementType}}: Μη έγκυρη τιμή για {{property}}. Το μέγιστο δεν μπορεί να είναι μικρότερο από το ελάχιστο.",
+  "noInteger": "{{elementType}}: η precisionDigits μπορεί να οριστεί μόνο σε κλίμακα τύπου \"floatingPoint\"."
+}

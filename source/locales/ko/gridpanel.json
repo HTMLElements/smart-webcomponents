@@ -1,0 +1,14 @@
+{
+'apply': '확인',
+'booleanFirst': '☐',
+'booleanLast': '☑',
+'cancel': '취소',
+'dateFirst': '1',
+'dateLast': '9',
+'from': '부터',
+'numberFirst': '1',
+'numberLast': '9',
+'stringFirst': 'A',
+'stringLast': 'Z',
+'thenBy': '다음 기준'
+}

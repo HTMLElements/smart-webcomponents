@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" musí být řetězec, HTMLElement nebo null.',
+'htmlTemplateNotSuported': '{{elementType}}: Prohlížeč nepodporuje prvky HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: "{{property}}" vlastnost přijímá řetězec, který musí odpovídat id prvku HTMLTemplate v DOM.',
+'invalidNode': '{{elementType}}: Neplatný parametr "{{node}}" při volání {{method}}.'
+}

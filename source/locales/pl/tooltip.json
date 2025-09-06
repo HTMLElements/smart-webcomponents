@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" musi być typu String, HTMLElement lub null.',
+'htmlTemplateNotSuported': '{{elementType}}: Przeglądarka nie obsługuje elementów HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: Właściwość "{{property}}" akceptuje string, który musi odpowiadać identyfikatorowi elementu HTMLTemplate z DOM.',
+'invalidNode': '{{elementType}}: Nieprawidłowy parametr "{{node}}" podczas wywoływania {{method}}.'
+}

@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" skal være en streng, et HTMLElement eller null.',
+'htmlTemplateNotSuported': '{{elementType}}: Browseren understøtter ikke HTMLTemplate-elementer.',
+'invalidTemplate': '{{elementType}}: "{{property}}" ejendommen accepterer en streng, der skal matche id'et på et HTMLTemplate-element fra DOM.',
+'invalidNode': '{{elementType}}: Ugyldig parameter "{{node}}" ved kald af {{method}}.'
+}

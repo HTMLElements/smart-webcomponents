@@ -1,0 +1,14 @@
+{
+  "propertyUnknownName": "Nieprawidłowa nazwa właściwości: '{{name}}'!",
+  "propertyUnknownType": "Właściwość '{{name}}' nie ma zdefiniowanego członka 'type'!",
+  "propertyInvalidValue": "Nieprawidłowa wartość właściwości '{{name}}'! Aktualna wartość: '{{actualValue}}', oczekiwana wartość: '{{value}}'!",
+  "propertyInvalidValueType": "Nieprawidłowy typ wartości właściwości '{{name}}'! Aktualny typ: '{{actualType}}', oczekiwany typ: '{{type}}'!",
+  "methodInvalidValueType": "Nieprawidłowy typ wartości argumentu metody '{{name}}'! Aktualny typ: '{{actualType}}', oczekiwany typ: '{{type}}' dla argumentu o indeksie: '{{argumentIndex}}'!",
+  "methodInvalidArgumentsCount": "Nieprawidłowa liczba argumentów metody '{{name}}'! Aktualna liczba argumentów: '{{actualArgumentsCount}}', oczekiwana przynajmniej: '{{argumentsCount}}' argument(y)!",
+  "methodInvalidReturnType": "Nieprawidłowy typ zwracany metody '{{name}}'! Aktualny typ: '{{actualType}}', oczekiwany typ: '{{type}}'!",
+  "elementNotInDOM": "Element nie istnieje w DOM! Proszę dodać element do DOM przed wywołaniem metody.",
+  "moduleUndefined": "Moduł jest niezdefiniowany.",
+  "missingReference": "{{elementType}}: Brak odniesienia do '{{files}}'.",
+  "htmlTemplateNotSuported": "{{elementType}}: Przeglądarka internetowa nie obsługuje elementów HTMLTemplate.",
+  "invalidTemplate": "{{elementType}}: Właściwość '{{property}}' akceptuje łańcuch znaków, który musi odpowiadać identyfikatorowi elementu HTMLTemplate z DOM."
+}

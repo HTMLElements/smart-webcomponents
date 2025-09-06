@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" は文字列、HTMLElement、またはnullでなければなりません。',
+'htmlTemplateNotSuported': '{{elementType}}: ブラウザはHTMLTemplate要素をサポートしていません。',
+'invalidTemplate': '{{elementType}}: "{{property}}" プロパティはDOMのHTMLTemplate要素のidと一致する文字列でなければなりません。',
+'invalidNode': '{{elementType}}: {{method}} を呼び出す際のパラメータ "{{node}}" が無効です。'
+}

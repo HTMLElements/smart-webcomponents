@@ -1,0 +1,21 @@
+{
+'addImage': 'Lägg till',
+'applyOnce': 'Använd en gång',
+'coverField': 'Omslagsfält',
+'crop': 'Beskär',
+'customize': 'Anpassa kort',
+'dateTabLabel': 'DATUM',
+'draggedRecord': 'Post {{id}}',
+'fit': 'Passa',
+'imageUrl': 'Ny bild-URL:',
+'incorrectStructure': '"dataSource" måste vara en instans av Smart.DataAdapter eller en array av objekt med nyckel-värde-par.',
+'nextRecord': 'Nästa post',
+'noCoverField': 'Inget omslagsfält',
+'noData': 'Inga data att visa',
+'noMatches': 'Inga matchande poster',
+'now': 'Nu',
+'previousRecord': 'Föregående post',
+'removeImage': 'Ta bort',
+'timeTabLabel': 'TID',
+'toggleVisibility': 'Växla fältets synlighet'
+}

@@ -1,0 +1,12 @@
+{
+'redPrefix': 'Vermelho:',
+'greenPrefix': 'Verde:',
+'bluePrefix': 'Azul:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Alfa:',
+'ok': 'OK',
+'cancel': 'CANCELAR',
+'customColor': 'COR PERSONALIZADA',
+'standardColors': 'Cores padrão',
+'themeColors': 'Cores do tema'
+}

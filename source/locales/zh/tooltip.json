@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}" 必须是字符串、HTMLElement 或 null。',
+'htmlTemplateNotSuported': '{{elementType}}: 浏览器不支持 HTMLTemplate 元素。',
+'invalidTemplate': '{{elementType}}: "{{property}}" 属性接受一个字符串，该字符串必须匹配 DOM 中某个 HTMLTemplate 元素的 id。',
+'invalidNode': '{{elementType}}: 调用 {{method}} 时传入了无效的参数 "{{node}}"。'
+}

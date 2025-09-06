@@ -1,0 +1,9 @@
+{
+'Example': 'Örnek: ',
+'IS_POSSIBLE': 'Mümkün',
+'INVALID_COUNTRY_CODE': 'Geçersiz ülke kodu',
+'TOO_SHORT': 'Çok kısa',
+'TOO_LONG': 'Çok uzun',
+'IS_POSSIBLE_LOCAL_ONLY': 'Yalnızca yerel olarak mümkün',
+'INVALID_LENGTH': 'Geçersiz uzunluk'
+}

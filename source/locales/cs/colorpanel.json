@@ -1,0 +1,12 @@
+{
+'redPrefix': 'Č:',
+                        'greenPrefix': 'Z:',
+                        'bluePrefix': 'M:',
+                        'hexPrefix': '#:',
+                        'alphaPrefix': 'Alfa:',
+                        'ok': 'OK',
+                        'cancel': 'ZRUŠIT',
+                        'customColor': 'Vlastní barva',
+                        'standardColors': 'Standardní barvy',
+                        'themeColors': 'Barvy motivu'
+}

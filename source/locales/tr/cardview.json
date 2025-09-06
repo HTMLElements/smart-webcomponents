@@ -1,0 +1,21 @@
+{
+'addImage': 'Ekle',
+'applyOnce': 'Bir kere uygula',
+'coverField': 'Kapak alanı',
+'crop': 'Kırp',
+'customize': 'Kartları özelleştir',
+'dateTabLabel': 'TARİH',
+'draggedRecord': 'Kayıt {{id}}',
+'fit': 'Sığdır',
+'imageUrl': 'Yeni resim URL’si:',
+'incorrectStructure': '"dataSource", Smart.DataAdapter örneği veya anahtar-değer çiftlerinden oluşan nesneler dizisi olmalıdır.',
+'nextRecord': 'Sonraki kayıt',
+'noCoverField': 'Kapak alanı yok',
+'noData': 'Gösterilecek veri yok',
+'noMatches': 'Eşleşen kayıt yok',
+'now': 'Şimdi',
+'previousRecord': 'Önceki kayıt',
+'removeImage': 'Kaldır',
+'timeTabLabel': 'SAAT',
+'toggleVisibility': 'Alan görünürlüğünü değiştir'
+}

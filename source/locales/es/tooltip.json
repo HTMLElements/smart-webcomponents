@@ -1,0 +1,6 @@
+{
+  "invalidSelector": "{{elementType}}: \"{{property}}\" debe ser una cadena, un HTMLElement o null.",
+  "htmlTemplateNotSuported": "{{elementType}}: El navegador no soporta elementos HTMLTemplate.",
+  "invalidTemplate": "{{elementType}}: La propiedad \"{{property}}\" acepta una cadena que debe coincidir con el id de un elemento HTMLTemplate del DOM.",
+  "invalidNode": "{{elementType}}: Parámetro inválido \"{{node}}\" al llamar a {{method}}."
+}

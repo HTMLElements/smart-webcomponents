@@ -636,7 +636,7 @@ smart-group-panel.smart-mobile {
   display: grid;
   grid-template-areas: "states views customize filter sort format details delete . search";
   grid-template-columns: minmax(0px, max-content) minmax(0px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) minmax(50px, max-content) 1fr 24px;
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-template-rows: 100%;
   background: var(--smart-surface);
   color: var(--smart-surface-color);
@@ -811,6 +811,84 @@ smart-group-panel.smart-mobile {
   color: #0B8043;
 }
 
+.smart-data-view-bold-button {
+  grid-area: details;
+}
+.smart-data-view-bold-button:before {
+  content: " ";
+  position: absolute;
+  left: -2px;
+  height: 80%;
+  background: var(--smart-background-color);
+  opacity: 0.7;
+  width: 1px;
+}
+.smart-data-view-bold-button:after {
+  content: var(--smart-icon-bold);
+}
+
+.smart-data-view-italic-button {
+  grid-area: details;
+}
+.smart-data-view-italic-button:after {
+  content: var(--smart-icon-italic);
+}
+
+.smart-data-view-underline-button {
+  grid-area: details;
+}
+.smart-data-view-underline-button:after {
+  content: var(--smart-icon-underline);
+}
+
+.smart-data-view-strikethrough-button {
+  grid-area: details;
+}
+.smart-data-view-strikethrough-button:after {
+  content: var(--smart-icon-font);
+  text-decoration: line-through;
+}
+
+.smart-data-view-fontsize-button {
+  grid-area: details;
+}
+.smart-data-view-fontsize-button:before {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-arrow-down);
+  position: initial;
+}
+.smart-data-view-fontsize-button:after {
+  content: var(--smart-icon-fontsize);
+}
+
+.smart-data-view-fontfamily-button {
+  grid-area: details;
+}
+.smart-data-view-fontfamily-button:before {
+  font-family: var(--smart-font-family-icon);
+  content: var(--smart-icon-arrow-down);
+  position: initial;
+}
+.smart-data-view-fontfamily-button:after {
+  content: var(--smart-icon-font);
+}
+
+.smart-data-view-background-button {
+  grid-area: details;
+}
+.smart-data-view-background-button:after {
+  content: var(--smart-icon-color-background);
+  border-bottom: 2px solid var(--smart-surface-color);
+}
+
+.smart-data-view-textcolor-button {
+  grid-area: details;
+}
+.smart-data-view-textcolor-button:after {
+  content: var(--smart-icon-font);
+  border-bottom: 2px solid var(--smart-surface-color);
+}
+
 .smart-data-view-sort-button {
   grid-area: sort;
 }
@@ -871,7 +949,7 @@ smart-group-panel.smart-mobile {
   grid-area: format;
 }
 .smart-data-view-colors-button:after {
-  content: var(--smart-icon-color-background);
+  content: var(--smart-icon-table);
 }
 .smart-data-view-colors-button.formatted {
   background-color: #ECE1FD;

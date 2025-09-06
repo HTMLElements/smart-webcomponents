@@ -1,0 +1,7 @@
+{
+  "ambiguousIndexes": "smart-tabs: Alkuperäisesti asetetut smart-tab-item -indeksit ovat epäselviä ja niitä ei oteta huomioon HTML-rakenteen hyväksi.",
+  "detailsObjectRequired": "smart-tabs: Metodi \"insert\" edellyttää, että yksityiskohtainen objekti välitetään toisena argumenttina.",
+  "invalidIndex": "smart-tabs: Metodi \"{{method}}\" hyväksyy indeksin, joka on tyyppiä numero.",
+  "referenceNodeNotChild": "smart-tabs: Välitetty {{argument}} ei ole osa tätä smart-tabs-elementtiä.",
+  "tabItemRequired": "smart-tabs: Metodi \"{{method}}\" edellyttää, että \"smart-tab-item\" -elementti välitetään argumenttina."
+}

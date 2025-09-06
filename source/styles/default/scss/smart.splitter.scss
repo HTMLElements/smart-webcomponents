@@ -89,14 +89,14 @@ smart-splitter-item {
 
     &[show-near-button] {
       .smart-splitter-near-collapse-button {
-        visibility: visible;
+        visibility: inherit;
         width: 100%;
       }
     }
 
     &[show-far-button] {
       .smart-splitter-far-collapse-button {
-        visibility: visible;
+        visibility: inherit;
         width: 100%;
       }
     }

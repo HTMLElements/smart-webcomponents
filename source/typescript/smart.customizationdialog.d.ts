@@ -2,57 +2,57 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface CustomizationDialogProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Sets or retrieves the animation mode for the component. When this property is set to 'none', all animations are disabled. If set to other supported values, the corresponding animation effects will be enabled for transitions or interactions.
    * Default value: advanced
    */
   animation?: Animation | string;
   /**
-   * Array with filtered fields and their settings.
+   * An array containing the filtered fields, each with its associated configuration settings. Each element in the array represents a specific field and includes detailed settings such as field type, validation rules, display options, and other relevant properties.
    * Default value: null
    */
   dataSource?: any;
   /**
-   * Sets or gets the displayMember. The displayMember specifies the name of an object property to display. The name is contained in the collection specified by the 'dataSource' property.
+   * Enhances or retrieves the value of the 'displayMember' property. The 'displayMember' determines which property of each object—within the collection referenced by the 'dataSource' property—will be displayed in the UI component. Set this property to the name of the object field you want to show as the display text for each item in the collection.
    * Default value: ""
    */
   displayMember?: string;
   /**
-   * Enables or disables the element.
+   * Controls whether the element is active and interactive (enabled) or inactive and unresponsive to user input (disabled).
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Sets whether is enabled/disabled filtering tab.
+   * Determines whether the filtering tab is enabled or disabled, allowing you to control its availability to users. When set to true, the filtering tab will be accessible; when false, it will be hidden or inactive.
    * Default value: false
    */
   filtering?: boolean;
   /**
-   * Sets whether is enabled/disabled grouping tab.
+   * Controls whether the tab grouping feature is enabled or disabled. When enabled, users can organize multiple tabs into groups for improved navigation and management. When disabled, tab grouping functionality will not be available.
    * Default value: false
    */
   grouping?: boolean;
   /**
-   * Set's the buttons that will be visible in the header section.
+   * Specifies which buttons will be displayed in the header section. Provide an array of button identifiers to control the visibility and order of header buttons.
    * Default value: apply,close
    */
   headerButtons?: string[];
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Sets or retrieves the unlockKey, a unique code used to authorize and grant access to the product’s features or content.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Sets or retrieves the current language code (e.g., "en", "fr", "es") used for localization. This property works together with the messages property to provide language-specific content or translations. When the language is set, the corresponding localized messages from the messages property are used throughout the application.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback, related to localization module. 
+   * Callback function associated with the localization module, typically used to handle language changes, translations, or localization-related events within the application.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Defines an object containing customizable strings used in the widget's user interface that support localization. This property allows you to set or retrieve these strings to provide translations or alternative text in different languages. Typically used together with the locale property to enable multi-language support within the widget.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -99,42 +99,42 @@ export interface CustomizationDialogProperties {
    */
   messages?: any;
   /**
-   * Sets or gets whether the columns reordering is active.
+   * Specifies whether column reordering is enabled or retrieves the current state. When active, users can change the order of columns by dragging and dropping them.
    * Default value: false
    */
   reorder?: boolean;
   /**
-   * Sets or gets the tab, wich is selected on initialization.
+   * Sets or retrieves the tab that is selected by default when the component is first initialized. This determines which tab is active and visible to the user upon loading.
    * Default value: 0
    */
   selectedTab?: number;
   /**
-   * Sets whether is enabled/disabled sorting tab.
+   * Determines whether the sorting tab is enabled or disabled. When set to true, the sorting tab will be available for user interaction; when set to false, the sorting tab will be hidden or inactive.
    * Default value: false
    */
   sorting?: boolean;
   /**
-   * Determines the theme. Theme defines the look of the element
+   * Specifies the theme to be applied to the element. The theme controls the overall appearance, including colors, fonts, and styling, ensuring a consistent visual presentation across the user interface.
    * Default value: ""
    */
   theme?: string;
   /**
-   * If is set to true, the element cannot be focused.
+   * When set to true, this property prevents the element from receiving keyboard focus, making it inaccessible via the tab key or programmatic focus methods.
    * Default value: false
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets element's value. It's represente by object, contained
+   * "Sets or retrieves the value of the element. The value is represented as an object, which may contain various properties relevant to the element's data or state."
    * Default value: null
    */
   value?: any;
   /**
-   * Determines the value member of an item. Stored as value in the item object.
+   * Specifies which property of the item object should be used as the item's value. The designated property will be accessed and stored as the value for each item in the list or collection. For example, if set to "id," the value from item.id will be used as the item's value.
    * Default value: ""
    */
   valueMember?: string;
   /**
-   * Sets or gets whether the columns of the element could be hidden.
+   * Determines whether the columns within the element can be toggled between visible and hidden states. When set, it controls the ability to programmatically or interactively hide or show individual columns. When retrieved, it returns the current configuration indicating if column visibility can be altered.
    * Default value: false
    */
   visibility?: boolean;
@@ -147,27 +147,27 @@ export interface CustomizationDialog extends BaseElement, CustomizationDialogPro
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the dialog is opened.
+   * This event is triggered each time the dialog component becomes visible to the user, such as when it is opened programmatically or through user interaction.
 	* @param event. The custom event.    */
   onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the dialog is closed.
+   * This event is triggered whenever the dialog component is closed, whether by user interaction (such as clicking a close button or pressing the Escape key) or programmatically through code. Use this event to perform cleanup actions, save state, or execute any logic that should occur after the dialog is dismissed.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered when the data in the value property is changed.
+   * This event is triggered whenever the value of the value property is modified, either by user interaction or programmatic updates. It allows your application to respond in real time to changes in the data, ensuring that any dependent logic or UI is kept in sync with the current value.
 	* @param event. The custom event.    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered when the dialog is closed via clicking the apply button.
+   * This event is triggered when the dialog is closed as a result of the user clicking the "Apply" button. It allows you to perform actions or process data after the user confirms their selections or changes within the dialog by applying them.
 	* @param event. The custom event.    */
   onApply?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Opens the dialog
+   * Opens a modal dialog window, allowing users to interact with additional content or options without navigating away from the current page.
    */
   open(): void;
   /**
-   * Closes the dialog.
+   * Closes the dialog window, dismissing its content and returning focus to the underlying page or application. This action may also trigger any associated cleanup or callback functions.
    */
   close(): void;
 }

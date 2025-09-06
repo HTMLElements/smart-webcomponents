@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Недопустимое имя свойства: \'{{name}}\'!',
+'propertyUnknownType': 'Свойство \'{{name}}\' имеет неопределённый член \'type\'!',
+'propertyInvalidValue': 'Недопустимое значение свойства \'{{name}}\'! Фактическое значение: \'{{actualValue}}\', Ожидаемое значение: \'{{value}}\'!',
+'propertyInvalidValueType': 'Недопустимый тип значения свойства \'{{name}}\'! Фактический тип: \'{{actualType}}\', Ожидаемый тип: \'{{type}}\'!',
+'methodInvalidValueType': 'Недопустимый тип значения аргумента метода \'{{name}}\'! Фактический тип: \'{{actualType}}\', Ожидаемый тип: \'{{type}}\' для аргумента с индексом: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Недопустимое количество аргументов метода \'{{name}}\'! Фактическое количество аргументов: \'{{actualArgumentsCount}}\', Ожидаемое минимум: \'{{argumentsCount}}\' аргумент(ов)!',
+'methodInvalidReturnType': 'Недопустимый тип возвращаемого значения метода \'{{name}}\'! Фактический тип: \'{{actualType}}\', Ожидаемый тип: \'{{type}}\'!',
+'elementNotInDOM': 'Элемент не существует в DOM! Пожалуйста, добавьте элемент в DOM перед вызовом метода.',
+'moduleUndefined': 'Модуль не определён.',
+'missingReference': '{{elementType}}: Отсутствует ссылка на \'{{files}}\'.',
+'htmlTemplateNotSuported': '{{elementType}}: Веб-браузер не поддерживает элементы HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: Свойство \'{{property}}\' принимает строку, которая должна совпадать с id элемента HTMLTemplate из DOM.'
+}

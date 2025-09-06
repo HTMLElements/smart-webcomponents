@@ -2,197 +2,197 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface DropDownListProperties {
   /**
-   * Used only when dropDownOpenMode is set to 'auto'. Determines the delay before the opened drop down closes if the pointer is not over the element.
+   * This property applies exclusively when dropDownOpenMode is set to 'auto'. It specifies the amount of time (in milliseconds) to wait before automatically closing the open drop-down if the user's pointer (mouse or touch) is no longer hovering over the drop-down element. A higher value increases the delay before closing, while a lower value causes the drop-down to close more quickly when the pointer leaves.
    * Default value: 100
    */
   autoCloseDelay?: number;
   /**
-   * Determines the data source that will be loaded to the DropDownList. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value, group. It can also be a callback that returns an Array of items as previously described.
+   * Specifies the source of data that populates the DropDownList. The 'dataSource' property accepts:- An array of strings or numbers (e.g., '['Option 1', 'Option 2']'), where each element becomes a list item.- An array of objects, where each object defines the properties of a list item. Common object attributes include:    - label: The text displayed for the list item.    - value: The underlying value associated with the list item.    - group (optional): Used to group items under a common category.- A callback function that returns an array in either of the above formats.This flexibility allows you to easily provide simple lists or complex, structured data for display in the DropDownList.
    * Default value: null
    */
   dataSource?: any;
   /**
-   * Enables or disables the element.
+   * Determines whether the element is interactive or inactive. When enabled, users can interact with the element; when disabled, the element is non-interactive and may appear visually distinct (e.g., grayed out).
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Determines whether an indicator will appear during filtering and remote item loading.
+   * Specifies whether a visual indicator (such as a loading spinner or progress bar) is displayed while filtering data or loading items from a remote source. This helps inform users that a background operation is in progress.
    * Default value: false
    */
   displayLoadingIndicator?: boolean;
   /**
-   * Sets or gets the displayMember. The displayMember specifies the name of an object property to display. The name is contained in the collection specified by the 'dataSource' property.
+   * Sets or retrieves the displayMember property. The displayMember defines which property of the objects within the collection (specified by the dataSource property) should be shown in the UI. When binding a data source containing objects, displayMember indicates the key whose corresponding value will be rendered for each item in the component's display.
    * Default value: """"
    */
   displayMember?: string;
   /**
-   * Determines the drop down parent. The expected value is CSS Selector, ID or 'body'. The drop down can be removed from the body of the element and continue to work in another container. This is usefull when one of the parents of the element doesn't allow overflowing, by settings this property to 'body' the drop down will be appended to the DOM and the popup will open/close as usual. dropDownAppendTo can be a string representing the id of an HTML element on the page or a direct reference to that element. Reseting it back to null will take the drop down back to it's original place.
+   * ''Specifies the parent container for the dropdown menu. The value can be a CSS selector, an element ID, the string ''body'', or a direct reference to an HTML element. By default, the dropdown is rendered within its original parent. However, if a parent element restricts overflow (e.g., 'overflow: hidden'), setting this property to ''body'' or another container allows the dropdown to be rendered elsewhere in the DOM. This ensures that the dropdown remains visible and fully functional even when its original parent would otherwise clip or hide it.The dropDownAppendTo property accepts:- A string representing a CSS selector or element ID (e.g., ''#container'' or ''.custom-dropdown-wrapper''),- The string ''body'' to append directly to the document body,- Or a direct reference to an HTML element.To revert the dropdown to its original parent container, set dropDownAppendTo to 'null'. This flexibility helps accommodate layouts where dropdown overflow is restricted by ancestor elements.'Example Usage:''''json{  "dropDownAppendTo": "body"}'''or'''json{  "dropDownAppendTo": "#customContainer"}'''or'''json{  "dropDownAppendTo": null}'''
    * Default value: "null"
    */
   dropDownAppendTo?: string;
   /**
-   * Determines the position of the drop down button.
+   * Specifies the alignment or placement of the dropdown button relative to its container or associated input field. This setting controls where the dropdown button appears—such as to the left, right, top, or bottom—within the user interface component.
    * Default value: right
    */
   dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
-   * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
+   * Specifies the height of the dropdown component. By default, this property is set to an empty string, which means the dropdown's height will be determined by a corresponding CSS variable. If a specific value is provided (e.g., "200px" or "50%"), it directly sets the dropdown's height, overriding the CSS variable.
    * Default value: 
    */
   dropDownHeight?: string | number;
   /**
-   * Sets the maximum Height of the drop down. By default it's set to an empty string. In this case the maxHeight of the drop down is controlled by a CSS variable.
+   * Defines the maximum height of the dropdown component. By default, this property is set to an empty string, meaning the dropdown’s maximum height will be determined by the associated CSS variable rather than a fixed value. Setting a specific value (such as '"200px"' or '"50vh"') will override the CSS variable and directly control the dropdown's maximum height. If left as an empty string, ensure that the relevant CSS variable is defined to maintain consistent dropdown sizing.
    * Default value: 
    */
   dropDownMaxHeight?: string | number;
   /**
-   * Sets the maximum Width of the drop down. By default it's set to an empty string. In this case the maxWidth of the drop down is controlled by a CSS variable.
+   * Specifies the maximum width of the dropdown menu. By default, this property is set to an empty string, meaning the dropdown's maximum width will be determined by a corresponding CSS variable (typically via a style such as --dropdown-max-width). To override the CSS variable and set a specific maximum width, provide a valid CSS width value (e.g., "300px" or "50%") for this property.
    * Default value: 
    */
   dropDownMaxWidth?: string | number;
   /**
-   * Sets the minimum Height of the drop down. By default it's set to an empty string. In this case the minHeight of the drop down is controlled by a CSS variable.
+   * Specifies the minimum height for the dropdown menu. By default, this property is set to an empty string (""). When left empty, the dropdown's minimum height is determined by a corresponding CSS variable, allowing you to control the minimum height through your stylesheet. If a specific value is provided (such as '200px' or '3rem'), it directly sets the minimum height of the dropdown, overriding the CSS variable.
    * Default value: 
    */
   dropDownMinHeight?: string | number;
   /**
-   * Sets the minimum Width of the drop down. By default it's set to an empty string. In this case the minWidth of the drop down is controlled by a CSS variable.
+   * Specifies the minimum width of the dropdown menu. By default, this value is an empty string, which means the dropdown’s minimum width is determined by a CSS variable rather than a fixed value. If a specific width is provided, it overrides the CSS variable, setting the dropdown’s minimum width to the specified value.
    * Default value: 
    */
   dropDownMinWidth?: string | number;
   /**
-   * Determines how the drop down is going to open.
+   * Specifies the direction or animation style in which the dropdown menu will appear when activated, such as opening upwards, downwards, to the left, to the right, or with a specific transition effect.
    * Default value: default
    */
   dropDownOpenMode?: DropDownOpenMode | string;
   /**
-   * If this property is enabled, when the element's dropdown is opened, a transparent overlay is positioned between the dropdown and the rest of the document. The purpose of the overlay is to make sure that clicking anywhere outside the popup will will target the overlay and not the DOM.
+   * If this property is enabled, opening the element’s dropdown will display a transparent overlay that covers the area between the dropdown and the rest of the document. The overlay ensures that any clicks outside of the dropdown are captured by the overlay itself, rather than interacting with other DOM elements on the page. This behavior allows the dropdown to be closed when users click outside of it, and prevents unintended interactions with background content while the dropdown is open.
    * Default value: false
    */
   dropDownOverlay?: boolean;
   /**
-   * Determines the placeholder for the drop down list when it's empty.
+   * Specifies the text displayed in the dropdown list when no option is currently selected, serving as a placeholder to guide the user.
    * Default value: "No Items"
    */
   dropDownPlaceholder?: string;
   /**
-   * Determines the position of the drop down when opened.
+   * Specifies the placement of the dropdown menu relative to its trigger element when opened, such as above, below, to the left, or to the right. This setting ensures the dropdown appears in the desired location on the screen when activated.
    * Default value: auto
    */
   dropDownPosition?: DropDownPosition | string;
   /**
-   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Specifies the width of the dropdown component. By default, this property is set to an empty string (""). When left empty, the dropdown’s width is determined by a corresponding CSS variable, allowing for flexible styling through external stylesheets. You can override this by providing a specific width value (e.g., "200px" or "50%"), which will directly set the dropdown’s width in the component’s inline styles.
    * Default value: 
    */
   dropDownWidth?: string | number;
   /**
-   * Determines whether filtering is enabled.
+   * Specifies whether the filtering feature is active, allowing users to narrow down or refine the displayed data based on specific criteria. Set this option to true to enable filtering, or false to disable it.
    * Default value: false
    */
   filterable?: boolean;
   /**
-   * Determines the placeholder for the filter input inside the drop down that is only visible when filterable is enabled.
+   * Specifies the placeholder text displayed within the filter input field inside the dropdown. This input field is visible only when the filterable option is enabled, providing users with a prompt or hint about the expected input for filtering dropdown options.
    * Default value: ""
    */
   filterInputPlaceholder?: string;
   /**
-   * Determines the filtering mode of the drop down list.
+   * Specifies the filtering behavior applied to the dropdown list, such as how user input is used to match and display available options. This setting controls whether the dropdown filters items by starting characters, contains matching text, or applies a custom filtering strategy.
    * Default value: startsWithIgnoreCase
    */
   filterMode?: FilterMode | string;
   /**
-   * A callback that should return a condition that will be used for custom item filtering. Used in conjunction with filterMode 'custom'
+   * A callback function that must return a filtering condition (typically a boolean or a predicate function) to determine whether each item should be included or excluded from the results. This is specifically used when filterMode is set to 'custom', allowing you to implement your own custom filtering logic for items.
    * Default value: null
    */
   filterCallback?: any;
   /**
-   * If enabled, the items will be grouped by their first letter. Can't be applied if the dataSource already contains groups.
+   * When enabled, this option will automatically group the items by the first letter of each item's value. Note: This setting cannot be used if the dataSource already includes predefined groups, as grouping by first letter is only applicable to flat, ungrouped data.
    * Default value: false
    */
   grouped?: boolean;
   /**
-   * Determines which attribute from the dataSource object will be used as the group member for the items. If not set, by default 'group' property is used from the source object. groupMember is especially usefull when loading the data from a JSON file as a dataSource for the ListBox and there's a specific property that should be used to group the items.
+   * Specifies which property of each object in the dataSource should be used to group items in the ListBox. By default, the ListBox looks for a property named group in each data object to determine grouping. Setting the groupMember attribute allows you to define a custom property name to use for grouping instead. This is particularly useful when your data is loaded from a JSON file and the grouping property has a name other than "group".
    * Default value: null
    */
   groupMember?: string | null;
   /**
-   * Sets additional helper text below the element. The hint is visible only when the element is focused.
+   * Specifies supplementary helper text that appears below the element. This hint is displayed exclusively when the element is in focus, providing contextual guidance to the user as they interact with the field.
    * Default value: ""
    */
   hint?: string;
   /**
-   * Determines the visibility of the horizontal Scroll bar inside the drop down.
+   * Controls whether a horizontal scroll bar is displayed within the dropdown menu. Enabling this option allows users to scroll horizontally to view content that extends beyond the visible width of the dropdown.
    * Default value: auto
    */
   horizontalScrollBarVisibility?: HorizontalScrollBarVisibility | string;
   /**
-   * Represents the property name of a List item. Determines the value of the input when a ListItem is selected. Usefull in cases where the user wants to display for example the value of an item instead of it's label. By default the label is displayed in the input.
+   * Represents the specific property name of an item within a List that should be displayed in the input field when a ListItem is selected. This allows developers to control which attribute of the List data appears in the input—such as displaying an item's value (e.g., an ID or code) instead of its label or name. This property is useful when you want to show a value other than the default label in the input element. By default, the input will display the item's label unless a different property name is specified.
    * Default value: ""
    */
   inputMember?: string;
   /**
-   * IncrementalSearchDelay property specifies the time-interval in milliseconds until the previous search query is cleared. The timer starts when the user stops typing. A new query can be started only when the delay has passed.
+   * The 'IncrementalSearchDelay' property defines the time interval, in milliseconds, that must elapse after the user stops typing before the previous search query is automatically cleared. This delay timer begins counting once the user has stopped input, preventing the search from triggering immediately with each keystroke. Only after the specified delay has passed can a new search query be initiated, ensuring that searches are not executed too frequently and improving performance for incremental search operations.
    * Default value: 700
    */
   incrementalSearchDelay?: number;
   /**
-   * Sets ot gets the mode of the incremental search mode. Incremental search is enabled by default. Typing while the drop down is focused starts the incremental search.
+   * Gets or sets the incremental search mode for the dropdown. When incremental search is enabled (the default setting), typing while the dropdown is focused will automatically search and highlight matching items based on the input characters. This property allows you to enable or disable this behavior as needed.
    * Default value: startsWithIgnoreCase
    */
   incrementalSearchMode?: SearchMode | string;
   /**
-   * Sets the height for all list items. Used only when virtualization is enabled.
+   * Specifies the height (in pixels) for each list item when rendering the component. This property takes effect only when virtualization is enabled, ensuring consistent and accurate item measurements for optimized scrolling performance.
    * Default value: null
    */
   itemHeight?: number | null;
   /**
-   * Determines the item width measuring algorithm.
+   * Specifies the algorithm used to calculate the width of each item, affecting how items are sized and displayed within the layout. Select the desired measurement method to control item width behavior.
    * Default value: auto
    */
   itemMeasureMode?: ListItemMeasureMode | string;
   /**
-   * A getter that returns an array of all List items inside the drop down.
+   * A getter that retrieves and returns an array containing all list item elements ('') currently present within the dropdown menu. This allows easy access to each item for further processing or manipulation.
    * Default value: 
    */
   items?: any;
   /**
-   * The itemTemplate property is a string that represents the id of an HTMLTemplateElement in the DOM or it's direct reference. It's used to set a customize the content of the list items.
+   * The 'itemTemplate' property accepts either a string representing the 'id' of an 'HTMLTemplateElement' present in the DOM, or a direct reference to an 'HTMLTemplateElement' object. This template is used to define and customize the layout and content of each item rendered within the list. By specifying an 'itemTemplate', developers can control exactly how each list item appears, enabling advanced customization beyond default rendering.
    * Default value: null
    */
   itemTemplate?: any;
   /**
-   * Sets a little text label above the element.
+   * Displays a small text label positioned above the element, typically used to provide additional information or context, such as a tooltip, caption, or section heading.
    * Default value: ""
    */
   label?: string;
   /**
-   * Determines the text that will be displayed next to the loading indicator when the loader is visible and it's position is top or bottom.
+   * Specifies the text label that appears alongside the loading indicator when it is visible and positioned at either the top or bottom of the component. This text provides additional context or messaging to users during loading states.
    * Default value: "Loading..."
    */
   loadingIndicatorPlaceholder?: string;
   /**
-   * Determines the position of the loading indicator.
+   * Specifies the exact location on the user interface where the loading indicator will appear (e.g., top, center, bottom, or custom coordinates), allowing you to control its placement during loading operations.
    * Default value: center
    */
   loadingIndicatorPosition?: VerticalAlignment | string;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Defines or retrieves the 'unlockKey' property. The 'unlockKey' is a unique identifier or code required to unlock access to the product’s features or content. Setting this property assigns the key needed for authentication or activation, while getting it retrieves the currently assigned unlock key.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Sets or retrieves the current language code (e.g., 'en', 'es', 'fr') used by the application or component. This property works together with the messages property, allowing you to display localized content based on the selected language. When you change the language, the corresponding localized messages from the messages object will be used throughout the interface.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * Callback function that allows you to define a custom format for messages returned by the Localization Module. Use this to modify or enhance how translated messages are structured, displayed, or processed before they are delivered to your application.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Defines an object containing all text strings displayed by the widget, allowing for easy localization of the interface. This property can be used to get the current set of localizable strings or to provide custom translations for different languages. It works together with the locale property to determine which set of strings is shown to the user based on their selected language.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -209,102 +209,102 @@ export interface DropDownListProperties {
    */
   messages?: any;
   /**
-   * Sets or gets the name attribute for the element. Name is used when submiting HTML forms.
+   * Sets or retrieves the value of the element's name attribute. This attribute assigns an identifier to the element, which is used when submitting HTML forms to associate the element's data with a key in the form submission. The name attribute is essential for correctly processing form data on the server side.
    * Default value: ""
    */
   name?: string;
   /**
-   * Determines whether the popup is opened or not.
+   * Specifies whether the popup is currently visible (open) or hidden (closed).
    * Default value: false
    */
   opened?: boolean;
   /**
-   * Determines the element's placeholder, displayed in the element's selection field.
+   * Specifies the placeholder text that appears within the selection field of the element when no option has been chosen. This text provides guidance or an example to the user before a selection is made.
    * Default value: ""
    */
   placeholder?: string;
   /**
-   * Disables user interaction with the element.
+   * Prevents any user interaction with the element, making it unresponsive to mouse, keyboard, touch, or other input events such as clicks, focus, or drag actions. While disabled, the element cannot be interacted with or activated by the user.
    * Default value: false
    */
   readonly?: boolean;
   /**
-   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Specifies or retrieves whether the element's text direction is set to right-to-left (RTL) alignment, which is typically used for languages such as Arabic or Hebrew. This property ensures that the element correctly displays content according to the reading direction of right-to-left locales.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * Determines whether the resize indicator in the bottom right corner of the drop down is visible or not. This property is used in conjunction with resizeMode.
+   * Specifies whether the resize indicator, located in the bottom-right corner of the dropdown, should be visible. This visual cue allows users to resize the dropdown if enabled. This property works in combination with the resizeMode setting, which controls the behavior of resizing.
    * Default value: false
    */
   resizeIndicator?: boolean;
   /**
-   * Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down.
+   * Specifies whether the drop-down menu can be resized by the user. If resizing is enabled, a resize handle appears at either the top or bottom edge of the drop-down, allowing users to adjust its height interactively. This enhances usability by enabling users to customize the visible area of the drop-down content.
    * Default value: none
    */
   resizeMode?: ResizeMode | string;
   /**
-   * Determines what will be displayed in the dropDown selection field.
+   * Specifies the content or list of options that will appear in the drop-down selection field for users to choose from.
    * Default value: plain
    */
   selectionDisplayMode?: SelectionDisplayMode | string;
   /**
-   * Sets or gets the selected indexes. Selected indexes represents an array of the indexes of the items that should be selected.
+   * Sets or retrieves the selected indexes. The selected indexes property is an array containing the numeric indexes of the items that are currently selected. You can assign an array of indexes to select specific items, or read this property to determine which items are currently selected.
    * Default value: 
    */
   selectedIndexes?: number[];
   /**
-   * Sets or gets elected indexes. Selected values represents the values of the items that should be selected.
+   * Gets or sets the indexes of selected items. The 'selected' values correspond to the indices of the items that are currently selected. When setting, provide an array of item indexes to indicate which items should be marked as selected. When getting, returns an array containing the indexes of the currently selected items.
    * Default value: 
    */
   selectedValues?: string[];
   /**
-   * Determines how many items can be selected.
+   * Specifies the maximum number of items that a user is allowed to select at one time. If set to 1, only single selection is permitted; higher values allow for multiple selections up to the defined limit.
    * Default value: zeroAndOne
    */
   selectionMode?: ListSelectionMode | string;
   /**
-   * Determines whether the items are sorted alphabetically or not
+   * Specifies whether the items are arranged in alphabetical order. If set to true, the items will be sorted alphabetically (A–Z); if false, the original order of the items will be preserved.
    * Default value: false
    */
   sorted?: boolean;
   /**
-   * Determines sorting direction - ascending(asc) or descending(desc)
+   * Specifies the sorting order for data:  - Use "asc" for ascending order (e.g., A-Z, 0-9).- Use "desc" for descending order (e.g., Z-A, 9-0).
    * Default value: "asc"
    */
   sortDirection?: string;
   /**
-   * Determines the theme for the element. Themes define the look of the elements.
+   * Specifies the visual theme to be applied to the element. Themes control the overall appearance, including colors, fonts, and styles, ensuring a consistent and customized look for the element.
    * Default value: ""
    */
   theme?: string;
   /**
-   * Sets a custom template for the content of the tokens when selectionDisplayMode is set to 'tokens'.
+   * Defines a custom template for rendering each token's content when the selectionDisplayMode property is set to 'tokens'. This allows you to control the appearance and structure of individual tokens displayed in the selection area.
    * Default value: null
    */
   tokenTemplate?: any;
   /**
-   * If is set to true, the element cannot be focused.
+   * If set to true, this property prevents the element from receiving keyboard focus, making it impossible for users to navigate to the element using the Tab key or other keyboard navigation methods.
    * Default value: false
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets the value. Returns the selection. Return type: {label: string, value: any}[].
+   * Sets or retrieves the current selection values. When called, this function returns an array of objects representing the selected items, where each object has the following structure: { label: string, value: any }. Return type: Array.
    * Default value: null
    */
   value?: any;
   /**
-   * Determines the value member of an item. Stored as value in the item object. Similar to groupMember, valueMember is especially usefull when using data from a JSON file as a dataSource for the ListBox and there's a specific property that should be used for the value the items.
+   * Determines which property of each item object should be used as the item's value. The value specified by valueMember will be stored as the value of the ListBox item. This property is particularly useful when populating the ListBox from a JSON dataSource, and you want to designate a specific field from each JSON item (such as id, code, or another unique identifier) to serve as the item's value. Similar to groupMember, valueMember helps map a property in your JSON objects directly to the ListBox value, ensuring the correct data is referenced and used when working with item selections or submissions.
    * Default value: """"
    */
   valueMember?: string;
   /**
-   * Determines the visibility of the vertical scroll bar.
+   * Controls whether the vertical scroll bar is displayed within the container. Set this property to enable, disable, or automatically show the scroll bar based on the content's height relative to the container.
    * Default value: auto
    */
   verticalScrollBarVisibility?: VerticalScrollBarVisibility | string;
   /**
-   * Determines weather or not Virtualization is used. Virtualization allows a huge amount of items to be loaded to the drop down while preserving the performance. For example a milion items can be loaded.
+   * Specifies whether virtualization is enabled for the dropdown component. When virtualization is enabled, the dropdown can efficiently handle and display a large number of items—such as one million—by rendering only the visible items rather than all items at once. This significantly improves performance and responsiveness, even when working with vast datasets.
    * Default value: false
    */
   virtualized?: boolean;
@@ -317,11 +317,11 @@ export interface DropDownList extends BaseElement, DropDownListProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when user clicks on the action button. The action button is only visible when dropDownOpenMode is set to 'dropDownbutton'.
+   * This event is triggered when the user clicks the action button. Note that the action button is only visible if the dropDownOpenMode property is set to 'dropDownbutton'. If dropDownOpenMode is set to any other value, the action button will be hidden and this event will not be triggered.
 	* @param event. The custom event.    */
   onActionButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the selection is changed.
+   * This event is triggered whenever the user modifies their current selection, such as selecting or deselecting one or more items within a list, dropdown, or input field. It fires immediately after the selection change has occurred, allowing you to respond dynamically to user interactions.
 	* @param event. The custom event. Custom data event was created with: ev.detail(addedItems, disabled, index, label, removedItems, selected, value)
    *  addedItems - An array of List items that have been selected.
    *  disabled - A flag indicating whether or not the item that caused the change event is disabled.
@@ -333,19 +333,19 @@ export interface DropDownList extends BaseElement, DropDownListProperties {
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered when the drop down list is closed.
+   * This event is triggered when the dropdown list is closed, either by selecting an item, clicking outside the dropdown, or pressing the Escape key. It allows you to execute custom actions after the dropdown is no longer visible to the user.
 	* @param event. The custom event.    */
   onClose: ((this: any, ev: Event) => any) | null;
   /**
-   * This event is triggered when the drop down list is about to be closed. This event allows to cancel the closing operation calling event.preventDefault() in the event handler function.
+   * This event is triggered just before the drop-down list is about to close. By handling this event, you have the opportunity to prevent the drop-down from closing by calling event.preventDefault() within your event handler function. This is useful if you need to perform additional validation or asynchronous operations before allowing the drop-down to close.
 	* @param event. The custom event.    */
   onClosing?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when user clicks on the drop down button.
+   * This event is triggered when the user clicks on the dropdown button, allowing you to execute custom logic in response to the user's action of opening or interacting with the dropdown menu.
 	* @param event. The custom event.    */
   onDropDownButtonClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when an item is clicked.
+   * This event is triggered whenever a user clicks on an individual item within the interface. It provides contextual information about the selected item, allowing you to perform actions such as displaying details, initiating edits, or handling custom behaviors in response to the user's selection.
 	* @param event. The custom event. Custom data event was created with: ev.detail(disabled, index, label, selected, value)
    *  disabled - Indicates whether the List item that was clicked is disabled or not.
    *  index - Indicates the index of the List item that was clicked.
@@ -355,111 +355,111 @@ export interface DropDownList extends BaseElement, DropDownListProperties {
    */
   onItemClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the drop down list is opened.
+   * This event is triggered whenever the dropdown list component becomes visible to the user, such as when a user clicks on the dropdown control to display its list of selectable options.
 	* @param event. The custom event.    */
   onOpen?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the drop down list is about to be opened. This event allows to cancel the opening operation calling event.preventDefault() in the event handler function.
+   * This event is triggered immediately before the dropdown list is displayed. Within the event handler, you can prevent the dropdown from opening by calling event.preventDefault(). This provides an opportunity to execute custom logic or perform validation before allowing the dropdown to appear.
 	* @param event. The custom event.    */
   onOpening?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when user starts resizing the drop down.
+   * This event is triggered when the user initiates the action of resizing the dropdown menu. It occurs as soon as the user begins to adjust the dropdown's dimensions, such as by clicking and dragging the resize handle or border.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
   onResizeStart?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the resizing of the drop down is finished.
+   * This event is triggered after the user has completed resizing the dropdown component. It fires once the resize action has ended, allowing you to perform actions such as updating the layout or saving the new dimensions of the dropdown.
 	* @param event. The custom event. Custom data event was created with: ev.detail(position)
    *  position - An object containing the current left and top positions of the drop down.
    */
   onResizeEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the user scrolls to the end of the dropDown list.
+   * This event is triggered when the user scrolls to the bottom of the dropDown list, indicating that all available options have been displayed. It can be used to load additional items dynamically (infinite scroll) or to perform specific actions once the end of the list is reached.
 	* @param event. The custom event.    */
   onScrollBottomReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * This event is triggered when the user scrolls to the start of the dropDown list.
+   * This event is triggered when the user scrolls to the very top (beginning) of the drop-down list, indicating that there are no more items above the currently visible options.
 	* @param event. The custom event.    */
   onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * Appends a ListItem to the end of the list of items inside element.
+   * Appends a new ListItem element to the end of the existing list of items within the specified parent element. This operation updates the parent element’s children by adding the new ListItem as the last item in the sequence, preserving the order of existing items.
    * @param {Node} node. A ListItem element that should be added to the rest of the items as the last item.
    * @returns {Node}
    */
   appendChild<T extends Node>(node: Node): T;
   /**
-   * Adds a new item(s).
+   * Adds one or more new items to the collection, array, or list. This action typically appends the provided item(s) to the existing data structure, increasing its size. Specify the items to be added as input parameters.
    * @param {any} item. Describes the properties of the item that will be inserted. You can also pass an array of items.
    */
   add(item: any): void;
   /**
-   * Removes all items from the drop down list.
+   * Removes all items from the drop-down list, clearing its contents and leaving the list empty. This action ensures that no selectable options remain within the drop-down component.
    */
   clearItems(): void;
   /**
-   * Unselects all items.
+   * Deselects all currently selected items, ensuring that no items remain selected.
    */
   clearSelection(): void;
   /**
-   * Closes the dropDown list.
+   * Closes the currently open dropdown list, hiding all available options from view and returning the dropdown to its default collapsed state. This action does not select or modify any options within the list.
    */
   close(): void;
   /**
-   * Performs a data bind. This can be used to refresh the data source.
+   * Initiates the data binding process, updating the user interface with the latest values from the data source. This method can be used to refresh or re-sync the UI whenever the underlying data changes, ensuring that displayed information remains current and accurate.
    */
   dataBind(): void;
   /**
-   * Ensures the desired item is visible by scrolling to it.
+   * Scrolls the view to bring the specified item into the visible area of its container, ensuring that the item is fully or partially visible to the user. This enables users to locate and interact with the desired item without manual scrolling.
    * @param {HTMLElement | string} item. A list item or value of the desired item to be visible.
    */
   ensureVisible(item: HTMLElement | string): void;
   /**
-   * Returns an item instance from the dropDown list.
+   * Returns the selected item instance from the dropDown list. This method retrieves the full object representing the currently chosen entry, including all associated properties and values, allowing further manipulation or data access within your application.
    * @param {string} value. The value of an item from the drop down list.
    * @returns {HTMLElement}
    */
   getItem(value: string): HTMLElement;
   /**
-   * Inserts a new item at a specified position.
+   * Inserts a new item into the collection at the specified index, shifting existing items at and after that position one place to the right.
    * @param {number} position. The position where the item must be inserted.
    * @param {any} value. The value of the new item.
    */
   insert(position: number, value: any): void;
   /**
-   * Inserts a new ListItem before another in the list.
+   * Inserts a new ListItem element into the list directly before a specified existing ListItem, adjusting the list order accordingly.
    * @param {Node} node. A ListItem element that should be added before the referenceItem in the list.
    * @param {Node | null} referenceNode. A ListItem element that acts as the reference item before which a new item is about to be inserted. The referenceNode must be in the same list as the node.
    * @returns {Node}
    */
   insertBefore<T extends Node>(node: Node, referenceNode: Node | null): T;
   /**
-   * Opens the dropDown list.
+   * Displays the drop-down list, allowing users to view and select from the available options.
    */
   open(): void;
   /**
-   * Removes an item at a specified position.
+   * Removes the item located at the specified index or position within the collection, shifting any subsequent items to fill the gap. If the specified position is out of range, no changes are made to the collection.
    * @param {number} position. The position of the removed item.
    */
   removeAt(position: number): void;
   /**
-   * Removes a ListItem from the list of items inside element.
+   * Removes a specified ListItem element from the collection of child items within the parent element, effectively updating the list's contents to exclude the targeted item.
    * @param {Node} node. A ListItem element that is part of the list of items inside the element.
    * @returns {Node}
    */
   removeChild<T extends Node>(node: Node): T;
   /**
-   * Selects an item from the dropDown list. 
+   * Selects a specific item from the dropdown list based on the user's input or selection criteria. This action updates the dropdown's displayed value to the chosen item and may trigger any associated event handlers or callbacks.
    * @param {string | HTMLElement} item. A string, representing the value of the item or an HTML Element referencing an item from the list
    */
   select(item: string | HTMLElement): void;
   /**
-   * Unselects an item from the dropDown list. 
+   * Removes the currently selected item from the dropdown list, restoring the dropdown to its unselected or default state. This action ensures that no item remains highlighted or chosen within the dropdown component.
    * @param {string | HTMLElement} item. A string, representing the value of the item or an HTML Element referencing an item from the list
    */
   unselect(item: string | HTMLElement): void;
   /**
-   * Updates an item from the dropDown list.
+   * Updates the selected item in the dropDown list with new data or values. This action modifies the existing item rather than adding a new entry or removing an existing one, ensuring that the dropDown reflects the most current information.
    * @param {number} position. The position where the item must be updated.
    * @param {any} value. The value of the updated item.
    */
@@ -476,29 +476,29 @@ declare global {
     }
 }
 
-/**Determines the position of the drop down button. */
+/**Specifies the alignment or placement of the dropdown button relative to its container or associated input field. This setting controls where the dropdown button appears—such as to the left, right, top, or bottom—within the user interface component. */
 export declare type DropDownButtonPosition = 'left' | 'right' | 'top' | 'bottom';
-/**Determines how the drop down is going to open. */
+/**Specifies the direction or animation style in which the dropdown menu will appear when activated, such as opening upwards, downwards, to the left, to the right, or with a specific transition effect. */
 export declare type DropDownOpenMode = 'none' | 'default' | 'dropDownButton' | 'auto';
-/**Determines the position of the drop down when opened. */
+/**Specifies the placement of the dropdown menu relative to its trigger element when opened, such as above, below, to the left, or to the right. This setting ensures the dropdown appears in the desired location on the screen when activated. */
 export declare type DropDownPosition = 'auto' | 'top' | 'bottom' | 'overlay-top' | 'overlay-center' | 'overlay-bottom' | 'center-bottom' | 'center-top';
-/**Determines the filtering mode of the drop down list. */
+/**Specifies the filtering behavior applied to the dropdown list, such as how user input is used to match and display available options. This setting controls whether the dropdown filters items by starting characters, contains matching text, or applies a custom filtering strategy. */
 export declare type FilterMode = 'contains' | 'containsIgnoreCase' | 'custom' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
-/**Determines the visibility of the horizontal Scroll bar inside the drop down. */
+/**Controls whether a horizontal scroll bar is displayed within the dropdown menu. Enabling this option allows users to scroll horizontally to view content that extends beyond the visible width of the dropdown. */
 export declare type HorizontalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
-/**Sets ot gets the mode of the incremental search mode. Incremental search is enabled by default. Typing while the drop down is focused starts the incremental search. */
+/**Gets or sets the incremental search mode for the dropdown. When incremental search is enabled (the default setting), typing while the dropdown is focused will automatically search and highlight matching items based on the input characters. This property allows you to enable or disable this behavior as needed. */
 export declare type SearchMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';
-/**Determines the item width measuring algorithm. */
+/**Specifies the algorithm used to calculate the width of each item, affecting how items are sized and displayed within the layout. Select the desired measurement method to control item width behavior. */
 export declare type ListItemMeasureMode = 'auto' | 'precise';
-/**Determines the position of the loading indicator. */
+/**Specifies the exact location on the user interface where the loading indicator will appear (e.g., top, center, bottom, or custom coordinates), allowing you to control its placement during loading operations. */
 export declare type VerticalAlignment = 'bottom' | 'center' | 'top';
-/**Determines whether the dropDown can be resized or not. When resizing is enabled, a resize bar appears on the top/bottom side of the drop down. */
+/**Specifies whether the drop-down menu can be resized by the user. If resizing is enabled, a resize handle appears at either the top or bottom edge of the drop-down, allowing users to adjust its height interactively. This enhances usability by enabling users to customize the visible area of the drop-down content. */
 export declare type ResizeMode = 'none' | 'horizontal' | 'vertical' | 'both';
-/**Determines what will be displayed in the dropDown selection field. */
+/**Specifies the content or list of options that will appear in the drop-down selection field for users to choose from. */
 export declare type SelectionDisplayMode = 'plain' | 'placeholder' | 'tokens';
-/**Determines how many items can be selected. */
+/**Specifies the maximum number of items that a user is allowed to select at one time. If set to 1, only single selection is permitted; higher values allow for multiple selections up to the defined limit. */
 export declare type ListSelectionMode = 'none' | 'oneOrManyExtended' | 'zeroOrMany' | 'oneOrMany' | 'zeroAndOne' | 'zeroOrOne' | 'one' | 'checkBox' | 'radioButton';
-/**Determines the visibility of the vertical scroll bar. */
+/**Controls whether the vertical scroll bar is displayed within the container. Set this property to enable, disable, or automatically show the scroll bar based on the content's height relative to the container. */
 export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden' | 'visible';
 export interface ListItemProperties {
   /**

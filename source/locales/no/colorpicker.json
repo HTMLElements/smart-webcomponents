@@ -1,0 +1,12 @@
+{
+'redPrefix': 'Rød:',
+'greenPrefix': 'Grønn:',
+'bluePrefix': 'Blå:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Alfa:',
+'ok': 'OK',
+'cancel': 'AVBRYT',
+'customColor': 'EGEN FARGE',
+'standardColors': 'Standardfarger',
+'themeColors': 'Temafarger'
+}

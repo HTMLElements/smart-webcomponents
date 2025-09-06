@@ -1,0 +1,21 @@
+{
+  "addImage": "Hinzufügen",
+  "applyOnce": "Einmal anwenden",
+  "coverField": "Cover-Feld",
+  "crop": "Zuschneiden",
+  "customize": "Karten anpassen",
+  "dateTabLabel": "DATUM",
+  "draggedRecord": "Datensatz {{id}}",
+  "fit": "Anpassen",
+  "imageUrl": "Neue Bild-URL:",
+  "incorrectStructure": "\"dataSource\" muss eine Instanz von Smart.DataAdapter oder ein Array von Objekten mit Schlüssel-Wert-Paaren sein.",
+  "nextRecord": "Nächster Datensatz",
+  "noCoverField": "Kein Cover-Feld",
+  "noData": "Keine Daten zur Anzeige",
+  "noMatches": "Keine passenden Datensätze",
+  "now": "Jetzt",
+  "previousRecord": "Vorheriger Datensatz",
+  "removeImage": "Entfernen",
+  "timeTabLabel": "ZEIT",
+  "toggleVisibility": "Sichtbarkeit des Feldes umschalten"
+}

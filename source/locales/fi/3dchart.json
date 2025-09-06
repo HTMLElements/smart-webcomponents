@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Nollaa kamera',
+'cameraMode': 'Kameratila',
+'panMode': 'Siirtotila',
+'zoomMode': 'Zoomaustila',
+'saveImage': 'Tallenna kuva',
+'zoomOut': 'Loitonna',
+'zoomIn': 'Lähennä',
+'field': 'Kenttä',
+'invalidSeries': 'smart-chart: Virheellinen ominaisuus: jokaisella sarjaryhmällä on oltava \'series\'-ominaisuus, joka on kelvollinen taulukko.',
+'invalidSeriesGroups': 'smart-chart: Virheellinen ominaisuus: \'seriesGroups\'-ominaisuus vaaditaan ja sen on oltava kelvollinen taulukko.',
+'invalidType': 'smart-chart: Virheellinen sarjatyyppi "{{type}}".',
+'missingReference': 'smart-chart: Puuttuva viittaus kohteeseen {{files}}.',
+'missingType': 'smart-chart: Virheellinen ominaisuus: jokaisella sarjaryhmällä on oltava kelvollinen \'type\'-ominaisuus.'
+}

@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Λανθασμένο όρισμα {{argumentName}} στη μέθοδο {{methodName}}.',
+'missingReference': '{{elementType}}: Λείπει η αναφορά στο {{file}} στη μέθοδο {{methodName}}.',
+'notAPath': 'Ορίστηκε σε μη διαδρομή',
+'validPath': 'Ορίστηκε σε έγκυρη διαδρομή'
+}

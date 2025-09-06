@@ -1,0 +1,3 @@
+{
+  "invalidNode": "{{elementType}}: Ugyldig parameter \"{{node}}\" ved kall til {{method}}."
+}

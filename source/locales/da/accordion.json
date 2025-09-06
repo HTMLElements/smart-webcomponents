@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" kræver et element af typen "smart-accordion-item".',
+'indexOutOfBound': '{{elementType}}: Ud af grænser indeks/indeks i "{{method}}" metoden.',
+'invalidSettings': '{{elementType}}: "{{method}}" metoden accepterer en streng eller et objekt som anden parameter.',
+'missingReference': '{{elementType}}: Manglende reference til {{files}}.',
+'noItems': '{{elementType}}: Ingen børnelementer fundet.',
+'overridingProperties': '{{elementType}}: Overstyrende egenskaber {{property1}} og {{property2}} anvendt. "{{property1}}" egenskaben bruges som standard.'
+}

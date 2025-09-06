@@ -1,0 +1,7 @@
+{
+'ambiguousIndexes': 'smart-tabs: 처음에 설정된 smart-tab-item 인덱스는 모호하여 HTML 구조를 우선으로 무시됩니다.',
+'detailsObjectRequired': 'smart-tabs: "insert" 메서드는 두 번째 인수로 details 객체를 전달해야 합니다.',
+'invalidIndex': 'smart-tabs: "{{method}}" 메서드는 숫자 타입의 인덱스를 허용합니다.',
+'referenceNodeNotChild': 'smart-tabs: 전달된 {{argument}}는 이 smart-tabs 요소의 자식이 아닙니다.',
+'tabItemRequired': 'smart-tabs: "{{method}}" 메서드는 인수로 "smart-tab-item" 요소를 전달해야 합니다.'
+}

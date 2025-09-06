@@ -1,0 +1,13 @@
+{
+'browse': 'Parcourir',
+'uploadFile': 'Téléverser le fichier',
+'cancelFile': 'Annuler le fichier',
+'pauseFile': 'Mettre en pause le fichier',
+'uploadAll': 'Tout téléverser',
+'cancelAll': 'Tout annuler',
+'pauseAll': 'Tout mettre en pause',
+'totalFiles': 'Nombre total de fichiers : ',
+'connectionError': '{{elementType}} : Le téléversement de fichiers nécessite une connexion au serveur.',
+'wrongItemIndex': '{{elementType}} : Il n\'y a pas de fichier avec cet index dans la liste des fichiers téléversés.',
+'tooLongFileName': '{{elementType}} : Le nom du fichier est trop long.'
+}

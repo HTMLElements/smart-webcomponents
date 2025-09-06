@@ -1,0 +1,6 @@
+{
+  "invalidSelector": "{{elementType}}: A(z) „{{property}}” értéknek Stringnek, HTMLElementnek vagy nullnak kell lennie.",
+  "htmlTemplateNotSuported": "{{elementType}}: A böngésző nem támogatja az HTMLTemplate elemeket.",
+  "invalidTemplate": "{{elementType}}: A(z) „{{property}}” tulajdonság egy olyan stringet fogad el, amelynek meg kell egyeznie egy HTMLTemplate elem azonosítójával a DOM-ból.",
+  "invalidNode": "{{elementType}}: Érvénytelen „{{node}}” paraméter a(z) {{method}} hívásakor."
+}

@@ -2,67 +2,67 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface CheckInputProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'
+   * Specifies or retrieves the current animation mode. When the property is set to 'none', all animation effects are disabled, resulting in instant transitions without visual motion. For other values, the property enables different types of animations, which govern how elements transition or change states on the interface.
    * Default value: advanced
    */
   animation?: Animation | string;
   /**
-   * Determines the delay before the drop down opens to show the matches from the auto complete operation. The delay is measured in miliseconds.
+   * Specifies the amount of time, in milliseconds, to wait before displaying the dropdown menu with autocomplete suggestions after the user begins typing. This delay helps control how quickly the matches appear, improving performance and user experience by preventing the dropdown from opening immediately with every keystroke.
    * Default value: 100
    */
   autoCompleteDelay?: number;
   /**
-   * Determines the data source that will be loaded to the Input. The dataSource can be an array of strings/numbers or objects where the attributes represent the properties of a List Item. For example label, value. It can also be a callback that returns an Array of items as previously described.
+   * Specifies the source of data that populates the Input component. The dataSource property accepts one of the following:- 'Array of primitive values': An array consisting of strings or numbers, where each element represents a list item.- 'Array of objects': An array of objects, where each object defines the properties of a list item—typically using keys such as label for display text and value for the underlying value.- 'Callback function': A function that, when called, returns either of the above array formats (strings, numbers, or objects).This flexibility allows you to provide static data inline, transform or fetch data dynamically, and customize which properties represent the list items.
    * Default value: null
    */
   dataSource?: any;
   /**
-   * Enables or disables the element.
+   * Specifies whether the element is interactive and can accept user input. When enabled, the element is fully functional; when disabled, the element is rendered inactive and does not respond to user actions such as clicks, typing, or focus.
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Determines the position of the drop down button.
+   * Specifies the placement of the dropdown button relative to its parent element (e.g., top, bottom, left, or right). This setting controls where the dropdown button will appear in the user interface.
    * Default value: right
    */
   dropDownButtonPosition?: DropDownButtonPosition | string;
   /**
-   * Sets the height of the drop down. By default it's set to an empty string. In this case the height of the drop down is controlled by a CSS variable.
+   * Specifies the height of the dropdown menu. By default, this property is set to an empty string, which means the dropdown's height is determined by a corresponding CSS variable. You can override the default behavior by explicitly setting a height value, otherwise the component will use the CSS variable to control its height.
    * Default value: 
    */
   dropDownHeight?: string | number;
   /**
-   * Sets the width of the drop down. By default it's set to an empty string. In this case the width of the drop down is controlled by a CSS variable.
+   * Specifies the width of the dropdown menu. By default, this property is set to an empty string, which means the dropdown's width will be determined by a corresponding CSS variable. If a value is provided, it will override the CSS variable and explicitly set the width of the dropdown. This allows for flexible customization of the dropdown's appearance through either direct property assignment or external styling.
    * Default value: 
    */
   dropDownWidth?: string | number;
   /**
-   * Sets the purpose of the input and what, if any, permission the user agent has to provide automated assistance in filling out the element's input when in a form, as well as guidance to the browser as to the type of information expected in the element. This value corresponds to the standard HTML autocomplete attribute and can be set to values such as 'on', 'name', 'organization', 'street-address', etc.
+   * Specifies the intended purpose of the input field and determines whether the user’s browser (user agent) is permitted to offer automated autofill suggestions when the input appears within a form. This attribute provides guidance to the browser about the type of information that should be entered, enhancing both user experience and data accuracy by suggesting relevant values. It corresponds to the standard HTML autocomplete attribute, which can accept a variety of predefined values such as 'on' (to enable autofill), 'off' (to disable autofill), 'name' (for personal names), 'organization' (for company names), 'street-address' (for addresses), and many others. By setting this attribute appropriately, developers can improve form usability and help browsers provide more accurate suggestions based on the expected input type.
    * Default value: "off"
    */
   inputPurpose?: string;
   /**
-   * Determines the maximum number of matched items that should be visible inside the drop down as a result of a new autoComplete query. By default the maximum number of 8 items can be displayed inside the drop down.
+   * Specifies the maximum number of matching items to display in the dropdown list when a new autoComplete query is performed. By default, up to 8 items will be shown in the dropdown. If the total number of matched items exceeds this limit, only the first 8 results will be visible to the user. Adjust this value to control how many suggestions are presented at once in the dropdown interface.
    * Default value: 8
    */
   items?: number;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Defines the unlockKey property, which stores the unique key required to unlock and access the product. Use this property to set a new unlock key or retrieve the current unlock key associated with the product.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the language. Used in conjunction with the property messages. 
+   * Specifies or retrieves the current language setting. This property determines which language-specific messages from the messages property are displayed. Changing the language will update the content shown to the user based on the corresponding localized messages defined in messages.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Callback used to customize the format of the messages that are returned from the Localization Module.
+   * A callback function that allows you to customize the formatting of messages generated by the Localization Module before they are returned to the application. This enables you to modify, translate, or format localization messages according to specific requirements or user preferences.
    * Default value: null
    */
   localizeFormatFunction?: any;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale. 
+   * Defines or retrieves an object containing localized string values used within the widget’s user interface, allowing for text elements to be easily translated into different languages. This property works in conjunction with the locale property to enable internationalization by customizing display text based on the selected language or regional setting.
    * Default value:    * {
    *   "en": {
    *     "propertyUnknownType": "'' property is with undefined 'type' member!",
@@ -79,87 +79,87 @@ export interface CheckInputProperties {
    */
   messages?: any;
   /**
-   * Determines the minimum number of characters inside the input in order to trigger the autocomplete functionality that will open the drop down and show the matched items.
+   * Specifies the minimum number of characters a user must type into the input field before the autocomplete feature becomes active. Once this character threshold is reached, the dropdown will appear, displaying a list of items that match the entered text.
    * Default value: 1
    */
   minLength?: number;
   /**
-   * Sets or gets the name attribute for the element. Name is used when submiting data inside an HTML form.
+   * Sets or retrieves the value of the "name" attribute for the element. The "name" attribute identifies the element within an HTML form, and its value is used as the key when the form data is submitted to the server. This allows data associated with the element to be correctly grouped and processed on the server side.
    * Default value: ""
    */
   name?: string;
   /**
-   * Determines whether the drop down is opened or not.
+   * Specifies whether the dropdown menu is currently expanded and visible (open) or collapsed and hidden (closed).
    * Default value: false
    */
   opened?: boolean;
   /**
-   * Determines the placeholder of the input.
+   * Specifies the placeholder text displayed inside the input field when it is empty, providing guidance or an example to the user about what to enter.
    * Default value: ""
    */
   placeholder?: string;
   /**
-   * Sets or gets the query that is used to filter the items. Query is used by the autoComplete operation. Empty string means that all items from the data source will be displayed and no filter query is applied.
+   * Specifies or retrieves the query string used to filter items in the data source. This query is utilized by the autoComplete functionality to determine which items should be displayed based on user input. If the query is an empty string, no filtering is applied and all items from the data source are shown.
    * Default value: 
    */
   query?: string | number;
   /**
-   * Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation.
+   * Specifies the autocomplete query mode, which controls how search suggestions are generated and determines the matching algorithm used for the autocomplete operation. This property influences whether autocomplete suggestions are based on prefix matching, fuzzy matching, or other supported algorithms.
    * Default value: containsIgnoreCase
    */
   queryMode?: CheckInputQueryMode | string;
   /**
-   * Determines whether ot not the user can enter text inside the input. if dropDownButtonPosition is set to 'left' or 'right' then readonly determines whether the element acts as a ComboBox or a DropDownList if a dataSource is provided.
+   * Specifies whether the user is allowed to enter text directly into the input field. When the dropDownButtonPosition property is set to either 'left' or 'right', the readonly property controls the behavior of the component if a dataSource is provided:  - If readonly is false, the element functions as a ComboBox, allowing text input and selection from the data source.  - If readonly is true, it behaves as a DropDownList, restricting input to selection from the provided options only, and preventing manual text entry.
    * Default value: false
    */
   readonly?: boolean;
   /**
-   * Sets or gets the value indicating whether the element is aligned to support locales using right-to-left fonts.
+   * Sets or returns a value that determines whether the element’s text direction is set to right-to-left (RTL) alignment, enabling proper display for languages and locales that use RTL scripts, such as Arabic or Hebrew.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * Determines the delimiter between the selected items in the input.
+   * Specifies the character or string used to separate multiple selected items within the input field. This delimiter defines how individual selections are visually and programmatically distinguished from one another in the input’s value.
    * Default value: ","
    */
   separator?: string;
   /**
-   * Determines whether an additional item is displayed as the first item in the options list, which allows to select/unselect all items.
+   * Specifies whether an extra option—typically "Select All" or "Deselect All"—is shown at the top of the options list. This option enables users to quickly select or unselect all available items in the list with a single action.
    * Default value: false
    */
   selectAll?: boolean;
   /**
-   * Gets or sets an array of selected values.
+   * Retrieves or assigns an array containing the currently selected values. This property allows you to access the full list of items that have been selected, or update the selection by providing a new array of values.
    * Default value: 
    */
   selectedValues?: any;
   /**
-   * Determines whether the items are sorted alphabetically or not
+   * Specifies whether the items are arranged in alphabetical order. If set to true, the list will be sorted from A to Z based on item names; if false, the original order will be preserved.
    * Default value: false
    */
   sorted?: boolean;
   /**
-   * Determines the sorting algorithm - ascending(asc) or descending(desc) if sort is enabled.
+   * Specifies the sorting order to be used when sort is enabled. Set to asc for ascending order or desc for descending order.
    * Default value: "asc"
    */
   sortDirection?: string;
   /**
-   * Determines the theme for the element. Themes define the look of the elements.
+   * Specifies the visual theme applied to the element, controlling its overall appearance such as colors, fonts, and styles. Themes allow for consistent and customizable styling across elements within the application.
    * Default value: ""
    */
   theme?: string;
   /**
-   * Determines the input type. Input type determines what input can be entered.
+   * Specifies the type of data that the input field accepts (e.g., text, number, email, password). Setting the input type controls the kind of input users can enter and may also influence the on-screen keyboard and validation behavior in web browsers.
    * Default value: ""
    */
   type?: string;
   /**
-   * If is set to true, the element cannot be focused.
+   * When set to true, this property prevents the element from being focused, either by keyboard navigation (such as using the Tab key) or by mouse interaction. As a result, the element is removed from the page's tab order and cannot receive input focus.
    * Default value: false
    */
   unfocusable?: boolean;
   /**
-   * Sets or gets the value of the element.
+   * Retrieves the current value of the element or assigns a new value to it. This property allows you to programmatically access or update the element's value, depending on whether it is used as a getter or a setter. Commonly used with form elements such as input, textarea, and select to read or change user input.
    * Default value: ""
    */
   value?: string;
@@ -172,7 +172,7 @@ export interface CheckInput extends BaseElement, CheckInputProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * This event is triggered when the selection is changed.
+   * This event is triggered whenever the user modifies the current selection. It occurs whenever the selected item(s) change, allowing you to respond to user interactions such as clicking, typing, or using keyboard navigation to alter the selection state.
 	* @param event. The custom event. Custom data event was created with: ev.detail(label, oldLabel, oldValue, value)
    *  label - The label of the new selected item.
    *  oldLabel - The label of the item that was previously selected before the event was triggered.
@@ -181,19 +181,19 @@ export interface CheckInput extends BaseElement, CheckInputProperties {
    */
   onChange: ((this: any, ev: Event) => any) | null;
   /**
-   * Closes the drop down.
+   * Closes the dropdown menu, hiding all currently visible options and returning the component to its default collapsed state.
    */
   close(): void;
   /**
-   * Ensures that the active ( selected ) item is always visible.
+   * Ensures that the currently active (selected) item within the list is always scrolled into view, so users can see and interact with their selection even when navigating through long or overflowing content.
    */
   ensureVisible(): void;
   /**
-   * Opens the drop down.
+   * Displays the dropdown menu, making its list of selectable options visible to the user.
    */
   open(): void;
   /**
-   * Selects the text inside the input or if it is <b>readonly</b> then the element is focused.
+   * Selects the text inside the input field. If the input field is set to <b>readonly</b>, the function does not select the text but instead sets focus to the element. This ensures interactive behavior depending on whether the input can be edited.
    */
   select(): void;
 }
@@ -208,7 +208,7 @@ declare global {
     }
 }
 
-/**Determines the position of the drop down button. */
+/**Specifies the placement of the dropdown button relative to its parent element (e.g., top, bottom, left, or right). This setting controls where the dropdown button will appear in the user interface. */
 export declare type DropDownButtonPosition = 'none' | 'left' | 'right' | 'top' | 'bottom';
-/**Determines the auto complete query mode. This property also determines the matching algorithm for the autocomplete operation. */
+/**Specifies the autocomplete query mode, which controls how search suggestions are generated and determines the matching algorithm used for the autocomplete operation. This property influences whether autocomplete suggestions are based on prefix matching, fuzzy matching, or other supported algorithms. */
 export declare type CheckInputQueryMode = 'contains' | 'containsIgnoreCase' | 'doesNotContain' | 'doesNotContainIgnoreCase' | 'equals' | 'equalsIgnoreCase' | 'startsWith' | 'startsWithIgnoreCase' | 'endsWith' | 'endsWithIgnoreCase';

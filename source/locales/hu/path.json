@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Hibás argumentum {{argumentName}} a(z) {{methodName}} metódusban.',
+'missingReference': '{{elementType}}: Hiányzó hivatkozás {{file}} fájlra a(z) {{methodName}} metódusban.',
+'notAPath': 'Nem elérési út beállítva',
+'validPath': 'Érvényes elérési út beállítva'
+}

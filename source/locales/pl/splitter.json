@@ -1,0 +1,7 @@
+{
+'invalidIndex': '{{elementType}}: metoda "{{method}}" akceptuje indeks typu liczba.',
+'indexOutOfBound': '{{elementType}}: indeks/indeksy poza zakresem w metodzie "{{method}}".',
+'invalidNode': '{{elementType}}: metoda "{{method}}" akceptuje obiekt lub tablicę obiektów jako drugi parametr.',
+'invalidSettings': '{{elementType}}: metoda "{{method}}" akceptuje ciąg znaków lub obiekt jako drugi parametr.',
+'invalidType': '{{elementType}}: "{{propertyName}}" musi być typu string lub number.'
+}

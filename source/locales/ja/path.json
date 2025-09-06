@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: メソッド {{methodName}} の引数 {{argumentName}} が正しくありません。',
+'missingReference': '{{elementType}}: メソッド {{methodName}} に {{file}} への参照がありません。',
+'notAPath': 'パスではありませんに設定されました',
+'validPath': '有効なパスに設定されました'
+}

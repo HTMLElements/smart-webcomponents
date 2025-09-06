@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Επαναφορά Κάμερας',
+'cameraMode': 'Λειτουργία Κάμερας',
+'panMode': 'Λειτουργία Μετακίνησης',
+'zoomMode': 'Λειτουργία Ζουμ',
+'saveImage': 'Αποθήκευση Εικόνας',
+'zoomOut': 'Σμίκρυνση',
+'zoomIn': 'Μεγέθυνση',
+'field': 'Πεδίο',
+'invalidSeries': 'smart-chart: Μη έγκυρη ιδιότητα: κάθε ομάδα σειρών πρέπει να έχει ιδιότητα "series" που πρέπει να είναι ένας έγκυρος πίνακας.',
+'invalidSeriesGroups': 'smart-chart: Μη έγκυρη ιδιότητα: απαιτείται ιδιότητα "seriesGroups" και πρέπει να είναι ένας έγκυρος πίνακας.',
+'invalidType': 'smart-chart: Μη έγκυρος τύπος σειράς "{{type}}".',
+'missingReference': 'smart-chart: Ελλείπει αναφορά σε {{files}}.',
+'missingType': 'smart-chart: Μη έγκυρη ιδιότητα: κάθε ομάδα σειρών πρέπει να έχει έγκυρη ιδιότητα "type".'
+}

@@ -1,0 +1,7 @@
+{
+'newItem': 'Trova...',
+'tagLabelOne': '{{value}} elemento selezionato',
+'tagLabel': '{{value}} elementi selezionati',
+'selectAll': 'Seleziona tutto',
+'unselectAll': 'Deseleziona tutto'
+}

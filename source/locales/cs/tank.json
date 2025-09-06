@@ -1,0 +1,6 @@
+{
+'missingReference': '{{elementType}}: Chybějící odkaz na {{files}}.',
+'significantPrecisionDigits': '{{elementType}}: vlastnosti significantDigits a precisionDigits nelze nastavit současně.',
+'invalidMinOrMax': '{{elementType}}: Neplatná hodnota {{property}}. Max nesmí být menší než Min.',
+'noInteger': '{{elementType}}: precisionDigits lze nastavit pouze u "floatingPoint" scaleType.'
+}

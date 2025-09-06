@@ -1,0 +1,7 @@
+{
+'newItem': 'Keresés...',
+'tagLabelOne': '{{value}} elem kiválasztva',
+'tagLabel': '{{value}} elem kiválasztva',
+'selectAll': 'Összes kiválasztása',
+'unselectAll': 'Összes kiválasztásának megszüntetése'
+}

@@ -1,0 +1,13 @@
+{
+'firstButton': '最初',
+'lastButton': '最後',
+'previousButton': '前へ',
+'nextButton': '次へ',
+'navigateToLabel': '移動先:',
+'pageSizeLabel': '表示数:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '…',
+'summaryString': 'の',
+'summaryPrefix': 'の',
+'summarySuffix': ''
+}

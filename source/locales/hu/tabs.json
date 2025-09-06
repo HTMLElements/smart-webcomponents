@@ -1,0 +1,7 @@
+{
+'ambiguousIndexes': 'smart-tabs: Kezdetben beállított smart-tab-item indexek bizonytalanok, és az HTML struktúra javára figyelmen kívül vannak hagyva.',
+'detailsObjectRequired': 'smart-tabs: Az "insert" módszerhez második argumentumként részletező objektumot kell átadni.',
+'invalidIndex': 'smart-tabs: A(z) "{{method}}" módszer csak szám típusú indexet fogad el.',
+'referenceNodeNotChild': 'smart-tabs: A megadott {{argument}} nem része ennek a smart-tabs elemnek.',
+'tabItemRequired': 'smart-tabs: A(z) "{{method}}" módszerhez "smart-tab-item" elemet kell argumentumként megadni.'
+}

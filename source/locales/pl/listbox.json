@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Nałożono nadpisujące właściwości {{property1}} i {{property2}}. Domyślnie używana jest właściwość "{{property1}}".',
+'invalidIndex': '{{elementType}}: Metoda "{{method}}" akceptuje indeks typu number lub tablicę liczb.',
+'indexOutOfBound': '{{elementType}}: Indeks/indeksy poza zakresem w metodzie "{{method}}".',
+'invalidItem': '{{elementType}}: Metoda "{{method}}" akceptuje obiekt lub tablicę obiektów jako swój drugi parametr.',
+'invalidSettings': '{{elementType}}: Metoda "{{method}}" akceptuje string lub obiekt jako swój drugi parametr.'
+}

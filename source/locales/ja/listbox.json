@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: 上書きされるプロパティ {{property1}} と {{property2}} が適用されました。デフォルトでは "{{property1}}" プロパティが使用されます。',
+'invalidIndex': '{{elementType}}: "{{method}}" メソッドは数値型または数値の配列型のインデックスを受け入れます。',
+'indexOutOfBound': '{{elementType}}: "{{method}}" メソッドでインデックスが範囲外です。',
+'invalidItem': '{{elementType}}: "{{method}}" メソッドは第2パラメータにオブジェクトまたはオブジェクトの配列を受け入れます。',
+'invalidSettings': '{{elementType}}: "{{method}}" メソッドは第2パラメータに文字列またはオブジェクトを受け入れます。'
+}

@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Reimposta fotocamera',
+'cameraMode': 'Modalità fotocamera',
+'panMode': 'Modalità panoramica',
+'zoomMode': 'Modalità zoom',
+'saveImage': 'Salva immagine',
+'zoomOut': 'Allontana',
+'zoomIn': 'Avvicina',
+'field': 'Campo',
+'invalidSeries': 'smart-chart: Proprietà non valida: ogni gruppo di serie deve avere una proprietà \'series\' che deve essere un array valido.',
+'invalidSeriesGroups': 'smart-chart: Proprietà non valida: la proprietà \'seriesGroups\' è obbligatoria e deve essere un array valido.',
+'invalidType': 'smart-chart: Tipo di serie non valido "{{type}}".',
+'missingReference': 'smart-chart: Riferimento mancante a {{files}}.',
+'missingType': 'smart-chart: Proprietà non valida: ogni gruppo di serie deve avere una proprietà \'type\' valida.'
+}

@@ -1,0 +1,6 @@
+{
+  "invalidSelector": "{{elementType}}: \"{{property}}\" pitää olla merkkijono, HTMLElement tai null.",
+  "htmlTemplateNotSuported": "{{elementType}}: Selain ei tue HTMLTemplate-elementtejä.",
+  "invalidTemplate": "{{elementType}}: \"{{property}}\"-ominaisuus hyväksyy merkkijonon, jonka on vastattava DOM:in HTMLTemplate-elementin id:tä.",
+  "invalidNode": "{{elementType}}: Virheellinen parametri \"{{node}}\" kutsuttaessa {{method}}."
+}

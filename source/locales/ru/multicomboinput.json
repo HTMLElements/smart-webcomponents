@@ -1,0 +1,7 @@
+{
+'newItem': 'Найти...',
+'tagLabelOne': '{{value}} элемент выбран',
+'tagLabel': '{{value}} элементов выбрано',
+'selectAll': 'Выбрать все',
+'unselectAll': 'Снять выбор со всех'
+}

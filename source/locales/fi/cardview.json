@@ -1,0 +1,21 @@
+{
+'addImage': 'Lisää',
+'applyOnce': 'Käytä kerran',
+'coverField': 'Kansikenttä',
+'crop': 'Rajaa',
+'customize': 'Muokkaa kortteja',
+'dateTabLabel': 'PÄIVÄMÄÄRÄ',
+'draggedRecord': 'Tietue {{id}}',
+'fit': 'Sovita',
+'imageUrl': 'Uuden kuvan URL:',
+'incorrectStructure': '"dataSource" on oltava Smart.DataAdapter-olio tai avain-arvoparitaulukko-olioiden taulukko.',
+'nextRecord': 'Seuraava tietue',
+'noCoverField': 'Ei kansikenttää',
+'noData': 'Ei näytettäviä tietoja',
+'noMatches': 'Ei osuvia tietueita',
+'now': 'Nyt',
+'previousRecord': 'Edellinen tietue',
+'removeImage': 'Poista',
+'timeTabLabel': 'AIKA',
+'toggleVisibility': 'Vaihda kentän näkyvyyttä'
+}

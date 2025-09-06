@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Nieprawidłowy argument {{argumentName}} w metodzie {{methodName}}.',
+'missingReference': '{{elementType}}: Brak odniesienia do {{file}} w metodzie {{methodName}}.',
+'notAPath': 'Ustawiono jako nie ścieżkę',
+'validPath': 'Ustawiono jako poprawną ścieżkę'
+}

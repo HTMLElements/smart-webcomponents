@@ -1,0 +1,13 @@
+{
+'firstButton': 'Первая',
+'lastButton': 'Последняя',
+'previousButton': 'Предыдущая',
+'nextButton': 'Следующая',
+'navigateToLabel': 'Перейти к:',
+'pageSizeLabel': 'Показать:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': 'из',
+'summaryPrefix': 'из',
+'summarySuffix': ''
+}

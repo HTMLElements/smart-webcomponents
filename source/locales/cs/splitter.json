@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}}: Metoda \"{{method}}\" přijímá index typu number.",
+  "indexOutOfBound": "{{elementType}}: Index/indexy mimo rozsah v metodě \"{{method}}\".",
+  "invalidNode": "{{elementType}}: Metoda \"{{method}}\" přijímá jako druhý parametr objekt nebo pole objektů.",
+  "invalidSettings": "{{elementType}}: Metoda \"{{method}}\" přijímá jako druhý parametr řetězec nebo objekt.",
+  "invalidType": "{{elementType}}: \"{{propertyName}}\" musí být typu string nebo number."
+}

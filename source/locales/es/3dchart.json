@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Restablecer cámara',
+'cameraMode': 'Modo cámara',
+'panMode': 'Modo panorámico',
+'zoomMode': 'Modo zoom',
+'saveImage': 'Guardar imagen',
+'zoomOut': 'Alejar',
+'zoomIn': 'Acercar',
+'field': 'Campo',
+'invalidSeries': 'smart-chart: Propiedad inválida: cada grupo de series debe tener una propiedad \'series\' que debe ser una matriz válida.',
+'invalidSeriesGroups': 'smart-chart: Propiedad inválida: la propiedad \'seriesGroups\' es obligatoria y debe ser una matriz válida.',
+'invalidType': 'smart-chart: Tipo de serie inválido "{{type}}".',
+'missingReference': 'smart-chart: Falta referencia a {{files}}.',
+'missingType': 'smart-chart: Propiedad inválida: cada grupo de series debe tener una propiedad \'type\' válida.'
+}

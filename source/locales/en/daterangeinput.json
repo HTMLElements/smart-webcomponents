@@ -1,0 +1,9 @@
+{
+'done': 'Done',
+                        'today': 'Today',
+                        'clear': 'Clear',
+                        'hours': 'Hours',
+                        'minutes': 'Minutes',
+                        'am': 'am',
+                        'pm': 'pm'
+}

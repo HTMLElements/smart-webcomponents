@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Overstyrende egenskaper {{property1}} og {{property2}} brukt. Egenskapen "{{property1}}" brukes som standard.',
+'invalidIndex': '{{elementType}}: "{{method}}" metoden godtar en indeks av typen nummer eller en liste av nummer.',
+'indexOutOfBound': '{{elementType}}: Utenfor gyldig indeks/indekser i "{{method}}" metoden.',
+'invalidItem': '{{elementType}}: "{{method}}" metoden godtar et objekt eller en liste av objekter som sitt andre parameter.',
+'invalidSettings': '{{elementType}}: "{{method}}" metoden godtar en streng eller et objekt som sitt andre parameter.'
+}

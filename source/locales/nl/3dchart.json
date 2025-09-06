@@ -1,0 +1,15 @@
+{
+'resetCamera': 'Camera resetten',
+'cameraMode': 'Camera modus',
+'panMode': 'Pan modus',
+'zoomMode': 'Zoom modus',
+'saveImage': 'Afbeelding opslaan',
+'zoomOut': 'Uitzoomen',
+'zoomIn': 'Inzoomen',
+'field': 'Veld',
+'invalidSeries': 'smart-chart: Ongeldige eigenschap: elke serie moet een \'series\' eigenschap hebben die een geldige array is.',
+'invalidSeriesGroups': 'smart-chart: Ongeldige eigenschap: de \'seriesGroups\' eigenschap is verplicht en moet een geldige array zijn.',
+'invalidType': 'smart-chart: Ongeldig serietype "{{type}}".',
+'missingReference': 'smart-chart: Ontbrekende referentie naar {{files}}.',
+'missingType': 'smart-chart: Ongeldige eigenschap: elke serie moet een geldige \'type\' eigenschap hebben.'
+}

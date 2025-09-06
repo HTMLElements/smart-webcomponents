@@ -1,0 +1,9 @@
+{
+  "invalidRadiusDataField": "smart-chart: Valor inválido de radiusDataField en [{{index}}]",
+  "invalidSeries": "smart-chart: Propiedad inválida: cada grupo de series debe tener una propiedad 'series' que debe ser un arreglo válido.",
+  "invalidSeriesGroups": "smart-chart: Propiedad inválida: se requiere la propiedad 'seriesGroups' y debe ser un arreglo válido.",
+  "invalidType": "smart-chart: Tipo de serie inválido \"{{type}}\".",
+  "missingAxis": "smart-chart: al grupo de series[{{index}}] le falta la definición de {{axis}}.",
+  "missingReference": "smart-chart: Falta referencia a {{files}}.",
+  "missingType": "smart-chart: Propiedad inválida: cada grupo de series debe tener una propiedad 'type' válida."
+}

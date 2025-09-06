@@ -1,0 +1,8 @@
+{
+  "accordionItemRequired": "{{elementType}}: \"{{method}}\" vereist een item van het type \"smart-accordion-item\".",
+  "indexOutOfBound": "{{elementType}}: Index/indexen buiten bereik in de \"{{method}}\" methode.",
+  "invalidSettings": "{{elementType}}: De \"{{method}}\" methode accepteert een string of een object als tweede parameter.",
+  "missingReference": "{{elementType}}: Ontbrekende verwijzing naar {{files}}.",
+  "noItems": "{{elementType}}: Geen kindelementen gevonden.",
+  "overridingProperties": "{{elementType}}: Overschrijvende eigenschappen {{property1}} en {{property2}} toegepast. De eigenschap \"{{property1}}\" wordt standaard gebruikt."
+}

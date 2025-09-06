@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Überschreibende Eigenschaften {{property1}} und {{property2}} angewendet. Die Eigenschaft "{{property1}}" wird standardmäßig verwendet.',
+'invalidIndex': '{{elementType}}: Die Methode "{{method}}" akzeptiert einen Index vom Typ Zahl oder ein Array von Zahlen.',
+'indexOutOfBound': '{{elementType}}: Index/Indizes außerhalb des zulässigen Bereichs in der Methode "{{method}}".',
+'invalidItem': '{{elementType}}: Die Methode "{{method}}" akzeptiert als zweiten Parameter ein Objekt oder ein Array von Objekten.',
+'invalidSettings': '{{elementType}}: Die Methode "{{method}}" akzeptiert als zweiten Parameter einen String oder ein Objekt.'
+}

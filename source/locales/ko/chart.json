@@ -1,0 +1,9 @@
+{
+'invalidRadiusDataField': 'smart-chart: [{{index}}]의 radiusDataField 값이 올바르지 않습니다.',
+'invalidSeries': 'smart-chart: 잘못된 속성: 각 시리즈 그룹에는 유효한 배열인 \'series\' 속성이 있어야 합니다.',
+'invalidSeriesGroups': 'smart-chart: 잘못된 속성: \'seriesGroups\' 속성은 필수이며 유효한 배열이어야 합니다.',
+'invalidType': 'smart-chart: 잘못된 시리즈 타입 "{{type}}"입니다.',
+'missingAxis': 'smart-chart: seriesGroup[{{index}}]에 {{axis}} 정의가 없습니다.',
+'missingReference': 'smart-chart: {{files}}에 대한 참조가 누락되었습니다.',
+'missingType': 'smart-chart: 잘못된 속성: 각 시리즈 그룹에는 유효한 \'type\' 속성이 있어야 합니다.'
+}

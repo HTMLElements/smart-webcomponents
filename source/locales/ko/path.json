@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: 메서드 {{methodName}}의 인수 {{argumentName}}가 올바르지 않습니다.',
+'missingReference': '{{elementType}}: 메서드 {{methodName}}에 {{file}}에 대한 참조가 누락되었습니다.',
+'notAPath': '경로가 아님으로 설정됨',
+'validPath': '유효한 경로로 설정됨'
+}

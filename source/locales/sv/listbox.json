@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Överskrivande egenskaper {{property1}} och {{property2}} tillämpade. Egenskapen "{{property1}}" används som standard.',
+'invalidIndex': '{{elementType}}: "{{method}}" metoden accepterar ett index av typen nummer eller en array av nummer.',
+'indexOutOfBound': '{{elementType}}: Index/Indexar utanför gränsen i "{{method}}" metoden.',
+'invalidItem': '{{elementType}}: "{{method}}" metoden accepterar ett objekt eller en array av objekt som dess andra parameter.',
+'invalidSettings': '{{elementType}}: "{{method}}" metoden accepterar en sträng eller ett objekt som dess andra parameter.'
+}

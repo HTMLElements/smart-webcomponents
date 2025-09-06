@@ -2,217 +2,217 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface ChartProperties {
   /**
-   * Sets or gets the animation mode. Animation is disabled when the property is set to 'none'.
+   * Specifies or retrieves the current animation mode. When the property is set to 'none', all animations are disabled and no animation effects will be applied. For other supported values, the property enables the corresponding animation behavior.
    * Default value: advanced
    */
   animation?: Animation | string;
   /**
-   * Determines the animation duration in milliseconds. The value must be between 0 and 5000. If it is outside of this range jqxChart will reset it to the default value.
+   * Specifies the duration of the animation, in milliseconds. Acceptable values range from 0 to 5000 inclusive. If a value outside this range is provided, jqxChart will automatically revert the animation duration to its default setting.
    * Default value: 300
    */
   animationDuration?: number;
   /**
-   * Sets the chart's background color. For example: '#DDFFE8'
+   * Specifies the color used for the chart’s background. Accepts any valid CSS color format, such as hexadecimal (e.g., '#DDFFE8'), RGB (e.g., 'rgb(221,255,232)'), or color names (e.g., 'lightgreen'). This property controls the area behind all chart elements, providing visual distinction or branding.
    * Default value: null
    */
   backgroundColor?: string | null;
   /**
-   * Sets the chart's background image. For example: 'https://www.htmlelements.com/demos/images/carousel-large-1.jpg'
+   * Specifies the URL of an image to be used as the chart’s background. For example, setting this property to 'https://www.htmlelements.com/demos/images/carousel-large-1.jpg' will display that image as the backdrop behind the chart elements. This allows you to customize the chart’s appearance with any image of your choice.
    * Default value: ""
    */
   backgroundImage?: string;
   /**
-   * Sets the chart's border color. For example: '#098700'
+   * Defines the color of the chart's border. Accepts any valid CSS color value, such as a hexadecimal code (e.g., "#098700"), RGB, RGBA, HSL, or named color. This property allows you to customize the appearance of the chart's outline to match your application's design.
    * Default value: null
    */
   borderLineColor?: string | null;
   /**
-   * Sets the chart's border line width.
+   * Specifies the thickness, in pixels, of the chart’s border line. A higher value results in a thicker border around the chart area.
    * Default value: 1
    */
   borderLineWidth?: number;
   /**
-   * Sets the caption (title) of the chart.
+   * Defines the main title displayed at the top of the chart, providing a concise summary or description of the chart's data or purpose.
    * Default value: "Caption"
    */
   caption?: string;
   /**
-   * Determines whether to clip plotted elements that overflow the axis boundaries.
+   * Specifies whether plotted elements that extend beyond the axis boundaries should be visually clipped (hidden) rather than drawn outside the plotting area. When enabled, any portion of the elements that overflows the axis limits will not be displayed.
    * Default value: true
    */
   clip?: boolean;
   /**
-   * Sets the chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'.
+   * Defines the color palette used for rendering the chart elements. jqxChart supports 32 built-in color schemes, which can be specified by setting this property to a string value from 'scheme01' to 'scheme32'. Each scheme applies a predefined set of colors to series, data points, and chart backgrounds, allowing you to easily customize the chart's appearance.
    * Default value: scheme01
    */
   colorScheme?: ChartColorScheme | string;
   /**
-   * Enables or disables overlapping of the column series.
+   * Controls whether the columns in the series are displayed overlapping each other or spaced apart. When enabled, columns from different series will overlap along the category axis. When disabled, columns will be shown side by side without overlapping.
    * Default value: false
    */
   columnSeriesOverlap?: boolean;
   /**
-   * Gets or sets the color of the crosshairs lines. The 'enableCrosshairs' property should be 'true'.
+   * Specifies the color of the crosshairs lines displayed on the chart. This property is only effective when the 'enableCrosshairs' option is set to 'true'. Use a valid CSS color value (e.g., hex, RGB, or color name) to customize the appearance of the crosshairs.
    * Default value: null
    */
   crosshairsColor?: string | null;
   /**
-   * Gets or sets the dash style of the crosshairs lines. The style is a series of numbers indicating line length followed by space length. The 'enableCrosshairs' property should be 'true'. For example: '3,3'
+   * Specifies the dash pattern for the crosshairs lines by accepting a comma-separated sequence of numbers. Each number represents the length (in pixels) of dashes and gaps, alternating between line segments and spaces. For example, a value of "3,3" will create a dashed line with 3 pixels of line followed by 3 pixels of space, repeating along the length of the crosshair. This property is only effective when the "enableCrosshairs" property is set to true.
    * Default value: "2,2"
    */
   crosshairsDashStyle?: string;
   /**
-   * Gets or sets the width of the crosshairs lines. The 'enableCrosshairs' property should be 'true'
+   * Sets or retrieves the thickness (in pixels) of the crosshair lines displayed on the chart. This property is only effective when 'enableCrosshairs' is set to 'true'; otherwise, the crosshair lines will not be shown regardless of this value.
    * Default value: 1
    */
   crosshairsLineWidth?: number;
   /**
-   * Sets the chart's data source.
+   * Specifies the data set to be used as the source for the chart, determining which values and categories will be displayed. This property should be assigned an array or object containing the chart’s data points.
    * Default value: 
    */
   dataSource?: any[];
   /**
-   * Sets the description text of the chart.
+   * Specifies the descriptive text that appears on the chart, providing context or additional information to help users understand the chart’s content and purpose.
    * Default value: "Description"
    */
   description?: string;
   /**
-   * Enables or disables the chart.
+   * Determines whether the chart is visible and interactive. Set to true to display and activate the chart; set to false to deactivate it.
    * Default value: false
    */
   disabled?: boolean;
   /**
-   * Determines the drawing function of jqxChart. When the property is set, you can override the jqxChart's drawing.
+   * Specifies the custom drawing function for jqxChart. By setting this property, you can override the default rendering behavior of jqxChart and implement your own drawing logic. This allows you to customize how chart elements are displayed according to your specific requirements.
    * Default value: null
    */
   draw?: any;
   /**
-   * Function for custom drawing before the caption and other chart elements.
+   * Allows you to draw custom graphics on the chart canvas before rendering the caption and all other standard chart elements. Use this function to add background visuals, watermarks, or any additional graphics that should appear beneath the main chart components.
    * Default value: null
    */
   drawBefore?: any;
   /**
-   * Determines if the animation of the axes text is enabled.
+   * Specifies whether the animation effect for the axis labels (text displayed along the axes) is enabled or disabled. When set to true, the axis labels will animate during rendering or updates; when set to false, the labels will remain static.
    * Default value: false
    */
   enableAxisTextAnimation?: boolean;
   /**
-   * Enables or disables the crosshairs lines. The lines are displayed in line and area series when you move over a data point.
+   * Controls the visibility of crosshair lines on the chart. When enabled, vertical and/or horizontal lines appear as you hover over data points in line and area series, helping to highlight the precise location of your cursor in relation to the data. Disabling this option will hide these crosshair indicators.
    * Default value: false
    */
   enableCrosshairs?: boolean;
   /**
-   * Determines whether to display the chart using greyscale colors.
+   * Specifies whether the chart should be rendered using greyscale colors instead of the default color palette. When enabled, all chart elements (such as bars, lines, or areas) will appear in shades of grey rather than in color.
    * Default value: false
    */
   greyScale?: boolean;
   /**
-   * Sets the legend's layout.
+   * Specifies the arrangement of items within the legend, such as displaying them in a vertical stack, a horizontal row, or a custom configuration. This property determines how legend entries are organized and presented in the chart.
    * Default value: [object Object]
    */
   legendLayout?: any;
   /**
-   * Sets or gets the unlockKey which unlocks the product.
+   * Sets or retrieves the unlockKey, a unique code or token required to unlock and access the full features of the product. Use this property to assign an unlock key for activation or to obtain the current key that allows authorized access.
    * Default value: ""
    */
   unlockKey?: string;
   /**
-   * Sets or gets the locale. Used in conjunction with the property messages.
+   * Specifies or retrieves the current locale setting, which determines the language and regional formatting used by the component. This property works together with the messages property to display localized text and content based on the selected locale.
    * Default value: "en"
    */
   locale?: string;
   /**
-   * Localization object containing culture-specific properties required for formatting currencies, numbers and dates.
+   * A comprehensive localization object that includes culture-specific properties necessary for accurately formatting currencies, numbers, dates, and other locale-dependent values according to regional conventions.
    * Default value: [object Object]
    */
   localization?: ChartLocalization;
   /**
-   * Sets or gets an object specifying strings used in the widget that can be localized. Used in conjunction with the property locale.
+   * Configures or retrieves an object containing all user-facing text strings displayed by the widget, enabling localization into different languages. This property is used together with the locale option to provide translated text based on the selected language, ensuring the widget’s interface adapts to users’ regional preferences.
    * Default value:    * [object Object]
    */
   messages?: any;
   /**
-   * Sets the left, top, right and bottom padding of the Chart.
+   * Specifies the amount of padding to apply to the left, top, right, and bottom sides of the Chart, creating space between the chart's content and its outer edges. This padding can be used to adjust the position of the chart elements and prevent them from overlapping with the chart's border or surrounding elements.
    * Default value: [object Object]
    */
   padding?: Padding;
   /**
-   * Determines the rendering engine used to display the chart. When the property is set to an empty string, jqxChart will automatically select an optimal rendering engine depending on the browser capabilities.
+   * Specifies the rendering engine responsible for displaying the chart. If this property is left as an empty string, jqxChart will automatically detect and select the most suitable rendering engine based on the browser’s capabilities (such as SVG, Canvas, or VML). This ensures optimal performance and compatibility across different browsers.
    * Default value: 
    */
   renderEngine?: ChartRenderEngine | string;
   /**
-   * Sets or gets a value indicating whether the Chart's layout is mirrored.
+   * Gets or sets a boolean value that determines whether the chart's layout is displayed in a mirrored (reversed) orientation. When set to true, all chart elements, such as axes and data series, are rendered as a mirror image of the default layout.
    * Default value: false
    */
   rightToLeft?: boolean;
   /**
-   * The seriesGroups property is used to describe all series displayed on the chart. jqxChart supports multiple series of different types and series grouping. Each series group may have its own Value Axis (Y-axis) which allows you to have values with different scales displayed on the same chart at the same time. It also allows you to display multiple series types together on the same chart. For example, you can display all series in one group as lines and the series in a second group as columns. seriesGroups is an array of objects where each object represents one group.
+   * The 'seriesGroups' property defines the configuration for all data series displayed within the chart. jqxChart supports visualizing multiple series, even of different chart types, by organizing them into groups called "series groups." Each series group is an object within the 'seriesGroups' array, and allows you to configure a set of series that will share common settings, such as the chart type, value axis (Y-axis), and appearance options.Importantly, each series group can have its own independently configured value axis (Y-axis). This flexibility enables you to plot data series with different value ranges or units on the same chart, as each group’s Y-axis can be scaled and labeled differently. Additionally, you can mix different visualization types (such as 'line', 'area', or 'column')—for instance, displaying one group as lines while representing another as columns—providing richer and more informative data presentations.In summary, the 'seriesGroups' property is an array where:- Each element is an object defining a series group.- Each group specifies its chart type and contains its own array of series, along with settings for axes, styling, and more.- Multiple series groups enable the chart to display series of different types and with different Y-axis scales simultaneously.This property is essential for building complex and customizable charts that present heterogeneous data in a clear and visually compelling way.
    * Default value: 
    */
   seriesGroups?: ChartSeriesGroup[];
   /**
-   * Determines whether to display the chart's border line.
+   * Specifies whether a visible border line should be rendered around the chart area. Set this option to true to display the border, or false to hide it.
    * Default value: true
    */
   showBorderLine?: boolean;
   /**
-   * Determines whether to show or hide the chart series legend.
+   * Specifies whether the chart series legend should be displayed or hidden. When set to true, the legend appears on the chart, providing information about each data series. When set to false, the legend is not shown, resulting in a cleaner chart without series labels.
    * Default value: true
    */
   showLegend?: boolean;
   /**
-   * Enables or disables the chart tooltips.
+   * Controls the visibility of chart tooltips by enabling or disabling them. When enabled, informational tooltips appear when users hover over or interact with chart elements; when disabled, tooltips are hidden and no additional information is displayed on interaction.
    * Default value: true
    */
   showToolTips?: boolean;
   /**
-   * Determines whether to show a composite tooltip containing information for all series.
+   * Specifies whether to display a single, combined tooltip that presents information for all data series at the hovered data point, instead of individual tooltips for each series.
    * Default value: false
    */
   showToolTipsOnAllSeries?: boolean;
   /**
-   * Determines the set of default background, line, text and band colors that will be used in the Chart.
+   * Specifies the default set of colors to be applied to various chart elements, including the background, lines, text, and bands. These colors will be automatically used for the corresponding components in the chart unless individually overridden, ensuring a consistent visual theme throughout the chart.
    * Default value: "light"
    */
   theme?: string;
   /**
-   * Sets the padding of the chart's title (caption).
+   * Specifies the amount of space (padding) applied around the chart’s title (caption), controlling the distance between the title text and the edges of its container. This affects the overall appearance and readability of the chart title.
    * Default value: [object Object]
    */
   titlePadding?: Padding;
   /**
-   * Tooltip background color.
+   * Specifies the background color of the tooltip element, which appears when a user hovers over or focuses on a target component. This setting determines the visual background behind the tooltip text.
    * Default value: null
    */
   toolTipBackground?: string | null;
   /**
-   * User defined tooltip text formatting callback function.
+   * Callback function that allows users to customize the formatting of tooltip text. This function receives relevant data and returns a formatted string or HTML to be displayed as the tooltip content.
    * Default value: null
    */
   toolTipFormatFunction?: {(value?: any, index?: number, series?: any): string};
   /**
-   * Determines the tooltip hide delay in milliseconds.
+   * Specifies the duration, in milliseconds, to wait before hiding the tooltip after a user interaction (such as mouseleave or blur) occurs. This delay allows the tooltip to remain visible for a short period before disappearing, improving the user experience.
    * Default value: 4000
    */
   toolTipHideDelay?: number;
   /**
-   * Tooltip line color.
+   * Specifies the color of the lines (borders or dividers) displayed within the tooltip, such as axis markers or grid lines, enhancing tooltip visibility and aesthetics. Accepts any valid CSS color value (e.g., hexadecimal, RGB, or color name).
    * Default value: null
    */
   toolTipLineColor?: string | null;
   /**
-   * Determines the tooltip show delay in milliseconds. Values may range from 0 to 10000 [ms].
+   * Specifies the delay, in milliseconds, before a tooltip appears after a triggering event (such as mouse hover or focus). Acceptable values range from 0 to 10,000 milliseconds (ms), where 0 shows the tooltip immediately and 10,000 sets a maximum delay of 10 seconds.
    * Default value: 300
    */
   toolTipShowDelay?: number;
   /**
-   * An object with settings about the Chart's y-axis (value axis).
+   * An object containing configuration settings for the chart's y-axis (also known as the value axis). This includes options for labels, scaling, grid lines, tick marks, axis titles, formatting, and other properties that control the appearance and behavior of the y-axis.
    * Default value: [object Object]
    */
   valueAxis?: ChartValueAxis;
   /**
-   * Sets the Chart's xAxis.
+   * Configures the x-axis properties of the chart, including its scale, labels, formatting, and appearance. This determines how data is displayed horizontally on the chart.
    * Default value: [object Object]
    */
   xAxis?: ChartXAxis;
@@ -225,63 +225,63 @@ export interface Chart extends BaseElement, ChartProperties {
   /* Get a member by its name */
   [name: string]: any;
   /**
-   * The event is raised when the user clicks on a chart annotation.
+   * This event is triggered whenever a user clicks on an annotation element within the chart. It allows developers to respond to user interactions with chart annotations, such as displaying additional information, modifying the annotation, or performing custom actions based on the selected annotation.
 	* @param event. The custom event.    */
   onAnnotationClick?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * The event is raised when the user moves the cursor above a chart annotation.
+   * The event is triggered when the user positions the cursor over a chart annotation, such as a label, marker, or highlighted region, within the chart area. This event can be used to implement interactive features like displaying tooltips, highlighting the annotation, or providing additional contextual information related to the annotation being hovered.
 	* @param event. The custom event.    */
   onAnnotationMouseenter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * The event is raised when the user moves the cursor out of a chart annotation.
+   * This event is triggered when the user's cursor moves outside the boundaries of a chart annotation. It allows developers to detect when the cursor leaves an annotation area, enabling actions such as hiding tooltips, resetting highlight effects, or performing cleanup tasks related to annotation interactions.
 	* @param event. The custom event.    */
   onAnnotationMouseleave?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * The event is raised when the user clicks on series element.
+   * The event is triggered when the user clicks on a series element within the chart. This allows developers to respond to user interactions with individual data points, such as displaying details, highlighting the selected element, or performing custom actions based on the clicked series element.
 	* @param event. The custom event.    */
   onClick: ((this: any, ev: Event) => any) | null;
   /**
-   * The event is raised when the user moves the cursor out of a series element.
+   * This event is triggered when the user's cursor leaves or exits a specific series element within the chart. It can be used to detect when a user stops hovering over a particular data series, allowing you to perform actions such as hiding tooltips, resetting styles, or updating related interface elements.
 	* @param event. The custom event.    */
   onMouseout: ((this: any, ev: Event) => any) | null;
   /**
-   * The event is raised when the user moves the cursor above a series element.
+   * The event is triggered when the user's cursor hovers over a series element, such as a bar, line, or data point, within the chart. This event typically occurs as soon as the cursor enters the boundary of a specific series element, allowing you to respond to user interactions like highlighting the element, displaying tooltips, or updating related UI components.
 	* @param event. The custom event.    */
   onMouseover: ((this: any, ev: Event) => any) | null;
   /**
-   * The event is raised after the chart's range selector position changes and after the chart ends rendering.
+   * This event is triggered after the position of the chart's range selector has changed and the chart has finished rendering. It allows you to perform additional actions or updates in response to user interactions with the range selector, ensuring that any changes occur only after the chart rendering is complete.
 	* @param event. The custom event.    */
   onRangeSelectionChanged?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * The event is raised when the chart's range selector position changes and before the chart starts rendering.
+   * The event is triggered whenever the position of the chart's range selector is modified, occurring just before the chart begins its rendering process. This allows you to intercept and handle any changes to the range selector position prior to the chart's visual update.
 	* @param event. The custom event.    */
   onRangeSelectionChanging?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * The event is raised when the chart begins rendering.
+   * The event is triggered when the chart rendering process starts, indicating that the chart is about to be displayed but has not yet completed drawing. This event can be used to execute custom code or display a loading indicator at the beginning of the chart rendering sequence.
 	* @param event. The custom event.    */
   onRefreshBegin?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * The event is raised when the chart finishes rendering.
+   * This event is triggered when the chart has completed rendering all of its visual elements and is fully displayed in the browser. At this point, the chart is ready for user interaction or for further manipulation through scripts.
 	* @param event. The custom event.    */
   onRefreshEnd?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
-   * The event is raised when a serie is toggled by a user click in the chart's legend or through an API call.
+   * This event is triggered whenever a series in the chart is shown or hidden, either by a user clicking on the series label in the chart's legend or programmatically via an API call. The event allows you to respond to visibility changes of chart series, enabling custom behaviors or updates when users interact with the legend or when series visibility is modified through code.
 	* @param event. The custom event.    */
   onToggle: ((this: any, ev: Event) => any) | null;
   /**
-   * Adds a new color sheme. If a scheme with the same name already exists, the method will update its colors.
+   * Enhances the application's color scheme functionality by allowing you to add a new color scheme. If a color scheme with the specified name already exists, this method updates its color values instead of creating a duplicate. This ensures seamless management and updating of color schemes within the application.
    * @param {string} schemeName. The name of the custom color scheme.
    * @param {any[]} colorsArray. An array of color values.
    */
   addColorScheme(schemeName: string, colorsArray: any[]): void;
   /**
-   * Returns the colors of a color scheme by name. If the scheme doesn't exist the method returns undefined.
+   * Returns the list of colors associated with the specified color scheme name. If the specified scheme does not exist, the method returns undefined.
    * @param {string} schemeName. The name of the color scheme.
    * @returns {any[]}
    */
   getColorScheme(schemeName: string): any[];
   /**
-   * Gets the rendered coordinates of a data point element.
+   * Retrieves the on-screen (pixel) coordinates where a specific data point element is rendered within the visualization. This allows you to determine the exact position of the data point as displayed to the user.
    * @param {number} groupIndex. Series group index.
    * @param {number} serieIndex. Series index.
    * @param {number} itemIndex. Item (data point) index.
@@ -289,100 +289,100 @@ export interface Chart extends BaseElement, ChartProperties {
    */
   getItemCoord(groupIndex: number, serieIndex: number, itemIndex: number): { x: number, y: number, width: number, height: number, center: number, centerOffset: number, innerRadius: number, outerRadius: number, selectedRadiusChange: number, fromAngle: number, toAngle: number, radius: number };
   /**
-   * Gets the number of rendered items in a specific serie.
+   * Retrieves the total count of items that have been rendered within a specified series. This includes only those items currently visible or present in the rendered output for the given series.
    * @param {number} groupIndex. Series group index.
    * @param {number} serieIndex. Series index.
    * @returns {number}
    */
   getItemsCount(groupIndex: number, serieIndex: number): number;
   /**
-   * Gets the rendered coordinates and values of the valueAxis labels.
+   * Retrieves the computed coordinates (positions) and corresponding values of the labels displayed along the valueAxis after rendering. This includes the exact pixel positions and the label values as they appear on the axis within the rendered chart, allowing for precise placement and manipulation of these labels in the UI.
    * @param {number} groupIndex. Series group index.
    * @returns {any}
    */
   getValueAxisLabels(groupIndex: number): any;
   /**
-   * Gets the rendered rectangle coordinates of the valueAxis of specific serie group.
+   * Retrieves the pixel coordinates and dimensions (as a rectangle) of the value axis associated with a specified series group after rendering. This includes the axis's position (x, y) and size (width, height) within the chart area, enabling precise alignment, customization, or interaction with the value axis for the targeted series group.
    * @param {number} groupIndex. Series group index.
    * @returns {DOMRect}
    */
   getValueAxisRect(groupIndex: number): DOMRect;
   /**
-   * Gets the valueAxis (vertical axis)'s value.
+   * Retrieves the current value of the vertical axis (valueAxis), which represents the data values plotted along the y-axis of the chart.
    * @param {number} offset. Vertical offset.
    * @param {number} groupIndex. Series group index.
    * @returns {any}
    */
   getValueAxisValue(offset: number, groupIndex: number): any;
   /**
-   * Gets the rendered coordinates and values of the xAxis labels.
+   * Retrieves the calculated screen coordinates and corresponding values for each label displayed on the xAxis after rendering. This includes both the label text/value and its precise position within the rendered chart, enabling advanced positioning or custom interactions with the xAxis labels.
    * @param {number} groupIndex. Series group index.
    * @returns {any}
    */
   getXAxisLabels(groupIndex: number): any;
   /**
-   * Gets the rendered rectangle coordinates of the x-Axis of specific serie group.
+   * Retrieves the rendered bounding rectangle coordinates (position and dimensions) of the x-axis associated with a specified series group. This includes properties such as top, left, width, and height, allowing precise placement and measurement of the x-axis within the chart layout.
    * @param {number} groupIndex. Series group index.
    * @returns {DOMRect}
    */
   getXAxisRect(groupIndex: number): DOMRect;
   /**
-   * Gets the xAxis (horizontal axis)'s value.
+   * Retrieves the current value or position of the xAxis (horizontal axis), representing the horizontal coordinate in the relevant context (such as a chart, graph, or UI component). This value typically corresponds to the data point's horizontal placement or the current state of the axis.
    * @param {number} offset. Horizontal offset.
    * @param {number} groupIndex. Series group index.
    * @returns {any}
    */
   getXAxisValue(offset: number, groupIndex: number): any;
   /**
-   * Hides a chart serie. The result of calling this function is same as the user unchecking the legend box of a chart serie.
+   * Programmatically hides a chart series from view. This function produces the same effect as if the user manually unchecked the corresponding series in the chart's legend, making the series invisible on the chart without deleting its data.
    * @param {number} groupIndex. Series group index.
    * @param {number} serieIndex. Series index.
    * @param {number} itemIndex?. Item (data point) index. Applicable to pie and donut series only.
    */
   hideSerie(groupIndex: number, serieIndex: number, itemIndex?: number): void;
   /**
-   * Hides the current tooltip if visible.
+   * Hides the currently displayed tooltip, if one is visible, by removing it from view and ensuring it is no longer accessible to the user.
    * @param {number} hideDelay?. Hide delay.
    */
   hideToolTip(hideDelay?: number): void;
   /**
-   * Prints the chart.
+   * Generates a printer-friendly version of the current chart and sends it to the print dialog, allowing the user to print a physical copy or save it as a PDF.
    */
   print(): void;
   /**
-   * Refreshes the content of the chart element after a property or data update.
+   * Automatically updates and redraws the chart element to reflect the latest changes made to its properties or data, ensuring the displayed information is current and accurate.
    */
   refresh(): void;
   /**
-   * Removes an existing color scheme. If the scheme does not exist, the method has no effect.
+   * Removes a specified color scheme from the system. If the color scheme with the given identifier does not exist, this method performs no action and does not produce an error.
    * @param {string} schemeName. The name of the custom color scheme.
    */
   removeColorScheme(schemeName: string): void;
   /**
-   * Exports the chart's content as JPEG image.
+   * Exports the current chart as a JPEG image file, capturing all visible chart elements and data in the image for easy sharing or saving.
    * @param {string} fileName?. File name.
    */
   saveAsJPEG(fileName?: string): void;
   /**
-   * Exports the chart's content as PNG image.
+   * Exports the current chart, including all visual elements and data, as a PNG image file. This allows users to save or download a snapshot of the chart in a widely supported image format for sharing, reporting, or offline use.
    * @param {string} fileName?. File name.
    */
   saveAsPNG(fileName?: string): void;
   /**
-   * Exports the chart's content as PDF.
+   * Generates and exports the current chart content as a PDF file, preserving the chart’s layout, styles, and data for easy sharing or printing.
    * @param {string} fileName?. File name.
    * @param {string} pageOrientation?. PDF page orientation. <strong>Possible values:</strong> 'portrait' (default), 'landscape'.
    */
   saveAsPDF(fileName?: string, pageOrientation?: string): void;
   /**
-   * Shows a hidden chart serie. The result of calling this function is same as the user checking the legend box of a chart serie.
+   * Reveals a previously hidden chart series, making it visible on the chart. Calling this function programmatically has the same effect as a user manually selecting (checking) the corresponding legend item to display the series.
    * @param {number} groupIndex. Series group index.
    * @param {number} serieIndex. Series index.
    * @param {number} itemIndex?. Item (data point) index. Applicable to pie and donut series only.
    */
   showSerie(groupIndex: number, serieIndex: number, itemIndex?: number): void;
   /**
-   * Shows a the tooltip for a particular data point.
+   * Displays a tooltip containing detailed information for a specific data point, typically when the user hovers over or selects that point on a chart or graph.
    * @param {number} groupIndex. Series group index.
    * @param {number} serieIndex. Series index.
    * @param {number} itemIndex. Item (data point) index.
@@ -391,49 +391,49 @@ export interface Chart extends BaseElement, ChartProperties {
    */
   showToolTip(groupIndex: number, serieIndex: number, itemIndex: number, showDelay?: number, hideDelay?: number): void;
   /**
-   * Updates the values of the chart series without full refresh of the entire chart. The method should be used for animation of frequently changing values.
+   * Efficiently updates the values of the chart series in real-time without requiring a complete chart re-render. This method is ideal for animating and reflecting rapidly changing data, ensuring smooth visual transitions and better performance during frequent updates.
    */
   update(): void;
 }
 
-/**Localization object containing culture-specific properties required for formatting currencies, numbers and dates. */
+/**A comprehensive localization object that includes culture-specific properties necessary for accurately formatting currencies, numbers, dates, and other locale-dependent values according to regional conventions. */
 export interface ChartLocalization {
   /**
-   * A symbol used to mark the border between the integer and fractional parts of a number.
+   * A character used as a decimal separator to clearly distinguish the integer part from the fractional part of a numerical value, such as a period (“.”) in 3.14 or a comma (“,”) in 3,14, depending on locale.
    * Default value: "."
    */
   decimalSeparator?: string;
   /**
-   * An object containing datetime formatting patterns.
+   * An object that defines various datetime formatting patterns, where each key represents a specific format type (e.g., ISO, short date, long date, time), and each value is the corresponding string pattern used to format or parse datetime values. These patterns can be utilized for consistent date and time representation throughout an application.
    * Default value: null
    */
   patterns?: any;
   /**
-   * A symbol used to mark the border between thousands, millions, billions, etc.
+   * A symbol that serves as a separator to group digits in large numbers, distinguishing thousands, millions, billions, and higher orders of magnitude for improved readability (e.g., the comma in "1,000,000" or the space in "1 000 000").
    * Default value: ""
    */
   thousandsSeparator?: string;
 }
 
-/**Sets the left, top, right and bottom padding of the Chart. */
+/**Specifies the amount of padding to apply to the left, top, right, and bottom sides of the Chart, creating space between the chart's content and its outer edges. This padding can be used to adjust the position of the chart elements and prevent them from overlapping with the chart's border or surrounding elements. */
 export interface Padding {
   /**
-   * Bottom padding of the Chart.
+   * Specifies the amount of space (padding) added to the bottom edge of the chart, creating distance between the chart content and the lower boundary of the chart area. Adjusting this value can help prevent labels, data points, or other chart elements from overlapping with the bottom of the chart.
    * Default value: 5
    */
   bottom?: number;
   /**
-   * Left padding of the Chart.
+   * Specifies the amount of space, in pixels, between the left edge of the chart and its content. This padding can help prevent chart elements from being cut off or overlapping with the chart's border.
    * Default value: 5
    */
   left?: number;
   /**
-   * Right padding of the Chart.
+   * Specifies the amount of space added to the right side of the chart area, creating padding between the chart content and the chart’s right edge. This helps control the layout and prevents elements from being clipped or overlapping with the chart boundary.
    * Default value: 5
    */
   right?: number;
   /**
-   * Top padding of the Chart.
+   * Specifies the amount of space (in pixels) added to the top of the chart, creating padding between the chart’s upper edge and its content or border. This helps control the visual separation and overall layout of the chart within its container.
    * Default value: 5
    */
   top?: number;
@@ -1843,7 +1843,7 @@ declare global {
 
 /**Sets the range selector chart's color pallete. jqxChart suppports 32 color schemes from 'scheme01' to 'scheme32'. */
 export declare type ChartColorScheme = 'scheme01' | 'scheme02' | 'scheme03' | 'scheme04' | 'scheme05' | 'scheme06' | 'scheme07' | 'scheme08' | 'scheme09' | 'scheme10' | 'scheme11' | 'scheme12' | 'scheme13' | 'scheme14' | 'scheme15' | 'scheme16' | 'scheme17' | 'scheme18' | 'scheme19' | 'scheme20' | 'scheme21' | 'scheme22' | 'scheme23' | 'scheme24' | 'scheme25' | 'scheme26' | 'scheme27' | 'scheme28' | 'scheme29' | 'scheme30' | 'scheme31' | 'scheme32' | 'custom';
-/**Determines the rendering engine used to display the chart. When the property is set to an empty string, jqxChart will automatically select an optimal rendering engine depending on the browser capabilities. */
+/**Specifies the rendering engine responsible for displaying the chart. If this property is left as an empty string, jqxChart will automatically detect and select the most suitable rendering engine based on the browser’s capabilities (such as SVG, Canvas, or VML). This ensures optimal performance and compatibility across different browsers. */
 export declare type ChartRenderEngine = null | 'SVG' | 'HTML5';
 /**Horizontal alignment. */
 export declare type HorizontalAlignment = 'left' | 'center' | 'right';

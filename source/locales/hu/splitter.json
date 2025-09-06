@@ -1,0 +1,7 @@
+{
+'invalidIndex': '{{elementType}}: A(z) "{{method}}" metódus szám típusú indexet fogad el.',
+'indexOutOfBound': '{{elementType}}: Határon kívüli index/indexek a(z) "{{method}}" metódusban.',
+'invalidNode': '{{elementType}}: A(z) "{{method}}" metódus második paraméterként egy objektumot vagy objektumok tömbjét fogadja el.',
+'invalidSettings': '{{elementType}}: A(z) "{{method}}" metódus második paraméterként egy karakterláncot vagy objektumot fogad el.',
+'invalidType': '{{elementType}}: A(z) "{{propertyName}}" típusa string vagy number kell, hogy legyen.'
+}

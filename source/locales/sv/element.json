@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Ogiltigt egenskapsnamn: \'{{name}}\'!',
+'propertyUnknownType': '\'{{name}}\' egenskap har en odefinierad \'type\' medlem!',
+'propertyInvalidValue': 'Ogiltigt värde för egenskapen \'{{name}}\'! Faktiskt värde: \'{{actualValue}}\', Förväntat värde: \'{{value}}\'!',
+'propertyInvalidValueType': 'Ogiltig typ för värdet av egenskapen \'{{name}}\'! Faktisk typ: \'{{actualType}}\', Förväntad typ: \'{{type}}\'!',
+'methodInvalidValueType': 'Ogiltig typ för argumentets värde i metoden \'{{name}}\'! Faktisk typ: \'{{actualType}}\', Förväntad typ: \'{{type}}\' för argument med index: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Ogiltigt antal argument i metoden \'{{name}}\'! Faktiskt antal argument: \'{{actualArgumentsCount}}\', Förväntat minst: \'{{argumentsCount}}\' argument!',
+'methodInvalidReturnType': 'Ogiltig returtyp för metoden \'{{name}}\'! Faktisk typ: \'{{actualType}}\', Förväntad typ: \'{{type}}\'!',
+'elementNotInDOM': 'Elementet finns inte i DOM! Vänligen lägg till elementet i DOM innan en metod anropas.',
+'moduleUndefined': 'Modul är odefinierad.',
+'missingReference': '{{elementType}}: Saknar referens till \'{{files}}\'.',
+'htmlTemplateNotSuported': '{{elementType}}: Webbläsaren stödjer inte HTMLTemplate-element.',
+'invalidTemplate': '{{elementType}}: Egenskapen \'{{property}}\' accepterar en sträng som måste matcha ID:t för ett HTMLTemplate-element från DOM.'
+}

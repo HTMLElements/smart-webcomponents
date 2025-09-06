@@ -1,0 +1,9 @@
+{
+'Example': '例: ',
+'IS_POSSIBLE': '可能です',
+'INVALID_COUNTRY_CODE': '無効な国コード',
+'TOO_SHORT': '短すぎます',
+'TOO_LONG': '長すぎます',
+'IS_POSSIBLE_LOCAL_ONLY': 'ローカルのみ可能です',
+'INVALID_LENGTH': '無効な長さ'
+}

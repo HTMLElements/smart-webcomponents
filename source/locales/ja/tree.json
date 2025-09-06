@@ -1,0 +1,4 @@
+{
+'noId': 'smart-tree: 要素にIDがない場合、状態の保存および読み込みは利用できません。',
+'dropDownPlaceholder': '選択してください...'
+}

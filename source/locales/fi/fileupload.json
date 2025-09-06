@@ -1,0 +1,13 @@
+{
+'browse': 'Selaa',
+'uploadFile': 'Lataa tiedosto',
+'cancelFile': 'Peruuta tiedosto',
+'pauseFile': 'Keskeytä tiedosto',
+'uploadAll': 'Lataa kaikki',
+'cancelAll': 'Peruuta kaikki',
+'pauseAll': 'Keskeytä kaikki',
+'totalFiles': 'Tiedostojen kokonaismäärä: ',
+'connectionError': '{{elementType}}: Tiedoston lataaminen vaatii yhteyden palvelimeen.',
+'wrongItemIndex': '{{elementType}}: Tiedostoluettelossa ei ole tiedostoa tällä indeksillä.',
+'tooLongFileName': '{{elementType}}: Tiedoston nimi on liian pitkä.'
+}

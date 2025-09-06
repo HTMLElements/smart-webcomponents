@@ -1,0 +1,7 @@
+{
+  "ambiguousIndexes": "smart-tabs: Gli indici inizialmente impostati per smart-tab-item sono ambigui e vengono ignorati a favore della struttura HTML.",
+  "detailsObjectRequired": "smart-tabs: Il metodo \"insert\" richiede che un oggetto dettagli venga passato come secondo argomento.",
+  "invalidIndex": "smart-tabs: Il metodo \"{{method}}\" accetta un indice di tipo numero.",
+  "referenceNodeNotChild": "smart-tabs: Il parametro passato {{argument}} non fa parte di questo elemento smart-tabs.",
+  "tabItemRequired": "smart-tabs: Il metodo \"{{method}}\" richiede che venga passato un elemento \"smart-tab-item\" come argomento."
+}

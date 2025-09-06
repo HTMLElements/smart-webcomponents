@@ -1,0 +1,7 @@
+{
+'newItem': '查找...',
+'tagLabelOne': '已选择 {{value}} 项',
+'tagLabel': '已选择 {{value}} 项',
+'selectAll': '全选',
+'unselectAll': '取消全选'
+}

@@ -35,6 +35,17 @@ smart-number-input {
   }
 }
 
+.smart-number-input[hide-spin-buttons] {
+  .nav {
+    display: none;
+  }
+
+  .smart-input {
+    width: 100%;
+    border-top-right-radius: var(--smart-border-top-right-radius);
+    border-bottom-right-radius: var(--smart-border-bottom-right-radius);
+  }
+}
 
 .smart-number-input {
   .nav {
@@ -134,4 +145,66 @@ smart-number-input {
       }
     }
   }
+}
+
+smart-number-pad {
+  display: block;
+  max-width: 320px;
+  font-family: var(--smart-font-family);
+  overflow: hidden;
+}
+
+.smart-numberpad-container {
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex !important;
+    width: 100%;
+    flex-direction: column;
+}
+
+.smart-numberpad-display {
+  font-size: 32px;
+  text-align: right;
+  display: block;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 2px solid var(--smart-border);
+  border-radius: 8px;
+  background: var(--smart-background);
+}
+
+.smart-numberpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.smart-numberpad-grid button {
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.smart-numberpad-grid button:hover {
+  background: var(--smart-ui-state-hover);
+}
+
+.smart-numberpad-action {
+  background: var(--smart-primary);
+  color: var(--smart-primary-color);
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+}
+
+.smart-numberpad-backspace {
+  background: var(--smart-error);
+  color: var(--smart-error-color);
+  font-weight: bold;
 }

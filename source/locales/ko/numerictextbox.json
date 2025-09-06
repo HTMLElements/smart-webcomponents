@@ -1,0 +1,9 @@
+{
+  "binary": "이진",
+  "octal": "8진",
+  "decimal": "10진",
+  "hexadecimal": "16진",
+  "integerOnly": "jqxNumericTextBox: 입력 형식이 정수일 때만 {{property}} 속성을 설정할 수 있습니다.",
+  "noInteger": "jqxNumericTextBox: 입력 형식이 정수일 때는 {{property}} 속성을 설정할 수 없습니다.",
+  "significantPrecisionDigits": "jqxNumericTextBox: significantDigits와 precisionDigits 속성은 동시에 설정할 수 없습니다."
+}

@@ -1,0 +1,7 @@
+{
+'ambiguousIndexes': 'smart-tabs: Изначально установленные индексы smart-tab-item неоднозначны и игнорируются в пользу структуры HTML.',
+'detailsObjectRequired': 'smart-tabs: Метод "insert" требует передачи объекта details в качестве второго аргумента.',
+'invalidIndex': 'smart-tabs: Метод "{{method}}" принимает индекс типа number.',
+'referenceNodeNotChild': 'smart-tabs: Переданный {{argument}} не является частью этого элемента smart-tabs.',
+'tabItemRequired': 'smart-tabs: Метод "{{method}}" требует передачи элемента "smart-tab-item" в качестве аргумента.'
+}

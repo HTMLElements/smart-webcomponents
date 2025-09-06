@@ -1,0 +1,9 @@
+{
+'invalidRadiusDataField': 'smart-chart: radiusDataField の値が無効です [{{index}}]',
+'invalidSeries': 'smart-chart: 無効なプロパティ: 各シリーズグループには有効な配列である \'series\' プロパティが必要です。',
+'invalidSeriesGroups': 'smart-chart: 無効なプロパティ: \'seriesGroups\' プロパティは必須で、有効な配列でなければなりません。',
+'invalidType': 'smart-chart: 無効なシリーズタイプ "{{type}}" です。',
+'missingAxis': 'smart-chart: seriesGroup[{{index}}] で {{axis}} 定義が欠落しています。',
+'missingReference': 'smart-chart: {{files}} への参照が欠落しています。',
+'missingType': 'smart-chart: 無効なプロパティ: 各シリーズグループには有効な \'type\' プロパティが必要です。'
+}

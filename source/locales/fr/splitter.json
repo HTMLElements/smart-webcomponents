@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}} : La méthode \"{{method}}\" accepte un index de type nombre.",
+  "indexOutOfBound": "{{elementType}} : Index/indexes hors limite dans la méthode \"{{method}}\".",
+  "invalidNode": "{{elementType}} : La méthode \"{{method}}\" accepte un objet ou un tableau d'objets comme deuxième paramètre.",
+  "invalidSettings": "{{elementType}} : La méthode \"{{method}}\" accepte une chaîne ou un objet comme deuxième paramètre.",
+  "invalidType": "{{elementType}} : \"{{propertyName}}\" doit être de type chaîne ou nombre."
+}

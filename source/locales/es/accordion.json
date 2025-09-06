@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" requiere un elemento de tipo "smart-accordion-item".',
+'indexOutOfBound': '{{elementType}}: Índice/índices fuera de rango en el método "{{method}}".',
+'invalidSettings': '{{elementType}}: El método "{{method}}" acepta una cadena o un objeto como segundo parámetro.',
+'missingReference': '{{elementType}}: Falta referencia a {{files}}.',
+'noItems': '{{elementType}}: No se encontraron elementos hijos.',
+'overridingProperties': '{{elementType}}: Se aplicaron propiedades sobrescritas {{property1}} y {{property2}}. La propiedad "{{property1}}" se usa por defecto.'
+}

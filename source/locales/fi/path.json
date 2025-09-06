@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Virheellinen argumentti {{argumentName}} metodissa {{methodName}}.',
+'missingReference': '{{elementType}}: Puuttuva viittaus tiedostoon {{file}} metodissa {{methodName}}.',
+'notAPath': 'Asetettu ei-poluksi',
+'validPath': 'Asetettu kelvolliseksi poluksi'
+}

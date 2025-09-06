@@ -1,0 +1,13 @@
+{
+'firstButton': 'İlk',
+'lastButton': 'Son',
+'previousButton': 'Önceki',
+'nextButton': 'Sonraki',
+'navigateToLabel': 'Git:',
+'pageSizeLabel': 'Göster:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': 'içinden',
+'summaryPrefix': 'içinden',
+'summarySuffix': ''
+}

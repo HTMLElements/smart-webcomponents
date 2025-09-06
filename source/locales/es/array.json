@@ -1,0 +1,3 @@
+{
+'callbackFunctionRequired': 'smart-array: Cuando el "type" es \'custom\', la función de devolución de llamada {{callback}} debe implementarse.'
+}

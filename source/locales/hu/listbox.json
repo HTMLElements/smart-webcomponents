@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Felülíró tulajdonságok {{property1}} és {{property2}} alkalmazva. Alapértelmezettként a "{{property1}}" tulajdonságot használja.',
+'invalidIndex': '{{elementType}}: A "{{method}}" metódus szám típusú vagy számokból álló tömb indexet fogad el.',
+'indexOutOfBound': '{{elementType}}: A "{{method}}" metódusban határon kívüli index/indexek találhatók.',
+'invalidItem': '{{elementType}}: A "{{method}}" metódus második paramétereként egy objektumot vagy objektumokból álló tömböt fogad el.',
+'invalidSettings': '{{elementType}}: A "{{method}}" metódus második paramétereként egy stringet vagy egy objektumot fogad el.'
+}

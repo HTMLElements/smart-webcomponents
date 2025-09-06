@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: 오버라이딩 속성 {{property1}} 및 {{property2}}가 적용되었습니다. 기본적으로 "{{property1}}" 속성이 사용됩니다.',
+'invalidIndex': '{{elementType}}: "{{method}}" 메서드는 숫자 타입의 인덱스 또는 숫자 배열을 허용합니다.',
+'indexOutOfBound': '{{elementType}}: "{{method}}" 메서드에서 인덱스가 범위를 벗어났습니다.',
+'invalidItem': '{{elementType}}: "{{method}}" 메서드는 두 번째 매개변수로 객체 또는 객체 배열을 허용합니다.',
+'invalidSettings': '{{elementType}}: "{{method}}" 메서드는 두 번째 매개변수로 문자열 또는 객체를 허용합니다.'
+}

@@ -1,0 +1,21 @@
+{
+'addImage': 'Hozzáadás',
+'applyOnce': 'Egyszer alkalmaz',
+'coverField': 'Borító mező',
+'crop': 'Vágás',
+'customize': 'Kártyák testreszabása',
+'dateTabLabel': 'DÁTUM',
+'draggedRecord': 'Rekord {{id}}',
+'fit': 'Illeszkedés',
+'imageUrl': 'Új kép URL:',
+'incorrectStructure': 'A "dataSource"-nak Smart.DataAdapter példányának vagy kulcs-érték párokat tartalmazó objektum tömbjének kell lennie.',
+'nextRecord': 'Következő rekord',
+'noCoverField': 'Nincs borító mező',
+'noData': 'Nincs megjeleníthető adat',
+'noMatches': 'Nincs egyező rekord',
+'now': 'Most',
+'previousRecord': 'Előző rekord',
+'removeImage': 'Eltávolítás',
+'timeTabLabel': 'IDŐ',
+'toggleVisibility': 'Mező láthatóságának váltása'
+}

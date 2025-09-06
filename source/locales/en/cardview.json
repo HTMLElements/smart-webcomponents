@@ -1,0 +1,21 @@
+{
+'addImage': 'Add',
+                        'applyOnce': 'Apply once',
+                        'coverField': 'Cover field',
+                        'crop': 'Crop',
+                        'customize': 'Customize cards',
+                        'dateTabLabel': 'DATE',
+                        'draggedRecord': 'Record {{id}}',
+                        'fit': 'Fit',
+                        'imageUrl': 'New image URL:',
+                        'incorrectStructure': '"dataSource" must be an instance of Smart.DataAdapter or an array of objects with key-value pairs.',
+                        'nextRecord': 'Next record',
+                        'noCoverField': 'No cover field',
+                        'noData': 'No data to display',
+                        'noMatches': 'No matched records',
+                        'now': 'Now',
+                        'previousRecord': 'Previous record',
+                        'removeImage': 'Remove',
+                        'timeTabLabel': 'TIME',
+                        'toggleVisibility': 'Toggle field visibility'
+}

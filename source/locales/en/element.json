@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Invalid property name: \'{{name}}\'!',
+                            'propertyUnknownType': '\'{{name}}\' property is with undefined \'type\' member!',
+                            'propertyInvalidValue': 'Invalid \'{{name}}\' property value! Actual value: \'{{actualValue}}\', Expected value: \'{{value}}\'!',
+                            'propertyInvalidValueType': 'Invalid \'{{name}}\' property value type! Actual type: \'{{actualType}}\', Expected type: \'{{type}}\'!',
+                            'methodInvalidValueType': 'Invalid \'{{name}}\' method argument value type! Actual type: \'{{actualType}}\', Expected type: \'{{type}}\' for argument with index: \'{{argumentIndex}}\'!',
+                            'methodInvalidArgumentsCount': 'Invalid \'{{name}}\' method arguments count! Actual arguments count: \'{{actualArgumentsCount}}\', Expected at least: \'{{argumentsCount}}\' argument(s)!',
+                            'methodInvalidReturnType': 'Invalid \'{{name}}\' method return type! Actual type: \'{{actualType}}\', Expected type: \'{{type}}\'!',
+                            'elementNotInDOM': 'Element does not exist in DOM! Please, add the element to the DOM, before invoking a method.',
+                            'moduleUndefined': 'Module is undefined.',
+                            'missingReference': '{{elementType}}: Missing reference to \'{{files}}\'.',
+                            'htmlTemplateNotSuported': '{{elementType}}: Web Browser doesn\'t support HTMLTemplate elements.',
+                            'invalidTemplate': '{{elementType}}: \'{{property}}\' property accepts a string that must match the id of an HTMLTemplate element from the DOM.'
+}

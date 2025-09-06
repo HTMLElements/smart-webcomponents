@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Přepsané vlastnosti {{property1}} a {{property2}} byly použity. Výchozí je vlastnost "{{property1}}".',
+'invalidIndex': '{{elementType}}: Metoda "{{method}}" přijímá index typu číslo nebo pole čísel.',
+'indexOutOfBound': '{{elementType}}: Index/indeksy mimo rozsah v metodě "{{method}}".',
+'invalidItem': '{{elementType}}: Metoda "{{method}}" přijímá jako druhý parametr objekt nebo pole objektů.',
+'invalidSettings': '{{elementType}}: Metoda "{{method}}" přijímá jako druhý parametr řetězec nebo objekt.'
+}

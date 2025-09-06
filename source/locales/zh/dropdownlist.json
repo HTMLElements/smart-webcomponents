@@ -1,0 +1,3 @@
+{
+'invalidNode': '{{elementType}}: 调用 {{method}} 时参数 "{{node}}" 无效。'
+}

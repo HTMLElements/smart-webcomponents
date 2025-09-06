@@ -1,0 +1,9 @@
+{
+  "binary": "2進数",
+  "octal": "8進数",
+  "decimal": "10進数",
+  "hexadecimal": "16進数",
+  "integerOnly": "jqxNumericTextBox: プロパティ{{property}}はinputFormatが整数の場合にのみ設定できます。",
+  "noInteger": "jqxNumericTextBox: プロパティ{{property}}はinputFormatが整数の場合には設定できません。",
+  "significantPrecisionDigits": "jqxNumericTextBox: プロパティsignificantDigitsとprecisionDigitsは同時に設定できません。"
+}

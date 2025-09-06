@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}}: Die Methode \"{{method}}\" akzeptiert einen Index vom Typ Nummer.",
+  "indexOutOfBound": "{{elementType}}: Index/Indizes außerhalb des Bereichs in der Methode \"{{method}}\".",
+  "invalidNode": "{{elementType}}: Die Methode \"{{method}}\" akzeptiert als zweiten Parameter ein Objekt oder ein Array von Objekten.",
+  "invalidSettings": "{{elementType}}: Die Methode \"{{method}}\" akzeptiert als zweiten Parameter einen String oder ein Objekt.",
+  "invalidType": "{{elementType}}: \"{{propertyName}}\" muss vom Typ Zeichenkette oder Nummer sein."
+}

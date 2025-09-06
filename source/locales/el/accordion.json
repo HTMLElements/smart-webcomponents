@@ -1,0 +1,8 @@
+{
+  "accordionItemRequired": "{{elementType}}: \"{{method}}\" απαιτεί ένα στοιχείο από τον τύπο \"smart-accordion-item\".",
+  "indexOutOfBound": "{{elementType}}: Ευρετήριο/ευρετήρια εκτός ορίων στην μέθοδο \"{{method}}\".",
+  "invalidSettings": "{{elementType}}: Η μέθοδος \"{{method}}\" αποδέχεται ως δεύτερο παράμετρο είτε μια συμβολοσειρά είτε ένα αντικείμενο.",
+  "missingReference": "{{elementType}}: Λείπει η αναφορά στο {{files}}.",
+  "noItems": "{{elementType}}: Δεν βρέθηκαν παιδικά στοιχεία.",
+  "overridingProperties": "{{elementType}}: Εφαρμόζονται οι αντικαταστάσεις ιδιοτήτων {{property1}} και {{property2}}. Η ιδιότητα \"{{property1}}\" χρησιμοποιείται από προεπιλογή."
+}

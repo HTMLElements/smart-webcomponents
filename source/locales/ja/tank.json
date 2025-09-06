@@ -1,0 +1,6 @@
+{
+  "missingReference": "{{elementType}}: {{files}}への参照がありません。",
+  "significantPrecisionDigits": "{{elementType}}: プロパティ significantDigits と precisionDigits は同時に設定できません。",
+  "invalidMinOrMax": "{{elementType}}: 無効な{{property}}の値です。最大値は最小値より小さくできません。",
+  "noInteger": "{{elementType}}: precisionDigits は \"floatingPoint\" の scaleType にのみ設定可能です。"
+}

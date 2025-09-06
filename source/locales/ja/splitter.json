@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}}: \"{{method}}\" メソッドは number 型のインデックスを受け付けます。",
+  "indexOutOfBound": "{{elementType}}: \"{{method}}\" メソッドでインデックスが範囲外です。",
+  "invalidNode": "{{elementType}}: \"{{method}}\" メソッドは第2引数にオブジェクトまたはオブジェクトの配列を受け付けます。",
+  "invalidSettings": "{{elementType}}: \"{{method}}\" メソッドは第2引数に文字列またはオブジェクトを受け付けます。",
+  "invalidType": "{{elementType}}: \"{{propertyName}}\" は文字列または数値型でなければなりません。"
+}

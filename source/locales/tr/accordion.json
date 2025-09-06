@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" "smart-accordion-item" tipinde bir öğe gerektirir.',
+'indexOutOfBound': '{{elementType}}: "{{method}}" yönteminde sınır dışı indeks/indeksler.',
+'invalidSettings': '{{elementType}}: "{{method}}" yöntemi ikinci parametre olarak bir dize veya nesne kabul eder.',
+'missingReference': '{{elementType}}: {{files}} için referans eksik.',
+'noItems': '{{elementType}}: Çocuk öğe bulunamadı.',
+'overridingProperties': '{{elementType}}: {{property1}} ve {{property2}} özelliklerinin üzerine yazıldı. Varsayılan olarak "{{property1}}" özelliği kullanılır.'
+}

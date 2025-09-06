@@ -2066,4 +2066,7 @@ body[theme="dark"],
     --smart-scheduler-event-resize-indicator-color: var(--smart-gantt-chart-timeline-task-resize-indicator-color);
     --smart-scheduler-event-resize-indicator-border-color: var(--smart-gantt-chart-timeline-task-resize-indicator-border-color);
     --smart-scheduler-restricted-background: 0 -245rem / 12px 12px linear-gradient(135deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent);
+    --smart-window-header-background: var(--smart-surface);
+    --smart-window-footer-background: var(--smart-surface);
+    
 }

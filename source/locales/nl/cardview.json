@@ -1,0 +1,21 @@
+{
+'addImage': 'Toevoegen',
+'applyOnce': 'Eenmaal toepassen',
+'coverField': 'Omslagveld',
+'crop': 'Bijsnijden',
+'customize': 'Kaarten aanpassen',
+'dateTabLabel': 'DATUM',
+'draggedRecord': 'Record {{id}}',
+'fit': 'Passend maken',
+'imageUrl': 'Nieuwe afbeeldings-URL:',
+'incorrectStructure': '"dataSource" moet een instantie van Smart.DataAdapter zijn of een array van objecten met sleutel-waardeparen.',
+'nextRecord': 'Volgend record',
+'noCoverField': 'Geen omslagveld',
+'noData': 'Geen gegevens om weer te geven',
+'noMatches': 'Geen overeenkomende records',
+'now': 'Nu',
+'previousRecord': 'Vorig record',
+'removeImage': 'Verwijderen',
+'timeTabLabel': 'TIJD',
+'toggleVisibility': 'Veldzichtbaarheid wisselen'
+}

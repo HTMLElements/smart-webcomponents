@@ -1,0 +1,13 @@
+{
+'browse': 'Procurar',
+'uploadFile': 'Enviar Arquivo',
+'cancelFile': 'Cancelar Arquivo',
+'pauseFile': 'Pausar Arquivo',
+'uploadAll': 'Enviar Todos',
+'cancelAll': 'Cancelar Todos',
+'pauseAll': 'Pausar Todos',
+'totalFiles': 'Total de arquivos: ',
+'connectionError': '{{elementType}}: O envio de arquivo requer conexão com o servidor.',
+'wrongItemIndex': '{{elementType}}: Não há arquivo com esse índice na lista de arquivos enviados.',
+'tooLongFileName': '{{elementType}}: O nome do arquivo é muito longo.'
+}

@@ -1,0 +1,9 @@
+{
+  "binary": "BINÁRIS",
+  "octal": "OKTÁLIS",
+  "decimal": "TIZENEGYES",
+  "hexadecimal": "HEXADECIMÁLIS",
+  "integerOnly": "jqxNumericTextBox: A(z) {{property}} tulajdonság csak akkor állítható be, ha az inputFormat egész szám.",
+  "noInteger": "jqxNumericTextBox: A(z) {{property}} tulajdonság nem állítható be, ha az inputFormat egész szám.",
+  "significantPrecisionDigits": "jqxNumericTextBox: A significantDigits és precisionDigits tulajdonságok nem állíthatók be egyszerre."
+}

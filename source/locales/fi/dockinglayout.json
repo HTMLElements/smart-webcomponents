@@ -1,0 +1,8 @@
+{
+'invalidNode': '{{elementType}}: "{{method}}" menetelmä hyväksyy Smart.TabsWindow-instanssin',
+'invalidNodeRemove': '{{elementType}}: "{{method}}" menetelmä hyväksyy Smart.TabsWindow-instanssin, joka on DockingLayoutin lapsi.',
+'invalidNodeType': '{{elementType}}: Menetelmä "{{method}}" vaatii "smart-tabs-window" elementin argumenttina.',
+'invalidTargetNode': '{{elementType}}: Menetelmä "{{method}}" vaatii indeksin kohteelle, joka ei ole piilotettu/suljettu. Vain näkyvät kohteet, jotka ovat Layoutin osana, ovat voimassa.',
+'invalidIndex': '{{elementType}}: "{{method}}" menetelmä hyväksyy indeksin, jonka tyyppi on numero.',
+'noId': 'jqxDockingLayout vaatii tunnuksen (id) tilan tallentamiseksi/lataamiseksi.'
+}

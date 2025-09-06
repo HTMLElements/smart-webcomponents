@@ -1,0 +1,3 @@
+{
+'callbackFunctionRequired': 'smart-array: Όταν το "type" είναι \'custom\', η συνάρτηση callback {{callback}} πρέπει να υλοποιηθεί.'
+}

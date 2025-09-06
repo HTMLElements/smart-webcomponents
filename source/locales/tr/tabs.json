@@ -1,0 +1,7 @@
+{
+"ambiguousIndexes": "smart-tabs: Başlangıçta ayarlanmış smart-tab-item indeksleri belirsizdir ve HTML yapısına öncelik verilerek yoksayılır.",
+"detailsObjectRequired": "smart-tabs: \"insert\" yöntemi, ikinci argüman olarak bir details Nesnesi geçirilmesini gerektirir.",
+"invalidIndex": "smart-tabs: \"{{method}}\" yöntemi sayı türünde bir indeks kabul eder.",
+"referenceNodeNotChild": "smart-tabs: Aktarılan {{argument}} bu smart-tabs öğesinin bir parçası değildir.",
+"tabItemRequired": "smart-tabs: \"{{method}}\" yöntemi, bir argüman olarak \"smart-tab-item\" öğesinin geçirilmesini gerektirir."
+}

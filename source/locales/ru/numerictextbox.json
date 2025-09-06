@@ -1,0 +1,9 @@
+{
+  "binary": "Двоичный",
+  "octal": "Восьмеричный",
+  "decimal": "Десятичный",
+  "hexadecimal": "Шестнадцатеричный",
+  "integerOnly": "jqxNumericTextBox: Свойство {{property}} может быть установлено только если inputFormat является целым числом.",
+  "noInteger": "jqxNumericTextBox: Свойство {{property}} не может быть установлено если inputFormat является целым числом.",
+  "significantPrecisionDigits": "jqxNumericTextBox: Свойства significantDigits и precisionDigits не могут быть установлены одновременно."
+}

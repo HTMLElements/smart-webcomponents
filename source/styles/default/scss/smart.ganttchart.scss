@@ -1983,5 +1983,11 @@ smart-gantt-chart>.smart-container,
   }
 }
 
+.smart-gantt-chart-critical-task .smart-timeline-task-fill{
+  background: var(--smart-error) !important;
+}
 
+.smart-gantt-chart-critical-task .smart-timeline-task-label {
+  color: var(--smart-error-color) !important;
+}
 @import 'rtl/_ganttchart';

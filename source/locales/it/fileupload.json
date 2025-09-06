@@ -1,0 +1,13 @@
+{
+'browse': 'Sfoglia',
+'uploadFile': 'Carica file',
+'cancelFile': 'Annulla file',
+'pauseFile': 'Metti in pausa file',
+'uploadAll': 'Carica tutto',
+'cancelAll': 'Annulla tutto',
+'pauseAll': 'Metti tutto in pausa',
+'totalFiles': 'File totali: ',
+'connectionError': '{{elementType}}: Il caricamento del file richiede la connessione al server.',
+'wrongItemIndex': '{{elementType}}: Non esiste un file con questo indice nell\'elenco dei file caricati.',
+'tooLongFileName': '{{elementType}}: Il nome del file è troppo lungo.'
+}

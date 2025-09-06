@@ -1,0 +1,6 @@
+{
+'missingReference': '{{elementType}}: Brak odwołania do {{files}}.',
+'significantPrecisionDigits': '{{elementType}}: właściwości significantDigits i precisionDigits nie mogą być ustawione jednocześnie.',
+'invalidMinOrMax': '{{elementType}}: Nieprawidłowa wartość {{property}}. Maksimum nie może być mniejsze niż minimum.',
+'noInteger': '{{elementType}}: precisionDigits można ustawić tylko w przypadku scaleType "floatingPoint".'
+}

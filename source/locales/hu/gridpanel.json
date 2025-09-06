@@ -1,0 +1,14 @@
+{
+'apply': 'Rendben',
+'booleanFirst': '☐',
+'booleanLast': '☑',
+'cancel': 'Mégse',
+'dateFirst': '1',
+'dateLast': '9',
+'from': 'tól',
+'numberFirst': '1',
+'numberLast': '9',
+'stringFirst': 'A',
+'stringLast': 'Z',
+'thenBy': 'azután'
+}

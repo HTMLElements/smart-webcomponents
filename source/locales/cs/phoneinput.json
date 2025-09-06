@@ -1,0 +1,9 @@
+{
+'Example': 'Příklad: ',
+                        'IS_POSSIBLE': 'Je možné',
+                        'INVALID_COUNTRY_CODE': 'Neplatný kód země',
+                        'TOO_SHORT': 'Příliš krátké',
+                        'TOO_LONG': 'Příliš dlouhé',
+                        'IS_POSSIBLE_LOCAL_ONLY': 'Možné pouze lokálně',
+                        'INVALID_LENGTH': 'Neplatná délka'
+}

@@ -1,0 +1,13 @@
+{
+'browse': 'Gennemse',
+'uploadFile': 'Upload fil',
+'cancelFile': 'Annuller fil',
+'pauseFile': 'Sæt fil på pause',
+'uploadAll': 'Upload alle',
+'cancelAll': 'Annuller alle',
+'pauseAll': 'Sæt alle på pause',
+'totalFiles': 'Samlede filer: ',
+'connectionError': '{{elementType}}: Filupload kræver forbindelse til serveren.',
+'wrongItemIndex': '{{elementType}}: Der findes ingen fil med dette indeks på listen over uploadede filer.',
+'tooLongFileName': '{{elementType}}: Filnavnet er for langt.'
+}

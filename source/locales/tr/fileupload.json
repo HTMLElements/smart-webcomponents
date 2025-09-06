@@ -1,0 +1,13 @@
+{
+'browse': 'Gözat',
+'uploadFile': 'Dosya Yükle',
+'cancelFile': 'Dosyayı İptal Et',
+'pauseFile': 'Dosyayı Duraklat',
+'uploadAll': 'Hepsini Yükle',
+'cancelAll': 'Hepsini İptal Et',
+'pauseAll': 'Hepsini Duraklat',
+'totalFiles': 'Toplam dosya: ',
+'connectionError': '{{elementType}}: Dosya Yükleme için sunucuya bağlantı gereklidir.',
+'wrongItemIndex': '{{elementType}}: Yüklenen dosyalar listesinde bu indekste dosya yok.',
+'tooLongFileName': '{{elementType}}: Dosya adı çok uzun.'
+}

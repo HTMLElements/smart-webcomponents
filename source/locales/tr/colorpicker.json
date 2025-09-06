@@ -1,0 +1,12 @@
+{
+'redPrefix': 'K:',
+'greenPrefix': 'Ye:',
+'bluePrefix': 'M:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Alfa:',
+'ok': 'TAMAM',
+'cancel': 'İPTAL',
+'customColor': 'ÖZEL RENK',
+'standardColors': 'Standart renkler',
+'themeColors': 'Tema renkleri'
+}

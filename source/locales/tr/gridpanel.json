@@ -1,0 +1,14 @@
+{
+'apply': 'Tamam',
+'booleanFirst': '☐',
+'booleanLast': '☑',
+'cancel': 'İptal',
+'dateFirst': '1',
+'dateLast': '9',
+'from': 'den',
+'numberFirst': '1',
+'numberLast': '9',
+'stringFirst': 'A',
+'stringLast': 'Z',
+'thenBy': 'sonra'
+}

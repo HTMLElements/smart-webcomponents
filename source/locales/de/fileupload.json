@@ -1,0 +1,13 @@
+{
+'browse': 'Durchsuchen',
+'uploadFile': 'Datei hochladen',
+'cancelFile': 'Datei abbrechen',
+'pauseFile': 'Datei pausieren',
+'uploadAll': 'Alle hochladen',
+'cancelAll': 'Alle abbrechen',
+'pauseAll': 'Alle pausieren',
+'totalFiles': 'Gesamtzahl der Dateien: ',
+'connectionError': '{{elementType}}: Zum Hochladen von Dateien ist eine Verbindung zum Server erforderlich.',
+'wrongItemIndex': '{{elementType}}: Es gibt keine Datei mit diesem Index in der Liste der hochgeladenen Dateien.',
+'tooLongFileName': '{{elementType}}: Der Dateiname ist zu lang.'
+}

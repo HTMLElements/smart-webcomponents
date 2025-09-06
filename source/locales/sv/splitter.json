@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}}: \"{{method}}\" metoden accepterar ett index av typen nummer.",
+  "indexOutOfBound": "{{elementType}}: Index/Indexar utanför gränsen i \"{{method}}\" metoden.",
+  "invalidNode": "{{elementType}}: \"{{method}}\" metoden accepterar ett objekt eller en array av objekt som sin andra parameter.",
+  "invalidSettings": "{{elementType}}: \"{{method}}\" metoden accepterar en sträng eller ett objekt som sin andra parameter.",
+  "invalidType": "{{elementType}}: \"{{propertyName}}\" måste vara av typen sträng eller nummer."
+}

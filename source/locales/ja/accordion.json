@@ -1,0 +1,8 @@
+{
+'accordionItemRequired': '{{elementType}}: "{{method}}" は type "smart-accordion-item" のアイテムを必要とします。',
+                        'indexOutOfBound': '{{elementType}}: "{{method}}" メソッドで範囲外のインデックス/インデックスが指定されました。',
+                        'invalidSettings': '{{elementType}}: "{{method}}" メソッドの第2パラメーターは文字列またはオブジェクトで指定する必要があります。',
+                        'missingReference': '{{elementType}}: {{files}} への参照がありません。',
+                        'noItems': '{{elementType}}: 子要素が見つかりません。',
+                        'overridingProperties': '{{elementType}}: プロパティ {{property1}} と {{property2}} が上書きされました。デフォルトで "{{property1}}" プロパティが使用されます。'
+}

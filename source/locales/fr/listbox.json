@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}} : Propriétés de remplacement {{property1}} et {{property2}} appliquées. La propriété "{{property1}}" est utilisée par défaut.',
+'invalidIndex': '{{elementType}} : La méthode "{{method}}" accepte un index de type nombre ou un tableau de nombres.',
+'indexOutOfBound': '{{elementType}} : Index(s) hors limites dans la méthode "{{method}}".',
+'invalidItem': '{{elementType}} : La méthode "{{method}}" accepte un objet ou un tableau d\'objets en second paramètre.',
+'invalidSettings': '{{elementType}} : La méthode "{{method}}" accepte une chaîne ou un objet en second paramètre.'
+}

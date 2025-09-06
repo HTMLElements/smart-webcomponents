@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Nesprávný argument {{argumentName}} v metodě {{methodName}}.',
+'missingReference': '{{elementType}}: Chybějící odkaz na {{file}} v metodě {{methodName}}.',
+'notAPath': 'Nastaveno na není cesta',
+'validPath': 'Nastaveno na platnou cestu'
+}

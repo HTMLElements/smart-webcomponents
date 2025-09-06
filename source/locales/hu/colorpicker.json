@@ -1,0 +1,12 @@
+{
+'redPrefix': 'V:',
+'greenPrefix': 'Z:',
+'bluePrefix': 'K:',
+'hexPrefix': '#:',
+'alphaPrefix': 'Átlátszóság:',
+'ok': 'OK',
+'cancel': 'MÉGSE',
+'customColor': 'EGYEDI SZÍN',
+'standardColors': 'Szabványos színek',
+'themeColors': 'Témaszínek'
+}

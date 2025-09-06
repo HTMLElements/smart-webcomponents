@@ -1,0 +1,9 @@
+{
+'Example': 'Eksempel: ',
+'IS_POSSIBLE': 'Er mulig',
+'INVALID_COUNTRY_CODE': 'Ugyldig landskode',
+'TOO_SHORT': 'For kort',
+'TOO_LONG': 'For lang',
+'IS_POSSIBLE_LOCAL_ONLY': 'Er bare lokalt mulig',
+'INVALID_LENGTH': 'Ugyldig lengde'
+}

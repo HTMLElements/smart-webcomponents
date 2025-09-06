@@ -1,0 +1,21 @@
+{
+'addImage': 'Προσθήκη',
+'applyOnce': 'Εφαρμογή μία φορά',
+'coverField': 'Πεδίο εξωφύλλου',
+'crop': 'Περικοπή',
+'customize': 'Προσαρμογή καρτών',
+'dateTabLabel': 'ΗΜΕΡΟΜΗΝΙΑ',
+'draggedRecord': 'Εγγραφή {{id}}',
+'fit': 'Προσαρμογή',
+'imageUrl': 'Νέο URL εικόνας:',
+'incorrectStructure': '"dataSource" πρέπει να είναι instance του Smart.DataAdapter ή πίνακας αντικειμένων με ζεύγη κλειδιού-τιμής.',
+'nextRecord': 'Επόμενη εγγραφή',
+'noCoverField': 'Δεν υπάρχει πεδίο εξωφύλλου',
+'noData': 'Δεν υπάρχουν δεδομένα για εμφάνιση',
+'noMatches': 'Δεν βρέθηκαν αντιστοιχίες',
+'now': 'Τώρα',
+'previousRecord': 'Προηγούμενη εγγραφή',
+'removeImage': 'Αφαίρεση',
+'timeTabLabel': 'ΩΡΑ',
+'toggleVisibility': 'Εναλλαγή ορατότητας πεδίου'
+}

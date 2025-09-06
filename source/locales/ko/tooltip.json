@@ -1,0 +1,6 @@
+{
+'invalidSelector': '{{elementType}}: "{{property}}"은(는) 문자열, HTMLElement 또는 null이어야 합니다.',
+'htmlTemplateNotSuported': '{{elementType}}: 브라우저가 HTMLTemplate 요소를 지원하지 않습니다.',
+'invalidTemplate': '{{elementType}}: "{{property}}" 속성은 DOM의 HTMLTemplate 요소의 id와 일치하는 문자열이어야 합니다.',
+'invalidNode': '{{elementType}}: {{method}} 호출 시 잘못된 매개변수 "{{node}}"입니다.'
+}

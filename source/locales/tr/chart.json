@@ -1,0 +1,9 @@
+{
+  "invalidRadiusDataField": "smart-chart: Geçersiz radiusDataField değeri [{{index}}] konumunda",
+  "invalidSeries": "smart-chart: Geçersiz özellik: her seri grubunun geçerli bir dizi olması gereken bir 'series' özelliği olmalıdır.",
+  "invalidSeriesGroups": "smart-chart: Geçersiz özellik: 'seriesGroups' özelliği gereklidir ve geçerli bir dizi olmalıdır.",
+  "invalidType": "smart-chart: Geçersiz seri türü \"{{type}}\".",
+  "missingAxis": "smart-chart: seriesGroup[{{index}}] için {{axis}} tanımı eksik.",
+  "missingReference": "smart-chart: {{files}} referansı eksik.",
+  "missingType": "smart-chart: Geçersiz özellik: her seri grubunun geçerli bir 'type' özelliği olmalıdır."
+}

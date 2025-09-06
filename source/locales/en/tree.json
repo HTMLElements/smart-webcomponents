@@ -1,0 +1,4 @@
+{
+'noId': 'smart-tree: Saving and loading the element\'s state are not available if the element has no id.',
+                        'dropDownPlaceholder': 'Please select...'
+}

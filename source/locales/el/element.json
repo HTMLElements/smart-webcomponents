@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Μη έγκυρο όνομα ιδιότητας: \'{{name}}\'!',
+'propertyUnknownType': 'Η ιδιότητα \'{{name}}\' δεν έχει ορισμένο μέλος \'τύπου\'!',
+'propertyInvalidValue': 'Μη έγκυρη τιμή ιδιότητας \'{{name}}\'! Πραγματική τιμή: \'{{actualValue}}\', Αναμενόμενη τιμή: \'{{value}}\'!',
+'propertyInvalidValueType': 'Μη έγκυρος τύπος τιμής ιδιότητας \'{{name}}\'! Πραγματικός τύπος: \'{{actualType}}\', Αναμενόμενος τύπος: \'{{type}}\'!',
+'methodInvalidValueType': 'Μη έγκυρος τύπος τιμής ορίσματος μεθόδου \'{{name}}\'! Πραγματικός τύπος: \'{{actualType}}\', Αναμενόμενος τύπος: \'{{type}}\' για όρισμα με δείκτη: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Μη έγκυρος αριθμός ορισμάτων μεθόδου \'{{name}}\'! Πραγματικός αριθμός ορισμάτων: \'{{actualArgumentsCount}}\', Αναμενόμενος τουλάχιστον: \'{{argumentsCount}}\' ορισμός(-οί)!',
+'methodInvalidReturnType': 'Μη έγκυρος τύπος επιστροφής μεθόδου \'{{name}}\'! Πραγματικός τύπος: \'{{actualType}}\', Αναμενόμενος τύπος: \'{{type}}\'!',
+'elementNotInDOM': 'Το στοιχείο δεν υπάρχει στο DOM! Παρακαλώ, προσθέστε το στοιχείο στο DOM πριν καλέσετε μια μέθοδο.',
+'moduleUndefined': 'Το module δεν έχει οριστεί.',
+'missingReference': '{{elementType}}: Έλλειψη αναφοράς σε \'{{files}}\'.',
+'htmlTemplateNotSuported': '{{elementType}}: Ο φυλλομετρητής δεν υποστηρίζει στοιχεία HTMLTemplate.',
+'invalidTemplate': '{{elementType}}: Η ιδιότητα \'{{property}}\' δέχεται μια συμβολοσειρά που πρέπει να ταιριάζει με το id ενός στοιχείου HTMLTemplate από το DOM.'
+}

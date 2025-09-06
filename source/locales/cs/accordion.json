@@ -1,0 +1,8 @@
+{
+  "accordionItemRequired": "{{elementType}}: \"{{method}}\" vyžaduje položku typu \"smart-accordion-item\".",
+  "indexOutOfBound": "{{elementType}}: Index/indexy mimo rozsah ve metodě \"{{method}}\".",
+  "invalidSettings": "{{elementType}}: Metoda \"{{method}}\" přijímá jako druhý parametr řetězec nebo objekt.",
+  "missingReference": "{{elementType}}: Chybí reference na {{files}}.",
+  "noItems": "{{elementType}}: Nebyly nalezeny žádné podřízené prvky.",
+  "overridingProperties": "{{elementType}}: Použity jsou přepsané vlastnosti {{property1}} a {{property2}}. Výchozí je vlastnost \"{{property1}}\"."
+}

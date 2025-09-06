@@ -1,0 +1,14 @@
+{
+'propertyUnknownName': 'Érvénytelen tulajdonnéve: \'{{name}}\'!',
+'propertyUnknownType': 'A(z) \'{{name}}\' tulajdonnak nincs meghatározott \'type\' tagja!',
+'propertyInvalidValue': 'Érvénytelen érték a(z) \'{{name}}\' tulajdonnál! Aktuális érték: \'{{actualValue}}\', Elvárt érték: \'{{value}}\'!',
+'propertyInvalidValueType': 'Érvénytelen értéktípus a(z) \'{{name}}\' tulajdonnál! Aktuális típus: \'{{actualType}}\', Elvárt típus: \'{{type}}\'!',
+'methodInvalidValueType': 'Érvénytelen metódus argumentum típus a(z) \'{{name}}\' metódusnál! Aktuális típus: \'{{actualType}}\', Elvárt típus: \'{{type}}\' az argumentum indexe: \'{{argumentIndex}}\'!',
+'methodInvalidArgumentsCount': 'Érvénytelen argumentumok száma a(z) \'{{name}}\' metódusnál! Aktuális argumentumok száma: \'{{actualArgumentsCount}}\', Minimum elvárt argumentumok száma: \'{{argumentsCount}}\'!',
+'methodInvalidReturnType': 'Érvénytelen visszatérési típus a(z) \'{{name}}\' metódusnál! Aktuális típus: \'{{actualType}}\', Elvárt típus: \'{{type}}\'!',
+'elementNotInDOM': 'Az elem nem létezik a DOM-ban! Kérjük, add hozzá az elemet a DOM-hoz, mielőtt metódust hívnál meg.',
+'moduleUndefined': 'A modul nincs meghatározva.',
+'missingReference': '{{elementType}}: Hiányzó hivatkozás a következőre: \'{{files}}\'',
+'htmlTemplateNotSuported': '{{elementType}}: A webböngésző nem támogatja az HTMLTemplate elemeket.',
+'invalidTemplate': '{{elementType}}: A \'{{property}}\' tulajdon értéke egy olyan string kell legyen, amely egyezik egy HTMLTemplate elem azonosítójával a DOM-ból.'
+}

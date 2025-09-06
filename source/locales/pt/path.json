@@ -1,0 +1,6 @@
+{
+'incorrectArgument': '{{elementType}}: Argumento incorreto {{argumentName}} no método {{methodName}}.',
+'missingReference': '{{elementType}}: Referência ausente para {{file}} no método {{methodName}}.',
+'notAPath': 'Definido como não um caminho',
+'validPath': 'Definido como caminho válido'
+}

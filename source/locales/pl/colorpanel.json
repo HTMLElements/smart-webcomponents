@@ -1,0 +1,12 @@
+{
+  "redPrefix": "C: ",
+  "greenPrefix": "Z: ",
+  "bluePrefix": "N: ",
+  "hexPrefix": "#: ",
+  "alphaPrefix": "Alpha: ",
+  "ok": "OK",
+  "cancel": "ANULUJ",
+  "customColor": "KOLOR NIETYPOWY",
+  "standardColors": "Kolory standardowe",
+  "themeColors": "Kolory motywu"
+}

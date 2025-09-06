@@ -1,0 +1,21 @@
+{
+'addImage': '添加',
+                        'applyOnce': '应用一次',
+                        'coverField': '封面字段',
+                        'crop': '裁剪',
+                        'customize': '自定义卡片',
+                        'dateTabLabel': '日期',
+                        'draggedRecord': '记录 {{id}}',
+                        'fit': '适应',
+                        'imageUrl': '新图片 URL：',
+                        'incorrectStructure': '"dataSource" 必须是 Smart.DataAdapter 实例或包含键值对对象的数组。',
+                        'nextRecord': '下一条记录',
+                        'noCoverField': '无封面字段',
+                        'noData': '无数据显示',
+                        'noMatches': '无匹配记录',
+                        'now': '现在',
+                        'previousRecord': '上一条记录',
+                        'removeImage': '移除',
+                        'timeTabLabel': '时间',
+                        'toggleVisibility': '切换字段可见性'
+}

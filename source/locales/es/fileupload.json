@@ -1,0 +1,13 @@
+{
+'browse': 'Examinar',
+'uploadFile': 'Subir archivo',
+'cancelFile': 'Cancelar archivo',
+'pauseFile': 'Pausar archivo',
+'uploadAll': 'Subir todo',
+'cancelAll': 'Cancelar todo',
+'pauseAll': 'Pausar todo',
+'totalFiles': 'Archivos totales: ',
+'connectionError': '{{elementType}}: La subida de archivos requiere conexión al servidor.',
+'wrongItemIndex': '{{elementType}}: No hay archivo con ese índice en la lista de archivos subidos.',
+'tooLongFileName': '{{elementType}}: El nombre del archivo es demasiado largo.'
+}

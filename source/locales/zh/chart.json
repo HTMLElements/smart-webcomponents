@@ -1,0 +1,9 @@
+{
+'invalidRadiusDataField': 'smart-chart: 无效的 radiusDataField 值，位置在 [{{index}}]',
+'invalidSeries': 'smart-chart: 无效属性：每个系列组必须有一个 \'series\' 属性，且其必须是一个有效数组。',
+'invalidSeriesGroups': 'smart-chart: 无效属性：必须存在 \'seriesGroups\' 属性，且其必须是一个有效数组。',
+'invalidType': 'smart-chart: 无效的系列类型 "{{type}}"。',
+'missingAxis': 'smart-chart: seriesGroup[{{index}}] 缺少 {{axis}} 定义。',
+'missingReference': 'smart-chart: 缺少对 {{files}} 的引用。',
+'missingType': 'smart-chart: 无效属性：每个系列组必须有一个有效的 \'type\' 属性。'
+}

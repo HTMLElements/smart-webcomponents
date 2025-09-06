@@ -1,0 +1,13 @@
+{
+'firstButton': 'Første',
+'lastButton': 'Sidste',
+'previousButton': 'Forrige',
+'nextButton': 'Næste',
+'navigateToLabel': 'Gå til:',
+'pageSizeLabel': 'Vis:',
+'navigateToInputPlaceholder': '',
+'ellipsis': '...',
+'summaryString': 'af',
+'summaryPrefix': 'af',
+'summarySuffix': ''
+}

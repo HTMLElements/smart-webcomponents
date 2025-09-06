@@ -1,0 +1,9 @@
+{
+'Example': 'Пример: ',
+'IS_POSSIBLE': 'Возможно',
+'INVALID_COUNTRY_CODE': 'Неверный код страны',
+'TOO_SHORT': 'Слишком короткий',
+'TOO_LONG': 'Слишком длинный',
+'IS_POSSIBLE_LOCAL_ONLY': 'Возможно только локально',
+'INVALID_LENGTH': 'Неверная длина'
+}

@@ -1,0 +1,14 @@
+{
+'apply': '确定',
+'booleanFirst': '☐',
+'booleanLast': '☑',
+'cancel': '取消',
+'dateFirst': '1',
+'dateLast': '9',
+'from': '从',
+'numberFirst': '1',
+'numberLast': '9',
+'stringFirst': 'A',
+'stringLast': 'Z',
+'thenBy': '然后按'
+}

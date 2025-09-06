@@ -1,0 +1,7 @@
+{
+  "invalidIndex": "{{elementType}}: метод \"{{method}}\" принимает индекс типа number.",
+  "indexOutOfBound": "{{elementType}}: индекс(ы) вне допустимого диапазона в методе \"{{method}}\".",
+  "invalidNode": "{{elementType}}: метод \"{{method}}\" принимает объект или массив объектов в качестве второго параметра.",
+  "invalidSettings": "{{elementType}}: метод \"{{method}}\" принимает строку или объект в качестве второго параметра.",
+  "invalidType": "{{elementType}}: \"{{propertyName}}\" должен быть типа string или number."
+}

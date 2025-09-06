@@ -1481,6 +1481,14 @@ smart-gantt-chart > .smart-container .smart-splitter > .smart-resize-trigger-con
   margin-top: 5px;
 }
 
+.smart-gantt-chart-critical-task .smart-timeline-task-fill {
+  background: var(--smart-error) !important;
+}
+
+.smart-gantt-chart-critical-task .smart-timeline-task-label {
+  color: var(--smart-error-color) !important;
+}
+
 .smart-gantt-chart[right-to-left] .smart-timeline-task-label {
   direction: rtl;
 }

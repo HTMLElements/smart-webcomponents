@@ -1,0 +1,14 @@
+{
+  "propertyUnknownName": "Nome proprietà non valido: '{{name}}'!",
+  "propertyUnknownType": "La proprietà '{{name}}' ha un membro 'type' indefinito!",
+  "propertyInvalidValue": "Valore della proprietà '{{name}}' non valido! Valore attuale: '{{actualValue}}', Valore previsto: '{{value}}'!",
+  "propertyInvalidValueType": "Tipo del valore della proprietà '{{name}}' non valido! Tipo attuale: '{{actualType}}', Tipo previsto: '{{type}}'!",
+  "methodInvalidValueType": "Tipo del valore dell'argomento del metodo '{{name}}' non valido! Tipo attuale: '{{actualType}}', Tipo previsto: '{{type}}' per l'argomento con indice: '{{argumentIndex}}'!",
+  "methodInvalidArgumentsCount": "Numero di argomenti del metodo '{{name}}' non valido! Numero attuale di argomenti: '{{actualArgumentsCount}}', Previsti almeno: '{{argumentsCount}}' argomento(i)!",
+  "methodInvalidReturnType": "Tipo di ritorno del metodo '{{name}}' non valido! Tipo attuale: '{{actualType}}', Tipo previsto: '{{type}}'!",
+  "elementNotInDOM": "L'elemento non esiste nel DOM! Per favore, aggiungi l'elemento al DOM prima di invocare un metodo.",
+  "moduleUndefined": "Modulo non definito.",
+  "missingReference": "{{elementType}}: Riferimento mancante a '{{files}}'.",
+  "htmlTemplateNotSuported": "{{elementType}}: Il browser web non supporta gli elementi HTMLTemplate.",
+  "invalidTemplate": "{{elementType}}: La proprietà '{{property}}' accetta una stringa che deve corrispondere all'id di un elemento HTMLTemplate presente nel DOM."
+}

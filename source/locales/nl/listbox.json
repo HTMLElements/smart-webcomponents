@@ -1,0 +1,7 @@
+{
+'overridingProperties': '{{elementType}}: Overschrijvende eigenschappen {{property1}} en {{property2}} toegepast. De eigenschap "{{property1}}" wordt standaard gebruikt.',
+'invalidIndex': '{{elementType}}: De methode "{{method}}" accepteert een index van het type nummer of een array van nummers.',
+'indexOutOfBound': '{{elementType}}: Index/indexen buiten bereik in de methode "{{method}}".',
+'invalidItem': '{{elementType}}: De methode "{{method}}" accepteert een object of een array van objecten als tweede parameter.',
+'invalidSettings': '{{elementType}}: De methode "{{method}}" accepteert een string of een object als tweede parameter.'
+}

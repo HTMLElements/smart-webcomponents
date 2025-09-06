@@ -45,7 +45,9 @@ smart-menu {
     width: var(--smart-menu-vertical-default-width);
     height: var(--smart-menu-vertical-default-height);
   }
-
+  &[mode="dropDown"] {
+    height: auto;
+  }
   &[mode="tree"] {
     &:focus {
       outline: none;

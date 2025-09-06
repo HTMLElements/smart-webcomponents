@@ -1,0 +1,21 @@
+{
+'addImage': '추가',
+'applyOnce': '한 번 적용',
+'coverField': '커버 필드',
+'crop': '자르기',
+'customize': '카드 맞춤설정',
+'dateTabLabel': '날짜',
+'draggedRecord': '레코드 {{id}}',
+'fit': '맞춤',
+'imageUrl': '새 이미지 URL:',
+'incorrectStructure': '"dataSource"는 Smart.DataAdapter의 인스턴스이거나 키-값 쌍 객체 배열이어야 합니다.',
+'nextRecord': '다음 레코드',
+'noCoverField': '커버 필드 없음',
+'noData': '표시할 데이터 없음',
+'noMatches': '일치하는 레코드 없음',
+'now': '지금',
+'previousRecord': '이전 레코드',
+'removeImage': '제거',
+'timeTabLabel': '시간',
+'toggleVisibility': '필드 가시성 토글'
+}

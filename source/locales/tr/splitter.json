@@ -1,0 +1,7 @@
+{
+'invalidIndex': '{{elementType}}: "{{method}}" yöntemi sayı türünde bir indeks kabul eder.',
+'indexOutOfBound': '{{elementType}}: "{{method}}" yönteminde sınır dışı indeks/indeksler var.',
+'invalidNode': '{{elementType}}: "{{method}}" yöntemi ikinci parametre olarak bir nesne veya nesnelerden oluşan bir dizi kabul eder.',
+'invalidSettings': '{{elementType}}: "{{method}}" yöntemi ikinci parametre olarak bir string veya bir nesne kabul eder.',
+'invalidType': '{{elementType}}: "{{propertyName}}" özelliği string veya sayı türünde olmalıdır.'
+}

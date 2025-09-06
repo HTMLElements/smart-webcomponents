@@ -1,0 +1,12 @@
+{
+  "redPrefix": "R:",
+  "greenPrefix": "V:",
+  "bluePrefix": "B:",
+  "hexPrefix": "#:",
+  "alphaPrefix": "Alfa:",
+  "ok": "OK",
+  "cancel": "ANNULLA",
+  "customColor": "COLORE PERSONALIZZATO",
+  "standardColors": "Colori standard",
+  "themeColors": "Colori tema"
+}

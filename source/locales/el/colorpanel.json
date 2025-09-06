@@ -1,0 +1,12 @@
+{
+  "redPrefix": "Κ: ",
+  "greenPrefix": "Π: ",
+  "bluePrefix": "Μ: ",
+  "hexPrefix": "#: ",
+  "alphaPrefix": "Άλφα: ",
+  "ok": "ΕΝΤΑΞΕΙ",
+  "cancel": "ΑΚΥΡΩΣΗ",
+  "customColor": "ΠΡΟΣΑΡΜΟΣΜΕΝΟ ΧΡΩΜΑ",
+  "standardColors": "Τυπικά χρώματα",
+  "themeColors": "Χρώματα θέματος"
+}

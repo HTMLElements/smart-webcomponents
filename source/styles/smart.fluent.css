@@ -3203,7 +3203,7 @@ smart-calendar {
 .smart-list-item[selected] .smart-content,
 [type=list][opened][focus] .smart-list-item[focus] .smart-content,
 .smart-list-box:focus .smart-list-item[focus][selected] .smart-content {
-  color: contrast-color(rgba(0, 120, 212, 0.1), #3baaff, #0078D4);
+  color: contrast-color(rgba(0, 120, 212, 0.1), rgb(59, 169.9433962264, 255), #0078D4);
 }
 .smart-list-item[selected] .smart-overlay,
 [type=list][opened][focus] .smart-list-item[focus] .smart-overlay,

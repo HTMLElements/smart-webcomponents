@@ -1,0 +1,9 @@
+{
+'binary': 'BINÁRIO',
+'octal': 'OCTAL',
+'decimal': 'DECIMAL',
+'hexadecimal': 'HEX',
+'integerOnly': 'jqxNumericTextBox: A propriedade {{property}} só pode ser definida quando inputFormat é inteiro.',
+'noInteger': 'jqxNumericTextBox: a propriedade {{property}} não pode ser definida quando inputFormat é inteiro.',
+'significantPrecisionDigits': 'jqxNumericTextBox: as propriedades significantDigits e precisionDigits não podem ser definidas ao mesmo tempo.'
+}
