@@ -5,10 +5,16 @@
 [![GitHub stars](https://img.shields.io/github/stars/HTMLElements/smart-webcomponents?style=social)](https://github.com/HTMLElements/smart-webcomponents)  
 [![License](https://img.shields.io/badge/license-Commercial-blue)](LICENSE)  
 
-Modern UI Components for **React**, **Angular**, **Vue**, **Blazor**, and **JavaScript**.  
-Build data-rich, responsive applications faster with a powerful, professional-grade library.  
+Enterprise-ready UI components for Angular, React, Vue, Blazor, and Vanilla JS — Build dashboards, data-heavy apps, and complex interfaces faster. 
 
 ![Smart UI Banner](https://www.htmlelements.com/wp-content/uploads/smart-ui-datagrid.png)
+
+## ⚡ Why Developers Choose Smart Web Components
+
+Cross-Framework: Angular, React, Vue, Blazor, and plain JS.
+Feature-Rich & Enterprise-Ready: Components not easily found in free libraries.
+Easy Integration: Clear documentation, demos, and framework-specific examples.
+Lightweight & Modular: Import only the components you need.
 
 ---
 
@@ -393,6 +399,7 @@ smart-grid {
 ## 🤝 Contributing  
 
 We welcome feedback, issues, and pull requests!  
+Open to bug reports, documentation fixes, demo contributions
 Please see our [contribution guidelines](CONTRIBUTING.md).  
 
 ---
