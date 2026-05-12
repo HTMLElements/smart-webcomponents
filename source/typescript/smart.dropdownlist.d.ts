@@ -152,7 +152,7 @@ export interface DropDownListProperties {
    */
   itemMeasureMode?: ListItemMeasureMode | string;
   /**
-   * A getter that retrieves and returns an array containing all list item elements ('') currently present within the dropdown menu. This allows easy access to each item for further processing or manipulation.
+   * A getter that retrieves and returns an array containing all list item elements ('li') currently present within the dropdown menu. This allows easy access to each item for further processing or manipulation.
    * Default value: 
    */
   items?: any;

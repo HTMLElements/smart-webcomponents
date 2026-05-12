@@ -37,7 +37,7 @@ export interface BreadcrumbProperties {
    */
   disabled?: boolean;
   /**
-   * Defines the template used to render each breadcrumb item. This property accepts either the ID of an '' element (as a string) or a reference to an actual 'HTMLTemplateElement'. When specified, the template determines the structure and content of each breadcrumb item. If set to 'null', the default rendering is used and no custom template is applied.
+   * Defines the template used to render each breadcrumb item. This property accepts either the ID of an '&lt;template&gt;' element (as a string) or a reference to an actual 'HTMLTemplateElement'. When specified, the template determines the structure and content of each breadcrumb item. If set to 'null', the default rendering is used and no custom template is applied.
    * Default value: null
    */
   itemTemplate?: any;

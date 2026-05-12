@@ -50,7 +50,7 @@ smart-filter-panel.smart-element {
   justify-content: space-around;
 }
 .smart-filter-panel .smart-filter-panel-button-container > smart-button {
-  width: 80px;
+  min-width: 80px;
 }
 .smart-filter-panel .smart-filter-panel-button-container > smart-button button {
   padding: 8px;

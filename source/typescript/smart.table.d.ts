@@ -127,12 +127,12 @@ export interface TableProperties {
    */
   filterOperator?: boolean;
   /**
-   * Gets or sets the ID of an HTML  element to be used as a custom filter template. This allows you to define and apply your own filter UI by referencing the specified template’s ID.
+   * Gets or sets the ID of an HTML &lt;template&gt; element to be used as a custom filter template. This allows you to define and apply your own filter UI by referencing the specified template’s ID.
    * Default value: "null"
    */
   filterTemplate?: string;
   /**
-   * Specifies or retrieves the ID of an HTML '' element whose content will be used to render the footer row(s) of the component. This allows you to define custom footer layouts using template markup and apply them dynamically by referencing the template's ID.
+   * Specifies or retrieves the ID of an HTML '&lt;template&gt;' element whose content will be used to render the footer row(s) of the component. This allows you to define custom footer layouts using template markup and apply them dynamically by referencing the template's ID.
    * Default value: "null"
    */
   footerRow?: string;
@@ -187,7 +187,7 @@ export interface TableProperties {
    */
   unlockKey?: string;
   /**
-   * Specifies or retrieves the currently selected language code (e.g., "en", "fr", "es") for localization purposes. This property works together with the messages property to determine which set of localized messages should be displayed or used by the application. Adjusting this property changes which language mappings from messages are active.
+   * Specifies or retrieves the currently selected language code (e.g., "en", "fr", "es") for localization purposes. This property works together with the messages property to determine which set of localized messages should be displayed or used by the application. Adjusting this property changes which language map from messages are active.
    * Default value: "en"
    */
   locale?: string;

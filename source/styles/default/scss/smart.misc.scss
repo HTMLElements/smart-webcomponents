@@ -145,7 +145,8 @@
   -moz-user-select: none;
 }
 
-.smart-hidden, .smart-collapse {
+.smart-hidden,
+.smart-collapse {
   display: none !important;
 }
 
@@ -425,7 +426,7 @@ smart-tree {
 
 .smart-flex {
   display: flex;
-  
+
   &.middle {
     align-content: center;
     justify-content: center;
@@ -449,6 +450,7 @@ smart-tree {
 
 .smart-element {
   direction: ltr;
+
   ::-webkit-scrollbar {
     width: 18px;
   }

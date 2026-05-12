@@ -1,0 +1,13 @@
+@import '_functions';
+
+// Optional add-on to smartgrid.core.css: pager bar in the grid container.
+
+@import 'grid/pager';
+
+.smart-grid {
+
+  >.smart-container,
+  &.smart-container {
+    @include grid-pager-in-smart-grid-container;
+  }
+}

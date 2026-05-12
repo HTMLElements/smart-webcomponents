@@ -313,8 +313,7 @@
   [prev-year] {
     &[focus] {
       button {
-        border: 1px solid var(--smart-border-focus);
-        background-color: var(--smart-background-focus);
+
         outline: none;
       }
     }
@@ -808,136 +807,136 @@
     }
 
     .smart-calendar-date-element,
-      {
-      order: 3;
-    }
+    {
+    order: 3;
+  }
+}
+
+&[scroll-buttons-position="far"] {
+  .smart-calendar-date-element {
+    order: 1;
   }
 
-  &[scroll-buttons-position="far"] {
-    .smart-calendar-date-element {
-      order: 1;
-    }
-
-    .smart-calendar-button[prev-month] {
-      order: 2;
-    }
-
-    .smart-calendar-button[next-month] {
-      order: 3;
-    }
+  .smart-calendar-button[prev-month] {
+    order: 2;
   }
 
-  &[scroll-buttons-navigation-mode="portrait"] {
-    .smart-calendar-month-separator {
-      width: 100%;
-      height: 50%;
-    }
+  .smart-calendar-button[next-month] {
+    order: 3;
+  }
+}
 
-    .smart-calendar-container {
-      >.smart-calendar-body {
-        flex-direction: column;
-      }
-    }
+&[scroll-buttons-navigation-mode="portrait"] {
+  .smart-calendar-month-separator {
+    width: 100%;
+    height: 50%;
   }
 
-  &[calendar-mode="classic"] {
-    .smart-calendar-title div {
-      cursor: initial;
-    }
-
-    .smart-calendar-date-element {
-      align-items: initial;
-      overflow: initial;
-    }
-  }
-
-  &[display-mode-view="list"] {
-
-    &[display-mode="year"],
-    &[display-mode="decade"] {
-      .smart-calendar-container {
-        >.smart-calendar-body {
-          touch-action: auto;
-        }
-      }
-    }
-  }
-
-  &[hide-other-month-days] {
-    .smart-calendar-cell[other-month] {
-      visibility: hidden;
-    }
-  }
-
-  &[hide-day-names] {
-    .smart-calendar-week-titles {
-      display: none;
-    }
-  }
-
-  &[week-numbers] {
-    --smart-calendar-default-width: calc(var(--smart-calendar-cell-spacing) + 8 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
-
-    &[view-sections*="title"][view="landscape"] {
-      --smart-calendar-default-width: calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 8 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
-    }
-
-    .smart-calendar-week-number {
-      display: initial;
-    }
-
-    .smart-calendar-week-titles {
-      div:first-child {
-        display: initial;
-      }
-    }
-  }
-
-  &[view="portrait"] {
-
-    >.smart-container,
-    &.smart-container {
-      display: flex;
-      justify-content: center;
+  .smart-calendar-container {
+    >.smart-calendar-body {
       flex-direction: column;
     }
   }
+}
 
-  &[view="landscape"] {
-    --smart-calendar-default-width: calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
-    --smart-calendar-default-height: calc(var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height));
-
-    >.smart-container,
-    &.smart-container {
-      flex-direction: row;
-    }
-
-    .smart-calendar-container {
-      width: calc(100% - calc(var(--smart-calendar-title-height)));
-      height: 100%;
-    }
-
-    .smart-calendar-title {
-      width: calc(var(--smart-calendar-title-height));
-      height: 100%;
-      justify-content: flex-start;
-    }
-
-    &[view-sections*="footer"] {
-      --smart-calendar-default-height: calc(var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height) + var(--smart-calendar-footer-height));
-    }
+&[calendar-mode="classic"] {
+  .smart-calendar-title div {
+    cursor: initial;
   }
 
-  // IE11 FlexBox bug fix
-  &[animation='none'] {
-    .smart-calendar-body {
+  .smart-calendar-date-element {
+    align-items: initial;
+    overflow: initial;
+  }
+}
 
-      .smart-calendar-month-separator,
-      .smart-calendar-next-months-container {
-        display: none;
+&[display-mode-view="list"] {
+
+  &[display-mode="year"],
+  &[display-mode="decade"] {
+    .smart-calendar-container {
+      >.smart-calendar-body {
+        touch-action: auto;
       }
     }
   }
+}
+
+&[hide-other-month-days] {
+  .smart-calendar-cell[other-month] {
+    visibility: hidden;
+  }
+}
+
+&[hide-day-names] {
+  .smart-calendar-week-titles {
+    display: none;
+  }
+}
+
+&[week-numbers] {
+  --smart-calendar-default-width: calc(var(--smart-calendar-cell-spacing) + 8 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
+
+  &[view-sections*="title"][view="landscape"] {
+    --smart-calendar-default-width: calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 8 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
+  }
+
+  .smart-calendar-week-number {
+    display: initial;
+  }
+
+  .smart-calendar-week-titles {
+    div:first-child {
+      display: initial;
+    }
+  }
+}
+
+&[view="portrait"] {
+
+  >.smart-container,
+  &.smart-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+&[view="landscape"] {
+  --smart-calendar-default-width: calc(var(--smart-calendar-title-height) + var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)));
+  --smart-calendar-default-height: calc(var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height));
+
+  >.smart-container,
+  &.smart-container {
+    flex-direction: row;
+  }
+
+  .smart-calendar-container {
+    width: calc(100% - calc(var(--smart-calendar-title-height)));
+    height: 100%;
+  }
+
+  .smart-calendar-title {
+    width: calc(var(--smart-calendar-title-height));
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  &[view-sections*="footer"] {
+    --smart-calendar-default-height: calc(var(--smart-calendar-cell-spacing) + 7 * (var(--smart-calendar-cell-spacing) + var(--smart-calendar-cell-size)) + var(--smart-calendar-header-height) + var(--smart-calendar-footer-height));
+  }
+}
+
+// IE11 FlexBox bug fix
+&[animation='none'] {
+  .smart-calendar-body {
+
+    .smart-calendar-month-separator,
+    .smart-calendar-next-months-container {
+      display: none;
+    }
+  }
+}
 }
 
 

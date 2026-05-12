@@ -94,6 +94,7 @@ smart-window:not([opened]) {
       overflow-y: auto;
       padding: var(--smart-window-content-padding);
       background: var(--smart-background);
+      color: var(--smart-background-color);
       flex-direction: column;
 
       /* There's an issue with display:flex/grid and align-items: center */
@@ -847,13 +848,13 @@ smart-window:not([opened]) {
           border-bottom-right-radius: var(--smart-border-bottom-right-radius);
           border-width: var(--smart-border-width);
           border-style: solid;
- 
+
           &.primary {
             color: var(--smart-primary-color);
             border-color: var(--smart-primary);
             background-color: var(--smart-primary);
           }
-          
+
           &:focus {
             color: var(--smart-ui-state-color-focus);
             border-color: var(--smart-ui-state-focus);

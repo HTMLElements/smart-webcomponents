@@ -194,7 +194,10 @@ smart-date-range-input {
   }
 }
 
+.smart-date-input-drop-down-menu,
 .smart-date-range-input-drop-down-menu {
+  padding: 0px;
+  
   smart-button {
     &:first-of-type {
       margin-left: 5px;

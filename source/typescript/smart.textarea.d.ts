@@ -154,7 +154,7 @@ export interface TextAreaProperties {
    */
   unfocusable?: boolean;
   /**
-   * Defines the list of users available for mentioning in the TextArea component. Expects an array where each element is an object containing both id and name properties (e.g., { id: string | number, name: string }). When users type the '@' character, a dropdown appears, allowing them to select a user from this array to mention within the TextArea.
+   * Defines the list of users available for mentioning in the TextArea component. Expects an array where each element is an object containing both id and name properties (e.g., { id: string | number, name: string }). When users type the at symbol, a dropdown appears, allowing them to select a user from this array to mention within the TextArea.
    * Default value: []
    */
   users?: any[];

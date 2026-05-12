@@ -1,0 +1,28 @@
+.smart-grid-pager {
+  smart-pager {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    margin-left: 2px;
+    margin-top: 5px;
+    border: none;
+  }
+}
+
+@mixin grid-pager-in-smart-grid-container {
+  .smart-grid-pager {
+    height: var(--smart-pager-default-height);
+    overflow: hidden;
+    z-index: 99;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--smart-border);
+    width: 100%;
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+
+    &[top] {
+      border-top-color: transparent;
+      border-bottom: 1px solid var(--smart-border);
+    }
+  }
+}

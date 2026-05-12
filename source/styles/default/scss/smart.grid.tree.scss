@@ -1,0 +1,12 @@
+@import '_functions';
+
+// Optional add-on to smartgrid.core.css: tree indentation and toggle layout.
+@import 'grid/tree';
+
+smart-grid {
+  @include grid-tree-in-smart-grid-element;
+}
+
+.smart-grid {
+  @include grid-tree-in-dot-smart-grid;
+}

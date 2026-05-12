@@ -142,7 +142,7 @@ export interface DateTimePickerProperties {
    */
   importantDates?: string[] | Date[];
   /**
-   * Defines the template used to display important dates within the calendar pop-up. This property accepts either the ID of an existing '' element or a direct reference to an 'HTMLTemplateElement' in the DOM. The specified template determines how important dates are rendered inside the calendar interface, allowing for custom formatting and content.
+   * Defines the template used to display important dates within the calendar pop-up. This property accepts either the ID of an existing '&lt;template&gt;' element or a direct reference to an 'HTMLTemplateElement' in the DOM. The specified template determines how important dates are rendered inside the calendar interface, allowing for custom formatting and content.
    * Default value: null
    */
   importantDatesTemplate?: string | HTMLTemplateElement;
@@ -276,7 +276,7 @@ export interface DateTimePickerProperties {
    */
   tooltipPosition?: TooltipPosition | string;
   /**
-   * Defines a custom template for the tooltip content displayed in the calendar pop-up. This property accepts either the ID of an HTML  element or a direct reference to an HTMLTemplateElement. The specified template will be used to render the tooltip, allowing for customized layout and content in the calendar interface.
+   * Defines a custom template for the tooltip content displayed in the calendar pop-up. This property accepts either the ID of an HTML &lt;template&gt; element or a direct reference to an HTMLTemplateElement. The specified template will be used to render the tooltip, allowing for customized layout and content in the calendar interface.
    * Default value: null
    */
   tooltipTemplate?: string | HTMLTemplateElement;

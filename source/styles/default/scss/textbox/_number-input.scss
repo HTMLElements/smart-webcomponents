@@ -56,6 +56,8 @@ smart-number-input {
     color: var(--smart-surface-color);
     border-left: 1px solid var(--smart-border);
     background: var(--smart-surface);
+    border-top-right-radius: var(--smart-border-radius) !important;
+    border-bottom-right-radius: var(--smart-border-radius) !important;
 
     &:hover,
     &:active {
@@ -87,8 +89,8 @@ smart-number-input {
 
       &:active,
       &[active] {
-        background: var(--smart-ui-state-active);
-        color: var(--smart-ui-state-color-active);
+        background: var(--smart-ui-state-active) !important;
+        color: var(--smart-ui-state-color-active) !important;
       }
     }
 
@@ -155,11 +157,11 @@ smart-number-pad {
 }
 
 .smart-numberpad-container {
-    box-sizing: border-box;
-    overflow: hidden;
-    display: flex !important;
-    width: 100%;
-    flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex !important;
+  width: 100%;
+  flex-direction: column;
 }
 
 .smart-numberpad-display {
@@ -180,12 +182,12 @@ smart-number-pad {
 }
 
 .smart-numberpad-grid button {
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .smart-numberpad-grid button:hover {

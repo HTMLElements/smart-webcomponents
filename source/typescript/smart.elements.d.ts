@@ -2027,7 +2027,7 @@ export interface BreadcrumbProperties {
    */
   disabled?: boolean;
   /**
-   * Defines the template used to render each breadcrumb item. This property accepts either the ID of an '' element (as a string) or a reference to an actual 'HTMLTemplateElement'. When specified, the template determines the structure and content of each breadcrumb item. If set to 'null', the default rendering is used and no custom template is applied.
+   * Defines the template used to render each breadcrumb item. This property accepts either the ID of an '&lt;template&gt;' element (as a string) or a reference to an actual 'HTMLTemplateElement'. When specified, the template determines the structure and content of each breadcrumb item. If set to 'null', the default rendering is used and no custom template is applied.
    * Default value: null
    */
   itemTemplate?: any;
@@ -2436,7 +2436,7 @@ export interface CalendarProperties {
    */
   firstDayOfWeek?: number;
   /**
-   * Defines a custom footer template for the component. You can provide either the ID of an existing '' element in the DOM, or pass a direct reference to an 'HTMLTemplateElement'. The specified template will be used to render the footer section of the component.
+   * Defines a custom footer template for the component. You can provide either the ID of an existing '&lt;template&gt;' element in the DOM, or pass a direct reference to an 'HTMLTemplateElement'. The specified template will be used to render the footer section of the component.
    * Default value: null
    */
   footerTemplate?: any;
@@ -2466,7 +2466,7 @@ export interface CalendarProperties {
    */
   importantDates?: string[] | Date[];
   /**
-   * Defines a template for displaying important dates. This property accepts either the ID of an HTML '' element present in the DOM, or a direct reference to that template element. The specified template will be used to render each important date in the component.
+   * Defines a template for displaying important dates. This property accepts either the ID of an HTML '&lt;template&gt;' element present in the DOM, or a direct reference to that template element. The specified template will be used to render each important date in the component.
    * Default value: null
    */
   importantDatesTemplate?: any;
@@ -2607,7 +2607,7 @@ export interface CalendarProperties {
    */
   tooltipPosition?: TooltipPosition | string;
   /**
-   * Defines the template used for the tooltip's content. You can provide either the ID of an existing '' element in the DOM or a direct reference to an HTMLTemplateElement. The tooltip will render its content based on the markup and structure defined within the specified template.
+   * Defines the template used for the tooltip's content. You can provide either the ID of an existing '&lt;template&gt;' element in the DOM or a direct reference to an HTMLTemplateElement. The tooltip will render its content based on the markup and structure defined within the specified template.
    * Default value: null
    */
   tooltipTemplate?: any;
@@ -2768,7 +2768,7 @@ export interface CardProperties {
    */
   disabled?: boolean;
   /**
-   * Specifies a custom card template for rendering card content. The template can be provided either as a string representing the ID of an '' element present in the DOM, or as a direct reference to an HTMLTemplateElement. Within the template’s HTML content, you may include one or more property placeholders using the double curly braces syntax. During rendering, each placeholder will be dynamically replaced with the corresponding property value from the associated 'dataSource' object. If you set this property using a template ID, the expected type is a string.
+   * Specifies a custom card template for rendering card content. The template can be provided either as a string representing the ID of an '&lt;template&gt;' element present in the DOM, or as a direct reference to an HTMLTemplateElement. Within the template’s HTML content, you may include one or more property placeholders using the double curly braces syntax. During rendering, each placeholder will be dynamically replaced with the corresponding property value from the associated 'dataSource' object. If you set this property using a template ID, the expected type is a string.
    * Default value: null
    */
   itemTemplate?: any;
@@ -5802,7 +5802,7 @@ export interface ChipProperties {
    */
   disabled?: boolean;
   /**
-   * Specifies a custom template for the chip component. The template can be provided either as a string representing the ID of an existing '' element in the DOM, or as a direct reference to an 'HTMLTemplateElement' instance. This allows developers to define and reuse custom chip layouts within the application.
+   * Specifies a custom template for the chip component. The template can be provided either as a string representing the ID of an existing '&lt;template&gt;' element in the DOM, or as a direct reference to an 'HTMLTemplateElement' instance. This allows developers to define and reuse custom chip layouts within the application.
    * Default value: null
    */
   itemTemplate?: any;
@@ -6474,7 +6474,7 @@ export interface ColorPickerProperties {
    */
   disableUndo?: boolean;
   /**
-   * Defines the parent container in which the dropDown (popup) will be rendered. Accepts a CSS selector string, an element ID, or the literal value 'body'. This setting is helpful when the dropDown’s visibility is affected by CSS properties (such as overflow or z-index) applied to its parent elements. Specify 'body' to attach the dropDown directly to the  element for maximum visibility. Example: 'body'.
+   * Defines the parent container in which the dropDown (popup) will be rendered. Accepts a CSS selector string, an element ID, or the literal value 'body'. This setting is helpful when the dropDown’s visibility is affected by CSS properties (such as overflow or z-index) applied to its parent elements. Specify 'body' to attach the dropDown directly to the document body element for maximum visibility. Example: 'body'.
    * Default value: "body"
    */
   dropDownAppendTo?: string;
@@ -7087,7 +7087,7 @@ export interface ComboBoxProperties {
    */
   itemMeasureMode?: ListItemMeasureMode | string;
   /**
-   * A getter method that retrieves and returns an array containing all list ('') elements currently present within the dropdown menu. This allows you to easily access and manipulate every item displayed in the dropdown.
+   * A getter method that retrieves and returns an array containing all list ('li') elements currently present within the dropdown menu. This allows you to easily access and manipulate every item displayed in the dropdown.
    * Default value: 
    */
   items?: {label: string, value: string}[];
@@ -8657,7 +8657,7 @@ export interface DateTimePickerProperties {
    */
   importantDates?: string[] | Date[];
   /**
-   * Defines the template used to display important dates within the calendar pop-up. This property accepts either the ID of an existing '' element or a direct reference to an 'HTMLTemplateElement' in the DOM. The specified template determines how important dates are rendered inside the calendar interface, allowing for custom formatting and content.
+   * Defines the template used to display important dates within the calendar pop-up. This property accepts either the ID of an existing '&lt;template&gt;' element or a direct reference to an 'HTMLTemplateElement' in the DOM. The specified template determines how important dates are rendered inside the calendar interface, allowing for custom formatting and content.
    * Default value: null
    */
   importantDatesTemplate?: string | HTMLTemplateElement;
@@ -8791,7 +8791,7 @@ export interface DateTimePickerProperties {
    */
   tooltipPosition?: TooltipPosition | string;
   /**
-   * Defines a custom template for the tooltip content displayed in the calendar pop-up. This property accepts either the ID of an HTML  element or a direct reference to an HTMLTemplateElement. The specified template will be used to render the tooltip, allowing for customized layout and content in the calendar interface.
+   * Defines a custom template for the tooltip content displayed in the calendar pop-up. This property accepts either the ID of an HTML &lt;template&gt; element or a direct reference to an HTMLTemplateElement. The specified template will be used to render the tooltip, allowing for customized layout and content in the calendar interface.
    * Default value: null
    */
   tooltipTemplate?: string | HTMLTemplateElement;
@@ -9683,7 +9683,7 @@ export interface DropDownListProperties {
    */
   itemMeasureMode?: ListItemMeasureMode | string;
   /**
-   * A getter that retrieves and returns an array containing all list item elements ('') currently present within the dropdown menu. This allows easy access to each item for further processing or manipulation.
+   * A getter that retrieves and returns an array containing all list item elements ('li') currently present within the dropdown menu. This allows easy access to each item for further processing or manipulation.
    * Default value: 
    */
   items?: any;
@@ -14356,6 +14356,11 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    */
   refresh(fullRefresh?: boolean): void;
   /**
+   * Collapses all rows.
+   * @returns {any}
+   */
+  collapseAllRows(): any;
+  /**
    * Ensures that the specified task element is brought into view within the scrollable container by automatically scrolling the page or container if necessary, so the task is fully visible to the user.
    * @param {string | number} taskId. The id of the target Task.
    */
@@ -14371,6 +14376,11 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer ro the Smart Export Documentation.
    */
   exportData(dataFormat: string, callback?: any): void;
+  /**
+   * Expands all rows.
+   * @returns {any}
+   */
+  expandAllRows(): any;
   /**
    * Retrieves a complete list of all current connections. The returned value is an array of objects, where each object represents a single connection and includes comprehensive metadata about that connection. Each connection object contains the following properties:<br/><br/>- **id**: A unique identifier for the connection.<br/>- **type**: The type or category of the connection (e.g., dependency, sequential, etc.).<br/>- **startTaskId**: The unique identifier of the task where the connection originates.<br/>- **endTaskId**: The unique identifier of the task where the connection terminates.<br/>- **startIndex**: The index position within the start task from which the connection begins (useful for tasks with multiple connection points).<br/>- **endIndex**: The index position within the end task where the connection attaches.<br/>- **lag**: The lag time, typically in milliseconds or a project-specific unit, representing any delay between the linked tasks.<br/><br/>This structure provides all necessary details for understanding the relationship and timing between connected tasks.
    * @returns {any}
@@ -15473,10 +15483,35 @@ export interface GridProperties {
    */
   columnGroups?: GridColumnGroup[];
   /**
-   * 
+   * Enables column resizing by dragging column edges. Shorthand: sets behavior.columnResize to the string growAndShrink (see behavior).
+   * Default value: false
+   */
+  columnResize?: boolean;
+  /**
+   * Enables drag-and-drop column reordering. Shorthand: sets behavior.allowColumnReorder to true.
+   * Default value: false
+   */
+  columnReorder?: boolean;
+  /**
+   * Sets cell comments. Example:  [{ id: 4, dataField: 'A', comment: 'Hello Smart.Grid' }]
+   * Default value: 
+   */
+  comments?: any[];
+  /**
+   * Enables or disables the dropdown mode for the component. When true, the component displays as a dropdown instead of a standard input or list.
    * Default value: false
    */
   dropDownMode?: boolean;
+  /**
+   * Determines whether the dropdown mode allows text input. When true, users can type in the dropdown field; otherwise, selection is restricted to the provided list items.
+   * Default value: false
+   */
+  dropDownModeInput?: boolean;
+  /**
+   * Specifies the data field or property to display in dropdown mode. This is the field from the data source that will be shown as the dropdown options.
+   * Default value: ""
+   */
+  dropDownModeDataField?: string;
   /**
    * Defines or retrieves the rules and settings for conditional formatting applied to the Grid's cells, allowing you to customize cell appearance (such as background color, font style, or icons) based on specific conditions or cell values.
    * Default value: null
@@ -15506,12 +15541,22 @@ export interface GridProperties {
    * Configures the grid’s data source when the dataSource property is assigned either a JavaScript array (for local data) or a URL (for remote data). This setting determines how the grid retrieves and displays its data, supporting both direct array binding and remote data fetching via HTTP requests.
    * Default value: [object Object]
    */
-  dataSourceSettings?: GridDataSourceSettings;
+  dataSourceSettings?: any;
+  /**
+   * Enables in-grid editing. Shorthand: sets editing.enabled to true.
+   * Default value: false
+   */
+  editable?: boolean;
   /**
    * Provides comprehensive configuration options for controlling the grid's editing behavior, including enabling or disabling editing features, specifying editing modes (such as inline, popup, or batch), setting validation rules, and customizing editors for specific columns.
    * Default value: [object Object]
    */
   editing?: GridEditing;
+  /**
+   * Enables column filtering. Shorthand: sets filtering.enabled to true.
+   * Default value: false
+   */
+  filterable?: boolean;
   /**
    * Provides detailed configuration options for the grid's filtering functionality, including filter types, default filter values, filter operators, and custom filter logic for columns. This determines how data within the grid can be searched, narrowed, or displayed based on user-defined criteria.
    * Default value: [object Object]
@@ -15527,6 +15572,11 @@ export interface GridProperties {
    * Default value: false
    */
   formulas?: boolean;
+  /**
+   * Enables data grouping. Shorthand: sets grouping.enabled to true.
+   * Default value: false
+   */
+  groupable?: boolean;
   /**
    * Provides detailed configuration options for the grid's data grouping functionality, specifying how rows are grouped, the grouping criteria, and related display settings within the grid.
    * Default value: [object Object]
@@ -15558,7 +15608,7 @@ export interface GridProperties {
    */
   locale?: string;
   /**
-   * 'Key Handling:'  You can customize how key presses are handled by defining key mappings within the configuration. For each key (e.g., '"Enter"'), you can assign:- 'Another key as the value' (e.g., '"Enter": "Tab"'): When the specified key is pressed, it will be treated as if the mapped key was pressed instead.- 'A predefined action' (e.g., ''copy'', ''copyPrev'', ''copyNext'', ''delete''): When the key is pressed, the associated action will be executed.- 'A custom function': Assign a function as the value to execute custom logic whenever the key is pressed.This allows you to remap keys, trigger built-in actions, or define entirely custom behaviors based on key events in your application.
+   * 'Key Handling:'  You can customize how key presses are handled by defining key map within the configuration. For each key (e.g., '"Enter"'), you can assign:- 'Another key as the value' (e.g., '"Enter": "Tab"'): When the specified key is pressed, it will be treated as if the mapped key was pressed instead.- 'A predefined action' (e.g., ''copy'', ''copyPrev'', ''copyNext'', ''delete''): When the key is pressed, the associated action will be executed.- 'A custom function': Assign a function as the value to execute custom logic whenever the key is pressed.This allows you to remap keys, trigger built-in actions, or define entirely custom behaviors based on key events in your application.
    * Default value: null
    */
   keys?: any;
@@ -15648,6 +15698,16 @@ export interface GridProperties {
    */
   onRowDetailUpdated?: {(index: number, row: GridRow, details: HTMLElement): void};
   /**
+   * Callback function invoked when the mouse enters a row.
+   * Default value: null
+   */
+  onRowMouseEnter?: {(row: GridRow, event: any): void};
+  /**
+   * Callback function invoked when the mouse leaves a row.
+   * Default value: null
+   */
+  onRowMouseLeave?: {(row: GridRow, event: any): void};
+  /**
    * A callback function that is triggered whenever a row’s edit history is updated. This function is invoked only if the 'storeHistory' property is enabled, ensuring that all changes made to a row are recorded. Use this callback to handle actions such as syncing changes, auditing edits, or updating related UI components whenever a row’s edit history changes.
    * Default value: null
    */
@@ -15728,6 +15788,11 @@ export interface GridProperties {
    */
   pager?: GridPager;
   /**
+   * Enables paging. Shorthand: sets pager.visible and paging.enabled to true.
+   * Default value: false
+   */
+  pageable?: boolean;
+  /**
    * Configures or updates the detailed information or content associated with a specific row, often used to display additional data or expanded views for that row.
    * Default value: [object Object]
    */
@@ -15763,10 +15828,20 @@ export interface GridProperties {
    */
   stateSettings?: GridStateSettings;
   /**
+   * Enables selection. Shorthand: sets selection.enabled to true. Cell vs row selection is controlled by selection.mode and related options.
+   * Default value: false
+   */
+  selectable?: boolean;
+  /**
    * Provides detailed configuration options for user selection behavior, including parameters such as selection mode (single or multiple), default selections, selection limits, and customizable callbacks for selection events.
    * Default value: [object Object]
    */
   selection?: GridSelection;
+  /**
+   * Enables column sorting. Shorthand: sets sorting.enabled to true.
+   * Default value: false
+   */
+  sortable?: boolean;
   /**
    * Provides detailed configuration options for controlling how data is sorted, including criteria such as sorting field, order (ascending or descending), and support for multiple sort keys.
    * Default value: [object Object]
@@ -16133,8 +16208,9 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {any} data. An object representing the row data, matching the structure of the grid's data source.
    * @param {boolean} insertAtBottom?. Determines whether the new row is added at the bottom (true) or top (false) of the grid. Defaults to true.
    * @param  callback?. A callback function invoked after the row is successfully added. Receives the newly added row as an argument.
+   * @returns {any}
    */
-  addRow(data: any, insertAtBottom?: boolean, callback?: {(row: GridRow): void}): void;
+  addRow(data: any, insertAtBottom?: boolean, callback?: {(row: GridRow): void}): any;
   /**
    * Inserts a new row into the grid and automatically activates edit mode for that row, allowing users to begin entering data right away. If batch editing is enabled, any changes made will be temporarily stored and will not be saved to the data source until the batch edit session is explicitly committed. This helps prevent partial or unsaved changes from being applied before the user finalizes all edits in the session.
    * @param {string} position?. Specifies the position where the new row will be added. Acceptable values are 'near' (top) or 'far' (bottom).
@@ -16155,7 +16231,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   addUnboundRow(count: number, position?: string): boolean;
   /**
-   * Enhances and applies custom filter criteria to a specific column within the data grid. Accepts both single and multiple filter expressions, allowing for complex filtering logic using logical operators such as "and" and "or". For example, to filter the "lastName" column for values that contain either "burke" or "peterson", use: `grid.addFilter('lastName', ['CONTAINS "burke"', 'or', 'CONTAINS "peterson"'])`. The method also supports numeric filters (e.g., `GREATER_THAN 100`), a variety of comparison operators (such as `EQUALS`, `LESS_THAN`, `STARTS_WITH`, etc.), and can be used to combine different conditions for precise data selection.
+   * Applies a filter to one column. Pass a string or an array of expressions; combine conditions with "and" / "or". Example: `grid.addFilter('lastName', ['CONTAINS "burke"', 'or', 'CONTAINS "peterson"'])`. Supports numeric and string operators (EQUALS, GREATER_THAN, STARTS_WITH, etc.). Set refreshFilters to false when adding several filters in one batch to avoid extra redraws (see addFilter third argument).
    * @param {string} dataField. The data field name of the column to filter, e.g., 'firstName'.
    * @param {string} filter. The filter expression(s) to apply. Examples include 'startsWith B', ['contains Andrew or contains Nancy'], or ['quantity', '<= 3 and >= 8']. Supported operators: '=', 'EQUAL', '<>', 'NOT_EQUAL', '!=', '<', 'LESS_THAN', '>', 'GREATER_THAN', '<=', 'LESS_THAN_OR_EQUAL', '>=', 'GREATER_THAN_OR_EQUAL', 'starts with', 'STARTS_WITH', 'ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS', 'DOES_NOT_CONTAIN', 'NULL', 'NOT_NULL'.
    * @param {boolean} refreshFilters?. If set to false, allows multiple filters to be added without triggering unnecessary renders. Useful when applying multiple filters sequentially.
@@ -16167,13 +16243,13 @@ export interface Grid extends BaseElement, GridProperties {
    */
   addGroup(dataField: string): void;
   /**
-   * Enhances the grid's data display by applying a sorting order based on the specified column's data field. This function requires sorting to be enabled on the grid and sorts the rows according to the selected column's values, either in ascending or descending order as specified. If sorting is not enabled, this operation will have no effect.
+   * Adds a sort for the given column and direction (e.g. 'asc', 'desc'). Requires sorting to be enabled; has no effect if sorting is off.
    * @param {string} dataField. The data field of the column to sort, e.g., 'firstName'.
    * @param {string} sortOrder. The sort direction to apply. Use 'asc' for ascending or 'desc' for descending.
    */
   addSort(dataField: string, sortOrder: string): void;
   /**
-   * Dynamically resizes each grid row to fit its content, ensuring that text and elements are fully visible without being cut off or overlapping. This enhances readability and provides a more user-friendly and visually consistent grid layout.
+   * Resizes each row’s height to fit its cell content so text and controls are not clipped.
    */
   autoSizeRows(): void;
   /**
@@ -16190,6 +16266,11 @@ export interface Grid extends BaseElement, GridProperties {
    * @returns {boolean}
    */
   areAllRowsSelected(): boolean;
+  /**
+   * This function allows you to execute multiple method calls wrapped with the Grid's beginUpdate() and endUpdate(). Example: grid.batch(() => { grid.setCellValue(2, 'firstName', 'Peter'); grid.setCellValue(3, 'firstName', 'Nancy'); });
+   * @param {any} fn. The function where you can make your method calls. grid.batch(() => { grid.setCellValue(2, 'firstName', 'Peter'); grid.setCellValue(3, 'firstName', 'Nancy'); });
+   */
+  batch(fn: any): void;
   /**
    * Pauses Grid rendering and UI refresh operations, allowing you to make multiple property changes or method calls without triggering repeated re-renders. This is particularly useful for optimizing performance during batch updates. After you finish making all necessary changes, call 'endUpdate()' to resume rendering and apply all updates to the UI.
    */
@@ -16455,6 +16536,13 @@ export interface Grid extends BaseElement, GridProperties {
    */
   getCellValue(rowId: string | number, dataField: string): any;
   /**
+   * Retrieves the value stored in a specific cell of a data grid or table by specifying the row index and the corresponding column data field. This function allows precise access to individual cell data, enabling targeted data retrieval based on both row and column identifiers.
+   * @param {number} rowIndex. The index of the row containing the cell.
+   * @param {string} dataField. The data field name of the column (e.g., 'firstName').
+   * @returns {any}
+   */
+  getAt(rowIndex: number, dataField: string): any;
+  /**
    * Retrieves the column object corresponding to the specified data field. This returned object includes all relevant properties and configuration settings for that column, such as its header label, data type, formatting options, sorting behavior, visibility, and any custom properties defined in the column schema.
    * @param {string} dataField. The data field name of the column to retrieve.
    * @returns {GridColumn}
@@ -16486,6 +16574,12 @@ export interface Grid extends BaseElement, GridProperties {
    * @returns {GridRow}
    */
   getRowByIndex(rowIndex: number): GridRow;
+  /**
+   * Returns the Grid row object by its HTML Element, allowing access to all data and properties associated with that specific row. 
+   * @param {any} rowElement. The row's element.
+   * @returns {GridRow}
+   */
+  getRowByElement(rowElement: any): GridRow;
   /**
    * Fetches the original data source object directly linked to the given row ID, allowing access to all underlying data fields for that specific row as stored in the source dataset.
    * @param {string | number} rowId. The unique identifier of the row.
@@ -16526,18 +16620,46 @@ export interface Grid extends BaseElement, GridProperties {
    */
   highlightCell(rowId: string | number, dataField: string, className?: string): void;
   /**
-   * Enhances visibility of the table row corresponding to the provided row ID by applying a highlight effect. Invoking this method a second time on the same row will remove the highlight, effectively toggling its state. Optionally, you can supply a custom CSS class to override the default highlight styling for tailored appearance.
+   * Toggles a persistent highlight on the row for the given rowId; calling again with the same id removes it. Optional className overrides the default highlight class.
    * @param {string | number} rowId. The unique identifier of the row to highlight.
    * @param {string} className?. Optional CSS class name for custom highlight styling.
    */
   highlightRow(rowId: string | number, className?: string): void;
   /**
+   * Emphasizes a specific cell within the grid, identified by its row ID and column data field.
+   * @param {string | number} rowId. The unique identifier of the row containing the cell.
+   * @param {string} dataField. The data field name of the column.
+   */
+  flashCell(rowId: string | number, dataField: string): void;
+  /**
+   * Briefly flashes the row for the given rowId (transient visual emphasis).
+   * @param {string | number} rowId. The unique identifier of the row to highlight.
+   */
+  flashRow(rowId: string | number): void;
+  /**
    * Adds a new row to the grid using the provided data object. If batch editing mode is active, the row will be added only as a pending change and will not be permanently committed to the data source until the batch is saved. You may optionally specify the index at which the new row should be inserted; if omitted, the row will be added at the default position (usually at the end). Additionally, you can provide a callback function that will be executed after the row has been successfully added to the grid.
    * @param {any} data. The data object for the new row, matching the grid's data source schema.
    * @param {number} index?. The zero-based index at which to insert the new row. Defaults to the last position if omitted.
    * @param  callback?. Optional callback function executed after the row is inserted, receiving the newly added row object.
+   * @returns {any}
    */
-  insertRow(data: any, index?: number, callback?: {(row: GridRow): void}): void;
+  insertRow(data: any, index?: number, callback?: {(row: GridRow): void}): any;
+  /**
+   * Adds a new row to the grid using the provided data object. If batch editing mode is active, the row will be added only as a pending change and will not be permanently committed to the data source until the batch is saved. You may optionally specify the index at which the new row should be inserted; if omitted, the row will be added at the default position (usually at the end). Additionally, you can provide a callback function that will be executed after the row has been successfully added to the grid.
+   * @param {any} data. The data object for the new row, matching the grid's data source schema.
+   * @param {any} row?. The Grid row after which the new row will be added.
+   * @param  callback?. Optional callback function executed after the row is inserted, receiving the newly added row object.
+   * @returns {any}
+   */
+  insertRowAfter(data: any, row?: any, callback?: {(row: GridRow): void}): any;
+  /**
+   * Adds a new row to the grid using the provided data object. If batch editing mode is active, the row will be added only as a pending change and will not be permanently committed to the data source until the batch is saved. You may optionally specify the index at which the new row should be inserted; if omitted, the row will be added at the default position (usually at the end). Additionally, you can provide a callback function that will be executed after the row has been successfully added to the grid.
+   * @param {any} data. The data object for the new row, matching the grid's data source schema.
+   * @param {any} row?. The Grid row before which the new row will be added.
+   * @param  callback?. Optional callback function executed after the row is inserted, receiving the newly added row object.
+   * @returns {any}
+   */
+  insertRowBefore(data: any, row?: any, callback?: {(row: GridRow): void}): any;
   /**
    * Restored a previously saved grid state by accepting either the name of the saved state or a state object. The state object can include detailed settings such as current sorting and filtering criteria, column visibility and order, expanded or collapsed row status, grouping configurations, paging information (such as current page and page size), and selected rows. This allows the grid to be reconfigured exactly as it was when the state was saved, providing a consistent user experience across sessions.
    * @param {any} state. A state name (string) previously saved or a state object representing the grid configuration to load.
@@ -16572,7 +16694,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   render(): void;
   /**
-   * Enhances the Grid display by refreshing its layout to reflect the latest property values, dynamically updating only the necessary elements. This approach optimizes performance by avoiding a complete teardown and reconstruction of all Grid elements, ensuring a smoother and more efficient user experience.
+   * Refreshes the grid view for current property and data state without a full `render()` rebuild—lighter than re-creating the whole DOM (compare render).
    */
   refresh(): void;
   /**
@@ -16657,7 +16779,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   selectRowsRange(rowId: string | number, endRowId: string | number): void;
   /**
-   * Selects multiple rows by accepting an array of row IDs, allowing you to specify and manipulate several rows simultaneously based on their unique identifiers.
+   * Programmatically selects rows by their row IDs. Honors current selection mode and other selection settings.
    * @param {(string | number)[]} rowId. Array of row IDs to select.
    */
   selectRows(rowId: (string | number)[]): void;
@@ -16666,7 +16788,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   selectAllRows(): void;
   /**
-   * Enhances selection functionality by allowing users to select multiple rows within the Grid component, using their zero-based index positions. This means you can specify one or more row indices (starting from 0 for the first row) to programmatically select the corresponding rows in the Grid.
+   * Selects rows by zero-based index in the current (sorted/filtered/paged) view, not necessarily by data order alone.
    * @param {number[]} rowIndex. An array of zero-based row indexes to select.
    */
   selectRowsByIndex(rowIndex: number[]): void;
@@ -16696,6 +16818,13 @@ export interface Grid extends BaseElement, GridProperties {
    */
   setCellValue(rowId: string | number, dataField: string, value: string | number | Date | boolean): void;
   /**
+   * Assigns a new value to a specific cell within a data table, targeting the cell by its row index and the corresponding column's data field name. This allows precise updating of individual cell contents based on row and column identifiers.
+   * @param {number} rowIndex. The row's index.
+   * @param {string} dataField. The data field of the column where the cell is located (e.g., 'firstName').
+   * @param {string | number | Date | boolean} value. The new value to assign to the cell.
+   */
+  setAt(rowIndex: number, dataField: string, value: string | number | Date | boolean): void;
+  /**
    * Sets the columns displayed in the Grid to a new set defined by the provided argument. When 'setColumns' is called, the Grid compares the new columns array with the currently displayed columns. It will add any new columns, retain existing columns that are still present, and remove columns that are not included in the new array. After updating the columns, the Grid automatically redraws all column headers and refreshes all rows to reflect the changes. Importantly, any state associated with existing columns—such as sort order, filters, column width, and other configurable options—will be preserved for columns that remain after the update. This ensures that users do not lose their settings when columns are changed dynamically.
    * @param {GridColumn[]} columns. Columns array.
    */
@@ -16721,7 +16850,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   setRowStyle(rowId: string | number, rowStyle: {background?: string, color?: string, fontSize?: string, fontFamily?: string, textDecoration?: string, fontStyle?: string, fontWeight?: string}): void;
   /**
-   * Enhances a specific table cell's appearance by applying custom CSS styles, targeting the cell using both its unique rowId and the dataField (column identifier). You can specify a range of style properties, including background color, text color, font size, font family, text decoration, font style, and font weight, allowing precise control over the cell’s visual presentation.
+   * Applies inline CSS (backgroundColor, color, fontSize, etc.) to the cell for the given rowId and dataField.
    * @param {string | number} rowId. The unique identifier of the row containing the cell.
    * @param {string} dataField. The dataField (column) name of the cell to style.
    * @param  rowStyle. An object specifying CSS style properties and values to apply to the specific cell.
@@ -16747,7 +16876,14 @@ export interface Grid extends BaseElement, GridProperties {
    */
   closeSidePanel(): void;
   /**
-   * Displays the Grid's side panel, providing access to additional settings, filters, and customization options related to the Grid's content and layout.
+   * Displays the Grid's side panel, and displays Element in it. This is useful if you have HTML Element on a page and want to move it and display it as a Side panel of the Grid.
+   * @param {any} content. This is the content which will be displayed in the side panel. It can be String, HTML Element, HTML Template Element or Component
+   * @param {number} width?. This is the width of the side panel
+   * @param {any} callback?. Function called when the panel is opened. It can be used for dynamically showing content and initializing it.
+   */
+  openSidePanel(content: any, width?: number, callback?: any): void;
+  /**
+   * Displays the Grid's side panel showing custom content in it. It creates a clone of the content and displays it.
    * @param {any} content. This is the content which will be displayed in the side panel. It can be String, HTML Element, HTML Template Element or Component
    * @param {number} width?. This is the width of the side panel
    * @param {any} callback?. Function called when the panel is opened. It can be used for dynamically showing content and initializing it.
@@ -16759,7 +16895,7 @@ export interface Grid extends BaseElement, GridProperties {
    */
   showDetail(rowId: string | number): void;
   /**
-   * Displays a visually distinct overlay message positioned directly beneath a specific cell. This method is ideal for providing contextual onboarding tips, user guidance, or delivering custom messages tailored to the user's current interaction. It enhances user experience by presenting timely and relevant information without interrupting workflow.
+   * Shows a short message under a cell (rowId, dataField, message text)—tooltips, validation hints, or one-off help without a modal.
    * @param {string | number} rowId. row bound id
    * @param {string} dataField. column bound data field. For example, if you have a column with dataField: 'firstName', set 'firstName' here.
    * @param {string} value. The message to be shown below the cell
@@ -16875,7 +17011,7 @@ export interface GridAppearance {
    */
   allowColumnActionButtonAnimation?: boolean;
   /**
-   * Activates animated transitions for column filter buttons, providing visual feedback when filters are applied or removed. This enhances user experience by making the filtering process more intuitive and visually engaging.
+   * Animates column filter button state when a filter is applied or cleared (filter button appearance).
    * Default value: true
    */
   allowColumnFilterButtonAnimation?: boolean;
@@ -16930,7 +17066,7 @@ export interface GridAppearance {
    */
   showRowHeader?: boolean;
   /**
-   * Controls the visibility of row headers within the TreeGrid component. By default, non-leaf tree items (i.e., parent nodes) are rendered as standard rows. When this property is set to true, these parent nodes are displayed as row headers, visually distinguished in a manner similar to how group headers are rendered. This enhances the hierarchical structure of the TreeGrid, making parent-child relationships more prominent.
+   * In TreeGrid, when true, parent (non-leaf) nodes are drawn in the row header column—like group headers—instead of as normal data rows, so depth is easier to see.
    * Default value: false
    */
   showTreeRowHeader?: boolean;
@@ -17093,6 +17229,16 @@ export interface GridAi {
    * Default value: ""
    */
   key?: string;
+  /**
+   * Sets or gets the AI Assistant's prompts.
+   * Default value: []
+   */
+  prompts?: any[];
+  /**
+   * Sets or gets the AI Assistant's prompts variables which will be replaced in the AI prompts. Ex: promptVariables: [{ name: 'review', dataField: 'review' }, { name: 'rating', dataField: 'rating' } ]
+   * Default value: []
+   */
+  promptVariables?: any[];
 }
 
 /**An object that defines configuration options controlling the grid’s behavior, such as layout properties, sorting and filtering capabilities, selection modes, and responsiveness settings. */
@@ -17239,7 +17385,7 @@ export interface GridColumn {
    */
   cardHeight?: number;
   /**
-   * Defines the format applied to the column's cell values. Supports number and date format strings. Examples for numeric formatting:'d' - Decimal numbers (e.g., 25)'f' - Floating-point numbers (e.g., 25.50)'n' - Integer numbers with thousands separator (e.g., 1,000)'c' - Currency format (e.g., $25.50)'p' - Percentage format (e.g., 50%)To define decimal places, append a number (e.g., 'c2' = $25.26).Examples for date formatting:'d' - Short date (e.g., 3/25/2025)'D' - Long date (e.g., Tuesday, March 25, 2025)'t' - Short time (e.g., 1:30 PM)'T' - Long time (e.g., 1:30:45 PM)'f' - Long date + short time'F' - Long date + long time'M' - Month/day (e.g., March 25)'Y' - Year and month (e.g., 2025 March)'S' - Sortable, culture-invariant format (e.g., 2025-03-25T13:30:45)Custom date format tokens:'dd' - Day of month (e.g., 01-31)'MMMM' - Full month name'yyyy' - 4-digit yearAnd many more standard date/time tokens
+   * Defines the format applied to the column's cell values. Supports number and date format strings. Examples for numeric formatting:'d' - Decimal numbers (e.g., 25)'f' - Floating-point numbers (e.g., 25.50)'n' - Integer numbers with thousands separator (e.g., 1,000)'c' - Currency format (e.g., $25.50)'p' - Percentage format (e.g., 50%)To define decimal places, append a number (e.g., 'c2' = $25.26).Examples for date formatting:'d' - Short date (e.g., 3/25/2025)'D' - Long date (e.g., Tuesday, March 25, 2026)'t' - Short time (e.g., 1:30 PM)'T' - Long time (e.g., 1:30:45 PM)'f' - Long date + short time'F' - Long date + long time'M' - Month/day (e.g., March 25)'Y' - Year and month (e.g., 2026 March)'S' - Sortable, culture-invariant format (e.g., 2026-03-25T13:30:45)Custom date format tokens:'dd' - Day of month (e.g., 01-31)'MMMM' - Full month name'yyyy' - 4-digit yearAnd many more standard date/time tokens
    * Default value: ""
    */
   cellsFormat?: string;
@@ -17273,6 +17419,11 @@ export interface GridColumn {
    * Default value: null
    */
   cellsCSSRules?: any;
+  /**
+   * Sets or gets whether the column is collapsed.
+   * Default value: false
+   */
+  collapsed?: boolean;
   /**
    * Sets or gets the column's cells renderer function for custom html rendering in the cells. For more advanced scenarios use formatFunction or template, but for simple html rendering, you can use this.
    * Default value: null
@@ -17309,6 +17460,11 @@ export interface GridColumn {
    */
   dataSet?: any;
   /**
+   * Sets or gets which columns will be expanded/collapsed when the column is collapsible. The property expects an array of data fields.
+   * Default value: 
+   */
+  detailColumns?: any[];
+  /**
    * Gets the HTML Element. The property returns null when the Column is not in the View.
    * Default value: null
    */
@@ -17325,9 +17481,9 @@ export interface GridColumn {
   freeze?: Position | string;
   /**
    * Sets or gets the filter of the column. Example: ['contains Andrew or contains Nancy']. Example with numeric filter ['quantity', '&lt;= 3 and &gt;= 8']. Additional example with filter which we want to apply to a column with filterMenuMode='excel' - ['EQUAL' 'Andrew' or 'EQUAL' 'Antoni' or 'EQUAL' 'Beate']. Example with a string filter applied to a string column - ['CONTAINS' 'burke' or 'CONTAINS' 'peterson']. Filter conditions which you can use in the expressions: '=', 'EQUAL','&lt;&gt;', 'NOT_EQUAL', '!=', '&lt;', 'LESS_THAN','&gt;', 'GREATER_THAN', '&lt;=', 'LESS_THAN_OR_EQUAL', '&gt;=', 'GREATER_THAN_OR_EQUAL','starts with', 'STARTS_WITH','ends with', 'ENDS_WITH', '', 'EMPTY', 'CONTAINS','DOES_NOT_CONTAIN', 'NULL','NOT_NULL'
-   * Default value: ""
+   * Default value: 
    */
-  filter?: string;
+  filter?: any;
   /**
    * Sets or gets the filter menu mode of the column. In 'basic' mode, a single input is displayed in the filter menu. In 'default' mode, two input options are available for more precise filtering. In 'excel' mode, checked list with unique values is displayed.
    * Default value: default
@@ -17384,10 +17540,20 @@ export interface GridColumn {
    */
   labelTemplate?: string | HTMLTemplateElement | HTMLElement | {(label: string): string};
   /**
+   * Sets or gets the column header's template function. The property expects a function(element) { } which can be used to set up the column's header label.
+   * Default value: null
+   */
+  headerTemplate?: HTMLElement;
+  /**
    * Sets or gets the minimum width.
    * Default value: 30
    */
   minWidth?: number;
+  /**
+   * Sets or gets the column's click handler.
+   * Default value: null
+   */
+  onCellClick?: {(event: any, rowId: string | number, dataField: string, cellValue: any, rowData: any, cellElement: any): string};
   /**
    * Sets or gets the column's rowSpan function. Allows you to dynamically span cells.
    * Default value: null
@@ -17443,6 +17609,16 @@ export interface GridColumn {
    * Default value: 
    */
   width?: string | number;
+  /**
+   * Sets or gets the column's tooltip.
+   * Default value: ""
+   */
+  tooltip?: string;
+  /**
+   * Sets or gets the column's tooltip renderer which renders tooltips for the column cells. (rowId, dataField, cellValue, formattedValue, data)
+   * Default value: null
+   */
+  tooltipRenderer?: any;
   /**
    * Sets or gets the column's template. The property expects the 'id' of HTMLTemplateElement or HTML string which is displayed in the cells. Built-in string values are: 'checkBox', 'switchButton', 'url', 'email', 'dropdownlist', 'list', 'progress', 'tags', 'autoNumber', 'modifiedBy', 'createdBy', 'createdTime', 'modifiedTime', 'images', 'checklist', 'attachments', 'sparklines', 'richText', 'color', 'rating', 'duration', 'startDate', 'dueDates'. For example, when you set the template to 'url', the cells will be render anchor tags. When you set the template property to HTMLTemplateElement you should consider that once a template is rendered, the formatObject.template property stores the rendered template component for further use.
    * Default value: 
@@ -17697,6 +17873,11 @@ export interface GridColumnGroup {
    */
   align?: HorizontalAlignment | string;
   /**
+   * Sets whether the column group can be collapsed.
+   * Default value: false
+   */
+  collapsible?: boolean;
+  /**
    * Sets the name of the column group.
    * Default value: ""
    */
@@ -17936,6 +18117,11 @@ export interface GridDataExport {
    */
   freezeHeader?: boolean;
   /**
+   * Determines whether the pinned columns remains fixed (frozen) at the left of the worksheet when the data is exported to Excel. If enabled, users can scroll through the exported data while still viewing the pinned column.
+   * Default value: false
+   */
+  freezeColumns?: boolean;
+  /**
    * Determines if formulas in the exported Excel file will be automatically converted to their corresponding calculated values. When enabled, all formulas are replaced with their results in the export; when disabled, original formulas are preserved in the Excel sheet.
    * Default value: true
    */
@@ -17950,103 +18136,11 @@ export interface GridDataExport {
    * Default value: false
    */
   exportAsTable?: boolean;
-}
-
-/**Configures the grid’s data source when the <em>dataSource</em> property is assigned either a JavaScript array (for local data) or a URL (for remote data). This setting determines how the grid retrieves and displays its data, supporting both direct array binding and remote data fetching via HTTP requests. */
-export interface GridDataSourceSettings {
   /**
-   * Specifies whether a column should be automatically generated by the system (such as for identity or timestamp fields). When set, the column’s value will be created by the database or application rather than provided manually. This property can be read to determine if the column is currently set to auto-generate its values, or written to enable or disable automatic generation.
-   * Default value: false
-   */
-  autoGenerateColumns?: boolean;
-  /**
-   * Specifies the name of the data field—such as 'children' or 'items'—that contains nested child items within each object in the data source. When this property is set, the dataAdapter searches for this specified field in each item while processing the data. If the field is present, the dataAdapter treats the data as hierarchical and automatically constructs a hierarchical data structure, allowing for nested or tree-like representations. This property can be both retrieved (get) and updated (set) as needed.
-   * Default value: ""
-   */
-  childrenDataField?: string;
-  /**
-   * Sets or retrieves the root element used for XML data binding. This property specifies the top-level XML element that serves as the entry point for mapping XML data to objects, or for serializing objects to XML.
-   * Default value: blackList
-   */
-  sanitizeHTML?: GridDataSourceSettingsSanitizeHTML | string;
-  /**
-   * Gets or sets the root element used for XML data binding, which serves as the primary node for mapping XML data to object structures or vice versa.
-   * Default value: ""
-   */
-  root?: string;
-  /**
-   * Gets or sets the XML binding record, which defines the mapping between XML data and the corresponding data structure in the application. Use this property to retrieve the current binding configuration or to assign a new XML binding record for data serialization and deserialization operations.
-   * Default value: ""
-   */
-  record?: string;
-  /**
-   * Specifies or retrieves the fields used to group the data. When set, this property determines which data fields will be used to organize the dataset into groups, allowing for aggregation or categorization based on the specified fields.
-   * Default value: []
-   */
-  groupBy?: string[];
-  /**
-   * Defines or retrieves the schema that describes the structure of the loaded data, including both the field names and their corresponding data types. For example: ['id: number', 'firstName: string', 'lastName: string'] specifies that the data has three fields—id as a number, firstName as a string, and lastName as a string. This property ensures that the data adheres to the expected format for processing and validation.
+   * Specifies whether the data should be exported as an Excel protected sheet. You can set a password by setting an object like this: { password: 'secret'} 
    * Default value: null
    */
-  dataFields?: GridDataSourceSettingsDataField[];
-  /**
-   * Specifies or retrieves the type of data source being used, allowing you to define or query the data source format (such as JSON, XML, or a database connection).
-   * Default value: array
-   */
-  dataSourceType?: GridDataSourceSettingsDataSourceType | string;
-  /**
-   * Sets or retrieves the unique identifier (ID) associated with the dataAdapter instance. This ID can be used to distinguish between multiple dataAdapters in your application and for referencing or managing them programmatically.
-   * Default value: ""
-   */
-  id?: string;
-  /**
-   * Specifies the data field that uniquely identifies each item in the hierarchy, typically using the 'id' field. This property works in conjunction with the parentDataField property, which defines the field that refers to the parent item's identifier (commonly 'parentId'). Together, these fields establish the hierarchical structure by linking each child item to its parent. This property can be used to both set and retrieve the key field used for building the hierarchy.
-   * Default value: ""
-   */
-  keyDataField?: string;
-  /**
-   * Specifies the data field that identifies the parent node for each item in a hierarchical data structure. This property is used together with the keyDataField property to establish relationships between items—typically, keyDataField refers to the unique identifier of an item (commonly the 'id' field), while the parentDataField references the identifier of the item's parent (often the 'parentId' field). This setup allows the component to construct the hierarchy by linking each item to its parent based on matching key and parent values.
-   * Default value: ""
-   */
-  parentDataField?: string;
-  /**
-   * Updates the value of the 'mapChar' field within the record, assigning it a specified character or string. This field typically stores data related to mapping or identification purposes within the record object.
-   * Default value: "."
-   */
-  mapChar?: string;
-  /**
-   * Controls the grid’s relational data configuration. This property accepts an array of relation definition objects, where each object must include the following fields:  - 'id' *(string)*: A unique identifier for the relation.  - 'label' *(string)*: A descriptive name for the relation, used for display purposes.  - 'columns' *(GridColumn[])*: An array of grid column definitions associated with this relation.  - 'dataSource' *(any)*: The data source from which related records are retrieved (e.g., an array, function, or external API endpoint).Once you have defined the grid relations, you can reference them in individual column configurations by specifying the 'relationId' (to link the column to a relation) and 'relationField' (to indicate which field from the related data to use). When these properties are set, the grid will automatically generate an appropriate column editor (such as a dropdown or lookup field) that leverages the provided relation settings, streamlining data entry and ensuring data consistency.
-   * Default value: null
-   */
-  relations?: any;
-  /**
-   * Defines the virtual data source function, which is invoked by the Grid every time it needs to fetch data—such as when the user scrolls or sorts. This function should use the provided parameters to retrieve or generate the required data, and then pass the results back to the Grid by calling the callback function with the new data set. For example: resultCallbackFunction({dataSource: data}); This approach enables efficient data loading for large datasets by fetching only the necessary records as needed (virtual scrolling). For a working example, refer to the Grid demos page: https://www.htmlelements.com/demos/grid/virtualscroll/
-   * Default value: null
-   */
-  virtualDataSource?: {(resultCallbackFunction: any, details: DataAdapterVirtualDataSourceDetails): void};
-  /**
-   * Enhances the virtual data source during node expansion in Tree and TreeGrid components. When these components are configured with a virtualDataSource, this function is triggered each time a node is expanded and additional data needs to be loaded on demand. It enables efficient, real-time loading of child node data only as needed, supporting large data sets without preloading the entire hierarchy. For implementation details and a live demonstration, see: https://www.htmlelements.com/demos/grid/virtual-tree-grid/
-   * Default value: null
-   */
-  virtualDataSourceOnExpand?: any;
-}
-
-export interface GridDataSourceSettingsDataField {
-  /**
-   * Sets the dataField name.
-   * Default value: ""
-   */
-  name?: string;
-  /**
-   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
-   * Default value: ""
-   */
-  map?: string;
-  /**
-   * Sets the dataField type.
-   * Default value: string
-   */
-  dataType?: GridDataSourceSettingsDataFieldDataType | string;
+  protectSheet?: any;
 }
 
 /**Provides comprehensive configuration options for controlling the grid's editing behavior, including enabling or disabling editing features, specifying editing modes (such as inline, popup, or batch), setting validation rules, and customizing editors for specific columns. */
@@ -18062,6 +18156,11 @@ export interface GridEditing {
    */
   allowColumnHeaderEdit?: boolean;
   /**
+   * Shows a Calendar or Spin Buttons when you hover an editable Date or Number Cells.
+   * Default value: false
+   */
+  allowDynamicButtons?: any;
+  /**
    * Automatically reapplies any previously set column filters and sort orders after an edit is made, ensuring that user-defined table views remain consistent and uninterrupted following data modifications.
    * Default value: true
    */
@@ -18071,6 +18170,11 @@ export interface GridEditing {
    * Default value: true
    */
   allowListOpenOnContentClick?: boolean;
+  /**
+   * This feature sets the Input's caret position by the mouse click which activates the Input editor.
+   * Default value: false
+   */
+  caretPosition?: boolean;
   /**
    * Allows users to modify or update existing content directly within the interface. This feature typically provides editing controls, such as input fields or rich text editors, enabling seamless changes to data or text as needed.
    * Default value: false
@@ -18092,7 +18196,7 @@ export interface GridEditing {
    */
   readOnlyEdit?: boolean;
   /**
-   * Provides detailed definitions and mappings for command keyboard shortcuts, specifying the key combinations used to trigger various actions within an application or system.
+   * Provides detailed definitions for command keyboard shortcuts, specifying the key combinations used to trigger various actions within an application or system.
    * Default value: [object Object]
    */
   commandKeys?: GridEditingCommandKeys;
@@ -18138,7 +18242,7 @@ export interface GridEditing {
   deleteDialog?: Dialog;
 }
 
-/**Provides detailed definitions and mappings for command keyboard shortcuts, specifying the key combinations used to trigger various actions within an application or system. */
+/**Provides detailed definitions for command keyboard shortcuts, specifying the key combinations used to trigger various actions within an application or system. */
 export interface GridEditingCommandKeys {
   /**
    * Provides details about the keyboard shortcut or key binding assigned to trigger the edit command within the application. This property specifies which key or key combination the user can press to activate editing functionality.
@@ -18351,7 +18455,7 @@ export interface GridFiltering {
    * An array specifying the filtering conditions to be applied to the DataGrid. Each element in the 'filter' array represents a single filter and is itself an array with two elements:1. 'Column dataField:' The name of the column to which the filter will be applied.2. 'Filter condition(s):' A string or expression that defines the criteria to filter the column’s data. This can include a condition or multiple conditions combined using logical operators such as 'or' and 'and'.'Example 1:'  To search for rows where the "firstName" column contains 'Andrew' or 'Nancy', and the "quantity" column is either less than or equal to 3 or greater than or equal to 8:'''js[  ['firstName', 'contains Andrew or contains Nancy'],  ['quantity', '= 8']]''''Example 2:'  For columns configured with 'filterMenuMode: "excel"', you can express multiple "equals" conditions:'''js[  ['firstName', 'EQUAL Andrew or EQUAL Antoni or EQUAL Beate']]''''Example 3:'  To filter a string column for values containing either 'burke' or 'peterson':'''js[  ['lastName', 'CONTAINS burke or CONTAINS peterson']]''''Supported filter operators:'  You may use a variety of filter operators and keywords within filter expressions. Common operators include:- Equality: '=', 'EQUAL'- Inequality: '!=', '- Comparison: '', 'GREATER_THAN', '=', 'GREATER_THAN_OR_EQUAL'- String matching: 'CONTAINS', 'DOES_NOT_CONTAIN', 'STARTS_WITH', 'ENDS_WITH'- Special: 'EMPTY', 'NULL', 'NOT_NULL'Multiple conditions can be combined in a single expression with logical operators ('and', 'or').  This flexible structure enables complex filtering based on your DataGrid’s current columns and data types.
    * Default value: 
    */
-  filter?: any[];
+  filter?: any;
   /**
    * Provides detailed configuration options for the filter row, including its appearance, behavior, available filter types, and display settings. This allows developers to customize how the filter row is shown and how users interact with filtering features in the component.
    * Default value: [object Object]
@@ -18513,12 +18617,12 @@ export interface GridGrouping {
    */
   groupBar?: GridGroupingGroupBar;
   /**
-   * Enhances the first render of the grid by automatically expanding any group that matches a specified condition.  For example, using 'onGroupDefaultExpanded: (dataItem) => { return dataItem.label === 'Peppermint Mocha Twist'; }' ensures that the group with the label "Peppermint Mocha Twist" is expanded by default when the grid is initially displayed. This callback receives each group’s data object ('dataItem') and should return 'true' for groups you want to be expanded initially, or 'false' otherwise.
+   * On first render, return true to expand a group, false to leave it collapsed.  Example: (dataItem) => dataItem.label === "Peppermint Mocha Twist". Receives each group’s dataItem before headers are built.
    * Default value: null
    */
   onGroupDefaultExpanded?: any;
   /**
-   * Specifies how group headers are displayed within the component. The available options are:- 'basic': Renders group headers without applying any indentation, custom group row heights, or column labels. This provides a simple, minimal display.- 'compact': Similar to 'basic', but additionally includes the column labels in the group headers for improved clarity.- 'advanced' (default): Enhances the group header display by adding indentation based on the group level, allowing nested groups to be visually distinguished. This mode may also support custom group row heights and presents the column labels appropriately.- 'multipleColumns': Displays each group header in its separate column, enabling a more structured and multi-dimensional grouping layout.Choose the mode that best fits the desired visual presentation and complexity of your grouped data.
+   * Specifies how group headers are displayed within the component. The available options are:- 'basic': Renders group headers without applying any indentation, custom group row heights, or column labels. This provides a simple, minimal display.- 'compact': Similar to 'basic', but additionally includes the column labels in the group headers for improved clarity.- 'advanced' (default): Indents by nesting level, shows column labels, optional custom group row height.- 'multipleColumns': One group header cell per column for multi-field grouping.Pick a mode to match how dense the grouped layout should be.
    * Default value: advanced
    */
   renderMode?: GridGroupingRenderMode | string;
@@ -18602,7 +18706,7 @@ export interface GridHeader {
    * Specifies which action buttons are shown in the Grid header. The available options are:- ''columns'': Displays a button that opens the columns chooser panel, allowing users to show or hide grid columns.- ''filter'': Displays a button that opens the filtering panel, enabling users to apply filters to grid data.- ''group'': Displays a button that opens the grouping panel, allowing users to group data by specific columns.- ''sort'': Displays a button that opens the sorting panel, letting users sort grid data by one or more columns.- ''format'': Displays a button that opens the conditional formatting panel, providing options to format cells based on specific conditions.- ''search'': Displays a button that opens the search panel, enabling users to search within the grid data.- ''colors'': Displays a button that opens a color options panel, allowing users to customize color formatting for the grid.Include one or more of these options in an array to control the set of action buttons visible in the Grid header.
    * Default value: [ "columns", "filter", "group", "sort", "format", "search" ]
    */
-  buttons?: string[];
+  buttons?: any;
   /**
    * Specifies the type of search command to be executed, determining how the search operation is performed (e.g., basic, advanced, or filtered search). This setting influences the logic and options available during the search process.
    * Default value: search
@@ -18673,7 +18777,7 @@ export interface GridLayout {
    */
   cardsPerRow?: number;
   /**
-   * Determines if cards are displayed in a vertical orientation. When enabled, each card arranges its column label above the corresponding column value, creating a top-to-bottom layout rather than the default horizontal (label-value side-by-side) format. This mode enhances readability on narrow screens and improves visual hierarchy by stacking labels above their respective values.
+   * When true, each card stacks column label above value; when false, label and value sit side by side. Prefer true on narrow layouts.
    * Default value: false
    */
   cardVertical?: boolean;
@@ -18698,6 +18802,11 @@ export interface GridLayout {
    */
   rowHeight?: string | number | null;
   /**
+   * Specifies the height of the filter row.
+   * Default value: 30
+   */
+  filterRowHeight?: number;
+  /**
    * Specifies the width of the view bar component, determining how much horizontal space it occupies within the user interface. Adjusting this value will increase or decrease the view bar's width accordingly.
    * Default value: 250
    */
@@ -18707,7 +18816,7 @@ export interface GridLayout {
 /**Provides detailed configuration options for managing pagination, including parameters such as the number of items per page, current page index, and total number of pages. This section ensures efficient data retrieval and navigation across multiple pages of results. */
 export interface GridPaging {
   /**
-   * Enables pagination functionality, allowing data or content to be divided into discrete pages. This feature lets users navigate through large datasets or lists by viewing a limited number of items per page, improving usability and performance. Pagination controls such as next, previous, and specific page numbers may be supported.
+   * Turns paging on; page size, index, and controls come from the pager and related paging options.
    * Default value: false
    */
   enabled?: boolean;
@@ -18736,7 +18845,7 @@ export interface GridPaging {
 /**Provides detailed configuration options for controlling the appearance and behavior of spinner-based pagination elements, including parameters for speed, size, color, and navigation functionality. */
 export interface GridPagingSpinner {
   /**
-   * Activates a spinner-based pagination feature, displaying a loading spinner while additional content is being fetched or loaded as the user navigates through pages. This improves user experience by providing visual feedback during content loading in paginated interfaces.
+   * When true, shows a loading spinner on the pager while the next or previous page is being fetched (server or async paging).
    * Default value: false
    */
   enabled?: boolean;
@@ -19254,7 +19363,7 @@ export interface GridStateSettings {
 /**Provides detailed configuration options for user selection behavior, including parameters such as selection mode (single or multiple), default selections, selection limits, and customizable callbacks for selection events. */
 export interface GridSelection {
   /**
-   * Allows users to select an option from a list, enabling interaction with selectable choices within the user interface.
+   * When true, the grid allows user selection of rows and/or cells according to selection.mode, allowRowHeaderSelection, and related properties.
    * Default value: false
    */
   enabled?: boolean;
@@ -19457,19 +19566,13 @@ export declare type GridClipboardAutoFillMode = 'none' | 'copy' | 'fillSeries';
 /**Sets or retrieves the position of the checkbox selection column within a table or grid, allowing you to specify whether the checkbox column appears at the start (left) or end (right) of the columns. */
 export declare type Position = 'near' | 'far';
 /**Sets or gets the filter menu mode of the column. In 'basic' mode, a single input is displayed in the filter menu. In 'default' mode, two input options are available for more precise filtering. In 'excel' mode, checked list with unique values is displayed. */
-export declare type GridColumnFilterMenuMode = 'basic' | 'default' | 'excel';
+export declare type GridColumnFilterMenuMode = 'basic' | 'default' | 'excel' | 'multi';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc', 'none' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | 'none';
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Specifies the orientation of the page (portrait or landscape) when exporting the document to PDF format. This setting determines how the content is laid out on each PDF page. */
 export declare type GridDataExportPageOrientation = 'landscape' | 'portrait';
-/**Sets or retrieves the root element used for XML data binding. This property specifies the top-level XML element that serves as the entry point for mapping XML data to objects, or for serializing objects to XML. */
-export declare type GridDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
-/**Sets the dataField type. */
-export declare type GridDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
-/**Specifies or retrieves the type of data source being used, allowing you to define or query the data source format (such as JSON, XML, or a database connection). */
-export declare type GridDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Specifies the method by which the editing mode is activated, such as through a single click, double click, or keyboard action. */
 export declare type GridEditingAction = 'none' | 'click' | 'doubleClick';
 /**Defines the content or label displayed within the buttons of the command column, such as text, icons, or custom HTML elements. This determines what users see and interact with in each command button cell. */
@@ -19484,7 +19587,7 @@ export declare type GridFilteringFilterRowApplyMode = 'auto' | 'click';
 export declare type GridFilteringFilterMenuMode = 'default' | 'excel';
 /**Specifies how groups are expanded or collapsed within the component. Determines whether groups are expanded by default, collapsed, or if a custom behavior is applied. */
 export declare type GridGroupingExpandMode = 'buttonClick' | 'rowClick';
-/**Specifies how group headers are displayed within the component. The available options are:<br/><br/>- 'basic': Renders group headers without applying any indentation, custom group row heights, or column labels. This provides a simple, minimal display.<br/>- 'compact': Similar to 'basic', but additionally includes the column labels in the group headers for improved clarity.<br/>- 'advanced' (default): Enhances the group header display by adding indentation based on the group level, allowing nested groups to be visually distinguished. This mode may also support custom group row heights and presents the column labels appropriately.<br/>- 'multipleColumns': Displays each group header in its separate column, enabling a more structured and multi-dimensional grouping layout.<br/><br/>Choose the mode that best fits the desired visual presentation and complexity of your grouped data. */
+/**Specifies how group headers are displayed within the component. The available options are:<br/><br/>- 'basic': Renders group headers without applying any indentation, custom group row heights, or column labels. This provides a simple, minimal display.<br/>- 'compact': Similar to 'basic', but additionally includes the column labels in the group headers for improved clarity.<br/>- 'advanced' (default): Indents by nesting level, shows column labels, optional custom group row height.<br/>- 'multipleColumns': One group header cell per column for multi-field grouping.<br/><br/>Pick a mode to match how dense the grouped layout should be. */
 export declare type GridGroupingRenderMode = 'basic' | 'compact' | 'advanced' | 'multipleColumns';
 /**Specifies the type of search command to be executed, determining how the search operation is performed (e.g., basic, advanced, or filtered search). This setting influences the logic and options available during the search process. */
 export declare type GridHeaderSearchCommand = 'search' | 'filter';
@@ -20013,6 +20116,11 @@ export interface KanbanProperties {
    */
   currentUser?: string | number;
   /**
+   * Controls whether a confirm dialog is displayed when a task is dragged and dropped to a new position
+   * Default value: false
+   */
+  confirmDialog?: boolean;
+  /**
    * Controls whether the default dialog for adding or removing tasks or comments is enabled or disabled. When set to true, the dialog will not appear, allowing for custom handling of these actions. When set to false, the standard dialog will be shown as usual. This property can be used to either retrieve the current setting (get) or define its behavior (set).
    * Default value: false
    */
@@ -20033,7 +20141,7 @@ export interface KanbanProperties {
    */
   dataSource?: KanbanDataSource[];
   /**
-   * Specifies how the Kanban board's default fields (e.g., title, status, assignee) correspond to the fields in your data source. Use this mapping only if your data source uses field names that differ from the Kanban's expected keywords. If the field names already match, this mapping is optional. Note that only certain default fields support custom mapping; not all default mappings can be overridden.
+   * Specifies how the Kanban board's default fields (e.g., title, status, assignee) correspond to the fields in your data source. Use this mapping only if your data source uses field names that differ from the Kanban's expected keywords. If the field names already match, this mapping is optional. Note that only certain default fields support custom mapping; not all default map can be overridden.
    * Default value: { checklist: 'checklist', color: 'color', comments: 'comments', dueDate: 'dueDate', id: 'id', priority: 'priority', progress: 'progress', startDate: 'startDate', status: 'status', swimlane: 'swimlane', tags: 'tags', text: 'text', userId: 'userId'. createdUserId: 'createdUserId', createdDate: 'createdDate', updatedUserId: 'updatedUserId', updatedDate: 'updatedDate' }
    */
   dataSourceMap?: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; createdUserId: string; upDatedUserId: string; createdDate: Date; upDatedDate: Date;};
@@ -20223,7 +20331,7 @@ export interface KanbanProperties {
    */
   taskUserIcon?: boolean;
   /**
-   * Specifies the template to use for rendering task text. This property accepts multiple value types:- A string starting with #, which references the id of a  element on the page. The contents of this element will be used as the template.- A string containing HTML or template markup, which will be parsed and applied directly to the task text.- A function, which receives the task text (or a template) as input and returns the modified text or template to be used.This property can be both set to define the template for future tasks, or retrieved to access the currently applied template.
+   * Specifies the template to use for rendering task text. This property accepts multiple value types:- A string starting with #, which references the id of a template element on the page. The contents of this element will be used as the template.- A string containing HTML or template markup, which will be parsed and applied directly to the task text.- A function, which receives the task text (or a template) as input and returns the modified text or template to be used.This property can be both set to define the template for future tasks, or retrieved to access the currently applied template.
    * Default value: null
    */
   textTemplate?: any;
@@ -20375,11 +20483,12 @@ export interface Kanban extends BaseElement, KanbanProperties {
   onCommentUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a task is dropped onto a target element within the DOM during a drag-and-drop operation. It allows developers to handle the completion of a drag action by responding to where the task is released. To prevent the default drop behavior—such as moving the element or initiating a browser action—you can call event.preventDefault() within the event handler. This enables you to implement custom logic for handling dropped tasks, such as updating data models, modifying the UI, or triggering other application-specific actions."
-	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
+	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, confirmDrop, originalEvent, previousContainer, target)
    *  container - the Kanban the dragged task(s) is dropped to
    *  data - an object with additional drag details
    *  item - the task that is dragged; if multiple tasks are dragged, this is the task that has been clicked when initiating the drag operation
    *  items - an array with all dragged tasks
+   *  confirmDrop - parameter which you can set to a function. When this is defined, the DROP operation is confirmed once this function is called. Otherwise, the drop is canceled. This feature can be combined with the Kanban's getConfirmDialog(label, content, callbackFn) method or with a custom confirm dialog.
    *  originalEvent - the original, browser, event that initiates the drag operation
    *  previousContainer - the Kanban the dragged item(s) is dragged from
    *  target - the element the dragged tasks are dropped to
@@ -20512,6 +20621,14 @@ export interface Kanban extends BaseElement, KanbanProperties {
    * Removes any currently selected items or cards within the Kanban board, ensuring that no items remain selected. This action resets the selection state of the Kanban component.
    */
   clearSelection(): void;
+  /**
+   * Create an instance of the Window component which is used as a confirm dialog. It gets 3 arguments, label, content and confirm function.
+   * @param {string} label. The label shown in the header of the window. For example: Confirm move.
+   * @param {string} content. The label shown in the content of the window. For example: Are you sure you want to move this task?
+   * @param {any} confirmFn. The function called when the OK button is clicked.
+   * @returns {any}
+   */
+  getConfirmDialog(label: string, content: string, confirmFn: any): any;
   /**
    * Conceals a specific column within a Kanban board, making its contents and tasks temporarily invisible to users without deleting any data. This action helps declutter the board or focus attention on other columns. The hidden column can typically be shown again through board settings or controls.
    * @param {number | string} column. The index or dataField of the column to hide
@@ -21531,6 +21648,11 @@ export interface ListBoxProperties {
    */
   rightToLeft?: boolean;
   /**
+   * Controls whether the select all item is displayed when Checkboxes are enabled.
+   * Default value: false
+   */
+  selectAll?: boolean;
+  /**
    * Gets or sets the selected indexes. The selected indexes property is an array containing the numerical indexes of the items that are currently selected. Assigning an array of indexes will update the selection to match those items; retrieving this property returns the array of currently selected item indexes.
    * Default value: 
    */
@@ -21724,6 +21846,11 @@ export interface ListBox extends BaseElement, ListBoxProperties {
    * @returns {{label: string, value: string}[]}
    */
   getItems(): {label: string, value: string}[];
+  /**
+   * Returns an array of the selected values.
+   * @returns {any[]}
+   */
+  getSelectedValues(): any[];
   /**
    * Inserts a new item into the collection at the specified index, shifting existing items at and after that position one place to the right. The index determines the position in the array or list where the new item will be placed.
    * @param {number} index. The index where the item must be inserted.
@@ -23580,7 +23707,7 @@ export interface MultilineTextBoxProperties {
    */
   autoFocus?: boolean;
   /**
-   * The cols attribute sets the visible width (measured in average character columns) of a textarea input field in a form. Its value must be a positive integer, determining how many characters are visible in a single row. If the cols attribute is not provided, the textarea defaults to displaying 20 character columns in width. Note: The cols attribute is not applicable to  elements; it is specific to  elements.
+   * The cols attribute sets the visible width (measured in average character columns) of a textarea input field in a form. Its value must be a positive integer, determining how many characters are visible in a single row. If the cols attribute is not provided, the textarea defaults to displaying 20 character columns in width. Note: The cols attribute is not applicable to Input elements; it is specific to Textarea elements.
    * Default value: 20
    */
   cols?: number;
@@ -23600,7 +23727,7 @@ export interface MultilineTextBoxProperties {
    */
   enterKeyBehavior?: MultilineTextBoxEnterKeyBehavior | string;
   /**
-   * Specifies the form element with which this element is associated, known as its "form owner." The value of this attribute must be the ID of an existing  element within the same HTML document. This allows input or button elements to be associated with a form, even if they are not nested inside the form tag itself.
+   * Specifies the form element with which this element is associated, known as its "form owner." The value of this attribute must be the ID of an existing Form element within the same HTML document. This allows input or button elements to be associated with a form, even if they are not nested inside the form tag itself.
    * Default value: ""
    */
   form?: string;
@@ -25511,6 +25638,11 @@ export interface PivotTableProperties {
    */
   dataSource?: any;
   /**
+   * Configures the grid's data source settings when the dataSource property is assigned either a local data array or a remote URL. This allows the grid to properly retrieve, bind, and display data from the specified source, whether it is provided directly as an array or fetched asynchronously from a web endpoint.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: PivotTableDataSourceSettings;
+  /**
    * Specifies or retrieves whether the original tabular data source for the PivotTable should be pre-sorted according to the columns defined with the rowGroup property, and in the same order as those columns appear. This ensures that when the PivotTable is generated, its underlying data is already organized based on the designated row groups, potentially optimizing performance and ensuring consistent grouping behavior.
    * Default value: false
    */
@@ -25965,6 +26097,103 @@ export interface PivotTableConditionalFormatting {
   text?: string;
 }
 
+/**Configures the grid's data source settings when the <code>dataSource</code> property is assigned either a local data array or a remote URL. This allows the grid to properly retrieve, bind, and display data from the specified source, whether it is provided directly as an array or fetched asynchronously from a web endpoint. */
+export interface PivotTableDataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags.
+   * Default value: blackList
+   */
+  sanitizeHTML?: PivotTableDataSourceSettingsSanitizeHTML | string;
+  /**
+   * Determines whether cell values will display the espaced values as text or html.
+   * Default value: text
+   */
+  sanitizeHTMLRender?: PivotTableDataSourceSettingsSanitizeHTMLRender | string;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: PivotTableDataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: PivotTableDataSourceSettingsDataSourceType | string;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface PivotTableDataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: PivotTableDataSourceSettingsDataFieldDataType | string;
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-pivot-table"): PivotTable;
@@ -25989,6 +26218,14 @@ export declare type PivotTableConditionalFormattingCondition = 'between' | 'equa
 export declare type PivotTableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
 /**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type PivotTableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
+/**Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags. */
+export declare type PivotTableDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
+/**Determines whether cell values will display the espaced values as text or html. */
+export declare type PivotTableDataSourceSettingsSanitizeHTMLRender = 'text' | 'html';
+/**Sets the dataField type. */
+export declare type PivotTableDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type PivotTableDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Gets or sets the position of the PivotTable’s designer interface, which appears when the designer option is enabled. This property allows you to specify or retrieve where the designer UI is displayed within the application layout. */
 export declare type PivotTableDesignerPosition = 'near' | 'far';
 /**Displays an export button within the drill-down dialog when this option is enabled, allowing users to export data directly from the dialog. */
@@ -27722,7 +27959,7 @@ export interface SchedulerProperties {
    */
   groupOrientation?: SchedulerGroupOrientation | string;
   /**
-   * Enhances customization for group cell headers by allowing you to define how each group cell is rendered within the header section. You can specify one of the following as the template:- 'HTMLTemplateElement': Supply an HTML '' element that will be applied to all group header cells. Within your template, you can use property bindings that correspond to properties of the group cell object. These bindings will be automatically populated with the respective values for each cell.- 'Template ID (String)': Provide the 'id' attribute of an existing HTML '' element. The identified template will be used for rendering all group header cells.- 'Custom Function': Specify a function that will be called for each group cell. The function will receive two parameters:  - 'cellContent': A DOM element that acts as a container for the group cell’s content.  - 'cellObj': The data object associated with the current group cell.This approach gives you full flexibility to display custom content, styles, and data for group header cells according to your requirements. If you use an HTMLTemplateElement, you can leverage dynamic property bindings that map directly to the properties of each group cell’s data object.
+   * Enhances customization for group cell headers by allowing you to define how each group cell is rendered within the header section. You can specify one of the following as the template:- 'HTMLTemplateElement': Supply an HTML '&lt;template&gt;' element that will be applied to all group header cells. Within your template, you can use property bindings that correspond to properties of the group cell object. These bindings will be automatically populated with the respective values for each cell.- 'Template ID (String)': Provide the 'id' attribute of an existing HTML '&lt;template&gt;' element. The identified template will be used for rendering all group header cells.- 'Custom Function': Specify a function that will be called for each group cell. The function will receive two parameters:  - 'cellContent': A DOM element that acts as a container for the group cell’s content.  - 'cellObj': The data object associated with the current group cell.This approach gives you full flexibility to display custom content, styles, and data for group header cells according to your requirements. If you use an HTMLTemplateElement, you can leverage dynamic property bindings that map directly to the properties of each group cell’s data object.
    * Default value: null
    */
   groupTemplate?: any;
@@ -30379,12 +30616,12 @@ export interface TableProperties {
    */
   filterOperator?: boolean;
   /**
-   * Gets or sets the ID of an HTML  element to be used as a custom filter template. This allows you to define and apply your own filter UI by referencing the specified template’s ID.
+   * Gets or sets the ID of an HTML &lt;template&gt; element to be used as a custom filter template. This allows you to define and apply your own filter UI by referencing the specified template’s ID.
    * Default value: "null"
    */
   filterTemplate?: string;
   /**
-   * Specifies or retrieves the ID of an HTML '' element whose content will be used to render the footer row(s) of the component. This allows you to define custom footer layouts using template markup and apply them dynamically by referencing the template's ID.
+   * Specifies or retrieves the ID of an HTML '&lt;template&gt;' element whose content will be used to render the footer row(s) of the component. This allows you to define custom footer layouts using template markup and apply them dynamically by referencing the template's ID.
    * Default value: "null"
    */
   footerRow?: string;
@@ -30439,7 +30676,7 @@ export interface TableProperties {
    */
   unlockKey?: string;
   /**
-   * Specifies or retrieves the currently selected language code (e.g., "en", "fr", "es") for localization purposes. This property works together with the messages property to determine which set of localized messages should be displayed or used by the application. Adjusting this property changes which language mappings from messages are active.
+   * Specifies or retrieves the currently selected language code (e.g., "en", "fr", "es") for localization purposes. This property works together with the messages property to determine which set of localized messages should be displayed or used by the application. Adjusting this property changes which language map from messages are active.
    * Default value: "en"
    */
   locale?: string;
@@ -32000,7 +32237,7 @@ export interface TextAreaProperties {
    */
   unfocusable?: boolean;
   /**
-   * Defines the list of users available for mentioning in the TextArea component. Expects an array where each element is an object containing both id and name properties (e.g., { id: string | number, name: string }). When users type the '@' character, a dropdown appears, allowing them to select a user from this array to mention within the TextArea.
+   * Defines the list of users available for mentioning in the TextArea component. Expects an array where each element is an object containing both id and name properties (e.g., { id: string | number, name: string }). When users type the at symbol, a dropdown appears, allowing them to select a user from this array to mention within the TextArea.
    * Default value: []
    */
   users?: any[];
@@ -33334,6 +33571,21 @@ export interface TreeProperties {
    */
   dropDownMode?: boolean;
   /**
+   * 
+   * Default value: null
+   */
+  dropDownSelectTemplate?: any;
+  /**
+   * 
+   * Default value: label
+   */
+  dropDownSelectionMode?: TreeDropDownSelectionMode | string;
+  /**
+   * 
+   * Default value: "→"
+   */
+  dropDownSelectionPathSymbol?: string;
+  /**
    * Specifies the width, in pixels, of the Tree component when it appears within a drop-down interface. Adjusting this value controls how wide the drop-down Tree is rendered, allowing for customization to fit various layouts or content requirements.
    * Default value: 300
    */
@@ -33790,6 +34042,8 @@ declare global {
     }
 }
 
+
+export declare type TreeDropDownSelectionMode = 'label' | 'path';
 /**Specifies how TreeItemGroups within the Tree expand or collapse, controlling whether multiple groups can be expanded simultaneously, only one group can be expanded at a time, or all groups are collapsed by default. This setting defines the expand/collapse interaction pattern for grouped items in the Tree structure. */
 export declare type TreeExpandMode = 'multiple' | 'single';
 /**Specifies whether to display a traditional scrollbar or to use scroll buttons for navigating content when the element’s content exceeds its visible area. This setting controls the user’s method of scrolling in overflow situations. */
@@ -33810,6 +34064,11 @@ export interface TreeItemProperties {
    * Default value: false
    */
   disabled?: boolean;
+  /**
+   * 
+   * Default value: false
+   */
+  disableDrag?: boolean;
   /**
    * 
    * Default value: 
@@ -33871,6 +34130,11 @@ export interface TreeItemsGroupProperties {
    * Default value: false
    */
   disabled?: boolean;
+  /**
+   * 
+   * Default value: false
+   */
+  disableDrag?: boolean;
   /**
    * 
    * Default value: false

@@ -775,9 +775,6 @@
 .smart-kanban-feedback[column-drag] {
   box-shadow: var(--smart-elevation-4);
   border: none;
-  height: auto;
-  transform: scale(0.8);
-  transform-origin: top left;
 }
 .smart-kanban-feedback[column-drag] .smart-kanban {
   border: none;
@@ -786,6 +783,11 @@
 .smart-kanban-feedback[column-drag] .smart-kanban-task {
   position: static;
   box-shadow: none;
+}
+.smart-kanban-feedback[column-drag] {
+  height: auto;
+  transform: scale(0.8);
+  transform-origin: top left;
 }
 .smart-kanban-feedback .smart-kanban-feedback-additional {
   position: absolute;

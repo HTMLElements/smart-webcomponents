@@ -1,0 +1,205 @@
+.smart-grid-column-menu {
+  position: absolute;
+  background: var(--smart-surface);
+  width: var(--smart-grid-column-menu-width);
+  height: var(--smart-grid-column-menu-height);
+  z-index: 9999;
+  box-shadow: var(--smart-elevation-8);
+  min-height: 40px;
+  overflow: hidden;
+
+  smart-menu {
+    border: none;
+  }
+
+  &.smart-animate {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: top left;
+
+    &.smart-open-right {
+      transform-origin: top right;
+    }
+
+    &.smart-grid-download-menu {
+      width: auto;
+      transform: scaleY(0);
+    }
+  }
+
+  smart-menu[mode="vertical"] {
+    height: 100%;
+  }
+
+  &.open.smart-animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .smart-grid-icon {
+    display: inline-block;
+  }
+
+  .smart-filter-container {
+    width: 100%;
+    height: auto;
+    background: var(--smart-background);
+
+    smart-filter-panel {
+      width: 100%;
+      border: none;
+      background: transparent;
+    }
+  }
+
+  .smart-filter-container .smart-filter-panel smart-tree,
+  .smart-filter-panel smart-filter-builder {
+    height: 250px;
+  }
+}
+
+.smart-grid-filter-footer {
+  height: var(--smart-grid-filter-footer-height);
+}
+
+@mixin grid-filter-smart-grid-row-filter-summary {
+  &[filter-row],
+  &[summary-row] {
+    background: var(--smart-surface);
+  }
+}
+
+@mixin grid-filter-smart-grid-row-indeterminate {
+  &[filter="indeterminate"] {
+    opacity: 0.75;
+  }
+}
+
+@mixin grid-filter-smart-grid-column-button {
+  .smart-filter-button {
+    &.smart-animate:before {
+      transition: transform 0.2s ease-out, opacity 0.3s ease-out;
+    }
+  }
+}
+
+@mixin grid-filter-smart-grid-cell-filter-row {
+  &.smart-grid-filter-row-cell {
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+    border-color: var(--smart-surface);
+    --smart-grid-cell-horizontal-border: transparent;
+
+    .smart-filter-input-type {
+      outline: none;
+      background: inherit;
+      color: inherit;
+      border: none;
+      border-radius: 0px;
+      width: var(--smart-editor-addon-width);
+      font-family: var(--smart-font-family-icon);
+      font-style: normal;
+      font-weight: normal;
+      color: inherit;
+      font-size: 14px;
+      text-decoration: inherit;
+      font-variant: normal;
+      text-transform: none;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .smart-filter-input-value {
+      border-radius: 0px;
+      width: calc(100% - var(--smart-editor-addon-width));
+      border: none;
+      resize: none;
+      border-radius: 0px;
+      background: inherit;
+      color: inherit;
+      outline: none;
+      overflow: hidden;
+
+      &.smart-grid-number-input-cell-editor {
+        .nav {
+          border: 1px solid var(--smart-border);
+        }
+      }
+    }
+
+    .smart-filter-input-container {
+      display: flex;
+      margin-left: 1px;
+      width: calc(100% - 1px) !important;
+      height: 100%;
+      border: 1px solid transparent;
+
+      &[disabled] {
+        .nav {
+          pointer-events: none;
+          visibility: hidden;
+        }
+
+        .smart-filter-input-type {
+          pointer-events: none;
+          visibility: hidden;
+        }
+
+        .smart-grid-icon {
+          visibility: hidden;
+          pointer-events: none;
+        }
+      }
+
+      &[focus] {
+        border-color: var(--smart-ui-state-border-active);
+        border-style: solid;
+        border-width: 1px;
+        background: var(--smart-background);
+
+        .smart-filter-input-value.smart-grid-number-input-cell-editor {
+          .nav {
+            background: var(--smart-background);
+          }
+        }
+      }
+    }
+
+    &[template="checkBox"] {
+      .smart-filter-input-value {
+        &.smart-grid-check-box-cell-editor {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+}
+
+@mixin grid-filter-smart-grid-cell-filter-attr {
+  &[filter] {
+    background: var(--smart-grid-cell-background-filter);
+    color: var(--smart-grid-cell-color-filter);
+
+    &:not([selected]) {
+      .smart-label {
+        background: var(--smart-grid-cell-background-filter);
+        color: var(--smart-grid-cell-color-filter);
+      }
+    }
+  }
+}
+
+@mixin grid-filter-menu-excel {
+  &.smart-grid-column-filter-menu.filter-excel {
+    smart-menu-item[level="1"] {
+      .smart-menu-item-label-container {
+        padding: 0px !important;
+        margin: 0px !important;
+      }
+    }
+  }
+}

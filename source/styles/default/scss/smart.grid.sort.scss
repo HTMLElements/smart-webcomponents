@@ -1,0 +1,19 @@
+@import '_functions';
+
+// Optional add-on to smartgrid.core.css: sorting (headers, cells, dialog, animation).
+
+@import 'grid/sort-animation';
+@import 'grid/sort';
+@import 'grid/sort-dialog';
+
+.smart-grid {
+  @include grid-sorting-mode-in-dot-smart-grid;
+}
+
+smart-grid-column {
+  @include grid-sort-button-in-smart-grid-column;
+}
+
+smart-grid-cell {
+  @include grid-sort-attr-in-smart-grid-cell;
+}

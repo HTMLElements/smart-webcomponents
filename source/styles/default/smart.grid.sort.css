@@ -1,0 +1,75 @@
+.smart-grid-sort-animation {
+  transition-timing-function: ease-in-out;
+  transition-delay: 0;
+}
+
+.smart-grid-add-column-dialog-color-panel {
+  width: 100%;
+}
+.smart-grid-add-column-dialog-color-panel .smart-sortable {
+  width: 100%;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+.smart-grid-add-column-dialog-color-panel .smart-sortable .smart-sortable-container {
+  overflow: hidden;
+}
+.smart-grid-add-column-dialog-color-panel .smart-sortable .smart-grid-add-column-dialog-color-item {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 25px);
+  margin-left: 5%;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+.smart-grid-add-column-dialog-color-panel .smart-sortable .smart-grid-add-column-dialog-color-item smart-color-input .smart-color-box {
+  border-radius: 50%;
+}
+
+.smart-grid[sorting_mode=many] smart-grid-column[sort-index] .smart-label.align-right {
+  margin-left: -10px;
+}
+.smart-grid[sorting_mode=many] smart-grid-column[sort-index] .smart-sort-button[order] {
+  width: 40px;
+}
+.smart-grid[sorting_mode=many] smart-grid-column[sort-index] .smart-sort-button:after {
+  content: attr(order);
+  font-family: var(--smart-font-family);
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--smart-primary);
+  color: var(--smart-primary-color);
+  padding: 5px;
+  margin-left: 5px;
+  height: 8px;
+  box-sizing: content-box;
+}
+
+smart-grid-column .smart-sort-button.asc, smart-grid-column .smart-sort-button.desc {
+  display: flex;
+}
+smart-grid-column .smart-sort-button.asc:before, smart-grid-column .smart-sort-button.desc:before {
+  content: var(--smart-icon-arrow-down);
+  position: relative;
+}
+smart-grid-column .smart-sort-button.asc:before {
+  transform: rotate(180deg);
+}
+smart-grid-column .smart-sort-button.desc:before {
+  transform: rotate(0deg);
+}
+smart-grid-column .smart-sort-button.smart-animate:before {
+  transition: transform 0.2s ease-out, opacity 0.3s ease-out;
+}
+
+smart-grid-cell[sort] {
+  background: var(--smart-grid-cell-background-sort);
+  color: var(--smart-grid-cell-color-sort);
+}
+smart-grid-cell[sort]:not([selected]) .smart-label {
+  background: var(--smart-grid-cell-background-sort);
+  color: var(--smart-grid-cell-color-sort);
+}

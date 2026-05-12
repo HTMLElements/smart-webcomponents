@@ -478,12 +478,12 @@ smart-scheduler .smart-scheduler-view-list-button.smart-visibility-hidden,
 smart-scheduler .smart-scheduler-view-items-button.smart-visibility-hidden {
   transform: scale(0);
 }
+smart-scheduler .smart-scheduler-view-list-button:not(.smart-hidden) {
+  display: block !important;
+}
 smart-scheduler .smart-scheduler-view-list-button {
   background: transparent;
   margin-left: 10px;
-}
-smart-scheduler .smart-scheduler-view-list-button:not(.smart-hidden) {
-  display: block !important;
 }
 smart-scheduler .smart-scheduler-view-list-button.active:not(:hover) {
   background-color: var(--smart-primary);
@@ -2614,7 +2614,6 @@ smart-scheduler[right-to-left] .smart-scheduler-legend {
   display: inline-block;
   contain: content;
   max-height: 100px;
-  /* Notification panel RTL */
 }
 .smart-notification-panel:focus {
   border-color: var(--smart-outline);
@@ -2768,6 +2767,9 @@ smart-scheduler[right-to-left] .smart-scheduler-legend {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+.smart-notification-panel {
+  /* Notification panel RTL */
 }
 .smart-notification-panel[right-to-left] .smart-notification-item .smart-input[interval], .smart-notification-panel[right-to-left] .smart-notification-item .smart-input[type] {
   padding-left: var(--smart-editor-addon-width);

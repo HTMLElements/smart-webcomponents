@@ -1,0 +1,30 @@
+smart-menu {
+  &.smart-grid-views-menu {
+    height: 100% !important;
+    border: none;
+  }
+
+  @include grid-filter-menu-excel;
+
+  &.smart-grid-views-menu[checkboxes][checkable],
+  &.smart-grid-column-chooser-menu[checkboxes][checkable] {
+    &[disable-auto-check] {
+      .smart-menu-item-label-container:after {
+        display: none;
+      }
+    }
+
+    smart-menu-item[level="1"] {
+      flex-direction: row-reverse;
+
+      .smart-menu-item-label-container {
+        padding-left: 10px;
+      }
+
+      &[checked] .smart-menu-item-label-container:after {
+        left: initial;
+        right: 10px;
+      }
+    }
+  }
+}

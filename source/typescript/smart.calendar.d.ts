@@ -67,7 +67,7 @@ export interface CalendarProperties {
    */
   firstDayOfWeek?: number;
   /**
-   * Defines a custom footer template for the component. You can provide either the ID of an existing '' element in the DOM, or pass a direct reference to an 'HTMLTemplateElement'. The specified template will be used to render the footer section of the component.
+   * Defines a custom footer template for the component. You can provide either the ID of an existing '&lt;template&gt;' element in the DOM, or pass a direct reference to an 'HTMLTemplateElement'. The specified template will be used to render the footer section of the component.
    * Default value: null
    */
   footerTemplate?: any;
@@ -97,7 +97,7 @@ export interface CalendarProperties {
    */
   importantDates?: string[] | Date[];
   /**
-   * Defines a template for displaying important dates. This property accepts either the ID of an HTML '' element present in the DOM, or a direct reference to that template element. The specified template will be used to render each important date in the component.
+   * Defines a template for displaying important dates. This property accepts either the ID of an HTML '&lt;template&gt;' element present in the DOM, or a direct reference to that template element. The specified template will be used to render each important date in the component.
    * Default value: null
    */
   importantDatesTemplate?: any;
@@ -238,7 +238,7 @@ export interface CalendarProperties {
    */
   tooltipPosition?: TooltipPosition | string;
   /**
-   * Defines the template used for the tooltip's content. You can provide either the ID of an existing '' element in the DOM or a direct reference to an HTMLTemplateElement. The tooltip will render its content based on the markup and structure defined within the specified template.
+   * Defines the template used for the tooltip's content. You can provide either the ID of an existing '&lt;template&gt;' element in the DOM or a direct reference to an HTMLTemplateElement. The tooltip will render its content based on the markup and structure defined within the specified template.
    * Default value: null
    */
   tooltipTemplate?: any;

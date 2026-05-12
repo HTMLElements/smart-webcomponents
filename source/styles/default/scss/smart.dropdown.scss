@@ -11,6 +11,12 @@
   outline: none;
   height: var(--smart-editor-height);
 
+  &:not([selection-clear]) {
+    .smart-drop-down-button-clear-icon {
+      display: none !important;
+    }
+  }
+
   >.smart-container,
   &.smart-container {
     display: flex;
@@ -34,6 +40,15 @@
     position: inherit;
     overflow: hidden;
     min-height: inherit;
+  }
+
+  &[selection-clear] {
+    --smart-editor-addon-width: 52px;
+
+    .smart-drop-down-button {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .smart-action-button {
@@ -94,6 +109,24 @@
     //border-color: var(--smart-ui-state-border-active);
     //background-color: var(--smart-ui-state-active);
     //color: var(--smart-ui-state-color-active);
+
+    .smart-drop-down-button-clear-icon {
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-origin: center;
+      font-family: var(--smart-font-family-icon);
+      overflow: visible;
+      margin-left: 5px;
+
+      &:after {
+        content: var(--smart-icon-cancel-alt);
+        font-size: var(--smart-arrow-size);
+      }
+    }
 
     .smart-drop-down-button-icon {
       pointer-events: none;
@@ -388,7 +421,7 @@
   }
 
   &[opened] {
-    > .smart-container > .smart-content > .smart-buttons-container {
+    >.smart-container>.smart-content>.smart-buttons-container {
       .smart-drop-down-button {
         .smart-drop-down-button-icon:after {
           transform: rotate(180deg);
@@ -410,13 +443,14 @@
       }
     }
 
-    > .smart-container > .smart-content > .smart-buttons-container {
-        &:not([drop-down-open-mode="dropDownButton"]):not(.outlined):not(.underlined) .smart-action-button,
-        &:not(.outlined):not(.underlined) .smart-drop-down-button {
-          border-color: var(--smart-ui-state-active);
-          background-color: var(--smart-ui-state-active);
-          color: var(--smart-ui-state-color-active);
-        }
+    >.smart-container>.smart-content>.smart-buttons-container {
+
+      &:not([drop-down-open-mode="dropDownButton"]):not(.outlined):not(.underlined) .smart-action-button,
+      &:not(.outlined):not(.underlined) .smart-drop-down-button {
+        border-color: var(--smart-ui-state-border-active);
+        background-color: var(--smart-ui-state-active);
+        color: var(--smart-ui-state-color-active);
+      }
     }
   }
 
@@ -1141,6 +1175,8 @@
   &.smart-date-time-drop-down {
     width: var(--smart-editor-drop-down-width);
     height: var(--smart-editor-drop-down-height);
+    --smart-editor-drop-down-padding-size: 0px;
+
 
     &.smart-drop-down-repositioned {
       width: var(--smart-editor-drop-down-width);

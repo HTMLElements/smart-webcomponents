@@ -1,0 +1,28 @@
+.smart-grid-add-column-dialog-color-panel {
+  width: 100%;
+
+  .smart-sortable {
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: auto;
+
+    .smart-sortable-container {
+      overflow: hidden;
+    }
+
+    .smart-grid-add-column-dialog-color-item {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 25px);
+      margin-left: 5%;
+      margin-top: 5px;
+      margin-bottom: 2px;
+
+      smart-color-input {
+        .smart-color-box {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

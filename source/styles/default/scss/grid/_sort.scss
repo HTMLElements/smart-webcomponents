@@ -1,0 +1,74 @@
+@mixin grid-sorting-mode-in-dot-smart-grid {
+  &[sorting_mode="many"] {
+    smart-grid-column[sort-index] {
+      .smart-label.align-right {
+        margin-left: -10px;
+      }
+
+      .smart-sort-button[order] {
+        width: 40px;
+      }
+
+      .smart-sort-button:after {
+        content: attr(order);
+        font-family: var(--smart-font-family);
+        font-size: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: var(--smart-primary);
+        color: var(--smart-primary-color);
+        padding: 5px;
+        margin-left: 5px;
+        height: 8px;
+        box-sizing: content-box;
+      }
+    }
+  }
+}
+
+@mixin grid-sort-button-in-smart-grid-column {
+  .smart-sort-button {
+
+    &.asc,
+    &.desc {
+      display: flex;
+
+      &:before {
+        content: var(--smart-icon-arrow-down);
+        position: relative;
+      }
+    }
+
+    &.asc {
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.desc {
+      &:before {
+        transform: rotate(0deg);
+      }
+    }
+
+    &.smart-animate:before {
+      transition: transform 0.2s ease-out, opacity 0.3s ease-out;
+    }
+  }
+}
+
+@mixin grid-sort-attr-in-smart-grid-cell {
+  &[sort] {
+    background: var(--smart-grid-cell-background-sort);
+    color: var(--smart-grid-cell-color-sort);
+
+    &:not([selected]) {
+      .smart-label {
+        background: var(--smart-grid-cell-background-sort);
+        color: var(--smart-grid-cell-color-sort);
+      }
+    }
+  }
+}

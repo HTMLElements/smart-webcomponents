@@ -1,7 +1,8 @@
 @import '_functions';
 
 /* smart-text-box */
-input {
+input,
+.smart-prompt-textarea {
   &.smart-input {
     border-width: var(--smart-border-width);
     font-family: var(--smart-font-family);
@@ -40,6 +41,14 @@ input {
   &.smart-input::selection {
     background: var(--smart-editor-selection);
     color: var(--smart-editor-selection-color);
+  }
+}
+
+textarea.smart-prompt-textarea {
+  padding: 10px !important;
+
+  &:focus {
+    border-color: var(--smart-primary) !important;
   }
 }
 

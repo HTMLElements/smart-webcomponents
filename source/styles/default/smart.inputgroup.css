@@ -482,3 +482,30 @@ input.smart-form-editor.smart-invalid + .smart-error-label-like-after-element, i
 .smart-form-options-horizontal {
   display: flex;
 }
+
+.smart-form-control[data-loading] {
+  position: relative;
+  overflow: hidden;
+}
+
+.smart-form-control[data-loading]::after {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 10px);
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--smart-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: smart-form-spin 1s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@keyframes smart-form-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

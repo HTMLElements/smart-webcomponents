@@ -1,0 +1,10 @@
+@import '_functions';
+
+// Optional add-on to smartgrid.core.css: group header + grouped row/cell layout.
+
+@import 'grid/grouping';
+
+.smart-grid {
+  @include grid-grouping-row-not-leaf-in-dot-smart-grid;
+  @include grid-grouping-grouped-attr-in-dot-smart-grid;
+}

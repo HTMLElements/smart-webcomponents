@@ -9,7 +9,6 @@ smart-list-items-group {
   }
 
   .smart-input {
-    margin-left: 4px;
     width: calc(-4px + var(--smart-check-box-default-size));
     height: calc(-4px + var(--smart-check-box-default-size));
     line-height: var(--smart-check-box-default-size);
@@ -20,7 +19,7 @@ smart-list-items-group {
     border-style: solid;
     padding: 3px;
     border-width: var(--smart-border-width);
-    border-radius: var(--smart-list-item-check-box-radius);
+    border-radius: var(--smart-border-radius);
     font-family: inherit;
     background-repeat: no-repeat;
     border-color: var(--smart-border);
@@ -47,6 +46,23 @@ smart-list-items-group {
       border-color: var(--smart-primary);
       background-color: var(--smart-primary);
       color: var(--smart-primary-color);
+    }
+  }
+
+  &[indeterminate] {
+    .smart-input {
+      border-color: var(--smart-border);
+      background-color: var(--smart-background);
+      color: var(--smart-background);
+
+      &::after {
+        content: ' ' !important;
+        padding: 6px;
+        margin-top: 0px;
+        border-color: var(--smart-ui-state-selected);
+        background-color: var(--smart-ui-state-selected);
+        color: var(--smart-primary-color);
+      }
     }
   }
 
@@ -135,6 +151,8 @@ smart-list-item {
   }
 
   .smart-input {
+    cursor: pointer;
+
     &:before {
       content: '';
       width: 100%;
@@ -451,7 +469,9 @@ smart-list-box {
     padding: var(--smart-editor-label-padding);
     outline: initial;
     padding-right: 25px;
-
+    background: inherit;
+    color: inherit;
+    
     &:focus {
       border-color: var(--smart-outline);
     }
@@ -460,17 +480,30 @@ smart-list-box {
   .smart-list-box-filter-input-container {
     position: relative;
     width: calc(100% - 10px);
-    height: var(--smart-editor-height);
+    height: 36px;
     margin-left: 5px;
     margin-top: 5px;
+
+    input {
+      border-radius: var(--smart-border-radius);
+      height: calc(100% - 2 * var(--smart-border-width));
+
+      &:hover {
+        border-color: var(--smart-ui-state-border-hover);
+      }
+
+      &:focus {
+        border-color: var(--smart-primary);
+        outline: 1px solid var(--smart-primary);
+      }
+    }
 
     &:after {
       content: var(--smart-icon-search);
       font-family: var(--smart-font-family-icon);
-      height: var(--smart-text-box-default-height);
       position: absolute;
-      top: 0;
-      width: 25px;
+      top: calc(50% - var(--smart-font-size) / 2);
+      height: var(--smart-font-size);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -598,26 +631,27 @@ smart-list-box {
       border-color: var(--smart-ui-state-border-selected);
     }
 
-      &:not([selected]) {
-        .smart-overlay {
-          background-color: var(--smart-ui-state-focus);
-        }
-        
-        .smart-content {
-          color: var(--smart-ui-state-color-focus);
-          border-color: var(--smart-ui-state-border-focus);
-        }
+    &:not([selected]) {
+      .smart-overlay {
+        background-color: var(--smart-ui-state-focus);
       }
-      &[selected] {
-        .smart-overlay {
-          background-color: var(--smart-ui-state-selected);
-        }
-        
-        .smart-content {
-          color: var(--smart-ui-state-color-selected);
-          border-color: var(--smart-ui-state-border-selected);
-        }
+
+      .smart-content {
+        color: var(--smart-ui-state-color-focus);
+        border-color: var(--smart-ui-state-border-focus);
       }
+    }
+
+    &[selected] {
+      .smart-overlay {
+        background-color: var(--smart-ui-state-selected);
+      }
+
+      .smart-content {
+        color: var(--smart-ui-state-color-selected);
+        border-color: var(--smart-ui-state-border-selected);
+      }
+    }
   }
 }
 

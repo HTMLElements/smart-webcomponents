@@ -1,0 +1,15 @@
+@import '_functions';
+
+// Optional add-on to smartgrid.core.css: cell editors, dialogs, row edit chrome, editing hints.
+
+@import 'grid/edit';
+
+@include grid-edit-smart-grid-row-host;
+@include grid-edit-cell-editors-windows-and-popups;
+
+.smart-grid {
+  @include grid-edit-dot-smart-grid-row-header-edit-icon;
+}
+
+@include grid-edit-date-time-picker-dropdown;
+@include grid-edit-smart-grid-editing-enabled-hints;

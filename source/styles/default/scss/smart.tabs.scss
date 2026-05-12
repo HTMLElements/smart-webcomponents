@@ -1258,7 +1258,7 @@ smart-tab-items-group {
 .smart-tabs-selection-bar {
   position: absolute;
   bottom: 0;
-  background: var(--smart-ui-state-color-selected);
+  background: var(--smart-primary);
   height: 2px;
   z-index: 10;
 }

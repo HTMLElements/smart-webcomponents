@@ -172,7 +172,7 @@ export interface ComboBoxProperties {
    */
   itemMeasureMode?: ListItemMeasureMode | string;
   /**
-   * A getter method that retrieves and returns an array containing all list ('') elements currently present within the dropdown menu. This allows you to easily access and manipulate every item displayed in the dropdown.
+   * A getter method that retrieves and returns an array containing all list ('li') elements currently present within the dropdown menu. This allows you to easily access and manipulate every item displayed in the dropdown.
    * Default value: 
    */
   items?: {label: string, value: string}[];

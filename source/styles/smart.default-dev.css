@@ -1,8 +1,6 @@
 @import url("./default/smart.variables.css");
 @import url("./default/smart.common.css");
 @import url("./default/smart.accordion.css");
-@import url("./default/smart.array.css");
-@import url("./default/smart.alert.css");
 @import url("./default/smart.badge.css");
 @import url("./default/smart.breadcrumb.css");
 @import url("./default/smart.button.css");
@@ -12,7 +10,6 @@
 @import url("./default/smart.cardview.css");
 @import url("./default/smart.carousel.css");
 @import url("./default/smart.chart.css");
-@import url("./default/smart.chip.css");
 @import url("./default/smart.combobox.css");
 @import url("./default/smart.colorpanel.css");
 @import url("./default/smart.colorpicker.css");
@@ -30,7 +27,6 @@
 @import url("./default/smart.gridpanel.css");
 @import url("./default/smart.inputgroup.css");
 @import url("./default/smart.kanban.css");
-@import url("./default/smart.led.css");
 @import url("./default/smart.listbox.css");
 @import url("./default/smart.listmenu.css");
 @import url("./default/smart.maskedtextbox.css");
@@ -62,15 +58,9 @@
 @import url("./default/smart.toggle.css");
 @import url("./default/smart.tooltip.css");
 @import url("./default/smart.tree.css");
+@import url("./default/smart.ribbon.css");
 @import url("./default/smart.window.css");
 @import url("./default/smart.layout.css");
-@import url("./default/smart.layouts.css");
-@import url("./default/smart.link-button.css");
 @import url("./default/smart.validator.css");
-@import url("./default/smart.dateformatpanel.css");
-@import url("./default/smart.currencyformatpanel.css");
-@import url("./default/smart.validationpanel.css");
-@import url("./default/smart.path.css");
-@import url("./default/smart.numberformatpanel.css");
 @import url("./default/smart.3dchart.css");
 @import url("./default/smart.misc.css");

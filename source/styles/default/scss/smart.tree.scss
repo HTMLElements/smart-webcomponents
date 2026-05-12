@@ -1086,8 +1086,8 @@ smart-tree {
         }
       }
 
-      smart-tree-items-group:not([selected])[hover] {
-        >.smart-tree-item-label-container {
+      smart-tree-items-group:not([selected]) {
+        >.smart-tree-item-label-container:hover span {
           //Used in GanttChart
           color: var(--smart-ui-state-color-hover);
           background-color: var(--smart-ui-state-hover);
@@ -1145,7 +1145,8 @@ smart-tree {
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     position: absolute;
-    border:none;
+    border: none;
+
     &.open {
       transform: scale(1) !important;
       opacity: 1;

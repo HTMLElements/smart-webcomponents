@@ -2,7 +2,7 @@
 .smart-validation-error,
 .smart-validation-success {
   &:not(smart-check-box) {
-    > div.smart-container {
+    >div.smart-container {
       &:after {
         pointer-events: none;
         font-weight: bold;
@@ -33,7 +33,7 @@
   }
 
   &:not(smart-check-box) {
-    > div.smart-container {
+    >div.smart-container {
       &:after {
         background-color: var(--smart-error);
         color: var(--smart-error-color);
@@ -55,7 +55,7 @@
 
 .smart-validation-success {
   &:not(smart-check-box) {
-    > div.smart-container {
+    >div.smart-container {
       &:after {
         background-color: var(--smart-success);
         color: var(--smart-success-color);
@@ -152,7 +152,8 @@ input.smart-validation-error {
   pointer-events: none;
   z-index: var(--smart-editor-drop-down-z-index);
   margin-top: 10px;
-  &.smart-error-hint-position-right{
+
+  &.smart-error-hint-position-right {
     white-space: nowrap;
   }
 }

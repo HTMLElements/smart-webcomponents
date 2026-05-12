@@ -77,7 +77,7 @@ smart-filter-panel {
     justify-content: space-around;
 
     >smart-button {
-      width: 80px;
+      min-width: 80px;
 
       button {
         padding: 8px;

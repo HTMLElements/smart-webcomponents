@@ -131,7 +131,7 @@ export interface MultilineTextBoxProperties {
    */
   autoFocus?: boolean;
   /**
-   * The cols attribute sets the visible width (measured in average character columns) of a textarea input field in a form. Its value must be a positive integer, determining how many characters are visible in a single row. If the cols attribute is not provided, the textarea defaults to displaying 20 character columns in width. Note: The cols attribute is not applicable to  elements; it is specific to  elements.
+   * The cols attribute sets the visible width (measured in average character columns) of a textarea input field in a form. Its value must be a positive integer, determining how many characters are visible in a single row. If the cols attribute is not provided, the textarea defaults to displaying 20 character columns in width. Note: The cols attribute is not applicable to Input elements; it is specific to Textarea elements.
    * Default value: 20
    */
   cols?: number;
@@ -151,7 +151,7 @@ export interface MultilineTextBoxProperties {
    */
   enterKeyBehavior?: MultilineTextBoxEnterKeyBehavior | string;
   /**
-   * Specifies the form element with which this element is associated, known as its "form owner." The value of this attribute must be the ID of an existing  element within the same HTML document. This allows input or button elements to be associated with a form, even if they are not nested inside the form tag itself.
+   * Specifies the form element with which this element is associated, known as its "form owner." The value of this attribute must be the ID of an existing Form element within the same HTML document. This allows input or button elements to be associated with a form, even if they are not nested inside the form tag itself.
    * Default value: ""
    */
   form?: string;

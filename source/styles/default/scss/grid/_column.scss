@@ -1,0 +1,234 @@
+smart-grid-column {
+  color: var(--smart-surface-color);
+  background: var(--smart-surface);
+  white-space: nowrap;
+  border-width: 0px;
+  border-style: solid;
+  overflow: hidden;
+  height: 100%;
+  position: absolute;
+  text-overflow: ellipsis;
+  font-size: var(--smart-grid-column-font-size, inherit);
+  font-weight: var(--smart-grid-column-font-weight, inherit);
+  display: flex;
+  cursor: default;
+  min-height: 30px;
+
+  &[selected],
+  &[aria-controls],
+  &[focus] {
+    background: var(--smart-ui-state-hover);
+    color: var(--smart-ui-state-color-hover);
+  }
+
+  &[highlight],
+  &[highlight][freeze] {
+    background: var(--smart-primary);
+    color: var(--smart-primary-color);
+  }
+
+  &:hover {
+    .smart-action-button {
+      border-color: var(--smart-ui-state-border-hover);
+      background: var(--smart-ui-state-hover);
+      color: var(--smart-ui-state-color-hover);
+      cursor: pointer;
+
+      div:before,
+      div:after {
+        background: var(--smart-ui-state-color-hover);
+      }
+    }
+  }
+
+  .smart-icon {
+    display: none;
+
+    &.show {
+      display: flex !important;
+      width: var(--smart-grid-column-buttons-width);
+      height: 100%;
+      left: 4px;
+      position: relative;
+
+      &.smart-add-new-column {
+        left: 0px;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    .smart-grid-icon {
+      display: flex;
+    }
+  }
+
+  .smart-label:not(.smart-input) {
+    position: relative;
+    left: 0px;
+
+    &.smart-animate {
+      transition: width 0.25s ease;
+    }
+
+    &.one {
+      width: calc(100% - var(--smart-grid-column-buttons-width));
+      min-width: 30px;
+    }
+
+    &.two {
+      width: calc(100% - 2 * var(--smart-grid-column-buttons-width));
+      min-width: 30px;
+    }
+
+    &.three {
+      width: calc(100% - 3 * var(--smart-grid-column-buttons-width));
+      min-width: 30px;
+    }
+
+    &.four {
+      width: calc(100% - 4 * var(--smart-grid-column-buttons-width));
+      min-width: 30px;
+    }
+
+    &.five {
+      width: calc(100% - 5 * var(--smart-grid-column-buttons-width));
+      min-width: 30px;
+    }
+
+    &.six {
+      width: calc(100% - 6 * var(--smart-grid-column-buttons-width));
+      min-width: 30px;
+    }
+  }
+
+  .smart-buttons-group {
+    height: 100%;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    position: absolute;
+    transform: translateX(var(--smart-grid-column-buttons-width));
+
+    &.smart-animate {
+      transition: transform 0.25s ease;
+    }
+
+    &.action {
+      transform: translateX(0px);
+    }
+  }
+
+  @include grid-sort-button-in-smart-grid-column;
+
+  @include grid-filter-smart-grid-column-button;
+
+  .smart-description-button {
+    margin-right: 3px;
+  }
+
+  .smart-action-button {
+    display: flex;
+    border-left: 1px solid var(--smart-border);
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+
+    div {
+      width: 14px;
+      position: relative;
+      display: flex !important;
+      background: transparent;
+      color: inherit;
+      font-size: 0;
+      transition: all 0.25s ease-in-out;
+      height: 12px;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--smart-font-family-icon);
+
+      &:after {
+        content: var(--smart-icon-menu);
+        color: var(--smart-surface-color);
+        background: transparent !important;
+        font-size: var(--smart-font-size);
+      }
+    }
+
+    &.smart-animate {
+      transition: width 0.25s ease;
+    }
+
+    &.active {
+      &:before {
+        -webkit-transform: translate(-50%, -50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:after {
+        -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+
+  .smart-grid-cell-editor.smart-grid-input-cell-editor {
+    background: var(--smart-background);
+    color: var(--smart-background-color);
+    position: absolute;
+    z-index: 10;
+    left: 1px;
+    top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: calc(100% - 1px);
+    box-sizing: border-box;
+  }
+
+  &[freeze] {
+    background: var(--smart-surface);
+    color: var(--smart-surface-color);
+  }
+
+  &[aria-controls] {
+    .smart-action-button {
+      border-color: var(--smart-ui-state-border-focus);
+      background: var(--smart-ui-state-focus);
+      color: var(--smart-ui-state-color-focus);
+
+      div:before,
+      div:after {
+        background: var(--smart-ui-state-color-focus);
+      }
+    }
+  }
+
+  &.smart-grid-column-border {
+    border-width: var(--smart-border-width);
+  }
+
+  &.top-far-corner {
+    width: var(--smart-scroll-bar-size);
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 1;
+  }
+
+  &:not(.smart-grid-column-border) {
+    &:after {
+      background: var(--smart-grid-column-horizontal-border, var(--smart-border));
+    }
+
+    &:not(.smart-grid-column-border-collapse) {
+      &:before {
+        background: var(--smart-border);
+      }
+    }
+  }
+
+  &:not(.smart-grid-column-border-collapse) {
+    &:before {
+      background: var(--smart-grid-column-vertical-border, var(--smart-border));
+    }
+  }
+}

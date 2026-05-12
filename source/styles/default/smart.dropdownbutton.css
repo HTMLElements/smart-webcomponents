@@ -31,12 +31,13 @@ smart-drop-down-button .smart-drop-down-container > smart-scroll-viewer {
   overflow: hidden;
 }
 smart-drop-down-button .smart-drop-down-container > smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container > .smart-scroll-viewer-content-container {
-  vertical-align: top; /* Fixes the height issue of display: inline-block */
+  vertical-align: top;
+  /* Fixes the height issue of display: inline-block */
   padding: 0;
 }
 smart-drop-down-button .smart-drop-down-container:not([resize-mode=none]) > smart-scroll-viewer {
   --smart-scroll-viewer-min-height: calc(var(--smart-editor-drop-down-min-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size) - var(--smart-editor-drop-down-resize-bar-height));
-  --smart-scroll-viewer-max-height: calc(var(--smart-editor-drop-down-max-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size) - var(--smart-editor- drop-down-resize-bar-height));
+  --smart-scroll-viewer-max-height: calc(var(--smart-editor-drop-down-max-height) - 2 * var(--smart-border-width) - 2 * var(--smart-editor-drop-down-padding-size) - var(--smart-editor-drop-down-resize-bar-height));
   height: calc(100% - var(--smart-editor-drop-down-resize-bar-height));
 }
 smart-drop-down-button .smart-drop-down-container[empty] > smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container {
@@ -253,6 +254,7 @@ smart-drop-down-button.dark .smart-drop-down-button {
   overflow: hidden;
 }
 .smart-drop-down-button.smart-drop-down-container smart-scroll-viewer > .smart-container > .smart-scroll-viewer-container > .smart-scroll-viewer-content-container {
-  vertical-align: top; /* Fixes the height issue of display: inline-block */
+  vertical-align: top;
+  /* Fixes the height issue of display: inline-block */
   padding: 0;
 }

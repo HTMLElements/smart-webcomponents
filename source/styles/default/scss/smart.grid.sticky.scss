@@ -1,0 +1,7 @@
+@mixin grid-sticky-column-header {
+  &.smart-columns-sticky {
+    border-top: 1px solid var(--smart-border);
+    border-bottom: 1px solid var(--smart-border);
+    margin-top: -2px;
+  }
+}

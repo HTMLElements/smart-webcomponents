@@ -208,6 +208,11 @@ export interface ListBoxProperties {
    */
   rightToLeft?: boolean;
   /**
+   * Controls whether the select all item is displayed when Checkboxes are enabled.
+   * Default value: false
+   */
+  selectAll?: boolean;
+  /**
    * Gets or sets the selected indexes. The selected indexes property is an array containing the numerical indexes of the items that are currently selected. Assigning an array of indexes will update the selection to match those items; retrieving this property returns the array of currently selected item indexes.
    * Default value: 
    */
@@ -401,6 +406,11 @@ export interface ListBox extends BaseElement, ListBoxProperties {
    * @returns {{label: string, value: string}[]}
    */
   getItems(): {label: string, value: string}[];
+  /**
+   * Returns an array of the selected values.
+   * @returns {any[]}
+   */
+  getSelectedValues(): any[];
   /**
    * Inserts a new item into the collection at the specified index, shifting existing items at and after that position one place to the right. The index determines the position in the array or list where the new item will be placed.
    * @param {number} index. The index where the item must be inserted.

@@ -1,5 +1,6 @@
 /* smart-text-box */
-input.smart-input {
+input.smart-input,
+.smart-prompt-textarea.smart-input {
   border-width: var(--smart-border-width);
   font-family: var(--smart-font-family);
   font-size: var(--smart-font-size);
@@ -20,19 +21,30 @@ input.smart-input {
   text-align: var(--smart-text-box-text-align);
   box-sizing: border-box;
 }
-input.smart-input:focus {
+input.smart-input:focus,
+.smart-prompt-textarea.smart-input:focus {
   border-color: var(--smart-outline);
 }
-input.smart-input:hover {
+input.smart-input:hover,
+.smart-prompt-textarea.smart-input:hover {
   border-color: var(--smart-ui-state-border-hover);
 }
-input.smart-input:disabled {
+input.smart-input:disabled,
+.smart-prompt-textarea.smart-input:disabled {
   border-color: var(--smart-disabled);
   outline: none;
 }
-input.smart-input::selection {
+input.smart-input::selection,
+.smart-prompt-textarea.smart-input::selection {
   background: var(--smart-editor-selection);
   color: var(--smart-editor-selection-color);
+}
+
+textarea.smart-prompt-textarea {
+  padding: 10px !important;
+}
+textarea.smart-prompt-textarea:focus {
+  border-color: var(--smart-primary) !important;
 }
 
 textarea.smart-input::selection {
@@ -797,6 +809,8 @@ smart-number-input[drop-down-button-position=right] .smart-input {
   color: var(--smart-surface-color);
   border-left: 1px solid var(--smart-border);
   background: var(--smart-surface);
+  border-top-right-radius: var(--smart-border-radius) !important;
+  border-bottom-right-radius: var(--smart-border-radius) !important;
 }
 .smart-number-input .nav:hover, .smart-number-input .nav:active {
   background: var(--smart-surface);
@@ -825,8 +839,8 @@ smart-number-input[drop-down-button-position=right] .smart-input {
 .smart-number-input .nav .up:active, .smart-number-input .nav .up[active],
 .smart-number-input .nav .down:active,
 .smart-number-input .nav .down[active] {
-  background: var(--smart-ui-state-active);
-  color: var(--smart-ui-state-color-active);
+  background: var(--smart-ui-state-active) !important;
+  color: var(--smart-ui-state-color-active) !important;
 }
 .smart-number-input .nav .up {
   border-bottom: var(--smart-border-width) solid var(--smart-border);
@@ -1735,46 +1749,65 @@ smart-date-range-input[focus], smart-date-range-input:focus {
   overflow: visible;
 }
 
+.smart-date-input-drop-down-menu,
+.smart-date-range-input-drop-down-menu {
+  padding: 0px;
+}
+.smart-date-input-drop-down-menu smart-button:first-of-type,
 .smart-date-range-input-drop-down-menu smart-button:first-of-type {
   margin-left: 5px;
 }
+.smart-date-input-drop-down-menu smart-button:last-of-type,
 .smart-date-range-input-drop-down-menu smart-button:last-of-type {
   margin-right: 5px;
 }
+.smart-date-input-drop-down-menu .smart-calendar,
 .smart-date-range-input-drop-down-menu .smart-calendar {
   height: 100%;
   min-width: 100%;
   --smart-calendar-default-height: auto;
   --smart-calendar-footer-height: 0px;
 }
+.smart-date-input-drop-down-menu .smart-done-button,
+.smart-date-input-drop-down-menu .smart-today-button,
+.smart-date-input-drop-down-menu .smart-clear-button,
 .smart-date-range-input-drop-down-menu .smart-done-button,
 .smart-date-range-input-drop-down-menu .smart-today-button,
 .smart-date-range-input-drop-down-menu .smart-clear-button {
   height: auto;
   --smart-button-padding: 5px;
 }
+.smart-date-input-drop-down-menu .smart-done-button,
+.smart-date-input-drop-down-menu .smart-today-button,
 .smart-date-range-input-drop-down-menu .smart-done-button,
 .smart-date-range-input-drop-down-menu .smart-today-button {
   margin-right: 5px;
 }
+.smart-date-input-drop-down-menu .smart-calendar-footer,
 .smart-date-range-input-drop-down-menu .smart-calendar-footer {
   flex-direction: column;
 }
+.smart-date-input-drop-down-menu .smart-timepicker-buttons,
+.smart-date-input-drop-down-menu .smart-button-controls,
 .smart-date-range-input-drop-down-menu .smart-timepicker-buttons,
 .smart-date-range-input-drop-down-menu .smart-button-controls {
   display: none;
 }
+.smart-date-input-drop-down-menu .smart-date-range-input-footer-controls,
 .smart-date-range-input-drop-down-menu .smart-date-range-input-footer-controls {
   width: 100%;
   height: 100%;
 }
+.smart-date-input-drop-down-menu .smart-timepicker-button,
 .smart-date-range-input-drop-down-menu .smart-timepicker-button {
   position: relative;
   white-space: nowrap;
 }
+.smart-date-input-drop-down-menu .smart-timepicker-button:empty,
 .smart-date-range-input-drop-down-menu .smart-timepicker-button:empty {
   display: none;
 }
+.smart-date-input-drop-down-menu .smart-timepicker-button:before,
 .smart-date-range-input-drop-down-menu .smart-timepicker-button:before {
   content: var(--smart-icon-clock);
   height: 100%;
@@ -1783,6 +1816,7 @@ smart-date-range-input[focus], smart-date-range-input:focus {
   font-size: var(--smart-arrow-size);
   margin: 0 var(--smart-editor-label-padding) 0 var(--smart-editor-label-padding);
 }
+.smart-date-input-drop-down-menu .smart-timepicker-button:hover,
 .smart-date-range-input-drop-down-menu .smart-timepicker-button:hover {
   color: var(--smart-ui-state-color-hover);
   border-color: var(--smart-ui-state-hover);
@@ -1791,15 +1825,19 @@ smart-date-range-input[focus], smart-date-range-input:focus {
   opacity: var(--smart-button-opacity-hover);
   cursor: pointer;
 }
+.smart-date-input-drop-down-menu .smart-timepicker-button[selected],
 .smart-date-range-input-drop-down-menu .smart-timepicker-button[selected] {
   color: var(--smart-ui-state-color-selected);
 }
+.smart-date-input-drop-down-menu .smart-icon-today:before,
 .smart-date-range-input-drop-down-menu .smart-icon-today:before {
   content: var(--smart-icon-calendar);
 }
+.smart-date-input-drop-down-menu .smart-icon-clear:before,
 .smart-date-range-input-drop-down-menu .smart-icon-clear:before {
   content: var(--smart-icon-cancel);
 }
+.smart-date-input-drop-down-menu .smart-timepicker,
 .smart-date-range-input-drop-down-menu .smart-timepicker {
   position: absolute;
   top: 0;
@@ -1820,47 +1858,60 @@ smart-date-range-input[focus], smart-date-range-input:focus {
   border-style: solid;
   border-bottom: none;
 }
-.smart-date-range-input-drop-down-menu[icons] smart-calendar, .smart-date-range-input-drop-down-menu[timepicker] smart-calendar {
+.smart-date-input-drop-down-menu[icons] smart-calendar, .smart-date-input-drop-down-menu[timepicker] smart-calendar,
+.smart-date-range-input-drop-down-menu[icons] smart-calendar,
+.smart-date-range-input-drop-down-menu[timepicker] smart-calendar {
   --smart-calendar-footer-height: 30px;
 }
-.smart-date-range-input-drop-down-menu[icons] .smart-timepicker-buttons, .smart-date-range-input-drop-down-menu[timepicker] .smart-timepicker-buttons {
+.smart-date-input-drop-down-menu[icons] .smart-timepicker-buttons, .smart-date-input-drop-down-menu[timepicker] .smart-timepicker-buttons,
+.smart-date-range-input-drop-down-menu[icons] .smart-timepicker-buttons,
+.smart-date-range-input-drop-down-menu[timepicker] .smart-timepicker-buttons {
   display: flex;
   justify-content: space-around;
   width: 100%;
   height: 100%;
   align-items: center;
 }
+.smart-date-input-drop-down-menu[timepicker][icons] .smart-date-range-input-footer-controls,
 .smart-date-range-input-drop-down-menu[timepicker][icons] .smart-date-range-input-footer-controls {
   display: grid;
   grid-template-columns: 60% 38%;
   grid-column-gap: 2%;
   justify-items: center;
 }
+.smart-date-input-drop-down-menu.smart-input-drop-down-menu,
 .smart-date-range-input-drop-down-menu.smart-input-drop-down-menu {
   height: auto;
   width: var(--smart-input-drop-down-menu-width);
 }
+.smart-date-input-drop-down-menu.smart-input-drop-down-menu.smart-date-input-drop-down-menu,
 .smart-date-range-input-drop-down-menu.smart-input-drop-down-menu.smart-date-input-drop-down-menu {
   height: 250px;
 }
+.smart-date-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu,
 .smart-date-range-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu {
   min-height: 250px;
   height: auto !important;
 }
+.smart-date-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu .smart-calendar-date-view-container,
 .smart-date-range-input-drop-down-menu.smart-input-drop-down-menu.smart-date-range-input-drop-down-menu .smart-calendar-date-view-container {
   min-height: 250px;
 }
+.smart-date-input-drop-down-menu:not([timepicker]) .smart-timepicker-buttons,
 .smart-date-range-input-drop-down-menu:not([timepicker]) .smart-timepicker-buttons {
   display: none;
 }
+.smart-date-input-drop-down-menu:not([animation=none]) .smart-timepicker,
 .smart-date-range-input-drop-down-menu:not([animation=none]) .smart-timepicker {
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(1);
 }
+.smart-date-input-drop-down-menu:not([animation=none]) .smart-timepicker.smart-visibility-hidden,
 .smart-date-range-input-drop-down-menu:not([animation=none]) .smart-timepicker.smart-visibility-hidden {
   transition: visibility 0.2s cubic-bezier(0.4, 0, 0.6, 1), transform 0.2s cubic-bezier(0.4, 0, 0.6, 1);
   transform: scale(0);
 }
+.smart-date-input-drop-down-menu[right-to-left] .smart-timepicker,
 .smart-date-range-input-drop-down-menu[right-to-left] .smart-timepicker {
   direction: rtl;
 }

@@ -1,0 +1,30 @@
+@mixin grid-tree-in-smart-grid-element {
+  &[tree] {
+    smart-grid-cell[has-toggle-button]:not([detail]) {
+      button[toggle-button] {
+        padding-right: 7px;
+        padding-right: 14px;
+        margin-left: 7px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@mixin grid-tree-in-dot-smart-grid {
+  &[tree] {
+    smart-grid-row[level] {
+      >.smart-grid-cell-container>smart-grid-cell div[content] {
+        line-height: initial;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        >div[checkbox]:not(.smart-hidden) {
+          margin-right: 7px;
+        }
+      }
+    }
+  }
+}

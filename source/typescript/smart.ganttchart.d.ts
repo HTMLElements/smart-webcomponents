@@ -779,6 +779,11 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    */
   refresh(fullRefresh?: boolean): void;
   /**
+   * Collapses all rows.
+   * @returns {any}
+   */
+  collapseAllRows(): any;
+  /**
    * Ensures that the specified task element is brought into view within the scrollable container by automatically scrolling the page or container if necessary, so the task is fully visible to the user.
    * @param {string | number} taskId. The id of the target Task.
    */
@@ -794,6 +799,11 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    * @param {any} callback?. A callback that allows to format the exported data based on a condition. For additional details, refer ro the Smart Export Documentation.
    */
   exportData(dataFormat: string, callback?: any): void;
+  /**
+   * Expands all rows.
+   * @returns {any}
+   */
+  expandAllRows(): any;
   /**
    * Retrieves a complete list of all current connections. The returned value is an array of objects, where each object represents a single connection and includes comprehensive metadata about that connection. Each connection object contains the following properties:<br/><br/>- **id**: A unique identifier for the connection.<br/>- **type**: The type or category of the connection (e.g., dependency, sequential, etc.).<br/>- **startTaskId**: The unique identifier of the task where the connection originates.<br/>- **endTaskId**: The unique identifier of the task where the connection terminates.<br/>- **startIndex**: The index position within the start task from which the connection begins (useful for tasks with multiple connection points).<br/>- **endIndex**: The index position within the end task where the connection attaches.<br/>- **lag**: The lag time, typically in milliseconds or a project-specific unit, representing any delay between the linked tasks.<br/><br/>This structure provides all necessary details for understanding the relationship and timing between connected tasks.
    * @returns {any}

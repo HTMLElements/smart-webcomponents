@@ -87,6 +87,12 @@ smart-docking-layout {
       }
     }
 
+    &.smart-docking-layout-auto-hide-window[pinned] {
+     .smart-auto-hide-button:after {
+        content:  '';
+      }
+    }
+
     &[focused] {
       box-shadow: none;
     }

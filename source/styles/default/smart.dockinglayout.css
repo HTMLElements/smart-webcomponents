@@ -62,6 +62,9 @@ smart-docking-layout .smart-vertical-hidden-items-container {
   content: var(--smart-icon-window-pin);
   font-size: 0.8rem;
 }
+.smart-docking-layout .smart-window.smart-docking-layout-auto-hide-window[pinned] .smart-auto-hide-button:after {
+  content: "";
+}
 .smart-docking-layout .smart-window[focused] {
   box-shadow: none;
 }

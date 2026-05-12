@@ -22,7 +22,7 @@ export interface CardProperties {
    */
   disabled?: boolean;
   /**
-   * Specifies a custom card template for rendering card content. The template can be provided either as a string representing the ID of an '' element present in the DOM, or as a direct reference to an HTMLTemplateElement. Within the template’s HTML content, you may include one or more property placeholders using the double curly braces syntax. During rendering, each placeholder will be dynamically replaced with the corresponding property value from the associated 'dataSource' object. If you set this property using a template ID, the expected type is a string.
+   * Specifies a custom card template for rendering card content. The template can be provided either as a string representing the ID of an '&lt;template&gt;' element present in the DOM, or as a direct reference to an HTMLTemplateElement. Within the template’s HTML content, you may include one or more property placeholders using the double curly braces syntax. During rendering, each placeholder will be dynamically replaced with the corresponding property value from the associated 'dataSource' object. If you set this property using a template ID, the expected type is a string.
    * Default value: null
    */
   itemTemplate?: any;

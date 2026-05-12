@@ -1,0 +1,23 @@
+.smart-grid-pager smart-pager {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  margin-left: 2px;
+  margin-top: 5px;
+  border: none;
+}
+
+.smart-grid > .smart-container .smart-grid-pager, .smart-grid.smart-container .smart-grid-pager {
+  height: var(--smart-pager-default-height);
+  overflow: hidden;
+  z-index: 99;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--smart-border);
+  width: 100%;
+  background: var(--smart-surface);
+  color: var(--smart-surface-color);
+}
+.smart-grid > .smart-container .smart-grid-pager[top], .smart-grid.smart-container .smart-grid-pager[top] {
+  border-top-color: transparent;
+  border-bottom: 1px solid var(--smart-border);
+}

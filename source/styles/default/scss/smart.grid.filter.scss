@@ -1,0 +1,23 @@
+@import '_functions';
+
+// Optional add-on to smartgrid.core.css: filtering (row/column/cell + Excel filter menu).
+
+@import 'grid/filter';
+
+smart-grid-row {
+  @include grid-filter-smart-grid-row-filter-summary;
+  @include grid-filter-smart-grid-row-indeterminate;
+}
+
+smart-grid-column {
+  @include grid-filter-smart-grid-column-button;
+}
+
+smart-grid-cell {
+  @include grid-filter-smart-grid-cell-filter-row;
+  @include grid-filter-smart-grid-cell-filter-attr;
+}
+
+smart-menu {
+  @include grid-filter-menu-excel;
+}

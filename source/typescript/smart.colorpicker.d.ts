@@ -42,7 +42,7 @@ export interface ColorPickerProperties {
    */
   disableUndo?: boolean;
   /**
-   * Defines the parent container in which the dropDown (popup) will be rendered. Accepts a CSS selector string, an element ID, or the literal value 'body'. This setting is helpful when the dropDown’s visibility is affected by CSS properties (such as overflow or z-index) applied to its parent elements. Specify 'body' to attach the dropDown directly to the  element for maximum visibility. Example: 'body'.
+   * Defines the parent container in which the dropDown (popup) will be rendered. Accepts a CSS selector string, an element ID, or the literal value 'body'. This setting is helpful when the dropDown’s visibility is affected by CSS properties (such as overflow or z-index) applied to its parent elements. Specify 'body' to attach the dropDown directly to the document body element for maximum visibility. Example: 'body'.
    * Default value: "body"
    */
   dropDownAppendTo?: string;

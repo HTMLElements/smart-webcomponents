@@ -1,0 +1,10 @@
+$primary: #FFFFFF;
+$on-primary: #0A0A0A;
+
+$dark-theme: true;
+@import "../bootstrap_vars";
+@import "../_mixins";
+@import "../_vars";
+
+//jqWidgets styles
+@import "../_styles";

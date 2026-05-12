@@ -3,9 +3,6 @@ smart-window:not([opened]) {
 }
 
 /* smart-window */
-.smart-window {
-  /* .smart-wait-window */
-}
 .smart-window:not(.smart-container) {
   position: absolute;
   top: calc(50% - var(--smart-window-default-height) / 2);
@@ -86,6 +83,7 @@ smart-window:not([opened]) {
   overflow-y: auto;
   padding: var(--smart-window-content-padding);
   background: var(--smart-background);
+  color: var(--smart-background-color);
   flex-direction: column;
   /* There's an issue with display:flex/grid and align-items: center */
 }
@@ -678,6 +676,9 @@ smart-window:not([opened]) {
 }
 .smart-window.smart-progress-window[collapsed][header-position=left], .smart-window.smart-progress-window[collapsed][header-position=right], .smart-window.smart-progress-window[collapsed][maximized][header-position=left], .smart-window.smart-progress-window[collapsed][maximized][header-position=right] {
   height: var(--smart-window-default-height);
+}
+.smart-window {
+  /* .smart-wait-window */
 }
 .smart-window.smart-wait-window {
   width: var(--smart-window-default-width);

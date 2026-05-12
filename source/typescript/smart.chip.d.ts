@@ -22,7 +22,7 @@ export interface ChipProperties {
    */
   disabled?: boolean;
   /**
-   * Specifies a custom template for the chip component. The template can be provided either as a string representing the ID of an existing '' element in the DOM, or as a direct reference to an 'HTMLTemplateElement' instance. This allows developers to define and reuse custom chip layouts within the application.
+   * Specifies a custom template for the chip component. The template can be provided either as a string representing the ID of an existing '&lt;template&gt;' element in the DOM, or as a direct reference to an 'HTMLTemplateElement' instance. This allows developers to define and reuse custom chip layouts within the application.
    * Default value: null
    */
   itemTemplate?: any;

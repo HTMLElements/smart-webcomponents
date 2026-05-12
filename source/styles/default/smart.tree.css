@@ -645,7 +645,7 @@ smart-tree {
     background-color: var(--smart-ui-state-hover);
     border-color: var(--smart-ui-state-border-hover);
   }
-  .smart-tree[selection-display-mode=label] smart-tree-items-group:not([selected])[hover] > .smart-tree-item-label-container {
+  .smart-tree[selection-display-mode=label] smart-tree-items-group:not([selected]) > .smart-tree-item-label-container:hover span {
     color: var(--smart-ui-state-color-hover);
     background-color: var(--smart-ui-state-hover);
     border-color: var(--smart-ui-state-border-hover);

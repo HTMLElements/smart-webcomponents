@@ -90,7 +90,6 @@ smart-query-builder {
   .smart-query-builder-label {
     margin: var(--smart-query-builder-content-padding) 0 calc(2 * var(--smart-query-builder-content-padding)) var(--smart-query-builder-content-padding);
     font-weight: bold;
-    opacity: 0.75;
   }
 
   .filter-builder-item {
@@ -324,8 +323,6 @@ smart-query-builder {
     margin-top: calc(var(--smart-filter-builder-group-condition-margin) * 3);
     margin-bottom: calc(var(--smart-filter-builder-group-condition-margin) * 3);
     margin-left: calc(-1 * var(--smart-filter-builder-item-margin));
-    opacity: 0.5;
-    font-weight: 600;
     text-transform: uppercase;
     align-self: flex-start;
     -webkit-user-select: none;

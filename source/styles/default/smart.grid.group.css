@@ -1,0 +1,99 @@
+.smart-grid-group-header {
+  min-height: var(--smart-grid-group-header-height);
+  height: var(--smart-grid-group-header-height);
+  overflow: hidden;
+  position: relative;
+  z-index: 99;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--smart-border);
+  background: var(--smart-surface);
+  display: flex;
+  align-items: center;
+}
+.smart-grid-group-header .smart-breadcrumb {
+  background: transparent;
+  border: none;
+  width: 100%;
+  --smart-breadcrumb-item-height: 35px;
+  margin-top: 1px;
+  padding: 0px;
+  padding-left: 5px;
+}
+.smart-grid-group-header .smart-breadcrumb .smart-template-container .smart-breadcrumb-items .smart-breadcrumb-item {
+  border-radius: var(--smart-border-radius);
+  margin-top: 0px;
+}
+.smart-grid-group-header .smart-breadcrumb-item-label {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.smart-grid-group-header .smart-breadcrumb-item-label .smart-grid-icon {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: -10px;
+}
+
+.smart-grid .smart-grid-row:not([leaf]) smart-grid-cell[group]:not([header]) div:not([content]) {
+  visibility: hidden;
+}
+.smart-grid[grouped] smart-grid-row[level] > .smart-grid-cell-container > smart-grid-cell div[content] {
+  line-height: initial;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.smart-grid[grouped] smart-grid-row[level] > .smart-grid-cell-container > smart-grid-cell div[content] > div[checkbox]:not(.smart-hidden) {
+  margin-right: 7px;
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] {
+  border-right: 1px solid var(--smart-border);
+  padding-right: 1px;
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] {
+  font-size: 12px;
+  grid-template-columns: auto auto auto;
+  display: grid;
+  grid-column-gap: 5px;
+  align-items: center;
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced]:hover span[group] span {
+  transform: scale(1.1);
+  opacity: 1;
+  color: var(--smart-primary);
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] span[group] span {
+  opacity: 0.7;
+  font-weight: normal;
+  margin-left: -8px;
+  transform: scale(0.9);
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] span[group] {
+  display: flex;
+  font-weight: bold;
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] span[value] {
+  font-size: var(--smart-font-size);
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  padding: 2px 6px 2px 6px;
+  font-weight: 400;
+  border-radius: 20px;
+  background-color: var(--smart-primary);
+  color: var(--smart-primary-color);
+  border: 1px solid var(--smart-primary);
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced] span[summary] {
+  font-weight: 400;
+  font-size: 10px;
+  opacity: 0.7;
+}
+.smart-grid[grouped] smart-grid-row[level] smart-grid-cell[group] div[group-advanced]:hover span[summary] {
+  opacity: 1;
+}

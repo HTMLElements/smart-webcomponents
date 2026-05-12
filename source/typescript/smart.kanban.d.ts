@@ -132,6 +132,11 @@ export interface KanbanProperties {
    */
   currentUser?: string | number;
   /**
+   * Controls whether a confirm dialog is displayed when a task is dragged and dropped to a new position
+   * Default value: false
+   */
+  confirmDialog?: boolean;
+  /**
    * Controls whether the default dialog for adding or removing tasks or comments is enabled or disabled. When set to true, the dialog will not appear, allowing for custom handling of these actions. When set to false, the standard dialog will be shown as usual. This property can be used to either retrieve the current setting (get) or define its behavior (set).
    * Default value: false
    */
@@ -152,7 +157,7 @@ export interface KanbanProperties {
    */
   dataSource?: KanbanDataSource[];
   /**
-   * Specifies how the Kanban board's default fields (e.g., title, status, assignee) correspond to the fields in your data source. Use this mapping only if your data source uses field names that differ from the Kanban's expected keywords. If the field names already match, this mapping is optional. Note that only certain default fields support custom mapping; not all default mappings can be overridden.
+   * Specifies how the Kanban board's default fields (e.g., title, status, assignee) correspond to the fields in your data source. Use this mapping only if your data source uses field names that differ from the Kanban's expected keywords. If the field names already match, this mapping is optional. Note that only certain default fields support custom mapping; not all default map can be overridden.
    * Default value: { checklist: 'checklist', color: 'color', comments: 'comments', dueDate: 'dueDate', id: 'id', priority: 'priority', progress: 'progress', startDate: 'startDate', status: 'status', swimlane: 'swimlane', tags: 'tags', text: 'text', userId: 'userId'. createdUserId: 'createdUserId', createdDate: 'createdDate', updatedUserId: 'updatedUserId', updatedDate: 'updatedDate' }
    */
   dataSourceMap?: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; createdUserId: string; upDatedUserId: string; createdDate: Date; upDatedDate: Date;};
@@ -342,7 +347,7 @@ export interface KanbanProperties {
    */
   taskUserIcon?: boolean;
   /**
-   * Specifies the template to use for rendering task text. This property accepts multiple value types:- A string starting with #, which references the id of a  element on the page. The contents of this element will be used as the template.- A string containing HTML or template markup, which will be parsed and applied directly to the task text.- A function, which receives the task text (or a template) as input and returns the modified text or template to be used.This property can be both set to define the template for future tasks, or retrieved to access the currently applied template.
+   * Specifies the template to use for rendering task text. This property accepts multiple value types:- A string starting with #, which references the id of a template element on the page. The contents of this element will be used as the template.- A string containing HTML or template markup, which will be parsed and applied directly to the task text.- A function, which receives the task text (or a template) as input and returns the modified text or template to be used.This property can be both set to define the template for future tasks, or retrieved to access the currently applied template.
    * Default value: null
    */
   textTemplate?: any;
@@ -494,11 +499,12 @@ export interface Kanban extends BaseElement, KanbanProperties {
   onCommentUpdate?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
    * This event is triggered when a task is dropped onto a target element within the DOM during a drag-and-drop operation. It allows developers to handle the completion of a drag action by responding to where the task is released. To prevent the default drop behavior—such as moving the element or initiating a browser action—you can call event.preventDefault() within the event handler. This enables you to implement custom logic for handling dropped tasks, such as updating data models, modifying the UI, or triggering other application-specific actions."
-	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, originalEvent, previousContainer, target)
+	* @param event. The custom event. Custom data event was created with: ev.detail(container, data, item, items, confirmDrop, originalEvent, previousContainer, target)
    *  container - the Kanban the dragged task(s) is dropped to
    *  data - an object with additional drag details
    *  item - the task that is dragged; if multiple tasks are dragged, this is the task that has been clicked when initiating the drag operation
    *  items - an array with all dragged tasks
+   *  confirmDrop - parameter which you can set to a function. When this is defined, the DROP operation is confirmed once this function is called. Otherwise, the drop is canceled. This feature can be combined with the Kanban's getConfirmDialog(label, content, callbackFn) method or with a custom confirm dialog.
    *  originalEvent - the original, browser, event that initiates the drag operation
    *  previousContainer - the Kanban the dragged item(s) is dragged from
    *  target - the element the dragged tasks are dropped to
@@ -631,6 +637,14 @@ export interface Kanban extends BaseElement, KanbanProperties {
    * Removes any currently selected items or cards within the Kanban board, ensuring that no items remain selected. This action resets the selection state of the Kanban component.
    */
   clearSelection(): void;
+  /**
+   * Create an instance of the Window component which is used as a confirm dialog. It gets 3 arguments, label, content and confirm function.
+   * @param {string} label. The label shown in the header of the window. For example: Confirm move.
+   * @param {string} content. The label shown in the content of the window. For example: Are you sure you want to move this task?
+   * @param {any} confirmFn. The function called when the OK button is clicked.
+   * @returns {any}
+   */
+  getConfirmDialog(label: string, content: string, confirmFn: any): any;
   /**
    * Conceals a specific column within a Kanban board, making its contents and tasks temporarily invisible to users without deleting any data. This action helps declutter the board or focus attention on other columns. The hidden column can typically be shown again through board settings or controls.
    * @param {number | string} column. The index or dataField of the column to hide

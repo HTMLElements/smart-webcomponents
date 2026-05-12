@@ -498,11 +498,13 @@ smart-repeat-button.outlined[active] {
 }
 .smart-button-group.pagination .smart-button-group-items .smart-button-group-item {
   border: 1px solid #dee2e6;
-  color: #F0651A;
-  background: #ffffff;
 }
 .smart-button-group.pagination .smart-button-group-items .smart-button-group-item:not(:last-of-type) {
   border-right: 1px solid transparent;
+}
+.smart-button-group.pagination .smart-button-group-items .smart-button-group-item {
+  color: #F0651A;
+  background: #ffffff;
 }
 .smart-button-group.pagination .smart-button-group-items .smart-button-group-item[hover], .smart-button-group.pagination .smart-button-group-items .smart-button-group-item:hover, .smart-button-group.pagination .smart-button-group-items .smart-button-group-item[focus] {
   background-color: #e9ecef !important;
@@ -543,6 +545,10 @@ a.smart-badge[active], a.smart-badge:active, a.smart-badge[focus], a.smart-badge
 }
 
 /* BREADCRUMB */
+smart-breadcrumb a {
+  color: #F0651A;
+  text-decoration: none;
+}
 smart-breadcrumb {
   width: 100%;
   height: auto;
@@ -551,10 +557,6 @@ smart-breadcrumb {
   border: 0;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
-}
-smart-breadcrumb a {
-  color: #F0651A;
-  text-decoration: none;
 }
 smart-breadcrumb.smart-element {
   background: #e9ecef;
@@ -1847,14 +1849,16 @@ smart-carousel.slider .smart-arrow:hover {
 /* JUMBOTRON */
 .jumbotron {
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  background-color: #e9ecef;
-  border-radius: 0.3rem;
 }
 @media (min-width: 576px) {
   .jumbotron {
     padding: 4rem 2rem;
   }
+}
+.jumbotron {
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
 }
 .jumbotron h1 {
   font-size: 3.5rem;
@@ -2145,14 +2149,14 @@ smart-carousel.slider .smart-arrow:hover {
   color: #212529;
 }
 
+.smart-list-menu .smart-header > smart-button .smart-arrow:after,
+.smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-arrow:after {
+  font-size: 20px;
+}
 .smart-list-menu .smart-header > smart-button,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button {
   left: 1px;
   top: 1px;
-}
-.smart-list-menu .smart-header > smart-button .smart-arrow:after,
-.smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-arrow:after {
-  font-size: 20px;
 }
 .smart-list-menu .smart-header > smart-button .smart-button,
 .smart-list-menu-view.smart-drop-down-repositioned .smart-header > smart-button .smart-button {
@@ -2537,10 +2541,6 @@ smart-carousel.slider .smart-arrow:hover {
   border: 0 !important;
   padding: 0.5rem 1rem;
 }
-.smart-menu smart-menu-item[level="1"],
-.smart-menu smart-menu-items-group[level="1"] {
-  color: rgba(0, 0, 0, 0.5);
-}
 .smart-menu smart-menu-item[level="1"].logo,
 .smart-menu smart-menu-items-group[level="1"].logo {
   margin-right: 10px;
@@ -2563,6 +2563,10 @@ smart-carousel.slider .smart-arrow:hover {
 .smart-menu smart-menu-items-group[level="1"].logo img {
   max-width: 100%;
   max-height: 100%;
+}
+.smart-menu smart-menu-item[level="1"],
+.smart-menu smart-menu-items-group[level="1"] {
+  color: rgba(0, 0, 0, 0.5);
 }
 .smart-menu smart-menu-item[level="1"].active,
 .smart-menu smart-menu-items-group[level="1"].active {

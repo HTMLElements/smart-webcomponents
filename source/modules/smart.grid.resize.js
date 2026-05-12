@@ -1,0 +1,104 @@
+
+/* Smart UI v26.0.0 (2026-05-07) 
+Copyright (c) 2011-2026 jQWidgets. 
+License: https://htmlelements.com/license/ */ //
+
+ (function(){ if (typeof document === 'undefined') { return; } 
+
+
+/* Smart UI v26.0.0 (2026-May) 
+Copyright (c) 2011-2026 jQWidgets. 
+License: https://htmlelements.com/license/ */
+
+
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 4045:
+/***/ (() => {
+
+Smart.Utilities.Assign("Grid.Resize",class{static get messages(){return{columnResizeTooltip:"width: {{value}}px",rowResizeTooltip:"height: {{value}}px"}}autoSizeRows(e){const t=this,o=e||t._recyclingRows;t.rows.canNotify=!1;for(let e=0;e<o.length;e++){const i=o[e];i.element=t._rowElements[1],i.grid=t;const l=i._autoSize(i);i.cellHeight!==l&&(i.cellHeight=l),i.height=l}t.rows.canNotify=!0,t.refresh()}autoSizeColumn(e){const t=this.columnByDataField[e];t&&t.autoSize()}autoSizeColumns(e,t){const o=this,i=t||o.columns;let l=[];if(!e){const e=o._recyclingRows;for(let t=0;t<e.length;t++){const o=e[t];for(let e=0;e<i.length;e++){const t=i[e],n=o.getCell(t.dataField);l[t.dataField]||(l[t.dataField]=t.label);let r=n.value;r&&t.cellsFormat&&(r=n.getFormattedValue(r,t.cellsFormat)),r&&r.toString().length>l[t.dataField].length&&(l[t.dataField]=r)}}}const n=[];for(let e=0;e<i.length;e++){const t=i[e],o=l[t.dataField]?l[t.dataField]:t.label;n.push(o)}const r=i[0]._measureSize(n);o.columns.canNotify=!1;for(let e=0;e<i.length;e++)i[e].width=r[e];o.columns.canNotify=!0,o.refresh()}_doubleClickHandler(e){const t=this;if("none"!==t.behavior.rowResizeMode||"none"!==t.behavior.columnResizeMode){if(t._downTime&&new Date-t._downTime<300){const o=(t.enableShadowDOM?t.shadowRoot:t.getRootNode()).elementsFromPoint(parseInt(e.clientX),parseInt(e.clientY));let i=null,l=null,n=null,r=null;for(let e=0;e<o.length;e++){const t=o[e];if(t.getAttribute("data-field")&&(i=t.getAttribute("data-field"),"smart-grid-column"===t.nodeName.toLowerCase())){l=t;break}if(t.getAttribute("data-id")){n=t.getAttribute("data-id"),r=t;break}}const s=t.columnByDataField[i],a=t.rowById[n];if(t.behavior.allowColumnAutoSizeOnDoubleClick&&s&&s.allowResize&&"none"!==t.behavior.columnResizeMode&&l){const o=l.getBoundingClientRect(),i=o.right,n=10;i-n<=e.clientX&&e.clientX<=i+n&&o.top<=e.clientY&&o.bottom>=e.clientY&&(s.autoSize(),e.preventDefault(),e.originalEvent&&(e.originalEvent.preventDefault(),e.originalEvent.stopPropagation()),t._columnToResizeElement&&(t._columnToResizeElement.style.borderRight=""))}if(t.behavior.allowRowAutoSizeOnDoubleClick&&a&&a.allowResize&&"none"!==t.behavior.rowResizeMode){const t=r.getBoundingClientRect().bottom,o=10;t-o<=e.clientY&&e.clientY<=t+o&&(a.computedHeight=null,r&&r.cell&&!i&&(i=r.cell.column.dataField),"_rowHeaderColumn"===i&&(a.autoSize(),e.preventDefault(),e.originalEvent&&(e.originalEvent.preventDefault(),e.originalEvent.stopPropagation())))}}t._downTime=new Date}}_endResize(){const e=this;e._overlay&&setTimeout((()=>{e._overlay&&(e._overlay.parentNode.removeChild(e._overlay),e._overlay=null)}),100);const t=e.getBoundingRect(e);if(delete e._columnDownPosition,delete e._rowDownPosition,e.classList.remove("smart-grid-resize-mode"),e.$.root.classList.remove("smart-grid-resize-mode"),e.classList.remove("smart-grid-row-resize-mode"),e.classList.remove("smart-grid-column-resize-mode"),e._rowToResize&&e._rowResizeStartLine&&e._rowResizeLine){const t=e.rowById[e._rowToResizeId],o=t.cellHeight+parseFloat(e._rowResizeLine.style.top)-parseFloat(e._rowResizeStartLine.style.top),i=t.cellHeight;if(e.rows.canNotify=!1,t.height=null,"split"===e.behavior.rowResizeMode){const i=e._nextRow(t),l=parseInt(t.height-o+t.cellHeight);t.computedHeight=o,i.computedHeight=parseInt(i.height)+l,i.height=null}else t.computedHeight=o;return e.rows.canNotify=!0,e._rowResizeStartLine.parentNode.removeChild(e._rowResizeStartLine),e._rowResizeLine.parentNode.removeChild(e._rowResizeLine),e.appearance.showResizeTooltips&&e._rowResizeTooltip.parentNode.removeChild(e._rowResizeTooltip),e._rowToResize.header?e._rowToResize.header.style.cursor="":e._rowToResize.style.cursor="",t.header&&(t.header.style.cursor=""),e._rowResizeLine=null,e._rowToResize=null,e._rowToResizeId=null,e._rowResizeStartLine=null,e.refresh(),e.$.fireEvent("rowResize",{row:t,id:t.id,oldHeight:i,height:o}),void(e.onRowResize&&e.onRowResize({row:t,id:t.id,oldHeight:i,height:o}))}if(!e._columnToResizeElement||!e._columnResizeLine)return;const o=e.columnByDataField[e._columnToResizeDataField],i=e._columnToResizeRect;let l=t.left+parseInt(e._columnResizeLine.style.left)-i.left+e.scrollLeft;const n=o.width;if(e.rightToLeft&&(l=t.left-parseFloat(e._columnResizeLine.style.left)+i.right-e.scrollLeft-e._scrollView.vScrollBar.offsetWidth),l<o.minWidth&&(l=o.minWidth),e.columns.canNotify=!1,"split"===e.behavior.columnResizeMode){const t=e._nextColumn(o);if(t){const e=parseInt(o.computedWidth-l);o.width=l,t.width=parseInt(t.computedWidth)+e}}else o.width=l;e.columns.canNotify=!0,e._columnResizeLine.parentNode.removeChild(e._columnResizeLine),e._columnResizeLine=null,e._columnResizeStartLine.parentNode.removeChild(e._columnResizeStartLine),e._columnResizeTooltip.parentNode&&e._columnResizeTooltip.parentNode.removeChild(e._columnResizeTooltip),e._columnResizeStartLine=null,e._columnToResizeElement.style.cursor="",e._columnToResizeElement.sortButton.style.cursor="",e._columnToResizeElement.filterButton.style.cursor="",e._columnToResizeElement.style.borderRight="",e._columnToResizeElement=null,e._columnToResizeRect=null,e._columnToResizeDataField=null,e._columnResizeTooltip=null,e.refresh(),o._state||(o._state={label:o.label,dataField:o.dataField,dataType:o.dataType}),o._state.width=o.width,e.onColumnResize?e.onColumnResize({column:o,dataField:o.dataField,oldWidth:n,width:l}):e.$.fireEvent("columnResize",{column:o,dataField:o.dataField,oldWidth:n,width:l}),e.autoSaveState(),e.closeMenu()}_columnResizePrepare(){const e=this,t=e._columnToResizeRect,o=e.getBoundingRect(e.$.columnHeader),i=e.appearance.showViewBar&&!e.appearance.showViewBarAsDropdown?4+e.layout.viewBarWidth:0,l=e.grouping.groupBar?.visible?e.$.groupHeader.offsetHeight:0,n=e.header.visible?e.$.header.offsetHeight:0;if(e._dragDetails)return;const r=function(){const r=document.createElement("div");r.classList.add("smart-grid-resize-line"),e.rightToLeft?r.style.left=-o.left+t.left+"px":r.style.left=i-o.left+t.right+"px",e.header.visible&&!e.header.appendTo?r.style.top=n+l-o.top+t.top+"px":r.style.top=l-o.top+t.top+"px";const s=parseInt(r.style.top)-e.$.horizontalScrollBar.offsetHeight;return r.style.height="calc(100% - "+s+"px)",r.style.cursor="col-resize",r},s=document.createElement("div");s.classList.add("smart-grid-resize-tooltip"),e._columnResizeTooltip=s,e._columnResizeTooltip.style.left=i-o.left+t.right+"px",e.rightToLeft&&(e._columnResizeTooltip.style.left=-o.left+t.left+"px"),e._columnResizeTooltip.innerHTML=e.localize("columnResizeTooltip",{value:t.width}),e._columnResizeLine=r(),e._columnResizeStartLine=r(),e._columnToResizeElement&&(e._columnToResizeElement.style.borderRight=""),"growAndShrink"===e.behavior.columnResizeMode&&(e.classList.add("smart-grid-resize-mode"),e.classList.add("smart-grid-column-resize-mode"),e.$.root.classList.add("smart-grid-resize-mode")),e.appearance.showResizeTooltips&&e.$.root.appendChild(e._columnResizeTooltip),e.$.root.appendChild(e._columnResizeLine),e.$.root.appendChild(e._columnResizeStartLine),e._overlay=document.createElement("div"),e._overlay.classList.add("smart-grid-overlay"),e._overlay.style.cursor="col-resize",e.$.root.appendChild(e._overlay)}_columnDownResizeHandler(e){this._columnDownPosition=e.pageX}_columnMoveResizeHandler(e){const t=this;if(t._dragDetails)return;Smart.Utilities.Core.isMobile?t._columnDownPosition&&Math.abs(e.pageX-t._columnDownPosition)>=0&&!t._columnResizeLine&&(t._columnResizePrepare(),e&&(e.preventDefault(),e.originalEvent&&(e.originalEvent.preventDefault(),e.originalEvent.stopPropagation()))):t._columnDownPosition&&Math.abs(e.pageX-t._columnDownPosition)>=3&&!t._columnResizeLine&&t._columnResizePrepare();const o=function(e){const o=t._columnToResizeRect;let i=e.left+parseFloat(t._columnResizeLine.style.left)-o.left+t.scrollLeft;t.rightToLeft&&(i=e.left-parseFloat(t._columnResizeLine.style.left)+o.right-t.scrollLeft-t._scrollView.vScrollBar.offsetWidth);const l=t.columnByDataField[t._columnToResizeDataField];i<l.minWidth&&(i=l.minWidth),t.appearance.showResizeTooltips&&(t._columnResizeTooltip.innerHTML=t.localize("columnResizeTooltip",{value:parseInt(i)}))};if(t._columnResizeLine){const i=t.columnByDataField[t._columnToResizeDataField],l=t._columnToResizeRect,n=i.minWidth,r=i.maxWidth,s=t._nextColumn(i),a=t.getBoundingRect(t);if(t.rightToLeft){if(e.pageX>a.right)return;if("split"===t.behavior.columnResizeMode&&s&&e.pageX<=t.offsetWidth-t.scrollLeft-s.left-s.computedWidth+s.minWidth)return t._columnResizeLine.style.left=t.offsetWidth-t.scrollLeft-s.left-s.computedWidth+s.minWidth+"px",void o(a);if(l.right-n-t.scrollLeft<=e.pageX)return t._columnResizeLine.style.left=-a.left+l.right-n-t.scrollLeft+"px",void o(a);if(l.left+r-t.scrollLeft>=e.pageX)return t._columnResizeLine.style.left=-a.left+l.right-r-t.scrollLeft+"px",void o(a);t._columnResizeLine.style.left=-a.left+e.pageX+"px",o(a),Smart.Utilities.Core.isMobile&&(e.preventDefault(),e.originalEvent&&(e.originalEvent.preventDefault(),e.originalEvent.stopPropagation()))}else{if(e.pageX<a.left)return;if("split"===t.behavior.columnResizeMode&&s&&e.pageX>=a.left+s.left+s.computedWidth-s.minWidth-t.scrollLeft)return t._columnResizeLine.style.left=-a.left+a.left+s.computedWidth+s.left-s.minWidth-t.scrollLeft+"px",void o(a);let i=0,d=t.parentElement;for(;d;)i+=d.scrollLeft,d=d.parentElement;if(l.left+n-t.scrollLeft-i>=e.pageX)return t._columnResizeLine.style.left=-a.left+l.left+n-t.scrollLeft-i+"px",void o(a);if(l.left+r-t.scrollLeft<=e.pageX)return t._columnResizeLine.style.left=-a.left+l.left+r-t.scrollLeft+"px",void o(a);t._columnResizeLine.style.left=-a.left+i+e.pageX+"px",o(a),Smart.Utilities.Core.isMobile&&(e.preventDefault(),e.originalEvent&&(e.originalEvent.preventDefault(),e.originalEvent.stopPropagation()))}}else if(!t._columnDownPosition){const t=this;if(e.originalEvent&&e.originalEvent.composedPath&&-1===e.originalEvent.composedPath().indexOf(this))return;if(!e.originalEvent&&e.composedPath&&-1===e.composedPath().indexOf(this))return;const o=(t.enableShadowDOM?t.shadowRoot:t.getRootNode()).elementsFromPoint(parseInt(e.clientX),parseInt(e.clientY));let i=null,l=null;if(t._columnResizeLine)return void(t._columnToResizeElement&&(t._columnToResizeElement.style.borderRight=""));for(let e=0;e<o.length;e++){const t=o[e];if(t.hasAttribute("data-field")&&t.hasAttribute("header")){i=t.getAttribute("data-field"),l=t;break}}if(t._columnToResizeElement&&(t._columnToResizeElement.style.cursor="",t._columnToResizeElement.style.borderRight="",t._columnToResizeElement.sortButton&&(t._columnToResizeElement.sortButton.style.cursor=""),t._columnToResizeElement.filterButton&&(t._columnToResizeElement.filterButton.style.cursor=""),t._columnToResizeElement=null),i){const o=t.rightToLeft?l.getBoundingClientRect().left:l.getBoundingClientRect().right;if(l.style.cursor="",l.style.borderRight="",l.style.borderRight="",t._columnToResizeElement&&t._columnToResizeElement.sortButton&&l.sortButton&&(l.sortButton.style.cursor=""),t._columnToResizeElement&&t._columnToResizeElement.filterButton&&l.filterButton&&(l.filterButton.style.cursor=""),o-10<=e.clientX&&e.clientX<=o+10){const e=t.columnByDataField[i];if(!e||e&&!e.allowResize)return;const o=t._isLastVisibleColumn(e);if("split"===t.behavior.columnResizeMode&&o)return;l.style.cursor="col-resize",l.style.borderRight="2px solid var(--smart-primary)",l.sortButton&&(l.sortButton.style.cursor="col-resize"),l.filterButton&&(l.filterButton.style.cursor="col-resize"),t._columnToResizeRect=t.getBoundingRect(l),t._columnToResizeElement=l,t._columnToResizeDataField=i}}}}_rowMoveResizeHandler(e){const t=this;if(t.viewColumns.length&&t.viewColumns[0].rowHeaderColumn&&!t._rowResizeLine){const o=t.offset(t.viewColumns[0].element),i=t.viewColumns[1]&&t.viewColumns[1].rowDetailColumn?t.viewColumns[1].width:0;if(e.pageX<o.left||e.pageX>o.left+t.viewColumns[0].width+i){if(t._rowToResize){const e=t.rowById[t._rowToResizeId];if(e&&e.header&&(e.header.parentElement.style.borderBottom="",e.header.parentElement.style.cursor="",e.header.parentElement.style.zIndex=""),e&&e.header&&e.header.parentElement){const t=[...e.header.parentElement.children];for(let e=0;e<t.length;e++)t[e].style.cursor="",t[e].firstElementChild&&(t[e].firstElementChild.style.cursor=""),t[e].firstElementChild&&t[e].firstElementChild.firstElementChild&&(t[e].firstElementChild.firstElementChild.style.cursor="")}}return}}const o=(t.enableShadowDOM?t.shadowRoot:t.getRootNode()).elementsFromPoint(parseInt(e.clientX),parseInt(e.clientY));let i=null,l=null;if(t._rowToResize){const e=t.rowById[t._rowToResizeId];if(e&&e.header){e.header.parentElement.style.borderBottom="",e.header.style.cursor="",e.header.parentElement.style.cursor="",e.header.parentElement.style.zIndex="";const t=[...e.header.parentElement.children];for(let e=0;e<t.length;e++)t[e].style.cursor="",t[e].firstElementChild&&(t[e].firstElementChild.style.cursor=""),t[e].firstElementChild&&t[e].firstElementChild.firstElementChild&&(t[e].firstElementChild.firstElementChild.style.cursor="")}}if(t._rowDownPosition&&Math.abs(e.pageY-t._rowDownPosition)>=3&&!t._rowResizeLine&&t._rowDownResizeHandler(e),t._rowResizeLine){const o=t._offsetTop(t.$.scrollView),i={top:o,bottom:t.$.scrollView.offsetHeight+o};if(e.pageY<=i.top)return;if(e.pageY>=i.bottom)return;const l=function(){const e=n.cellHeight+parseFloat(t._rowResizeLine.style.top)-parseFloat(t._rowResizeStartLine.style.top);t.appearance.showResizeTooltips&&(t._rowResizeTooltip.innerHTML=t.localize("rowResizeTooltip",{value:parseInt(e)}))},n=t.rowById[t._rowToResizeId],r=t._nextRow(n),s=t._rowToResizeBounds,a=n.minHeight,d=n.maxHeight;return n&&n.header&&(n.header.style.borderBottom=""),"split"===t.behavior.rowResizeMode&&r&&s.bottom+r.height-r.minHeight<=e.pageY?(t._rowResizeLine.style.top=s.bottom+r.height-r.minHeight-o+"px",void l()):s.top+a+3>=e.pageY?(t._rowResizeLine.style.top=s.top+a-o+"px",void l()):s.top+d>=e.pageY-o?(t._rowResizeLine.style.top=s.top+d+3-o+"px",void l()):(t._rowResizeLine.style.top=-o+e.pageY-1+"px",void l())}if(!t._rowDownPosition){for(let e=0;e<o.length;e++){const t=o[e];if(t.hasAttribute("data-id")&&t.hasAttribute("header")){l=t,i=t.getAttribute("data-id");break}}if(t._rowToResize&&(t._rowToResize.style.cursor="",t._rowToResize=null),null!==i){const o=t._offsetTop(l)+l.offsetHeight;if(l.style.cursor="",o-3<=e.clientY&&e.clientY<=o+3){const e=t.rowById[i];if(!e||e&&!e.allowResize)return;if(e.header){e.header.style.cursor="row-resize",e.header.parentElement.style.cursor="row-resize",e.header.parentElement.style.borderBottom="2px solid var(--smart-primary)",e.header.parentElement.style.zIndex=10;const t=[...e.header.parentElement.children];for(let e=0;e<t.length;e++)t[e].style.cursor="row-resize",t[e].firstElementChild&&(t[e].firstElementChild.style.cursor="row-resize"),t[e].firstElementChild&&t[e].firstElementChild.firstElementChild&&(t[e].firstElementChild.firstElementChild.style.cursor="row-resize")}const o=t._offsetTop(l);t._rowToResizeBounds={top:o,bottom:l.offsetHeight+o,height:l.offsetHeight},t._rowToResize=l,t._rowToResizeId=i}}}}_rowDownResizeHandler(){const e=this,t=e._rowToResizeBounds,o=function(){const o=document.createElement("div");return o.classList.add("smart-grid-resize-line","row"),o.style.width=e.$.scrollView.offsetWidth-e._rowToResize.offsetLeft+"px",o.style.left="0px",o.style.top=-e._offsetTop(e.$.scrollView)+t.bottom+"px",o.style.cursor="row-resize",o},i=document.createElement("div");i.classList.add("smart-grid-resize-tooltip"),e._rowResizeTooltip=i,e._rowResizeTooltip.style.top=-e._offsetTop(e.$.scrollView)+t.bottom+"px",e._rowResizeTooltip.innerHTML=e.localize("rowResizeTooltip",{value:t.height}),e._rowResizeTooltip.style.right="20px",e._rowResizeTooltip.style.bottom="initial","growAndShrink"===e.behavior.rowResizeMode&&(e.classList.add("smart-grid-resize-mode"),e.classList.add("smart-grid-row-resize-mode"),e.$.root.classList.add("smart-grid-resize-mode")),e._rowResizeLine=o(),e._rowResizeStartLine=o(),e._overlay=document.createElement("div"),e._overlay.classList.add("smart-grid-overlay"),e._overlay.style.cursor="row-resize",e.$.root.appendChild(e._overlay),e.$.scrollView.appendChild(e._rowResizeLine),e.$.scrollView.appendChild(e._rowResizeStartLine),e.appearance.showResizeTooltips&&e.$.scrollView.appendChild(e._rowResizeTooltip)}_rowResizeHandler(e){const t=this;let o=e.clientX,i=e.clientY;void 0!==o&&void 0!==i||(o=e.touches[0].clientX,i=e.touches[0].clientY);const l=(t.enableShadowDOM?t.shadowRoot:t.getRootNode()).elementsFromPoint(parseInt(o),parseInt(i));let n=null;for(let e=0;e<l.length;e++){const t=l[e];t.getAttribute("data-id")&&(n=t.getAttribute("data-id"))}null===n||!t._rowToResize||t._rowResizeLine||(t._rowDownPosition=e.pageY)}});
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/* unused harmony export smartGridResizeModule */
+/* harmony import */ var _smart_grid_resize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4045);
+/* harmony import */ var _smart_grid_resize_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_smart_grid_resize_js__WEBPACK_IMPORTED_MODULE_0__);
+
+/* Smart UI v26.0.0 (2026-05-07) 
+Copyright (c) 2011-2026 jQWidgets. 
+License: https://htmlelements.com/license/ */ //
+
+
+
+const smartGridResizeModule = Smart.Utilities.Grid.Resize;
+})();
+
+/******/ })()
+;
+})();
+
+
+
+export const ResizeModule = Smart.Utilities.Grid.Resize;

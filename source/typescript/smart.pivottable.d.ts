@@ -37,6 +37,11 @@ export interface PivotTableProperties {
    */
   dataSource?: any;
   /**
+   * Configures the grid's data source settings when the dataSource property is assigned either a local data array or a remote URL. This allows the grid to properly retrieve, bind, and display data from the specified source, whether it is provided directly as an array or fetched asynchronously from a web endpoint.
+   * Default value: [object Object]
+   */
+  dataSourceSettings?: PivotTableDataSourceSettings;
+  /**
    * Specifies or retrieves whether the original tabular data source for the PivotTable should be pre-sorted according to the columns defined with the rowGroup property, and in the same order as those columns appear. This ensures that when the PivotTable is generated, its underlying data is already organized based on the designated row groups, potentially optimizing performance and ensuring consistent grouping behavior.
    * Default value: false
    */
@@ -491,6 +496,103 @@ export interface PivotTableConditionalFormatting {
   text?: string;
 }
 
+/**Configures the grid's data source settings when the <code>dataSource</code> property is assigned either a local data array or a remote URL. This allows the grid to properly retrieve, bind, and display data from the specified source, whether it is provided directly as an array or fetched asynchronously from a web endpoint. */
+export interface PivotTableDataSourceSettings {
+  /**
+   * Sets or gets whether a column will be auto-generated.
+   * Default value: false
+   */
+  autoGenerateColumns?: boolean;
+  /**
+   * Sets or gets a children data field like 'children', 'items' in the data source. When this property is set, the dataAdapter will look for this data field when looping through the items. If it is found a hierarchical data source would be created.
+   * Default value: ""
+   */
+  childrenDataField?: string;
+  /**
+   * Sets or gets the XML binding root.
+   * Default value: ""
+   */
+  root?: string;
+  /**
+   * Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags.
+   * Default value: blackList
+   */
+  sanitizeHTML?: PivotTableDataSourceSettingsSanitizeHTML | string;
+  /**
+   * Determines whether cell values will display the espaced values as text or html.
+   * Default value: text
+   */
+  sanitizeHTMLRender?: PivotTableDataSourceSettingsSanitizeHTMLRender | string;
+  /**
+   * Sets or gets the XML binding record.
+   * Default value: ""
+   */
+  record?: string;
+  /**
+   * Sets or gets the data fields to group by.
+   * Default value: []
+   */
+  groupBy?: string[];
+  /**
+   * Sets or gets the data fields which decribe the loaded data and data type. Ex: ['id: number', 'firstName: string', 'lastName: string']
+   * Default value: null
+   */
+  dataFields?: PivotTableDataSourceSettingsDataField[];
+  /**
+   * Sets or gets whether the data source type.
+   * Default value: array
+   */
+  dataSourceType?: PivotTableDataSourceSettingsDataSourceType | string;
+  /**
+   * Sets or gets the dataAdapter's id
+   * Default value: ""
+   */
+  id?: string;
+  /**
+   * Sets or gets the key data field to be used for building the hierarchy. It is used in combination with the parentDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  keyDataField?: string;
+  /**
+   * Sets or gets the parent data field to be used for building the hierarchy. It is used in combination with the keyDataField property. Usually the 'id' field is used as key data field and 'parentId' as parent data field'
+   * Default value: ""
+   */
+  parentDataField?: string;
+  /**
+   * Sets the 'mapChar' data field of the record
+   * Default value: "."
+   */
+  mapChar?: string;
+  /**
+   * Sets the virtual data source function which is called each time the Grid requests data. Demos using 'virtualDataSource' are available on the Grid demos page.
+   * Default value: null
+   */
+  virtualDataSource?: any;
+  /**
+   * Sets the virtual data source on expand function. This function is called when we load data on demand in Tree or TreeGrid and virtualDataSource in these components is set, too
+   * Default value: null
+   */
+  virtualDataSourceOnExpand?: any;
+}
+
+export interface PivotTableDataSourceSettingsDataField {
+  /**
+   * Sets the dataField name.
+   * Default value: ""
+   */
+  name?: string;
+  /**
+   * Sets the dataField mapping path. For nested mapping, use '.'. Example: 'name.firstName'.
+   * Default value: ""
+   */
+  map?: string;
+  /**
+   * Sets the dataField type.
+   * Default value: string
+   */
+  dataType?: PivotTableDataSourceSettingsDataFieldDataType | string;
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-pivot-table"): PivotTable;
@@ -515,6 +617,14 @@ export declare type PivotTableConditionalFormattingCondition = 'between' | 'equa
 export declare type PivotTableConditionalFormattingFontFamily = 'The default fontFamily as set in CSS' | 'Arial' | 'Courier New' | 'Georgia' | 'Times New Roman' | 'Verdana';
 /**The fontSize to apply to formatted cells. The fontSize as set in CSS is used by default. */
 export declare type PivotTableConditionalFormattingFontSize = '8px' | '9px' | '10px' | '11px' | '12px' | '13px' | '14px' | '15px' | '16px';
+/**Sets or gets the Table values espace mode. This property specifies how html tags will be espaced by the table. The default 'blackList' value includes the most commonly used tags for espace such as 'script'. The 'all' value espaces all tags, whereas 'none' does not escape any tags. */
+export declare type PivotTableDataSourceSettingsSanitizeHTML = 'all' | 'blackList' | 'none';
+/**Determines whether cell values will display the espaced values as text or html. */
+export declare type PivotTableDataSourceSettingsSanitizeHTMLRender = 'text' | 'html';
+/**Sets the dataField type. */
+export declare type PivotTableDataSourceSettingsDataFieldDataType = 'string' | 'date' | 'boolean' | 'number' | 'array' | 'any';
+/**Sets or gets whether the data source type. */
+export declare type PivotTableDataSourceSettingsDataSourceType = 'array' | 'json' | 'xml' | 'csv' | 'tsv';
 /**Gets or sets the position of the PivotTable’s designer interface, which appears when the designer option is enabled. This property allows you to specify or retrieve where the designer UI is displayed within the application layout. */
 export declare type PivotTableDesignerPosition = 'near' | 'far';
 /**Displays an export button within the drill-down dialog when this option is enabled, allowing users to export data directly from the dialog. */

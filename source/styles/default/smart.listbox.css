@@ -10,7 +10,6 @@ smart-list-items-group.smart-element {
 }
 smart-list-item .smart-input,
 smart-list-items-group .smart-input {
-  margin-left: 4px;
   width: calc(-4px + var(--smart-check-box-default-size));
   height: calc(-4px + var(--smart-check-box-default-size));
   line-height: var(--smart-check-box-default-size);
@@ -21,7 +20,7 @@ smart-list-items-group .smart-input {
   border-style: solid;
   padding: 3px;
   border-width: var(--smart-border-width);
-  border-radius: var(--smart-list-item-check-box-radius);
+  border-radius: var(--smart-border-radius);
   font-family: inherit;
   background-repeat: no-repeat;
   border-color: var(--smart-border);
@@ -46,6 +45,21 @@ smart-list-item[selected] .smart-input,
 smart-list-items-group[selected] .smart-input {
   border-color: var(--smart-primary);
   background-color: var(--smart-primary);
+  color: var(--smart-primary-color);
+}
+smart-list-item[indeterminate] .smart-input,
+smart-list-items-group[indeterminate] .smart-input {
+  border-color: var(--smart-border);
+  background-color: var(--smart-background);
+  color: var(--smart-background);
+}
+smart-list-item[indeterminate] .smart-input::after,
+smart-list-items-group[indeterminate] .smart-input::after {
+  content: " " !important;
+  padding: 6px;
+  margin-top: 0px;
+  border-color: var(--smart-ui-state-selected);
+  background-color: var(--smart-ui-state-selected);
   color: var(--smart-primary-color);
 }
 smart-list-item[hover] .smart-input:hover,
@@ -118,6 +132,9 @@ smart-list-item .smart-content-details {
   opacity: 0.5;
   margin-top: 2px;
   font-size: 10px;
+}
+smart-list-item .smart-input {
+  cursor: pointer;
 }
 smart-list-item .smart-input:before {
   content: "";
@@ -354,6 +371,8 @@ smart-list-box smart-scroll-bar[orientation=vertical].bottom-corner {
   padding: var(--smart-editor-label-padding);
   outline: initial;
   padding-right: 25px;
+  background: inherit;
+  color: inherit;
 }
 .smart-list-box input:focus {
   border-color: var(--smart-outline);
@@ -361,17 +380,27 @@ smart-list-box smart-scroll-bar[orientation=vertical].bottom-corner {
 .smart-list-box .smart-list-box-filter-input-container {
   position: relative;
   width: calc(100% - 10px);
-  height: var(--smart-editor-height);
+  height: 36px;
   margin-left: 5px;
   margin-top: 5px;
+}
+.smart-list-box .smart-list-box-filter-input-container input {
+  border-radius: var(--smart-border-radius);
+  height: calc(100% - 2 * var(--smart-border-width));
+}
+.smart-list-box .smart-list-box-filter-input-container input:hover {
+  border-color: var(--smart-ui-state-border-hover);
+}
+.smart-list-box .smart-list-box-filter-input-container input:focus {
+  border-color: var(--smart-primary);
+  outline: 1px solid var(--smart-primary);
 }
 .smart-list-box .smart-list-box-filter-input-container:after {
   content: var(--smart-icon-search);
   font-family: var(--smart-font-family-icon);
-  height: var(--smart-text-box-default-height);
   position: absolute;
-  top: 0;
-  width: 25px;
+  top: calc(50% - var(--smart-font-size) / 2);
+  height: var(--smart-font-size);
   display: flex;
   align-items: center;
   justify-content: center;

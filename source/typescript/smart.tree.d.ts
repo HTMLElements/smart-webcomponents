@@ -72,6 +72,21 @@ export interface TreeProperties {
    */
   dropDownMode?: boolean;
   /**
+   * 
+   * Default value: null
+   */
+  dropDownSelectTemplate?: any;
+  /**
+   * 
+   * Default value: label
+   */
+  dropDownSelectionMode?: TreeDropDownSelectionMode | string;
+  /**
+   * 
+   * Default value: "→"
+   */
+  dropDownSelectionPathSymbol?: string;
+  /**
    * Specifies the width, in pixels, of the Tree component when it appears within a drop-down interface. Adjusting this value controls how wide the drop-down Tree is rendered, allowing for customization to fit various layouts or content requirements.
    * Default value: 300
    */
@@ -528,6 +543,8 @@ declare global {
     }
 }
 
+
+export declare type TreeDropDownSelectionMode = 'label' | 'path';
 /**Specifies how TreeItemGroups within the Tree expand or collapse, controlling whether multiple groups can be expanded simultaneously, only one group can be expanded at a time, or all groups are collapsed by default. This setting defines the expand/collapse interaction pattern for grouped items in the Tree structure. */
 export declare type TreeExpandMode = 'multiple' | 'single';
 /**Specifies the filtering method to be applied when processing data, such as selecting between different filter types (e.g., linear, nearest, or custom). Determines how input data is modified or constrained based on the selected filter mode. */
@@ -556,6 +573,11 @@ export interface TreeItemProperties {
    * Default value: false
    */
   disabled?: boolean;
+  /**
+   * 
+   * Default value: false
+   */
+  disableDrag?: boolean;
   /**
    * 
    * Default value: 
@@ -617,6 +639,11 @@ export interface TreeItemsGroupProperties {
    * Default value: false
    */
   disabled?: boolean;
+  /**
+   * 
+   * Default value: false
+   */
+  disableDrag?: boolean;
   /**
    * 
    * Default value: false

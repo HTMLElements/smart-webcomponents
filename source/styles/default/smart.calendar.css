@@ -251,8 +251,6 @@
 .smart-calendar [prev-month][focus] button,
 .smart-calendar [next-year][focus] button,
 .smart-calendar [prev-year][focus] button {
-  border: 1px solid var(--smart-border-focus);
-  background-color: var(--smart-background-focus);
   outline: none;
 }
 .smart-calendar .smart-calendar-list-view.smart-scroll-viewer {
