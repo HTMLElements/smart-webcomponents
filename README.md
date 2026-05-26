@@ -1,4 +1,4 @@
-# 🌟 Smart Web Components  
+# 🌟 Smart.UI Component Library  
 
 [![npm version](https://img.shields.io/npm/v/smart-webcomponents.svg?color=brightgreen)](https://www.npmjs.com/package/smart-webcomponents)  
 [![npm downloads](https://img.shields.io/npm/dm/smart-webcomponents.svg)](https://www.npmjs.com/package/smart-webcomponents)  
@@ -39,6 +39,9 @@ Install from [npm](https://www.npmjs.com/package/smart-webcomponents):
 npm install smart-webcomponents
 
 # Angular
+npm install smart-webcomponents-angular
+
+Install specific component: 
 npm install @smart-webcomponents-angular/grid
 
 # React
@@ -76,7 +79,7 @@ npm install smart-webcomponents
   </script>
 </head>
 <body>
-  <smart-grid id="grid"></smart-grid>
+  <smart-grid sortable filterable editable id="grid"></smart-grid>
 </body>
 </html>
 ```
@@ -420,4 +423,4 @@ See [LICENSE](LICENSE) for more information.
 
 ---
 
-> 💡 **Smart Web Components** help you build applications that look modern, feel responsive, and scale with your needs.  
+> 💡 **Smart.UI Component Library** help you build applications that look modern, feel responsive, and scale with your needs.  
