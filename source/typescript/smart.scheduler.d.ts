@@ -1224,7 +1224,7 @@ export interface SchedulerEventRepeat {
    * Event exceptions represent a repeating series event that has been re-scheduler for another date/time or it has been hidden from the Scheduler. Exceptions cannot repeat.
    * Default value: undefined
    */
-  exceptions?: { Date: string | Date, DateStart: Date | string, DateEnd: Date | string, backgroundColor: string, color: string, hidden: boolean }[] | undefined;
+  exceptions?: any;
 }
 
 export interface SchedulerNotification {
@@ -1362,7 +1362,7 @@ export declare type VerticalScrollBarVisibility = 'auto' | 'disabled' | 'hidden'
 /**Specifies the current view type of the Scheduler component (e.g., 'day', 'week', 'month'). When defining custom views, ensure that each view includes a valid <b>type</b> property matching one of the supported view types. Note: This property is managed internally by the Scheduler and should not be set manually in your configuration. */
 export declare type SchedulerViewType = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
 
-export declare type SchedulerViews = SchedulerViewType[] | object[] | string[];
+export declare type SchedulerViews = Array<string | { label?: string; value?: string; type?: string; hideWeekend?: boolean; hideNonworkingWeekdays?: boolean; shortcutKey?: string; hideHours?: boolean; [key: string]: any }>;
 /**Specifies the type of view selector that appears in the element's header, which controls how content is displayed (e.g., as a list, grid, or table view). This setting determines the layout options available to the user within the header section of the component. */
 export declare type SchedulerViewSelectorType = 'auto' | 'tabs' | 'menu';
 /**Configures the rule used to determine the start date in Week and TimelineWeek views. By default, these views start from the current date, factoring in the value specified by the 'firstDayOfWeek' property. If the 'startDateRule' property is set to 'dateCurrent', the Week and TimelineWeek views will instead start from the date provided in the 'dateCurrent' property, overriding the default behavior. */

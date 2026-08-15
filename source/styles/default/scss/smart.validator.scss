@@ -157,3 +157,28 @@ input.smart-validation-error {
     white-space: nowrap;
   }
 }
+
+/* Pending state - an asynchronous or remote rule has not resolved yet */
+@keyframes smart-validation-pending-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.smart-validation-pending {
+  &:not(smart-check-box) {
+    >div.smart-container {
+      &:after {
+        pointer-events: none;
+        content: '';
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid var(--smart-border);
+        border-top-color: var(--smart-primary);
+        animation: smart-validation-pending-spin 0.7s linear infinite;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

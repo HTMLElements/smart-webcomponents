@@ -933,9 +933,9 @@ export interface EditorIframeSettings {
   enabled?: boolean;
   /**
    * Determines the resources like scripts/styles that will be imported into the iframe. Here's how to define resources: resources: { 'style': { href: 'styles.css' }, 'script': { src: 'index.js', type: 'module' }} 
-   * Default value: "portrait"
+   * Default value: null
    */
-  resources?: string;
+  resources?: any;
 }
 
 export interface ToolbarItem {

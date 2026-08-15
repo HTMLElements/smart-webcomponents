@@ -107,6 +107,11 @@ export interface PivotTableProperties {
    */
   grandTotal?: boolean;
   /**
+   * Pins the row-label columns - the selection checkbox and the row group column, or one per nesting level in the classic layout - to the left edge, so they stay in view when the table is scrolled horizontally. The horizontal counterpart of freezeHeader, and disabled by default for the same reason: it changes how the table behaves once scrolled. A pivot is typically far wider than its container, and without it scrolling right leaves a grid of numbers with nothing to say what they measure.
+   * Default value: false
+   */
+  freezeRowHeaders?: boolean;
+  /**
    * Defines or retrieves how nested rows—determined by the specified rowGroup columns—are visually organized and displayed within the grid. This setting controls the appearance and structure of hierarchical row groupings.
    * Default value: default
    */
@@ -450,7 +455,7 @@ export interface PivotTableColumn {
    * Sets or gets an object with settings for cells in summary columns. These settings are not applied if column formatFunction is also implemented.
    * Default value: [object Object]
    */
-  summarySettings?: { align: string, prefix: string, decimalPlaces: number, thousandsSeparator: string, decimalSeparator: string, negativesInBrackets: boolean };
+  summarySettings?: { align?: string, prefix?: string, decimalPlaces?: number, thousandsSeparator?: string, decimalSeparator?: string, negativesInBrackets?: boolean };
 }
 
 export interface PivotTableConditionalFormatting {

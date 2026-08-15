@@ -8,9 +8,9 @@ export interface ToastProperties {
   animation?: Animation | string;
   /**
    * Defines the container element in which new toast notifications will appear. The value can be either an HTMLElement directly, or a string representing the id of a DOM element. This property determines where toast items are rendered in the DOM.Note: When used together with the modal and position properties, container takes precedence over position but has lower priority than modal. This means that if modal is enabled, it overrides container; if not, the specified container is used instead of the position property.
-   * Default value: "null"
+   * Default value: null
    */
-  appendTo?: string;
+  appendTo?: string | HTMLElement;
   /**
    * Determines whether the toast notification will automatically close after the duration specified by the autoCloseDelay property. If enabled, the toast will dismiss itself once the set time has elapsed; otherwise, it will remain visible until manually closed by the user.
    * Default value: false

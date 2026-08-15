@@ -723,6 +723,10 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
 	* @param event. The custom event.    */
   onScrollRightReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the task panel or the timeline is scrolled, whether by the user or programmatically through the <b>scrollTop</b> and <b>scrollLeft</b> properties. The event details report the current scroll position and which axis changed. Scrolling the resource panel does not raise this event.
+	* @param event. The custom event.    */
+  onScroll: ((this: any, ev: Event) => any) | null;
+  /**
    * Enables the application of a user-defined filter to a specified column, allowing you to customize how data is displayed or managed within either a task column or a resource column. This feature supports more precise data sorting, searching, or visibility based on your chosen criteria.
    * @param {any} columns. An object or an array of objects with the following syntax: <ul><li><b>type</b> - indicates the type of column to filter. Possible values are 'task' or 'resource'.</li><li><b>value</b> - the value of the column that must match the value attribute of a taskColumns/resourceColumns object(e.g. 'label', 'dateStart', etc).</li></ul>.
    * @param {any} filterGroup. A Smart.Utilities.FilterGroup object. Here's an example for creating a FilterGroup object: <pre>const filterGroup = new window.Smart.Utilities.FilterGroup(), filterObject = filterGroup.createFilter('string', 'Task B', 'STARTS_WITH_CASE_SENSITIVE'); filterGroup.addFilter('or', filterObject); gantt.addFilter({ type: 'task', value: 'label' }, filterGroup);</pre>
@@ -942,6 +946,43 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    * @param {Date} date. The date to scroll to.
    */
   scrollToDate(date: Date): void;
+  /**
+   * Scrolls the Gantt Chart to a specific position. Note the argument order: the vertical offset comes first, matching the other scrollable Smart components. Either argument may be omitted to leave that axis unchanged.
+   * @param {number} top?. The vertical scroll position, in pixels.
+   * @param {number} left?. The horizontal scroll position, in pixels.
+   */
+  scrollTo(top?: number, left?: number): void;
+   scrollTo(options?: ScrollToOptions): void;
+  /**
+   * Gets the position of the vertical scrollbar. Equivalent to reading the <b>scrollTop</b> property.
+   * @returns {number}
+   */
+  getVerticalScrollValue(): number;
+  /**
+   * Sets the position of the vertical scrollbar. You can use this method in combination with <b>getVerticalScrollValue</b> and <b>getVerticalScrollMax</b>. Assign it after <b>dataSource</b> - changing the data resets the scroll position to the top.
+   * @param {number} value. The new vertical scroll position, in pixels.
+   */
+  setVerticalScrollValue(value: number): void;
+  /**
+   * Gets the maximum position of the vertical scrollbar. You can use this method in combination with <b>setVerticalScrollValue</b> to apply a new scroll position.
+   * @returns {number}
+   */
+  getVerticalScrollMax(): number;
+  /**
+   * Gets the position of the horizontal scrollbar. Equivalent to reading the <b>scrollLeft</b> property.
+   * @returns {number}
+   */
+  getHorizontalScrollValue(): number;
+  /**
+   * Sets the position of the horizontal scrollbar. You can use this method in combination with <b>getHorizontalScrollValue</b> and <b>getHorizontalScrollMax</b>. Assign it after <b>dataSource</b> - changing the data resets the scroll position to the top.
+   * @param {number} value. The new horizontal scroll position, in pixels.
+   */
+  setHorizontalScrollValue(value: number): void;
+  /**
+   * Gets the maximum position of the horizontal scrollbar. You can use this method in combination with <b>setHorizontalScrollValue</b> to apply a new scroll position.
+   * @returns {number}
+   */
+  getHorizontalScrollMax(): number;
   /**
    * Stores the current configuration of the element in the browser's LocalStorage, allowing the settings to persist across page reloads or browser sessions. <strong>Note: The element must have a unique <code>id</code> attribute assigned for this functionality to work properly.</strong>
    * @param {any[]} state?. An Array containing a valid structure of Gantt Chart tasks.

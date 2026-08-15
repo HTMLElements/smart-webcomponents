@@ -2091,7 +2091,7 @@ body[theme="dark"],
     --smart-text-tertiary-color: var(--smart-base-200);
     --smart-text-disabled-color: var(--smart-base-300);
     --smart-text-contrast-color: var(--smart-white);
-
+    --smart-card-border: var(--smart-base-500);
     --smart-grid-cell-background-freeze-selected: var(--smart-base-800);
     --smart-background: var(--smart-base-800);
     /* The theme background color. The background color appears behind scrollable content.*/
@@ -2147,11 +2147,11 @@ body[theme="dark"],
     --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
     --smart-scroll-bar-border: var(--smart-surface);
     --smart-scroll-bar-thumb-background: var(--smart-base-200);
-    --smart-scroll-bar-thumb-border: var(--smart-base-200);
+    --smart-scroll-bar-thumb-border: transparent;
     --smart-scroll-bar-thumb-background-hover: var(--smart-base-100);
-    --smart-scroll-bar-thumb-border-hover: var(--smart-base-100);
+    --smart-scroll-bar-thumb-border-hover: transparent;
     --smart-scroll-bar-thumb-background-active: var(--smart-base-100);
-    --smart-scroll-bar-thumb-border-active: var(--smart-base-100);
+    --smart-scroll-bar-thumb-border-active: transparent;
     --smart-scroll-bar-button-background: var(--smart-surface);
     --smart-scroll-bar-button-border: var(--smart-surface);
     --smart-scroll-bar-button-color: var(--smart-on-surface);
@@ -2170,6 +2170,9 @@ body[theme="dark"],
     --smart-scheduler-day-week-view-hour-color: var(--smart-base-500);
     --smart-scheduler-view-horizontal-line-color: var(--smart-base-500);
     --smart-scheduler-view-vertical-line-color: var(--smart-base-500);
+    --smart-scheduler-day-week-view-vertical-line-color: var(--smart-base-600);
+
+
     --smart-scheduler-event-background-rgb: 103, 176, 245;
     --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
     --smart-scheduler-event-color: var(--smart-on-primary-dark);

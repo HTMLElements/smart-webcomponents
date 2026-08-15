@@ -287,7 +287,7 @@ export interface Chart extends BaseElement, ChartProperties {
    * @param {number} itemIndex. Item (data point) index.
    * @returns 
    */
-  getItemCoord(groupIndex: number, serieIndex: number, itemIndex: number): { x: number, y: number, width: number, height: number, center: number, centerOffset: number, innerRadius: number, outerRadius: number, selectedRadiusChange: number, fromAngle: number, toAngle: number, radius: number };
+  getItemCoord(groupIndex: number, serieIndex: number, itemIndex: number): { x: number, y: number, width?: number, height?: number, center?: number, centerOffset?: number, innerRadius?: number, outerRadius?: number, selectedRadiusChange?: number, fromAngle?: number, toAngle?: number, radius?: number };
   /**
    * Retrieves the total count of items that have been rendered within a specified series. This includes only those items currently visible or present in the rendered output for the given series.
    * @param {number} groupIndex. Series group index.

@@ -10,7 +10,7 @@ export interface LedProperties {
    * Gets the current check state or sets it to a specified value, typically used for checkbox, radio button, or similar UI elements. The check state indicates whether the element is checked, unchecked, or (if supported) in an indeterminate state.
    * Default value: false
    */
-  checked?: boolean;
+  checked?: boolean | null;
   /**
    * Specifies the conditions under which the element will trigger a click event, allowing you to control when and how user interactions or programmatic actions cause the click event to be fired.
    * Default value: release

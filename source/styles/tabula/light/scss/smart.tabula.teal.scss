@@ -1,0 +1,22 @@
+@import "../../tabula_vars";
+
+
+$primary: #20C997;
+$on-primary: #FFFFFF;
+$primary-rgb: 32, 201, 151;
+$primary-light: #a8e6d3;
+$on-primary-light: #0a4d3a;
+$primary-lighter: rgba(32, 201, 151, 0.13);
+$on-primary-lighter: #0a4d3a;
+$primary-dark: #6fdbb8;
+$primary-darker: #0a4d3a;
+
+$secondary: #5b6371;
+$secondary-rgb: 91, 99, 113;
+$secondary-light: #c2c7d1;
+$secondary-lighter: rgba(91, 99, 113, 0.13);
+$secondary-dark: #8a92a3;
+$secondary-darker: #1f242c;
+
+@import "../../_vars";
+@import "../../_light";

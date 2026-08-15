@@ -30,7 +30,7 @@ export interface GaugeProperties {
    * When customInterval is enabled, you can define a specific list of tick values to be displayed on the plot. If coerce is set to true, any input value will automatically snap to the nearest tick from this predefined list, ensuring that only these tick values can be selected or represented.
    * Default value: 0,50,100
    */
-  customTicks?: number[];
+  customTicks?: Array<number | Date>;
   /**
    * Specifies the format of the date labels that appear when the mode property is set to 'date'. This determines how dates are displayed on the labels (e.g., 'YYYY-MM-DD', 'MM/DD/YYYY').
    * Default value: "d"
@@ -110,7 +110,7 @@ export interface GaugeProperties {
    * Specifies the upper limit for the element's scale, preventing it from being scaled beyond this maximum value. This setting ensures that when the element is resized or transformed, its scale will not exceed the defined maximum threshold.
    * Default value: 100
    */
-  max?: number;
+  max?: number | Date;
   /**
    * Specifies the event or condition that triggers the update of the element’s value, such as on user input, when focus is lost, or after a specific action occurs. This setting controls how and when changes to the element's value are recognized and processed in the application.
    * Default value: switchWhileDragging
@@ -139,7 +139,7 @@ export interface GaugeProperties {
    * Specifies the lowest allowable value for the element’s scale, preventing the element from being scaled below this threshold. This property ensures that the element cannot appear smaller than the defined minimum scale value.
    * Default value: 0
    */
-  min?: number;
+  min?: number | Date;
   /**
    * Specifies whether the element is configured to handle numerical values or date values, enabling appropriate functionality and validation for each data type.
    * Default value: numeric
@@ -164,7 +164,7 @@ export interface GaugeProperties {
    * This property is an array containing multiple objects, where each object defines a distinct range. Each range represents a colored area characterized by its own specific size and properties, such as start and end values, color, and label. These ranges allow you to visually differentiate segments according to predefined criteria on a graphical interface or data visualization component.
    * Default value: 
    */
-  ranges?: {startValue: number, endValue: number, className: string}[];
+  ranges?: {startValue?: number | Date, endValue?: number | Date, className?: string}[];
   /**
    * When the element is set to read-only, users are unable to modify its value or content; they can view the information but cannot interact with or edit the element in any way.
    * Default value: false

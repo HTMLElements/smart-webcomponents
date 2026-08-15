@@ -30,7 +30,7 @@ export interface BreadcrumbProperties {
    * Specifies the data source used to populate the breadcrumb items. The data should be provided as an array of objects, where each object represents an individual breadcrumb item with its corresponding properties, such as label, link, and any additional attributes required for display or navigation.
    * Default value: []
    */
-  dataSource?: {label: string, value: string}[];
+  dataSource?: {label: string, value: string}[] | string;
   /**
    * Controls whether the Breadcrumb navigation component is disabled. When enabled, the Breadcrumb provides users with a navigational trail;
    * Default value: false

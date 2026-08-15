@@ -1,0 +1,900 @@
+:root {
+  --smart-white: #ffffff;
+  --smart-black: #000000;
+  --smart-base: #45494f;
+  --smart-base-50: #e0e4e9;
+  --smart-base-100: #c4c9d0;
+  --smart-base-200: #8f9399;
+  --smart-base-300: #45494f;
+  --smart-base-400: #383b3e;
+  --smart-base-500: #34373b;
+  --smart-base-600: #292c30;
+  --smart-base-700: #1f2226;
+  --smart-base-800: #1b1d20;
+  --smart-base-900: #121518;
+  --smart-base-light: #8f9399;
+  --smart-base-lighter: #ffffff;
+  --smart-base-dark: #121518;
+  --smart-base-darker: #000000;
+  --smart-primary: #0097a7;
+  --smart-primary-rgb: 0, 151, 167;
+  --smart-primary-light: #9cd5db;
+  --smart-primary-lighter: rgba(0, 151, 167, 0.13);
+  --smart-primary-dark: #54bbc6;
+  --smart-primary-darker: #003338;
+  --smart-secondary: #c2cbdc;
+  --smart-secondary-light: #c2cbdc;
+  --smart-secondary-lighter: #414D65;
+  --smart-secondary-dark: #444b58;
+  --smart-secondary-darker: #191f2b;
+  --smart-info: #085786;
+  --smart-info-light: #aadaff;
+  --smart-info-lighter: rgba(170, 218, 255, 0.24);
+  --smart-info-dark: #086791;
+  --smart-info-darker: #002d41;
+  --smart-success: #386A20;
+  --smart-success-light: #c0ffaa;
+  --smart-success-lighter: rgba(192, 255, 170, 0.24);
+  --smart-success-dark: #3e9108;
+  --smart-success-darker: #194100;
+  --smart-warning: #e8e971;
+  --smart-warning-light: #f9ffaa;
+  --smart-warning-lighter: rgba(249, 255, 170, 0.24);
+  --smart-warning-dark: #918908;
+  --smart-warning-darker: #413d00;
+  --smart-error: #b3261e;
+  --smart-error-light: #ffb4aa;
+  --smart-error-lighter: rgba(255, 180, 170, 0.24);
+  --smart-error-dark: #91080a;
+  --smart-error-darker: #410001;
+  --smart-on-base: #ffffff;
+  --smart-on-base-light: #121518;
+  --smart-on-base-lighter: #121518;
+  --smart-on-base-dark: #ffffff;
+  --smart-on-base-darker: #ffffff;
+  --smart-on-primary: #FFFFFF;
+  --smart-on-primary-light: #003338;
+  --smart-on-primary-lighter: #003338;
+  --smart-on-primary-dark: #a6d0b8;
+  --smart-on-primary-darker: #a6d0b8;
+  --smart-on-secondary: #191f2b;
+  --smart-on-secondary-light: #191f2b;
+  --smart-on-secondary-lighter: #c2cbdc;
+  --smart-on-secondary-dark: #c2cbdc;
+  --smart-on-secondary-darker: #c2cbdc;
+  --smart-on-info: #ffffff;
+  --smart-on-info-light: #002d41;
+  --smart-on-info-lighter: #aadaff;
+  --smart-on-info-dark: #aadaff;
+  --smart-on-info-darker: #aadaff;
+  --smart-on-success: #ffffff;
+  --smart-on-success-light: #194100;
+  --smart-on-success-lighter: #c0ffaa;
+  --smart-on-success-dark: #c0ffaa;
+  --smart-on-success-darker: #c0ffaa;
+  --smart-on-warning: #121518;
+  --smart-on-warning-light: #413d00;
+  --smart-on-warning-lighter: #f9ffaa;
+  --smart-on-warning-dark: #f9ffaa;
+  --smart-on-warning-darker: #f9ffaa;
+  --smart-on-error: #ffffff;
+  --smart-on-error-light: #410001;
+  --smart-on-error-lighter: #ffb4aa;
+  --smart-on-error-dark: #ffb4aa;
+  --smart-on-error-darker: #ffb4aa;
+  --smart-border-width: 1px;
+  --smart-root-font-size: 16px;
+  --smart-body-font-size: 13px;
+  --smart-body-line-height: 1.5;
+  --smart-text-font-family: ui-sans-serif, system-ui, -apple-system, Inter, Segoe UI, Roboto, sans-serif;
+  --smart-font-family: ui-sans-serif, system-ui, -apple-system, Inter, Segoe UI, Roboto, sans-serif;
+  --smart-outline-offset: 2px;
+  --smart-outline-width: 2px;
+  --smart-border-radius: 1px;
+  --smart-border-radius-0: 0;
+  --smart-border-radius-1: 0.25rem;
+  --smart-border-radius-2: 0.5rem;
+  --smart-border-radius-3: 0.75rem;
+  --smart-border-radius-4: 1rem;
+  --smart-border-radius-5: 1.25rem;
+  --smart-border-radius-6: 1.5rem;
+  --smart-border-radius-7: 1.75rem;
+  --smart-border-radius-8: 2rem;
+  --smart-border-radius-9: 2.25rem;
+  --smart-border-radius-10: 2.5rem;
+}
+
+:root {
+  --smart-body-background-color: var(--smart-base-800);
+  --smart-outline-color: var(--smart-primary);
+  --smart-text-title-color: var(--smart-base-50);
+  --smart-text-color: var(--smart-base-50);
+  --smart-text-secondary-color: var(--smart-base-100);
+  --smart-text-tertiary-color: var(--smart-base-200);
+  --smart-text-disabled-color: var(--smart-base-300);
+  --smart-text-contrast-color: var(--smart-white);
+  --smart-base-background-color: var(--smart-base-700);
+  --smart-base-background-color-dark: var(--smart-base-900);
+  --smart-border-normal: var(--smart-base-200);
+  --smart-border-hover: var(--smart-base-100);
+  --smart-border-focus: var(--smart-primary);
+  --smart-border-disabled: var(--smart-base-300);
+  --smart-input-border: var(--smart-base-400);
+  --smart-input-border-block-end: var(--smart-base-200);
+  --smart-input-hover-background: var(--smart-base-600);
+  --smart-input-hover-border: var(--smart-base-300);
+  --smart-input-hover-border-block-end: var(--smart-base-100);
+  --smart-input-focus-background: var(--smart-base-background-color);
+  --smart-input-focus-border: var(--smart-base-400);
+  --smart-input-focus-border-block-end: var(--smart-border-focus);
+  --smart-elevation-0: none;
+  --smart-elevation-1: 0 0 2px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.28);
+  --smart-elevation-2: 0 0 2px rgba(0, 0, 0, 0.24), 0 2px 4px rgba(0, 0, 0, 0.28);
+  --smart-elevation-3: 0 0 2px rgba(0, 0, 0, 0.24), 0 4px 8px rgba(0, 0, 0, 0.28);
+  --smart-elevation-4: 0 0 2px rgba(0, 0, 0, 0.24), 0 8px 16px rgba(0, 0, 0, 0.28);
+  --smart-elevation-5: 0 0 8px rgba(0, 0, 0, 0.24), 0 14px 28px rgba(0, 0, 0, 0.28);
+  --smart-elevation-6: 0 0 8px rgba(0, 0, 0, 0.24), 0 32px 64px rgba(0, 0, 0, 0.28);
+  --smart-elevation-7: 0 0 16px rgba(0, 0, 0, 0.24), 0 32px 64px rgba(0, 0, 0, 0.28);
+  --smart-elevation-8: 0 0 24px rgba(0, 0, 0, 0.24), 0 32px 64px rgba(0, 0, 0, 0.28);
+  --smart-elevation-9: 0 0 32px rgba(0, 0, 0, 0.24), 0 32px 64px rgba(0, 0, 0, 0.28);
+  --smart-elevation-10: 0 0 40px rgba(0, 0, 0, 0.24), 0 32px 64px rgba(0, 0, 0, 0.28);
+  --smart-grid-column-header-height: 32px;
+  --smart-font-size: 13px;
+}
+
+body[theme=dark],
+.smart-ui-component[theme=dark] {
+  --smart-primary: #0097a7;
+  --smart-primary-rgb: 0, 151, 167;
+  --smart-on-primary: #FFFFFF;
+  --smart-surface: var(--smart-base-background-color);
+  --smart-border: var(--smart-base-500);
+  --smart-secondary-color: var(--smart-on-secondary);
+  --smart-background: var(--smart-body-background-color);
+  --smart-background-color: var(--smart-text-color);
+  --smart-outline: var(--smart-primary);
+  --smart-secondary-background: var(--smart-base-100);
+  --smart-secondary-background-alt: var(--smart-base-800);
+  --smart-warning-color: var(--smart-on-warning);
+  --smart-error-color: var(--smart-on-error);
+  --smart-success-color: var(--smart-on-success);
+  --smart-info-color: var(--smart-on-info);
+  --smart-primary-color: var(--smart-on-primary);
+  --smart-input-font-size: var(--smart-body-font-size);
+  --smart-ui-state-hover: var(--smart-base-400);
+  --smart-ui-state-color-hover: var(--smart-white);
+  --smart-ui-state-border-hover: var(--smart-ui-state-hover);
+  --smart-ui-state-focus: var(--smart-base-400);
+  --smart-ui-state-color-focus: var(--smart-on-surface);
+  --smart-ui-state-border-focus: var(--smart-surface);
+  --smart-ui-state-active: var(--smart-primary);
+  --smart-ui-state-color-active: var(--smart-on-primary);
+  --smart-ui-state-border-active: var(--smart-primary);
+  --smart-ui-state-selected: var(--smart-base-400);
+  --smart-ui-state-color-selected: var(--smart-on-secondary-lighter);
+  --smart-ui-state-border-selected: var(--smart-base-400);
+  --smart-ui-state-secondary-hover: var(--smart-base-500);
+  --smart-ui-state-color-secondary-hover: var(--smart-background-color);
+  --smart-ui-state-border-secondary-hover: var(--smart-border-hover);
+  --smart-grid-column-header-height: 30px;
+  --smart-grid-row-height: 26px;
+  --smart-scheduler-day-week-view-hour-color: var(--smart-base-500);
+  --smart-scheduler-view-horizontal-line-color: var(--smart-base-500);
+  --smart-scheduler-view-vertical-line-color: var(--smart-base-500);
+}
+
+smart-grid {
+  --smart-grid-border: var(--smart-base-400);
+  --smart-border: var(--smart-base-400);
+}
+
+smart-grid smart-grid-column {
+  border-color: var(--smart-base-400);
+  color: var(--smart-base-50);
+}
+
+.smart-input-overlay.smart-input-overlay-column {
+  display: none !important;
+}
+
+smart-grid-column[selected]:not(.smart-grid-column-border) {
+  color: var(--smart-white);
+}
+
+smart-grid smart-grid-cell {
+  border-color: var(--smart-base-500);
+}
+
+smart-grid smart-grid-cell[selected] {
+  --smart-ui-state-border-selected: var(--smart-primary);
+}
+
+smart-grid-row[selected] smart-grid-cell[header][freeze] div[data-field=_rowHeaderColumn] {
+  border-right: 2px solid var(--smart-primary);
+  color: var(--smart-white);
+}
+smart-grid-row[selected] smart-grid-cell[header]:not(.smart-grid-column-border):not(:last-child):after {
+  background: var(--smart-primary) !important;
+}
+
+smart-input.smart-grid-cell-editor,
+smart-text-box.smart-grid-cell-editor,
+smart-numeric-text-box.smart-grid-cell-editor {
+  border-color: var(--smart-primary);
+  box-shadow: inset 0 0 0 1px var(--smart-primary);
+}
+
+.smart-grid-status-bar,
+.smart-grid-pager {
+  background: var(--smart-base-700);
+  border-top: 1px solid var(--smart-base-500);
+}
+
+.smart-tabs {
+  --smart-tab-item-padding: 8px 16px;
+}
+.smart-tabs .smart-tab-label-container {
+  border-radius: 0 !important;
+  border: 1px solid transparent !important;
+}
+.smart-tabs .smart-tab-label-container[hover] {
+  color: var(--smart-primary);
+}
+.smart-tabs .smart-tab-label-container[selected] {
+  background-color: var(--smart-base-800) !important;
+  border-color: var(--smart-base-400) !important;
+  border-bottom-color: var(--smart-base-800) !important;
+  color: var(--smart-primary-color);
+}
+
+.smart-grid-tooltip {
+  --smart-secondary: var(--smart-base-900) !important;
+}
+
+smart-grid {
+  --smart-secondary: var(--smart-secondary-darker);
+}
+smart-grid smart-grid-cell {
+  --smart-ui-state-selected: rgba(var(--smart-primary-rgb), .1);
+  --smart-ui-state-color-selected: var(--smart-white);
+  --smart-ui-state-border-selected: rgba(var(--smart-primary-rgb), .1);
+}
+smart-grid smart-grid-column[selected] {
+  background: var(--smart-base-dark);
+}
+smart-grid smart-grid-column[selected]:not(.smart-grid-column-border):not([data-field=_checkBoxColumn]):after {
+  height: 2px;
+  background: var(--smart-primary);
+}
+
+smart-calendar .smart-calendar-week-title {
+  color: var(--smart-base-200);
+}
+
+.smart-button-group .smart-button-group-items .smart-button-group-item {
+  padding: 6px;
+}
+
+smart-check-box.smart-toggle-box,
+smart-radio-button.smart-toggle-box {
+  --smart-font-size: var(--smart-input-font-size);
+  --smart-border-width: 2px;
+  --smart-border-radius: var(--smart-border-radius-0);
+  --smart-check-box-default-size: 14px;
+  --smart-radio-button-default-size: 14px;
+  --smart-border: var(--smart-base-500);
+}
+smart-check-box.smart-toggle-box .smart-input:hover,
+smart-radio-button.smart-toggle-box .smart-input:hover {
+  --smart-ui-state-hover: var(--smart-ui-state-secondary-hover);
+  --smart-ui-state-color-hover: var(--smart-ui-state-color-secondary-hover);
+  --smart-ui-state-border-hover: var(--smart-ui-state-border-secondary-hover);
+}
+
+smart-list-box {
+  --smart-check-box-default-size: 14px;
+  --smart-radio-button-default-size: 14px;
+}
+smart-list-box[selection-mode=checkBox]:focus smart-list-item[focus][selected] .smart-input:before,
+smart-list-box .smart-list-box[selection-mode=checkBox][focus] smart-list-item[focus][selected] .smart-input:before,
+smart-list-box .smart-list-box[selection-mode=radioButton]:focus smart-list-item[focus][selected] .smart-input:before,
+smart-list-box .smart-list-box[selection-mode=radioButton][focus] smart-list-item[focus][selected] .smart-input:before {
+  opacity: 0 !important;
+}
+smart-list-box.smart-list-box input[role=searchbox] {
+  border-bottom-color: var(--smart-base-500);
+  outline: none;
+}
+smart-list-box.smart-list-box input[role=searchbox]:hover {
+  background: var(--smart-base-600);
+  box-shadow: 0 1px 0 0 var(--smart-primary);
+  outline: none;
+}
+smart-list-box.smart-list-box input[role=searchbox]:active, smart-list-box.smart-list-box input[role=searchbox]:focus {
+  border-color: var(--smart-border);
+  border-bottom-color: var(--smart-primary);
+  outline: none;
+  background: var(--smart-base-700);
+  box-shadow: 0 1px 0 0 var(--smart-primary);
+}
+smart-list-box smart-list-item .smart-input:before {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+smart-list-box:not([selection-mode=checkBox]) smart-list-item[selected]:not([display-mode=checkBox]) .smart-overlay:after, smart-list-box:not([selection-mode=radioButton]) smart-list-item[selected]:not([display-mode=checkBox]) .smart-overlay:after {
+  content: "";
+  position: absolute;
+  inset-block-start: 0.5rem;
+  inset-block-end: 0.5rem;
+  inset-inline-start: 0.125rem;
+  width: 0.1875rem;
+  border-radius: calc(4 * var(--smart-border-radius));
+  background-color: var(--smart-primary);
+}
+
+.smart-tree .smart-tree-item-label-element > span {
+  padding: 7px 10px;
+}
+
+.smart-toggle-box:focus .smart-overlay,
+.smart-toggle-box[focus] .smart-overlay {
+  opacity: 0 !important;
+}
+
+.smart-ripple {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+input.smart-input {
+  border-color: var(--smart-input-border);
+  border-bottom-color: var(--smart-input-border-block-end);
+  background: var(--smart-background);
+}
+input.smart-input:hover {
+  background: var(--smart-input-hover-background);
+  border-bottom-color: var(--smart-input-hover-border-block-end);
+}
+input.smart-input:active, input.smart-input:focus {
+  box-shadow: 0 1px 0 0 var(--smart-primary);
+  background: var(--smart-input-focus-background);
+  border-bottom-color: var(--smart-input-focus-border-block-end);
+}
+
+smart-date-time-picker:not(.outlined),
+smart-date-input:not(.outlined),
+smart-time-input:not(.outlined),
+smart-date-range-input:not(.outlined),
+smart-drop-down-button:not(.outlined),
+smart-drop-down-list:not(.outlined),
+smart-combo-box:not(.outlined),
+smart-number-input:not(.outlined),
+smart-numeric-text-box:not(.outlined),
+smart-multi-input:not(.outlined),
+smart-check-input:not(.outlined),
+smart-multi-combo-input:not(.outlined),
+smart-input:not(.outlined),
+smart-text-box:not(.outlined),
+smart-color-input:not(.outlined),
+smart-color-picker:not(.outlined),
+smart-masked-text-box:not(.outlined),
+smart-password-text-box:not(.outlined),
+smart-password-input:not(.outlined),
+smart-text-area:not(.outlined) {
+  border-bottom-color: var(--smart-input-border-block-end);
+  --smart-surface: var(--smart-background);
+}
+smart-date-time-picker:not(.outlined) input.smart-input,
+smart-date-input:not(.outlined) input.smart-input,
+smart-time-input:not(.outlined) input.smart-input,
+smart-date-range-input:not(.outlined) input.smart-input,
+smart-drop-down-button:not(.outlined) input.smart-input,
+smart-drop-down-list:not(.outlined) input.smart-input,
+smart-combo-box:not(.outlined) input.smart-input,
+smart-number-input:not(.outlined) input.smart-input,
+smart-numeric-text-box:not(.outlined) input.smart-input,
+smart-multi-input:not(.outlined) input.smart-input,
+smart-check-input:not(.outlined) input.smart-input,
+smart-multi-combo-input:not(.outlined) input.smart-input,
+smart-input:not(.outlined) input.smart-input,
+smart-text-box:not(.outlined) input.smart-input,
+smart-color-input:not(.outlined) input.smart-input,
+smart-color-picker:not(.outlined) input.smart-input,
+smart-masked-text-box:not(.outlined) input.smart-input,
+smart-password-text-box:not(.outlined) input.smart-input,
+smart-password-input:not(.outlined) input.smart-input,
+smart-text-area:not(.outlined) input.smart-input {
+  border-bottom-color: var(--smart-input-border-block-end);
+}
+smart-date-time-picker:not(.outlined)[hover],
+smart-date-input:not(.outlined)[hover],
+smart-time-input:not(.outlined)[hover],
+smart-date-range-input:not(.outlined)[hover],
+smart-drop-down-button:not(.outlined)[hover],
+smart-drop-down-list:not(.outlined)[hover],
+smart-combo-box:not(.outlined)[hover],
+smart-number-input:not(.outlined)[hover],
+smart-numeric-text-box:not(.outlined)[hover],
+smart-multi-input:not(.outlined)[hover],
+smart-check-input:not(.outlined)[hover],
+smart-multi-combo-input:not(.outlined)[hover],
+smart-input:not(.outlined)[hover],
+smart-text-box:not(.outlined)[hover],
+smart-color-input:not(.outlined)[hover],
+smart-color-picker:not(.outlined)[hover],
+smart-masked-text-box:not(.outlined)[hover],
+smart-password-text-box:not(.outlined)[hover],
+smart-password-input:not(.outlined)[hover],
+smart-text-area:not(.outlined)[hover] {
+  --smart-border: var(--smart-input-hover-border);
+  --smart-background: var(--smart-input-hover-background);
+  border-bottom-color: var(--smart-input-hover-border-block-end);
+}
+smart-date-time-picker:not(.outlined)[hover] input.smart-input,
+smart-date-input:not(.outlined)[hover] input.smart-input,
+smart-time-input:not(.outlined)[hover] input.smart-input,
+smart-date-range-input:not(.outlined)[hover] input.smart-input,
+smart-drop-down-button:not(.outlined)[hover] input.smart-input,
+smart-drop-down-list:not(.outlined)[hover] input.smart-input,
+smart-combo-box:not(.outlined)[hover] input.smart-input,
+smart-number-input:not(.outlined)[hover] input.smart-input,
+smart-numeric-text-box:not(.outlined)[hover] input.smart-input,
+smart-multi-input:not(.outlined)[hover] input.smart-input,
+smart-check-input:not(.outlined)[hover] input.smart-input,
+smart-multi-combo-input:not(.outlined)[hover] input.smart-input,
+smart-input:not(.outlined)[hover] input.smart-input,
+smart-text-box:not(.outlined)[hover] input.smart-input,
+smart-color-input:not(.outlined)[hover] input.smart-input,
+smart-color-picker:not(.outlined)[hover] input.smart-input,
+smart-masked-text-box:not(.outlined)[hover] input.smart-input,
+smart-password-text-box:not(.outlined)[hover] input.smart-input,
+smart-password-input:not(.outlined)[hover] input.smart-input,
+smart-text-area:not(.outlined)[hover] input.smart-input {
+  border-bottom-color: var(--smart-input-hover-border-block-end);
+}
+smart-date-time-picker:not(.outlined)[active], smart-date-time-picker:not(.outlined)[focus],
+smart-date-input:not(.outlined)[active],
+smart-date-input:not(.outlined)[focus],
+smart-time-input:not(.outlined)[active],
+smart-time-input:not(.outlined)[focus],
+smart-date-range-input:not(.outlined)[active],
+smart-date-range-input:not(.outlined)[focus],
+smart-drop-down-button:not(.outlined)[active],
+smart-drop-down-button:not(.outlined)[focus],
+smart-drop-down-list:not(.outlined)[active],
+smart-drop-down-list:not(.outlined)[focus],
+smart-combo-box:not(.outlined)[active],
+smart-combo-box:not(.outlined)[focus],
+smart-number-input:not(.outlined)[active],
+smart-number-input:not(.outlined)[focus],
+smart-numeric-text-box:not(.outlined)[active],
+smart-numeric-text-box:not(.outlined)[focus],
+smart-multi-input:not(.outlined)[active],
+smart-multi-input:not(.outlined)[focus],
+smart-check-input:not(.outlined)[active],
+smart-check-input:not(.outlined)[focus],
+smart-multi-combo-input:not(.outlined)[active],
+smart-multi-combo-input:not(.outlined)[focus],
+smart-input:not(.outlined)[active],
+smart-input:not(.outlined)[focus],
+smart-text-box:not(.outlined)[active],
+smart-text-box:not(.outlined)[focus],
+smart-color-input:not(.outlined)[active],
+smart-color-input:not(.outlined)[focus],
+smart-color-picker:not(.outlined)[active],
+smart-color-picker:not(.outlined)[focus],
+smart-masked-text-box:not(.outlined)[active],
+smart-masked-text-box:not(.outlined)[focus],
+smart-password-text-box:not(.outlined)[active],
+smart-password-text-box:not(.outlined)[focus],
+smart-password-input:not(.outlined)[active],
+smart-password-input:not(.outlined)[focus],
+smart-text-area:not(.outlined)[active],
+smart-text-area:not(.outlined)[focus] {
+  --smart-background: var(--smart-input-focus-background);
+}
+smart-date-time-picker:not(.outlined)[active] input.smart-input, smart-date-time-picker:not(.outlined)[focus] input.smart-input,
+smart-date-input:not(.outlined)[active] input.smart-input,
+smart-date-input:not(.outlined)[focus] input.smart-input,
+smart-time-input:not(.outlined)[active] input.smart-input,
+smart-time-input:not(.outlined)[focus] input.smart-input,
+smart-date-range-input:not(.outlined)[active] input.smart-input,
+smart-date-range-input:not(.outlined)[focus] input.smart-input,
+smart-drop-down-button:not(.outlined)[active] input.smart-input,
+smart-drop-down-button:not(.outlined)[focus] input.smart-input,
+smart-drop-down-list:not(.outlined)[active] input.smart-input,
+smart-drop-down-list:not(.outlined)[focus] input.smart-input,
+smart-combo-box:not(.outlined)[active] input.smart-input,
+smart-combo-box:not(.outlined)[focus] input.smart-input,
+smart-number-input:not(.outlined)[active] input.smart-input,
+smart-number-input:not(.outlined)[focus] input.smart-input,
+smart-numeric-text-box:not(.outlined)[active] input.smart-input,
+smart-numeric-text-box:not(.outlined)[focus] input.smart-input,
+smart-multi-input:not(.outlined)[active] input.smart-input,
+smart-multi-input:not(.outlined)[focus] input.smart-input,
+smart-check-input:not(.outlined)[active] input.smart-input,
+smart-check-input:not(.outlined)[focus] input.smart-input,
+smart-multi-combo-input:not(.outlined)[active] input.smart-input,
+smart-multi-combo-input:not(.outlined)[focus] input.smart-input,
+smart-input:not(.outlined)[active] input.smart-input,
+smart-input:not(.outlined)[focus] input.smart-input,
+smart-text-box:not(.outlined)[active] input.smart-input,
+smart-text-box:not(.outlined)[focus] input.smart-input,
+smart-color-input:not(.outlined)[active] input.smart-input,
+smart-color-input:not(.outlined)[focus] input.smart-input,
+smart-color-picker:not(.outlined)[active] input.smart-input,
+smart-color-picker:not(.outlined)[focus] input.smart-input,
+smart-masked-text-box:not(.outlined)[active] input.smart-input,
+smart-masked-text-box:not(.outlined)[focus] input.smart-input,
+smart-password-text-box:not(.outlined)[active] input.smart-input,
+smart-password-text-box:not(.outlined)[focus] input.smart-input,
+smart-password-input:not(.outlined)[active] input.smart-input,
+smart-password-input:not(.outlined)[focus] input.smart-input,
+smart-text-area:not(.outlined)[active] input.smart-input,
+smart-text-area:not(.outlined)[focus] input.smart-input {
+  box-shadow: none;
+}
+
+smart-tree:not(.outlined),
+smart-menu:not(.outlined),
+.smart-form-input:not(.outlined) {
+  --smart-font-size: var(--smart-input-font-size);
+  --smart-numeric-text-box-default-height: 28px;
+  --smart-editor-height: 28px;
+  --smart-text-box-default-height: 28px;
+  --smart-list-item-height: 28px;
+  --smart-ui-state-hover: var(--smart-input-hover-background);
+  --smart-ui-state-color-hover: var(--smart-text-color);
+  --smart-ui-state-border-hover: var(--smart-input-hover-border);
+}
+smart-tree:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box),
+smart-menu:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box),
+.smart-form-input:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) {
+  --smart-background: var(--smart-input-hover-background);
+  --smart-border: var(--smart-input-hover-border);
+}
+smart-tree:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+smart-tree:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button,
+smart-menu:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+smart-menu:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+.smart-form-input:not(.outlined)[hover]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button {
+  border-bottom-color: var(--smart-input-hover-border-block-end) !important;
+}
+smart-tree:not(.outlined)[focus]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+smart-tree:not(.outlined)[focus]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button, smart-tree:not(.outlined)[active]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+smart-tree:not(.outlined)[active]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button,
+smart-menu:not(.outlined)[focus]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+smart-menu:not(.outlined)[focus]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button,
+smart-menu:not(.outlined)[active]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+smart-menu:not(.outlined)[active]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+.smart-form-input:not(.outlined)[focus]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-action-button,
+.smart-form-input:not(.outlined)[active]:not(.smart-drop-down):not(.smart-tree):not(.smart-menu):not(.smart-list-box) .smart-drop-down-button {
+  border-bottom-color: var(--smart-input-focus-border-block-end) !important;
+}
+smart-tree:not(.outlined) .smart-drop-down,
+smart-menu:not(.outlined) .smart-drop-down,
+.smart-form-input:not(.outlined) .smart-drop-down {
+  --smart-border: var(--smart-base);
+}
+smart-tree:not(.outlined) smart-menu-item[hover],
+smart-tree:not(.outlined) smart-tree-item[hover],
+smart-tree:not(.outlined) smart-tree-item:hover,
+smart-tree:not(.outlined) smart-tree-items-group:hover,
+smart-tree:not(.outlined) smart-list-item[hover],
+smart-menu:not(.outlined) smart-menu-item[hover],
+smart-menu:not(.outlined) smart-tree-item[hover],
+smart-menu:not(.outlined) smart-tree-item:hover,
+smart-menu:not(.outlined) smart-tree-items-group:hover,
+smart-menu:not(.outlined) smart-list-item[hover],
+.smart-form-input:not(.outlined) smart-menu-item[hover],
+.smart-form-input:not(.outlined) smart-tree-item[hover],
+.smart-form-input:not(.outlined) smart-tree-item:hover,
+.smart-form-input:not(.outlined) smart-tree-items-group:hover,
+.smart-form-input:not(.outlined) smart-list-item[hover] {
+  --smart-ui-state-border-hover: var(--smart-ui-state-hover) !important;
+}
+smart-tree:not(.outlined).smart-input[focus]:not(.underlined),
+smart-menu:not(.outlined).smart-input[focus]:not(.underlined),
+.smart-form-input:not(.outlined).smart-input[focus]:not(.underlined) {
+  box-shadow: 0 1px 0 0 var(--smart-primary);
+}
+smart-tree:not(.outlined).smart-numeric-text-box[focus], smart-tree:not(.outlined).smart-text-box[focus],
+smart-menu:not(.outlined).smart-numeric-text-box[focus],
+smart-menu:not(.outlined).smart-text-box[focus],
+.smart-form-input:not(.outlined).smart-numeric-text-box[focus],
+.smart-form-input:not(.outlined).smart-text-box[focus] {
+  border-radius: var(--smart-border-radius);
+  box-shadow: 0 1px 0 0 var(--smart-primary);
+}
+smart-tree:not(.outlined) .smart-drop-down smart-list-box[focus],
+smart-menu:not(.outlined) .smart-drop-down smart-list-box[focus],
+.smart-form-input:not(.outlined) .smart-drop-down smart-list-box[focus] {
+  box-shadow: none;
+}
+smart-tree:not(.outlined)[focus], smart-tree:not(.outlined)[opened], smart-tree:not(.outlined)[active],
+smart-menu:not(.outlined)[focus],
+smart-menu:not(.outlined)[opened],
+smart-menu:not(.outlined)[active],
+.smart-form-input:not(.outlined)[focus],
+.smart-form-input:not(.outlined)[opened],
+.smart-form-input:not(.outlined)[active] {
+  --smart-outline: var(--smart-border);
+  --smart-ui-state-active: var(--smart-input-focus-background) !important;
+  --smart-ui-state-color-active: var(--smart-background-color) !important;
+  --smart-ui-state-border-active: var(--smart-input-focus-border) !important;
+}
+smart-tree:not(.outlined)[focus]:not(.smart-list-box), smart-tree:not(.outlined)[opened]:not(.smart-list-box), smart-tree:not(.outlined)[active]:not(.smart-list-box),
+smart-menu:not(.outlined)[focus]:not(.smart-list-box),
+smart-menu:not(.outlined)[opened]:not(.smart-list-box),
+smart-menu:not(.outlined)[active]:not(.smart-list-box),
+.smart-form-input:not(.outlined)[focus]:not(.smart-list-box),
+.smart-form-input:not(.outlined)[opened]:not(.smart-list-box),
+.smart-form-input:not(.outlined)[active]:not(.smart-list-box) {
+  border-color: var(--smart-input-border) !important;
+  border-bottom-color: var(--smart-input-focus-border-block-end) !important;
+}
+smart-tree:not(.outlined)[focus] .smart-buttons-container, smart-tree:not(.outlined)[opened] .smart-buttons-container, smart-tree:not(.outlined)[active] .smart-buttons-container,
+smart-menu:not(.outlined)[focus] .smart-buttons-container,
+smart-menu:not(.outlined)[opened] .smart-buttons-container,
+smart-menu:not(.outlined)[active] .smart-buttons-container,
+.smart-form-input:not(.outlined)[focus] .smart-buttons-container,
+.smart-form-input:not(.outlined)[opened] .smart-buttons-container,
+.smart-form-input:not(.outlined)[active] .smart-buttons-container {
+  overflow: visible !important;
+}
+smart-tree:not(.outlined)[focus].smart-date-time-picker, smart-tree:not(.outlined)[opened].smart-date-time-picker, smart-tree:not(.outlined)[active].smart-date-time-picker,
+smart-menu:not(.outlined)[focus].smart-date-time-picker,
+smart-menu:not(.outlined)[opened].smart-date-time-picker,
+smart-menu:not(.outlined)[active].smart-date-time-picker,
+.smart-form-input:not(.outlined)[focus].smart-date-time-picker,
+.smart-form-input:not(.outlined)[opened].smart-date-time-picker,
+.smart-form-input:not(.outlined)[active].smart-date-time-picker {
+  border-width: 1px;
+  border-bottom-width: 1px !important;
+  box-shadow: 0 1px 0 0 var(--smart-primary);
+}
+smart-tree:not(.outlined)[focus].smart-date-time-picker .smart-drop-down-button, smart-tree:not(.outlined)[opened].smart-date-time-picker .smart-drop-down-button, smart-tree:not(.outlined)[active].smart-date-time-picker .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].smart-date-time-picker .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].smart-date-time-picker .smart-drop-down-button,
+smart-menu:not(.outlined)[active].smart-date-time-picker .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].smart-date-time-picker .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].smart-date-time-picker .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].smart-date-time-picker .smart-drop-down-button {
+  border-width: 0px !important;
+  border-left-width: 1px !important;
+}
+smart-tree:not(.outlined)[focus] .smart-action-button,
+smart-tree:not(.outlined)[focus] .smart-drop-down-button, smart-tree:not(.outlined)[opened] .smart-action-button,
+smart-tree:not(.outlined)[opened] .smart-drop-down-button, smart-tree:not(.outlined)[active] .smart-action-button,
+smart-tree:not(.outlined)[active] .smart-drop-down-button,
+smart-menu:not(.outlined)[focus] .smart-action-button,
+smart-menu:not(.outlined)[focus] .smart-drop-down-button,
+smart-menu:not(.outlined)[opened] .smart-action-button,
+smart-menu:not(.outlined)[opened] .smart-drop-down-button,
+smart-menu:not(.outlined)[active] .smart-action-button,
+smart-menu:not(.outlined)[active] .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus] .smart-action-button,
+.smart-form-input:not(.outlined)[focus] .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened] .smart-action-button,
+.smart-form-input:not(.outlined)[opened] .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active] .smart-action-button,
+.smart-form-input:not(.outlined)[active] .smart-drop-down-button {
+  border-width: 1px;
+  border-bottom-width: 1px;
+  box-shadow: 0 1px 0 0 var(--smart-primary);
+  border-color: var(--smart-border) !important;
+  background-color: inherit !important;
+  --smart-ui-state-active: var(--smart-input-focus-background) !important;
+  --smart-ui-state-color-active: var(--smart-background-color) !important;
+  --smart-ui-state-border-active: var(--smart-input-focus-border) !important;
+  border-bottom-color: var(--smart-input-focus-border-block-end) !important;
+}
+smart-tree:not(.outlined)[focus].smart-combo-box .smart-action-button, smart-tree:not(.outlined)[opened].smart-combo-box .smart-action-button, smart-tree:not(.outlined)[active].smart-combo-box .smart-action-button,
+smart-menu:not(.outlined)[focus].smart-combo-box .smart-action-button,
+smart-menu:not(.outlined)[opened].smart-combo-box .smart-action-button,
+smart-menu:not(.outlined)[active].smart-combo-box .smart-action-button,
+.smart-form-input:not(.outlined)[focus].smart-combo-box .smart-action-button,
+.smart-form-input:not(.outlined)[opened].smart-combo-box .smart-action-button,
+.smart-form-input:not(.outlined)[active].smart-combo-box .smart-action-button {
+  --smart-ui-state-active: var(--smart-input-focus-background) !important;
+}
+smart-tree:not(.outlined)[focus].smart-form-input:not(.outlined) .smart-drop-down-button, smart-tree:not(.outlined)[focus].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button, smart-tree:not(.outlined)[opened].smart-form-input:not(.outlined) .smart-drop-down-button, smart-tree:not(.outlined)[opened].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button, smart-tree:not(.outlined)[active].smart-form-input:not(.outlined) .smart-drop-down-button, smart-tree:not(.outlined)[active].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].smart-form-input:not(.outlined) .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].smart-form-input:not(.outlined) .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button,
+smart-menu:not(.outlined)[active].smart-form-input:not(.outlined) .smart-drop-down-button,
+smart-menu:not(.outlined)[active].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].smart-form-input:not(.outlined) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].smart-form-input:not(.outlined) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].smart-form-input:not(.outlined) .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].smart-input:not(.outlined):not([drop-down-button-position]) .smart-drop-down-button {
+  --smart-ui-state-active: var(--smart-input-focus-background) !important;
+  --smart-ui-state-color-active: var(--smart-background-color) !important;
+  --smart-ui-state-border-active: var(--smart-input-focus-border) !important;
+}
+smart-tree:not(.outlined)[focus].underlined, smart-tree:not(.outlined)[opened].underlined, smart-tree:not(.outlined)[active].underlined,
+smart-menu:not(.outlined)[focus].underlined,
+smart-menu:not(.outlined)[opened].underlined,
+smart-menu:not(.outlined)[active].underlined,
+.smart-form-input:not(.outlined)[focus].underlined,
+.smart-form-input:not(.outlined)[opened].underlined,
+.smart-form-input:not(.outlined)[active].underlined {
+  border-width: 0 0 1px 0 !important;
+  border-radius: 0 !important;
+}
+smart-tree:not(.outlined)[focus].underlined smart-input[focus], smart-tree:not(.outlined)[opened].underlined smart-input[focus], smart-tree:not(.outlined)[active].underlined smart-input[focus],
+smart-menu:not(.outlined)[focus].underlined smart-input[focus],
+smart-menu:not(.outlined)[opened].underlined smart-input[focus],
+smart-menu:not(.outlined)[active].underlined smart-input[focus],
+.smart-form-input:not(.outlined)[focus].underlined smart-input[focus],
+.smart-form-input:not(.outlined)[opened].underlined smart-input[focus],
+.smart-form-input:not(.outlined)[active].underlined smart-input[focus] {
+  border-radius: 0px !important;
+  color: var(--smart-background-color) !important;
+}
+smart-tree:not(.outlined)[focus].underlined smart-input[focus] .smart-input, smart-tree:not(.outlined)[opened].underlined smart-input[focus] .smart-input, smart-tree:not(.outlined)[active].underlined smart-input[focus] .smart-input,
+smart-menu:not(.outlined)[focus].underlined smart-input[focus] .smart-input,
+smart-menu:not(.outlined)[opened].underlined smart-input[focus] .smart-input,
+smart-menu:not(.outlined)[active].underlined smart-input[focus] .smart-input,
+.smart-form-input:not(.outlined)[focus].underlined smart-input[focus] .smart-input,
+.smart-form-input:not(.outlined)[opened].underlined smart-input[focus] .smart-input,
+.smart-form-input:not(.outlined)[active].underlined smart-input[focus] .smart-input {
+  border-radius: 0px !important;
+}
+smart-tree:not(.outlined)[focus].underlined.smart-date-input .smart-hint:after, smart-tree:not(.outlined)[focus].underlined.smart-date-range-input .smart-hint:after, smart-tree:not(.outlined)[opened].underlined.smart-date-input .smart-hint:after, smart-tree:not(.outlined)[opened].underlined.smart-date-range-input .smart-hint:after, smart-tree:not(.outlined)[active].underlined.smart-date-input .smart-hint:after, smart-tree:not(.outlined)[active].underlined.smart-date-range-input .smart-hint:after,
+smart-menu:not(.outlined)[focus].underlined.smart-date-input .smart-hint:after,
+smart-menu:not(.outlined)[focus].underlined.smart-date-range-input .smart-hint:after,
+smart-menu:not(.outlined)[opened].underlined.smart-date-input .smart-hint:after,
+smart-menu:not(.outlined)[opened].underlined.smart-date-range-input .smart-hint:after,
+smart-menu:not(.outlined)[active].underlined.smart-date-input .smart-hint:after,
+smart-menu:not(.outlined)[active].underlined.smart-date-range-input .smart-hint:after,
+.smart-form-input:not(.outlined)[focus].underlined.smart-date-input .smart-hint:after,
+.smart-form-input:not(.outlined)[focus].underlined.smart-date-range-input .smart-hint:after,
+.smart-form-input:not(.outlined)[opened].underlined.smart-date-input .smart-hint:after,
+.smart-form-input:not(.outlined)[opened].underlined.smart-date-range-input .smart-hint:after,
+.smart-form-input:not(.outlined)[active].underlined.smart-date-input .smart-hint:after,
+.smart-form-input:not(.outlined)[active].underlined.smart-date-range-input .smart-hint:after {
+  bottom: -1px !important;
+}
+smart-tree:not(.outlined)[focus].underlined .smart-drop-down-button, smart-tree:not(.outlined)[opened].underlined .smart-drop-down-button, smart-tree:not(.outlined)[active].underlined .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].underlined .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].underlined .smart-drop-down-button,
+smart-menu:not(.outlined)[active].underlined .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].underlined .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].underlined .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].underlined .smart-drop-down-button {
+  border-radius: 0px !important;
+}
+smart-tree:not(.outlined)[focus].underlined .smart-drop-down-button[hover], smart-tree:not(.outlined)[opened].underlined .smart-drop-down-button[hover], smart-tree:not(.outlined)[active].underlined .smart-drop-down-button[hover],
+smart-menu:not(.outlined)[focus].underlined .smart-drop-down-button[hover],
+smart-menu:not(.outlined)[opened].underlined .smart-drop-down-button[hover],
+smart-menu:not(.outlined)[active].underlined .smart-drop-down-button[hover],
+.smart-form-input:not(.outlined)[focus].underlined .smart-drop-down-button[hover],
+.smart-form-input:not(.outlined)[opened].underlined .smart-drop-down-button[hover],
+.smart-form-input:not(.outlined)[active].underlined .smart-drop-down-button[hover] {
+  color: var(--smart-background-color) !important;
+}
+smart-tree:not(.outlined)[focus].underlined .smart-drop-down-button[active], smart-tree:not(.outlined)[opened].underlined .smart-drop-down-button[active], smart-tree:not(.outlined)[active].underlined .smart-drop-down-button[active],
+smart-menu:not(.outlined)[focus].underlined .smart-drop-down-button[active],
+smart-menu:not(.outlined)[opened].underlined .smart-drop-down-button[active],
+smart-menu:not(.outlined)[active].underlined .smart-drop-down-button[active],
+.smart-form-input:not(.outlined)[focus].underlined .smart-drop-down-button[active],
+.smart-form-input:not(.outlined)[opened].underlined .smart-drop-down-button[active],
+.smart-form-input:not(.outlined)[active].underlined .smart-drop-down-button[active] {
+  color: var(--smart-background-color) !important;
+}
+smart-tree:not(.outlined)[focus].underlined.smart-numeric-text-box[focus], smart-tree:not(.outlined)[focus].underlined.smart-list-box[focus], smart-tree:not(.outlined)[focus].underlined.smart-text-box[focus], smart-tree:not(.outlined)[opened].underlined.smart-numeric-text-box[focus], smart-tree:not(.outlined)[opened].underlined.smart-list-box[focus], smart-tree:not(.outlined)[opened].underlined.smart-text-box[focus], smart-tree:not(.outlined)[active].underlined.smart-numeric-text-box[focus], smart-tree:not(.outlined)[active].underlined.smart-list-box[focus], smart-tree:not(.outlined)[active].underlined.smart-text-box[focus],
+smart-menu:not(.outlined)[focus].underlined.smart-numeric-text-box[focus],
+smart-menu:not(.outlined)[focus].underlined.smart-list-box[focus],
+smart-menu:not(.outlined)[focus].underlined.smart-text-box[focus],
+smart-menu:not(.outlined)[opened].underlined.smart-numeric-text-box[focus],
+smart-menu:not(.outlined)[opened].underlined.smart-list-box[focus],
+smart-menu:not(.outlined)[opened].underlined.smart-text-box[focus],
+smart-menu:not(.outlined)[active].underlined.smart-numeric-text-box[focus],
+smart-menu:not(.outlined)[active].underlined.smart-list-box[focus],
+smart-menu:not(.outlined)[active].underlined.smart-text-box[focus],
+.smart-form-input:not(.outlined)[focus].underlined.smart-numeric-text-box[focus],
+.smart-form-input:not(.outlined)[focus].underlined.smart-list-box[focus],
+.smart-form-input:not(.outlined)[focus].underlined.smart-text-box[focus],
+.smart-form-input:not(.outlined)[opened].underlined.smart-numeric-text-box[focus],
+.smart-form-input:not(.outlined)[opened].underlined.smart-list-box[focus],
+.smart-form-input:not(.outlined)[opened].underlined.smart-text-box[focus],
+.smart-form-input:not(.outlined)[active].underlined.smart-numeric-text-box[focus],
+.smart-form-input:not(.outlined)[active].underlined.smart-list-box[focus],
+.smart-form-input:not(.outlined)[active].underlined.smart-text-box[focus] {
+  border-radius: 0px !important;
+  border-bottom-width: 2px !important;
+}
+smart-tree:not(.outlined)[focus].underlined.smart-date-time-picker[opened], smart-tree:not(.outlined)[opened].underlined.smart-date-time-picker[opened], smart-tree:not(.outlined)[active].underlined.smart-date-time-picker[opened],
+smart-menu:not(.outlined)[focus].underlined.smart-date-time-picker[opened],
+smart-menu:not(.outlined)[opened].underlined.smart-date-time-picker[opened],
+smart-menu:not(.outlined)[active].underlined.smart-date-time-picker[opened],
+.smart-form-input:not(.outlined)[focus].underlined.smart-date-time-picker[opened],
+.smart-form-input:not(.outlined)[opened].underlined.smart-date-time-picker[opened],
+.smart-form-input:not(.outlined)[active].underlined.smart-date-time-picker[opened] {
+  border-bottom-width: 2px !important;
+}
+smart-tree:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button, smart-tree:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button, smart-tree:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button,
+smart-menu:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button,
+smart-menu:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button,
+smart-menu:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button,
+.smart-form-input:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button,
+.smart-form-input:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button,
+.smart-form-input:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button {
+  border-bottom-color: transparent !important;
+  color: var(--smart-background-color) !important;
+}
+smart-tree:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover], smart-tree:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover], smart-tree:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover],
+smart-menu:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover],
+smart-menu:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover],
+smart-menu:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover],
+.smart-form-input:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover],
+.smart-form-input:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover],
+.smart-form-input:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[hover] {
+  color: var(--smart-background-color) !important;
+}
+smart-tree:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active], smart-tree:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active], smart-tree:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active],
+smart-menu:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active],
+smart-menu:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active],
+smart-menu:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active],
+.smart-form-input:not(.outlined)[focus].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active],
+.smart-form-input:not(.outlined)[opened].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active],
+.smart-form-input:not(.outlined)[active].underlined.smart-date-time-picker .smart-drop-down-button.smart-calendar-button[active] {
+  color: var(--smart-background-color) !important;
+}
+smart-tree:not(.outlined)[focus].underlined .smart-action-button,
+smart-tree:not(.outlined)[focus].underlined .smart-drop-down-button, smart-tree:not(.outlined)[opened].underlined .smart-action-button,
+smart-tree:not(.outlined)[opened].underlined .smart-drop-down-button, smart-tree:not(.outlined)[active].underlined .smart-action-button,
+smart-tree:not(.outlined)[active].underlined .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].underlined .smart-action-button,
+smart-menu:not(.outlined)[focus].underlined .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].underlined .smart-action-button,
+smart-menu:not(.outlined)[opened].underlined .smart-drop-down-button,
+smart-menu:not(.outlined)[active].underlined .smart-action-button,
+smart-menu:not(.outlined)[active].underlined .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].underlined .smart-action-button,
+.smart-form-input:not(.outlined)[focus].underlined .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].underlined .smart-action-button,
+.smart-form-input:not(.outlined)[opened].underlined .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].underlined .smart-action-button,
+.smart-form-input:not(.outlined)[active].underlined .smart-drop-down-button {
+  border-left-color: transparent !important;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+}
+smart-tree:not(.outlined)[focus].smart-grid-cell-editor.smart-date-input .smart-drop-down-button, smart-tree:not(.outlined)[focus].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button, smart-tree:not(.outlined)[focus].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button, smart-tree:not(.outlined)[opened].smart-grid-cell-editor.smart-date-input .smart-drop-down-button, smart-tree:not(.outlined)[opened].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button, smart-tree:not(.outlined)[opened].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button, smart-tree:not(.outlined)[active].smart-grid-cell-editor.smart-date-input .smart-drop-down-button, smart-tree:not(.outlined)[active].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button, smart-tree:not(.outlined)[active].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].smart-grid-cell-editor.smart-date-input .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button,
+smart-menu:not(.outlined)[focus].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].smart-grid-cell-editor.smart-date-input .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button,
+smart-menu:not(.outlined)[opened].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button,
+smart-menu:not(.outlined)[active].smart-grid-cell-editor.smart-date-input .smart-drop-down-button,
+smart-menu:not(.outlined)[active].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button,
+smart-menu:not(.outlined)[active].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].smart-grid-cell-editor.smart-date-input .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button,
+.smart-form-input:not(.outlined)[focus].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].smart-grid-cell-editor.smart-date-input .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button,
+.smart-form-input:not(.outlined)[opened].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].smart-grid-cell-editor.smart-date-input .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].smart-grid-cell-editor.smart-date-time-picker .smart-drop-down-button,
+.smart-form-input:not(.outlined)[active].smart-grid-cell-editor.smart-date-range-input .smart-drop-down-button {
+  border-width: 1px;
+}
+
+.smart-element.outlined smart-list-box[focus] {
+  box-shadow: none;
+}
+
+.smart-drop-down:not(.smart-date-time-drop-down) {
+  --smart-surface: var(--smart-secondary-background);
+  --smart-border: var(--smart-base);
+}

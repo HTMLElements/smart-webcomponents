@@ -99,7 +99,7 @@ export interface GridProperties {
    */
   checkBoxes?: GridCheckBoxes;
   /**
-   * Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences.
+   * Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences. Some settings apply to one format only: pageSize, pageMargins, pageNumbers, documentInfo, fonts and the password settings are PDF-only, while freezeHeader, freezeColumns, protectSheet, setRowHeight, addImageToCell, filterBy, exportAsTable, autoConvertFormulas and getSpreadsheets apply to xlsx only. A warning is logged when an xlsx-only setting is used with a PDF export.
    * Default value: [object Object]
    */
   dataExport?: GridDataExport;
@@ -429,10 +429,15 @@ export interface GridProperties {
    */
   uploadSettings?: GridUploadSettings;
   /**
-   * Specifies the layout mode for displaying data within the interface. Acceptable values are:- ''grid'': Presents items in a tabular, spreadsheet-like format with rows and columns.- ''kanban'': Arranges items into columns representing workflow stages, similar to task boards.- ''card'': Displays each item as an individual card, typically used for concise summaries or visual grouping.Choose one of these values to determine how data is visually organized and presented to the user.
+   * Specifies the layout mode used to present the data. Acceptable values are:- 'grid': a tabular, spreadsheet-like format with rows and columns.- 'card': each record as an individual card, for concise summaries or visual grouping.- 'pivot': the data aggregated into a cross-tab, configured through the pivot property.- 'kanban': records arranged into columns representing workflow stages.- 'scheduler': records placed on a calendar by their date fields.- 'timeline': records placed on a timeline.The 'grid', 'card' and 'pivot' views are rendered by the Grid itself, so features such as frozen columns, cell-range selection, clipboard and Excel export continue to work. The remaining views host a separate component. Switching to 'pivot' replaces the Grid's columns, column groups and data source with the generated ones; the originals are recorded and put back when the view changes away again, so the switch is reversible without the application restoring anything itself.
    * Default value: "grid"
    */
   view?: string;
+  /**
+   * Configures the pivot view. Set view to 'pivot' to aggregate the data source into a cross-tab. Pivot is a native view: the Grid keeps rendering its own content, so frozen columns, cell-range selection, clipboard, conditional formatting and Excel export all continue to work on the pivoted result. The records aggregated are whatever the Grid was bound to when the pivot took over, so no separate source needs supplying - use setPivotSource only when the facts live somewhere other than the Grid's own data source.
+   * Default value: [object Object]
+   */
+  pivot?: GridPivot;
 }
 /**
  Data Grid UI Component that covers everything from paging, sorting, grouping, filtering, and editing to row and column virtualization, right-to-left layout, export to Excel and PDF and Accessibility.
@@ -775,6 +780,36 @@ export interface Grid extends BaseElement, GridProperties {
 	* @param event. The custom event.    */
   onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered after a pivot model has been built and applied to the Grid.
+	* @param event. The custom event. Custom data event was created with: ev.detail(rows, columns, valueColumnIds)
+   *  rows - The number of rows in the pivot result.
+   *  columns - The number of columns in the pivot result.
+   *  valueColumnIds - The ids of the aggregated value columns.
+   */
+  onPivotChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the pivot designer changes the row, column or value axis.
+	* @param event. The custom event. Custom data event was created with: ev.detail(rows, columns, values)
+   *  rows - The data fields now on the row axis, outermost first.
+   *  columns - The data fields now on the column axis, outermost first.
+   *  values - The measures now aggregated, each with a dataField and a summary function.
+   */
+  onPivotDesignerChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the filters narrowing the pivot change, whether through the designer's Filters tab or through setPivotFilters.
+	* @param event. The custom event. Custom data event was created with: ev.detail(filters)
+   *  filters - The filters now applied, as { dataField, filter } entries.
+   */
+  onPivotFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered before a column group is collapsed or expanded. It is cancelable - call preventDefault() to keep the current state.
+	* @param event. The custom event. Custom data event was created with: ev.detail(name, group, collapsed)
+   *  name - The name of the column group.
+   *  group - The column group.
+   *  collapsed - Whether the group is being collapsed.
+   */
+  onColumnGroupCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Inserts a new row into the grid interface. When batch editing mode is enabled, the new row exists only temporarily within the current batch session and will not be permanently stored until the user explicitly saves all changes made during the session. If the batch edit session is discarded, the newly added row will not be saved.
    * @param {any} data. An object representing the row data, matching the structure of the grid's data source.
    * @param {boolean} insertAtBottom?. Determines whether the new row is added at the bottom (true) or top (false) of the grid. Defaults to true.
@@ -910,6 +945,10 @@ export interface Grid extends BaseElement, GridProperties {
    * @param  callback?. Function executed after row deletion. Receives the deleted row as a parameter.
    */
   deleteRow(rowId: string | number, callback?: {(row: GridRow): void}): void;
+  /**
+   * Removes all currently selected rows from the Grid.
+   */
+  deleteSelectedRows(): void;
   /**
    * Scrolls the Grid to ensure that a specific row or cell is visible to the user. If the target row or cell is located on a different page, the Grid will automatically navigate to the appropriate page and then scroll to the desired position. This ensures that the requested row or cell is brought into view, regardless of its current visibility or page location.
    * @param {string | number} rowId. The unique identifier of the row.
@@ -1098,7 +1137,7 @@ export interface Grid extends BaseElement, GridProperties {
    * Retrieves a comprehensive summary of all changes performed during a batch edit operation. Returns an object with separate arrays for added, updated, and deleted rows. Each array contains detailed objects that include the row ID and pertinent data fields, such as the previous and new values for updates, full data for additions, and identifying information for deletions. This structure allows you to easily track and process all modifications made in the batch.
    * @returns 
    */
-  getBatchEditChanges(): { upDated: [{ id: string, dataField: string, oldValue: Object, newValue: Object }], deleted: [{id: string, data: Object}], added: [{id: string, data: Object}] };
+  getBatchEditChanges(): { updated: [{ id: string, dataField: string, oldValue: Object, newValue: Object }], deleted: [{id: string, data: Object}], added: [{id: string, data: Object}] };
   /**
    * Retrieves the value stored in a specific cell of a data grid or table by specifying the unique row ID and the corresponding column data field. This function allows precise access to individual cell data, enabling targeted data retrieval based on both row and column identifiers.
    * @param {string | number} rowId. The unique identifier of the row containing the cell.
@@ -1512,6 +1551,104 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {any} messages?. Object containing the locale messages.
    */
   setLocale(locale: string, messages?: any): void;
+  /**
+   * Rebuilds the pivot from the current data source and applies it to the Grid. Called automatically when the view becomes <em>'pivot'</em>; call it directly after changing the data or the pivot settings.
+   */
+  refreshPivot(): void;
+  /**
+   * Performs a pivot view transition: restores the columns, column groups and data source recorded when the pivot took over if the view is leaving <em>'pivot'</em>, rebuilds the pivot if it is entering, then discards the cached layout and does a full refresh. Called for you when <strong>view</strong> changes; call it directly only when driving the transition yourself.
+   * @param {string} newView. The view being switched to.
+   * @param {string} oldView. The view being switched from.
+   */
+  applyPivotViewChange(newView: string, oldView: string): void;
+  /**
+   * Returns the pivot model currently applied - an object with <strong>rows</strong>, <strong>columns</strong>, <strong>columnGroups</strong> and <strong>valueColumnIds</strong> - or null when the Grid is not pivoted.
+   * @returns {any}
+   */
+  getPivotModel(): any;
+  /**
+   * Creates the pivot designer - a <em>smart-pivot-panel</em> with a field list and Rows / Columns / Values wells - wires its <strong>change</strong> event to the <strong>pivot</strong> settings and appends it to <em>container</em>. Passing no container opens it in the Grid's side panel instead. The panel is registered by <em>Smartpivottable.js</em>, so a page using the designer loads that module as well as the Grid's. Returns the panel, or null when it is not registered.
+   * @param {any} container?. The element to append the designer to. Omitted, the Grid's side panel is used.
+   * @returns {any}
+   */
+  createPivotDesigner(container?: any): any;
+  /**
+   * Returns the pivot designer created by <strong>createPivotDesigner</strong>, or null.
+   * @returns {any}
+   */
+  getPivotDesigner(): any;
+  /**
+   * Re-reads the current pivot settings into the designer. Call it after changing <strong>pivot</strong> in code so the wells match. It is deliberately not automatic: replacing the panel's fields while someone is dragging would discard the tree's state.
+   */
+  refreshPivotDesigner(): void;
+  /**
+   * Removes the pivot designer and its event listener.
+   */
+  destroyPivotDesigner(): void;
+  /**
+   * Returns the field descriptors the designer works with, derived from the records being aggregated and the current pivot settings. Each entry carries <strong>dataField</strong>, <strong>label</strong>, <strong>dataType</strong> and the <strong>rowGroup</strong> / <strong>pivot</strong> / <strong>summary</strong> flags that say which well it sits in.
+   * @returns {any}
+   */
+  pivotDesignerFields(): any;
+  /**
+   * Returns the pivot arrangement as plain JSON - the row, column and value axes, the total and subtotal switches, and which column groups are collapsed. Kept separate from the <strong>pivot</strong> property because that may hold functions (a custom aggregator, <strong>rowSort</strong>, <strong>columnSort</strong>) and <em>stateSettings.storage</em> round-trips through JSON, which drops them. What this returns is exactly what survives being saved and loaded. Included automatically in <strong>getState</strong> when the view is <em>'pivot'</em>.
+   * @returns {any}
+   */
+  getPivotLayout(): any;
+  /**
+   * Applies a layout returned by <strong>getPivotLayout</strong>, switches to the pivot view and rebuilds. Functions in the current settings are carried over rather than cleared, because a layout cannot carry them - an application declares its custom aggregators once and loading a saved arrangement must not discard them. Collapsed column groups are reapplied after the rebuild.
+   * @param {any} layout. A layout object as returned by getPivotLayout.
+   */
+  setPivotLayout(layout: any): void;
+  /**
+   * Applies an already-built pivot model. Use this to render aggregates computed elsewhere, for example on the server, instead of pivoting in the browser.
+   * @param {any} model. A model shaped like the result of Smart.PivotEngine.build.
+   */
+  setPivotModel(model: any): void;
+  /**
+   * Sets the flat records the pivot aggregates, overriding the Grid's own data source. Not normally needed: the pivot aggregates whatever the Grid was bound to when the view switched to <em>'pivot'</em>, which is recorded on the way in and so is not lost when the generated output replaces it. Use this when the facts live somewhere other than the Grid's data source - for example a Grid bound to server-computed aggregates.
+   * @param {any} records. The flat records to aggregate.
+   */
+  setPivotSource(records: any): void;
+  /**
+   * Sorts the pivot by an aggregated value column while preserving the hierarchy: leaf rows are ordered within their own parent, group rows stay anchored above their children and the grand total stays last. Sorting the same column through the ordinary column header would flatten all three together.
+   * @param {string} columnId. The value column to sort by, from getPivotModel().valueColumnIds.
+   * @param {string} sortOrder?. Either 'asc' or 'desc'.
+   */
+  sortPivotBy(columnId: string, sortOrder?: string): void;
+  /**
+   * Keeps only the highest or lowest N leaf rows by an aggregated value column, together with the group rows needed to keep them reachable.
+   * @param {string} columnId. The value column to rank by.
+   * @param {number} count. How many leaf rows to keep.
+   * @param {string} sortOrder?. 'desc' for the top N, 'asc' for the bottom N.
+   */
+  pivotTopN(columnId: string, count: number, sortOrder?: string): void;
+  /**
+   * Returns the filters currently narrowing the facts the pivot aggregates, as an array of <em>{ dataField, filter }</em> where <strong>filter</strong> is a <em>Smart.Utilities.FilterGroup</em>. These are applied before aggregation, so the totals are recomputed from the surviving records - unlike <strong>sortPivotBy</strong> and <strong>pivotTopN</strong>, which act on the aggregated result.
+   * @returns {any}
+   */
+  getPivotFilters(): any;
+  /**
+   * Replaces the pivot filters and rebuilds. Each entry is <em>{ dataField, filter }</em> with a <em>Smart.Utilities.FilterGroup</em>; entries for different fields are combined with AND. Set automatically by the pivot designer's Filters tab. Pass nothing to clear.
+   * @param {any} filters?. An array of { dataField, filter } entries.
+   */
+  setPivotFilters(filters?: any): void;
+  /**
+   * Removes every pivot filter and rebuilds.
+   */
+  clearPivotFilters(): void;
+  /**
+   * Collapses a column group by name, as the collapse button in its header does. Returns whether the group was collapsed.
+   * @param {string} name. The name of the column group.
+   * @returns {boolean}
+   */
+  collapseColumnGroup(name: string): boolean;
+  /**
+   * Expands a collapsed column group by name. Returns whether the group was expanded.
+   * @param {string} name. The name of the column group.
+   * @returns {boolean}
+   */
+  expandColumnGroup(name: string): boolean;
 }
 
 /**An object that defines configurable options for customizing the visual appearance of the grid, including properties such as line color, spacing, background style, and border visibility. */
@@ -1999,7 +2136,7 @@ export interface GridColumn {
    * Sets or gets the column's cells renderer function for custom html rendering in the cells. For more advanced scenarios use formatFunction or template, but for simple html rendering, you can use this.
    * Default value: null
    */
-  cellsRenderer?: {(rowId: string | number, dataField: string, cellValue: any, rowData: any, cellElement: any): string};
+  cellsRenderer?: {(rowId: string | number, dataField: string, cellValue: any, rowData: any, cellElement: any): any};
   /**
    * Sets the name of the column group.
    * Default value: ""
@@ -2463,6 +2600,11 @@ export interface GridColumnGroup {
    * Default value: center
    */
   verticalAlign?: VerticalAlignment | string;
+  /**
+   * Which member column stays visible when a collapsible group is fully collapsed. 'first' (the default) keeps the leading column, 'last' keeps the trailing one - useful when a total column sits on the far side of the group.
+   * Default value: first
+   */
+  collapseTo?: GridColumnGroupCollapseTo | string;
 }
 
 export interface GridConditionalFormatting {
@@ -2585,7 +2727,7 @@ export interface GridCheckBoxes {
   hasThreeStates?: boolean;
 }
 
-/**Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences. */
+/**Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences. Some settings apply to one format only: <strong>pageSize</strong>, <strong>pageMargins</strong>, <strong>pageNumbers</strong>, <strong>documentInfo</strong>, <strong>fonts</strong> and the password settings are PDF-only, while <strong>freezeHeader</strong>, <strong>freezeColumns</strong>, <strong>protectSheet</strong>, <strong>setRowHeight</strong>, <strong>addImageToCell</strong>, <strong>filterBy</strong>, <strong>exportAsTable</strong>, <strong>autoConvertFormulas</strong> and <strong>getSpreadsheets</strong> apply to xlsx only. A warning is logged when an xlsx-only setting is used with a PDF export. */
 export interface GridDataExport {
   /**
    * Determines whether the column headers are included when exporting the data. If enabled, the exported file will contain the header row with column names; if disabled, only the data rows will be exported without column headers.
@@ -2617,6 +2759,56 @@ export interface GridDataExport {
    * Default value: portrait
    */
   pageOrientation?: GridDataExportPageOrientation | string;
+  /**
+   * Specifies the page size used when exporting to PDF. Accepts a named size such as 'A4', 'A3' or 'LETTER', or an object with explicit width and height in points. Applies to PDF export only.
+   * Default value: A4
+   */
+  pageSize?: any;
+  /**
+   * Specifies the page margins used when exporting to PDF, in points. Accepts a single number applied to all sides, a two-number array of [horizontal, vertical], or a four-number array of [left, top, right, bottom]. Applies to PDF export only.
+   * Default value: null
+   */
+  pageMargins?: any;
+  /**
+   * Prints a page footer showing the current page and the total page count when exporting to PDF. Disabled by default, because enabling it changes the output of an existing export. Applies to PDF export only.
+   * Default value: false
+   */
+  pageNumbers?: boolean;
+  /**
+   * The template used for the PDF page footer when pageNumbers is enabled. {0} is replaced with the current page and {1} with the total page count. Applies to PDF export only.
+   * Default value: "Page {0} of {1}"
+   */
+  pageNumberFormat?: string;
+  /**
+   * The horizontal alignment of the PDF page footer when pageNumbers is enabled. Applies to PDF export only.
+   * Default value: center
+   */
+  pageNumberAlignment?: GridDataExportPageNumberAlignment | string;
+  /**
+   * Document metadata written into the exported PDF - an object with any of title, author, subject, keywords and creator. These appear in the reader's document-properties dialog. Applies to PDF export only.
+   * Default value: null
+   */
+  documentInfo?: any;
+  /**
+   * Registers additional fonts for PDF export, as a map of font name to definition. The bundled virtual file system provides Roboto only, which covers Latin, Cyrillic and Greek; register a font here to export Chinese, Japanese, Korean, Arabic, Hebrew, Thai or Indic text. A fontFamily in the export style is only applied when it resolves to a registered font, so an unknown family is ignored rather than failing the export. Applies to PDF export only.
+   * Default value: null
+   */
+  fonts?: any;
+  /**
+   * Encrypts the exported PDF and requires this password to open it. Applies to PDF export only - use protectSheet for the xlsx equivalent.
+   * Default value: ""
+   */
+  userPassword?: string;
+  /**
+   * The owner password of the exported PDF. An owner can change the document permissions without knowing the user password. Applies to PDF export only.
+   * Default value: ""
+   */
+  ownerPassword?: string;
+  /**
+   * Restricts what a reader may do with the exported PDF - an object with any of printing, modifying, copying, annotating, fillingForms, contentAccessibility and documentAssembly. Requires ownerPassword. Applies to PDF export only.
+   * Default value: null
+   */
+  permissions?: any;
   /**
    * Specifies the character or symbol shown for expanded rows in a Grid with row hierarchy (such as a TreeGrid or Grouped Grid) when the data is exported. This character visually indicates expanded nodes in the exported file.
    * Default value: "+"
@@ -4116,6 +4308,70 @@ export interface GridUploadSettings {
   onUploadError?: any;
 }
 
+/**Configures the pivot view. Set <strong>view</strong> to <em>'pivot'</em> to aggregate the data source into a cross-tab. Pivot is a native view: the Grid keeps rendering its own content, so frozen columns, cell-range selection, clipboard, conditional formatting and Excel export all continue to work on the pivoted result. The records aggregated are whatever the Grid was bound to when the pivot took over, so no separate source needs supplying - use <strong>setPivotSource</strong> only when the facts live somewhere other than the Grid's own data source. */
+export interface GridPivot {
+  /**
+   * The fields forming the row axis, outermost first. Each field adds a level of row grouping, rendered as an expandable tree row.
+   * Default value: 
+   */
+  rows?: any[];
+  /**
+   * The fields forming the column axis, outermost first. Each field adds a level of banded column headers.
+   * Default value: 
+   */
+  columns?: any[];
+  /**
+   * The measures to aggregate. Each entry is { dataField, summary, label, showValuesAs, formatSettings }. summary is one of 'sum', 'min', 'max', 'avg', 'count', 'product', 'median', 'stdev', 'stdevp', 'var', 'varp', 'unique', 'filled', 'blank', or a function (values, records, value) =&gt; any which also receives the underlying records so that measures such as a weighted average are possible.
+   * Default value: 
+   */
+  values?: any[];
+  /**
+   * Adds a grand-total row at the bottom of the pivot.
+   * Default value: true
+   */
+  grandTotalRow?: boolean;
+  /**
+   * Adds a grand-total column at the far side of the pivot.
+   * Default value: true
+   */
+  grandTotalColumn?: boolean;
+  /**
+   * Shows aggregate values on the group rows. When disabled the group rows remain, so the hierarchy and the expand/collapse behaviour are unchanged, but their value cells are blank.
+   * Default value: true
+   */
+  rowSubtotals?: boolean;
+  /**
+   * Creates the pivot field designer in the Grid's side panel, letting the user drag fields between the row, column and value wells at runtime. The designer is smart-pivot-panel, the same element the Pivot Table docks, so a page using it also loads jqxpivottable.js. To dock the panel beside the Grid instead of floating it over the data, leave this off and call createPivotDesigner(container) with an element of your own.
+   * Default value: false
+   */
+  designer?: boolean;
+  /**
+   * Which source fields the designer offers, and how they are labelled. Each entry is either a field name or { dataField, label, dataType }. Left empty, every field on the records is offered, with labels derived from the field names and types inferred from the data.
+   * Default value: 
+   */
+  fields?: any[];
+  /**
+   * A comparator for row-axis dimension values, (a, b, level) =&gt; number. Sorts the row labels; use sortPivotBy to order rows by an aggregated value instead.
+   * Default value: null
+   */
+  rowSort?: any;
+  /**
+   * A comparator for column-axis dimension values, (a, b, level) =&gt; number.
+   * Default value: null
+   */
+  columnSort?: any;
+  /**
+   * Pins the grand-total row to the bottom of the Grid so it stays visible while scrolling. The grand total is an ordinary row in the pivot result, so it is pinned with the Grid's row freezing.
+   * Default value: true
+   */
+  freezeGrandTotalRow?: boolean;
+  /**
+   * Adds a subtotal column to each column-axis level above the innermost one, so a column group can be collapsed down to its total. Without a subtotal there is nothing to collapse to - the Grid keeps one member of a fully collapsed group visible, so collapsing a group of detail columns appears to do nothing. Ignored when the column axis has only one level, where the leaves already are the totals.
+   * Default value: true
+   */
+  columnSubtotals?: boolean;
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-grid"): Grid;
@@ -4144,10 +4400,14 @@ export declare type Position = 'near' | 'far';
 export declare type GridColumnFilterMenuMode = 'basic' | 'default' | 'excel' | 'multi';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc', 'none' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | 'none';
+/**Which member column stays visible when a collapsible group is fully collapsed. 'first' (the default) keeps the leading column, 'last' keeps the trailing one - useful when a total column sits on the far side of the group. */
+export declare type GridColumnGroupCollapseTo = 'first' | 'last';
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Specifies the orientation of the page (portrait or landscape) when exporting the document to PDF format. This setting determines how the content is laid out on each PDF page. */
 export declare type GridDataExportPageOrientation = 'landscape' | 'portrait';
+/**The horizontal alignment of the PDF page footer when pageNumbers is enabled. Applies to PDF export only. */
+export declare type GridDataExportPageNumberAlignment = 'left' | 'center' | 'right';
 /**Specifies the method by which the editing mode is activated, such as through a single click, double click, or keyboard action. */
 export declare type GridEditingAction = 'none' | 'click' | 'doubleClick';
 /**Specifies the placement of the navigation buttons within the user interface, allowing you to control where the buttons appear (e.g., top, bottom, left, right, or custom positions) relative to the navigational content. */

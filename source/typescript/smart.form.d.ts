@@ -96,9 +96,21 @@ export interface Form extends BaseElement, FormProperties {
    */
   reset(): void;
   /**
-   * Performs comprehensive validation of the form fields, ensuring that all required inputs are provided, data types and formats are correct, and any specified constraints or validation rules are met before allowing form submission.
+   * Performs comprehensive validation of the form fields, ensuring that all required inputs are provided, data types and formats are correct, and any specified constraints or validation rules are met before allowing form submission. Returns whether the form is valid, or a Promise resolving to it when a rule is asynchronous - see <strong>validateAsync</strong>.
+   * @returns {any}
    */
-  validate(): void;
+  validate(): any;
+  /**
+   * Validates the form and always returns a Promise resolving to whether it is valid, whether or not any rule is asynchronous. Use this when the form has server-side validation, that is a <em>'remote'</em> rule or a <strong>validationCallback</strong> that returns a Promise. While an asynchronous rule is in flight the affected control is marked pending and the submit button stays disabled.
+   * @returns {any}
+   */
+  validateAsync(): any;
+  /**
+   * Enables AI-assisted pasting on the form. Pasting unstructured text into any control sends it to the configured AI provider, which maps it onto the form fields. Returns an object with a <strong>disable</strong> method that removes the behavior.
+   * @param {any} ai?. The AI settings. Falls back to the global Smart.AI configuration for anything left unset.
+   * @returns {any}
+   */
+  enableSmartPaste(ai?: any): any;
 }
 
 export interface Control {

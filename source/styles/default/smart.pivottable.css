@@ -331,6 +331,65 @@
 .smart-table[freeze-header] thead tr:nth-child(10) > th {
   top: calc(9 * var(--smart-table-column-header-height));
 }
+.smart-table[freeze-header] thead tr:nth-child(11) > th {
+  top: calc(10 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(12) > th {
+  top: calc(11 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(13) > th {
+  top: calc(12 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(14) > th {
+  top: calc(13 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(15) > th {
+  top: calc(14 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(16) > th {
+  top: calc(15 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(17) > th {
+  top: calc(16 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(18) > th {
+  top: calc(17 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(19) > th {
+  top: calc(18 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(20) > th {
+  top: calc(19 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(21) > th {
+  top: calc(20 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(22) > th {
+  top: calc(21 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(23) > th {
+  top: calc(22 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-header] thead tr:nth-child(24) > th {
+  top: calc(23 * var(--smart-table-column-header-height));
+}
+.smart-table[freeze-row-headers] tbody td.smart-table-select-row,
+.smart-table[freeze-row-headers] tbody td[data-field^="pivotgroup"] {
+  position: sticky;
+  z-index: 1;
+  background-color: var(--smart-background);
+}
+.smart-table[freeze-row-headers] thead th.smart-pivot-table-selection-header,
+.smart-table[freeze-row-headers] thead th.smart-pivot-table-grouping-header {
+  position: sticky;
+  z-index: 3;
+  background-color: var(--smart-background);
+}
+.smart-table[freeze-row-headers] tbody td[data-field^="pivotgroup"]:last-of-type,
+.smart-table[freeze-row-headers] tbody tr > td.smart-table-select-row:only-of-type,
+.smart-table[freeze-row-headers] thead th.smart-pivot-table-grouping-header:last-of-type {
+  box-shadow: 1px 0 0 0 var(--smart-border);
+}
 
 .smart-table-window.drill-down {
   --smart-window-default-width: 750px;

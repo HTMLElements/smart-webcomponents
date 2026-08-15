@@ -20,7 +20,7 @@ export interface TankProperties {
    * If customInterval is enabled, this option provides a specific list of tick values to display on the plot's axis, overriding any automatically calculated intervals. When coerce is set to true, user inputs or plotted values will automatically adjust (or "snap") to the nearest tick in this list, ensuring all values align precisely with one of the specified ticks.
    * Default value: 0,50,100
    */
-  customTicks?: number[];
+  customTicks?: Array<number | Date>;
   /**
    * Specifies or retrieves the pattern used to format labels when the mode property is set to 'date'. This pattern determines how date labels are displayed to the user (for example, "MM/DD/YYYY" or "dd MMM, yyyy").
    * Default value: "d"
@@ -80,7 +80,7 @@ export interface TankProperties {
    * Gets or sets the maximum allowable value for the widget, defining the upper limit that users can select or enter.
    * Default value: 100
    */
-  max?: string | number;
+  max?: string | number | Date;
   /**
    * Defines or retrieves the specific type of mechanical action being applied. This property allows you to specify what kind of mechanical action to use (such as momentary, toggle, or latching), or to query the current mechanical action configuration.
    * Default value: switchWhileDragging
@@ -109,7 +109,7 @@ export interface TankProperties {
    * Defines or retrieves the minimum allowable value for the widget. When setting this property, it restricts user input so that values below the specified minimum are not permitted. When getting this property, it returns the current minimum value constraint of the widget.
    * Default value: 0
    */
-  min?: string | number;
+  min?: string | number | Date;
   /**
    * Determines whether the widget processes and displays numeric values or date values. This property can be set to configure the expected data type (numbers or dates), and can also be accessed to check the current mode of the widget.
    * Default value: numeric

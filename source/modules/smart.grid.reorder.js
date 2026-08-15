@@ -1,5 +1,5 @@
 
-/* Smart UI v26.0.0 (2026-05-07) 
+/* Smart UI v27.0.1 (2026-08-12) 
 Copyright (c) 2011-2026 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 
@@ -86,7 +86,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var _smart_grid_reorder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7343);
 /* harmony import */ var _smart_grid_reorder_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_smart_grid_reorder_js__WEBPACK_IMPORTED_MODULE_0__);
 
-/* Smart UI v26.0.0 (2026-05-07) 
+/* Smart UI v27.0.1 (2026-08-12) 
 Copyright (c) 2011-2026 jQWidgets. 
 License: https://htmlelements.com/license/ */ //
 

@@ -2020,7 +2020,7 @@ export interface BreadcrumbProperties {
    * Specifies the data source used to populate the breadcrumb items. The data should be provided as an array of objects, where each object represents an individual breadcrumb item with its corresponding properties, such as label, link, and any additional attributes required for display or navigation.
    * Default value: []
    */
-  dataSource?: {label: string, value: string}[];
+  dataSource?: {label: string, value: string}[] | string;
   /**
    * Controls whether the Breadcrumb navigation component is disabled. When enabled, the Breadcrumb provides users with a navigational trail;
    * Default value: false
@@ -3812,7 +3812,7 @@ export interface Chart extends BaseElement, ChartProperties {
    * @param {number} itemIndex. Item (data point) index.
    * @returns 
    */
-  getItemCoord(groupIndex: number, serieIndex: number, itemIndex: number): { x: number, y: number, width: number, height: number, center: number, centerOffset: number, innerRadius: number, outerRadius: number, selectedRadiusChange: number, fromAngle: number, toAngle: number, radius: number };
+  getItemCoord(groupIndex: number, serieIndex: number, itemIndex: number): { x: number, y: number, width?: number, height?: number, center?: number, centerOffset?: number, innerRadius?: number, outerRadius?: number, selectedRadiusChange?: number, fromAngle?: number, toAngle?: number, radius?: number };
   /**
    * Retrieves the total count of items that have been rendered within a specified series. This includes only those items currently visible or present in the rendered output for the given series.
    * @param {number} groupIndex. Series group index.
@@ -10940,9 +10940,9 @@ export interface EditorIframeSettings {
   enabled?: boolean;
   /**
    * Determines the resources like scripts/styles that will be imported into the iframe. Here's how to define resources: resources: { 'style': { href: 'styles.css' }, 'script': { src: 'index.js', type: 'module' }} 
-   * Default value: "portrait"
+   * Default value: null
    */
-  resources?: string;
+  resources?: any;
 }
 
 export interface ToolbarItem {
@@ -13017,9 +13017,21 @@ export interface Form extends BaseElement, FormProperties {
    */
   reset(): void;
   /**
-   * Performs comprehensive validation of the form fields, ensuring that all required inputs are provided, data types and formats are correct, and any specified constraints or validation rules are met before allowing form submission.
+   * Performs comprehensive validation of the form fields, ensuring that all required inputs are provided, data types and formats are correct, and any specified constraints or validation rules are met before allowing form submission. Returns whether the form is valid, or a Promise resolving to it when a rule is asynchronous - see <strong>validateAsync</strong>.
+   * @returns {any}
    */
-  validate(): void;
+  validate(): any;
+  /**
+   * Validates the form and always returns a Promise resolving to whether it is valid, whether or not any rule is asynchronous. Use this when the form has server-side validation, that is a <em>'remote'</em> rule or a <strong>validationCallback</strong> that returns a Promise. While an asynchronous rule is in flight the affected control is marked pending and the submit button stays disabled.
+   * @returns {any}
+   */
+  validateAsync(): any;
+  /**
+   * Enables AI-assisted pasting on the form. Pasting unstructured text into any control sends it to the configured AI provider, which maps it onto the form fields. Returns an object with a <strong>disable</strong> method that removes the behavior.
+   * @param {any} ai?. The AI settings. Falls back to the global Smart.AI configuration for anything left unset.
+   * @returns {any}
+   */
+  enableSmartPaste(ai?: any): any;
 }
 
 export interface Control {
@@ -14300,6 +14312,10 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
 	* @param event. The custom event.    */
   onScrollRightReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered when the task panel or the timeline is scrolled, whether by the user or programmatically through the <b>scrollTop</b> and <b>scrollLeft</b> properties. The event details report the current scroll position and which axis changed. Scrolling the resource panel does not raise this event.
+	* @param event. The custom event.    */
+  onScroll: ((this: any, ev: Event) => any) | null;
+  /**
    * Enables the application of a user-defined filter to a specified column, allowing you to customize how data is displayed or managed within either a task column or a resource column. This feature supports more precise data sorting, searching, or visibility based on your chosen criteria.
    * @param {any} columns. An object or an array of objects with the following syntax: <ul><li><b>type</b> - indicates the type of column to filter. Possible values are 'task' or 'resource'.</li><li><b>value</b> - the value of the column that must match the value attribute of a taskColumns/resourceColumns object(e.g. 'label', 'dateStart', etc).</li></ul>.
    * @param {any} filterGroup. A Smart.Utilities.FilterGroup object. Here's an example for creating a FilterGroup object: <pre>const filterGroup = new window.Smart.Utilities.FilterGroup(), filterObject = filterGroup.createFilter('string', 'Task B', 'STARTS_WITH_CASE_SENSITIVE'); filterGroup.addFilter('or', filterObject); gantt.addFilter({ type: 'task', value: 'label' }, filterGroup);</pre>
@@ -14519,6 +14535,43 @@ export interface GanttChart extends BaseElement, GanttChartProperties {
    * @param {Date} date. The date to scroll to.
    */
   scrollToDate(date: Date): void;
+  /**
+   * Scrolls the Gantt Chart to a specific position. Note the argument order: the vertical offset comes first, matching the other scrollable Smart components. Either argument may be omitted to leave that axis unchanged.
+   * @param {number} top?. The vertical scroll position, in pixels.
+   * @param {number} left?. The horizontal scroll position, in pixels.
+   */
+  scrollTo(top?: number, left?: number): void;
+   scrollTo(options?: ScrollToOptions): void;
+  /**
+   * Gets the position of the vertical scrollbar. Equivalent to reading the <b>scrollTop</b> property.
+   * @returns {number}
+   */
+  getVerticalScrollValue(): number;
+  /**
+   * Sets the position of the vertical scrollbar. You can use this method in combination with <b>getVerticalScrollValue</b> and <b>getVerticalScrollMax</b>. Assign it after <b>dataSource</b> - changing the data resets the scroll position to the top.
+   * @param {number} value. The new vertical scroll position, in pixels.
+   */
+  setVerticalScrollValue(value: number): void;
+  /**
+   * Gets the maximum position of the vertical scrollbar. You can use this method in combination with <b>setVerticalScrollValue</b> to apply a new scroll position.
+   * @returns {number}
+   */
+  getVerticalScrollMax(): number;
+  /**
+   * Gets the position of the horizontal scrollbar. Equivalent to reading the <b>scrollLeft</b> property.
+   * @returns {number}
+   */
+  getHorizontalScrollValue(): number;
+  /**
+   * Sets the position of the horizontal scrollbar. You can use this method in combination with <b>getHorizontalScrollValue</b> and <b>getHorizontalScrollMax</b>. Assign it after <b>dataSource</b> - changing the data resets the scroll position to the top.
+   * @param {number} value. The new horizontal scroll position, in pixels.
+   */
+  setHorizontalScrollValue(value: number): void;
+  /**
+   * Gets the maximum position of the horizontal scrollbar. You can use this method in combination with <b>setHorizontalScrollValue</b> to apply a new scroll position.
+   * @returns {number}
+   */
+  getHorizontalScrollMax(): number;
   /**
    * Stores the current configuration of the element in the browser's LocalStorage, allowing the settings to persist across page reloads or browser sessions. <strong>Note: The element must have a unique <code>id</code> attribute assigned for this functionality to work properly.</strong>
    * @param {any[]} state?. An Array containing a valid structure of Gantt Chart tasks.
@@ -15140,7 +15193,7 @@ export interface GaugeProperties {
    * When customInterval is enabled, you can define a specific list of tick values to be displayed on the plot. If coerce is set to true, any input value will automatically snap to the nearest tick from this predefined list, ensuring that only these tick values can be selected or represented.
    * Default value: 0,50,100
    */
-  customTicks?: number[];
+  customTicks?: Array<number | Date>;
   /**
    * Specifies the format of the date labels that appear when the mode property is set to 'date'. This determines how dates are displayed on the labels (e.g., 'YYYY-MM-DD', 'MM/DD/YYYY').
    * Default value: "d"
@@ -15220,7 +15273,7 @@ export interface GaugeProperties {
    * Specifies the upper limit for the element's scale, preventing it from being scaled beyond this maximum value. This setting ensures that when the element is resized or transformed, its scale will not exceed the defined maximum threshold.
    * Default value: 100
    */
-  max?: number;
+  max?: number | Date;
   /**
    * Specifies the event or condition that triggers the update of the element’s value, such as on user input, when focus is lost, or after a specific action occurs. This setting controls how and when changes to the element's value are recognized and processed in the application.
    * Default value: switchWhileDragging
@@ -15249,7 +15302,7 @@ export interface GaugeProperties {
    * Specifies the lowest allowable value for the element’s scale, preventing the element from being scaled below this threshold. This property ensures that the element cannot appear smaller than the defined minimum scale value.
    * Default value: 0
    */
-  min?: number;
+  min?: number | Date;
   /**
    * Specifies whether the element is configured to handle numerical values or date values, enabling appropriate functionality and validation for each data type.
    * Default value: numeric
@@ -15274,7 +15327,7 @@ export interface GaugeProperties {
    * This property is an array containing multiple objects, where each object defines a distinct range. Each range represents a colored area characterized by its own specific size and properties, such as start and end values, color, and label. These ranges allow you to visually differentiate segments according to predefined criteria on a graphical interface or data visualization component.
    * Default value: 
    */
-  ranges?: {startValue: number, endValue: number, className: string}[];
+  ranges?: {startValue?: number | Date, endValue?: number | Date, className?: string}[];
   /**
    * When the element is set to read-only, users are unable to modify its value or content; they can view the information but cannot interact with or edit the element in any way.
    * Default value: false
@@ -15528,7 +15581,7 @@ export interface GridProperties {
    */
   checkBoxes?: GridCheckBoxes;
   /**
-   * Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences.
+   * Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences. Some settings apply to one format only: pageSize, pageMargins, pageNumbers, documentInfo, fonts and the password settings are PDF-only, while freezeHeader, freezeColumns, protectSheet, setRowHeight, addImageToCell, filterBy, exportAsTable, autoConvertFormulas and getSpreadsheets apply to xlsx only. A warning is logged when an xlsx-only setting is used with a PDF export.
    * Default value: [object Object]
    */
   dataExport?: GridDataExport;
@@ -15858,10 +15911,15 @@ export interface GridProperties {
    */
   uploadSettings?: GridUploadSettings;
   /**
-   * Specifies the layout mode for displaying data within the interface. Acceptable values are:- ''grid'': Presents items in a tabular, spreadsheet-like format with rows and columns.- ''kanban'': Arranges items into columns representing workflow stages, similar to task boards.- ''card'': Displays each item as an individual card, typically used for concise summaries or visual grouping.Choose one of these values to determine how data is visually organized and presented to the user.
+   * Specifies the layout mode used to present the data. Acceptable values are:- 'grid': a tabular, spreadsheet-like format with rows and columns.- 'card': each record as an individual card, for concise summaries or visual grouping.- 'pivot': the data aggregated into a cross-tab, configured through the pivot property.- 'kanban': records arranged into columns representing workflow stages.- 'scheduler': records placed on a calendar by their date fields.- 'timeline': records placed on a timeline.The 'grid', 'card' and 'pivot' views are rendered by the Grid itself, so features such as frozen columns, cell-range selection, clipboard and Excel export continue to work. The remaining views host a separate component. Switching to 'pivot' replaces the Grid's columns, column groups and data source with the generated ones; the originals are recorded and put back when the view changes away again, so the switch is reversible without the application restoring anything itself.
    * Default value: "grid"
    */
   view?: string;
+  /**
+   * Configures the pivot view. Set view to 'pivot' to aggregate the data source into a cross-tab. Pivot is a native view: the Grid keeps rendering its own content, so frozen columns, cell-range selection, clipboard, conditional formatting and Excel export all continue to work on the pivoted result. The records aggregated are whatever the Grid was bound to when the pivot took over, so no separate source needs supplying - use setPivotSource only when the facts live somewhere other than the Grid's own data source.
+   * Default value: [object Object]
+   */
+  pivot?: GridPivot;
 }
 /**
  Data Grid UI Component that covers everything from paging, sorting, grouping, filtering, and editing to row and column virtualization, right-to-left layout, export to Excel and PDF and Accessibility.
@@ -16204,6 +16262,36 @@ export interface Grid extends BaseElement, GridProperties {
 	* @param event. The custom event.    */
   onScrollTopReached?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
   /**
+   * This event is triggered after a pivot model has been built and applied to the Grid.
+	* @param event. The custom event. Custom data event was created with: ev.detail(rows, columns, valueColumnIds)
+   *  rows - The number of rows in the pivot result.
+   *  columns - The number of columns in the pivot result.
+   *  valueColumnIds - The ids of the aggregated value columns.
+   */
+  onPivotChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the pivot designer changes the row, column or value axis.
+	* @param event. The custom event. Custom data event was created with: ev.detail(rows, columns, values)
+   *  rows - The data fields now on the row axis, outermost first.
+   *  columns - The data fields now on the column axis, outermost first.
+   *  values - The measures now aggregated, each with a dataField and a summary function.
+   */
+  onPivotDesignerChange?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered when the filters narrowing the pivot change, whether through the designer's Filters tab or through setPivotFilters.
+	* @param event. The custom event. Custom data event was created with: ev.detail(filters)
+   *  filters - The filters now applied, as { dataField, filter } entries.
+   */
+  onPivotFilter?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
+   * This event is triggered before a column group is collapsed or expanded. It is cancelable - call preventDefault() to keep the current state.
+	* @param event. The custom event. Custom data event was created with: ev.detail(name, group, collapsed)
+   *  name - The name of the column group.
+   *  group - The column group.
+   *  collapsed - Whether the group is being collapsed.
+   */
+  onColumnGroupCollapse?: ((this: any, ev: Event) => any) | ((this: any, ev: CustomEvent<any>) => any) | null;
+  /**
    * Inserts a new row into the grid interface. When batch editing mode is enabled, the new row exists only temporarily within the current batch session and will not be permanently stored until the user explicitly saves all changes made during the session. If the batch edit session is discarded, the newly added row will not be saved.
    * @param {any} data. An object representing the row data, matching the structure of the grid's data source.
    * @param {boolean} insertAtBottom?. Determines whether the new row is added at the bottom (true) or top (false) of the grid. Defaults to true.
@@ -16339,6 +16427,10 @@ export interface Grid extends BaseElement, GridProperties {
    * @param  callback?. Function executed after row deletion. Receives the deleted row as a parameter.
    */
   deleteRow(rowId: string | number, callback?: {(row: GridRow): void}): void;
+  /**
+   * Removes all currently selected rows from the Grid.
+   */
+  deleteSelectedRows(): void;
   /**
    * Scrolls the Grid to ensure that a specific row or cell is visible to the user. If the target row or cell is located on a different page, the Grid will automatically navigate to the appropriate page and then scroll to the desired position. This ensures that the requested row or cell is brought into view, regardless of its current visibility or page location.
    * @param {string | number} rowId. The unique identifier of the row.
@@ -16527,7 +16619,7 @@ export interface Grid extends BaseElement, GridProperties {
    * Retrieves a comprehensive summary of all changes performed during a batch edit operation. Returns an object with separate arrays for added, updated, and deleted rows. Each array contains detailed objects that include the row ID and pertinent data fields, such as the previous and new values for updates, full data for additions, and identifying information for deletions. This structure allows you to easily track and process all modifications made in the batch.
    * @returns 
    */
-  getBatchEditChanges(): { upDated: [{ id: string, dataField: string, oldValue: Object, newValue: Object }], deleted: [{id: string, data: Object}], added: [{id: string, data: Object}] };
+  getBatchEditChanges(): { updated: [{ id: string, dataField: string, oldValue: Object, newValue: Object }], deleted: [{id: string, data: Object}], added: [{id: string, data: Object}] };
   /**
    * Retrieves the value stored in a specific cell of a data grid or table by specifying the unique row ID and the corresponding column data field. This function allows precise access to individual cell data, enabling targeted data retrieval based on both row and column identifiers.
    * @param {string | number} rowId. The unique identifier of the row containing the cell.
@@ -16941,6 +17033,104 @@ export interface Grid extends BaseElement, GridProperties {
    * @param {any} messages?. Object containing the locale messages.
    */
   setLocale(locale: string, messages?: any): void;
+  /**
+   * Rebuilds the pivot from the current data source and applies it to the Grid. Called automatically when the view becomes <em>'pivot'</em>; call it directly after changing the data or the pivot settings.
+   */
+  refreshPivot(): void;
+  /**
+   * Performs a pivot view transition: restores the columns, column groups and data source recorded when the pivot took over if the view is leaving <em>'pivot'</em>, rebuilds the pivot if it is entering, then discards the cached layout and does a full refresh. Called for you when <strong>view</strong> changes; call it directly only when driving the transition yourself.
+   * @param {string} newView. The view being switched to.
+   * @param {string} oldView. The view being switched from.
+   */
+  applyPivotViewChange(newView: string, oldView: string): void;
+  /**
+   * Returns the pivot model currently applied - an object with <strong>rows</strong>, <strong>columns</strong>, <strong>columnGroups</strong> and <strong>valueColumnIds</strong> - or null when the Grid is not pivoted.
+   * @returns {any}
+   */
+  getPivotModel(): any;
+  /**
+   * Creates the pivot designer - a <em>smart-pivot-panel</em> with a field list and Rows / Columns / Values wells - wires its <strong>change</strong> event to the <strong>pivot</strong> settings and appends it to <em>container</em>. Passing no container opens it in the Grid's side panel instead. The panel is registered by <em>Smartpivottable.js</em>, so a page using the designer loads that module as well as the Grid's. Returns the panel, or null when it is not registered.
+   * @param {any} container?. The element to append the designer to. Omitted, the Grid's side panel is used.
+   * @returns {any}
+   */
+  createPivotDesigner(container?: any): any;
+  /**
+   * Returns the pivot designer created by <strong>createPivotDesigner</strong>, or null.
+   * @returns {any}
+   */
+  getPivotDesigner(): any;
+  /**
+   * Re-reads the current pivot settings into the designer. Call it after changing <strong>pivot</strong> in code so the wells match. It is deliberately not automatic: replacing the panel's fields while someone is dragging would discard the tree's state.
+   */
+  refreshPivotDesigner(): void;
+  /**
+   * Removes the pivot designer and its event listener.
+   */
+  destroyPivotDesigner(): void;
+  /**
+   * Returns the field descriptors the designer works with, derived from the records being aggregated and the current pivot settings. Each entry carries <strong>dataField</strong>, <strong>label</strong>, <strong>dataType</strong> and the <strong>rowGroup</strong> / <strong>pivot</strong> / <strong>summary</strong> flags that say which well it sits in.
+   * @returns {any}
+   */
+  pivotDesignerFields(): any;
+  /**
+   * Returns the pivot arrangement as plain JSON - the row, column and value axes, the total and subtotal switches, and which column groups are collapsed. Kept separate from the <strong>pivot</strong> property because that may hold functions (a custom aggregator, <strong>rowSort</strong>, <strong>columnSort</strong>) and <em>stateSettings.storage</em> round-trips through JSON, which drops them. What this returns is exactly what survives being saved and loaded. Included automatically in <strong>getState</strong> when the view is <em>'pivot'</em>.
+   * @returns {any}
+   */
+  getPivotLayout(): any;
+  /**
+   * Applies a layout returned by <strong>getPivotLayout</strong>, switches to the pivot view and rebuilds. Functions in the current settings are carried over rather than cleared, because a layout cannot carry them - an application declares its custom aggregators once and loading a saved arrangement must not discard them. Collapsed column groups are reapplied after the rebuild.
+   * @param {any} layout. A layout object as returned by getPivotLayout.
+   */
+  setPivotLayout(layout: any): void;
+  /**
+   * Applies an already-built pivot model. Use this to render aggregates computed elsewhere, for example on the server, instead of pivoting in the browser.
+   * @param {any} model. A model shaped like the result of Smart.PivotEngine.build.
+   */
+  setPivotModel(model: any): void;
+  /**
+   * Sets the flat records the pivot aggregates, overriding the Grid's own data source. Not normally needed: the pivot aggregates whatever the Grid was bound to when the view switched to <em>'pivot'</em>, which is recorded on the way in and so is not lost when the generated output replaces it. Use this when the facts live somewhere other than the Grid's data source - for example a Grid bound to server-computed aggregates.
+   * @param {any} records. The flat records to aggregate.
+   */
+  setPivotSource(records: any): void;
+  /**
+   * Sorts the pivot by an aggregated value column while preserving the hierarchy: leaf rows are ordered within their own parent, group rows stay anchored above their children and the grand total stays last. Sorting the same column through the ordinary column header would flatten all three together.
+   * @param {string} columnId. The value column to sort by, from getPivotModel().valueColumnIds.
+   * @param {string} sortOrder?. Either 'asc' or 'desc'.
+   */
+  sortPivotBy(columnId: string, sortOrder?: string): void;
+  /**
+   * Keeps only the highest or lowest N leaf rows by an aggregated value column, together with the group rows needed to keep them reachable.
+   * @param {string} columnId. The value column to rank by.
+   * @param {number} count. How many leaf rows to keep.
+   * @param {string} sortOrder?. 'desc' for the top N, 'asc' for the bottom N.
+   */
+  pivotTopN(columnId: string, count: number, sortOrder?: string): void;
+  /**
+   * Returns the filters currently narrowing the facts the pivot aggregates, as an array of <em>{ dataField, filter }</em> where <strong>filter</strong> is a <em>Smart.Utilities.FilterGroup</em>. These are applied before aggregation, so the totals are recomputed from the surviving records - unlike <strong>sortPivotBy</strong> and <strong>pivotTopN</strong>, which act on the aggregated result.
+   * @returns {any}
+   */
+  getPivotFilters(): any;
+  /**
+   * Replaces the pivot filters and rebuilds. Each entry is <em>{ dataField, filter }</em> with a <em>Smart.Utilities.FilterGroup</em>; entries for different fields are combined with AND. Set automatically by the pivot designer's Filters tab. Pass nothing to clear.
+   * @param {any} filters?. An array of { dataField, filter } entries.
+   */
+  setPivotFilters(filters?: any): void;
+  /**
+   * Removes every pivot filter and rebuilds.
+   */
+  clearPivotFilters(): void;
+  /**
+   * Collapses a column group by name, as the collapse button in its header does. Returns whether the group was collapsed.
+   * @param {string} name. The name of the column group.
+   * @returns {boolean}
+   */
+  collapseColumnGroup(name: string): boolean;
+  /**
+   * Expands a collapsed column group by name. Returns whether the group was expanded.
+   * @param {string} name. The name of the column group.
+   * @returns {boolean}
+   */
+  expandColumnGroup(name: string): boolean;
 }
 
 /**An object that defines configurable options for customizing the visual appearance of the grid, including properties such as line color, spacing, background style, and border visibility. */
@@ -17428,7 +17618,7 @@ export interface GridColumn {
    * Sets or gets the column's cells renderer function for custom html rendering in the cells. For more advanced scenarios use formatFunction or template, but for simple html rendering, you can use this.
    * Default value: null
    */
-  cellsRenderer?: {(rowId: string | number, dataField: string, cellValue: any, rowData: any, cellElement: any): string};
+  cellsRenderer?: {(rowId: string | number, dataField: string, cellValue: any, rowData: any, cellElement: any): any};
   /**
    * Sets the name of the column group.
    * Default value: ""
@@ -17892,6 +18082,11 @@ export interface GridColumnGroup {
    * Default value: center
    */
   verticalAlign?: VerticalAlignment | string;
+  /**
+   * Which member column stays visible when a collapsible group is fully collapsed. 'first' (the default) keeps the leading column, 'last' keeps the trailing one - useful when a total column sits on the far side of the group.
+   * Default value: first
+   */
+  collapseTo?: GridColumnGroupCollapseTo | string;
 }
 
 export interface GridConditionalFormatting {
@@ -18014,7 +18209,7 @@ export interface GridCheckBoxes {
   hasThreeStates?: boolean;
 }
 
-/**Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences. */
+/**Configures the export settings for grid data, including file format, selected columns, data range, export style, and additional export preferences. Some settings apply to one format only: <strong>pageSize</strong>, <strong>pageMargins</strong>, <strong>pageNumbers</strong>, <strong>documentInfo</strong>, <strong>fonts</strong> and the password settings are PDF-only, while <strong>freezeHeader</strong>, <strong>freezeColumns</strong>, <strong>protectSheet</strong>, <strong>setRowHeight</strong>, <strong>addImageToCell</strong>, <strong>filterBy</strong>, <strong>exportAsTable</strong>, <strong>autoConvertFormulas</strong> and <strong>getSpreadsheets</strong> apply to xlsx only. A warning is logged when an xlsx-only setting is used with a PDF export. */
 export interface GridDataExport {
   /**
    * Determines whether the column headers are included when exporting the data. If enabled, the exported file will contain the header row with column names; if disabled, only the data rows will be exported without column headers.
@@ -18046,6 +18241,56 @@ export interface GridDataExport {
    * Default value: portrait
    */
   pageOrientation?: GridDataExportPageOrientation | string;
+  /**
+   * Specifies the page size used when exporting to PDF. Accepts a named size such as 'A4', 'A3' or 'LETTER', or an object with explicit width and height in points. Applies to PDF export only.
+   * Default value: A4
+   */
+  pageSize?: any;
+  /**
+   * Specifies the page margins used when exporting to PDF, in points. Accepts a single number applied to all sides, a two-number array of [horizontal, vertical], or a four-number array of [left, top, right, bottom]. Applies to PDF export only.
+   * Default value: null
+   */
+  pageMargins?: any;
+  /**
+   * Prints a page footer showing the current page and the total page count when exporting to PDF. Disabled by default, because enabling it changes the output of an existing export. Applies to PDF export only.
+   * Default value: false
+   */
+  pageNumbers?: boolean;
+  /**
+   * The template used for the PDF page footer when pageNumbers is enabled. {0} is replaced with the current page and {1} with the total page count. Applies to PDF export only.
+   * Default value: "Page {0} of {1}"
+   */
+  pageNumberFormat?: string;
+  /**
+   * The horizontal alignment of the PDF page footer when pageNumbers is enabled. Applies to PDF export only.
+   * Default value: center
+   */
+  pageNumberAlignment?: GridDataExportPageNumberAlignment | string;
+  /**
+   * Document metadata written into the exported PDF - an object with any of title, author, subject, keywords and creator. These appear in the reader's document-properties dialog. Applies to PDF export only.
+   * Default value: null
+   */
+  documentInfo?: any;
+  /**
+   * Registers additional fonts for PDF export, as a map of font name to definition. The bundled virtual file system provides Roboto only, which covers Latin, Cyrillic and Greek; register a font here to export Chinese, Japanese, Korean, Arabic, Hebrew, Thai or Indic text. A fontFamily in the export style is only applied when it resolves to a registered font, so an unknown family is ignored rather than failing the export. Applies to PDF export only.
+   * Default value: null
+   */
+  fonts?: any;
+  /**
+   * Encrypts the exported PDF and requires this password to open it. Applies to PDF export only - use protectSheet for the xlsx equivalent.
+   * Default value: ""
+   */
+  userPassword?: string;
+  /**
+   * The owner password of the exported PDF. An owner can change the document permissions without knowing the user password. Applies to PDF export only.
+   * Default value: ""
+   */
+  ownerPassword?: string;
+  /**
+   * Restricts what a reader may do with the exported PDF - an object with any of printing, modifying, copying, annotating, fillingForms, contentAccessibility and documentAssembly. Requires ownerPassword. Applies to PDF export only.
+   * Default value: null
+   */
+  permissions?: any;
   /**
    * Specifies the character or symbol shown for expanded rows in a Grid with row hierarchy (such as a TreeGrid or Grouped Grid) when the data is exported. This character visually indicates expanded nodes in the exported file.
    * Default value: "+"
@@ -19545,6 +19790,70 @@ export interface GridUploadSettings {
   onUploadError?: any;
 }
 
+/**Configures the pivot view. Set <strong>view</strong> to <em>'pivot'</em> to aggregate the data source into a cross-tab. Pivot is a native view: the Grid keeps rendering its own content, so frozen columns, cell-range selection, clipboard, conditional formatting and Excel export all continue to work on the pivoted result. The records aggregated are whatever the Grid was bound to when the pivot took over, so no separate source needs supplying - use <strong>setPivotSource</strong> only when the facts live somewhere other than the Grid's own data source. */
+export interface GridPivot {
+  /**
+   * The fields forming the row axis, outermost first. Each field adds a level of row grouping, rendered as an expandable tree row.
+   * Default value: 
+   */
+  rows?: any[];
+  /**
+   * The fields forming the column axis, outermost first. Each field adds a level of banded column headers.
+   * Default value: 
+   */
+  columns?: any[];
+  /**
+   * The measures to aggregate. Each entry is { dataField, summary, label, showValuesAs, formatSettings }. summary is one of 'sum', 'min', 'max', 'avg', 'count', 'product', 'median', 'stdev', 'stdevp', 'var', 'varp', 'unique', 'filled', 'blank', or a function (values, records, value) =&gt; any which also receives the underlying records so that measures such as a weighted average are possible.
+   * Default value: 
+   */
+  values?: any[];
+  /**
+   * Adds a grand-total row at the bottom of the pivot.
+   * Default value: true
+   */
+  grandTotalRow?: boolean;
+  /**
+   * Adds a grand-total column at the far side of the pivot.
+   * Default value: true
+   */
+  grandTotalColumn?: boolean;
+  /**
+   * Shows aggregate values on the group rows. When disabled the group rows remain, so the hierarchy and the expand/collapse behaviour are unchanged, but their value cells are blank.
+   * Default value: true
+   */
+  rowSubtotals?: boolean;
+  /**
+   * Creates the pivot field designer in the Grid's side panel, letting the user drag fields between the row, column and value wells at runtime. The designer is smart-pivot-panel, the same element the Pivot Table docks, so a page using it also loads jqxpivottable.js. To dock the panel beside the Grid instead of floating it over the data, leave this off and call createPivotDesigner(container) with an element of your own.
+   * Default value: false
+   */
+  designer?: boolean;
+  /**
+   * Which source fields the designer offers, and how they are labelled. Each entry is either a field name or { dataField, label, dataType }. Left empty, every field on the records is offered, with labels derived from the field names and types inferred from the data.
+   * Default value: 
+   */
+  fields?: any[];
+  /**
+   * A comparator for row-axis dimension values, (a, b, level) =&gt; number. Sorts the row labels; use sortPivotBy to order rows by an aggregated value instead.
+   * Default value: null
+   */
+  rowSort?: any;
+  /**
+   * A comparator for column-axis dimension values, (a, b, level) =&gt; number.
+   * Default value: null
+   */
+  columnSort?: any;
+  /**
+   * Pins the grand-total row to the bottom of the Grid so it stays visible while scrolling. The grand total is an ordinary row in the pivot result, so it is pinned with the Grid's row freezing.
+   * Default value: true
+   */
+  freezeGrandTotalRow?: boolean;
+  /**
+   * Adds a subtotal column to each column-axis level above the innermost one, so a column group can be collapsed down to its total. Without a subtotal there is nothing to collapse to - the Grid keeps one member of a fully collapsed group visible, so collapsing a group of detail columns appears to do nothing. Ignored when the column axis has only one level, where the leaves already are the totals.
+   * Default value: true
+   */
+  columnSubtotals?: boolean;
+}
+
 declare global {
     interface Document {
         createElement(tagName: "smart-grid"): Grid;
@@ -19569,10 +19878,14 @@ export declare type Position = 'near' | 'far';
 export declare type GridColumnFilterMenuMode = 'basic' | 'default' | 'excel' | 'multi';
 /**Sets or gets the sort order of the column. Accepts: 'asc', 'desc', 'none' and null. */
 export declare type GridColumnSortOrder = 'asc' | 'desc' | 'none';
+/**Which member column stays visible when a collapsible group is fully collapsed. 'first' (the default) keeps the leading column, 'last' keeps the trailing one - useful when a total column sits on the far side of the group. */
+export declare type GridColumnGroupCollapseTo = 'first' | 'last';
 /**The formatting condition. */
 export declare type GridConditionalFormattingCondition = 'between' | 'equal' | 'greaterThan' | 'lessThan' | 'notEqual';
 /**Specifies the orientation of the page (portrait or landscape) when exporting the document to PDF format. This setting determines how the content is laid out on each PDF page. */
 export declare type GridDataExportPageOrientation = 'landscape' | 'portrait';
+/**The horizontal alignment of the PDF page footer when pageNumbers is enabled. Applies to PDF export only. */
+export declare type GridDataExportPageNumberAlignment = 'left' | 'center' | 'right';
 /**Specifies the method by which the editing mode is activated, such as through a single click, double click, or keyboard action. */
 export declare type GridEditingAction = 'none' | 'click' | 'doubleClick';
 /**Defines the content or label displayed within the buttons of the command column, such as text, icons, or custom HTML elements. This determines what users see and interact with in each command button cell. */
@@ -20144,7 +20457,7 @@ export interface KanbanProperties {
    * Specifies how the Kanban board's default fields (e.g., title, status, assignee) correspond to the fields in your data source. Use this mapping only if your data source uses field names that differ from the Kanban's expected keywords. If the field names already match, this mapping is optional. Note that only certain default fields support custom mapping; not all default map can be overridden.
    * Default value: { checklist: 'checklist', color: 'color', comments: 'comments', dueDate: 'dueDate', id: 'id', priority: 'priority', progress: 'progress', startDate: 'startDate', status: 'status', swimlane: 'swimlane', tags: 'tags', text: 'text', userId: 'userId'. createdUserId: 'createdUserId', createdDate: 'createdDate', updatedUserId: 'updatedUserId', updatedDate: 'updatedDate' }
    */
-  dataSourceMap?: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; createdUserId: string; upDatedUserId: string; createdDate: Date; upDatedDate: Date;};
+  dataSourceMap?: { checklist?: string; color?: string; comments?: string; dueDate?: string; id?: string; priority?: string; progress?: string; startDate?: string; status?: string; swimlane?: string; tags?: string; text?: string; userId?: string; createdUserId?: string; updatedUserId?: string; createdDate?: Date; updatedDate?: Date;};
   /**
    * Specifies the offset, in pixels, between the drag feedback element and the mouse cursor during task dragging operations. The value should be provided as an array: the first element sets the horizontal (x-axis) offset, and the second element sets the vertical (y-axis) offset, both relative to the cursor position. Alternatively, if set to 'auto', the system automatically calculates the offset based on the cursor’s position at the moment the drag action began. This allows for precise control over the visual positioning of the feedback element during drag-and-drop interactions.
    * Default value: auto
@@ -20793,7 +21106,7 @@ export interface KanbanColumn {
    * Sets or gets the column's sub-columns. Sub-columns has the same properties as top-level columns.
    * Default value: null
    */
-  columns?: { addNewButton: boolean, collapsed: string, collapsible: string, columns: [], dataField: string, label: string, orientation: string, selected: string }[];
+  columns?: { addNewButton?: boolean, collapsed?: string, collapsible?: string, columns?: [], dataField?: string, label?: string, orientation?: string, selected?: string }[];
   /**
    * Sets or gets the column's data source bound field. Corresponds to the status field in the data source.
    * Default value: ""
@@ -20851,7 +21164,7 @@ export interface KanbanDataSource {
    * A list of sub-tasks.
    * Default value: null
    */
-  checklist?: { completed: boolean, text: string }[];
+  checklist?: { completed?: boolean, text?: string }[];
   /**
    * A color used to highlight the task's card visually.
    * Default value: "null"
@@ -20861,7 +21174,7 @@ export interface KanbanDataSource {
    * Comments about a task.
    * Default value: null
    */
-  comments?: { text: string, time: Date, userId: string | number }[];
+  comments?: { text?: string, time?: Date, userId: string | number }[];
   /**
    * The task's due date.
    * Default value: null
@@ -21299,7 +21612,7 @@ export interface LedProperties {
    * Gets the current check state or sets it to a specified value, typically used for checkbox, radio button, or similar UI elements. The check state indicates whether the element is checked, unchecked, or (if supported) in an indeterminate state.
    * Default value: false
    */
-  checked?: boolean;
+  checked?: boolean | null;
   /**
    * Specifies the conditions under which the element will trigger a click event, allowing you to control when and how user interactions or programmatic actions cause the click event to be fired.
    * Default value: release
@@ -22618,6 +22931,11 @@ export declare type EnterKeyBehavior = 'clearOnSubmit' | 'submit';
 export declare type MaskedTextBoxTextMaskFormat = 'excludePromptAndLiterals' | 'includePrompt' | 'includeLiterals' | 'includePromptAndLiterals';
 export interface MenuProperties {
   /**
+   * Application-defined identifier for the row associated with the menu. Demo-only property used to correlate the menu with a grid row.
+   * Default value: null
+   */
+  rowId?: any;
+  /**
    * Sets or retrieves the current animation mode. When this property is set to 'none', all animations are disabled and the element remains static. Otherwise, animations will be enabled according to the specified mode.
    * Default value: advanced
    */
@@ -23097,7 +23415,7 @@ export interface MultiColumnFilterPanelProperties {
    * Specifies the data source to be loaded into the multi-column filter panel.The dataSource array consists of objects, each representing a column available for grouping and filtering. Each object includes the following properties:      dataField: The name of the data field that identifies the column to be grouped.        dataType: The type of data contained in the column (e.g., string, number, date), used for correct grouping and filtering operations.        groupIndex: The initial grouping order of the column, where a value of -1 means the column is not grouped by default. Columns with non-negative values are grouped in ascending order based on their groupIndex.        label: The display name for the column, shown in the column selection dropdown or panel for user-friendly identification.        icon: A CSS class or icon identifier to visually represent the column in the selection input, improving the user interface and navigation.        sortDirection: The direction in which items are sorted within the group. Acceptable values are 'ascending' or 'descending'.  This structure allows you to fully customize how columns appear and behave within the multi-column filter panel, including display options, grouping priorities, and sorting behavior.
    * Default value: null
    */
-  dataSource?: {label: string, dataField: string, dataType: string, sortDirection: string, groupIndex: number}[];
+  dataSource?: any;
   /**
    * Controls whether the multi-column filter panel is displayed, allowing users to filter data across multiple columns simultaneously. When enabled, the panel appears in the UI, providing advanced filtering options; when disabled, the panel is hidden and users cannot access multi-column filtering features.
    * Default value: false
@@ -25708,6 +26026,11 @@ export interface PivotTableProperties {
    */
   grandTotal?: boolean;
   /**
+   * Pins the row-label columns - the selection checkbox and the row group column, or one per nesting level in the classic layout - to the left edge, so they stay in view when the table is scrolled horizontally. The horizontal counterpart of freezeHeader, and disabled by default for the same reason: it changes how the table behaves once scrolled. A pivot is typically far wider than its container, and without it scrolling right leaves a grid of numbers with nothing to say what they measure.
+   * Default value: false
+   */
+  freezeRowHeaders?: boolean;
+  /**
    * Defines or retrieves how nested rows—determined by the specified rowGroup columns—are visually organized and displayed within the grid. This setting controls the appearance and structure of hierarchical row groupings.
    * Default value: default
    */
@@ -26051,7 +26374,7 @@ export interface PivotTableColumn {
    * Sets or gets an object with settings for cells in summary columns. These settings are not applied if column formatFunction is also implemented.
    * Default value: [object Object]
    */
-  summarySettings?: { align: string, prefix: string, decimalPlaces: number, thousandsSeparator: string, decimalSeparator: string, negativesInBrackets: boolean };
+  summarySettings?: { align?: string, prefix?: string, decimalPlaces?: number, thousandsSeparator?: string, decimalSeparator?: string, negativesInBrackets?: boolean };
 }
 
 export interface PivotTableConditionalFormatting {
@@ -28981,7 +29304,7 @@ export interface SchedulerEventRepeat {
    * Event exceptions represent a repeating series event that has been re-scheduler for another date/time or it has been hidden from the Scheduler. Exceptions cannot repeat.
    * Default value: undefined
    */
-  exceptions?: { Date: string | Date, DateStart: Date | string, DateEnd: Date | string, backgroundColor: string, color: string, hidden: boolean }[] | undefined;
+  exceptions?: any;
 }
 
 export interface SchedulerNotification {
@@ -29111,7 +29434,7 @@ export declare type SchedulerTimeZone = 'Local' | 'Dateline Standard Time' | 'UT
 /**Specifies the current view type of the Scheduler component (e.g., 'day', 'week', 'month'). When defining custom views, ensure that each view includes a valid <b>type</b> property matching one of the supported view types. Note: This property is managed internally by the Scheduler and should not be set manually in your configuration. */
 export declare type SchedulerViewType = 'day' | 'week' | 'month' | 'agenda' | 'timelineDay' | 'timelineWeek' | 'timelineMonth';
 
-export declare type SchedulerViews = SchedulerViewType[] | object[] | string[];
+export declare type SchedulerViews = Array<string | { label?: string; value?: string; type?: string; hideWeekend?: boolean; hideNonworkingWeekdays?: boolean; shortcutKey?: string; hideHours?: boolean; [key: string]: any }>;
 /**Specifies the type of view selector that appears in the element's header, which controls how content is displayed (e.g., as a list, grid, or table view). This setting determines the layout options available to the user within the header section of the component. */
 export declare type SchedulerViewSelectorType = 'auto' | 'tabs' | 'menu';
 /**Configures the rule used to determine the start date in Week and TimelineWeek views. By default, these views start from the current date, factoring in the value specified by the 'firstDayOfWeek' property. If the 'startDateRule' property is set to 'dateCurrent', the Week and TimelineWeek views will instead start from the date provided in the 'dateCurrent' property, overriding the default behavior. */
@@ -29273,7 +29596,7 @@ export interface SliderProperties {
    * When customInterval is enabled, you can define a specific list of tick values to be displayed on the plot axis. If coerce is set to true, any input value will automatically adjust (or "snap") to the nearest specified tick value from this list, ensuring that only those defined tick marks are selected or displayed.
    * Default value: 0,50,100
    */
-  customTicks?: number[];
+  customTicks?: Array<number | Date>;
   /**
    * Sets or retrieves the format pattern used to display labels when the mode property is set to 'date'. This pattern determines how dates will appear in the labels, such as the order of day, month, and year, as well as the specific separators or formatting conventions applied.
    * Default value: "d"
@@ -29338,7 +29661,7 @@ export interface SliderProperties {
    * Specifies or retrieves the maximum allowable value that the widget can accept. This property defines the upper limit for user input or the widget’s range, ensuring that values entered or selected cannot exceed this maximum threshold.
    * Default value: 100
    */
-  max?: string | number;
+  max?: string | number | Date;
   /**
    * Specifies or retrieves the type of mechanical action being applied. This property determines the operational behavior or interaction mode of the mechanism (e.g., momentary, toggle, or latching). Use this to configure how the mechanism responds to user input or system events.
    * Default value: switchWhileDragging
@@ -29367,7 +29690,7 @@ export interface SliderProperties {
    * Defines or retrieves the widget’s minimum allowed value. This property determines the lowest value a user can input or select within the widget. Setting this value restricts input to be no less than the specified minimum.
    * Default value: 0
    */
-  min?: string | number;
+  min?: string | number | Date;
   /**
    * Specifies whether the widget is configured to handle numerical values or date values. When set, this determines if the widget processes input and displays output as numbers or as dates. When retrieved, it indicates the current mode—number or date—in which the widget is operating.
    * Default value: numeric
@@ -29492,7 +29815,7 @@ export interface SliderProperties {
    * Gets or sets the current value of the jqxSlider widget. When the rangeSlider property is set to true, this property manages the values for both slider handles, typically as an array representing the selected range. For a single-value slider, it represents the selected value. Use this property to programmatically retrieve or update the slider's value(s).
    * Default value: 0,100
    */
-  values?: number[];
+  values?: Array<number | Date>;
   /**
    * Sets or retrieves the word length value, which determines the number of bits used to represent each integer value. This property is only relevant when scaleType is set to 'integer'. If scaleType has any other value, this property is ignored.
    * Default value: int32
@@ -31839,7 +32162,7 @@ export interface TankProperties {
    * If customInterval is enabled, this option provides a specific list of tick values to display on the plot's axis, overriding any automatically calculated intervals. When coerce is set to true, user inputs or plotted values will automatically adjust (or "snap") to the nearest tick in this list, ensuring all values align precisely with one of the specified ticks.
    * Default value: 0,50,100
    */
-  customTicks?: number[];
+  customTicks?: Array<number | Date>;
   /**
    * Specifies or retrieves the pattern used to format labels when the mode property is set to 'date'. This pattern determines how date labels are displayed to the user (for example, "MM/DD/YYYY" or "dd MMM, yyyy").
    * Default value: "d"
@@ -31899,7 +32222,7 @@ export interface TankProperties {
    * Gets or sets the maximum allowable value for the widget, defining the upper limit that users can select or enter.
    * Default value: 100
    */
-  max?: string | number;
+  max?: string | number | Date;
   /**
    * Defines or retrieves the specific type of mechanical action being applied. This property allows you to specify what kind of mechanical action to use (such as momentary, toggle, or latching), or to query the current mechanical action configuration.
    * Default value: switchWhileDragging
@@ -31928,7 +32251,7 @@ export interface TankProperties {
    * Defines or retrieves the minimum allowable value for the widget. When setting this property, it restricts user input so that values below the specified minimum are not permitted. When getting this property, it returns the current minimum value constraint of the widget.
    * Default value: 0
    */
-  min?: string | number;
+  min?: string | number | Date;
   /**
    * Determines whether the widget processes and displays numeric values or date values. This property can be set to configure the expected data type (numbers or dates), and can also be accessed to check the current mode of the widget.
    * Default value: numeric
@@ -33026,9 +33349,9 @@ export interface ToastProperties {
   animation?: Animation | string;
   /**
    * Defines the container element in which new toast notifications will appear. The value can be either an HTMLElement directly, or a string representing the id of a DOM element. This property determines where toast items are rendered in the DOM.Note: When used together with the modal and position properties, container takes precedence over position but has lower priority than modal. This means that if modal is enabled, it overrides container; if not, the specified container is used instead of the position property.
-   * Default value: "null"
+   * Default value: null
    */
-  appendTo?: string;
+  appendTo?: string | HTMLElement;
   /**
    * Determines whether the toast notification will automatically close after the duration specified by the autoCloseDelay property. If enabled, the toast will dismiss itself once the set time has elapsed; otherwise, it will remain visible until manually closed by the user.
    * Default value: false
@@ -34218,6 +34541,11 @@ export interface Validator extends BaseElement, ValidatorProperties {
    * @param {Function} result?. A callback function to call when validating inputs.
    */
   validate(result?: Function): void;
+  /**
+   * Validates the inputs and always returns a Promise resolving to whether they are all valid, whether or not any rule is asynchronous. Use this when the rules include a <em>'remote'</em> rule or a <strong>validationCallback</strong> that returns a Promise.
+   * @returns {any}
+   */
+  validateAsync(): any;
 }
 
 export interface ValidatorRule {
@@ -34262,15 +34590,65 @@ export interface ValidatorRule {
    */
   pattern?: RegExp;
   /**
-   * The type of validation the rule makes.
+   * The type of validation the rule makes. Set to 'remote' to validate the value against a server endpoint defined by url.
    * Default value: required
    */
   type?: ValidatorRuleType | string;
   /**
-   * A callback function to validate the input's value by when the rule's type is 'custom'.
+   * A callback function to validate the input's value by when the rule's type is 'custom'. The callback may also return a Promise resolving to a boolean, in which case the input is marked pending until the Promise settles.
    * Default value: 
    */
   validationCallback?: { (inputElement: any): boolean };
+  /**
+   * The endpoint that validates the input value. Required when type is 'remote'. The value is sent to this URL and the response decides whether the input is valid.
+   * Default value: ""
+   */
+  url?: string;
+  /**
+   * The HTTP method used by a remote rule. 'POST' sends a JSON body, 'GET' appends the value as a query parameter. Applicable when type is 'remote'.
+   * Default value: "POST"
+   */
+  method?: string;
+  /**
+   * The name of the field or query parameter that carries the input value in a remote request. Applicable when type is 'remote'.
+   * Default value: "value"
+   */
+  parameterName?: string;
+  /**
+   * Additional request headers sent with a remote validation request, for example an authorization token. Applicable when type is 'remote'.
+   * Default value: 
+   */
+  headers?: any;
+  /**
+   * The credentials mode of a remote validation request, for example 'include' to send cookies cross-origin. Applicable when type is 'remote'.
+   * Default value: ""
+   */
+  credentials?: string;
+  /**
+   * How long to wait, in milliseconds, after the last keystroke before sending a remote validation request. Requests already in flight are aborted, so typing quickly produces a single request. Applicable when type is 'remote'.
+   * Default value: 400
+   */
+  debounce?: number;
+  /**
+   * A callback that builds the request body of a remote rule from the input value, replacing the default payload. Applicable when type is 'remote'.
+   * Default value: 
+   */
+  requestMapper?: { (value: any, inputElement: any, rule: ValidatorRule): any };
+  /**
+   * A callback that turns the server response into a verdict. Return a boolean, or an object with a valid member and an optional message that replaces the rule message. Without it, a response is valid when it is true or when its valid, isValid or ok member is truthy. Applicable when type is 'remote'.
+   * Default value: 
+   */
+  responseMapper?: { (response: any, value: any): any };
+  /**
+   * The message shown when a remote validation request itself fails, for example because the server is unreachable. Such a request is treated as invalid so that an unverified value is not silently accepted. Applicable when type is 'remote'.
+   * Default value: ""
+   */
+  errorMessage?: string;
+  /**
+   * A callback invoked when a remote validation request fails, useful for logging or for showing a connectivity notice. Applicable when type is 'remote'.
+   * Default value: 
+   */
+  onError?: { (error: any, inputElement: any, rule: ValidatorRule): void };
 }
 
 declare global {
@@ -34283,8 +34661,8 @@ declare global {
     }
 }
 
-/**The type of validation the rule makes. */
-export declare type ValidatorRuleType = 'compare' | 'custom' | 'email' | 'notNumber' | 'numeric' | 'pattern' | 'phone' | 'range' | 'required' | 'startWithLetter' | 'stringLength' | 'zipCode';
+/**The type of validation the rule makes. Set to 'remote' to validate the value against a server endpoint defined by url. */
+export declare type ValidatorRuleType = 'compare' | 'custom' | 'email' | 'notNumber' | 'numeric' | 'pattern' | 'phone' | 'range' | 'remote' | 'required' | 'startWithLetter' | 'stringLength' | 'zipCode';
 export interface WindowProperties {
   /**
    * Determines whether the 'Add New' tab within the Tabs element is currently visible to the user.  Note: This property is only relevant when used with the TabsWindow component; it does not apply to other components.
@@ -34749,10 +35127,10 @@ export interface Window extends BaseElement, WindowProperties {
   /**
    * Inserts the specified "smart-tab-item" node directly before the reference "smart-tab-item" node within the tab collection. <strong>This operation is only applicable when manipulating tab items inside a TabsWindow component.</strong>
    * @param {Node} newNode. The "smart-tab-item" node to insert.
-   * @param {Node | null} referenceNode?. The "smart-tab-item" node before which newNode is inserted.
+   * @param {Node | null | undefined} referenceNode?. The "smart-tab-item" node before which newNode is inserted.
    * @returns {Node}
    */
-  insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null): T;
+  insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null | undefined): T;
   /**
    * Revised Description:<br/>"Sets the window's position on the screen by moving it to specified X and Y coordinates, effectively relocating the window to a new location."
    * @param {string | number} left. Left position. For example: '100px'. 

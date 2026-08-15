@@ -1,0 +1,236 @@
+// Strata (Bootstrap-based): default component styles come from `bootstrap/_styles` in the entry partials.
+// Add light-mode CSS overrides here when needed (mirrors fluent/_light, material/_light).
+:root {
+    --smart-body-background-color: var(--smart-base-100);
+    --smart-outline-color: var(--smart-primary);
+    --smart-text-title-color: var(--smart-base-900);
+    --smart-text-color: var(--smart-base-900);
+    --smart-text-secondary-color: var(--smart-base-800);
+    --smart-text-tertiary-color: var(--smart-base-700);
+    --smart-text-disabled-color: var(--smart-base-600);
+    --smart-text-contrast-color: var(--smart-white);
+
+    --smart-base-background-color: var(--smart-base-50);
+    --smart-base-background-color-dark: var(--smart-base-900);
+
+    --smart-border-normal: var(--smart-base-400);
+    --smart-border-hover: var(--smart-base-700);
+    --smart-border-focus: var(--smart-primary);
+    --smart-border-disabled: var(--smart-base-400);
+
+    --smart-surface: var(--smart-base-background-color);
+    --smart-border: lab(90.952% 0 -.0000119209);
+    --smart-background: var(--smart-white);
+    --smart-background-color: var(--smart-text-color);
+    --smart-editor-height: 30px;
+    --smart-font-size: 14px;
+
+    --smart-ui-state-hover: var(--smart-base-500);
+    --smart-ui-state-border-hover: var(--smart-base-500);
+
+    --smart-calendar-cell-border-top-left-radius: 10px;
+    --smart-calendar-cell-border-top-right-radius: 10px;
+    --smart-calendar-cell-border-bottom-left-radius: 10px;
+    --smart-calendar-cell-border-bottom-right-radius: 10px;
+    --smart-calendar-week-title-text-transform: none;
+    --smart-grid-column-header-height: 40px;
+    --smart-scroll-bar-background: var(--smart-surface);
+    /* default ScrollBar's background color. */
+    --smart-scroll-bar-track-background: var(--smart-scroll-bar-background);
+    --smart-scroll-bar-border: var(--smart-surface);
+    --smart-list-item-height: 30px;
+    --smart-window-header-height: 40px;
+    --smart-check-box-default-size: 14px;
+    --smart-scheduler-window-header-height: 40px;
+    --smart-list-item-label-padding: 3px;
+    --smart-first-item-border-top-left-radius: 10px;
+    --smart-first-item-border-top-right-radius: 10px;
+    --smart-first-item-border-bottom-right-radius: 0px;
+    --smart-first-item-border-bottom-left-radius: 0px;
+    --smart-last-item-border-top-left-radius: 0px;
+    --smart-last-item-border-top-right-radius: 0px;
+    --smart-last-item-border-bottom-right-radius: 10px;
+    --smart-last-item-border-bottom-left-radius: 10px;
+    --smart-border-top-left-radius: 10px;
+    --smart-border-top-right-radius: 10px;
+    --smart-border-bottom-right-radius: 10px;
+    --smart-border-bottom-left-radius: 10px;
+    --smart-border-radius: 10px;
+
+    --smart-button-padding: 0.175rem 0.5rem;
+    /* The border color of the ScrollBar */
+    --smart-scroll-bar-thumb-border-top-right-radius: 10px;
+    /* default ScrollBar's top-right border radius. */
+    --smart-scroll-bar-thumb-border-top-left-radius: 10px;
+    /* default ScrollBar's top-left border radius. */
+    --smart-scroll-bar-thumb-border-bottom-left-radius: 10px;
+    /* default ScrollBar's bottom-left border radius. */
+    --smart-scroll-bar-thumb-border-bottom-right-radius: 10px;
+    /* default ScrollBar's bottom-right border radius. */
+    --smart-scroll-bar-thumb-background: var(--smart-base-400);
+    /* The color of the ScrollBar's thumb. */
+    --smart-scroll-bar-thumb-border: transparent;
+    /* The color of the ScrollBar's thumb border. */
+    --smart-scroll-bar-thumb-size: 100%;
+    /* The size of the ScrollBar's thumb. */
+    --smart-scroll-bar-thumb-padding: 2px;
+    /* The padding of the ScrollBar's thumb. */
+    --smart-scroll-bar-thumb-background-hover: var(--smart-base-300);
+    /* The background color of the ScrollBar's thumb in hover state. */
+    --smart-scroll-bar-thumb-border-hover: transparent;
+    /* The border color of the ScrollBar's thumb in hover state. */
+    --smart-scroll-bar-thumb-background-active: var(--smart-base-400);
+    /* The background color of the ScrollBar's thumb in active state. */
+    --smart-scroll-bar-thumb-border-active: transparent;
+    /* The border color of the ScrollBar's thumb in active state. */
+    --smart-scroll-bar-button-background: var(--smart-surface);
+    /* The background color of ScrollBar's navigation buttons. */
+    --smart-scroll-bar-button-border: var(--smart-surface);
+    /* The border color of ScrollBar's navigation buttons. */
+    --smart-scroll-bar-button-color: var(--smart-on-surface);
+    /* The color of ScrollBar's navigation buttons. */
+    --smart-scroll-bar-button-background-hover: var(--smart-base-300);
+    /* The background color of the hovered ScrollBar's buttons. */
+    --smart-scroll-bar-button-border-hover: var(--smart-surface);
+    /* The border color of the hovered ScrollBar's buttons. */
+    --smart-scroll-bar-button-color-hover: var(--smart-on-surface);
+    /* The color of the hovered ScrollBar's buttons. */
+    --smart-scroll-bar-button-background-active: var(--smart-base-400);
+    /* The background color of the ScrollBar's buttons in active state. */
+    --smart-scroll-bar-button-border-active: var(--smart-surface);
+    /* The border color of the ScrollBar's buttons in active state. */
+    --smart-scroll-bar-button-color-active: var(--smart-on-surface);
+    /* The color of the ScrollBar's buttons in active state. */
+}
+
+smart-accordion smart-accordion-item:first-child {
+    border-top-left-radius: var(--smart-first-item-border-top-left-radius, --smart-item-border-top-left-radius) !important;
+    border-top-right-radius: var(--smart-first-item-border-top-right-radius, --smart-item-border-top-right-radius) !important;
+    border-bottom-left-radius: var(--smart-first-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius) !important;
+    border-bottom-right-radius: var(--smart-first-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius) !important;
+}
+
+smart-accordion smart-accordion-item:last-child {
+    border-top-left-radius: var(--smart-last-item-border-top-left-radius, --smart-item-border-top-left-radius) !important;
+    border-top-right-radius: var(--smart-last-item-border-top-right-radius, --smart-item-border-top-right-radius) !important;
+    border-bottom-left-radius: var(--smart-last-item-border-bottom-left-radius, --smart-item-border-bottom-left-radius) !important;
+    border-bottom-right-radius: var(--smart-last-item-border-bottom-right-radius, --smart-item-border-bottom-right-radius) !important;
+}
+
+.smart-window {
+    border-radius: var(--smart-border-radius) !important;
+
+    &[focus] {
+        border-color: var(--smart-border) !important;
+    }
+}
+
+.smart-window .smart-content-container>.smart-content {
+    padding: 5px !important;
+}
+
+.smart-menu smart-menu-item {
+    color: rgba(0, 0, 0, .7) !important;
+
+    &:hover {
+        color: var(--smart-background-color) !important;
+    }
+}
+
+smart-grid-column[aria-controls],
+smart-grid-column[focus],
+smart-grid-column[selected] {
+    background: var(--smart-ui-state-hover) !important;
+}
+
+.smart-input-overlay.smart-input-overlay-column {
+    display: none !important;
+}
+
+.smart-grid-column-menu,
+.smart-drop-down,
+.smart-input-drop-down-menu {
+    box-shadow: var(--smart-elevation-1) !important;
+    border-radius: var(--smart-border-radius);
+}
+
+smart-grid-cell .wrap {
+    line-height: 1.5 !important;
+}
+
+.smart-window:not(.smart-container) {
+    box-shadow: var(--smart-elevation-4);
+}
+
+
+smart-color-picker[hover],
+smart-drop-down-list[hover] {
+    --smart-surface: var(--smart-ui-state-hover);
+    --smart-border: var(--smart-ui-state-hover);
+
+    background: var(--smart-ui-state-hover);
+    border-color: var(--smart-ui-state-border-hover);
+}
+
+smart-radio-button {
+    .smart-overlay {
+        top: 3px !important;
+    }
+}
+
+smart-check-box {
+    --smart-border-top-left-radius: 4px;
+    --smart-border-top-right-radius: 4px;
+    --smart-border-bottom-left-radius: 4px;
+    --smart-border-bottom-right-radius: 4px;
+
+    .smart-overlay {
+        top: 3px !important;
+        left: 4px !important;
+    }
+}
+
+.smart-window .smart-content-container>.smart-header-section {
+    background-color: var(--smart-background) !important;
+    color: var(--smart-background-color) !important;
+    height: var(--smart-window-header-height) !important;
+    border: none !important;
+    font-size: var(--smart-font-size) !important
+}
+
+.smart-input-drop-down-menu {
+    font-size: var(--smart-font-size) !important;
+}
+
+smart-list-item .smart-input,
+smart-list-items-group .smart-input {
+    left: 7px;
+    border-radius: 4px !important;
+}
+
+smart-list-item .smart-overlay {
+    border-radius: 10px !important;
+}
+
+.smart-calendar .smart-calendar-header {
+    background: var(--smart-background);
+    border-color: transparent !important;
+    text-transform: none !important;
+}
+
+.smart-calendar-week-title {
+    color: var(--smart-base-700);
+}
+
+.smart-tabs .smart-header .smart-tab-label-container.smart-tab-selected {
+    border-color: transparent !important;
+    font-weight: 600;
+}
+
+.smart-tabs .smart-header .smart-tab-strip {
+    margin-bottom: 0px !important;
+}
+
+.smart-tabs .smart-tabs-selection-bar {
+    display: block;
+}

@@ -458,33 +458,52 @@
 
   &[freeze-header] {
     thead {
-      tr:nth-child(4)>th {
-        top: calc(3 * var(--smart-table-column-header-height));
+      // Sticky offsets have to be enumerated - CSS cannot compute a row index. The base
+      // Table stylesheet covers rows 2-5; a pivot adds one header row per column-axis level
+      // plus one for the measure labels, so this was previously capped at 10 and silently
+      // broke past nine levels. Generated to 24, which is well beyond any usable pivot.
+      @for $i from 4 through 24 {
+        tr:nth-child(#{$i})>th {
+          top: calc(#{$i - 1} * var(--smart-table-column-header-height));
+        }
       }
+    }
+  }
 
-      tr:nth-child(5)>th {
-        top: calc(4 * var(--smart-table-column-header-height));
+  // Pins the row labels to the left edge. A pivot is the widest thing this component renders,
+  // and scrolling right used to take the labels off screen and leave a grid of numbers with
+  // nothing to say what they measure.
+  //
+  // Only position and stacking are set here. The cells keep the background and borders they
+  // already had - taking the base Table's .freeze-near wholesale would repaint them, and an
+  // unscrolled table has to look exactly as it did before. The left offsets are inline: they
+  // are cumulative widths, which CSS cannot compute. See _applyFrozenRowHeaders.
+  &[freeze-row-headers] {
+    tbody {
+      td.smart-table-select-row,
+      td[data-field^="pivotgroup"] {
+        position: sticky;
+        z-index: 1;
+        background-color: var(--smart-background);
       }
+    }
 
-      tr:nth-child(6)>th {
-        top: calc(5 * var(--smart-table-column-header-height));
+    thead {
+      th.smart-pivot-table-selection-header,
+      th.smart-pivot-table-grouping-header {
+        position: sticky;
+        // Above the pinned body cells, and above the sticky column headers they cross.
+        z-index: 3;
+        background-color: var(--smart-background);
       }
+    }
 
-      tr:nth-child(7)>th {
-        top: calc(6 * var(--smart-table-column-header-height));
-      }
-
-      tr:nth-child(8)>th {
-        top: calc(7 * var(--smart-table-column-header-height));
-      }
-
-      tr:nth-child(9)>th {
-        top: calc(8 * var(--smart-table-column-header-height));
-      }
-
-      tr:nth-child(10)>th {
-        top: calc(9 * var(--smart-table-column-header-height));
-      }
+    // The rightmost pinned column casts the edge, so the boundary reads as one line however
+    // many columns are pinned.
+    tbody td[data-field^="pivotgroup"]:last-of-type,
+    tbody tr > td.smart-table-select-row:only-of-type,
+    thead th.smart-pivot-table-grouping-header:last-of-type {
+      box-shadow: 1px 0 0 0 var(--smart-border);
     }
   }
 }

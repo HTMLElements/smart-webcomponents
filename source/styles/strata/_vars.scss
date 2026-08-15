@@ -1,0 +1,32 @@
+  :root {
+      --smart-white: #{$white};
+      --smart-black: #{$black};
+      --smart-base: #{$base};
+      --smart-base-50: #{$base-50};
+      --smart-base-100: #{$base-100};
+      --smart-base-200: #{$base-200};
+      --smart-base-300: #{$base-300};
+      --smart-base-400: #{$base-400};
+      --smart-base-500: #{$base-500};
+      --smart-base-600: #{$base-600};
+      --smart-base-700: #{$base-700};
+      --smart-base-800: #{$base-800};
+      --smart-base-900: #{$base-900};
+      --smart-base-light: #{$base-light};
+      --smart-base-lighter: #{$base-lighter};
+      --smart-base-dark: #{$base-dark};
+      --smart-base-darker: #{$base-darker};
+      --smart-border-radius: 10px;
+      --smart-border-radius-0: 0;
+      --smart-border-radius-1: 0.25rem;
+      --smart-border-radius-2: 0.5rem;
+      --smart-border-radius-3: 0.75rem;
+      --smart-border-radius-4: 1rem;
+      --smart-border-radius-5: 1.25rem;
+      --smart-border-radius-6: 1.5rem;
+      --smart-border-radius-7: 1.75rem;
+      --smart-border-radius-8: 2rem;
+      --smart-border-radius-9: 2.25rem;
+      --smart-border-radius-10: 2.5rem;
+      --smart-font-family: "Geist", "Geist Fallback";
+  }

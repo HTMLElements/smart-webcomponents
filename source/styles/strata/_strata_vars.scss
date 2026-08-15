@@ -1,0 +1,50 @@
+$dark-theme: false !default;
+
+$base: #dfe5ec;
+$base-50: #f8fafb;
+$base-100: #f3f6f9;
+$base-200: #e3eaf2;
+$base-300: #dfe5ec;
+$base-400: #dbe0e6;
+$base-500: #d7dbe0;
+$base-600: #c6cbd2;
+$base-700: #74787e;
+$base-800: #45494f;
+$base-900: #1b1d20;
+$base-light: #f3f6f9;
+$base-lighter: #ffffff;
+$base-dark: #45494f;
+$base-darker: #1b1d20;
+// Bootstrap maps $primary from $blue — use neutral “ink” for default primary.
+$blue: #0a0a0a;
+$white: #ffffff;
+$black: #000000;
+
+$body-bg: $white;
+$body-color: #0a0a0a;
+$border-color: $base-300;
+
+@if $dark-theme {
+    $base: #45494f;
+    $base-50: #e0e4e9;
+    $base-100: #c4c9d0;
+    $base-200: #8f9399;
+    $base-300: #45494f;
+    $base-400: #383b3e;
+    $base-500: #34373b;
+    $base-600: #292c30;
+    $base-700: #1f2226;
+    $base-800: #1b1d20;
+    $base-900: #121518;
+    $base-light: #8f9399;
+    $base-lighter: #ffffff;
+    $base-dark: #121518;
+    $base-darker: #000000;
+    $blue: #E5E5E5;
+    $body-bg: #0A0A0A;
+    $body-color: $white;
+    $border-color: $base-300;
+}
+
+$component-active-color: $body-color;
+$component-active-bg: $base-300;

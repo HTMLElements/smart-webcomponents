@@ -1,0 +1,14 @@
+$dark-theme: true;
+
+@import "../../tabula_vars";
+
+$primary: #185ABD;
+$on-primary: #FFFFFF;
+$primary-rgb: 24, 90, 189;
+$primary-light: #a8c1e8;
+$primary-lighter: rgba(24, 90, 189, 0.13);
+$primary-dark: #4f86d3;
+$primary-darker: #0d2f66;
+
+@import "../../_vars";
+@import "../../_dark";

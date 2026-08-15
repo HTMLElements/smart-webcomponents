@@ -160,7 +160,7 @@ export interface KanbanProperties {
    * Specifies how the Kanban board's default fields (e.g., title, status, assignee) correspond to the fields in your data source. Use this mapping only if your data source uses field names that differ from the Kanban's expected keywords. If the field names already match, this mapping is optional. Note that only certain default fields support custom mapping; not all default map can be overridden.
    * Default value: { checklist: 'checklist', color: 'color', comments: 'comments', dueDate: 'dueDate', id: 'id', priority: 'priority', progress: 'progress', startDate: 'startDate', status: 'status', swimlane: 'swimlane', tags: 'tags', text: 'text', userId: 'userId'. createdUserId: 'createdUserId', createdDate: 'createdDate', updatedUserId: 'updatedUserId', updatedDate: 'updatedDate' }
    */
-  dataSourceMap?: { checklist: string; color: string; comments: string; dueDate: string; id: string; priority: string; progress: string; startDate: string; status: string; swimlane: string; tags: string; text: string; userId: string; createdUserId: string; upDatedUserId: string; createdDate: Date; upDatedDate: Date;};
+  dataSourceMap?: { checklist?: string; color?: string; comments?: string; dueDate?: string; id?: string; priority?: string; progress?: string; startDate?: string; status?: string; swimlane?: string; tags?: string; text?: string; userId?: string; createdUserId?: string; updatedUserId?: string; createdDate?: Date; updatedDate?: Date;};
   /**
    * Specifies the offset, in pixels, between the drag feedback element and the mouse cursor during task dragging operations. The value should be provided as an array: the first element sets the horizontal (x-axis) offset, and the second element sets the vertical (y-axis) offset, both relative to the cursor position. Alternatively, if set to 'auto', the system automatically calculates the offset based on the cursor’s position at the moment the drag action began. This allows for precise control over the visual positioning of the feedback element during drag-and-drop interactions.
    * Default value: auto
@@ -809,7 +809,7 @@ export interface KanbanColumn {
    * Sets or gets the column's sub-columns. Sub-columns has the same properties as top-level columns.
    * Default value: null
    */
-  columns?: { addNewButton: boolean, collapsed: string, collapsible: string, columns: [], dataField: string, label: string, orientation: string, selected: string }[];
+  columns?: { addNewButton?: boolean, collapsed?: string, collapsible?: string, columns?: [], dataField?: string, label?: string, orientation?: string, selected?: string }[];
   /**
    * Sets or gets the column's data source bound field. Corresponds to the status field in the data source.
    * Default value: ""
@@ -867,7 +867,7 @@ export interface KanbanDataSource {
    * A list of sub-tasks.
    * Default value: null
    */
-  checklist?: { completed: boolean, text: string }[];
+  checklist?: { completed?: boolean, text?: string }[];
   /**
    * A color used to highlight the task's card visually.
    * Default value: "null"
@@ -877,7 +877,7 @@ export interface KanbanDataSource {
    * Comments about a task.
    * Default value: null
    */
-  comments?: { text: string, time: Date, userId: string | number }[];
+  comments?: { text?: string, time?: Date, userId: string | number }[];
   /**
    * The task's due date.
    * Default value: null

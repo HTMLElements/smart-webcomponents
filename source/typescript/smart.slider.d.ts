@@ -20,7 +20,7 @@ export interface SliderProperties {
    * When customInterval is enabled, you can define a specific list of tick values to be displayed on the plot axis. If coerce is set to true, any input value will automatically adjust (or "snap") to the nearest specified tick value from this list, ensuring that only those defined tick marks are selected or displayed.
    * Default value: 0,50,100
    */
-  customTicks?: number[];
+  customTicks?: Array<number | Date>;
   /**
    * Sets or retrieves the format pattern used to display labels when the mode property is set to 'date'. This pattern determines how dates will appear in the labels, such as the order of day, month, and year, as well as the specific separators or formatting conventions applied.
    * Default value: "d"
@@ -85,7 +85,7 @@ export interface SliderProperties {
    * Specifies or retrieves the maximum allowable value that the widget can accept. This property defines the upper limit for user input or the widget’s range, ensuring that values entered or selected cannot exceed this maximum threshold.
    * Default value: 100
    */
-  max?: string | number;
+  max?: string | number | Date;
   /**
    * Specifies or retrieves the type of mechanical action being applied. This property determines the operational behavior or interaction mode of the mechanism (e.g., momentary, toggle, or latching). Use this to configure how the mechanism responds to user input or system events.
    * Default value: switchWhileDragging
@@ -114,7 +114,7 @@ export interface SliderProperties {
    * Defines or retrieves the widget’s minimum allowed value. This property determines the lowest value a user can input or select within the widget. Setting this value restricts input to be no less than the specified minimum.
    * Default value: 0
    */
-  min?: string | number;
+  min?: string | number | Date;
   /**
    * Specifies whether the widget is configured to handle numerical values or date values. When set, this determines if the widget processes input and displays output as numbers or as dates. When retrieved, it indicates the current mode—number or date—in which the widget is operating.
    * Default value: numeric
@@ -239,7 +239,7 @@ export interface SliderProperties {
    * Gets or sets the current value of the jqxSlider widget. When the rangeSlider property is set to true, this property manages the values for both slider handles, typically as an array representing the selected range. For a single-value slider, it represents the selected value. Use this property to programmatically retrieve or update the slider's value(s).
    * Default value: 0,100
    */
-  values?: number[];
+  values?: Array<number | Date>;
   /**
    * Sets or retrieves the word length value, which determines the number of bits used to represent each integer value. This property is only relevant when scaleType is set to 'integer'. If scaleType has any other value, this property is ignored.
    * Default value: int32

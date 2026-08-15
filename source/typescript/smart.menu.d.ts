@@ -2,6 +2,11 @@ import  {BaseElement, Animation} from "./smart.element"
 
 export interface MenuProperties {
   /**
+   * Application-defined identifier for the row associated with the menu. Demo-only property used to correlate the menu with a grid row.
+   * Default value: null
+   */
+  rowId?: any;
+  /**
    * Sets or retrieves the current animation mode. When this property is set to 'none', all animations are disabled and the element remains static. Otherwise, animations will be enabled according to the specified mode.
    * Default value: advanced
    */

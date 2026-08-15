@@ -1,0 +1,17 @@
+$dark-theme: true;
+@import "../../strata_vars";
+@import "../../../bootstrap/_bootstrap_vars";
+
+$primary: #17a2b8;
+$primary-color: #ffffff;
+$body-bg: #0A0A0A;
+$body-color: $white;
+$blue: $primary;
+$link-color: $primary;
+$link-hover-color: mix(black, $primary, 12%);
+
+@import "../../../bootstrap/_mixins";
+@import "../../../bootstrap/_vars";
+@import "../../../bootstrap/_styles";
+@import "../../_vars";
+@import "../../dark";

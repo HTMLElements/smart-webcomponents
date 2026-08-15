@@ -464,10 +464,10 @@ export interface Window extends BaseElement, WindowProperties {
   /**
    * Inserts the specified "smart-tab-item" node directly before the reference "smart-tab-item" node within the tab collection. <strong>This operation is only applicable when manipulating tab items inside a TabsWindow component.</strong>
    * @param {Node} newNode. The "smart-tab-item" node to insert.
-   * @param {Node | null} referenceNode?. The "smart-tab-item" node before which newNode is inserted.
+   * @param {Node | null | undefined} referenceNode?. The "smart-tab-item" node before which newNode is inserted.
    * @returns {Node}
    */
-  insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null): T;
+  insertBefore<T extends Node>(newNode: Node, referenceNode?: Node | null | undefined): T;
   /**
    * Revised Description:<br/>"Sets the window's position on the screen by moving it to specified X and Y coordinates, effectively relocating the window to a new location."
    * @param {string | number} left. Left position. For example: '100px'. 
